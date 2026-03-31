@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Studies – Interactive Study Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1923;
+    --paper: #f5f0e8;
+    --cream: #ede7d9;
+    --accent: #4a6fa5;
+    --gold: #d4a843;
+    --teal: #1a6b6b;
+    --mid: #5a6e7f;
+    --border: #c9bfaa;
+    --success: #2d7a4f;
+    --card-bg: #fffcf6;
+    /* Component colours */
+    --c1: #4a6fa5;
+    --c2: #c84b31;
+    --c3: #1a6b6b;
+    --c4: #7a5c9e;
+    --c5: #c47d2a;
+    --c6: #2d7a4f;
+    --c7: #c84b8a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 48px 48px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 340px; height: 340px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: .12;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 30%;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: .08;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+  }
+  .badge {
+    background: var(--accent); color: #fff;
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    letter-spacing: 2px; padding: 4px 10px;
+    border-radius: 3px; text-transform: uppercase;
+  }
+  .badge.gold { background: var(--gold); color: var(--ink); }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 5vw, 58px);
+    line-height: 1.05;
+    margin-bottom: 14px;
+    max-width: 720px;
+  }
+  .hero p {
+    font-size: 15px; color: #aaa;
+    max-width: 560px; line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .hero-stats {
+    display: flex; gap: 32px; flex-wrap: wrap;
+  }
+  .stat { border-left: 3px solid var(--gold); padding-left: 14px; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; line-height: 1; color: var(--paper);
+  }
+  .stat-label { font-size: 11px; color: #888; margin-top: 3px; letter-spacing: .5px; }
+
+  /* ── SEARCH ── */
+  .search-wrap { max-width: 1200px; margin: 0 auto; padding: 28px 48px 0; }
+  .search-box {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--card-bg); border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 12px 18px;
+  }
+  .search-box input {
+    flex: 1; background: none; border: none; outline: none;
+    font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--ink);
+  }
+  .search-box input::placeholder { color: #b0a898; }
+  .search-icon { color: var(--mid); font-size: 16px; }
+  .search-clear {
+    background: none; border: none; color: var(--mid);
+    cursor: pointer; font-size: 18px; display: none; padding: 0 2px;
+  }
+  .search-clear.show { display: block; }
+
+  /* ── MAIN ── */
+  .content { max-width: 1200px; margin: 0 auto; padding: 36px 48px 80px; }
+
+  /* ── COMPONENT HEADER ── */
+  .component-block { margin-bottom: 52px; }
+  .component-header {
+    display: flex; align-items: flex-end; gap: 16px;
+    margin-bottom: 28px; padding-bottom: 16px;
+    border-bottom: 2px solid var(--border);
+  }
+  .component-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px; line-height: 1;
+    opacity: .12; color: var(--ink);
+    font-weight: 900; flex-shrink: 0;
+  }
+  .component-info {}
+  .component-label {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--mid); margin-bottom: 4px;
+  }
+  .component-title {
+    font-family: 'Playfair Display', serif; font-size: 26px;
+    color: var(--ink);
+  }
+  .component-sub { font-size: 13px; color: var(--mid); margin-top: 4px; }
+
+  /* ── SECTION GROUP ── */
+  .section-group { margin-bottom: 36px; }
+  .section-group-header {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+  }
+  .section-dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+  .section-name {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--mid);
+  }
+  .section-line {
+    flex: 1; height: 1px; background: var(--border);
+  }
+
+  /* ── TOPIC CARDS ── */
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .topic-card {
+    background: var(--card-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px 18px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow .22s, transform .22s, border-color .22s;
+  }
+  .topic-card::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    border-radius: 4px 0 0 4px;
+    background: var(--accent);
+    transition: width .22s;
+  }
+  .topic-card:hover {
+    box-shadow: 0 8px 28px rgba(0,0,0,.13);
+    transform: translateY(-3px);
+    border-color: #b0a490;
+  }
+  .topic-card:hover::before { width: 6px; }
+  .topic-card .code {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 2px; color: var(--mid);
+    margin-bottom: 8px; display: block;
+  }
+  .topic-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; line-height: 1.35; color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .topic-card .card-meta {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 11px; color: #b0a090;
+    font-family: 'DM Mono', monospace;
+  }
+  .topic-card .arrow {
+    margin-left: auto; font-size: 14px;
+    color: var(--mid); transition: transform .22s, color .22s;
+  }
+  .topic-card:hover .arrow { transform: translateX(4px); color: var(--ink); }
+
+  /* Highlight on search match */
+  .topic-card.hidden { display: none; }
+  .topic-card.highlight { border-color: var(--gold); }
+  .topic-card.highlight::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: rgba(212,168,67,.06);
+    border-radius: 10px;
+    pointer-events: none;
+  }
+
+  /* ── SPECIAL: FINAL CARD ── */
+  .topic-card.final-card {
+    background: var(--ink); color: var(--paper);
+    border-color: var(--ink);
+  }
+  .topic-card.final-card h3 { color: var(--paper); }
+  .topic-card.final-card .code { color: var(--gold); }
+  .topic-card.final-card .card-meta { color: #666; }
+  .topic-card.final-card .arrow { color: var(--gold); }
+  .topic-card.final-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.3); }
+  .topic-card.final-card::before { background: var(--gold); }
+
+  /* ── NO RESULTS ── */
+  .no-results {
+    text-align: center; padding: 60px 20px;
+    color: var(--mid); display: none;
+  }
+  .no-results.show { display: block; }
+  .no-results p { font-size: 15px; margin-top: 8px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .hero { padding: 32px 24px 28px; }
+    .content { padding: 24px 20px 60px; }
+    .search-wrap { padding: 20px 20px 0; }
+    .topic-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 20px; }
+  }
+
+  /* ── ANIMATION ── */
+  .component-block { animation: fadeUp .4s ease both; }
+  .component-block:nth-child(1) { animation-delay: .05s; }
+  .component-block:nth-child(2) { animation-delay: .15s; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="badge">GCSE Business</span>
+      <span class="badge gold">Study Hub</span>
+    </div>
+    <h1>Business Studies<br>Interactive Study Guide</h1>
+    <p>Two components · seven sections · 24 topics. Click any topic card to open its interactive lesson with notes, quizzes, flashcards and exam practice.</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Components</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Sections</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">24</div>
+        <div class="stat-label">Topics</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <div class="search-box">
+    <span class="search-icon">⌕</span>
+    <input type="text" id="searchInput" placeholder="Search topics, e.g. &ldquo;cash flow&rdquo; or &ldquo;marketing mix&rdquo;…">
+    <button class="search-clear" id="searchClear" onclick="clearSearch()">×</button>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="content" id="mainContent">
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- COMPONENT 1 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="component-block" id="comp1">
+    <div class="component-header">
+      <div class="component-num">1</div>
+      <div class="component-info">
+        <div class="component-label">Component One</div>
+        <div class="component-title">Business Activity, Marketing &amp; People</div>
+        <div class="component-sub">Sections 1–3 · Topics 1.1 – 3.7</div>
+      </div>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="section-group" id="sec1">
+      <div class="section-group-header">
+        <span class="section-dot" style="background:var(--c1)"></span>
+        <span class="section-name">1. Business Activity</span>
+        <span class="section-line"></span>
+      </div>
+      <div class="topic-grid">
+        <a class="topic-card" href="1_1_role_of_business_enterprise.html" style="--accent:var(--c1)">
+          <span class="code">1.1</span>
+          <h3>The Role of Business Enterprise and Entrepreneurship</h3>
+          <div class="card-meta">
+            <span>Business Activity</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="1_2_business_planning.html" style="--accent:var(--c1)">
+          <span class="code">1.2</span>
+          <h3>Business Planning</h3>
+          <div class="card-meta">
+            <span>Business Activity</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="1_3_business_ownership.html" style="--accent:var(--c1)">
+          <span class="code">1.3</span>
+          <h3>Business Ownership</h3>
+          <div class="card-meta">
+            <span>Business Activity</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="1_4_business_aims_objectives.html" style="--accent:var(--c1)">
+          <span class="code">1.4</span>
+          <h3>Business Aims and Objectives</h3>
+          <div class="card-meta">
+            <span>Business Activity</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="1_5_stakeholders_in_business.html" style="--accent:var(--c1)">
+          <span class="code">1.5</span>
+          <h3>Stakeholders in Business</h3>
+          <div class="card-meta">
+            <span>Business Activity</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="1_6_business_growth.html" style="--accent:var(--c1)">
+          <span class="code">1.6</span>
+          <h3>Business Growth</h3>
+          <div class="card-meta">
+            <span>Business Activity</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section-group" id="sec2">
+      <div class="section-group-header">
+        <span class="section-dot" style="background:var(--c2)"></span>
+        <span class="section-name">2. Marketing</span>
+        <span class="section-line"></span>
+      </div>
+      <div class="topic-grid">
+        <a class="topic-card" href="2_1_role_of_marketing.html" style="--accent:var(--c2)">
+          <span class="code">2.1</span>
+          <h3>The Role of Marketing</h3>
+          <div class="card-meta">
+            <span>Marketing</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="2_2_market_research.html" style="--accent:var(--c2)">
+          <span class="code">2.2</span>
+          <h3>Market Research</h3>
+          <div class="card-meta">
+            <span>Marketing</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="2_3_market_segmentation.html" style="--accent:var(--c2)">
+          <span class="code">2.3</span>
+          <h3>Market Segmentation</h3>
+          <div class="card-meta">
+            <span>Marketing</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="2_4_marketing_mix.html" style="--accent:var(--c2)">
+          <span class="code">2.4</span>
+          <h3>The Marketing Mix</h3>
+          <div class="card-meta">
+            <span>Marketing</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section-group" id="sec3">
+      <div class="section-group-header">
+        <span class="section-dot" style="background:var(--c3)"></span>
+        <span class="section-name">3. People</span>
+        <span class="section-line"></span>
+      </div>
+      <div class="topic-grid">
+        <a class="topic-card" href="3_1_role_of_human_resources.html" style="--accent:var(--c3)">
+          <span class="code">3.1</span>
+          <h3>The Role of Human Resources</h3>
+          <div class="card-meta">
+            <span>People</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="org_structures_32.html" style="--accent:var(--c3)">
+          <span class="code">3.2</span>
+          <h3>Organisational Structures and Different Ways of Working</h3>
+          <div class="card-meta">
+            <span>People</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="3_3_communication_in_business.html" style="--accent:var(--c3)">
+          <span class="code">3.3</span>
+          <h3>Communication in Business</h3>
+          <div class="card-meta">
+            <span>People</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="3_4_recruitment_and_selection.html" style="--accent:var(--c3)">
+          <span class="code">3.4</span>
+          <h3>Recruitment and Selection</h3>
+          <div class="card-meta">
+            <span>People</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="3_5_motivation_and_retention.html" style="--accent:var(--c3)">
+          <span class="code">3.5</span>
+          <h3>Motivation and Retention</h3>
+          <div class="card-meta">
+            <span>People</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="3_6_training_and_development.html" style="--accent:var(--c3)">
+          <span class="code">3.6</span>
+          <h3>Training and Development</h3>
+          <div class="card-meta">
+            <span>People</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="3_7_employment_law.html" style="--accent:var(--c3)">
+          <span class="code">3.7</span>
+          <h3>Employment Law</h3>
+          <div class="card-meta">
+            <span>People</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div><!-- /comp1 -->
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- COMPONENT 2 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="component-block" id="comp2">
+    <div class="component-header">
+      <div class="component-num">2</div>
+      <div class="component-info">
+        <div class="component-label">Component Two</div>
+        <div class="component-title">Operations, Finance &amp; Influences</div>
+        <div class="component-sub">Sections 4–7 · Topics 4.1 – 7.1</div>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section-group" id="sec4">
+      <div class="section-group-header">
+        <span class="section-dot" style="background:var(--c4)"></span>
+        <span class="section-name">4. Operations</span>
+        <span class="section-line"></span>
+      </div>
+      <div class="topic-grid">
+        <a class="topic-card" href="4_1_production_processes.html" style="--accent:var(--c4)">
+          <span class="code">4.1</span>
+          <h3>Production Processes</h3>
+          <div class="card-meta">
+            <span>Operations</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="4_2_quality_of_goods_services.html" style="--accent:var(--c4)">
+          <span class="code">4.2</span>
+          <h3>Quality of Goods and Services</h3>
+          <div class="card-meta">
+            <span>Operations</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="4_3_sales_process_customer_service.html" style="--accent:var(--c4)">
+          <span class="code">4.3</span>
+          <h3>The Sales Process and Customer Service</h3>
+          <div class="card-meta">
+            <span>Operations</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="4_4_consumer_law.html" style="--accent:var(--c4)">
+          <span class="code">4.4</span>
+          <h3>Consumer Law</h3>
+          <div class="card-meta">
+            <span>Operations</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="4_5_business_location.html" style="--accent:var(--c4)">
+          <span class="code">4.5</span>
+          <h3>Business Location</h3>
+          <div class="card-meta">
+            <span>Operations</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="4_6_working_with_suppliers.html" style="--accent:var(--c4)">
+          <span class="code">4.6</span>
+          <h3>Working with Suppliers</h3>
+          <div class="card-meta">
+            <span>Operations</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section-group" id="sec5">
+      <div class="section-group-header">
+        <span class="section-dot" style="background:var(--c5)"></span>
+        <span class="section-name">5. Finance</span>
+        <span class="section-line"></span>
+      </div>
+      <div class="topic-grid">
+        <a class="topic-card" href="5_1_role_of_finance_function.html" style="--accent:var(--c5)">
+          <span class="code">5.1</span>
+          <h3>The Role of the Finance Function</h3>
+          <div class="card-meta">
+            <span>Finance</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="5_2_sources_of_finance.html" style="--accent:var(--c5)">
+          <span class="code">5.2</span>
+          <h3>Sources of Finance</h3>
+          <div class="card-meta">
+            <span>Finance</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="5_3_revenue_costs_profit_loss.html" style="--accent:var(--c5)">
+          <span class="code">5.3</span>
+          <h3>Revenue, Costs, Profit and Loss</h3>
+          <div class="card-meta">
+            <span>Finance</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="5_4_break_even.html" style="--accent:var(--c5)">
+          <span class="code">5.4</span>
+          <h3>Break-even</h3>
+          <div class="card-meta">
+            <span>Finance</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="5_5_cash_and_cash_flow.html" style="--accent:var(--c5)">
+          <span class="code">5.5</span>
+          <h3>Cash and Cash Flow</h3>
+          <div class="card-meta">
+            <span>Finance</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="section-group" id="sec6">
+      <div class="section-group-header">
+        <span class="section-dot" style="background:var(--c6)"></span>
+        <span class="section-name">6. Influences on Business</span>
+        <span class="section-line"></span>
+      </div>
+      <div class="topic-grid">
+        <a class="topic-card" href="6_1_ethical_environmental.html" style="--accent:var(--c6)">
+          <span class="code">6.1</span>
+          <h3>Ethical and Environmental Considerations</h3>
+          <div class="card-meta">
+            <span>Influences on Business</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="6_2_the_economic_climate.html" style="--accent:var(--c6)">
+          <span class="code">6.2</span>
+          <h3>The Economic Climate</h3>
+          <div class="card-meta">
+            <span>Influences on Business</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+        <a class="topic-card" href="6_3_globalisation.html" style="--accent:var(--c6)">
+          <span class="code">6.3</span>
+          <h3>Globalisation</h3>
+          <div class="card-meta">
+            <span>Influences on Business</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Section 7 -->
+    <div class="section-group" id="sec7">
+      <div class="section-group-header">
+        <span class="section-dot" style="background:var(--c7)"></span>
+        <span class="section-name">7. The Interdependent Nature of Business</span>
+        <span class="section-line"></span>
+      </div>
+      <div class="topic-grid">
+        <a class="topic-card final-card" href="7_1_final.html">
+          <span class="code">7.1</span>
+          <h3>Final – The Interdependent Nature of Business</h3>
+          <div class="card-meta">
+            <span>Bringing it all together</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /comp2 -->
+
+  <!-- NO RESULTS -->
+  <div class="no-results" id="noResults">
+    <div style="font-size:40px;">⌕</div>
+    <p>No topics matched your search. Try a different keyword.</p>
+  </div>
+
+</main>
+
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const searchClear = document.getElementById('searchClear');
+  const noResults   = document.getElementById('noResults');
+
+  const cards = Array.from(document.querySelectorAll('.topic-card'));
+
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    searchClear.classList.toggle('show', q.length > 0);
+
+    let visible = 0;
+    cards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      const match = !q || text.includes(q);
+      card.classList.toggle('hidden', !match);
+      card.classList.toggle('highlight', !!q && match);
+      if (match) visible++;
+    });
+
+    noResults.classList.toggle('show', q.length > 0 && visible === 0);
+
+    // Hide section groups with no visible cards
+    document.querySelectorAll('.section-group').forEach(sg => {
+      const anyVisible = Array.from(sg.querySelectorAll('.topic-card'))
+        .some(c => !c.classList.contains('hidden'));
+      sg.style.display = anyVisible ? '' : 'none';
+    });
+
+    // Hide component blocks with no visible section groups
+    document.querySelectorAll('.component-block').forEach(cb => {
+      const anyVisible = Array.from(cb.querySelectorAll('.section-group'))
+        .some(sg => sg.style.display !== 'none');
+      cb.style.display = anyVisible ? '' : 'none';
+    });
+  });
+
+  function clearSearch() {
+    searchInput.value = '';
+    searchInput.dispatchEvent(new Event('input'));
+    searchInput.focus();
+  }
+</script>
+</body>
+</html>
