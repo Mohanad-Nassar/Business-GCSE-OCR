@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3.5 Motivation and Retention – Interactive Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="badge">OCR GCSE Business — Component 1</div>
+    <h1>Unit 3.5 — Motivation and Retention</h1>
+    <p>Interactive revision guide · All key content + full exam practice</p>
+  </div>
+    <a href="index.html" class="home-link">← 🏡 Home</a>
+
+</header>
+
+<nav class="tab-bar" id="tabBar">
+  <button class="tab-btn active" onclick="switchTab('learn',this)">📚 Key Learning</button>
+  <button class="tab-btn" onclick="switchTab('mcq',this)">❓ MCQ Quiz</button>
+  <button class="tab-btn" onclick="switchTab('matching',this)">🔗 Matching</button>
+  <button class="tab-btn" onclick="switchTab('fib',this)">✏️ Fill the Blanks</button>
+  <button class="tab-btn" onclick="switchTab('misconceptions',this)">⚠️ Misconceptions</button>
+  <button class="tab-btn" onclick="switchTab('examtips',this)">🎯 Exam Tips</button>
+  <button class="tab-btn" onclick="switchTab('flashcards',this)">🃏 Flashcards</button>
+  <button class="tab-btn" onclick="switchTab('truefalse',this)">✅ True / False</button>
+  <button class="tab-btn" onclick="switchTab('exampractice',this)">📝 Exam Practice</button>
+</nav>
+
+<main>
+
+<div class="tab-panel active" id="tab-learn">
+  <h2 class="section-title">Key Learning Topics</h2>
+  <p class="section-sub">Click any card to expand detailed notes.</p>
+  <div class="topic-grid" id="topicGrid"></div>
+</div>
+
+<div class="tab-panel" id="tab-mcq">
+  <h2 class="section-title">Multiple Choice Questions</h2>
+  <p class="section-sub">Select an answer to reveal instant feedback.</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+    <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+    <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+  </div>
+  <div class="quiz-wrap" id="mcqWrap"></div>
+</div>
+
+<div class="tab-panel" id="tab-matching">
+  <h2 class="section-title">Matching Activity</h2>
+  <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+  <div style="margin-bottom:16px;">
+    <div class="score-bar">
+      <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+      <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+      <button class="reset-btn" onclick="resetMatch()">RESET</button>
+    </div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span> First attempt correct</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span> Correct after mistake</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span> Wrong — try again</span>
+    </div>
+  </div>
+  <div class="match-grid">
+    <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+    <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
+  </div>
+</div>
+
+<div class="tab-panel" id="tab-fib">
+  <h2 class="section-title">Fill in the Blanks</h2>
+  <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+    <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+    <button class="reset-btn" onclick="resetFIB()">RESET</button>
+  </div>
+  <div class="fib-wrap" id="fibWrap"></div>
+</div>
+
+<div class="tab-panel" id="tab-misconceptions">
+  <h2 class="section-title">Common Misconceptions</h2>
+  <p class="section-sub">What students often think — and what examiners actually want.</p>
+  <div class="misc-list" id="miscList"></div>
+</div>
+
+<div class="tab-panel" id="tab-examtips">
+  <h2 class="section-title">Exam Questions &amp; Tips</h2>
+  <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
+  <div class="tips-grid" id="tipsGrid"></div>
+</div>
+
+<div class="tab-panel" id="tab-flashcards">
+  <h2 class="section-title">Flashcards</h2>
+  <p class="section-sub">Click the card to reveal the definition. Use the arrows to navigate.</p>
+  <div class="fc-container">
+    <div class="fc-progress" id="fcProgress">Card 1 of 20</div>
+    <div class="flashcard" id="flashcard" onclick="flipCard()">
+      <div class="fc-inner">
+        <div class="fc-front"><div class="fc-label">KEY TERM</div><div class="fc-term" id="fcTerm"></div></div>
+        <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
+      </div>
+    </div>
+    <p class="fc-hint">👆 Click card to flip</p>
+    <div class="fc-nav">
+      <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+      <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+      <button class="fc-btn" onclick="nextCard()">Next →</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab-panel" id="tab-truefalse">
+  <h2 class="section-title">True or False?</h2>
+  <p class="section-sub">Test your knowledge with these statements.</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+    <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+    <button class="reset-btn" onclick="resetTF()">RESET</button>
+  </div>
+  <div class="tf-wrap" id="tfWrap"></div>
+</div>
+
+<div class="tab-panel" id="tab-exampractice">
+  <h2 class="section-title">Exam Practice Questions</h2>
+  <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
+  <div class="ep-list" id="epList"></div>
+</div>
+
+</main>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ══════════════════════════════════════
+//  DATA
+// ══════════════════════════════════════
+
+const topicData = [
+  {
+    title: "Motivation & Retention — Definitions and Importance",
+    tag: "Core Concepts",
+    content: `<p><strong>Motivation</strong> is the encouragement given to workers to work well. A motivated worker will feel responsible, fulfilled and happy in their work.</p>
+<p><strong>Retention</strong> refers to workers staying with a firm for a long period of time. Firms have a high <strong>turnover of labour</strong> when workers leave after only a short period of time and new workers need to be recruited.</p>
+<p><strong>Why motivation matters:</strong></p>
+<ul>
+<li><strong>High employee performance</strong> — workers are efficient in what they do because they gain rewards for good quality work</li>
+<li><strong>High retention and low turnover</strong> — workers are happy to continue working for the employer because they are rewarded and feel valued</li>
+<li><strong>Ease of recruitment</strong> — the firm gains a good reputation for the way it treats its staff and this attracts applications from workers who want to work there</li>
+<li><strong>Less need for supervision</strong> — motivated staff need less supervision; they will be focused on their work, saving costs of paying supervisors</li>
+<li><strong>Low absenteeism</strong> — motivated staff will be absent less often; they want to be at work to earn rewards or because they enjoy being at work</li>
+<li><strong>Reduced waste</strong> — motivated staff will want to produce good quality work, reducing waste because fewer goods will be substandard</li>
+<li><strong>Better delivery of services</strong> — leading to fewer complaints and more satisfied customers who are more likely to buy again</li>
+<li><strong>Increased custom</strong> — due to improved quality of goods and services</li>
+</ul>
+<p><strong>Why retention matters:</strong> Poor retention causes problems: the cost of recruiting and selecting staff is very expensive; retained workers are familiar with the business and its customers which helps production to be more efficient; it can cost as much as 50–60% of an employee's annual salary to replace them. If a firm pays a worker £40,000 a year, it could save £20,000–£24,000 by motivating them to stay. A stable staff team is also good for morale and can help with future recruitment.</p>`
+  },
+  {
+    title: "Financial Methods — Pay (Salary & Wage)",
+    tag: "Financial Methods",
+    content: `<p><strong>Pay</strong> motivates workers because it enables them to buy the goods and services that improve their standard of living. Pay is also important in retaining workers — if competitor firms offer better pay, workers will leave. Competitive pay rates also help to attract new employees.</p>
+<p><strong>Salary</strong> — a worker receives a set amount for a year's work, usually paid out in 12 equal monthly payments. Salaried workers are often motivated by the possibility of promotion and the higher salaries attached to more senior jobs.</p>
+<p><strong>Wage (time-rate)</strong> — a wage is usually a weekly system of pay. Time-rate pay is when workers receive a certain amount for each hour worked. The longer the person works, the more they will receive.</p>
+<p><strong>Example calculation:</strong> A shop assistant works a 40-hour week at £9 per hour.<br>40 × £9 = <strong>£360</strong> per week.</p>
+<p><strong>Overtime</strong> is often paid at "time and a half." If hourly rate is £9, overtime rate = £9 × 1.5 = £13.50 per hour.</p>
+<div class="two-col" style="margin-top:10px;">
+<div>
+<div class="col-head">✓ Advantages</div>
+<div class="pro-item">Workers feel valued when paid well</div>
+<div class="pro-item">Helps attract and retain good-quality staff</div>
+<div class="pro-item">Competitive pay can deter workers from leaving for rivals</div>
+</div>
+<div>
+<div class="col-head">✗ Disadvantages</div>
+<div class="con-item">Pay is a business cost — high costs may reduce profits</div>
+<div class="con-item">Time-rate does not depend on how much or the quality of work done</div>
+<div class="con-item">Without additional reward, wages and salaries alone may not motivate well</div>
+</div>
+</div>`
+  },
+  {
+    title: "Financial Methods — Bonus & Profit Sharing",
+    tag: "Financial Methods",
+    content: `<p><strong>Bonus</strong> — payments that workers receive on top of their pay. They are a kind of performance-related pay. A bonus is triggered by some measurable level of performance — e.g. a salesperson reaching a target, production workers reaching a target output, or the business achieving a target level of profits.</p>
+<p><strong>Bonus example calculation:</strong><br>Total bonus available: £100,000 for a team of 40 workers who reach a target.<br>Bonus per worker: £100,000 ÷ 40 = <strong>£2,500</strong></p>
+<div class="two-col" style="margin-top:6px;margin-bottom:12px;">
+<div>
+<div class="col-head">✓ Bonus Advantages</div>
+<div class="pro-item">Workers only earn it if they reach their target — directly linked to performance</div>
+<div class="pro-item">Increases production or sales</div>
+</div>
+<div>
+<div class="col-head">✗ Bonus Disadvantages</div>
+<div class="con-item">Targets need to be realistic or workers will not be motivated to achieve them</div>
+<div class="con-item">Lump sum may be considered too small to motivate</div>
+</div>
+</div>
+<p><strong>Profit sharing</strong> — a business sets aside a proportion of profits which is then shared out among its workers. The bigger the profit, the greater the sum to be shared out, encouraging workers to work harder.</p>
+<p><strong>Profit sharing example calculation:</strong><br>Total profit: £5 million. Percentage shared: 10%.<br>Amount to share: £5m ÷ 100 × 10 = £500,000.<br>Number of workers: 160.<br>Per worker: £500,000 ÷ 160 = <strong>£3,125</strong></p>
+<div class="two-col" style="margin-top:6px;">
+<div>
+<div class="col-head">✓ Profit Sharing Advantages</div>
+<div class="pro-item">Workers feel part of a team and share in business success</div>
+<div class="pro-item">Workers will aim to be efficient so the business makes more profit</div>
+</div>
+<div>
+<div class="col-head">✗ Profit Sharing Disadvantages</div>
+<div class="con-item">If the business makes no profit, employees get no reward</div>
+<div class="con-item">Shareholders may feel money is being taken from dividends</div>
+</div>
+</div>`
+  },
+  {
+    title: "Financial Methods — Fringe Benefits",
+    tag: "Financial Methods",
+    content: `<p><strong>Fringe benefits</strong> are benefits other than money that a worker may receive on top of their pay. They are also called 'perks'.</p>
+<p>Examples include:</p>
+<ul>
+<li>Pension contributions — a major benefit where the firm contributes money into a pension scheme</li>
+<li>Company car or car allowance</li>
+<li>Childcare vouchers</li>
+<li>Private medical insurance</li>
+<li>Share-buying schemes (e.g. 'buy-as-you-earn')</li>
+<li>Subsidised canteen meals</li>
+<li>Discounted gym membership</li>
+<li>Enhanced maternity/paternity schemes</li>
+</ul>
+<div class="two-col" style="margin-top:10px;">
+<div>
+<div class="col-head">✓ Advantages</div>
+<div class="pro-item">Workers receive benefits they may not be able to afford themselves</div>
+<div class="pro-item">Attractive to potential employees — aids recruitment</div>
+<div class="pro-item">Can lead to worker loyalty and lower staff turnover</div>
+</div>
+<div>
+<div class="col-head">✗ Disadvantages</div>
+<div class="con-item">Can be very expensive for the business, reducing profits</div>
+<div class="con-item">Some employees may not appreciate or use the benefits offered</div>
+<div class="con-item">May not be performance-related, so do not directly boost productivity</div>
+</div>
+</div>
+<p style="margin-top:10px;"><strong>Real-world example:</strong> Travis Perkins offers pension contributions (amount depends on seniority and length of service), private medical insurance, discounted gym membership, share 'buy-as-you-earn' schemes, a company car scheme, a subsidised bike-buying scheme, childcare vouchers, and an enhanced maternity scheme.</p>`
+  },
+  {
+    title: "Non-Financial Methods — Praise & Award Schemes",
+    tag: "Non-Financial Methods",
+    content: `<p>Non-financial methods do not involve payments of money or fringe benefits. They focus on relationships between workers — recognising and valuing workers who do good work and creating a positive attitude towards achievement.</p>
+<p><strong>Praise</strong> — the importance of managers giving praise to workers, formally or informally, should not be underestimated. A 'quiet word' of praise can make workers feel good because they know that their effort has been noticed and appreciated. Publicly praising a worker can raise the self-esteem of that worker as well as presenting an example to others of what the firm expects.</p>
+<p>One client employee satisfaction survey found that 55% of respondents said that praise and attention from their supervisor would make them feel cared for and valued in the workplace. Recognition from a supervisor or manager ranked the highest of all motivators surveyed — above money, benefits and company lunches.</p>
+<div class="two-col" style="margin-top:6px;margin-bottom:12px;">
+<div>
+<div class="col-head">✓ Praise Advantages</div>
+<div class="pro-item">Costs nothing — can be a simple word of thanks</div>
+<div class="pro-item">Makes workers feel their effort is noticed and valued</div>
+</div>
+<div>
+<div class="col-head">✗ Praise Disadvantages</div>
+<div class="con-item">Workers may not feel the praise is genuine</div>
+<div class="con-item">May raise expectations of a pay rise or promotion that does not follow</div>
+</div>
+</div>
+<p><strong>Award schemes</strong> — an award is a tangible way of recognising someone's effort. It might take the form of a 'worker of the month' notice, the presentation of a certificate at an award ceremony, a voucher, a choice of Red Letter Days, a free holiday, or a car. Even simple awards like the lapel badges given at Asda and the stars at McDonald's can have a very positive effect on worker morale and productivity.</p>
+<div class="two-col" style="margin-top:6px;">
+<div>
+<div class="col-head">✓ Award Advantages</div>
+<div class="pro-item">Workers feel valued and their hard work is recognised</div>
+<div class="pro-item">Tangible recognition can boost morale and productivity</div>
+</div>
+<div>
+<div class="col-head">✗ Award Disadvantages</div>
+<div class="con-item">Some workers may feel they aren't recognised (e.g. only one 'employee of the month')</div>
+<div class="con-item">May create conflict between workers who do and don't get recognised</div>
+</div>
+</div>`
+  },
+  {
+    title: "Non-Financial Methods — Working Environment & Job Design",
+    tag: "Non-Financial Methods",
+    content: `<p><strong>Working environment</strong> — the safer a place of work is, and the more comfortable and pleasant the surroundings are, the more staff will be motivated. The working environment is also about the atmosphere — do workers get on well? Are their views respected? Is there a 'can do' confidence? Much depends on how managers treat workers, how they speak to them, whether they trust them and are willing to be flexible. This is about the culture of the business.</p>
+<div class="two-col" style="margin-top:6px;margin-bottom:12px;">
+<div>
+<div class="col-head">✓ Working Environment Advantages</div>
+<div class="pro-item">Workers enjoy coming to work and feel the business values them</div>
+<div class="pro-item">Positive atmosphere can improve teamwork and productivity</div>
+</div>
+<div>
+<div class="col-head">✗ Working Environment Disadvantages</div>
+<div class="con-item">Physical improvements (new furniture, canteen) can be costly</div>
+<div class="con-item">Not all employees may respond positively to team-bonding activities</div>
+</div>
+</div>
+<p><strong>Job rotation</strong> — workers move around different work stations in the business, gaining variety and learning new skills. Disadvantages: workers may not like change; additional training increases costs.</p>
+<p><strong>Job enrichment</strong> — workers are given more responsibility, making them feel valued and trusted to make decisions. Disadvantages: workers may make wrong decisions; may feel unsupported.</p>
+<p><strong>Job enlargement</strong> — workers are given more tasks to complete so they don't get bored and gain a sense of achievement. Disadvantages: workers may be overwhelmed; rushing may affect quality.</p>
+<p style="margin-top:8px;"><strong>Real-world example (Alphabet):</strong> Alphabet motivates workers by involving them in a range of activities including a company choir to build team bonds. Workers can also write suggestions on a blackboard about how to make the company a better place to work — managers always respond to these suggestions, even when they are not adopted.</p>`
+  },
+  {
+    title: "Are the Costs of Motivation Worth It? — Evaluation",
+    tag: "Evaluation",
+    content: `<p>There may be costs for motivation. For financial methods, the firm must use money to reward its workers rather than adding this to profits for the benefit of the owners. Some managers will need paying to manage the motivation system, deciding which workers should be given rewards, how much each one should be given and then arranging for this to be given. The managers who decide on rewards will need to do this fairly as workers may be de-motivated if they do not receive rewards while others do, unless it is clear and seen to be fair why the rewards were given.</p>
+<p>Whether or not a motivation system is worthwhile will depend on how effective it is in improving the performance of workers, increasing retention, reducing supervision, absenteeism, waste and increasing sales compared to how much it costs. It is possible that the benefits in terms of higher productivity and reduced production costs may pay for the costs of the methods of motivation used. Good motivation should improve the competitiveness and profitability of the business.</p>
+<p><strong>Non-financial methods</strong> may cost a business money — for example, to pay for awards and bonding activities and possibly in lost production if the worker is taken away from the job. However, they do not need to cost anything.</p>
+<p><strong>Key evaluation points:</strong></p>
+<ul>
+<li>Different workers need motivating in different ways — a one-size-fits-all approach will not suit everyone</li>
+<li>The appropriate method depends on what kind of work they do and the personalities of the workers</li>
+<li>Whether the method is effective may depend on how well it is implemented by managers</li>
+<li>A modest staff turnover can actually be advantageous — it can introduce new and innovative ideas and ways of working</li>
+<li>Financial motivation may bring short-term benefits; non-financial motivation can offer longer-term motivational benefits and often costs less</li>
+</ul>`
+  }
+];
+
+const mcqData = [
+  {
+    q: "A worker is paid £8 per hour for working a 35-hour week. On top of this, the worker is paid a bonus of 10% of their wage for the week. Calculate how much the worker earned in the week.",
+    opts: ["£280","£282.80","£308","£420"],
+    ans: 2,
+    explain: "Step 1: Basic wage = 35 × £8 = £280. Step 2: Bonus = 10% of £280 = £28. Step 3: Total = £280 + £28 = £308. Answer: C."
+  },
+  {
+    q: "Which of these is a financial method of motivating workers?",
+    opts: ["Award","Praise","A good working environment","Profit-sharing"],
+    ans: 3,
+    explain: "Profit-sharing involves paying workers a share of the business's profits — this is a financial method. Awards, praise and a good working environment are all non-financial methods because they do not involve direct payments of money."
+  },
+  {
+    q: "Which of these is a disadvantage of a method of motivating workers?",
+    opts: ["An increase in some of the costs of the business","Increased retention of workers","Increased productivity of staff","A reduction in absenteeism"],
+    ans: 0,
+    explain: "An increase in costs is a disadvantage — financial motivation methods cost the business money (wages, bonuses, fringe benefits). Options B, C and D are all BENEFITS/ADVANTAGES of motivation, not disadvantages."
+  },
+  {
+    q: "Jowill, an employer, raises the pay of her eight employees by £1.50 per hour. They work 35 hours each week. After the increase, the revenue of Jowill's business increased by £680 per week. Which of these statements is true?",
+    opts: ["Jowill's costs rose by £680 per week","Jowill's profit rose by £260 per year","The increase in Jowill's revenue per week exceeded her increase in costs by £260","Jowill's revenue rose by £420 per week"],
+    ans: 2,
+    explain: "Cost increase per week = 8 employees × £1.50 × 35 hours = £420. Revenue increase = £680. Net gain = £680 − £420 = £260 per week. So the revenue increase exceeded the cost increase by £260. Answer: C."
+  },
+  {
+    q: "Which of the following is a non-financial method of motivation?",
+    opts: ["Paying a bonus when a sales target is reached","Increasing the hourly wage rate","Sharing 10% of the company's profits with employees","Introducing a 'worker of the month' award scheme"],
+    ans: 3,
+    explain: "A 'worker of the month' award scheme is a non-financial method — it recognises effort without directly paying money. Bonuses, wage increases and profit sharing all involve money payments, making them financial methods."
+  },
+  {
+    q: "A business has total profits of £4 million and decides to share 5% with its 100 workers equally. How much does each worker receive?",
+    opts: ["£200","£400","£2,000","£20,000"],
+    ans: 2,
+    explain: "Amount to share: £4m ÷ 100 × 5 = £200,000. Per worker: £200,000 ÷ 100 workers = £2,000. Answer: C."
+  },
+  {
+    q: "Which of the following best explains why retention is important for a business?",
+    opts: ["Retained workers always want promotions which increases costs","Replacing a worker can cost 50–60% of their annual salary, making retention very valuable","Retained workers never need training or development","High staff turnover always improves a business's performance"],
+    ans: 1,
+    explain: "Research shows replacing a worker can cost 50–60% of their annual salary. A firm paying £40,000 a year could save £20,000–£24,000 by retaining that worker. This makes retention extremely valuable financially."
+  },
+  {
+    q: "Which of the following is a problem with time-rate pay as a method of motivation?",
+    opts: ["It rewards workers for the quality of their work","Workers earn more the longer they work","It does not depend on how much or the quality of work done in the time","It is cheaper than paying bonuses"],
+    ans: 2,
+    explain: "A disadvantage of time-rate pay is that it does not depend on how much or the quality of work done — a worker is paid simply for the time they are present, not for how productively they use that time. This means it may not effectively motivate workers to work harder or better."
+  },
+  {
+    q: "Which of the following describes 'labour turnover'?",
+    opts: ["The number of products produced per worker per hour","A measure of the number or proportion of staff who leave a firm each year and need replacing","The total wages paid to all workers in a year","The process of motivating workers to stay with a business"],
+    ans: 1,
+    explain: "Labour turnover measures the proportion of staff who leave a firm each year and need to be replaced. High labour turnover is costly because of the expense of recruiting, selecting and training new staff."
+  },
+  {
+    q: "Angus receives £9 per hour and works a 35-hour week. In May, he worked four weeks. He also worked 12 hours of overtime at time and a half. What were his total May earnings?",
+    opts: ["£1,260","£1,314","£1,350","£1,440"],
+    ans: 1,
+    explain: "Basic pay: £9 × 35 × 4 weeks = £1,260. Overtime rate: £9 × 1.5 = £13.50 per hour. Overtime pay: 12 × £13.50 = £162. Wait — textbook answer is £54 for overtime. Let's recalculate: overtime at 'time and a half' of the basic £9 means an extra £4.50 per hour on top (the 'half'). 12 × £4.50 = £54 extra. Total = £1,260 + £54 = £1,314. Answer: B."
+  }
+];
+
+const matchData = [
+  { term: "Motivation", def: "The encouragement given to workers to work well" },
+  { term: "Retention", def: "When workers choose to stay employed in a business rather than leaving to work elsewhere" },
+  { term: "Labour turnover", def: "A measure of the number or proportion of staff who leave a firm each year and need replacing" },
+  { term: "Productivity", def: "A measure of output per worker — one way of measuring the performance of workers" },
+  { term: "Bonus", def: "An additional payment to workers for achieving a target" },
+  { term: "Profit sharing", def: "When workers receive a share of the profits made by a business" },
+  { term: "Fringe benefits", def: "Additional benefits that workers receive on top of their pay — e.g. pensions, childcare vouchers, company car" },
+  { term: "Working environment", def: "The quality of the physical workplace and its climate — including how workers are treated and whether their views are respected" }
+];
+
+const fibData = [
+  {
+    display: "Motivation is the _____ given to workers to work well. Well-motivated workers are more likely to stay with a firm — this is known as _____.",
+    blanks: { B1: "encouragement", B2: "retention" }
+  },
+  {
+    display: "Financial methods of motivation include pay, _____, profit sharing and fringe _____.",
+    blanks: { B1: "bonus", B2: "benefits" }
+  },
+  {
+    display: "A _____ is when a worker receives a set amount for a year's work, usually paid in 12 equal monthly payments. A _____ is usually a weekly system of pay based on hours worked.",
+    blanks: { B1: "salary", B2: "wage" }
+  },
+  {
+    display: "Non-financial methods include praise, award schemes and a positive working _____. These methods focus on making workers feel _____ and having their efforts recognised.",
+    blanks: { B1: "environment", B2: "valued" }
+  },
+  {
+    display: "High labour _____ means workers leave after a short period and need replacing, which is expensive. Research shows replacing a worker can cost 50–60% of their annual _____.",
+    blanks: { B1: "turnover", B2: "salary" }
+  },
+  {
+    display: "Motivated workers need less _____ and will take fewer days _____. This saves the business money and improves the _____ of the firm.",
+    blanks: { B1: "supervision", B2: "absent", B3: "productivity" }
+  }
+];
+
+const miscData = [
+  {
+    wrong: "Students often think that employees can only be motivated using financial methods such as pay and bonuses.",
+    correct: "Financial methods can bring short-term benefits, but non-financial methods (praise, awards, working environment) can offer longer-term motivational benefits and often cost far less to operate. In one survey, recognition from a supervisor ranked higher than money as a motivator. The best approach uses a range of methods tailored to the individual worker."
+  },
+  {
+    wrong: "Students often assume that paying higher wages will always motivate workers more and always reduce average costs of production.",
+    correct: "This is FALSE. Higher wages are a cost that may reduce profits. They may not always increase productivity — for example, time-rate pay does not reward workers for working harder or better, only for the time they spend at work. Whether motivation reduces average costs depends on whether the improvement in productivity is greater than the extra cost paid."
+  },
+  {
+    wrong: "Students often think high staff retention is ALWAYS good for a business.",
+    correct: "Although staff retention offers many benefits, a modest staff turnover can actually be advantageous — it can introduce new ideas, new skills, and innovative ways of working into the business. Very low turnover can lead to a workforce that becomes set in its ways. Balance is important."
+  },
+  {
+    wrong: "Students often confuse salary and wage, or use the terms interchangeably.",
+    correct: "A salary is a fixed annual amount paid in 12 equal monthly instalments — it does not change based on hours worked. A wage is typically a weekly payment based on hours worked (time-rate). They are different pay systems with different implications for motivation and cost."
+  },
+  {
+    wrong: "Students often write that the advantage of a bonus is 'it motivates workers to work harder' without explaining WHY or HOW this benefits the specific business.",
+    correct: "For full marks, you must explain the BUSINESS IMPACT. A better answer: 'A bonus scheme will motivate workers to meet their deadlines (U). For United Utilities, this means they are more likely to complete road repairs on time (APP), helping United Utilities avoid paying financial penalties to local councils and maintaining its profits (AN).'"
+  },
+  {
+    wrong: "Students often think that motivation is only about pay and forget that different workers are motivated by different things.",
+    correct: "Different workers need motivating in different ways. The appropriate method of motivation will depend on what kind of work they do and their personality. Whether a method is effective may also depend on how well it is implemented by managers. A one-size-fits-all approach will not suit the needs of everyone."
+  }
+];
+
+const tipsData = [
+  {
+    type: "Explain (2 marks)",
+    title: "Explain Why Retention Is Important",
+    content: `<p>Structure: Understanding (1) + Application to the business context (1)</p>
+<ul>
+<li>State ONE reason why retention is important for any business e.g. lower recruitment costs, better return on training investment, experienced workers deliver better service</li>
+<li>Link it specifically to the business in the question using details from the case study</li>
+</ul>
+<p><strong>Example (United Utilities):</strong> "Retained workers are familiar with the business and its customers (U). United Utilities employs around 5,000 workers, and with a high staff turnover the cost of recruiting and retraining so many replacements would be very expensive (APP)."</p>`,
+    marks: [{ label: "U ×1", cls: "un" }, { label: "APP ×1", cls: "app" }]
+  },
+  {
+    type: "Analyse (3 marks)",
+    title: "Analyse the Advantage of a Motivation Method",
+    content: `<p>Structure: Understanding (1) → Application to the business (1) → Business-facing Analysis (1)</p>
+<ul>
+<li>State ONE advantage of the motivation method <span class="mark-pill un">U</span></li>
+<li>Link it to the specific business/job in the question <span class="mark-pill app">APP</span></li>
+<li>Explain the business impact (profits, costs, reputation, sales, productivity) <span class="mark-pill an">AN</span></li>
+</ul>
+<p><strong>Example (bonus at United Utilities):</strong> "A bonus scheme will motivate workers to perform well and meet their deadlines (U). For United Utilities, this means maintenance teams are more likely to complete road repairs by the contracted deadline (APP). This helps United Utilities avoid paying financial penalties to local councils, maintaining profits (AN)."</p>
+<p><strong>Do NOT write:</strong> 'it motivates workers' as an analysis point — this is just restating the purpose of motivation, not its business impact.</p>`,
+    marks: [{ label: "U ×1", cls: "un" }, { label: "APP ×1", cls: "app" }, { label: "AN ×1", cls: "an" }]
+  },
+  {
+    type: "Recommend (3 marks)",
+    title: "Recommend Method A or Method B",
+    content: `<p>Structure: Decision (1) + Contextual comparative justification (up to 2)</p>
+<ul>
+<li>Make a CLEAR decision — do not argue for both and leave it undecided</li>
+<li>Justify why your choice is BETTER THAN the other option — a comparison is required</li>
+<li>Use the business context from the case study for full marks</li>
+</ul>
+<p><strong>Example (wages vs award scheme at Walkers Ltd):</strong> "I recommend Walkers Ltd uses an increase in wages (1) because the staff survey shows employees feel they are not valued, and a pay increase provides guaranteed, tangible recognition of their contribution. An award scheme, while cheaper, may create conflict among production workers who feel they are not recognised (+2)."</p>
+<p><strong>Common error:</strong> Arguing for both methods without a clear final decision scores zero for justification marks.</p>`,
+    marks: [{ label: "Decision ×1", cls: "eval" }, { label: "Justification ×2", cls: "eval" }]
+  },
+  {
+    type: "Calculations",
+    title: "Pay Calculation Methods to Know",
+    content: `<ul>
+<li><strong>Time-rate wage:</strong> Hours worked × Hourly rate = Weekly pay<br>e.g. 40 hrs × £9 = £360</li>
+<li><strong>Overtime (time and a half):</strong> Overtime hours × (hourly rate × 1.5)<br>e.g. 5 hrs × £13.50 = £67.50</li>
+<li><strong>Salary + bonus:</strong> Annual salary ÷ 12 = monthly pay; add bonus separately<br>e.g. £30,000 ÷ 12 = £2,500 + £4,500 bonus (15%) = £7,000 in that month</li>
+<li><strong>Profit sharing:</strong> Total profit × (percentage ÷ 100) = amount to share; ÷ number of workers<br>e.g. £5m × 0.10 = £500,000 ÷ 160 workers = £3,125 each</li>
+<li><strong>Bonus per worker:</strong> Total bonus pot ÷ number of qualifying workers<br>e.g. £100,000 ÷ 40 = £2,500 each</li>
+</ul>`,
+    marks: []
+  },
+  {
+    type: "Evaluation",
+    title: "Are Motivation Costs Worth Paying?",
+    content: `<p>When asked to evaluate motivation, consider both sides:</p>
+<ul>
+<li><strong>Costs:</strong> Financial methods are a business cost that reduces profits; managers need to be paid to run motivation systems; if rewards are seen as unfair, workers can become de-motivated</li>
+<li><strong>Benefits:</strong> Higher productivity, lower absenteeism, reduced supervision costs, lower waste, better customer service, easier recruitment</li>
+<li><strong>Overall judgement:</strong> Whether motivation costs are worth paying depends on whether the improvement in performance and retention savings exceed the cost. For businesses where replacing workers is very expensive (e.g. skilled engineers), motivation investment clearly makes financial sense</li>
+</ul>
+<p><strong>Evaluation sentence starter:</strong> "Overall, I believe [method] is the most effective for [business] because... However, it is important to note that..."</p>`,
+    marks: [{ label: "EVAL ×3", cls: "eval" }]
+  },
+  {
+    type: "Financial vs Non-Financial",
+    title: "Comparing Financial and Non-Financial Methods",
+    content: `<ul>
+<li><strong>Financial methods</strong> (pay, bonus, profit sharing, fringe benefits) — cost the business money; may motivate in the short term; suitable for workers motivated primarily by money</li>
+<li><strong>Non-financial methods</strong> (praise, awards, working environment, job rotation/enrichment/enlargement) — can offer longer-term motivational benefits; often cost far less; focus on making workers feel valued and respected</li>
+<li><strong>Best practice:</strong> Use a range of methods because different workers are motivated in different ways — age, life stage, and personal values all affect what motivates an individual</li>
+<li><strong>Important nuance:</strong> Non-financial methods can sometimes motivate more powerfully than financial ones. Research consistently shows recognition from a supervisor ranks higher than money in employee satisfaction surveys</li>
+</ul>`,
+    marks: []
+  }
+];
+
+const flashcards = [
+  { term: "Motivation", def: "The encouragement given to workers to work well. A motivated worker will feel responsible, fulfilled and happy in their work." },
+  { term: "Retention", def: "When workers choose to stay employed in a business rather than leaving to work elsewhere. High retention = low turnover of labour." },
+  { term: "Labour turnover", def: "A measure of the number or proportion of staff who leave a firm each year and need replacing. High turnover is costly." },
+  { term: "Productivity", def: "A measure of output per worker. It is one way of measuring the performance of workers. Motivated workers tend to be more productive." },
+  { term: "Salary", def: "A fixed amount for a year's work, usually paid in 12 equal monthly payments. Workers are often motivated by the prospect of promotion to higher-salaried roles." },
+  { term: "Wage (time-rate)", def: "A weekly payment calculated by multiplying hours worked by the hourly rate. Longer hours = more pay, but it does not depend on the quality or amount of work done." },
+  { term: "Overtime", def: "Additional hours worked beyond the contracted hours. Usually paid at a higher rate, most commonly 'time and a half' (1.5× the normal hourly rate)." },
+  { term: "Bonus", def: "An additional payment to workers for achieving a target — e.g. a sales target, production target or quality target. A form of performance-related pay." },
+  { term: "Profit sharing", def: "When workers receive a share of the profits made by a business. The bigger the profit, the more workers receive, encouraging efficiency." },
+  { term: "Fringe benefits", def: "Additional benefits that workers receive on top of their pay — e.g. pension contributions, company car, private medical insurance, childcare vouchers, gym membership." },
+  { term: "Praise", def: "A method of motivating a worker by complimenting their work, making it recognised and valued. Can be formal or informal — even a quiet word costs nothing." },
+  { term: "Award scheme", def: "A presentation of some kind to recognise somebody's effort — e.g. 'worker of the month', certificates, badges (Asda), stars (McDonald's), or vouchers." },
+  { term: "Working environment", def: "The quality of the physical workplace and its climate — safety, comfort, atmosphere, how managers treat staff, teamworking, and respect for workers' views." },
+  { term: "Job rotation", def: "Workers move around different work stations in the business. Provides variety and the opportunity to learn new skills but may require extra training." },
+  { term: "Job enrichment", def: "Workers are given more responsibility and greater decision-making authority, making them feel valued and trusted." },
+  { term: "Job enlargement", def: "Workers are given more tasks to complete so they don't get bored and gain a sense of achievement from completing varied work." },
+  { term: "Absenteeism", def: "When workers are absent from work. Motivated workers have lower absenteeism — they want to be at work to earn rewards or because they enjoy their work." },
+  { term: "Performance-related pay", def: "Pay that is linked to how well a worker performs — e.g. bonuses for reaching targets. Directly links reward to effort and output." },
+  { term: "Financial methods of motivation", def: "Methods that involve paying money: pay (salary/wage), bonus, profit sharing, and fringe benefits. These are costs to the business." },
+  { term: "Non-financial methods of motivation", def: "Methods that do not involve direct money payments: praise, award schemes, and the working environment. Can be very effective and often cheaper." }
+];
+
+const tfData = [
+  {
+    statement: "If a worker improves productivity, they will produce more than they used to in the same amount of time.",
+    answer: true,
+    explanation: "TRUE. Productivity is a measure of output per worker. Improved productivity means producing more output in the same time period."
+  },
+  {
+    statement: "If workers in a car factory improve their productivity, the cost of producing each car will fall.",
+    answer: true,
+    explanation: "TRUE. If more cars are produced by the same number of workers in the same time, the fixed costs are spread over more units, reducing the average cost per car. Higher productivity leads to lower unit costs."
+  },
+  {
+    statement: "Motivated workers will always want to leave the business to work elsewhere.",
+    answer: false,
+    explanation: "FALSE. Motivated workers are MORE LIKELY to stay. Motivation increases retention — workers feel valued and happy in their work, so they want to continue working for the employer."
+  },
+  {
+    statement: "Training costs will usually fall if staff turnover is high.",
+    answer: false,
+    explanation: "FALSE. High staff turnover means MORE new recruits are needed, each of whom requires induction and training. Training costs INCREASE with high turnover, not fall."
+  },
+  {
+    statement: "Increased motivation reduces costs because workers are less likely to be absent.",
+    answer: true,
+    explanation: "TRUE. Motivated staff will be absent less often — they want to be at work. Absenteeism costs money if firms have to pay sick pay and no products are being made."
+  },
+  {
+    statement: "Motivated workers need a lot of supervision to make sure they work hard.",
+    answer: false,
+    explanation: "FALSE. Motivated staff need LESS supervision. They are focused on their work and want to perform well. This saves the business money on supervisory costs."
+  },
+  {
+    statement: "Increased motivation saves on training costs because workers are likely to remain working for the firm longer and fewer new recruits are needed.",
+    answer: true,
+    explanation: "TRUE. Motivated workers stay longer (high retention). Fewer workers leave, so fewer new recruits need hiring and training. This saves significant training and recruitment costs."
+  },
+  {
+    statement: "Motivated workers may help to reduce business costs because they take pride in working accurately, so reducing waste.",
+    answer: true,
+    explanation: "TRUE. Motivated staff will want to produce good quality work. This reduces waste because fewer goods will fail to meet the required standard, cutting material costs."
+  },
+  {
+    statement: "Motivation systems can be expensive as managers need to be paid to run them.",
+    answer: true,
+    explanation: "TRUE. Managing a motivation system — deciding who gets rewards, how much, and arranging payments — takes management time and money. This is a real cost of financial motivation methods."
+  },
+  {
+    statement: "Motivating workers always reduces the average costs of producing goods and services.",
+    answer: false,
+    explanation: "FALSE. 'Always' makes this false. While motivation CAN reduce average costs through higher productivity and lower absenteeism/turnover, the costs of the motivation system itself (e.g. bonuses, fringe benefits) may sometimes exceed the savings. Whether costs fall depends on the specific situation."
+  }
+];
+
+const examQuestions = [
+  {
+    num: "Q1",
+    marks: 1,
+    type: "mcq",
+    question: "Which of these is a financial method of motivating workers?",
+    options: [
+      "Award scheme",
+      "Praise",
+      "A good working environment",
+      "Profit-sharing"
+    ],
+    answer: 3,
+    hint: "Financial methods involve paying money to workers.",
+    starter: "A financial method involves...",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: D — Profit-sharing.</strong></p><p>Profit-sharing involves paying workers a share of business profits — this is a financial method. Awards, praise and working environment are all non-financial methods as they do not involve direct money payments.</p></div>`
+  },
+  {
+    num: "Q2",
+    marks: 1,
+    type: "mcq",
+    question: "A worker is paid £8 per hour for working a 35-hour week. On top of this, the worker is paid a bonus of 10% of their wage for the week. Calculate how much the worker earned in the week.",
+    options: [
+      "£280",
+      "£282.80",
+      "£308",
+      "£420"
+    ],
+    answer: 2,
+    hint: "First calculate the basic weekly wage, then calculate 10% of that as the bonus, then add them together.",
+    starter: "Basic wage = hours × hourly rate = ...",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: C — £308.</strong></p><p>Basic wage: 35 × £8 = £280. Bonus: 10% × £280 = £28. Total: £280 + £28 = £308.</p></div>`
+  },
+  {
+    num: "Q3",
+    marks: 2,
+    type: "written",
+    caseStudy: "United Utilities supplies water and sewage removal services to households and businesses in North West England. It employs around 5,000 workers including engineers, construction workers, clerical staff, financial managers, buyers and surveyors. Some staff work in its company offices in Warrington. Other staff work on sites around the North West, for example, teams responsible for maintenance whose work may involve digging up roads to repair pipework. These teams work to tight deadlines to get their jobs done and to minimise disruption to traffic when they need to dig up roads. United Utilities may have to pay penalties to local councils for work that causes disruption to the roads for longer than it promised in its contracts.\n\nUnited Utilities is committed to attracting and retaining employees by recognising achievement and through the training and development of staff. In 2021, it employed 40 apprentices. As well as paying good salaries compared to many other employers in the area, United Utilities uses a bonus scheme to reward the maintenance workers for meeting deadlines.",
+    question: "Explain why employee retention is important for United Utilities. [2 marks]",
+    hint: "Think about what it costs to replace workers — consider recruitment costs, training costs, and the value of experienced staff. Then link this to the specific details about United Utilities in the case study.",
+    starter: "Employee retention is important for United Utilities because...\nThis is particularly significant for United Utilities because...",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1b + AO2)</h5><ul><li><strong>Understanding (1 mark):</strong> One reason why retention is important — e.g. lower recruitment costs / better return on training investment / experienced workers deliver better service / reduces disruption.</li><li><strong>Application (1 mark):</strong> Link to United Utilities specifically — e.g. employs 5,000 workers so high turnover would be very expensive / cost to train 40 apprentices / experienced workers know how to get jobs done to deadlines / teams need specialist skills.</li></ul></div>`,
+    modelAnswer: "Employee retention is important because retained workers are familiar with the business and its customers, which helps production to be more efficient (U). For United Utilities, which employs around 5,000 workers including specialist engineers and construction workers, a high staff turnover would be very costly — both in terms of recruitment and training new replacements (APP)."
+  },
+  {
+    num: "Q4",
+    marks: 3,
+    type: "written",
+    caseStudy: "United Utilities supplies water and sewage removal services to households and businesses in North West England. It employs around 5,000 workers including engineers, construction workers, clerical staff, financial managers, buyers and surveyors. Some staff work in its company offices in Warrington. Other staff work on sites around the North West, for example, teams responsible for maintenance whose work may involve digging up roads to repair pipework. These teams work to tight deadlines to get their jobs done and to minimise disruption to traffic when they need to dig up roads. United Utilities may have to pay penalties to local councils for work that causes disruption to the roads for longer than it promised in its contracts.\n\nUnited Utilities is committed to attracting and retaining employees by recognising achievement and through the training and development of staff. In 2021, it employed 40 apprentices. As well as paying good salaries compared to many other employers in the area, United Utilities uses a bonus scheme to reward the maintenance workers for meeting deadlines.",
+    question: "Analyse one advantage to United Utilities of paying bonuses to the teams who repair the network of pipes. [3 marks]",
+    hint: "Structure: Understanding (what does a bonus do?) → Application (how does this apply to United Utilities specifically?) → Analysis (what is the business impact on United Utilities — costs, profits, reputation?)",
+    starter: "A bonus scheme will motivate workers to... (U)\nFor United Utilities, this means... (APP)\nAs a result, United Utilities will... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> A bonus scheme motivates workers to perform well / meet targets / work to deadlines to be paid their bonus.</li><li><strong>Application (1 mark):</strong> United Utilities will not have to pay penalties to local councils / maintenance teams can complete jobs by the contracted deadlines / teams work to tight deadlines to minimise disruption to traffic.</li><li><strong>Analysis (1 mark):</strong> By meeting deadlines, United Utilities will gain a reputation for good service which may increase sales / they will avoid financial penalties which will maintain/increase profits.</li></ul></div>`,
+    modelAnswer: "A bonus scheme will motivate the maintenance teams to work efficiently and meet their deadlines, as they will only receive the bonus if they achieve their target (U). For United Utilities, this means the teams are more likely to complete road repairs within the contracted timeframe, minimising disruption to traffic (APP). As a result, United Utilities will avoid paying financial penalties to local councils, protecting the company's profits and reputation for reliable service delivery (AN)."
+  },
+  {
+    num: "Q5",
+    marks: 3,
+    type: "written",
+    caseStudy: "Walkers Ltd are looking to motivate their production workers. They have completed a staff survey and employees feel that they are not valued and that employees are feeling unmotivated. They are considering introducing either award schemes or increased wage.",
+    question: "Recommend whether Walkers Ltd should use an increase in wages or an award scheme to motivate production workers. [3 marks]",
+    hint: "Make a CLEAR decision. Justify why your chosen method is BETTER THAN the other — you must compare both methods. Use the Walkers context (staff feel not valued, production workers, staff survey) for full marks.",
+    starter: "I recommend that Walkers Ltd uses [increase in wages / an award scheme] because...\nIn contrast, [the other method]...",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO3b)</h5><ul><li><strong>Decision (1 mark):</strong> Clearly states either an increase in wages OR an award scheme.</li><li><strong>Justification (up to 2 marks):</strong> Explains why chosen method is BETTER THAN the other. Must compare both methods. For full 2 marks, justification must be contextual (linked to Walkers Ltd / production workers / staff feeling not valued).</li></ul><p><strong>Example (wages, full marks):</strong> "I recommend increasing wages (1) because the staff survey shows workers feel not valued, and a guaranteed pay increase provides direct, tangible recognition of their contribution to production. An award scheme, while cheaper, only recognises one worker at a time which could increase resentment among the other production workers who don't receive an award, potentially worsening the problem (+2)."</p><p><strong>Example (award scheme, full marks):</strong> "I recommend using award schemes (1) because they focus on making workers feel recognised and valued — which is exactly what the staff survey shows is lacking. An increase in wages is an additional ongoing cost to Walkers Ltd, whereas award schemes can be inexpensive (e.g. 'worker of the month') while still addressing the specific issue of workers feeling unvalued (+2)."</p></div>`
+  },
+  {
+    num: "Q6",
+    marks: 3,
+    type: "written",
+    caseStudy: "Walkers Ltd are looking to motivate their production workers. They have completed a staff survey and employees feel that they are not valued and that employees are feeling unmotivated. They are considering introducing either award schemes or increased wage.",
+    question: "Analyse the benefit to Walkers Ltd of using an award scheme. [3 marks]",
+    hint: "Structure: Understanding (what does an award scheme do?) → Application (link to Walkers Ltd / their specific situation) → Analysis (what is the business impact on Walkers?)",
+    starter: "An award scheme recognises and rewards workers for their hard work (U).\nFor Walkers Ltd, where staff survey results show workers feel not valued...(APP)\nAs a result, Walkers Ltd may find that...(AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> Award schemes recognise workers' efforts / make workers feel valued / provide tangible recognition for good work.</li><li><strong>Application (1 mark):</strong> Walkers Ltd staff survey shows workers feel not valued / production workers need to feel their contribution is recognised / helps address the specific motivation problem identified.</li><li><strong>Analysis (1 mark):</strong> Workers feel more motivated → improved productivity and output / lower absenteeism / lower staff turnover / improved quality of production, helping Walkers Ltd's competitiveness.</li></ul></div>`,
+    modelAnswer: "An award scheme recognises workers' efforts and makes them feel valued for their contribution, even without additional pay (U). For Walkers Ltd, whose staff survey specifically found that production workers feel unvalued and unmotivated, introducing awards such as 'worker of the month' would directly address this issue (APP). As a result, production workers are likely to become more motivated, leading to improved productivity, better quality output and reduced absenteeism, making Walkers Ltd more competitive (AN)."
+  }
+];
+
+// ══════════════════════════════════════
+//  BUILD LEARN
+// ══════════════════════════════════════
+function buildLearn() {
+  const grid = document.getElementById('topicGrid');
+  topicData.forEach(topic => {
+    const card = document.createElement('div');
+    card.className = 'topic-card';
+    card.innerHTML = `<span class="tag">${topic.tag}</span><span class="toggle-icon">+</span><h3>${topic.title}</h3><div class="topic-content">${topic.content}</div>`;
+    card.addEventListener('click', () => card.classList.toggle('open'));
+    grid.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+//  BUILD MCQ
+// ══════════════════════════════════════
+let mcqScore = 0, mcqTotal = 0;
+function buildMCQ() {
+  const wrap = document.getElementById('mcqWrap');
+  mcqData.forEach((q, qi) => {
+    const block = document.createElement('div'); block.className = 'q-block';
+    block.innerHTML = `<div class="q-num">QUESTION ${qi + 1} OF ${mcqData.length}</div><div class="q-text">${q.q}</div>
+    <div class="options">${q.opts.map((o, oi) => `<button class="opt-btn" data-qi="${qi}" data-oi="${oi}">${o}</button>`).join('')}</div>
+    <div class="q-feedback" id="fb-${qi}"></div>`;
+    wrap.appendChild(block);
+  });
+  wrap.addEventListener('click', e => {
+    const btn = e.target.closest('.opt-btn'); if (!btn) return;
+    const qi = +btn.dataset.qi, oi = +btn.dataset.oi;
+    const block = btn.closest('.q-block');
+    if (block.dataset.answered) return;
+    block.dataset.answered = 1; mcqTotal++;
+    block.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
+    const correct = oi === mcqData[qi].ans;
+    if (correct) { btn.classList.add('correct'); mcqScore++; }
+    else { btn.classList.add('wrong'); block.querySelectorAll('.opt-btn')[mcqData[qi].ans].classList.add('correct'); }
+    const fb = document.getElementById(`fb-${qi}`);
+    fb.className = 'q-feedback show ' + (correct ? 'ok' : 'no');
+    fb.textContent = mcqData[qi].explain;
+    document.getElementById('mcqScore').textContent = mcqScore;
+    document.getElementById('mcqTotal').textContent = mcqTotal;
+  });
+}
+function resetMCQ() {
+  mcqScore = 0; mcqTotal = 0;
+  document.getElementById('mcqScore').textContent = 0;
+  document.getElementById('mcqTotal').textContent = 0;
+  document.getElementById('mcqWrap').innerHTML = '';
+  buildMCQ();
+}
+
+// ══════════════════════════════════════
+//  BUILD MATCH
+// ══════════════════════════════════════
+let matchScore = 0, matchSelected = null, matchAttempts = {};
+function buildMatch() {
+  const left = document.getElementById('matchLeft');
+  const right = document.getElementById('matchRight');
+  document.getElementById('matchTotal').textContent = matchData.length;
+  const shuffled = [...matchData].sort(() => Math.random() - .5);
+  matchData.forEach((item, i) => {
+    const t = document.createElement('div');
+    t.className = 'match-item'; t.dataset.idx = i; t.dataset.side = 'term';
+    t.textContent = item.term; left.appendChild(t);
+  });
+  shuffled.forEach((item) => {
+    const d = document.createElement('div');
+    const origIdx = matchData.findIndex(m => m.def === item.def);
+    d.className = 'match-item'; d.dataset.idx = origIdx; d.dataset.side = 'def';
+    d.textContent = item.def; right.appendChild(d);
+  });
+  document.getElementById('matchLeft').addEventListener('click', e => handleMatchClick(e));
+  document.getElementById('matchRight').addEventListener('click', e => handleMatchClick(e));
+}
+function handleMatchClick(e) {
+  const item = e.target.closest('.match-item'); if (!item) return;
+  if (item.classList.contains('matched-ok') || item.classList.contains('matched-eventual')) return;
+  if (!matchSelected) {
+    if (item.dataset.side !== 'term') return;
+    matchSelected = item; item.classList.add('selected');
+  } else {
+    if (item.dataset.side !== 'def') { matchSelected.classList.remove('selected'); matchSelected = null; return; }
+    const termIdx = +matchSelected.dataset.idx, defIdx = +item.dataset.idx;
+    if (termIdx === defIdx) {
+      const cls = matchAttempts[termIdx] ? 'matched-eventual' : 'matched-ok';
+      matchSelected.className = 'match-item ' + cls;
+      item.className = 'match-item ' + cls;
+      matchScore++;
+      document.getElementById('matchScore').textContent = matchScore;
+    } else {
+      matchAttempts[termIdx] = true;
+      item.classList.add('matched-no');
+      setTimeout(() => item.classList.remove('matched-no'), 400);
+      matchSelected.classList.remove('selected');
+    }
+    matchSelected = null;
+  }
+}
+function resetMatch() {
+  matchScore = 0; matchSelected = null; matchAttempts = {};
+  document.getElementById('matchScore').textContent = 0;
+  document.getElementById('matchLeft').innerHTML = '';
+  document.getElementById('matchRight').innerHTML = '';
+  buildMatch();
+}
+
+// ══════════════════════════════════════
+//  BUILD FIB
+// ══════════════════════════════════════
+let fibScore = 0, fibTotal = 0;
+function buildFIB() {
+  const wrap = document.getElementById('fibWrap');
+  fibData.forEach((item, si) => {
+    const allAnswers = fibData.flatMap(f => Object.values(f.blanks));
+    const unique = [...new Set(allAnswers)].sort();
+    let html = item.display;
+    Object.keys(item.blanks).forEach((key, bi) => {
+      const opts = unique.map(w => `<option value="${w}">${w}</option>`).join('');
+      html = html.replace('_____', `<span class="blank-select" id="bs-${si}-${bi}" data-answer="${item.blanks[key]}"><select onchange="checkBlank(this,'bs-${si}-${bi}')"><option value="">choose...</option>${opts}</select><span></span></span>`);
+    });
+    const card = document.createElement('div');
+    card.className = 'fib-sentence';
+    card.innerHTML = html;
+    wrap.appendChild(card);
+    fibTotal += Object.keys(item.blanks).length;
+  });
+  document.getElementById('fibTotal').textContent = fibTotal;
+}
+function checkBlank(sel, id) {
+  const wrap = document.getElementById(id);
+  const correct = sel.value === wrap.dataset.answer;
+  if (correct) {
+    wrap.classList.add('correct'); wrap.classList.remove('wrong'); sel.disabled = true; fibScore++;
+    document.getElementById('fibScore').textContent = fibScore;
+  } else {
+    wrap.classList.add('wrong'); wrap.classList.remove('correct');
+    setTimeout(() => { wrap.classList.remove('wrong'); sel.value = ''; }, 500);
+  }
+}
+function resetFIB() {
+  fibScore = 0; fibTotal = 0;
+  document.getElementById('fibScore').textContent = 0;
+  document.getElementById('fibTotal').textContent = 0;
+  document.getElementById('fibWrap').innerHTML = '';
+  buildFIB();
+}
+
+// ══════════════════════════════════════
+//  BUILD MISCONCEPTIONS
+// ══════════════════════════════════════
+function buildMisc() {
+  const list = document.getElementById('miscList');
+  miscData.forEach(item => {
+    const card = document.createElement('div'); card.className = 'misc-card';
+    card.innerHTML = `<div class="wrong-view"><div class="misc-tag">✗ Common Mistake</div><p>${item.wrong}</p></div>
+    <div class="correct-view"><div class="misc-tag">✓ What Examiners Want</div><p>${item.correct}</p></div>`;
+    list.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+//  BUILD TIPS
+// ══════════════════════════════════════
+function buildTips() {
+  const grid = document.getElementById('tipsGrid');
+  tipsData.forEach(tip => {
+    const card = document.createElement('div'); card.className = 'tip-card';
+    const pills = tip.marks.map(m => `<span class="mark-pill ${m.cls}">${m.label}</span>`).join('');
+    card.innerHTML = `<div class="tip-type">${tip.type}</div><h4>${tip.title}</h4>${tip.content}${pills ? `<div class="mark-breakdown">${pills}</div>` : ''}`;
+    grid.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+//  BUILD FLASHCARDS
+// ══════════════════════════════════════
+let fcIndex = 0;
+function renderFC() {
+  document.getElementById('fcProgress').textContent = `Card ${fcIndex + 1} of ${flashcards.length}`;
+  document.getElementById('fcTerm').textContent = flashcards[fcIndex].term;
+  document.getElementById('fcDef').textContent = flashcards[fcIndex].def;
+  document.getElementById('flashcard').classList.remove('flipped');
+}
+function flipCard() { document.getElementById('flashcard').classList.toggle('flipped'); }
+function nextCard() { fcIndex = (fcIndex + 1) % flashcards.length; renderFC(); }
+function prevCard() { fcIndex = (fcIndex - 1 + flashcards.length) % flashcards.length; renderFC(); }
+
+// ══════════════════════════════════════
+//  BUILD TRUE / FALSE
+// ══════════════════════════════════════
+let tfScore = 0, tfTotal = 0;
+function buildTF() {
+  const wrap = document.getElementById('tfWrap');
+  tfData.forEach((item, i) => {
+    const card = document.createElement('div'); card.className = 'tf-card';
+    card.innerHTML = `<div><div class="tf-text">${item.statement}</div><div class="tf-explanation" id="tfExp-${i}">${item.explanation}</div></div>
+    <div class="tf-btns"><button class="tf-btn" data-i="${i}" data-val="true">TRUE</button><button class="tf-btn" data-i="${i}" data-val="false">FALSE</button></div>`;
+    wrap.appendChild(card);
+  });
+  wrap.addEventListener('click', e => {
+    const btn = e.target.closest('.tf-btn'); if (!btn) return;
+    const i = +btn.dataset.i; const card = btn.closest('.tf-card');
+    if (card.dataset.answered) return;
+    card.dataset.answered = 1;
+    const val = btn.dataset.val === 'true'; const correct = val === tfData[i].answer; tfTotal++;
+    card.querySelectorAll('.tf-btn').forEach(b => b.disabled = true);
+    if (correct) { btn.classList.add('correct'); tfScore++; }
+    else { btn.classList.add('wrong'); card.querySelectorAll('.tf-btn').forEach(b => { if (b.dataset.val === String(tfData[i].answer)) b.classList.add('correct'); }); }
+    document.getElementById(`tfExp-${i}`).classList.add('show');
+    document.getElementById('tfScore').textContent = tfScore;
+    document.getElementById('tfTotal').textContent = tfTotal;
+  });
+}
+function resetTF() {
+  tfScore = 0; tfTotal = 0;
+  document.getElementById('tfScore').textContent = 0;
+  document.getElementById('tfTotal').textContent = 0;
+  document.getElementById('tfWrap').innerHTML = '';
+  buildTF();
+}
+
+// ══════════════════════════════════════
+//  BUILD EXAM PRACTICE
+// ══════════════════════════════════════
+function buildExamPractice() {
+  const list = document.getElementById('epList');
+  examQuestions.forEach((q, qi) => {
+    const card = document.createElement('div');
+    card.className = 'ep-card';
+    const caseHtml = q.caseStudy ? `<div class="ep-case">${q.caseStudy.replace(/\n/g,'<br>')}</div>` : '';
+    let interactiveHtml = '';
+    if (q.type === 'mcq') {
+      interactiveHtml = `<div class="ep-mcq-opts">${q.options.map((o,oi) =>
+        `<button class="ep-opt" data-qi="${qi}" data-oi="${oi}"><strong>${String.fromCharCode(65+oi)}.</strong> ${o}</button>`
+      ).join('')}</div>`;
+    } else {
+      interactiveHtml = `<textarea class="ep-answer-area" id="epTextarea-${qi}" placeholder="Write your answer here..."></textarea>`;
+    }
+    card.innerHTML = `
+      <div class="ep-header">
+        <div>
+          <div class="ep-num">${q.num}</div>
+          <div class="ep-title">${q.marks} mark${q.marks > 1 ? 's' : ''}</div>
+        </div>
+        <div class="ep-marks">[${q.marks} mark${q.marks > 1 ? 's' : ''}]</div>
+      </div>
+      <div class="ep-body">
+        ${caseHtml}
+        <div class="ep-question">${q.question.replace(/\n/g,'<br>')}</div>
+        ${interactiveHtml}
+        <div class="ep-btn-row">
+          <button class="ep-btn hint-btn" onclick="togglePop(${qi},'hint')">💡 Hint</button>
+          <button class="ep-btn starter-btn" onclick="togglePop(${qi},'starter')">✍️ Sentence Starter</button>
+          ${q.type !== 'mcq' ? `<button class="ep-btn submit-btn" onclick="togglePop(${qi},'marks')">📋 Submit &amp; See Mark Scheme</button>` : ''}
+        </div>
+        <div class="ep-popup hint-pop" id="epHint-${qi}"><strong>💡 Hint:</strong> ${q.hint}</div>
+        <div class="ep-popup starter-pop" id="epStarter-${qi}"><strong>✍️ Sentence Starter:</strong><br>${q.starter.replace(/\n/g,'<br>')}</div>
+        <div class="ep-popup marks-pop" id="epMarks-${qi}">
+          ${q.markScheme}
+          ${q.modelAnswer ? `<div class="marks-section"><h5>✓ Model Answer</h5><div class="model-answer">${q.modelAnswer}</div></div>` : ''}
+        </div>
+      </div>`;
+    list.appendChild(card);
+  });
+  document.getElementById('epList').addEventListener('click', e => {
+    const btn = e.target.closest('.ep-opt');
+    if (!btn) return;
+    const qi = +btn.dataset.qi, oi = +btn.dataset.oi;
+    const card = btn.closest('.ep-card');
+    if (card.dataset.epAnswered) return;
+    card.dataset.epAnswered = 1;
+    const allOpts = card.querySelectorAll('.ep-opt');
+    allOpts.forEach(b => b.disabled = true);
+    if (oi === examQuestions[qi].answer) {
+      btn.classList.add('ep-correct');
+    } else {
+      btn.classList.add('ep-wrong');
+      allOpts[examQuestions[qi].answer].classList.add('ep-correct');
+    }
+    document.getElementById(`epMarks-${qi}`).classList.add('show');
+  });
+}
+
+function togglePop(qi, type) {
+  const hint = document.getElementById(`epHint-${qi}`);
+  const starter = document.getElementById(`epStarter-${qi}`);
+  const marks = document.getElementById(`epMarks-${qi}`);
+  if (type === 'hint') { hint.classList.toggle('show'); starter.classList.remove('show'); }
+  else if (type === 'starter') { starter.classList.toggle('show'); hint.classList.remove('show'); }
+  else if (type === 'marks') { marks.classList.toggle('show'); }
+}
+
+// ══════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════
+buildLearn(); buildMCQ(); buildMatch(); buildFIB(); buildMisc(); buildTips(); renderFC(); buildTF(); buildExamPractice();
+</script>
+</body>
+</html>
