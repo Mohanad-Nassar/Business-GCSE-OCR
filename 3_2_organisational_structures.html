@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3.2 Organisational Structures & Ways of Working – Interactive Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1923; --paper: #f5f0e8; --cream: #ede7d9;
+    --accent: #4a6fa5; --gold: #d4a843; --teal: #1a6b6b;
+    --mid: #5a6e7f; --border: #c9bfaa; --success: #2d7a4f;
+    --wrong: #c84b31; --card-bg: #fffcf6;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; }
+
+  header { background: var(--ink); color: var(--paper); padding: 28px 40px 24px; display: flex; align-items: flex-end; gap: 20px; position: relative; overflow: hidden; }
+  header::before { content: ''; position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; border-radius: 50%; background: var(--accent); opacity: .18; }
+  header .badge { background: var(--accent); color: #fff; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; padding: 4px 10px; border-radius: 3px; text-transform: uppercase; }
+  header h1 { font-family: 'Playfair Display', serif; font-size: clamp(20px, 3.5vw, 38px); line-height: 1.1; }
+  header p { font-size: 13px; color: #aaa; margin-top: 6px; }
+
+  .tab-bar { background: var(--ink); display: flex; overflow-x: auto; border-bottom: 2px solid var(--accent); padding: 0 40px; scrollbar-width: none; }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn { background: none; border: none; color: #999; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: .5px; padding: 14px 18px; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; transition: color .2s, border-color .2s; margin-bottom: -2px; }
+  .tab-btn:hover { color: var(--paper); }
+  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  main { padding: 32px 40px 60px; max-width: 1100px; margin: 0 auto; }
+  .tab-panel { display: none; animation: fadeUp .35s ease; }
+  .tab-panel.active { display: block; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+  .section-title { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--ink); margin-bottom: 6px; }
+  .section-sub { font-size: 13px; color: var(--mid); margin-bottom: 28px; }
+
+  /* LEARN */
+  .topic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+  .topic-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 22px 24px; cursor: pointer; transition: box-shadow .2s, transform .2s; position: relative; overflow: hidden; }
+  .topic-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--accent); border-radius: 4px 0 0 4px; }
+  .topic-card:nth-child(2)::before { background: var(--teal); }
+  .topic-card:nth-child(3)::before { background: #c84b31; }
+  .topic-card:nth-child(4)::before { background: var(--gold); }
+  .topic-card:nth-child(5)::before { background: #7a5c9e; }
+  .topic-card:nth-child(6)::before { background: var(--success); }
+  .topic-card:nth-child(7)::before { background: #c84b8a; }
+  .topic-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.12); transform: translateY(-2px); }
+  .topic-card h3 { font-family: 'Playfair Display', serif; font-size: 17px; margin-bottom: 8px; color: var(--ink); }
+  .topic-card .toggle-icon { position: absolute; right: 20px; top: 20px; font-size: 18px; color: var(--mid); transition: transform .3s; }
+  .topic-card.open .toggle-icon { transform: rotate(45deg); }
+  .topic-content { display: none; margin-top: 12px; border-top: 1px solid var(--border); padding-top: 12px; }
+  .topic-card.open .topic-content { display: block; }
+  .topic-content ul { padding-left: 18px; }
+  .topic-content li { font-size: 13.5px; line-height: 1.7; color: #3a4a56; margin-bottom: 4px; }
+  .topic-content p { font-size: 13.5px; line-height: 1.75; color: #3a4a56; margin-bottom: 8px; }
+  .topic-card .tag { display: inline-block; font-size: 11px; font-family: 'DM Mono', monospace; background: var(--cream); border: 1px solid var(--border); padding: 2px 8px; border-radius: 3px; margin-bottom: 6px; color: var(--mid); }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
+  .two-col .col-head { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid); margin-bottom: 4px; }
+  .pro-item { background: #d4edda; border-radius: 5px; padding: 6px 9px; font-size: 12.5px; color: #1a4a2a; margin-bottom: 5px; line-height: 1.5; }
+  .con-item { background: #fde8e5; border-radius: 5px; padding: 6px 9px; font-size: 12.5px; color: #7a2010; margin-bottom: 5px; line-height: 1.5; }
+
+  /* MCQ */
+  .quiz-wrap { display: flex; flex-direction: column; gap: 28px; }
+  .q-block { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 24px 26px; }
+  .q-block .q-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 2px; margin-bottom: 8px; }
+  .q-block .q-text { font-weight: 600; font-size: 15px; margin-bottom: 16px; line-height: 1.5; }
+  .options { display: flex; flex-direction: column; gap: 9px; }
+  .opt-btn { background: var(--cream); border: 1.5px solid var(--border); border-radius: 7px; padding: 11px 16px; font-family: 'DM Sans', sans-serif; font-size: 13.5px; text-align: left; cursor: pointer; transition: background .15s, border-color .15s; }
+  .opt-btn:hover:not(:disabled) { background: #e8e1d3; border-color: var(--mid); }
+  .opt-btn.correct { background: #d4edda; border-color: var(--success); color: var(--success); font-weight: 600; }
+  .opt-btn.wrong { background: #fde8e5; border-color: var(--wrong); color: var(--wrong); font-weight: 600; }
+  .q-feedback { margin-top: 12px; padding: 10px 14px; border-radius: 6px; font-size: 13px; display: none; }
+  .q-feedback.show { display: block; }
+  .q-feedback.ok { background: #d4edda; color: #1a5c34; }
+  .q-feedback.no { background: #fde8e5; color: #8b2317; }
+
+  /* MATCHING */
+  .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; }
+  .match-col { display: flex; flex-direction: column; gap: 10px; }
+  .match-item { background: var(--cream); border: 1.5px solid var(--border); border-radius: 7px; padding: 12px 15px; font-size: 13px; cursor: pointer; transition: border-color .15s, background .15s; line-height: 1.5; }
+  .match-item.selected { border-color: var(--gold); background: #fdf5df; }
+  .match-item.matched-ok { border-color: var(--success); background: #d4edda; color: var(--success); cursor: default; }
+  .match-item.matched-eventual { border-color: #b8860b; background: #fff8dc; color: #7a5800; cursor: default; }
+  .match-item.matched-no { border-color: var(--wrong); background: #fde8e5; color: var(--wrong); animation: shake .35s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+  .match-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; color: var(--mid); margin-bottom: 6px; }
+
+  /* FIB */
+  .fib-wrap { display: flex; flex-direction: column; gap: 22px; }
+  .fib-sentence { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 20px 24px; font-size: 15px; line-height: 2.4; }
+  .blank-select { display: inline-block; position: relative; vertical-align: middle; margin: 0 4px; }
+  .blank-select select { appearance: none; -webkit-appearance: none; background: var(--cream); border: 2px solid var(--accent); border-radius: 6px; padding: 3px 28px 3px 10px; font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 600; color: var(--accent); cursor: pointer; min-width: 130px; outline: none; transition: border-color .15s, background .15s, color .15s; }
+  .blank-select::after { content: '▾'; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); pointer-events: none; font-size: 12px; color: var(--accent); }
+  .blank-select.correct select { border-color: var(--success); background: #d4edda; color: var(--success); }
+  .blank-select.correct::after { color: var(--success); }
+  .blank-select.wrong select { border-color: var(--wrong); background: #fde8e5; color: var(--wrong); animation: shake .3s; }
+  .blank-select.wrong::after { color: var(--wrong); }
+
+  /* MISCONCEPTIONS */
+  .misc-list { display: flex; flex-direction: column; gap: 20px; }
+  .misc-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .misc-card .wrong-view { background: #fde8e5; border-left: 5px solid var(--wrong); padding: 16px 20px; }
+  .misc-card .correct-view { background: #d4edda; border-left: 5px solid var(--success); padding: 16px 20px; }
+  .misc-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 5px; }
+  .wrong-view .misc-tag { color: var(--wrong); }
+  .correct-view .misc-tag { color: var(--success); }
+  .misc-card p { font-size: 14px; line-height: 1.65; }
+
+  /* EXAM TIPS */
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+  .tip-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 22px 24px; }
+  .tip-card .tip-type { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .tip-card h4 { font-family: 'Playfair Display', serif; font-size: 16px; margin-bottom: 10px; }
+  .tip-card p { font-size: 13.5px; line-height: 1.7; color: #3a4a56; }
+  .tip-card ul { padding-left: 18px; }
+  .tip-card li { font-size: 13.5px; line-height: 1.7; color: #3a4a56; margin-bottom: 4px; }
+  .mark-breakdown { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .mark-pill { font-size: 11px; font-family: 'DM Mono', monospace; padding: 3px 10px; border-radius: 20px; background: var(--cream); border: 1px solid var(--border); }
+  .mark-pill.kn { background: #e8f4f8; border-color: #4a90a4; color: #1a5060; }
+  .mark-pill.un { background: #f0f8e8; border-color: #5a9a40; color: #2a5a18; }
+  .mark-pill.app { background: #fdf5df; border-color: var(--gold); color: #8a6800; }
+  .mark-pill.an { background: #e0f0f5; border-color: #4a90a4; color: #1a5060; }
+  .mark-pill.eval { background: #f0e8ff; border-color: #9a70c0; color: #4a1a80; }
+
+  /* FLASHCARDS */
+  .fc-container { max-width: 600px; margin: 0 auto; text-align: center; }
+  .fc-progress { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--mid); margin-bottom: 16px; }
+  .flashcard { perspective: 1000px; height: 280px; cursor: pointer; margin-bottom: 24px; }
+  .fc-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .5s cubic-bezier(.4,0,.2,1); }
+  .flashcard.flipped .fc-inner { transform: rotateY(180deg); }
+  .fc-front, .fc-back { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 14px; display: flex; align-items: center; justify-content: center; padding: 30px; border: 1.5px solid var(--border); }
+  .fc-front { background: var(--ink); color: var(--paper); }
+  .fc-front .fc-label { position: absolute; top: 16px; left: 20px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+  .fc-front .fc-term { font-family: 'Playfair Display', serif; font-size: 24px; line-height: 1.3; }
+  .fc-back { background: var(--card-bg); transform: rotateY(180deg); text-align: left; }
+  .fc-back .fc-def { font-size: 14px; line-height: 1.75; color: var(--ink); }
+  .fc-hint { font-size: 12px; color: var(--mid); margin-bottom: 16px; }
+  .fc-nav { display: flex; gap: 12px; justify-content: center; }
+  .fc-btn { background: var(--ink); color: var(--paper); border: none; border-radius: 7px; padding: 10px 22px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: background .15s; }
+  .fc-btn:hover { background: var(--accent); }
+  .fc-btn.outline { background: transparent; border: 1.5px solid var(--border); color: var(--ink); }
+  .fc-btn.outline:hover { background: var(--cream); }
+
+  /* TRUE / FALSE */
+  .tf-wrap { display: flex; flex-direction: column; gap: 18px; }
+  .tf-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 20px 24px; display: flex; align-items: flex-start; gap: 20px; }
+  .tf-card .tf-text { flex: 1; font-size: 14.5px; line-height: 1.6; }
+  .tf-btns { display: flex; gap: 8px; flex-shrink: 0; }
+  .tf-btn { border: 1.5px solid var(--border); background: var(--cream); border-radius: 6px; padding: 8px 16px; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 600; cursor: pointer; transition: background .15s; letter-spacing: .5px; }
+  .tf-btn:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
+  .tf-btn.correct { background: #d4edda; border-color: var(--success); color: var(--success); }
+  .tf-btn.wrong { background: #fde8e5; border-color: var(--wrong); color: var(--wrong); }
+  .tf-explanation { font-size: 13px; color: var(--mid); margin-top: 10px; display: none; line-height: 1.6; }
+  .tf-explanation.show { display: block; }
+
+  /* SCORE BAR */
+  .score-bar { background: var(--cream); border: 1.5px solid var(--border); border-radius: 8px; padding: 14px 20px; font-size: 14px; margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
+  .score-num { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--accent); line-height: 1; }
+  .reset-btn { margin-left: auto; background: none; border: 1.5px solid var(--border); border-radius: 6px; padding: 7px 16px; font-size: 12px; font-family: 'DM Mono', monospace; cursor: pointer; transition: background .15s; letter-spacing: .5px; }
+  .reset-btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  /* ── EXAM PRACTICE ── */
+  .ep-list { display: flex; flex-direction: column; gap: 32px; }
+  .ep-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .ep-header { background: var(--ink); color: var(--paper); padding: 16px 22px; display: flex; align-items: center; gap: 14px; }
+  .ep-num { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--gold); }
+  .ep-marks { font-family: 'DM Mono', monospace; font-size: 11px; color: #aaa; margin-left: auto; }
+  .ep-title { font-family: 'Playfair Display', serif; font-size: 16px; }
+  .ep-body { padding: 20px 22px; }
+  .ep-case { background: #f0ece4; border-left: 4px solid var(--accent); border-radius: 0 6px 6px 0; padding: 14px 16px; font-size: 13.5px; line-height: 1.75; color: #2a3a46; margin-bottom: 16px; }
+  .ep-case strong { font-weight: 600; }
+  .ep-question { font-size: 14.5px; font-weight: 600; line-height: 1.55; margin-bottom: 14px; color: var(--ink); }
+  .ep-mcq-opts { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+  .ep-opt { background: var(--cream); border: 1.5px solid var(--border); border-radius: 6px; padding: 10px 14px; font-size: 13.5px; cursor: pointer; transition: background .15s, border-color .15s; text-align: left; font-family: 'DM Sans', sans-serif; }
+  .ep-opt:hover:not(:disabled) { background: #e8e1d3; border-color: var(--mid); }
+  .ep-opt.ep-correct { background: #d4edda; border-color: var(--success); color: var(--success); font-weight: 600; }
+  .ep-opt.ep-wrong { background: #fde8e5; border-color: var(--wrong); color: var(--wrong); font-weight: 600; }
+  .ep-answer-area { width: 100%; min-height: 120px; background: var(--cream); border: 1.5px solid var(--border); border-radius: 8px; padding: 12px 14px; font-family: 'DM Sans', sans-serif; font-size: 13.5px; line-height: 1.7; resize: vertical; outline: none; transition: border-color .15s; color: var(--ink); }
+  .ep-answer-area:focus { border-color: var(--accent); }
+  .ep-btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+  .ep-btn { border: 1.5px solid var(--border); background: var(--cream); border-radius: 7px; padding: 9px 18px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; cursor: pointer; transition: background .15s, border-color .15s; font-weight: 600; }
+  .ep-btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .ep-btn.hint-btn { border-color: var(--gold); color: #8a6800; }
+  .ep-btn.hint-btn:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+  .ep-btn.starter-btn { border-color: var(--teal); color: var(--teal); }
+  .ep-btn.starter-btn:hover { background: var(--teal); color: #fff; border-color: var(--teal); }
+  .ep-btn.submit-btn { border-color: var(--accent); color: var(--accent); }
+  .ep-btn.submit-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .ep-popup { display: none; margin-top: 14px; border-radius: 8px; padding: 14px 16px; font-size: 13.5px; line-height: 1.7; }
+  .ep-popup.hint-pop { background: #fdf5df; border: 1.5px solid var(--gold); color: #6a4800; }
+  .ep-popup.starter-pop { background: #e0f5f5; border: 1.5px solid var(--teal); color: #0a3a3a; }
+  .ep-popup.marks-pop { background: var(--card-bg); border: 1.5px solid var(--accent); }
+  .ep-popup.show { display: block; }
+  .marks-section { margin-bottom: 12px; }
+  .marks-section h5 { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+  .marks-section p, .marks-section li { font-size: 13px; line-height: 1.7; color: #2a3a46; }
+  .marks-section ul { padding-left: 18px; }
+  .model-answer { background: #e8f4e8; border-left: 4px solid var(--success); padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.75; color: #1a3a1a; margin-top: 8px; }
+
+  @media(max-width:640px) {
+    main { padding: 20px 16px 50px; } header { padding: 20px 16px; }
+    .tab-bar { padding: 0 10px; } .match-grid { grid-template-columns: 1fr; }
+    .tf-card { flex-direction: column; } .two-col { grid-template-columns: 1fr; }
+    .ep-btn-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="badge">OCR GCSE Business — Component 1</div>
+    <h1>Unit 3.2 — Organisational Structures &amp; Ways of Working</h1>
+    <p>Interactive revision guide · All key content + full exam practice</p>
+  </div>
+</header>
+
+<nav class="tab-bar" id="tabBar">
+  <button class="tab-btn active" onclick="switchTab('learn',this)">📚 Key Learning</button>
+  <button class="tab-btn" onclick="switchTab('mcq',this)">❓ MCQ Quiz</button>
+  <button class="tab-btn" onclick="switchTab('matching',this)">🔗 Matching</button>
+  <button class="tab-btn" onclick="switchTab('fib',this)">✏️ Fill the Blanks</button>
+  <button class="tab-btn" onclick="switchTab('misconceptions',this)">⚠️ Misconceptions</button>
+  <button class="tab-btn" onclick="switchTab('examtips',this)">🎯 Exam Tips</button>
+  <button class="tab-btn" onclick="switchTab('flashcards',this)">🃏 Flashcards</button>
+  <button class="tab-btn" onclick="switchTab('truefalse',this)">✅ True / False</button>
+  <button class="tab-btn" onclick="switchTab('exampractice',this)">📝 Exam Practice</button>
+</nav>
+
+<main>
+
+<!-- LEARN -->
+<div class="tab-panel active" id="tab-learn">
+  <h2 class="section-title">Key Learning Topics</h2>
+  <p class="section-sub">Click any card to expand detailed notes.</p>
+  <div class="topic-grid" id="topicGrid"></div>
+</div>
+
+<!-- MCQ -->
+<div class="tab-panel" id="tab-mcq">
+  <h2 class="section-title">Multiple Choice Questions</h2>
+  <p class="section-sub">Select an answer to reveal instant feedback.</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+    <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+    <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+  </div>
+  <div class="quiz-wrap" id="mcqWrap"></div>
+</div>
+
+<!-- MATCHING -->
+<div class="tab-panel" id="tab-matching">
+  <h2 class="section-title">Matching Activity</h2>
+  <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+  <div style="margin-bottom:16px;">
+    <div class="score-bar">
+      <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+      <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+      <button class="reset-btn" onclick="resetMatch()">RESET</button>
+    </div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span> First attempt correct</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span> Correct after mistake</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span> Wrong — try again</span>
+    </div>
+  </div>
+  <div class="match-grid">
+    <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+    <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
+  </div>
+</div>
+
+<!-- FIB -->
+<div class="tab-panel" id="tab-fib">
+  <h2 class="section-title">Fill in the Blanks</h2>
+  <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+    <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+    <button class="reset-btn" onclick="resetFIB()">RESET</button>
+  </div>
+  <div class="fib-wrap" id="fibWrap"></div>
+</div>
+
+<!-- MISCONCEPTIONS -->
+<div class="tab-panel" id="tab-misconceptions">
+  <h2 class="section-title">Common Misconceptions</h2>
+  <p class="section-sub">What students often think — and what examiners actually want.</p>
+  <div class="misc-list" id="miscList"></div>
+</div>
+
+<!-- EXAM TIPS -->
+<div class="tab-panel" id="tab-examtips">
+  <h2 class="section-title">Exam Questions &amp; Tips</h2>
+  <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
+  <div class="tips-grid" id="tipsGrid"></div>
+</div>
+
+<!-- FLASHCARDS -->
+<div class="tab-panel" id="tab-flashcards">
+  <h2 class="section-title">Flashcards</h2>
+  <p class="section-sub">Click the card to reveal the definition. Use the arrows to navigate.</p>
+  <div class="fc-container">
+    <div class="fc-progress" id="fcProgress">Card 1 of 20</div>
+    <div class="flashcard" id="flashcard" onclick="flipCard()">
+      <div class="fc-inner">
+        <div class="fc-front"><div class="fc-label">KEY TERM</div><div class="fc-term" id="fcTerm"></div></div>
+        <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
+      </div>
+    </div>
+    <p class="fc-hint">👆 Click card to flip</p>
+    <div class="fc-nav">
+      <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+      <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+      <button class="fc-btn" onclick="nextCard()">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- TRUE / FALSE -->
+<div class="tab-panel" id="tab-truefalse">
+  <h2 class="section-title">True or False?</h2>
+  <p class="section-sub">Test your knowledge with these statements.</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+    <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+    <button class="reset-btn" onclick="resetTF()">RESET</button>
+  </div>
+  <div class="tf-wrap" id="tfWrap"></div>
+</div>
+
+<!-- EXAM PRACTICE -->
+<div class="tab-panel" id="tab-exampractice">
+  <h2 class="section-title">Exam Practice Questions</h2>
+  <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
+  <div class="ep-list" id="epList"></div>
+</div>
+
+</main>
+
+<script>
+// ══════════════════════════════════════
+//  DATA
+// ══════════════════════════════════════
+
+const topics = [
+  {
+    title: "Core Terminology",
+    tag: "Key Terms",
+    content: `<ul>
+<li><strong>Organisational structure</strong> — how people and departments are arranged within a business; the hierarchy of employees</li>
+<li><strong>Organisation chart</strong> — a diagram showing how workers are organised and who is in charge of whom</li>
+<li><strong>Layers</strong> — the number of levels of authority in a chain of command</li>
+<li><strong>Authority</strong> — the power to make decisions and tell other workers what to do</li>
+<li><strong>Line manager</strong> — the person directly in charge of other workers; the person a worker is responsible to</li>
+<li><strong>Subordinates</strong> — workers that a line manager is responsible for</li>
+<li><strong>Chain of command</strong> — the path of authority along which instructions pass, from the CEO downwards</li>
+<li><strong>Span of control</strong> — the number of employees/subordinates that report directly to a manager</li>
+<li><strong>Delegation</strong> — when a manager gives a subordinate authority and responsibility to make certain decisions (the manager remains ultimately responsible)</li>
+<li><strong>Accountability</strong> — the responsibility a person has for a job; they take blame for what goes wrong as well as credit for what goes well</li>
+<li><strong>Delayering</strong> — when a business reduces the number of layers in its structure, making it flatter</li>
+</ul>`
+  },
+  {
+    title: "Tall vs Flat Organisational Structures",
+    tag: "Structures",
+    content: `<p><strong>Tall structure:</strong> Many layers; narrow span of control. Suited to large organisations (e.g. hospitals) and non-creative businesses with clear, limited tasks (e.g. building companies).</p>
+<div class="two-col">
+<div>
+<div class="col-head">✓ Advantages of Tall</div>
+<div class="pro-item">Clear lines of communication and authority</div>
+<div class="pro-item">Easier supervision — fewer direct reports per manager</div>
+<div class="pro-item">Workers are clear who they are responsible to</div>
+<div class="pro-item">Promotion opportunities motivate workers</div>
+</div>
+<div>
+<div class="col-head">✗ Disadvantages of Tall</div>
+<div class="con-item">Subordinates feel too controlled — can stifle motivation</div>
+<div class="con-item">Slower communications — many layers to pass through</div>
+<div class="con-item">Messages more likely to be distorted through many people</div>
+<div class="con-item">Workers may only talk to immediate colleagues</div>
+</div>
+</div>
+<p style="margin-top:12px;"><strong>Flat structure:</strong> Few layers (2–3); wide span of control. Suited to creative businesses (e.g. game design) and smaller businesses where workers feeling valued matters.</p>
+<div class="two-col">
+<div>
+<div class="col-head">✓ Advantages of Flat</div>
+<div class="pro-item">Workers feel trusted — managers must delegate widely</div>
+<div class="pro-item">Easier to share ideas — more likely to know bosses directly</div>
+<div class="pro-item">Faster communication — fewer layers</div>
+<div class="pro-item">Messages less likely to be changed or distorted</div>
+<div class="pro-item">Saves money — fewer layers of managers needed</div>
+</div>
+<div>
+<div class="col-head">✗ Disadvantages of Flat</div>
+<div class="con-item">Lines of communication not always clear</div>
+<div class="con-item">Few promotion opportunities — can reduce motivation</div>
+<div class="con-item">Managers may have too many people to look after</div>
+</div>
+</div>`
+  },
+  {
+    title: "Why Businesses Choose Different Structures",
+    tag: "Decisions",
+    content: `<p>The structure adopted depends on several factors:</p>
+<ul>
+<li><strong>Scale of business</strong> — large businesses usually require hierarchical structures for clear control; small businesses find this less important</li>
+<li><strong>Function</strong> — organised by functional areas (Marketing, Finance, Production, HR)</li>
+<li><strong>Product</strong> — organised by different product lines</li>
+<li><strong>Place</strong> — organised by locations (e.g. regional offices)</li>
+<li><strong>Nature of the business</strong> — creative businesses suit flat structures; clear-task businesses may suit tall</li>
+<li><strong>Type of leadership</strong> — autocratic leaders prefer tall structures to maintain control</li>
+<li><strong>Effective communication</strong> — whichever structure results in the best communication for that specific organisation</li>
+</ul>
+<p><strong>Delayering:</strong> Businesses reduce layers to save money and gain the advantages of flat structures — faster communication, more delegated authority. e.g. Leigh Hire Ltd saved £60,000 per year by removing two supervisor roles.</p>`
+  },
+  {
+    title: "Full-time, Part-time & Temporary Working",
+    tag: "Ways of Working",
+    content: `<p><strong>Full-time:</strong> 35+ hours per week. Worker permanently available; business pays even when no work is being done.</p>
+<p><strong>Part-time:</strong> Under 35 hours per week. Part-time employees have the SAME employment rights as full-time workers.</p>
+<div class="two-col">
+<div>
+<div class="col-head">Part-time — Business</div>
+<div class="pro-item">Can use workers at peak times; saves overtime; more recruitment choice</div>
+<div class="con-item">Higher training costs per head; more supervision time needed</div>
+</div>
+<div>
+<div class="col-head">Part-time — Worker</div>
+<div class="pro-item">Can work when it suits (school hours, students, semi-retired)</div>
+<div class="con-item">Lower income; uncertainty if hours are variable; inconvenient split shifts</div>
+</div>
+</div>
+<p style="margin-top:10px;"><strong>Temporary working:</strong> Short period/fixed-term contract (e.g. seasonal work in agriculture or Christmas retail). Workers can be used when needed without long-term commitment. Risk: lack of commitment, training costs wasted.</p>
+<p><strong>Zero-hours contract:</strong> A person has a contract but is not guaranteed any hours. Informed when needed, sometimes at short notice.</p>`
+  },
+  {
+    title: "Flexible Working, Home & Hybrid Working",
+    tag: "Ways of Working",
+    content: `<p><strong>Flexible working:</strong> Working partly at the workplace and partly elsewhere, or at variable times. Includes flexi-time (working weekly hours in fewer days) and shift working.</p>
+<p><strong>Working from home:</strong> Completing work in the home. <strong>Hybrid working:</strong> Part of the time at home, part in an office.</p>
+<div class="two-col">
+<div>
+<div class="col-head">Home/Hybrid — Business</div>
+<div class="pro-item">Saves on office space/rent; increased productivity; wider recruitment (don't need to live locally)</div>
+<div class="con-item">Harder to monitor work; communication can be poor; technology costs</div>
+</div>
+<div>
+<div class="col-head">Home/Hybrid — Worker</div>
+<div class="pro-item">Saves time and money on travel; less stress; can work around family commitments</div>
+<div class="con-item">Distractions at home; social isolation; higher utility bills</div>
+</div>
+</div>
+<p style="margin-top:10px;"><strong>Case study — Wokingham Council:</strong> Introduced flexible/hot-desking working; saved money on office space; productivity improved and absenteeism fell. Success depended on ICT (calls transferred to mobile phones).</p>
+<p><strong>Case study — BP:</strong> Moved 6,000 staff to hybrid model (3 days office, 2 days home) to reduce high London office costs.</p>`
+  },
+  {
+    title: "Self-Employment & Mobile Working",
+    tag: "Ways of Working",
+    content: `<p><strong>Self-employment:</strong> When people work in their own business, selling their work to buyers (consumers or other businesses). Examples: plumbers, electricians, taxi drivers. In early 2020, 5.03 million people were self-employed (15.3% of UK working population).</p>
+<div class="two-col">
+<div>
+<div class="col-head">✓ Pros of Self-Employment</div>
+<div class="pro-item">Being your own boss; high motivation</div>
+<div class="pro-item">Can earn more by working harder/faster</div>
+<div class="pro-item">Freedom to choose work and clients</div>
+</div>
+<div>
+<div class="col-head">✗ Cons of Self-Employment</div>
+<div class="con-item">No guaranteed income</div>
+<div class="con-item">No holiday pay, sick pay or employer pension contributions</div>
+<div class="con-item">Loss of employment rights (e.g. unfair dismissal protection)</div>
+</div>
+</div>
+<p style="margin-top:10px;"><strong>Working while mobile:</strong> Working while travelling or on the move. Made easier by technology — email, video calls, cloud software.</p>
+<p><strong>Benefit for business:</strong> EDF used self-employed workers for Hinkley Point C construction — only paid for specialist skills when needed, keeping costs lower and reducing long-term commitments.</p>`
+  },
+  {
+    title: "Case Studies Linked to Concepts",
+    tag: "Examples",
+    content: `<p><strong>Griffin Engineering Ltd:</strong> Functional hierarchy with 5 layers. Illustrates chain of command, span of control (Sales Manager = 5), and delegation (Production Manager → Stock Control Manager).</p>
+<p><strong>J.J. Jewellery:</strong> Small family business, flat structure (3 layers). Myiesha (Shop Manager) has span of control of 5. Mix of 2 full-time and 2 part-time shop assistants.</p>
+<p><strong>Leigh Hire Ltd (delayering):</strong> Removed two supervisor roles (£35k each) and gave work to Service Manager (+£10k). Net saving: £60,000/year. Risk: wider span of control for Service Manager may worsen communication.</p>
+<p><strong>JD Wetherspoon:</strong> 38,000 workers; flexible contracts with shifts varying 4–10 hours based on demand. Currently short of 6,000 staff — suggests flexible/insecure contracts may deter applicants.</p>
+<p><strong>HSBC:</strong> Over 70% of call centre employees now work from home permanently. Benefits: lower overhead costs, productivity gains. Risks: monitoring difficulties, technology costs.</p>
+<p><strong>Beautiful Buds plc (delayering):</strong> Removing Middle Managers (£600k saving) and Team Leaders (£700k saving) saves £1.3m. Adding 10 supervisors costs £300k. Net annual saving: £1m (after £200k one-off redundancy cost).</p>`
+  }
+];
+
+const mcqData = [
+  {
+    q: "A business with a tall organisational structure will have:",
+    opts: ["A high market share","Lots of distribution channels","Multiple layers of authority","Short chains of command"],
+    ans: 2,
+    explain: "A tall structure is defined by having many layers of authority from top to bottom. This creates long chains of command — not short ones. Market share and distribution channels are unrelated to structure."
+  },
+  {
+    q: "A clothing designer may choose to flatten its organisational structure to reduce the:",
+    opts: ["Creativity of its garment designers","Independence of its fabric buyers","Need for innovation and change","Time it takes to respond to changes in fashion"],
+    ans: 3,
+    explain: "A flat structure has fewer layers, so communication is faster. This means the business can respond more quickly to changes in fashion trends. Flattening does NOT reduce creativity — it usually enhances it."
+  },
+  {
+    q: "The span of control of the Production Manager (who has 3 Production Supervisors reporting directly to them) is:",
+    opts: ["1","3","21","63"],
+    ans: 1,
+    explain: "The span of control is the number of people who report DIRECTLY to a manager. Only the 3 Production Supervisors report directly to the Production Manager — not the 20 workers under each supervisor."
+  },
+  {
+    q: "A business may choose to have a flat organisational structure because it:",
+    opts: ["Gives employees more opportunities for promotion","Lengthens the organisation's chain of command","Reduces the likelihood of mistakes in vertical communication","Slows down the organisation's response to changes in the market"],
+    ans: 2,
+    explain: "Fewer layers means fewer people for a message to pass through — so there are fewer opportunities for it to be changed or distorted. This reduces mistakes in vertical (upward/downward) communication."
+  },
+  {
+    q: "A flat organisational structure has:",
+    opts: ["A long chain of command","Few levels of authority","Narrow spans of control","No specific person in overall charge"],
+    ans: 1,
+    explain: "A flat structure is defined by having FEW levels (layers) of authority — perhaps only 2 or 3. It has WIDE (not narrow) spans of control and SHORTER (not longer) chains of command."
+  },
+  {
+    q: "Who is a director's subordinate?",
+    opts: ["A customer","A manager","A shareholder","A supplier"],
+    ans: 1,
+    explain: "Subordinates are the workers that a line manager (or director) is responsible for and has authority over. Managers report to directors, making them subordinates. Customers, shareholders and suppliers are external parties."
+  },
+  {
+    q: "Which of the following is an advantage to a fruit farm of employing temporary workers to pick the fruit?",
+    opts: ["Discrimination laws do not apply because the work is only for a few weeks","Induction training will not be required because the work is not permanent","The number of workers employed can be varied according to the season","Workers are likely to be more committed to their jobs and pick more fruit"],
+    ans: 2,
+    explain: "The key advantage of temporary workers is flexibility — the farm can increase or decrease the number of workers to match seasonal demand for fruit picking. Discrimination laws ALWAYS apply, and induction training is still needed."
+  },
+  {
+    q: "Which one of the following is a benefit to a flower shop of employing extra temporary sales staff on Valentine's Day?",
+    opts: ["More customers can be served","Roses can be sold for cheaper prices","The flowers will be fresher","Workers can be paid less than the minimum wage"],
+    ans: 0,
+    explain: "With more staff, the shop can serve more customers during the peak demand on Valentine's Day — reducing queues and improving customer service. Temporary staff cannot be paid below the minimum wage."
+  },
+  {
+    q: "The main financial benefit of delayering for Leigh Hire Ltd (removing two supervisor roles at £35,000 each, giving the Service Manager a £10,000 pay rise) is a saving of:",
+    opts: ["£35,000 per year","£60,000 per year","£70,000 per year","£80,000 per year"],
+    ans: 1,
+    explain: "Two roles at £35,000 = £70,000 saved. Less the £10,000 increase to the Service Manager = net saving of £60,000 per year. This is the key financial application figure for the Leigh Hire case study."
+  },
+  {
+    q: "What is the mean average managerial span of control at POD Ltd, which has 5 managers each managing: 6 accounts clerks, 4 clerical assistants, 28 production workers, 5 sales reps, and 3 HR assistants?",
+    opts: ["7.7","8.5","9.2","10.2"],
+    ans: 1,
+    explain: "Total subordinates = 6+4+28+5+3 = 46. Divided by 5 managers = 9.2 per manager. But the Managing Director also manages 5 managers. Mean average across all 6 managers = (46+5)/6 = 8.5."
+  }
+];
+
+const matchData = [
+  { term: "Span of control", def: "The number of subordinates who report directly to a manager" },
+  { term: "Chain of command", def: "The path of authority along which instructions are passed, from the CEO downwards" },
+  { term: "Delegation", def: "The process where a manager gives a subordinate authority to make certain decisions, while the manager remains ultimately responsible" },
+  { term: "Delayering", def: "When a business reduces the number of layers in its organisational structure, making it flatter" },
+  { term: "Tall structure", def: "An organisational structure with many layers and a narrow span of control, suited to large or non-creative businesses" },
+  { term: "Flat structure", def: "An organisational structure with few layers and a wide span of control, suited to creative or smaller businesses" },
+  { term: "Zero-hours contract", def: "A contract where the worker is not guaranteed any hours and is called in when needed, sometimes at short notice" },
+  { term: "Hybrid working", def: "Working part of the time at home and part of the time in an office" }
+];
+
+const fibData = [
+  {
+    display: "The number of subordinates that report directly to a manager is called the _____ of control. A tall structure has a _____ span of control.",
+    blanks: { B1: "span", B2: "narrow" }
+  },
+  {
+    display: "When a business removes layers from its structure it is called _____, which usually saves _____ and speeds up communication.",
+    blanks: { B1: "delayering", B2: "money" }
+  },
+  {
+    display: "A _____ structure has few layers and a wide span of control, making it suited to _____ businesses where fast communication matters.",
+    blanks: { B1: "flat", B2: "creative" }
+  },
+  {
+    display: "Full-time working means working _____ hours or more per week, while part-time workers have the _____ employment rights as full-time workers.",
+    blanks: { B1: "35", B2: "same" }
+  },
+  {
+    display: "Working from home saves businesses money on office _____ and can increase worker _____, but makes it harder to monitor staff.",
+    blanks: { B1: "space", B2: "productivity" }
+  },
+  {
+    display: "A self-employed worker earns no _____ pay or sick pay from an employer, but benefits from being their own _____ and potentially earning more.",
+    blanks: { B1: "holiday", B2: "boss" }
+  }
+];
+const fibWords = ["span","narrow","delayering","money","flat","creative","35","same","space","productivity","holiday","boss","wide","tall","layers","authority","control","delegation","flexible","part-time"];
+
+const miscData = [
+  {
+    wrong: "The organisational structure and the organisation chart are the same thing.",
+    correct: "They are different. The STRUCTURE is the actual hierarchy — how people and authority are arranged. The CHART is the DIAGRAM that shows that structure visually. You can have a structure without a chart, but a chart represents the structure."
+  },
+  {
+    wrong: "Part-time workers have fewer employment rights than full-time workers.",
+    correct: "Part-time employees have EXACTLY THE SAME employment rights as full-time workers. The number of hours worked does not affect the type or permanency of their employment rights. This is a very common misconception that loses marks."
+  },
+  {
+    wrong: "A wide span of control means a manager has few people to supervise.",
+    correct: "A WIDE span means a manager has MANY subordinates reporting to them directly. A NARROW span means fewer subordinates. Wide span = flat structure; narrow span = tall structure. Students frequently confuse these."
+  },
+  {
+    wrong: "Delayering always makes a business better.",
+    correct: "Delayering has BOTH benefits AND drawbacks. Benefits: saves wages, faster communication, more delegation. Drawbacks: fewer promotion opportunities for workers (reduces motivation), wider span of control may overwhelm remaining managers, and communication may actually get worse if the span becomes too wide. Evaluation is always required."
+  },
+  {
+    wrong: "Span of control includes all the workers below a manager, not just direct reports.",
+    correct: "Span of control ONLY counts the people who report DIRECTLY to that manager — not everyone in the layers below. For example, a Production Manager with 3 supervisors (each managing 20 workers) has a span of control of 3, not 63."
+  },
+  {
+    wrong: "Flexible/home working is always beneficial for both businesses and workers.",
+    correct: "Flexible/home working has BOTH benefits and drawbacks for BOTH parties. For workers: benefits include saving travel costs and flexibility, but drawbacks include social isolation and home distractions. For businesses: benefits include reduced office costs and productivity gains, but drawbacks include monitoring difficulties and technology costs. Never state it is 'always good.'"
+  },
+  {
+    wrong: "The chain of command and the span of control are the same concept.",
+    correct: "They are different. The CHAIN OF COMMAND is the LINE of authority from top to bottom (vertical path of instructions). The SPAN OF CONTROL is the NUMBER of subordinates one manager has (horizontal count). Confusing these terms in exam answers loses marks."
+  }
+];
+
+const examTips = [
+  {
+    type: "Most Repeated Question Type",
+    title: "Analyse one benefit/drawback of a structure (3 marks)",
+    content: "Structure: (U) Explain the benefit (e.g. 'faster communication in a flat structure'). (APP) Link to the specific business in the case study (e.g. 'this means Nessa can respond quickly to the needs in the six stores'). (AN) Show the business impact (e.g. 'this could reverse the declining sales revenue'). Always chain: feature → effect on THIS business → business consequence.",
+    pills: ["un","app","an"]
+  },
+  {
+    type: "Most Repeated Question Type",
+    title: "Recommend which structure is most appropriate (3 marks)",
+    content: "Make a clear recommendation (1 mark). Justify it with TWO contextual reasons from the case study for full marks. Example: 'Miles Ahead should use a flat structure (1) so that decisions can be made more quickly to reverse the fall in sales revenue since 2018 (CONT) and so that employees in the six stores feel trusted and motivated (CONT).'",
+    pills: ["eval"]
+  },
+  {
+    type: "Most Repeated Question Type",
+    title: "State one advantage/disadvantage of a way of working (1 mark)",
+    content: "These short questions appear very frequently. Make sure you know ONE clear advantage AND disadvantage of: temporary working, flexible working, working from home, and zero-hours contracts — from BOTH the business AND the worker perspective. Never write 'saves money' without specifying what costs are saved.",
+    pills: ["un"]
+  },
+  {
+    type: "7-Mark Evaluate Question",
+    title: "Evaluate whether a business should continue with a way of working",
+    content: "Structure: APP x2 (use case study evidence twice — e.g. specific staff numbers, shift lengths). AN x2 (show the business impact of each point). EVAL x3 (judgement: should they continue? + 2 justified reasons using context). For JD Wetherspoon: link flexible contracts to cost control AND the staff shortage of 6,000 workers.",
+    pills: ["app","an","eval"]
+  },
+  {
+    type: "9-Mark Discuss Question",
+    title: "Discuss whether to change organisational structure (9 marks)",
+    content: "For Beautiful Buds: K (define delayering) → U (explain the process) → APP x2 (use the NUMBERS: £600k + £700k saving, £300k extra supervisor costs, £200k redundancy) → AN x2 (show business impact of savings AND risks) → EVAL x3 (overall judgement with net saving of £1m per year, long-term vs short-term). ALWAYS use the specific figures provided.",
+    pills: ["kn","un","app","an","eval"]
+  },
+  {
+    type: "Calculation Warning",
+    title: "Span of control calculations",
+    content: "Span of control = ONLY direct reports. If a Production Manager has 3 supervisors, span = 3 (not 3 + 20×3 = 63). Mean average span: add up ALL subordinates across ALL managers, then divide by the number of managers. For POD Ltd: 46 total subordinates + 5 managers = 51 total. 6 managers total. 51 ÷ 6 = 8.5.",
+    pills: []
+  },
+  {
+    type: "Examiner Warning",
+    title: "Always evaluate delayering with BOTH sides",
+    content: "Never say delayering is simply 'good because it saves money.' Examiners expect both sides: savings vs. motivation risk (no promotion opportunities), faster communication vs. potential overload of remaining managers. Use the specific financial figures (e.g. £60,000 saving for Leigh Hire) for application marks. Conclude with a justified judgement.",
+    pills: ["eval"]
+  },
+  {
+    type: "Key Examiner Warning",
+    title: "Do NOT say part-time workers have fewer rights",
+    content: "This is repeatedly flagged by examiners. Part-time workers have EXACTLY THE SAME employment rights as full-time workers. Writing otherwise will lose marks. Similarly, zero-hours workers cannot be paid below the minimum wage — a common misconception. Discrimination laws apply to ALL workers regardless of contract type.",
+    pills: []
+  }
+];
+
+const flashcards = [
+  { term: "Organisational structure", def: "How people and departments are arranged within a business — the hierarchy or way that employees are organised, showing lines of authority and responsibility." },
+  { term: "Organisation chart", def: "A diagram that shows how workers are organised in a business and who is in charge of whom. It shows roles and relationships between all employees." },
+  { term: "Chain of command", def: "The path of authority along which instructions are passed — from the CEO at the top downwards to those with the least authority at the bottom." },
+  { term: "Span of control", def: "The number of subordinates who report DIRECTLY to a manager. Wide span = many direct reports (flat structure). Narrow span = fewer direct reports (tall structure)." },
+  { term: "Delegation", def: "The process where a manager gives a subordinate authority and responsibility to make certain decisions. The manager remains ultimately responsible for the outcome." },
+  { term: "Accountability", def: "The responsibility a person has for a job — they take blame for what goes wrong as well as credit for what goes well." },
+  { term: "Delayering", def: "When a business reduces the number of layers in its organisational structure, making it flatter. Often done to save money and speed up communication." },
+  { term: "Tall structure — key features", def: "Many layers; narrow span of control; longer chain of command. Benefits: clear authority, promotion opportunities, easier supervision. Drawbacks: slow communication, messages distorted, workers feel over-controlled." },
+  { term: "Flat structure — key features", def: "Few layers (2–3); wide span of control; shorter chain of command. Benefits: faster communication, workers feel trusted, saves on manager salaries. Drawbacks: few promotions, managers can be overloaded." },
+  { term: "Full-time vs part-time", def: "Full-time: 35+ hours/week. Part-time: under 35 hours. BOTH have the same employment rights. Part-time allows businesses to cover peaks; workers gain flexibility but earn less." },
+  { term: "Zero-hours contract", def: "A contract where the worker is not guaranteed any hours. Called in when needed. Benefit: flexibility for business. Drawback: income insecurity for worker; communication can be poor." },
+  { term: "Flexible working", def: "Working at variable times or partly away from the main workplace. Includes flexi-time, shift working, and home/hybrid working." },
+  { term: "Hybrid working", def: "Working part of the time at home and part in an office. BP moved 6,000 staff to hybrid (3 days office, 2 days home) to reduce London office costs." },
+  { term: "Home working — business benefits", def: "Saves costs on office space/rent; can recruit workers who don't need to live locally; often increases productivity." },
+  { term: "Home working — business drawbacks", def: "Harder to monitor if work is being done; communication can be poor; costs of buying technology for home use." },
+  { term: "Self-employment — pros", def: "Being your own boss; high motivation; can earn more by working harder or faster; freedom to choose clients and projects." },
+  { term: "Self-employment — cons", def: "No guaranteed income; no holiday pay; no sick pay; no employer pension contributions; loss of employment rights (e.g. unfair dismissal protection)." },
+  { term: "Leigh Hire Ltd delayering", def: "Removed two supervisor roles (£35k each = £70k saved). Service Manager pay rise = +£10k. Net annual saving = £60,000. Risk: wider span of control may worsen communication and quality." },
+  { term: "Griffin Engineering Ltd", def: "Functional hierarchy with 5 layers. Sales Manager has span of control of 5. Illustrates delegation (Production Manager → Stock Control Manager) and chain of command." },
+  { term: "Beautiful Buds plc (delayering numbers)", def: "Remove Middle Managers = £600k saving. Remove Team Leaders = £700k saving. Add 10 supervisors = £300k extra. One-off redundancy costs = £200k. Net annual saving = £1,000,000." }
+];
+
+const tfData = [
+  { statement: "A tall organisational structure has a wide span of control.", answer: false, explanation: "Tall structures have a NARROW span of control — each manager supervises fewer people. FLAT structures have a wide span of control." },
+  { statement: "Delayering means adding more layers to an organisational structure.", answer: false, explanation: "Delayering means REMOVING layers to make the structure flatter. It reduces the number of management levels, usually to save money and speed up communication." },
+  { statement: "The span of control of a manager with 3 supervisors, each managing 20 workers, is 3.", answer: true, explanation: "Correct. Span of control only counts DIRECT reports. The 3 supervisors report directly to the manager. The 60 workers report to their supervisors — not directly to the manager." },
+  { statement: "Part-time workers have fewer employment rights than full-time workers.", answer: false, explanation: "This is a common misconception. Part-time employees have EXACTLY THE SAME employment rights as full-time workers. The number of hours worked does not affect their rights." },
+  { statement: "A flat organisational structure is best suited to large, non-creative businesses.", answer: false, explanation: "Flat structures suit creative businesses (e.g. game design) and smaller businesses. Large, non-creative businesses with clear tasks tend to suit TALL structures with defined authority." },
+  { statement: "Delegation means giving a subordinate responsibility for a task while the manager remains ultimately accountable.", answer: true, explanation: "Correct. Delegation gives the subordinate authority and responsibility to make certain decisions, but the manager is still ultimately responsible for the outcome." },
+  { statement: "Working from home always increases worker productivity.", answer: false, explanation: "It CAN increase productivity (less commute stress, flexible hours) but NOT always. Distractions at home (children, TV) and social isolation can reduce productivity. The effect varies by individual and role." },
+  { statement: "Leigh Hire Ltd's delayering plan would save £70,000 in wages per year.", answer: false, explanation: "The saving is £60,000. Two roles at £35,000 each = £70,000 saved. MINUS the £10,000 pay rise for the Service Manager = net saving of £60,000 per year." },
+  { statement: "A zero-hours worker is not guaranteed any work hours each week.", answer: true, explanation: "Correct. Zero-hours contracts mean the worker has a contract but is not guaranteed any hours. They are called in when needed, sometimes at very short notice." },
+  { statement: "Autocratic leaders tend to prefer flat organisational structures.", answer: false, explanation: "Autocratic leaders prefer TALL structures because they give more control — narrow spans of control mean managers have fewer people to supervise, and the long chain of command keeps authority centralised at the top." },
+  { statement: "Hybrid working means working entirely from home, with no time in the office.", answer: false, explanation: "Hybrid working means working PART of the time at home AND part in the office — not entirely from home. Working entirely from home is simply 'working from home'." },
+  { statement: "A self-employed person receives holiday pay from a client business.", answer: false, explanation: "Self-employed workers are NOT employees. They do not receive holiday pay, sick pay or employer pension contributions from the businesses they work for. This is one of the key disadvantages of self-employment." },
+  { statement: "JD Wetherspoon uses flexible contracts with shifts varying from 4 to 10 hours based on demand.", answer: true, explanation: "Correct. JD Wetherspoon uses flexible-working contracts where shifts vary between 4 and 10 hours to match demand — more staff during busy lunch and evening periods, fewer during quiet mornings." },
+  { statement: "Beautiful Buds plc would make a net annual saving of £1 million from its delayering plan, after removing Middle Managers and Team Leaders and adding supervisors.", answer: true, explanation: "Correct. £600k (Middle Managers) + £700k (Team Leaders) = £1.3m saved. Less £300k (10 new supervisors) = £1m net annual saving. The £200k redundancy is a one-off cost." }
+];
+
+// ══════════════════════════════════════
+//  EXAM PRACTICE DATA
+// ══════════════════════════════════════
+
+const examQuestions = [
+  {
+    num: "Q1", marks: 1, type: "mcq",
+    caseStudy: "",
+    question: "A business with a tall organisational structure will have:",
+    options: ["A high market share","Lots of distribution channels","Multiple layers of authority","Short chains of command"],
+    answer: 2,
+    hint: "Think about what 'tall' means physically — many floors/layers stacked on top of each other. What does each floor represent?",
+    starter: "A tall organisational structure is one that has...",
+    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — Multiple layers of authority</strong></p></div>
+<div class="marks-section"><h5>Why</h5><p>A tall structure is defined by having many levels (layers) of authority from top to bottom. This creates long chains of command. Market share and distribution channels have nothing to do with organisational structure.</p></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q2", marks: 1, type: "mcq",
+    caseStudy: "",
+    question: "A clothing designer may choose to flatten its organisational structure to reduce the:",
+    options: ["Creativity of its garment designers","Independence of its fabric buyers","Need for innovation and change","Time it takes to respond to changes in fashion"],
+    answer: 3,
+    hint: "A flat structure has fewer layers. What does fewer layers mean for the speed of getting a decision from the top to the bottom of the business?",
+    starter: "A flat structure reduces the number of layers, which means...",
+    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>D — Time it takes to respond to changes in fashion</strong></p></div>
+<div class="marks-section"><h5>Why</h5><p>Fewer layers means fewer people for messages and decisions to pass through — so communication is faster. A clothing designer can therefore respond more quickly to changes in fashion trends. Flattening does not reduce creativity — it usually enhances it by giving workers more trust and authority.</p></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q3", marks: 1, type: "mcq",
+    caseStudy: "An extract from the organisation chart of a manufacturing company is shown below.\n\nManaging Director\n↓\nProduction Manager\n↓\nProduction Supervisor (×3)\n↓\n20 Production Workers (under each supervisor)",
+    question: "The span of control of the Production Manager is:",
+    options: ["1","3","21","63"],
+    answer: 1,
+    hint: "Span of control = the number of people who report DIRECTLY to that manager. Who reports directly to the Production Manager — not who is below in the hierarchy?",
+    starter: "The span of control is the number of subordinates who report directly to...",
+    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>B — 3</strong></p></div>
+<div class="marks-section"><h5>Why</h5><p>Span of control only counts DIRECT reports. Three Production Supervisors report directly to the Production Manager. The 20 workers under each supervisor report to their supervisor — not directly to the Production Manager. Therefore span = 3, not 21 or 63.</p></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q4 (i)", marks: 3, type: "extended",
+    caseStudy: "HSBC offers a range of banking and financial services for personal and business customers. The bank has branches in many cities and towns across the UK. Employing the best people is important to HSBC. It uses several methods to select new employees. Once appointed, all employees are offered training and development opportunities that include studying for academic qualifications such as degrees and professional diplomas. Over 70% of HSBC's call centre employees in the UK have begun working from home permanently. Before this change the employees worked together in a busy call centre. The tasks performed by call centre employees are varied, but include taking telephone calls from customers and completing administrative work, such as opening new bank accounts. Senior managers are now considering whether to introduce working from home for all of its UK call centre employees.",
+    question: "Analyse one advantage for HSBC of its UK call centre employees working from home. [3 marks]",
+    hint: "Think about what a business GAINS when employees work from home. Consider: office costs, recruitment, productivity, or staff wellbeing. Link your advantage to the specific details about HSBC in the case study.",
+    starter: "One advantage for HSBC of its employees working from home is... This is because... As a result, HSBC could...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation</h5><ul><li><strong>AO1b — Understanding (1 mark):</strong> Identify a business advantage of home working (e.g. motivation, lower overhead costs, wider recruitment pool, higher productivity, lower absenteeism)</li><li><strong>AO2 — Application (1 mark):</strong> Link to HSBC using case study detail (e.g. 70% already working from home; busy call centre; tasks include opening bank accounts)</li><li><strong>AO3a — Analysis (1 mark):</strong> Show the business-facing impact (e.g. improves cash flow, increases customer satisfaction, increases profit)</li></ul></div>`,
+    modelAnswer: `<strong>Model Answer 1:</strong> It improves staff motivation (U) because employees at HSBC no longer need to commute to a busy call centre (APP). This could lead to better customer service when opening bank accounts, improving HSBC's reputation (AN).<br><br><strong>Model Answer 2:</strong> Staff absenteeism may reduce (U) as 70% of HSBC's UK call centre employees already enjoy working from home (APP). This will reduce HSBC's operating costs, freeing up funds to invest in training and development (AN).`
+  },
+  {
+    num: "Q4 (ii)", marks: 3, type: "extended",
+    caseStudy: "HSBC offers a range of banking and financial services for personal and business customers. The bank has branches in many cities and towns across the UK. Employing the best people is important to HSBC. It uses several methods to select new employees. Once appointed, all employees are offered training and development opportunities that include studying for academic qualifications such as degrees and professional diplomas. Over 70% of HSBC's call centre employees in the UK have begun working from home permanently. Before this change the employees worked together in a busy call centre. The tasks performed by call centre employees are varied, but include taking telephone calls from customers and completing administrative work, such as opening new bank accounts. Senior managers are now considering whether to introduce working from home for all of its UK call centre employees.",
+    question: "Analyse one disadvantage for HSBC of its UK call centre employees working from home. [3 marks]",
+    hint: "What problems does a business face when it cannot see its employees? Think about monitoring, communication between colleagues, or the cost of setting up home working. Link your answer to HSBC specifically.",
+    starter: "One disadvantage for HSBC of its employees working from home is... This is because... As a result...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation</h5><ul><li><strong>AO1b — Understanding (1 mark):</strong> Identify a business disadvantage of home working (e.g. difficult to monitor/manage, limited teamwork, reduced productivity if distracted, cost of providing IT equipment)</li><li><strong>AO2 — Application (1 mark):</strong> Link to HSBC using case study detail</li><li><strong>AO3a — Analysis (1 mark):</strong> Show the negative business-facing impact (e.g. damage to reputation, higher costs, reduced service quality)</li></ul></div>`,
+    modelAnswer: `<strong>Model Answer 1:</strong> There is limited control over staff (U) which could impact negatively on the services provided for business and personal customers (APP), damaging the bank's reputation if calls are handled poorly (AN).<br><br><strong>Model Answer 2:</strong> Since 70% of call centre employees already work from home (APP), a lot of IT equipment needs to be purchased for the remaining 30% (U), which will significantly increase HSBC's costs (AN).`
+  },
+  {
+    num: "Q4 (iii)", marks: 3, type: "extended",
+    caseStudy: "HSBC offers a range of banking and financial services for personal and business customers. The bank has branches in many cities and towns across the UK. Employing the best people is important to HSBC. It uses several methods to select new employees. Once appointed, all employees are offered training and development opportunities that include studying for academic qualifications such as degrees and professional diplomas. Over 70% of HSBC's call centre employees in the UK have begun working from home permanently. Before this change the employees worked together in a busy call centre. The tasks performed by call centre employees are varied, but include taking telephone calls from customers and completing administrative work, such as opening new bank accounts. Senior managers are now considering whether to introduce working from home for all of its UK call centre employees.",
+    question: "Recommend whether HSBC should introduce working from home for all of its UK call centre employees. Give a reason for your answer. [3 marks]",
+    hint: "Make a CLEAR recommendation first (yes or no). Then give TWO reasons that use specific details from the HSBC case study to justify your recommendation — not just general points.",
+    starter: "HSBC should / should not introduce working from home for all call centre employees because...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation</h5><ul><li><strong>AO3b — Evaluation (3 marks):</strong> 1 mark for a judgement (Yes or No). Up to 2 further marks for a contextual justification using case study detail. 1 mark for non-contextual justification.</li></ul></div>`,
+    modelAnswer: `<strong>Model Answer — Yes:</strong> HSBC should introduce working from home for all UK call centre employees (1) because it will reduce overheads further now that the other 30% of workers start working from home — saving on the cost of maintaining a large call centre building (CONT +1). Staff morale is also likely to improve as all employees gain the same flexibility as the 70% already at home, which can improve the quality of customer service when opening bank accounts (CONT +2).<br><br><strong>Model Answer — No:</strong> HSBC should keep some call centre employees working in the call centre (1) because certain tasks, such as opening new bank accounts, may require closer supervision and teamwork to ensure accuracy and compliance (CONT +1), and maintaining a physical presence reduces the risk of poor customer service damaging HSBC's reputation (CONT +2).`
+  },
+  {
+    num: "Q5", marks: 2, type: "extended",
+    caseStudy: "Dyson Ltd produces a range of home appliances including vacuum cleaners, hand dryers, heaters, hair dryers and lights. Creating new and innovative products continues to be important for the company. The company has over 12,000 employees worldwide and a unique organisational structure.",
+    question: "Explain one reason why businesses have different organisational structures. [2 marks]",
+    hint: "Think about what factors affect whether a business needs many layers (tall) or few layers (flat). Consider: size, type of work, leadership style, or how creative the work is.",
+    starter: "One reason why businesses have different organisational structures is... This means that...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation</h5><ul><li><strong>AO1a — Knowledge (1 mark):</strong> Identify a reason (e.g. size of business, nature of industry, objectives, style of management, skills of employees)</li><li><strong>AO1b — Understanding (1 mark):</strong> Explain how this reason relates to the structure chosen (e.g. number of layers, chain of command, span of control)</li></ul></div>`,
+    modelAnswer: `<strong>Model Answer 1:</strong> A creative business like Dyson (1) would prefer a flat structure with few layers (+1) so that employees feel trusted to innovate and share ideas freely with managers.<br><br><strong>Model Answer 2:</strong> As an organisation grows in size with 12,000+ employees (1), it may choose to appoint more managers, adding more layers to the structure (+1) to ensure clear lines of authority and supervision.`
+  },
+  {
+    num: "Q6", marks: 2, type: "extended",
+    caseStudy: "",
+    question: "Part-time is one way of working. State two other ways of working. [2 marks]",
+    hint: "There are many ways of working covered in this unit. Think about: hours, location, contract type, or employment status.",
+    starter: "Two other ways of working are: 1)... 2)...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation</h5><p>1 mark for each correct way of working (maximum 2).</p><p><strong>Acceptable answers include:</strong> Full-time, Temporary/fixed term, Permanent, Flexible working/flexi-time, Zero hours, Shift work, Working from home, Working whilst mobile, Self-employed/Freelance.</p></div>`,
+    modelAnswer: `<strong>Model Answer:</strong> 1) Full-time working (35+ hours per week with a permanent contract). 2) Working from home / hybrid working (completing work tasks at home rather than at a workplace).`
+  },
+  {
+    num: "Q7 (i)", marks: 6, type: "extended",
+    caseStudy: "Miles Ahead is a bicycle retailer set up in 2001 by Reg Patel. There are now six shops. Reg operates as a sole trader with 15 employees and a tall organisational structure. Sales revenue has fallen over the past two years and customer satisfaction survey results show increasing dissatisfaction. Nessa, Reg's daughter, has taken over management of the business. She is considering changing the structure.",
+    question: "Analyse one benefit for Miles Ahead of each of the following organisational structures. [6 marks]\na) Tall organisational structure [3 marks]\nb) Flat organisational structure [3 marks]",
+    hint: "For each structure, follow the 3-mark chain: (1) State a benefit of the structure. (2) Link it to Miles Ahead using specific case study detail (6 shops, falling sales, 15 employees, customer dissatisfaction). (3) Show the business impact — how does this benefit help Miles Ahead's specific problem?",
+    starter: "a) One benefit of a tall organisational structure for Miles Ahead is... This means that... As a result, Miles Ahead could...\n\nb) One benefit of a flat organisational structure for Miles Ahead is... This means that... As a result, Miles Ahead could...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — Each structure worth 3 marks</h5><ul><li><strong>AO1b — Understanding (1 mark each):</strong> State a benefit of the structure</li><li><strong>AO2 — Application (1 mark each):</strong> Link to Miles Ahead using case study evidence</li><li><strong>AO3a — Analysis (1 mark each):</strong> Show the business-facing impact</li></ul></div>`,
+    modelAnswer: `<strong>Tall structure model answer:</strong> There will be more opportunities for promotion (U) across the six shops at Miles Ahead (APP) which will encourage employees to work harder to climb the hierarchy, potentially improving customer satisfaction scores (AN).<br><br><strong>Flat structure model answer:</strong> Vertical communication will be quicker with fewer layers (U) which may help Nessa respond quickly to problems in all six stores (APP), helping to reverse the declining sales revenue and customer dissatisfaction (AN).`
+  },
+  {
+    num: "Q7 (ii)", marks: 3, type: "extended",
+    caseStudy: "Miles Ahead is a bicycle retailer set up in 2001 by Reg Patel. There are now six shops. Reg operates as a sole trader with 15 employees and a tall organisational structure. Sales revenue has fallen over the past two years and customer satisfaction survey results show increasing dissatisfaction. Nessa, Reg's daughter, has taken over management of the business. She is considering changing the structure.",
+    question: "Recommend which type of organisational structure would be the most appropriate for Nessa to use at Miles Ahead. Give reasons for your answer. [3 marks]",
+    hint: "State your recommendation clearly first. Then give TWO reasons using specific details from the Miles Ahead case study (falling sales, falling customer satisfaction, 6 shops, 15 employees). The recommendation must relate to the business's specific problems.",
+    starter: "Miles Ahead should use a [tall/flat] organisational structure because...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation</h5><ul><li>1 mark for a clear recommendation (tall OR flat)</li><li>Up to 2 further marks for a contextual justification using Miles Ahead case study details</li></ul></div>`,
+    modelAnswer: `<strong>Model Answer — Flat structure:</strong> Miles Ahead should move to a flat structure (1) so that decisions can be made more quickly to reverse the fall in sales revenue seen since Reg handed over to Nessa (CONT +1). Faster communication between the six shops and Nessa will also allow her to respond quickly to customer complaints, which should improve the declining satisfaction survey results (CONT +2).`
+  },
+  {
+    num: "Q8", marks: 3, type: "extended",
+    caseStudy: "EDF owns two fossil fuel power stations, three wind farms and eight nuclear power stations. During the construction of Hinkley Point C, the project has created thousands of jobs, many filled by self-employed workers.",
+    question: "Analyse one benefit for EDF of using self-employed workers during the construction of Hinkley Point C nuclear power station. [3 marks]",
+    hint: "What do self-employed workers NOT get from EDF that permanent employees would? Think about costs (sick pay, holiday pay, pension contributions). Also think about the NATURE of construction — is it a permanent or temporary need for specific skills?",
+    starter: "One benefit for EDF of using self-employed workers is... This is relevant because at Hinkley Point C... This means that EDF...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation</h5><ul><li><strong>AO1b — Understanding (1 mark):</strong> Identify a benefit of using self-employed workers (e.g. flexibility, no pension/sick pay costs, no long-term commitment, specialist skills available only when needed)</li><li><strong>AO2 — Application (1 mark):</strong> Link to EDF and Hinkley Point C specifically</li><li><strong>AO3a — Analysis (1 mark):</strong> Show the business-facing benefit (e.g. lower costs, reduced financial risk, greater flexibility)</li></ul></div>`,
+    modelAnswer: `<strong>Model Answer:</strong> EDF can benefit from specialist skills only as and when required (U). The construction of Hinkley Point C nuclear power station will require certain specialist construction skills at specific stages through to its completion (APP). This means EDF's costs will be lower because it is not committed to long-term ongoing employment costs such as sick pay, holiday pay or pension contributions for workers who are not needed permanently (AN).`
+  },
+  {
+    num: "Q9 (i)", marks: 1, type: "mcq",
+    caseStudy: "Boots UK is a leading retailer with about 2,500 stores. Stores are busy from September to December, and a Christmas recruitment campaign is run every year to find temporary staff.",
+    question: "State one advantage to a business of using temporary employees. [1 mark]",
+    options: ["Workers can be paid below the minimum wage during busy periods","The business only pays for workers when it is busy, reducing costs","Temporary workers never require any training or induction","Discrimination laws do not apply to temporary workers"],
+    answer: 1,
+    hint: "Why would Boots specifically want temporary workers at Christmas? Think about what happens to demand in September–December and how temporary workers help manage costs.",
+    starter: "One advantage to a business of using temporary employees is...",
+    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>B — The business only pays for workers when it is busy, reducing costs</strong></p></div>
+<div class="marks-section"><h5>Acceptable answers for 1 mark</h5><ul><li>Workers are only paid when needed / during busy periods</li><li>Easier to recruit flexible staff for short periods</li><li>Can check workers' potential before offering a permanent contract</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q9 (ii)", marks: 1, type: "mcq",
+    caseStudy: "Boots UK is a leading retailer with about 2,500 stores. Stores are busy from September to December, and a Christmas recruitment campaign is run every year to find temporary staff.",
+    question: "State one disadvantage to a business of using temporary employees. [1 mark]",
+    options: ["Temporary staff are always less productive than permanent staff","The business must provide holiday pay to temporary staff from day one","There may be a lack of skilled or committed applicants for temporary roles","Temporary employees always need more supervision than permanent staff"],
+    answer: 2,
+    hint: "What problems might Boots face when it tries to find good workers for just a few months? Think about commitment, skills, and the cost of getting them ready to work.",
+    starter: "One disadvantage to a business of using temporary employees is...",
+    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — There may be a lack of skilled or committed applicants for temporary roles</strong></p></div>
+<div class="marks-section"><h5>Acceptable answers for 1 mark</h5><ul><li>Lack of skilled or committed applicants</li><li>Costly to train workers for only a short period</li><li>Workers may not stay for the full contract if a better opportunity arises</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q10", marks: 9, type: "extended",
+    caseStudy: "Beautiful Buds plc grows plants sold to garden centres. The MD is planning to change its organisational structure by removing two layers of management (Middle Managers and Team Leaders). Redundancy costs are estimated at £200,000.\n\nCurrent structure (124 employees): 3 Directors, 9 Senior Managers, 12 Middle Managers (average salary £50,000), 20 Team Leaders (average salary £35,000), 30 Supervisors (average salary £30,000), 50 Operatives.\n\nPlanned structure: 3 Directors, 9 Senior Managers, 40 Supervisors (10 new supervisors to be recruited at £30,000 each), 50 Operatives.",
+    question: "Discuss, with reference to the data in the case study, whether Beautiful Buds plc should go ahead with the plan to change its organisational structure. [9 marks]",
+    hint: "This is a 9-mark discuss question. Use this structure: K (define delayering) → U (explain what it involves) → APP x2 (use the NUMBERS from the case study — calculate the savings!) → AN x2 (show the business impact of savings AND risks) → EVAL x3 (overall judgement with justification). Key calculation: 12 × £50k = £600k + 20 × £35k = £700k saved. 10 × £30k = £300k new cost. £200k redundancy one-off. Net annual saving = £1,000,000.",
+    starter: "Delayering is when a business reduces the number of layers in its structure... By removing Middle Managers and Team Leaders, Beautiful Buds could save... However, there are risks because... Overall, I think Beautiful Buds [should/should not] go ahead because...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation (9 marks)</h5><ul><li><strong>AO1a — Knowledge (1 mark):</strong> Define delayering / organisational structure change</li><li><strong>AO1b — Understanding (1 mark):</strong> Explain what the process involves (removing layers, redundancies)</li><li><strong>AO2 — Application (2 marks):</strong> Use data from the case study — e.g. £600k saving from Middle Managers, £700k from Team Leaders, £300k new supervisor costs, £200k redundancy</li><li><strong>AO3a — Analysis (2 marks):</strong> Show business impact: cost savings enabling reinvestment OR risks to communication/motivation</li><li><strong>AO3b — Evaluation (3 marks):</strong> Clear judgement (1) + justified with context (up to 2) referencing specific figures and long-term vs short-term impact</li></ul></div>
+<div class="marks-section"><h5>Key Numbers to Use</h5><ul><li>12 Middle Managers × £50,000 = £600,000 saved</li><li>20 Team Leaders × £35,000 = £700,000 saved</li><li>10 new Supervisors × £30,000 = £300,000 new cost</li><li>Net annual saving = £1,000,000</li><li>One-off redundancy cost = £200,000</li></ul></div>`,
+    modelAnswer: `<strong>Full marks model answer:</strong> Delayering is when a business reduces the number of layers in its organisational structure (K). This means removing layers of management, which usually leads to redundancies and a flatter structure (U). Beautiful Buds would save £600,000 by removing its 12 Middle Managers (APP) and a further £700,000 by removing its 20 Team Leaders (APP). After the cost of 10 new supervisors (£300,000), the net annual saving is £1,000,000 which could be reinvested in developing new plant varieties to grow the business (AN). However, removing these layers reduces promotion opportunities for the 30 supervisors and 50 operatives, which may lead to demotivation and higher staff turnover, increasing recruitment costs (AN). Overall, Beautiful Buds should go ahead with delayering (EVAL) because the £1,000,000 annual saving far outweighs the one-off £200,000 redundancy cost (EVAL). In the long term, the business can reinvest these savings in expanding its product range to grow market share with garden centres (EVAL).`
+  }
+];
+
+// ══════════════════════════════════════
+//  TAB SWITCHER
+// ══════════════════════════════════════
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ══════════════════════════════════════
+//  BUILD LEARN
+// ══════════════════════════════════════
+function buildLearn() {
+  const grid = document.getElementById('topicGrid');
+  topics.forEach(t => {
+    const card = document.createElement('div');
+    card.className = 'topic-card';
+    card.innerHTML = `<span class="tag">${t.tag}</span><h3>${t.title}</h3><span class="toggle-icon">+</span><div class="topic-content">${t.content}</div>`;
+    card.addEventListener('click', () => card.classList.toggle('open'));
+    grid.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+//  BUILD MCQ
+// ══════════════════════════════════════
+let mcqScore = 0, mcqTotal = 0;
+function buildMCQ() {
+  const wrap = document.getElementById('mcqWrap');
+  mcqData.forEach((q, qi) => {
+    const block = document.createElement('div');
+    block.className = 'q-block';
+    block.innerHTML = `<div class="q-num">QUESTION ${qi+1}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="options">${q.opts.map((o,oi)=>`<button class="opt-btn" data-qi="${qi}" data-oi="${oi}">${o}</button>`).join('')}</div>
+      <div class="q-feedback" id="qfb-${qi}"></div>`;
+    wrap.appendChild(block);
+  });
+  wrap.addEventListener('click', e => {
+    if (!e.target.classList.contains('opt-btn')) return;
+    const qi = +e.target.dataset.qi, oi = +e.target.dataset.oi;
+    const block = e.target.closest('.q-block');
+    if (block.dataset.answered) return;
+    block.dataset.answered = 1; mcqTotal++;
+    block.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
+    const fb = document.getElementById(`qfb-${qi}`);
+    if (oi === mcqData[qi].ans) {
+      e.target.classList.add('correct');
+      fb.textContent = '✓ Correct! ' + mcqData[qi].explain;
+      fb.className = 'q-feedback show ok'; mcqScore++;
+    } else {
+      e.target.classList.add('wrong');
+      block.querySelectorAll('.opt-btn')[mcqData[qi].ans].classList.add('correct');
+      fb.textContent = '✗ ' + mcqData[qi].explain;
+      fb.className = 'q-feedback show no';
+    }
+    document.getElementById('mcqScore').textContent = mcqScore;
+    document.getElementById('mcqTotal').textContent = mcqTotal;
+  });
+}
+function resetMCQ() {
+  mcqScore = 0; mcqTotal = 0;
+  document.getElementById('mcqScore').textContent = 0;
+  document.getElementById('mcqTotal').textContent = 0;
+  document.getElementById('mcqWrap').innerHTML = '';
+  buildMCQ();
+}
+
+// ══════════════════════════════════════
+//  BUILD MATCHING
+// ══════════════════════════════════════
+let matchSelected = null, matchScore = 0, matchTotal = 0;
+const matchMistakes = new Set();
+let matchLocked = false;
+function buildMatch() {
+  matchTotal = matchData.length;
+  document.getElementById('matchTotal').textContent = matchTotal;
+  const left = document.getElementById('matchLeft');
+  const right = document.getElementById('matchRight');
+  const shuffled = [...matchData].sort(() => Math.random() - .5);
+  matchData.forEach(m => { const el = document.createElement('div'); el.className = 'match-item'; el.textContent = m.term; el.dataset.key = m.term; el.dataset.side = 'left'; left.appendChild(el); });
+  shuffled.forEach(m => { const el = document.createElement('div'); el.className = 'match-item'; el.textContent = m.def; el.dataset.key = m.term; el.dataset.side = 'right'; right.appendChild(el); });
+  document.getElementById('matchLeft').addEventListener('click', handleMatch);
+  document.getElementById('matchRight').addEventListener('click', handleMatch);
+}
+function handleMatch(e) {
+  if (matchLocked) return;
+  const item = e.target.closest('.match-item');
+  if (!item || item.classList.contains('matched-ok') || item.classList.contains('matched-eventual')) return;
+  if (!matchSelected) { document.querySelectorAll('.match-item.selected').forEach(x => x.classList.remove('selected')); item.classList.add('selected'); matchSelected = item; }
+  else {
+    if (matchSelected === item) { item.classList.remove('selected'); matchSelected = null; return; }
+    if (matchSelected.dataset.side === item.dataset.side) { matchSelected.classList.remove('selected'); matchSelected = item; item.classList.add('selected'); return; }
+    const a = matchSelected, b = item; a.classList.remove('selected'); b.classList.remove('selected'); matchSelected = null;
+    if (a.dataset.key === b.dataset.key) {
+      const cls = matchMistakes.has(a.dataset.key) ? 'matched-eventual' : 'matched-ok';
+      a.classList.add(cls); b.classList.add(cls); matchScore++; document.getElementById('matchScore').textContent = matchScore;
+    } else {
+      matchLocked = true; matchMistakes.add(a.dataset.key); matchMistakes.add(b.dataset.key);
+      a.classList.add('matched-no'); b.classList.add('matched-no');
+      setTimeout(() => { a.classList.remove('matched-no'); b.classList.remove('matched-no'); matchLocked = false; }, 700);
+    }
+  }
+}
+function resetMatch() {
+  matchScore = 0; matchSelected = null; matchLocked = false; matchMistakes.clear();
+  document.getElementById('matchScore').textContent = 0;
+  document.getElementById('matchLeft').innerHTML = '';
+  document.getElementById('matchRight').innerHTML = '';
+  buildMatch();
+}
+
+// ══════════════════════════════════════
+//  BUILD FIB
+// ══════════════════════════════════════
+let fibScore = 0, fibCorrectTotal = 0;
+function buildFIB() {
+  fibCorrectTotal = fibData.reduce((a, f) => a + Object.keys(f.blanks).length, 0);
+  document.getElementById('fibTotal').textContent = fibCorrectTotal;
+  const wrap = document.getElementById('fibWrap');
+  fibData.forEach((f, fi) => {
+    const div = document.createElement('div'); div.className = 'fib-sentence';
+    const correctAnswers = Object.values(f.blanks);
+    const distractors = fibWords.filter(w => !correctAnswers.includes(w)).sort(() => Math.random() - .5).slice(0, 4);
+    let html = f.display, bi = 0;
+    html = html.replace(/_____/g, () => {
+      const key = Object.keys(f.blanks)[bi]; const ans = f.blanks[key]; bi++;
+      const opts = [ans, ...distractors.filter(d => d !== ans).slice(0, 3)].sort(() => Math.random() - .5);
+      const optHTML = ['— choose —', ...opts].map(o => `<option value="${o === '— choose —' ? '' : o}">${o}</option>`).join('');
+      return `<span class="blank-select" data-fi="${fi}" data-key="${key}" data-ans="${ans}"><select>${optHTML}</select></span>`;
+    });
+    div.innerHTML = html; wrap.appendChild(div);
+  });
+  wrap.addEventListener('change', e => {
+    const sel = e.target; if (sel.tagName !== 'SELECT') return;
+    const wrapper = sel.closest('.blank-select'); if (!wrapper || wrapper.dataset.answered === 'correct') return;
+    const chosen = sel.value, ans = wrapper.dataset.ans; if (!chosen) return;
+    if (chosen === ans) { wrapper.dataset.answered = 'correct'; wrapper.classList.remove('wrong'); wrapper.classList.add('correct'); sel.disabled = true; fibScore++; document.getElementById('fibScore').textContent = fibScore; }
+    else { wrapper.classList.remove('correct'); wrapper.classList.add('wrong'); setTimeout(() => { wrapper.classList.remove('wrong'); sel.value = ''; }, 700); }
+  });
+}
+function resetFIB() { fibScore = 0; document.getElementById('fibScore').textContent = 0; document.getElementById('fibWrap').innerHTML = ''; buildFIB(); }
+
+// ══════════════════════════════════════
+//  BUILD MISCONCEPTIONS
+// ══════════════════════════════════════
+function buildMisc() {
+  const list = document.getElementById('miscList');
+  miscData.forEach(m => {
+    const card = document.createElement('div'); card.className = 'misc-card';
+    card.innerHTML = `<div class="wrong-view"><div class="misc-tag">✗ Common Student View</div><p>${m.wrong}</p></div><div class="correct-view"><div class="misc-tag">✓ Examiner's Correct View</div><p>${m.correct}</p></div>`;
+    list.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+//  BUILD EXAM TIPS
+// ══════════════════════════════════════
+function buildTips() {
+  const grid = document.getElementById('tipsGrid');
+  examTips.forEach(t => {
+    const card = document.createElement('div'); card.className = 'tip-card';
+    const pills = t.pills.map(p => `<span class="mark-pill ${p}">${p.toUpperCase()}</span>`).join('');
+    card.innerHTML = `<div class="tip-type">${t.type}</div><h4>${t.title}</h4><p>${t.content}</p>${t.pills.length ? `<div class="mark-breakdown">${pills}</div>` : ''}`;
+    grid.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+//  FLASHCARDS
+// ══════════════════════════════════════
+let fcIndex = 0;
+function renderFC() {
+  const fc = flashcards[fcIndex];
+  document.getElementById('fcTerm').textContent = fc.term;
+  document.getElementById('fcDef').textContent = fc.def;
+  document.getElementById('fcProgress').textContent = `Card ${fcIndex+1} of ${flashcards.length}`;
+  document.getElementById('flashcard').classList.remove('flipped');
+}
+function flipCard() { document.getElementById('flashcard').classList.toggle('flipped'); }
+function nextCard() { fcIndex = (fcIndex + 1) % flashcards.length; renderFC(); }
+function prevCard() { fcIndex = (fcIndex - 1 + flashcards.length) % flashcards.length; renderFC(); }
+
+// ══════════════════════════════════════
+//  BUILD TRUE / FALSE
+// ══════════════════════════════════════
+let tfScore = 0, tfTotal = 0;
+function buildTF() {
+  const wrap = document.getElementById('tfWrap');
+  tfData.forEach((item, i) => {
+    const card = document.createElement('div'); card.className = 'tf-card';
+    card.innerHTML = `<div><div class="tf-text">${item.statement}</div><div class="tf-explanation" id="tfExp-${i}">${item.explanation}</div></div>
+    <div class="tf-btns"><button class="tf-btn" data-i="${i}" data-val="true">TRUE</button><button class="tf-btn" data-i="${i}" data-val="false">FALSE</button></div>`;
+    wrap.appendChild(card);
+  });
+  wrap.addEventListener('click', e => {
+    const btn = e.target.closest('.tf-btn'); if (!btn) return;
+    const i = +btn.dataset.i; const card = btn.closest('.tf-card');
+    if (card.dataset.answered) return;
+    card.dataset.answered = 1;
+    const val = btn.dataset.val === 'true'; const correct = val === tfData[i].answer; tfTotal++;
+    card.querySelectorAll('.tf-btn').forEach(b => b.disabled = true);
+    if (correct) { btn.classList.add('correct'); tfScore++; }
+    else { btn.classList.add('wrong'); card.querySelectorAll('.tf-btn').forEach(b => { if (b.dataset.val === String(tfData[i].answer)) b.classList.add('correct'); }); }
+    document.getElementById(`tfExp-${i}`).classList.add('show');
+    document.getElementById('tfScore').textContent = tfScore;
+    document.getElementById('tfTotal').textContent = tfTotal;
+  });
+}
+function resetTF() {
+  tfScore = 0; tfTotal = 0;
+  document.getElementById('tfScore').textContent = 0;
+  document.getElementById('tfTotal').textContent = 0;
+  document.getElementById('tfWrap').innerHTML = '';
+  buildTF();
+}
+
+// ══════════════════════════════════════
+//  BUILD EXAM PRACTICE
+// ══════════════════════════════════════
+function buildExamPractice() {
+  const list = document.getElementById('epList');
+
+  examQuestions.forEach((q, qi) => {
+    const card = document.createElement('div');
+    card.className = 'ep-card';
+
+    const caseHtml = q.caseStudy ? `<div class="ep-case">${q.caseStudy.replace(/\n/g,'<br>')}</div>` : '';
+
+    let interactiveHtml = '';
+    if (q.type === 'mcq') {
+      interactiveHtml = `<div class="ep-mcq-opts">${q.options.map((o,oi) =>
+        `<button class="ep-opt" data-qi="${qi}" data-oi="${oi}"><strong>${String.fromCharCode(65+oi)}.</strong> ${o}</button>`
+      ).join('')}</div>`;
+    } else {
+      interactiveHtml = `<textarea class="ep-answer-area" id="epTextarea-${qi}" placeholder="Write your answer here..."></textarea>`;
+    }
+
+    card.innerHTML = `
+      <div class="ep-header">
+        <div>
+          <div class="ep-num">${q.num}</div>
+          <div class="ep-title">${q.marks} mark${q.marks > 1 ? 's' : ''}</div>
+        </div>
+        <div class="ep-marks">[${q.marks} mark${q.marks > 1 ? 's' : ''}]</div>
+      </div>
+      <div class="ep-body">
+        ${caseHtml}
+        <div class="ep-question">${q.question.replace(/\n/g,'<br>')}</div>
+        ${interactiveHtml}
+        <div class="ep-btn-row">
+          <button class="ep-btn hint-btn" onclick="togglePop(${qi},'hint')">💡 Hint</button>
+          <button class="ep-btn starter-btn" onclick="togglePop(${qi},'starter')">✍️ Sentence Starter</button>
+          ${q.type !== 'mcq' ? `<button class="ep-btn submit-btn" onclick="togglePop(${qi},'marks')">📋 Submit &amp; See Mark Scheme</button>` : ''}
+        </div>
+        <div class="ep-popup hint-pop" id="epHint-${qi}"><strong>💡 Hint:</strong> ${q.hint}</div>
+        <div class="ep-popup starter-pop" id="epStarter-${qi}"><strong>✍️ Sentence Starter:</strong><br>${q.starter.replace(/\n/g,'<br>')}</div>
+        <div class="ep-popup marks-pop" id="epMarks-${qi}">
+          ${q.markScheme}
+          ${q.modelAnswer ? `<div class="marks-section"><h5>✓ Model Answer</h5><div class="model-answer">${q.modelAnswer}</div></div>` : ''}
+        </div>
+      </div>`;
+
+    list.appendChild(card);
+  });
+
+  // MCQ click handler for exam practice
+  document.getElementById('epList').addEventListener('click', e => {
+    const btn = e.target.closest('.ep-opt');
+    if (!btn) return;
+    const qi = +btn.dataset.qi, oi = +btn.dataset.oi;
+    const card = btn.closest('.ep-card');
+    if (card.dataset.epAnswered) return;
+    card.dataset.epAnswered = 1;
+    const allOpts = card.querySelectorAll('.ep-opt');
+    allOpts.forEach(b => b.disabled = true);
+    if (oi === examQuestions[qi].answer) {
+      btn.classList.add('ep-correct');
+    } else {
+      btn.classList.add('ep-wrong');
+      allOpts[examQuestions[qi].answer].classList.add('ep-correct');
+    }
+    // Show mark scheme automatically for MCQ
+    document.getElementById(`epMarks-${qi}`).classList.add('show');
+  });
+}
+
+function togglePop(qi, type) {
+  const hint = document.getElementById(`epHint-${qi}`);
+  const starter = document.getElementById(`epStarter-${qi}`);
+  const marks = document.getElementById(`epMarks-${qi}`);
+  if (type === 'hint') { hint.classList.toggle('show'); starter.classList.remove('show'); }
+  else if (type === 'starter') { starter.classList.toggle('show'); hint.classList.remove('show'); }
+  else if (type === 'marks') { marks.classList.toggle('show'); }
+}
+
+// ══════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════
+buildLearn(); buildMCQ(); buildMatch(); buildFIB(); buildMisc(); buildTips(); renderFC(); buildTF(); buildExamPractice();
+</script>
+</body>
+</html>

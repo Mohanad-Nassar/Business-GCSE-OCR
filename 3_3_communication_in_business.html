@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3.3 Communication in Business – Interactive Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1923; --paper: #f5f0e8; --cream: #ede7d9;
+    --accent: #4a6fa5; --gold: #d4a843; --teal: #1a6b6b;
+    --mid: #5a6e7f; --border: #c9bfaa; --success: #2d7a4f;
+    --wrong: #c84b31; --card-bg: #fffcf6;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; }
+
+  header { background: var(--ink); color: var(--paper); padding: 28px 40px 24px; display: flex; align-items: flex-end; gap: 20px; position: relative; overflow: hidden; }
+  header::before { content: ''; position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; border-radius: 50%; background: var(--accent); opacity: .18; }
+  header .badge { background: var(--accent); color: #fff; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; padding: 4px 10px; border-radius: 3px; text-transform: uppercase; }
+  header h1 { font-family: 'Playfair Display', serif; font-size: clamp(20px, 3.5vw, 38px); line-height: 1.1; }
+  header p { font-size: 13px; color: #aaa; margin-top: 6px; }
+
+  .tab-bar { background: var(--ink); display: flex; overflow-x: auto; border-bottom: 2px solid var(--accent); padding: 0 40px; scrollbar-width: none; }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn { background: none; border: none; color: #999; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: .5px; padding: 14px 18px; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; transition: color .2s, border-color .2s; margin-bottom: -2px; }
+  .tab-btn:hover { color: var(--paper); }
+  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  main { padding: 32px 40px 60px; max-width: 1100px; margin: 0 auto; }
+  .tab-panel { display: none; animation: fadeUp .35s ease; }
+  .tab-panel.active { display: block; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+  .section-title { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--ink); margin-bottom: 6px; }
+  .section-sub { font-size: 13px; color: var(--mid); margin-bottom: 28px; }
+
+  .topic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+  .topic-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 22px 24px; cursor: pointer; transition: box-shadow .2s, transform .2s; position: relative; overflow: hidden; }
+  .topic-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--accent); border-radius: 4px 0 0 4px; }
+  .topic-card:nth-child(2)::before { background: var(--teal); }
+  .topic-card:nth-child(3)::before { background: #c84b31; }
+  .topic-card:nth-child(4)::before { background: var(--gold); }
+  .topic-card:nth-child(5)::before { background: #7a5c9e; }
+  .topic-card:nth-child(6)::before { background: var(--success); }
+  .topic-card:nth-child(7)::before { background: #c84b8a; }
+  .topic-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.12); transform: translateY(-2px); }
+  .topic-card h3 { font-family: 'Playfair Display', serif; font-size: 17px; margin-bottom: 8px; color: var(--ink); }
+  .topic-card .toggle-icon { position: absolute; right: 20px; top: 20px; font-size: 18px; color: var(--mid); transition: transform .3s; }
+  .topic-card.open .toggle-icon { transform: rotate(45deg); }
+  .topic-content { display: none; margin-top: 12px; border-top: 1px solid var(--border); padding-top: 12px; }
+  .topic-card.open .topic-content { display: block; }
+  .topic-content ul { padding-left: 18px; }
+  .topic-content li { font-size: 13.5px; line-height: 1.7; color: #3a4a56; margin-bottom: 4px; }
+  .topic-content p { font-size: 13.5px; line-height: 1.75; color: #3a4a56; margin-bottom: 8px; }
+  .topic-card .tag { display: inline-block; font-size: 11px; font-family: 'DM Mono', monospace; background: var(--cream); border: 1px solid var(--border); padding: 2px 8px; border-radius: 3px; margin-bottom: 6px; color: var(--mid); }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
+  .two-col .col-head { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid); margin-bottom: 4px; }
+  .pro-item { background: #d4edda; border-radius: 5px; padding: 6px 9px; font-size: 12.5px; color: #1a4a2a; margin-bottom: 5px; line-height: 1.5; }
+  .con-item { background: #fde8e5; border-radius: 5px; padding: 6px 9px; font-size: 12.5px; color: #7a2010; margin-bottom: 5px; line-height: 1.5; }
+
+  .quiz-wrap { display: flex; flex-direction: column; gap: 28px; }
+  .q-block { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 24px 26px; }
+  .q-block .q-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 2px; margin-bottom: 8px; }
+  .q-block .q-text { font-weight: 600; font-size: 15px; margin-bottom: 16px; line-height: 1.5; }
+  .options { display: flex; flex-direction: column; gap: 9px; }
+  .opt-btn { background: var(--cream); border: 1.5px solid var(--border); border-radius: 7px; padding: 11px 16px; font-family: 'DM Sans', sans-serif; font-size: 13.5px; text-align: left; cursor: pointer; transition: background .15s, border-color .15s; }
+  .opt-btn:hover:not(:disabled) { background: #e8e1d3; border-color: var(--mid); }
+  .opt-btn.correct { background: #d4edda; border-color: var(--success); color: var(--success); font-weight: 600; }
+  .opt-btn.wrong { background: #fde8e5; border-color: var(--wrong); color: var(--wrong); font-weight: 600; }
+  .q-feedback { margin-top: 12px; padding: 10px 14px; border-radius: 6px; font-size: 13px; display: none; }
+  .q-feedback.show { display: block; }
+  .q-feedback.ok { background: #d4edda; color: #1a5c34; }
+  .q-feedback.no { background: #fde8e5; color: #8b2317; }
+
+  .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; }
+  .match-col { display: flex; flex-direction: column; gap: 10px; }
+  .match-item { background: var(--cream); border: 1.5px solid var(--border); border-radius: 7px; padding: 12px 15px; font-size: 13px; cursor: pointer; transition: border-color .15s, background .15s; line-height: 1.5; }
+  .match-item.selected { border-color: var(--gold); background: #fdf5df; }
+  .match-item.matched-ok { border-color: var(--success); background: #d4edda; color: var(--success); cursor: default; }
+  .match-item.matched-eventual { border-color: #b8860b; background: #fff8dc; color: #7a5800; cursor: default; }
+  .match-item.matched-no { border-color: var(--wrong); background: #fde8e5; color: var(--wrong); animation: shake .35s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+  .match-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; color: var(--mid); margin-bottom: 6px; }
+
+  .fib-wrap { display: flex; flex-direction: column; gap: 22px; }
+  .fib-sentence { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 20px 24px; font-size: 15px; line-height: 2.4; }
+  .blank-select { display: inline-block; position: relative; vertical-align: middle; margin: 0 4px; }
+  .blank-select select { appearance: none; -webkit-appearance: none; background: var(--cream); border: 2px solid var(--accent); border-radius: 6px; padding: 3px 28px 3px 10px; font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 600; color: var(--accent); cursor: pointer; min-width: 130px; outline: none; transition: border-color .15s, background .15s, color .15s; }
+  .blank-select::after { content: '▾'; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); pointer-events: none; font-size: 12px; color: var(--accent); }
+  .blank-select.correct select { border-color: var(--success); background: #d4edda; color: var(--success); }
+  .blank-select.correct::after { color: var(--success); }
+  .blank-select.wrong select { border-color: var(--wrong); background: #fde8e5; color: var(--wrong); animation: shake .3s; }
+  .blank-select.wrong::after { color: var(--wrong); }
+
+  .misc-list { display: flex; flex-direction: column; gap: 20px; }
+  .misc-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .misc-card .wrong-view { background: #fde8e5; border-left: 5px solid var(--wrong); padding: 16px 20px; }
+  .misc-card .correct-view { background: #d4edda; border-left: 5px solid var(--success); padding: 16px 20px; }
+  .misc-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 5px; }
+  .wrong-view .misc-tag { color: var(--wrong); }
+  .correct-view .misc-tag { color: var(--success); }
+  .misc-card p { font-size: 14px; line-height: 1.65; }
+
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+  .tip-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 22px 24px; }
+  .tip-card .tip-type { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .tip-card h4 { font-family: 'Playfair Display', serif; font-size: 16px; margin-bottom: 10px; }
+  .tip-card p { font-size: 13.5px; line-height: 1.7; color: #3a4a56; }
+  .tip-card ul { padding-left: 18px; }
+  .tip-card li { font-size: 13.5px; line-height: 1.7; color: #3a4a56; margin-bottom: 4px; }
+  .mark-breakdown { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .mark-pill { font-size: 11px; font-family: 'DM Mono', monospace; padding: 3px 10px; border-radius: 20px; background: var(--cream); border: 1px solid var(--border); }
+  .mark-pill.kn { background: #e8f4f8; border-color: #4a90a4; color: #1a5060; }
+  .mark-pill.un { background: #f0f8e8; border-color: #5a9a40; color: #2a5a18; }
+  .mark-pill.app { background: #fdf5df; border-color: var(--gold); color: #8a6800; }
+  .mark-pill.an { background: #e0f0f5; border-color: #4a90a4; color: #1a5060; }
+  .mark-pill.eval { background: #f0e8ff; border-color: #9a70c0; color: #4a1a80; }
+
+  .fc-container { max-width: 600px; margin: 0 auto; text-align: center; }
+  .fc-progress { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--mid); margin-bottom: 16px; }
+  .flashcard { perspective: 1000px; height: 280px; cursor: pointer; margin-bottom: 24px; }
+  .fc-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .5s cubic-bezier(.4,0,.2,1); }
+  .flashcard.flipped .fc-inner { transform: rotateY(180deg); }
+  .fc-front, .fc-back { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 14px; display: flex; align-items: center; justify-content: center; padding: 30px; border: 1.5px solid var(--border); }
+  .fc-front { background: var(--ink); color: var(--paper); }
+  .fc-front .fc-label { position: absolute; top: 16px; left: 20px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+  .fc-front .fc-term { font-family: 'Playfair Display', serif; font-size: 24px; line-height: 1.3; }
+  .fc-back { background: var(--card-bg); transform: rotateY(180deg); text-align: left; }
+  .fc-back .fc-def { font-size: 14px; line-height: 1.75; color: var(--ink); }
+  .fc-hint { font-size: 12px; color: var(--mid); margin-bottom: 16px; }
+  .fc-nav { display: flex; gap: 12px; justify-content: center; }
+  .fc-btn { background: var(--ink); color: var(--paper); border: none; border-radius: 7px; padding: 10px 22px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: background .15s; }
+  .fc-btn:hover { background: var(--accent); }
+  .fc-btn.outline { background: transparent; border: 1.5px solid var(--border); color: var(--ink); }
+  .fc-btn.outline:hover { background: var(--cream); }
+
+  .tf-wrap { display: flex; flex-direction: column; gap: 18px; }
+  .tf-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 20px 24px; display: flex; align-items: flex-start; gap: 20px; }
+  .tf-card .tf-text { flex: 1; font-size: 14.5px; line-height: 1.6; }
+  .tf-btns { display: flex; gap: 8px; flex-shrink: 0; }
+  .tf-btn { border: 1.5px solid var(--border); background: var(--cream); border-radius: 6px; padding: 8px 16px; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 600; cursor: pointer; transition: background .15s; letter-spacing: .5px; }
+  .tf-btn:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
+  .tf-btn.correct { background: #d4edda; border-color: var(--success); color: var(--success); }
+  .tf-btn.wrong { background: #fde8e5; border-color: var(--wrong); color: var(--wrong); }
+  .tf-explanation { font-size: 13px; color: var(--mid); margin-top: 10px; display: none; line-height: 1.6; }
+  .tf-explanation.show { display: block; }
+
+  .score-bar { background: var(--cream); border: 1.5px solid var(--border); border-radius: 8px; padding: 14px 20px; font-size: 14px; margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
+  .score-num { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--accent); line-height: 1; }
+  .reset-btn { margin-left: auto; background: none; border: 1.5px solid var(--border); border-radius: 6px; padding: 7px 16px; font-size: 12px; font-family: 'DM Mono', monospace; cursor: pointer; transition: background .15s; letter-spacing: .5px; }
+  .reset-btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .ep-list { display: flex; flex-direction: column; gap: 32px; }
+  .ep-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .ep-header { background: var(--ink); color: var(--paper); padding: 16px 22px; display: flex; align-items: center; gap: 14px; }
+  .ep-num { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--gold); }
+  .ep-marks { font-family: 'DM Mono', monospace; font-size: 11px; color: #aaa; margin-left: auto; }
+  .ep-title { font-family: 'Playfair Display', serif; font-size: 16px; }
+  .ep-body { padding: 20px 22px; }
+  .ep-case { background: #f0ece4; border-left: 4px solid var(--accent); border-radius: 0 6px 6px 0; padding: 14px 16px; font-size: 13.5px; line-height: 1.75; color: #2a3a46; margin-bottom: 16px; }
+  .ep-question { font-size: 14.5px; font-weight: 600; line-height: 1.55; margin-bottom: 14px; color: var(--ink); }
+  .ep-mcq-opts { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+  .ep-opt { background: var(--cream); border: 1.5px solid var(--border); border-radius: 6px; padding: 10px 14px; font-size: 13.5px; cursor: pointer; transition: background .15s, border-color .15s; text-align: left; font-family: 'DM Sans', sans-serif; }
+  .ep-opt:hover:not(:disabled) { background: #e8e1d3; border-color: var(--mid); }
+  .ep-opt.ep-correct { background: #d4edda; border-color: var(--success); color: var(--success); font-weight: 600; }
+  .ep-opt.ep-wrong { background: #fde8e5; border-color: var(--wrong); color: var(--wrong); font-weight: 600; }
+  .ep-answer-area { width: 100%; min-height: 120px; background: var(--cream); border: 1.5px solid var(--border); border-radius: 8px; padding: 12px 14px; font-family: 'DM Sans', sans-serif; font-size: 13.5px; line-height: 1.7; resize: vertical; outline: none; transition: border-color .15s; color: var(--ink); }
+  .ep-answer-area:focus { border-color: var(--accent); }
+  .ep-btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+  .ep-btn { border: 1.5px solid var(--border); background: var(--cream); border-radius: 7px; padding: 9px 18px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; cursor: pointer; transition: background .15s, border-color .15s; font-weight: 600; }
+  .ep-btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .ep-btn.hint-btn { border-color: var(--gold); color: #8a6800; }
+  .ep-btn.hint-btn:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+  .ep-btn.starter-btn { border-color: var(--teal); color: var(--teal); }
+  .ep-btn.starter-btn:hover { background: var(--teal); color: #fff; border-color: var(--teal); }
+  .ep-btn.submit-btn { border-color: var(--accent); color: var(--accent); }
+  .ep-btn.submit-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .ep-popup { display: none; margin-top: 14px; border-radius: 8px; padding: 14px 16px; font-size: 13.5px; line-height: 1.7; }
+  .ep-popup.hint-pop { background: #fdf5df; border: 1.5px solid var(--gold); color: #6a4800; }
+  .ep-popup.starter-pop { background: #e0f5f5; border: 1.5px solid var(--teal); color: #0a3a3a; }
+  .ep-popup.marks-pop { background: var(--card-bg); border: 1.5px solid var(--accent); }
+  .ep-popup.show { display: block; }
+  .marks-section { margin-bottom: 12px; }
+  .marks-section h5 { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+  .marks-section p, .marks-section li { font-size: 13px; line-height: 1.7; color: #2a3a46; }
+  .marks-section ul { padding-left: 18px; }
+  .model-answer { background: #e8f4e8; border-left: 4px solid var(--success); padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.75; color: #1a3a1a; margin-top: 8px; }
+
+  @media(max-width:640px) {
+    main { padding: 20px 16px 50px; } header { padding: 20px 16px; }
+    .tab-bar { padding: 0 10px; } .match-grid { grid-template-columns: 1fr; }
+    .tf-card { flex-direction: column; } .two-col { grid-template-columns: 1fr; }
+    .ep-btn-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="badge">OCR GCSE Business — Component 1</div>
+    <h1>Unit 3.3 — Communication in Business</h1>
+    <p>Interactive revision guide · All key content + full exam practice</p>
+  </div>
+</header>
+
+<nav class="tab-bar" id="tabBar">
+  <button class="tab-btn active" onclick="switchTab('learn',this)">📚 Key Learning</button>
+  <button class="tab-btn" onclick="switchTab('mcq',this)">❓ MCQ Quiz</button>
+  <button class="tab-btn" onclick="switchTab('matching',this)">🔗 Matching</button>
+  <button class="tab-btn" onclick="switchTab('fib',this)">✏️ Fill the Blanks</button>
+  <button class="tab-btn" onclick="switchTab('misconceptions',this)">⚠️ Misconceptions</button>
+  <button class="tab-btn" onclick="switchTab('examtips',this)">🎯 Exam Tips</button>
+  <button class="tab-btn" onclick="switchTab('flashcards',this)">🃏 Flashcards</button>
+  <button class="tab-btn" onclick="switchTab('truefalse',this)">✅ True / False</button>
+  <button class="tab-btn" onclick="switchTab('exampractice',this)">📝 Exam Practice</button>
+</nav>
+
+<main>
+
+<div class="tab-panel active" id="tab-learn">
+  <h2 class="section-title">Key Learning Topics</h2>
+  <p class="section-sub">Click any card to expand detailed notes.</p>
+  <div class="topic-grid" id="topicGrid"></div>
+</div>
+
+<div class="tab-panel" id="tab-mcq">
+  <h2 class="section-title">Multiple Choice Questions</h2>
+  <p class="section-sub">Select an answer to reveal instant feedback.</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+    <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+    <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+  </div>
+  <div class="quiz-wrap" id="mcqWrap"></div>
+</div>
+
+<div class="tab-panel" id="tab-matching">
+  <h2 class="section-title">Matching Activity</h2>
+  <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+  <div style="margin-bottom:16px;">
+    <div class="score-bar">
+      <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+      <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+      <button class="reset-btn" onclick="resetMatch()">RESET</button>
+    </div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span> First attempt correct</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span> Correct after mistake</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span> Wrong — try again</span>
+    </div>
+  </div>
+  <div class="match-grid">
+    <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+    <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
+  </div>
+</div>
+
+<div class="tab-panel" id="tab-fib">
+  <h2 class="section-title">Fill in the Blanks</h2>
+  <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+    <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+    <button class="reset-btn" onclick="resetFIB()">RESET</button>
+  </div>
+  <div class="fib-wrap" id="fibWrap"></div>
+</div>
+
+<div class="tab-panel" id="tab-misconceptions">
+  <h2 class="section-title">Common Misconceptions</h2>
+  <p class="section-sub">What students often think — and what examiners actually want.</p>
+  <div class="misc-list" id="miscList"></div>
+</div>
+
+<div class="tab-panel" id="tab-examtips">
+  <h2 class="section-title">Exam Questions &amp; Tips</h2>
+  <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
+  <div class="tips-grid" id="tipsGrid"></div>
+</div>
+
+<div class="tab-panel" id="tab-flashcards">
+  <h2 class="section-title">Flashcards</h2>
+  <p class="section-sub">Click the card to reveal the definition. Use the arrows to navigate.</p>
+  <div class="fc-container">
+    <div class="fc-progress" id="fcProgress">Card 1 of 20</div>
+    <div class="flashcard" id="flashcard" onclick="flipCard()">
+      <div class="fc-inner">
+        <div class="fc-front"><div class="fc-label">KEY TERM</div><div class="fc-term" id="fcTerm"></div></div>
+        <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
+      </div>
+    </div>
+    <p class="fc-hint">👆 Click card to flip</p>
+    <div class="fc-nav">
+      <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+      <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+      <button class="fc-btn" onclick="nextCard()">Next →</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab-panel" id="tab-truefalse">
+  <h2 class="section-title">True or False?</h2>
+  <p class="section-sub">Test your knowledge with these statements.</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+    <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+    <button class="reset-btn" onclick="resetTF()">RESET</button>
+  </div>
+  <div class="tf-wrap" id="tfWrap"></div>
+</div>
+
+<div class="tab-panel" id="tab-exampractice">
+  <h2 class="section-title">Exam Practice Questions</h2>
+  <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
+  <div class="ep-list" id="epList"></div>
+</div>
+
+</main>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ══════════════════════════════════════
+//  DATA
+// ══════════════════════════════════════
+
+const topics = [
+  {
+    title: "Core Terminology",
+    tag: "Key Terms",
+    content: `<ul>
+<li><strong>Communication</strong> — the transmission of a message from a sender to a receiver through a means of communication</li>
+<li><strong>Verbal communication</strong> — communicating by speaking: in meetings, on the telephone, by video-conferencing, or through a presentation</li>
+<li><strong>Written communication</strong> — communication by written words: text, email, and letters</li>
+<li><strong>Digital communication</strong> — the electronic exchange of information using ICT (voice, text, diagrams, pictures, video)</li>
+<li><strong>Feedback</strong> — the response made by a person who receives a communication, indicating they have (or have not) understood it</li>
+<li><strong>Internal communication</strong> — communication between people employed in the same organisation</li>
+<li><strong>External communication</strong> — communication between people in an organisation and others outside it</li>
+<li><strong>Formal communication</strong> — communication through official channels (e.g. letters, official meetings, reports)</li>
+<li><strong>Informal communication</strong> — communication outside official channels (e.g. conversations in a break)</li>
+<li><strong>Social media</strong> — online applications that allow people to create and share content to participate in social networking</li>
+<li><strong>Website</strong> — an online location with several pages that can be contacted by internet users through its address</li>
+</ul>`
+  },
+  {
+    title: "One-way, Two-way & Direction of Communication",
+    tag: "Core Concepts",
+    content: `<p><strong>One-way communication:</strong> the message is sent but there is no reply. Good for giving information to large numbers of people (e.g. a tannoy announcement, an advertising leaflet). Examples: email broadcast, website, social media post.</p>
+<p><strong>Two-way communication:</strong> the receiver can reply to the sender. Important because:</p>
+<ul>
+<li>Feedback confirms the message has been received and understood</li>
+<li>It is good for generating ideas and solving problems</li>
+</ul>
+<p><strong>Vertical communication:</strong> between people on different layers of the hierarchy — either downward (manager to worker) or upward (worker to manager).</p>
+<p><strong>Horizontal communication:</strong> between people at the same level within the organisation structure (e.g. two managers in different departments).</p>
+<p><strong>Internal vs External:</strong> Internal = within the organisation. External = between someone inside the organisation and someone outside it (e.g. a supplier, customer, or government body).</p>`
+  },
+  {
+    title: "Verbal Communication — Methods, Advantages & Disadvantages",
+    tag: "Methods",
+    content: `<p><strong>Examples:</strong> phone calls, meetings (in person or via Teams/Zoom), presentations</p>
+<div class="two-col">
+<div>
+<div class="col-head">✓ Advantages</div>
+<div class="pro-item">Can check the message has been understood by asking for feedback immediately</div>
+<div class="pro-item">Tone of voice and body language can emphasise key points</div>
+<div class="pro-item">Can use diagrams, pictures, slides to support the message</div>
+<div class="pro-item">Meetings — minutes provide a record; ideas can be generated and problems solved</div>
+</div>
+<div>
+<div class="col-head">✗ Disadvantages</div>
+<div class="con-item">No permanent record (unless minutes taken or recording made)</div>
+<div class="con-item">With large audiences, hard to check everyone has heard or understood</div>
+<div class="con-item">Receiver may disrupt or interrupt the message</div>
+<div class="con-item">Some forms (e.g. travel for international meetings) can be expensive</div>
+</div>
+</div>
+<p style="margin-top:10px;"><strong>Meetings</strong> can be formal (with an agenda and chairperson) or informal (impromptu, no agenda). Online meetings via Teams or Zoom save travel costs.</p>
+<p><strong>Presentations</strong> may use PowerPoint to support visual explanation; the speaker can respond to questions.</p>`
+  },
+  {
+    title: "Written Communication — Letters, Emails, Texts",
+    tag: "Methods",
+    content: `<p><strong>Letters:</strong> formal, provide a physical record; can be sent by recorded delivery; often used for contracts or legal documents.</p>
+<p><strong>Emails and texts:</strong> fast, widely used; can be sent to one or many people; disadvantage is that bulk emails are often ignored or sent to spam.</p>
+<div class="two-col">
+<div>
+<div class="col-head">✓ Advantages of Written</div>
+<div class="pro-item">There is a record of the message</div>
+<div class="pro-item">Receiver can read and re-read to check understanding</div>
+<div class="pro-item">Can be sent to multiple people at once</div>
+<div class="pro-item">Can avoid confrontation</div>
+<div class="pro-item">Text and email are very fast</div>
+</div>
+<div>
+<div class="col-head">✗ Disadvantages of Written</div>
+<div class="con-item">Cannot immediately check receiver has understood</div>
+<div class="con-item">Success depends on how clearly it has been written</div>
+<div class="con-item">Risk of virus infection from email attachments</div>
+<div class="con-item">Emails can get lost in spam</div>
+<div class="con-item">Some people get overwhelmed by volume of emails</div>
+</div>
+</div>`
+  },
+  {
+    title: "Social Media & Websites",
+    tag: "Digital Methods",
+    content: `<p><strong>Social media</strong> (Facebook, Instagram, Twitter/X, Pinterest): online platforms for sharing communication.</p>
+<div class="two-col">
+<div>
+<div class="col-head">✓ Advantages</div>
+<div class="pro-item">Huge number of users — massive reach for advertising</div>
+<div class="pro-item">Information can be updated regularly</div>
+<div class="pro-item">Visual images enhance communications</div>
+<div class="pro-item">Cheaper than traditional media (TV, radio, print)</div>
+<div class="pro-item">Allows customer feedback and interaction</div>
+<div class="pro-item">Good for internal staff communication across locations</div>
+</div>
+<div>
+<div class="col-head">✗ Disadvantages</div>
+<div class="con-item">Needs managing — updating and responding costs time and money</div>
+<div class="con-item">Difficult to measure the effectiveness of campaigns</div>
+</div>
+</div>
+<p style="margin-top:8px;"><strong>Websites:</strong> operate 24/7; can take online orders; detailed product information; customers use search engines to find them; can be built and maintained cheaply. Risks: website crashing, spam, needs regular updating.</p>
+<p><strong>Targeting note:</strong> 90% of Instagram users are under 35 — good for reaching young audiences. Pinterest is popular with women and used for DIY, fashion, food.</p>`
+  },
+  {
+    title: "Importance of Communication in Each Functional Area",
+    tag: "Application",
+    content: `<p><strong>Marketing:</strong> external communication for market research and advertising; internal communication for planning promotional campaigns</p>
+<p><strong>Finance:</strong> external communication to arrange bank loans; internal communication about income and expenditure to keep accurate accounts; digital tools have made invoicing, payments and financial reporting much faster (e.g. Quickbooks app)</p>
+<p><strong>Human Resources:</strong> external and internal communication for recruitment and selection; internal communication to resolve workplace problems, motivate workers, appraise performance</p>
+<p><strong>Operations / Production:</strong> internal communication about quality to reduce waste; marketing informs production about orders placed; external communication to enquire about raw material deliveries</p>
+<p><strong>Government and Trade:</strong> external communication to understand regulations; to apply for government grants</p>
+<p><strong>Choosing the right method:</strong> consider WHO you are communicating with, the PURPOSE of the communication, and what methods are AVAILABLE and AFFORDABLE. Internal vs external, size of audience, urgency, and sensitivity all affect the choice.</p>`
+  },
+  {
+    title: "How Digital Communication Influences Business Activity",
+    tag: "Digital Impact",
+    content: `<p><strong>Marketing:</strong> websites and social media allow businesses to reach millions globally; online selling has reduced the need for physical shops (e.g. Amazon, eBay); competition has increased as customers can compare prices more easily</p>
+<p><strong>Finance:</strong> invoices and payments sent more quickly; accounting information stored and processed digitally; financial reports prepared faster (Chatsworth Estate case study — one accountant handled 20× the business)</p>
+<p><strong>HR:</strong> jobs advertised on websites; applications and invitations by email; interviews by video-conferencing (Zoom/Teams); more staff working from home or while mobile; some jobs lost as productivity increased; workers required to retrain</p>
+<p><strong>Operations:</strong> production highly automated via robots; quality control improved (machines inspect and relay data); production is leaner — can be reprogrammed quickly in response to demand changes; GPS tracking of delivery drivers; staff monitoring via keyloggers, Microsoft Teams log-on records</p>
+<p><strong>Overall:</strong> digital communication has increased competition, enabled globalisation, reduced costs, and created new business opportunities (hardware makers, programmers, ICT trainers). Not all businesses have survived — some slow to adapt have closed (e.g. Blockbuster).</p>`
+  }
+];
+
+const mcqData = [
+  {
+    q: "Which of these statements is FALSE?",
+    opts: ["Digital communication involves the electronic transfer of information","Mobile phones, computers and tablets can transfer information electronically","Digital communication is always better than non-digital communication","Digital communication has been a major force behind the globalisation of business"],
+    ans: 2,
+    explain: "Digital communication is NOT always better than non-digital. Face-to-face meetings, for example, allow immediate feedback, body language, and discussion that digital communication cannot always replicate. 'Always' is a giveaway that this statement is false."
+  },
+  {
+    q: "Which of the following is NOT an advantage of meetings?",
+    opts: ["There will usually be a record of formal meetings in the form of minutes","The sender of the message can always be seen and heard by the receiver","The sender can check immediately whether the receiver has understood the message","It is a way of avoiding confrontation when the message is given"],
+    ans: 3,
+    explain: "Avoiding confrontation is an advantage of WRITTEN communication, not meetings. Meetings involve face-to-face interaction, which can actually make confrontation more likely. Written communication allows a message to be delivered without direct conflict."
+  },
+  {
+    q: "Which of the following is NOT true about digital communication?",
+    opts: ["It has helped to increase globalisation of business","The development of digital communication has benefited all workers","It has increased competition often leading to lower prices","It has made it possible for some workers to work at home"],
+    ans: 1,
+    explain: "Digital communication has NOT benefited ALL workers. While many have gained new opportunities and flexibility, others have lost their jobs as productivity improved and automation replaced roles. Workers have also had to undergo retraining."
+  },
+  {
+    q: "In 2021, Instagram had 1 billion users. 300 million were aged 18–24. The percentage of Instagram users in the 18–24 bracket is:",
+    opts: ["3%","13%","30%","33%"],
+    ans: 2,
+    explain: "300 million ÷ 1,000 million × 100 = 30%. This shows how Instagram is heavily used by young people, making it a strong platform for businesses targeting under-35 customers."
+  },
+  {
+    q: "What is a disadvantage for a business of using digital communication?",
+    opts: ["It is a slow method of communication","Pictures and videos cannot be shared","The technology on which it relies can fail","Worldwide communication is not possible"],
+    ans: 2,
+    explain: "Technology failure is a real risk of digital communication — systems can crash, lose data, or be disrupted by cyber-attacks or power cuts. Options A, B, and D are all incorrect: digital communication is fast, can share rich media, and enables worldwide reach."
+  },
+  {
+    q: "A market research agency spent £250,000 on digital communication in 2017 and £525,000 in 2018. The percentage increase was approximately:",
+    opts: ["48%","52%","110%","210%"],
+    ans: 2,
+    explain: "Percentage change = (New − Old) ÷ Old × 100 = (525,000 − 250,000) ÷ 250,000 × 100 = 275,000 ÷ 250,000 × 100 = 110%. A common mistake is dividing by the NEW value — always divide by the ORIGINAL value."
+  },
+  {
+    q: "Which of these is an example of digital communication?",
+    opts: ["A face-to-face interview","A letter","A magazine","A website"],
+    ans: 3,
+    explain: "A website is digital communication — it uses ICT to exchange information electronically. A face-to-face interview is verbal, a letter is written (non-digital), and a magazine is print media."
+  },
+  {
+    q: "A frozen food manufacturer urgently needs its maintenance contractor to repair its freezers. Which is the best method?",
+    opts: ["Post a message on its website saying it has problems with freezers","Produce a presentation to explain the problem","Send a letter by first class post","Telephone the maintenance contractor and explain the problem"],
+    ans: 3,
+    explain: "The phone is the best method here because it is URGENT and requires TWO-WAY communication so the contractor can ask questions and clarify details immediately. A letter is too slow, a website post is not directed at the contractor, and a presentation is unnecessary for an urgent repair."
+  },
+  {
+    q: "Which one of the following is NOT a potential benefit of improving communication between a business and its customers?",
+    opts: ["Better customer service","Greater market share","Higher chances of survival","Increased risk"],
+    ans: 3,
+    explain: "Increased risk is a potential consequence of poor communication, not better communication. Improved communication leads to better customer service, greater market share, and higher chances of survival — all business benefits."
+  },
+  {
+    q: "A farmer urgently needs a spare part for a tractor but doesn't know its name or code. Which is the best communication method?",
+    opts: ["Post on social media that the tractor has broken down","Send a letter showing a sketch of the part","Send an email to the parts supplier attaching a photo of the part","Upload a video to the farm website showing how important the tractor is"],
+    ans: 2,
+    explain: "An email with a photo of the part is best because it is FAST (urgent situation), VISUAL (no need to know the name/code), and sent directly to the supplier. A letter is too slow, social media doesn't reach the supplier, and a website video is irrelevant."
+  }
+];
+
+const matchData = [
+  { term: "Communication", def: "The transmission of a message from a sender to a receiver through a means of communication" },
+  { term: "Two-way communication", def: "Communication where the receiver can reply to the sender, allowing feedback and discussion" },
+  { term: "Vertical communication", def: "Communication between people on different layers of the organisational hierarchy — either upward or downward" },
+  { term: "Horizontal communication", def: "Communication between people at the same level within the organisation structure" },
+  { term: "Formal communication", def: "Communication that uses the official channels of an organisation, such as letters, official meetings, and reports" },
+  { term: "Digital communication", def: "The electronic exchange of information using ICT — including voice, text, images and video" },
+  { term: "Social media", def: "Online applications that allow people to create and share content to participate in social networking" },
+  { term: "Feedback", def: "The response made by the receiver of a communication indicating whether they have understood the message" }
+];
+
+const fibData = [
+  {
+    display: "Communication is the _____ of a message from a sender to a receiver. When the receiver can reply, it is known as _____ communication.",
+    blanks: { B1: "transmission", B2: "two-way" }
+  },
+  {
+    display: "Digital communication is about sending and receiving information _____. It has transformed business activity. There is now greater _____ and trade has become more global.",
+    blanks: { B1: "electronically", B2: "competition" }
+  },
+  {
+    display: "The _____ of workers has been increased by digital communication and production _____ have fallen as a result.",
+    blanks: { B1: "productivity", B2: "costs" }
+  },
+  {
+    display: "Finance departments can store and process _____ information more quickly. Marketing departments use websites and _____ to reach potentially huge markets.",
+    blanks: { B1: "accounting", B2: "social media" }
+  },
+  {
+    display: "Human resource departments have seen more staff working while _____ or working from _____. Some workers have lost their jobs or had to undergo _____.",
+    blanks: { B1: "mobile", B2: "home", B3: "retraining" }
+  },
+  {
+    display: "A _____ is an online location that links pages of information. It allows sales to be made online and operates _____.",
+    blanks: { B1: "website", B2: "24/7" }
+  }
+];
+const fibWords = ["transmission","two-way","electronically","competition","productivity","costs","accounting","social media","mobile","home","retraining","website","24/7","one-way","vertical","horizontal","formal","informal","feedback","leaner"];
+
+const miscData = [
+  {
+    wrong: "Digital communication is always better than non-digital communication.",
+    correct: "Digital communication is NOT always better. Face-to-face meetings allow immediate feedback, body language, and real-time discussion. They are better for sensitive issues (e.g. disciplinary matters, appraisals) and for building relationships. The OCR examiner regularly flags this as a FALSE statement in multiple-choice questions."
+  },
+  {
+    wrong: "All workers have benefited from the development of digital communication.",
+    correct: "Digital communication has NOT benefited ALL workers. While many gained new opportunities, flexibility, and higher productivity, others lost their jobs as automation replaced them (e.g. shelf-label workers at Leclerc, DVD rental staff at Blockbuster). Some have had to undergo retraining to stay employed. Examiners specifically test this."
+  },
+  {
+    wrong: "Internal communication only goes downward — from managers to workers.",
+    correct: "Internal communication can be VERTICAL (both upward AND downward) or HORIZONTAL. Upward communication goes from worker to manager. Horizontal communication goes between people at the same level (e.g. two department managers). Only treating communication as one-directional will cost marks."
+  },
+  {
+    wrong: "Email is always the best method of communication for businesses.",
+    correct: "The best method depends on the situation: who is being communicated with, the purpose, and what is available. For urgent issues needing immediate two-way discussion, a phone call may be better. For sensitive HR issues, face-to-face is preferred. For reaching thousands of customers, social media or a website may be best."
+  },
+  {
+    wrong: "Social media is only useful for communicating with customers externally.",
+    correct: "Social media can also be used for INTERNAL communications. Groups of workers can be linked through social media platforms to message each other, arrange meetings, share ideas, and receive instructions — especially useful for staff spread across multiple locations or working remotely."
+  },
+  {
+    wrong: "A meeting is always a disadvantage because it takes time and costs money.",
+    correct: "Meetings have both advantages AND disadvantages. Advantages include immediate feedback, the ability to check understanding, discussion and idea generation, and the use of body language. Minutes provide a formal record. Online meetings (Teams, Zoom) reduce travel costs. Never say any method is purely good or bad — evaluation is always expected."
+  }
+];
+
+const examTips = [
+  {
+    type: "Most Repeated Question Type",
+    title: "Analyse one advantage of a specific communication method (3 marks)",
+    content: "Structure: (U) Identify a specific advantage of the METHOD — e.g. 'emails can be referred back to.' (APP) Link to the specific business in the case study. (AN) Show the business-facing impact — e.g. 'this could improve customer service and reduce the risk of losing sales to competitors.' CRITICAL: do NOT just describe what the method does — state the ADVANTAGE FOR THE BUSINESS.",
+    pills: ["un","app","an"]
+  },
+  {
+    type: "Most Repeated Question Type",
+    title: "Recommend which method of communication to use (3 marks)",
+    content: "Structure: (1 mark) Make a clear recommendation — 'SJ Salon should use a weekly email.' (2 marks) Justify by comparing the two methods — your reason must explain why the chosen method is BETTER THAN the other. The justification must cover BOTH methods and be contextual (use case study detail). E.g. 'Three employees work part-time so finding a time when everyone can attend a meeting will be difficult — an email can be read at any time.'",
+    pills: ["eval"]
+  },
+  {
+    type: "Most Repeated Question Type",
+    title: "Analyse how digital communication has affected workers (6 marks)",
+    content: "Two separate U→APP→AN chains, each worth 3 marks. Effect 1 (positive): e.g. working from home → more flexibility → better work-life balance → lower absenteeism. Effect 2 (negative): e.g. digital automation replaces jobs → workers made redundant → increased unemployment. Always show both sides for balance — the examiner rewards nuance.",
+    pills: ["un","app","an"]
+  },
+  {
+    type: "Calculation Warning",
+    title: "Percentage change calculations",
+    content: "Formula: (New Value − Original Value) ÷ Original Value × 100. Example: £250,000 to £525,000 = (£525,000 − £250,000) ÷ £250,000 × 100 = 110%. The most common mistake is dividing by the NEW value instead of the ORIGINAL. If the value more than doubles, the answer MUST be over 100%.",
+    pills: []
+  },
+  {
+    type: "Explain Question (2 marks)",
+    title: "Explain one reason why communication is important for a business",
+    content: "Structure: (K) Give a reason — e.g. 'Communication is important for marketing.' (U) Explain why — e.g. 'so that customers know about what the business sells and can be persuaded to buy.' The question does NOT require application to a specific business unless it says 'explain why THIS business...' — read carefully.",
+    pills: ["kn","un"]
+  },
+  {
+    type: "Examiner Warning",
+    title: "Always name the specific advantage — not just the method",
+    content: "A very common error: writing 'email is a good method' or 'meetings allow communication' without stating WHAT the advantage is or WHY it helps the business. Examiners explicitly penalise vague responses. 'Quick and easy' alone scores zero. State the specific feature: 'can be sent to multiple recipients at once' or 'can be referred back to for clarification.'",
+    pills: ["un"]
+  },
+  {
+    type: "Key Examiner Warning",
+    title: "Analysis must be business-facing",
+    content: "Analysis marks are only awarded for impacts on the BUSINESS — such as effects on revenue, profit, market share, costs, customer service, employee retention, reputation, or productivity. Writing 'employees will feel more motivated' scores as analysis. Writing 'better communication' does NOT — it just restates the question. Always push to the business consequence.",
+    pills: ["an"]
+  },
+  {
+    type: "Evaluation Tip",
+    title: "Evaluating the influence of digital communication",
+    content: "For evaluate questions on digital communication, present BOTH benefits (lower costs, wider reach, globalisation, new products like Netflix) AND drawbacks (job losses, businesses that failed to adapt, workers needing retraining, increased competition). Conclude with a justified judgement — e.g. 'on balance, digital communication has been positive for most businesses because the cost savings and market reach outweigh the disruption.'",
+    pills: ["eval"]
+  }
+];
+
+const flashcards = [
+  { term: "Communication", def: "The transmission of a message from a sender to a receiver through a means of communication." },
+  { term: "One-way communication", def: "Communication where the message is sent but there is no reply. Good for giving information (e.g. tannoy announcements, advertising leaflets, social media posts)." },
+  { term: "Two-way communication", def: "Communication where the receiver can reply to the sender. Allows feedback to confirm understanding and enables ideas and solutions to be discussed." },
+  { term: "Internal communication", def: "Communication between people employed in the same organisation. Can be vertical (upward or downward) or horizontal." },
+  { term: "External communication", def: "Communication between someone inside an organisation and someone outside it — e.g. customers, suppliers, government." },
+  { term: "Vertical communication", def: "Communication between people on different layers of the hierarchy. Downward: manager to worker. Upward: worker to manager." },
+  { term: "Horizontal communication", def: "Communication between people at the same level of the hierarchy — e.g. two department managers discussing a shared project." },
+  { term: "Formal communication", def: "Communication through official channels: letters, official meetings with an agenda and chairperson, written reports." },
+  { term: "Informal communication", def: "Communication outside official channels, such as a conversation during a lunch break or at a work social event. Can be just as important as formal communication." },
+  { term: "Digital communication", def: "The electronic exchange of information using ICT — including voice, text, images, diagrams, and video. Has transformed business activity globally." },
+  { term: "Verbal communication — advantages", def: "Can check understanding via immediate feedback. Tone of voice and body language emphasise points. Can use diagrams and slides for support. Good for discussion and problem-solving." },
+  { term: "Verbal communication — disadvantages", def: "No permanent record unless minutes are taken or a recording made. Hard to check all listeners have understood. Can be expensive (travel for meetings). Receiver may disrupt the message." },
+  { term: "Written communication — advantages", def: "There is a record of the message. Receiver can re-read. Can be sent to many people at once. Can avoid confrontation. Email and text are very fast." },
+  { term: "Written communication — disadvantages", def: "Cannot immediately check understanding. Success depends on clarity of writing. Emails can get lost in spam. Risk of virus infection. Volume of emails can overwhelm." },
+  { term: "Social media — advantages", def: "Huge number of users; can be updated regularly; visual images used; cheaper than traditional media; allows customer feedback; good for internal staff communication." },
+  { term: "Website — advantages", def: "Operates 24/7; online orders; promotes to millions globally; detailed product information; customers use search engines to find it; relatively cheap to set up." },
+  { term: "Digital communication — impact on marketing", def: "Websites and social media allow global reach; online selling reduces need for physical shops; competition increased; businesses like Amazon grew through online selling." },
+  { term: "Digital communication — impact on HR", def: "Jobs advertised online; applications and interviews via email and video-conferencing; more home and mobile working; some jobs lost; workers need to retrain." },
+  { term: "Digital communication — impact on operations", def: "Highly automated production; robots controlled digitally; quality control improved via machine inspection; production leaner; GPS tracking of staff." },
+  { term: "Digital communication — impact on finance", def: "Invoices and payments sent more quickly; accounting information stored and processed faster; financial reports prepared digitally (e.g. Quickbooks); payments made digitally." }
+];
+
+const tfData = [
+  { statement: "Digital communication is always better than non-digital methods such as meetings.", answer: false, explanation: "FALSE — this is a key examiner trap. Meetings allow immediate feedback, body language, and real-time discussion. Digital communication has disadvantages such as technology failure and inability to convey body language." },
+  { statement: "One-way communication is useful for situations where a response is not required.", answer: true, explanation: "Correct. One-way communication is suited to giving information to large numbers of people — e.g. a tannoy announcement, an advertising leaflet, or a broadcast email — where no reply is needed." },
+  { statement: "Horizontal communication takes place between people on different levels of the hierarchy.", answer: false, explanation: "HORIZONTAL communication is between people at the SAME level of the hierarchy. Communication between DIFFERENT levels is VERTICAL (either upward or downward)." },
+  { statement: "The development of digital communication has benefited all workers.", answer: false, explanation: "FALSE and a key examiner point. Some workers lost jobs as productivity increased and automation replaced roles. Others had to retrain. Blockbuster staff, shelf-label workers, and bank tellers are examples of roles reduced by digital change." },
+  { statement: "A website operates 24 hours a day, seven days a week.", answer: true, explanation: "Correct. This is a key advantage of websites — they allow customers to access information and place orders at any time, without the business needing staff available." },
+  { statement: "Email is the best method of communication for ALL business situations.", answer: false, explanation: "The best method depends on the situation: purpose, audience, urgency, and sensitivity. For example, a phone call is better for urgent issues, and face-to-face is better for sensitive HR discussions. No single method is always best." },
+  { statement: "Formal communication uses official channels such as letters, official meetings, and reports.", answer: true, explanation: "Correct. Formal communication follows set procedures and official channels. It contrasts with informal communication, which occurs outside these channels (e.g. chatting at lunch)." },
+  { statement: "Social media can only be used for external communication with customers.", answer: false, explanation: "Social media can also be used for INTERNAL communication. Groups of workers can use platforms to message each other, arrange meetings, share ideas, and receive instructions — especially useful across multiple locations." },
+  { statement: "A disadvantage of verbal communication is that there is no permanent record unless minutes or a recording are made.", answer: true, explanation: "Correct. This is a key disadvantage of verbal communication. If a dispute arises about what was said, there is no evidence unless someone took minutes or a recording was made." },
+  { statement: "The percentage increase from £250,000 to £525,000 is approximately 110%.", answer: true, explanation: "Correct. (£525,000 − £250,000) ÷ £250,000 × 100 = £275,000 ÷ £250,000 × 100 = 110%. Since the value more than doubled, the answer must exceed 100%." },
+  { statement: "Blockbuster is an example of a business that thrived due to the digital communication revolution.", answer: false, explanation: "Blockbuster FAILED because of the digital communication revolution. Netflix's online streaming service replaced Blockbuster's DVD rental model. Blockbuster was too slow to adapt and went out of business." },
+  { statement: "The Chatsworth Estate accountant case study shows that digital technology allowed one accountant to handle 20 times the business revenue.", answer: true, explanation: "Correct. Michael Isherwood started as the only accountant. Business revenues grew by twenty times but when he retired, there was only one other accountant alongside him. Digital technology transformed productivity in the finance function." },
+  { statement: "For a recommendation question, simply choosing one method scores full marks.", answer: false, explanation: "Choosing one method gives only 1 mark. For the other 2 marks, students must provide a COMPARATIVE justification — explaining why the chosen method is better THAN the other method — ideally using case study context for full marks." },
+  { statement: "Amazon's use of robots in warehouses is an example of digital communication influencing operations.", answer: true, explanation: "Correct. Once an order is received, it is communicated digitally to a robot which retrieves the product. This has automated operations, reduced errors, sped up dispatch, and reduced labour costs — all impacts of digital communication on business operations." }
+];
+
+// ══════════════════════════════════════
+//  EXAM PRACTICE DATA
+// ══════════════════════════════════════
+const examQuestions = [
+  {
+    num: "Q1", marks: 1, type: "mcq",
+    caseStudy: "",
+    question: "Which of these statements is FALSE?",
+    options: ["Digital communication involves the electronic transfer of information","Mobile phones, computers and tablets are ways in which information can be transferred electronically","Digital communication is always better than non-digital communication such as meetings","Digital communication has been a major force behind the globalisation of business activity"],
+    answer: 2,
+    hint: "Look for the word 'always' — this is usually the signal that a statement is too absolute to be true.",
+    starter: "Digital communication is not always better because...",
+    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — Digital communication is always better than non-digital communication</strong></p></div>
+<div class="marks-section"><h5>Why</h5><p>This statement is false because non-digital methods such as face-to-face meetings have distinct advantages: immediate two-way feedback, body language, discussion, and problem-solving. Digital communication cannot always replicate these. The word 'always' makes this an absolute claim that is clearly incorrect.</p></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q2", marks: 1, type: "mcq",
+    caseStudy: "",
+    question: "What is a benefit to a patient of receiving communication from their hospital doctor by email rather than by letter?",
+    options: ["Doctors receive confirmation of receipt when the email is opened","Emails can contain hyperlinks to further information about treatments","Emails save money by reducing stationery, printing, and postal costs","Multiple medical appointments can be sent out at the same time"],
+    answer: 1,
+    hint: "Think about this from the PATIENT'S perspective — what helps the patient, not the doctor or the hospital.",
+    starter: "A benefit to the patient of email over letter is...",
+    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>B — Emails can contain hyperlinks to further information about treatments</strong></p></div>
+<div class="marks-section"><h5>Why</h5><p>This is the only option that benefits the PATIENT specifically. Hyperlinks allow patients to access additional information about their condition or treatment — which helps them understand their healthcare. Options A, C and D are benefits to the hospital/doctor, not the patient.</p></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q3", marks: 3, type: "extended",
+    caseStudy: "Nina runs a successful business selling knitting wool and sewing products. The business has grown organically and now sells products from 10 shops and a website. Nina employs 80 people. She produces a weekly update that is sent by email to all employees every Friday. The updates contain information about the future development of the business, plus other stories of interest to employees — including congratulating an employee on the birth of a child and the charity fundraising activities of one shop.",
+    question: "Analyse one likely reason why Nina sends a weekly update to her employees. [3 marks]",
+    hint: "Think about what Nina is trying to achieve by sending these updates — not just 'to communicate.' Consider the business-facing benefit: what happens to the business if employees are informed and feel part of it?",
+    starter: "One likely reason Nina sends a weekly update is... This means that Nina's 80 employees... As a result, the business...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1a + AO2 + AO3a = 1+1+1)</h5><ul>
+<li><strong>Knowledge (1 mark):</strong> A reason for communicating — e.g. to inform employees, to praise employees, to help employees feel part of the business, to encourage teambuilding</li>
+<li><strong>Application (1 mark):</strong> Link to Nina's business — e.g. her 80 employees across 10 shops, congratulating an employee on birth of a child, charity fundraising activities</li>
+<li><strong>Analysis (1 mark):</strong> Business-facing impact — e.g. improved motivation, reduced labour turnover, increased productivity, improved customer service</li>
+</ul></div>`,
+    modelAnswer: `The weekly update will enable Nina to share the achievements of some of her 80 employees across 10 shops (K+APP), such as charity fundraising. This should help improve employee motivation (AN), which could lead to better customer service and reduce labour turnover across the business.`
+  },
+  {
+    num: "Q4 (i)", marks: 6, type: "extended",
+    caseStudy: "SJ Salon is a hair salon owned by Sam and Jamila. Sam and Jamila are qualified hairdressers who work full-time in the salon. Until recently, they employed one part-time and one full-time worker. Due to increasing customer demand, two additional part-time employees have recently been recruited. A national hairdressing chain is planning to open in their town. Sam and Jamila want to improve communication with their employees now that the workforce has grown. They are considering: (a) a weekly team meeting which all employees must attend, and (b) a weekly email sent to all employees.",
+    question: "Analyse one advantage for SJ Salon of EACH method of communication. [6 marks]",
+    hint: "You need TWO separate U→APP→AN chains — one for meetings, one for emails. Make sure the advantage is specific to that METHOD and that your analysis shows the BUSINESS-FACING impact (e.g. effects on customer service, productivity, teamwork).",
+    starter: "One advantage for SJ Salon of a weekly team meeting is... This means that... As a result, SJ Salon...\n\nOne advantage for SJ Salon of a weekly email is... This means that... As a result, SJ Salon...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks per method (U + APP + AN each)</h5><p><strong>Meeting — Understanding (examples):</strong> Can check for understanding; supports teamworking; improved employer-employee relationship; immediate/real-time responses; can emphasise points using body language</p>
+<p><strong>Meeting — Application:</strong> Link to newly enlarged team; national hairdresser opening; keeping customers satisfied</p>
+<p><strong>Meeting — Analysis:</strong> Business-facing impact — e.g. improved customer service; increased competitive advantage against the new salon; lower labour turnover</p>
+<p><strong>Email — Understanding (examples):</strong> Time efficient; can be sent to many recipients at once; can be accessed anywhere/anytime; can be referred back to; no need to schedule</p>
+<p><strong>Email — Application:</strong> Three part-time employees with different hours; national salon threat; keeping customers satisfied</p>
+<p><strong>Email — Analysis:</strong> Business-facing impact — e.g. improved productivity; better customer service; cost-effective communication as workforce grows</p></div>`,
+    modelAnswer: `<strong>Meeting:</strong> A weekly team meeting will allow Sam and Jamila to check that all employees understand key messages (U). With two new part-time workers recently recruited (APP), this will help the enlarged team work together effectively to serve customers well (AN).<br><br><strong>Email:</strong> The email can be referred back to multiple times in the future (U). As three of the five employees work part-time and may not all be in at the same time (APP), this will help ensure all staff are kept informed, improving consistency of customer service as the national chain opens nearby (AN).`
+  },
+  {
+    num: "Q4 (ii)", marks: 3, type: "extended",
+    caseStudy: "SJ Salon is a hair salon owned by Sam and Jamila. Sam and Jamila are qualified hairdressers who work full-time in the salon. Until recently, they employed one part-time and one full-time worker. Due to increasing customer demand, two additional part-time employees have recently been recruited. A national hairdressing chain is planning to open in their town. Sam and Jamila want to improve communication with their employees now that the workforce has grown. They are considering: (a) a weekly team meeting which all employees must attend, and (b) a weekly email sent to all employees.",
+    question: "Recommend whether a weekly meeting or a weekly email would be the more appropriate method of communication for SJ Salon to use. Give a reason for your answer. [3 marks]",
+    hint: "Make a clear choice first (1 mark). Then explain WHY that method is better THAN the other — you must compare them. Use details from the case study for the best marks.",
+    starter: "SJ Salon should use a weekly [meeting/email] because... Unlike [the other method], this will...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation (AO3b = 3 marks)</h5><ul>
+<li><strong>Judgement (1 mark):</strong> Clear recommendation — meeting OR email</li>
+<li><strong>Contextual justification (2 marks):</strong> Comparative reason using case study detail — must explain why chosen method is BETTER THAN the other</li>
+<li><strong>OR non-contextual justification (1 mark):</strong> Comparative reason without case study detail</li>
+</ul><p>Note: Justification MUST cover BOTH methods to earn marks for justification.</p></div>`,
+    modelAnswer: `<strong>Model Answer 1 (email):</strong> SJ Salon should use a weekly email (JUDGEMENT). Three of the five employees work part-time (CONTEXT), so finding a time when everyone is available for a meeting will be very difficult. An email can be read at any time, whereas a meeting requires all staff to be present at once (+2 MARKS).<br><br><strong>Model Answer 2 (meeting):</strong> SJ Salon should use a weekly team meeting (JUDGEMENT). All employees can meet together to work as a team, which is particularly important now that the national hairdressing chain is about to open nearby (CONTEXT). Emails do not involve any direct staff interaction so do not help build teamworking (+2 MARKS).`
+  },
+  {
+    num: "Q5 (a)", marks: 1, type: "mcq",
+    caseStudy: "Amazon is one the best examples of a business that benefited from the revolution in digital communication. It started as a book seller in the 1990s. By selling books online, it did not need shops on the high street. Books were stored in warehouses and delivered directly to customers at reduced prices. Amazon sold to customers all over the USA then expanded globally. It uses robots in some of its warehouses — once received, the order is communicated directly to a robot which retrieves the product.",
+    question: "Explain the term 'digital communications'. [1 mark]",
+    options: ["Sending letters and leaflets to customers","The electronic exchange of information using ICT","Face-to-face communication between people","The use of meetings and presentations in business"],
+    answer: 1,
+    hint: "Think about what makes communication 'digital' — what technology is involved?",
+    starter: "Digital communication is...",
+    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>B — The electronic exchange of information using ICT</strong></p></div>
+<div class="marks-section"><h5>Why</h5><p>Digital communication is specifically the electronic exchange of information using ICT. This includes email, websites, faxes, social media, and programming machines/robots to respond to data. Letters and face-to-face communication are non-digital.</p></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q5 (b)", marks: 3, type: "extended",
+    caseStudy: "Amazon is one the best examples of a business that benefited from the revolution in digital communication. It started as a book seller in the 1990s. By selling books online, it did not need shops on the high street. Books were stored in warehouses and delivered directly to customers at reduced prices. Amazon sold to customers all over the USA then expanded globally. It uses robots in some of its warehouses — once received, the order is communicated directly to a robot which retrieves the product. Humans no longer locate items on shelves but just package them when the robot brings the items.",
+    question: "Analyse one benefit Amazon may gain through using digital communications in its business operations. [3 marks]",
+    hint: "Focus on OPERATIONS — how goods are produced, stored, and dispatched. Think about the robots in the warehouse and what benefits they bring. Then link to the business impact: costs, sales, reputation.",
+    starter: "One benefit for Amazon of using digital communication in its operations is... This means that... As a result, Amazon...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1b + AO2 + AO3a = 1+1+1)</h5><ul>
+<li><strong>Understanding (1):</strong> Benefit — e.g. faster production/dispatch; improved quality/fewer errors; reduced costs</li>
+<li><strong>Application (1):</strong> Link to Amazon — robots retrieve products; no humans running around shelves; digital order processing</li>
+<li><strong>Analysis (1):</strong> Business impact — e.g. Amazon gains customers due to speed of service; lower costs mean lower prices and still make profit; fewer returns due to accuracy</li>
+</ul></div>`,
+    modelAnswer: `Digital communication has improved accuracy in Amazon's operations (U). Orders are communicated directly to robots which retrieve the correct product from the warehouse — humans no longer run around shelves to locate goods (APP). This means fewer incorrect orders are sent out, reducing returns and increasing customer satisfaction, which helps Amazon retain customers and grow its market share (AN).`
+  }
+];
+
+// ══════════════════════════════════════
+//  BUILD LEARN
+// ══════════════════════════════════════
+function buildLearn() {
+  const grid = document.getElementById('topicGrid');
+  topics.forEach(t => {
+    const card = document.createElement('div');
+    card.className = 'topic-card';
+    card.innerHTML = `<span class="tag">${t.tag}</span><h3>${t.title}</h3><span class="toggle-icon">+</span><div class="topic-content">${t.content}</div>`;
+    card.addEventListener('click', () => card.classList.toggle('open'));
+    grid.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+//  BUILD MCQ
+// ══════════════════════════════════════
+let mcqScore = 0, mcqTotal = 0;
+function buildMCQ() {
+  const wrap = document.getElementById('mcqWrap');
+  mcqData.forEach((q, qi) => {
+    const block = document.createElement('div');
+    block.className = 'q-block';
+    block.innerHTML = `<div class="q-num">QUESTION ${qi+1}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="options">${q.opts.map((o,oi)=>`<button class="opt-btn" data-qi="${qi}" data-oi="${oi}">${o}</button>`).join('')}</div>
+      <div class="q-feedback" id="qfb-${qi}"></div>`;
+    wrap.appendChild(block);
+  });
+  wrap.addEventListener('click', e => {
+    if (!e.target.classList.contains('opt-btn')) return;
+    const qi = +e.target.dataset.qi, oi = +e.target.dataset.oi;
+    const block = e.target.closest('.q-block');
+    if (block.dataset.answered) return;
+    block.dataset.answered = 1; mcqTotal++;
+    block.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
+    const fb = document.getElementById(`qfb-${qi}`);
+    if (oi === mcqData[qi].ans) {
+      e.target.classList.add('correct');
+      fb.textContent = '✓ Correct! ' + mcqData[qi].explain;
+      fb.className = 'q-feedback show ok'; mcqScore++;
+    } else {
+      e.target.classList.add('wrong');
+      block.querySelectorAll('.opt-btn')[mcqData[qi].ans].classList.add('correct');
+      fb.textContent = '✗ ' + mcqData[qi].explain;
+      fb.className = 'q-feedback show no';
+    }
+    document.getElementById('mcqScore').textContent = mcqScore;
+    document.getElementById('mcqTotal').textContent = mcqTotal;
+  });
+}
+function resetMCQ() {
+  mcqScore = 0; mcqTotal = 0;
+  document.getElementById('mcqScore').textContent = 0;
+  document.getElementById('mcqTotal').textContent = 0;
+  document.getElementById('mcqWrap').innerHTML = '';
+  buildMCQ();
+}
+
+// ══════════════════════════════════════
+//  BUILD MATCHING
+// ══════════════════════════════════════
+let matchSelected = null, matchScore = 0, matchTotal = 0;
+const matchMistakes = new Set();
+let matchLocked = false;
+function buildMatch() {
+  matchTotal = matchData.length;
+  document.getElementById('matchTotal').textContent = matchTotal;
+  const left = document.getElementById('matchLeft');
+  const right = document.getElementById('matchRight');
+  const shuffled = [...matchData].sort(() => Math.random() - .5);
+  matchData.forEach(m => { const el = document.createElement('div'); el.className = 'match-item'; el.textContent = m.term; el.dataset.key = m.term; el.dataset.side = 'left'; left.appendChild(el); });
+  shuffled.forEach(m => { const el = document.createElement('div'); el.className = 'match-item'; el.textContent = m.def; el.dataset.key = m.term; el.dataset.side = 'right'; right.appendChild(el); });
+  document.getElementById('matchLeft').addEventListener('click', handleMatch);
+  document.getElementById('matchRight').addEventListener('click', handleMatch);
+}
+function handleMatch(e) {
+  if (matchLocked) return;
+  const item = e.target.closest('.match-item'); if (!item || item.classList.contains('matched-ok') || item.classList.contains('matched-eventual')) return;
+  if (!matchSelected) { document.querySelectorAll('.match-item.selected').forEach(x => x.classList.remove('selected')); item.classList.add('selected'); matchSelected = item; }
+  else {
+    if (matchSelected === item) { item.classList.remove('selected'); matchSelected = null; return; }
+    if (matchSelected.dataset.side === item.dataset.side) { matchSelected.classList.remove('selected'); matchSelected = item; item.classList.add('selected'); return; }
+    const a = matchSelected, b = item; a.classList.remove('selected'); b.classList.remove('selected'); matchSelected = null;
+    if (a.dataset.key === b.dataset.key) {
+      const cls = matchMistakes.has(a.dataset.key) ? 'matched-eventual' : 'matched-ok';
+      a.classList.add(cls); b.classList.add(cls); matchScore++; document.getElementById('matchScore').textContent = matchScore;
+    } else {
+      matchLocked = true; matchMistakes.add(a.dataset.key); matchMistakes.add(b.dataset.key);
+      a.classList.add('matched-no'); b.classList.add('matched-no');
+      setTimeout(() => { a.classList.remove('matched-no'); b.classList.remove('matched-no'); matchLocked = false; }, 700);
+    }
+  }
+}
+function resetMatch() {
+  matchScore = 0; matchSelected = null; matchLocked = false; matchMistakes.clear();
+  document.getElementById('matchScore').textContent = 0;
+  document.getElementById('matchLeft').innerHTML = '';
+  document.getElementById('matchRight').innerHTML = '';
+  buildMatch();
+}
+
+// ══════════════════════════════════════
+//  BUILD FIB
+// ══════════════════════════════════════
+let fibScore = 0, fibCorrectTotal = 0;
+function buildFIB() {
+  fibCorrectTotal = fibData.reduce((a, f) => a + Object.keys(f.blanks).length, 0);
+  document.getElementById('fibTotal').textContent = fibCorrectTotal;
+  const wrap = document.getElementById('fibWrap');
+  fibData.forEach((f, fi) => {
+    const div = document.createElement('div'); div.className = 'fib-sentence';
+    const correctAnswers = Object.values(f.blanks);
+    const distractors = fibWords.filter(w => !correctAnswers.includes(w)).sort(() => Math.random() - .5).slice(0, 4);
+    let html = f.display, bi = 0;
+    html = html.replace(/_____/g, () => {
+      const key = Object.keys(f.blanks)[bi]; const ans = f.blanks[key]; bi++;
+      const opts = [ans, ...distractors.filter(d => d !== ans).slice(0, 3)].sort(() => Math.random() - .5);
+      const optHTML = ['— choose —', ...opts].map(o => `<option value="${o === '— choose —' ? '' : o}">${o}</option>`).join('');
+      return `<span class="blank-select" data-fi="${fi}" data-key="${key}" data-ans="${ans}"><select>${optHTML}</select></span>`;
+    });
+    div.innerHTML = html; wrap.appendChild(div);
+  });
+  wrap.addEventListener('change', e => {
+    const sel = e.target; if (sel.tagName !== 'SELECT') return;
+    const wrapper = sel.closest('.blank-select'); if (!wrapper || wrapper.dataset.answered === 'correct') return;
+    const chosen = sel.value, ans = wrapper.dataset.ans; if (!chosen) return;
+    if (chosen === ans) { wrapper.dataset.answered = 'correct'; wrapper.classList.remove('wrong'); wrapper.classList.add('correct'); sel.disabled = true; fibScore++; document.getElementById('fibScore').textContent = fibScore; }
+    else { wrapper.classList.remove('correct'); wrapper.classList.add('wrong'); setTimeout(() => { wrapper.classList.remove('wrong'); sel.value = ''; }, 700); }
+  });
+}
+function resetFIB() { fibScore = 0; document.getElementById('fibScore').textContent = 0; document.getElementById('fibWrap').innerHTML = ''; buildFIB(); }
+
+// ══════════════════════════════════════
+//  BUILD MISCONCEPTIONS
+// ══════════════════════════════════════
+function buildMisc() {
+  const list = document.getElementById('miscList');
+  miscData.forEach(m => {
+    const card = document.createElement('div'); card.className = 'misc-card';
+    card.innerHTML = `<div class="wrong-view"><div class="misc-tag">✗ Common Student View</div><p>${m.wrong}</p></div><div class="correct-view"><div class="misc-tag">✓ Examiner's Correct View</div><p>${m.correct}</p></div>`;
+    list.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+//  BUILD EXAM TIPS
+// ══════════════════════════════════════
+function buildTips() {
+  const grid = document.getElementById('tipsGrid');
+  examTips.forEach(t => {
+    const card = document.createElement('div'); card.className = 'tip-card';
+    const pills = t.pills.map(p => `<span class="mark-pill ${p}">${p.toUpperCase()}</span>`).join('');
+    card.innerHTML = `<div class="tip-type">${t.type}</div><h4>${t.title}</h4><p>${t.content}</p>${t.pills.length ? `<div class="mark-breakdown">${pills}</div>` : ''}`;
+    grid.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+//  FLASHCARDS
+// ══════════════════════════════════════
+let fcIndex = 0;
+function renderFC() {
+  const fc = flashcards[fcIndex];
+  document.getElementById('fcTerm').textContent = fc.term;
+  document.getElementById('fcDef').textContent = fc.def;
+  document.getElementById('fcProgress').textContent = `Card ${fcIndex+1} of ${flashcards.length}`;
+  document.getElementById('flashcard').classList.remove('flipped');
+}
+function flipCard() { document.getElementById('flashcard').classList.toggle('flipped'); }
+function nextCard() { fcIndex = (fcIndex + 1) % flashcards.length; renderFC(); }
+function prevCard() { fcIndex = (fcIndex - 1 + flashcards.length) % flashcards.length; renderFC(); }
+
+// ══════════════════════════════════════
+//  BUILD TRUE / FALSE
+// ══════════════════════════════════════
+let tfScore = 0, tfTotal = 0;
+function buildTF() {
+  const wrap = document.getElementById('tfWrap');
+  tfData.forEach((item, i) => {
+    const card = document.createElement('div'); card.className = 'tf-card';
+    card.innerHTML = `<div><div class="tf-text">${item.statement}</div><div class="tf-explanation" id="tfExp-${i}">${item.explanation}</div></div>
+    <div class="tf-btns"><button class="tf-btn" data-i="${i}" data-val="true">TRUE</button><button class="tf-btn" data-i="${i}" data-val="false">FALSE</button></div>`;
+    wrap.appendChild(card);
+  });
+  wrap.addEventListener('click', e => {
+    const btn = e.target.closest('.tf-btn'); if (!btn) return;
+    const i = +btn.dataset.i; const card = btn.closest('.tf-card');
+    if (card.dataset.answered) return;
+    card.dataset.answered = 1;
+    const val = btn.dataset.val === 'true'; const correct = val === tfData[i].answer; tfTotal++;
+    card.querySelectorAll('.tf-btn').forEach(b => b.disabled = true);
+    if (correct) { btn.classList.add('correct'); tfScore++; }
+    else { btn.classList.add('wrong'); card.querySelectorAll('.tf-btn').forEach(b => { if (b.dataset.val === String(tfData[i].answer)) b.classList.add('correct'); }); }
+    document.getElementById(`tfExp-${i}`).classList.add('show');
+    document.getElementById('tfScore').textContent = tfScore;
+    document.getElementById('tfTotal').textContent = tfTotal;
+  });
+}
+function resetTF() {
+  tfScore = 0; tfTotal = 0;
+  document.getElementById('tfScore').textContent = 0;
+  document.getElementById('tfTotal').textContent = 0;
+  document.getElementById('tfWrap').innerHTML = '';
+  buildTF();
+}
+
+// ══════════════════════════════════════
+//  BUILD EXAM PRACTICE
+// ══════════════════════════════════════
+function buildExamPractice() {
+  const list = document.getElementById('epList');
+  examQuestions.forEach((q, qi) => {
+    const card = document.createElement('div');
+    card.className = 'ep-card';
+    const caseHtml = q.caseStudy ? `<div class="ep-case">${q.caseStudy.replace(/\n/g,'<br>')}</div>` : '';
+    let interactiveHtml = '';
+    if (q.type === 'mcq') {
+      interactiveHtml = `<div class="ep-mcq-opts">${q.options.map((o,oi) =>
+        `<button class="ep-opt" data-qi="${qi}" data-oi="${oi}"><strong>${String.fromCharCode(65+oi)}.</strong> ${o}</button>`
+      ).join('')}</div>`;
+    } else {
+      interactiveHtml = `<textarea class="ep-answer-area" id="epTextarea-${qi}" placeholder="Write your answer here..."></textarea>`;
+    }
+    card.innerHTML = `
+      <div class="ep-header">
+        <div>
+          <div class="ep-num">${q.num}</div>
+          <div class="ep-title">${q.marks} mark${q.marks > 1 ? 's' : ''}</div>
+        </div>
+        <div class="ep-marks">[${q.marks} mark${q.marks > 1 ? 's' : ''}]</div>
+      </div>
+      <div class="ep-body">
+        ${caseHtml}
+        <div class="ep-question">${q.question.replace(/\n/g,'<br>')}</div>
+        ${interactiveHtml}
+        <div class="ep-btn-row">
+          <button class="ep-btn hint-btn" onclick="togglePop(${qi},'hint')">💡 Hint</button>
+          <button class="ep-btn starter-btn" onclick="togglePop(${qi},'starter')">✍️ Sentence Starter</button>
+          ${q.type !== 'mcq' ? `<button class="ep-btn submit-btn" onclick="togglePop(${qi},'marks')">📋 Submit &amp; See Mark Scheme</button>` : ''}
+        </div>
+        <div class="ep-popup hint-pop" id="epHint-${qi}"><strong>💡 Hint:</strong> ${q.hint}</div>
+        <div class="ep-popup starter-pop" id="epStarter-${qi}"><strong>✍️ Sentence Starter:</strong><br>${q.starter.replace(/\n/g,'<br>')}</div>
+        <div class="ep-popup marks-pop" id="epMarks-${qi}">
+          ${q.markScheme}
+          ${q.modelAnswer ? `<div class="marks-section"><h5>✓ Model Answer</h5><div class="model-answer">${q.modelAnswer}</div></div>` : ''}
+        </div>
+      </div>`;
+    list.appendChild(card);
+  });
+  document.getElementById('epList').addEventListener('click', e => {
+    const btn = e.target.closest('.ep-opt');
+    if (!btn) return;
+    const qi = +btn.dataset.qi, oi = +btn.dataset.oi;
+    const card = btn.closest('.ep-card');
+    if (card.dataset.epAnswered) return;
+    card.dataset.epAnswered = 1;
+    const allOpts = card.querySelectorAll('.ep-opt');
+    allOpts.forEach(b => b.disabled = true);
+    if (oi === examQuestions[qi].answer) {
+      btn.classList.add('ep-correct');
+    } else {
+      btn.classList.add('ep-wrong');
+      allOpts[examQuestions[qi].answer].classList.add('ep-correct');
+    }
+    document.getElementById(`epMarks-${qi}`).classList.add('show');
+  });
+}
+
+function togglePop(qi, type) {
+  const hint = document.getElementById(`epHint-${qi}`);
+  const starter = document.getElementById(`epStarter-${qi}`);
+  const marks = document.getElementById(`epMarks-${qi}`);
+  if (type === 'hint') { hint.classList.toggle('show'); starter.classList.remove('show'); }
+  else if (type === 'starter') { starter.classList.toggle('show'); hint.classList.remove('show'); }
+  else if (type === 'marks') { marks.classList.toggle('show'); }
+}
+
+// ══════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════
+buildLearn(); buildMCQ(); buildMatch(); buildFIB(); buildMisc(); buildTips(); renderFC(); buildTF(); buildExamPractice();
+</script>
+</body>
+</html>

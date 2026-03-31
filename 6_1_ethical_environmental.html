@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6.1 Ethical & Environmental Considerations – Interactive Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1923;
+    --paper: #f5f0e8;
+    --cream: #ede7d9;
+    --accent: #2d7a4f;
+    --gold: #d4a843;
+    --teal: #1a6b6b;
+    --mid: #5a6e7f;
+    --border: #c9bfaa;
+    --success: #2d7a4f;
+    --wrong: #c84b31;
+    --card-bg: #fffcf6;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; }
+
+  header {
+    background: var(--ink); color: var(--paper);
+    padding: 28px 40px 24px; display: flex; align-items: flex-end; gap: 20px;
+    position: relative; overflow: hidden;
+  }
+  header::before {
+    content: ''; position: absolute; top: -40px; right: -40px;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: var(--accent); opacity: .2;
+  }
+  header .badge {
+    background: var(--accent); color: #fff;
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    letter-spacing: 2px; padding: 4px 10px; border-radius: 3px; text-transform: uppercase;
+  }
+  header h1 { font-family: 'Playfair Display', serif; font-size: clamp(20px, 4vw, 38px); line-height: 1.1; }
+  header p { font-size: 13px; color: #aaa; margin-top: 6px; }
+
+  .tab-bar {
+    background: var(--ink); display: flex; overflow-x: auto;
+    border-bottom: 2px solid var(--accent); padding: 0 40px; scrollbar-width: none;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    background: none; border: none; color: #999;
+    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+    letter-spacing: .5px; padding: 14px 18px; cursor: pointer;
+    border-bottom: 3px solid transparent; white-space: nowrap;
+    transition: color .2s, border-color .2s; margin-bottom: -2px;
+  }
+  .tab-btn:hover { color: var(--paper); }
+  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  main { padding: 32px 40px 60px; max-width: 1100px; margin: 0 auto; }
+  .tab-panel { display: none; animation: fadeUp .35s ease; }
+  .tab-panel.active { display: block; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+  .section-title { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--ink); margin-bottom: 6px; }
+  .section-sub { font-size: 13px; color: var(--mid); margin-bottom: 28px; }
+
+  /* ── LEARN CARDS ── */
+  .topic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+  .topic-card {
+    background: var(--card-bg); border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 22px 24px; cursor: pointer;
+    transition: box-shadow .2s, transform .2s; position: relative; overflow: hidden;
+  }
+  .topic-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 4px; background: var(--accent); border-radius: 4px 0 0 4px;
+  }
+  .topic-card:nth-child(2)::before { background: #c84b31; }
+  .topic-card:nth-child(3)::before { background: var(--gold); }
+  .topic-card:nth-child(4)::before { background: var(--teal); }
+  .topic-card:nth-child(5)::before { background: #7a5c9e; }
+  .topic-card:nth-child(6)::before { background: #4a90d9; }
+  .topic-card:nth-child(7)::before { background: #c84b8a; }
+  .topic-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.12); transform: translateY(-2px); }
+  .topic-card h3 { font-family: 'Playfair Display', serif; font-size: 17px; margin-bottom: 8px; color: var(--ink); }
+  .topic-card .toggle-icon { position: absolute; right: 20px; top: 20px; font-size: 18px; color: var(--mid); transition: transform .3s; }
+  .topic-card.open .toggle-icon { transform: rotate(45deg); }
+  .topic-content { display: none; margin-top: 12px; border-top: 1px solid var(--border); padding-top: 12px; }
+  .topic-card.open .topic-content { display: block; }
+  .topic-content ul { padding-left: 18px; }
+  .topic-content li { font-size: 13.5px; line-height: 1.7; color: #3a4a56; margin-bottom: 4px; }
+  .topic-content p { font-size: 13.5px; line-height: 1.75; color: #3a4a56; margin-bottom: 8px; }
+  .topic-card .tag {
+    display: inline-block; font-size: 11px; font-family: 'DM Mono', monospace;
+    background: var(--cream); border: 1px solid var(--border);
+    padding: 2px 8px; border-radius: 3px; margin-bottom: 6px; color: var(--mid);
+  }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
+  .two-col .col-head { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid); margin-bottom: 4px; }
+  .pro-item { background: #d4edda; border-radius: 5px; padding: 6px 9px; font-size: 12.5px; color: #1a4a2a; margin-bottom: 5px; line-height: 1.5; }
+  .con-item { background: #fde8e5; border-radius: 5px; padding: 6px 9px; font-size: 12.5px; color: #7a2010; margin-bottom: 5px; line-height: 1.5; }
+
+  /* ── MCQ ── */
+  .quiz-wrap { display: flex; flex-direction: column; gap: 28px; }
+  .q-block { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 24px 26px; }
+  .q-block .q-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 2px; margin-bottom: 8px; }
+  .q-block .q-text { font-weight: 600; font-size: 15px; margin-bottom: 16px; line-height: 1.5; }
+  .options { display: flex; flex-direction: column; gap: 9px; }
+  .opt-btn { background: var(--cream); border: 1.5px solid var(--border); border-radius: 7px; padding: 11px 16px; font-family: 'DM Sans', sans-serif; font-size: 13.5px; text-align: left; cursor: pointer; transition: background .15s, border-color .15s; }
+  .opt-btn:hover:not(:disabled) { background: #e8e1d3; border-color: var(--mid); }
+  .opt-btn.correct { background: #d4edda; border-color: var(--success); color: var(--success); font-weight: 600; }
+  .opt-btn.wrong { background: #fde8e5; border-color: var(--wrong); color: var(--wrong); font-weight: 600; }
+  .q-feedback { margin-top: 12px; padding: 10px 14px; border-radius: 6px; font-size: 13px; display: none; }
+  .q-feedback.show { display: block; }
+  .q-feedback.ok { background: #d4edda; color: #1a5c34; }
+  .q-feedback.no { background: #fde8e5; color: #8b2317; }
+
+  /* ── MATCHING ── */
+  .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; }
+  .match-col { display: flex; flex-direction: column; gap: 10px; }
+  .match-item { background: var(--cream); border: 1.5px solid var(--border); border-radius: 7px; padding: 12px 15px; font-size: 13px; cursor: pointer; transition: border-color .15s, background .15s; line-height: 1.5; }
+  .match-item.selected { border-color: var(--gold); background: #fdf5df; }
+  .match-item.matched-ok { border-color: var(--success); background: #d4edda; color: var(--success); cursor: default; }
+  .match-item.matched-eventual { border-color: #b8860b; background: #fff8dc; color: #7a5800; cursor: default; }
+  .match-item.matched-no { border-color: var(--wrong); background: #fde8e5; color: var(--wrong); animation: shake .35s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+  .match-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; color: var(--mid); margin-bottom: 6px; }
+
+  /* ── FILL IN BLANKS ── */
+  .fib-wrap { display: flex; flex-direction: column; gap: 22px; }
+  .fib-sentence { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 20px 24px; font-size: 15px; line-height: 2.4; }
+  .blank-select { display: inline-block; position: relative; vertical-align: middle; margin: 0 4px; }
+  .blank-select select { appearance: none; -webkit-appearance: none; background: var(--cream); border: 2px solid var(--accent); border-radius: 6px; padding: 3px 28px 3px 10px; font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 600; color: var(--accent); cursor: pointer; min-width: 130px; outline: none; transition: border-color .15s, background .15s, color .15s; }
+  .blank-select::after { content: '▾'; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); pointer-events: none; font-size: 12px; color: var(--accent); }
+  .blank-select.correct select { border-color: var(--success); background: #d4edda; color: var(--success); }
+  .blank-select.correct::after { color: var(--success); }
+  .blank-select.wrong select { border-color: var(--wrong); background: #fde8e5; color: var(--wrong); animation: shake .3s; }
+  .blank-select.wrong::after { color: var(--wrong); }
+
+  /* ── MISCONCEPTIONS ── */
+  .misc-list { display: flex; flex-direction: column; gap: 20px; }
+  .misc-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .misc-card .wrong-view { background: #fde8e5; border-left: 5px solid var(--wrong); padding: 16px 20px; }
+  .misc-card .correct-view { background: #d4edda; border-left: 5px solid var(--success); padding: 16px 20px; }
+  .misc-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 5px; }
+  .wrong-view .misc-tag { color: var(--wrong); }
+  .correct-view .misc-tag { color: var(--success); }
+  .misc-card p { font-size: 14px; line-height: 1.65; }
+
+  /* ── EXAM TIPS ── */
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+  .tip-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 22px 24px; }
+  .tip-card .tip-type { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .tip-card h4 { font-family: 'Playfair Display', serif; font-size: 16px; margin-bottom: 10px; }
+  .tip-card p { font-size: 13.5px; line-height: 1.7; color: #3a4a56; }
+  .tip-card ul { padding-left: 18px; }
+  .tip-card li { font-size: 13.5px; line-height: 1.7; color: #3a4a56; margin-bottom: 4px; }
+  .mark-breakdown { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .mark-pill { font-size: 11px; font-family: 'DM Mono', monospace; padding: 3px 10px; border-radius: 20px; background: var(--cream); border: 1px solid var(--border); }
+  .mark-pill.kn { background: #e8f4f8; border-color: #4a90a4; color: #1a5060; }
+  .mark-pill.un { background: #f0f8e8; border-color: #5a9a40; color: #2a5a18; }
+  .mark-pill.app { background: #fdf5df; border-color: var(--gold); color: #8a6800; }
+  .mark-pill.an { background: #e0f0f5; border-color: #4a90a4; color: #1a5060; }
+  .mark-pill.eval { background: #f0e8ff; border-color: #9a70c0; color: #4a1a80; }
+
+  /* ── FLASHCARDS ── */
+  .fc-container { max-width: 600px; margin: 0 auto; text-align: center; }
+  .fc-progress { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--mid); margin-bottom: 16px; }
+  .flashcard { perspective: 1000px; height: 280px; cursor: pointer; margin-bottom: 24px; }
+  .fc-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .5s cubic-bezier(.4,0,.2,1); }
+  .flashcard.flipped .fc-inner { transform: rotateY(180deg); }
+  .fc-front, .fc-back { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 14px; display: flex; align-items: center; justify-content: center; padding: 30px; border: 1.5px solid var(--border); }
+  .fc-front { background: var(--ink); color: var(--paper); }
+  .fc-front .fc-label { position: absolute; top: 16px; left: 20px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+  .fc-front .fc-term { font-family: 'Playfair Display', serif; font-size: 24px; line-height: 1.3; }
+  .fc-back { background: var(--card-bg); transform: rotateY(180deg); text-align: left; }
+  .fc-back .fc-def { font-size: 14px; line-height: 1.75; color: var(--ink); }
+  .fc-hint { font-size: 12px; color: var(--mid); margin-bottom: 16px; }
+  .fc-nav { display: flex; gap: 12px; justify-content: center; }
+  .fc-btn { background: var(--ink); color: var(--paper); border: none; border-radius: 7px; padding: 10px 22px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: background .15s; }
+  .fc-btn:hover { background: var(--accent); }
+  .fc-btn.outline { background: transparent; border: 1.5px solid var(--border); color: var(--ink); }
+  .fc-btn.outline:hover { background: var(--cream); }
+
+  /* ── TRUE / FALSE ── */
+  .tf-wrap { display: flex; flex-direction: column; gap: 18px; }
+  .tf-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 20px 24px; display: flex; align-items: flex-start; gap: 20px; }
+  .tf-card .tf-text { flex: 1; font-size: 14.5px; line-height: 1.6; }
+  .tf-btns { display: flex; gap: 8px; flex-shrink: 0; }
+  .tf-btn { border: 1.5px solid var(--border); background: var(--cream); border-radius: 6px; padding: 8px 16px; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 600; cursor: pointer; transition: background .15s; letter-spacing: .5px; }
+  .tf-btn:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
+  .tf-btn.correct { background: #d4edda; border-color: var(--success); color: var(--success); }
+  .tf-btn.wrong { background: #fde8e5; border-color: var(--wrong); color: var(--wrong); }
+  .tf-explanation { font-size: 13px; color: var(--mid); margin-top: 10px; display: none; line-height: 1.6; }
+  .tf-explanation.show { display: block; }
+
+  /* ── SCORE BAR ── */
+  .score-bar { background: var(--cream); border: 1.5px solid var(--border); border-radius: 8px; padding: 14px 20px; font-size: 14px; margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
+  .score-num { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--accent); line-height: 1; }
+  .reset-btn { margin-left: auto; background: none; border: 1.5px solid var(--border); border-radius: 6px; padding: 7px 16px; font-size: 12px; font-family: 'DM Mono', monospace; cursor: pointer; transition: background .15s; letter-spacing: .5px; }
+  .reset-btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  @media(max-width:640px) {
+    main { padding: 20px 16px 50px; } header { padding: 20px 16px; }
+    .tab-bar { padding: 0 10px; } .match-grid { grid-template-columns: 1fr; }
+    .tf-card { flex-direction: column; } .two-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="badge">OCR GCSE Business — Component 2</div>
+    <h1>Unit 6.1 — Ethical &amp; Environmental Considerations</h1>
+    <p>Interactive revision guide · All key content + exam practice</p>
+  </div>
+</header>
+
+<nav class="tab-bar" id="tabBar">
+  <button class="tab-btn active" onclick="switchTab('learn',this)">📚 Key Learning</button>
+  <button class="tab-btn" onclick="switchTab('mcq',this)">❓ MCQ Quiz</button>
+  <button class="tab-btn" onclick="switchTab('matching',this)">🔗 Matching</button>
+  <button class="tab-btn" onclick="switchTab('fib',this)">✏️ Fill the Blanks</button>
+  <button class="tab-btn" onclick="switchTab('misconceptions',this)">⚠️ Misconceptions</button>
+  <button class="tab-btn" onclick="switchTab('examtips',this)">🎯 Exam Tips</button>
+  <button class="tab-btn" onclick="switchTab('flashcards',this)">🃏 Flashcards</button>
+  <button class="tab-btn" onclick="switchTab('truefalse',this)">✅ True / False</button>
+</nav>
+
+<main>
+
+<!-- LEARN -->
+<div class="tab-panel active" id="tab-learn">
+  <h2 class="section-title">Key Learning Topics</h2>
+  <p class="section-sub">Click any card to expand detailed notes.</p>
+  <div class="topic-grid" id="topicGrid"></div>
+</div>
+
+<!-- MCQ -->
+<div class="tab-panel" id="tab-mcq">
+  <h2 class="section-title">Multiple Choice Questions</h2>
+  <p class="section-sub">Select an answer to reveal instant feedback.</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+    <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+    <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+  </div>
+  <div class="quiz-wrap" id="mcqWrap"></div>
+</div>
+
+<!-- MATCHING -->
+<div class="tab-panel" id="tab-matching">
+  <h2 class="section-title">Matching Activity</h2>
+  <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+  <div style="margin-bottom:16px;">
+    <div class="score-bar">
+      <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+      <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+      <button class="reset-btn" onclick="resetMatch()">RESET</button>
+    </div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span> First attempt correct</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span> Correct after mistake</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span> Wrong — try again</span>
+    </div>
+  </div>
+  <div class="match-grid">
+    <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+    <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
+  </div>
+</div>
+
+<!-- FILL IN BLANKS -->
+<div class="tab-panel" id="tab-fib">
+  <h2 class="section-title">Fill in the Blanks</h2>
+  <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+    <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+    <button class="reset-btn" onclick="resetFIB()">RESET</button>
+  </div>
+  <div class="fib-wrap" id="fibWrap"></div>
+</div>
+
+<!-- MISCONCEPTIONS -->
+<div class="tab-panel" id="tab-misconceptions">
+  <h2 class="section-title">Common Misconceptions</h2>
+  <p class="section-sub">What students often think — and what examiners actually want.</p>
+  <div class="misc-list" id="miscList"></div>
+</div>
+
+<!-- EXAM TIPS -->
+<div class="tab-panel" id="tab-examtips">
+  <h2 class="section-title">Exam Questions &amp; Tips</h2>
+  <p class="section-sub">Most repeated question types, mark-scheme structures and examiner guidance from real papers.</p>
+  <div class="tips-grid" id="tipsGrid"></div>
+</div>
+
+<!-- FLASHCARDS -->
+<div class="tab-panel" id="tab-flashcards">
+  <h2 class="section-title">Flashcards</h2>
+  <p class="section-sub">Click the card to reveal the definition. Use the arrows to navigate.</p>
+  <div class="fc-container">
+    <div class="fc-progress" id="fcProgress">Card 1 of 22</div>
+    <div class="flashcard" id="flashcard" onclick="flipCard()">
+      <div class="fc-inner">
+        <div class="fc-front"><div class="fc-label">KEY TERM</div><div class="fc-term" id="fcTerm"></div></div>
+        <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
+      </div>
+    </div>
+    <p class="fc-hint">👆 Click card to flip</p>
+    <div class="fc-nav">
+      <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+      <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+      <button class="fc-btn" onclick="nextCard()">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- TRUE / FALSE -->
+<div class="tab-panel" id="tab-truefalse">
+  <h2 class="section-title">True or False?</h2>
+  <p class="section-sub">Test your knowledge with these statements.</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+    <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+    <button class="reset-btn" onclick="resetTF()">RESET</button>
+  </div>
+  <div class="tf-wrap" id="tfWrap"></div>
+</div>
+
+</main>
+
+<script>
+// ══════════════════════════════════════
+//  DATA
+// ══════════════════════════════════════
+
+const topics = [
+  {
+    title: "Core Definitions — Ethics & Environment",
+    tag: "Key Terms",
+    content: `<ul>
+<li><strong>Ethics</strong> — what is right and wrong</li>
+<li><strong>Ethical behaviour</strong> — doing what is morally right; concerns how workers, suppliers and customers are treated</li>
+<li><strong>Child labour</strong> — the use of young children below the legal age for employment to achieve low-cost production</li>
+<li><strong>Fairtrade</strong> — a movement encouraging businesses to pay a fair price to suppliers in developing countries; the Fairtrade Mark guarantees this</li>
+<li><strong>Environmentally friendly</strong> — consumers and businesses that act to make production sustainable</li>
+<li><strong>Sustainable production</strong> — production that does not lead to the depletion (using up) of natural resources</li>
+<li><strong>Renewable resources</strong> — resources that can be used more than once (wind, water, crops)</li>
+<li><strong>Non-renewable resources</strong> — resources that can only be used once (e.g. oil)</li>
+<li><strong>Recycling</strong> — when resources are reused to produce something new</li>
+</ul>`
+  },
+  {
+    title: "Four Areas of Ethical Consideration",
+    tag: "Ethical Areas",
+    content: `<p><strong>1. Treatment of Workers</strong></p>
+<ul>
+<li>No child labour</li>
+<li>Pay at least the National Minimum/Living Wage</li>
+<li>Fair hours — no excessive working hours</li>
+<li>Safe working conditions</li>
+<li>No discrimination on gender, ethnicity or disability grounds</li>
+</ul>
+<p><strong>2. Treatment of Suppliers</strong></p>
+<ul>
+<li>No late payment of bills (harms supplier cash flow)</li>
+<li>Pay fair prices</li>
+<li>Do not use power to force smaller suppliers into lower-priced deals</li>
+</ul>
+<p><strong>3. Treatment of Customers</strong></p>
+<ul>
+<li>No overcharging / exorbitant prices</li>
+<li>No false claims — marketing must be legal, decent, honest and truthful</li>
+<li>Do not put customers in danger with fake or faulty products</li>
+</ul>
+<p><strong>4. Sourcing of Materials</strong></p>
+<ul>
+<li>Do not buy from businesses that use child labour</li>
+<li>Do not buy from anyone who does not produce sustainably</li>
+<li>Consider using the Fairtrade Mark — guarantees a fair price was paid to farmers</li>
+</ul>`
+  },
+  {
+    title: "Benefits & Drawbacks of Being Ethical",
+    tag: "Analysis",
+    content: `<div class="two-col">
+<div>
+<div class="col-head">✓ Benefits</div>
+<div class="pro-item">Improved reputation — more customers buy from trustworthy businesses</div>
+<div class="pro-item">Increased sales — ethical brands attract customers willing to pay more</div>
+<div class="pro-item">Worker motivation — trust increases productivity; reduces labour turnover and recruitment costs</div>
+<div class="pro-item">Investor confidence — long-term success attracts investors</div>
+<div class="pro-item">Long-term survival — ethical producers more likely to be profitable over time</div>
+</div>
+<div>
+<div class="col-head">✗ Drawbacks</div>
+<div class="con-item">Higher costs — better materials, fair wages and ethical sourcing all cost more</div>
+<div class="con-item">Reduced profits — higher costs cut into profit margins</div>
+<div class="con-item">Lost sales — unethical competitors can charge less, making the ethical business less competitive</div>
+<div class="con-item">Threat to survival — in highly competitive markets, extra costs may threaten existence</div>
+</div>
+</div>`
+  },
+  {
+    title: "Key Environmental Issues",
+    tag: "Environment",
+    content: `<ul>
+<li><strong>Pollution</strong> — causing harm to the environment: air, land, water and noise</li>
+<li><strong>Waste disposal</strong> — getting rid of unwanted materials; traditionally via incineration or landfill</li>
+<li><strong>Recycling</strong> — reusing resources to produce something new</li>
+<li><strong>Climate change</strong> — the process where average temperatures rise or fall and weather patterns change</li>
+<li><strong>Global warming</strong> — rise in average temperatures caused by human activity (burning fossil fuels, deforestation)</li>
+</ul>
+<p><strong>Sustainable production methods:</strong></p>
+<ul>
+<li><strong>Renewable energy</strong> — solar and wind power instead of fossil fuels</li>
+<li><strong>Sustainable construction</strong> — recycled materials, insulation, solar panels built in</li>
+<li><strong>Resource management</strong> — rotating crops, fixing water leaks, sensor-controlled lighting</li>
+<li><strong>Transport</strong> — fuel-efficient vehicles, car-sharing, video-conferencing to reduce travel</li>
+</ul>`
+  },
+  {
+    title: "Benefits & Drawbacks of Being Environmentally Friendly",
+    tag: "Environmental Analysis",
+    content: `<div class="two-col">
+<div>
+<div class="col-head">✓ Benefits</div>
+<div class="pro-item">Increased sales — consumers increasingly choose 'green' brands</div>
+<div class="pro-item">Reduced costs — energy-saving bulbs, solar panels, reduced packaging save money long-term</div>
+<div class="pro-item">Reduced tax bills — less pollution = potential tax reductions</div>
+<div class="pro-item">Government subsidies — grants available for eco-friendly products and processes</div>
+<div class="pro-item">Better reputation and marketing opportunities</div>
+</div>
+<div>
+<div class="col-head">✗ Drawbacks</div>
+<div class="con-item">Raw material costs — environmentally friendly materials often cost more</div>
+<div class="con-item">Capital costs — solar panels, anaerobic digesters are very expensive to install</div>
+<div class="con-item">Expensive production methods — organic farming costs more than using fertilisers and pesticides</div>
+</div>
+</div>`
+  },
+  {
+    title: "Key Case Studies",
+    tag: "Examples",
+    content: `<p><strong>Pukka Teas (Fairtrade ethics):</strong> Certified 'Fair for Life' producer. Turnover grew from £9m (2012) to £45m (2019) — proof ethical businesses can thrive. Cost: paid £148,000 into a Fairtrade community fund in 2017.</p>
+<p><strong>Olleco (Sustainability):</strong> Collects waste cooking oil/food to produce biodiesel. Revenue exceeds £220m across 19 UK sites. Cost: spent millions on R&D and specialist processing plants (anaerobic digesters).</p>
+<p><strong>Tesco (Unethical supplier treatment):</strong> Found guilty of delaying payments to small suppliers — one waited 24 months for £2 million, damaging their cash flow.</p>
+<p><strong>Unilever (Environment):</strong> Aims to halve greenhouse gas emissions by 2030 through 'cool blending' and compressed packaging.</p>
+<p><strong>Shanks plc (Waste):</strong> Turns rubbish into fuel, compost and wood products instead of landfill — 'waste to product' process.</p>
+<p><strong>Boohoo (Unethical sourcing):</strong> Faced heavy criticism in 2020/21 for supplier allegations of underpaying workers and ignoring COVID-19 safety rules in Leicester factories.</p>
+<p><strong>Woody's Caravan Park:</strong> Reduced carbon emissions by 50% using electric vehicles and solar panels; pays above minimum wage; recycles all waste.</p>`
+  },
+  {
+    title: "CSR and Long-Term Business Strategy",
+    tag: "Synoptic",
+    content: `<p><strong>Corporate Social Responsibility (CSR)</strong> is the idea that businesses should be judged on their overall contribution to society — not just on profits. Key examples:</p>
+<ul>
+<li><strong>Next plc</strong> — recognises success is judged on ethical and environmental duties, not just financial performance</li>
+<li><strong>M&S 'Plan A'</strong> — three pillars: nourishing wellbeing, transforming local communities, caring for the planet</li>
+<li><strong>AstraZeneca</strong> — has a code of ethics at the centre of all its operations</li>
+<li><strong>Costa Coffee</strong> — uses Rainforest Alliance-certified suppliers for all coffee beans worldwide</li>
+</ul>
+<p><strong>Interdependence of ethics with other business areas:</strong></p>
+<ul>
+<li><strong>Marketing</strong> — ethical sourcing improves brand image; environmental friendliness can be promoted</li>
+<li><strong>Human Resources</strong> — ethical treatment of workers improves motivation, reduces turnover, lowers recruitment costs</li>
+<li><strong>Finance</strong> — ethical/environmental practices can raise costs but also reduce tax and attract investment</li>
+<li><strong>Operations</strong> — sustainable production methods change production processes and supply chains</li>
+</ul>`
+  }
+];
+
+const mcqData = [
+  {
+    q: "Which of the following statements about ethical business practice is FALSE?",
+    opts: [
+      "An ethical business will always pay suppliers on time",
+      "An ethical business will not exaggerate the benefits of what it sells",
+      "An ethical business will only employ young children when it needs to save money",
+      "An ethical business will not buy from a supplier that cuts back on health and safety"
+    ],
+    ans: 2,
+    explain: "An ethical business NEVER employs children — regardless of the reason. Using child labour is always unethical. Options A, B and D all correctly describe ethical practices."
+  },
+  {
+    q: "A possible DISADVANTAGE of ethical production to a business is that:",
+    opts: [
+      "Workers may need to be paid a higher wage than competitors, leading to higher costs",
+      "Sales and profits will increase from charging customers more than a fair price",
+      "Being ethical can motivate workers and reduce the cost per unit produced",
+      "Supplies can be bought more cheaply from firms that do not employ children"
+    ],
+    ans: 0,
+    explain: "Paying fair wages and using ethical suppliers both increase costs. This is a genuine drawback of ethical production — it can reduce profit margins and make the business less price-competitive."
+  },
+  {
+    q: "Sustainability in production means:",
+    opts: [
+      "Production that does not use up scarce resources",
+      "Production that only uses scarce resources",
+      "Production that does not produce any waste products",
+      "Production that covers the cost of scarce resources used"
+    ],
+    ans: 0,
+    explain: "Sustainable production does not deplete (use up) natural resources. It involves using renewable resources and methods that can continue indefinitely without damaging the environment."
+  },
+  {
+    q: "A possible DISADVANTAGE of sustainable production is:",
+    opts: [
+      "It reduces production costs by using cheaper methods",
+      "It leads to higher demand for business products",
+      "Production costs may be higher than using non-sustainable methods",
+      "The business can claim government subsidies"
+    ],
+    ans: 2,
+    explain: "Sustainable and organic production methods typically cost more than conventional alternatives. For example, organic farming costs more than using fertilisers and pesticides; solar panels have high capital costs."
+  },
+  {
+    q: "A business wishes to be known as an ethical employer. Which of the following is NOT an example of ethical treatment of the workforce?",
+    opts: [
+      "Allowing flexible working",
+      "Paying high wages",
+      "Providing good working conditions",
+      "Using robotics to replace workers"
+    ],
+    ans: 3,
+    explain: "Using robotics to replace workers is a business operations/technology decision — not an ethical consideration about how workers are treated. Ethical employer practices concern pay, conditions, flexibility and safety for existing and future workers."
+  },
+  {
+    q: "A health centre wants to improve its environmental sustainability. Which action would help achieve this?",
+    opts: [
+      "Asking doctors to wash their hands more frequently",
+      "Encouraging nurses to go out walking during lunch",
+      "Giving out free fruit to staff and patients",
+      "Installing sensors to switch off lights when not needed"
+    ],
+    ans: 3,
+    explain: "Installing sensor-controlled lighting directly reduces energy consumption, lowering the carbon footprint and energy costs — a clear environmental sustainability measure. The other options are health/wellbeing initiatives, not environmental ones."
+  },
+  {
+    q: "Climate change is an example of:",
+    opts: [
+      "A financial issue",
+      "A quality control issue",
+      "An economic issue",
+      "An environmental issue"
+    ],
+    ans: 3,
+    explain: "Climate change — caused by rising greenhouse gas emissions — is an environmental issue. Examiners expect students to clearly categorise issues as either ethical or environmental. Climate change, pollution and global warming are always environmental."
+  },
+  {
+    q: "Pukka Teas grew its turnover from £9m to £45m between 2012 and 2019 as a certified Fairtrade 'Fair for Life' producer. This BEST illustrates which benefit of being ethical?",
+    opts: [
+      "Reduced production costs through sustainable sourcing",
+      "Improved reputation leading to increased sales",
+      "Government subsidies for ethical businesses",
+      "Lower wages paid to workers in developing countries"
+    ],
+    ans: 1,
+    explain: "Pukka Teas' dramatic growth demonstrates that an improved reputation from ethical/Fairtrade practices attracts more customers, leading to increased sales. This is the key benefit of ethical production."
+  },
+  {
+    q: "Tesco was criticised by the Grocery Code Adjudicator for:",
+    opts: [
+      "Using child labour in its supply chain",
+      "Delaying payments to small suppliers, damaging their cash flow",
+      "Overcharging customers for essential goods",
+      "Making false marketing claims about product quality"
+    ],
+    ans: 1,
+    explain: "Tesco was found guilty of delaying payments to suppliers — one waited 24 months for £2 million. This is unethical treatment of suppliers, as late payment damages their cash flow and their ability to operate."
+  },
+  {
+    q: "Olleco collects used cooking oil and food waste to produce biodiesel. The MAIN environmental benefit of this is:",
+    opts: [
+      "It reduces Olleco's wage costs",
+      "It turns waste into a useful product, reducing the need for landfill",
+      "It helps Olleco avoid paying corporation tax",
+      "It reduces the need for Olleco to recruit new workers"
+    ],
+    ans: 1,
+    explain: "Olleco's 'waste to product' process reuses materials that would otherwise go to landfill, creating biodiesel. This is sustainable production — it reduces waste, reduces dependence on fossil fuels, and demonstrates environmental responsibility."
+  }
+];
+
+const matchData = [
+  { term: "Ethics", def: "The concept of what is right and wrong in the conduct of a business" },
+  { term: "Child labour", def: "The use of young children below the legal age for employment to achieve low-cost production" },
+  { term: "Fairtrade", def: "A movement that ensures businesses pay a fair price to suppliers in developing countries" },
+  { term: "Sustainable production", def: "Production that does not lead to the depletion (using up) of natural resources" },
+  { term: "Renewable resources", def: "Resources that can be used more than once — such as wind, water or crops" },
+  { term: "Non-renewable resources", def: "Resources that can only be used once — such as oil or coal" },
+  { term: "Global warming", def: "The rise in average temperatures caused by human activity such as burning fossil fuels and deforestation" },
+  { term: "Recycling", def: "When resources are reused to produce something new, avoiding landfill or incineration" }
+];
+
+const fibData = [
+  {
+    display: "Ethics is about what is _____ and wrong. Ethical behaviour concerns how workers, suppliers and _____ are treated.",
+    blanks: { B1: "right", B2: "customers" }
+  },
+  {
+    display: "_____ production does not lead to the depletion of natural resources, while _____ resources such as oil can only be used once.",
+    blanks: { B1: "Sustainable", B2: "non-renewable" }
+  },
+  {
+    display: "Being ethical can improve a business's _____ and attract more customers, but it often leads to _____ costs.",
+    blanks: { B1: "reputation", B2: "higher" }
+  },
+  {
+    display: "Fairtrade ensures that suppliers in developing countries receive a _____ price, and businesses can display the Fairtrade _____ on their products.",
+    blanks: { B1: "fair", B2: "Mark" }
+  },
+  {
+    display: "Olleco collects used _____ oil and food waste to produce _____, a sustainable fuel for motor vehicles.",
+    blanks: { B1: "cooking", B2: "biodiesel" }
+  },
+  {
+    display: "Pukka Teas grew its turnover from £9m to £_____m between 2012 and 2019, showing that being a _____ producer can lead to business growth.",
+    blanks: { B1: "45", B2: "Fairtrade" }
+  }
+];
+const fibWords = ["right","customers","Sustainable","non-renewable","reputation","higher","fair","Mark","cooking","biodiesel","45","Fairtrade","ethical","wrong","costs","profit","renewable","suppliers","pollution","green"];
+
+const miscData = [
+  {
+    wrong: "Obeying the law (e.g. paying minimum wage, not discriminating) counts as ethical behaviour.",
+    correct: "Ethics is about what a firm does OVER AND ABOVE what the law requires. Paying the minimum wage is a legal obligation — not an ethical choice. Ethical behaviour means going further: paying a living wage, treating suppliers fairly, and choosing Fairtrade even when not legally required."
+  },
+  {
+    wrong: "Environmental considerations and ethical considerations are the same thing and can be used interchangeably.",
+    correct: "They are different. ETHICAL considerations concern the treatment of people — workers, suppliers and customers (fair pay, child labour, false claims). ENVIRONMENTAL considerations concern the natural world — pollution, global warming, waste disposal, sustainable production. Mixing them up loses marks in the exam."
+  },
+  {
+    wrong: "Being ethical is always bad for business because it increases costs.",
+    correct: "Being ethical has BOTH costs and benefits. Yes, it raises costs (higher wages, Fairtrade prices) but it also brings benefits: improved reputation, increased sales from ethical consumers, more motivated staff (lower turnover and recruitment costs), and long-term survival. The net effect depends on the market and the business."
+  },
+  {
+    wrong: "Using robotics instead of workers is an example of ethical treatment of the workforce.",
+    correct: "Using robotics is a business OPERATIONS/TECHNOLOGY decision, not an ethical one. Ethical treatment of workers is about HOW existing and future human workers are treated — pay, hours, safety, fairness. Replacing workers with machines is a productivity/cost decision, not an ethical employer practice."
+  },
+  {
+    wrong: "For 'analyse one benefit of being ethical' (3 marks), stating 'the business gets a better reputation' is enough.",
+    correct: "3 marks require: Understanding (1) — explain what the ethical action is. Application (1) — link to the specific business using case study detail. Analysis (1) — show the business IMPACT (e.g. 'this leads to increased sales and higher revenue'). A bare statement earns only 1 mark. You must chain: ethical action → intermediate effect → business consequence."
+  },
+  {
+    wrong: "The Fairtrade Mark guarantees that a product is organic and environmentally produced.",
+    correct: "The Fairtrade Mark specifically guarantees that a FAIR PRICE was paid to the farmers/suppliers in developing countries. It is an ETHICAL guarantee about fair treatment of suppliers — not a guarantee about organic farming or environmental production methods, though these may overlap."
+  },
+  {
+    wrong: "For a 9-mark evaluate question, listing as many ethical and environmental points as possible will score high marks.",
+    correct: "9-mark questions require a structured chain: K (define) → U (explain) → APP x2 (use the case study twice) → AN x2 (show the business impact) → EVAL (make a judgement and justify it using the context). Listing generic points without application to the case study earns very few marks. Depth and context always outperform breadth."
+  }
+];
+
+const examTips = [
+  {
+    type: "Most Repeated Question Type",
+    title: "Identify two ethical/environmental considerations (2 marks)",
+    content: "Ethical: Treatment of workers, Treatment of suppliers, Treatment of customers, Sourcing of materials. Environmental: Sustainability, Waste disposal, Pollution, Climate change. Give the CATEGORY name — not just an example. e.g. 'Treatment of workers' earns the mark; 'paying fair wages' alone may not unless the question asks you to explain.",
+    pills: ["kn"]
+  },
+  {
+    type: "Most Repeated Question Type",
+    title: "Analyse one benefit/disadvantage of being ethical (3 marks)",
+    content: "Structure: (U) State and explain the benefit e.g. 'ethical businesses often gain an improved reputation'. (APP) Link to the specific business — e.g. 'Pukka Teas' turnover rose from £9m to £45m'. (AN) Show the business impact — 'this increased revenue can be reinvested to fund further growth'. A chain of three linked points earns all 3 marks.",
+    pills: ["un","app","an"]
+  },
+  {
+    type: "Most Repeated Question Type",
+    title: "Analyse one method of sustainable production (3 marks)",
+    content: "Name the method (e.g. solar panels / renewable energy). Apply it to the specific business in the case study. Analyse the business impact — usually reduced costs OR improved reputation → increased sales. Example: 'Aston Martin could install solar panels (K) to power its Warwickshire production site (APP) which would cut energy costs and reduce its carbon footprint, improving its environmental image (AN).'",
+    pills: ["kn","app","an"]
+  },
+  {
+    type: "9-Mark Evaluate Question",
+    title: "Evaluate whether ethical/environmental considerations conflict with shareholder objectives",
+    content: "K: Define ethics. U: Explain how ethical practices work (e.g. fair wages, Fairtrade sourcing). APP x2: Use the case study to show two specific ethical actions. AN x2: Show how each raises costs or reduces profits — conflicting with shareholder profit goals. EVAL: Judge the EXTENT of conflict — e.g. in the LONG TERM, ethical businesses like Pukka Teas may generate more profit through increased sales, but SHORT TERM costs rise and dividends may fall.",
+    pills: ["kn","un","app","an","eval"]
+  },
+  {
+    type: "9-Mark Evaluate Question",
+    title: "Evaluate how environmental considerations affect the marketing mix",
+    content: "Link environment to each P: Product — may need to redesign packaging (e.g. Pukka Pies replacing non-recyclable plastics). Price — may need to rise to cover eco costs. Place — distribution using lower-emission vehicles. Promotion — green credentials become a marketing message. Evaluate which P is most affected, using case study figures. e.g. 'Price is most affected as no waste to landfill reduces costs, offsetting the cost of new packaging.'",
+    pills: ["app","an","eval"]
+  },
+  {
+    type: "Examiner Warning",
+    title: "Do NOT confuse ethical with legal, or ethical with environmental",
+    content: "Three common errors that lose marks: (1) Describing legal compliance (e.g. paying minimum wage) as an ethical choice — it is a legal duty. Ethics goes BEYOND the law. (2) Writing about pollution and sustainability when asked about ethics — these are environmental issues. (3) Writing about fair pay and child labour when asked about environmental considerations — these are ethical issues.",
+    pills: []
+  },
+  {
+    type: "Evaluation Tip",
+    title: "Short-term costs vs. long-term benefits — the key evaluation point",
+    content: "The strongest evaluations in this unit recognise that: In the SHORT TERM, ethical/environmental practices raise costs, may reduce profits, and could conflict with shareholder objectives. In the LONG TERM, they improve reputation, increase sales, motivate workers, reduce turnover, attract investors, and can lower costs (e.g. solar panels). Always judge whether short-term costs are outweighed by long-term benefits, using the specific business context.",
+    pills: ["eval"]
+  },
+  {
+    type: "Case Study Application Tip",
+    title: "Always use specific case study numbers",
+    content: "Application marks are ONLY awarded when you use the specific details from the case study — not generic statements. Wrong: 'The business is growing.' Right: 'Pukka Teas' turnover rose from £9m in 2012 to £45m in 2019.' Wrong: 'The business paid money to a fund.' Right: 'Pukka Teas paid £148,000 into the Fairtrade community fund in 2017.' Always quote figures, names and specific facts from the text.",
+    pills: ["app"]
+  }
+];
+
+const flashcards = [
+  { term: "Ethics", def: "The concept of what is right and wrong. Ethical behaviour concerns how workers, suppliers and customers are treated — going beyond what the law requires." },
+  { term: "Ethical behaviour", def: "Doing what is morally right. Concerns how workers, suppliers and customers are treated — includes fair pay, safe conditions and honest marketing." },
+  { term: "Child labour", def: "The use of young children below the legal age for employment to achieve low-cost production. An unethical practice that ethical businesses avoid directly and through their supply chains." },
+  { term: "Fairtrade", def: "A movement encouraging businesses to pay a fair price to suppliers in developing countries. The Fairtrade Mark guarantees a fair price was paid to farmers." },
+  { term: "Sustainable production", def: "Production that does not lead to the depletion (using up) of natural resources. Involves using renewable resources and methods that can continue indefinitely." },
+  { term: "Renewable resources", def: "Resources that can be used more than once — such as wind power, solar energy, water and crops. Key to sustainable production." },
+  { term: "Non-renewable resources", def: "Resources that can only be used once — such as oil and coal. Once used, they cannot be replaced. Sustainable production seeks to minimise their use." },
+  { term: "Recycling", def: "When resources are reused to produce something new, avoiding landfill or incineration. An important environmental consideration for businesses." },
+  { term: "Global warming", def: "The rise in average temperatures caused by human activity — particularly burning fossil fuels and deforestation. A key environmental concern for all businesses." },
+  { term: "Climate change", def: "The process where average temperatures rise or fall and weather patterns change. Businesses must consider both the causes they contribute to and the risks it creates for their operations." },
+  { term: "Benefits of being ethical (3)", def: "1. Improved reputation → more customers. 2. Increased sales → higher revenue. 3. Worker motivation → higher productivity, lower turnover, lower recruitment costs." },
+  { term: "Drawbacks of being ethical (3)", def: "1. Higher costs (fair wages, ethical sourcing). 2. Reduced profits (costs outweigh revenue gains). 3. Lost sales (unethical competitors charge less)." },
+  { term: "Benefits of being environmentally friendly (3)", def: "1. Increased sales from eco-conscious consumers. 2. Reduced costs (energy saving, less packaging). 3. Reduced tax bills / government subsidies for green practices." },
+  { term: "Drawbacks of being environmentally friendly (3)", def: "1. Higher raw material costs (sustainable materials cost more). 2. High capital costs (solar panels, anaerobic digesters). 3. More expensive production methods (organic farming)." },
+  { term: "Pukka Teas — ethics case study", def: "Certified 'Fair for Life' Fairtrade producer. Turnover grew from £9m (2012) to £45m (2019). Paid £148,000 into the Fairtrade fund in 2017. Shows ethical businesses can thrive but face higher costs." },
+  { term: "Olleco — environment case study", def: "Collects waste cooking oil and food waste to produce biodiesel. Revenue exceeds £220m across 19 UK sites. Cost: millions spent on R&D and anaerobic digester plants. 'Waste to product' sustainability model." },
+  { term: "Tesco — unethical supplier treatment", def: "Found guilty of delaying payments to small suppliers. One supplier waited 24 months for £2 million — damaging their cash flow. A case study of unethical treatment of suppliers." },
+  { term: "CSR (Corporate Social Responsibility)", def: "The idea that businesses should be judged on their overall contribution to society — not just profits. Includes ethical and environmental duties alongside financial performance. e.g. M&S 'Plan A', Next plc." },
+  { term: "Four ethical areas", def: "1. Treatment of workers (pay, hours, safety, no discrimination). 2. Treatment of suppliers (fair prices, no late payment). 3. Treatment of customers (no false claims, no overcharging). 4. Sourcing of materials (no child labour, sustainable suppliers)." },
+  { term: "Four environmental issues", def: "1. Pollution (air, land, water, noise). 2. Waste disposal (landfill, incineration vs. recycling). 3. Climate change (changing weather patterns). 4. Global warming (rising temperatures from fossil fuels)." },
+  { term: "Short-term vs. long-term (ethics evaluation)", def: "SHORT TERM: ethical practices raise costs and may reduce profits/dividends. LONG TERM: improved reputation, increased sales, motivated workers, lower turnover, investor confidence — can lead to greater profitability and survival." },
+  { term: "Boohoo — unethical sourcing case study", def: "Faced heavy criticism in 2020/21 for allegations that its Leicester suppliers were underpaying workers and ignoring COVID-19 safety rules. A case study in the reputational damage of unethical supply chains." }
+];
+
+const tfData = [
+  { statement: "Ethics is about what is right and wrong — regardless of what the law says.", answer: true, explanation: "Correct. Ethics goes beyond legal compliance. A business can be legal but still unethical (e.g. paying exactly minimum wage while knowingly delaying supplier payments)." },
+  { statement: "An ethical business will employ young children when it needs to save money in order to survive.", answer: false, explanation: "False. Using child labour is ALWAYS unethical — no justification makes it acceptable. Ethical businesses NEVER use child labour, even if competitors do or if survival is at stake." },
+  { statement: "Sustainable production means producing goods without using up scarce or non-renewable resources.", answer: true, explanation: "Correct. Sustainable production does not deplete natural resources — it uses renewable resources and methods that can continue indefinitely." },
+  { statement: "The Fairtrade Mark guarantees that a product is made using organic farming methods.", answer: false, explanation: "The Fairtrade Mark guarantees that suppliers in developing countries received a FAIR PRICE. It is an ethical guarantee about fair treatment — not about organic or environmental production methods." },
+  { statement: "Being ethical always reduces a business's profits.", answer: false, explanation: "Not necessarily. While ethical practices do increase costs, they also bring benefits — improved reputation, increased sales from ethical consumers, and more motivated workers reducing turnover costs. Pukka Teas grew from £9m to £45m turnover while being fully Fairtrade certified." },
+  { statement: "Treatment of workers, treatment of suppliers, treatment of customers and sourcing of materials are the four main areas of ethical consideration.", answer: true, explanation: "Correct — these are the four core ethical areas. Each covers specific practices: no child labour, fair wages, no late payment, no false claims, Fairtrade sourcing etc." },
+  { statement: "Climate change is an ethical issue, not an environmental issue.", answer: false, explanation: "Climate change is an ENVIRONMENTAL issue. Ethical issues concern how people are treated. Environmental issues concern harm to the natural world. Keep these two categories separate — mixing them up costs marks in the exam." },
+  { statement: "Installing sensor-controlled lights that switch off automatically is an example of sustainable production.", answer: true, explanation: "Correct. Sensor-controlled lighting reduces energy consumption, lowering the business's carbon footprint and energy costs. It is a practical example of sustainable resource management." },
+  { statement: "Olleco's use of waste cooking oil to produce biodiesel is an example of recycling and sustainable production.", answer: true, explanation: "Correct. Olleco reuses waste materials (cooking oil, food waste) to produce a useful product (biodiesel). This reduces landfill, creates a renewable fuel source, and illustrates sustainable production." },
+  { statement: "Using robotics to replace workers is an example of ethical treatment of the workforce.", answer: false, explanation: "Using robotics is a business operations/technology decision — not an ethical one. Ethical treatment of workers concerns HOW workers are treated: pay, hours, safety and fairness. Replacing workers with machines is a productivity decision." },
+  { statement: "Late payment of bills to suppliers is an ethical issue for businesses.", answer: true, explanation: "Correct. Deliberately delaying payments to suppliers (as Tesco did) damages their cash flow and is considered unethical treatment of suppliers — even if not always illegal." },
+  { statement: "A possible advantage of being environmentally friendly is receiving a government subsidy.", answer: true, explanation: "Correct. Governments offer grants and subsidies to help businesses introduce eco-friendly products and processes, as part of meeting their own environmental targets." },
+  { statement: "The main drawback of sustainable production is that it always reduces sales.", answer: false, explanation: "The main drawback is that it typically INCREASES COSTS (expensive materials, high capital costs for equipment like solar panels). Sustainable production often INCREASES sales as eco-conscious consumers prefer green brands." },
+  { statement: "Pukka Teas is an example of a business that suffered financially because of its Fairtrade commitments.", answer: false, explanation: "The opposite — Pukka Teas grew from £9m to £45m in turnover between 2012 and 2019. Its Fairtrade ethics improved its reputation and drove customer growth. The £148,000 Fairtrade fund contribution was a cost, but the overall business thrived." }
+];
+
+// ══════════════════════════════════════
+//  TAB SWITCHER
+// ══════════════════════════════════════
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ══════════════════════════════════════
+//  BUILD LEARN
+// ══════════════════════════════════════
+function buildLearn() {
+  const grid = document.getElementById('topicGrid');
+  topics.forEach(t => {
+    const card = document.createElement('div');
+    card.className = 'topic-card';
+    card.innerHTML = `<span class="tag">${t.tag}</span><h3>${t.title}</h3><span class="toggle-icon">+</span><div class="topic-content">${t.content}</div>`;
+    card.addEventListener('click', () => card.classList.toggle('open'));
+    grid.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+//  BUILD MCQ
+// ══════════════════════════════════════
+let mcqScore = 0, mcqTotal = 0;
+function buildMCQ() {
+  const wrap = document.getElementById('mcqWrap');
+  mcqData.forEach((q, qi) => {
+    const block = document.createElement('div');
+    block.className = 'q-block';
+    block.innerHTML = `<div class="q-num">QUESTION ${qi+1}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="options">${q.opts.map((o,oi)=>`<button class="opt-btn" data-qi="${qi}" data-oi="${oi}">${o}</button>`).join('')}</div>
+      <div class="q-feedback" id="qfb-${qi}"></div>`;
+    wrap.appendChild(block);
+  });
+  wrap.addEventListener('click', e => {
+    if (!e.target.classList.contains('opt-btn')) return;
+    const qi = +e.target.dataset.qi, oi = +e.target.dataset.oi;
+    const block = e.target.closest('.q-block');
+    if (block.dataset.answered) return;
+    block.dataset.answered = 1; mcqTotal++;
+    block.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
+    const fb = document.getElementById(`qfb-${qi}`);
+    if (oi === mcqData[qi].ans) {
+      e.target.classList.add('correct');
+      fb.textContent = '✓ Correct! ' + mcqData[qi].explain;
+      fb.className = 'q-feedback show ok'; mcqScore++;
+    } else {
+      e.target.classList.add('wrong');
+      block.querySelectorAll('.opt-btn')[mcqData[qi].ans].classList.add('correct');
+      fb.textContent = '✗ ' + mcqData[qi].explain;
+      fb.className = 'q-feedback show no';
+    }
+    document.getElementById('mcqScore').textContent = mcqScore;
+    document.getElementById('mcqTotal').textContent = mcqTotal;
+  });
+}
+function resetMCQ() {
+  mcqScore = 0; mcqTotal = 0;
+  document.getElementById('mcqScore').textContent = 0;
+  document.getElementById('mcqTotal').textContent = 0;
+  document.getElementById('mcqWrap').innerHTML = '';
+  buildMCQ();
+}
+
+// ══════════════════════════════════════
+//  BUILD MATCHING
+// ══════════════════════════════════════
+let matchSelected = null, matchScore = 0, matchTotal = 0;
+const matchMistakes = new Set();
+let matchLocked = false;
+
+function buildMatch() {
+  matchTotal = matchData.length;
+  document.getElementById('matchTotal').textContent = matchTotal;
+  const left = document.getElementById('matchLeft');
+  const right = document.getElementById('matchRight');
+  const shuffled = [...matchData].sort(() => Math.random() - .5);
+  matchData.forEach(m => {
+    const el = document.createElement('div');
+    el.className = 'match-item'; el.textContent = m.term;
+    el.dataset.key = m.term; el.dataset.side = 'left'; left.appendChild(el);
+  });
+  shuffled.forEach(m => {
+    const el = document.createElement('div');
+    el.className = 'match-item'; el.textContent = m.def;
+    el.dataset.key = m.term; el.dataset.side = 'right'; right.appendChild(el);
+  });
+  document.getElementById('matchLeft').addEventListener('click', handleMatch);
+  document.getElementById('matchRight').addEventListener('click', handleMatch);
+}
+function handleMatch(e) {
+  if (matchLocked) return;
+  const item = e.target.closest('.match-item');
+  if (!item || item.classList.contains('matched-ok') || item.classList.contains('matched-eventual')) return;
+  if (!matchSelected) {
+    document.querySelectorAll('.match-item.selected').forEach(x => x.classList.remove('selected'));
+    item.classList.add('selected'); matchSelected = item;
+  } else {
+    if (matchSelected === item) { item.classList.remove('selected'); matchSelected = null; return; }
+    if (matchSelected.dataset.side === item.dataset.side) {
+      matchSelected.classList.remove('selected'); matchSelected = item; item.classList.add('selected'); return;
+    }
+    const a = matchSelected, b = item;
+    a.classList.remove('selected'); b.classList.remove('selected'); matchSelected = null;
+    if (a.dataset.key === b.dataset.key) {
+      const cls = matchMistakes.has(a.dataset.key) ? 'matched-eventual' : 'matched-ok';
+      a.classList.add(cls); b.classList.add(cls);
+      matchScore++; document.getElementById('matchScore').textContent = matchScore;
+    } else {
+      matchLocked = true; matchMistakes.add(a.dataset.key); matchMistakes.add(b.dataset.key);
+      a.classList.add('matched-no'); b.classList.add('matched-no');
+      setTimeout(() => { a.classList.remove('matched-no'); b.classList.remove('matched-no'); matchLocked = false; }, 700);
+    }
+  }
+}
+function resetMatch() {
+  matchScore = 0; matchSelected = null; matchLocked = false; matchMistakes.clear();
+  document.getElementById('matchScore').textContent = 0;
+  document.getElementById('matchLeft').innerHTML = '';
+  document.getElementById('matchRight').innerHTML = '';
+  buildMatch();
+}
+
+// ══════════════════════════════════════
+//  BUILD FILL IN BLANKS
+// ══════════════════════════════════════
+let fibScore = 0, fibCorrectTotal = 0;
+function buildFIB() {
+  fibCorrectTotal = fibData.reduce((a, f) => a + Object.keys(f.blanks).length, 0);
+  document.getElementById('fibTotal').textContent = fibCorrectTotal;
+  const wrap = document.getElementById('fibWrap');
+  fibData.forEach((f, fi) => {
+    const div = document.createElement('div');
+    div.className = 'fib-sentence';
+    const correctAnswers = Object.values(f.blanks);
+    const distractors = fibWords.filter(w => !correctAnswers.includes(w)).sort(() => Math.random() - .5).slice(0, 4);
+    let html = f.display, bi = 0;
+    html = html.replace(/_____/g, () => {
+      const key = Object.keys(f.blanks)[bi];
+      const ans = f.blanks[key]; bi++;
+      const opts = [ans, ...distractors.filter(d => d !== ans).slice(0, 3)].sort(() => Math.random() - .5);
+      const optHTML = ['— choose —', ...opts].map(o => `<option value="${o === '— choose —' ? '' : o}">${o}</option>`).join('');
+      return `<span class="blank-select" data-fi="${fi}" data-key="${key}" data-ans="${ans}"><select>${optHTML}</select></span>`;
+    });
+    div.innerHTML = html; wrap.appendChild(div);
+  });
+  wrap.addEventListener('change', e => {
+    const sel = e.target;
+    if (sel.tagName !== 'SELECT') return;
+    const wrapper = sel.closest('.blank-select');
+    if (!wrapper || wrapper.dataset.answered === 'correct') return;
+    const chosen = sel.value, ans = wrapper.dataset.ans;
+    if (!chosen) return;
+    if (chosen === ans) {
+      wrapper.dataset.answered = 'correct';
+      wrapper.classList.remove('wrong'); wrapper.classList.add('correct');
+      sel.disabled = true; fibScore++;
+      document.getElementById('fibScore').textContent = fibScore;
+    } else {
+      wrapper.classList.remove('correct'); wrapper.classList.add('wrong');
+      setTimeout(() => { wrapper.classList.remove('wrong'); sel.value = ''; }, 700);
+    }
+  });
+}
+function resetFIB() {
+  fibScore = 0;
+  document.getElementById('fibScore').textContent = 0;
+  document.getElementById('fibWrap').innerHTML = '';
+  buildFIB();
+}
+
+// ══════════════════════════════════════
+//  BUILD MISCONCEPTIONS
+// ══════════════════════════════════════
+function buildMisc() {
+  const list = document.getElementById('miscList');
+  miscData.forEach(m => {
+    const card = document.createElement('div');
+    card.className = 'misc-card';
+    card.innerHTML = `<div class="wrong-view"><div class="misc-tag">✗ Common Student View</div><p>${m.wrong}</p></div>
+      <div class="correct-view"><div class="misc-tag">✓ Examiner's Correct View</div><p>${m.correct}</p></div>`;
+    list.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+//  BUILD EXAM TIPS
+// ══════════════════════════════════════
+function buildTips() {
+  const grid = document.getElementById('tipsGrid');
+  examTips.forEach(t => {
+    const card = document.createElement('div');
+    card.className = 'tip-card';
+    const pills = t.pills.map(p => `<span class="mark-pill ${p}">${p.toUpperCase()}</span>`).join('');
+    card.innerHTML = `<div class="tip-type">${t.type}</div><h4>${t.title}</h4><p>${t.content}</p>${t.pills.length ? `<div class="mark-breakdown">${pills}</div>` : ''}`;
+    grid.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+//  FLASHCARDS
+// ══════════════════════════════════════
+let fcIndex = 0;
+function renderFC() {
+  const fc = flashcards[fcIndex];
+  document.getElementById('fcTerm').textContent = fc.term;
+  document.getElementById('fcDef').textContent = fc.def;
+  document.getElementById('fcProgress').textContent = `Card ${fcIndex+1} of ${flashcards.length}`;
+  document.getElementById('flashcard').classList.remove('flipped');
+}
+function flipCard() { document.getElementById('flashcard').classList.toggle('flipped'); }
+function nextCard() { fcIndex = (fcIndex + 1) % flashcards.length; renderFC(); }
+function prevCard() { fcIndex = (fcIndex - 1 + flashcards.length) % flashcards.length; renderFC(); }
+
+// ══════════════════════════════════════
+//  BUILD TRUE / FALSE
+// ══════════════════════════════════════
+let tfScore = 0, tfTotal = 0;
+function buildTF() {
+  const wrap = document.getElementById('tfWrap');
+  tfData.forEach((item, i) => {
+    const card = document.createElement('div');
+    card.className = 'tf-card';
+    card.innerHTML = `<div><div class="tf-text">${item.statement}</div><div class="tf-explanation" id="tfExp-${i}">${item.explanation}</div></div>
+    <div class="tf-btns"><button class="tf-btn" data-i="${i}" data-val="true">TRUE</button><button class="tf-btn" data-i="${i}" data-val="false">FALSE</button></div>`;
+    wrap.appendChild(card);
+  });
+  wrap.addEventListener('click', e => {
+    const btn = e.target.closest('.tf-btn');
+    if (!btn) return;
+    const i = +btn.dataset.i;
+    const card = btn.closest('.tf-card');
+    if (card.dataset.answered) return;
+    card.dataset.answered = 1;
+    const val = btn.dataset.val === 'true';
+    const correct = val === tfData[i].answer;
+    tfTotal++;
+    card.querySelectorAll('.tf-btn').forEach(b => b.disabled = true);
+    if (correct) { btn.classList.add('correct'); tfScore++; }
+    else {
+      btn.classList.add('wrong');
+      card.querySelectorAll('.tf-btn').forEach(b => { if (b.dataset.val === String(tfData[i].answer)) b.classList.add('correct'); });
+    }
+    document.getElementById(`tfExp-${i}`).classList.add('show');
+    document.getElementById('tfScore').textContent = tfScore;
+    document.getElementById('tfTotal').textContent = tfTotal;
+  });
+}
+function resetTF() {
+  tfScore = 0; tfTotal = 0;
+  document.getElementById('tfScore').textContent = 0;
+  document.getElementById('tfTotal').textContent = 0;
+  document.getElementById('tfWrap').innerHTML = '';
+  buildTF();
+}
+
+// ══════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════
+buildLearn(); buildMCQ(); buildMatch(); buildFIB(); buildMisc(); buildTips(); renderFC(); buildTF();
+</script>
+</body>
+</html>
