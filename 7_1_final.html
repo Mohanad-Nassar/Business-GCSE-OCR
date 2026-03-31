@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7.1 Interdependent Nature of Business – Interactive Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1923;
+    --paper: #f5f0e8;
+    --cream: #ede7d9;
+    --accent: #c84b31;
+    --gold: #d4a843;
+    --teal: #1a6b6b;
+    --mid: #5a6e7f;
+    --light: #ffffff;
+    --border: #c9bfaa;
+    --success: #2d7a4f;
+    --wrong: #c84b31;
+    --card-bg: #fffcf6;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 28px 40px 24px;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: var(--teal);
+    opacity: .18;
+  }
+  header .badge {
+    background: var(--teal);
+    color: #fff;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 4vw, 40px);
+    line-height: 1.1;
+  }
+  header p { font-size: 13px; color: #aaa; margin-top: 6px; }
+
+  .tab-bar {
+    background: var(--ink);
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    border-bottom: 2px solid var(--teal);
+    padding: 0 40px;
+    scrollbar-width: none;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    background: none;
+    border: none;
+    color: #999;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .5px;
+    padding: 14px 18px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: color .2s, border-color .2s;
+    margin-bottom: -2px;
+  }
+  .tab-btn:hover { color: var(--paper); }
+  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  main { padding: 32px 40px 60px; max-width: 1100px; margin: 0 auto; }
+
+  .tab-panel { display: none; animation: fadeUp .35s ease; }
+  .tab-panel.active { display: block; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+  .section-title { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--ink); margin-bottom: 6px; }
+  .section-sub { font-size: 13px; color: var(--mid); margin-bottom: 28px; }
+
+  /* LEARN CARDS */
+  .topic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+  .topic-card {
+    background: var(--card-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 24px;
+    cursor: pointer;
+    transition: box-shadow .2s, transform .2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .topic-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--teal);
+    border-radius: 4px 0 0 4px;
+  }
+  .topic-card:nth-child(2)::before { background: var(--accent); }
+  .topic-card:nth-child(3)::before { background: var(--gold); }
+  .topic-card:nth-child(4)::before { background: #7a5c9e; }
+  .topic-card:nth-child(5)::before { background: var(--success); }
+  .topic-card:nth-child(6)::before { background: #c84b8a; }
+  .topic-card:nth-child(7)::before { background: #4a90d9; }
+  .topic-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.12); transform: translateY(-2px); }
+  .topic-card h3 { font-family: 'Playfair Display', serif; font-size: 17px; margin-bottom: 8px; color: var(--ink); }
+  .topic-card .toggle-icon { position: absolute; right: 20px; top: 20px; font-size: 18px; color: var(--mid); transition: transform .3s; }
+  .topic-card.open .toggle-icon { transform: rotate(45deg); }
+  .topic-content { display: none; margin-top: 12px; border-top: 1px solid var(--border); padding-top: 12px; }
+  .topic-card.open .topic-content { display: block; }
+  .topic-content ul { padding-left: 18px; }
+  .topic-content li { font-size: 13.5px; line-height: 1.7; color: #3a4a56; margin-bottom: 4px; }
+  .topic-content p { font-size: 13.5px; line-height: 1.75; color: #3a4a56; margin-bottom: 8px; }
+  .topic-card .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 6px;
+    color: var(--mid);
+  }
+
+  /* MCQ */
+  .quiz-wrap { display: flex; flex-direction: column; gap: 28px; }
+  .q-block { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 24px 26px; }
+  .q-block .q-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--teal); letter-spacing: 2px; margin-bottom: 8px; }
+  .q-block .q-text { font-weight: 600; font-size: 15px; margin-bottom: 16px; line-height: 1.5; }
+  .options { display: flex; flex-direction: column; gap: 9px; }
+  .opt-btn {
+    background: var(--cream);
+    border: 1.5px solid var(--border);
+    border-radius: 7px;
+    padding: 11px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13.5px;
+    text-align: left;
+    cursor: pointer;
+    transition: background .15s, border-color .15s;
+  }
+  .opt-btn:hover:not(:disabled) { background: #e8e1d3; border-color: var(--mid); }
+  .opt-btn.correct { background: #d4edda; border-color: var(--success); color: var(--success); font-weight: 600; }
+  .opt-btn.wrong { background: #fde8e5; border-color: var(--accent); color: var(--accent); font-weight: 600; }
+  .q-feedback { margin-top: 12px; padding: 10px 14px; border-radius: 6px; font-size: 13px; display: none; }
+  .q-feedback.show { display: block; }
+  .q-feedback.ok { background: #d4edda; color: #1a5c34; }
+  .q-feedback.no { background: #fde8e5; color: #8b2317; }
+
+  /* MATCHING */
+  .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; }
+  .match-col { display: flex; flex-direction: column; gap: 10px; }
+  .match-item {
+    background: var(--cream);
+    border: 1.5px solid var(--border);
+    border-radius: 7px;
+    padding: 12px 15px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color .15s, background .15s;
+    line-height: 1.5;
+  }
+  .match-item.selected { border-color: var(--gold); background: #fdf5df; }
+  .match-item.matched-ok { border-color: var(--success); background: #d4edda; color: var(--success); cursor: default; }
+  .match-item.matched-eventual { border-color: #b8860b; background: #fff8dc; color: #7a5800; cursor: default; }
+  .match-item.matched-no { border-color: var(--accent); background: #fde8e5; color: var(--accent); animation: shake .35s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+  .match-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; color: var(--mid); margin-bottom: 6px; }
+
+  /* FILL IN BLANKS */
+  .fib-wrap { display: flex; flex-direction: column; gap: 22px; }
+  .fib-sentence {
+    background: var(--card-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    font-size: 15px;
+    line-height: 2.4;
+  }
+  .blank-select { display: inline-block; position: relative; vertical-align: middle; margin: 0 4px; }
+  .blank-select select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: var(--cream);
+    border: 2px solid var(--teal);
+    border-radius: 6px;
+    padding: 3px 28px 3px 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teal);
+    cursor: pointer;
+    min-width: 130px;
+    outline: none;
+    transition: border-color .15s, background .15s, color .15s;
+  }
+  .blank-select::after {
+    content: '▾';
+    position: absolute;
+    right: 8px; top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 12px;
+    color: var(--teal);
+  }
+  .blank-select.correct select { border-color: var(--success); background: #d4edda; color: var(--success); }
+  .blank-select.correct::after { color: var(--success); }
+  .blank-select.wrong select { border-color: var(--accent); background: #fde8e5; color: var(--accent); animation: shake .3s; }
+  .blank-select.wrong::after { color: var(--accent); }
+
+  /* MISCONCEPTIONS */
+  .misc-list { display: flex; flex-direction: column; gap: 20px; }
+  .misc-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .misc-card .wrong-view { background: #fde8e5; border-left: 5px solid var(--accent); padding: 16px 20px; }
+  .misc-card .correct-view { background: #d4edda; border-left: 5px solid var(--success); padding: 16px 20px; }
+  .misc-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 5px; }
+  .wrong-view .misc-tag { color: var(--accent); }
+  .correct-view .misc-tag { color: var(--success); }
+  .misc-card p { font-size: 14px; line-height: 1.65; }
+
+  /* EXAM TIPS */
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+  .tip-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 22px 24px; }
+  .tip-card .tip-type { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+  .tip-card h4 { font-family: 'Playfair Display', serif; font-size: 16px; margin-bottom: 10px; }
+  .tip-card p { font-size: 13.5px; line-height: 1.7; color: #3a4a56; }
+  .tip-card ul { padding-left: 18px; }
+  .tip-card li { font-size: 13.5px; line-height: 1.7; color: #3a4a56; margin-bottom: 4px; }
+  .mark-breakdown { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .mark-pill { font-size: 11px; font-family: 'DM Mono', monospace; padding: 3px 10px; border-radius: 20px; background: var(--cream); border: 1px solid var(--border); }
+  .mark-pill.kn { background: #e8f4f8; border-color: #4a90a4; color: #1a5060; }
+  .mark-pill.un { background: #f0f8e8; border-color: #5a9a40; color: #2a5a18; }
+  .mark-pill.app { background: #fdf5df; border-color: var(--gold); color: #8a6800; }
+  .mark-pill.an { background: #e0f0f5; border-color: #4a90a4; color: #1a5060; }
+  .mark-pill.eval { background: #f0e8ff; border-color: #9a70c0; color: #4a1a80; }
+
+  /* FLASHCARDS */
+  .fc-container { max-width: 600px; margin: 0 auto; text-align: center; }
+  .fc-progress { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--mid); margin-bottom: 16px; }
+  .flashcard { perspective: 1000px; height: 280px; cursor: pointer; margin-bottom: 24px; }
+  .fc-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .5s cubic-bezier(.4,0,.2,1); }
+  .flashcard.flipped .fc-inner { transform: rotateY(180deg); }
+  .fc-front, .fc-back {
+    position: absolute; inset: 0; backface-visibility: hidden;
+    border-radius: 14px; display: flex; align-items: center; justify-content: center;
+    padding: 30px; border: 1.5px solid var(--border);
+  }
+  .fc-front { background: var(--ink); color: var(--paper); }
+  .fc-front .fc-label { position: absolute; top: 16px; left: 20px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+  .fc-front .fc-term { font-family: 'Playfair Display', serif; font-size: 24px; line-height: 1.3; }
+  .fc-back { background: var(--card-bg); transform: rotateY(180deg); text-align: left; }
+  .fc-back .fc-def { font-size: 14px; line-height: 1.75; color: var(--ink); }
+  .fc-hint { font-size: 12px; color: var(--mid); margin-bottom: 16px; }
+  .fc-nav { display: flex; gap: 12px; justify-content: center; }
+  .fc-btn { background: var(--ink); color: var(--paper); border: none; border-radius: 7px; padding: 10px 22px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: background .15s; }
+  .fc-btn:hover { background: var(--teal); }
+  .fc-btn.outline { background: transparent; border: 1.5px solid var(--border); color: var(--ink); }
+  .fc-btn.outline:hover { background: var(--cream); }
+
+  /* TRUE / FALSE */
+  .tf-wrap { display: flex; flex-direction: column; gap: 18px; }
+  .tf-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 20px 24px; display: flex; align-items: flex-start; gap: 20px; }
+  .tf-card .tf-text { flex: 1; font-size: 14.5px; line-height: 1.6; }
+  .tf-btns { display: flex; gap: 8px; flex-shrink: 0; }
+  .tf-btn { border: 1.5px solid var(--border); background: var(--cream); border-radius: 6px; padding: 8px 16px; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 600; cursor: pointer; transition: background .15s; letter-spacing: .5px; }
+  .tf-btn:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
+  .tf-btn.correct { background: #d4edda; border-color: var(--success); color: var(--success); }
+  .tf-btn.wrong { background: #fde8e5; border-color: var(--accent); color: var(--accent); }
+  .tf-explanation { font-size: 13px; color: var(--mid); margin-top: 10px; display: none; line-height: 1.6; }
+  .tf-explanation.show { display: block; }
+
+  /* SCORE BAR */
+  .score-bar { background: var(--cream); border: 1.5px solid var(--border); border-radius: 8px; padding: 14px 20px; font-size: 14px; margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
+  .score-num { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--teal); line-height: 1; }
+  .reset-btn { margin-left: auto; background: none; border: 1.5px solid var(--border); border-radius: 6px; padding: 7px 16px; font-size: 12px; font-family: 'DM Mono', monospace; cursor: pointer; transition: background .15s; letter-spacing: .5px; }
+  .reset-btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  /* 9-mark diagram */
+  .nine-mark-box {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 28px;
+  }
+  .nine-mark-box h3 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--gold); margin-bottom: 14px; }
+  .mark-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .mark-block {
+    flex: 1; min-width: 100px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 8px;
+    padding: 12px 14px;
+    text-align: center;
+  }
+  .mark-block .mb-num { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--gold); }
+  .mark-block .mb-label { font-size: 11px; font-family: 'DM Mono', monospace; letter-spacing: 1px; color: #bbb; margin-top: 4px; }
+  .mark-block .mb-desc { font-size: 12px; color: #ddd; margin-top: 6px; line-height: 1.5; }
+
+  @media(max-width:640px) {
+    main { padding: 20px 16px 50px; }
+    header { padding: 20px 16px; }
+    .tab-bar { padding: 0 10px; }
+    .match-grid { grid-template-columns: 1fr; }
+    .tf-card { flex-direction: column; }
+    .tf-btns { flex-direction: row; }
+    .mark-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="badge">OCR GCSE Business — Component 2</div>
+    <h1>Unit 7 — The Interdependent Nature of Business</h1>
+    <p>Interactive revision guide · All key content + exam practice</p>
+  </div>
+</header>
+
+<nav class="tab-bar" id="tabBar">
+  <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+  <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+  <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+  <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+  <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+  <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+  <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+  <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+</nav>
+
+<main>
+
+<!-- LEARN -->
+<div class="tab-panel active" id="tab-learn">
+  <h2 class="section-title">Key Learning Topics</h2>
+  <p class="section-sub">Click any card to expand detailed notes.</p>
+  <div class="topic-grid" id="topicGrid"></div>
+</div>
+
+<!-- MCQ -->
+<div class="tab-panel" id="tab-mcq">
+  <h2 class="section-title">Multiple Choice Questions</h2>
+  <p class="section-sub">Select an answer to reveal instant feedback.</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+    <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+    <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+  </div>
+  <div class="quiz-wrap" id="mcqWrap"></div>
+</div>
+
+<!-- MATCHING -->
+<div class="tab-panel" id="tab-matching">
+  <h2 class="section-title">Matching Activity</h2>
+  <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+  <div style="margin-bottom:16px;">
+    <div class="score-bar">
+      <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+      <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+      <button class="reset-btn" onclick="resetMatch()">RESET</button>
+    </div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;">
+        <span style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span> First attempt correct
+      </span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;">
+        <span style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span> Correct after mistake
+      </span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;">
+        <span style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span> Wrong — try again
+      </span>
+    </div>
+  </div>
+  <div class="match-grid">
+    <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+    <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
+  </div>
+</div>
+
+<!-- FILL IN BLANKS -->
+<div class="tab-panel" id="tab-fib">
+  <h2 class="section-title">Fill in the Blanks</h2>
+  <p class="section-sub">Click the dropdown in each blank and choose the correct word. Wrong answers stay red — try again!</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+    <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+    <button class="reset-btn" onclick="resetFIB()">RESET</button>
+  </div>
+  <div class="fib-wrap" id="fibWrap"></div>
+</div>
+
+<!-- MISCONCEPTIONS -->
+<div class="tab-panel" id="tab-misconceptions">
+  <h2 class="section-title">Common Misconceptions</h2>
+  <p class="section-sub">What students often think — and what examiners actually want.</p>
+  <div class="misc-list" id="miscList"></div>
+</div>
+
+<!-- EXAM TIPS -->
+<div class="tab-panel" id="tab-examtips">
+  <h2 class="section-title">Exam Questions & Tips</h2>
+  <p class="section-sub">The 9-mark question structure, most repeated types, and mark-scheme guidance.</p>
+
+  <div class="nine-mark-box">
+    <h3>The 9-Mark Question — How It's Always Marked</h3>
+    <div class="mark-row">
+      <div class="mark-block"><div class="mb-num">1</div><div class="mb-label">KNOWLEDGE</div><div class="mb-desc">Define the change that makes things happen (e.g. define marketing)</div></div>
+      <div class="mark-block"><div class="mb-num">1</div><div class="mb-label">UNDERSTANDING</div><div class="mb-desc">Explain the concept — what activities does it include?</div></div>
+      <div class="mark-block"><div class="mb-num">2</div><div class="mb-label">APPLICATION</div><div class="mb-desc">Use TWO pieces of case study evidence to illustrate the link</div></div>
+      <div class="mark-block"><div class="mb-num">2</div><div class="mb-label">ANALYSIS</div><div class="mb-desc">Explain the effect/impact on the second business area</div></div>
+      <div class="mark-block"><div class="mb-num">3</div><div class="mb-label">EVALUATION</div><div class="mb-desc">Judgement (1) + Justified with context (2). Must refer to BOTH areas if question names two.</div></div>
+    </div>
+  </div>
+
+  <div class="tips-grid" id="tipsGrid"></div>
+</div>
+
+<!-- FLASHCARDS -->
+<div class="tab-panel" id="tab-flashcards">
+  <h2 class="section-title">Flashcards</h2>
+  <p class="section-sub">Click the card to reveal the definition. Use the arrows to navigate.</p>
+  <div class="fc-container">
+    <div class="fc-progress" id="fcProgress">Card 1 of 18</div>
+    <div class="flashcard" id="flashcard" onclick="flipCard()">
+      <div class="fc-inner">
+        <div class="fc-front"><div class="fc-label">KEY TERM</div><div class="fc-term" id="fcTerm"></div></div>
+        <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
+      </div>
+    </div>
+    <p class="fc-hint">👆 Click card to flip</p>
+    <div class="fc-nav">
+      <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+      <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+      <button class="fc-btn" onclick="nextCard()">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- TRUE / FALSE -->
+<div class="tab-panel" id="tab-truefalse">
+  <h2 class="section-title">True or False?</h2>
+  <p class="section-sub">Test your knowledge with these statements.</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+    <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+    <button class="reset-btn" onclick="resetTF()">RESET</button>
+  </div>
+  <div class="tf-wrap" id="tfWrap"></div>
+</div>
+
+</main>
+
+<script>
+// ═══════════════════════════════════════════════
+//  DATA
+// ═══════════════════════════════════════════════
+
+const topics = [
+  {
+    title: "What 'Interdependent' Means",
+    tag: "Core Concept",
+    content: `<p>Interdependent means <strong>linked</strong>. The four main areas of business are all connected to and dependent on each other:</p>
+<ul>
+<li><strong>Marketing</strong> — market research, segmentation, the marketing mix (4Ps), consumer law</li>
+<li><strong>Human Resources</strong> — organisational structure, communication, recruitment, motivation, training, employment law</li>
+<li><strong>Business Operations</strong> — production processes, sales processes, customer service, location, supply chain</li>
+<li><strong>Finance</strong> — sources of finance, revenues, costs and profits, break-even analysis, cash flow</li>
+</ul>
+<p>A decision made in <strong>one area</strong> will always affect one or more <strong>other areas</strong>. Business people must consider these knock-on effects before acting.</p>`
+  },
+  {
+    title: "The Four Features of Interdependence",
+    tag: "Specification",
+    content: `<p>The specification identifies four features:</p>
+<ul>
+<li><strong>Feature 1</strong> — The interdependent nature of operations, finance, marketing and human resources — how these areas link in practice</li>
+<li><strong>Feature 2</strong> — How these interdependencies underpin business decision-making — every decision triggers effects elsewhere</li>
+<li><strong>Feature 3</strong> — The impact of risk and reward on business activity — profit is the reward for enterprise; every decision carries risk</li>
+<li><strong>Feature 4</strong> — The use of financial information in measuring and understanding business performance and decision-making</li>
+</ul>`
+  },
+  {
+    title: "Example 1 — Introducing New Technology",
+    tag: "Worked Example",
+    content: `<p>A business notices falling sales and profits (Feature 4 — financial information signals the problem).</p>
+<p>It decides to <strong>introduce new technology</strong> to cut costs (Business Operations — production processes).</p>
+<ul>
+<li><strong>→ Human Resources:</strong> Fewer or differently skilled workers may be needed — recruitment or redundancy decisions required</li>
+<li><strong>→ Finance:</strong> The technology must be funded — possibly through a loan. Interest costs rise. Costs of production should fall.</li>
+<li><strong>→ Marketing:</strong> Lower costs could mean lower prices — decisions needed on new price and how to promote the change (price + promotion in the marketing mix)</li>
+</ul>
+<p><strong>Risk & Reward (Feature 3):</strong> Taking out a loan is a risk. If the technology fails to reverse the decline, the loan still must be repaid. If it succeeds, the reward is restored profits.</p>`
+  },
+  {
+    title: "Example 2 — Reducing Costs",
+    tag: "Worked Example",
+    content: `<p>A firm considers using <strong>cheaper raw materials</strong> to increase profits.</p>
+<ul>
+<li><strong>Finance:</strong> Reducing costs should increase profits (starting point)</li>
+<li><strong>→ Business Operations:</strong> Cheaper materials may reduce the <em>quality</em> of products made</li>
+<li><strong>→ Marketing:</strong> Lower quality may cause sales to fall — revenue falls</li>
+<li><strong>→ Finance (again):</strong> Falling revenue reduces profits — the opposite of the original aim</li>
+</ul>
+<p>This shows how a single decision ripples through all four areas. Reducing costs to boost profit can ultimately <em>reduce</em> profit if quality and sales suffer.</p>`
+  },
+  {
+    title: "Risk and Reward",
+    tag: "Feature 3",
+    content: `<p>Every business decision involves <strong>risk</strong>. The reward for taking risk and running a business is <strong>profit</strong>.</p>
+<ul>
+<li>Falling profits signal a problem and stimulate decisions</li>
+<li>Those decisions carry their own risks (e.g. borrowing to invest)</li>
+<li>If the decision succeeds, the business gains its reward (profit restored or increased)</li>
+<li>If the decision fails, the business bears the cost while still having to service any debt taken on</li>
+</ul>
+<p>Risk and reward are central to understanding <em>why</em> businesses make the decisions they do. More reward usually requires more risk.</p>`
+  },
+  {
+    title: "Financial Information & Decision-Making",
+    tag: "Feature 4",
+    content: `<p>Businesses use financial information to <strong>measure business performance</strong> and to <strong>inform decisions</strong>.</p>
+<p>Types of financial information used:</p>
+<ul>
+<li>Sales figures and revenue data — identify trends</li>
+<li>Profit data — measure overall business success</li>
+<li>Cost analysis — identify where savings can be made</li>
+<li>Cash flow — ensure the business can pay its bills</li>
+<li>Break-even analysis — plan how much must be sold to cover costs</li>
+</ul>
+<p><strong>Example (Wyke Farm):</strong> The business calculated it would save £100,000 per month on energy costs. This financial information justified a £13 million investment. The investment cost was expected to be paid back in 5–6 years.</p>
+<p>Financial information is not just historical — it drives forward-looking decisions and helps assess risk vs. reward.</p>`
+  },
+  {
+    title: "Synopticity — Component 01 + 02",
+    tag: "Exam Structure",
+    content: `<p><strong>Synopticity</strong> means bringing together knowledge from <em>both</em> components to answer questions holistically.</p>
+<ul>
+<li>Unit 7 is examined in <strong>Paper 2 (Component 2)</strong> but requires knowledge from <strong>Component 1</strong> as well</li>
+<li>The final part of the last case study on Paper 2 is <strong>always a 9-mark question</strong></li>
+<li>One type asks: how does a change in one area affect <strong>one other</strong> area?</li>
+<li>Another type asks: how does a change affect <strong>two other</strong> areas?</li>
+</ul>
+<p><strong>Key rule:</strong> Knowledge/understanding marks = show knowledge of the <em>change that causes things to happen</em>. Application/analysis/evaluation marks = show the effect on the <em>area that is impacted</em>.</p>
+<p><strong>Linear argument rule:</strong> Keep arguments linear — 'A leads to B and C.' Do not over-complicate by then asking whether C affects B. This causes circular arguments and wastes marks.</p>`
+  }
+];
+
+const mcqData = [
+  {
+    q: "A manufacturer decides to run a national TV marketing campaign. As a result, which of the following is MOST likely to be necessary?",
+    opts: ["Finance should stop monitoring cash flow","Human resources should employ temporary production workers","Operations management should reduce output","Purchasing should buy smaller quantities of raw materials"],
+    ans: 1,
+    explain: "A successful marketing campaign increases demand. The business must increase production to meet this demand, so Human Resources needs to recruit temporary workers. A decision in Marketing affects Human Resources."
+  },
+  {
+    q: "A business reduces costs by using cheaper raw materials. Which sequence BEST describes the chain of interdependence?",
+    opts: ["Finance → HR → Marketing → Operations","Finance → Operations (quality falls) → Marketing (sales fall) → Finance (profits fall)","Marketing → Finance → HR → Operations","Operations → HR → Finance → Marketing"],
+    ans: 1,
+    explain: "The decision starts in Finance (cut costs to boost profits), affects Operations (quality may fall), then Marketing (sales may fall due to lower quality), then Finance again (profits could fall — the opposite of the original aim)."
+  },
+  {
+    q: "A shop decides to market itself as offering the best customer service. This MOST directly requires which business area to act?",
+    opts: ["Finance — provide funds for a new shop","Business Operations — provide better quality products","Human Resources — provide advanced training for all sales staff","Marketing — advertise in national newspapers"],
+    ans: 2,
+    explain: "Offering the best customer service requires staff to be skilled enough to deliver it. Human Resources must provide advanced training for all sales staff to make this marketing promise a reality."
+  },
+  {
+    q: "Which of the following BEST describes 'interdependence' in a business context?",
+    opts: ["Each area of business works independently of the others","A decision in one area of business affects other areas","Finance controls all other business functions","Marketing is the most important area of business"],
+    ans: 1,
+    explain: "Interdependence means the areas of business are linked — a decision in one area will affect one or more other areas. Business people must consider these knock-on effects when making decisions."
+  },
+  {
+    q: "A business wants to increase market share by reducing prices. Which response BEST describes how other areas are affected?",
+    opts: ["Operations should decrease production","HR should review the organisational structure","Marketing should advertise the price reductions","Finance should provide money for a pay rise"],
+    ans: 2,
+    explain: "If prices are cut to gain market share, the business needs to tell customers about the lower prices — this requires Marketing to advertise the reductions. The decision in one area (price strategy) triggers action in another (promotion)."
+  },
+  {
+    q: "The reward for taking a business risk is best described as:",
+    opts: ["Revenue","Break-even","Profit","Market share"],
+    ans: 2,
+    explain: "Profit is the reward for enterprise and for taking risks. Businesses take risks in the hope of making a profit. If the risk pays off, the reward is profit."
+  },
+  {
+    q: "A business making ice cream wants to double production. Which of the following would NOT normally be required?",
+    opts: ["HR to consider the need for extra staff","Finance to look at the money required","Marketing to carry out market research before the decision","Operations to check where products are sold"],
+    ans: 3,
+    explain: "Checking where products are sold is a marketing/location decision, not an operations function. Operations would focus on HOW to produce more — e.g. capacity, machinery, processes — not the distribution/retail locations."
+  },
+  {
+    q: "Wyke Farm invested £13m in new energy technology. Which feature of interdependence does the £100,000 monthly saving primarily illustrate?",
+    opts: ["The link between marketing and human resources","The use of financial information in measuring performance and aiding decisions","The impact of risk and reward on human resources","The link between operations and organisational structure"],
+    ans: 1,
+    explain: "The £100,000 per month saving is financial information that was used to justify and evaluate the investment decision — this is Feature 4: the use of financial information in measuring and understanding business performance and decision-making."
+  },
+  {
+    q: "For the 9-mark synoptic question, knowledge and understanding marks are awarded for:",
+    opts: ["The business area that is affected by the change","The change that causes things to happen — e.g. defining the triggering concept","Giving a final judgement with justification","Using specific figures from the case study"],
+    ans: 1,
+    explain: "For the 9-mark question: K/U marks = show knowledge of the CHANGE that makes things happen (define/explain the trigger). Application/Analysis/Evaluation marks = focus on the area AFFECTED by that change."
+  },
+  {
+    q: "VW switches production to electric cars. This decision MOST directly affects which TWO areas simultaneously?",
+    opts: ["Marketing and Finance","HR and Operations only","Marketing only","Finance and HR only"],
+    ans: 0,
+    explain: "Switching to electric cars affects Marketing (the product changes; a premium can be charged; brand reputation shifts) and Finance (higher production costs due to expensive batteries; long-term cost savings as battery prices fall). Both areas are directly impacted."
+  }
+];
+
+const matchData = [
+  { term: "Interdependence", def: "The concept that a decision in one business area will affect one or more other business areas" },
+  { term: "Feature 1", def: "The interdependent nature of operations, finance, marketing and human resources within a business context" },
+  { term: "Feature 3", def: "The impact of risk and reward on business activity" },
+  { term: "Feature 4", def: "The use of financial information in measuring and understanding business performance and decision-making" },
+  { term: "Synopticity", def: "Bringing together knowledge from Component 1 and Component 2 to answer questions holistically" },
+  { term: "Risk", def: "The possibility that a business decision may not produce the expected reward, leading to loss or failure" },
+  { term: "Reward", def: "Profit — what a business earns if it takes a risk successfully" },
+  { term: "Linear argument", def: "Keeping an interdependence answer structured as a chain: A leads to B, B leads to C — without looping back" }
+];
+
+const fibData = [
+  {
+    display: "Interdependent means that a decision in one _____ area will affect one or more _____ areas.",
+    blanks: { B1: "business", B2: "other" }
+  },
+  {
+    display: "The reward for taking a business risk is _____.",
+    blanks: { B1: "profit" }
+  },
+  {
+    display: "Feature 4 of interdependence is the use of _____ information in measuring and understanding business _____.",
+    blanks: { B1: "financial", B2: "performance" }
+  },
+  {
+    display: "The final part of the last case study on Paper 2 is always a _____ -mark question.",
+    blanks: { B1: "9" }
+  },
+  {
+    display: "Synopticity means bringing together knowledge from Component _____ and Component _____ to answer holistically.",
+    blanks: { B1: "01", B2: "02" }
+  },
+  {
+    display: "When using cheaper raw materials reduces quality, sales may _____, causing revenue and profits to _____.",
+    blanks: { B1: "fall", B2: "fall" }
+  }
+];
+const fibWords = ["business","other","profit","financial","performance","9","01","02","fall","rise","marketing","operations","revenue","risk","cost"];
+
+const miscData = [
+  {
+    wrong: "Interdependence just means all areas of business are related — you can mention any of them in any order.",
+    correct: "Interdependence requires a clear CHAIN of causation: a specific decision in one area causes a specific effect in another. Answers must be structured linearly — show HOW the change in Area A causes the effect in Area B. Random lists of related topics score poorly."
+  },
+  {
+    wrong: "For the 9-mark question, you should write about as many areas of business as possible to show breadth.",
+    correct: "The 9-mark question tells you which areas to write about. If it says 'marketing and costs,' write ONLY about those two. Going beyond the question wastes time and does not earn extra marks. Keep the argument focused and linear."
+  },
+  {
+    wrong: "Knowledge and understanding marks in the 9-mark question are about the AFFECTED area (e.g. cash flow).",
+    correct: "Knowledge (1 mark) = define the CHANGE that makes things happen (e.g. define 'marketing'). Understanding (1 mark) = explain that concept further. Application/Analysis/Evaluation marks are then awarded for showing how the AFFECTED area (e.g. cash flow) is impacted."
+  },
+  {
+    wrong: "Risk and reward only applies to very large business decisions like launching a new product.",
+    correct: "Risk and reward applies to ALL business decisions. Even using cheaper raw materials carries risk (quality and sales may fall). Even a small change to the marketing mix carries risk. Falling profits are the signal that a business is not achieving its reward — they trigger decisions, each of which carries new risks."
+  },
+  {
+    wrong: "If a question asks about the effect of marketing on cash flow, you need deep knowledge of cash flow for the K/U marks.",
+    correct: "For the K/U marks, you need to define and explain MARKETING (the triggering change). The cash flow knowledge comes in for Application/Analysis/Evaluation — where you show how the marketing change causes cash flow to change. Many students write about cash flow first and score poorly on K/U."
+  },
+  {
+    wrong: "Financial information is only used to check how a business performed in the past.",
+    correct: "Financial information has a FORWARD-LOOKING role as well. It identifies problems (e.g. falling profits), informs investment decisions, helps businesses calculate whether a new venture will be profitable, and measures performance against targets. It drives future decisions, not just records the past."
+  },
+  {
+    wrong: "For the evaluation marks, any judgement about whether the impact is 'good' or 'bad' is enough.",
+    correct: "A bare judgement ('this is good/bad') earns only 1 mark. For full evaluation marks (3), you need a justified judgement using SPECIFIC evidence from the case study. When the question names two areas (e.g. marketing AND costs), your evaluation MUST reference both and use the context to support your reasoning."
+  }
+];
+
+const examTips = [
+  {
+    type: "9-Mark Question — Core Structure",
+    title: "How to score all 9 marks",
+    content: "Step 1: Define the TRIGGERING concept (K — 1 mark). Step 2: Explain it further (U — 1 mark). Step 3: Use TWO pieces of case study evidence to show how it links to the impacted area (APP — 2 marks). Step 4: Explain the effect on the impacted area for TWO separate points (AN — 2 marks). Step 5: Make a judgement AND justify it using the case study context (EVAL — 3 marks).",
+    pills: ["kn","un","app","an","eval"]
+  },
+  {
+    type: "Most Repeated Question Type",
+    title: "Marketing affecting cash flow / costs (Dog and Gun style)",
+    content: "K: Define marketing. U: Explain its components (4Ps). APP: Use TWO case study examples of how marketing changed (e.g. takeaway menu introduced, advertised online and with a sign). AN: Show how each change affects cash flow — new revenue inflows BUT also new cost outflows (delivery, packaging, advertising). EVAL: Judge whether the net effect on cash flow is positive or negative, supported by case study detail.",
+    pills: ["kn","un","app","an","eval"]
+  },
+  {
+    type: "Most Repeated Question Type",
+    title: "Economic climate affecting revenues AND costs",
+    content: "When a question names TWO effects (revenues AND costs), your evaluation MUST address BOTH. For revenue: consider the effect of rising/falling consumer income and unemployment on demand. For costs: consider wage pressures (e.g. shortage of chefs means higher wages). Evaluation: judge which effect is greater, using the specific context (e.g. the Dog and Gun's affluent local customer base means revenue may be less affected).",
+    pills: ["app","an","eval"]
+  },
+  {
+    type: "Most Repeated Question Type",
+    title: "Environmental change affecting marketing AND costs (VW style)",
+    content: "This type names two areas: marketing and costs. Structure: show how switching to electric cars changes the PRODUCT and PRICE (marketing 4Ps) — higher price premium possible. Then show the COST impact — batteries are expensive (25–40% of car cost), but falling battery prices will reduce this. Evaluation: judge short-term vs long-term effects, referencing specific case study figures (e.g. ID-3 at £29,990 vs Golf at £20,000).",
+    pills: ["app","an","eval"]
+  },
+  {
+    type: "Examiner Warning",
+    title: "Do NOT write circular arguments",
+    content: "The biggest mistake in synoptic answers is going around in circles: 'A affects B, B affects C, C affects A again.' Keep arguments LINEAR. Identify the change (A), show it causes effect in area B, then area C if required. Stop there. Circular arguments waste time and confuse the examiner, costing marks.",
+    pills: []
+  },
+  {
+    type: "Examiner Warning",
+    title: "Do NOT write about every area of business",
+    content: "If the question says 'evaluate the effect on cash flow,' write about cash flow only. If it says 'marketing and costs,' write about those two only. Writing about HR, operations and everything else will not earn extra marks and wastes time you need for proper evaluation. The examiner is looking for DEPTH on the stated areas, not breadth.",
+    pills: []
+  },
+  {
+    type: "Evaluation Tip",
+    title: "How to score all 3 evaluation marks",
+    content: "Mark 1: A simple statement of judgement ('The impact on cash flow would be positive overall'). Mark 2: Justify with a reason from the case study ('because the takeaway revenue exceeded the extra costs of packaging and delivery'). Mark 3: Deepen justification further using specific context ('this is supported by the fact the Dog and Gun continued the service after lockdown ended, suggesting it was profitable').",
+    pills: ["eval"]
+  },
+  {
+    type: "Multiple Choice Tip",
+    title: "MCQ on interdependence — always trace the chain",
+    content: "MCQ questions on interdependence show a decision in one area and ask what MUST happen elsewhere. Always trace the logical chain: marketing campaign → more demand → more production needed → HR must recruit workers. The correct answer is always the one that is a DIRECT logical consequence of the decision. Eliminate options that would be illogical (e.g. reducing output when demand increases).",
+    pills: []
+  }
+];
+
+const flashcards = [
+  { term: "Interdependence", def: "The concept that a decision made in one area of business will affect one or more other areas. All four business areas — Marketing, Finance, HR and Operations — are linked." },
+  { term: "Feature 1", def: "The interdependent nature of business operations, finance, marketing and human resources within a business context — how these areas link to each other in practice." },
+  { term: "Feature 2", def: "How these interdependencies underpin business decision-making — every decision in one area triggers knock-on effects in others that must be considered." },
+  { term: "Feature 3 — Risk & Reward", def: "Every business decision involves risk. The reward for enterprise and risk-taking is profit. Falling profits signal a problem, triggering decisions that carry their own new risks." },
+  { term: "Feature 4 — Financial Information", def: "The use of financial data (sales, profit, costs, cash flow, break-even) to measure business performance and to inform forward-looking business decisions." },
+  { term: "Synopticity", def: "Bringing together knowledge from Component 01 and Component 02 to evaluate business decisions holistically. Required for the 9-mark question on Paper 2." },
+  { term: "The 9-Mark Question", def: "Always structured: K(1) + U(1) + APP(2) + AN(2) + EVAL(3). K/U marks = define and explain the TRIGGERING change. APP/AN/EVAL = focus on the AFFECTED area." },
+  { term: "Linear argument", def: "Keeping a synoptic answer as a chain: change A causes effect in B, which causes effect in C. Do NOT loop back (C affects A again) — this creates circular arguments that lose marks." },
+  { term: "Marketing (in interdependence)", def: "Covers market research, segmentation, and the 4Ps (Product, Price, Place, Promotion). A change in marketing (e.g. a new campaign) affects HR (recruit more workers) and Finance (higher costs or revenue)." },
+  { term: "Human Resources (in interdependence)", def: "Covers recruitment, motivation, training and employment law. Affected by changes in other areas: e.g. new technology in Operations may reduce headcount needed; a marketing campaign may require extra staff." },
+  { term: "Business Operations (in interdependence)", def: "Covers production processes, quality, location and supply chain. Decisions here (e.g. using cheaper raw materials) affect quality, then sales, then revenue and profit (Finance)." },
+  { term: "Finance (in interdependence)", def: "Covers sources of finance, costs, profits, break-even and cash flow. Usually the TRIGGER area (falling profits prompt decisions) and also the IMPACTED area (decisions affect revenue, costs and cash flow)." },
+  { term: "Risk", def: "The possibility that a business decision will not produce the expected reward. Risk is inherent in all business decisions. Taking on debt to invest is an example — if the investment fails, the debt still must be repaid." },
+  { term: "Reward", def: "Profit — the financial gain a business achieves for successfully taking risks. Profit is both the motive for enterprise and the measure of business success." },
+  { term: "Cash flow (interdependence)", def: "Cash flow is affected by changes in other areas. A marketing change (e.g. new takeaway service) can increase cash INFLOWS (more sales) but also increase OUTFLOWS (delivery costs, packaging, advertising)." },
+  { term: "Wyke Farm example", def: "Wyke Farm invested £13m in energy technology (Operations). This was funded by a loan and retained profit (Finance). It saves £100,000/month on energy bills (Finance). It also creates marketing benefits — the business can promote its environmentally friendly credentials." },
+  { term: "VW electric cars example", def: "VW's switch to electric cars affects Marketing (new product, higher price premium) and Costs/Finance (batteries are 25–40% of car cost, but falling). Short-term costs are higher; long-term may be more profitable as battery costs fall." },
+  { term: "Dog and Gun Inn example", def: "Marketing change (takeaway service during COVID) affected Finance: new revenue inflows (meal sales) but also new cost outflows (packaging, delivery, advertising). Net effect on cash flow depends on relative size of income vs extra costs." }
+];
+
+const tfData = [
+  { statement: "Interdependence means each area of business works independently of the others.", answer: false, explanation: "Interdependence means the opposite — all areas ARE linked. A decision in one area will affect other areas." },
+  { statement: "The four business areas in the interdependence specification are: Marketing, Human Resources, Business Operations, and Finance.", answer: true, explanation: "Correct — these are the four areas. All are linked and a decision in any one affects the others." },
+  { statement: "The reward for taking a business risk is market share.", answer: false, explanation: "The reward for taking a business risk is PROFIT. Market share may be a goal, but profit is the financial reward for enterprise." },
+  { statement: "For the 9-mark question, knowledge and understanding marks are earned by defining the AFFECTED area, not the triggering change.", answer: false, explanation: "Knowledge/Understanding marks are for showing understanding of the TRIGGERING change (e.g. define marketing if the question is about marketing affecting cash flow). APP/AN/EVAL marks focus on the affected area." },
+  { statement: "Feature 4 of interdependence relates to the use of financial information in measuring and understanding business performance.", answer: true, explanation: "Correct — Feature 4 specifically covers how businesses use financial data to measure performance and make decisions." },
+  { statement: "Synopticity in OCR GCSE Business means bringing together knowledge from both Component 1 and Component 2.", answer: true, explanation: "Correct. The 9-mark synoptic question on Paper 2 requires students to draw on knowledge from both components." },
+  { statement: "A business reducing costs by using cheaper raw materials will always increase its profits.", answer: false, explanation: "Not necessarily — cheaper materials may reduce quality, causing sales to fall. Lower revenue can reduce profits despite the cost saving. This illustrates interdependence." },
+  { statement: "The final part of the last case study on Paper 2 is always worth 9 marks.", answer: true, explanation: "Correct — the 9-mark synoptic question always closes Paper 2. It tests interdependence and requires knowledge from both components." },
+  { statement: "When writing a synoptic answer, you should cover ALL four business areas to maximise marks.", answer: false, explanation: "You should ONLY cover the areas named in the question. Writing about irrelevant areas wastes time and earns no marks. The examiner wants depth on the stated areas, not breadth." },
+  { statement: "Financial information only looks backwards at past performance.", answer: false, explanation: "Financial information also drives forward-looking decisions. For example, Wyke Farm used projected savings (£100,000/month) to justify a £13m investment — a future-facing use of financial information." },
+  { statement: "A decision to run a national marketing campaign would require Human Resources to recruit temporary production workers.", answer: true, explanation: "A successful marketing campaign increases demand. This means more production is needed, so HR must recruit temporary workers — a direct interdependence link from Marketing to HR." },
+  { statement: "For the 9-mark evaluation marks, a simple judgement ('this is good/bad') earns all 3 evaluation marks.", answer: false, explanation: "A bare judgement earns only 1 evaluation mark. Full marks (3) require a justified judgement using SPECIFIC case study context. If two areas are named, the evaluation must address both." },
+  { statement: "Risk and reward only applies when a business takes out a loan.", answer: false, explanation: "Risk and reward applies to ALL business decisions — using cheaper materials, launching a campaign, introducing new technology. Any decision that could go wrong involves risk; successful outcomes bring reward (profit)." },
+  { statement: "The Dog and Gun's change to a takeaway service increased cash inflows but also created new cash outflows.", answer: true, explanation: "Correct — new revenue came in from meal sales, but new costs were incurred for packaging, delivery and advertising. The net effect on cash flow depended on the relative size of these changes." }
+];
+
+// ═══════════════════════════════════════════════
+//  TAB SWITCHER
+// ═══════════════════════════════════════════════
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ═══════════════════════════════════════════════
+//  BUILD LEARN
+// ═══════════════════════════════════════════════
+function buildLearn() {
+  const grid = document.getElementById('topicGrid');
+  topics.forEach(t => {
+    const card = document.createElement('div');
+    card.className = 'topic-card';
+    card.innerHTML = `<span class="tag">${t.tag}</span><h3>${t.title}</h3><span class="toggle-icon">+</span><div class="topic-content">${t.content}</div>`;
+    card.addEventListener('click', () => card.classList.toggle('open'));
+    grid.appendChild(card);
+  });
+}
+
+// ═══════════════════════════════════════════════
+//  BUILD MCQ
+// ═══════════════════════════════════════════════
+let mcqScore = 0, mcqTotal = 0;
+function buildMCQ() {
+  const wrap = document.getElementById('mcqWrap');
+  mcqData.forEach((q, qi) => {
+    const block = document.createElement('div');
+    block.className = 'q-block';
+    block.innerHTML = `<div class="q-num">QUESTION ${qi+1}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="options">${q.opts.map((o,oi)=>`<button class="opt-btn" data-qi="${qi}" data-oi="${oi}">${o}</button>`).join('')}</div>
+      <div class="q-feedback" id="qfb-${qi}"></div>`;
+    wrap.appendChild(block);
+  });
+  wrap.addEventListener('click', e => {
+    if (!e.target.classList.contains('opt-btn')) return;
+    const qi = +e.target.dataset.qi;
+    const oi = +e.target.dataset.oi;
+    const block = e.target.closest('.q-block');
+    if (block.dataset.answered) return;
+    block.dataset.answered = 1;
+    mcqTotal++;
+    block.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
+    const fb = document.getElementById(`qfb-${qi}`);
+    if (oi === mcqData[qi].ans) {
+      e.target.classList.add('correct');
+      fb.textContent = '✓ Correct! ' + mcqData[qi].explain;
+      fb.className = 'q-feedback show ok';
+      mcqScore++;
+    } else {
+      e.target.classList.add('wrong');
+      block.querySelectorAll('.opt-btn')[mcqData[qi].ans].classList.add('correct');
+      fb.textContent = '✗ ' + mcqData[qi].explain;
+      fb.className = 'q-feedback show no';
+    }
+    document.getElementById('mcqScore').textContent = mcqScore;
+    document.getElementById('mcqTotal').textContent = mcqTotal;
+  });
+}
+function resetMCQ() {
+  mcqScore = 0; mcqTotal = 0;
+  document.getElementById('mcqScore').textContent = 0;
+  document.getElementById('mcqTotal').textContent = 0;
+  document.getElementById('mcqWrap').innerHTML = '';
+  buildMCQ();
+}
+
+// ═══════════════════════════════════════════════
+//  BUILD MATCHING
+// ═══════════════════════════════════════════════
+let matchSelected = null, matchScore = 0, matchTotal = 0;
+const matchMistakes = new Set();
+let matchLocked = false;
+
+function buildMatch() {
+  matchTotal = matchData.length;
+  document.getElementById('matchTotal').textContent = matchTotal;
+  const left = document.getElementById('matchLeft');
+  const right = document.getElementById('matchRight');
+  const shuffledDefs = [...matchData].sort(() => Math.random() - .5);
+  matchData.forEach(m => {
+    const el = document.createElement('div');
+    el.className = 'match-item';
+    el.textContent = m.term;
+    el.dataset.key = m.term;
+    el.dataset.side = 'left';
+    left.appendChild(el);
+  });
+  shuffledDefs.forEach(m => {
+    const el = document.createElement('div');
+    el.className = 'match-item';
+    el.textContent = m.def;
+    el.dataset.key = m.term;
+    el.dataset.side = 'right';
+    right.appendChild(el);
+  });
+  document.getElementById('matchLeft').addEventListener('click', handleMatch);
+  document.getElementById('matchRight').addEventListener('click', handleMatch);
+}
+
+function handleMatch(e) {
+  if (matchLocked) return;
+  const item = e.target.closest('.match-item');
+  if (!item || item.classList.contains('matched-ok') || item.classList.contains('matched-eventual')) return;
+  if (!matchSelected) {
+    document.querySelectorAll('.match-item.selected').forEach(x => x.classList.remove('selected'));
+    item.classList.add('selected');
+    matchSelected = item;
+  } else {
+    if (matchSelected === item) { item.classList.remove('selected'); matchSelected = null; return; }
+    if (matchSelected.dataset.side === item.dataset.side) {
+      matchSelected.classList.remove('selected');
+      matchSelected = item;
+      item.classList.add('selected');
+      return;
+    }
+    const a = matchSelected, b = item;
+    a.classList.remove('selected'); b.classList.remove('selected');
+    matchSelected = null;
+    if (a.dataset.key === b.dataset.key) {
+      const cls = matchMistakes.has(a.dataset.key) ? 'matched-eventual' : 'matched-ok';
+      a.classList.add(cls); b.classList.add(cls);
+      matchScore++;
+      document.getElementById('matchScore').textContent = matchScore;
+    } else {
+      matchLocked = true;
+      matchMistakes.add(a.dataset.key);
+      matchMistakes.add(b.dataset.key);
+      a.classList.add('matched-no'); b.classList.add('matched-no');
+      setTimeout(() => {
+        a.classList.remove('matched-no'); b.classList.remove('matched-no');
+        matchLocked = false;
+      }, 700);
+    }
+  }
+}
+
+function resetMatch() {
+  matchScore = 0; matchSelected = null; matchLocked = false; matchMistakes.clear();
+  document.getElementById('matchScore').textContent = 0;
+  document.getElementById('matchLeft').innerHTML = '';
+  document.getElementById('matchRight').innerHTML = '';
+  buildMatch();
+}
+
+// ═══════════════════════════════════════════════
+//  BUILD FILL IN BLANKS (dropdown)
+// ═══════════════════════════════════════════════
+let fibScore = 0, fibCorrectTotal = 0;
+
+function buildFIB() {
+  fibCorrectTotal = fibData.reduce((a, f) => a + Object.keys(f.blanks).length, 0);
+  document.getElementById('fibTotal').textContent = fibCorrectTotal;
+  const wrap = document.getElementById('fibWrap');
+
+  fibData.forEach((f, fi) => {
+    const div = document.createElement('div');
+    div.className = 'fib-sentence';
+    const correctAnswers = Object.values(f.blanks);
+    const distractors = fibWords
+      .filter(w => !correctAnswers.includes(w))
+      .sort(() => Math.random() - .5)
+      .slice(0, 4);
+
+    let html = f.display;
+    let bi = 0;
+    html = html.replace(/_____/g, () => {
+      const key = Object.keys(f.blanks)[bi];
+      const ans = f.blanks[key];
+      bi++;
+      const opts = [ans, ...distractors.filter(d => d !== ans).slice(0, 3)].sort(() => Math.random() - .5);
+      const optHTML = ['— choose —', ...opts].map(o => `<option value="${o === '— choose —' ? '' : o}">${o}</option>`).join('');
+      return `<span class="blank-select" data-fi="${fi}" data-key="${key}" data-ans="${ans}"><select>${optHTML}</select></span>`;
+    });
+    div.innerHTML = html;
+    wrap.appendChild(div);
+  });
+
+  wrap.addEventListener('change', e => {
+    const sel = e.target;
+    if (sel.tagName !== 'SELECT') return;
+    const wrapper = sel.closest('.blank-select');
+    if (!wrapper || wrapper.dataset.answered === 'correct') return;
+    const chosen = sel.value;
+    const ans = wrapper.dataset.ans;
+    if (!chosen) return;
+    if (chosen === ans) {
+      wrapper.dataset.answered = 'correct';
+      wrapper.classList.remove('wrong');
+      wrapper.classList.add('correct');
+      sel.disabled = true;
+      fibScore++;
+      document.getElementById('fibScore').textContent = fibScore;
+    } else {
+      wrapper.classList.remove('correct');
+      wrapper.classList.add('wrong');
+      setTimeout(() => { wrapper.classList.remove('wrong'); sel.value = ''; }, 700);
+    }
+  });
+}
+
+function resetFIB() {
+  fibScore = 0;
+  document.getElementById('fibScore').textContent = 0;
+  document.getElementById('fibWrap').innerHTML = '';
+  buildFIB();
+}
+
+// ═══════════════════════════════════════════════
+//  BUILD MISCONCEPTIONS
+// ═══════════════════════════════════════════════
+function buildMisc() {
+  const list = document.getElementById('miscList');
+  miscData.forEach(m => {
+    const card = document.createElement('div');
+    card.className = 'misc-card';
+    card.innerHTML = `<div class="wrong-view"><div class="misc-tag">✗ Common Student View</div><p>${m.wrong}</p></div>
+      <div class="correct-view"><div class="misc-tag">✓ Examiner's Correct View</div><p>${m.correct}</p></div>`;
+    list.appendChild(card);
+  });
+}
+
+// ═══════════════════════════════════════════════
+//  BUILD EXAM TIPS
+// ═══════════════════════════════════════════════
+function buildTips() {
+  const grid = document.getElementById('tipsGrid');
+  examTips.forEach(t => {
+    const card = document.createElement('div');
+    card.className = 'tip-card';
+    const pills = t.pills.map(p => `<span class="mark-pill ${p}">${p.toUpperCase()}</span>`).join('');
+    card.innerHTML = `<div class="tip-type">${t.type}</div><h4>${t.title}</h4><p>${t.content}</p>${t.pills.length ? `<div class="mark-breakdown">${pills}</div>` : ''}`;
+    grid.appendChild(card);
+  });
+}
+
+// ═══════════════════════════════════════════════
+//  FLASHCARDS
+// ═══════════════════════════════════════════════
+let fcIndex = 0;
+function renderFC() {
+  const fc = flashcards[fcIndex];
+  document.getElementById('fcTerm').textContent = fc.term;
+  document.getElementById('fcDef').textContent = fc.def;
+  document.getElementById('fcProgress').textContent = `Card ${fcIndex+1} of ${flashcards.length}`;
+  document.getElementById('flashcard').classList.remove('flipped');
+}
+function flipCard() { document.getElementById('flashcard').classList.toggle('flipped'); }
+function nextCard() { fcIndex = (fcIndex + 1) % flashcards.length; renderFC(); }
+function prevCard() { fcIndex = (fcIndex - 1 + flashcards.length) % flashcards.length; renderFC(); }
+
+// ═══════════════════════════════════════════════
+//  BUILD TRUE / FALSE
+// ═══════════════════════════════════════════════
+let tfScore = 0, tfTotal = 0;
+function buildTF() {
+  const wrap = document.getElementById('tfWrap');
+  tfData.forEach((item, i) => {
+    const card = document.createElement('div');
+    card.className = 'tf-card';
+    card.innerHTML = `<div><div class="tf-text">${item.statement}</div><div class="tf-explanation" id="tfExp-${i}">${item.explanation}</div></div>
+    <div class="tf-btns"><button class="tf-btn" data-i="${i}" data-val="true">TRUE</button><button class="tf-btn" data-i="${i}" data-val="false">FALSE</button></div>`;
+    wrap.appendChild(card);
+  });
+  wrap.addEventListener('click', e => {
+    const btn = e.target.closest('.tf-btn');
+    if (!btn) return;
+    const i = +btn.dataset.i;
+    const card = btn.closest('.tf-card');
+    if (card.dataset.answered) return;
+    card.dataset.answered = 1;
+    const val = btn.dataset.val === 'true';
+    const correct = val === tfData[i].answer;
+    tfTotal++;
+    card.querySelectorAll('.tf-btn').forEach(b => b.disabled = true);
+    if (correct) { btn.classList.add('correct'); tfScore++; }
+    else {
+      btn.classList.add('wrong');
+      card.querySelectorAll('.tf-btn').forEach(b => { if (b.dataset.val === String(tfData[i].answer)) b.classList.add('correct'); });
+    }
+    document.getElementById(`tfExp-${i}`).classList.add('show');
+    document.getElementById('tfScore').textContent = tfScore;
+    document.getElementById('tfTotal').textContent = tfTotal;
+  });
+}
+function resetTF() {
+  tfScore = 0; tfTotal = 0;
+  document.getElementById('tfScore').textContent = 0;
+  document.getElementById('tfTotal').textContent = 0;
+  document.getElementById('tfWrap').innerHTML = '';
+  buildTF();
+}
+
+// ═══════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════
+buildLearn();
+buildMCQ();
+buildMatch();
+buildFIB();
+buildMisc();
+buildTips();
+renderFC();
+buildTF();
+</script>
+</body>
+</html>
