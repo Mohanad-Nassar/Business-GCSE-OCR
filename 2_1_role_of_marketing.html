@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2.1 The Role of Marketing – Interactive Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="badge">OCR GCSE Business — Component 2</div>
+    <h1>Unit 2.1 — The Role of Marketing</h1>
+    <p>Interactive revision guide · All key content + full exam practice</p>
+  </div>
+          <a href="index.html" class="home-link">← 🏡 Home</a>
+
+</header>
+
+<nav class="tab-bar" id="tabBar">
+  <button class="tab-btn active" onclick="switchTab('learn',this)">📚 Key Learning</button>
+  <button class="tab-btn" onclick="switchTab('mcq',this)">❓ MCQ Quiz</button>
+  <button class="tab-btn" onclick="switchTab('matching',this)">🔗 Matching</button>
+  <button class="tab-btn" onclick="switchTab('fib',this)">✏️ Fill the Blanks</button>
+  <button class="tab-btn" onclick="switchTab('misconceptions',this)">⚠️ Misconceptions</button>
+  <button class="tab-btn" onclick="switchTab('examtips',this)">🎯 Exam Tips</button>
+  <button class="tab-btn" onclick="switchTab('flashcards',this)">🃏 Flashcards</button>
+  <button class="tab-btn" onclick="switchTab('truefalse',this)">✅ True / False</button>
+  <button class="tab-btn" onclick="switchTab('exampractice',this)">📝 Exam Practice</button>
+</nav>
+
+<main>
+
+<div class="tab-panel active" id="tab-learn">
+  <h2 class="section-title">Key Learning Topics</h2>
+  <p class="section-sub">Click any card to expand detailed notes.</p>
+  <div class="topic-grid" id="topicGrid"></div>
+</div>
+
+<div class="tab-panel" id="tab-mcq">
+  <h2 class="section-title">Multiple Choice Questions</h2>
+  <p class="section-sub">Select an answer to reveal instant feedback.</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+    <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+    <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+  </div>
+  <div class="quiz-wrap" id="mcqWrap"></div>
+</div>
+
+<div class="tab-panel" id="tab-matching">
+  <h2 class="section-title">Matching Activity</h2>
+  <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+  <div style="margin-bottom:16px;">
+    <div class="score-bar">
+      <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+      <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+      <button class="reset-btn" onclick="resetMatch()">RESET</button>
+    </div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span> First attempt correct</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span> Correct after mistake</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span> Wrong — try again</span>
+    </div>
+  </div>
+  <div class="match-grid">
+    <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+    <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
+  </div>
+</div>
+
+<div class="tab-panel" id="tab-fib">
+  <h2 class="section-title">Fill in the Blanks</h2>
+  <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+    <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+    <button class="reset-btn" onclick="resetFIB()">RESET</button>
+  </div>
+  <div class="fib-wrap" id="fibWrap"></div>
+</div>
+
+<div class="tab-panel" id="tab-misconceptions">
+  <h2 class="section-title">Common Misconceptions</h2>
+  <p class="section-sub">What students often think — and what examiners actually want.</p>
+  <div class="misc-list" id="miscList"></div>
+</div>
+
+<div class="tab-panel" id="tab-examtips">
+  <h2 class="section-title">Exam Questions &amp; Tips</h2>
+  <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
+  <div class="tips-grid" id="tipsGrid"></div>
+</div>
+
+<div class="tab-panel" id="tab-flashcards">
+  <h2 class="section-title">Flashcards</h2>
+  <p class="section-sub">Click the card to reveal the definition. Use the arrows to navigate.</p>
+  <div class="fc-container">
+    <div class="fc-progress" id="fcProgress">Card 1 of 16</div>
+    <div class="flashcard" id="flashcard" onclick="flipCard()">
+      <div class="fc-inner">
+        <div class="fc-front"><div class="fc-label">KEY TERM</div><div class="fc-term" id="fcTerm"></div></div>
+        <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
+      </div>
+    </div>
+    <p class="fc-hint">👆 Click card to flip</p>
+    <div class="fc-nav">
+      <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+      <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+      <button class="fc-btn" onclick="nextCard()">Next →</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab-panel" id="tab-truefalse">
+  <h2 class="section-title">True or False?</h2>
+  <p class="section-sub">Test your knowledge with these statements.</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+    <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+    <button class="reset-btn" onclick="resetTF()">RESET</button>
+  </div>
+  <div class="tf-wrap" id="tfWrap"></div>
+</div>
+
+<div class="tab-panel" id="tab-exampractice">
+  <h2 class="section-title">Exam Practice Questions</h2>
+  <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
+  <div class="ep-list" id="epList"></div>
+</div>
+
+</main>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ══════════════════════════════════════
+//  DATA
+// ══════════════════════════════════════
+
+const topicData = [
+  {
+    title: "What is Marketing?",
+    tag: "Core Definition",
+    content: `<p><strong>Marketing</strong> is concerned with finding the needs of customers and demonstrating how a business fulfils those needs in a way that increases sales. It is vital to the success of any business.</p>
+<p>Marketing is one of four key functional areas of business. It focuses on the <em>customer</em> rather than the producer. Essentially, marketing ensures that the right product or service is available in the right place at the right time for the right price.</p>
+<p>Some large businesses will spend millions of pounds on marketing; other more local businesses may spend a few pounds on a local newspaper advertisement. Both of these examples have the same objective: they want to <strong>increase sales</strong>.</p>
+<p><strong>Market research</strong> is the collection of data on consumer habits to help decision-making in marketing.</p>
+<p><strong>Important distinction:</strong> Marketing is much broader than just advertising. It includes identifying customer needs, recognising different types of customer, informing customers of available products and services, and ensuring customers receive their goods with an appropriate level of satisfaction.</p>`
+  },
+  {
+    title: "Role 1 — Identifying and Understanding Customers",
+    tag: "Roles of Marketing",
+    content: `<p>A business must be clear on who it is trying to sell its products or services to. This is about understanding the <strong>target market</strong> — who are the customers?</p>
+<ul>
+<li>Is it trying to sell to all ages, both male and female?</li>
+<li>Or just females between 20 and 40 years old?</li>
+<li>Are they local, national, or international customers?</li>
+<li>What income group do they belong to?</li>
+</ul>
+<p>A <strong>market</strong> is a group of people who share characteristics — e.g. age, income, location, gender. Answers to these questions are found through <strong>market research</strong> (see Unit 2.2).</p>
+<p>The business then analyses this information to make sure that it really is providing what the customer wants. Without checking with the customer, mistakes can be made and these mistakes can prove very costly for businesses.</p>
+<p><strong>Factors influencing who marketing is aimed at:</strong></p>
+<ul>
+<li>Young people may be more likely to respond to advertisements on social media</li>
+<li>Different people may require different products — e.g. some older people may like a mobile phone that has large buttons and is easy to use</li>
+<li>Only rich people may be willing to pay high prices for top quality goods</li>
+<li>Location of potential customers — which country or region do they live in and what language do they speak?</li>
+</ul>`
+  },
+  {
+    title: "Role 2 — Informing Customers",
+    tag: "Roles of Marketing",
+    content: `<p>Customers need to be informed by the business of the products and services they are selling. There is no real point in researching what customers want, making that product, and then not informing customers through advertising that it is available.</p>
+<p>Informing customers is normally achieved through <strong>advertising</strong> (see Unit 2.4). There are a number of different ways a business might advertise, including:</p>
+<ul>
+<li>Television</li>
+<li>Radio</li>
+<li>Newspapers and magazines</li>
+<li>Billboards</li>
+<li>Social media</li>
+<li>Leaflets through letterboxes</li>
+</ul>
+<p><strong>Scale varies by business size:</strong> Kellogg's is a very large company with huge resources which can be used to inform customers of a change to their products or a new lower price offer — this advertising will be aimed at customers countrywide. In contrast, a new local pizza delivery business might simply put leaflets through the letterboxes of homes in the nearby estate to tell possible customers of the service they offer. Each business has a different market to inform.</p>
+<p><strong>Finance matters:</strong> How much a business spends on informing customers will depend on how much it can afford and who it needs to inform.</p>`
+  },
+  {
+    title: "Role 3 — Increasing Sales",
+    tag: "Roles of Marketing",
+    content: `<p>Marketing aims to increase sales. This could be achieved by:</p>
+<ul>
+<li><strong>a) Advertising more</strong> — raising awareness of what is on offer</li>
+<li><strong>b) Introducing a new model</strong> — one that will appeal to more customers, for example, higher definition televisions</li>
+<li><strong>c) Increasing the range of products or services</strong> — Cars such as the Ford Fiesta come in many different models</li>
+<li><strong>d) Reducing the price</strong> — sales may increase, but will profits go up? Selling a new car at £1,000 may well increase sales but no profit will be made. A business must make sure that the price it charges is low enough to attract customers but high enough to make a profit</li>
+<li><strong>e) Selling the product in different places</strong> — Should a business sell to a single chain of shops or a range of different shops? Should it sell direct to customers?</li>
+<li><strong>f) Selling by different methods</strong> — Selling online, or offering digital distribution, will help increase sales of products such as books and music</li>
+</ul>
+<p>These six approaches map to the <strong>4Ps of marketing</strong>: Product, Place, Price, Promotion — which are explored in more detail in later units.</p>`
+  },
+  {
+    title: "Marketing and Other Business Functions",
+    tag: "Links to Other Departments",
+    content: `<p>Marketing does not operate in isolation — it works closely with other functional areas of the business:</p>
+<div class="two-col" style="margin-top:8px;">
+<div>
+<div class="col-head">Department</div>
+<div class="pro-item"><strong>Human Resources (HR):</strong> Marketing works with HR to check there will be enough workers to support the anticipated level of sales</div>
+<div class="pro-item"><strong>Operations / Production:</strong> Marketing informs Operations of anticipated sales predictions to allow them to plan the production schedule</div>
+</div>
+<div>
+<div class="col-head">Department</div>
+<div class="pro-item"><strong>Finance:</strong> Marketing works with Finance to check there is enough money to pay for the resources required — e.g. an advertising campaign</div>
+<div class="pro-item"><strong>Research &amp; Development:</strong> Marketing works with R&amp;D to develop products that meet the wants and needs of customers</div>
+</div>
+</div>
+<p style="margin-top:10px;"><strong>Example:</strong> A manufacturer decides to run a marketing campaign on national television. As a result, Operations may need to increase output and HR may need to employ some temporary production workers to meet the expected increase in demand.</p>
+<p><strong>Finance available</strong> also directly influences marketing: how much finance is available to spend on research and development of a new product, or on an advertising campaign?</p>`
+  },
+  {
+    title: "Evaluation — Is Marketing Always Worth It?",
+    tag: "Evaluation",
+    content: `<p>Not all businesses will spend money, time and effort on marketing themselves. Whether a business invests in marketing will often depend on the <strong>size and circumstances of the business</strong>.</p>
+<p><strong>Arguments for marketing spending:</strong></p>
+<ul>
+<li>Informs customers of products and services that are available</li>
+<li>Can significantly increase sales and revenue</li>
+<li>Builds brand awareness and customer loyalty</li>
+<li>Helps identify gaps in the market and understand customer needs</li>
+<li>Essential in competitive markets to stay ahead of rivals</li>
+</ul>
+<p><strong>Arguments against / limitations:</strong></p>
+<ul>
+<li>Money spent on marketing does not always bring about the required increase in sales</li>
+<li>Marketing campaigns can be very expensive — particularly TV advertising</li>
+<li>Small or local businesses may not need extensive marketing — word of mouth may be sufficient</li>
+<li>Poor marketing can waste resources if it targets the wrong customers</li>
+</ul>
+<p><strong>Case study — Kellogg's:</strong> Throughout its long history, Kellogg's has moved with the times in the way it markets itself. Its marketing takes many different forms: how it advertises, the different products it introduces (e.g. reducing salt in Corn Flakes by 30%, adding vitamin D to children's cereals, changing packet designs in 2019), and how the image of the business is portrayed. All this aims to give the customer a positive feel about Kellogg's which it hopes will lead to customers buying its products.</p>`
+  }
+];
+
+const mcqData = [
+  {
+    q: "The principal role of marketing is to:",
+    opts: ["Increase sales", "Increase profit", "Increase the number of products made", "Increase the skills of the workers"],
+    ans: 0,
+    explain: "Correct answer: A — increase sales. The principal role of marketing is to increase sales by identifying customer needs, informing customers, and finding ways to sell more products or services. Profit may follow from increased sales, but increasing profit is not the primary role of the marketing function."
+  },
+  {
+    q: "The way a business informs customers about a new product or service:",
+    opts: ["Is the same operation for all businesses", "Can vary depending on the size of the business", "Is only done at a local level", "Is only done at a national level"],
+    ans: 1,
+    explain: "Correct answer: B — can vary depending on the size of the business. A large company like Kellogg's can afford nationwide TV advertising, while a small local pizza delivery business might simply put leaflets through nearby letterboxes. The approach depends on the size, budget, and target market of the business."
+  },
+  {
+    q: "A business can understand the needs of its customers by:",
+    opts: ["Conducting market research", "Making the best possible product", "Setting a lower price than competitors", "Having special offers such as buy one get one free"],
+    ans: 0,
+    explain: "Correct answer: A — conducting market research. Market research is the collection of data on consumer habits and needs to help decision-making in marketing. Making a good product, lowering price, or running offers may attract customers but do not in themselves help a business understand what customers need."
+  },
+  {
+    q: "Which of the following would NOT usually lead to an increase in sales?",
+    opts: ["An increase in advertising", "A reduction in price", "A reduction in the range of products", "Selling products in different places"],
+    ans: 2,
+    explain: "Correct answer: C — a reduction in the range of products. Reducing the range of products limits choice for customers and is unlikely to increase sales. Increasing advertising (A), reducing price (B), and selling in different places (D) are all recognised ways to increase sales."
+  },
+  {
+    q: "One purpose of marketing at a library is to:",
+    opts: ["Advertise for an apprentice librarian", "Encourage more families to use the library", "Provide better training for librarians", "Update the library's stock of books"],
+    ans: 1,
+    explain: "Correct answer: B — encourage more families to use the library. Marketing is about identifying and meeting customer needs and increasing use of the product or service. Advertising for staff (A), training staff (C), and updating stock (D) are operational/HR functions, not marketing functions."
+  },
+  {
+    q: "One role of marketing within a hair salon is:",
+    opts: ["To advertise a vacancy for a trainee hairdresser", "To ensure that each hairdresser has a contract of employment", "To increase the number of hair appointments booked", "To minimise the likelihood of customers getting head lice"],
+    ans: 2,
+    explain: "Correct answer: C — to increase the number of hair appointments booked. This directly relates to the marketing role of increasing sales. Advertising for staff (A) is a recruitment/HR function. Contracts of employment (B) are an HR/legal function. Head lice prevention (D) is an operational/health and safety matter."
+  },
+  {
+    q: "Jacqui works as a marketing assistant at her local library. Which of the following would be part of Jacqui's job role?",
+    opts: ["Advertising a vacancy for a senior librarian", "Arranging induction training for a new library assistant", "Designing a competition to encourage people to read more", "Improving the way the books are displayed"],
+    ans: 2,
+    explain: "Correct answer: C — designing a competition to encourage people to read more. This is a marketing activity because it aims to increase engagement with the library's services. Advertising a vacancy (A) and arranging induction (B) are HR functions. Improving book displays (D) is an operational function."
+  },
+  {
+    q: "A manufacturer has decided to run a marketing campaign on national television in a month's time. As a result of this decision, which one of the following actions might also be necessary?",
+    opts: ["Finance should stop monitoring cash flow", "Human resources should employ some temporary production workers", "Operations management should reduce output", "Purchasing should buy smaller quantities of raw materials"],
+    ans: 1,
+    explain: "Correct answer: B — Human resources should employ some temporary production workers. A successful TV marketing campaign will likely increase demand, meaning more products need to be made. HR will need to employ extra workers to support the increased production. Options C and D (reducing output or buying less) contradict the expected increase in demand."
+  },
+  {
+    q: "A primary purpose of the marketing function of a business is:",
+    opts: ["To employ staff", "To improve employee retention", "To increase sales", "To reduce costs"],
+    ans: 2,
+    explain: "Correct answer: C — to increase sales. The primary purpose of the marketing function is to increase sales by identifying customer needs, informing customers, and finding ways to attract and keep customers. Employing staff and improving retention are HR functions. Reducing costs is primarily an operations/finance concern."
+  },
+  {
+    q: "Which of the following best describes what marketing involves?",
+    opts: ["Only advertising a product on television", "Finding the needs of consumers and demonstrating how a business fulfils those needs to increase sales", "Making the highest quality product possible", "Employing the best salespeople to sell products"],
+    ans: 1,
+    explain: "Correct answer: B. Marketing is defined as finding the needs of consumers and demonstrating how a business fulfils those needs in a way that increases sales. It is much broader than just advertising — it includes market research, understanding customers, informing them, and finding ways to increase sales through product, price, place, and promotion."
+  }
+];
+
+const matchData = [
+  { term: "Marketing", def: "Finding the needs of consumers and demonstrating how a business fulfils those needs in a way that increases sales" },
+  { term: "Market", def: "A group of people who share characteristics such as age, income, or location who a business targets with its products or services" },
+  { term: "Target market", def: "The specific group of customers a business aims its product or service at" },
+  { term: "Market research", def: "The collection of data on consumer habits and needs to help decision-making in marketing" },
+  { term: "Informing customers", def: "Making potential customers aware of products or services through advertising — e.g. TV, radio, social media, leaflets" },
+  { term: "Increasing sales", def: "A key aim of marketing — achieved by advertising more, reducing price, selling in new places, introducing new products or selling by different methods" },
+  { term: "4Ps of marketing", def: "Product, Price, Place and Promotion — the four key decisions a business makes when marketing a product or service" },
+  { term: "Finance (link to marketing)", def: "The department marketing must work with to check there is enough money to pay for resources such as an advertising campaign" }
+];
+
+const fibData = [
+  {
+    display: "Marketing is concerned with finding the _____ of customers and demonstrating how a business fulfils those needs in a way that increases _____.",
+    blanks: { B1: "needs", B2: "sales" }
+  },
+  {
+    display: "The three main roles of marketing are: identifying and understanding _____, informing _____, and increasing _____.",
+    blanks: { B1: "customers", B2: "customers", B3: "sales" }
+  },
+  {
+    display: "A _____ is a group of people who share characteristics such as age, income or location. A business identifies its _____ market through market research.",
+    blanks: { B1: "market", B2: "target" }
+  },
+  {
+    display: "Marketing does not work alone. It works with _____ to check there are enough workers, and with _____ to check there is enough money to fund campaigns.",
+    blanks: { B1: "HR", B2: "Finance" }
+  },
+  {
+    display: "Sales can be increased by reducing _____, selling in different _____, increasing advertising, or introducing new _____.",
+    blanks: { B1: "price", B2: "places", B3: "products" }
+  },
+  {
+    display: "Marketing is not just about _____. It includes understanding customer needs through _____ research, and then informing customers of what is available.",
+    blanks: { B1: "advertising", B2: "market" }
+  }
+];
+
+const miscData = [
+  {
+    wrong: "Students often think marketing is the same as advertising.",
+    correct: "Marketing is much broader than advertising. It includes: identifying who the customers are (target market), understanding their needs through market research, informing them about products and services, and finding ways to increase sales through product, price, place and promotion. Advertising is just one part of the 'informing customers' role."
+  },
+  {
+    wrong: "Students often write that the purpose of marketing is 'to make a profit' or 'to increase profit'.",
+    correct: "The principal role of marketing is to INCREASE SALES, not profit directly. The examiner mark scheme specifically states that 'increase sales' is the correct answer. Profit may result from higher sales, but profit is not the primary purpose of the marketing function — and reducing the price to increase sales could even reduce profit."
+  },
+  {
+    wrong: "Students often give generic answers to 'explain the purpose of marketing within [named business]' questions without applying to that business.",
+    correct: "For 2-mark 'explain' questions about a named business, you must APPLY your answer. A generic answer ('marketing increases sales') only scores 1 mark. You must link it to the specific business — e.g. 'Marketing helps Ford Motors identify which car models to develop that meet the needs of different market segments, such as eco-friendly small cars and 7-seater people carriers.' The application mark requires a reference to cars, models, vehicles, or other details from the case study."
+  },
+  {
+    wrong: "Students sometimes write that 'sales' or 'selling' alone is a purpose of marketing, without adding 'more/increase/additional'.",
+    correct: "Simply writing 'sales' or 'sell' is too vague and is awarded zero by examiners — this is the role of the sales function rather than the marketing function. You must make clear that marketing is about INCREASING sales or selling MORE. Always add 'more', 'increase', 'additional', or 'extra' when referring to sales as a purpose of marketing."
+  },
+  {
+    wrong: "Students often confuse the marketing function with HR, operations, or other functional areas.",
+    correct: "Marketing focuses on customers and increasing sales. HR deals with recruitment, training, and employment. Operations manages production. Finance manages money and budgets. A common exam error is writing that a marketing role includes 'advertising for staff' or 'arranging training' — these are HR functions. The marketing function communicates WITH these departments but does not perform their roles."
+  },
+  {
+    wrong: "Students sometimes think all businesses market themselves in exactly the same way.",
+    correct: "The way a business informs customers CAN VARY DEPENDING ON THE SIZE OF THE BUSINESS. A large business like Kellogg's uses nationwide TV advertising and social media. A small local business might use leaflets or a local newspaper. The approach depends on the size, budget, and target market. Money spent on marketing does not always bring about the required increase in sales — so businesses must choose their methods carefully."
+  }
+];
+
+const tipsData = [
+  {
+    type: "Explain (2 marks)",
+    title: "Explain the Purpose of Marketing Within [Named Business]",
+    content: `<p>Structure: Knowledge (1) + Application to the named business (1)</p>
+<ul>
+<li>State ONE purpose of marketing — e.g. to identify customer needs, to inform customers, to increase sales <span class="mark-pill kn">K</span></li>
+<li>Apply it to the specific business using a detail from the case study <span class="mark-pill app">APP</span></li>
+</ul>
+<p><strong>Example (Ford Motors):</strong> "One purpose of marketing within Ford Motors is to identify the needs of different customer groups (K). This allows Ford to develop a range of models that differ in size — such as eco-friendly small cars, family cars, sports cars and 7-seater people carriers — to meet the individual needs of different market segments (APP)."</p>
+<p><strong>Common error:</strong> A generic answer ('marketing increases sales') only scores 1 mark. The application must reference cars, models, vehicles, or other Ford-specific details.</p>`,
+    marks: [{ label: "K ×1", cls: "kn" }, { label: "APP ×1", cls: "app" }]
+  },
+  {
+    type: "Analyse (3 marks)",
+    title: "Analyse a Benefit of a Marketing Method",
+    content: `<p>Structure: Understanding (1) → Application to the business (1) → Business-facing Analysis (1)</p>
+<ul>
+<li>State ONE benefit of the marketing method (e.g. TV reaches a large audience) <span class="mark-pill un">U</span></li>
+<li>Apply it to the specific business in the question <span class="mark-pill app">APP</span></li>
+<li>Explain the business impact — e.g. effect on sales, revenue, awareness, competitive position <span class="mark-pill an">AN</span></li>
+</ul>
+<p><strong>Example (Fairy Liquid, TV):</strong> "TV advertising reaches a large audience (U). Fairy Liquid targets households throughout the UK (APP). By reaching a large target audience, more consumers will be informed about Fairy Liquid and so are more likely to buy the product, increasing sales (AN)."</p>`,
+    marks: [{ label: "U ×1", cls: "un" }, { label: "APP ×1", cls: "app" }, { label: "AN ×1", cls: "an" }]
+  },
+  {
+    type: "Explain (2 marks)",
+    title: "Explain What is Meant by Target Market",
+    content: `<p>Structure: Knowledge (1) + Understanding through example (1)</p>
+<ul>
+<li>Define target market — the group of people a business aims its product at <span class="mark-pill kn">K</span></li>
+<li>Give a relevant example — either from the case study or any business <span class="mark-pill un">U</span></li>
+</ul>
+<p><strong>Example:</strong> "A target market is the group of customers to whom a business aims its product or service (K). For Fairy Liquid, the target market is households throughout the UK who need a washing-up liquid (U)."</p>`,
+    marks: [{ label: "K ×1", cls: "kn" }, { label: "U/example ×1", cls: "un" }]
+  },
+  {
+    type: "Analyse (6 marks — 2×3)",
+    title: "Analyse Two Factors Which Influence How a Business Markets Its Products",
+    content: `<p>For each factor: Understanding (1) + Application to the specific business (1) + Analysis of why it affects marketing (1)</p>
+<p><strong>Common factors to know:</strong></p>
+<ul>
+<li><strong>Finance available:</strong> How much money the business has to spend on advertising or R&amp;D will determine the scale and method of marketing</li>
+<li><strong>Who the marketing is aimed at:</strong> Young people respond better to social media; older people may prefer TV or newspapers; rich customers may expect premium advertising</li>
+<li><strong>Location of customers:</strong> Local business = local methods; global business = national/international campaigns</li>
+<li><strong>Competition:</strong> Intense competition means a business must keep its product in customers' minds</li>
+<li><strong>Size of business:</strong> Small businesses have smaller budgets and target local audiences; large businesses can afford mass-market campaigns</li>
+</ul>
+<p><strong>Apply each factor to the named business using case study details for full marks.</strong></p>`,
+    marks: [{ label: "U ×1", cls: "un" }, { label: "APP ×1", cls: "app" }, { label: "AN ×1", cls: "an" }]
+  },
+  {
+    type: "Roles of Marketing — Quick Reference",
+    title: "The Three Roles — What Counts as Each?",
+    content: `<p><strong>1. Identifying and understanding customers:</strong> Market research, analysing who the target market is (age, gender, income, location), identifying a gap in the market, understanding customer preferences.</p>
+<p><strong>2. Informing customers:</strong> TV, radio, social media, newspapers, billboards, leaflets, websites. The method chosen depends on the target market and budget available.</p>
+<p><strong>3. Increasing sales:</strong> Advertising, new products, wider product range, price reductions, selling in new places (distribution), selling by different methods (online, digital).</p>
+<p><strong>What marketing is NOT:</strong> Recruiting staff (HR), managing production (Operations), managing finances (Finance), training workers (HR). These departments work WITH marketing but marketing does not perform these roles.</p>`,
+    marks: []
+  }
+];
+
+const flashcards = [
+  { term: "Marketing", def: "Finding the needs of consumers and demonstrating how a business fulfils those needs in a way that increases sales. It is vital to the success of any business." },
+  { term: "Market", def: "A group of people who share characteristics — e.g. age, income, location — who a business targets with its products or services." },
+  { term: "Target market", def: "The specific group of customers a business aims its product or service at. Identified through market research." },
+  { term: "Market research", def: "The collection of data on consumer habits and needs to help decision-making in marketing. Helps a business understand what customers want." },
+  { term: "Identifying customers (role of marketing)", def: "Understanding WHO the customers are — their age, gender, income, location — and what they need. Without this, businesses risk making costly mistakes." },
+  { term: "Informing customers (role of marketing)", def: "Making potential customers aware of products or services through advertising — e.g. TV, social media, leaflets, radio. Method chosen depends on budget and target market." },
+  { term: "Increasing sales (role of marketing)", def: "A key aim of marketing — achieved by advertising more, reducing price, selling in different places, widening the product range, or selling by different methods such as online." },
+  { term: "4Ps of marketing", def: "Product, Price, Place and Promotion — the four key marketing decisions a business makes about how to bring a product to market." },
+  { term: "Marketing and HR", def: "Marketing works with HR to check there will be enough workers to support the anticipated level of sales — e.g. hiring extra staff before a major campaign." },
+  { term: "Marketing and Operations", def: "Marketing informs Operations of anticipated sales predictions so they can plan the production schedule and ensure enough stock is made." },
+  { term: "Marketing and Finance", def: "Marketing works with Finance to check there is enough money to pay for the resources required — e.g. funding an advertising campaign." },
+  { term: "Marketing and R&D", def: "Marketing works with Research & Development to develop products that meet the wants and needs of customers identified through market research." },
+  { term: "Kellogg's marketing", def: "Kellogg's has moved with the times — using TV ads (e.g. Jonathan Ross, 1970), reducing salt in Corn Flakes (2010), adding vitamin D, changing packet designs (2019), and supporting school breakfast clubs. All aimed at increasing sales." },
+  { term: "Small vs large business marketing", def: "Large businesses (e.g. Kellogg's) can afford nationwide TV campaigns. Small businesses may use leaflets or local newspapers. The method depends on size, budget, and target market." },
+  { term: "Evaluation of marketing spend", def: "Money spent on marketing does not always bring about the required increase in sales. Whether a business invests in marketing depends on its size, budget, and competitive circumstances." },
+  { term: "Purpose of TV advertising (benefit)", def: "TV advertising reaches a large audience nationwide. This means more consumers are informed about the product and are more likely to buy it — increasing sales for businesses like Fairy Liquid." }
+];
+
+const tfData = [
+  {
+    statement: "The role of marketing is to increase the production of products.",
+    answer: false,
+    explanation: "FALSE. Increasing production is the role of the Operations/Production department. The role of marketing is to identify customer needs, inform customers, and increase SALES — not to increase production levels."
+  },
+  {
+    statement: "The role of marketing is to give workers a better place to work.",
+    answer: false,
+    explanation: "FALSE. Improving working conditions for staff is the role of Human Resources (HR), not marketing. Marketing focuses on customers — identifying their needs, informing them about products, and increasing sales."
+  },
+  {
+    statement: "The role of marketing is to inform customers of new products.",
+    answer: true,
+    explanation: "TRUE. Informing customers is one of the three main roles of marketing. This is done through advertising — via TV, radio, social media, newspapers, or leaflets — to make customers aware of products and services available."
+  },
+  {
+    statement: "The role of marketing is to make higher quality products.",
+    answer: false,
+    explanation: "FALSE. Making products is the role of the Operations/Production department. Marketing's role is to understand what quality level customers want (through market research) and then communicate it — not to physically produce or improve products."
+  },
+  {
+    statement: "The role of marketing is to increase the sales of products and services.",
+    answer: true,
+    explanation: "TRUE. Increasing sales is the principal role of marketing. This can be achieved through advertising, introducing new products, reducing prices, selling in new places, or selling by different methods such as online."
+  },
+  {
+    statement: "The role of marketing is to undertake market research in order to understand the needs of customers.",
+    answer: true,
+    explanation: "TRUE. Conducting market research to identify and understand customers is a key role of marketing. Without understanding what customers want, a business risks making costly mistakes — producing products or services that customers do not want."
+  },
+  {
+    statement: "Large businesses and small businesses should always use exactly the same marketing methods.",
+    answer: false,
+    explanation: "FALSE. The way a business informs customers can vary depending on the SIZE of the business. A large business like Kellogg's can afford nationwide TV campaigns. A small local business may only need to put leaflets through nearby letterboxes. The right method depends on the budget, target market, and scale of the business."
+  },
+  {
+    statement: "Money spent on marketing always brings about the required increase in sales.",
+    answer: false,
+    explanation: "FALSE. Money spent on marketing does not ALWAYS bring about the required increase in sales. Marketing effectiveness depends on how well it is targeted, the quality of the campaign, competition, and whether the product actually meets customer needs. This is why market research is important before committing to expensive campaigns."
+  },
+  {
+    statement: "Marketing works with the Operations department to inform them of anticipated sales so they can plan their production schedule.",
+    answer: true,
+    explanation: "TRUE. Marketing works with Operations to share sales predictions so the production team can plan how much to produce. If a major campaign is planned, Operations needs advance notice to ensure enough products are available to meet the expected increase in demand."
+  },
+  {
+    statement: "Reducing the range of products available is likely to increase sales for a business.",
+    answer: false,
+    explanation: "FALSE. A reduction in the range of products is UNLIKELY to increase sales — it limits customer choice. Marketing typically aims to INCREASE the range of products or services to appeal to more customers and boost sales."
+  }
+];
+
+const examQuestions = [
+  {
+    num: "Q1",
+    marks: 1,
+    type: "mcq",
+    question: "One purpose of marketing at a library is to:",
+    options: [
+      "Advertise for an apprentice librarian",
+      "Encourage more families to use the library",
+      "Provide better training for librarians",
+      "Update the library's stock of books"
+    ],
+    answer: 1,
+    hint: "Marketing is about customers and increasing use of a product or service — not about staff or stock management.",
+    starter: "The purpose of marketing is to...",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: B — Encourage more families to use the library.</strong></p><p>Marketing is about identifying customer needs and increasing the use of a product or service. Options A and C are HR functions. Option D is an operational decision. Only option B relates directly to the marketing role of increasing usage/sales.</p></div>`
+  },
+  {
+    num: "Q2",
+    marks: 1,
+    type: "mcq",
+    question: "One role of marketing within a hair salon is:",
+    options: [
+      "To advertise a vacancy for a trainee hairdresser",
+      "To ensure that each hairdresser has a contract of employment",
+      "To increase the number of hair appointments booked",
+      "To minimise the likelihood of customers getting head lice"
+    ],
+    answer: 2,
+    hint: "Think about what the marketing function is responsible for — customers and sales, not staff or health and safety.",
+    starter: "A role of marketing is to...",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: C — To increase the number of hair appointments booked.</strong></p><p>Increasing appointments is directly linked to increasing sales — a core marketing role. Option A is recruitment (HR). Option B is contracts of employment (HR/legal). Option D is health and safety (operations).</p></div>`
+  },
+  {
+    num: "Q3",
+    marks: 1,
+    type: "mcq",
+    question: "Jacqui works as a marketing assistant at her local library. Which of the following would be part of Jacqui's job role?",
+    options: [
+      "Advertising a vacancy for a senior librarian",
+      "Arranging induction training for a new library assistant",
+      "Designing a competition to encourage people to read more",
+      "Improving the way the books are displayed"
+    ],
+    answer: 2,
+    hint: "Think about which option directly relates to attracting and engaging customers/users.",
+    starter: "As a marketing assistant, Jacqui would...",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: C — Designing a competition to encourage people to read more.</strong></p><p>This is a marketing activity aimed at engaging users of the library and increasing its use. Options A and B are HR functions. Option D is an operational/visual merchandising function.</p></div>`
+  },
+  {
+    num: "Q4",
+    marks: 2,
+    type: "written",
+    caseStudy: "The Ford Motor Company Limited (Ford Motors) is a global manufacturer of a range of vehicles including cars, vans, trucks and buses. Ford Motors has been one of Britain's best-selling car brands for over 30 years, with a range of models including the KA, Fiesta, Focus, Mondeo and Galaxy. The company's large range of products includes models that differ in size to meet the individual needs of different market segments, including eco-friendly small cars, family cars, sports cars and 7-seater people carriers. Ford Motors carries out a lot of market research when developing new car designs and uses both primary and secondary research. This ensures that new car designs and models meet the needs of potential customers. Each model's sales levels are regularly monitored against the product lifecycle.",
+    question: "Explain the purpose of marketing within Ford Motors. [2 marks]",
+    hint: "State ONE purpose of marketing clearly, then apply it specifically to Ford — use details from the case study such as the different car models, market segments, or market research.",
+    starter: "One purpose of marketing within Ford Motors is to... (K)\nThis is important for Ford because... (APP)",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1a + AO2)</h5><ul><li><strong>Knowledge (1 mark):</strong> State a purpose of marketing — e.g. to increase sales / to identify gaps in the market / to identify/understand customer needs / to inform customers / to raise awareness / to attract customers / to gain brand loyalty.</li><li><strong>Application (1 mark):</strong> Apply to Ford Motors using case study details — e.g. cars, vans, trucks, buses, names of models (KA, Fiesta, Focus, Mondeo, Galaxy), eco-friendly small cars, family cars, sports cars, 7-seater people carriers, market research, product lifecycle, different market segments.</li></ul><p><strong>Important:</strong> 'Sales' or 'sell' alone is too vague — must say 'increase sales', 'sell more', or 'additional sales'. Do not accept 'model' as application alone.</p></div>`,
+    modelAnswer: "One purpose of marketing within Ford Motors is to identify the needs of different customer groups and ensure that new car designs meet those needs (K). Ford carries out a lot of market research when developing new car designs, which enables it to produce a large range of models — from eco-friendly small cars to 7-seater people carriers — that meet the individual needs of different market segments, increasing sales (APP)."
+  },
+  {
+    num: "Q5",
+    marks: 1,
+    type: "mcq",
+    question: "A manufacturer has decided to run a marketing campaign on national television in a month's time. As a result of this decision, which one of the following actions might also be necessary?",
+    options: [
+      "Finance should stop monitoring cash flow",
+      "Human resources should employ some temporary production workers",
+      "Operations management should reduce output",
+      "Purchasing should buy smaller quantities of raw materials"
+    ],
+    answer: 1,
+    hint: "A successful TV campaign will increase demand — what does the business need more of to meet that demand?",
+    starter: "If demand increases due to the campaign...",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: B — Human resources should employ some temporary production workers.</strong></p><p>A successful national TV campaign will increase demand for the product. To meet this demand, more products need to be manufactured — so HR needs to employ additional temporary production workers. Options C and D (reducing output and buying smaller quantities) contradict the expected increase in demand. Option A is incorrect — finance should continue monitoring cash flow, especially with increased expenditure.</p></div>`
+  },
+  {
+    num: "Q6",
+    marks: 2,
+    type: "written",
+    caseStudy: "Most products and services need to be marketed in some way. The marketing might be on a mass scale, aimed at most consumers in a country. Other marketing might be on a smaller scale, perhaps one business marketing its products to another business.\n\nIntroduced in 1950, Fairy Liquid is a product which has a wide target market, though concentrating on households. Before 1950, people used powders to wash their dishes. Since its introduction, Fairy has become a well-known name in the UK and abroad, expanding its range of products into different scents and also dishwasher products.\n\nAll this success has been achieved through marketing. Fairy introduced the slogan 'Now hands that do dishes can feel soft as your face with mild green Fairy Liquid' which became a well-known catchphrase and helped customers to remember the product's name. One way the target market was reached in the 1950s was through adverts on the newly created TV channel, ITV. Because of intense competition, Fairy has continued to use a range of advertising, using newspapers, TV and other media to make sure that Fairy Liquid maintains its status as one of the most recognised product names in the UK.",
+    question: "Explain what is meant by target market. [2 marks]",
+    hint: "First give a definition of 'target market'. Then give an example — you can use Fairy Liquid from the case study, or another business you know.",
+    starter: "A target market is... (K)\nFor example, Fairy Liquid's target market is... (example)",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1a + AO1b)</h5><ul><li><strong>Knowledge (1 mark):</strong> Define target market — e.g. the group of customers/consumers a business aims its product at; who a business tries to sell its products to.</li><li><strong>Understanding through example (1 mark):</strong> Give an example — e.g. households / consumers with high incomes / any relevant example from the case study or another business.</li></ul></div>`,
+    modelAnswer: "A target market is the specific group of customers that a business aims its product or service at (K). For example, Fairy Liquid's target market is households throughout the UK who need a product for washing up their dishes (example)."
+  },
+  {
+    num: "Q7",
+    marks: 3,
+    type: "written",
+    caseStudy: "Most products and services need to be marketed in some way. The marketing might be on a mass scale, aimed at most consumers in a country. Other marketing might be on a smaller scale, perhaps one business marketing its products to another business.\n\nIntroduced in 1950, Fairy Liquid is a product which has a wide target market, though concentrating on households. Before 1950, people used powders to wash their dishes. Since its introduction, Fairy has become a well-known name in the UK and abroad, expanding its range of products into different scents and also dishwasher products.\n\nAll this success has been achieved through marketing. Fairy introduced the slogan 'Now hands that do dishes can feel soft as your face with mild green Fairy Liquid' which became a well-known catchphrase and helped customers to remember the product's name. One way the target market was reached in the 1950s was through adverts on the newly created TV channel, ITV. Because of intense competition, Fairy has continued to use a range of advertising, using newspapers, TV and other media to make sure that Fairy Liquid maintains its status as one of the most recognised product names in the UK.",
+    question: "Analyse one benefit to Fairy Liquid of using TV as a means of marketing. [3 marks]",
+    hint: "Structure: Understanding (what is the benefit of TV advertising?) → Application (how does this link to Fairy Liquid specifically?) → Analysis (what is the business impact — effect on sales, awareness, competitive position?)",
+    starter: "One benefit of using TV as a means of marketing is that it reaches a large audience... (U)\nFor Fairy Liquid, which targets households throughout the UK... (APP)\nAs a result, more consumers will be informed about Fairy Liquid... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> State a benefit of TV advertising — e.g. reaches a large audience; high visibility; can show the product in action; memorable (e.g. catchphrase).</li><li><strong>Application (1 mark):</strong> Link to Fairy Liquid — e.g. Fairy Liquid targets households throughout the UK; faces intense competition; expanded range into different scents and dishwasher products.</li><li><strong>Analysis (1 mark):</strong> Explain the business impact — e.g. by reaching a large target audience, more consumers will be informed about Fairy Liquid and so are more likely to buy the product, increasing sales; helps maintain status as one of the most recognised product names in the UK despite intense competition.</li></ul></div>`,
+    modelAnswer: "One benefit to Fairy Liquid of using TV as a means of marketing is that TV reaches a very large audience (U). Fairy Liquid targets households throughout the UK, and TV advertising allows it to communicate with millions of potential customers at once (APP). By reaching a large target audience, more consumers will be informed about Fairy Liquid and its range — including different scents and dishwasher products — and are therefore more likely to buy, helping Fairy Liquid maintain its status as one of the most recognised product names in the UK despite intense competition (AN)."
+  },
+  {
+    num: "Q8",
+    marks: 2,
+    type: "written",
+    caseStudy: "Most products and services need to be marketed in some way. The marketing might be on a mass scale, aimed at most consumers in a country. Other marketing might be on a smaller scale, perhaps one business marketing its products to another business.\n\nIntroduced in 1950, Fairy Liquid is a product which has a wide target market, though concentrating on households. Before 1950, people used powders to wash their dishes. Since its introduction, Fairy has become a well-known name in the UK and abroad, expanding its range of products into different scents and also dishwasher products.\n\nAll this success has been achieved through marketing. Fairy introduced the slogan 'Now hands that do dishes can feel soft as your face with mild green Fairy Liquid' which became a well-known catchphrase and helped customers to remember the product's name. One way the target market was reached in the 1950s was through adverts on the newly created TV channel, ITV. Because of intense competition, Fairy has continued to use a range of advertising, using newspapers, TV and other media to make sure that Fairy Liquid maintains its status as one of the most recognised product names in the UK.",
+    question: "Explain one reason why Fairy Liquid continues to market itself when it is a well-known product. [2 marks]",
+    hint: "Think about WHY a business would keep spending on marketing even after it is already well-known. Competition? Reminding customers? New products?",
+    starter: "One reason why Fairy Liquid continues to market itself is... (U)\nThis is important for Fairy Liquid because... (APP)",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1b + AO2)</h5><ul><li><strong>Understanding (1 mark):</strong> Give a reason why any business would maintain its marketing — e.g. to keep customers informed of changes to a product; to keep the product in customers' minds; to fight off competition; to attract new customers.</li><li><strong>Application (1 mark):</strong> Link to Fairy Liquid — e.g. Fairy Liquid faces intense competition; it has expanded its range into different scents and dishwasher products; it needs to maintain its status as one of the most recognised product names in the UK.</li></ul></div>`,
+    modelAnswer: "One reason why Fairy Liquid continues to market itself is to keep the product in customers' minds and fight off competition from rival brands (U). Fairy Liquid faces intense competition in the washing-up liquid market, so it must continue to use a range of advertising — including newspapers and TV — to make sure consumers choose Fairy Liquid over rivals and that it maintains its status as one of the most recognised product names in the UK (APP)."
+  },
+  {
+    num: "Q9",
+    marks: 4,
+    type: "written",
+    caseStudy: "Samsung was founded in 1938 but has since grown from a modest trading company to a multi-national business. Samsung operates in three major markets: electronics, engineering and chemicals, and employs people in more than 60 countries. Samsung is the world's largest manufacturer of mobile phones and smartphones. Samsung wants to increase the sales of its mobile phones over the next number of years.",
+    question: "Explain two ways Samsung could increase the sales of its mobile phones. [4 marks]",
+    hint: "Two separate ways, each worth 2 marks: Understanding (what is the way?) + Application (why would this work specifically for Samsung's mobile phones?). Think about price, advertising, new models, new places to sell, different methods of selling.",
+    starter: "One way Samsung could increase the sales of its mobile phones is to... (U)\nThis would work for Samsung because... (APP)\n\nA second way Samsung could increase sales is to... (U)\nThis would work for Samsung because... (APP)",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (2 × AO1b + 2 × AO2)</h5><p>Two ways required, each worth 1 mark for Understanding + 1 mark for Application to Samsung.</p><p><strong>Possible ways include:</strong></p><ul><li>Advertise more / promote the mobile phones more widely — e.g. using social media to reach a global audience of smartphone users</li><li>Introduce a new model that appeals to more customers — e.g. a new smartphone with improved features</li><li>Reduce the price of mobile phones — e.g. to make them more competitive against rivals</li><li>Sell in different places — e.g. expanding distribution to more countries given Samsung operates in 60+ countries</li><li>Sell by different methods — e.g. selling directly online as well as through retailers</li><li>Increase the range of models available — e.g. budget, mid-range and premium smartphones</li></ul></div>`,
+    modelAnswer: "One way Samsung could increase the sales of its mobile phones is to introduce a new model with improved features that appeals to more customers (U). As the world's largest manufacturer of smartphones, Samsung can invest heavily in R&D to develop innovative new models — such as foldable screens — which generate excitement and encourage both new and existing customers to upgrade, increasing sales (APP).\n\nA second way Samsung could increase sales is to expand where it sells its mobile phones — for example, by increasing distribution in developing markets (U). Samsung already employs people in more than 60 countries, which means it has the infrastructure to enter new markets and reach millions of new potential customers who currently do not own a Samsung phone, driving further sales growth (APP)."
+  },
+  {
+    num: "Q10",
+    marks: 6,
+    type: "written",
+    caseStudy: "Samsung was founded in 1938 but has since grown from a modest trading company to a multi-national business. Samsung operates in three major markets: electronics, engineering and chemicals, and employs people in more than 60 countries. Samsung is the world's largest manufacturer of mobile phones and smartphones. Samsung wants to increase the sales of its mobile phones over the next number of years.",
+    question: "Analyse two factors which will influence how Samsung markets its mobile phones. [6 marks]",
+    hint: "Two factors, each worth 3 marks: Understanding (what is the factor?) → Application (how does it apply to Samsung specifically?) → Analysis (why does this factor affect Samsung's marketing decisions — what is the business impact?). Use case study details such as 'multi-national', '60 countries', 'world's largest manufacturer', 'electronics'.",
+    starter: "One factor that will influence how Samsung markets its mobile phones is... (U)\nFor Samsung, which operates in more than 60 countries... (APP)\nThis means that Samsung's marketing must... (AN)\n\nA second factor is... (U)\nFor Samsung, as the world's largest manufacturer of smartphones... (APP)\nThis means... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme — 6 marks (2 × AO1b + 2 × AO2 + 2 × AO3a)</h5><p>Two factors required, each worth Understanding (1) + Application (1) + Analysis (1).</p><p><strong>Possible factors include:</strong></p><ul><li><strong>Finance available:</strong> Samsung is a multi-national with huge resources (APP) — it can afford expensive global TV and digital campaigns, giving it a competitive advantage over smaller rivals (AN)</li><li><strong>Who the marketing is aimed at:</strong> Different customer groups (young people, business users, budget-conscious consumers) require different approaches — social media for younger customers, business press for corporate buyers (AN)</li><li><strong>Location of customers:</strong> Samsung operates in 60+ countries — marketing must be adapted to different languages, cultures, and customer needs in each market (AN)</li><li><strong>Level of competition:</strong> Samsung faces competition from Apple, Huawei, etc. — it must continually market to keep its brand in customers' minds and justify its position as world's largest manufacturer (AN)</li><li><strong>Technology/digital change:</strong> As a technology company, Samsung can use digital marketing and social media effectively to reach millions of customers globally (AN)</li></ul></div>`,
+    modelAnswer: "One factor that will influence how Samsung markets its mobile phones is the location of its customers. Samsung operates in more than 60 countries (APP), which means its marketing must be adapted to suit different languages, cultures, and customer preferences in each market — for example, advertising messages that work in the USA may not be appropriate in South Korea or India (AN). This means Samsung cannot use a single global campaign but must invest in localised marketing strategies for each region.\n\nA second factor is the level of finance available for marketing. As the world's largest manufacturer of mobile phones and a multi-national business (APP), Samsung has enormous financial resources which it can spend on high-profile global advertising campaigns — including TV, online, and sponsorship — something that smaller competitors cannot afford. This allows Samsung to reach a much larger audience and keep its brand in customers' minds across 60+ countries, helping it maintain its position as market leader (AN)."
+  }
+];
+
+// ══════════════════════════════════════
+//  BUILD LEARN
+// ══════════════════════════════════════
+function buildLearn() {
+  const grid = document.getElementById('topicGrid');
+  topicData.forEach(topic => {
+    const card = document.createElement('div');
+    card.className = 'topic-card';
+    card.innerHTML = `<span class="tag">${topic.tag}</span><span class="toggle-icon">+</span><h3>${topic.title}</h3><div class="topic-content">${topic.content}</div>`;
+    card.addEventListener('click', () => card.classList.toggle('open'));
+    grid.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+//  BUILD MCQ
+// ══════════════════════════════════════
+let mcqScore = 0, mcqTotal = 0;
+function buildMCQ() {
+  const wrap = document.getElementById('mcqWrap');
+  mcqData.forEach((q, qi) => {
+    const block = document.createElement('div'); block.className = 'q-block';
+    block.innerHTML = `<div class="q-num">QUESTION ${qi + 1} OF ${mcqData.length}</div><div class="q-text">${q.q}</div>
+    <div class="options">${q.opts.map((o, oi) => `<button class="opt-btn" data-qi="${qi}" data-oi="${oi}">${o}</button>`).join('')}</div>
+    <div class="q-feedback" id="fb-${qi}"></div>`;
+    wrap.appendChild(block);
+  });
+  wrap.addEventListener('click', e => {
+    const btn = e.target.closest('.opt-btn'); if (!btn) return;
+    const qi = +btn.dataset.qi, oi = +btn.dataset.oi;
+    const block = btn.closest('.q-block');
+    if (block.dataset.answered) return;
+    block.dataset.answered = 1; mcqTotal++;
+    block.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
+    const correct = oi === mcqData[qi].ans;
+    if (correct) { btn.classList.add('correct'); mcqScore++; }
+    else { btn.classList.add('wrong'); block.querySelectorAll('.opt-btn')[mcqData[qi].ans].classList.add('correct'); }
+    const fb = document.getElementById(`fb-${qi}`);
+    fb.className = 'q-feedback show ' + (correct ? 'ok' : 'no');
+    fb.textContent = mcqData[qi].explain;
+    document.getElementById('mcqScore').textContent = mcqScore;
+    document.getElementById('mcqTotal').textContent = mcqTotal;
+  });
+}
+function resetMCQ() {
+  mcqScore = 0; mcqTotal = 0;
+  document.getElementById('mcqScore').textContent = 0;
+  document.getElementById('mcqTotal').textContent = 0;
+  document.getElementById('mcqWrap').innerHTML = '';
+  buildMCQ();
+}
+
+// ══════════════════════════════════════
+//  BUILD MATCH
+// ══════════════════════════════════════
+let matchScore = 0, matchSelected = null, matchAttempts = {};
+function buildMatch() {
+  const left = document.getElementById('matchLeft');
+  const right = document.getElementById('matchRight');
+  document.getElementById('matchTotal').textContent = matchData.length;
+  const shuffled = [...matchData].sort(() => Math.random() - .5);
+  matchData.forEach((item, i) => {
+    const t = document.createElement('div');
+    t.className = 'match-item'; t.dataset.idx = i; t.dataset.side = 'term';
+    t.textContent = item.term; left.appendChild(t);
+  });
+  shuffled.forEach((item) => {
+    const d = document.createElement('div');
+    const origIdx = matchData.findIndex(m => m.def === item.def);
+    d.className = 'match-item'; d.dataset.idx = origIdx; d.dataset.side = 'def';
+    d.textContent = item.def; right.appendChild(d);
+  });
+  document.getElementById('matchLeft').addEventListener('click', e => handleMatchClick(e));
+  document.getElementById('matchRight').addEventListener('click', e => handleMatchClick(e));
+}
+function handleMatchClick(e) {
+  const item = e.target.closest('.match-item'); if (!item) return;
+  if (item.classList.contains('matched-ok') || item.classList.contains('matched-eventual')) return;
+  if (!matchSelected) {
+    if (item.dataset.side !== 'term') return;
+    matchSelected = item; item.classList.add('selected');
+  } else {
+    if (item.dataset.side !== 'def') { matchSelected.classList.remove('selected'); matchSelected = null; return; }
+    const termIdx = +matchSelected.dataset.idx, defIdx = +item.dataset.idx;
+    if (termIdx === defIdx) {
+      const cls = matchAttempts[termIdx] ? 'matched-eventual' : 'matched-ok';
+      matchSelected.className = 'match-item ' + cls;
+      item.className = 'match-item ' + cls;
+      matchScore++;
+      document.getElementById('matchScore').textContent = matchScore;
+    } else {
+      matchAttempts[termIdx] = true;
+      item.classList.add('matched-no');
+      setTimeout(() => item.classList.remove('matched-no'), 400);
+      matchSelected.classList.remove('selected');
+    }
+    matchSelected = null;
+  }
+}
+function resetMatch() {
+  matchScore = 0; matchSelected = null; matchAttempts = {};
+  document.getElementById('matchScore').textContent = 0;
+  document.getElementById('matchLeft').innerHTML = '';
+  document.getElementById('matchRight').innerHTML = '';
+  buildMatch();
+}
+
+// ══════════════════════════════════════
+//  BUILD FIB
+// ══════════════════════════════════════
+let fibScore = 0, fibTotal = 0;
+function buildFIB() {
+  const wrap = document.getElementById('fibWrap');
+  fibData.forEach((item, si) => {
+    const allAnswers = fibData.flatMap(f => Object.values(f.blanks));
+    const unique = [...new Set(allAnswers)].sort();
+    let html = item.display;
+    Object.keys(item.blanks).forEach((key, bi) => {
+      const opts = unique.map(w => `<option value="${w}">${w}</option>`).join('');
+      html = html.replace('_____', `<span class="blank-select" id="bs-${si}-${bi}" data-answer="${item.blanks[key]}"><select onchange="checkBlank(this,'bs-${si}-${bi}')"><option value="">choose...</option>${opts}</select><span></span></span>`);
+    });
+    const card = document.createElement('div');
+    card.className = 'fib-sentence';
+    card.innerHTML = html;
+    wrap.appendChild(card);
+    fibTotal += Object.keys(item.blanks).length;
+  });
+  document.getElementById('fibTotal').textContent = fibTotal;
+}
+function checkBlank(sel, id) {
+  const wrap = document.getElementById(id);
+  const correct = sel.value === wrap.dataset.answer;
+  if (correct) {
+    wrap.classList.add('correct'); wrap.classList.remove('wrong'); sel.disabled = true; fibScore++;
+    document.getElementById('fibScore').textContent = fibScore;
+  } else {
+    wrap.classList.add('wrong'); wrap.classList.remove('correct');
+    setTimeout(() => { wrap.classList.remove('wrong'); sel.value = ''; }, 500);
+  }
+}
+function resetFIB() {
+  fibScore = 0; fibTotal = 0;
+  document.getElementById('fibScore').textContent = 0;
+  document.getElementById('fibTotal').textContent = 0;
+  document.getElementById('fibWrap').innerHTML = '';
+  buildFIB();
+}
+
+// ══════════════════════════════════════
+//  BUILD MISCONCEPTIONS
+// ══════════════════════════════════════
+function buildMisc() {
+  const list = document.getElementById('miscList');
+  miscData.forEach(item => {
+    const card = document.createElement('div'); card.className = 'misc-card';
+    card.innerHTML = `<div class="wrong-view"><div class="misc-tag">✗ Common Mistake</div><p>${item.wrong}</p></div>
+    <div class="correct-view"><div class="misc-tag">✓ What Examiners Want</div><p>${item.correct}</p></div>`;
+    list.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+//  BUILD TIPS
+// ══════════════════════════════════════
+function buildTips() {
+  const grid = document.getElementById('tipsGrid');
+  tipsData.forEach(tip => {
+    const card = document.createElement('div'); card.className = 'tip-card';
+    const pills = tip.marks.map(m => `<span class="mark-pill ${m.cls}">${m.label}</span>`).join('');
+    card.innerHTML = `<div class="tip-type">${tip.type}</div><h4>${tip.title}</h4>${tip.content}${pills ? `<div class="mark-breakdown">${pills}</div>` : ''}`;
+    grid.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+//  BUILD FLASHCARDS
+// ══════════════════════════════════════
+let fcIndex = 0;
+function renderFC() {
+  document.getElementById('fcProgress').textContent = `Card ${fcIndex + 1} of ${flashcards.length}`;
+  document.getElementById('fcTerm').textContent = flashcards[fcIndex].term;
+  document.getElementById('fcDef').textContent = flashcards[fcIndex].def;
+  document.getElementById('flashcard').classList.remove('flipped');
+}
+function flipCard() { document.getElementById('flashcard').classList.toggle('flipped'); }
+function nextCard() { fcIndex = (fcIndex + 1) % flashcards.length; renderFC(); }
+function prevCard() { fcIndex = (fcIndex - 1 + flashcards.length) % flashcards.length; renderFC(); }
+
+// ══════════════════════════════════════
+//  BUILD TRUE / FALSE
+// ══════════════════════════════════════
+let tfScore = 0, tfTotal = 0;
+function buildTF() {
+  const wrap = document.getElementById('tfWrap');
+  tfData.forEach((item, i) => {
+    const card = document.createElement('div'); card.className = 'tf-card';
+    card.innerHTML = `<div><div class="tf-text">${item.statement}</div><div class="tf-explanation" id="tfExp-${i}">${item.explanation}</div></div>
+    <div class="tf-btns"><button class="tf-btn" data-i="${i}" data-val="true">TRUE</button><button class="tf-btn" data-i="${i}" data-val="false">FALSE</button></div>`;
+    wrap.appendChild(card);
+  });
+  wrap.addEventListener('click', e => {
+    const btn = e.target.closest('.tf-btn'); if (!btn) return;
+    const i = +btn.dataset.i; const card = btn.closest('.tf-card');
+    if (card.dataset.answered) return;
+    card.dataset.answered = 1;
+    const val = btn.dataset.val === 'true'; const correct = val === tfData[i].answer; tfTotal++;
+    card.querySelectorAll('.tf-btn').forEach(b => b.disabled = true);
+    if (correct) { btn.classList.add('correct'); tfScore++; }
+    else { btn.classList.add('wrong'); card.querySelectorAll('.tf-btn').forEach(b => { if (b.dataset.val === String(tfData[i].answer)) b.classList.add('correct'); }); }
+    document.getElementById(`tfExp-${i}`).classList.add('show');
+    document.getElementById('tfScore').textContent = tfScore;
+    document.getElementById('tfTotal').textContent = tfTotal;
+  });
+}
+function resetTF() {
+  tfScore = 0; tfTotal = 0;
+  document.getElementById('tfScore').textContent = 0;
+  document.getElementById('tfTotal').textContent = 0;
+  document.getElementById('tfWrap').innerHTML = '';
+  buildTF();
+}
+
+// ══════════════════════════════════════
+//  BUILD EXAM PRACTICE
+// ══════════════════════════════════════
+function buildExamPractice() {
+  const list = document.getElementById('epList');
+  examQuestions.forEach((q, qi) => {
+    const card = document.createElement('div');
+    card.className = 'ep-card';
+    const caseHtml = q.caseStudy ? `<div class="ep-case">${q.caseStudy.replace(/\n/g,'<br>')}</div>` : '';
+    let interactiveHtml = '';
+    if (q.type === 'mcq') {
+      interactiveHtml = `<div class="ep-mcq-opts">${q.options.map((o,oi) =>
+        `<button class="ep-opt" data-qi="${qi}" data-oi="${oi}"><strong>${String.fromCharCode(65+oi)}.</strong> ${o}</button>`
+      ).join('')}</div>`;
+    } else {
+      interactiveHtml = `<textarea class="ep-answer-area" id="epTextarea-${qi}" placeholder="Write your answer here..."></textarea>`;
+    }
+    card.innerHTML = `
+      <div class="ep-header">
+        <div>
+          <div class="ep-num">${q.num}</div>
+          <div class="ep-title">${q.marks} mark${q.marks > 1 ? 's' : ''}</div>
+        </div>
+        <div class="ep-marks">[${q.marks} mark${q.marks > 1 ? 's' : ''}]</div>
+      </div>
+      <div class="ep-body">
+        ${caseHtml}
+        <div class="ep-question">${q.question.replace(/\n/g,'<br>')}</div>
+        ${interactiveHtml}
+        <div class="ep-btn-row">
+          <button class="ep-btn hint-btn" onclick="togglePop(${qi},'hint')">💡 Hint</button>
+          <button class="ep-btn starter-btn" onclick="togglePop(${qi},'starter')">✍️ Sentence Starter</button>
+          ${q.type !== 'mcq' ? `<button class="ep-btn submit-btn" onclick="togglePop(${qi},'marks')">📋 Submit &amp; See Mark Scheme</button>` : ''}
+        </div>
+        <div class="ep-popup hint-pop" id="epHint-${qi}"><strong>💡 Hint:</strong> ${q.hint}</div>
+        <div class="ep-popup starter-pop" id="epStarter-${qi}"><strong>✍️ Sentence Starter:</strong><br>${q.starter.replace(/\n/g,'<br>')}</div>
+        <div class="ep-popup marks-pop" id="epMarks-${qi}">
+          ${q.markScheme}
+          ${q.modelAnswer ? `<div class="marks-section"><h5>✓ Model Answer</h5><div class="model-answer">${q.modelAnswer.replace(/\n/g,'<br>')}</div></div>` : ''}
+        </div>
+      </div>`;
+    list.appendChild(card);
+  });
+  document.getElementById('epList').addEventListener('click', e => {
+    const btn = e.target.closest('.ep-opt');
+    if (!btn) return;
+    const qi = +btn.dataset.qi, oi = +btn.dataset.oi;
+    const card = btn.closest('.ep-card');
+    if (card.dataset.epAnswered) return;
+    card.dataset.epAnswered = 1;
+    const allOpts = card.querySelectorAll('.ep-opt');
+    allOpts.forEach(b => b.disabled = true);
+    if (oi === examQuestions[qi].answer) {
+      btn.classList.add('ep-correct');
+    } else {
+      btn.classList.add('ep-wrong');
+      allOpts[examQuestions[qi].answer].classList.add('ep-correct');
+    }
+    document.getElementById(`epMarks-${qi}`).classList.add('show');
+  });
+}
+
+function togglePop(qi, type) {
+  const hint = document.getElementById(`epHint-${qi}`);
+  const starter = document.getElementById(`epStarter-${qi}`);
+  const marks = document.getElementById(`epMarks-${qi}`);
+  if (type === 'hint') { hint.classList.toggle('show'); starter.classList.remove('show'); }
+  else if (type === 'starter') { starter.classList.toggle('show'); hint.classList.remove('show'); }
+  else if (type === 'marks') { marks.classList.toggle('show'); }
+}
+
+// ══════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════
+buildLearn(); buildMCQ(); buildMatch(); buildFIB(); buildMisc(); buildTips(); renderFC(); buildTF(); buildExamPractice();
+</script>
+</body>
+</html>
