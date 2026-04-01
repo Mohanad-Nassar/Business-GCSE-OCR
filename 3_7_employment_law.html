@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3.7 Employment Law – Interactive Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="badge">OCR GCSE Business — Component 1</div>
+    <h1>Unit 3.7 — Employment Law</h1>
+    <p>Interactive revision guide · All key content + full exam practice</p>
+  </div>
+        <a href="index.html" class="home-link">← 🏡 Home</a>
+
+</header>
+
+<nav class="tab-bar" id="tabBar">
+  <button class="tab-btn active" onclick="switchTab('learn',this)">📚 Key Learning</button>
+  <button class="tab-btn" onclick="switchTab('mcq',this)">❓ MCQ Quiz</button>
+  <button class="tab-btn" onclick="switchTab('matching',this)">🔗 Matching</button>
+  <button class="tab-btn" onclick="switchTab('fib',this)">✏️ Fill the Blanks</button>
+  <button class="tab-btn" onclick="switchTab('misconceptions',this)">⚠️ Misconceptions</button>
+  <button class="tab-btn" onclick="switchTab('examtips',this)">🎯 Exam Tips</button>
+  <button class="tab-btn" onclick="switchTab('flashcards',this)">🃏 Flashcards</button>
+  <button class="tab-btn" onclick="switchTab('truefalse',this)">✅ True / False</button>
+  <button class="tab-btn" onclick="switchTab('exampractice',this)">📝 Exam Practice</button>
+</nav>
+
+<main>
+
+<div class="tab-panel active" id="tab-learn">
+  <h2 class="section-title">Key Learning Topics</h2>
+  <p class="section-sub">Click any card to expand detailed notes.</p>
+  <div class="topic-grid" id="topicGrid"></div>
+</div>
+
+<div class="tab-panel" id="tab-mcq">
+  <h2 class="section-title">Multiple Choice Questions</h2>
+  <p class="section-sub">Select an answer to reveal instant feedback.</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+    <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+    <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+  </div>
+  <div class="quiz-wrap" id="mcqWrap"></div>
+</div>
+
+<div class="tab-panel" id="tab-matching">
+  <h2 class="section-title">Matching Activity</h2>
+  <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+  <div style="margin-bottom:16px;">
+    <div class="score-bar">
+      <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+      <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+      <button class="reset-btn" onclick="resetMatch()">RESET</button>
+    </div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span> First attempt correct</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span> Correct after mistake</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span> Wrong — try again</span>
+    </div>
+  </div>
+  <div class="match-grid">
+    <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+    <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
+  </div>
+</div>
+
+<div class="tab-panel" id="tab-fib">
+  <h2 class="section-title">Fill in the Blanks</h2>
+  <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+    <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+    <button class="reset-btn" onclick="resetFIB()">RESET</button>
+  </div>
+  <div class="fib-wrap" id="fibWrap"></div>
+</div>
+
+<div class="tab-panel" id="tab-misconceptions">
+  <h2 class="section-title">Common Misconceptions</h2>
+  <p class="section-sub">What students often think — and what examiners actually want.</p>
+  <div class="misc-list" id="miscList"></div>
+</div>
+
+<div class="tab-panel" id="tab-examtips">
+  <h2 class="section-title">Exam Questions &amp; Tips</h2>
+  <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
+  <div class="tips-grid" id="tipsGrid"></div>
+</div>
+
+<div class="tab-panel" id="tab-flashcards">
+  <h2 class="section-title">Flashcards</h2>
+  <p class="section-sub">Click the card to reveal the definition. Use the arrows to navigate.</p>
+  <div class="fc-container">
+    <div class="fc-progress" id="fcProgress">Card 1 of 20</div>
+    <div class="flashcard" id="flashcard" onclick="flipCard()">
+      <div class="fc-inner">
+        <div class="fc-front"><div class="fc-label">KEY TERM</div><div class="fc-term" id="fcTerm"></div></div>
+        <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
+      </div>
+    </div>
+    <p class="fc-hint">👆 Click card to flip</p>
+    <div class="fc-nav">
+      <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+      <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+      <button class="fc-btn" onclick="nextCard()">Next →</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab-panel" id="tab-truefalse">
+  <h2 class="section-title">True or False?</h2>
+  <p class="section-sub">Test your knowledge with these statements.</p>
+  <div class="score-bar">
+    <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+    <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+    <button class="reset-btn" onclick="resetTF()">RESET</button>
+  </div>
+  <div class="tf-wrap" id="tfWrap"></div>
+</div>
+
+<div class="tab-panel" id="tab-exampractice">
+  <h2 class="section-title">Exam Practice Questions</h2>
+  <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
+  <div class="ep-list" id="epList"></div>
+</div>
+
+</main>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ══════════════════════════════════════
+//  DATA
+// ══════════════════════════════════════
+
+const topicData = [
+  {
+    title: "What is Employment Law & Why Does It Exist?",
+    tag: "Core Concepts",
+    content: `<p><strong>Employment law</strong> is designed to protect workers from employers who may treat them unfairly. Employment law exists to control the behaviour of employers. Usually employers have more power than their employees, and so employment laws give rights to workers.</p>
+<p>If a worker feels that their rights have been breached, they can take the employer to an <strong>employment tribunal</strong>. A tribunal is a panel of people — a legally qualified chairman as well as other people with expertise relevant to the case. A tribunal will hear evidence from the employee and the employer and then come to a decision. It can impose fines or award compensation and costs. Often, when a case goes to a tribunal, the worker will be supported by a <strong>trade union</strong>, if they are a member of one. The trade union will give them legal advice and may pay for legal representation.</p>
+<p>Employment law covers the following key areas:</p>
+<ul>
+<li>Discrimination and equality in the workplace</li>
+<li>Hours of work (the Working Time Directive)</li>
+<li>Holiday entitlement</li>
+<li>Contracts of employment and statement of employment particulars</li>
+<li>Minimum / living wage</li>
+<li>Health and safety</li>
+<li>Sick pay, maternity pay, paternity pay</li>
+<li>Redundancy and dismissal</li>
+</ul>
+<p><strong>Impact on recruitment:</strong> The law also guides the recruitment of workers. The recruitment process, including the advertising of the job, cannot normally discriminate against potential employees. Legal action can be taken against businesses that break the laws when recruiting workers.</p>`
+  },
+  {
+    title: "The Equality Act 2010 — Types of Discrimination",
+    tag: "Discrimination Law",
+    content: `<p>The <strong>Equality Act 2010</strong> brought together 116 pieces of legislation into one single Act. It is designed to provide a legal framework to protect the rights of individuals and advance equality of opportunity for all. The law states that there should be no discrimination against a worker because of gender, sexual orientation, age, marital status, disability, race or colour or ethnicity, and religion.</p>
+<p>Discrimination at work can affect: recruitment, pay, terms and conditions of employment, promotion opportunities, training opportunities, and when an employee is dismissed.</p>
+<p>If a firm breaks the law it can be fined and forced to pay compensation.</p>
+<p><strong>Types of discrimination under the Equality Act 2010:</strong></p>
+<ul>
+<li><strong>Equal pay discrimination:</strong> Women must be paid the same as men when they do work of equal value (e.g. Samira Ahmed v BBC — she was paid £440 per episode vs Jeremy Vine's £3,000 for comparable work).</li>
+<li><strong>Racial discrimination:</strong> Prevents people of one race, colour, nationality or ethnic origin being treated differently. Example: not promoting a more qualified employee because of their ethnicity. Some exceptions apply (e.g. a waiter in a Chinese restaurant).</li>
+<li><strong>Sex discrimination:</strong> Prevents men or women being treated differently. A job advertisement that says the job is for a woman is breaking the law. Exceptions exist (e.g. a female PE teacher who needs access to female changing rooms).</li>
+<li><strong>Disability discrimination:</strong> Employers cannot discriminate against disabled people when recruiting. They are expected to make reasonable changes to premises to permit access (e.g. ramps, lifts) and provide appropriate equipment.</li>
+<li><strong>Sexual orientation discrimination:</strong> Employers should not give preference to a person of one sexual orientation over another. Applies to lesbian, gay, bisexual, heterosexual and those who have had gender reassignment (e.g. Rose Taylor v Jaguar Land Rover).</li>
+<li><strong>Religion or belief discrimination:</strong> Protects workers from being discriminated against because of their religious beliefs or because they have none. Example: an employer should allow people to have a holiday on a day that is an important festival for their faith (e.g. Tesco prayer room case).</li>
+</ul>`
+  },
+  {
+    title: "Holiday Entitlement",
+    tag: "Employment Rights",
+    content: `<p>In the UK, the law says that all workers are legally entitled to have <strong>5.6 weeks' holiday each year</strong>. Bank holidays are included in this total (there are eight bank holidays in the UK). While on holiday, the worker must be paid by the employer. The amount of pay has to reflect what the worker would normally earn.</p>
+<p><strong>Calculating holiday entitlement:</strong></p>
+<p>Days worked per week × 5.6 = holiday entitlement</p>
+<ul>
+<li>Full-time (5 days/week): 5 × 5.6 = <strong>28 days</strong> (includes 8 bank holidays)</li>
+<li>Part-time (2 days/week): 2 × 5.6 = <strong>11.2 days</strong></li>
+<li>Part-time (3 days/week): 3 × 5.6 = <strong>16.8 days</strong></li>
+</ul>
+<p><strong>Impact on businesses:</strong> When planning human resource needs, businesses must take these rules into consideration. It may mean they need to employ more workers so that they always have the workforce they need. It may also mean they need to control when people take holidays so that too many workers are not on holiday at the same time.</p>
+<p><strong>Case study — Mr Lock v British Gas:</strong> Mr Lock was a salesman paid a basic salary plus commission. When he took annual leave, he was only paid his basic salary with no commission — significantly less than his normal pay, which discouraged him from taking leave. A tribunal decided he should be paid a sum equivalent to his average monthly earnings (salary plus typical commission) while on holiday.</p>
+<p>An employer cannot suddenly reduce holiday entitlement without the worker's consent and without consultation — doing so could give the worker a breach of contract claim.</p>`
+  },
+  {
+    title: "Hours of Work — The Working Time Directive",
+    tag: "Employment Rights",
+    content: `<p>How many hours a worker can work per week in the UK is controlled by the <strong>Working Time Directive</strong>. The limit on the number of hours an employer can ask an adult worker to work is <strong>48 hours, but this is an average over a 17-week period</strong>. This means an employer could ask a worker to work more than 48 hours in some weeks, so long as in other weeks that worker works less than 48 hours.</p>
+<p><strong>Calculating average weekly hours:</strong></p>
+<p>Total hours worked ÷ 17 = Average hours per week</p>
+<p><strong>Example:</strong> An employee worked 799 hours in a 17-week period.<br>799 ÷ 17 = 47 hours on average → NOT breaking the law (below 48).</p>
+<p><strong>Example:</strong> A worker worked 914 hours in a 17-week period.<br>914 ÷ 17 = 53.8 hours on average → BREAKING the law (above 48).</p>
+<p><strong>Workers do have the right to 'opt out'</strong> — they can choose, voluntarily, to work more than 48 hours per week. However, sometimes workers may feel pressured to do this even though an employer cannot legally sack them for refusing.</p>
+<p><strong>Additional rules:</strong> Workers must be given a 20-minute rest break every six hours. Under-18-year-olds can only work up to 40 hours in a week (or 8 hours a day).</p>
+<p><strong>Exceptions:</strong> The law applies to employees but NOT to self-employed people. Some workers (armed forces, police, emergency services, seamen, security workers) can be directed to work more than 48 hours. Managing directors and those in control of a business may also work more than 48 hours.</p>
+<p><strong>Impact on business:</strong> These rules affect human resource needs — how many people a business will employ, the ages of people employed, and shift patterns.</p>`
+  },
+  {
+    title: "Contract of Employment & Statement of Employment Particulars",
+    tag: "Employment Rights",
+    content: `<p>A <strong>contract of employment</strong> is a legal agreement between an employer and an employee. When a business offers a person work and they accept, a contract of employment has been made. <strong>Important:</strong> a contract of employment does NOT need to be in writing to exist — it can be verbal.</p>
+<p>All workers must be given a document called a <strong>'Statement of Employment Particulars'</strong> — this is the written evidence of the contract of employment. It must be provided on or before the first day of work.</p>
+<p><strong>The statement includes:</strong></p>
+<ul>
+<li>Name and address of employer and employee</li>
+<li>Start date of employment</li>
+<li>Job title and description</li>
+<li>Hours of work</li>
+<li>Rate and frequency of pay</li>
+<li>When paid (e.g. last day of each month)</li>
+<li>Probationary period</li>
+<li>Pension rights</li>
+<li>Holiday entitlement</li>
+<li>Sick pay arrangements</li>
+<li>Notice required to terminate employment</li>
+</ul>
+<p>The statement helps to avoid disputes over hours, pay or holidays. Once agreed, it restricts the amount of work an employee can be asked to do, which affects the human resource needs of the business.</p>
+<p><strong>Benefits to the employee:</strong> Makes their rights and entitlements clear; provides legal protection if the employer breaches the agreed terms; gives certainty over pay, hours, and holidays.</p>
+<p><strong>Benefits to the business:</strong> Reduces disputes and misunderstandings; makes clear what the worker is employed to do; helps manage HR planning by clarifying hours and holiday entitlement.</p>`
+  },
+  {
+    title: "Costs & Benefits of Complying with Employment Law",
+    tag: "Evaluation",
+    content: `<p><strong>Benefits to businesses of complying with employment laws:</strong></p>
+<ul>
+<li>Workers will see the business as a good employer and will be motivated if treated according to the laws — this may make the business more efficient</li>
+<li>Treating workers respectfully can help with retention of workers and reduce recruitment costs</li>
+<li>Firms with a good reputation for their employment practices will find it easier to attract new workers</li>
+<li>Avoids the costs and damage of legal proceedings</li>
+<li>Improves diversity of the workforce, bringing a wider range of skills and experiences</li>
+</ul>
+<p><strong>Costs to businesses of complying with employment laws:</strong></p>
+<div class="two-col" style="margin-top:8px;">
+<div>
+<div class="col-head">Cost Type</div>
+<div class="con-item"><strong>Wage costs:</strong> Firms may need to employ more workers because there is a limit on the hours each worker can do, or because workers must be allowed their holiday entitlement</div>
+<div class="con-item"><strong>Management costs:</strong> Firms need to employ managers or consultants to ensure they comply with the laws — writing recruitment policies, providing contracts, etc.</div>
+</div>
+<div>
+<div class="col-head">Cost Type</div>
+<div class="con-item"><strong>Court / fines:</strong> If an employee takes legal action, the firm must pay for lawyers. If found guilty, it may have to pay a fine or compensation to the worker</div>
+<div class="con-item"><strong>Publicity costs:</strong> If found guilty of discrimination, bad publicity could lead to a fall in sales or difficulty recruiting workers in the future</div>
+</div>
+</div>
+<p style="margin-top:10px;"><strong>Consequences of NOT complying (discrimination):</strong></p>
+<ul>
+<li>Staff become less motivated</li>
+<li>Performance of the business is affected</li>
+<li>Workers decide to leave — business must recruit more staff (costly)</li>
+<li>Poor reputation — reduces sales and profit and affects future recruitment</li>
+<li>Can be fined and made to pay compensation (e.g. Sberbank paid £3 million)</li>
+</ul>`
+  },
+  {
+    title: "Equality Act 2010 — Real Case Studies",
+    tag: "Discrimination Law",
+    content: `<p>The following real-world cases all involved the Equality Act 2010:</p>
+<p><strong>1. Equal pay — Samira Ahmed v BBC:</strong> Samira Ahmed, a BBC journalist, sought £700,000 in back pay claiming her work was comparable to male presenter Jeremy Vine who was paid £3,000 per episode vs her £440. The tribunal found in her favour and awarded £700,000 compensation.</p>
+<p><strong>2. Disability discrimination — Mr Day-Lewis v Academy Trust:</strong> A teacher with bipolar disorder was suspended. His GP and psychologist confirmed he was fit for work but the school continued the suspension. The employment tribunal found the academy trust was wrong to ignore the medical experts' advice.</p>
+<p><strong>3. Religion and beliefs — Tesco prayer room case:</strong> Two Muslim workers (Abdirisak Aden and Mahamed Hasan) took Tesco to a tribunal after a prayer room was kept locked and workers were forced to fill in a book and ask for a key every time they needed to pray. Tesco were found guilty of indirect discrimination.</p>
+<p><strong>4. Sex discrimination — Asda female shop workers:</strong> Female shop workers claimed their jobs were of equal value to male workers in distribution centres who received higher pay. In 2021, Asda lost its appeal in the Supreme Court. The ruling could lead to £500 million in compensation and will have repercussions for other supermarkets.</p>
+<p><strong>5. Sexual orientation — Mr Allen v Paradigm Precision:</strong> An engineer who came out as gay suffered harassment. He believed he was not promoted to general manager because he had asked for 12-month adoption leave. An employment tribunal found in his favour for sexual orientation discrimination and awarded £175,000 compensation.</p>
+<p><strong>6. Sex discrimination — Rose Taylor v Jaguar Land Rover:</strong> Rose Taylor worked as an engineer for 20 years. After starting to dress as a woman, she experienced insults and lack of management support. In 2020, a court found she was protected by the Equality Act 2010 as a gender fluid / non-binary person and supported her claim for constructive dismissal.</p>`
+  }
+];
+
+const mcqData = [
+  {
+    q: "Which of the following is true about a contract of employment?",
+    opts: [
+      "An employer must give a worker a written contract of employment",
+      "An employer must give a worker a written statement of employment particulars",
+      "An employer does not have a contract with an employee until a written statement is given",
+      "An employer can cancel a contract of employment without notice at any time"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. An employer must give a worker a written statement of employment particulars — this must be provided on or before the first day of work. However, a contract of employment does NOT need to be in writing to exist — it is formed verbally when a job offer is accepted. Options A, C and D are all incorrect."
+  },
+  {
+    q: "Which of the following would break discrimination laws?",
+    opts: [
+      "An employer pays a female sales manager more than a male salesperson who has made fewer sales than the woman",
+      "An employer promotes a white person who has more experience than a similarly qualified black person",
+      "An employer does not send a gay man on a training course attended by all heterosexual workers doing the same job as him",
+      "An employer spends money providing wheelchair access for workers"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. Not sending a gay man on a training course that all heterosexual colleagues attended is sexual orientation discrimination under the Equality Act 2010. Option A is not discrimination — the woman is paid more because she performed better. Option B is not discrimination — the white person has more experience. Option D is actually a legal requirement for disabled access."
+  },
+  {
+    q: "The Working Time Directive states employers cannot normally ask workers to work more than an average of 48 hours per week in a 17-week period. In which case has the employer broken the directive?",
+    opts: [
+      "An employer asks a worker to work 54 hours for 10 weeks and then 36 hours for the next 7 weeks",
+      "An employer asks a worker to work 714 hours in a 17-week period",
+      "An employer asks a worker to work 850 hours in a 17-week period",
+      "An employer asks a worker to work 60 hours for 9 weeks and 34 hours for 8 weeks"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. 850 ÷ 17 = 50 hours average — this BREAKS the 48-hour limit. Option A: (54×10)+(36×7) = 540+252 = 792 ÷ 17 = 46.6 — OK. Option B: 714 ÷ 17 = 42 — OK. Option D: (60×9)+(34×8) = 540+272 = 812 ÷ 17 = 47.8 — just under 48, OK."
+  },
+  {
+    q: "Which of the following is NOT a benefit to a business of complying with employment laws?",
+    opts: [
+      "Workers may be better motivated",
+      "Worker retention is likely to be better",
+      "It will be easier to recruit new workers",
+      "There may be costs to the business"
+    ],
+    ans: 3,
+    explain: "Correct answer: D. 'There may be costs to the business' is a DISADVANTAGE of complying with employment laws, not a benefit. Options A, B and C are all genuine benefits — motivated workers, better retention, and easier recruitment all result from complying with employment laws and treating staff fairly."
+  },
+  {
+    q: "A contract of employment is:",
+    opts: [
+      "A diagram showing the formal lines of authority in a business",
+      "A formal document outlining the objectives of a business",
+      "A law that makes discrimination in the workplace illegal",
+      "A legal agreement between an employer and an employee"
+    ],
+    ans: 3,
+    explain: "Correct answer: D. A contract of employment is a legal agreement between an employer and an employee — it is formed when a job offer is accepted. Option A describes an organisational chart. Option B describes a mission statement or business plan. Option C describes the Equality Act 2010."
+  },
+  {
+    q: "Employment legislation states that an employee cannot be forced to work more than an average of 48 hours per week in a 17-week period. Emma worked 782 hours in a 17-week period. What was her average weekly hours?",
+    opts: [
+      "0.96 hours per week",
+      "16.29 hours per week",
+      "46 hours per week",
+      "13,294 hours per week"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. 782 ÷ 17 = 46 hours per week on average. This is below the 48-hour limit so Emma's employer has NOT broken the working time directive. Always use the formula: total hours ÷ 17 = average weekly hours."
+  },
+  {
+    q: "Which one of the following is required by law?",
+    opts: [
+      "All employees must be given a voucher for a free eyesight test each year",
+      "Employees who work from home must work a maximum of 16 hours a week",
+      "Everyone who is self-employed must have private medical insurance",
+      "Full-time employees must be given at least 5.6 weeks paid holiday per year"
+    ],
+    ans: 3,
+    explain: "Correct answer: D. All workers are legally entitled to 5.6 weeks of paid holiday per year under UK law. This applies to full-time and part-time workers (calculated proportionally). Options A, B and C are all incorrect — these are not legal requirements."
+  },
+  {
+    q: "Which of the following is an aspect of the Equality Act 2010?",
+    opts: [
+      "All workers must receive equal pay regardless of their performance",
+      "Businesses must not discriminate when recruiting, promoting or training workers",
+      "All businesses must employ at least 10% disabled workers",
+      "Workers over the age of 65 cannot be made redundant"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. The Equality Act 2010 requires that businesses must not discriminate when recruiting, promoting, or training workers on the grounds of gender, race, disability, sexual orientation, religion, or age. Option A is incorrect — pay can differ based on performance/experience. Options C and D are not requirements of the Act."
+  },
+  {
+    q: "A worker works 3 days per week. What is their annual holiday entitlement?",
+    opts: [
+      "28 days",
+      "16.8 days",
+      "21 days",
+      "11.2 days"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. 3 days per week × 5.6 = 16.8 days per year. The formula is: days worked per week × 5.6 = holiday entitlement. For full-time (5 days): 5 × 5.6 = 28 days. For 2 days per week: 2 × 5.6 = 11.2 days."
+  },
+  {
+    q: "Superdry has a policy against discrimination in its workforce. Which of the following is an advantage for Superdry of this policy?",
+    opts: [
+      "Superdry will never have to pay wages to employees",
+      "Superdry is likely to find it easier to recruit new employees for its 135 stores",
+      "Superdry will not need to comply with any other employment laws",
+      "Superdry's products will automatically sell better internationally"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. A policy against discrimination means Superdry gains a good reputation as an employer and will find it easier to recruit new employees — important when staffing 135 stores across the UK and Europe with 4,800 employees. It also means Superdry avoids breaching employment laws, which would be costly and damaging to its brand reputation."
+  }
+];
+
+const matchData = [
+  { term: "Employment law", def: "Regulations and rules put in place to protect workers from employers who may treat them unfairly" },
+  { term: "Discrimination", def: "When one worker is treated differently from another for no acceptable reason — e.g. because of their race, gender, disability, or religion" },
+  { term: "Equality Act 2010", def: "The law that brought together 116 pieces of legislation to protect individuals from discrimination in the workplace and beyond" },
+  { term: "Employment tribunal", def: "A panel that hears cases where employment laws may have been broken and which comes to a decision either in favour of the employer or employee" },
+  { term: "Working Time Directive", def: "The law that sets the maximum average number of hours (48 per week over a 17-week period) that a person can be asked to work" },
+  { term: "Contract of employment", def: "A legal agreement between an employer and an employee — formed when a job offer is accepted, even verbally" },
+  { term: "Statement of employment particulars", def: "Part of the employment contract, given in writing on or before the first day of work, giving details of the terms of employment" },
+  { term: "Trade union", def: "An employee organisation that exists to represent the interests of its members — it can provide legal advice and representation at employment tribunals" }
+];
+
+const fibData = [
+  {
+    display: "Employment law exists to protect workers from employers who may treat them _____. If a worker feels their rights have been breached, they can take the employer to an employment _____.",
+    blanks: { B1: "unfairly", B2: "tribunal" }
+  },
+  {
+    display: "The _____ Act 2010 brought together 116 pieces of legislation to protect individuals from _____. It covers discrimination on the grounds of gender, race, disability, sexual orientation, age and _____.",
+    blanks: { B1: "Equality", B2: "discrimination", B3: "religion" }
+  },
+  {
+    display: "All workers in the UK are legally entitled to _____ weeks' holiday each year. A full-time worker who works 5 days per week has an entitlement of _____ days including bank holidays.",
+    blanks: { B1: "5.6", B2: "28" }
+  },
+  {
+    display: "Under the Working Time Directive, an employer cannot normally ask an adult worker to work more than an average of _____ hours per week in a _____-week period.",
+    blanks: { B1: "48", B2: "17" }
+  },
+  {
+    display: "A contract of employment is a _____ agreement between an employer and an employee. All workers must also be given a written statement of employment _____ on or before their first day of work.",
+    blanks: { B1: "legal", B2: "particulars" }
+  },
+  {
+    display: "If a business is found guilty of discrimination, it may have to pay _____ to the worker, face bad _____, and find it harder to _____ new workers in the future.",
+    blanks: { B1: "compensation", B2: "publicity", B3: "recruit" }
+  }
+];
+
+const miscData = [
+  {
+    wrong: "Students often think that a contract of employment must be in writing to exist.",
+    correct: "A contract of employment can be VERBAL. It is formed the moment a job offer is accepted — spoken or written. What must be provided in writing (on or before the first day of work) is the 'Statement of Employment Particulars' — this is written EVIDENCE of the contract, but it is not the contract itself. The two are different things."
+  },
+  {
+    wrong: "Students often confuse the 'contract of employment' with the 'written statement of employment particulars'.",
+    correct: "The contract of employment is the legal agreement — it exists as soon as a job offer is accepted (even verbally). The statement of employment particulars is a written document that details the main terms of that contract — it includes pay, hours, holidays, probation period, etc. It is part of the employment contract and must be given on or before the first day of work."
+  },
+  {
+    wrong: "Students sometimes think that answering 'discrimination' is enough for a 2-mark 'explain' question about employment law.",
+    correct: "Simply writing 'discrimination' scores 1 mark for knowledge. To score the second mark (application), you must link it to the specific business in the question. For example: 'Employment law ensures that Greggs' 20,000 employees are not discriminated against on the grounds of gender, race, or disability' — this adds the business context needed for the application mark."
+  },
+  {
+    wrong: "Students sometimes think the Working Time Directive means no worker can EVER work more than 48 hours in a week.",
+    correct: "The 48-hour limit is an AVERAGE over a 17-week period. A worker can legally work more than 48 hours in some weeks as long as in other weeks they work fewer hours, so the average stays below 48. Also, workers can voluntarily 'opt out' of this limit. The law does NOT apply to self-employed workers."
+  },
+  {
+    wrong: "Students often write that a business should have a non-discrimination policy because 'employees will feel safer' or 'employees will be happier'. These are not creditworthy answers.",
+    correct: "For marks, you must state the BUSINESS ADVANTAGE. Acceptable answers include: more diverse range of skills in the workforce, easier to recruit new employees (wider pool of applicants), avoids legal costs and compensation payments, better business reputation which helps with sales and recruitment. 'Employees feel safer/happier' is a benefit to the employee, not to the business."
+  },
+  {
+    wrong: "Students sometimes think the Equality Act only covers gender and race discrimination.",
+    correct: "The Equality Act 2010 covers SIX main protected characteristics relevant to OCR GCSE: equal pay, racial discrimination, sex discrimination, disability discrimination, sexual orientation discrimination, and religion or belief discrimination. Questions can be set on any of these — make sure you know all six with an example of each."
+  }
+];
+
+const tipsData = [
+  {
+    type: "State / Identify (1–2 marks)",
+    title: "State Aspects of Employment Law",
+    content: `<p>For 'state' or 'identify' questions, name the aspect of employment law — no explanation needed.</p>
+<p><strong>Accepted answers include:</strong> discrimination/equality (race, sex, disability, religion, sexual orientation, equal pay), working hours, holiday entitlement, right to a contract/statement of particulars, minimum/living wage, maternity/paternity pay, sick pay, health and safety, redundancy/dismissal.</p>
+<p><strong>Common errors:</strong> 'employment rights' alone scores nothing (too vague). 'Pay' alone scores nothing — be specific: 'minimum wage' or 'equal pay'. 'Treated fairly' scores nothing — this is ethics, not law. Two examples of discrimination (e.g. racism AND ageism) count as only ONE aspect.</p>`,
+    marks: [{ label: "K ×1 each", cls: "kn" }]
+  },
+  {
+    type: "Explain (2 marks)",
+    title: "Explain How Employment Law Affects a Business",
+    content: `<p>Structure: Knowledge (1) + Application to the specific business (1)</p>
+<ul>
+<li>State one specific aspect of employment law <span class="mark-pill kn">K</span></li>
+<li>Link it specifically to the business named in the question <span class="mark-pill app">APP</span></li>
+</ul>
+<p><strong>Example (Greggs):</strong> "Employment law ensures that Greggs does not discriminate against applicants when recruiting (K). With 20,000 employees, Greggs must ensure that no worker is treated differently on the grounds of race, gender, disability or religion (APP)."</p>
+<p><strong>Do NOT write:</strong> 'it is fair' / 'employees feel safer' — these are NOT advantages to the business. The advantage must be to the BUSINESS, not the employee.</p>`,
+    marks: [{ label: "K ×1", cls: "kn" }, { label: "APP ×1", cls: "app" }]
+  },
+  {
+    type: "Analyse (3 marks)",
+    title: "Analyse the Impact of Employment Law / Discrimination",
+    content: `<p>Structure: Understanding (1) → Application to the business (1) → Business-facing Analysis (1)</p>
+<ul>
+<li>State how the business may be affected (e.g. reputation, costs) <span class="mark-pill un">U</span></li>
+<li>Link to what happened in the case study <span class="mark-pill app">APP</span></li>
+<li>Explain the business impact — profit, recruitment, sales, shareholders <span class="mark-pill an">AN</span></li>
+</ul>
+<p><strong>Example (Sberbank):</strong> "Sberbank may incur significant additional costs as a result of the tribunal ruling (U). Sberbank has to pay out £3 million in compensation after being found guilty of sex discrimination (APP). The rise in costs leads to a reduction in profits — with no increase in production or sales resulting from this payment. This may lead to lower dividend payments to shareholders (AN)."</p>
+<p><strong>Also acceptable for analysis:</strong> Bad publicity may put off customers → loss of sales. Bad publicity may deter potential employees → recruitment difficulties.</p>`,
+    marks: [{ label: "U ×1", cls: "un" }, { label: "APP ×1", cls: "app" }, { label: "AN ×1", cls: "an" }]
+  },
+  {
+    type: "Calculations",
+    title: "Working Time & Holiday Calculations",
+    content: `<p><strong>Holiday entitlement:</strong><br>Days worked per week × 5.6 = annual holiday entitlement<br>e.g. 5 days × 5.6 = 28 days | 3 days × 5.6 = 16.8 days | 2 days × 5.6 = 11.2 days</p>
+<p><strong>Average weekly hours (Working Time Directive):</strong><br>Total hours worked ÷ 17 = average hours per week<br>If average > 48 hours → employer is BREAKING the law<br>If average ≤ 48 hours → employer is within the law</p>
+<p><strong>Quick reference:</strong></p>
+<ul>
+<li>799 ÷ 17 = 47 hrs → OK</li>
+<li>782 ÷ 17 = 46 hrs → OK</li>
+<li>850 ÷ 17 = 50 hrs → BREAKS law</li>
+<li>914 ÷ 17 = 53.8 hrs → BREAKS law</li>
+<li>714 ÷ 17 = 42 hrs → OK</li>
+</ul>
+<p><strong>Remember:</strong> The directive does NOT apply to self-employed workers. Workers can voluntarily opt out.</p>`,
+    marks: []
+  },
+  {
+    type: "Evaluation",
+    title: "Costs vs Benefits of Employment Law for Businesses",
+    content: `<p><strong>Benefits of complying:</strong> motivated workforce, better retention, easier recruitment, good reputation, avoids fines/compensation</p>
+<p><strong>Costs of complying:</strong> wage costs (need more staff to cover holidays/hour limits), management costs (writing policies, monitoring compliance), court/legal costs if challenged, costs of physical adaptations (e.g. wheelchair ramps)</p>
+<p><strong>Costs of NOT complying:</strong> fines, compensation payments (e.g. Sberbank £3m, Asda potentially £500m), bad publicity → loss of sales, difficulty recruiting future staff, demotivated workforce</p>
+<p><strong>Evaluation sentence:</strong> "Overall, the benefits of complying with employment law are likely to outweigh the costs for [business] because... However, a business that breaks the law risks... which would have a significant impact on..."</p>`,
+    marks: [{ label: "EVAL ×3", cls: "eval" }]
+  },
+  {
+    type: "Key Exemptions to Know",
+    title: "Exceptions & Special Cases",
+    content: `<ul>
+<li><strong>Working Time Directive exceptions:</strong> Self-employed workers are NOT covered. Armed forces, police, emergency services, seamen and security workers can be directed to work more than 48 hours. Managing directors may also exceed 48 hours.</li>
+<li><strong>Discrimination exceptions:</strong> A school can advertise for a female PE teacher because she would need to be present in girls' changing rooms. A Chinese restaurant can employ Chinese waiters for authenticity reasons.</li>
+<li><strong>Holiday pay:</strong> Holiday pay must reflect NORMAL earnings — including typical commission or bonuses, not just basic salary (Mr Lock v British Gas ruling).</li>
+<li><strong>Self-employed vs employee:</strong> Self-employed workers do NOT have the same legal protections as employees. However, Uber drivers were ruled to be WORKERS (not self-employed) by the Supreme Court in 2021 because Uber controlled their pay, routes, and penalised them for declining jobs.</li>
+</ul>`,
+    marks: []
+  }
+];
+
+const flashcards = [
+  { term: "Employment law", def: "Regulations and rules designed to protect workers from employers who may treat them unfairly. It gives rights to workers because employers usually have more power." },
+  { term: "Discrimination", def: "When one worker is treated differently from another for no acceptable reason — e.g. because of their race, gender, disability, age, sexual orientation, or religion." },
+  { term: "Equality Act 2010", def: "The law that brought together 116 pieces of legislation into one Act to protect individuals from discrimination in the workplace and advance equality of opportunity for all." },
+  { term: "Equal pay discrimination", def: "Women must be paid the same as men when they do work of equal value. e.g. Samira Ahmed was paid £440 per episode vs Jeremy Vine's £3,000 for comparable BBC work." },
+  { term: "Racial discrimination", def: "Preventing people of one race, colour, nationality or ethnic origin being treated differently from others — in recruitment, promotion, training, pay or dismissal." },
+  { term: "Sex discrimination", def: "Preventing men or women being treated differently at work. A job advertisement specifying one gender is breaking the law (with some exceptions, e.g. female PE teacher)." },
+  { term: "Disability discrimination", def: "Employers cannot discriminate against disabled people when recruiting. They must make reasonable changes to premises (e.g. ramps, lifts) and provide appropriate equipment." },
+  { term: "Sexual orientation discrimination", def: "Employers should not give preference to a person of one sexual orientation over another. Applies to gay, lesbian, bisexual, heterosexual workers and those who have had gender reassignment." },
+  { term: "Religion or belief discrimination", def: "Protects workers from discrimination because of their religious beliefs or lack of them. e.g. Tesco were found guilty of indirect discrimination for locking a Muslim prayer room." },
+  { term: "Employment tribunal", def: "A panel that hears cases where employment laws may have been broken. It can impose fines or award compensation. Workers are often supported by their trade union." },
+  { term: "Trade union", def: "An employee organisation that exists to represent the interests of its members. It can provide legal advice and pay for legal representation at employment tribunals." },
+  { term: "Working Time Directive", def: "The law limiting average weekly working hours to 48 over a 17-week period. Formula: total hours ÷ 17 = average hours per week. Does not apply to self-employed workers." },
+  { term: "Opt out (Working Time)", def: "Workers have the right to voluntarily choose to work more than 48 hours per week. However, an employer cannot force them to opt out or dismiss them for refusing." },
+  { term: "Holiday entitlement", def: "All workers are legally entitled to 5.6 weeks' paid holiday per year. Formula: days worked per week × 5.6 = holiday entitlement. A full-time worker gets 28 days (including bank holidays)." },
+  { term: "Contract of employment", def: "A legal agreement between an employer and an employee — formed when a job offer is accepted, even verbally. It does NOT need to be in writing to exist." },
+  { term: "Statement of employment particulars", def: "A written document that gives details of the terms of employment (pay, hours, holidays, job title, etc.). Must be provided on or before the first day of work." },
+  { term: "Equal pay (holiday)", def: "Holiday pay must reflect a worker's normal earnings — including typical commission and bonuses, not just basic salary. Established in Mr Lock v British Gas tribunal ruling." },
+  { term: "Costs of discrimination (to business)", def: "Fines, compensation payments, legal costs, bad publicity → loss of sales, difficulty recruiting staff, demotivated workforce. e.g. Sberbank paid £3 million in compensation." },
+  { term: "Benefits of complying with employment law", def: "Motivated workforce, better staff retention, easier recruitment, good employer reputation, avoids costly legal proceedings and compensation payouts." },
+  { term: "Exceptions to Working Time Directive", def: "Does NOT apply to self-employed workers. Armed forces, police, emergency services, seamen and security workers can exceed 48 hours. Managing directors may also exceed the limit." }
+];
+
+const tfData = [
+  {
+    statement: "A contract of employment must be given to an employee in writing before they start work.",
+    answer: false,
+    explanation: "FALSE. A contract of employment can be verbal — it is formed when a job offer is accepted. What must be given in writing (on or before the first day of work) is the Statement of Employment Particulars. The contract and the statement are different things."
+  },
+  {
+    statement: "Under the Working Time Directive, an employer can never ask a worker to work more than 48 hours in a single week.",
+    answer: false,
+    explanation: "FALSE. The 48-hour limit is an AVERAGE over a 17-week period. Workers can legally work more than 48 hours in some weeks, provided they work fewer in other weeks to bring the average below 48. Workers can also voluntarily 'opt out' of the 48-hour limit."
+  },
+  {
+    statement: "The Working Time Directive applies to self-employed workers.",
+    answer: false,
+    explanation: "FALSE. The Working Time Directive applies to employees but NOT to self-employed people. This was relevant in the Uber case — Uber originally claimed its drivers were self-employed to avoid employment law obligations, but the Supreme Court ruled they were workers."
+  },
+  {
+    statement: "A full-time worker who works 5 days per week is legally entitled to 28 days' paid holiday per year.",
+    answer: true,
+    explanation: "TRUE. Holiday entitlement = days worked per week × 5.6 = 5 × 5.6 = 28 days. This includes the 8 UK bank holidays. Workers must be paid their normal earnings (including typical bonuses/commission) while on holiday."
+  },
+  {
+    statement: "The Equality Act 2010 protects workers from discrimination on the grounds of gender, race, disability, sexual orientation, religion, and equal pay.",
+    answer: true,
+    explanation: "TRUE. The Equality Act 2010 covers all six of these protected characteristics. It brought together 116 previous pieces of legislation into one Act. Employers can be fined and forced to pay compensation if they break this law."
+  },
+  {
+    statement: "A business that is found guilty of discrimination will always benefit from the publicity this generates.",
+    answer: false,
+    explanation: "FALSE. Being found guilty of discrimination leads to BAD publicity — it damages reputation, can lead to a loss of sales, and makes it harder to recruit new workers in the future. It is also costly: fines, compensation payments (e.g. Sberbank paid £3 million), and legal fees."
+  },
+  {
+    statement: "An employer breaking the Working Time Directive could be identified by calculating: total hours worked ÷ 17 and checking if the result exceeds 48.",
+    answer: true,
+    explanation: "TRUE. This is exactly the formula used to check compliance. If total hours ÷ 17 > 48, the employer is breaking the directive. e.g. 850 ÷ 17 = 50 hours → breaking the law. 799 ÷ 17 = 47 hours → within the law."
+  },
+  {
+    statement: "A job advertisement stating 'Female applicants only' is always legal under the Equality Act 2010.",
+    answer: false,
+    explanation: "FALSE. Advertising for one gender only normally breaks sex discrimination law. However, there are limited exceptions — for example, a female PE teacher who would need to be present in girls' changing rooms. A job advertisement stating 'female applicants only' would be illegal in most circumstances."
+  },
+  {
+    statement: "Complying with employment laws can benefit a business by helping it retain staff and making it easier to recruit new workers.",
+    answer: true,
+    explanation: "TRUE. Workers will see a compliant business as a good employer and be more motivated and likely to stay. Firms with a good reputation for their employment practices will also find it easier to attract new workers — a wider and better pool of applicants."
+  },
+  {
+    statement: "Holiday pay only needs to cover the worker's basic salary — bonuses and commission do not need to be included.",
+    answer: false,
+    explanation: "FALSE. Holiday pay must reflect a worker's NORMAL earnings — including typical commission and bonuses, not just basic salary. This was established in the Mr Lock v British Gas tribunal ruling, where it was decided Mr Lock's holiday pay should include his typical commission earnings."
+  }
+];
+
+const examQuestions = [
+ {
+    num: "Q1",
+    marks: 2,
+    type: "written",
+    question: "State <u>two</u> aspects of employment law that may affect a business. [2 marks]",
+    hint: "Identify two distinct legal requirements. Avoid ethical terms like 'fairness' and ensure your two choices aren't both from the same category, like two types of discrimination.",
+    starter: "One aspect of employment law is... \nA second aspect is...",
+    markScheme: `<div class="marks-section">
+      <h5>Mark Scheme — 2 marks (AO1a)</h5>
+      <p>One mark for each of two aspects of employment law.</p>
+      <p><strong>Answers may include:</strong></p>
+      <ul>
+        <li>Discrimination/equality e.g. equal pay, disabilities, sexism, racism, ageism, etc</li>
+        <li>Contract (of employment)</li>
+        <li>Holidays</li>
+        <li>Maternity pay/paternity pay</li>
+        <li>Antenatal care</li>
+        <li>Sick pay</li>
+        <li>Working hours/days</li>
+        <li>Breaks</li>
+        <li>Minimum/living wage</li>
+        <li>Health & safety</li>
+        <li>Working environment</li>
+        <li>Redundancy/dismissal e.g. severance pay and notice</li>
+      </ul>
+      <p><strong>ARA</strong></p>
+      <hr>
+      <h5>Guidance</h5>
+      <p><em>Answers do not need to relate to Clarks.</em></p>
+      <p>Do <strong>not</strong> reward answers relating to fairness e.g. fair pay (0), treated fairly (0) as these are ethical rather than legal requirements.</p>
+      <p>‘Employment rights’ (0) TV<br>‘Pay’/‘How much they are paid’ (0) TV</p>
+      <hr>
+      <h5>Examiner's Comments</h5>
+      <p>This question divided candidates. Few candidates gained one mark; candidates either knew about employment law (and therefore could suggest two aspects and gained full marks) or did not appear to have a clue and often left the response space blank (and therefore gained no marks). By far the most common correct responses were ‘discrimination’, ‘limits on working hours’ and ‘minimum wage’, however there were many more to choose from. Please see the published mark scheme for a list of other acceptable responses.</p>
+      <p>Of the candidates who were given one mark, the most likely reason was that they gave two responses both about discrimination, e.g. racism and ageism. These were deemed to be repeats.</p>
+    </div>`,
+    modelAnswer: "One aspect of employment law is the National Minimum Wage, which ensures workers receive a legal minimum rate of pay (1). A second aspect is Health and Safety, which requires businesses to provide a safe working environment for their staff (1)."
+  },
+  {
+    num: "Q2",
+    marks: 1,
+    type: "mcq",
+    question: "A contract of employment is:",
+    options: [
+      "A diagram showing the formal lines of authority in a business",
+      "A formal document outlining the objectives of a business",
+      "A law that makes discrimination in the workplace illegal",
+      "A legal agreement between an employer and an employee"
+    ],
+    answer: 3,
+    hint: "Think about what 'contract' means legally.",
+    starter: "A contract is a legal...",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: D — A legal agreement between an employer and an employee.</strong></p><p>A contract of employment is formed when a job offer is accepted — it can be verbal or written. Option A describes an organisational chart. Option B describes a mission statement. Option C describes the Equality Act 2010.</p></div>`
+  },
+   
+  {
+    num: "Q3",
+    marks: 1,
+    type: "mcq",
+    question: "Employment legislation states that an employee cannot be forced to work more than an average of 48 hours per week in a 17-week period. Emma worked 782 hours in a 17-week period. The average amount of time that Emma has worked during the 17-week period is:",
+    options: [
+      "0.96 hours per week",
+      "16.29 hours per week",
+      "46 hours per week",
+      "13,294 hours per week"
+    ],
+    answer: 2,
+    hint: "Use the formula: total hours worked ÷ 17 = average hours per week.",
+    starter: "782 ÷ 17 = ...",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: C — 46 hours per week.</strong></p><p>782 ÷ 17 = 46 hours per week. This is below the 48-hour legal limit, so Emma's employer has NOT broken the Working Time Directive.</p></div>`
+  },
+  {
+    num: "Q4",
+    marks: 2,
+    type: "written",
+    caseStudy: "<h2>Greggs: A Modern Food-on-the-Go Leader</h2><p><strong>Greggs</strong> is a modern ‘food-on-the-go’ retail brand. It specialises in selling sandwiches, cakes, pastries and pies. Most of these are made by Greggs, using raw materials such as flour, meat and yeast.</p><p>The company opened its first bakery 80 years ago and has since grown significantly. It currently employs <strong>20,000 people</strong>. Greggs’ aim is to become the customer’s favourite for ‘food-on-the-go’ in the UK—a sector forecast to be worth <strong>£23.4 billion by 2024</strong> (up from £18.5 billion in 2019).</p><h3>Adapting to Market Trends</h3><p>According to <em>The Vegan Society</em>, the number of people in the UK choosing a vegan diet has increased significantly in recent years (see Fig. 1).</p><figure><img src='images/greggs-bakery.png' alt='Greggs Bakery Shop'  class ='case-img' > </figure><p>Using this market data, Greggs responded by launching <strong>vegan sausage rolls</strong> in January 2019. The resulting publicity helped total sales increase by <strong>9.6%</strong> in the following seven weeks of trading. Following this success, the business launched additional products, including vegan doughnuts and vegan steak bakes, to meet consumer demand.</p><h3>Management and Employment</h3><p>Managers at Greggs constantly monitor changes in consumer tastes and keep up-to-date with <strong>employment law</strong>. The business takes pride in being named one of the happiest places to work in the UK, offering flexible options such as part-time roles.</p>", question: "Explain one advantage for Superdry of having a policy against discrimination in its workforce. [2 marks]",
+    question: "Explain one way that employment law may affect Greggs' employment of workers. [2 marks]",
+    hint: "State ONE specific aspect of employment law (not just 'employment law' in general). Then link it directly to Greggs using a detail from the case study.",
+    starter: "Employment law ensures that Greggs... (K)\nThis is particularly important for Greggs because... (APP)",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1a + AO2)</h5><ul><li><strong>Knowledge (1 mark):</strong> State one specific aspect of employment law — e.g. equality/no discrimination, limit on working hours, minimum holiday entitlement, right to a contract, equal pay, right to minimum wage.</li><li><strong>Application (1 mark):</strong> Link to Greggs using case study details — e.g. 20,000 employees / one of the happiest places to work / part-time roles / fast-growing sector.</li></ul><p><strong>Exemplar response:</strong> "Employment law ensures that all 20,000 of Greggs' employees are not discriminated against on the grounds of gender, race, or disability (K). This is particularly important for Greggs given that it offers many ways of working including part-time roles, and must ensure all workers — regardless of hours worked — receive their full holiday entitlement (APP)."</p></div>`,
+    modelAnswer: "Employment law ensures that all 20,000 employees at Greggs are not discriminated against when being recruited or during employment, for example on the grounds of gender, race, disability or religion (K). This is particularly important for Greggs as it has been named one of the happiest places to work in the UK — a reputation it must maintain to continue attracting and retaining staff as the business grows (APP)."
+  },
+  {
+    num: "Q5",
+    marks: 2,
+    type: "written",
+    caseStudy: "Superdry plc is a successful international brand of clothing featuring American- and Japanese-inspired graphics. In 2018, over 4,800 people were employed by the company, which is committed to high quality. Superdry's policies include one against discrimination in its workforce and another to support employee retention.\n\nThe company uses many different distribution channels. These include:\n• 135 Superdry stores across the UK and Europe\n• Superdry's own website\n• other retailers, including Next in the UK, which allows the brand to reach new customer groups.\n\nSuperdry regularly invests in its own stores. To keep its retail stores exciting and encourage customers to visit, there is a regular re-fit programme. In 2017, the company spent £41.4m on store-related investment, including the re-fitting of 11 stores. The company faces competition from retailers of all sizes, ranging from sole traders to other public limited companies.",
+    question: "Explain one advantage for Superdry of having a policy against discrimination in its workforce. [2 marks]",
+    hint: "The advantage must be to the BUSINESS — not to employees. Think about reputation, recruitment, legal costs, or sales. Apply it to Superdry's specific context.",
+    starter: "One advantage for Superdry of having a policy against discrimination is... (U)\nThis is important for Superdry because... (APP)",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1b + AO2)</h5><ul><li><strong>Understanding (1 mark):</strong> State one advantage to a business of having a non-discrimination policy — e.g. wider range of skills/experiences, improved reputation, avoid legal costs/compensation, easier recruitment, reduced labour turnover, comply with employment legislation.</li><li><strong>Application (1 mark):</strong> Link to Superdry — successful international brand / 135 stores / 4,800 employees / competition from retailers of all sizes / committed to high quality.</li></ul><p><strong>Do NOT award:</strong> 'employees feel safer' / 'employees feel happier' — these are employee benefits, not business advantages. 'More people will be interested' or 'attract more people' are too vague.</p></div>`,
+    modelAnswer: "Superdry is likely to find it easier to recruit new employees (U), which is important as it needs to fully staff its 135 stores across the UK and Europe with over 4,800 employees (APP). A non-discrimination policy also ensures that Superdry does not breach employment laws, which would be damaging to its reputation as a successful international brand and could lead to a loss of sales in a competitive clothing market (U+APP)."
+  },
+  {
+    num: "Q6",
+    marks: 3,
+    type: "written",
+    caseStudy: "The Works is a retailer which sells books, toys, gifts and stationery at lower prices than many of its rivals. It has over 430 stores in the UK and Ireland, as well as a website.\n\nThe Works currently has over 2,500 employees. The company has a basic aim: 'We aim to be the customer's first-choice value alternative to the full price retailers of the products we sell.'\n\nSaranne is a local entrepreneur who wants to set up her own business. She is aware of the success of her local branch of The Works and has decided to open a specialist book store in the same town. She believes there are enough customers for both businesses to succeed. This will be Saranne's first business venture after deciding on a career change since leaving her job working at a local bank. Saranne will need to hire three employees.",
+    question: "Analyse one way in which current employment legislation may impact upon the recruitment of Saranne's new employees. [3 marks]",
+    hint: "Structure: Understanding (state what employment legislation requires during recruitment) → Application (link to Saranne's specific situation — first-time employer, hiring 3 staff) → Analysis (what is the business impact for Saranne?).",
+    starter: "Employment legislation requires that... (U)\nFor Saranne, who is opening a book store for the first time and needs to hire three employees... (APP)\nThis means that Saranne... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> State how employment legislation affects recruitment — e.g. cannot discriminate in job advertisements or selection, must provide contracts, must ensure hours do not exceed legal limits.</li><li><strong>Application (1 mark):</strong> Link to Saranne's situation — first business venture, limited employment law experience, needs to hire three employees, has left banking.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact — e.g. Saranne must plan recruitment carefully to ensure no group is given an unfair advantage; risk of an employment tribunal if she inadvertently discriminates; cost of legal advice to ensure compliance as a first-time employer.</li></ul><p><strong>Exemplar response:</strong> "Employers must ensure that all applicants enjoy equality of opportunity (U). Saranne has limited experience of employment legislation and must ensure that potential employees are not treated differently due to their ethnicity, gender or disability (APP). Therefore, Saranne must plan her recruitment and selection activities so that they do not give any one group an unfair advantage — failure to do so could result in a costly employment tribunal (AN)."</p></div>`,
+    modelAnswer: "Employment legislation requires that employers ensure all applicants enjoy equality of opportunity during recruitment — for example, job advertisements must not specify a preference for a particular gender or ethnic group (U). As this is Saranne's first business venture, she may have limited knowledge of employment law, so she must take care when writing her job advertisement and selecting her three employees to avoid inadvertently discriminating against any applicant (APP). If Saranne does break these rules, she could face an employment tribunal claim, which would be very costly for a small start-up business in terms of legal fees and potential compensation payments (AN)."
+  },
+    {
+    num: "Q7",
+    marks: 1,
+    type: "mcq",
+    question: "Which one of the following is required by law?",
+    options: [
+      "All employees must be given a voucher for a free eyesight test each year",
+      "Employees who work from home must work a maximum of 16 hours a week",
+      "Everyone who is self-employed must have private medical insurance",
+      "Full-time employees must be given at least 5.6 weeks paid holiday per year"
+    ],
+    answer: 3,
+    hint: "Think about what the Working Time legislation guarantees for all workers.",
+    starter: "The law states that all workers are entitled to...",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: D — Full-time employees must be given at least 5.6 weeks paid holiday per year.</strong></p><p>This is a legal requirement under UK employment law. Options A, B, and C are not legal requirements.</p></div>`
+  },
+  {
+    num: "Q8",
+    marks: 1,
+    type: "written",
+    question: "State <u>one</u> way in which the law affects business recruitment. [1 mark]",
+    hint: "Focus specifically on the hiring process. What must a business provide or avoid when looking for new staff?",
+    starter: "One way the law affects recruitment is...",
+    markScheme: `<div class="marks-section">
+      <h5>Mark Scheme — 1 mark (AO1a)</h5>
+      <p>1 mark for a correct identification of a way the law affects business recruitment.</p>
+      <p><strong>Answers may include:</strong></p>
+      <ul>
+        <li>Discrimination</li>
+        <li>Right to a contract</li>
+        <li>Holidays</li>
+        <li>Hours of work</li>
+      </ul>
+      <p><strong>ARA</strong></p>
+    </div>`,
+    modelAnswer: "One way the law affects business recruitment is by making it illegal to discriminate against potential employees based on protected characteristics like age or gender (1)."
+  },
+  {
+    num: "Q9",
+    marks: 3,
+    type: "written",
+    caseStudy: "Svetlana Lokhova has been awarded over £3 million from an employment tribunal. Ms Lokhova was highly regarded by Sberbank's senior management. She sold investments on behalf of the bank and had been very successful. The bank had agreed to pay her over £300,000 a year plus bonuses. However, some workers at Sberbank's London office did not want her there as she had been appointed from head office. Her new job was in a small, quiet office and she immediately felt hostility from her new colleagues.\n\n'The atmosphere was sort of strange and I started getting reports from people when I'm not in the office. People, especially my direct boss, calling me derogatory names. Names like 'Miss Bonkers' — but there was much worse being said by her direct boss, David Longmuir, in emails and messages to Svetlana's colleagues and clients in major investment banks.'\n\nThe employment tribunal found that Ms Lokhova had been the subject of sex discrimination at work.\n\nAdapted from bbc.co.uk, 15 April 2015",
+    question: "Analyse one way in which Sberbank may be affected as a result of the decision by the employment tribunal. [3 marks]",
+    hint: "Structure: Understanding (how could Sberbank be affected — costs? reputation?) → Application (what happened at Sberbank specifically — the £3m payout, the sex discrimination finding) → Analysis (what is the business impact — on profits, shareholders, recruitment, customers?).",
+    starter: "Sberbank may incur significant additional costs as a result of the tribunal ruling... (U)\nSberbank has been ordered to pay £3 million in compensation after being found guilty of sex discrimination... (APP)\nThis means that Sberbank... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> State one way Sberbank may be affected — e.g. additional costs / negative impact on reputation.</li><li><strong>Application (1 mark):</strong> Link to the case — Sberbank must pay £3 million in compensation / Sberbank has been found to allow sex discrimination practices.</li><li><strong>Analysis (1 mark):</strong> Business impact — the rise in costs leads to a reduction in profits with no increase in production or sales resulting from this. Lower profits may mean lower dividends to shareholders. Bad publicity may put off customers from using the bank → loss of sales. Bad publicity may deter potential employees → recruitment difficulties.</li></ul></div>`,
+    modelAnswer: "Sberbank may face significant additional costs as a result of the tribunal ruling (U). Sberbank has been ordered to pay over £3 million in compensation after being found guilty of allowing sex discrimination in its workplace (APP). This rise in costs will lead to a reduction in Sberbank's profits — as there is no corresponding increase in production or sales — which may result in lower dividend payments to shareholders. Furthermore, the bad publicity arising from being found guilty of sex discrimination may put off potential clients from using the bank's investment services, leading to a further fall in sales and revenue (AN)."
+  },
+  {
+    num: "Q10",
+    marks: 2,
+    type: "written",
+    caseStudy: "In November 2019, NHS workers in Northern Ireland voted to strike with their union UNISON. They voted to take action over safe staffing levels and pay parity. Their main concern was that health staff in Britain were paid more than they were. Nurses, ambulance staff, clerical workers, doctors, pharmacists and social care employees were all involved.",
+    question: "Identify how the NHS has not met employment law with their Northern Ireland staff. [2 marks]",
+    hint: "Think about what aspect of the Equality Act 2010 is relevant here — the Northern Ireland workers are doing the same jobs as workers in Britain but being paid less.",
+    starter: "The NHS has not complied with employment law because...\nThis is an example of... discrimination.",
+    markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1a)</h5><p>The NHS appears to have broken equal pay law — Northern Ireland health workers doing the same jobs as their British counterparts are being paid less. This is a breach of the Equality Act 2010 which requires equal pay for work of equal value.</p><ul><li><strong>1 mark:</strong> Identifies that there is unequal pay / pay discrimination.</li><li><strong>1 mark:</strong> Links this to the specific law broken — equal pay legislation / Equality Act 2010 — or correctly identifies the pay discrepancy between Northern Ireland and British staff.</li></ul></div>`,
+    modelAnswer: "The NHS has not met employment law because health workers in Northern Ireland are being paid less than workers in Britain for doing the same jobs (1). This breaches equal pay legislation under the Equality Act 2010, which states that workers must receive equal pay for work of equal value regardless of where they work (1)."
+  }
+  
+];
+
+// ══════════════════════════════════════
+//  BUILD LEARN
+// ══════════════════════════════════════
+function buildLearn() {
+  const grid = document.getElementById('topicGrid');
+  topicData.forEach(topic => {
+    const card = document.createElement('div');
+    card.className = 'topic-card';
+    card.innerHTML = `<span class="tag">${topic.tag}</span><span class="toggle-icon">+</span><h3>${topic.title}</h3><div class="topic-content">${topic.content}</div>`;
+    card.addEventListener('click', () => card.classList.toggle('open'));
+    grid.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+//  BUILD MCQ
+// ══════════════════════════════════════
+let mcqScore = 0, mcqTotal = 0;
+function buildMCQ() {
+  const wrap = document.getElementById('mcqWrap');
+  mcqData.forEach((q, qi) => {
+    const block = document.createElement('div'); block.className = 'q-block';
+    block.innerHTML = `<div class="q-num">QUESTION ${qi + 1} OF ${mcqData.length}</div><div class="q-text">${q.q}</div>
+    <div class="options">${q.opts.map((o, oi) => `<button class="opt-btn" data-qi="${qi}" data-oi="${oi}">${o}</button>`).join('')}</div>
+    <div class="q-feedback" id="fb-${qi}"></div>`;
+    wrap.appendChild(block);
+  });
+  wrap.addEventListener('click', e => {
+    const btn = e.target.closest('.opt-btn'); if (!btn) return;
+    const qi = +btn.dataset.qi, oi = +btn.dataset.oi;
+    const block = btn.closest('.q-block');
+    if (block.dataset.answered) return;
+    block.dataset.answered = 1; mcqTotal++;
+    block.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
+    const correct = oi === mcqData[qi].ans;
+    if (correct) { btn.classList.add('correct'); mcqScore++; }
+    else { btn.classList.add('wrong'); block.querySelectorAll('.opt-btn')[mcqData[qi].ans].classList.add('correct'); }
+    const fb = document.getElementById(`fb-${qi}`);
+    fb.className = 'q-feedback show ' + (correct ? 'ok' : 'no');
+    fb.textContent = mcqData[qi].explain;
+    document.getElementById('mcqScore').textContent = mcqScore;
+    document.getElementById('mcqTotal').textContent = mcqTotal;
+  });
+}
+function resetMCQ() {
+  mcqScore = 0; mcqTotal = 0;
+  document.getElementById('mcqScore').textContent = 0;
+  document.getElementById('mcqTotal').textContent = 0;
+  document.getElementById('mcqWrap').innerHTML = '';
+  buildMCQ();
+}
+
+// ══════════════════════════════════════
+//  BUILD MATCH
+// ══════════════════════════════════════
+let matchScore = 0, matchSelected = null, matchAttempts = {};
+function buildMatch() {
+  const left = document.getElementById('matchLeft');
+  const right = document.getElementById('matchRight');
+  document.getElementById('matchTotal').textContent = matchData.length;
+  const shuffled = [...matchData].sort(() => Math.random() - .5);
+  matchData.forEach((item, i) => {
+    const t = document.createElement('div');
+    t.className = 'match-item'; t.dataset.idx = i; t.dataset.side = 'term';
+    t.textContent = item.term; left.appendChild(t);
+  });
+  shuffled.forEach((item) => {
+    const d = document.createElement('div');
+    const origIdx = matchData.findIndex(m => m.def === item.def);
+    d.className = 'match-item'; d.dataset.idx = origIdx; d.dataset.side = 'def';
+    d.textContent = item.def; right.appendChild(d);
+  });
+  document.getElementById('matchLeft').addEventListener('click', e => handleMatchClick(e));
+  document.getElementById('matchRight').addEventListener('click', e => handleMatchClick(e));
+}
+function handleMatchClick(e) {
+  const item = e.target.closest('.match-item'); if (!item) return;
+  if (item.classList.contains('matched-ok') || item.classList.contains('matched-eventual')) return;
+  if (!matchSelected) {
+    if (item.dataset.side !== 'term') return;
+    matchSelected = item; item.classList.add('selected');
+  } else {
+    if (item.dataset.side !== 'def') { matchSelected.classList.remove('selected'); matchSelected = null; return; }
+    const termIdx = +matchSelected.dataset.idx, defIdx = +item.dataset.idx;
+    if (termIdx === defIdx) {
+      const cls = matchAttempts[termIdx] ? 'matched-eventual' : 'matched-ok';
+      matchSelected.className = 'match-item ' + cls;
+      item.className = 'match-item ' + cls;
+      matchScore++;
+      document.getElementById('matchScore').textContent = matchScore;
+    } else {
+      matchAttempts[termIdx] = true;
+      item.classList.add('matched-no');
+      setTimeout(() => item.classList.remove('matched-no'), 400);
+      matchSelected.classList.remove('selected');
+    }
+    matchSelected = null;
+  }
+}
+function resetMatch() {
+  matchScore = 0; matchSelected = null; matchAttempts = {};
+  document.getElementById('matchScore').textContent = 0;
+  document.getElementById('matchLeft').innerHTML = '';
+  document.getElementById('matchRight').innerHTML = '';
+  buildMatch();
+}
+
+// ══════════════════════════════════════
+//  BUILD FIB
+// ══════════════════════════════════════
+let fibScore = 0, fibTotal = 0;
+function buildFIB() {
+  const wrap = document.getElementById('fibWrap');
+  fibData.forEach((item, si) => {
+    const allAnswers = fibData.flatMap(f => Object.values(f.blanks));
+    const unique = [...new Set(allAnswers)].sort();
+    let html = item.display;
+    Object.keys(item.blanks).forEach((key, bi) => {
+      const opts = unique.map(w => `<option value="${w}">${w}</option>`).join('');
+      html = html.replace('_____', `<span class="blank-select" id="bs-${si}-${bi}" data-answer="${item.blanks[key]}"><select onchange="checkBlank(this,'bs-${si}-${bi}')"><option value="">choose...</option>${opts}</select><span></span></span>`);
+    });
+    const card = document.createElement('div');
+    card.className = 'fib-sentence';
+    card.innerHTML = html;
+    wrap.appendChild(card);
+    fibTotal += Object.keys(item.blanks).length;
+  });
+  document.getElementById('fibTotal').textContent = fibTotal;
+}
+function checkBlank(sel, id) {
+  const wrap = document.getElementById(id);
+  const correct = sel.value === wrap.dataset.answer;
+  if (correct) {
+    wrap.classList.add('correct'); wrap.classList.remove('wrong'); sel.disabled = true; fibScore++;
+    document.getElementById('fibScore').textContent = fibScore;
+  } else {
+    wrap.classList.add('wrong'); wrap.classList.remove('correct');
+    setTimeout(() => { wrap.classList.remove('wrong'); sel.value = ''; }, 500);
+  }
+}
+function resetFIB() {
+  fibScore = 0; fibTotal = 0;
+  document.getElementById('fibScore').textContent = 0;
+  document.getElementById('fibTotal').textContent = 0;
+  document.getElementById('fibWrap').innerHTML = '';
+  buildFIB();
+}
+
+// ══════════════════════════════════════
+//  BUILD MISCONCEPTIONS
+// ══════════════════════════════════════
+function buildMisc() {
+  const list = document.getElementById('miscList');
+  miscData.forEach(item => {
+    const card = document.createElement('div'); card.className = 'misc-card';
+    card.innerHTML = `<div class="wrong-view"><div class="misc-tag">✗ Common Mistake</div><p>${item.wrong}</p></div>
+    <div class="correct-view"><div class="misc-tag">✓ What Examiners Want</div><p>${item.correct}</p></div>`;
+    list.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+//  BUILD TIPS
+// ══════════════════════════════════════
+function buildTips() {
+  const grid = document.getElementById('tipsGrid');
+  tipsData.forEach(tip => {
+    const card = document.createElement('div'); card.className = 'tip-card';
+    const pills = tip.marks.map(m => `<span class="mark-pill ${m.cls}">${m.label}</span>`).join('');
+    card.innerHTML = `<div class="tip-type">${tip.type}</div><h4>${tip.title}</h4>${tip.content}${pills ? `<div class="mark-breakdown">${pills}</div>` : ''}`;
+    grid.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════
+//  BUILD FLASHCARDS
+// ══════════════════════════════════════
+let fcIndex = 0;
+function renderFC() {
+  document.getElementById('fcProgress').textContent = `Card ${fcIndex + 1} of ${flashcards.length}`;
+  document.getElementById('fcTerm').textContent = flashcards[fcIndex].term;
+  document.getElementById('fcDef').textContent = flashcards[fcIndex].def;
+  document.getElementById('flashcard').classList.remove('flipped');
+}
+function flipCard() { document.getElementById('flashcard').classList.toggle('flipped'); }
+function nextCard() { fcIndex = (fcIndex + 1) % flashcards.length; renderFC(); }
+function prevCard() { fcIndex = (fcIndex - 1 + flashcards.length) % flashcards.length; renderFC(); }
+
+// ══════════════════════════════════════
+//  BUILD TRUE / FALSE
+// ══════════════════════════════════════
+let tfScore = 0, tfTotal = 0;
+function buildTF() {
+  const wrap = document.getElementById('tfWrap');
+  tfData.forEach((item, i) => {
+    const card = document.createElement('div'); card.className = 'tf-card';
+    card.innerHTML = `<div><div class="tf-text">${item.statement}</div><div class="tf-explanation" id="tfExp-${i}">${item.explanation}</div></div>
+    <div class="tf-btns"><button class="tf-btn" data-i="${i}" data-val="true">TRUE</button><button class="tf-btn" data-i="${i}" data-val="false">FALSE</button></div>`;
+    wrap.appendChild(card);
+  });
+  wrap.addEventListener('click', e => {
+    const btn = e.target.closest('.tf-btn'); if (!btn) return;
+    const i = +btn.dataset.i; const card = btn.closest('.tf-card');
+    if (card.dataset.answered) return;
+    card.dataset.answered = 1;
+    const val = btn.dataset.val === 'true'; const correct = val === tfData[i].answer; tfTotal++;
+    card.querySelectorAll('.tf-btn').forEach(b => b.disabled = true);
+    if (correct) { btn.classList.add('correct'); tfScore++; }
+    else { btn.classList.add('wrong'); card.querySelectorAll('.tf-btn').forEach(b => { if (b.dataset.val === String(tfData[i].answer)) b.classList.add('correct'); }); }
+    document.getElementById(`tfExp-${i}`).classList.add('show');
+    document.getElementById('tfScore').textContent = tfScore;
+    document.getElementById('tfTotal').textContent = tfTotal;
+  });
+}
+function resetTF() {
+  tfScore = 0; tfTotal = 0;
+  document.getElementById('tfScore').textContent = 0;
+  document.getElementById('tfTotal').textContent = 0;
+  document.getElementById('tfWrap').innerHTML = '';
+  buildTF();
+}
+
+// ══════════════════════════════════════
+//  BUILD EXAM PRACTICE
+// ══════════════════════════════════════
+function buildExamPractice() {
+  const list = document.getElementById('epList');
+  examQuestions.forEach((q, qi) => {
+    const card = document.createElement('div');
+    card.className = 'ep-card';
+    const caseHtml = q.caseStudy ? `<div class="ep-case">${q.caseStudy.replace(/\n/g,'<br>')}</div>` : '';
+    let interactiveHtml = '';
+    if (q.type === 'mcq') {
+      interactiveHtml = `<div class="ep-mcq-opts">${q.options.map((o,oi) =>
+        `<button class="ep-opt" data-qi="${qi}" data-oi="${oi}"><strong>${String.fromCharCode(65+oi)}.</strong> ${o}</button>`
+      ).join('')}</div>`;
+    } else {
+      interactiveHtml = `<textarea class="ep-answer-area" id="epTextarea-${qi}" placeholder="Write your answer here..."></textarea>`;
+    }
+    card.innerHTML = `
+      <div class="ep-header">
+        <div>
+          <div class="ep-num">${q.num}</div>
+          <div class="ep-title">${q.marks} mark${q.marks > 1 ? 's' : ''}</div>
+        </div>
+        <div class="ep-marks">[${q.marks} mark${q.marks > 1 ? 's' : ''}]</div>
+      </div>
+      <div class="ep-body">
+        ${caseHtml}
+        <div class="ep-question">${q.question.replace(/\n/g,'<br>')}</div>
+        ${interactiveHtml}
+        <div class="ep-btn-row">
+          <button class="ep-btn hint-btn" onclick="togglePop(${qi},'hint')">💡 Hint</button>
+          <button class="ep-btn starter-btn" onclick="togglePop(${qi},'starter')">✍️ Sentence Starter</button>
+          ${q.type !== 'mcq' ? `<button class="ep-btn submit-btn" onclick="togglePop(${qi},'marks')">📋 Submit &amp; See Mark Scheme</button>` : ''}
+        </div>
+        <div class="ep-popup hint-pop" id="epHint-${qi}"><strong>💡 Hint:</strong> ${q.hint}</div>
+        <div class="ep-popup starter-pop" id="epStarter-${qi}"><strong>✍️ Sentence Starter:</strong><br>${q.starter.replace(/\n/g,'<br>')}</div>
+        <div class="ep-popup marks-pop" id="epMarks-${qi}">
+          ${q.markScheme}
+          ${q.modelAnswer ? `<div class="marks-section"><h5>✓ Model Answer</h5><div class="model-answer">${q.modelAnswer}</div></div>` : ''}
+        </div>
+      </div>`;
+    list.appendChild(card);
+  });
+  document.getElementById('epList').addEventListener('click', e => {
+    const btn = e.target.closest('.ep-opt');
+    if (!btn) return;
+    const qi = +btn.dataset.qi, oi = +btn.dataset.oi;
+    const card = btn.closest('.ep-card');
+    if (card.dataset.epAnswered) return;
+    card.dataset.epAnswered = 1;
+    const allOpts = card.querySelectorAll('.ep-opt');
+    allOpts.forEach(b => b.disabled = true);
+    if (oi === examQuestions[qi].answer) {
+      btn.classList.add('ep-correct');
+    } else {
+      btn.classList.add('ep-wrong');
+      allOpts[examQuestions[qi].answer].classList.add('ep-correct');
+    }
+    document.getElementById(`epMarks-${qi}`).classList.add('show');
+  });
+}
+
+function togglePop(qi, type) {
+  const hint = document.getElementById(`epHint-${qi}`);
+  const starter = document.getElementById(`epStarter-${qi}`);
+  const marks = document.getElementById(`epMarks-${qi}`);
+  if (type === 'hint') { hint.classList.toggle('show'); starter.classList.remove('show'); }
+  else if (type === 'starter') { starter.classList.toggle('show'); hint.classList.remove('show'); }
+  else if (type === 'marks') { marks.classList.toggle('show'); }
+}
+
+// ══════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════
+buildLearn(); buildMCQ(); buildMatch(); buildFIB(); buildMisc(); buildTips(); renderFC(); buildTF(); buildExamPractice();
+</script>
+</body>
+</html>
