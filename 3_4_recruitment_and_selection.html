@@ -103,20 +103,60 @@
 <!-- FLASHCARDS -->
 <div class="tab-panel" id="tab-flashcards">
   <h2 class="section-title">Flashcards</h2>
-  <p class="section-sub">Click the card to reveal the definition. Use the arrows to navigate.</p>
+  <p class="section-sub">Test yourself! Flip the card and rate your knowledge. Review your weak areas at the end.</p>
+
   <div class="fc-container">
-    <div class="fc-progress" id="fcProgress">Card 1 of 1</div>
-    <div class="flashcard" id="flashcard" onclick="flipCard()">
-      <div class="fc-inner">
-        <div class="fc-front"><div class="fc-label">KEY TERM</div><div class="fc-term" id="fcTerm"></div></div>
-        <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
+    <div class="score-bar" id="fcScoreBar" style="display:none; margin-bottom: 20px;">
+      <div>
+        <div class="score-num" id="fcKnown" style="color:#2d7a4f;">0</div>
+        <div style="font-size:12px;color:var(--mid)">known</div>
+      </div>
+      <div>
+        <div class="score-num" id="fcUnknown" style="color:#c84b31;">0</div>
+        <div style="font-size:12px;color:var(--mid)">learning</div>
+      </div>
+      <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
+      <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+    </div>
+
+    <div id="fcActiveArea">
+      <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+      <div class="flashcard" id="flashcard" onclick="flipCard()">
+        <div class="fc-inner">
+          <div class="fc-front">
+            <div class="fc-label">KEY TERM</div>
+            <div class="fc-term" id="fcTerm"></div>
+          </div>
+          <div class="fc-back">
+            <div class="fc-def" id="fcDef"></div>
+          </div>
+        </div>
+      </div>
+      <p class="fc-hint">👆 Click card to flip</p>
+
+      <div class="fc-nav" id="fcNavDefault">
+        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+        <button class="fc-btn" onclick="nextCard()">Next →</button>
+      </div>
+
+      <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px;">
+        <button class="fc-btn outline" style="border-color:#c84b31; color:#c84b31; flex:1;" onclick="markCard(false)">❌
+          Still Learning</button>
+        <button class="fc-btn" style="background:#2d7a4f; border-color:#2d7a4f; flex:1;" onclick="markCard(true)">✅ Got
+          It</button>
       </div>
     </div>
-    <p class="fc-hint">👆 Click card to flip</p>
-    <div class="fc-nav">
-      <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
-      <button class="fc-btn outline" onclick="flipCard()">Flip</button>
-      <button class="fc-btn" onclick="nextCard()">Next →</button>
+
+    <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px;">
+      <h3>Session Complete! 🎉</h3>
+      <p style="margin: 15px 0;">You knew <strong id="fcSummaryKnown">0</strong> out of <strong
+          id="fcSummaryTotal">0</strong> cards.</p>
+      <div style="margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+          style="background:#c84b31; border-color:#c84b31;">Review Incorrect</button>
+        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
+      </div>
     </div>
   </div>
 </div>
@@ -143,15 +183,15 @@
 </main>
 
 <script>
-// ══════════════════════════════════════
-//  DATA
-// ══════════════════════════════════════
+  // ══════════════════════════════════════
+  //  DATA
+  // ══════════════════════════════════════
 
-const topics = [
-  {
-    title: "Core Terminology",
-    tag: "Key Terms",
-    content: `<ul>
+  const topics = [
+    {
+      title: "Core Terminology",
+      tag: "Key Terms",
+      content: `<ul>
 <li><strong>Recruitment</strong> — The process of finding people to work in a new or established business</li>
 <li><strong>Selection</strong> — The process of choosing between applicants for a job</li>
 <li><strong>Internal recruitment</strong> — When a job vacancy is filled by employing someone who is already an employee of the business. Methods include notice boards, word of mouth, company website and emails to staff</li>
@@ -166,12 +206,11 @@ const topics = [
 <li><strong>Application form</strong> — A form which asks applicants for personal details, experience and skills</li>
 <li><strong>Letter of application</strong> — A letter written by the applicant usually explaining why they think they are suitable for the job</li>
 </ul>`
-  },
-  
-  {
-    title: "Why Businesses Recruit",
-    tag: "Recruitment",
-    content: `<p>There are three main reasons why businesses recruit new workers:</p>
+    },
+    {
+      title: "Why Businesses Recruit",
+      tag: "Recruitment",
+      content: `<p>There are three main reasons why businesses recruit new workers:</p>
 <ul>
 <li><strong>Starting up or growing</strong> — A new business must recruit workers from scratch. A business getting increased orders or making more sales may increase production and need more workers</li>
 <li><strong>To replace staff who leave</strong> — Staff leave for all kinds of reasons: promotion, retirement, to do something different, or because they have been dismissed</li>
@@ -179,11 +218,11 @@ const topics = [
 </ul>
 <p><strong>Note from OCR delivery guide:</strong> Sometimes the work can be reallocated amongst other posts to avoid the need to replace the job role. Businesses should not automatically recruit whenever someone leaves.</p>
 <p><strong>Cost of poor recruitment:</strong> Oxford Economics research found replacing a staff member costs on average £30,614. Lost output during the settling-in period (28 weeks on average) accounts for £25,181, with direct recruitment costs of £5,433 covering agency fees, advertising, management time and HR processing.</p>`
-  },
-  {
-    title: "The Recruitment & Selection Process",
-    tag: "Process",
-    content: `<p>The recruitment and selection process has two main stages:</p>
+    },
+    {
+      title: "The Recruitment & Selection Process",
+      tag: "Process",
+      content: `<p>The recruitment and selection process has two main stages:</p>
 <p><strong>Recruitment stage:</strong></p>
 <ul>
 <li>Step 1: Identify a vacancy</li>
@@ -199,11 +238,11 @@ const topics = [
 <li>Step 8: Make a job offer</li>
 </ul>
 <p><strong>Important distinction:</strong> 'Recruitment' refers to searching for suitable candidates and attracting them to apply. 'Selection' refers to vetting candidates to choose the most suitable one.</p>`
-  },
-  {
-    title: "Job Description vs Person Specification",
-    tag: "Documents",
-    content: `<p><strong>Job Description</strong> — lists the tasks and responsibilities the worker must perform. It helps the business be clear about what work it wants done, and helps applicants decide if they want to apply.</p>
+    },
+    {
+      title: "Job Description vs Person Specification",
+      tag: "Documents",
+      content: `<p><strong>Job Description</strong> — lists the tasks and responsibilities the worker must perform. It helps the business be clear about what work it wants done, and helps applicants decide if they want to apply.</p>
 <p>A job description typically includes: job title, grade/pay scale, who the person is responsible to, job purpose, and main duties/tasks.</p>
 <p><strong>Person Specification</strong> — states the knowledge, qualifications, experience, personal qualities and skills the worker will need. It helps the business decide what kind of person to appoint and which selection methods to use.</p>
 <p>A person specification typically includes: qualifications (essential/desirable), experience, knowledge/skills/abilities, and special requirements (e.g. driving licence). Each attribute is marked E (essential) or D (desirable) and the method of assessment is noted (AF = application form, I = interview, R = reference, T = test).</p>
@@ -223,11 +262,11 @@ const topics = [
 <div class="pro-item">Special requirements (e.g. can drive)</div>
 </div>
 </div>`
-  },
-  {
-    title: "Internal vs External Recruitment",
-    tag: "Recruitment",
-    content: `<p><strong>Internal recruitment</strong> — filling a vacancy with someone who already works in the organisation.</p>
+    },
+    {
+      title: "Internal vs External Recruitment",
+      tag: "Recruitment",
+      content: `<p><strong>Internal recruitment</strong> — filling a vacancy with someone who already works in the organisation.</p>
 <p>Internal advertising methods: noticeboard, word of mouth/staff meetings, company (in-house) magazine, the firm's website, social media used by workers, emails to workers.</p>
 <div class="two-col">
 <div>
@@ -263,11 +302,11 @@ const topics = [
 <div class="con-item">Greater risk — managers don't know the candidate well</div>
 </div>
 </div>`
-  },
-  {
-    title: "Advertising Media",
-    tag: "Recruitment",
-    content: `<p>When advertising a job, a business considers: whether to recruit internally or externally; the type of worker required; how many workers are needed; the location; and the budget available.</p>
+    },
+    {
+      title: "Advertising Media",
+      tag: "Recruitment",
+      content: `<p>When advertising a job, a business considers: whether to recruit internally or externally; the type of worker required; how many workers are needed; the location; and the budget available.</p>
 <ul>
 <li><strong>Websites (e.g. Indeed, Reed, Monster)</strong> — Used for all types of jobs, local and national. Applicants can search by type, salary and location. Businesses can search posted CVs. Both internal and external.</li>
 <li><strong>Social media</strong> — Increasingly used for many kinds of jobs because of wide reach. Useful for finding graduates and younger applicants. Both internal and external.</li>
@@ -278,11 +317,11 @@ const topics = [
 <li><strong>Word of mouth</strong> — Business lets existing employees know about a vacancy. Saves advertising cost. Both internal and external.</li>
 <li><strong>Email/noticeboard/company magazine</strong> — Internal methods only.</li>
 </ul>`
-  },
-  {
-    title: "Methods of Selection",
-    tag: "Selection",
-    content: `<p>Selection is divided into two stages: shortlisting, then the final selection stage.</p>
+    },
+    {
+      title: "Methods of Selection",
+      tag: "Selection",
+      content: `<p>Selection is divided into two stages: shortlisting, then the final selection stage.</p>
 <p><strong>Shortlisting methods</strong> (used to draw up a list of candidates to interview):</p>
 <ul>
 <li><strong>Letter of application</strong> — Written by the applicant explaining why they are suitable. Good for showing communication skills, use of punctuation and grammar, and experience. Applicant puts themselves in the best light.</li>
@@ -296,11 +335,11 @@ const topics = [
 <li><strong>Group activities</strong> — Applicants work together on a task. Reveals interpersonal/teamworking skills and leadership ability. Particularly useful when the job requires working closely with others.</li>
 <li><strong>References</strong> — Statement from a previous employer about work done, how well they did their job, punctuality and attendance. Can verify information from the CV/application form. Provides a third-party view, though references can sometimes be misleading.</li>
 </ul>`
-  },
-  {
-    title: "Recruitment & Employment Agencies",
-    tag: "Agencies",
-    content: `<p><strong>Recruitment agencies</strong> do the work of recruiting and selecting staff on behalf of businesses. The agency:</p>
+    },
+    {
+      title: "Recruitment & Employment Agencies",
+      tag: "Agencies",
+      content: `<p><strong>Recruitment agencies</strong> do the work of recruiting and selecting staff on behalf of businesses. The agency:</p>
 <ul>
 <li>Draws up a job description and person specification (in consultation with the firm)</li>
 <li>Advertises for applications</li>
@@ -309,193 +348,192 @@ const topics = [
 </ul>
 <p>Using a recruitment agency saves time and money if it reduces the need for a large HR department. The agency is a specialist organisation that knows how and where to advertise and what information is needed about applicants.</p>
 <p><strong>Employment agencies</strong> keep lists of people willing to do certain kinds of work (e.g. receptionists, office typists). A firm can ask for a worker for a short period of time, paying the worker's wage plus the agency's fee. If the temporary worker performs well, the firm may offer a permanent post — though the agency may charge a further introduction fee.</p>`
-  }
-];
+    }
+  ];
 
-// ── MCQ DATA ──────────────────────────────────────
-const mcqData = [
-  {
-    q: "Which of the following is an example of external recruitment?",
-    opts: ["Promoting a worker from another department","Emailing staff about a vacancy","Advertising in a national newspaper","Putting a notice on the company intranet"],
-    ans: 2,
-    explain: "External recruitment means filling a vacancy with someone from outside the organisation. Advertising in a national newspaper is an external method. The other options are all internal methods."
-  },
-  {
-    q: "A job description includes which of the following?",
-    opts: ["The qualifications required by the applicant","The main duties and responsibilities of the worker","The personal qualities the worker must have","The experience needed to perform the job"],
-    ans: 1,
-    explain: "A job description lists the duties, tasks and responsibilities of the worker. Qualifications, personal qualities and experience needed belong in the person specification."
-  },
-  {
-    q: "Which item belongs in a person specification?",
-    opts: ["The main tasks of the job","The name of the line manager","The hours of work","The skills and qualifications needed"],
-    ans: 3,
-    explain: "A person specification lists the qualities, qualifications and knowledge a person should have. Tasks, line manager details and hours of work belong in the job description."
-  },
-  {
-    q: "Danielle advertises on Indeed at 60p per click. 350 people click on the advert and she contacts 16 applicants at £1 each. What is the total cost?",
-    opts: ["£226","£262","£622","£227"],
-    ans: 1,
-    explain: "350 × £0.60 = £210. 16 × £1 = £16. Total = £210 + £16 = £226. Answer: A. (Note: the original OCR answer is A = £226.)"
-  },
-  {
-    q: "Which of the following would be used to shortlist candidates?",
-    opts: ["Interview","Group activity","Letter of application","Reference"],
-    ans: 2,
-    explain: "Letters of application (along with CVs and application forms) are used to create a shortlist. Interviews, group activities and references are used at the final selection stage."
-  },
-  {
-    q: "Which of the following is an advantage for a business of using a CV rather than an application form?",
-    opts: ["Applicants are less likely to leave out essential information","It shows an applicant's ability to organise relevant information","It ensures all applicants provide the same information","It is easier for the business to compare applicants"],
-    ans: 1,
-    explain: "A CV shows the applicant's ability to organise information. Application forms are actually better for ensuring all applicants provide the same specific information and for making comparisons."
-  },
-  {
-    q: "A business has a skills gap. Which action would best solve this?",
-    opts: ["Reduce the number of employees","Advertise internally on the company noticeboard","Recruit an external specialist with the required skills","Ask existing employees to work fewer hours"],
-    ans: 2,
-    explain: "A skills gap means the business lacks workers with specific skills. The solution is to recruit externally — specifically seeking someone with those skills from outside the business."
-  },
-  {
-    q: "Which of the following is a disadvantage of internal recruitment?",
-    opts: ["It takes longer than external recruitment","Existing staff may not bring fresh ideas","It is more expensive than external recruitment","Workers need more induction training"],
-    ans: 1,
-    explain: "A key disadvantage of internal recruitment is that existing staff may not add new ideas to help the business improve. Internal recruitment is actually cheaper and faster than external."
-  },
-  {
-    q: "Waitrose uses interviews, group activities and tests in its selection process. Which method is best for assessing how well a candidate works in a team?",
-    opts: ["Interview","Group activity","Test","CV"],
-    ans: 1,
-    explain: "Group activities reveal how well people work with others — their interpersonal skills. Interviews assess communication and presentation; tests assess specific technical skills."
-  },
-  {
-    q: "Which of the following is a method of internal recruitment?",
-    opts: ["Advertising in a local newspaper","Using a recruitment agency","Posting on the company website for staff","Advertising in a specialist magazine"],
-    ans: 2,
-    explain: "The company website can be used internally (to notify existing staff) as well as externally. Local newspapers, recruitment agencies and specialist magazines are all external methods."
-  }
-];
+  // ── MCQ DATA ──────────────────────────────────────
+  const mcqData = [
+    {
+      q: "Which of the following is an example of external recruitment?",
+      opts: ["Promoting a worker from another department", "Emailing staff about a vacancy", "Advertising in a national newspaper", "Putting a notice on the company intranet"],
+      ans: 2,
+      explain: "External recruitment means filling a vacancy with someone from outside the organisation. Advertising in a national newspaper is an external method. The other options are all internal methods."
+    },
+    {
+      q: "A job description includes which of the following?",
+      opts: ["The qualifications required by the applicant", "The main duties and responsibilities of the worker", "The personal qualities the worker must have", "The experience needed to perform the job"],
+      ans: 1,
+      explain: "A job description lists the duties, tasks and responsibilities of the worker. Qualifications, personal qualities and experience needed belong in the person specification."
+    },
+    {
+      q: "Which item belongs in a person specification?",
+      opts: ["The main tasks of the job", "The name of the line manager", "The hours of work", "The skills and qualifications needed"],
+      ans: 3,
+      explain: "A person specification lists the qualities, qualifications and knowledge a person should have. Tasks, line manager details and hours of work belong in the job description."
+    },
+    {
+      q: "Danielle advertises on Indeed at 60p per click. 350 people click on the advert and she contacts 16 applicants at £1 each. What is the total cost?",
+      opts: ["£226", "£262", "£622", "£227"],
+      ans: 1,
+      explain: "350 × £0.60 = £210. 16 × £1 = £16. Total = £210 + £16 = £226. Answer: A. (Note: the original OCR answer is A = £226.)"
+    },
+    {
+      q: "Which of the following would be used to shortlist candidates?",
+      opts: ["Interview", "Group activity", "Letter of application", "Reference"],
+      ans: 2,
+      explain: "Letters of application (along with CVs and application forms) are used to create a shortlist. Interviews, group activities and references are used at the final selection stage."
+    },
+    {
+      q: "Which of the following is an advantage for a business of using a CV rather than an application form?",
+      opts: ["Applicants are less likely to leave out essential information", "It shows an applicant's ability to organise relevant information", "It ensures all applicants provide the same information", "It is easier for the business to compare applicants"],
+      ans: 1,
+      explain: "A CV shows the applicant's ability to organise information. Application forms are actually better for ensuring all applicants provide the same specific information and for making comparisons."
+    },
+    {
+      q: "A business has a skills gap. Which action would best solve this?",
+      opts: ["Reduce the number of employees", "Advertise internally on the company noticeboard", "Recruit an external specialist with the required skills", "Ask existing employees to work fewer hours"],
+      ans: 2,
+      explain: "A skills gap means the business lacks workers with specific skills. The solution is to recruit externally — specifically seeking someone with those skills from outside the business."
+    },
+    {
+      q: "Which of the following is a disadvantage of internal recruitment?",
+      opts: ["It takes longer than external recruitment", "Existing staff may not bring fresh ideas", "It is more expensive than external recruitment", "Workers need more induction training"],
+      ans: 1,
+      explain: "A key disadvantage of internal recruitment is that existing staff may not add new ideas to help the business improve. Internal recruitment is actually cheaper and faster than external."
+    },
+    {
+      q: "Waitrose uses interviews, group activities and tests in its selection process. Which method is best for assessing how well a candidate works in a team?",
+      opts: ["Interview", "Group activity", "Test", "CV"],
+      ans: 1,
+      explain: "Group activities reveal how well people work with others — their interpersonal skills. Interviews assess communication and presentation; tests assess specific technical skills."
+    },
+    {
+      q: "Which of the following is a method of internal recruitment?",
+      opts: ["Advertising in a local newspaper", "Using a recruitment agency", "Posting on the company website for staff", "Advertising in a specialist magazine"],
+      ans: 2,
+      explain: "The company website can be used internally (to notify existing staff) as well as externally. Local newspapers, recruitment agencies and specialist magazines are all external methods."
+    }
+  ];
 
-// ── MATCHING DATA ──────────────────────────────────────
-const matchData = [
-  { term: "Recruitment", def: "The process of finding people to work in a new or established business" },
-  { term: "Selection", def: "The process of choosing between applicants for a job" },
-  { term: "Job description", def: "A list of the main duties, tasks and responsibilities of a worker" },
-  { term: "Person specification", def: "A list of the qualities, qualifications and knowledge a person should have to do a particular job" },
-  { term: "Skills gap", def: "When a business recruits skilled workers because it is short of them" },
-  { term: "Induction training", def: "Training to introduce a new worker to the business, place of work and fellow workers" },
-  { term: "CV", def: "A document on which the applicant outlines their personal details, experience and skills" },
-  { term: "Application form", def: "A form specifying what information the business needs; all applicants fill in the same form" }
-];
+  // ── MATCHING DATA ──────────────────────────────────────
+  const matchData = [
+    { term: "Recruitment", def: "The process of finding people to work in a new or established business" },
+    { term: "Selection", def: "The process of choosing between applicants for a job" },
+    { term: "Job description", def: "A list of the main duties, tasks and responsibilities of a worker" },
+    { term: "Person specification", def: "A list of the qualities, qualifications and knowledge a person should have to do a particular job" },
+    { term: "Skills gap", def: "When a business recruits skilled workers because it is short of them" },
+    { term: "Induction training", def: "Training to introduce a new worker to the business, place of work and fellow workers" },
+    { term: "CV", def: "A document on which the applicant outlines their personal details, experience and skills" },
+    { term: "Application form", def: "A form specifying what information the business needs; all applicants fill in the same form" }
+  ];
 
-// ── FILL IN THE BLANKS ──────────────────────────────────────
-const fibData = [
-  {
-    template: "Recruitment and [BLANK1] are very important to businesses. The [BLANK2] in a business make it successful or not. Recruiting new staff is [BLANK3]. If good staff are not recruited by firms, money spent on the recruitment process is [BLANK4].",
-    blanks: [
-      { id: "BLANK1", answer: "selection", options: ["selection","advertising","motivation","planning"] },
-      { id: "BLANK2", answer: "workers", options: ["workers","products","profits","managers"] },
-      { id: "BLANK3", answer: "expensive", options: ["expensive","quick","easy","simple"] },
-      { id: "BLANK4", answer: "wasted", options: ["wasted","saved","earned","invested"] }
-    ]
-  },
-  {
-    template: "Internal recruitment is when a job vacancy is filled by someone [BLANK1] in the business. External recruitment is when someone from [BLANK2] the business is appointed. Internal recruitment is usually [BLANK3] and [BLANK4] than external recruitment.",
-    blanks: [
-      { id: "BLANK1", answer: "already working", options: ["already working","recently leaving","newly graduated","self-employed"] },
-      { id: "BLANK2", answer: "outside", options: ["outside","inside","above","below"] },
-      { id: "BLANK3", answer: "cheaper", options: ["cheaper","more expensive","slower","riskier"] },
-      { id: "BLANK4", answer: "quicker", options: ["quicker","slower","riskier","harder"] }
-    ]
-  },
-  {
-    template: "A [BLANK1] lists the main duties and tasks of the worker. A [BLANK2] lists the qualities, qualifications and experience needed. Letters of application are good for showing a person's [BLANK3] skills. A [BLANK4] is used at the final stage of selection and allows the interviewer to judge the candidate's personality and communication.",
-    blanks: [
-      { id: "BLANK1", answer: "job description", options: ["job description","person specification","reference","CV"] },
-      { id: "BLANK2", answer: "person specification", options: ["person specification","job description","application form","letter"] },
-      { id: "BLANK3", answer: "communication", options: ["communication","maths","technical","scientific"] },
-      { id: "BLANK4", answer: "interview", options: ["interview","test","CV","noticeboard"] }
-    ]
-  }
-];
+  // ── FILL IN THE BLANKS ──────────────────────────────────────
+  const fibData = [
+    {
+      display: "Recruitment and _____ are very important to businesses. The _____ in a business make it successful or not. Recruiting new staff is _____. If good staff are not recruited by firms, money spent on the recruitment process is _____.",
+      blanks: { B1: "selection", B2: "workers", B3: "expensive", B4: "wasted" }
+    },
+    {
+      display: "Internal recruitment is when a job vacancy is filled by someone _____ in the business. External recruitment is when someone from _____ the business is appointed. Internal recruitment is usually _____ and _____ than external recruitment.",
+      blanks: { B1: "already working", B2: "outside", B3: "cheaper", B4: "quicker" }
+    },
+    {
+      display: "A _____ lists the main duties and tasks of the worker. A _____ lists the qualities, qualifications and experience needed. Letters of application are good for showing a person's _____ skills. A _____ is used at the final stage of selection and allows the interviewer to judge the candidate's personality and communication.",
+      blanks: { B1: "job description", B2: "person specification", B3: "communication", B4: "interview" }
+    }
+  ];
 
-// ── MISCONCEPTIONS ──────────────────────────────────────
-const miscData = [
-  {
-    wrong: "'Recruitment' and 'selection' mean the same thing.",
-    correct: "They are different stages. Recruitment refers to searching for suitable candidates and attracting them to apply for a vacancy. Selection refers to the process of vetting candidates to choose the most suitable person for the role."
-  },
-  {
-    wrong: "A job description lists the qualifications and skills needed for the job.",
-    correct: "A job description lists the tasks, duties and responsibilities of the role. Qualifications and skills needed belong in the person specification. Confusing these two documents is one of the most common errors in GCSE exams."
-  },
-  {
-    wrong: "Internal recruitment is always better because it is cheaper.",
-    correct: "Internal recruitment has advantages (cheaper, quicker, motivated staff) but also disadvantages (no fresh ideas, limited choice, causes conflict). The best method depends on the specific situation — for example, if a business needs a skills gap filled, external recruitment is needed."
-  },
-  {
-    wrong: "When an employee leaves, a business must always recruit a replacement.",
-    correct: "Not necessarily. Sometimes the work can be redistributed to other employees. Businesses should analyse their HR needs before automatically recruiting. Recruitment is expensive and time-consuming, so the need must be justified."
-  },
-  {
-    wrong: "A CV is better than an application form because the applicant includes all the information.",
-    correct: "A CV shows the applicant's ability to organise information, but applicants may leave out essential details. Application forms ensure all applicants provide exactly the same information, making it easier to compare them. Each method has its advantages."
-  },
-  {
-    wrong: "References always provide accurate, honest information about a candidate.",
-    correct: "References can be misleading. Sometimes employers give workers good references because they want them to leave. For this reason, businesses often use more than one method of selection to build a fuller picture of each candidate."
-  },
-  {
-    wrong: "Some learners refer to the 'person specification' as the 'job specification'.",
-    correct: "The correct term used in the OCR specification is 'person specification'. Always use this term in your answers to show precise subject knowledge."
-  }
-];
+  const fibWords = [
+    "selection", "advertising", "motivation", "planning",
+    "workers", "products", "profits", "managers",
+    "expensive", "quick", "easy", "simple",
+    "wasted", "saved", "earned", "invested",
+    "already working", "recently leaving", "newly graduated", "self-employed",
+    "outside", "inside", "above", "below",
+    "cheaper", "more expensive", "slower", "riskier", "quicker", "harder",
+    "job description", "person specification", "reference", "CV",
+    "application form", "letter", "communication", "maths",
+    "technical", "scientific", "interview", "test", "noticeboard"
+  ];
 
-// ── EXAM TIPS ──────────────────────────────────────
-const tipsData = [
-  {
-    type: "Question Type",
-    title: "2-mark Explain questions (AO1b + AO2)",
-    content: `<p>You need <strong>Knowledge (1 mark)</strong> + <strong>Application (1 mark)</strong>.</p>
+  // ── MISCONCEPTIONS ──────────────────────────────────────
+  const miscData = [
+    {
+      wrong: "'Recruitment' and 'selection' mean the same thing.",
+      correct: "They are different stages. Recruitment refers to searching for suitable candidates and attracting them to apply for a vacancy. Selection refers to the process of vetting candidates to choose the most suitable person for the role."
+    },
+    {
+      wrong: "A job description lists the qualifications and skills needed for the job.",
+      correct: "A job description lists the tasks, duties and responsibilities of the role. Qualifications and skills needed belong in the person specification. Confusing these two documents is one of the most common errors in GCSE exams."
+    },
+    {
+      wrong: "Internal recruitment is always better because it is cheaper.",
+      correct: "Internal recruitment has advantages (cheaper, quicker, motivated staff) but also disadvantages (no fresh ideas, limited choice, causes conflict). The best method depends on the specific situation — for example, if a business needs a skills gap filled, external recruitment is needed."
+    },
+    {
+      wrong: "When an employee leaves, a business must always recruit a replacement.",
+      correct: "Not necessarily. Sometimes the work can be redistributed to other employees. Businesses should analyse their HR needs before automatically recruiting. Recruitment is expensive and time-consuming, so the need must be justified."
+    },
+    {
+      wrong: "A CV is better than an application form because the applicant includes all the information.",
+      correct: "A CV shows the applicant's ability to organise information, but applicants may leave out essential details. Application forms ensure all applicants provide exactly the same information, making it easier to compare them. Each method has its advantages."
+    },
+    {
+      wrong: "References always provide accurate, honest information about a candidate.",
+      correct: "References can be misleading. Sometimes employers give workers good references because they want them to leave. For this reason, businesses often use more than one method of selection to build a fuller picture of each candidate."
+    },
+    {
+      wrong: "Some learners refer to the 'person specification' as the 'job specification'.",
+      correct: "The correct term used in the OCR specification is 'person specification'. Always use this term in your answers to show precise subject knowledge."
+    }
+  ];
+
+  // ── EXAM TIPS ──────────────────────────────────────
+  const examTips = [
+    {
+      type: "Question Type",
+      title: "2-mark Explain questions (AO1b + AO2)",
+      content: `<p>You need <strong>Knowledge (1 mark)</strong> + <strong>Application (1 mark)</strong>.</p>
 <p>State the advantage/disadvantage, then link it specifically to the business in the question.</p>
-<p><em>Example: "External recruitment may bring new ideas (K) which is important for Waitrose as it operates in a very competitive supermarket industry where new product development is key (APP)."</em></p>
-<div class="mark-breakdown"><span class="mark-pill kn">Knowledge</span><span class="mark-pill app">Application</span></div>`,
-  },
-  {
-    type: "Question Type",
-    title: "3-mark Analyse questions (AO1b + AO2 + AO3a)",
-    content: `<p>State the advantage/method → Apply to the business → Analyse the business impact.</p>
-<p><em>Example: "Interviews allow the interviewer to ask detailed questions about the candidates' skills (K). Given that Clarks designers work with fast-changing fashion trends (APP), this will allow Clarks to select workers who are up-to-date, potentially increasing market share (AN)."</em></p>
-<div class="mark-breakdown"><span class="mark-pill un">Understanding</span><span class="mark-pill app">Application</span><span class="mark-pill an">Analysis</span></div>`,
-  },
-  {
-    type: "Question Type",
-    title: "3-mark Recommend questions (AO3b)",
-    content: `<p>You must: (1) Make a clear decision — don't sit on the fence. (2) Justify why your chosen method is better than the alternative — a comparison is essential. (3) Use context from the case study.</p>
-<p><em>Example: "Interviews are likely to be more effective (1) because Clarks can assess candidates' knowledge of current fashion (CONT). A reference is unlikely to include this information unless they previously worked for another fashion business (+2)."</em></p>
-<div class="mark-breakdown"><span class="mark-pill eval">Decision</span><span class="mark-pill eval">Non-contextual justification</span><span class="mark-pill eval">Contextual justification</span></div>`,
-  },
-  {
-    type: "Question Type",
-    title: "9-mark Evaluate questions (AO1a + AO1b + AO2 + AO3a + AO3b)",
-    content: `<p>Use the marking grid: Knowledge (1) → Understanding (1) → Application/data (2) → Analysis (2) → Evaluation (3).</p>
+<p><em>Example: "External recruitment may bring new ideas (K) which is important for Waitrose as it operates in a very competitive supermarket industry where new product development is key (APP)."</em></p>`,
+      pills: ["K", "app"]
+    },
+    {
+      type: "Question Type",
+      title: "3-mark Analyse questions (AO1b + AO2 + AO3a)",
+      content: `<p>State the advantage/method → Apply to the business → Analyse the business impact.</p>
+<p><em>Example: "Interviews allow the interviewer to ask detailed questions about the candidates' skills (K). Given that Clarks designers work with fast-changing fashion trends (APP), this will allow Clarks to select workers who are up-to-date, potentially increasing market share (AN)."</em></p>`,
+      pills: ["U", "app", "an"]
+    },
+    {
+      type: "Question Type",
+      title: "3-mark Recommend questions (AO3b)",
+      content: `<p>You must: (1) Make a clear decision — don't sit on the fence. (2) Justify why your chosen method is better than the alternative — a comparison is essential. (3) Use context from the case study.</p>
+<p><em>Example: "Interviews are likely to be more effective (1) because Clarks can assess candidates' knowledge of current fashion (CONT). A reference is unlikely to include this information unless they previously worked for another fashion business (+2)."</em></p>`,
+      pills: ["eval", "eval", "eval"]
+    },
+    {
+      type: "Question Type",
+      title: "9-mark Evaluate questions (AO1a + AO1b + AO2 + AO3a + AO3b)",
+      content: `<p>Use the marking grid: Knowledge (1) → Understanding (1) → Application/data (2) → Analysis (2) → Evaluation (3).</p>
 <ul>
 <li>Use data from the case study to earn application marks (e.g. calculate differences in costs)</li>
 <li>Give both advantages and disadvantages of the recruitment method</li>
 <li>Make a final judgement that is contextually justified using information from the case study</li>
-</ul>
-<div class="mark-breakdown"><span class="mark-pill kn">K</span><span class="mark-pill un">U</span><span class="mark-pill app">APP ×2</span><span class="mark-pill an">AN ×2</span><span class="mark-pill eval">EVAL ×3</span></div>`,
-  },
-  {
-    type: "Common Error",
-    title: "Don't just describe the method — give the advantage",
-    content: `<p>Examiners do NOT award marks for describing what a method is (e.g. "an interview is where you ask candidates questions"). You must state the <strong>advantage for the business</strong> of using that method.</p>
+</ul>`,
+      pills: ["K", "U", "app", "an", "eval"]
+    },
+    {
+      type: "Common Error",
+      title: "Don't just describe the method — give the advantage",
+      content: `<p>Examiners do NOT award marks for describing what a method is (e.g. "an interview is where you ask candidates questions"). You must state the <strong>advantage for the business</strong> of using that method.</p>
 <p>Also avoid generic phrases like "it helps find the best person for the job" — this is the purpose of all selection methods and earns no marks.</p>`,
-  },
-  {
-    type: "Key Fact",
-    title: "Internal vs External — Know the Data",
-    content: `<p>From the BFF (Best Foot Forward) case study — always reference specific data when it is given:</p>
+      pills: []
+    },
+    {
+      type: "Key Fact",
+      title: "Internal vs External — Know the Data",
+      content: `<p>From the BFF (Best Foot Forward) case study — always reference specific data when it is given:</p>
 <ul>
 <li>Internal recruitment cost: £500 vs External: £2,500 (£2,000 cheaper)</li>
 <li>Internal induction cost: £200 vs External: £1,500 (£1,300 cheaper)</li>
@@ -503,484 +541,159 @@ const tipsData = [
 <li>Days to fill the job: Internal 20 days vs External 60 days (3× faster)</li>
 </ul>
 <p>Using these numbers in analysis earns application marks.</p>`,
-  }
-];
+      pills: []
+    }
+  ];
 
-// ── FLASHCARD DATA ──────────────────────────────────────
-const flashcards = [
-  { term: "Recruitment", def: "The process of finding people to work in a new or established business." },
-  { term: "Selection", def: "The process of choosing between applicants for a job." },
-  { term: "Job Description", def: "A list of the main duties, tasks and responsibilities of a worker." },
-  { term: "Person Specification", def: "A list of the qualities, qualifications and knowledge that a person should have to do a particular job." },
-  { term: "Skills Gap", def: "When a business recruits skilled workers because it is short of them — often when new production methods are introduced." },
-  { term: "Internal Recruitment", def: "When a job vacancy is filled by employing someone who already works in the organisation. Methods: noticeboard, email, word of mouth, company website." },
-  { term: "External Recruitment", def: "When a job vacancy is filled by employing someone from outside the business. Methods: websites, newspapers, social media, specialist magazines, job centres." },
-  { term: "CV (Curriculum Vitae)", def: "A document on which the applicant outlines their personal details, experience and skills. Shows organisational ability." },
-  { term: "Application Form", def: "A form specifying what information the business needs; all applicants provide the same information, making comparisons easy." },
-  { term: "Letter of Application", def: "A letter written by the applicant explaining why they think they are suitable for the job. Good for assessing communication skills." },
-  { term: "Interview", def: "A face-to-face discussion where the employer asks candidates questions — often the same questions to all. Assesses presentation, communication and personality." },
-  { term: "Group Activity", def: "Applicants work together on a task. Reveals interpersonal skills, teamworking ability and leadership qualities." },
-  { term: "Reference", def: "A statement from a previous employer or responsible person about the applicant's suitability, work quality and reliability." },
-  { term: "Induction Training", def: "Training to introduce a new worker to the business, the workplace, their colleagues and their specific job." },
-  { term: "Recruitment Agency", def: "A specialist agency that carries out all tasks involved in recruitment and selection on behalf of an organisation." },
-  { term: "Employment Agency", def: "An agency that has workers readily available for business hire, usually for a short period of time." },
-  { term: "Shortlisting", def: "Using applications (CVs, forms, letters) to select which candidates to invite to the final stage of selection." },
-  { term: "Analysing HR Needs", def: "When the organisation decides how many workers it needs, what type, and when — before beginning recruitment." }
-];
+  // ── FLASHCARD DATA ──────────────────────────────────────
+  const flashcards = [
+    { term: "Recruitment", def: "The process of finding people to work in a new or established business." },
+    { term: "Selection", def: "The process of choosing between applicants for a job." },
+    { term: "Job Description", def: "A list of the main duties, tasks and responsibilities of a worker." },
+    { term: "Person Specification", def: "A list of the qualities, qualifications and knowledge that a person should have to do a particular job." },
+    { term: "Skills Gap", def: "When a business recruits skilled workers because it is short of them — often when new production methods are introduced." },
+    { term: "Internal Recruitment", def: "When a job vacancy is filled by employing someone who already works in the organisation. Methods: noticeboard, email, word of mouth, company website." },
+    { term: "External Recruitment", def: "When a job vacancy is filled by employing someone from outside the business. Methods: websites, newspapers, social media, specialist magazines, job centres." },
+    { term: "CV (Curriculum Vitae)", def: "A document on which the applicant outlines their personal details, experience and skills. Shows organisational ability." },
+    { term: "Application Form", def: "A form specifying what information the business needs; all applicants provide the same information, making comparisons easy." },
+    { term: "Letter of Application", def: "A letter written by the applicant explaining why they think they are suitable for the job. Good for assessing communication skills." },
+    { term: "Interview", def: "A face-to-face discussion where the employer asks candidates questions — often the same questions to all. Assesses presentation, communication and personality." },
+    { term: "Group Activity", def: "Applicants work together on a task. Reveals interpersonal skills, teamworking ability and leadership qualities." },
+    { term: "Reference", def: "A statement from a previous employer or responsible person about the applicant's suitability, work quality and reliability." },
+    { term: "Induction Training", def: "Training to introduce a new worker to the business, the workplace, their colleagues and their specific job." },
+    { term: "Recruitment Agency", def: "A specialist agency that carries out all tasks involved in recruitment and selection on behalf of an organisation." },
+    { term: "Employment Agency", def: "An agency that has workers readily available for business hire, usually for a short period of time." },
+    { term: "Shortlisting", def: "Using applications (CVs, forms, letters) to select which candidates to invite to the final stage of selection." },
+    { term: "Analysing HR Needs", def: "When the organisation decides how many workers it needs, what type, and when — before beginning recruitment." }
+  ];
 
-// ── TRUE / FALSE DATA ──────────────────────────────────────
-const tfData = [
-  { statement: "A job description lists the qualifications and skills needed for the job.", answer: false, explanation: "False. A job description lists the duties, tasks and responsibilities of the role. Qualifications and skills belong in the person specification." },
-  { statement: "Internal recruitment is always cheaper and quicker than external recruitment.", answer: true, explanation: "True. Internal recruitment saves advertising costs and the person can start sooner as they don't need to give notice elsewhere." },
-  { statement: "A CV makes it easy for the business to compare applicants because all applicants provide the same information.", answer: false, explanation: "False. An application form ensures all applicants provide the same information in the same format, making comparison easier. A CV is structured by the applicant." },
-  { statement: "One disadvantage of internal recruitment is that existing staff may not bring fresh ideas to the business.", answer: true, explanation: "True. This is a key disadvantage of internal recruitment. Fresh ideas and new skills are more likely to come from external candidates." },
-  { statement: "References are always a reliable source of information about a candidate.", answer: false, explanation: "False. Businesses sometimes give workers good references because they want them to leave. This is why organisations often use more than one method of selection." },
-  { statement: "Group activities are best for assessing a candidate's ability to work as part of a team.", answer: true, explanation: "True. Group activities reveal interpersonal skills and how well people work with others — something that is difficult to assess through interviews or tests alone." },
-  { statement: "External recruitment methods include notice boards, word of mouth and emails to staff.", answer: false, explanation: "False. These are internal recruitment methods. External methods include websites, local/national newspapers, specialist magazines, social media and job centres." },
-  { statement: "A skills gap occurs when a business needs workers with specialist skills it does not currently have.", answer: true, explanation: "True. A skills gap often arises when new production methods or technologies are introduced, requiring the business to recruit externally for those skills." },
-  { statement: "Interviews are sufficient on their own to make a fully informed recruitment decision.", answer: false, explanation: "False. Interviews can give the wrong impression, and sometimes applicants are not entirely honest. Organisations often use more than one method of selection to build an accurate picture." },
-  { statement: "Induction training is needed for both internal and external recruits.", answer: false, explanation: "False. Induction training is mainly needed for external recruits. An internal recruit already knows the organisation, its aims, and how things work — so induction training may not be needed, saving the business money." }
-];
+  // ── TRUE / FALSE DATA ──────────────────────────────────────
+  const tfData = [
+    { statement: "A job description lists the qualifications and skills needed for the job.", answer: false, explanation: "False. A job description lists the duties, tasks and responsibilities of the role. Qualifications and skills belong in the person specification." },
+    { statement: "Internal recruitment is always cheaper and quicker than external recruitment.", answer: true, explanation: "True. Internal recruitment saves advertising costs and the person can start sooner as they don't need to give notice elsewhere." },
+    { statement: "A CV makes it easy for the business to compare applicants because all applicants provide the same information.", answer: false, explanation: "False. An application form ensures all applicants provide the same information in the same format, making comparison easier. A CV is structured by the applicant." },
+    { statement: "One disadvantage of internal recruitment is that existing staff may not bring fresh ideas to the business.", answer: true, explanation: "True. This is a key disadvantage of internal recruitment. Fresh ideas and new skills are more likely to come from external candidates." },
+    { statement: "References are always a reliable source of information about a candidate.", answer: false, explanation: "False. Businesses sometimes give workers good references because they want them to leave. This is why organisations often use more than one method of selection." },
+    { statement: "Group activities are best for assessing a candidate's ability to work as part of a team.", answer: true, explanation: "True. Group activities reveal interpersonal skills and how well people work with others — something that is difficult to assess through interviews or tests alone." },
+    { statement: "External recruitment methods include notice boards, word of mouth and emails to staff.", answer: false, explanation: "False. These are internal recruitment methods. External methods include websites, local/national newspapers, specialist magazines, social media and job centres." },
+    { statement: "A skills gap occurs when a business needs workers with specialist skills it does not currently have.", answer: true, explanation: "True. A skills gap often arises when new production methods or technologies are introduced, requiring the business to recruit externally for those skills." },
+    { statement: "Interviews are sufficient on their own to make a fully informed recruitment decision.", answer: false, explanation: "False. Interviews can give the wrong impression, and sometimes applicants are not entirely honest. Organisations often use more than one method of selection to build an accurate picture." },
+    { statement: "Induction training is needed for both internal and external recruits.", answer: false, explanation: "False. Induction training is mainly needed for external recruits. An internal recruit already knows the organisation, its aims, and how things work — so induction training may not be needed, saving the business money." }
+  ];
 
-// ── EXAM PRACTICE DATA ──────────────────────────────────────
-const examQuestions = [
-  {
-    num: "QUESTION 01",
-    marks: 1,
-    type: "mcq",
-    question: "What would be included in the job description for a hospital doctor?",
-    options: [
-      "A list of the medical qualifications required",
-      "An ability to listen carefully to patients' concerns",
-      "Previous experience of working in a hospital",
-      "The main duties of medical staff when working in a hospital"
-    ],
-    answer: 3,
-    hint: "A job description is about the TASKS and DUTIES of the job — not about the personal attributes or qualifications of the person doing it.",
-    starter: "A job description includes...",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p>Answer: <strong>D — The main duties of medical staff when working in a hospital.</strong></p><p>A job description lists the duties, tasks and responsibilities of the role. Qualifications (A), personal qualities (B) and experience (C) all belong in the person specification.</p></div>`
-  },
-  {
-    num: "QUESTION 02",
-    marks: 2,
-    type: "extended",
-    caseStudy: `<strong>Waitrose</strong> is a supermarket chain with over 300 stores throughout the UK. Waitrose specialises in good quality food targeted at customers with high levels of income. Waitrose has over 50,000 employees. Many employees are recruited externally. As part of the selection process, potential employees take part in lengthy interviews, group activities and tests. References are requested for all new employees. The supermarket industry is very competitive, so new product development is important to Waitrose.`,
-    question: "Explain one advantage for Waitrose of using external recruitment. [2 marks]",
-    hint: "External recruitment brings something that internal recruitment cannot. Think about what an outsider brings that someone already in the business doesn't have.",
-    starter: "One advantage of external recruitment for Waitrose is that...\nThis means that Waitrose will...",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme (AO1b + AO2)</h5><ul>
+  // ── EXAM PRACTICE DATA ──────────────────────────────────────
+  const examQuestions = [
+    {
+      num: "QUESTION 01",
+      marks: 1,
+      type: "mcq",
+      question: "What would be included in the job description for a hospital doctor?",
+      options: [
+        "A list of the medical qualifications required",
+        "An ability to listen carefully to patients' concerns",
+        "Previous experience of working in a hospital",
+        "The main duties of medical staff when working in a hospital"
+      ],
+      answer: 3,
+      hint: "A job description is about the TASKS and DUTIES of the job — not about the personal attributes or qualifications of the person doing it.",
+      starter: "A job description includes...",
+      markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p>Answer: <strong>D — The main duties of medical staff when working in a hospital.</strong></p><p>A job description lists the duties, tasks and responsibilities of the role. Qualifications (A), personal qualities (B) and experience (C) all belong in the person specification.</p></div>`,
+      modelAnswer: ``
+    },
+    {
+      num: "QUESTION 02",
+      marks: 2,
+      type: "extended",
+      caseStudy: `<strong>Waitrose</strong> is a supermarket chain with over 300 stores throughout the UK. Waitrose specialises in good quality food targeted at customers with high levels of income. Waitrose has over 50,000 employees. Many employees are recruited externally. As part of the selection process, potential employees take part in lengthy interviews, group activities and tests. References are requested for all new employees. The supermarket industry is very competitive, so new product development is important to Waitrose.`,
+      question: "Explain one advantage for Waitrose of using external recruitment. [2 marks]",
+      hint: "External recruitment brings something that internal recruitment cannot. Think about what an outsider brings that someone already in the business doesn't have.",
+      starter: "One advantage of external recruitment for Waitrose is that...\nThis means that Waitrose will...",
+      markScheme: `<div class="marks-section"><h5>Mark Scheme (AO1b + AO2)</h5><ul>
 <li><strong>1 mark</strong> — Understanding: state an advantage of external recruitment (e.g. new skills, new ideas, fills a skills gap, no need to backfill)</li>
 <li><strong>1 mark</strong> — Application: link it specifically to Waitrose (e.g. competitive industry, new product development is key, over 50,000 employees)</li>
-</ul></div>
-<div class="marks-section"><h5>Example Answers</h5></div>
-<div class="model-answer">"Externally appointed employees may bring fresh ideas (K) which is important for Waitrose as it operates in a highly competitive supermarket industry where new product development is key to success (APP)."</div>
-<div class="model-answer">"External recruitment means no backfilling of another role is required (K), saving time given Waitrose's lengthy selection process (APP)."</div>`
-  },
-  {
-    num: "QUESTION 03",
-    marks: 3,
-    type: "extended",
-    caseStudy: `<strong>Clarks</strong> is a successful UK footwear brand with ranges for children, women, and men. Their market is very competitive. Clarks employs specialist designers who create new shoe styles in response to fast-changing fashion trends. The designers work closely with employees from other functional areas of the business — including marketing, finance and retail — to ensure new shoe styles meet customers' needs profitably. Clarks works hard to retain its team of designers, as they are central to its success. However, Clarks sometimes needs to recruit new designers and uses several selection methods to help find the best person.`,
-    question: "Analyse one advantage for Clarks of using interviews to select new designers. [3 marks]",
-    hint: "Think: What specifically can an interview reveal that other methods cannot? Then link it to the specific context of Clarks and designers.",
-    starter: "One advantage for Clarks of using interviews is that...\nThis is particularly important because Clarks designers...\nAs a result, Clarks could...",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme (AO1b + AO2 + AO3a)</h5><ul>
+</ul></div>`,
+      modelAnswer: `Externally appointed employees may bring fresh ideas (K) which is important for Waitrose as it operates in a highly competitive supermarket industry where new product development is key to success (APP).<br><br>External recruitment means no backfilling of another role is required (K), saving time given Waitrose's lengthy selection process (APP).`
+    },
+    {
+      num: "QUESTION 03",
+      marks: 3,
+      type: "extended",
+      caseStudy: `<strong>Clarks</strong> is a successful UK footwear brand with ranges for children, women, and men. Their market is very competitive. Clarks employs specialist designers who create new shoe styles in response to fast-changing fashion trends. The designers work closely with employees from other functional areas of the business — including marketing, finance and retail — to ensure new shoe styles meet customers' needs profitably. Clarks works hard to retain its team of designers, as they are central to its success. However, Clarks sometimes needs to recruit new designers and uses several selection methods to help find the best person.`,
+      question: "Analyse one advantage for Clarks of using interviews to select new designers. [3 marks]",
+      hint: "Think: What specifically can an interview reveal that other methods cannot? Then link it to the specific context of Clarks and designers.",
+      starter: "One advantage for Clarks of using interviews is that...\nThis is particularly important because Clarks designers...\nAs a result, Clarks could...",
+      markScheme: `<div class="marks-section"><h5>Mark Scheme (AO1b + AO2 + AO3a)</h5><ul>
 <li><strong>1 mark (U)</strong> — Advantage of interviews: can assess communication skills, personality, how the candidate responds under pressure, how they'd fit into a team, compare answers to the same questions across all candidates</li>
 <li><strong>1 mark (APP)</strong> — Apply to Clarks: designers are specialists; work with fast-changing fashion trends; must work closely with other functional areas such as marketing, finance and retail; central to business success</li>
 <li><strong>1 mark (AN)</strong> — Business-facing analysis: positive impact on market share, competitive advantage, productivity, quality of designs, teamwork. Must stem from the advantage stated</li>
-</ul><p><strong>Do not award:</strong> 'find the best person for the job' (purpose of all methods) or simply describing what an interview is.</p></div>
-<div class="marks-section"><h5>Example Answer</h5></div>
-<div class="model-answer">"Interviews allow Clarks to ask all designer candidates the same detailed questions about their knowledge of current fashion trends (U). Since designers need to respond to fast-changing fashion to create competitive ranges (APP), this allows Clarks to identify the most knowledgeable candidate, potentially increasing competitive advantage and sales revenue (AN)."</div>`
-  },
-  {
-    num: "QUESTION 04",
-    marks: 3,
-    type: "extended",
-    caseStudy: `<strong>Clarks</strong> is a successful UK footwear brand (see case study above). Clarks sometimes needs to recruit new designers.`,
-    question: "Analyse one advantage for Clarks of using references to select new designers. [3 marks]",
-    hint: "A reference comes from a third party — a previous employer. What can it confirm or reveal that an interview might not?",
-    starter: "One advantage of using references for Clarks is that...\nThis is relevant to Clarks because...\nTherefore...",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme (AO1b + AO2 + AO3a)</h5><ul>
+</ul><p><strong>Do not award:</strong> 'find the best person for the job' (purpose of all methods) or simply describing what an interview is.</p></div>`,
+      modelAnswer: `Interviews allow Clarks to ask all designer candidates the same detailed questions about their knowledge of current fashion trends (U). Since designers need to respond to fast-changing fashion to create competitive ranges (APP), this allows Clarks to identify the most knowledgeable candidate, potentially increasing competitive advantage and sales revenue (AN).`
+    },
+    {
+      num: "QUESTION 04",
+      marks: 3,
+      type: "extended",
+      caseStudy: `<strong>Clarks</strong> is a successful UK footwear brand (see case study above). Clarks sometimes needs to recruit new designers.`,
+      question: "Analyse one advantage for Clarks of using references to select new designers. [3 marks]",
+      hint: "A reference comes from a third party — a previous employer. What can it confirm or reveal that an interview might not?",
+      starter: "One advantage of using references for Clarks is that...\nThis is relevant to Clarks because...\nTherefore...",
+      markScheme: `<div class="marks-section"><h5>Mark Scheme (AO1b + AO2 + AO3a)</h5><ul>
 <li><strong>1 mark (U)</strong> — Advantage: confirms from a third party the candidate's standard of work, teamworking, attitude, skills, personality; can verify information on application form; may reveal additional information; lower cost/quicker than interview</li>
 <li><strong>1 mark (APP)</strong> — Apply to Clarks: designers work closely with colleagues from marketing, finance and retail; designers are central to Clarks' success; competitive market</li>
 <li><strong>1 mark (AN)</strong> — Business-facing impact: increases confidence in the appointment, reducing risk of a poor hire; potentially increases productivity; avoids costly mistakes</li>
-</ul></div>
-<div class="marks-section"><h5>Example Answer</h5></div>
-<div class="model-answer">"A reference can verify whether a candidate has worked well as part of a team with a previous employer (U). This is particularly important because Clarks designers must work closely with colleagues from marketing, finance and retail (APP), meaning a good team player will increase cross-functional productivity and help Clarks gain competitive advantage (AN)."</div>`
-  },
-  {
-    num: "QUESTION 05",
-    marks: 3,
-    type: "extended",
-    caseStudy: `<strong>Clarks</strong> is a successful UK footwear brand. Clarks sometimes needs to recruit new specialist designers.`,
-    question: "Recommend whether using interviews or references is likely to be more effective for selecting new designers. Give a reason for your answer. [3 marks]",
-    hint: "Make a clear decision — don't sit on the fence. Then explain why your chosen method is BETTER THAN the other for this specific business. A comparison must be made.",
-    starter: "I recommend that Clarks uses [interviews/references] because...\nIn contrast, [the other method]...",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme (AO3b × 3)</h5><ul>
+</ul></div>`,
+      modelAnswer: `A reference can verify whether a candidate has worked well as part of a team with a previous employer (U). This is particularly important because Clarks designers must work closely with colleagues from marketing, finance and retail (APP), meaning a good team player will increase cross-functional productivity and help Clarks gain competitive advantage (AN).`
+    },
+    {
+      num: "QUESTION 05",
+      marks: 3,
+      type: "extended",
+      caseStudy: `<strong>Clarks</strong> is a successful UK footwear brand. Clarks sometimes needs to recruit new specialist designers.`,
+      question: "Recommend whether using interviews or references is likely to be more effective for selecting new designers. Give a reason for your answer. [3 marks]",
+      hint: "Make a clear decision — don't sit on the fence. Then explain why your chosen method is BETTER THAN the other for this specific business. A comparison must be made.",
+      starter: "I recommend that Clarks uses [interviews/references] because...\nIn contrast, [the other method]...",
+      markScheme: `<div class="marks-section"><h5>Mark Scheme (AO3b × 3)</h5><ul>
 <li><strong>1 mark</strong> — Clear decision (interviews OR references)</li>
 <li><strong>+1 mark</strong> — Non-contextual justification comparing both methods</li>
 <li><strong>+2 marks</strong> — Contextual justification (must reference Clarks/designers/fashion/teamwork etc.)</li>
-</ul><p><strong>Key rule:</strong> The justification MUST be comparative — it must explain why the chosen method is better than the other, not just why it is good on its own.</p></div>
-<div class="marks-section"><h5>Example Answers</h5></div>
-<div class="model-answer">"Interviews are likely to be more effective (1) because Clarks can directly assess candidates' knowledge of current fashion trends during a face-to-face discussion (CONT). A reference from a previous employer is unlikely to include up-to-date fashion knowledge unless the designer previously worked for a similar business (+2)."</div>
-<div class="model-answer">"References are likely to be more effective (1) because they provide a third-party view of how well the candidate worked with colleagues in a previous role (NUT +1). Since Clarks designers must collaborate with marketing, finance and retail teams, references directly evidence this ability (CONT +2)."</div>`
-  },
-  {
-    num: "QUESTION 06",
-    marks: 6,
-    type: "extended",
-    caseStudy: `<strong>Aldi</strong> is opening a new supermarket in Stoke. It needs to recruit an experienced shop manager to get the supermarket off to a good start and 20 shop assistants to work in the store. The HR manager has used information from letters of application and CVs to choose five candidates to go to the final stage of selection. The HR manager needs to choose two methods of selection to use to decide which of the five applicants to employ.`,
-    question: "Recommend two methods of selection that Aldi should use to decide which of the five applicants to employ. [6 marks]",
-    hint: "Choose two different methods from: interview, test, group activity, reference, presentation. For each one: explain what it is → apply it to Aldi's context (shop manager / shop assistants) → analyse the benefit → give your recommendation with justification.",
-    starter: "I recommend Aldi uses [Method 1] because...\nFor Aldi, this would involve...\nThis would help Aldi because...\n\nI also recommend [Method 2] because...",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme — Up to 3 marks per method recommended</h5><p>For each method: Understanding (1) + Application to Aldi (1) + Analysis/Recommendation with justification (1)</p></div>
-<div class="marks-section"><h5>Method 1: Interviews</h5></div>
-<div class="model-answer">Aldi should use interviews (U). This would involve the HR manager asking each of the five candidates the same questions face-to-face (APP — applies to the specific context of selecting from 5 shortlisted candidates). This allows Aldi to assess each candidate's communication skills and how well they would manage staff and deal with customers in a busy supermarket environment, helping Aldi identify the best shop manager (AN).</div>
-<div class="marks-section"><h5>Method 2: Group activities</h5></div>
-<div class="model-answer">Aldi should also use group activities (U). The five candidates could be asked to work together on a task such as planning a store layout (APP). This would allow Aldi to see which candidates work well as part of a team and demonstrate leadership, which is essential for managing 20 shop assistants (AN).</div>`
-  },
-  {
-    num: "QUESTION 07",
-    marks: 9,
-    type: "extended",
-    caseStudy: `<strong>Best Foot Forward Ltd (BFF)</strong> operates five stores in the north-west of England, selling shoes for adult dancers. Sales revenue has fallen from £780,000 (2017) to £520,000 (2019). Net profit has fallen from £250,000 (2017) to £175,000 (2019). A new Managing Director, Jessie Thompson, wants to expand into children's dance shoes and has created a new post of Marketing Manager (Children's Shoes). This employee will be recruited internally, despite many former employees from a children's shoe retailer that recently closed down still being out of work.
+</ul><p><strong>Key rule:</strong> The justification MUST be comparative — it must explain why the chosen method is better than the other, not just why it is good on its own.</p></div>`,
+      modelAnswer: `Interviews are likely to be more effective (1) because Clarks can directly assess candidates' knowledge of current fashion trends during a face-to-face discussion (CONT). A reference from a previous employer is unlikely to include up-to-date fashion knowledge unless the designer previously worked for a similar business (+2).<br><br><em>Alternative Answer:</em> References are likely to be more effective (1) because they provide a third-party view of how well the candidate worked with colleagues in a previous role (NUT +1). Since Clarks designers must collaborate with marketing, finance and retail teams, references directly evidence this ability (CONT +2).`
+    },
+    {
+      num: "QUESTION 06",
+      marks: 6,
+      type: "extended",
+      caseStudy: `<strong>Aldi</strong> is opening a new supermarket in Stoke. It needs to recruit an experienced shop manager to get the supermarket off to a good start and 20 shop assistants to work in the store. The HR manager has used information from letters of application and CVs to choose five candidates to go to the final stage of selection. The HR manager needs to choose two methods of selection to use to decide which of the five applicants to employ.`,
+      question: "Recommend two methods of selection that Aldi should use to decide which of the five applicants to employ. [6 marks]",
+      hint: "Choose two different methods from: interview, test, group activity, reference, presentation. For each one: explain what it is → apply it to Aldi's context (shop manager / shop assistants) → analyse the benefit → give your recommendation with justification.",
+      starter: "I recommend Aldi uses [Method 1] because...\nFor Aldi, this would involve...\nThis would help Aldi because...\n\nI also recommend [Method 2] because...",
+      markScheme: `<div class="marks-section"><h5>Mark Scheme — Up to 3 marks per method recommended</h5><p>For each method: Understanding (1) + Application to Aldi (1) + Analysis/Recommendation with justification (1)</p></div>`,
+      modelAnswer: `<strong>Method 1: Interviews</strong><br>Aldi should use interviews (U). This would involve the HR manager asking each of the five candidates the same questions face-to-face (APP — applies to the specific context of selecting from 5 shortlisted candidates). This allows Aldi to assess each candidate's communication skills and how well they would manage staff and deal with customers in a busy supermarket environment, helping Aldi identify the best shop manager (AN).<br><br><strong>Method 2: Group activities</strong><br>Aldi should also use group activities (U). The five candidates could be asked to work together on a task such as planning a store layout (APP). This would allow Aldi to see which candidates work well as part of a team and demonstrate leadership, which is essential for managing 20 shop assistants (AN).`
+    },
+    {
+      num: "QUESTION 07",
+      marks: 9,
+      type: "extended",
+      caseStudy: `<strong>Best Foot Forward Ltd (BFF)</strong> operates five stores in the north-west of England, selling shoes for adult dancers. Sales revenue has fallen from £780,000 (2017) to £520,000 (2019). Net profit has fallen from £250,000 (2017) to £175,000 (2019). A new Managing Director, Jessie Thompson, wants to expand into children's dance shoes and has created a new post of Marketing Manager (Children's Shoes). This employee will be recruited internally, despite many former employees from a children's shoe retailer that recently closed down still being out of work.
 
 Table 1: Recruitment data
 • Internal recruitment cost: £500 | External recruitment cost: £2,500
 • Days to fill the job: Internal 20 days | External 60 days
 • Cost of induction: Internal £200 | External £1,500`,
-    question: "* Evaluate, with reference to the data in the case study, whether internal recruitment is the best method to use to fill the position of Marketing Manager (Children's Shoes). [9 marks]",
-    hint: "Use the marking grid: K → U → APP (use the numbers!) → AN (2 points) → EVAL (contextual judgement). Consider: Is there anyone internal with knowledge of the children's shoe market? Does the cost saving justify potential risks?",
-    starter: "Internal recruitment is when a vacancy is filled by someone already working in the business (K).\n\nOne advantage is that it is cheaper — internal recruitment costs £500 compared to £2,500 externally (APP)...\n\nHowever, a disadvantage is that...\n\nOverall, I think BFF should [use/not use] internal recruitment because...",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme (9 marks)</h5><ul>
+      question: "* Evaluate, with reference to the data in the case study, whether internal recruitment is the best method to use to fill the position of Marketing Manager (Children's Shoes). [9 marks]",
+      hint: "Use the marking grid: K → U → APP (use the numbers!) → AN (2 points) → EVAL (contextual judgement). Consider: Is there anyone internal with knowledge of the children's shoe market? Does the cost saving justify potential risks?",
+      starter: "Internal recruitment is when a vacancy is filled by someone already working in the business (K).\n\nOne advantage is that it is cheaper — internal recruitment costs £500 compared to £2,500 externally (APP)...\n\nHowever, a disadvantage is that...\n\nOverall, I think BFF should [use/not use] internal recruitment because...",
+      markScheme: `<div class="marks-section"><h5>Mark Scheme (9 marks)</h5><ul>
 <li><strong>K (1 mark)</strong> — Definition: internal recruitment is when a job vacancy is filled by someone already employed by the business</li>
 <li><strong>U (1 mark)</strong> — One advantage or disadvantage of internal recruitment (e.g. cheaper, quicker, no new ideas, restricted choice)</li>
 <li><strong>APP (up to 2 marks)</strong> — Use of numerical data: e.g. £2,000 cheaper; £1,300 cheaper induction; £3,300 total saving; 40 days faster; 3× faster; profit fell by £75,000 (2017–2019)</li>
 <li><strong>AN (up to 2 marks)</strong> — Business-facing impacts: lower costs support profitability (positive); no knowledge of children's shoe market may reduce effectiveness of marketing (negative)</li>
 <li><strong>EVAL (up to 3 marks)</strong> — Contextual judgement: Is internal the BEST method for THIS role? Strong answer: the role requires knowledge of children's shoes — the business has no experience in this market, so internal staff are unlikely to have the skills needed; the £3,300 saving is relatively small compared to the strategic importance of entering a new market successfully</li>
-</ul></div>
-<div class="marks-section"><h5>Model Answer (Strong Response)</h5></div>
-<div class="model-answer">Internal recruitment is when a job vacancy is filled by someone already working for the business (K). One advantage is that it is usually cheaper than external recruitment (U) — in BFF's case, internal recruitment costs £500 compared to £2,500 externally, saving £2,000. Induction training also costs £200 internally vs £1,500 externally, a further saving of £1,300 — a total saving of £3,300 (APP). With net profit falling to £175,000 in 2019, keeping costs low is important to protect BFF's finances (AN).
-
-However, BFF has never sold children's shoes and is entering a completely new market. Current staff are unlikely to have any knowledge or experience of marketing to children or their parents (AN), meaning internal recruitment could result in an ineffective marketing strategy that fails to achieve the growth Jessie is targeting.
-
-Overall, I do not think internal recruitment is the best method (EVAL). Although it is £3,300 cheaper and 40 days faster, the role requires specialist knowledge of the children's shoe market which BFF simply does not have internally. Given that several former employees from the recently closed children's shoe retailer are out of work, external recruitment could bring exactly the skills and experience needed at a relatively modest extra cost — a cost that would be recouped quickly if the children's range is successfully launched (EVAL × 3).</div>`
-  }
-];
-
-// ══════════════════════════════════════
-//  TAB SWITCHING
-// ══════════════════════════════════════
-function switchTab(id, btn) {
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
-  btn.classList.add('active');
-}
-
-// ══════════════════════════════════════
-//  BUILD LEARN
-// ══════════════════════════════════════
-function buildLearn() {
-  const grid = document.getElementById('topicGrid');
-  topics.forEach((t, i) => {
-    const card = document.createElement('div');
-    card.className = 'topic-card';
-    card.innerHTML = `<span class="tag">${t.tag}</span><h3>${t.title}</h3><span class="toggle-icon">+</span><div class="topic-content">${t.content}</div>`;
-    card.addEventListener('click', () => card.classList.toggle('open'));
-    grid.appendChild(card);
-  });
-}
-
-// ══════════════════════════════════════
-//  BUILD MCQ
-// ══════════════════════════════════════
-let mcqScore = 0, mcqTotal = 0;
-function buildMCQ() {
-  const wrap = document.getElementById('mcqWrap');
-  mcqData.forEach((q, i) => {
-    const block = document.createElement('div');
-    block.className = 'q-block';
-    block.innerHTML = `<div class="q-num">QUESTION ${String(i+1).padStart(2,'0')}</div>
-    <div class="q-text">${q.q}</div>
-    <div class="options">${q.opts.map((o,oi)=>`<button class="opt-btn" data-i="${i}" data-oi="${oi}">${o}</button>`).join('')}</div>
-    <div class="q-feedback" id="fb-${i}"></div>`;
-    wrap.appendChild(block);
-  });
-  wrap.addEventListener('click', e => {
-    const btn = e.target.closest('.opt-btn'); if (!btn) return;
-    const i = +btn.dataset.i, oi = +btn.dataset.oi;
-    const block = btn.closest('.q-block');
-    if (block.dataset.answered) return;
-    block.dataset.answered = 1;
-    block.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
-    const fb = document.getElementById(`fb-${i}`);
-    if (oi === mcqData[i].ans) {
-      btn.classList.add('correct'); mcqScore++; fb.className = 'q-feedback ok show';
-      fb.textContent = '✓ Correct! ' + mcqData[i].explain;
-    } else {
-      btn.classList.add('wrong');
-      block.querySelectorAll('.opt-btn')[mcqData[i].ans].classList.add('correct');
-      fb.className = 'q-feedback no show'; fb.textContent = '✗ Incorrect. ' + mcqData[i].explain;
+</ul></div>`,
+      modelAnswer: `Internal recruitment is when a job vacancy is filled by someone already working for the business (K). One advantage is that it is usually cheaper than external recruitment (U) — in BFF's case, internal recruitment costs £500 compared to £2,500 externally, saving £2,000. Induction training also costs £200 internally vs £1,500 externally, a further saving of £1,300 — a total saving of £3,300 (APP). With net profit falling to £175,000 in 2019, keeping costs low is important to protect BFF's finances (AN).<br><br>However, BFF has never sold children's shoes and is entering a completely new market. Current staff are unlikely to have any knowledge or experience of marketing to children or their parents (AN), meaning internal recruitment could result in an ineffective marketing strategy that fails to achieve the growth Jessie is targeting.<br><br>Overall, I do not think internal recruitment is the best method (EVAL). Although it is £3,300 cheaper and 40 days faster, the role requires specialist knowledge of the children's shoe market which BFF simply does not have internally. Given that several former employees from the recently closed children's shoe retailer are out of work, external recruitment could bring exactly the skills and experience needed at a relatively modest extra cost — a cost that would be recouped quickly if the children's range is successfully launched (EVAL × 3).`
     }
-    mcqTotal++;
-    document.getElementById('mcqScore').textContent = mcqScore;
-    document.getElementById('mcqTotal').textContent = mcqTotal;
-  });
-}
-function resetMCQ() {
-  mcqScore = 0; mcqTotal = 0;
-  document.getElementById('mcqScore').textContent = 0;
-  document.getElementById('mcqTotal').textContent = 0;
-  document.getElementById('mcqWrap').innerHTML = '';
-  buildMCQ();
-}
-
-// ══════════════════════════════════════
-//  BUILD MATCH
-// ══════════════════════════════════════
-let matchScore = 0, selectedTerm = null, hadError = {};
-function buildMatch() {
-  const left = document.getElementById('matchLeft');
-  const right = document.getElementById('matchRight');
-  left.innerHTML = ''; right.innerHTML = '';
-  matchScore = 0; selectedTerm = null; hadError = {};
-  document.getElementById('matchScore').textContent = 0;
-  document.getElementById('matchTotal').textContent = matchData.length;
-
-  const shuffledDefs = [...matchData].sort(() => Math.random() - 0.5);
-  matchData.forEach(item => {
-    const t = document.createElement('div');
-    t.className = 'match-item'; t.dataset.term = item.term;
-    t.textContent = item.term;
-    t.addEventListener('click', () => handleTermClick(t));
-    left.appendChild(t);
-  });
-  shuffledDefs.forEach(item => {
-    const d = document.createElement('div');
-    d.className = 'match-item'; d.dataset.def = item.term;
-    d.textContent = item.def;
-    d.addEventListener('click', () => handleDefClick(d));
-    right.appendChild(d);
-  });
-}
-function handleTermClick(el) {
-  if (el.classList.contains('matched-ok') || el.classList.contains('matched-eventual')) return;
-  document.querySelectorAll('#matchLeft .match-item').forEach(i => i.classList.remove('selected'));
-  el.classList.add('selected'); selectedTerm = el;
-}
-function handleDefClick(el) {
-  if (!selectedTerm) return;
-  if (el.classList.contains('matched-ok') || el.classList.contains('matched-eventual')) return;
-  const termKey = selectedTerm.dataset.term;
-  const defKey = el.dataset.def;
-  if (termKey === defKey) {
-    const cls = hadError[termKey] ? 'matched-eventual' : 'matched-ok';
-    selectedTerm.classList.remove('selected'); selectedTerm.classList.add(cls);
-    el.classList.add(cls);
-    matchScore++; document.getElementById('matchScore').textContent = matchScore;
-    selectedTerm = null;
-  } else {
-    hadError[termKey] = true;
-    el.classList.add('matched-no');
-    setTimeout(() => el.classList.remove('matched-no'), 400);
-    selectedTerm.classList.remove('selected');
-    selectedTerm.classList.add('matched-no');
-    setTimeout(() => { if(selectedTerm) selectedTerm.classList.remove('matched-no'); }, 400);
-    selectedTerm = null;
-  }
-}
-function resetMatch() { buildMatch(); }
-
-// ══════════════════════════════════════
-//  BUILD FIB
-// ══════════════════════════════════════
-let fibScore = 0, fibTotal = 0;
-function buildFIB() {
-  const wrap = document.getElementById('fibWrap');
-  fibScore = 0; fibTotal = 0;
-  fibData.forEach((sentence, si) => {
-    const div = document.createElement('div');
-    div.className = 'fib-sentence';
-    let html = sentence.template;
-    sentence.blanks.forEach(blank => {
-      fibTotal++;
-      const shuffled = [...blank.options].sort(() => Math.random() - 0.5);
-      const opts = shuffled.map(o => `<option value="${o}">${o}</option>`).join('');
-      html = html.replace(`[${blank.id}]`, `<span class="blank-select" id="bs-${si}-${blank.id}"><select onchange="checkFIB(this,'${blank.answer}','${si}-${blank.id}')"><option value="">— choose —</option>${opts}</select></span>`);
-    });
-    div.innerHTML = html;
-    wrap.appendChild(div);
-  });
-  document.getElementById('fibTotal').textContent = fibTotal;
-}
-function checkFIB(sel, answer, id) {
-  const wrap = document.getElementById('bs-' + id);
-  if (sel.value === answer) {
-    wrap.classList.remove('wrong'); wrap.classList.add('correct');
-    sel.disabled = true; fibScore++;
-    document.getElementById('fibScore').textContent = fibScore;
-  } else {
-    wrap.classList.add('wrong');
-    setTimeout(() => { wrap.classList.remove('wrong'); sel.value = ''; }, 600);
-  }
-}
-function resetFIB() {
-  fibScore = 0; fibTotal = 0;
-  document.getElementById('fibScore').textContent = 0;
-  document.getElementById('fibWrap').innerHTML = '';
-  buildFIB();
-}
-
-// ══════════════════════════════════════
-//  BUILD MISCONCEPTIONS
-// ══════════════════════════════════════
-function buildMisc() {
-  const list = document.getElementById('miscList');
-  miscData.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'misc-card';
-    card.innerHTML = `<div class="wrong-view"><div class="misc-tag">✗ Common Misconception</div><p>${item.wrong}</p></div>
-    <div class="correct-view"><div class="misc-tag">✓ What Examiners Expect</div><p>${item.correct}</p></div>`;
-    list.appendChild(card);
-  });
-}
-
-// ══════════════════════════════════════
-//  BUILD EXAM TIPS
-// ══════════════════════════════════════
-function buildTips() {
-  const grid = document.getElementById('tipsGrid');
-  tipsData.forEach(tip => {
-    const card = document.createElement('div');
-    card.className = 'tip-card';
-    card.innerHTML = `<div class="tip-type">${tip.type}</div><h4>${tip.title}</h4>${tip.content}`;
-    grid.appendChild(card);
-  });
-}
-
-// ══════════════════════════════════════
-//  FLASHCARDS
-// ══════════════════════════════════════
-let fcIndex = 0;
-function renderFC() {
-  document.getElementById('fcTerm').textContent = flashcards[fcIndex].term;
-  document.getElementById('fcDef').textContent = flashcards[fcIndex].def;
-  document.getElementById('fcProgress').textContent = `Card ${fcIndex+1} of ${flashcards.length}`;
-  document.getElementById('flashcard').classList.remove('flipped');
-}
-function flipCard() { document.getElementById('flashcard').classList.toggle('flipped'); }
-function nextCard() { fcIndex = (fcIndex+1) % flashcards.length; renderFC(); }
-function prevCard() { fcIndex = (fcIndex-1+flashcards.length) % flashcards.length; renderFC(); }
-
-// ══════════════════════════════════════
-//  BUILD TRUE / FALSE
-// ══════════════════════════════════════
-let tfScore = 0, tfTotal = 0;
-function buildTF() {
-  const wrap = document.getElementById('tfWrap');
-  tfData.forEach((item, i) => {
-    const card = document.createElement('div'); card.className = 'tf-card';
-    card.innerHTML = `<div><div class="tf-text">${item.statement}</div><div class="tf-explanation" id="tfExp-${i}">${item.explanation}</div></div>
-    <div class="tf-btns"><button class="tf-btn" data-i="${i}" data-val="true">TRUE</button><button class="tf-btn" data-i="${i}" data-val="false">FALSE</button></div>`;
-    wrap.appendChild(card);
-  });
-  wrap.addEventListener('click', e => {
-    const btn = e.target.closest('.tf-btn'); if (!btn) return;
-    const i = +btn.dataset.i; const card = btn.closest('.tf-card');
-    if (card.dataset.answered) return;
-    card.dataset.answered = 1;
-    const val = btn.dataset.val === 'true'; const correct = val === tfData[i].answer; tfTotal++;
-    card.querySelectorAll('.tf-btn').forEach(b => b.disabled = true);
-    if (correct) { btn.classList.add('correct'); tfScore++; }
-    else { btn.classList.add('wrong'); card.querySelectorAll('.tf-btn').forEach(b => { if (b.dataset.val === String(tfData[i].answer)) b.classList.add('correct'); }); }
-    document.getElementById(`tfExp-${i}`).classList.add('show');
-    document.getElementById('tfScore').textContent = tfScore;
-    document.getElementById('tfTotal').textContent = tfTotal;
-  });
-}
-function resetTF() {
-  tfScore = 0; tfTotal = 0;
-  document.getElementById('tfScore').textContent = 0;
-  document.getElementById('tfTotal').textContent = 0;
-  document.getElementById('tfWrap').innerHTML = '';
-  buildTF();
-}
-
-// ══════════════════════════════════════
-//  BUILD EXAM PRACTICE
-// ══════════════════════════════════════
-function buildExamPractice() {
-  const list = document.getElementById('epList');
-  examQuestions.forEach((q, qi) => {
-    const card = document.createElement('div');
-    card.className = 'ep-card';
-    const caseHtml = q.caseStudy ? `<div class="ep-case">${q.caseStudy.replace(/\n/g,'<br>')}</div>` : '';
-    let interactiveHtml = '';
-    if (q.type === 'mcq') {
-      interactiveHtml = `<div class="ep-mcq-opts">${q.options.map((o,oi) =>
-        `<button class="ep-opt" data-qi="${qi}" data-oi="${oi}"><strong>${String.fromCharCode(65+oi)}.</strong> ${o}</button>`
-      ).join('')}</div>`;
-    } else {
-      interactiveHtml = `<textarea class="ep-answer-area" id="epTextarea-${qi}" placeholder="Write your answer here..."></textarea>`;
-    }
-    card.innerHTML = `
-      <div class="ep-header">
-        <div>
-          <div class="ep-num">${q.num}</div>
-          <div class="ep-title">${q.marks} mark${q.marks > 1 ? 's' : ''}</div>
-        </div>
-        <div class="ep-marks">[${q.marks} mark${q.marks > 1 ? 's' : ''}]</div>
-      </div>
-      <div class="ep-body">
-        ${caseHtml}
-        <div class="ep-question">${q.question.replace(/\n/g,'<br>')}</div>
-        ${interactiveHtml}
-        <div class="ep-btn-row">
-          <button class="ep-btn hint-btn" onclick="togglePop(${qi},'hint')">💡 Hint</button>
-          <button class="ep-btn starter-btn" onclick="togglePop(${qi},'starter')">✍️ Sentence Starter</button>
-          ${q.type !== 'mcq' ? `<button class="ep-btn submit-btn" onclick="togglePop(${qi},'marks')">📋 Submit &amp; See Mark Scheme</button>` : ''}
-        </div>
-        <div class="ep-popup hint-pop" id="epHint-${qi}"><strong>💡 Hint:</strong> ${q.hint}</div>
-        <div class="ep-popup starter-pop" id="epStarter-${qi}"><strong>✍️ Sentence Starter:</strong><br>${q.starter.replace(/\n/g,'<br>')}</div>
-        <div class="ep-popup marks-pop" id="epMarks-${qi}">
-          ${q.markScheme}
-          ${q.modelAnswer ? `<div class="marks-section"><h5>✓ Model Answer</h5><div class="model-answer">${q.modelAnswer}</div></div>` : ''}
-        </div>
-      </div>`;
-    list.appendChild(card);
-  });
-  document.getElementById('epList').addEventListener('click', e => {
-    const btn = e.target.closest('.ep-opt');
-    if (!btn) return;
-    const qi = +btn.dataset.qi, oi = +btn.dataset.oi;
-    const card = btn.closest('.ep-card');
-    if (card.dataset.epAnswered) return;
-    card.dataset.epAnswered = 1;
-    const allOpts = card.querySelectorAll('.ep-opt');
-    allOpts.forEach(b => b.disabled = true);
-    if (oi === examQuestions[qi].answer) {
-      btn.classList.add('ep-correct');
-    } else {
-      btn.classList.add('ep-wrong');
-      allOpts[examQuestions[qi].answer].classList.add('ep-correct');
-    }
-    document.getElementById(`epMarks-${qi}`).classList.add('show');
-  });
-}
-function togglePop(qi, type) {
-  const hint = document.getElementById(`epHint-${qi}`);
-  const starter = document.getElementById(`epStarter-${qi}`);
-  const marks = document.getElementById(`epMarks-${qi}`);
-  if (type === 'hint') { hint.classList.toggle('show'); starter.classList.remove('show'); }
-  else if (type === 'starter') { starter.classList.toggle('show'); hint.classList.remove('show'); }
-  else if (type === 'marks') { marks.classList.toggle('show'); }
-}
-
-// ══════════════════════════════════════
-//  INIT
-// ══════════════════════════════════════
-buildLearn(); buildMCQ(); buildMatch(); buildFIB(); buildMisc(); buildTips(); renderFC(); buildTF(); buildExamPractice();
+  ];
 </script>
+<script src="script.js"></script>
 </body>
 </html>

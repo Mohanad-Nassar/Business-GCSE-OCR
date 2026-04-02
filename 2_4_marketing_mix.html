@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.4 The Marketing Mix – Business Studies</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0f1923;
+            --paper: #f5f0e8;
+            --cream: #ede7d9;
+            --accent: #c84b31;
+            --gold: #d4a843;
+            --teal: #1a6b6b;
+            --mid: #5a6e7f;
+            --border: #c9bfaa;
+            --card-bg: #fffcf6;
+
+            /* Subtopic accent colours */
+            --s1: #4a6fa5;
+            --s2: #c84b31;
+            --s3: #1a6b6b;
+            --s4: #7a5c9e;
+            --s5: #c47d2a;
+            --s6: #2d7a4f;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            min-height: 100vh;
+        }
+
+        /* ── BACK BREADCRUMB ── */
+        .breadcrumb-bar {
+            background: var(--ink);
+            padding: 0 48px;
+        }
+
+        .breadcrumb-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            height: 44px;
+        }
+
+        .breadcrumb-bar a {
+            color: #888;
+            text-decoration: none;
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color .2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .breadcrumb-bar a:hover {
+            color: var(--gold);
+        }
+
+        .breadcrumb-sep {
+            color: #444;
+            font-size: 12px;
+        }
+
+        .breadcrumb-current {
+            color: var(--paper);
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            background: var(--ink);
+            color: var(--paper);
+            padding: 44px 48px 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: .12;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: 30%;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: var(--gold);
+            opacity: .08;
+        }
+
+        /* decorative big number */
+        .hero-bg-num {
+            position: absolute;
+            right: 48px;
+            bottom: -20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 220px;
+            font-weight: 900;
+            color: var(--paper);
+            opacity: .03;
+            line-height: 1;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            background: var(--accent);
+            color: #fff;
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            padding: 4px 10px;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
+
+        .badge.gold {
+            background: var(--gold);
+            color: var(--ink);
+        }
+
+        .badge.outline {
+            background: transparent;
+            color: #888;
+            border: 1px solid #333;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 4.5vw, 52px);
+            line-height: 1.06;
+            margin-bottom: 16px;
+            max-width: 680px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 15px;
+            color: #aaa;
+            max-width: 560px;
+            line-height: 1.75;
+            margin-bottom: 32px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            border-left: 3px solid var(--gold);
+            padding-left: 14px;
+        }
+
+        .stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            line-height: 1;
+            color: var(--paper);
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #888;
+            margin-top: 3px;
+            letter-spacing: .5px;
+        }
+
+        /* ── 4 Ps PILL ROW ── */
+        .ps-strip {
+            background: var(--cream);
+            border-bottom: 1.5px solid var(--border);
+        }
+
+        .ps-strip-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 18px 48px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .ps-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--mid);
+            margin-right: 8px;
+        }
+
+        .ps-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--card-bg);
+            border: 1.5px solid var(--border);
+            border-radius: 24px;
+            padding: 7px 16px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--ink);
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        .ps-pill:hover {
+            border-color: var(--gold);
+            box-shadow: 0 2px 12px rgba(212, 168, 67, .15);
+        }
+
+        .ps-pill .ps-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        /* ── MAIN CONTENT ── */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 44px 48px 90px;
+        }
+
+        /* ── SECTION HEADER ── */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .section-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: var(--ink);
+        }
+
+        .section-sub {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--mid);
+            margin-left: auto;
+        }
+
+        /* ── SUBTOPIC GRID ── */
+        .subtopic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 18px;
+            margin-bottom: 52px;
+        }
+
+        /* ── SUBTOPIC CARD ── */
+        .subtopic-card {
+            background: var(--card-bg);
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            padding: 24px 24px 20px;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow .24s, transform .24s, border-color .24s;
+        }
+
+        .subtopic-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            border-radius: 5px 0 0 5px;
+            background: var(--card-accent, var(--accent));
+            transition: width .24s;
+        }
+
+        .subtopic-card:hover {
+            box-shadow: 0 10px 32px rgba(0, 0, 0, .12);
+            transform: translateY(-4px);
+            border-color: #b5ab9a;
+        }
+
+        .subtopic-card:hover::before {
+            width: 7px;
+        }
+
+        /* card top row */
+        .card-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .card-num-badge {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            color: var(--mid);
+            background: var(--cream);
+            border: 1px solid var(--border);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .card-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+            background: color-mix(in srgb, var(--card-accent, var(--accent)) 12%, transparent);
+        }
+
+        /* big decorative number behind */
+        .card-bg-num {
+            position: absolute;
+            right: 18px;
+            bottom: 8px;
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 900;
+            opacity: .045;
+            line-height: 1;
+            color: var(--ink);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .subtopic-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            line-height: 1.35;
+            color: var(--ink);
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtopic-card p {
+            font-size: 13px;
+            color: var(--mid);
+            line-height: 1.65;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 18px;
+        }
+
+        /* tag row */
+        .card-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 16px;
+        }
+
+        .tag {
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            background: var(--cream);
+            border: 1px solid var(--border);
+            padding: 3px 7px;
+            border-radius: 3px;
+            color: var(--mid);
+        }
+
+        .tag.exam {
+            background: color-mix(in srgb, var(--gold) 15%, transparent);
+            border-color: color-mix(in srgb, var(--gold) 40%, transparent);
+            color: #8a6210;
+        }
+
+        /* footer row */
+        .card-footer {
+            display: flex;
+            align-items: center;
+            border-top: 1px solid var(--border);
+            padding-top: 14px;
+            margin-top: auto;
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            color: #b0a090;
+            gap: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-footer .arrow {
+            margin-left: auto;
+            font-size: 15px;
+            color: var(--mid);
+            transition: transform .22s, color .22s;
+        }
+
+        .subtopic-card:hover .arrow {
+            transform: translateX(5px);
+            color: var(--card-accent, var(--accent));
+        }
+
+        /* ── EXAM FOCUS BOX ── */
+        .exam-focus {
+            background: color-mix(in srgb, var(--gold) 8%, var(--card-bg));
+            border: 1.5px solid color-mix(in srgb, var(--gold) 35%, var(--border));
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 52px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .exam-focus-icon {
+            font-size: 26px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .exam-focus-body {}
+
+        .exam-focus-title {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #8a6210;
+            margin-bottom: 6px;
+        }
+
+        .exam-focus-text {
+            font-size: 13px;
+            line-height: 1.7;
+            color: var(--ink);
+        }
+
+        .exam-focus-text strong {
+            color: #7a5410;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 700px) {
+            .hero {
+                padding: 32px 20px 36px;
+            }
+
+            .breadcrumb-bar {
+                padding: 0 20px;
+            }
+
+            .ps-strip-inner {
+                padding: 14px 20px;
+            }
+
+            .content {
+                padding: 28px 20px 60px;
+            }
+
+            .subtopic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .hero-bg-num {
+                display: none;
+            }
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-inner {
+            animation: fadeUp .4s ease both;
+        }
+
+        .ps-strip {
+            animation: fadeUp .4s ease .1s both;
+        }
+
+        .subtopic-card {
+            animation: fadeUp .4s ease both;
+        }
+
+        .subtopic-card:nth-child(1) {
+            animation-delay: .10s;
+        }
+
+        .subtopic-card:nth-child(2) {
+            animation-delay: .17s;
+        }
+
+        .subtopic-card:nth-child(3) {
+            animation-delay: .24s;
+        }
+
+        .subtopic-card:nth-child(4) {
+            animation-delay: .31s;
+        }
+
+        .subtopic-card:nth-child(5) {
+            animation-delay: .38s;
+        }
+
+        .subtopic-card:nth-child(6) {
+            animation-delay: .45s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb-bar">
+        <div class="breadcrumb-inner">
+            <a href="index.html">
+                <span>←</span>
+                <span>Study Hub</span>
+            </a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="index.html#sec2">Marketing</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">2.4 The Marketing Mix</span>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-bg-num">2.4</div>
+        <div class="hero-inner">
+            <div class="hero-eyebrow">
+                <span class="badge">2.4</span>
+                <span class="badge gold">Marketing</span>
+                <span class="badge outline">Component One</span>
+            </div>
+            <h1>The <span>Marketing</span> Mix</h1>
+            <p>Master the 4 Ps — Product, Price, Place and Promotion — and learn how businesses use them together to
+                reach customers and beat the competition. Six focused subtopics, built for exam success.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-num">6</div>
+                    <div class="stat-label">Subtopics</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">4</div>
+                    <div class="stat-label">The 4 Ps</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">★</div>
+                    <div class="stat-label">High Exam Weight</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 4 Ps STRIP -->
+    <div class="ps-strip">
+        <div class="ps-strip-inner">
+            <span class="ps-label">The 4 Ps</span>
+            <div class="ps-pill">
+                <span class="ps-icon" style="background:color-mix(in srgb,var(--s2) 15%,transparent)">📦</span>
+                Product
+            </div>
+            <div class="ps-pill">
+                <span class="ps-icon" style="background:color-mix(in srgb,var(--s5) 15%,transparent)">💷</span>
+                Price
+            </div>
+            <div class="ps-pill">
+                <span class="ps-icon" style="background:color-mix(in srgb,var(--s4) 15%,transparent)">📣</span>
+                Promotion
+            </div>
+            <div class="ps-pill">
+                <span class="ps-icon" style="background:color-mix(in srgb,var(--s3) 15%,transparent)">🗺️</span>
+                Place
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+        <!-- Section header -->
+        <div class="section-header">
+            <span class="section-dot"></span>
+            <span class="section-title">Choose a Subtopic</span>
+            <span class="section-sub">6 subtopics · select to begin</span>
+        </div>
+
+        <!-- SUBTOPIC GRID -->
+        <div class="subtopic-grid">
+
+            <!-- 2.4.1 -->
+            <a class="subtopic-card" href="2_4_1_introduction_marking_mix.html" style="--card-accent:var(--s1)">
+                <div class="card-top">
+                    <span class="card-num-badge">2.4.1</span>
+                    <div class="card-icon" style="--card-accent:var(--s1)">🧭</div>
+                </div>
+                <div class="card-bg-num">1</div>
+                <h3>Introduction to the Marketing Mix</h3>
+                <p>Define the 4 Ps and understand the difference between product-orientated and market-orientated
+                    businesses. Start with the big picture.</p>
+                <div class="card-tags">
+                    <span class="tag">4 Ps</span>
+                    <span class="tag">Orientation</span>
+                    <span class="tag exam">⚑ Exam Starter</span>
+                </div>
+                <div class="card-footer">
+                    <span>Marketing Mix</span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+            <!-- 2.4.2 -->
+            <a class="subtopic-card" href="2_4_2_Product_and_The_Product_Life_Cycle.html" style="--card-accent:var(--s2)">
+                <div class="card-top">
+                    <span class="card-num-badge">2.4.2</span>
+                    <div class="card-icon" style="--card-accent:var(--s2)">📦</div>
+                </div>
+                <div class="card-bg-num">2</div>
+                <h3>Product &amp; The Product Life Cycle</h3>
+                <p>Explore design, invention and innovation. Learn the four PLC stages and extension strategies — and
+                    practise reading PLC graphs for the exam.</p>
+                <div class="card-tags">
+                    <span class="tag">PLC</span>
+                    <span class="tag">Innovation</span>
+                    <span class="tag exam">⚑ Graph Questions</span>
+                </div>
+                <div class="card-footer">
+                    <span>Product</span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+            <!-- 2.4.3 -->
+            <a class="subtopic-card" href="2_4_3_pricing_methods.html" style="--card-accent:var(--s5)">
+                <div class="card-top">
+                    <span class="card-num-badge">2.4.3</span>
+                    <div class="card-icon" style="--card-accent:var(--s5)">💷</div>
+                </div>
+                <div class="card-bg-num">3</div>
+                <h3>Pricing Methods</h3>
+                <p>Master all five strategies: Competitor, Cost-plus, Penetration, Skimming, and Promotional pricing —
+                    and bust the most common exam misconceptions.</p>
+                <div class="card-tags">
+                    <span class="tag">Skimming</span>
+                    <span class="tag">Penetration</span>
+                    <span class="tag exam">⚑ Common Misconceptions</span>
+                </div>
+                <div class="card-footer">
+                    <span>Price</span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+            <!-- 2.4.4 -->
+            <a class="subtopic-card" href="2_4_4_promotion.html" style="--card-accent:var(--s4)">
+                <div class="card-top">
+                    <span class="card-num-badge">2.4.4</span>
+                    <div class="card-icon" style="--card-accent:var(--s4)">📣</div>
+                </div>
+                <div class="card-bg-num">4</div>
+                <h3>Promotion</h3>
+                <p>Compare Point of Sale tactics with advertising media — TV, social media, digital, print and radio.
+                    Learn to evaluate and recommend methods for a given context.</p>
+                <div class="card-tags">
+                    <span class="tag">Social Media</span>
+                    <span class="tag">Point of Sale</span>
+                    <span class="tag exam">⚑ Evaluate &amp; Recommend</span>
+                </div>
+                <div class="card-footer">
+                    <span>Promotion</span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+            <!-- 2.4.5 -->
+            <a class="subtopic-card" href="2_4_5_place_distribution.html" style="--card-accent:var(--s3)">
+                <div class="card-top">
+                    <span class="card-num-badge">2.4.5</span>
+                    <div class="card-icon" style="--card-accent:var(--s3)">🗺️</div>
+                </div>
+                <div class="card-bg-num">5</div>
+                <h3>Place &amp; Distribution Channels</h3>
+                <p>Map physical vs digital distribution. Understand the three channels — direct, retailer, and
+                    wholesaler — and the growing role of e-commerce.</p>
+                <div class="card-tags">
+                    <span class="tag">E-commerce</span>
+                    <span class="tag">Wholesaler</span>
+                    <span class="tag exam">⚑ Channel Sequences</span>
+                </div>
+                <div class="card-footer">
+                    <span>Place</span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+            <!-- 2.4.6 -->
+            <a class="subtopic-card" href="2_4_6_market_data_integrated_mix.html" style="--card-accent:var(--s6)">
+                <div class="card-top">
+                    <span class="card-num-badge">2.4.6</span>
+                    <div class="card-icon" style="--card-accent:var(--s6)">📊</div>
+                </div>
+                <div class="card-bg-num">6</div>
+                <h3>Interpreting Market Data &amp; The Integrated Mix</h3>
+                <p>Calculate market share, read pie charts and percentage changes, then see how all 4 Ps work together
+                    to drive business decisions.</p>
+                <div class="card-tags">
+                    <span class="tag">Market Share</span>
+                    <span class="tag">Data Skills</span>
+                    <span class="tag exam">⚑ 9-Mark Questions</span>
+                </div>
+                <div class="card-footer">
+                    <span>Data &amp; Integration</span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+        </div><!-- /subtopic-grid -->
+
+        <!-- EXAM FOCUS CALLOUT -->
+        <div class="exam-focus">
+            <div class="exam-focus-icon">✏️</div>
+            <div class="exam-focus-body">
+                <div class="exam-focus-title">Examiner's Note — What to Watch Out For</div>
+                <div class="exam-focus-text">
+                    The Marketing Mix is one of the most heavily tested areas in the paper. Students most often lose
+                    marks by
+                    <strong>confusing price skimming with penetration pricing</strong> (skimming starts <em>high</em>,
+                    penetration starts <em>low</em>),
+                    and by failing to use data actively in extended answers — <strong>always calculate a percentage
+                        change</strong> rather than
+                    just quoting figures from the source. High-tariff questions (like the 9-mark Walkers question)
+                    reward students who
+                    link all 4 Ps together rather than treating them in isolation.
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Keyboard shortcut: press Escape to return to the hub
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') window.location.href = 'index.html';
+        });
+
+        // Add subtle active-press effect on cards
+        document.querySelectorAll('.subtopic-card').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'translateY(-1px) scale(0.99)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = '';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+    </script>
+</body>
+
+</html>

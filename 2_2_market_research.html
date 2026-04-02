@@ -32,131 +32,193 @@
 
 <main>
 
-<div class="tab-panel active" id="tab-learn">
-  <h2 class="section-title">Key Learning Topics</h2>
-  <p class="section-sub">Click any card to expand detailed notes.</p>
-  <div class="topic-grid" id="topicGrid"></div>
-</div>
-
-<div class="tab-panel" id="tab-mcq">
-  <h2 class="section-title">Multiple Choice Questions</h2>
-  <p class="section-sub">Select an answer to reveal instant feedback.</p>
-  <div class="score-bar">
-    <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
-    <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
-    <button class="reset-btn" onclick="resetMCQ()">RESET</button>
-  </div>
-  <div class="quiz-wrap" id="mcqWrap"></div>
-</div>
-
-<div class="tab-panel" id="tab-matching">
-  <h2 class="section-title">Matching Activity</h2>
-  <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
-  <div style="margin-bottom:16px;">
-    <div class="score-bar">
-      <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
-      <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
-      <button class="reset-btn" onclick="resetMatch()">RESET</button>
+    <div class="tab-panel active" id="tab-learn">
+      <h2 class="section-title">Key Learning Topics</h2>
+      <p class="section-sub">Click any card to expand detailed notes.</p>
+      <div class="topic-grid" id="topicGrid"></div>
     </div>
-    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
-      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span> First attempt correct</span>
-      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span> Correct after mistake</span>
-      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span> Wrong — try again</span>
+
+    <div class="tab-panel" id="tab-mcq">
+      <h2 class="section-title">Multiple Choice Questions</h2>
+      <p class="section-sub">Select an answer to reveal instant feedback.</p>
+      <div class="score-bar">
+        <div>
+          <div class="score-num" id="mcqScore">0</div>
+          <div style="font-size:12px;color:var(--mid)">correct answers</div>
+        </div>
+        <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+        <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+      </div>
+      <div class="quiz-wrap" id="mcqWrap"></div>
     </div>
-  </div>
-  <div class="match-grid">
-    <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
-    <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
-  </div>
-</div>
 
-<div class="tab-panel" id="tab-fib">
-  <h2 class="section-title">Fill in the Blanks</h2>
-  <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
-  <div class="score-bar">
-    <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
-    <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
-    <button class="reset-btn" onclick="resetFIB()">RESET</button>
-  </div>
-  <div class="fib-wrap" id="fibWrap"></div>
-</div>
-
-<div class="tab-panel" id="tab-misconceptions">
-  <h2 class="section-title">Common Misconceptions</h2>
-  <p class="section-sub">What students often think — and what examiners actually want.</p>
-  <div class="misc-list" id="miscList"></div>
-</div>
-
-<div class="tab-panel" id="tab-examtips">
-  <h2 class="section-title">Exam Questions &amp; Tips</h2>
-  <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
-  <div class="tips-grid" id="tipsGrid"></div>
-</div>
-
-<div class="tab-panel" id="tab-flashcards">
-  <h2 class="section-title">Flashcards</h2>
-  <p class="section-sub">Click the card to reveal the definition. Use the arrows to navigate.</p>
-  <div class="fc-container">
-    <div class="fc-progress" id="fcProgress">Card 1 of 18</div>
-    <div class="flashcard" id="flashcard" onclick="flipCard()">
-      <div class="fc-inner">
-        <div class="fc-front"><div class="fc-label">KEY TERM</div><div class="fc-term" id="fcTerm"></div></div>
-        <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
+    <div class="tab-panel" id="tab-matching">
+      <h2 class="section-title">Matching Activity</h2>
+      <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+      <div style="margin-bottom:16px;">
+        <div class="score-bar">
+          <div>
+            <div class="score-num" id="matchScore">0</div>
+            <div style="font-size:12px;color:var(--mid)">matched</div>
+          </div>
+          <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+          <button class="reset-btn" onclick="resetMatch()">RESET</button>
+        </div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
+          <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+              style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span>
+            First attempt correct</span>
+          <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+              style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span>
+            Correct after mistake</span>
+          <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+              style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span>
+            Wrong — try again</span>
+        </div>
+      </div>
+      <div class="match-grid">
+        <div>
+          <div class="match-label">TERMS</div>
+          <div class="match-col" id="matchLeft"></div>
+        </div>
+        <div>
+          <div class="match-label">DEFINITIONS</div>
+          <div class="match-col" id="matchRight"></div>
+        </div>
       </div>
     </div>
-    <p class="fc-hint">👆 Click card to flip</p>
-    <div class="fc-nav">
-      <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
-      <button class="fc-btn outline" onclick="flipCard()">Flip</button>
-      <button class="fc-btn" onclick="nextCard()">Next →</button>
+
+    <div class="tab-panel" id="tab-fib">
+      <h2 class="section-title">Fill in the Blanks</h2>
+      <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
+      <div class="score-bar">
+        <div>
+          <div class="score-num" id="fibScore">0</div>
+          <div style="font-size:12px;color:var(--mid)">correct</div>
+        </div>
+        <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+        <button class="reset-btn" onclick="resetFIB()">RESET</button>
+      </div>
+      <div class="fib-wrap" id="fibWrap"></div>
     </div>
-  </div>
-</div>
 
-<div class="tab-panel" id="tab-truefalse">
-  <h2 class="section-title">True or False?</h2>
-  <p class="section-sub">Test your knowledge with these statements.</p>
-  <div class="score-bar">
-    <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
-    <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
-    <button class="reset-btn" onclick="resetTF()">RESET</button>
-  </div>
-  <div class="tf-wrap" id="tfWrap"></div>
-</div>
+    <div class="tab-panel" id="tab-misconceptions">
+      <h2 class="section-title">Common Misconceptions</h2>
+      <p class="section-sub">What students often think — and what examiners actually want.</p>
+      <div class="misc-list" id="miscList"></div>
+    </div>
 
-<div class="tab-panel" id="tab-exampractice">
-  <h2 class="section-title">Exam Practice Questions</h2>
-  <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
-  <div class="ep-list" id="epList"></div>
-</div>
+    <div class="tab-panel" id="tab-examtips">
+      <h2 class="section-title">Exam Questions &amp; Tips</h2>
+      <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
+      <div class="tips-grid" id="tipsGrid"></div>
+    </div>
 
-</main>
+    <div class="tab-panel" id="tab-flashcards">
+      <h2 class="section-title">Flashcards</h2>
+      <p class="section-sub">Test yourself! Flip the card and rate your knowledge. Review your weak areas at the end.
+      </p>
+
+      <div class="fc-container">
+        <div class="score-bar" id="fcScoreBar" style="display:none; margin-bottom: 20px;">
+          <div>
+            <div class="score-num" id="fcKnown" style="color:#2d7a4f;">0</div>
+            <div style="font-size:12px;color:var(--mid)">known</div>
+          </div>
+          <div>
+            <div class="score-num" id="fcUnknown" style="color:#c84b31;">0</div>
+            <div style="font-size:12px;color:var(--mid)">learning</div>
+          </div>
+          <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
+          <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+        </div>
+
+        <div id="fcActiveArea">
+          <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+          <div class="flashcard" id="flashcard" onclick="flipCard()">
+            <div class="fc-inner">
+              <div class="fc-front">
+                <div class="fc-label">KEY TERM</div>
+                <div class="fc-term" id="fcTerm"></div>
+              </div>
+              <div class="fc-back">
+                <div class="fc-def" id="fcDef"></div>
+              </div>
+            </div>
+          </div>
+          <p class="fc-hint">👆 Click card to flip</p>
+
+          <div class="fc-nav" id="fcNavDefault">
+            <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+            <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+            <button class="fc-btn" onclick="nextCard()">Next →</button>
+          </div>
+
+          <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px;">
+            <button class="fc-btn outline" style="border-color:#c84b31; color:#c84b31; flex:1;"
+              onclick="markCard(false)">❌
+              Still Learning</button>
+            <button class="fc-btn" style="background:#2d7a4f; border-color:#2d7a4f; flex:1;" onclick="markCard(true)">✅
+              Got
+              It</button>
+          </div>
+        </div>
+
+        <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px;">
+          <h3>Session Complete! 🎉</h3>
+          <p style="margin: 15px 0;">You knew <strong id="fcSummaryKnown">0</strong> out of <strong
+              id="fcSummaryTotal">0</strong> cards.</p>
+          <div style="margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+              style="background:#c84b31; border-color:#c84b31;">Review Incorrect</button>
+            <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-truefalse">
+      <h2 class="section-title">True or False?</h2>
+      <p class="section-sub">Test your knowledge with these statements.</p>
+      <div class="score-bar">
+        <div>
+          <div class="score-num" id="tfScore">0</div>
+          <div style="font-size:12px;color:var(--mid)">correct</div>
+        </div>
+        <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+        <button class="reset-btn" onclick="resetTF()">RESET</button>
+      </div>
+      <div class="tf-wrap" id="tfWrap"></div>
+    </div>
+
+    <div class="tab-panel" id="tab-exampractice">
+      <h2 class="section-title">Exam Practice Questions</h2>
+      <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence
+          Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
+      <div class="ep-list" id="epList"></div>
+    </div>
+
+  </main>
+
 
 <script>
-function switchTab(id, btn) {
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
-  btn.classList.add('active');
-}
+  // ══════════════════════════════════════
+    //  DATA
+    // ══════════════════════════════════════
 
-// ══════════════════════════════════════
-//  DATA
-// ══════════════════════════════════════
-
-const topicData = [
-  {
-    title: "What is Market Research?",
-    tag: "Core Definition",
-    content: `<p><strong>Market research</strong> is the collection of data on customer habits to help decision-making in marketing.</p>
+    const topics = [
+      {
+        title: "What is Market Research?",
+        tag: "Core Definition",
+        content: `<p><strong>Market research</strong> is the collection of data on customer habits to help decision-making in marketing.</p>
 <p>Before a business starts, it is important that the owners check exactly who their customers are likely to be. Are they old or young, male or female, rich or poor? There is little point in starting a business and then wondering why you are not selling anything!</p>
 <p>This analysis of the market will normally be part of the <strong>business plan</strong> and it is an important part in setting up a successful business. Who a business aims its product or service at is called the <strong>target market</strong>. Understanding your target market is important because it can help a business <strong>segment</strong> its market — which means aiming different products at different groups of people.</p>
 <p><strong>Case study — Sarah's Gourmet Dishes:</strong> Sarah Jones thought she had a good idea for a business in selling organic gourmet food online. She did not undertake any market research. She did not really know what competition she had in the gourmet online food market. She only had a general idea about the price she should be charging. There was no clear view on exactly who her customers were likely to be. Deliveries were disorganised. After a disastrous first six months Sarah had lost much of her savings in the business. Sarah would have benefited from undertaking market research before she started her business.</p>`
-  },
-  {
-    title: "Why is Market Research Important?",
-    tag: "Purpose",
-    content: `<p>Market research will help a business be clear on whether there is <strong>demand</strong> for their product or service. Put quite simply: will customers buy the product or not? There is clearly no use making a product or providing a service if no one wants it!</p>
+      },
+      {
+        title: "Why is Market Research Important?",
+        tag: "Purpose",
+        content: `<p>Market research will help a business be clear on whether there is <strong>demand</strong> for their product or service. Put quite simply: will customers buy the product or not? There is clearly no use making a product or providing a service if no one wants it!</p>
 <ul>
 <li><strong>Avoids unnecessary investment:</strong> If a business is considering investing lots of money into a project, it is in its own interests to make sure that there is demand — otherwise that investment will be wasted.</li>
 <li><strong>Identifies the target market:</strong> Understanding who customers are (age, gender, income, location) helps focus product development and marketing.</li>
@@ -165,11 +227,11 @@ const topicData = [
 <li><strong>Helps with market segmentation:</strong> Different products can be aimed at different groups — e.g. watches come in many styles aimed at different types of customer.</li>
 </ul>
 <p><strong>Important evaluation point:</strong> Not all businesses use all types of market research. Smaller businesses may use very little, if any. Some owners rely on their own judgement. The question is always: does the business have the money and time to complete expensive research?</p>`
-  },
-  {
-    title: "Primary Research — Questionnaires",
-    tag: "Primary Research",
-    content: `<p><strong>Primary research</strong> (also called 'field research') involves collecting information that is new — gathered first-hand specifically for this business and its needs.</p>
+      },
+      {
+        title: "Primary Research — Questionnaires",
+        tag: "Primary Research",
+        content: `<p><strong>Primary research</strong> (also called 'field research') involves collecting information that is new — gathered first-hand specifically for this business and its needs.</p>
 <p>A <strong>questionnaire</strong> is a question sheet filled in by the consumer. Questionnaires may be sent in the post, put in with guarantee forms for products, or used online to collect information from consumers.</p>
 <div class="two-col" style="margin-top:8px;">
 <div>
@@ -184,11 +246,11 @@ const topicData = [
 </div>
 </div>
 <p style="margin-top:8px;"><strong>Tip:</strong> To increase response rates, businesses sometimes offer an entry into a free prize draw to encourage consumers to complete and return the questionnaire.</p>`
-  },
-  {
-    title: "Primary Research — Interviews",
-    tag: "Primary Research",
-    content: `<p>In an <strong>interview</strong>, customers are asked questions and the person asking (the interviewer) fills in the answers. Group interviews are sometimes used where a group of customers are asked the same questions at the same time. Interviews can also take place over the telephone.</p>
+      },
+      {
+        title: "Primary Research — Interviews",
+        tag: "Primary Research",
+        content: `<p>In an <strong>interview</strong>, customers are asked questions and the person asking (the interviewer) fills in the answers. Group interviews are sometimes used where a group of customers are asked the same questions at the same time. Interviews can also take place over the telephone.</p>
 <div class="two-col" style="margin-top:8px;">
 <div>
 <div class="col-head">Advantages</div>
@@ -201,11 +263,11 @@ const topicData = [
 <div class="con-item">Customers may feel uncomfortable being interviewed — whether stopped in the street or on the phone</div>
 </div>
 </div>`
-  },
-  {
-    title: "Primary Research — Trials",
-    tag: "Primary Research",
-    content: `<p>In a <strong>trial</strong>, the product or service is sold for a short time as a test to see whether or not consumers like the product. For a large business, which might normally sell products across the UK, a trial may be set up in a much smaller area. A smaller business might simply add a new product to sell for a short period of time without buying in large quantities.</p>
+      },
+      {
+        title: "Primary Research — Trials",
+        tag: "Primary Research",
+        content: `<p>In a <strong>trial</strong>, the product or service is sold for a short time as a test to see whether or not consumers like the product. For a large business, which might normally sell products across the UK, a trial may be set up in a much smaller area. A smaller business might simply add a new product to sell for a short period of time without buying in large quantities.</p>
 <div class="two-col" style="margin-top:8px;">
 <div>
 <div class="col-head">Advantages</div>
@@ -219,11 +281,11 @@ const topicData = [
 </div>
 </div>
 <p style="margin-top:8px;"><strong>Important exam note:</strong> Trialling is about measuring whether people will BUY a product (sales figures). It is NOT about getting qualitative feedback on how to improve the product. Do not confuse trialling with giving out free samples to gain opinions.</p>`
-  },
-  {
-    title: "Primary Research — Focus Groups",
-    tag: "Primary Research",
-    content: `<p><strong>Focus groups</strong> are small groups of people (around ten) who are carefully selected to represent the target market for a product or service. They are given information and then asked questions. The answers they give can then be analysed to provide valuable data.</p>
+      },
+      {
+        title: "Primary Research — Focus Groups",
+        tag: "Primary Research",
+        content: `<p><strong>Focus groups</strong> are small groups of people (around ten) who are carefully selected to represent the target market for a product or service. They are given information and then asked questions. The answers they give can then be analysed to provide valuable data.</p>
 <p><strong>Example:</strong> An advertising agency might show a focus group different posters that they are considering using to advertise a new product. The feedback from the focus group will then help to choose the most effective poster to use.</p>
 <div class="two-col" style="margin-top:8px;">
 <div>
@@ -236,11 +298,11 @@ const topicData = [
 <div class="con-item">The selection of people to take part is time-consuming and so costly</div>
 </div>
 </div>`
-  },
-  {
-    title: "Secondary Research — What It Is and Sources",
-    tag: "Secondary Research",
-    content: `<p><strong>Secondary research</strong> (also called 'desk research') is research that another organisation has already completed. A business uses information already gathered by someone else.</p>
+      },
+      {
+        title: "Secondary Research — What It Is and Sources",
+        tag: "Secondary Research",
+        content: `<p><strong>Secondary research</strong> (also called 'desk research') is research that another organisation has already completed. A business uses information already gathered by someone else.</p>
 <p><strong>Sources of secondary research:</strong></p>
 <ul>
 <li><strong>Census data:</strong> Every person living in Britain is questioned on how they live and what their income is. Collected every ten years. Very useful for finding out how many people of a certain age or income live in a particular area. Available at www.statistics.gov.uk.</li>
@@ -248,11 +310,11 @@ const topicData = [
 <li><strong>Internal data:</strong> Many businesses have their own secondary data — past sales figures, profits from departments, and comments from customers. Usually kept on computers and used when making decisions for the future.</li>
 <li><strong>Newspapers and magazines:</strong> Full of information useful to businesses — on other businesses, trends in fashion and interests that could be used to develop new products and services. As much of this is now online, searching is easier.</li>
 </ul>`
-  },
-  {
-    title: "Advantages and Disadvantages of Secondary Research",
-    tag: "Secondary Research",
-    content: `<div class="two-col" style="margin-top:8px;">
+      },
+      {
+        title: "Advantages and Disadvantages of Secondary Research",
+        tag: "Secondary Research",
+        content: `<div class="two-col" style="margin-top:8px;">
 <div>
 <div class="col-head">Advantages</div>
 <div class="pro-item">As research has already been completed by another organisation, it is usually much <strong>cheaper</strong> to collect than primary research</div>
@@ -266,11 +328,11 @@ const topicData = [
 </div>
 </div>
 <p style="margin-top:8px;"><strong>Internal data</strong> is a special type of secondary data — it comes from within the business itself (e.g. past sales figures, customer comments). This avoids the problem of data not being exactly right, as the business has already collected it for its own purposes.</p>`
-  },
-  {
-    title: "Qualitative vs Quantitative Data",
-    tag: "Data Types",
-    content: `<p><strong>Qualitative data</strong> is collected when the <em>opinion</em> of consumers is needed. Because of this, it is usually collected using primary research methods — often with interviews or focus groups (though secondary research could be used too). This data can be used to help make decisions, although it is sometimes difficult to interpret opinions. For example, someone could say they dislike a product but may still be willing to buy it for someone else.</p>
+      },
+      {
+        title: "Qualitative vs Quantitative Data",
+        tag: "Data Types",
+        content: `<p><strong>Qualitative data</strong> is collected when the <em>opinion</em> of consumers is needed. Because of this, it is usually collected using primary research methods — often with interviews or focus groups (though secondary research could be used too). This data can be used to help make decisions, although it is sometimes difficult to interpret opinions. For example, someone could say they dislike a product but may still be willing to buy it for someone else.</p>
 <p><strong>Quantitative data</strong> is related to <em>facts and numbers</em>. It may be the number of products sold, or how many people eat cereals for breakfast. Quantitative data could be collected using primary or secondary research. For example, people could be asked how often they eat chocolate (not their opinion on chocolate — that would be qualitative). This data is often easier to interpret than qualitative because it is simply dealing with facts and numbers.</p>
 <div class="two-col" style="margin-top:8px;">
 <div>
@@ -284,11 +346,11 @@ const topicData = [
 <div class="con-item"><strong>Disadvantage:</strong> Limits how much people can say about what they like or dislike — no depth of opinion</div>
 </div>
 </div>`
-  },
-  {
-    title: "Evaluation — Choosing the Right Research Method",
-    tag: "Evaluation",
-    content: `<p>When choosing an appropriate method of research, there are many factors to consider:</p>
+      },
+      {
+        title: "Evaluation — Choosing the Right Research Method",
+        tag: "Evaluation",
+        content: `<p>When choosing an appropriate method of research, there are many factors to consider:</p>
 <ul>
 <li><strong>Does the business need precise, up-to-date information?</strong> If yes → primary research is likely needed, as there may not be any suitable secondary research available.</li>
 <li><strong>Is more general data sufficient?</strong> If yes → cheaper secondary research may well be suitable.</li>
@@ -298,792 +360,507 @@ const topicData = [
 </ul>
 <p><strong>Always look at the business in the question:</strong> Is it likely to need research? Does it have the money to complete expensive research? Remember that some businesses will not complete any market research, with owners relying on their own judgement.</p>
 <p><strong>Primary vs secondary comparison:</strong> Primary research is often more useful because it can be designed for the exact needs of the business and is up to date. However, it is more expensive and time-consuming. Secondary research is cheaper and widely available but may be outdated or not tailored to the business's specific needs.</p>`
-  }
-];
+      }
+    ];
 
-const mcqData = [
-  {
-    q: "Which of the following is an example of primary research?",
-    opts: [
-      "Collecting data from the internet",
-      "Collecting data by asking consumers questions in the local shopping centre",
-      "Collecting data published in the local newspapers",
-      "Collecting data from the last census for a particular age group"
-    ],
-    ans: 1,
-    explain: "Correct answer: B — collecting data by asking consumers questions in the local shopping centre. This is primary (field) research because the data is collected first-hand directly from consumers. Options A, C and D all use data already collected by others — these are all forms of secondary (desk) research."
-  },
-  {
-    q: "Market research is important to a business because:",
-    opts: [
-      "It helps develop a good working atmosphere in a business",
-      "It provides information to help develop products",
-      "It shows managers how to motivate their staff",
-      "It keeps staff busy"
-    ],
-    ans: 1,
-    explain: "Correct answer: B — it provides information to help develop products. Market research helps businesses understand what customers want, whether there is demand for a product, and what price customers will pay. Options A, C and D relate to HR and management functions, not market research."
-  },
-  {
-    q: "Quantitative research is:",
-    opts: [
-      "Research undertaken asking a wide variety of people",
-      "Research that concentrates on one part of the population",
-      "Research that deals only with facts and numbers",
-      "Research that has been completed by a competitor business"
-    ],
-    ans: 2,
-    explain: "Correct answer: C — research that deals only with facts and numbers. Quantitative data is based on measurable facts — e.g. how many people buy a product, how often people visit a cinema. It is usually easier to analyse than qualitative data. Option D describes secondary research, not quantitative data."
-  },
-  {
-    q: "A new business wanting a wide range of information about competitors would most likely use:",
-    opts: [
-      "Questionnaires and interviews",
-      "Internal data",
-      "Newspapers and magazines",
-      "Websites"
-    ],
-    ans: 3,
-    explain: "Correct answer: D — websites. Many companies now put information about themselves and their products online, making websites a fast and comprehensive source of secondary data about competitors. Newspapers and magazines (C) could also be useful but websites are the most comprehensive and immediately accessible source. Internal data (B) is data from within the own business. Questionnaires/interviews (A) are primary research methods that would not directly reveal competitor information."
-  },
-  {
-    q: "Which of the following is an example of qualitative market research data?",
-    opts: [
-      "The number of adults who live and work in the local area",
-      "The percentage of the population who eat out once a week",
-      "The preferences of local residents when eating out",
-      "The prices charged by local competitors"
-    ],
-    ans: 2,
-    explain: "Correct answer: C — the preferences of local residents when eating out. Qualitative data is based on opinions and preferences, not just numbers. Options A, B and D are all facts or numbers — these are examples of quantitative data."
-  },
-  {
-    q: "An interview is an example of:",
-    opts: [
-      "A primary market research method",
-      "A recruitment method",
-      "A training method",
-      "An informal communication method"
-    ],
-    ans: 0,
-    explain: "Correct answer: A — a primary market research method. An interview where customers are asked questions and the interviewer fills in the answers is a primary (field) research method. Although interviews can also be used in recruitment (B), in the context of market research the answer is primary research. This is a common exam mistake — do not confuse market research interviews with job interviews."
-  },
-  {
-    q: "What is not a secondary source of market research?",
-    opts: [
-      "Focus groups",
-      "Internal business data",
-      "Newspapers",
-      "Websites"
-    ],
-    ans: 0,
-    explain: "Correct answer: A — focus groups. Focus groups are a PRIMARY research method, not secondary. They involve selecting a small group of people to give their opinions on products. Internal business data (B), newspapers (C) and websites (D) are all examples of secondary (desk) research."
-  },
-  {
-    q: "A national retailer intends to trial a new product in some of its stores. Which of the following is NOT a benefit of trialling the product?",
-    opts: [
-      "It avoids wasting money on an unsuccessful national launch",
-      "It helps identify the target market",
-      "It requires a lot of national advertising and promotion",
-      "It shows whether there is sufficient demand for the product"
-    ],
-    ans: 2,
-    explain: "Correct answer: C — it requires a lot of national advertising and promotion. This is NOT a benefit — it is actually a drawback. One of the key advantages of trialling is that it is conducted on a small scale, avoiding expensive national advertising and promotion costs. Options A, B and D are all genuine benefits of trialling a product before a full national launch."
-  },
-  {
-    q: "Understanding customer needs is the main purpose of:",
-    opts: [
-      "Employee retention",
-      "Innovation",
-      "Market research",
-      "The product lifecycle"
-    ],
-    ans: 2,
-    explain: "Correct answer: C — market research. Market research is the collection of data on customer habits to help decision-making in marketing. Its main purpose is to understand customer needs — what they want, what they will pay, and whether they will buy a product. The other options are separate business concepts."
-  },
-  {
-    q: "A focus group is an example of:",
-    opts: [
-      "A digital distribution channel",
-      "A primary market research method",
-      "Market segmentation",
-      "Point of sale promotion"
-    ],
-    ans: 1,
-    explain: "Correct answer: B — a primary market research method. A focus group is a carefully selected small group (around ten) of people who represent the target market. They are given information and asked questions. This is primary research because the data is collected first-hand for the specific needs of the business."
-  }
-];
+    const mcqData = [
+      {
+        q: "Which of the following is an example of primary research?",
+        opts: [
+          "Collecting data from the internet",
+          "Collecting data by asking consumers questions in the local shopping centre",
+          "Collecting data published in the local newspapers",
+          "Collecting data from the last census for a particular age group"
+        ],
+        ans: 1,
+        explain: "Correct answer: B — collecting data by asking consumers questions in the local shopping centre. This is primary (field) research because the data is collected first-hand directly from consumers. Options A, C and D all use data already collected by others — these are all forms of secondary (desk) research."
+      },
+      {
+        q: "Market research is important to a business because:",
+        opts: [
+          "It helps develop a good working atmosphere in a business",
+          "It provides information to help develop products",
+          "It shows managers how to motivate their staff",
+          "It keeps staff busy"
+        ],
+        ans: 1,
+        explain: "Correct answer: B — it provides information to help develop products. Market research helps businesses understand what customers want, whether there is demand for a product, and what price customers will pay. Options A, C and D relate to HR and management functions, not market research."
+      },
+      {
+        q: "Quantitative research is:",
+        opts: [
+          "Research undertaken asking a wide variety of people",
+          "Research that concentrates on one part of the population",
+          "Research that deals only with facts and numbers",
+          "Research that has been completed by a competitor business"
+        ],
+        ans: 2,
+        explain: "Correct answer: C — research that deals only with facts and numbers. Quantitative data is based on measurable facts — e.g. how many people buy a product, how often people visit a cinema. It is usually easier to analyse than qualitative data. Option D describes secondary research, not quantitative data."
+      },
+      {
+        q: "A new business wanting a wide range of information about competitors would most likely use:",
+        opts: [
+          "Questionnaires and interviews",
+          "Internal data",
+          "Newspapers and magazines",
+          "Websites"
+        ],
+        ans: 3,
+        explain: "Correct answer: D — websites. Many companies now put information about themselves and their products online, making websites a fast and comprehensive source of secondary data about competitors. Newspapers and magazines (C) could also be useful but websites are the most comprehensive and immediately accessible source. Internal data (B) is data from within the own business. Questionnaires/interviews (A) are primary research methods that would not directly reveal competitor information."
+      },
+      {
+        q: "Which of the following is an example of qualitative market research data?",
+        opts: [
+          "The number of adults who live and work in the local area",
+          "The percentage of the population who eat out once a week",
+          "The preferences of local residents when eating out",
+          "The prices charged by local competitors"
+        ],
+        ans: 2,
+        explain: "Correct answer: C — the preferences of local residents when eating out. Qualitative data is based on opinions and preferences, not just numbers. Options A, B and D are all facts or numbers — these are examples of quantitative data."
+      },
+      {
+        q: "An interview is an example of:",
+        opts: [
+          "A primary market research method",
+          "A recruitment method",
+          "A training method",
+          "An informal communication method"
+        ],
+        ans: 0,
+        explain: "Correct answer: A — a primary market research method. An interview where customers are asked questions and the interviewer fills in the answers is a primary (field) research method. Although interviews can also be used in recruitment (B), in the context of market research the answer is primary research. This is a common exam mistake — do not confuse market research interviews with job interviews."
+      },
+      {
+        q: "What is not a secondary source of market research?",
+        opts: [
+          "Focus groups",
+          "Internal business data",
+          "Newspapers",
+          "Websites"
+        ],
+        ans: 0,
+        explain: "Correct answer: A — focus groups. Focus groups are a PRIMARY research method, not secondary. They involve selecting a small group of people to give their opinions on products. Internal business data (B), newspapers (C) and websites (D) are all examples of secondary (desk) research."
+      },
+      {
+        q: "A national retailer intends to trial a new product in some of its stores. Which of the following is NOT a benefit of trialling the product?",
+        opts: [
+          "It avoids wasting money on an unsuccessful national launch",
+          "It helps identify the target market",
+          "It requires a lot of national advertising and promotion",
+          "It shows whether there is sufficient demand for the product"
+        ],
+        ans: 2,
+        explain: "Correct answer: C — it requires a lot of national advertising and promotion. This is NOT a benefit — it is actually a drawback. One of the key advantages of trialling is that it is conducted on a small scale, avoiding expensive national advertising and promotion costs. Options A, B and D are all genuine benefits of trialling a product before a full national launch."
+      },
+      {
+        q: "Understanding customer needs is the main purpose of:",
+        opts: [
+          "Employee retention",
+          "Innovation",
+          "Market research",
+          "The product lifecycle"
+        ],
+        ans: 2,
+        explain: "Correct answer: C — market research. Market research is the collection of data on customer habits to help decision-making in marketing. Its main purpose is to understand customer needs — what they want, what they will pay, and whether they will buy a product. The other options are separate business concepts."
+      },
+      {
+        q: "A focus group is an example of:",
+        opts: [
+          "A digital distribution channel",
+          "A primary market research method",
+          "Market segmentation",
+          "Point of sale promotion"
+        ],
+        ans: 1,
+        explain: "Correct answer: B — a primary market research method. A focus group is a carefully selected small group (around ten) of people who represent the target market. They are given information and asked questions. This is primary research because the data is collected first-hand for the specific needs of the business."
+      }
+    ];
 
-const matchData = [
-  { term: "Market research", def: "The collection of data on customer habits to help decision-making in marketing" },
-  { term: "Primary research", def: "Data collected first-hand, often in the form of surveys, interviews, trials or focus groups — also called field research" },
-  { term: "Secondary research", def: "Data collected using research or information provided by others, such as magazines, journals and the internet — also called desk research" },
-  { term: "Qualitative data", def: "Data based on the opinions of those being asked — e.g. why someone likes or dislikes a product" },
-  { term: "Quantitative data", def: "Data collected that is based on facts or numbers — usually easier to analyse than qualitative data" },
-  { term: "Focus group", def: "A selected small group of customers (around ten) who give their opinion on products or services" },
-  { term: "Trial", def: "Used to test whether customers will buy a product by selling it in a limited area or for a short period" },
-  { term: "Census data", def: "Data collected by the government every ten years, questioning the entire population on their income, occupation and how they live" },
-  { term: "Internal data", def: "Data already within a business based on past performance — e.g. past sales figures, customer comments" },
-  { term: "Target market", def: "The group of customers to whom a business aims to sell its products or services" }
-];
+    const matchData = [
+      { term: "Market research", def: "The collection of data on customer habits to help decision-making in marketing" },
+      { term: "Primary research", def: "Data collected first-hand, often in the form of surveys, interviews, trials or focus groups — also called field research" },
+      { term: "Secondary research", def: "Data collected using research or information provided by others, such as magazines, journals and the internet — also called desk research" },
+      { term: "Qualitative data", def: "Data based on the opinions of those being asked — e.g. why someone likes or dislikes a product" },
+      { term: "Quantitative data", def: "Data collected that is based on facts or numbers — usually easier to analyse than qualitative data" },
+      { term: "Focus group", def: "A selected small group of customers (around ten) who give their opinion on products or services" },
+      { term: "Trial", def: "Used to test whether customers will buy a product by selling it in a limited area or for a short period" },
+      { term: "Census data", def: "Data collected by the government every ten years, questioning the entire population on their income, occupation and how they live" },
+      { term: "Internal data", def: "Data already within a business based on past performance — e.g. past sales figures, customer comments" },
+      { term: "Target market", def: "The group of customers to whom a business aims to sell its products or services" }
+    ];
 
-const fibData = [
-  {
-    display: "Market research is the collection of _____ on customer habits to help decision-making in _____.",
-    blanks: { B1: "data", B2: "marketing" }
-  },
-  {
-    display: "Primary research is sometimes called _____ research and involves collecting information that is new. Secondary research is sometimes referred to as _____ research.",
-    blanks: { B1: "field", B2: "desk" }
-  },
-  {
-    display: "A focus group is a small group of around _____ people who are carefully selected to represent the _____ market for a product or service.",
-    blanks: { B1: "ten", B2: "target" }
-  },
-  {
-    display: "Qualitative data is based on the _____ of consumers. Quantitative data is related to facts and _____, and is usually easier to analyse.",
-    blanks: { B1: "opinions", B2: "numbers" }
-  },
-  {
-    display: "Secondary research is usually much _____ to collect than primary research, but the data may not be _____ to date.",
-    blanks: { B1: "cheaper", B2: "up" }
-  },
-  {
-    display: "The census is collected every _____ years. It is a useful source of _____ research for businesses planning where to locate or who to target.",
-    blanks: { B1: "ten", B2: "secondary" }
-  }
-];
+    const fibData = [
+      {
+        display: "Market research is the collection of _____ on customer habits to help decision-making in _____.",
+        blanks: { B1: "data", B2: "marketing" }
+      },
+      {
+        display: "Primary research is sometimes called _____ research and involves collecting information that is new. Secondary research is sometimes referred to as _____ research.",
+        blanks: { B1: "field", B2: "desk" }
+      },
+      {
+        display: "A focus group is a small group of around _____ people who are carefully selected to represent the _____ market for a product or service.",
+        blanks: { B1: "ten", B2: "target" }
+      },
+      {
+        display: "Qualitative data is based on the _____ of consumers. Quantitative data is related to facts and _____, and is usually easier to analyse.",
+        blanks: { B1: "opinions", B2: "numbers" }
+      },
+      {
+        display: "Secondary research is usually much _____ to collect than primary research, but the data may not be _____ to date.",
+        blanks: { B1: "cheaper", B2: "up" }
+      },
+      {
+        display: "The census is collected every _____ years. It is a useful source of _____ research for businesses planning where to locate or who to target.",
+        blanks: { B1: "ten", B2: "secondary" }
+      }
+    ];
 
-const miscData = [
-  {
-    wrong: "Students think trialling means giving out free samples to get feedback on how to improve a product.",
-    correct: "Trialling is a primary market research method that involves launching a product in a limited number of stores or a limited area for a short time. The purpose is to measure SALES FIGURES to see whether there is demand — NOT to get opinions or qualitative feedback. The only direct feedback from trialling is quantitative (sales data). Do not say trialling helps 'improve' the product."
-  },
-  {
-    wrong: "Students confuse primary and secondary research and mix up their advantages and disadvantages.",
-    correct: "PRIMARY research is new data collected first-hand — it is more expensive and time-consuming but specific to the business's exact needs and up to date. SECONDARY research is data already collected by someone else — it is cheaper and widely available but may be outdated and may not be in the exact form the business requires. A simple memory trick: Primary = first-hand = field research. Secondary = second-hand = desk research."
-  },
-  {
-    wrong: "Students state that qualitative data is 'better' than quantitative data, or vice versa, without explaining why.",
-    correct: "Neither is universally better — each has advantages and disadvantages depending on what the business needs. Qualitative gives rich detail and opinion but is harder to analyse. Quantitative is easy to analyse and can include large numbers of people but gives no depth of opinion. For evaluation questions, you must weigh up which is MOST USEFUL for that specific business and context, and justify your judgement."
-  },
-  {
-    wrong: "Students write that the advantage of primary research is that it is 'more reliable' without explaining why.",
-    correct: "The key advantages of primary research are that it is (1) designed EXACTLY how the business wants, (2) collected for a specific purpose, and (3) up to date. Saying it is 'more reliable' is too vague and will not gain marks. You must say WHY it is more reliable — because it is specifically tailored to the business's needs and is current."
-  },
-  {
-    wrong: "Students confuse the terms 'qualitative' and 'quantitative' in answers.",
-    correct: "Remember: QUALITATIVE = quality of opinions (think: 'qual' as in quality, feelings, views). QUANTITATIVE = quantity, numbers, facts (think: 'quant' as in quantity). A useful exam check: if your 'qualitative' example involves a number or percentage, you have probably confused the two terms."
-  },
-  {
-    wrong: "Students think all businesses must use primary research and that secondary research is always inferior.",
-    correct: "This is wrong. The choice of research depends on the business's circumstances. Secondary research is often the best starting point and may be all a business needs — especially if it is small, lacks funds, or needs general data. For evaluation questions, always consider the TYPE and SIZE of the business. A small business opening a local café may get all the information it needs from census data, websites and local newspapers — without spending money on expensive primary research."
-  }
-];
+    const fibWords = [
+      "data", "marketing", "field", "desk", "ten", "target",
+      "opinions", "numbers", "cheaper", "up", "secondary",
+      "information", "sales", "primary", "twenty", "market",
+      "facts", "expensive", "down", "tertiary"
+    ];
 
-const tipsData = [
-  {
-    type: "Identify (1 mark)",
-    title: "Identify a Primary or Secondary Market Research Method",
-    content: `<p>Simply name the method — one word or short phrase is enough. No explanation needed for 1 mark.</p>
+    const miscData = [
+      {
+        wrong: "Students think trialling means giving out free samples to get feedback on how to improve a product.",
+        correct: "Trialling is a primary market research method that involves launching a product in a limited number of stores or a limited area for a short time. The purpose is to measure SALES FIGURES to see whether there is demand — NOT to get opinions or qualitative feedback. The only direct feedback from trialling is quantitative (sales data). Do not say trialling helps 'improve' the product."
+      },
+      {
+        wrong: "Students confuse primary and secondary research and mix up their advantages and disadvantages.",
+        correct: "PRIMARY research is new data collected first-hand — it is more expensive and time-consuming but specific to the business's exact needs and up to date. SECONDARY research is data already collected by someone else — it is cheaper and widely available but may be outdated and may not be in the exact form the business requires. A simple memory trick: Primary = first-hand = field research. Secondary = second-hand = desk research."
+      },
+      {
+        wrong: "Students state that qualitative data is 'better' than quantitative data, or vice versa, without explaining why.",
+        correct: "Neither is universally better — each has advantages and disadvantages depending on what the business needs. Qualitative gives rich detail and opinion but is harder to analyse. Quantitative is easy to analyse and can include large numbers of people but gives no depth of opinion. For evaluation questions, you must weigh up which is MOST USEFUL for that specific business and context, and justify your judgement."
+      },
+      {
+        wrong: "Students write that the advantage of primary research is that it is 'more reliable' without explaining why.",
+        correct: "The key advantages of primary research are that it is (1) designed EXACTLY how the business wants, (2) collected for a specific purpose, and (3) up to date. Saying it is 'more reliable' is too vague and will not gain marks. You must say WHY it is more reliable — because it is specifically tailored to the business's needs and is current."
+      },
+      {
+        wrong: "Students confuse the terms 'qualitative' and 'quantitative' in answers.",
+        correct: "Remember: QUALITATIVE = quality of opinions (think: 'qual' as in quality, feelings, views). QUANTITATIVE = quantity, numbers, facts (think: 'quant' as in quantity). A useful exam check: if your 'qualitative' example involves a number or percentage, you have probably confused the two terms."
+      },
+      {
+        wrong: "Students think all businesses must use primary research and that secondary research is always inferior.",
+        correct: "This is wrong. The choice of research depends on the business's circumstances. Secondary research is often the best starting point and may be all a business needs — especially if it is small, lacks funds, or needs general data. For evaluation questions, always consider the TYPE and SIZE of the business. A small business opening a local café may get all the information it needs from census data, websites and local newspapers — without spending money on expensive primary research."
+      }
+    ];
+
+    const examTips = [
+      {
+        type: "Identify (1 mark)",
+        title: "Identify a Primary or Secondary Market Research Method",
+        content: `<p>Simply name the method — one word or short phrase is enough. No explanation needed for 1 mark.</p>
 <ul>
-<li><strong>Primary methods:</strong> Questionnaire, interview, trial/trialling, focus group, observation <span class="mark-pill kn">K</span></li>
-<li><strong>Secondary methods:</strong> Census, websites, newspapers, magazines, internal data, government publications, trade journals <span class="mark-pill kn">K</span></li>
+<li><strong>Primary methods:</strong> Questionnaire, interview, trial/trialling, focus group, observation</li>
+<li><strong>Secondary methods:</strong> Census, websites, newspapers, magazines, internal data, government publications, trade journals</li>
 </ul>
 <p><strong>Common errors:</strong> Writing 'survey' as a secondary source (it is primary). Writing 'customer reviews' or 'forums' — examiners do not accept these as standalone answers. Do not give the TYPE of data (e.g. 'sales figures') as a source — name the SOURCE (e.g. 'internal data' or 'websites').</p>`,
-    marks: [{ label: "K ×1 per method", cls: "kn" }]
-  },
-  {
-    type: "Explain (2 marks)",
-    title: "Explain What is Meant by [Market Research Term]",
-    content: `<p>Structure: Knowledge (1) + Understanding through example or further explanation (1)</p>
+        pills: ["kn"]
+      },
+      {
+        type: "Explain (2 marks)",
+        title: "Explain What is Meant by [Market Research Term]",
+        content: `<p>Structure: Knowledge (1) + Understanding through example or further explanation (1)</p>
 <ul>
-<li>Define the term clearly in your own words <span class="mark-pill kn">K</span></li>
-<li>Give an example OR add further detail that shows understanding <span class="mark-pill un">U</span></li>
+<li>Define the term clearly in your own words</li>
+<li>Give an example OR add further detail that shows understanding</li>
 </ul>
 <p><strong>Example — Focus group:</strong> "A focus group is a small group of people (1) who are asked to give their views about a product or service being developed (1)."</p>
 <p><strong>Example — Market research:</strong> "Market research is the collection of data on customer habits (1) — for example using questionnaires or interviews — to help a business make decisions about its products and services (1)."</p>`,
-    marks: [{ label: "K ×1", cls: "kn" }, { label: "U ×1", cls: "un" }]
-  },
-  {
-    type: "Analyse (3 marks)",
-    title: "Analyse One Advantage/Benefit of a Market Research Method",
-    content: `<p>Structure: Understanding (1) → Application to the specific business (1) → Business-facing Analysis (1)</p>
+        pills: ["kn", "un"]
+      },
+      {
+        type: "Analyse (3 marks)",
+        title: "Analyse One Advantage/Benefit of a Market Research Method",
+        content: `<p>Structure: Understanding (1) → Application to the specific business (1) → Business-facing Analysis (1)</p>
 <ul>
-<li>State a clear advantage/benefit of the method <span class="mark-pill un">U</span></li>
-<li>Apply it to the named business using case study details <span class="mark-pill app">APP</span></li>
-<li>Explain the business impact — e.g. better decision-making, reduced risk, increased revenue, more profit <span class="mark-pill an">AN</span></li>
+<li>State a clear advantage/benefit of the method</li>
+<li>Apply it to the named business using case study details</li>
+<li>Explain the business impact — e.g. better decision-making, reduced risk, increased revenue, more profit</li>
 </ul>
 <p><strong>Example (EDF, focus groups):</strong> "EDF can carefully select a focus group from customers that reflect its target market (U), for example customers who want green energy (APP). This should provide accurate information on what potential customers want, which EDF can use to make better decisions and reduce the risk of launching a service that customers do not need (AN)."</p>
 <p><strong>Common error:</strong> Do not just describe WHAT the method is — state the BENEFIT to the business, then analyse the IMPACT on the business.</p>`,
-    marks: [{ label: "U ×1", cls: "un" }, { label: "APP ×1", cls: "app" }, { label: "AN ×1", cls: "an" }]
-  },
-  {
-    type: "Evaluate (7–9 marks)",
-    title: "Evaluate Whether to Use Primary or Secondary Market Research",
-    content: `<p>The highest mark questions require: Application (2) + Analysis (2) + Evaluation with justified judgement (3)</p>
+        pills: ["un", "app", "an"]
+      },
+      {
+        type: "Evaluate (7–9 marks)",
+        title: "Evaluate Whether to Use Primary or Secondary Market Research",
+        content: `<p>The highest mark questions require: Application (2) + Analysis (2) + Evaluation with justified judgement (3)</p>
 <ul>
-<li>Use TWO details from the case study in relation to the pros/cons of the research methods <span class="mark-pill app">APP</span></li>
-<li>Give TWO different advantages or disadvantages of primary and/or secondary research, business-facing <span class="mark-pill an">AN</span></li>
-<li>Make a clear decision — which type should the business use? <span class="mark-pill ev">EVAL</span></li>
-<li>Justify using a contextual reason from the case study (strong justification = 2 extra marks) <span class="mark-pill ev">EVAL</span></li>
+<li>Use TWO details from the case study in relation to the pros/cons of the research methods</li>
+<li>Give TWO different advantages or disadvantages of primary and/or secondary research, business-facing</li>
+<li>Make a clear decision — which type should the business use?</li>
+<li>Justify using a contextual reason from the case study (strong justification = 2 extra marks)</li>
 </ul>
 <p><strong>Exemplar response (Sainsbury's):</strong> "Utilising primary market research means they can find out specific information (AN) about sales in its competitive market (APP), so that Sainsbury's can fulfil the needs and wants of its middle to high income customers (APP). Using secondary market research is much cheaper (AN). However, since Sainsbury's is one of the largest UK supermarkets (APP), financial constraints are unlikely to be a problem. I think Sainsbury's should use primary market research (EVAL) in future because it needs specific information to help the company develop and market products to compete with rivals like Aldi (contextual EVAL)."</p>`,
-    marks: [{ label: "APP ×2", cls: "app" }, { label: "AN ×2", cls: "an" }, { label: "EVAL ×3", cls: "ev" }]
-  },
-  {
-    type: "Evaluate (9 marks — Case Study)",
-    title: "Evaluate Whether Market Research Shows a Business Should Go Ahead",
-    content: `<p>Structure: Knowledge (1) + Understanding (1) + Application with data (2) + Analysis of impact (2) + Evaluation: judgement + justification (3)</p>
+        pills: ["app", "an", "eval"]
+      },
+      {
+        type: "Evaluate (9 marks — Case Study)",
+        title: "Evaluate Whether Market Research Shows a Business Should Go Ahead",
+        content: `<p>Structure: Knowledge (1) + Understanding (1) + Application with data (2) + Analysis of impact (2) + Evaluation: judgement + justification (3)</p>
 <ul>
-<li><strong>Knowledge:</strong> Define market research <span class="mark-pill kn">K</span></li>
-<li><strong>Understanding:</strong> Give an example of a market research method <span class="mark-pill un">U</span></li>
-<li><strong>Application:</strong> Use numerical data from the case study — make TWO separate points with data <span class="mark-pill app">APP</span></li>
-<li><strong>Analysis:</strong> Explain the effect/impact on the business of the data — TWO separate points <span class="mark-pill an">AN</span></li>
-<li><strong>Evaluation:</strong> Make a clear judgement (should they go ahead or not?), then justify using precise data from the case study <span class="mark-pill ev">EVAL</span></li>
+<li><strong>Knowledge:</strong> Define market research</li>
+<li><strong>Understanding:</strong> Give an example of a market research method</li>
+<li><strong>Application:</strong> Use numerical data from the case study — make TWO separate points with data</li>
+<li><strong>Analysis:</strong> Explain the effect/impact on the business of the data — TWO separate points</li>
+<li><strong>Evaluation:</strong> Make a clear judgement (should they go ahead or not?), then justify using precise data from the case study</li>
 </ul>
 <p><strong>Key tip:</strong> For the evaluation justification marks, you MUST use (not simply repeat) information from the case study. The justification must clearly explain WHY the data leads you to your judgement.</p>`,
-    marks: [{ label: "K ×1", cls: "kn" }, { label: "U ×1", cls: "un" }, { label: "APP ×2", cls: "app" }, { label: "AN ×2", cls: "an" }, { label: "EVAL ×3", cls: "ev" }]
-  }
-];
+        pills: ["kn", "un", "app", "an", "eval"]
+      }
+    ];
 
-const flashcards = [
-  { term: "Market research", def: "The collection of data on customer habits to help decision-making in marketing. Helps a business find out whether there is demand for its product or service." },
-  { term: "Target market", def: "The group of customers to whom a business aims to sell its products or services. The target market may be other businesses as well as consumers." },
-  { term: "Primary research", def: "Data collected first-hand, often in the form of questionnaires, interviews, trials and focus groups. Sometimes referred to as 'field' research." },
-  { term: "Secondary research", def: "The collection of data using research or information provided by others — e.g. magazines, journals, the internet, census data. Often called 'desk' research." },
-  { term: "Questionnaire", def: "A question sheet filled in by the consumer. Can be sent by post, included with guarantee forms, or completed online. Cheaper than interviews but response rates can be unpredictable." },
-  { term: "Interview", def: "A question sheet filled in by the person conducting the interview. Can be face-to-face or by telephone. More expensive than questionnaires but allows misunderstandings to be clarified." },
-  { term: "Trial", def: "Testing whether customers will buy a product by selling it in a limited area or for a short period. Provides sales data (quantitative) not qualitative feedback." },
-  { term: "Focus group", def: "A selected small group (around ten) of people who represent the target market. They are given information and asked questions. Accurate but expensive per person." },
-  { term: "Census data", def: "Data collected by the government every ten years, questioning the entire population on their income, occupation and how they live. Useful secondary research for demographic information." },
-  { term: "Internal data", def: "Data already within a business based on past performance — e.g. past sales figures, profits from departments, and customer comments. A form of secondary research." },
-  { term: "Qualitative data", def: "Data based on the opinions of those being asked. Collected using interviews or focus groups. Gives rich detail but can be difficult to interpret and compare." },
-  { term: "Quantitative data", def: "Data collected based on facts or numbers — e.g. how many products were sold. Usually easier to analyse than qualitative data. Can be collected using primary or secondary research." },
-  { term: "Advantage of primary research", def: "It is designed exactly how the business wants. It is up to date and specific to the business's needs. Interview questions can be explained to avoid confusion and incorrect data." },
-  { term: "Disadvantage of primary research", def: "Can be expensive to collect. It may be difficult to get consumers to cooperate and provide answers to questions. Time-consuming to design and carry out." },
-  { term: "Advantage of secondary research", def: "Generally the cheaper option. A wide range of data is readily available, especially with the growth of the internet. Saves time compared to collecting primary data." },
-  { term: "Disadvantage of secondary research", def: "Research collected may not be exactly in the form the business requires. Risk that it could be out of date — the census, for example, is only every ten years." },
-  { term: "Market segmentation", def: "Aiming different products at different groups of people within a market. Businesses use market research to understand different segments — e.g. different watch styles for different customer groups." },
-  { term: "Evaluation: primary vs secondary research", def: "Primary research is more useful when precise, up-to-date, tailored data is needed. Secondary research is better when the business has limited funds or needs general information quickly. The right choice depends on the size, type and budget of the business." }
-];
+    const flashcards = [
+      { term: "Market research", def: "The collection of data on customer habits to help decision-making in marketing. Helps a business find out whether there is demand for its product or service." },
+      { term: "Target market", def: "The group of customers to whom a business aims to sell its products or services. The target market may be other businesses as well as consumers." },
+      { term: "Primary research", def: "Data collected first-hand, often in the form of questionnaires, interviews, trials and focus groups. Sometimes referred to as 'field' research." },
+      { term: "Secondary research", def: "The collection of data using research or information provided by others — e.g. magazines, journals, the internet, census data. Often called 'desk' research." },
+      { term: "Questionnaire", def: "A question sheet filled in by the consumer. Can be sent by post, included with guarantee forms, or completed online. Cheaper than interviews but response rates can be unpredictable." },
+      { term: "Interview", def: "A question sheet filled in by the person conducting the interview. Can be face-to-face or by telephone. More expensive than questionnaires but allows misunderstandings to be clarified." },
+      { term: "Trial", def: "Testing whether customers will buy a product by selling it in a limited area or for a short period. Provides sales data (quantitative) not qualitative feedback." },
+      { term: "Focus group", def: "A selected small group (around ten) of people who represent the target market. They are given information and asked questions. Accurate but expensive per person." },
+      { term: "Census data", def: "Data collected by the government every ten years, questioning the entire population on their income, occupation and how they live. Useful secondary research for demographic information." },
+      { term: "Internal data", def: "Data already within a business based on past performance — e.g. past sales figures, profits from departments, and customer comments. A form of secondary research." },
+      { term: "Qualitative data", def: "Data based on the opinions of those being asked. Collected using interviews or focus groups. Gives rich detail but can be difficult to interpret and compare." },
+      { term: "Quantitative data", def: "Data collected based on facts or numbers — e.g. how many products were sold. Usually easier to analyse than qualitative data. Can be collected using primary or secondary research." },
+      { term: "Advantage of primary research", def: "It is designed exactly how the business wants. It is up to date and specific to the business's needs. Interview questions can be explained to avoid confusion and incorrect data." },
+      { term: "Disadvantage of primary research", def: "Can be expensive to collect. It may be difficult to get consumers to cooperate and provide answers to questions. Time-consuming to design and carry out." },
+      { term: "Advantage of secondary research", def: "Generally the cheaper option. A wide range of data is readily available, especially with the growth of the internet. Saves time compared to collecting primary data." },
+      { term: "Disadvantage of secondary research", def: "Research collected may not be exactly in the form the business requires. Risk that it could be out of date — the census, for example, is only every ten years." },
+      { term: "Market segmentation", def: "Aiming different products at different groups of people within a market. Businesses use market research to understand different segments — e.g. different watch styles for different customer groups." },
+      { term: "Evaluation: primary vs secondary research", def: "Primary research is more useful when precise, up-to-date, tailored data is needed. Secondary research is better when the business has limited funds or needs general information quickly. The right choice depends on the size, type and budget of the business." }
+    ];
 
-const tfData = [
-  {
-    statement: "Primary research is sometimes called 'desk research' because it is carried out at a desk.",
-    answer: false,
-    explanation: "FALSE. Primary research is called 'FIELD research' because the researcher goes out into the field to collect new, first-hand data. It is SECONDARY research that is called 'desk research' — because it involves looking at data already collected by others, which can be done sitting at a desk."
-  },
-  {
-    statement: "A focus group of around ten people carefully selected to represent the target market is an example of primary research.",
-    answer: true,
-    explanation: "TRUE. A focus group is a primary research method because the data is collected first-hand directly from people. The group is selected to represent the target market and asked questions — generating new data specifically for the business's needs."
-  },
-  {
-    statement: "The census is an example of primary research because it collects data from every person in the country.",
-    answer: false,
-    explanation: "FALSE. The census is an example of SECONDARY research. Although the government collects new data every ten years, businesses USE this already-collected data for their own research purposes. Secondary research means data collected by someone else that a business then uses — it does not matter how the original data was gathered."
-  },
-  {
-    statement: "Quantitative data is based on the opinions of consumers.",
-    answer: false,
-    explanation: "FALSE. Opinions are QUALITATIVE data. Quantitative data is based on facts and numbers — for example, the number of products sold or how often people eat cereals for breakfast. A helpful memory tip: QUALITATIVE = quality of opinions; QUANTITATIVE = quantity/numbers."
-  },
-  {
-    statement: "One disadvantage of using questionnaires is that it is difficult to predict how many completed questionnaires will be returned.",
-    answer: true,
-    explanation: "TRUE. Response rates for questionnaires can be unpredictable. To increase returns, businesses may offer incentives such as an entry into a free prize draw. Low response rates can make the data less reliable or representative of the target market."
-  },
-  {
-    statement: "Secondary research is always cheaper than primary research.",
-    answer: true,
-    explanation: "TRUE — as a general rule. Because someone else has already completed the research, secondary research is usually much cheaper to collect than primary research. The cost of primary research comes from designing questions, paying interviewers, running focus groups, or setting up trials."
-  },
-  {
-    statement: "Trialling a new product gives a business qualitative data about customer opinions on how to improve the product.",
-    answer: false,
-    explanation: "FALSE. This is a very common misconception! Trialling gives a business QUANTITATIVE data — specifically sales figures — to show whether there is demand for a product. It does NOT provide qualitative feedback about opinions. Do not confuse trialling with giving out free samples to gather opinions."
-  },
-  {
-    statement: "Internal data is a form of secondary research because it has already been collected within the business.",
-    answer: true,
-    explanation: "TRUE. Internal data — such as past sales figures, profits from departments, and customer comments — is a form of secondary research. It has already been collected for another purpose within the business. It has the advantage of being directly relevant to the business, unlike external secondary data."
-  },
-  {
-    statement: "Small businesses will often undertake the same amount of market research as large businesses.",
-    answer: false,
-    explanation: "FALSE. Smaller businesses may use very little, if any, market research. This is because market research — especially primary research — can be expensive and time-consuming. Small businesses are more likely to rely on secondary research or informal methods such as asking friends and family. Owners of small businesses may also rely on their own judgement."
-  },
-  {
-    statement: "An advantage of interviews over questionnaires is that the interviewer can explain questions if there is a misunderstanding.",
-    answer: true,
-    explanation: "TRUE. This is a key advantage of interviews. If a respondent does not understand a question, the interviewer can clarify it — this leads to more accurate data. With questionnaires, there is no one to explain unclear questions, which may lead to misunderstandings and unreliable answers."
-  }
-];
+    const tfData = [
+      {
+        statement: "Primary research is sometimes called 'desk research' because it is carried out at a desk.",
+        answer: false,
+        explanation: "FALSE. Primary research is called 'FIELD research' because the researcher goes out into the field to collect new, first-hand data. It is SECONDARY research that is called 'desk research' — because it involves looking at data already collected by others, which can be done sitting at a desk."
+      },
+      {
+        statement: "A focus group of around ten people carefully selected to represent the target market is an example of primary research.",
+        answer: true,
+        explanation: "TRUE. A focus group is a primary research method because the data is collected first-hand directly from people. The group is selected to represent the target market and asked questions — generating new data specifically for the business's needs."
+      },
+      {
+        statement: "The census is an example of primary research because it collects data from every person in the country.",
+        answer: false,
+        explanation: "FALSE. The census is an example of SECONDARY research. Although the government collects new data every ten years, businesses USE this already-collected data for their own research purposes. Secondary research means data collected by someone else that a business then uses — it does not matter how the original data was gathered."
+      },
+      {
+        statement: "Quantitative data is based on the opinions of consumers.",
+        answer: false,
+        explanation: "FALSE. Opinions are QUALITATIVE data. Quantitative data is based on facts and numbers — for example, the number of products sold or how often people eat cereals for breakfast. A helpful memory tip: QUALITATIVE = quality of opinions; QUANTITATIVE = quantity/numbers."
+      },
+      {
+        statement: "One disadvantage of using questionnaires is that it is difficult to predict how many completed questionnaires will be returned.",
+        answer: true,
+        explanation: "TRUE. Response rates for questionnaires can be unpredictable. To increase returns, businesses may offer incentives such as an entry into a free prize draw. Low response rates can make the data less reliable or representative of the target market."
+      },
+      {
+        statement: "Secondary research is always cheaper than primary research.",
+        answer: true,
+        explanation: "TRUE — as a general rule. Because someone else has already completed the research, secondary research is usually much cheaper to collect than primary research. The cost of primary research comes from designing questions, paying interviewers, running focus groups, or setting up trials."
+      },
+      {
+        statement: "Trialling a new product gives a business qualitative data about customer opinions on how to improve the product.",
+        answer: false,
+        explanation: "FALSE. This is a very common misconception! Trialling gives a business QUANTITATIVE data — specifically sales figures — to show whether there is demand for a product. It does NOT provide qualitative feedback about opinions. Do not confuse trialling with giving out free samples to gather opinions."
+      },
+      {
+        statement: "Internal data is a form of secondary research because it has already been collected within the business.",
+        answer: true,
+        explanation: "TRUE. Internal data — such as past sales figures, profits from departments, and customer comments — is a form of secondary research. It has already been collected for another purpose within the business. It has the advantage of being directly relevant to the business, unlike external secondary data."
+      },
+      {
+        statement: "Small businesses will often undertake the same amount of market research as large businesses.",
+        answer: false,
+        explanation: "FALSE. Smaller businesses may use very little, if any, market research. This is because market research — especially primary research — can be expensive and time-consuming. Small businesses are more likely to rely on secondary research or informal methods such as asking friends and family. Owners of small businesses may also rely on their own judgement."
+      },
+      {
+        statement: "An advantage of interviews over questionnaires is that the interviewer can explain questions if there is a misunderstanding.",
+        answer: true,
+        explanation: "TRUE. This is a key advantage of interviews. If a respondent does not understand a question, the interviewer can clarify it — this leads to more accurate data. With questionnaires, there is no one to explain unclear questions, which may lead to misunderstandings and unreliable answers."
+      }
+    ];
 
-const examQuestions = [
-  {
-    num: "Q1",
-    marks: 1,
-    type: "mcq",
-    question: "Which of the following is an example of primary research?",
-    options: [
-      "Collecting data from the internet",
-      "Collecting data by asking consumers questions in the local shopping centre",
-      "Collecting data published in the local newspapers",
-      "Collecting data from the last census for a particular age group"
-    ],
-    answer: 1,
-    hint: "Primary research means collecting brand new, first-hand data. Which option involves going out and collecting data directly from people?",
-    starter: "Primary research involves collecting data first-hand, so the answer is...",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: B — collecting data by asking consumers questions in the local shopping centre.</strong></p><p>This is primary (field) research because data is collected directly from consumers for the first time. Options A, C and D all involve using data already collected by others — these are all forms of secondary (desk) research.</p></div>`
-  },
-  {
-    num: "Q2",
-    marks: 1,
-    type: "mcq",
-    question: "Market research is important to a business because:",
-    options: [
-      "It helps develop a good working atmosphere in a business",
-      "It provides information to help develop products",
-      "It shows managers how to motivate their staff",
-      "It keeps staff busy"
-    ],
-    answer: 1,
-    hint: "Market research is about customers and products — not staff or working conditions.",
-    starter: "Market research is important because it helps a business to...",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: B — it provides information to help develop products.</strong></p><p>Market research helps businesses understand what customers want and whether there is demand for a product. This information is then used to develop products that meet customer needs. Options A, C and D all relate to HR and management functions, not market research.</p></div>`
-  },
-  {
-    num: "Q3",
-    marks: 1,
-    type: "mcq",
-    question: "Quantitative research is:",
-    options: [
-      "Research undertaken asking a wide variety of people",
-      "Research that concentrates on one part of the population",
-      "Research that deals only with facts and numbers",
-      "Research that has been completed by a competitor business"
-    ],
-    answer: 2,
-    hint: "Think about the word 'quantity' — what does that suggest about the type of data?",
-    starter: "Quantitative data is data that is based on...",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: C — research that deals only with facts and numbers.</strong></p><p>Quantitative data is based on measurable facts — numbers, percentages, frequencies. It is usually easier to analyse than qualitative (opinion-based) data. Option D describes secondary research from a competitor, which is a separate concept.</p></div>`
-  },
-  {
-    num: "Q4",
-    marks: 1,
-    type: "mcq",
-    question: "A new business wanting a wide range of information about competitors would most likely use:",
-    options: [
-      "Questionnaires and interviews",
-      "Internal data",
-      "Newspapers and magazines",
-      "Websites"
-    ],
-    answer: 3,
-    hint: "The business wants information about its COMPETITORS. Which source would give the most comprehensive and up-to-date information about other businesses?",
-    starter: "A business wanting information about competitors would use...",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: D — websites.</strong></p><p>Many companies publish information about themselves and their products online, making websites the most comprehensive and accessible source of competitor information. Internal data (B) is data from within the own business. Questionnaires/interviews (A) are primary methods that would not directly reveal competitor information. Newspapers (C) could also be useful but websites provide the widest and most current range of competitor data.</p></div>`
-  },
-  {
-    num: "Q5",
-    marks: 2,
-    type: "written",
-    caseStudy: "Waitrose is a supermarket chain with over 300 stores throughout the UK. Waitrose specialises in good quality food, targeted at customers with high levels of income. The company is owned by its employees, who receive a range of benefits including profit sharing. Waitrose continues to offer profit sharing to its employees, even though another UK supermarket chain has replaced this type of benefit with higher rates of pay.\n\nWaitrose has over 50,000 employees. Many employees are recruited externally. As part of the selection process, potential employees take part in lengthy interviews, group activities and tests. References are requested for all new employees. Once appointed, all employees receive regular training.\n\nThe supermarket industry is very competitive, so new product development is important to Waitrose. Qualitative market research data is collected using methods including focus groups and customer trials. This data then needs to be communicated effectively between employees at Head Office.",
-    question: "Explain what is meant by a focus group. [2 marks]",
-    hint: "Give a definition of a focus group — mention: small/selected group, who they are chosen to represent, and what they do.",
-    starter: "A focus group is a small group of people (K)...\nwho are asked to give their views about... (U)",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1a + AO1b)</h5><ul><li><strong>Knowledge (1 mark):</strong> A focus group is a small / selected / representative group of people.</li><li><strong>Understanding (1 mark):</strong> They are asked questions / give views / voice opinions about a firm's ideas, products or services.</li></ul><p><strong>Exemplar response:</strong> "It is a small group of people (1) who are asked to give their views about a product being developed (1)."</p></div>`,
-    modelAnswer: "A focus group is a small group of around ten people who are carefully selected to represent the target market (K). They are given information about a product or service and asked questions — their opinions and answers are then analysed to help the business make decisions (U)."
-  },
-  {
-    num: "Q6",
-    marks: 2,
-    type: "written",
-    caseStudy: "Waitrose is a supermarket chain with over 300 stores throughout the UK. Waitrose specialises in good quality food, targeted at customers with high levels of income. The company is owned by its employees, who receive a range of benefits including profit sharing. Waitrose continues to offer profit sharing to its employees, even though another UK supermarket chain has replaced this type of benefit with higher rates of pay.\n\nWaitrose has over 50,000 employees. Many employees are recruited externally. As part of the selection process, potential employees take part in lengthy interviews, group activities and tests. References are requested for all new employees. Once appointed, all employees receive regular training.\n\nThe supermarket industry is very competitive, so new product development is important to Waitrose. Qualitative market research data is collected using methods including focus groups and customer trials. This data then needs to be communicated effectively between employees at Head Office.",
-    question: "Explain one advantage for Waitrose of using customer trials. [2 marks]",
-    hint: "State one advantage of trialling — then apply it to Waitrose specifically using a detail from the case study.",
-    starter: "One advantage for Waitrose of using customer trials is... (U)\nThis is important for Waitrose because... (APP)",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1b + AO2)</h5><ul><li><strong>Understanding (1 mark):</strong> State an advantage of customer trials — e.g. less expensive than a full launch / saves money in case product fails / less likely to damage reputation nationally if product fails / sales figures give an indication of actual demand.</li><li><strong>Application (1 mark):</strong> Apply to Waitrose — e.g. reference to new product development being important / the supermarket industry being very competitive / over 300 stores throughout the UK / targeting high income customers.</li></ul><p>Do NOT award answers relating to getting qualitative feedback or giving away free samples — trialling provides sales data, not opinion data.</p></div>`,
-    modelAnswer: "One advantage for Waitrose of using customer trials is that it keeps market research spend to a minimum by only releasing a new product in a limited number of stores (U). As Waitrose has over 300 stores across the UK, it can trial a product in just a few selected stores before committing to a full national launch — saving money if the product does not sell well (APP)."
-  },
-  {
-    num: "Q7",
-    marks: 3,
-    type: "written",
-    caseStudy: "Clarks is a successful UK footwear brand with ranges for children, women, and men. Their market is very competitive. Clarks employs specialist designers who create new shoe styles in response to fast-changing fashion trends. The designers interpret quantitative data carefully when planning new shoe styles. The designers work closely with employees from other functional areas of the business, such as marketing, finance, and retail, to ensure that the new shoe styles meet customers' needs profitably.",
-    question: "Analyse one advantage for Clarks of interpreting quantitative data when designing new products. [3 marks]",
-    hint: "Structure: Understanding (what is the advantage of quantitative data?) → Application (how does this apply to Clarks specifically?) → Analysis (what is the business impact for Clarks?). Do NOT just describe what quantitative data is.",
-    starter: "One advantage for Clarks of interpreting quantitative data is that it can... (U)\nFor Clarks, which operates in a very competitive market... (APP)\nThis means that Clarks will be able to... (AN)",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> State an advantage of quantitative data — e.g. can sort/analyse/compare/identify trends or patterns (must be comparative); easy to investigate and draw conclusions from.</li><li><strong>Application (1 mark):</strong> Apply to Clarks — e.g. reference to very competitive market, specialist designers, fast-changing fashion trends, footwear for children/women/men, meeting customer needs profitably.</li><li><strong>Analysis (1 mark):</strong> Explain the business-facing impact — e.g. increased revenue, profit, competitive advantage, better decision-making. Analysis must stem from the advantage stated.</li></ul><p><strong>Do NOT award:</strong> 'can be plotted on a graph'; 'objective'; 'numerical'; what quantitative data IS rather than its advantage. Analysis must be business-facing.</p><p><strong>Exemplar response:</strong> "Quantitative data will help Clarks identify changes in demand (U) for its children's, women's and men's ranges in its competitive market (APP). Designing products to closely meet customer demand will lead to increased revenue for Clarks (+AN)."</p></div>`,
-    modelAnswer: "One advantage for Clarks of interpreting quantitative data is that trends and patterns in customer demand can be identified and compared over time (U). For Clarks, which operates in a very competitive market with fast-changing fashion trends (APP), being able to spot which shoe styles are growing or declining in popularity allows its specialist designers to make better-informed decisions about which new styles to develop — reducing the risk of producing shoes that do not sell and increasing the likelihood of higher revenue and profit (AN)."
-  },
-  {
-    num: "Q8",
-    marks: 6,
-    type: "written",
-    caseStudy: "Walkers Snack Foods Ltd (Walkers) manufactures well-known snacks, including Walkers crisps, Quavers and Wotsits. The company has a market share of more than 50% of the UK potato snack market. The company aims to maintain its market share and to increase profitability.\n\nWalkers uses different marketing strategies as the snacks move through the stages of the product life cycle. Flavours are regularly added to Walkers' range of crisps, often trialling new flavours before launching them. Recent examples have included 'fish & chips' and 'chicken burrito' flavours.\n\nWalkers have responded to concerns about healthy eating by adapting its product range, including: recipe changes to reduce added salt by 25% and saturated fats by up to 70%; a reduction in bag size; multipacks now containing 22 bags rather than 24, with no change in price.\n\nThese changes were supported by a marketing strategy which affected all elements of the marketing mix.\n\nAn independent market research company arranged focus groups in both 2017 and 2022 to look at healthy eating trends. It found that: 46% of people were concerned about healthy eating in 2017, compared with 60% in 2022. In 2022, 36% of people considered whether a snack was healthy before buying it. In 2017, 26% of people thought that snack companies were trying to produce more healthy products. By 2022 this figure had increased to 29%.",
-    question: "Analyse two advantages for Walkers of trialling new products before launching them. [6 marks]",
-    hint: "Two separate advantages, each worth 3 marks: Understanding (what is the advantage?) → Application to Walkers (use a specific detail from the case study) → Analysis (what is the business impact for Walkers?). Remember: trialling gives sales DATA, not qualitative feedback on improving the product.",
-    starter: "One advantage for Walkers of trialling new products is that... (U)\nFor Walkers, which regularly adds new flavours such as 'fish & chips' and 'chicken burrito'... (APP)\nThis means that Walkers... (AN)\n\nA second advantage is that trialling... (U)\nFor Walkers, which aims to maintain its 50% market share... (APP)\nAs a result, Walkers... (AN)",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme — 6 marks (AO1b ×2 + AO2 ×2 + AO3a ×2)</h5><p>Two advantages required, each worth Understanding (1) + Application (1) + Analysis (1).</p><ul><li><strong>Possible advantages (Understanding):</strong> Identifies whether there is demand for the product / whether a launch would be successful / avoids the expense of a full product launch / reduces likelihood of negative impact on reputation or brand image / reduces risk of launching an unsuccessful product.</li><li><strong>Application to Walkers:</strong> Reference to well-known snacks / aim to maintain market share and increase profitability / adding new flavours (fish & chips, chicken burrito) / concern about healthy eating / 50% market share / Walkers crisps, Quavers, Wotsits.</li><li><strong>Analysis:</strong> Impact on market share, revenue, profit, costs, competitive advantage, wastage, planning, cashflow, etc. Analysis must be business-facing.</li></ul><p><strong>Important: Do NOT award</strong> answers about gaining customer opinions or qualitative feedback to improve the flavour — this is a fundamental misunderstanding of trialling. Trialling provides SALES DATA only.</p><p><strong>Exemplar response 1:</strong> "Reduces the risk of introducing an unsuccessful product (U) which may have led to a reduction in the firm's reputation (AN) and a fall in Walkers' 50% market share (APP)."</p><p><strong>Exemplar response 2:</strong> "Sales figures will give an indication of which new flavours will be successful (U). Walkers can then concentrate its resources on those particular flavours such as 'chicken burrito' (APP), increasing profit (AN)."</p></div>`,
-    modelAnswer: "One advantage for Walkers of trialling new products before launching is that it reduces the risk of investing heavily in an unsuccessful product (U). Walkers regularly adds new flavours to its range — such as 'fish & chips' and 'chicken burrito' (APP) — and trialling these in selected areas first means that if demand proves insufficient, Walkers avoids the much greater cost of a full national launch, protecting its profitability (AN).\n\nA second advantage is that the sales data from a trial gives a clear indication of whether a full national launch is justified (U). For Walkers, which aims to maintain more than 50% of the UK potato snack market (APP), being able to measure actual consumer buying behaviour before committing to full production and distribution reduces the risk of damaging its strong market position with an unpopular product launch (AN)."
-  },
-  {
-    num: "Q9",
-    marks: 3,
-    type: "written",
-    caseStudy: "EDF is a limited company which supplies gas and electricity to homes and businesses throughout the UK. It is the largest producer of low-carbon electricity in the UK and owns two fossil fuel power stations, three wind farms and eight nuclear power stations. In 2016, EDF started to build the new Hinkley Point C nuclear power station in Somerset, which will eventually provide 7% of the UK's electricity needs for 60 years. Managers at EDF expect it to open in 2025.\n\nDuring the construction stage, the project has created thousands of jobs. A number of these construction jobs are filled by self-employed workers. Once it is fully operational, the power station will employ over 900 people, most of whom will be employed by EDF.\n\nEDF produces around 20% of the UK's electricity and is the largest supplier. As EDF operates in a competitive market, the price that it charges its customers is very important.",
-    question: "Analyse one benefit to EDF of using focus groups as a primary market research method. [3 marks]",
-    hint: "Structure: Understanding (what is a benefit of focus groups?) → Application (apply to EDF using a detail from the case study) → Analysis (what is the business impact for EDF?). A beneficial FEATURE of focus groups is required — not just a description of what a focus group is.",
-    starter: "One benefit to EDF of using focus groups is that... (U)\nFor EDF, which operates in a competitive market... (APP)\nThis means that EDF will be able to... (AN)",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> State a beneficial feature of focus groups — e.g. can provide qualitative/in-depth information; can obtain detailed answers; can target a specific group of respondents; feedback is immediate; flexible process; can ask deeper probing questions.</li><li><strong>Application (1 mark):</strong> Apply to EDF — e.g. competitive market; price is very important; produces 20% of UK's electricity; largest supplier; low-carbon electricity; a service rather than a good.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact — e.g. more accurate decision making; less risk; more profit/revenue/sales; better positioned competitively.</li></ul><p>Do NOT award: 'can hear their opinions'; 'can see them in person'; 'can ask questions' — these describe what a focus group IS, not its benefits. Analysis must be business-facing. Do NOT award arguments relating to honesty.</p></div>`,
-    modelAnswer: "One benefit to EDF of using focus groups is that EDF can carefully select participants from within its target market — for example, current domestic energy customers — to obtain in-depth, qualitative information about their views on pricing and service (U). As EDF operates in a competitive market where the price it charges is very important (APP), this detailed feedback allows EDF to make better-informed decisions about its pricing and product offering — reducing the risk of losing customers to rival energy suppliers and helping to maintain its position as the UK's largest electricity supplier (AN)."
-  },
-  {
-    num: "Q10",
-    marks: 3,
-    type: "written",
-    caseStudy: "EDF is a limited company which supplies gas and electricity to homes and businesses throughout the UK. It is the largest producer of low-carbon electricity in the UK and owns two fossil fuel power stations, three wind farms and eight nuclear power stations. In 2016, EDF started to build the new Hinkley Point C nuclear power station in Somerset, which will eventually provide 7% of the UK's electricity needs for 60 years. Managers at EDF expect it to open in 2025.\n\nDuring the construction stage, the project has created thousands of jobs. A number of these construction jobs are filled by self-employed workers. Once it is fully operational, the power station will employ over 900 people, most of whom will be employed by EDF.\n\nEDF produces around 20% of the UK's electricity and is the largest supplier. As EDF operates in a competitive market, the price that it charges its customers is very important.",
-    question: "Analyse one benefit to EDF of using questionnaires as a primary market research method. [3 marks]",
-    hint: "Structure: Understanding (a benefit of questionnaires specifically) → Application (link to EDF using a case study detail) → Analysis (business impact for EDF). Do NOT just say 'primary research gives first-hand data' — this is too general and will not score the Understanding mark.",
-    starter: "One benefit to EDF of using questionnaires is that... (U)\nAs EDF produces around 20% of the UK's electricity... (APP)\nThis means that EDF... (AN)",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> State a beneficial feature of questionnaires — e.g. can be anonymous; completed independently with less group influence; can target a specific group; can gather qualitative and/or quantitative data; responses can be directly compared; easy to reach a large sample; relatively low-cost; time efficient.</li><li><strong>Application (1 mark):</strong> Apply to EDF — competitive market; price is important; 20% of UK's electricity; largest supplier; supplies gas and electricity to homes and businesses; a service.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact — more accurate decision making; less risk; more profit/revenue/sales.</li></ul><p><strong>Exemplar response:</strong> "A questionnaire includes standard questions which are easy to compare (U). As EDF has 20% of the market (APP) it will need to ask lots of people so that the results represent those of its entire customer base, leading to more accurate decision-making by the company (AN)."</p></div>`,
-    modelAnswer: "One benefit to EDF of using questionnaires is that standard questions allow responses to be directly compared and analysed efficiently across a large number of respondents (U). As EDF supplies electricity to homes and businesses throughout the UK and produces around 20% of the country's electricity (APP), it needs to gather data from a very large and varied customer base — and questionnaires allow this to be done at a relatively low cost, leading to more representative results and better-informed business decisions about pricing and service (AN)."
-  },
-  {
-    num: "Q11",
-    marks: 3,
-    type: "written",
-    caseStudy: "EDF is a limited company which supplies gas and electricity to homes and businesses throughout the UK. It is the largest producer of low-carbon electricity in the UK and owns two fossil fuel power stations, three wind farms and eight nuclear power stations. In 2016, EDF started to build the new Hinkley Point C nuclear power station in Somerset, which will eventually provide 7% of the UK's electricity needs for 60 years. Managers at EDF expect it to open in 2025.\n\nDuring the construction stage, the project has created thousands of jobs. A number of these construction jobs are filled by self-employed workers. Once it is fully operational, the power station will employ over 900 people, most of whom will be employed by EDF.\n\nEDF produces around 20% of the UK's electricity and is the largest supplier. As EDF operates in a competitive market, the price that it charges its customers is very important.",
-    question: "Recommend whether focus groups or questionnaires is the best primary market research method for EDF to use. Give reasons for your answer. [3 marks]",
-    hint: "Make a clear recommendation first (1 mark). Then justify your choice by COMPARING the two methods — explain why one is better than the other for EDF, using details from the case study. A contextual justification (linked to EDF) earns more marks.",
-    starter: "I recommend that EDF should use... because...\nThis is better than... because...\nFor EDF, which [case study detail]...",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO3b)</h5><p>1 mark for a recommendation. Up to 2 additional marks for justification — 1 mark for a non-contextual comparative justification, 2 marks for a contextual (EDF-specific) justification.</p><p>The justification MUST be comparative — why is one method BETTER OR WORSE than the other. Simply stating positives or negatives of one method without comparing does not earn justification marks.</p><ul><li>Look for comparators: cheaper, more detailed, less biased, less time consuming, larger sample, more in-depth, etc.</li></ul><p><strong>Exemplar response (questionnaires):</strong> "Questionnaires are the best way (1) to carry out market research. The company can carry out the market research on a larger sample of customers than focus groups, so the results will be more representative. This will be very expensive, but EDF has 20% of the UK market so should be able to afford it (+2)."</p><p><strong>Exemplar response (focus groups):</strong> "Focus groups should be used (1). As they will lead to more in-depth analysis of customer views than questionnaires (+1)."</p></div>`,
-    modelAnswer: "I recommend that EDF should use questionnaires rather than focus groups (recommendation). Questionnaires allow EDF to gather data from a much larger sample of customers than a focus group of around ten people — which is important given that EDF supplies electricity to homes and businesses throughout the UK and produces 20% of the country's electricity (contextual justification). Because EDF operates in a competitive market where customer views on pricing are very important, having representative data from a large number of customers will lead to more reliable and accurate business decisions than the smaller, more expensive focus group method (comparative justification)."
-  },
-  {
-    num: "Q12",
-    marks: 7,
-    type: "written",
-    caseStudy: "Sainsbury's is one of the UK's largest supermarket chains. Sainsbury's targets middle to high income customers nationally. Sainsbury's is owned by shareholders who have limited liability. The supermarket industry is very competitive, and marketing promotions are important. An example is Sainsbury's price match against similar products sold by Aldi, one of its competitors. Sainsbury's also spends a large proportion of its marketing budget on television advertising.\n\nDeveloping new products is important to remain competitive, as customers are always looking for something new. Sainsbury's uses market segmentation to support successful product development. Sainsbury's managers believe that good food should be accessible to everyone. They use primary market research to ensure the business develops products that meet the needs of its customers.",
-    question: "Evaluate whether Sainsbury's should use primary or secondary market research methods in the future. [7 marks]",
-    hint: "You need: Application (2 marks) — use TWO case study details in relation to pros/cons of market research methods. Analysis (2 marks) — TWO different advantages/disadvantages of primary or secondary research, business-facing. Evaluation (3 marks) — a clear decision about which type Sainsbury's should use, with a justified contextual reason.\n\nRemember to EMBED your application throughout your answer, not just mention the business name.",
-    starter: "One advantage of primary market research for Sainsbury's is that... (AN)\nFor Sainsbury's, which targets middle to high income customers... (APP)\n\nHowever, secondary market research... (AN)\nSainsbury's, as one of the UK's largest supermarkets... (APP)\n\nI think Sainsbury's should use [primary/secondary] market research because... (EVAL)\nThis is because [contextual reason from case study]... (EVAL)",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme — 7 marks (AO2 ×2 + AO3a ×2 + AO3b ×3)</h5><p><strong>Application (2 marks):</strong> Two uses of case study context in relation to pros/cons of market research methods — e.g. one of the UK's largest supermarkets; targets middle to high income customers; develops new products to remain competitive; customers always looking for something new; uses market segmentation; very competitive industry; Aldi price match; TV advertising budget.</p><p><strong>Analysis (2 marks):</strong> Two different business-facing pros/cons, such as:</p><ul><li>Secondary MR may not be exactly what the business wants OR Primary MR is tailored/more specific to needs</li><li>Secondary MR may be outdated OR Primary MR can be up-to-date</li><li>Secondary MR is cheaper/lower cost OR Primary MR is expensive/costly</li><li>Secondary MR takes less time OR Primary MR takes a lot of time</li><li>Secondary MR has data readily available OR Primary MR needs to be collected from scratch</li></ul><p><strong>Evaluation (3 marks):</strong> A clear decision about which type Sainsbury's should use, justified with contextual argument. For full 3 marks, the justification must be contextual (linked to Sainsbury's specifically).</p><p><strong>Exemplar response:</strong> "Utilising primary market research means they can find out specific information (AN) about sales in its competitive market (APP) so that Sainsbury's can fulfil the needs and wants of its middle to high income customers (APP). Using secondary market research is much cheaper (AN). However, since Sainsbury's is one of the largest UK supermarkets (APP) financial constraints are unlikely to be a problem. I think Sainsbury's should use primary market research (EVAL) in future because it needs specific information to help the company develop and market products to compete with rivals like Aldi (contextual EVAL)."</p></div>`,
-    modelAnswer: "Primary market research can be specifically designed to give Sainsbury's the exact information it needs (AN) — for example, to understand the preferences of its middle to high income target customers when developing new products (APP). This is important because Sainsbury's uses market segmentation and is always developing new products to remain competitive in a very competitive supermarket industry (APP). However, primary research such as focus groups or interviews is more expensive and time-consuming than secondary research (AN).\n\nSecondary research, such as census data or websites, is widely available and much cheaper to access. However, it may not be exactly what Sainsbury's needs for its specific product development decisions, and it may be out of date.\n\nI believe Sainsbury's should use primary market research in the future (EVAL). As one of the UK's largest supermarket chains, Sainsbury's has sufficient financial resources to fund primary research — the cost is unlikely to be a barrier. More importantly, because Sainsbury's is competing directly with rivals such as Aldi on price, it needs highly specific, up-to-date information about exactly what its middle to high income customers want, which only primary research can provide. Generic secondary data would not give Sainsbury's the competitive edge it needs in such a fast-moving and competitive industry (contextual EVAL)."
-  },
-  {
-    num: "Q13",
-    marks: 9,
-    type: "written",
-    caseStudy: "Jon and Jo's Nursery Market Research\n\nJon and Jo are experienced teachers and want to open a daytime childcare centre in their local village. They have no experience of business and are a little uncertain as to whether their proposed business will be a success. They realise they are taking a risk, which is making them worry about the idea. Their target market is parents with children from twelve months to four years old. Jon and Jo have undertaken some market research in order to help them make a decision on whether to go ahead with their childcare centre and they have identified three possible sites to use.\n\nSatisfaction survey results (figures show number of children of parents):\n• Very satisfied with present childcare: 25\n• Satisfied with present childcare: 48\n• Not satisfied with present childcare: 12\n\nWould you consider moving your child to a new care centre?\n• Definitely yes: 10\n• Possibly: 15\n• Definitely not: 60\n\nSite options:\n• Site A: Capacity 15 children — Cost £500,000\n• Site B: Capacity 20 children — Cost £520,000\n• Site C: Capacity 30 children — Cost £600,000\n\nJon and Jo have experience of looking after small children, but the idea of leaving their well-paid jobs as teachers is beginning to worry them. They have recently moved into a new house and have to pay a large mortgage payment each month. They are concerned that the childcare centre idea may be too much of a risk and they are not normally risk takers.",
-    question: "Evaluate, with reference to the case study and the data in the tables, whether the market research results show that Jon and Jo should go ahead with their childcare centre. [9 marks]",
-    hint: "You need all five assessment objectives:\n • Knowledge (1 mark): Define market research\n• Understanding (1 mark): Give an example of a market research method\n• Application (2 marks): Use the NUMERICAL DATA from the tables — make TWO separate points with actual figures\n• Analysis (2 marks): Explain the impact/effect on Jon and Jo's business — TWO separate points\n• Evaluation (3 marks): Make a judgement (should they go ahead?), then justify it precisely using data and case study details",
-    starter: "Market research is... (K)\nAn example of market research is... (U)\n\nThe data shows that... out of 85 parents... (APP)\nThis is significant because... (AN)\n\nHowever, only 10 out of 85 parents would definitely... (APP)\nThis means that... (AN)\n\nIn my judgement, Jon and Jo [should/should not] go ahead because... (EVAL)\nThis is supported by the data which shows... (EVAL justified with data)",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme — 9 marks (AO1a ×1 + AO1b ×1 + AO2 ×2 + AO3a ×2 + AO3b ×3)</h5><p><strong>Knowledge (1 mark):</strong> A simple statement showing knowledge of market research — e.g. "Market research is the collection of data on consumer habits."</p><p><strong>Understanding (1 mark):</strong> An example of a market research method — e.g. primary/secondary research; questionnaires; interviews; census data.</p><p><strong>Application (2 marks):</strong> Two examples using numerical data from the case study — e.g.:<br>• Jon and Jo have conducted primary research. This shows that the vast majority (73 out of 85) are satisfied or very satisfied with their present childcare.<br>• Only 10 out of 85 would definitely consider moving their child, which is below the capacity of every site they have looked at.</p><p><strong>Analysis (2 marks):</strong> Explanation of impact/effect on the business — e.g.:<br>• If inadequate market research was undertaken then an incorrect decision might be taken, possibly opening the business where there is no demand, meaning lower than expected income.<br>• Having a full range of positive market research gives confidence in the business owners to go ahead — this is important in helping build up a customer base that will bring in revenue.</p><p><strong>Evaluation (3 marks):</strong><br>• Judgement (1 mark): A simple statement — e.g. "I do not think there is sufficient market research for Jon and Jo to go ahead."<br>• Justification (2 marks): A clear, precise justification using data from the case study — e.g. "The data they have collected is not conclusive. Only 10 parents would definitely move their child (which may not be the one operated by Jon and Jo). This is below the capacity of the smallest site. More investigation is required. Jon and Jo are not risk takers — the data shows this would be a big risk."</p></div>`,
-    modelAnswer: "Market research is the collection of data on consumer habits to help decision-making in marketing (K). An example of market research is a questionnaire or survey used to collect data from potential customers (U).\n\nThe survey data shows that 73 out of 85 parents (25 very satisfied + 48 satisfied) are satisfied or very satisfied with their present childcare arrangements (APP). This suggests that the majority of parents are content with their existing provision and may not be actively looking to change — which reduces the likelihood of Jon and Jo immediately attracting the customers they need (AN).\n\nFurthermore, only 10 out of 85 parents surveyed said they would definitely consider moving their child to a new care centre (APP). This number of definite customers is below the capacity of even the smallest site available — Site A with a maximum of 15 children at a cost of £500,000 — meaning Jon and Jo could not guarantee filling any site they purchase, and may struggle to generate enough income to cover their costs (AN).\n\nIn my judgement, Jon and Jo should NOT go ahead with the childcare centre at this stage (EVAL). The market research data is not sufficiently positive to justify the financial risk. Only 10 parents would definitely move their child — this is below the capacity of the cheapest and smallest site available, and this figure of 10 may not even represent parents who would choose Jon and Jo's centre over any other new provider. Given that Jon and Jo are not risk takers, have recently taken on a large mortgage, and would be leaving well-paid teaching jobs, the financial exposure is too great for such uncertain demand. More detailed research is needed before committing to such a significant investment (contextual EVAL)."
-  }
-];
-
-// ══════════════════════════════════════
-//  BUILD LEARN
-// ══════════════════════════════════════
-function buildLearn() {
-  const grid = document.getElementById('topicGrid');
-  topicData.forEach(topic => {
-    const card = document.createElement('div');
-    card.className = 'topic-card';
-    card.innerHTML = `<span class="tag">${topic.tag}</span><span class="toggle-icon">+</span><h3>${topic.title}</h3><div class="topic-content">${topic.content}</div>`;
-    card.addEventListener('click', () => card.classList.toggle('open'));
-    grid.appendChild(card);
-  });
-}
-
-// ══════════════════════════════════════
-//  BUILD MCQ
-// ══════════════════════════════════════
-let mcqScore = 0, mcqTotal = 0;
-function buildMCQ() {
-  const wrap = document.getElementById('mcqWrap');
-  mcqData.forEach((q, qi) => {
-    const block = document.createElement('div'); block.className = 'q-block';
-    block.innerHTML = `<div class="q-num">QUESTION ${qi + 1} OF ${mcqData.length}</div><div class="q-text">${q.q}</div>
-    <div class="options">${q.opts.map((o, oi) => `<button class="opt-btn" data-qi="${qi}" data-oi="${oi}">${o}</button>`).join('')}</div>
-    <div class="q-feedback" id="fb-${qi}"></div>`;
-    wrap.appendChild(block);
-  });
-  wrap.addEventListener('click', e => {
-    const btn = e.target.closest('.opt-btn'); if (!btn) return;
-    const qi = +btn.dataset.qi, oi = +btn.dataset.oi;
-    const block = btn.closest('.q-block');
-    if (block.dataset.answered) return;
-    block.dataset.answered = 1; mcqTotal++;
-    block.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
-    const correct = oi === mcqData[qi].ans;
-    if (correct) { btn.classList.add('correct'); mcqScore++; }
-    else { btn.classList.add('wrong'); block.querySelectorAll('.opt-btn')[mcqData[qi].ans].classList.add('correct'); }
-    const fb = document.getElementById(`fb-${qi}`);
-    fb.className = 'q-feedback show ' + (correct ? 'ok' : 'no');
-    fb.textContent = mcqData[qi].explain;
-    document.getElementById('mcqScore').textContent = mcqScore;
-    document.getElementById('mcqTotal').textContent = mcqTotal;
-  });
-}
-function resetMCQ() {
-  mcqScore = 0; mcqTotal = 0;
-  document.getElementById('mcqScore').textContent = 0;
-  document.getElementById('mcqTotal').textContent = 0;
-  document.getElementById('mcqWrap').innerHTML = '';
-  buildMCQ();
-}
-
-// ══════════════════════════════════════
-//  BUILD MATCH
-// ══════════════════════════════════════
-let matchScore = 0, matchSelected = null, matchAttempts = {};
-function buildMatch() {
-  const left = document.getElementById('matchLeft');
-  const right = document.getElementById('matchRight');
-  document.getElementById('matchTotal').textContent = matchData.length;
-  const shuffled = [...matchData].sort(() => Math.random() - .5);
-  matchData.forEach((item, i) => {
-    const t = document.createElement('div');
-    t.className = 'match-item'; t.dataset.idx = i; t.dataset.side = 'term';
-    t.textContent = item.term; left.appendChild(t);
-  });
-  shuffled.forEach((item) => {
-    const d = document.createElement('div');
-    const origIdx = matchData.findIndex(m => m.def === item.def);
-    d.className = 'match-item'; d.dataset.idx = origIdx; d.dataset.side = 'def';
-    d.textContent = item.def; right.appendChild(d);
-  });
-  document.getElementById('matchLeft').addEventListener('click', e => handleMatchClick(e));
-  document.getElementById('matchRight').addEventListener('click', e => handleMatchClick(e));
-}
-function handleMatchClick(e) {
-  const item = e.target.closest('.match-item'); if (!item) return;
-  if (item.classList.contains('matched-ok') || item.classList.contains('matched-eventual')) return;
-  if (!matchSelected) {
-    if (item.dataset.side !== 'term') return;
-    matchSelected = item; item.classList.add('selected');
-  } else {
-    if (item.dataset.side !== 'def') { matchSelected.classList.remove('selected'); matchSelected = null; return; }
-    const termIdx = +matchSelected.dataset.idx, defIdx = +item.dataset.idx;
-    if (termIdx === defIdx) {
-      const cls = matchAttempts[termIdx] ? 'matched-eventual' : 'matched-ok';
-      matchSelected.className = 'match-item ' + cls;
-      item.className = 'match-item ' + cls;
-      matchScore++;
-      document.getElementById('matchScore').textContent = matchScore;
-    } else {
-      matchAttempts[termIdx] = true;
-      item.classList.add('matched-no');
-      setTimeout(() => item.classList.remove('matched-no'), 400);
-      matchSelected.classList.remove('selected');
-    }
-    matchSelected = null;
-  }
-}
-function resetMatch() {
-  matchScore = 0; matchSelected = null; matchAttempts = {};
-  document.getElementById('matchScore').textContent = 0;
-  document.getElementById('matchLeft').innerHTML = '';
-  document.getElementById('matchRight').innerHTML = '';
-  buildMatch();
-}
-
-// ══════════════════════════════════════
-//  BUILD FIB
-// ══════════════════════════════════════
-let fibScore = 0, fibTotal = 0;
-function buildFIB() {
-  const wrap = document.getElementById('fibWrap');
-  fibData.forEach((item, si) => {
-    const allAnswers = fibData.flatMap(f => Object.values(f.blanks));
-    const unique = [...new Set(allAnswers)].sort();
-    let html = item.display;
-    Object.keys(item.blanks).forEach((key, bi) => {
-      const opts = unique.map(w => `<option value="${w}">${w}</option>`).join('');
-      html = html.replace('_____', `<span class="blank-select" id="bs-${si}-${bi}" data-answer="${item.blanks[key]}"><select onchange="checkBlank(this,'bs-${si}-${bi}')"><option value="">choose...</option>${opts}</select><span></span></span>`);
-    });
-    const card = document.createElement('div');
-    card.className = 'fib-sentence';
-    card.innerHTML = html;
-    wrap.appendChild(card);
-    fibTotal += Object.keys(item.blanks).length;
-  });
-  document.getElementById('fibTotal').textContent = fibTotal;
-}
-function checkBlank(sel, id) {
-  const wrap = document.getElementById(id);
-  const correct = sel.value === wrap.dataset.answer;
-  if (correct) {
-    wrap.classList.add('correct'); wrap.classList.remove('wrong'); sel.disabled = true; fibScore++;
-    document.getElementById('fibScore').textContent = fibScore;
-  } else {
-    wrap.classList.add('wrong'); wrap.classList.remove('correct');
-    setTimeout(() => { wrap.classList.remove('wrong'); sel.value = ''; }, 500);
-  }
-}
-function resetFIB() {
-  fibScore = 0; fibTotal = 0;
-  document.getElementById('fibScore').textContent = 0;
-  document.getElementById('fibTotal').textContent = 0;
-  document.getElementById('fibWrap').innerHTML = '';
-  buildFIB();
-}
-
-// ══════════════════════════════════════
-//  BUILD MISCONCEPTIONS
-// ══════════════════════════════════════
-function buildMisc() {
-  const list = document.getElementById('miscList');
-  miscData.forEach(item => {
-    const card = document.createElement('div'); card.className = 'misc-card';
-    card.innerHTML = `<div class="wrong-view"><div class="misc-tag">✗ Common Mistake</div><p>${item.wrong}</p></div>
-    <div class="correct-view"><div class="misc-tag">✓ What Examiners Want</div><p>${item.correct}</p></div>`;
-    list.appendChild(card);
-  });
-}
-
-// ══════════════════════════════════════
-//  BUILD TIPS
-// ══════════════════════════════════════
-function buildTips() {
-  const grid = document.getElementById('tipsGrid');
-  tipsData.forEach(tip => {
-    const card = document.createElement('div'); card.className = 'tip-card';
-    const pills = tip.marks.map(m => `<span class="mark-pill ${m.cls}">${m.label}</span>`).join('');
-    card.innerHTML = `<div class="tip-type">${tip.type}</div><h4>${tip.title}</h4>${tip.content}${pills ? `<div class="mark-breakdown">${pills}</div>` : ''}`;
-    grid.appendChild(card);
-  });
-}
-
-// ══════════════════════════════════════
-//  BUILD FLASHCARDS
-// ══════════════════════════════════════
-let fcIndex = 0;
-function renderFC() {
-  document.getElementById('fcProgress').textContent = `Card ${fcIndex + 1} of ${flashcards.length}`;
-  document.getElementById('fcTerm').textContent = flashcards[fcIndex].term;
-  document.getElementById('fcDef').textContent = flashcards[fcIndex].def;
-  document.getElementById('flashcard').classList.remove('flipped');
-}
-function flipCard() { document.getElementById('flashcard').classList.toggle('flipped'); }
-function nextCard() { fcIndex = (fcIndex + 1) % flashcards.length; renderFC(); }
-function prevCard() { fcIndex = (fcIndex - 1 + flashcards.length) % flashcards.length; renderFC(); }
-
-// ══════════════════════════════════════
-//  BUILD TRUE / FALSE
-// ══════════════════════════════════════
-let tfScore = 0, tfTotal = 0;
-function buildTF() {
-  const wrap = document.getElementById('tfWrap');
-  tfData.forEach((item, i) => {
-    const card = document.createElement('div'); card.className = 'tf-card';
-    card.innerHTML = `<div><div class="tf-text">${item.statement}</div><div class="tf-explanation" id="tfExp-${i}">${item.explanation}</div></div>
-    <div class="tf-btns"><button class="tf-btn" data-i="${i}" data-val="true">TRUE</button><button class="tf-btn" data-i="${i}" data-val="false">FALSE</button></div>`;
-    wrap.appendChild(card);
-  });
-  wrap.addEventListener('click', e => {
-    const btn = e.target.closest('.tf-btn'); if (!btn) return;
-    const i = +btn.dataset.i; const card = btn.closest('.tf-card');
-    if (card.dataset.answered) return;
-    card.dataset.answered = 1;
-    const val = btn.dataset.val === 'true'; const correct = val === tfData[i].answer; tfTotal++;
-    card.querySelectorAll('.tf-btn').forEach(b => b.disabled = true);
-    if (correct) { btn.classList.add('correct'); tfScore++; }
-    else { btn.classList.add('wrong'); card.querySelectorAll('.tf-btn').forEach(b => { if (b.dataset.val === String(tfData[i].answer)) b.classList.add('correct'); }); }
-    document.getElementById(`tfExp-${i}`).classList.add('show');
-    document.getElementById('tfScore').textContent = tfScore;
-    document.getElementById('tfTotal').textContent = tfTotal;
-  });
-}
-function resetTF() {
-  tfScore = 0; tfTotal = 0;
-  document.getElementById('tfScore').textContent = 0;
-  document.getElementById('tfTotal').textContent = 0;
-  document.getElementById('tfWrap').innerHTML = '';
-  buildTF();
-}
-
-// ══════════════════════════════════════
-//  BUILD EXAM PRACTICE
-// ══════════════════════════════════════
-function buildExamPractice() {
-  const list = document.getElementById('epList');
-  examQuestions.forEach((q, qi) => {
-    const card = document.createElement('div');
-    card.className = 'ep-card';
-    const caseHtml = q.caseStudy ? `<div class="ep-case">${q.caseStudy.replace(/\n/g,'<br>')}</div>` : '';
-    let interactiveHtml = '';
-    if (q.type === 'mcq') {
-      interactiveHtml = `<div class="ep-mcq-opts">${q.options.map((o,oi) =>
-        `<button class="ep-opt" data-qi="${qi}" data-oi="${oi}"><strong>${String.fromCharCode(65+oi)}.</strong> ${o}</button>`
-      ).join('')}</div>`;
-    } else {
-      interactiveHtml = `<textarea class="ep-answer-area" id="epTextarea-${qi}" placeholder="Write your answer here..."></textarea>`;
-    }
-    card.innerHTML = `
-      <div class="ep-header">
-        <div>
-          <div class="ep-num">${q.num}</div>
-          <div class="ep-title">${q.marks} mark${q.marks > 1 ? 's' : ''}</div>
-        </div>
-        <div class="ep-marks">[${q.marks} mark${q.marks > 1 ? 's' : ''}]</div>
-      </div>
-      <div class="ep-body">
-        ${caseHtml}
-        <div class="ep-question">${q.question.replace(/\n/g,'<br>')}</div>
-        ${interactiveHtml}
-        <div class="ep-btn-row">
-          <button class="ep-btn hint-btn" onclick="togglePop(${qi},'hint')">💡 Hint</button>
-          <button class="ep-btn starter-btn" onclick="togglePop(${qi},'starter')">✍️ Sentence Starter</button>
-          ${q.type !== 'mcq' ? `<button class="ep-btn submit-btn" onclick="togglePop(${qi},'marks')">📋 Submit &amp; See Mark Scheme</button>` : ''}
-        </div>
-        <div class="ep-popup hint-pop" id="epHint-${qi}"><strong>💡 Hint:</strong> ${q.hint}</div>
-        <div class="ep-popup starter-pop" id="epStarter-${qi}"><strong>✍️ Sentence Starter:</strong><br>${q.starter.replace(/\n/g,'<br>')}</div>
-        <div class="ep-popup marks-pop" id="epMarks-${qi}">
-          ${q.markScheme}
-          ${q.modelAnswer ? `<div class="marks-section"><h5>✓ Model Answer</h5><div class="model-answer">${q.modelAnswer.replace(/\n/g,'<br>')}</div></div>` : ''}
-        </div>
-      </div>`;
-    list.appendChild(card);
-  });
-  document.getElementById('epList').addEventListener('click', e => {
-    const btn = e.target.closest('.ep-opt');
-    if (!btn) return;
-    const qi = +btn.dataset.qi, oi = +btn.dataset.oi;
-    const card = btn.closest('.ep-card');
-    if (card.dataset.epAnswered) return;
-    card.dataset.epAnswered = 1;
-    const allOpts = card.querySelectorAll('.ep-opt');
-    allOpts.forEach(b => b.disabled = true);
-    if (oi === examQuestions[qi].answer) {
-      btn.classList.add('ep-correct');
-    } else {
-      btn.classList.add('ep-wrong');
-      allOpts[examQuestions[qi].answer].classList.add('ep-correct');
-    }
-    document.getElementById(`epMarks-${qi}`).classList.add('show');
-  });
-}
-
-function togglePop(qi, type) {
-  const hint = document.getElementById(`epHint-${qi}`);
-  const starter = document.getElementById(`epStarter-${qi}`);
-  const marks = document.getElementById(`epMarks-${qi}`);
-  if (type === 'hint') { hint.classList.toggle('show'); starter.classList.remove('show'); }
-  else if (type === 'starter') { starter.classList.toggle('show'); hint.classList.remove('show'); }
-  else if (type === 'marks') { marks.classList.toggle('show'); }
-}
-
-// ══════════════════════════════════════
-//  INIT
-// ══════════════════════════════════════
-buildLearn(); buildMCQ(); buildMatch(); buildFIB(); buildMisc(); buildTips(); renderFC(); buildTF(); buildExamPractice();
+    const examQuestions = [
+      {
+        num: "Q1",
+        marks: 1,
+        type: "mcq",
+        question: "Which of the following is an example of primary research?",
+        options: [
+          "Collecting data from the internet",
+          "Collecting data by asking consumers questions in the local shopping centre",
+          "Collecting data published in the local newspapers",
+          "Collecting data from the last census for a particular age group"
+        ],
+        answer: 1,
+        hint: "Primary research means collecting brand new, first-hand data. Which option involves going out and collecting data directly from people?",
+        starter: "Primary research involves collecting data first-hand, so the answer is...",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: B — collecting data by asking consumers questions in the local shopping centre.</strong></p><p>This is primary (field) research because data is collected directly from consumers for the first time. Options A, C and D all involve using data already collected by others — these are all forms of secondary (desk) research.</p></div>`,
+        modelAnswer: ""
+      },
+      {
+        num: "Q2",
+        marks: 1,
+        type: "mcq",
+        question: "Market research is important to a business because:",
+        options: [
+          "It helps develop a good working atmosphere in a business",
+          "It provides information to help develop products",
+          "It shows managers how to motivate their staff",
+          "It keeps staff busy"
+        ],
+        answer: 1,
+        hint: "Market research is about customers and products — not staff or working conditions.",
+        starter: "Market research is important because it helps a business to...",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: B — it provides information to help develop products.</strong></p><p>Market research helps businesses understand what customers want and whether there is demand for a product. This information is then used to develop products that meet customer needs. Options A, C and D all relate to HR and management functions, not market research.</p></div>`,
+        modelAnswer: ""
+      },
+      {
+        num: "Q3",
+        marks: 1,
+        type: "mcq",
+        question: "Quantitative research is:",
+        options: [
+          "Research undertaken asking a wide variety of people",
+          "Research that concentrates on one part of the population",
+          "Research that deals only with facts and numbers",
+          "Research that has been completed by a competitor business"
+        ],
+        answer: 2,
+        hint: "Think about the word 'quantity' — what does that suggest about the type of data?",
+        starter: "Quantitative data is data that is based on...",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: C — research that deals only with facts and numbers.</strong></p><p>Quantitative data is based on measurable facts — numbers, percentages, frequencies. It is usually easier to analyse than qualitative (opinion-based) data. Option D describes secondary research from a competitor, which is a separate concept.</p></div>`,
+        modelAnswer: ""
+      },
+      {
+        num: "Q4",
+        marks: 1,
+        type: "mcq",
+        question: "A new business wanting a wide range of information about competitors would most likely use:",
+        options: [
+          "Questionnaires and interviews",
+          "Internal data",
+          "Newspapers and magazines",
+          "Websites"
+        ],
+        answer: 3,
+        hint: "The business wants information about its COMPETITORS. Which source would give the most comprehensive and up-to-date information about other businesses?",
+        starter: "A business wanting information about competitors would use...",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: D — websites.</strong></p><p>Many companies publish information about themselves and their products online, making websites the most comprehensive and accessible source of competitor information. Internal data (B) is data from within the own business. Questionnaires/interviews (A) are primary methods that would not directly reveal competitor information. Newspapers (C) could also be useful but websites provide the widest and most current range of competitor data.</p></div>`,
+        modelAnswer: ""
+      },
+      {
+        num: "Q5",
+        marks: 2,
+        type: "written",
+        caseStudy: "Waitrose is a supermarket chain with over 300 stores throughout the UK. Waitrose specialises in good quality food, targeted at customers with high levels of income. The company is owned by its employees, who receive a range of benefits including profit sharing. Waitrose continues to offer profit sharing to its employees, even though another UK supermarket chain has replaced this type of benefit with higher rates of pay.\n\nWaitrose has over 50,000 employees. Many employees are recruited externally. As part of the selection process, potential employees take part in lengthy interviews, group activities and tests. References are requested for all new employees. Once appointed, all employees receive regular training.\n\nThe supermarket industry is very competitive, so new product development is important to Waitrose. Qualitative market research data is collected using methods including focus groups and customer trials. This data then needs to be communicated effectively between employees at Head Office.",
+        question: "Explain what is meant by a focus group. [2 marks]",
+        hint: "Give a definition of a focus group — mention: small/selected group, who they are chosen to represent, and what they do.",
+        starter: "A focus group is a small group of people (K)...\nwho are asked to give their views about... (U)",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1a + AO1b)</h5><ul><li><strong>Knowledge (1 mark):</strong> A focus group is a small / selected / representative group of people.</li><li><strong>Understanding (1 mark):</strong> They are asked questions / give views / voice opinions about a firm's ideas, products or services.</li></ul><p><strong>Exemplar response:</strong> "It is a small group of people (1) who are asked to give their views about a product being developed (1)."</p></div>`,
+        modelAnswer: "A focus group is a small group of around ten people who are carefully selected to represent the target market (K). They are given information about a product or service and asked questions — their opinions and answers are then analysed to help the business make decisions (U)."
+      },
+      {
+        num: "Q6",
+        marks: 2,
+        type: "written",
+        caseStudy: "Waitrose is a supermarket chain with over 300 stores throughout the UK. Waitrose specialises in good quality food, targeted at customers with high levels of income. The company is owned by its employees, who receive a range of benefits including profit sharing. Waitrose continues to offer profit sharing to its employees, even though another UK supermarket chain has replaced this type of benefit with higher rates of pay.\n\nWaitrose has over 50,000 employees. Many employees are recruited externally. As part of the selection process, potential employees take part in lengthy interviews, group activities and tests. References are requested for all new employees. Once appointed, all employees receive regular training.\n\nThe supermarket industry is very competitive, so new product development is important to Waitrose. Qualitative market research data is collected using methods including focus groups and customer trials. This data then needs to be communicated effectively between employees at Head Office.",
+        question: "Explain one advantage for Waitrose of using customer trials. [2 marks]",
+        hint: "State one advantage of trialling — then apply it to Waitrose specifically using a detail from the case study.",
+        starter: "One advantage for Waitrose of using customer trials is... (U)\nThis is important for Waitrose because... (APP)",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1b + AO2)</h5><ul><li><strong>Understanding (1 mark):</strong> State an advantage of customer trials — e.g. less expensive than a full launch / saves money in case product fails / less likely to damage reputation nationally if product fails / sales figures give an indication of actual demand.</li><li><strong>Application (1 mark):</strong> Apply to Waitrose — e.g. reference to new product development being important / the supermarket industry being very competitive / over 300 stores throughout the UK / targeting high income customers.</li></ul><p>Do NOT award answers relating to getting qualitative feedback or giving away free samples — trialling provides sales data, not opinion data.</p></div>`,
+        modelAnswer: "One advantage for Waitrose of using customer trials is that it keeps market research spend to a minimum by only releasing a new product in a limited number of stores (U). As Waitrose has over 300 stores across the UK, it can trial a product in just a few selected stores before committing to a full national launch — saving money if the product does not sell well (APP)."
+      },
+      {
+        num: "Q7",
+        marks: 3,
+        type: "written",
+        caseStudy: "Clarks is a successful UK footwear brand with ranges for children, women, and men. Their market is very competitive. Clarks employs specialist designers who create new shoe styles in response to fast-changing fashion trends. The designers interpret quantitative data carefully when planning new shoe styles. The designers work closely with employees from other functional areas of the business, such as marketing, finance, and retail, to ensure that the new shoe styles meet customers' needs profitably.",
+        question: "Analyse one advantage for Clarks of interpreting quantitative data when designing new products. [3 marks]",
+        hint: "Structure: Understanding (what is the advantage of quantitative data?) → Application (how does this apply to Clarks specifically?) → Analysis (what is the business impact for Clarks?). Do NOT just describe what quantitative data is.",
+        starter: "One advantage for Clarks of interpreting quantitative data is that it can... (U)\nFor Clarks, which operates in a very competitive market... (APP)\nThis means that Clarks will be able to... (AN)",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> State an advantage of quantitative data — e.g. can sort/analyse/compare/identify trends or patterns (must be comparative); easy to investigate and draw conclusions from.</li><li><strong>Application (1 mark):</strong> Apply to Clarks — e.g. reference to very competitive market, specialist designers, fast-changing fashion trends, footwear for children/women/men, meeting customer needs profitably.</li><li><strong>Analysis (1 mark):</strong> Explain the business-facing impact — e.g. increased revenue, profit, competitive advantage, better decision-making. Analysis must stem from the advantage stated.</li></ul><p><strong>Do NOT award:</strong> 'can be plotted on a graph'; 'objective'; 'numerical'; what quantitative data IS rather than its advantage. Analysis must be business-facing.</p><p><strong>Exemplar response:</strong> "Quantitative data will help Clarks identify changes in demand (U) for its children's, women's and men's ranges in its competitive market (APP). Designing products to closely meet customer demand will lead to increased revenue for Clarks (+AN)."</p></div>`,
+        modelAnswer: "One advantage for Clarks of interpreting quantitative data is that trends and patterns in customer demand can be identified and compared over time (U). For Clarks, which operates in a very competitive market with fast-changing fashion trends (APP), being able to spot which shoe styles are growing or declining in popularity allows its specialist designers to make better-informed decisions about which new styles to develop — reducing the risk of producing shoes that do not sell and increasing the likelihood of higher revenue and profit (AN)."
+      },
+      {
+        num: "Q8",
+        marks: 6,
+        type: "written",
+        caseStudy: "Walkers Snack Foods Ltd (Walkers) manufactures well-known snacks, including Walkers crisps, Quavers and Wotsits. The company has a market share of more than 50% of the UK potato snack market. The company aims to maintain its market share and to increase profitability.\n\nWalkers uses different marketing strategies as the snacks move through the stages of the product life cycle. Flavours are regularly added to Walkers' range of crisps, often trialling new flavours before launching them. Recent examples have included 'fish & chips' and 'chicken burrito' flavours.\n\nWalkers have responded to concerns about healthy eating by adapting its product range, including: recipe changes to reduce added salt by 25% and saturated fats by up to 70%; a reduction in bag size; multipacks now containing 22 bags rather than 24, with no change in price.\n\nThese changes were supported by a marketing strategy which affected all elements of the marketing mix.\n\nAn independent market research company arranged focus groups in both 2017 and 2022 to look at healthy eating trends. It found that: 46% of people were concerned about healthy eating in 2017, compared with 60% in 2022. In 2022, 36% of people considered whether a snack was healthy before buying it. In 2017, 26% of people thought that snack companies were trying to produce more healthy products. By 2022 this figure had increased to 29%.",
+        question: "Analyse two advantages for Walkers of trialling new products before launching them. [6 marks]",
+        hint: "Two separate advantages, each worth 3 marks: Understanding (what is the advantage?) → Application to Walkers (use a specific detail from the case study) → Analysis (what is the business impact for Walkers?). Remember: trialling gives sales DATA, not qualitative feedback on improving the product.",
+        starter: "One advantage for Walkers of trialling new products is that... (U)\nFor Walkers, which regularly adds new flavours such as 'fish & chips' and 'chicken burrito'... (APP)\nThis means that Walkers... (AN)\n\nA second advantage is that trialling... (U)\nFor Walkers, which aims to maintain its 50% market share... (APP)\nAs a result, Walkers... (AN)",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme — 6 marks (AO1b ×2 + AO2 ×2 + AO3a ×2)</h5><p>Two advantages required, each worth Understanding (1) + Application (1) + Analysis (1).</p><ul><li><strong>Possible advantages (Understanding):</strong> Identifies whether there is demand for the product / whether a launch would be successful / avoids the expense of a full product launch / reduces likelihood of negative impact on reputation or brand image / reduces risk of launching an unsuccessful product.</li><li><strong>Application to Walkers:</strong> Reference to well-known snacks / aim to maintain market share and increase profitability / adding new flavours (fish & chips, chicken burrito) / concern about healthy eating / 50% market share / Walkers crisps, Quavers, Wotsits.</li><li><strong>Analysis:</strong> Impact on market share, revenue, profit, costs, competitive advantage, wastage, planning, cashflow, etc. Analysis must be business-facing.</li></ul><p><strong>Important: Do NOT award</strong> answers about gaining customer opinions or qualitative feedback to improve the flavour — this is a fundamental misunderstanding of trialling. Trialling provides SALES DATA only.</p><p><strong>Exemplar response 1:</strong> "Reduces the risk of introducing an unsuccessful product (U) which may have led to a reduction in the firm's reputation (AN) and a fall in Walkers' 50% market share (APP)."</p><p><strong>Exemplar response 2:</strong> "Sales figures will give an indication of which new flavours will be successful (U). Walkers can then concentrate its resources on those particular flavours such as 'chicken burrito' (APP), increasing profit (AN)."</p></div>`,
+        modelAnswer: "One advantage for Walkers of trialling new products before launching is that it reduces the risk of investing heavily in an unsuccessful product (U). Walkers regularly adds new flavours to its range — such as 'fish & chips' and 'chicken burrito' (APP) — and trialling these in selected areas first means that if demand proves insufficient, Walkers avoids the much greater cost of a full national launch, protecting its profitability (AN).\n\nA second advantage is that the sales data from a trial gives a clear indication of whether a full national launch is justified (U). For Walkers, which aims to maintain more than 50% of the UK potato snack market (APP), being able to measure actual consumer buying behaviour before committing to full production and distribution reduces the risk of damaging its strong market position with an unpopular product launch (AN)."
+      },
+      {
+        num: "Q9",
+        marks: 3,
+        type: "written",
+        caseStudy: "EDF is a limited company which supplies gas and electricity to homes and businesses throughout the UK. It is the largest producer of low-carbon electricity in the UK and owns two fossil fuel power stations, three wind farms and eight nuclear power stations. In 2016, EDF started to build the new Hinkley Point C nuclear power station in Somerset, which will eventually provide 7% of the UK's electricity needs for 60 years. Managers at EDF expect it to open in 2025.\n\nDuring the construction stage, the project has created thousands of jobs. A number of these construction jobs are filled by self-employed workers. Once it is fully operational, the power station will employ over 900 people, most of whom will be employed by EDF.\n\nEDF produces around 20% of the UK's electricity and is the largest supplier. As EDF operates in a competitive market, the price that it charges its customers is very important.",
+        question: "Analyse one benefit to EDF of using focus groups as a primary market research method. [3 marks]",
+        hint: "Structure: Understanding (what is a benefit of focus groups?) → Application (apply to EDF using a detail from the case study) → Analysis (what is the business impact for EDF?). A beneficial FEATURE of focus groups is required — not just a description of what a focus group is.",
+        starter: "One benefit to EDF of using focus groups is that... (U)\nFor EDF, which operates in a competitive market... (APP)\nThis means that EDF will be able to... (AN)",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> State a beneficial feature of focus groups — e.g. can provide qualitative/in-depth information; can obtain detailed answers; can target a specific group of respondents; feedback is immediate; flexible process; can ask deeper probing questions.</li><li><strong>Application (1 mark):</strong> Apply to EDF — e.g. competitive market; price is very important; produces 20% of UK's electricity; largest supplier; low-carbon electricity; a service rather than a good.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact — e.g. more accurate decision making; less risk; more profit/revenue/sales; better positioned competitively.</li></ul><p>Do NOT award: 'can hear their opinions'; 'can see them in person'; 'can ask questions' — these describe what a focus group IS, not its benefits. Analysis must be business-facing. Do NOT award arguments relating to honesty.</p></div>`,
+        modelAnswer: "One benefit to EDF of using focus groups is that EDF can carefully select participants from within its target market — for example, current domestic energy customers — to obtain in-depth, qualitative information about their views on pricing and service (U). As EDF operates in a competitive market where the price it charges is very important (APP), this detailed feedback allows EDF to make better-informed decisions about its pricing and product offering — reducing the risk of losing customers to rival energy suppliers and helping to maintain its position as the UK's largest electricity supplier (AN)."
+      },
+      {
+        num: "Q10",
+        marks: 3,
+        type: "written",
+        caseStudy: "EDF is a limited company which supplies gas and electricity to homes and businesses throughout the UK. It is the largest producer of low-carbon electricity in the UK and owns two fossil fuel power stations, three wind farms and eight nuclear power stations. In 2016, EDF started to build the new Hinkley Point C nuclear power station in Somerset, which will eventually provide 7% of the UK's electricity needs for 60 years. Managers at EDF expect it to open in 2025.\n\nDuring the construction stage, the project has created thousands of jobs. A number of these construction jobs are filled by self-employed workers. Once it is fully operational, the power station will employ over 900 people, most of whom will be employed by EDF.\n\nEDF produces around 20% of the UK's electricity and is the largest supplier. As EDF operates in a competitive market, the price that it charges its customers is very important.",
+        question: "Analyse one benefit to EDF of using questionnaires as a primary market research method. [3 marks]",
+        hint: "Structure: Understanding (a benefit of questionnaires specifically) → Application (link to EDF using a case study detail) → Analysis (business impact for EDF). Do NOT just say 'primary research gives first-hand data' — this is too general and will not score the Understanding mark.",
+        starter: "One benefit to EDF of using questionnaires is that... (U)\nAs EDF produces around 20% of the UK's electricity... (APP)\nThis means that EDF... (AN)",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> State a beneficial feature of questionnaires — e.g. can be anonymous; completed independently with less group influence; can target a specific group; can gather qualitative and/or quantitative data; responses can be directly compared; easy to reach a large sample; relatively low-cost; time efficient.</li><li><strong>Application (1 mark):</strong> Apply to EDF — competitive market; price is important; 20% of UK's electricity; largest supplier; supplies gas and electricity to homes and businesses; a service.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact — more accurate decision making; less risk; more profit/revenue/sales.</li></ul><p><strong>Exemplar response:</strong> "A questionnaire includes standard questions which are easy to compare (U). As EDF has 20% of the market (APP) it will need to ask lots of people so that the results represent those of its entire customer base, leading to more accurate decision-making by the company (AN)."</p></div>`,
+        modelAnswer: "One benefit to EDF of using questionnaires is that standard questions allow responses to be directly compared and analysed efficiently across a large number of respondents (U). As EDF supplies electricity to homes and businesses throughout the UK and produces around 20% of the country's electricity (APP), it needs to gather data from a very large and varied customer base — and questionnaires allow this to be done at a relatively low cost, leading to more representative results and better-informed business decisions about pricing and service (AN)."
+      },
+      {
+        num: "Q11",
+        marks: 3,
+        type: "written",
+        caseStudy: "EDF is a limited company which supplies gas and electricity to homes and businesses throughout the UK. It is the largest producer of low-carbon electricity in the UK and owns two fossil fuel power stations, three wind farms and eight nuclear power stations. In 2016, EDF started to build the new Hinkley Point C nuclear power station in Somerset, which will eventually provide 7% of the UK's electricity needs for 60 years. Managers at EDF expect it to open in 2025.\n\nDuring the construction stage, the project has created thousands of jobs. A number of these construction jobs are filled by self-employed workers. Once it is fully operational, the power station will employ over 900 people, most of whom will be employed by EDF.\n\nEDF produces around 20% of the UK's electricity and is the largest supplier. As EDF operates in a competitive market, the price that it charges its customers is very important.",
+        question: "Recommend whether focus groups or questionnaires is the best primary market research method for EDF to use. Give reasons for your answer. [3 marks]",
+        hint: "Make a clear recommendation first (1 mark). Then justify your choice by COMPARING the two methods — explain why one is better than the other for EDF, using details from the case study. A contextual justification (linked to EDF) earns more marks.",
+        starter: "I recommend that EDF should use... because...\nThis is better than... because...\nFor EDF, which [case study detail]...",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO3b)</h5><p>1 mark for a recommendation. Up to 2 additional marks for justification — 1 mark for a non-contextual comparative justification, 2 marks for a contextual (EDF-specific) justification.</p><p>The justification MUST be comparative — why is one method BETTER OR WORSE than the other. Simply stating positives or negatives of one method without comparing does not earn justification marks.</p><ul><li>Look for comparators: cheaper, more detailed, less biased, less time consuming, larger sample, more in-depth, etc.</li></ul><p><strong>Exemplar response (questionnaires):</strong> "Questionnaires are the best way (1) to carry out market research. The company can carry out the market research on a larger sample of customers than focus groups, so the results will be more representative. This will be very expensive, but EDF has 20% of the UK market so should be able to afford it (+2)."</p><p><strong>Exemplar response (focus groups):</strong> "Focus groups should be used (1). As they will lead to more in-depth analysis of customer views than questionnaires (+1)."</p></div>`,
+        modelAnswer: "I recommend that EDF should use questionnaires rather than focus groups (recommendation). Questionnaires allow EDF to gather data from a much larger sample of customers than a focus group of around ten people — which is important given that EDF supplies electricity to homes and businesses throughout the UK and produces 20% of the country's electricity (contextual justification). Because EDF operates in a competitive market where customer views on pricing are very important, having representative data from a large number of customers will lead to more reliable and accurate business decisions than the smaller, more expensive focus group method (comparative justification)."
+      },
+      {
+        num: "Q12",
+        marks: 7,
+        type: "written",
+        caseStudy: "Sainsbury's is one of the UK's largest supermarket chains. Sainsbury's targets middle to high income customers nationally. Sainsbury's is owned by shareholders who have limited liability. The supermarket industry is very competitive, and marketing promotions are important. An example is Sainsbury's price match against similar products sold by Aldi, one of its competitors. Sainsbury's also spends a large proportion of its marketing budget on television advertising.\n\nDeveloping new products is important to remain competitive, as customers are always looking for something new. Sainsbury's uses market segmentation to support successful product development. Sainsbury's managers believe that good food should be accessible to everyone. They use primary market research to ensure the business develops products that meet the needs of its customers.",
+        question: "Evaluate whether Sainsbury's should use primary or secondary market research methods in the future. [7 marks]",
+        hint: "You need: Application (2 marks) — use TWO case study details in relation to pros/cons of market research methods. Analysis (2 marks) — TWO different advantages/disadvantages of primary or secondary research, business-facing. Evaluation (3 marks) — a clear decision about which type Sainsbury's should use, with a justified contextual reason.\n\nRemember to EMBED your application throughout your answer, not just mention the business name.",
+        starter: "One advantage of primary market research for Sainsbury's is that... (AN)\nFor Sainsbury's, which targets middle to high income customers... (APP)\n\nHowever, secondary market research... (AN)\nSainsbury's, as one of the UK's largest supermarkets... (APP)\n\nI think Sainsbury's should use [primary/secondary] market research because... (EVAL)\nThis is because [contextual reason from case study]... (EVAL)",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme — 7 marks (AO2 ×2 + AO3a ×2 + AO3b ×3)</h5><p><strong>Application (2 marks):</strong> Two uses of case study context in relation to pros/cons of market research methods — e.g. one of the UK's largest supermarkets; targets middle to high income customers; develops new products to remain competitive; customers always looking for something new; uses market segmentation; very competitive industry; Aldi price match; TV advertising budget.</p><p><strong>Analysis (2 marks):</strong> Two different business-facing pros/cons, such as:</p><ul><li>Secondary MR may not be exactly what the business wants OR Primary MR is tailored/more specific to needs</li><li>Secondary MR may be outdated OR Primary MR can be up-to-date</li><li>Secondary MR is cheaper/lower cost OR Primary MR is expensive/costly</li><li>Secondary MR takes less time OR Primary MR takes a lot of time</li><li>Secondary MR has data readily available OR Primary MR needs to be collected from scratch</li></ul><p><strong>Evaluation (3 marks):</strong> A clear decision about which type Sainsbury's should use, justified with contextual argument. For full 3 marks, the justification must be contextual (linked to Sainsbury's specifically).</p><p><strong>Exemplar response:</strong> "Utilising primary market research means they can find out specific information (AN) about sales in its competitive market (APP) so that Sainsbury's can fulfil the needs and wants of its middle to high income customers (APP). Using secondary market research is much cheaper (AN). However, since Sainsbury's is one of the largest UK supermarkets (APP) financial constraints are unlikely to be a problem. I think Sainsbury's should use primary market research (EVAL) in future because it needs specific information to help the company develop and market products to compete with rivals like Aldi (contextual EVAL)."</p></div>`,
+        modelAnswer: "Primary market research can be specifically designed to give Sainsbury's the exact information it needs (AN) — for example, to understand the preferences of its middle to high income target customers when developing new products (APP). This is important because Sainsbury's uses market segmentation and is always developing new products to remain competitive in a very competitive supermarket industry (APP). However, primary research such as focus groups or interviews is more expensive and time-consuming than secondary research (AN).\n\nSecondary research, such as census data or websites, is widely available and much cheaper to access. However, it may not be exactly what Sainsbury's needs for its specific product development decisions, and it may be out of date.\n\nI believe Sainsbury's should use primary market research in the future (EVAL). As one of the UK's largest supermarket chains, Sainsbury's has sufficient financial resources to fund primary research — the cost is unlikely to be a barrier. More importantly, because Sainsbury's is competing directly with rivals such as Aldi on price, it needs highly specific, up-to-date information about exactly what its middle to high income customers want, which only primary research can provide. Generic secondary data would not give Sainsbury's the competitive edge it needs in such a fast-moving and competitive industry (contextual EVAL)."
+      },
+      {
+        num: "Q13",
+        marks: 9,
+        type: "written",
+        caseStudy: "Jon and Jo's Nursery Market Research\n\nJon and Jo are experienced teachers and want to open a daytime childcare centre in their local village. They have no experience of business and are a little uncertain as to whether their proposed business will be a success. They realise they are taking a risk, which is making them worry about the idea. Their target market is parents with children from twelve months to four years old. Jon and Jo have undertaken some market research in order to help them make a decision on whether to go ahead with their childcare centre and they have identified three possible sites to use.\n\nSatisfaction survey results (figures show number of children of parents):\n• Very satisfied with present childcare: 25\n• Satisfied with present childcare: 48\n• Not satisfied with present childcare: 12\n\nWould you consider moving your child to a new care centre?\n• Definitely yes: 10\n• Possibly: 15\n• Definitely not: 60\n\nSite options:\n• Site A: Capacity 15 children — Cost £500,000\n• Site B: Capacity 20 children — Cost £520,000\n• Site C: Capacity 30 children — Cost £600,000\n\nJon and Jo have experience of looking after small children, but the idea of leaving their well-paid jobs as teachers is beginning to worry them. They have recently moved into a new house and have to pay a large mortgage payment each month. They are concerned that the childcare centre idea may be too much of a risk and they are not normally risk takers.",
+        question: "Evaluate, with reference to the case study and the data in the tables, whether the market research results show that Jon and Jo should go ahead with their childcare centre. [9 marks]",
+        hint: "You need all five assessment objectives:\n • Knowledge (1 mark): Define market research\n• Understanding (1 mark): Give an example of a market research method\n• Application (2 marks): Use the NUMERICAL DATA from the tables — make TWO separate points with actual figures\n• Analysis (2 marks): Explain the impact/effect on Jon and Jo's business — TWO separate points\n• Evaluation (3 marks): Make a judgement (should they go ahead?), then justify it precisely using data and case study details",
+        starter: "Market research is... (K)\nAn example of market research is... (U)\n\nThe data shows that... out of 85 parents... (APP)\nThis is significant because... (AN)\n\nHowever, only 10 out of 85 parents would definitely... (APP)\nThis means that... (AN)\n\nIn my judgement, Jon and Jo [should/should not] go ahead because... (EVAL)\nThis is supported by the data which shows... (EVAL justified with data)",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme — 9 marks (AO1a ×1 + AO1b ×1 + AO2 ×2 + AO3a ×2 + AO3b ×3)</h5><p><strong>Knowledge (1 mark):</strong> A simple statement showing knowledge of market research — e.g. "Market research is the collection of data on consumer habits."</p><p><strong>Understanding (1 mark):</strong> An example of a market research method — e.g. primary/secondary research; questionnaires; interviews; census data.</p><p><strong>Application (2 marks):</strong> Two examples using numerical data from the case study — e.g.:<br>• Jon and Jo have conducted primary research. This shows that the vast majority (73 out of 85) are satisfied or very satisfied with their present childcare.<br>• Only 10 out of 85 would definitely consider moving their child, which is below the capacity of every site they have looked at.</p><p><strong>Analysis (2 marks):</strong> Explanation of impact/effect on the business — e.g.:<br>• If inadequate market research was undertaken then an incorrect decision might be taken, possibly opening the business where there is no demand, meaning lower than expected income.<br>• Having a full range of positive market research gives confidence in the business owners to go ahead — this is important in helping build up a customer base that will bring in revenue.</p><p><strong>Evaluation (3 marks):</strong><br>• Judgement (1 mark): A simple statement — e.g. "I do not think there is sufficient market research for Jon and Jo to go ahead."<br>• Justification (2 marks): A clear, precise justification using data from the case study — e.g. "The data they have collected is not conclusive. Only 10 parents would definitely move their child (which may not be the one operated by Jon and Jo). This is below the capacity of the smallest site. More investigation is required. Jon and Jo are not risk takers — the data shows this would be a big risk."</p></div>`,
+        modelAnswer: "Market research is the collection of data on consumer habits to help decision-making in marketing (K). An example of market research is a questionnaire or survey used to collect data from potential customers (U).\n\nThe survey data shows that 73 out of 85 parents (25 very satisfied + 48 satisfied) are satisfied or very satisfied with their present childcare arrangements (APP). This suggests that the majority of parents are content with their existing provision and may not be actively looking to change — which reduces the likelihood of Jon and Jo immediately attracting the customers they need (AN).\n\nFurthermore, only 10 out of 85 parents surveyed said they would definitely consider moving their child to a new care centre (APP). This number of definite customers is below the capacity of even the smallest site available — Site A with a maximum of 15 children at a cost of £500,000 — meaning Jon and Jo could not guarantee filling any site they purchase, and may struggle to generate enough income to cover their costs (AN).\n\nIn my judgement, Jon and Jo should NOT go ahead with the childcare centre at this stage (EVAL). The market research data is not sufficiently positive to justify the financial risk. Only 10 parents would definitely move their child — this is below the capacity of the cheapest and smallest site available, and this figure of 10 may not even represent parents who would choose Jon and Jo's centre over any other new provider. Given that Jon and Jo are not risk takers, have recently taken on a large mortgage, and would be leaving well-paid teaching jobs, the financial exposure is too great for such uncertain demand. More detailed research is needed before committing to such a significant investment (contextual EVAL)."
+      }
+    ];
 </script>
+  <script src="script.js"></script>
+
 </body>
 </html>

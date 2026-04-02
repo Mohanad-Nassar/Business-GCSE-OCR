@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.3 Market Segmentation – Interactive Study Guide</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <div>
+      <div class="badge">OCR GCSE Business — Component 2</div>
+      <h1>Unit 2.3 — Market Segmentation</h1>
+      <p>Interactive revision guide · All key content + full exam practice</p>
+    </div>
+    <a href="index.html" class="home-link">← 🏡 Home</a>
+
+  </header>
+
+  <nav class="tab-bar" id="tabBar">
+    <button class="tab-btn active" onclick="switchTab('learn',this)">📚 Key Learning</button>
+    <button class="tab-btn" onclick="switchTab('mcq',this)">❓ MCQ Quiz</button>
+    <button class="tab-btn" onclick="switchTab('matching',this)">🔗 Matching</button>
+    <button class="tab-btn" onclick="switchTab('fib',this)">✏️ Fill the Blanks</button>
+    <button class="tab-btn" onclick="switchTab('misconceptions',this)">⚠️ Misconceptions</button>
+    <button class="tab-btn" onclick="switchTab('examtips',this)">🎯 Exam Tips</button>
+    <button class="tab-btn" onclick="switchTab('flashcards',this)">🃏 Flashcards</button>
+    <button class="tab-btn" onclick="switchTab('truefalse',this)">✅ True / False</button>
+    <button class="tab-btn" onclick="switchTab('exampractice',this)">📝 Exam Practice</button>
+  </nav>
+
+    <main>
+    
+      <div class="tab-panel active" id="tab-learn">
+        <h2 class="section-title">Key Learning Topics</h2>
+        <p class="section-sub">Click any card to expand detailed notes.</p>
+        <div class="topic-grid" id="topicGrid"></div>
+      </div>
+    
+      <div class="tab-panel" id="tab-mcq">
+        <h2 class="section-title">Multiple Choice Questions</h2>
+        <p class="section-sub">Select an answer to reveal instant feedback.</p>
+        <div class="score-bar">
+          <div>
+            <div class="score-num" id="mcqScore">0</div>
+            <div style="font-size:12px;color:var(--mid)">correct answers</div>
+          </div>
+          <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+          <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+        </div>
+        <div class="quiz-wrap" id="mcqWrap"></div>
+      </div>
+    
+      <div class="tab-panel" id="tab-matching">
+        <h2 class="section-title">Matching Activity</h2>
+        <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+        <div style="margin-bottom:16px;">
+          <div class="score-bar">
+            <div>
+              <div class="score-num" id="matchScore">0</div>
+              <div style="font-size:12px;color:var(--mid)">matched</div>
+            </div>
+            <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+            <button class="reset-btn" onclick="resetMatch()">RESET</button>
+          </div>
+          <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
+            <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span>
+              First attempt correct</span>
+            <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span>
+              Correct after mistake</span>
+            <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span>
+              Wrong — try again</span>
+          </div>
+        </div>
+        <div class="match-grid">
+          <div>
+            <div class="match-label">TERMS</div>
+            <div class="match-col" id="matchLeft"></div>
+          </div>
+          <div>
+            <div class="match-label">DEFINITIONS</div>
+            <div class="match-col" id="matchRight"></div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="tab-panel" id="tab-fib">
+        <h2 class="section-title">Fill in the Blanks</h2>
+        <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
+        <div class="score-bar">
+          <div>
+            <div class="score-num" id="fibScore">0</div>
+            <div style="font-size:12px;color:var(--mid)">correct</div>
+          </div>
+          <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+          <button class="reset-btn" onclick="resetFIB()">RESET</button>
+        </div>
+        <div class="fib-wrap" id="fibWrap"></div>
+      </div>
+    
+      <div class="tab-panel" id="tab-misconceptions">
+        <h2 class="section-title">Common Misconceptions</h2>
+        <p class="section-sub">What students often think — and what examiners actually want.</p>
+        <div class="misc-list" id="miscList"></div>
+      </div>
+    
+      <div class="tab-panel" id="tab-examtips">
+        <h2 class="section-title">Exam Questions &amp; Tips</h2>
+        <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
+        <div class="tips-grid" id="tipsGrid"></div>
+      </div>
+    
+      <div class="tab-panel" id="tab-flashcards">
+        <h2 class="section-title">Flashcards</h2>
+        <p class="section-sub">Test yourself! Flip the card and rate your knowledge. Review your weak areas at the end.
+        </p>
+    
+        <div class="fc-container">
+          <div class="score-bar" id="fcScoreBar" style="display:none; margin-bottom: 20px;">
+            <div>
+              <div class="score-num" id="fcKnown" style="color:#2d7a4f;">0</div>
+              <div style="font-size:12px;color:var(--mid)">known</div>
+            </div>
+            <div>
+              <div class="score-num" id="fcUnknown" style="color:#c84b31;">0</div>
+              <div style="font-size:12px;color:var(--mid)">learning</div>
+            </div>
+            <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
+            <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+          </div>
+    
+          <div id="fcActiveArea">
+            <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+            <div class="flashcard" id="flashcard" onclick="flipCard()">
+              <div class="fc-inner">
+                <div class="fc-front">
+                  <div class="fc-label">KEY TERM</div>
+                  <div class="fc-term" id="fcTerm"></div>
+                </div>
+                <div class="fc-back">
+                  <div class="fc-def" id="fcDef"></div>
+                </div>
+              </div>
+            </div>
+            <p class="fc-hint">👆 Click card to flip</p>
+    
+            <div class="fc-nav" id="fcNavDefault">
+              <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+              <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+              <button class="fc-btn" onclick="nextCard()">Next →</button>
+            </div>
+    
+            <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px;">
+              <button class="fc-btn outline" style="border-color:#c84b31; color:#c84b31; flex:1;"
+                onclick="markCard(false)">❌
+                Still Learning</button>
+              <button class="fc-btn" style="background:#2d7a4f; border-color:#2d7a4f; flex:1;" onclick="markCard(true)">✅
+                Got
+                It</button>
+            </div>
+          </div>
+    
+          <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px;">
+            <h3>Session Complete! 🎉</h3>
+            <p style="margin: 15px 0;">You knew <strong id="fcSummaryKnown">0</strong> out of <strong
+                id="fcSummaryTotal">0</strong> cards.</p>
+            <div style="margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+              <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                style="background:#c84b31; border-color:#c84b31;">Review Incorrect</button>
+              <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="tab-panel" id="tab-truefalse">
+        <h2 class="section-title">True or False?</h2>
+        <p class="section-sub">Test your knowledge with these statements.</p>
+        <div class="score-bar">
+          <div>
+            <div class="score-num" id="tfScore">0</div>
+            <div style="font-size:12px;color:var(--mid)">correct</div>
+          </div>
+          <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+          <button class="reset-btn" onclick="resetTF()">RESET</button>
+        </div>
+        <div class="tf-wrap" id="tfWrap"></div>
+      </div>
+    
+      <div class="tab-panel" id="tab-exampractice">
+        <h2 class="section-title">Exam Practice Questions</h2>
+        <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence
+            Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
+        <div class="ep-list" id="epList"></div>
+      </div>
+    
+    </main>
+
+  <script>
+    // ══════════════════════════════════════
+    //  DATA
+    // ══════════════════════════════════════
+
+    const topics = [
+      {
+        title: "What is Market Segmentation?",
+        tag: "Core Definition",
+        content: `<p><strong>Market segmentation</strong> is the splitting of the market for a product or service into different parts, or segments.</p>
+  <p>Splitting the market into different segments helps the business to identify its <strong>target market</strong> more effectively. This is done by looking at the different types of customers that might buy the product — their age, gender, income, location and lifestyle.</p>
+  <p>For example, Adidas will have trainers made for serious runners, and trainers made for simple everyday wear. The trainers for serious runners would be advertised in running magazines, whereas the more general trainers would not. With good segmentation, the advertising for a product can be much more accurate.</p>
+  <p>Businesses need to know that people in different segments often want different kinds of products or services — so they can target their products at the different needs of customers in each segment.</p>
+  <p>When a business targets the different segments in its market, it will need to consider:</p>
+  <ul>
+  <li><strong>Whether to produce different products</strong> for different markets — e.g. male/female versions, or basic and more sophisticated models</li>
+  <li><strong>What price to charge</strong> — high or low?</li>
+  <li><strong>How to promote the products</strong> — the type of media to use and what message this method may give</li>
+  <li><strong>Where to locate shops</strong> — town centre, shopping mall, holiday resort — and whether to sell online or not</li>
+  </ul>`
+      },
+      {
+        title: "Segmentation by Age",
+        tag: "Methods of Segmentation",
+        content: `<p>Different age groups will buy different products. While the latest technology may be aimed at younger people, it is not to say that some older people will not also buy such products.</p>
+  <p>Recent changes in the population structure of the UK have meant there is a growing number of older people who have the wealth, health and time to enjoy themselves. This has resulted in holiday businesses targeting more (and often more expensive) holidays at this age group.</p>
+  <p><strong>Examples of age segmentation:</strong></p>
+  <ul>
+  <li>Magazines aimed at teenage girls vs. magazines aimed at women in the 20–40 age range</li>
+  <li>Bright, big and colourful watches for younger people vs. more understated designs for older people</li>
+  <li>Toys targeted at specific age bands (e.g. 0–2, 3–5, 6–10)</li>
+  <li>Holidays to Disneyland (families with young children) vs. river cruising (older customers)</li>
+  </ul>
+  <p><strong>Note:</strong> Age segmentation can be difficult to plan with total accuracy — not every young person wants the same thing, and older people may sometimes want products typically associated with younger age groups.</p>`
+      },
+      {
+        title: "Segmentation by Gender, Income & Location",
+        tag: "Methods of Segmentation",
+        content: `<p><strong>Gender:</strong> Men and women will often (but not always) buy different products. As with age, it can be difficult to segment all products clearly. Clothing is more easily segmented along gender lines. Many businesses make products for both men and women — for example, Adidas produces sportswear for both genders.</p>
+  <p><strong>Examples:</strong> Different coloured running shoes for men and women; male/female clothing ranges.</p>
+  <p><strong>Income:</strong> People with higher levels of income will want particular products, often to show that they have wealth. This could include selected watches, yachts, certain cars, particular designer clothes. Businesses target these customers because there could be a lot of profit to be made.</p>
+  <p><strong>Examples:</strong> Patek Philippe watches for the very wealthy; Casio watches for low-income customers. Luxury garden furniture vs. budget table-and-chair sets.</p>
+  <p><strong>Location:</strong> Consumers living in different parts of the country will have different tastes and needs. If customers live in an expensive area, their tastes in products may be at the more luxury level. Another aspect is practicality — those living in a city may want a smaller car; those in the country may want a car that copes with off-road driving. The stock in a shop may be chosen to match the expected local population — a clothes shop in the country will stock different styles than those in the centre of a city.</p>
+  <p><strong>Examples:</strong> Business suits for city workers; tweed for those living in the countryside.</p>`
+      },
+      {
+        title: "Segmentation by Lifestyle",
+        tag: "Methods of Segmentation",
+        content: `<p>Different people have different hobbies and interests. This will mean that a range of products is needed to satisfy all tastes. Lifestyle may also be connected to income and location — for example, those wanting to sail a yacht may be living in a coastal location and have plenty of money.</p>
+  <p>Lifestyle can go beyond having a hobby or interest. Many people follow celebrities and wherever possible copy their lifestyle, opting for similar hairstyles and clothing. This creates demand for particular products and services that gives businesses an opportunity for profit.</p>
+  <p><strong>Examples of lifestyle segmentation:</strong></p>
+  <ul>
+  <li>Lycra clothing for the cycling enthusiast</li>
+  <li>Large flat-screen TVs for viewing enthusiasts</li>
+  <li>Special watches for diving, running and other outdoor pursuits</li>
+  <li>Specialist magazines (e.g. cycling, photography, cooking)</li>
+  <li>Health foods and gym products aimed at fitness enthusiasts</li>
+  </ul>
+  <p><strong>Adidas 'Own the Game' strategy (2021):</strong> Adidas describes their customers as: 'They strive to live active and healthy lives, they wish to blend sport and lifestyle, they are digital by default and sustainable by conviction.' This is a lifestyle-based segmentation approach.</p>`
+      },
+      {
+        title: "Advantages and Disadvantages of Market Segmentation",
+        tag: "Analysis",
+        content: `<div class="two-col">
+  <div>
+  <div class="col-head">✓ Advantages</div>
+  <div class="pro-item"><strong>Increased sales:</strong> Can design and produce products specifically aimed at groups of customers — more likely to meet their needs and be purchased</div>
+  <div class="pro-item"><strong>Helps identify gaps in the market:</strong> By studying segments, a business can identify customer groups that are not currently being targeted</div>
+  <div class="pro-item"><strong>Avoids wasting money:</strong> Marketing will be focused on the specific target group rather than a broad, general audience</div>
+  <div class="pro-item"><strong>Higher market share:</strong> By meeting specific needs, a business can win loyal customers from that segment</div>
+  <div class="pro-item"><strong>Better targeted advertising:</strong> If a business is clear on its market (due to segmentation), it can target advertising much more accurately — greater return on marketing expenditure</div>
+  <div class="pro-item"><strong>Improved customer retention:</strong> Products that closely meet customer needs lead to greater satisfaction and repeat purchases</div>
+  </div>
+  <div>
+  <div class="col-head">✗ Disadvantages</div>
+  <div class="con-item"><strong>High promotional costs:</strong> Different advertisements and promotions may be needed for different groups</div>
+  <div class="con-item"><strong>Cost of market research:</strong> Research to identify and understand each specific segment can be expensive</div>
+  <div class="con-item"><strong>Lack of information:</strong> Some markets are poorly researched and data may be limited or unreliable</div>
+  <div class="con-item"><strong>Hard to reach segments:</strong> Some customer groups are difficult to target effectively with existing marketing channels</div>
+  <div class="con-item"><strong>Difficulty of clear segmentation:</strong> Not all products can be clearly segmented — e.g. not every young person wants the same things</div>
+  </div>
+  </div>`
+      },
+      {
+        title: "Evaluation — Is Segmentation Worth It?",
+        tag: "Evaluation",
+        content: `<p>Segmentation can be used in any business situation. All businesses target their market in some way. When evaluating, look for the ways in which the market for a business can be split and how this splitting, or segmentation, will benefit the business.</p>
+  <p><strong>Segmentation is generally more important to businesses which have:</strong></p>
+  <ul>
+  <li>A larger amount of money to spend on advertising</li>
+  <li>A diverse product range targeting different customer groups</li>
+  <li>A need to differentiate themselves from competitors</li>
+  </ul>
+  <p><strong>Case study — Adidas:</strong> Adidas has a carefully segmented market: different sports (football, athletics, golf), different needs (footwear, clothing), male and female markets, and budget and professional products. This segmentation has been central to Adidas growing from a small German business into a global brand.</p>
+  <p><strong>Case study — Amala's Garden Furniture:</strong> Amala's business makes luxury sets (costing thousands of pounds) alongside small sets (under £100). Using market segmentation would help the business decide the income range at which to target each range, and where to advertise — e.g. luxury products in a garden magazine vs. budget products in a local newspaper. This would make advertising more focused and save money by only advertising where it is effective.</p>
+  <p><strong>Evaluation summary:</strong> The benefits of segmentation (increased sales, better-targeted advertising, identifying gaps in the market) are likely to outweigh the costs (market research, different promotional campaigns) for most established businesses, especially those operating in competitive markets with diverse customer groups.</p>`
+      }
+    ];
+
+    const mcqData = [
+      {
+        q: "Segmentation is:",
+        opts: [
+          "Splitting the number of products you sell each year",
+          "Splitting the market for a product into different parts",
+          "Splitting the staff in a business so they produce goods quicker",
+          "Splitting the holidays that staff take so not all staff are away at the same time"
+        ],
+        ans: 1,
+        explain: "Correct answer: B. Market segmentation is the splitting of the market for a product or service into different parts, or segments. The other options describe entirely different business activities unrelated to marketing."
+      },
+      {
+        q: "Which of the following is NOT a method of segmentation?",
+        opts: ["Age", "Gender", "Income", "Target"],
+        ans: 3,
+        explain: "Correct answer: D — Target. 'Target' is not a method of segmentation — it is what a business does AFTER it has segmented the market (i.e. it targets a specific segment). The methods of segmentation are age, gender, income, location and lifestyle."
+      },
+      {
+        q: "Segmentation of a market is done to help with:",
+        opts: [
+          "Targeting advertising more accurately",
+          "Increasing the amount of products being made",
+          "Improving the quality of goods being sold",
+          "Making sure that workers are happy at work"
+        ],
+        ans: 0,
+        explain: "Correct answer: A. Segmentation is done so that a business can target its advertising more accurately at the specific group of customers most likely to buy the product. Options B, C and D relate to operations, quality management, and HR respectively — not marketing or segmentation."
+      },
+      {
+        q: "It is better for a business to target a particular market because it:",
+        opts: [
+          "Helps them recruit staff",
+          "Saves time in replacing stock on shelves",
+          "Can help them to decide where to advertise",
+          "Can help them decide whether or not it is the right time to expand the business"
+        ],
+        ans: 2,
+        explain: "Correct answer: C. Targeting a particular market (segment) can help a business decide where to advertise — for example, advertising running trainers in a running magazine rather than a general interest magazine. Options A, B and D are not benefits of market segmentation."
+      },
+      {
+        q: "The owner of a toy shop wishes to use market segmentation to target customers. What is an example of market segmentation?",
+        opts: [
+          "Encouraging customers into the shop by posting on social media",
+          "Opening a second toy shop in the same town",
+          "Organising the toys in the shop by age group",
+          "Viewing a rival store's website to identify its special offers"
+        ],
+        ans: 2,
+        explain: "Correct answer: C. Organising toys by age group is an example of market segmentation — the market (toy buyers) is being divided into segments based on the age of children. Options A and B are promotion/growth strategies. Option D is competitive analysis, not segmentation."
+      },
+      {
+        q: "Which of the following is a benefit to a business of advertising on local radio?",
+        opts: [
+          "Can target a specific geographical area",
+          "Detailed financial information can be included",
+          "Free samples can be given out with the advertisement",
+          "The product can be seen and demonstrated"
+        ],
+        ans: 0,
+        explain: "Correct answer: A. Local radio allows a business to target a specific geographical area — this links to location-based segmentation. Option B is not possible on radio (audio only). Option C relates to in-store sampling. Option D relates to TV or video advertising where the product can be shown."
+      },
+      {
+        q: "Which of the following best describes the term 'target market'?",
+        opts: [
+          "All the people who might ever buy any product",
+          "The group of customers at which a product or service is aimed",
+          "A goal set by the marketing department to increase sales",
+          "The price level a business targets for its products"
+        ],
+        ans: 1,
+        explain: "Correct answer: B. A target market is the group of customers at which a product or service is specifically aimed or targeted. It is identified through market segmentation — dividing the market and then selecting the most appropriate segment to focus on."
+      },
+      {
+        q: "Adidas segments its market by different sports, footwear/clothing, male/female, and budget/professional products. Which segmentation method does 'budget vs professional products' best represent?",
+        opts: ["Age", "Gender", "Income", "Location"],
+        ans: 2,
+        explain: "Correct answer: C — Income. Budget products are aimed at customers with lower incomes or those less willing to spend heavily, while professional products are aimed at those with higher incomes or greater willingness to spend on premium products. This is income-based segmentation."
+      },
+      {
+        q: "A clothing business notices that city workers tend to buy formal suits while people in rural areas tend to buy outdoor wear. What type of market segmentation does this represent?",
+        opts: ["Age", "Gender", "Lifestyle", "Location"],
+        ans: 3,
+        explain: "Correct answer: D — Location. The segmentation is based on where customers live and the different needs that come from their location (city vs. countryside). Location segmentation recognises that consumers in different parts of the country have different tastes and practical needs."
+      },
+      {
+        q: "A business is considering using market segmentation for the first time. Which of the following is a potential disadvantage?",
+        opts: [
+          "Products will be better targeted at customer needs",
+          "Advertising will be more focused and less wasteful",
+          "Different promotional campaigns will be needed for different groups, increasing costs",
+          "The business will be able to identify gaps in the market"
+        ],
+        ans: 2,
+        explain: "Correct answer: C. A disadvantage of market segmentation is that different promotional campaigns may be needed for different groups, which increases promotional costs. Options A, B and D are all advantages of market segmentation."
+      }
+    ];
+
+    const matchData = [
+      { term: "Market segmentation", def: "The splitting of the market for a product or service into different parts, or segments" },
+      { term: "Target market", def: "The group of customers at which a product or service is aimed or targeted" },
+      { term: "Age segmentation", def: "Dividing the market based on how old customers are — e.g. targeting teenagers, over-50s, or families with young children" },
+      { term: "Gender segmentation", def: "Dividing the market based on whether customers are male or female — e.g. different clothing ranges for men and women" },
+      { term: "Income segmentation", def: "Dividing the market based on how much customers earn — e.g. luxury watches for the wealthy, budget watches for lower earners" },
+      { term: "Location segmentation", def: "Dividing the market based on where customers live — e.g. city vs. countryside, local vs. national" },
+      { term: "Lifestyle segmentation", def: "Dividing the market based on customers' hobbies, interests and ways of living — e.g. sportswear for cyclists, specialist watches for divers" },
+      { term: "Benefit of segmentation (advertising)", def: "Allows a business to target advertising more accurately at the specific group most likely to buy the product, avoiding wasted spend" }
+    ];
+
+    const fibData = [
+      {
+        display: "Market _____ is the splitting of the market for a product into different parts. This helps a business identify its _____ market more effectively.",
+        blanks: { B1: "segmentation", B2: "target" }
+      },
+      {
+        display: "The five main ways to segment a market are: _____, gender, income, _____ and lifestyle.",
+        blanks: { B1: "age", B2: "location" }
+      },
+      {
+        display: "With good segmentation, the _____ for a product can be much more accurate. Businesses can avoid wasting money by focusing marketing on the specific _____.",
+        blanks: { B1: "advertising", B2: "group" }
+      },
+      {
+        display: "A disadvantage of market segmentation is that _____ promotional costs may be needed for different groups. The cost of _____ research for specific segments can also be high.",
+        blanks: { B1: "different", B2: "market" }
+      },
+      {
+        display: "People with higher levels of _____ will want particular products, often to show their wealth. People with different hobbies and interests are segmented by _____.",
+        blanks: { B1: "income", B2: "lifestyle" }
+      },
+      {
+        display: "Although the Rolls Royce and the Ford Focus are both cars, they are not in _____ with each other. By segmenting the market, a business may be able to identify a _____ in the market.",
+        blanks: { B1: "competition", B2: "gap" }
+      }
+    ];
+
+    const fibWords = [
+      "segmentation", "target", "age", "location", "advertising", "group",
+      "different", "market", "income", "lifestyle", "competition", "gap",
+      "customers", "gender", "price", "profit", "similar", "sales", "products"
+    ];
+
+    const miscData = [
+      {
+        wrong: "Students sometimes think that a business using market segmentation wants to sell to EVERYBODY and should try to target all customers equally.",
+        correct: "Market segmentation is specifically about dividing the market into DIFFERENT PARTS and targeting ONE or more specific segments — not everyone. The whole purpose of segmentation is to focus resources on the customers most likely to buy a product. A business that tries to target everyone at once risks wasting money on advertising that reaches people who will never buy the product."
+      },
+      {
+        wrong: "Students often confuse 'market segmentation' (the method) with 'target market' (the outcome). They use the terms interchangeably.",
+        correct: "Market segmentation is the PROCESS of splitting the market into different groups. The TARGET MARKET is the specific group of customers a business then CHOOSES to aim its products at. You segment first, then select your target market. E.g. Boohoo segmented by age and identified that its target market is 16–24 year olds who are fashion conscious."
+      },
+      {
+        wrong: "For 'analyse' questions about market segmentation, students often answer by describing what segmentation is, instead of analysing its benefit or impact on the business.",
+        correct: "Explaining WHAT segmentation is scores zero for 'analyse' or 'explain' questions. You need: Understanding of a benefit (1) → Application to the named business (1) → Business impact/Analysis (1). E.g. 'Segmentation allows Sainsbury's to alter products to satisfy the specific needs of middle to high income customers (U+APP), which will help boost revenue and maintain customer loyalty in a very competitive supermarket industry (AN).'"
+      },
+      {
+        wrong: "For 'analyse' questions about product development and segmentation, students often mention pricing, advertising or promotion rather than the product itself.",
+        correct: "If the question asks about market segmentation when DEVELOPING NEW PRODUCTS, your answer must focus on the PRODUCT — e.g. how segmentation helps the business create, design, tailor or alter the product to meet the needs of specific customer groups. Do NOT answer with points about pricing, advertising, or launching the product — these are post-development and will not be credited."
+      },
+      {
+        wrong: "Students sometimes list 'target' as a method of market segmentation.",
+        correct: "'Target' is NOT a method of segmentation — it is what a business does AFTER it has segmented the market. The methods of segmentation are: Age, Gender, Income, Location and Lifestyle. 'Target' is the ACTION of directing your marketing at the chosen segment. Always use one of the five methods when asked to state a way to segment a market."
+      },
+      {
+        wrong: "For 'explain one way to segment a market' questions, students often write only one word (e.g. 'age') and think this is enough.",
+        correct: "Writing just 'age' scores only 1 mark (knowledge). To score the second mark (understanding), you must show HOW that method is used — e.g. 'A business could segment by age (K), for example by aiming its products specifically at elderly people or teenagers (U).' The 'explain' command word always requires development beyond simply naming the method."
+      }
+    ];
+
+    const examTips = [
+      {
+        type: "State / Identify (1 mark each)",
+        title: "State a Method of Market Segmentation",
+        content: `<p>Simply name the method — no explanation needed for 'state' or 'identify' questions.</p>
+  <p><strong>Accepted methods:</strong> Age / Gender (sex) / Income / Location / Lifestyle</p>
+  <p><strong>NOT accepted:</strong> 'Target' (this is not a method), 'demographic' alone (too vague), or any reference to advertising location (e.g. 'advertise on TV' — this is not a segmentation criterion).</p>
+  <p><strong>Special cases:</strong> 'Boys' or 'Girls' alone can be awarded as age OR gender. 'Boys and girls' together counts as age only.</p>`,
+        pills: ["kn"]
+      },
+      {
+        type: "Explain (2 marks)",
+        title: "Explain One Way a Business Can Segment Its Market",
+        content: `<p>Structure: Knowledge (1) + Understanding of how the method is used (1)</p>
+  <ul>
+  <li>Name a method of segmentation</li>
+  <li>Give an example of how it is used or what it means in practice</li>
+  </ul>
+  <p><strong>Example:</strong> "One way a business could segment its market is by age (K), for example by aiming to sell products specifically to elderly people who have wealth and time to enjoy themselves (U)."</p>
+  <p><strong>Example:</strong> "By gender (K), by targeting marketing particularly at women, for example with a range of women's clothing or beauty products (U)."</p>
+  <p><strong>Note:</strong> Answers do not need to relate to the named business in the case study unless the question asks specifically for that.</p>`,
+        pills: ["kn", "un"]
+      },
+      {
+        type: "Analyse (3 marks)",
+        title: "Analyse a Benefit of Using Market Segmentation",
+        content: `<p>Structure: Understanding (1) → Application to the named business (1) → Business-facing Analysis (1)</p>
+  <ul>
+  <li>State a benefit of market segmentation</li>
+  <li>Apply it to the specific business using case study details</li>
+  <li>Explain the business impact — sales, revenue, customer satisfaction, market share, etc.</li>
+  </ul>
+  <p><strong>Example (Sainsbury's — product development):</strong> "Sainsbury's can alter its products to satisfy the specific needs of customer segments (U). Since Sainsbury's targets middle to high income customers in a very competitive supermarket industry (APP), tailoring products to this segment will help boost revenue and maintain customer loyalty (AN)."</p>
+  <p><strong>Important:</strong> For questions specifically about PRODUCT DEVELOPMENT, only answers about creating/designing/tailoring the product are creditworthy. Do not answer with points about pricing or advertising.</p>`,
+        pills: ["un", "app", "an"]
+      },
+      {
+        type: "Analyse (6 marks — 2×3)",
+        title: "Analyse Two Benefits of Market Segmentation",
+        content: `<p>For each benefit: Understanding (1) + Application to the named business (1) + Analysis (1).</p>
+  <p><strong>Common benefits to use:</strong></p>
+  <ul>
+  <li>Helps target specific customers / better meet customer needs</li>
+  <li>Can tailor the product/range to attract a specific group</li>
+  <li>Can design promotion/advertising campaign to target a specific group — greater return on marketing expenditure</li>
+  <li>Can adjust price/pricing strategy to attract a specific group</li>
+  <li>Can change the place/distribution channels to attract a specific group</li>
+  <li>Avoids wasting money on broad, non-targeted advertising</li>
+  <li>Identifies gaps in the market not currently being served</li>
+  </ul>
+  <p><strong>Apply using case study details</strong> — number of shops, declining sales, sole trader status, types of product, existing segmentation criteria, etc.</p>`,
+        pills: ["un", "app", "an"]
+      },
+      {
+        type: "Evaluate (7 marks)",
+        title: "Evaluate the Benefit of Market Segmentation",
+        content: `<p>Structure: Application (2) + Analysis (2) + Evaluation — judgement (1) + justification (2)</p>
+  <ul>
+  <li>Two applied points using case study details</li>
+  <li>Two analytical impacts on the business</li>
+  <li>A simple judgement — do you think it will benefit the business?</li>
+  <li>A justified contextual conclusion — why do you think this? Use the case study.</li>
+  </ul>
+  <p><strong>Judgement example:</strong> "Overall, I think market segmentation will be very effective in helping Amala's family business."</p>
+  <p><strong>Justified conclusion:</strong> "The business makes a range of garden furniture from luxury sets (thousands of pounds) to small sets (under £100). It must identify just who is buying the different products so these consumers can be targeted. It is no good simply advertising all products in one place — different products require different approaches, and clear segmentation will make advertising more focused and save money."</p>`,
+        pills: ["app", "an", "eval"]
+      }
+    ];
+
+    const flashcards = [
+      { term: "Market segmentation", def: "The splitting of the market for a product or service into different parts, or segments. Helps a business identify its target market more effectively." },
+      { term: "Target market", def: "The group of customers at which a product or service is aimed or targeted. Identified after segmenting the market." },
+      { term: "Age segmentation", def: "Dividing the market based on customers' age — e.g. teenage girls' magazines, holidays aimed at older people who have wealth and time to enjoy themselves." },
+      { term: "Gender segmentation", def: "Dividing the market based on whether customers are male or female — e.g. men's and women's clothing, different coloured running shoes for men and women." },
+      { term: "Income segmentation", def: "Dividing the market based on how much customers earn — e.g. Patek Philippe watches for the wealthy, Casio watches for lower income customers, luxury vs. budget garden furniture." },
+      { term: "Location segmentation", def: "Dividing the market based on where customers live — e.g. business suits for city workers, tweed for those in the countryside. The stock in a shop may be chosen to match the expected local population." },
+      { term: "Lifestyle segmentation", def: "Dividing the market based on customers' hobbies, interests and ways of living — e.g. sportswear for cyclists, specialist watches for divers. Lifestyle may also be linked to following celebrities." },
+      { term: "Benefit 1: Better targeted advertising", def: "With good segmentation, advertising can be directed at the specific group most likely to buy the product — e.g. running trainers advertised in running magazines. Avoids wasting money on non-targeted campaigns." },
+      { term: "Benefit 2: Increased sales", def: "By designing and producing products specifically aimed at customer groups, a business better meets their needs and those customers are more likely to buy. Higher customer satisfaction → repeat purchases." },
+      { term: "Benefit 3: Identifies gaps in the market", def: "By studying segments, a business can identify customer groups not currently being targeted — creating an opportunity to introduce new products or services." },
+      { term: "Disadvantage 1: High promotional costs", def: "Different advertisements and promotions may be needed for different customer groups, which can be expensive." },
+      { term: "Disadvantage 2: Market research costs", def: "Research to identify and understand each specific segment can be expensive. Some markets are also poorly researched and data may be limited." },
+      { term: "Adidas segmentation", def: "Adidas segments by: different sports (football, athletics, golf), different needs (footwear vs. clothing), male and female markets, and budget vs. professional products." },
+      { term: "Watches — segmentation example", def: "Watches can be segmented by: Age (bright/colourful for young), Gender (men's vs women's), Income (Patek Philippe vs Casio), Lifestyle (diving watches, nurse watches, sports watches)." },
+      { term: "Why segmentation matters", def: "Understanding segmentation helps a business market its products much more accurately. It is generally more important to businesses with larger advertising budgets and diverse product ranges." },
+      { term: "Segment vs. Target", def: "Segmentation is the PROCESS of dividing the market into groups. Targeting is the ACTION of directing marketing at the chosen segment. You segment first, then select and target." }
+    ];
+
+    const tfData = [
+      {
+        statement: "Market segmentation means splitting the market for a product into different parts.",
+        answer: true,
+        explanation: "TRUE. Market segmentation is the splitting of the market for a product or service into different parts, or segments. This helps a business identify its target market more effectively."
+      },
+      {
+        statement: "'Target' is a valid method of market segmentation.",
+        answer: false,
+        explanation: "FALSE. 'Target' is NOT a method of segmentation — it is what a business does AFTER it has segmented the market (i.e. it targets a specific segment). The methods are: Age, Gender, Income, Location and Lifestyle."
+      },
+      {
+        statement: "A business that uses market segmentation can target its advertising more accurately.",
+        answer: true,
+        explanation: "TRUE. With good segmentation, a business knows exactly who its customers are and can direct advertising at the specific group most likely to buy. For example, Adidas advertises serious running trainers in running magazines rather than general interest magazines."
+      },
+      {
+        statement: "A disadvantage of market segmentation is that different promotional campaigns may be needed for different groups, increasing costs.",
+        answer: true,
+        explanation: "TRUE. One disadvantage of segmentation is that different advertisements and promotions may be needed for each customer group, which increases promotional costs. This is why segmentation requires careful cost-benefit analysis."
+      },
+      {
+        statement: "Market segmentation is only useful for large businesses with big marketing budgets.",
+        answer: false,
+        explanation: "FALSE. Segmentation can be used in any business situation — all businesses target their market in some way. However, it is generally MORE important to businesses with a larger amount of money to spend on advertising, as they have more to gain from ensuring that spend is well-targeted."
+      },
+      {
+        statement: "Segmenting the market by location recognises that consumers in different areas may have different needs and tastes.",
+        answer: true,
+        explanation: "TRUE. Location segmentation recognises that consumers in different parts of the country have different tastes and practical needs. For example, city workers may need business suits while those in the countryside may want outdoor clothing. A shop's stock is often chosen to match the expected local population."
+      },
+      {
+        statement: "Lifestyle segmentation is based solely on a customer's income level.",
+        answer: false,
+        explanation: "FALSE. Lifestyle segmentation is based on customers' HOBBIES and INTERESTS — e.g. cycling, diving, fitness, following celebrities. Income segmentation is a separate method based on how much money customers earn. The two may sometimes overlap (e.g. sailing can require both an appropriate lifestyle and high income) but they are distinct methods."
+      },
+      {
+        statement: "When a business segments by income, it is typically looking to identify which customers have more money to spend on premium products.",
+        answer: true,
+        explanation: "TRUE. Income segmentation is often used to target wealthier customers who will buy premium, luxury goods — e.g. Patek Philippe watches, yachts, certain designer cars. Businesses target these customers because there could be a lot of profit to be made."
+      },
+      {
+        statement: "Market segmentation can help a business identify gaps in the market that are not currently being targeted.",
+        answer: true,
+        explanation: "TRUE. By studying segments carefully, a business may identify customer groups whose needs are not currently being met by any existing product or business. This represents a market gap — an opportunity to introduce a new product or service."
+      },
+      {
+        statement: "For a business selling products to both serious athletes and casual wearers, using the same advertising in the same places for both products is the best approach.",
+        answer: false,
+        explanation: "FALSE. Different segments require different advertising approaches. Serious athletes might be reached through specialist sports magazines or sports events, while casual wearers might be reached through general interest media or social media. Using the same advertising for both would be inefficient and wasteful — good segmentation allows a business to target each group precisely."
+      }
+    ];
+
+    const examQuestions = [
+      {
+        num: "Q1",
+        marks: 3,
+        type: "written",
+        caseStudy: "J Sainsbury plc (Sainsbury's)\n\nSainsbury's is one of the UK's largest supermarket chains. Sainsbury's targets middle to high income customers nationally. Sainsbury's is owned by shareholders who have limited liability.\n\nThe supermarket industry is very competitive, and marketing promotions are important. An example is Sainsbury's price match against similar products sold by Aldi, one of its competitors. Sainsbury's also spends a large proportion of its marketing budget on television advertising.\n\nDeveloping new products is important to remain competitive, as customers are always looking for something new. Sainsbury's uses market segmentation to support successful product development.\n\nSainsbury's managers believe that good food should be accessible to everyone. They use primary market research to ensure the business develops products that meet the needs of its customers.",
+        question: "Analyse one likely reason why Sainsbury's uses market segmentation when developing new products. [3 marks]",
+        hint: "This question is specifically about PRODUCT DEVELOPMENT — your answer must be about creating, designing or tailoring the PRODUCT itself. Do NOT write about pricing, advertising or promotion. Structure: Understanding → Application to Sainsbury's → Business-facing Analysis.",
+        starter: "Sainsbury's uses market segmentation when developing new products so that it can... (U)\nThis is important for Sainsbury's because it targets middle to high income customers in a very competitive supermarket industry... (APP)\nAs a result, Sainsbury's will... (AN)",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1a + AO2 + AO3a)</h5><ul><li><strong>Knowledge (1 mark):</strong> State a reason — e.g. can alter/create/design/tailor products to satisfy the specific needs of customer groups.</li><li><strong>Application (1 mark):</strong> Link to Sainsbury's — e.g. targeted at middle to high income customers / supermarket industry is very competitive / customers always looking for something new / Sainsbury's believes good food should be accessible to everyone.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact — e.g. boost revenue, maintain customer loyalty, greater customer satisfaction, good brand reputation, competitive advantage.</li></ul><p><strong>Do NOT reward:</strong> answers about pricing, selling, promoting, advertising or launching — this question is about product development only. Do NOT reward adaptations that aim to meet the needs of ALL customers (this contradicts segmentation).</p></div>`,
+        modelAnswer: "Sainsbury's can use market segmentation to alter and tailor its products to satisfy the specific needs of different customer groups (U). Since Sainsbury's targets middle to high income customers in a very competitive supermarket industry, segmentation allows it to develop products that precisely match what this group expects — such as premium quality ingredients or upmarket packaging (APP). This will help boost revenue and maintain customer loyalty, as customers who find products that closely meet their needs are more likely to return and buy again (AN)."
+      },
+      {
+        num: "Q2",
+        marks: 2,
+        type: "written",
+        caseStudy: "Nina's Knitting Supplies\n\nNina runs a successful business selling knitting wool and sewing products. She opened her first shop 15 years ago. The business has grown organically and now sells products from 10 shops and a website. Nina uses market segmentation to target customers. Nina employs 80 people. She works hard to meet the shared objectives of her employees, as well as external stakeholder groups such as customers, suppliers, lenders and the local community.\n\nNina produces a weekly update that is sent by email to all employees every Friday. The updates contain information about the future development of the business, plus other stories of interest to employees. Recent stories include congratulating an employee on the birth of a child and the charity fundraising activities of one shop.\n\nNina plans to develop the business further over the next five years, especially as knitting is becoming an increasingly popular pastime. This has led to more competitors entering the market.",
+        question: "Explain one way that a business can segment its market. [2 marks]",
+        hint: "Name a method of segmentation (1 mark), then explain what that means in practice or give an example (1 mark). Your answer does NOT need to relate to Nina's Knitting Supplies specifically.",
+        starter: "One way a business could segment its market is by... (K)\nFor example, this would mean targeting... (U)",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1a + AO1b)</h5><ul><li><strong>Knowledge (1 mark):</strong> Name a method — Age / Gender/Sex / Income / Location / Lifestyle.</li><li><strong>Understanding (1 mark):</strong> Show how the method is used — e.g. Age: target young/old/babies/children/teenagers/over 50s; Gender: target male/female/men/women; Income: target well paid/low paid/affluent/high earners; Location: target locals/specific region; Lifestyle: healthy/sports/outdoor pursuits/hobbies.</li></ul><p>Answers do not need to relate to Nina's Knitting Supplies. Accept 'boys' for age or gender. Accept 'girls' for age or gender. 'Boys and girls' together = age only.</p></div>`,
+        modelAnswer: "One way a business could segment its market is by age (K), for example by aiming its products specifically at elderly people who have the wealth and time to take up hobbies such as knitting (U)."
+      },
+      {
+        num: "Q3",
+        marks: 1,
+        type: "mcq",
+        question: "The owner of a toy shop wishes to use market segmentation to target customers. What is an example of market segmentation?",
+        options: [
+          "Encouraging customers into the shop by posting on social media",
+          "Opening a second toy shop in the same town",
+          "Organising the toys in the shop by age group",
+          "Viewing a rival store's website to identify its special offers"
+        ],
+        answer: 2,
+        hint: "Market segmentation is about dividing customers into groups based on their characteristics. Which option divides customers into groups?",
+        starter: "Market segmentation divides customers by...",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: C — Organising the toys in the shop by age group.</strong></p><p>Organising toys by age group divides the market (toy buyers) into segments based on age — a clear example of market segmentation. Option A is a promotion/social media activity. Option B is a growth strategy. Option D is competitor research.</p></div>`,
+        modelAnswer: ""
+      },
+      {
+        num: "Q4",
+        marks: 6,
+        type: "written",
+        caseStudy: "Miles Ahead\n\nMiles Ahead is a bicycle retailer which was set up in 2001 by entrepreneur, Reg Patel. Reg started with one shop, but the business has gradually expanded. There are now six 'Miles Ahead' shops. Despite the growth in Miles Ahead, Reg still operates the business as a sole trader, with 15 employees and a tall organisational structure. Reg segments the market (e.g. different bicycles according to age, gender, lifestyle and income), which he thinks has supported his success.\n\nReg is going to retire in six months' time. He is selling the business to Nessa Watts. Nessa has a lot of business experience. She has sold jewellery online as a sole trader for many years. Nessa has plans to expand Miles Ahead. Nessa has had to borrow £500,000 to purchase the business from Reg.\n\nNessa is considering whether to open more 'Miles Ahead' shops or launch a 'Miles Ahead' website so that customers can purchase online. Sales within the business have fallen over the past two years which Nessa feels is due to the traditional appearance of the shops.\n\nThe latest customer satisfaction information is also of concern to Nessa.",
+        question: "Analyse two benefits for Miles Ahead of using market segmentation. [6 marks]",
+        hint: "Two separate benefits, each worth 3 marks: Understanding (what is the benefit?) → Application (how does this apply to Miles Ahead specifically — use case study details like 6 shops, sole trader, declining sales, segments by age/gender/lifestyle/income) → Analysis (what is the business impact?)",
+        starter: "Benefit 1: Market segmentation will help Miles Ahead to better meet customer needs... (U)\nWith 6 shops and products segmented by age, gender, lifestyle and income... (APP)\nThis could lead to... (AN)\n\nBenefit 2: Market segmentation allows Miles Ahead to target its advertising at specific groups... (U)\nAs a sole trader, Reg has limited sources of finance... (APP)\nThis means that... (AN)",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme — 6 marks (AO1b ×2 + AO2 ×2 + AO3a ×2)</h5><p>For each benefit: Understanding (1) + Application to Miles Ahead (1) + Analysis of business impact (1).</p><p><strong>Understanding may include:</strong> helps target specific customers; better meet customer needs; can design promotion to attract a specific group; can adjust product/range; can alter pricing strategy; avoids wasting money on broad advertising.</p><p><strong>Application may include:</strong> sole trader / 6 stores / no online sales / established 20+ years / declining customer satisfaction / declining sales revenue / currently segments via age, gender, lifestyle and income / Reg thinks it has been successful.</p><p><strong>Analysis may include:</strong> greater return on marketing expenditure / improved customer satisfaction / increased sales revenue / improved customer retention / improved brand reputation / increased market share / reduced risk of failure / increased profit.</p><p><strong>Do NOT accept</strong> 'more successful' as an impact — this is stated in the text and is too vague.</p></div>`,
+        modelAnswer: "Benefit 1: Market segmentation will help Miles Ahead to better meet the needs of specific customer groups (U). With 6 shops already segmenting by age, gender, lifestyle and income, Miles Ahead can ensure that the right bicycles are available for the right customers in each shop (APP). This could lead to improved customer satisfaction and increased sales revenue, which is particularly important given that sales have fallen over the past two years (AN).\n\nBenefit 2: Market segmentation allows Miles Ahead to target its advertising at specific groups rather than spending money on broad, untargeted campaigns (U). As Reg operates as a sole trader with limited access to finance, and has had to sell the business for £500,000, the new owner Nessa must maximise the return on every pound spent on marketing (APP). By targeting advertising precisely at the segments most likely to buy — such as lifestyle cyclists or families — Miles Ahead can increase the return on its marketing expenditure and rebuild its declining customer satisfaction (AN)."
+      },
+      {
+        num: "Q5",
+        marks: 1,
+        type: "written",
+        caseStudy: "Best Foot Forward Ltd (BFF)\n\nBest Foot Forward Ltd (BFF) operates five stores in the north-west of England, selling shoes (such as ballet and tap) for adult dancers. Up until 2017, the business was growing, due to its reputation for quality products.\n\nA new Managing Director, Jessie Thompson, was appointed six months ago to reverse the recent poor performance of the business.\n\nBFF has never sold dance shoes for children and Jessie would like to expand into this market. Another business, specialising in selling children's dance shoes, closed down three months ago. Jessie is also concerned by market research which suggests that customer service is poor in BFF's stores. All store managers have been told to attend a five-day off-the-job training course on customer service.\n\nTo support the launch of the children's range, Jessie plans to create a new position of Marketing Manager (Children's Shoes) who will work alongside the Marketing Manager (Adults' Shoes). This employee will be recruited internally, despite many former employees from the children's shoe retailer which closed down still being out of work.\n\nTable 1 gives some data about the recruitment of staff within BFF.\nInternal recruitment — Cost of recruitment: £500 / Days to fill: 20 days / Cost of induction: £200\nExternal recruitment — Cost of recruitment: £2,500 / Days to fill: 60 days / Cost of induction: £1,500",
+        question: "State one way that BFF could segment its dance shoe market. [1 mark]",
+        hint: "Just name one method of segmentation. No explanation needed. Think about the types of customers who buy dance shoes.",
+        starter: "BFF could segment its market by...",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1a)</h5><p>One mark for any valid segmentation criterion: Age / Type of dance shoe (e.g. ballet/tap) / Gender / Income / Location / Lifestyle.</p><p><strong>Do NOT award</strong> answers about advertising location — e.g. 'advertise on TV to children' or 'advertise near a dance class' or 'online'. Location refers to the customer characteristic (where they live), not where to advertise.</p></div>`,
+        modelAnswer: "BFF could segment its dance shoe market by age — for example, separating products for children from products for adults."
+      },
+      {
+        num: "Q6",
+        marks: 1,
+        type: "mcq",
+        question: "Which of the following is a benefit to a business of advertising on local radio?",
+        options: [
+          "Can target a specific geographical area",
+          "Detailed financial information can be included",
+          "Free samples can be given out with the advertisement",
+          "The product can be seen and demonstrated"
+        ],
+        answer: 0,
+        hint: "Think about what is UNIQUE about LOCAL radio compared to other forms of advertising.",
+        starter: "Local radio allows a business to...",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: A — Can target a specific geographical area.</strong></p><p>Local radio is listened to by people in a specific geographical area — this links directly to location-based segmentation. Option B is not possible on radio (audio only). Option C relates to in-store sampling. Option D relates to TV or video where the product can be visually demonstrated.</p></div>`,
+        modelAnswer: ""
+      },
+      {
+        num: "Q7",
+        marks: 2,
+        type: "written",
+        caseStudy: "The Ford Motor Company Limited (Ford Motors) is a global manufacturer of a range of vehicles including cars, vans, trucks and buses. Ford Motors has been one of Britain's best-selling car brands for over 30 years, with a range of models including the KA, Fiesta, Focus, Mondeo and Galaxy. The company's large range of products includes models that differ in size to meet the individual needs of different market segments, including eco-friendly small cars, family cars, sports cars and 7-seater people carriers.\n\nFord Motors carries out a lot of market research when developing new car designs and uses both primary and secondary research. This ensures that new car designs and models meet the needs of potential customers. Each model's sales levels are regularly monitored against the product lifecycle.",
+        question: "Explain how Ford Motors could use market segmentation when deciding where to place an advert for its new car models. [2 marks]",
+        hint: "Understanding of how segmentation guides advertising placement (1) + Application to Ford using a specific example such as a car model, type of car, or customer group (1). The question is about WHERE to place the advert, not what the advert says.",
+        starter: "Ford Motors could use market segmentation to target its advertising... (U)\nFor example, Ford could advertise its... at... because this would reach... (APP)",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1b + AO2)</h5><ul><li><strong>Understanding (1 mark):</strong> Use of market segmentation to target/direct advertising at the relevant group — e.g. advertise in a way that would appeal to the target market / direct adverts at specific customer groups.</li><li><strong>Application (1 mark):</strong> Apply to Ford — e.g. cars, vans, trucks, buses, names of models (KA, Fiesta, Focus, Mondeo, Galaxy), vehicles, eco-friendly small cars, family cars, sports cars, 7-seater people carriers.</li></ul><p>The best answers give a specific example, e.g. advertising people carriers on children's TV channels, or sports cars in motoring magazines — though an example is not required for full marks. Do not accept 'model' alone as application.</p></div>`,
+        modelAnswer: "Ford Motors could use market segmentation to direct its advertising at the group of customers most likely to buy each specific model (U). For example, Ford could advertise its 7-seater Galaxy people carrier on family TV channels or in parenting magazines, as these would reach families with young children who are the target market for this type of vehicle (APP)."
+      },
+      {
+        num: "Q8",
+        marks: 2,
+        type: "written",
+        caseStudy: "Boohoo was started in 2006 by two entrepreneurs who had the idea of starting a business where customers could buy the latest fashions online.\n\nBoohoo has expanded using organic growth, and has become a global online retailer of its own brand clothes, shoes and accessories. It now sells in over 100 countries. Boohoo charge for delivery. It has millions of website users per month.\n\nThe target market for the Boohoo brand is men and women who are 16 to 24 years old and are fashion conscious. To reach this market, Boohoo uses social media. The business is active on Facebook, Twitter, YouTube and Instagram.\n\nBoohoo has also introduced apps for smartphones and tablets that allow customers to browse and buy products very easily.",
+        question: "Explain one advantage to Boohoo of using market segmentation. [2 marks]",
+        hint: "State one advantage of market segmentation (1 mark), then apply it specifically to Boohoo using details from the case study — target market, social media use, product range, global reach (1 mark).",
+        starter: "One advantage to Boohoo of using market segmentation is that it makes it easier to... (K)\nThis means that Boohoo can... (APP)",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1a + AO2)</h5><ul><li><strong>Knowledge (1 mark):</strong> Identify an advantage — e.g. identify similar characteristics / target marketing more effectively / modify products/price/promotion/place to suit the segment / allocate budgets more efficiently / identify new segments.</li><li><strong>Application (1 mark):</strong> Apply to Boohoo — e.g. target market is 16–24 year olds / fashion conscious / active on social media / sells in 100+ countries / uses Facebook, Twitter, YouTube and Instagram / apps for smartphones and tablets.</li></ul><p><strong>Exemplar:</strong> Market segmentation makes it easier for a business to identify the characteristics of their customers (K) so Boohoo can target its products at those between 16 to 24 years old who are fashion conscious (APP).</p></div>`,
+        modelAnswer: "One advantage to Boohoo of using market segmentation is that it makes it easier to identify the shared characteristics of its customers (K). This means Boohoo can specifically target its products and social media advertising — on Facebook, Twitter, YouTube and Instagram — at men and women aged 16 to 24 who are fashion conscious, ensuring its marketing budget is used effectively to reach the customers most likely to buy (APP)."
+      },
+      {
+        num: "Q9",
+        marks: 2,
+        type: "written",
+        caseStudy: "Amala and her family own a business which makes a range of garden furniture. Products include luxury sets of outdoor chairs, tables and parasols which cost thousands of pounds, to small table-and-chair sets which sell for less than £100. The business has been very successful in the past, but recently sales have fallen and Amala in particular has become a little worried. They have not changed the way the business operates for a number of years, advertising in the same places, in the same style, which in the past had always worked. She is asking herself the following questions:\n\n• Is the business making too many different styles of furniture?\n• Does the business really understand who the target market is for their different products?\n• Should the business review how and where the products are advertised?\n• Will a closer look at market segmentation help the business?\n\nAmala has arranged a meeting to discuss the situation with her family. She feels that something has to change.",
+        question: "Identify two methods by which a market might be segmented. [2 marks]",
+        hint: "Simply name two different methods of segmentation. No explanation needed for this question.",
+        starter: "Method 1: ...\nMethod 2: ...",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1a ×2)</h5><p>One mark for each correct method identified. Any two from: Age / Gender / Income / Location / Lifestyle.</p><p>No explanation required — this is an 'identify' question.</p></div>`,
+        modelAnswer: "Method 1: Income — e.g. luxury products aimed at wealthier customers, budget products aimed at lower income customers.\nMethod 2: Lifestyle — e.g. targeting customers who enjoy outdoor entertaining and gardening."
+      },
+      {
+        num: "Q10",
+        marks: 7,
+        type: "written",
+        caseStudy: "Amala and her family own a business which makes a range of garden furniture. Products include luxury sets of outdoor chairs, tables and parasols which cost thousands of pounds, to small table-and-chair sets which sell for less than £100. The business has been very successful in the past, but recently sales have fallen and Amala in particular has become a little worried. They have not changed the way the business operates for a number of years, advertising in the same places, in the same style, which in the past had always worked. She is asking herself the following questions:\n\n• Is the business making too many different styles of furniture?\n• Does the business really understand who the target market is for their different products?\n• Should the business review how and where the products are advertised?\n• Will a closer look at market segmentation help the business?\n\nAmala has arranged a meeting to discuss the situation with her family. She feels that something has to change.",
+        question: "Evaluate the benefit to Amala and her family of using market segmentation to help their business. [7 marks]",
+        hint: "Structure: Two applied points using case study details (APP ×2) + Two impacts on the business (AN ×2) + A simple judgement — yes or no, do you think it will benefit them? (EVAL ×1) + A justified, contextual conclusion using the case study (EVAL ×2). Use the luxury vs. budget furniture range as your key application detail.",
+        starter: "Market segmentation would help Amala decide the income range at which to target each furniture range... (APP)\nThis would mean that advertising is more focused... (AN)\n\nSegmentation would also help Amala decide where to advertise each product... (APP)\nThis would result in... (AN)\n\nOverall, I think market segmentation will be very effective in helping Amala's family business because... (EVAL judgement + justification)",
+        markScheme: `<div class="marks-section"><h5>Mark Scheme — 7 marks (AO2 ×2 + AO3a ×2 + AO3b ×3)</h5><p><strong>Application (up to 2 marks):</strong> Two separate applied points using the case study — e.g. segmentation will help decide the income range at which to target the different garden furniture ranges (luxury thousands of pounds / budget under £100) / will help decide where to advertise each product range / will help identify who is buying which products.</p><p><strong>Analysis (up to 2 marks):</strong> Two business impacts — e.g. advertising will have a focus and so save the business money by only advertising where effective / more effective advertising will bring in more customers, increasing sales / sales have fallen so targeted marketing could reverse this decline.</p><p><strong>Evaluation — Judgement (1 mark):</strong> A simple statement e.g. 'I think market segmentation will be very effective in helping Amala's family business.'</p><p><strong>Evaluation — Justification (up to 2 marks):</strong> A clear, contextual justification — e.g. The business makes a range of furniture from luxury sets costing thousands to sets under £100. It must identify who is buying the different products so those consumers can be targeted precisely. It is no good simply advertising all products in the same place — different products require different approaches, and clear segmentation will make advertising more focused and save money.</p></div>`,
+        modelAnswer: "Market segmentation would help Amala decide the income range at which to target her different garden furniture products. The business makes a wide range — from luxury sets costing thousands of pounds to small sets under £100 — so it must identify which income groups are buying each range (APP). If Amala segments by income, she can direct advertising for the luxury range at affluent customers through upmarket garden magazines, while promoting the budget range in local newspapers. This will make advertising more focused and save money by only advertising where it is effective — important because sales have already fallen (AN).\n\nSegmentation would also help Amala decide where and how to advertise each product range. For example, lifestyle segmentation could identify outdoor-living enthusiasts as a target group (APP). By directing targeted marketing at this group through appropriate channels, Amala is more likely to attract new customers, increasing sales and reversing the current decline (AN).\n\nOverall, I think market segmentation will be very effective in helping Amala's family business (EVAL judgement). The business sells a diverse range of products at very different price points, and has not changed its advertising approach for years despite falling sales. By identifying exactly who is buying each product, Amala can target her marketing precisely — different products require different approaches and different audiences. A one-size-fits-all approach clearly is not working any more. Using segmentation will allow the business to allocate its marketing budget where it will have the greatest impact and help reverse the decline in sales (EVAL justification)."
+      }
+    ];
+
+  </script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

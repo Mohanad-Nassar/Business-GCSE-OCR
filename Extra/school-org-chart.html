@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Organisation Chart - Interactive</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1a2e;
+      --ink2: #2d2d4e;
+      --gold: #c9a84c;
+      --gold-light: #f0d98c;
+      --gold-pale: #fdf6e3;
+      --cream: #faf8f3;
+      --surface: #ffffff;
+      --muted: #6b6b8a;
+      --border: #e4e0d8;
+      --panel-w: 320px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--ink);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      border-bottom: 2px solid var(--gold);
+      z-index: 100;
+    }
+
+    header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+    }
+
+    header p {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.45);
+      margin-top: 2px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .controls-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-action {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 7px 14px;
+      background: rgba(201, 168, 76, 0.1);
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      border-radius: 6px;
+      color: var(--gold);
+      cursor: pointer;
+      transition: all .15s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-action:hover {
+      background: rgba(201, 168, 76, 0.2);
+      border-color: var(--gold);
+    }
+
+    .search-wrap {
+      position: relative;
+    }
+
+    .search-wrap input {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-radius: 6px;
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      padding: 7px 12px 7px 32px;
+      width: 220px;
+      outline: none;
+      transition: all .2s;
+    }
+
+    .search-wrap input::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .search-wrap input:focus {
+      border-color: var(--gold);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(201, 168, 76, 0.6);
+      font-size: 13px;
+    }
+
+    .main {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* PAN & ZOOM VIEWPORT */
+    .tree-viewport {
+      flex: 1;
+      overflow: hidden;
+      cursor: grab;
+      position: relative;
+      background: radial-gradient(circle at 50% 50%, var(--surface) 0%, var(--cream) 100%);
+    }
+
+    .tree-viewport:active {
+      cursor: grabbing;
+    }
+
+    .tree-container {
+      position: absolute;
+      /* Center origin for easier translation math */
+      top: 50%;
+      left: 50%;
+      transform-origin: 0 0;
+      will-change: transform;
+      display: flex;
+      justify-content: center;
+      /* Offset so the top node starts higher up rather than dead center */
+      margin-top: -150px;
+    }
+
+    /* TREE NODES */
+    .tree-node {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      user-select: none;
+    }
+
+    .node-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .node-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+      padding: 16px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      background: var(--surface);
+      transition: all .2s cubic-bezier(0.4, 0, 0.2, 1);
+      min-width: 170px;
+      max-width: 200px;
+      position: relative;
+      margin: 0 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .node-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 6px 20px rgba(201, 168, 76, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .node-card.selected {
+      border-color: var(--gold);
+      background: var(--gold-pale);
+      box-shadow: 0 4px 20px rgba(201, 168, 76, 0.25);
+    }
+
+    .node-card.dimmed {
+      opacity: 0.2;
+      transform: scale(0.95);
+      filter: grayscale(100%);
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+      flex-shrink: 0;
+      letter-spacing: 0.05em;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .node-info {
+      flex: 1;
+      min-width: 0;
+      width: 100%;
+    }
+
+    .node-code {
+      font-size: 11px;
+      font-family: 'DM Sans', monospace;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .node-role {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .node-dept-badge {
+      font-size: 10px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+      color: white;
+      flex-shrink: 0;
+      letter-spacing: 0.04em;
+    }
+
+    .toggle-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      transition: all .2s;
+      margin-top: -13px;
+      position: relative;
+      z-index: 10;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .toggle-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: white;
+      transform: scale(1.15);
+    }
+
+    /* BRANCH LINES & ANIMATIONS */
+    .children-wrap {
+      display: flex;
+      justify-content: center;
+      padding-top: 24px;
+      position: relative;
+      animation: dropIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      transform-origin: top center;
+    }
+
+    @keyframes dropIn {
+      from {
+        opacity: 0;
+        transform: translateY(-15px) scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .children-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: calc(50% - 1px);
+      width: 2px;
+      height: 24px;
+      background: var(--border);
+    }
+
+    .child-group {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .child-item {
+      padding: 24px 8px 0 8px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .child-item::before,
+    .child-item::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 24px;
+    }
+
+    .child-item::before {
+      left: 0;
+      border-top: 2px solid var(--border);
+      border-right: 2px solid var(--border);
+    }
+
+    .child-item::after {
+      right: 0;
+      border-top: 2px solid var(--border);
+    }
+
+    .child-item:first-child::before {
+      display: none;
+    }
+
+    .child-item:first-child::after {
+      border-left: 2px solid var(--border);
+      border-radius: 10px 0 0 0;
+    }
+
+    .child-item:last-child::after {
+      display: none;
+    }
+
+    .child-item:last-child::before {
+      border-radius: 0 10px 0 0;
+    }
+
+    .child-item:only-child::before,
+    .child-item:only-child::after {
+      display: none;
+    }
+
+    .child-item:only-child {
+      padding-top: 0;
+    }
+
+    .count-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      font-size: 11px;
+      background: var(--ink);
+      color: white;
+      border: 2px solid var(--surface);
+      border-radius: 12px;
+      padding: 2px 7px;
+      font-weight: 600;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    /* DETAIL PANEL */
+    .detail-panel {
+      width: var(--panel-w);
+      background: var(--surface);
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      overflow: hidden;
+      transform: translateX(0);
+      transition: transform .3s cubic-bezier(0.4, 0, 0.2, 1), width .3s ease;
+      box-shadow: -4px 0 15px rgba(0, 0, 0, 0.03);
+      z-index: 50;
+    }
+
+    .detail-panel.hidden {
+      width: 0;
+      transform: translateX(100%);
+    }
+
+    .detail-header {
+      background: var(--ink);
+      padding: 24px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .detail-avatar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .detail-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+      border: 2px solid var(--gold);
+      flex-shrink: 0;
+    }
+
+    .detail-code {
+      font-size: 12px;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+    }
+
+    .detail-role {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: white;
+      line-height: 1.3;
+      margin-top: 4px;
+    }
+
+    .detail-dept-tag {
+      display: inline-block;
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 12px;
+      color: white;
+      font-weight: 500;
+      margin-top: 8px;
+    }
+
+    .detail-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: transparent;
+      color: rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .15s;
+    }
+
+    .detail-close:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      transform: rotate(90deg);
+    }
+
+    .detail-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0;
+    }
+
+    .detail-body::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .detail-body::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px;
+    }
+
+    .detail-section {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .detail-section-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .report-to-card,
+    .direct-report-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all .15s;
+      border: 1px solid transparent;
+    }
+
+    .report-to-card {
+      background: var(--cream);
+      border-color: var(--border);
+      margin-bottom: 8px;
+    }
+
+    .report-to-card:hover,
+    .direct-report-item:hover {
+      border-color: var(--gold);
+      background: var(--gold-pale);
+      transform: translateX(4px);
+    }
+
+    .report-mini-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .report-mini-code {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .report-mini-role {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .report-mini-arrow {
+      margin-left: auto;
+      color: var(--gold);
+      font-size: 16px;
+    }
+
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 40px 24px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .empty-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      opacity: 0.3;
+    }
+
+    .empty-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: var(--ink2);
+      margin-bottom: 8px;
+    }
+
+    .empty-sub {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Controls Overlay */
+    .zoom-controls {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .zoom-btn {
+      width: 36px;
+      height: 36px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--ink);
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.1s;
+    }
+
+    .zoom-btn:hover {
+      background: var(--cream);
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .zoom-btn:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div>
+      <h1>Organisation Chart</h1>
+      <p>Drag to pan • Scroll to zoom • Click cards for details</p>
+    </div>
+    <div class="header-right">
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input type="text" id="searchInput" placeholder="Search name or role…" oninput="handleSearch()">
+      </div>
+      <div class="controls-group">
+        <button class="btn-action" onclick="toggleAll(true)">
+          <span>⤓</span> Expand All
+        </button>
+        <button class="btn-action" onclick="toggleAll(false)">
+          <span>⤒</span> Collapse All
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="main">
+    <div class="tree-viewport" id="treeViewport">
+      <div class="tree-container" id="treeContainer"></div>
+      <div class="zoom-controls">
+        <button class="zoom-btn" onclick="handleZoomControl(0.2)" title="Zoom In">+</button>
+        <button class="zoom-btn" onclick="handleZoomControl(-0.2)" title="Zoom Out">−</button>
+        <button class="zoom-btn" onclick="resetView()" title="Reset View" style="font-size: 14px;">⟲</button>
+      </div>
+    </div>
+
+    <div class="detail-panel hidden" id="detailPanel">
+      <div id="detailContent">
+        <div class="empty-state">
+          <div class="empty-icon">◎</div>
+          <div class="empty-title">Select a staff member</div>
+          <div class="empty-sub">Click any card in the tree to see their role, who they report to, and who reports to
+            them.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- DATA & SETUP ---
+    const DEPT_COLORS = {
+      "SLT": "#1a1a2e", "Pastoral": "#1d5e47", "Science": "#1a3a5c", "English": "#3a1a5c",
+      "Mathematics": "#7a1a1a", "Humanities": "#2a5a1a", "ART & DT": "#7a4a1a", "Business / CS": "#1a4a6a",
+      "Drama": "#7a1a4a", "Inclusion": "#4a5a1a", "Music": "#5a1a7a", "PE & Yoga": "#1a5a5a",
+      "PRE": "#5a4a1a", "Spanish": "#7a2a1a", "Support Staff": "#3a3a4a"
+    };
+
+    const ORG = {
+      id: "VBA", code: "VBA", role: "Principal", dept: "SLT", children: [
+        {
+          id: "NKH", code: "NKH", role: "Head of Secondary", dept: "SLT", children: [
+            { id: "KPA", code: "KPA", role: "Asst Principal: Teaching & Learning", dept: "SLT" },
+            // HEADS OF DEPARTMENT MOVED UP TO BE DIRECT REPORTS TO NKH
+            {
+              id: "RPA", code: "RPA", role: "Head of Science", dept: "Science", children: [
+                { id: "DTR_sci", code: "DTR", role: "Head of Yr 8 / Science Teacher", dept: "Science" },
+                { id: "DPA", code: "DPA", role: "Science Teacher", dept: "Science" },
+                { id: "ECH", code: "ECH", role: "Science Teacher", dept: "Science" },
+                { id: "OOL", code: "OOL", role: "Science Teacher", dept: "Science" },
+                { id: "RSA_sci", code: "RSA", role: "Head of Yr 9 / Science / Careers", dept: "Science" },
+                { id: "SHO_sci", code: "SHO", role: "Head of Yr 10 / Science Teacher", dept: "Science" },
+                { id: "SCH", code: "SCH", role: "Senior Science Technician", dept: "Science" },
+                { id: "MSA", code: "MSA", role: "Science Technician", dept: "Science" },
+              ]
+            },
+            {
+              id: "PBA", code: "PBA", role: "Head of English", dept: "English", children: [
+                { id: "GCH", code: "GCH", role: "Key Stage Lead", dept: "English" },
+                { id: "KFI", code: "KFI", role: "English Teacher", dept: "English" },
+                { id: "LMO", code: "LMO", role: "English Teacher", dept: "English" },
+                { id: "MKH", code: "MKH", role: "English Teacher", dept: "English" },
+                { id: "RKE", code: "RKE", role: "English Teacher", dept: "English" },
+                { id: "ZMI", code: "ZMI", role: "English Teacher", dept: "English" },
+              ]
+            },
+            {
+              id: "BPA", code: "BPA", role: "Head of Maths", dept: "Mathematics", children: [
+                { id: "SES", code: "SES", role: "Key Stage Lead", dept: "Mathematics" },
+                { id: "BDH", code: "BDH", role: "Maths Teacher", dept: "Mathematics" },
+                { id: "BVA", code: "BVA", role: "Maths Teacher", dept: "Mathematics" },
+                { id: "DBH", code: "DBH", role: "Maths Teacher", dept: "Mathematics" },
+                { id: "IPA", code: "IPA", role: "Maths Teacher", dept: "Mathematics" },
+                { id: "RKA", code: "RKA", role: "Maths Teacher", dept: "Mathematics" },
+              ]
+            },
+            {
+              id: "JFA", code: "JFA", role: "Head of Humanities", dept: "Humanities", children: [
+                { id: "DCL", code: "DCL", role: "Subject Lead: Geography", dept: "Humanities" },
+                { id: "CBA", code: "CBA", role: "Geography Teacher", dept: "Humanities" },
+                { id: "LRA", code: "LRA", role: "Geography Teacher", dept: "Humanities" },
+                { id: "HPA", code: "HPA", role: "History Teacher", dept: "Humanities" },
+                { id: "RNO", code: "RNO", role: "History Teacher", dept: "Humanities" },
+              ]
+            },
+            {
+              id: "RPN", code: "RPN", role: "Head of CS & Business", dept: "Business / CS", children: [
+                { id: "JJO", code: "JJO", role: "Business & Economics Teacher", dept: "Business / CS" },
+                { id: "MNA", code: "MNA", role: "CS & Business Teacher", dept: "Business / CS" },
+              ]
+            },
+            {
+              id: "PRE_head", code: "—", role: "Head of PRE", dept: "PRE", children: [
+                { id: "BRI", code: "BRI", role: "PRE Teacher", dept: "PRE" },
+                { id: "MSH", code: "MSH", role: "PRE Teacher", dept: "PRE" },
+                { id: "NMO", code: "NMO", role: "PRE Teacher", dept: "PRE" },
+                { id: "PRP", code: "PRP", role: "PRE Teacher", dept: "PRE" },
+                { id: "RTH", code: "RTH", role: "PRE Teacher", dept: "PRE" },
+              ]
+            },
+            {
+              id: "BHP", code: "BHP", role: "Subject Lead: DT", dept: "ART & DT", children: [
+                { id: "JWI", code: "JWI", role: "Subject Lead: Art", dept: "ART & DT" },
+                { id: "BBL", code: "BBL", role: "Art Teacher", dept: "ART & DT" },
+                { id: "JWE", code: "JWE", role: "DT Teacher", dept: "ART & DT" },
+                { id: "ART_tech", code: "—", role: "Art Technician", dept: "ART & DT" },
+                { id: "VPI", code: "VPI", role: "DT Technician", dept: "ART & DT" },
+              ]
+            },
+            {
+              id: "JMO", code: "JMO", role: "Head of MFL", dept: "Spanish", children: [
+                { id: "ASM", code: "ASM", role: "Spanish Teacher", dept: "Spanish" },
+                { id: "DPO", code: "DPO", role: "Spanish Teacher", dept: "Spanish" },
+                { id: "SMI", code: "SMI", role: "Spanish Teacher", dept: "Spanish" },
+              ]
+            },
+            { id: "ARA", code: "ARA", role: "Subject Lead: Drama", dept: "Drama" },
+            // REST OF THE ASSISTANT PRINCIPALS
+            {
+              id: "ABI", code: "ABI", role: "Asst Principal: Pastoral", dept: "SLT", children: [
+                { id: "HOY7", code: "—", role: "Head of Year 7", dept: "Pastoral" },
+                { id: "DTR_pas", code: "DTR", role: "Head of Year 8", dept: "Pastoral" },
+                { id: "RSA_pas", code: "RSA", role: "Head of Year 9 / Careers Lead", dept: "Pastoral" },
+                { id: "SHO_pas", code: "SHO", role: "Head of Year 10", dept: "Pastoral" },
+                { id: "TBA", code: "TBA", role: "Head of Year 11", dept: "Pastoral" },
+                { id: "HBA", code: "HBA", role: "Pastoral Support", dept: "Pastoral" },
+                { id: "NKE", code: "NKE", role: "Pastoral Support", dept: "Pastoral" },
+              ]
+            },
+            {
+              id: "LBI", code: "LBI", role: "Asst Principal: SENCO / Inclusion", dept: "SLT", children: [
+                { id: "TTB", code: "TTB", role: "Associate SENDCo", dept: "Inclusion" },
+                { id: "RMA", code: "RMA", role: "Deputy DSL (Non-teaching)", dept: "Inclusion" },
+                { id: "HJO_inc", code: "HJO", role: "HLTA", dept: "Inclusion" },
+                { id: "ASA", code: "ASA", role: "Teaching Assistant", dept: "Inclusion" },
+                { id: "KCH", code: "KCH", role: "Teaching Assistant", dept: "Inclusion" },
+                { id: "MGO", code: "MGO", role: "Teaching Assistant", dept: "Inclusion" },
+                { id: "SRA", code: "SRA", role: "Teaching Assistant", dept: "Inclusion" },
+                { id: "WLI", code: "WLI", role: "Teaching Assistant", dept: "Inclusion" },
+              ]
+            },
+            {
+              id: "GKH", code: "GKH", role: "Assoc Asst Principal: Enrichment", dept: "SLT", children: [
+                { id: "SJO", code: "SJO", role: "Subject Lead: Music / Student Leadership", dept: "Music" },
+                { id: "VKA", code: "VKA", role: "Subject Lead: PE / Student Leadership", dept: "PE & Yoga" },
+                {
+                  id: "AGI", code: "AGI", role: "Asst Principal / PE Teacher", dept: "PE & Yoga", children: [
+                    { id: "JSA", code: "JSA", role: "PE Teacher", dept: "PE & Yoga" },
+                    { id: "TBA_pe", code: "TBA", role: "Head of Year 11 / PE Teacher", dept: "PE & Yoga" },
+                  ]
+                },
+              ]
+            },
+          ]
+        },
+        { id: "ATH", code: "ATH", role: "Head of Primary", dept: "SLT" },
+        {
+          id: "NRA", code: "NRA", role: "Business Manager", dept: "Support Staff", children: [
+            { id: "HJO_pa", code: "HJO", role: "PA to Principal", dept: "Support Staff" },
+            { id: "KGH", code: "KGH", role: "Senior Admin (Admissions)", dept: "Support Staff" },
+            { id: "MKA", code: "MKA", role: "Senior Admin (Attendance)", dept: "Support Staff" },
+            { id: "MAS", code: "MAS", role: "Exams Officer", dept: "Support Staff" },
+            { id: "PGO", code: "PGO", role: "Admin (Cover Supervisor)", dept: "Support Staff" },
+            { id: "PBG", code: "PBG", role: "Medical Officer", dept: "Support Staff" },
+            { id: "RBI", code: "RBI", role: "Admin: Reprographics", dept: "Support Staff" },
+            { id: "RBA", code: "RBA", role: "Admin (Reception)", dept: "Support Staff" },
+            { id: "SSA", code: "SSA", role: "Learning Resource Manager", dept: "Support Staff" },
+          ]
+        }
+      ]
+    };
+
+    const nodeMap = {};
+    const parentMap = {};
+    const expandedState = {};
+    let selectedId = null;
+
+    function buildMaps(node, parent) {
+      nodeMap[node.id] = node;
+      if (parent) parentMap[node.id] = parent.id;
+      if (node.children) node.children.forEach(c => buildMaps(c, node));
+    }
+    buildMaps(ORG, null);
+
+    function getInitials(code) { return (!code || code === "—") ? "?" : code.slice(0, 2); }
+    function getColor(dept) { return DEPT_COLORS[dept] || "#555"; }
+    function countDescendants(node) {
+      if (!node.children) return 0;
+      return node.children.reduce((sum, c) => sum + 1 + countDescendants(c), 0);
+    }
+
+    // --- RENDERING ---
+    function buildTree(node, depth) {
+      const hasChildren = node.children && node.children.length > 0;
+      if (expandedState[node.id] === undefined) expandedState[node.id] = depth < 1; // Only top level expanded by default
+      const isExpanded = expandedState[node.id];
+
+      let html = `<div class="tree-node" id="tn-${node.id}" data-id="${node.id}" data-role="${node.role.toLowerCase()}" data-code="${node.code.toLowerCase()}" data-dept="${node.dept.toLowerCase()}">`;
+      html += `<div class="node-row">`;
+      html += `<div class="node-card ${selectedId === node.id ? 'selected' : ''}" id="nc-${node.id}" onclick="selectNode('${node.id}', event)">`;
+
+      const color = getColor(node.dept);
+      html += `<div class="avatar" style="background:${color}">${getInitials(node.code)}</div>`;
+      html += `<div class="node-info">
+    <div class="node-code">${node.code}</div>
+    <div class="node-role">${node.role}</div>
+  </div>`;
+
+      const deptShort = node.dept.length > 12 ? node.dept.split(' ')[0] : node.dept;
+      html += `<span class="node-dept-badge" style="background:${color}">${deptShort}</span>`;
+
+      if (hasChildren) {
+        const totalCount = countDescendants(node);
+        html += `<span class="count-badge">${totalCount}</span>`;
+      }
+      html += `</div>`; // End node-card
+
+      if (hasChildren) {
+        html += `<div class="toggle-btn" onclick="toggleNode('${node.id}', event)">${isExpanded ? '−' : '+'}</div>`;
+      }
+      html += `</div>`; // End node-row
+
+      if (hasChildren && isExpanded) {
+        html += `<div class="children-wrap"><div class="child-group">`;
+        node.children.forEach(child => {
+          html += `<div class="child-item">${buildTree(child, depth + 1)}</div>`;
+        });
+        html += `</div></div>`;
+      }
+      html += `</div>`;
+      return html;
+    }
+
+    function renderTree() {
+      document.getElementById("treeContainer").innerHTML = buildTree(ORG, 0);
+      handleSearch(); // Reapply search filters after re-render
+    }
+
+    function toggleNode(id, e) {
+      e.stopPropagation();
+      expandedState[id] = !expandedState[id];
+      renderTree();
+    }
+
+    function toggleAll(expand) {
+      Object.keys(nodeMap).forEach(id => {
+        if (nodeMap[id].children) expandedState[id] = expand;
+      });
+      renderTree();
+      // Automatically zoom out slightly to see the newly expanded tree because the chart gets very wide
+      if (expand && scale > 0.4) {
+        scale = 0.4;
+        updateTransform();
+      }
+    }
+
+    // --- PAN & ZOOM LOGIC ---
+    const viewport = document.getElementById('treeViewport');
+    const container = document.getElementById('treeContainer');
+    let scale = 0.8;
+    let translateX = 0;
+    let translateY = 0;
+    let isDragging = false;
+    let startX, startY;
+
+    function updateTransform() {
+      container.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+    }
+
+    function resetView() {
+      scale = 0.8;
+      translateX = 0;
+      translateY = 0;
+      updateTransform();
+    }
+
+    function handleZoomControl(delta) {
+      scale = Math.max(0.15, Math.min(scale + delta, 2));
+      updateTransform();
+    }
+
+    viewport.addEventListener('mousedown', (e) => {
+      if (e.target.closest('.node-card') || e.target.closest('.toggle-btn') || e.target.closest('.zoom-btn')) return;
+      isDragging = true;
+      startX = e.clientX - translateX;
+      startY = e.clientY - translateY;
+    });
+
+    window.addEventListener('mouseup', () => { isDragging = false; });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      translateX = e.clientX - startX;
+      translateY = e.clientY - startY;
+      updateTransform();
+    });
+
+    viewport.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const zoomSensitivity = 0.0015;
+      const delta = -e.deltaY;
+      scale = Math.max(0.15, Math.min(scale * Math.exp(delta * zoomSensitivity), 2.5));
+      updateTransform();
+    }, { passive: false });
+
+
+    // --- INTERACTION & DETAILS ---
+    function selectNode(id, e) {
+      if (e) e.stopPropagation();
+      if (selectedId) document.getElementById(`nc-${selectedId}`)?.classList.remove('selected');
+
+      selectedId = id;
+      const newCard = document.getElementById(`nc-${id}`);
+      if (newCard) newCard.classList.add('selected');
+
+      document.getElementById("detailPanel").classList.remove("hidden");
+      renderDetail(id);
+    }
+
+    function renderDetail(id) {
+      const node = nodeMap[id];
+      if (!node) return;
+
+      const parentId = parentMap[id];
+      const parent = parentId ? nodeMap[parentId] : null;
+      const children = node.children || [];
+      const color = getColor(node.dept);
+
+      let html = `<div class="detail-header">
+    <button class="detail-close" onclick="closeDetail()">✕</button>
+    <div class="detail-avatar-wrap">
+      <div class="detail-avatar" style="background:${color}">${getInitials(node.code)}</div>
+      <div>
+        <div class="detail-code">${node.code}</div>
+        <div class="detail-role">${node.role}</div>
+      </div>
+    </div>
+    <span class="detail-dept-tag" style="background:${color}">${node.dept}</span>
+  </div><div class="detail-body">`;
+
+      // Reports to
+      html += `<div class="detail-section"><div class="detail-section-title">Reports to</div>`;
+      if (parent) {
+        const pc = getColor(parent.dept);
+        html += `<div class="report-to-card" onclick="selectAndFocus('${parent.id}')">
+      <div class="report-mini-avatar" style="background:${pc}">${getInitials(parent.code)}</div>
+      <div><div class="report-mini-code">${parent.code}</div><div class="report-mini-role">${parent.role}</div></div>
+      <span class="report-mini-arrow">→</span>
+    </div>`;
+      } else {
+        html += `<div class="no-reports">Top of the hierarchy</div>`;
+      }
+      html += `</div>`;
+
+      // Direct reports
+      html += `<div class="detail-section"><div class="detail-section-title">Direct reports (${children.length})</div>`;
+      if (children.length === 0) {
+        html += `<div class="no-reports">No direct reports</div>`;
+      } else {
+        children.forEach(child => {
+          const cc = getColor(child.dept);
+          html += `<div class="direct-report-item" onclick="selectAndFocus('${child.id}')">
+        <div class="report-mini-avatar" style="background:${cc}">${getInitials(child.code)}</div>
+        <div style="flex:1;min-width:0">
+          <div class="report-mini-code">${child.code}</div>
+          <div class="report-mini-role" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${child.role}</div>
+        </div>
+        <span class="report-mini-arrow">→</span>
+      </div>`;
+        });
+      }
+      html += `</div></div>`;
+      document.getElementById("detailContent").innerHTML = html;
+    }
+
+    function selectAndFocus(id) {
+      let cur = parentMap[id];
+      let changed = false;
+      while (cur) {
+        if (!expandedState[cur]) {
+          expandedState[cur] = true;
+          changed = true;
+        }
+        cur = parentMap[cur];
+      }
+      if (changed) renderTree();
+      selectNode(id);
+    }
+
+    function closeDetail() {
+      document.getElementById("detailPanel").classList.add("hidden");
+      if (selectedId) document.getElementById(`nc-${selectedId}`)?.classList.remove('selected');
+      selectedId = null;
+    }
+
+    function handleSearch() {
+      const q = document.getElementById("searchInput").value.toLowerCase().trim();
+      const nodes = document.querySelectorAll(".tree-node");
+
+      if (!q) {
+        nodes.forEach(n => n.querySelector(".node-card")?.classList.remove("dimmed"));
+        return;
+      }
+
+      nodes.forEach(n => {
+        const role = n.dataset.role || "";
+        const code = n.dataset.code || "";
+        const dept = n.dataset.dept || "";
+        const matches = role.includes(q) || code.includes(q) || dept.includes(q);
+        n.querySelector(".node-card")?.classList.toggle("dimmed", !matches);
+      });
+    }
+
+    // Initial Call
+    updateTransform();
+    renderTree();
+  </script>
+</body>
+
+</html>

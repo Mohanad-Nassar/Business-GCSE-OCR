@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.4 The Marketing Mix (Introduction) – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Business — Component 2</div>
+            <h1>2.4 The Marketing Mix (Introduction)</h1>
+            <p>Interactive revision guide · All key content + full exam practice</p>
+        </div>
+        <a href="index.html" class="home-link">← 🏡 Home</a>
+
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn',this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq',this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching',this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib',this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions',this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips',this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards',this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse',this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice',this)">📝 Exam Practice</button>
+    </nav>
+
+    <main>
+
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct answers</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+            <div style="margin-bottom:16px;">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size:12px;color:var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+                <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span>
+                        First attempt correct</span>
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span>
+                        Correct after mistake</span>
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span>
+                        Wrong — try again</span>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">What students often think — and what examiners actually want.</p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge. Review your weak areas at the
+                end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display:none; margin-bottom: 20px;">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color:#2d7a4f;">0</div>
+                        <div style="font-size:12px;color:var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color:#c84b31;">0</div>
+                        <div style="font-size:12px;color:var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px;">
+                        <button class="fc-btn outline" style="border-color:#c84b31; color:#c84b31; flex:1;"
+                            onclick="markCard(false)">❌
+                            Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f; border-color:#2d7a4f; flex:1;"
+                            onclick="markCard(true)">✅
+                            Got
+                            It</button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px;">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0;">You knew <strong id="fcSummaryKnown">0</strong> out of <strong
+                            id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background:#c84b31; border-color:#c84b31;">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence
+                    Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+
+    </main>
+
+    <script>
+        // ══════════════════════════════════════
+        //  DATA: 2.4 The Marketing Mix (Introduction)
+        // ══════════════════════════════════════
+
+        const topics = [
+            {
+                title: "What is the Marketing Mix?",
+                tag: "Core Definition",
+                content: `<p>The <strong>marketing mix</strong> is made up of different parts, often referred to as the <strong>4 Ps</strong>. These are:</p>
+      <ul>
+      <li><strong>Product:</strong> The good or service being sold (features, design, quality, packaging).</li>
+      <li><strong>Price:</strong> How much the customer pays for the product (pricing strategies).</li>
+      <li><strong>Place:</strong> How the product is distributed to the customer (shops, online, wholesalers).</li>
+      <li><strong>Promotion:</strong> How the business communicates with customers to encourage them to buy (advertising, special offers).</li>
+      </ul>
+      <p>A business must understand each one of these Ps and how they work together to help it successfully sell its products and services. The marketing mix is not a static plan; it must adapt and change as the market and consumer tastes change.</p>`
+            },
+            {
+                title: "Market-Orientated vs Product-Orientated",
+                tag: "Business Approaches",
+                content: `<p>Before deciding on the 4 Ps, a business usually adopts one of two approaches:</p>
+      <p><strong>Market-orientated business:</strong> A business that bases its marketing mix entirely on sound market research. It finds out what the consumer wants <em>first</em>, and then designs a product to meet those needs. This approach is generally less risky.</p>
+      <p><strong>Product-orientated business:</strong> A business that focuses primarily on the creation and making of the product itself, rather than the needs of the market. They create a great product first and then try to find a market for it. This can be risky, but highly successful for innovative tech companies (e.g., the original Apple iPhone).</p>`
+            },
+            {
+                title: "Case Study: The 'Big Four' Supermarkets",
+                tag: "Case Study",
+                content: `<p>The 'big four' supermarkets (Tesco, Sainsbury’s, Asda, and Morrisons) are in close competition. Each needs the right marketing mix to persuade shoppers to visit them rather than rivals.</p>
+      <ul>
+      <li><strong>Price:</strong> Customers often want cheap prices. Supermarkets constantly watch competitors to ensure they aren't being beaten on price, often price-matching basic items.</li>
+      <li><strong>Product:</strong> They offer a wide range of goods (food, clothing, electricals) and specific ranges like 'Taste the Difference' (Sainsbury’s) to appeal to different segments. Budget rivals like Aldi/Lidl have a smaller range, reducing overheads.</li>
+      <li><strong>Place:</strong> Providing choice in <em>where</em> to shop. Tesco 'Metro' and Sainsbury’s 'Local' cater to town centres, while massive superstores sit on the outskirts. Home delivery offers another vital distribution channel.</li>
+      <li><strong>Promotion:</strong> Spending millions on advertising to tell customers about new offers and stay one step ahead of the competition.</li>
+      </ul>`
+            },
+            {
+                title: "How the 4 Ps Work Together (Integration)",
+                tag: "Analysis",
+                content: `<p>The 4 Ps cannot be planned in isolation; they are <strong>interdependent</strong>. If one changes, the others must often change to match it.</p>
+      <p>For example, if a business decides to create a highly innovative, premium quality item (<strong>Product</strong>), it will likely need to charge a high <strong>Price</strong> to cover expensive materials and portray a luxury image. It will need to distribute the item in high-end, exclusive locations (<strong>Place</strong>), and advertise in luxury magazines rather than cheap leaflets (<strong>Promotion</strong>).</p>
+      <p>If the mix is confused (e.g., a premium luxury product sold in a budget discount store), customers will be confused, and the product will likely fail.</p>`
+            }
+        ];
+
+        const mcqData = [
+            {
+                q: "What is one of the 'four Ps' of the marketing mix?",
+                opts: [
+                    "Penetration",
+                    "Place",
+                    "Planning",
+                    "Profit"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. The four Ps are Product, Price, Place, and Promotion. 'Penetration' is a pricing strategy, not one of the main 4 Ps. 'Planning' and 'Profit' are general business terms."
+            },
+            {
+                q: "An independent toy business is seeing fewer potential customers visit its shop. Which change to its marketing mix may help the business solve this problem?",
+                opts: [
+                    "Introduce price skimming across the full range of toys",
+                    "Offer free superhero stickers and badges to all visitors",
+                    "Reduce the number of 'pre-school toy' loss leaders offered",
+                    "Use digital distribution channels for outdoor toys"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. Offering free stickers is a form of Promotion that acts as a draw to get footfall into the physical shop. Price skimming (A) would make toys more expensive, putting people off. Digital distribution (D) bypasses the shop entirely."
+            },
+            {
+                q: "A furniture manufacturer's marketing mix identifies:",
+                opts: [
+                    "how to reduce risk when selling its furniture online",
+                    "the distribution channels for its tables and chairs",
+                    "the quantity of wood and materials to reorder",
+                    "which model of gaming chair customers prefer"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. This question tests the understanding of 'Place' within the marketing mix, which specifically refers to distribution channels (how the product gets from the manufacturer to the consumer)."
+            },
+            {
+                q: "A publishing company's marketing mix identifies:",
+                opts: [
+                    "appropriate sources of market research",
+                    "digital distribution channels for its books",
+                    "how many short-story authors to interview",
+                    "which of its editors have training needs"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. Similar to the furniture question, this targets the 'Place' element of the marketing mix. Digital distribution is the modern 'Place' for digital books and media."
+            },
+            {
+                q: "A business is deciding on a marketing mix for its latest product. The product is innovative, of the highest quality, and expensive to produce. The marketing mix is most likely to also include:",
+                opts: [
+                    "advertising aimed at low income customers",
+                    "placing the product for sale in high income locations",
+                    "promotion using free samples",
+                    "using social media to discuss the limitations of the product"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. This tests how the 4 Ps work together. A premium, high-quality, expensive Product must be matched with an exclusive Place (high income locations) to reach the correct target market."
+            }
+        ];
+
+        const matchData = [
+            { term: "Product", def: "The good or service that a business provides to meet a customer need" },
+            { term: "Price", def: "The amount of money that a customer must pay to acquire the good or service" },
+            { term: "Place", def: "The distribution channels used to get the product from the producer to the consumer" },
+            { term: "Promotion", def: "The methods used to communicate with customers and persuade them to buy" },
+            { term: "Market-orientated", def: "A business approach that focuses on finding out what the consumer wants through research before designing the product" },
+            { term: "Product-orientated", def: "A business approach that focuses on creating a high-quality product first, and then trying to find a market for it" },
+            { term: "Integrated mix", def: "Ensuring that all four parts of the marketing mix work together and send a consistent message to the consumer" }
+        ];
+
+        const fibData = [
+            {
+                display: "The marketing mix is made up of four key parts, known as the 4 Ps: Product, _____, Place, and _____.",
+                blanks: { B1: "Price", B2: "Promotion" }
+            },
+            {
+                display: "A _____ orientated business relies heavily on market research, whereas a _____ orientated business focuses on the creation and design of the item itself.",
+                blanks: { B1: "market", B2: "product" }
+            },
+            {
+                display: "In the marketing mix, 'Place' does not just mean the physical shop; it refers to the _____ channels used to get the product to the _____.",
+                blanks: { B1: "distribution", B2: "customer" }
+            },
+            {
+                display: "All elements of the marketing mix must work _____ to be successful. For example, a premium product should have a _____ price.",
+                blanks: { B1: "together", B2: "high" }
+            }
+        ];
+
+        const fibWords = [
+            "Price", "Promotion", "market", "product", "distribution", "customer",
+            "together", "high", "low", "advertising", "sales", "business"
+        ];
+
+        const miscData = [
+            {
+                wrong: "Students often think 'Place' means the location where the product is manufactured (e.g., the factory).",
+                correct: "'Place' refers specifically to DISTRIBUTION CHANNELS — how the product gets from the business to the consumer. This could be a physical retail shop, a wholesaler, or an e-commerce website."
+            },
+            {
+                wrong: "Students think the 4 Ps are chosen independently and don't affect each other.",
+                correct: "The 4 Ps are highly INTERDEPENDENT. If you change your product to make it more luxurious, you must also change your price (increase it), place (exclusive shops), and promotion (high-end magazines) to match."
+            },
+            {
+                wrong: "Students assume that a product-orientated business will always fail because they don't do market research first.",
+                correct: "While riskier, product-orientated businesses can be massively successful if they create a highly innovative product that consumers didn't even know they wanted yet (e.g., the first smartphones or early tech inventions)."
+            }
+        ];
+
+        const examTips = [
+            {
+                type: "Multiple Choice (1 mark)",
+                title: "Tricks with 'Place'",
+                content: `<p>In multiple choice questions, examiners love testing your understanding of 'Place'.</p>
+      <p>Always remember: Place = <strong>Distribution Channels</strong>.</p>
+      <p>If you see options about factories, warehouses, or ordering raw materials, ignore them. Look for words like 'digital distribution', 'retailers', or 'wholesalers'.</p>`,
+                pills: ["K"]
+            },
+            {
+                type: "Concept Link",
+                title: "Linking the Mix to the Target Market",
+                content: `<p>When devising a marketing mix, it must always link back to the <strong>target market</strong> (from Unit 2.3).</p>
+      <p>If an exam scenario says the target market is 'low-income teenagers', every part of your suggested 4 Ps must match that demographic: low price, digital promotion (social media), modern design, and online/accessible place.</p>`,
+                pills: ["un", "app"]
+            },
+            {
+                type: "Evaluate (9 marks)",
+                title: "Creating a Marketing Mix",
+                content: `<p>For high tariff questions, you may be asked to evaluate a proposed marketing mix or recommend one.</p>
+      <p>To score top marks, you must explicitly state how the parts of the mix <strong>work together</strong>. Don't just list a price and a promotion separately. Explain <em>why</em> that specific price supports that specific promotion method.</p>`,
+                pills: ["an", "eval"]
+            }
+        ];
+
+        const flashcards = [
+            { term: "Marketing Mix", def: "The combination of Product, Price, Place, and Promotion used by a business to successfully sell its goods and services." },
+            { term: "Product", def: "The good or service being sold, including its design, packaging, and features." },
+            { term: "Price", def: "How much the customer pays for the product, based on costs, competitors, and target market." },
+            { term: "Place", def: "The distribution channels used to deliver the product to the consumer (e.g., e-commerce, retail stores)." },
+            { term: "Promotion", def: "The methods used to communicate with customers to raise awareness and persuade them to buy." },
+            { term: "Market-orientated", def: "A business that bases its products on extensive market research to find out what consumers want first." },
+            { term: "Product-orientated", def: "A business that focuses on making an excellent or innovative product first, then finding a market for it." },
+            { term: "Interdependent Mix", def: "The concept that the 4 Ps must work together harmoniously. A change in one P usually requires a change in the others." }
+        ];
+
+        const tfData = [
+            {
+                statement: "The marketing mix consists of Planning, Product, Price, and Profit.",
+                answer: false,
+                explanation: "FALSE. The 4 Ps of the marketing mix are Product, Price, Place, and Promotion."
+            },
+            {
+                statement: "In the marketing mix, 'Place' refers to the distribution channels used to get the product to the customer.",
+                answer: true,
+                explanation: "TRUE. 'Place' is about distribution (like physical shops, websites, or wholesalers), not the location of the factory."
+            },
+            {
+                statement: "A market-orientated business develops a product first and then tries to find customers to buy it.",
+                answer: false,
+                explanation: "FALSE. That describes a product-orientated business. A market-orientated business does market research first to find out what customers want before developing the product."
+            },
+            {
+                statement: "If a business launches a highly premium, luxury product, it must ensure its Price, Place, and Promotion match that luxury image.",
+                answer: true,
+                explanation: "TRUE. The 4 Ps must be integrated and work together to avoid confusing the target market."
+            }
+        ];
+
+        const examQuestions = [
+            {
+                num: "Q1",
+                marks: 1,
+                type: "mcq",
+                question: "A business is deciding on a marketing mix for its latest product. The product is innovative, of the highest quality, and expensive to produce. The marketing mix for this business is most likely to also include:",
+                options: [
+                    "advertising aimed at low income customers",
+                    "placing the product for sale in high income locations",
+                    "promotion using free samples",
+                    "using social media to discuss the limitations of the product"
+                ],
+                answer: 1,
+                hint: "Think about how the 4 Ps work together. If the 'Product' is high quality and expensive, what must the 'Place' be?",
+                starter: "An expensive, premium product needs to be sold somewhere that...",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: B</strong></p><p>This tests the student's ability to see how 'Product' directly influences 'Place' and target market. A premium product requires a premium location.</p></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Q2",
+                marks: 3,
+                type: "written",
+                caseStudy: "Beth is planning to open a new soft play centre targeting children from 2 to 12 years old, and their parents. She is currently working on her business plan and trying to finalise her marketing mix. The local area has one other soft play centre, but it is quite old and rundown. Beth wants her centre to be viewed as a premium, high-quality, and very clean alternative.",
+                question: "Explain how Beth could ensure that the 'Price' and 'Place' elements of her marketing mix work together. [3 marks]",
+                hint: "This requires you to link two of the Ps. Since she wants a premium/high-quality image, what should her price be? And what should the 'Place' (the soft play centre itself and its location) look like to justify that price?",
+                starter: "To make Price and Place work together, Beth should charge a... (K/U)\nBecause she wants a premium image, the Place itself needs to be... (APP)\nThis ensures that parents feel the cost is justified because... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> Explaining the concept of the mix working together (e.g., matching a high price with a high-quality location).</li><li><strong>Application (1 mark):</strong> Applying to Beth's soft play (e.g., targeting children 2-12 / competing with a rundown centre / wanting a premium, clean alternative).</li><li><strong>Analysis (1 mark):</strong> The impact on the business (e.g., justifies the higher price to parents / ensures customers aren't confused / creates a strong brand image).</li></ul></div>`,
+                modelAnswer: "Beth should ensure her Price is relatively high to reflect her goal of being a premium alternative (U). To make this work with 'Place', the soft play centre itself must be located in a nice area, and be extremely clean and well-maintained with modern facilities for the 2 to 12 year olds (APP). If the Place looks premium, it justifies the higher Price to the parents, ensuring the marketing mix sends a consistent message that attracts her target market (AN)."
+            }
+        ];
+
+    </script>
+    <script src="script.js"></script>
+    
+    </body>
+    
+    </html>

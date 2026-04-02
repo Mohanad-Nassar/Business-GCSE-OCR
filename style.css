@@ -687,11 +687,21 @@
      color: #1a5060;
  }
 
+ .mark-pill.K {
+     background: #e8f4f8;
+     border-color: #4a90a4;
+     color: #1a5060;
+ }
  .mark-pill.un {
      background: #f0f8e8;
      border-color: #5a9a40;
      color: #2a5a18;
  }
+  .mark-pill.U {
+      background: #f0f8e8;
+      border-color: #5a9a40;
+      color: #2a5a18;
+  }
 
  .mark-pill.app {
      background: #fdf5df;

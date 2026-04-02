@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.4.2 Product & The Product Life Cycle – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Business — Component 2</div>
+            <h1>2.4.2 Product & The Product Life Cycle</h1>
+            <p>Interactive revision guide · All key content + full exam practice</p>
+        </div>
+        <a href="index.html" class="home-link">← 🏡 Home</a>
+
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn',this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq',this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching',this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib',this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions',this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips',this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards',this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse',this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice',this)">📝 Exam Practice</button>
+    </nav>
+
+    <main>
+
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct answers</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+            <div style="margin-bottom:16px;">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size:12px;color:var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+                <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span>
+                        First attempt correct</span>
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span>
+                        Correct after mistake</span>
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span>
+                        Wrong — try again</span>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">What students often think — and what examiners actually want.</p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge. Review your weak areas at the
+                end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display:none; margin-bottom: 20px;">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color:#2d7a4f;">0</div>
+                        <div style="font-size:12px;color:var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color:#c84b31;">0</div>
+                        <div style="font-size:12px;color:var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px;">
+                        <button class="fc-btn outline" style="border-color:#c84b31; color:#c84b31; flex:1;"
+                            onclick="markCard(false)">❌
+                            Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f; border-color:#2d7a4f; flex:1;"
+                            onclick="markCard(true)">✅
+                            Got
+                            It</button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px;">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0;">You knew <strong id="fcSummaryKnown">0</strong> out of <strong
+                            id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background:#c84b31; border-color:#c84b31;">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence
+                    Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+
+    </main>
+    <script>
+        // ══════════════════════════════════════
+        //  DATA: 2.4 Sub-topic 2: Product & The Product Life Cycle
+        // ══════════════════════════════════════
+
+        const topics = [
+            {
+                title: "The Importance of Product & Adding Value",
+                tag: "Core Concepts",
+                content: `<p><strong>Product</strong> is a vital part of the marketing mix. A product is a good or a service that is sold to customers or other businesses to meet a need. Businesses will always try to supply products that customers will want to buy, at a price at which the business can make the required profit.</p>
+      <p>Businesses generally operate under one of two orientations:</p>
+      <ul>
+      <li><strong>Market Orientation:</strong> The business focuses on the market. It responds to customer needs and wants through market research before developing the product.</li>
+      <li><strong>Product Orientation:</strong> The business focuses on the products. It develops goods based on what it is good at doing, creating the product first and finding a market later.</li>
+      </ul>
+      <p><strong>Ways to Add Value to a Product or Service (Product Differentiation):</strong></p>
+      <p>To stand out from rivals, a business must differentiate its product. This can be done by:</p>
+      <ul>
+      <li><strong>Branding:</strong> Establishing a strong brand image.</li>
+      <li><strong>Design:</strong> Making the product look stylish or function better.</li>
+      <li><strong>Quality:</strong> Using better materials or offering superior durability.</li>
+      <li><strong>Selling Point:</strong> Making clear the Unique Selling Point (USP).</li>
+      <li><strong>Convenience:</strong> Offering a better location or easier usability than rival products.</li>
+      </ul>`
+            },
+            {
+                title: "Invention, Design, and Innovation",
+                tag: "Product Development",
+                content: `<p>Technology plays a massive role in product development. Businesses spend large sums of money on <strong>Research and Development (R&D)</strong> to stay ahead of the competition.</p>
+      <ul>
+      <li><strong>Invention:</strong> When a business comes up with a completely new product, service, or feature that has never existed before (e.g., the creation of the internet itself).</li>
+      <li><strong>Innovation:</strong> When a business improves on an existing product or idea, often using new processes or technology (e.g., developing internet banking from traditional banking).</li>
+      <li><strong>Design:</strong> When a business plans what a product will do (its function) and what it will look like (its style). Design is critical in markets like mobile phones and fashion.</li>
+      </ul>
+      <div class="case-study-box">
+      <h4>Case Study: Dyson — From Vacuum to Strawberries</h4>
+      <p>When James Dyson became unhappy about the efficiency of bagged vacuum cleaners in the 1970s, he decided to do something about it. After spending a lot of time on invention, design and innovation, he came up with the Dual Cyclone style vacuum cleaner we are familiar with today. He built many different versions before it was ready to be sold.</p>
+      <p>The vacuum cleaner side of the business saw further innovation and design changes with the introduction of the Dyson 'Ball' upright cleaner and cordless ranges. Not content with a narrow range, Dyson designed a new style of hand dryers, hair straighteners, and air purifiers. It even uses its technological know-how to grow strawberries at its Dyson Farming operation in Lincolnshire! Dyson is an excellent example of a business continually developing its product range to meet consumer needs.</p>
+      </div>`
+            },
+            {
+                title: "Branding and Image",
+                tag: "Brand Identity",
+                content: `<p><strong>Branding</strong> is closely linked to design and image. How a customer feels about owning a product is a powerful marketing tool (e.g., the prestige of owning an exclusive sports car).</p>
+      <p>Many companies do not even need to put their name on a product — we know the make simply by a symbol, known as a <strong>trade mark</strong> (e.g., the Nike swoosh or Apple logo). We understand from that symbol that this 'brand' has a certain quality. It may be high quality or a lower quality 'budget' standard, but the consumer knows exactly what to expect. This works well in fast food too; brand names like KFC or McDonald's give customers a clear idea of the standard of product they are buying.</p>
+      <p><strong>Activity 7: Marketing Considerations</strong><br>
+      <em>When marketing a mobile phone vs a waste-paper bin, what is most important? Price, design, image, or brand?</em><br>
+      <strong>Answer:</strong> This is highly subjective. A waste-paper bin might compete primarily on price and basic design. However, a mobile phone relies heavily on brand and image (e.g., Apple vs Samsung), followed by innovative design. It highlights that a business must carefully choose which element of the mix to concentrate on based on the product type.</p>`
+            },
+            {
+                title: "The Product Life Cycle (PLC)",
+                tag: "Core Concept",
+                content: `<p>Most products have a time span over which consumers will want them. This is called the <strong>product life cycle</strong>. It is shown as a graph mapping Sales against Time. The graph is split into four key stages:</p>
+      <ol>
+      <li><strong>Introduction:</strong> The product is new and just launched. Sales are just beginning. Advertising is usually very high to make customers aware of the product.</li>
+      <li><strong>Growth:</strong> Sales grow quickly as the product becomes well-known. There is no need for special offers because demand is high.</li>
+      <li><strong>Maturity:</strong> Sales reach their peak and level off. The rate of growth is slowing down. It may be necessary to support the product with further advertising and offers to maintain sales against competitors.</li>
+      <li><strong>Decline:</strong> Sales begin to fall. Customers see the product as old and switch to newer alternatives. A successful business should already have a replacement product ready.</li>
+      </ol>
+      <p><strong>Activity 10 & 11: Real World Life Cycles</strong><br>
+      <em>Desktop Computers:</em> Maturity/Decline (replaced by tablets/laptops).<br>
+      <em>Denim Jeans:</em> Maturity (they go on forever, only the cut changes).<br>
+      <em>iPhone 12:</em> Growth/Maturity (short life cycle, replaced quickly).<br>
+      <em>Chart Single:</em> Extremely short life cycle (peaks and declines in weeks).<br>
+      <em>Dairy Milk Bar:</em> Exceptionally long maturity stage spanning decades.</p>`
+            },
+            {
+                title: "Extending the Product Life Cycle",
+                tag: "Strategy",
+                content: `<p>The highest level of sales is at the end of growth and into maturity. Businesses try to keep sales at this high level for as long as possible using <strong>Extension Strategies</strong>:</p>
+      <ul>
+      <li><strong>Advertising:</strong> Claiming the product is "new and improved" or using modern packaging.</li>
+      <li><strong>Price Reductions:</strong> Lowering the price to make the product more attractive.</li>
+      <li><strong>New Markets:</strong> Exporting the product to countries where it is still in the 'introduction' phase.</li>
+      <li><strong>New Features/Uses:</strong> Adding new flavours, features, or targeting a different demographic.</li>
+      </ul>
+      <div class="case-study-box">
+      <h4>Activity 13: Rice Krispies Case Study</h4>
+      <p>Since it started in 1928, Kellogg’s Rice Krispies has been a breakfast favourite. It is currently in a very long <strong>Maturity</strong> stage. Kellogg's extended its life cycle by developing the product to include new flavours (strawberry/banana) and creating new uses, such as Rice Krispies cereal bars for the 'on-the-go' snack market. The Kellogg's brand name was vital to this success, allowing them to sell different products based on a known, trusted formula.</p>
+      </div>`
+            },
+            {
+                title: "Uses and Limitations of the Product Life Cycle",
+                tag: "Evaluation",
+                content: `<div class="two-col">
+      <div>
+      <div class="col-head">✓ Uses of the PLC</div>
+      <div class="pro-item">Identifies exactly when to introduce <strong>extension strategies</strong> (e.g., right before decline).</div>
+      <div class="pro-item">Helps a business know when to change its <strong>marketing spending</strong> (e.g., heavy advertising in Introduction, less in Growth).</div>
+      <div class="pro-item">Identifies when a product should finally be <strong>discontinued</strong> or replaced.</div>
+      </div>
+      <div>
+      <div class="col-head">✗ Limitations of the PLC</div>
+      <div class="con-item"><strong>Ignores Competitors:</strong> It doesn't consider what rival businesses are doing, which can prematurely end a product's life.</div>
+      <div class="con-item"><strong>Unpredictable Trends:</strong> It cannot predict sudden shifts in social trends or changes in consumer taste.</div>
+      <div class="con-item"><strong>Not a Guarantee:</strong> Past performance on a graph is not always a reliable indicator of future performance.</div>
+      </div>
+      </div>
+      <p><strong>Evaluation Point:</strong> It is very difficult for a business to judge the right time to replace a product. Car manufacturers face massive R&D costs to launch a new model (every 5-6 years), so they rely heavily on extending the life cycle. However, in fast-paced tech markets (phones, computers), businesses put much less effort into extension strategies and instead focus on constantly innovating the next replacement model.</p>`
+            }
+        ];
+
+        const mcqData = [
+            {
+                q: "The second stage in the product life cycle is:",
+                opts: [
+                    "Maturity",
+                    "Introduction",
+                    "Decline",
+                    "Growth"
+                ],
+                ans: 3,
+                explain: "Correct answer: D. The four stages are Introduction, Growth, Maturity, and Decline. Therefore, Growth is the second stage."
+            },
+            {
+                q: "Product innovation is concerned with:",
+                opts: [
+                    "changing the colour of a product",
+                    "developing new features in a product that have not been seen before",
+                    "selling the product at a lower price than competitors",
+                    "making sure a competitor does not copy your product"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. Innovation is the improvement on an existing idea, often involving new processes or features that enhance the product."
+            },
+            {
+                q: "Which of the following would NOT be used to extend the product life cycle of a product?",
+                opts: [
+                    "Bring out a new product",
+                    "Increase the advertising",
+                    "Decrease the price",
+                    "Offer additional features free of charge"
+                ],
+                ans: 0,
+                explain: "Correct answer: A. Bringing out a completely new product replaces the old one; it does not extend the life cycle of the *existing* product. Options B, C, and D are all valid extension strategies."
+            },
+            {
+                q: "Innovation in a product is best described as:",
+                opts: [
+                    "devising a better product by changing an existing product",
+                    "looking at a product and designing a completely new product",
+                    "designing and building a new technology product from scratch",
+                    "making sure your product is made as well as competitors' products"
+                ],
+                ans: 0,
+                explain: "Correct answer: A. Innovation means taking something that already exists and making it better. Designing from scratch is 'Invention'."
+            },
+            {
+                q: "Invention involves:",
+                opts: [
+                    "behaving dishonestly",
+                    "creating new products",
+                    "developing existing products",
+                    "discrimination in the workplace"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. Invention is the creation of a totally new product or service. Developing existing products is 'innovation'."
+            },
+            {
+                q: "What is the final stage of the product life cycle?",
+                opts: [
+                    "Decline",
+                    "Delegation",
+                    "Distribution",
+                    "Diversification"
+                ],
+                ans: 0,
+                explain: "Correct answer: A. The final stage is Decline, where sales fall as customers switch to newer alternatives."
+            },
+            {
+                q: "A business is deciding on a marketing mix for its latest product. The product is innovative, of the highest quality, and expensive to produce. The marketing mix is most likely to also include:",
+                opts: [
+                    "advertising aimed at low income customers",
+                    "placing the product for sale in high income locations",
+                    "promotion using free samples",
+                    "using social media to discuss the limitations of the product"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. A premium, innovative product must be matched with an exclusive 'Place' (distribution channel) to reach the correct target market and justify the high price."
+            }
+        ];
+
+        const matchData = [
+            { term: "Invention", def: "When a business comes up with a completely new product or service from scratch." },
+            { term: "Innovation", def: "When a business improves a product which already exists (e.g. adding Bluetooth to a toothbrush)." },
+            { term: "Design", def: "When a business plans what a product will do (function) and what it will look like (style)." },
+            { term: "Introduction Stage", def: "The product is new, sales are just beginning, and advertising is high to build awareness." },
+            { term: "Growth Stage", def: "Sales grow quickly as the product becomes well-known; profits begin to rise." },
+            { term: "Maturity Stage", def: "Sales reach their peak and level off; growth slows down. High competition." },
+            { term: "Decline Stage", def: "Sales are falling; the product is seen as old and customers switch to replacements." },
+            { term: "Extension Strategy", def: "Methods used (like price drops or new packaging) to keep sales high during the maturity stage." }
+        ];
+
+        const fibData = [
+            {
+                display: "The product life cycle is divided into _____ parts and shows the _____ of a product measured against time.",
+                blanks: { B1: "four", B2: "life" }
+            },
+            {
+                display: "The first stage is called _____ and is where the product is new. Advertising is often _____ at this stage to make sure customers are aware of it.",
+                blanks: { B1: "introduction", B2: "high" }
+            },
+            {
+                display: "The next stage is _____ where the product is becoming well-known and sales rise rapidly.",
+                blanks: { B1: "growth", B2: "sales" }
+            },
+            {
+                display: "When the product reaches _____, sales are at their highest, though sales growth is _____.",
+                blanks: { B1: "maturity", B2: "slowing" }
+            },
+            {
+                display: "The final stage is _____ where sales are falling and a business might be thinking of introducing a _____ product.",
+                blanks: { B1: "decline", B2: "replacement" }
+            }
+        ];
+
+        const fibWords = [
+            "four", "life", "introduction", "high", "growth", "sales", "maturity", "slowing", "decline", "replacement", "innovation", "invention", "profit"
+        ];
+
+        const miscData = [
+            {
+                wrong: "Students often confuse Invention and Innovation.",
+                correct: "INVENTION is creating something totally new from scratch that didn't exist before. INNOVATION is taking an existing product and making it better (e.g., adding a camera to a mobile phone)."
+            },
+            {
+                wrong: "Students think the Product Life Cycle can perfectly predict the future.",
+                correct: "The PLC is just a model based on past data. It cannot predict sudden changes in consumer tastes, sudden technological breakthroughs by competitors, or economic crashes. It is a guide, not a crystal ball."
+            },
+            {
+                wrong: "Students think all products go through the decline stage quickly.",
+                correct: "Some products stay in the Maturity stage for decades (e.g., Coca-Cola, Kellogg's Cornflakes, Denim Jeans) because of excellent extension strategies and brand loyalty. Not everything declines rapidly like a smartphone."
+            }
+        ];
+
+        const examTips = [
+            {
+                type: "Multiple Choice (1 mark)",
+                title: "Reading PLC Graphs",
+                content: `<p>Examiners frequently use graphs to test the Product Life Cycle.</p>
+      <ul>
+      <li>If the 'X' is on the first small upward slope $\rightarrow$ <strong>Introduction</strong>.</li>
+      <li>If the 'X' is on the steepest upward curve $\rightarrow$ <strong>Growth</strong>.</li>
+      <li>If the 'X' is at the very top (the peak) or on a flat plateau $\rightarrow$ <strong>Maturity</strong>.</li>
+      <li>If the 'X' is on the downward slope $\rightarrow$ <strong>Decline</strong>.</li>
+      </ul>`,
+                pills: ["kn", "un"]
+            },
+            {
+                type: "Analyse (3 marks)",
+                title: "Analysing Extension Strategies",
+                content: `<p>If asked to analyse how a business extended a product's life cycle (e.g., Lego or Kellogg's), follow the chain of reasoning:</p>
+      <p><strong>Identify the method</strong> (e.g., introducing new movie-themed characters) $\rightarrow$ <strong>Apply to the business</strong> (Lego Harry Potter sets) $\rightarrow$ <strong>Business Impact</strong> (Attracts a new target market, increasing sales revenue and reversing the decline).</p>`,
+                pills: ["un", "app", "an"]
+            },
+            {
+                type: "Evaluate (7 marks)",
+                title: "Evaluating the Usefulness of the PLC",
+                content: `<p>When evaluating if a business should use the PLC to plan marketing (like the Ford Motors 7-mark question), you must provide a balanced argument.</p>
+      <p><strong>Pro:</strong> Helps them know exactly when to spend money on advertising or when to reduce prices.</p>
+      <p><strong>Con:</strong> It ignores external factors. A competitor might release a revolutionary car, making Ford's car enter 'decline' years earlier than the graph predicted.</p>`,
+                pills: ["app", "an", "eval"]
+            }
+        ];
+
+        const flashcards = [
+            { term: "Product Life Cycle (PLC)", def: "The stages a product goes through from its introduction to its eventual decline (Introduction, Growth, Maturity, Decline)." },
+            { term: "Invention", def: "The creation of a totally new product or service that has never existed before." },
+            { term: "Innovation", def: "Improving an existing product, often using new processes or technology (e.g., adding smart sensors to a toothbrush)." },
+            { term: "Design", def: "Planning what a product will do (function) and what it will look like (style)." },
+            { term: "Extension Strategy", def: "Methods used to prolong the maturity stage of a product and prevent decline (e.g., new packaging, lower prices, new features)." },
+            { term: "Market Orientation", def: "Developing products based on extensive market research to find out exactly what the consumer wants first." },
+            { term: "Product Orientation", def: "Developing a product based on what the business is good at making, and then trying to find a market for it." },
+            { term: "Limitation of the PLC", def: "It does not consider external factors like sudden competitor actions or rapid changes in social trends." }
+        ];
+
+        const tfData = [
+            {
+                statement: "Innovation means inventing a completely new product from scratch.",
+                answer: false,
+                explanation: "FALSE. Invention is creating something from scratch. Innovation is improving an existing product."
+            },
+            {
+                statement: "The product life cycle shows the sales of a product measured against time.",
+                answer: true,
+                explanation: "TRUE. The Y-axis is Sales and the X-axis is Time."
+            },
+            {
+                statement: "A product at the maturity stage is experiencing its fastest rate of sales growth.",
+                answer: false,
+                explanation: "FALSE. The fastest rate of sales growth happens in the 'Growth' stage. In Maturity, sales are at their highest total volume, but the *rate of growth* has slowed down and leveled off."
+            },
+            {
+                statement: "Decreasing the price of a product is a common extension strategy.",
+                answer: true,
+                explanation: "TRUE. Lowering the price can attract budget-conscious customers and help maintain sales, extending the maturity stage."
+            },
+            {
+                statement: "The product life cycle accurately predicts what competitors will do in the future.",
+                answer: false,
+                explanation: "FALSE. One of the main limitations of the PLC is that it ignores external factors, including competitor actions and changing social trends."
+            }
+        ];
+
+        const examQuestions = [
+            {
+                num: "Q1",
+                marks: 3,
+                type: "written",
+                caseStudy: "Oral B is a maker of oral hygiene products, and is best known for its range of electric toothbrushes. The business is owned by an American company, Proctor and Gamble. It has a number of competitors such as Phillips.\n\nA believer in product innovation, Oral B has developed a range of different products over the years, using technology to help design and innovate. The rotating head toothbrush was introduced in the 1990s, followed by cross-action toothbrush heads to help better cleaning.\n\nIn 2020, Oral B introduced the iO range of toothbrushes with smart modes and pressure sensors. This newest model costs up to 10 times more than the cheapest Oral B electric toothbrush, but is intended to appeal to those who love new technology.",
+                question: "Analyse one way in which product innovation is important to Oral B. [3 marks]",
+                hint: "State what innovation is (U), apply it to Oral B's specific toothbrush technology (APP), and state the impact on their revenue or ability to compete with Phillips (AN).",
+                starter: "Product innovation means improving an existing product by adding new features... (U)\nFor Oral B, this means adding things like... (APP)\nThis is important because... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks</h5><ul><li><strong>Understanding (1 mark):</strong> Shows understanding of innovation e.g., putting new features on a product / changing the design to make it more appealing.</li><li><strong>Application (1 mark):</strong> Explanation relating to the case study e.g., applying smart modes/pressure sensors/Bluetooth to the toothbrush / keeping ahead of competitors such as Phillips.</li><li><strong>Analysis (1 mark):</strong> Impact on the business e.g., If Oral B does not innovate and competitors like Phillips do, sales may be lost resulting in a drop in revenue. OR It appeals to a different range of consumers (tech lovers), widening the customer base.</li></ul></div>`,
+                modelAnswer: "Product innovation involves improving an existing product by adding new, advanced features (U). For Oral B, this involves applying new technology like smart modes and pressure sensors to their iO toothbrush range (APP). This is highly important because if they do not constantly update their tech, they will lose their competitive advantage to rivals like Phillips, resulting in a loss of market share and revenue (AN)."
+            },
+            {
+                num: "Q2",
+                marks: 2,
+                type: "written",
+                caseStudy: "Oral B is a maker of oral hygiene products, and is best known for its range of electric toothbrushes... The iO range is one of a number of different product ranges available from Oral B with different features which are reflected in the products' prices.",
+                question: "Explain one reason why Oral B has a range of different electric toothbrushes. [2 marks]",
+                hint: "Why would a business not just sell ONE type of toothbrush? Think about the different budgets of their customers.",
+                starter: "One reason to have a product range is to... (U)\nFor Oral B, this means... (APP)",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks</h5><ul><li><strong>Understanding (1 mark):</strong> Shows understanding of the need for a product range e.g., it will appeal to a wider target market / spreads risk if one product fails.</li><li><strong>Application (1 mark):</strong> Relates to case study e.g., Oral B needs a range because different consumers have different amounts of money to spend on an electric toothbrush (cheaper models vs the 10x more expensive iO model).</li></ul></div>`,
+                modelAnswer: "Oral B has a product range because it allows them to appeal to a much wider target market based on different income levels (U). By offering basic, cheaper electric toothbrushes alongside the highly expensive iO smart models, Oral B can secure sales from both budget-conscious customers and tech-enthusiasts with high incomes (APP)."
+            },
+            {
+                num: "Q3",
+                marks: 2,
+                type: "written",
+                caseStudy: "Oral B is a maker of oral hygiene products, and is best known for its range of electric toothbrushes...",
+                question: "Explain one way in which the type of products that Oral B make will possibly affect their product life cycle. [2 marks]",
+                hint: "Think about the technology market. Do tech products last for 20 years without changing, or are they replaced quickly?",
+                starter: "The product life cycle shows the stages a product goes through from introduction to decline... (U)\nBecause Oral B relies on technology... (APP)",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks</h5><ul><li><strong>Understanding (1 mark):</strong> Shows understanding of the product life cycle e.g., it is divided into four stages (introduction to decline) / shows the lifespan of a product.</li><li><strong>Application (1 mark):</strong> Relates to case study e.g., Products such as high-tech electric toothbrushes often have a short life cycle as they will be replaced by changing technology very fast.</li></ul></div>`,
+                modelAnswer: "The product life cycle maps a product's sales from introduction to decline (U). Because Oral B makes technology-based products like smart toothbrushes, their life cycles will likely be quite short, as they will quickly enter the decline stage when newer, more advanced technology is invented (APP)."
+            },
+            {
+                num: "Q4",
+                marks: 3,
+                type: "written",
+                caseStudy: "Lego was first made and sold in 1949. The building blocks were based on Kiddicraft Self-Locking Building Bricks which had been created by Hilary Page. Duplo, which are larger building bricks, were introduced to suit younger children. During the 1990s, sales of Lego began to fall and some thought the decade would possibly see the end of Lego's product life cycle. However, Lego introduced new models based on characters from popular films and books such as Harry Potter and Winnie the Pooh. There is now a Lego board game and a film involving Lego characters. Lego's sales and profits are now very high.",
+                question: "Analyse how Lego has managed to extend the life cycle of its bricks beyond the periods of decline in the 1990s. [3 marks]",
+                hint: "State the method Lego used to extend the life cycle (U). Apply it using the Harry Potter/film examples (APP). State the impact on the business's success (AN).",
+                starter: "Lego managed to extend its life cycle by developing new products and entering new markets... (U)\nFor example, they... (APP)\nThis benefited Lego because... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks</h5><ul><li><strong>Understanding (1 mark):</strong> Identifies a valid extension strategy (e.g., bringing out new product variations / entering new markets).</li><li><strong>Application (1 mark):</strong> Uses context from the case study (e.g., introducing models based on Harry Potter / creating a Lego film and board game).</li><li><strong>Analysis (1 mark):</strong> Business impact (e.g., attracts a new audience of movie fans, successfully reversing the decline in sales and leading to very high profits).</li></ul></div>`,
+                modelAnswer: "Lego managed to extend the life cycle of its bricks by using product development and entering new entertainment markets as an extension strategy (U). Instead of just selling basic bricks, they introduced themed models based on popular franchises like Harry Potter and even created their own feature films (APP). This successfully attracted a massive new audience of movie fans, reversing the 1990s decline and leading to the highly profitable sales they experience today (AN)."
+            },
+            {
+                num: "Q5",
+                marks: 3,
+                type: "written",
+                caseStudy: "The Ford Motor Company Limited (Ford Motors) is a global manufacturer of a range of vehicles including cars, vans, trucks and buses. Ford Motors has been one of Britain's best-selling car brands for over 30 years, with a range of models including the KA, Fiesta, Focus, Mondeo and Galaxy. The company's large range of products includes models that differ in size to meet the individual needs of different market segments, including eco-friendly small cars, family cars, sports cars and 7-seater people carriers.",
+                question: "Analyse one disadvantage to Ford Motors of manufacturing and selling such a large range of products. [3 marks]",
+                hint: "Think about the costs or the complexity of managing so many different cars. Structure: State the disadvantage (U) -> Apply to Ford (APP) -> State the business impact (AN).",
+                starter: "One disadvantage of selling a large product range is the massive cost of research and advertising... (U)\nBecause Ford sells everything from small eco-cars to 7-seater people carriers... (APP)\nThis means that... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> Disadvantage e.g., Increased workload / more difficult to coordinate / diseconomies of scale / higher advertising costs.</li><li><strong>Application (1 mark):</strong> Reference to cars, vans, trucks, buses, names of models (Fiesta, Focus). Do not accept just the word 'model'.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact e.g., decreases profit margins, cash flow difficulties, loss of focus causing poor quality.</li></ul></div>`,
+                modelAnswer: "One disadvantage to Ford Motors of selling such a large product range is the massive increase in marketing and development costs (U). Because Ford manufactures everything from small eco-friendly cars like the Fiesta to large 7-seater Galaxy people carriers, they must design completely different advertising campaigns for each specific target market (APP). This leads to diseconomies of scale regarding their marketing budget, significantly increasing their total costs and potentially reducing their overall profit margins (AN)."
+            },
+            {
+                num: "Q6",
+                marks: 7,
+                type: "written",
+                caseStudy: "The Ford Motor Company Limited (Ford Motors)... carries out a lot of market research when developing new car designs... Each model's sales levels are regularly monitored against the product life cycle.",
+                question: "Evaluate whether or not Ford Motors should continue to use the product life cycle when planning the marketing of its products. [7 marks]",
+                hint: "Provide an advantage of using the PLC (applied to Ford + analyzed). Provide a disadvantage of using the PLC (applied to Ford + analyzed). Give a final judgment with a justified reason.",
+                starter: "One advantage to Ford of using the product life cycle is that it indicates when they need to introduce extension strategies... (U)\nFor example, if sales of the Ford Focus begin to fall into the decline stage... (APP)\nThis allows Ford to... (AN)\n\nHowever, a disadvantage is that the PLC model does not consider external factors... (U)\nFor example, a competitor might release a new electric car... (APP)\nThis means the PLC prediction might be wrong, leading to... (AN)\n\nOverall, I think Ford should/should not continue to use it because... (EVAL)",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 7 marks (AO2x2 + AO3ax2 + AO3bx3)</h5><ul><li><strong>Application (2 marks):</strong> Uses context e.g., cars, vans, models, vehicles.</li><li><strong>Analysis (2 marks):</strong> Positive impact (e.g., indicates when to change marketing spend). Negative impact (e.g., does not consider competitor activities, past performance doesn't guarantee future).</li><li><strong>Evaluation (3 marks):</strong> A justified contextual decision on whether Ford should continue using it.</li></ul></div>`,
+                modelAnswer: "When a car model is first launched and is at the introduction stage of the product life cycle, the model is unknown and Ford Motors will need to advertise the car significantly. Using the PLC graph helps Ford plan exactly when to allocate their large advertising budgets to make people aware of the vehicle (APP). This strategic planning will help Ford Motors successfully establish the car in the market and increase sales revenue rapidly during the growth phase (AN).\n\nHowever, a major limitation is that the product life cycle only provides an indication based on past sales; it ignores external factors. For example, a rival manufacturer might suddenly release a highly innovative new sports car (APP). This sudden competition could push a Ford model into the 'decline' stage years before the PLC graph predicted, meaning any marketing plans Ford had based on the graph would be wasted and ineffective (AN).\n\nOverall, Ford Motors should continue to use the product life cycle to plan its marketing (EVAL). While it cannot predict sudden competitor actions, developing a new car model takes years and costs millions of pounds. Ford needs a structured model to plan its extension strategies and know roughly when a model will need replacing. Without the PLC, Ford would be guessing when to withdraw old models, which is too high a financial risk in the global car industry (EVAL)."
+            },
+            {
+                num: "Q7",
+                marks: 9,
+                type: "written",
+                caseStudy: "Matt Williams owns a small business that sells fashion clothing aimed at 14–18 year olds. He is becoming concerned that the products he sells do not have a long life before they either go out of fashion or the weather changes and he has the wrong stock. Matt is keen to avoid having old stock which he cannot sell, but also wants to sell other products and services that will help increase the profit he makes. Another consideration for Matt is whether he should sell products with a well-known brand name. At present he sells products from makers who are not so well known, as these are cheaper.",
+                question: "Write a report recommending how Matt should develop his product mix. You should evaluate:\n1) How he can extend the life of his current products.\n2) Whether he should introduce new products/services.\n3) Whether he should switch to well-known brand names. [9 marks]",
+                hint: "This is a comprehensive product strategy question. Address all three points with clear business analysis. Remember he targets 14-18 year olds, runs a *small* business, and faces seasonal/fashion changes.",
+                starter: "To extend the life cycle of his products, Matt could... \nRegarding new products, introducing accessories could help because...\nFinally, switching to well-known brands might be risky because...",
+                markScheme: `<div class="marks-section"><h5>Activity 5 / 9-Mark Adaptation</h5><p><strong>Point 1 (Extension):</strong> Matt could extend the life of a product by concentrating on staple fashion items like jeans which have all-year-round appeal. Highly seasonal clothing has very little scope for extension other than heavy price reductions.</p><p><strong>Point 2 (New Products):</strong> Jewellery and accessories are less seasonal and don't go out of fashion as quickly as clothing. This diversifies his risk.</p><p><strong>Point 3 (Branding):</strong> As a small business, competing with large stores selling premium brands is difficult and expensive. He should stick to budget brands or buy 'end-of-line' branded stock to sell at a discount.</p></div>`,
+                modelAnswer: "Firstly, Matt could extend the life of his products by shifting his stock focus towards staple items, such as denim jeans or basic t-shirts, which have an all-year-round appeal. Currently, his highly seasonal clothing enters the 'decline' stage of the product life cycle very quickly when the weather changes. By stocking less seasonal items, he avoids the need to constantly use heavy price reductions (an extension strategy) to clear out old stock, thereby protecting his profit margins.\n\nSecondly, Matt should diversify his product range by offering accessories and jewellery aimed at his 14-18 year old target market. Unlike heavy winter coats or summer shorts, accessories are not seasonal and do not go out of fashion as rapidly. This provides a steady, year-round revenue stream that helps stabilize the business when clothing sales fluctuate.\n\nFinally, I recommend that Matt does NOT switch entirely to selling well-known brand names. As a small business, he lacks the economies of scale to compete with large high-street retailers who already dominate the premium brand market. Purchasing expensive branded stock would severely hurt his cash flow. Instead, he should continue selling cheaper, lesser-known makers to maintain his budget-friendly USP for teenagers, or only purchase well-known brands if they are 'end of line' stock that he can buy cheaply and sell at a discount."
+            }
+        ];
+
+    </script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

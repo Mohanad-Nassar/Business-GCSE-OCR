@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.4.3 Price & Pricing Methods – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Business — Component 2</div>
+            <h1>2.4.3 Price & Pricing Methods</h1>
+            <p>Interactive revision guide · All key content + full exam practice</p>
+        </div>
+        <a href="index.html" class="home-link">← 🏡 Home</a>
+
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn',this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq',this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching',this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib',this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions',this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips',this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards',this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse',this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice',this)">📝 Exam Practice</button>
+    </nav>
+
+    <main>
+
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct answers</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+            <div style="margin-bottom:16px;">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size:12px;color:var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+                <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span>
+                        First attempt correct</span>
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span>
+                        Correct after mistake</span>
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span>
+                        Wrong — try again</span>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">What students often think — and what examiners actually want.</p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge. Review your weak areas at the
+                end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display:none; margin-bottom: 20px;">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color:#2d7a4f;">0</div>
+                        <div style="font-size:12px;color:var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color:#c84b31;">0</div>
+                        <div style="font-size:12px;color:var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px;">
+                        <button class="fc-btn outline" style="border-color:#c84b31; color:#c84b31; flex:1;"
+                            onclick="markCard(false)">❌
+                            Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f; border-color:#2d7a4f; flex:1;"
+                            onclick="markCard(true)">✅
+                            Got
+                            It</button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px;">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0;">You knew <strong id="fcSummaryKnown">0</strong> out of <strong
+                            id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background:#c84b31; border-color:#c84b31;">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence
+                    Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+
+    </main>
+
+    <script>
+        // ══════════════════════════════════════
+        //  DATA: 2.4 Sub-topic 3: Pricing Methods 
+        // 2_4_pricing_methods.html
+        // ══════════════════════════════════════
+
+        const topics = [
+            {
+                title: "The Importance of Price",
+                tag: "Core Concepts",
+                content: `<p>A business must take great care when deciding what price to charge for a product or service. Price is the only part of the marketing mix that directly generates <strong>revenue</strong>.</p>
+      <p>Most consumers take notice of the price. If a business sets a price too high, sales will fall. If it sets a price too low, it will not make the profits needed for investment and to reward shareholders. The price must also be consistent with the other 3 Ps (Product, Place, Promotion) as it affects the consumer's perception of the good or service.</p>
+      <p><strong>Main factors that influence pricing decisions:</strong></p>
+      <ul>
+      <li>Costs (a business must cover its costs to survive)</li>
+      <li>Competitors' prices</li>
+      <li>The Product Life Cycle (prices change as products age)</li>
+      <li>Market Share objectives</li>
+      <li>Positioning and Brand Image</li>
+      </ul>`
+            },
+            {
+                title: "Cost-Plus Pricing",
+                tag: "Pricing Methods",
+                content: `<p><strong>Cost-plus pricing</strong> is a method where the business looks at the total cost of manufacturing a product and then adds a percentage of profit (the 'mark-up' or 'plus' part) to arrive at the selling price.</p>
+      <div class="two-col">
+      <div>
+      <div class="col-head">✓ Advantages</div>
+      <div class="pro-item">A profit is guaranteed on each item sold (providing enough items are sold).</div>
+      <div class="pro-item">It is a relatively simple and easy way to set a price.</div>
+      <div class="pro-item">Owners are in full control of the profit margin achieved.</div>
+      </div>
+      <div>
+      <div class="col-head">✗ Disadvantages</div>
+      <div class="con-item">Ignores external factors like competitor prices or customers' willingness to pay.</div>
+      <div class="con-item">If the mark-up is set too high, the price may be expensive compared to rivals, leading to lost sales.</div>
+      <div class="con-item">If costs fluctuate frequently, the selling price may have to continually change.</div>
+      </div>
+      </div>`
+            },
+            {
+                title: "Competitor Pricing",
+                tag: "Pricing Methods",
+                content: `<p><strong>Competitor pricing</strong> (or competitive pricing) is used when there is a lot of competition selling the same or similar products. A business will look at what other competitors charge and charge the same (or very slightly less).</p>
+      <div class="two-col">
+      <div>
+      <div class="col-head">✓ Advantages</div>
+      <div class="pro-item">Selling prices are in line with rivals, so it should attract customers and prevent them from switching brands.</div>
+      <div class="pro-item">Helps a business survive in a highly crowded and established market.</div>
+      </div>
+      <div>
+      <div class="col-head">✗ Disadvantages</div>
+      <div class="con-item">Because price is the same as rivals, the business must find other (often expensive) ways to attract customers, like better customer service or more promotion.</div>
+      <div class="con-item">The business must constantly research competitors' prices, which increases administrative costs.</div>
+      </div>
+      </div>`
+            },
+            {
+                title: "Penetration Pricing",
+                tag: "Pricing Methods",
+                content: `<p><strong>Penetration pricing</strong> is used when a business is new to a crowded market. They price their products <em>below</em> that of competitors to 'penetrate' or break into the market and tempt consumers away from established brands. Once established, the price is raised. It is a short-term strategy.</p>
+      <div class="two-col">
+      <div>
+      <div class="col-head">✓ Advantages</div>
+      <div class="pro-item">Cash flow and market share improve quickly as sales increase rapidly.</div>
+      <div class="pro-item">Can lead to loyal customers who trial the product because of the low price and stick with it.</div>
+      <div class="pro-item">Helps develop long-term profitability through higher market share.</div>
+      </div>
+      <div>
+      <div class="col-head">✗ Disadvantages</div>
+      <div class="con-item">In the short term, it is likely to result in lower profits (or even a loss) compared to if prices were higher.</div>
+      <div class="con-item">It can be difficult to raise the selling price in the future without upsetting customers.</div>
+      </div>
+      </div>`
+            },
+            {
+                title: "Price Skimming",
+                tag: "Pricing Methods",
+                content: `<p><strong>Price skimming</strong> (sometimes called 'creaming') is used when a business introduces a new, unique, or highly technical product that is clearly superior to competitors. The business sets a very <em>high</em> price initially because early adopters are willing to pay a premium. The price drops later as competitors enter the market.</p>
+      <div class="two-col">
+      <div>
+      <div class="col-head">✓ Advantages</div>
+      <div class="pro-item">Generates higher profits and revenues straight away, helping to quickly recover high Research & Development (R&D) costs.</div>
+      <div class="pro-item">Gives the product a perceived brand image of high quality and exclusivity.</div>
+      </div>
+      <div>
+      <div class="col-head">✗ Disadvantages</div>
+      <div class="con-item">Cannot last long as the high profits will quickly attract competitors to create rival products.</div>
+      <div class="con-item">Sales volume is slower because the product is expensive and many customers cannot afford it.</div>
+      </div>
+      </div>`
+            },
+            {
+                title: "Promotional Pricing & Loss Leaders",
+                tag: "Pricing Methods",
+                content: `<p><strong>Promotional pricing</strong> is a reduction in price used for a short period to attract customers, boost falling sales, or get rid of old stock (e.g., in a sale).</p>
+      <p>A specific type of promotional pricing is a <strong>Loss Leader</strong>, where a product is deliberately sold at a price below its cost to make.</p>
+      <div class="two-col">
+      <div>
+      <div class="col-head">✓ Advantages</div>
+      <div class="pro-item">Attracts footfall into a shop or visitors to a website.</div>
+      <div class="pro-item">Customers who come for the cheap promotional item will hopefully buy other, full-priced, highly profitable products while they are there.</div>
+      <div class="pro-item">Clears out old inventory to make room for new product lines.</div>
+      </div>
+      <div>
+      <div class="col-head">✗ Disadvantages</div>
+      <div class="con-item">If customers <em>only</em> buy the loss leader item, the business will make a financial loss.</div>
+      <div class="con-item">Customers may get used to the cheap prices and refuse to buy the product when it returns to full price.</div>
+      <div class="con-item">Too many sales can damage the brand's reputation and premium image.</div>
+      </div>
+      </div>`
+            }
+        ];
+
+        const mcqData = [
+            {
+                q: "Price skimming is best defined as:",
+                opts: [
+                    "charging a lower price when a product becomes old",
+                    "keeping the price of a product the same as competitors",
+                    "making sure your price is always more than competitors permanently",
+                    "setting a higher price when a product is new and has an advantage over competitors"
+                ],
+                ans: 3,
+                explain: "Correct answer: D. Skimming sets a high initial price for a new, highly desired or technical product, lowering it later when competitors enter."
+            },
+            {
+                q: "Penetration pricing would normally be used when:",
+                opts: [
+                    "a business has been in operation some time and has few competitors",
+                    "a product is being introduced which is at the cutting edge of technology",
+                    "a business is new and needs to establish its place in a crowded market",
+                    "there is incredibly high demand for a luxury product"
+                ],
+                ans: 2,
+                explain: "Correct answer: C. Penetration pricing involves setting prices below competitors to 'break into' a crowded market and steal market share quickly."
+            },
+            {
+                q: "If a business wishes to dispose of old stock to make way for new products, it would normally consider:",
+                opts: [
+                    "Competitor pricing",
+                    "Promotional pricing",
+                    "Cost-plus pricing",
+                    "Skimming"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. Promotional pricing (like a store sale) reduces prices for a short period specifically to clear old stock or give a quick boost to sales."
+            },
+            {
+                q: "A business is likely to use cost-plus pricing when it:",
+                opts: [
+                    "has surplus stock to sell off quickly",
+                    "sees that a number of competitors are starting to have an effect on sales",
+                    "feels that it must guarantee a set amount of profit is made on every unit sold",
+                    "is a new business and has to make sure it has an advantage over competitors"
+                ],
+                ans: 2,
+                explain: "Correct answer: C. Cost-plus pricing calculates the exact cost to make the item and adds a specific percentage mark-up, guaranteeing that a profit is made on each sale."
+            },
+            {
+                q: "A hairdresser charges the exact same price for haircuts as two other hairdressers in the local area. Which pricing method is this?",
+                opts: [
+                    "Competitor pricing",
+                    "Cost-plus pricing",
+                    "Penetration pricing",
+                    "Promotional pricing"
+                ],
+                ans: 0,
+                explain: "Correct answer: A. By setting prices identically to local rivals, the business is using competitor pricing."
+            },
+            {
+                q: "A fast-food restaurant is currently charging 60p for its new healthy snack. It intends to increase the price to £2.25 once the snack has become popular. This is an example of:",
+                opts: [
+                    "Competitor pricing",
+                    "Cost-plus pricing",
+                    "Penetration pricing",
+                    "Price skimming"
+                ],
+                ans: 2,
+                explain: "Correct answer: C. Starting with an artificially low price to gain popularity and market share, with the intent to raise it later, is the exact definition of penetration pricing."
+            },
+            {
+                q: "A store buys frozen oven chips for 29p a pack. The store usually sells them for 99p. If it wishes to use them as a 'loss leader', how much should it charge?",
+                opts: [
+                    "29p a pack",
+                    "Between 29p and 99p a pack",
+                    "Less than 29p a pack",
+                    "More than 99p a pack"
+                ],
+                ans: 2,
+                explain: "Correct answer: C. A loss leader must be sold at a price lower than the cost it took the business to acquire or make it. Since the cost was 29p, a loss leader price must be less than 29p."
+            },
+            {
+                q: "Which of the following is a major disadvantage of Competitor Pricing?",
+                opts: [
+                    "It guarantees a profit on every item sold.",
+                    "It results in massive cash flow problems immediately.",
+                    "The business must find other, non-price ways to attract customers.",
+                    "It makes the product look too cheap and damages brand image."
+                ],
+                ans: 2,
+                explain: "Correct answer: C. Because the price is identical to rivals, the business loses price as a competitive advantage and must compete on quality, service, or advertising instead."
+            },
+            {
+                q: "Apple introduces its latest iPhone. What pricing strategy are they most likely to use?",
+                opts: [
+                    "Penetration pricing",
+                    "Price Skimming",
+                    "Cost-plus pricing",
+                    "Promotional pricing"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. Apple uses price skimming. Consumers want to be up-to-date with the latest technology and are willing to pay a very high premium price at launch."
+            },
+            {
+                q: "What is the primary danger of using Promotional Pricing too often?",
+                opts: [
+                    "Customers may get used to the cheap prices and refuse to buy at full price.",
+                    "Competitors will immediately go bankrupt.",
+                    "The business will automatically gain a 100% market share.",
+                    "The cost of manufacturing the product will increase."
+                ],
+                ans: 0,
+                explain: "Correct answer: A. Frequent sales train customers to simply wait for the next sale rather than ever paying the full retail price, damaging long-term revenue."
+            },
+            {
+                q: "Which pricing strategy is most likely to help a business recover high Research and Development (R&D) costs quickly?",
+                opts: [
+                    "Penetration Pricing",
+                    "Price Skimming",
+                    "Loss Leader",
+                    "Competitor Pricing"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. Price skimming generates high revenue margins immediately upon launch, which is crucial for tech or medical companies trying to pay back massive R&D investments."
+            },
+            {
+                q: "A new coach operator introduces a long-distance service. They charge £1 for tickets for the first month to establish the business. This is:",
+                opts: [
+                    "Promotional pricing",
+                    "Price skimming",
+                    "Cost-plus pricing",
+                    "Premium pricing"
+                ],
+                ans: 0,
+                explain: "Correct answer: A. (Note: It also has elements of penetration, but OCR mark schemes heavily accept Promotional Pricing for short-term massive discounts used to help a new service become established)."
+            }
+        ];
+
+        const matchData = [
+            { term: "Penetration Pricing", def: "When a business is new to a crowded market, they price their products below competitors to gain market share." },
+            { term: "Cost-plus Pricing", def: "The costs of manufacturing the product plus the profit the business wants to make dictates the selling price." },
+            { term: "Promotional Pricing", def: "A short-term reduction in the price to attract customers, boost sales, or get rid of old stock." },
+            { term: "Price Skimming", def: "When a business has something new and unique, it sets a very high price until competition enters the market." },
+            { term: "Competitor Pricing", def: "When there is a lot of competition, a business looks at what rivals charge and charges the exact same." },
+            { term: "Loss Leader", def: "A product priced below its cost price to attract customers into the store, hoping they buy other profitable items." },
+            { term: "Revenue", def: "The money coming into the business from selling goods; Price is the only part of the mix that directly generates this." },
+            { term: "Mark-up", def: "The percentage of profit added to the total cost of a product when using cost-plus pricing." },
+            { term: "Market Share", def: "The proportion of total sales in a market held by one business; penetration pricing aims to increase this quickly." },
+            { term: "Brand Image", def: "How a product is perceived by customers; skimming creates a premium perception, frequent promotions can damage it." },
+            { term: "Cost-plus Disadvantage", def: "Ignores external factors; the resulting price might be completely out of line with what customers are willing to pay." },
+            { term: "Penetration Disadvantage", def: "Difficult to raise the price later without angering the loyal customers you just gained." }
+        ];
+
+        const fibData = [
+            {
+                display: "When a business first introduces a new product, it may use _____ pricing if it wants to gain market share from _____.",
+                blanks: { B1: "penetration", B2: "competitors" }
+            },
+            {
+                display: "If a product is highly technical and much better than the competition, a business might use price _____ to make as much _____ as they can initially.",
+                blanks: { B1: "skimming", B2: "profit" }
+            },
+            {
+                display: "After time, when a product becomes older, a business might have to _____ the price to keep sales high. To get rid of old stock entirely, _____ pricing is used.",
+                blanks: { B1: "lower", B2: "promotional" }
+            },
+            {
+                display: "A major benefit of _____ pricing is that it is a relatively simple way to set a price and ensures a profit margin is _____ on every item sold.",
+                blanks: { B1: "cost-plus", B2: "guaranteed" }
+            },
+            {
+                display: "A _____ leader is a product sold below the cost it takes to make. The hope is that customers will buy other, highly _____ items while in the shop.",
+                blanks: { B1: "loss", B2: "profitable" }
+            },
+            {
+                display: "If a business uses _____ pricing, it must find other ways to attract customers besides price, such as better customer _____ or heavier advertising.",
+                blanks: { B1: "competitor", B2: "service" }
+            },
+            {
+                display: "Price is a critical decision because it directly affects _____. Setting the price too high means sales will fall, but setting it too low damages _____.",
+                blanks: { B1: "revenue", B2: "cash flow" }
+            }
+        ];
+
+        const fibWords = [
+            "penetration", "competitors", "skimming", "profit", "lower", "promotional",
+            "cost-plus", "guaranteed", "loss", "profitable", "competitor", "service",
+            "revenue", "cash flow", "market", "high", "skimming", "design"
+        ];
+
+        const tfData = [
+            {
+                statement: "Cost-plus pricing guarantees that a business will always make an overall profit for the year.",
+                answer: false,
+                explanation: "FALSE. While it guarantees a profit margin on *each item sold*, the business will still make an overall loss if they do not sell enough items to cover their fixed costs."
+            },
+            {
+                statement: "Penetration pricing is a strategy that a business should use permanently.",
+                answer: false,
+                explanation: "FALSE. Penetration pricing should only last for a short period of time. Once the business has established market share, it must raise prices, otherwise it will suffer low profitability long-term."
+            },
+            {
+                statement: "Price skimming is most effective when a business introduces a highly innovative, technological product with no direct rivals.",
+                answer: true,
+                explanation: "TRUE. Skimming works best when early adopters are desperate for the newest tech and are willing to pay a premium before competitors have time to copy the product."
+            },
+            {
+                statement: "A disadvantage of competitor pricing is that the business has to spend money constantly researching what its rivals are charging.",
+                answer: true,
+                explanation: "TRUE. Competitor pricing requires constant monitoring of rival prices, which increases administrative costs."
+            },
+            {
+                statement: "A loss leader is a product that is sold at exactly the price it costs to manufacture.",
+                answer: false,
+                explanation: "FALSE. A loss leader is sold *below* the cost to manufacture. The business deliberately takes a financial loss on that specific item to entice customers into the store."
+            },
+            {
+                statement: "Using promotional pricing too often can damage a brand's image for quality.",
+                answer: true,
+                explanation: "TRUE. If a brand is constantly 'on sale', customers stop seeing it as a premium product and refuse to ever pay the full retail price."
+            },
+            {
+                statement: "Cost-plus pricing takes competitor prices into account before setting the final price.",
+                answer: false,
+                explanation: "FALSE. One of the main disadvantages of cost-plus pricing is that it completely *ignores* external factors like competitor prices and what customers are willing to pay."
+            },
+            {
+                statement: "Price skimming involves starting with a low price and gradually raising it.",
+                answer: false,
+                explanation: "FALSE. You are describing penetration pricing. Price skimming starts HIGH and drops LOW as the product ages."
+            },
+            {
+                statement: "If a business uses competitor pricing, it must find a non-price way to stand out (like better service or packaging).",
+                answer: true,
+                explanation: "TRUE. Because they cannot compete by being cheaper, they must differentiate their product in other ways."
+            },
+            {
+                statement: "Penetration pricing builds brand loyalty because customers are attracted to try the product due to the low price.",
+                answer: true,
+                explanation: "TRUE. The low introductory price reduces the risk for customers to try an unknown brand. If the product is good, they develop loyalty and continue buying it even when the price rises."
+            },
+            {
+                statement: "A major supermarket like Tesco doesn't need to consider competitor pricing because it is so large.",
+                answer: false,
+                explanation: "FALSE. The 'Big Four' supermarkets operate in a highly competitive market and constantly monitor each other's prices, frequently offering price-matches to avoid losing customers."
+            },
+            {
+                statement: "Price is the only element of the marketing mix that directly generates revenue.",
+                answer: true,
+                explanation: "TRUE. Product, Place, and Promotion all involve spending money (costs). Price dictates the money coming into the business."
+            }
+        ];
+
+        const miscData = [
+            {
+                wrong: "Students confuse Penetration Pricing and Price Skimming.",
+                correct: "PENETRATION = Start LOW to break into a market, then raise later. SKIMMING = Start HIGH to maximise profit on a new invention, then drop later as it ages."
+            },
+            {
+                wrong: "Students think Price Skimming means dropping the price to look like a bargain.",
+                correct: "Examiners note this is a massive misconception. The value of skimming is NOT to drop the price later to look like a bargain. The value is charging a massive premium AT THE START to maximize financial returns from customers who want to be the first to own a superior product."
+            },
+            {
+                wrong: "Students think Cost-Plus pricing always results in high prices, making it unpopular.",
+                correct: "Cost-plus only results in high prices if the business demands a massive percentage mark-up. Its actual flaw is that it ignores the market—it could accidentally set a price much lower than customers are willing to pay, or slightly higher than a rival."
+            },
+            {
+                wrong: "For 'analyse' questions, students write impacts on the customer instead of the business.",
+                correct: "If the question says 'Analyse one advantage to Shinz Ltd', you must state how the pricing method impacts the BUSINESS (e.g. increased revenue, higher profit margin, improved cash flow). Saying 'the customer saves money' scores zero for analysis."
+            }
+        ];
+
+        const examTips = [
+            {
+                type: "Analyse (3 marks)",
+                title: "Analysing a Pricing Method",
+                content: `<p>Structure: Understanding of the method (1) &rarr; Application to the business (1) &rarr; Business-facing impact (1).</p>
+      <p><strong>Example (Cost-plus for a Salon):</strong> "Cost-plus pricing ensures that the price always exceeds the costs of the business (U). By adding a mark-up to the wages of the new employees (APP), the salon guarantees that a profit is made on every haircut, avoiding a financial loss (AN)."</p>
+      <p><strong>Warning:</strong> Do NOT explain *what* the method is (e.g. "Cost-plus is when you add profit to costs"). You must state a specific <em>advantage</em> or <em>disadvantage</em> to gain the first mark.</p>`,
+                pills: ["un", "app", "an"]
+            },
+            {
+                type: "Evaluate (7 marks)",
+                title: "Evaluating the Importance of Price",
+                content: `<p>If asked to evaluate the importance of price (e.g., Currys case study), you must weigh price against other factors.</p>
+      <p><strong>Yes, it is important:</strong> In markets like technology, products are identical (a Samsung TV is the same everywhere). Consumers use the internet to easily compare prices. Without competitive pricing, Currys will lose sales.</p>
+      <p><strong>No, other things matter:</strong> Quality of customer service (technical advice), the brand reputation, or the convenience of the store location might be more important to certain customers than saving a few pounds.</p>`,
+                pills: ["app", "an", "eval"]
+            },
+            {
+                type: "Recommend (3 marks)",
+                title: "Recommending a Strategy",
+                content: `<p>When asked to recommend between two strategies (e.g., Skimming vs Competitor pricing), your justification MUST be <strong>comparative</strong>.</p>
+      <p><strong>Bad:</strong> "Shinz Ltd should use competitor pricing because it will attract customers." (No comparison made).</p>
+      <p><strong>Good:</strong> "Shinz Ltd should use competitor pricing (1) to ensure potential customers do not go to the rival car wash 5 miles away, whereas skimming would push price-sensitive customers directly to that rival (+2)."</p>`,
+                pills: ["eval"]
+            }
+        ];
+
+        const flashcards = [
+            { term: "Cost-Plus Pricing", def: "Calculating the total cost of making a product and adding a percentage profit mark-up to determine the selling price." },
+            { term: "Competitor Pricing", def: "Setting the price of a product based on what rivals are charging for similar products in a crowded market." },
+            { term: "Penetration Pricing", def: "Setting a low initial price to break into a competitive market and gain market share quickly, before raising the price later." },
+            { term: "Price Skimming", def: "Setting a high initial price for a highly innovative or unique product to maximize profits, before dropping it when competitors enter." },
+            { term: "Promotional Pricing", def: "A temporary reduction in price to boost sales, attract customers, or clear out old inventory." },
+            { term: "Loss Leader", def: "A product deliberately sold below its cost price to attract customers, hoping they will buy other profitable items." },
+            { term: "Disadvantage of Competitor Pricing", def: "The business must compete on non-price factors (like advertising or customer service) which can increase costs." },
+            { term: "Disadvantage of Cost-Plus Pricing", def: "It completely ignores the external market, such as what competitors are charging or what customers are willing to pay." }
+        ];
+
+        const examQuestions = [
+            {
+                num: "Q1",
+                marks: 3,
+                type: "written",
+                caseStudy: "HH Ltd is a private limited company that makes pianos, organs and other keyboard instruments... The directors of HH Ltd are planning to make a new electronic keyboard. The new electronic keyboard will be sold in a very competitive market. HH Ltd will need to set a price for the electronic keyboard... and is considering cost-plus pricing.",
+                question: "Analyse one advantage of HH Ltd using cost-plus pricing. [3 marks]",
+                hint: "State a benefit of cost-plus (U) -> apply to making keyboards/pianos (APP) -> state the financial impact on HH Ltd (AN).",
+                starter: "One advantage of cost-plus pricing is that it ensures a profit margin is made on every item sold... (U)\nWhen manufacturing the new electronic keyboards, HH Ltd can calculate exactly how much the parts cost... (APP)\nThis guarantees that the business will... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks</h5><ul><li><strong>Understanding (1 mark):</strong> E.g., ensures costs are covered / guarantees a profit margin / easy to calculate.</li><li><strong>Application (1 mark):</strong> E.g., relates to keyboards, pianos, organs, or manufacturing instruments.</li><li><strong>Analysis (1 mark):</strong> E.g., avoids making a loss / allows the business to reinvest the profit / improves cash flow.</li></ul></div>`,
+                modelAnswer: "One advantage of using cost-plus pricing is that it guarantees a profit margin is made on every single item sold (U). By calculating the exact manufacturing costs for the new electronic keyboards and adding a set mark-up, HH Ltd ensures they cover their expenses for parts and labour (APP). This prevents the business from making a loss on the products, ensuring they generate stable revenue to reinvest back into researching future instruments (AN)."
+            },
+            {
+                num: "Q2",
+                marks: 3,
+                type: "written",
+                caseStudy: "HH Ltd... The new electronic keyboard will be sold in a very competitive market. HH Ltd will need to set a price for the electronic keyboard. The directors will choose one of the following pricing strategies... competitive pricing.",
+                question: "Analyse one advantage of HH Ltd using competitive pricing. [3 marks]",
+                hint: "State a benefit of competitor pricing (U) -> apply to the highly competitive keyboard market (APP) -> state the impact on sales/market share (AN).",
+                starter: "One advantage of competitive pricing is that it prevents customers from switching to rival brands based on price... (U)\nBecause HH Ltd is launching the electronic keyboard into a very competitive market... (APP)\nThis means that... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks</h5><ul><li><strong>Understanding (1 mark):</strong> E.g., selling prices are in line with rivals / attracts customers / retains market share.</li><li><strong>Application (1 mark):</strong> E.g., relates to the 'very competitive market' / selling keyboards/pianos.</li><li><strong>Analysis (1 mark):</strong> E.g., avoids losing sales to competitors / maintains steady revenue / builds customer loyalty.</li></ul></div>`,
+                modelAnswer: "One advantage of competitive pricing is that it ensures the product's price is not higher than rival brands, preventing a loss of customers (U). Because HH Ltd is launching this new electronic keyboard into a 'very competitive market', pricing in line with rivals removes price as a barrier for consumers (APP). This allows HH Ltd to successfully attract customers and maintain a strong market share, resulting in steady sales revenue (AN)."
+            },
+            {
+                num: "Q3",
+                marks: 3,
+                type: "written",
+                caseStudy: "HH Ltd is considering either cost-plus or competitive pricing for its new electronic keyboard in a very competitive market.",
+                question: "Recommend whether HH Ltd should use cost-plus or competitive pricing. [3 marks]",
+                hint: "Make a choice. Then provide a *comparative* justification. Why is your choice *better* than the other one for a business in a 'very competitive market'?",
+                starter: "I recommend that HH Ltd uses competitive pricing... (Decision)\nThis is because in a highly competitive market, cost-plus pricing is too risky as it ignores rival prices... (Justification)",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks</h5><ul><li><strong>Decision (1 mark):</strong> Select either cost-plus or competitive pricing.</li><li><strong>Justification (2 marks):</strong> Must be a contextual, comparative justification explaining why one is MORE appropriate than the other.</li></ul></div>`,
+                modelAnswer: "I recommend that HH Ltd uses competitive pricing (1). Because the market for electronic keyboards is described as 'very competitive', using cost-plus pricing is too dangerous as it completely ignores external factors; if HH Ltd's costs are high, cost-plus would result in a price much higher than rivals, causing them to lose all their sales to cheaper competitors (+2)."
+            },
+            {
+                num: "Q4",
+                marks: 6,
+                type: "written",
+                caseStudy: "Shinz Ltd... Five years ago, brothers Tom and Amir set up a car washing business... The business has been very successful and currently offers 'economy', 'gloss' and 'high-gloss' washing services. The prices Shinz Ltd charges are not low when compared to its competitors. Customer service is a priority.\n\nTom and Amir are keen to expand and launch a new 'resin polish' service... Many of Shinz Ltd's customers have requested this service. 'Resin polish' is not currently available in their town, but is offered by a business in another town five miles away. Tom is considering whether to use competitor pricing or price skimming for this new service.",
+                question: "Analyse one advantage for Shinz Ltd of using each pricing method: \n1) Competitor pricing\n2) Price skimming \n[6 marks]",
+                hint: "This is two separate 3-mark answers. For each: state the advantage (U) -> apply to Shinz car wash/resin polish (APP) -> business impact (AN). Remember Shinz is known for quality/not low prices.",
+                starter: "Competitor pricing:\nAn advantage is that it prevents customers from traveling to rivals... (U)\nBy matching the price of the business five miles away... (APP)\nThis ensures Shinz Ltd... (AN)\n\nPrice Skimming:\nAn advantage is that it creates a perceived brand image of high quality... (U)\nSince there are no local competitors offering the resin polish... (APP)\nThis allows Shinz to... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 6 marks</h5><p><strong>Competitor Pricing:</strong><br>Understanding (1): Less likely to lose customers / steal customers from rivals.<br>Application (1): Resin polish offered 5 miles away.<br>Analysis (1): Protects market share / maintains sales revenue.</p><p><strong>Price Skimming:</strong><br>Understanding (1): High profit margin per sale / creates perception of high quality.<br>Application (1): Shinz does not offer low prices / customer service is a priority / requested by loyal customers.<br>Analysis (1): Improves reputation / rapid payback on investment / high profits.</p></div>`,
+                modelAnswer: "**Competitor pricing:** The price will be easy to set and ensures they do not lose customers based on cost (U). Tom will only need to check the prices of the competitor located five miles away and match them for the new resin polish (APP). By doing this, Shinz Ltd prevents its loyal customers from driving to the next town, thereby protecting its market share and maintaining high sales revenue (AN).\n\n**Price skimming:** Charging a high initial price creates a perceived brand image of premium quality (U). Since Shinz Ltd already prioritises customer service and does not offer low prices, a high-priced resin polish fits perfectly with their existing business model (APP). Because they are the only business in town offering it, customers who requested the service will pay the premium, leading to massive profit margins on every wash (AN)."
+            },
+            {
+                num: "Q5",
+                marks: 3,
+                type: "written",
+                caseStudy: "Shinz Ltd is considering competitor pricing or price skimming for its new 'resin polish' service.",
+                question: "Recommend which of the two pricing methods Shinz Ltd should use. Give reasons for your answer. [3 marks]",
+                hint: "Make a choice. Defend it by comparing it to the alternative using context (e.g. no local competitors vs a competitor 5 miles away).",
+                starter: "I recommend Shinz Ltd uses price skimming... (1)\nThis is because...",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks</h5><ul><li><strong>Decision (1 mark):</strong> e.g., Price skimming.</li><li><strong>Justification (2 marks):</strong> Contextual comparison. E.g., Skimming is better because they have no direct local competitors in their town, whereas competitor pricing would force them to lower prices unnecessarily to match a business 5 miles away.</li></ul></div>`,
+                modelAnswer: "Shinz Ltd should use price skimming (1). Because there are absolutely no local competitors offering the resin polish in their specific town, they essentially have a monopoly on the service locally. They can easily command a high price from customers who requested it, whereas using competitor pricing to match a business five miles away would unnecessarily lower their profit margins (+2)."
+            },
+            {
+                num: "Q6",
+                marks: 9,
+                type: "written",
+                caseStudy: "Green Cuisine\n\nRory and Jayda are setting up a restaurant with a difference – customers can charge their electric car in the car park whilst enjoying a meal made from locally sourced, organic ingredients.\n\nThey have decided to use cost-plus pricing with a mark-up of 10% on total costs. The average cost to produce a two-course meal is £12. This means their price will be £13.20. Market research estimates they will sell 100 meals a week at this price.\n\nThey intend to charge prices which are slightly higher than Burgerz4U, the nearest fast-food restaurant located one mile away, where the average price is £11.\n\nCustomer comments:\n'An excellent idea. I am prepared to pay extra if I know I am supporting local businesses.'\n'Unemployment is high locally... it will take a lot to persuade me to stop visiting a cheaper, well-known brand.'",
+                question: "Discuss, with reference to the data, whether cost-plus pricing is the most effective pricing method for Green Cuisine. [9 marks]",
+                hint: "Evaluate the pros and cons of Cost-Plus pricing specifically for this organic restaurant. \nPro: Guarantees profit, easy to calculate (use the £12 + 10% = £13.20 data).\nCon: Ignores external factors (high unemployment, cheaper £11 rival).\nConclusion: Is it effective? Recommend an alternative if not.",
+                starter: "An advantage of cost-plus pricing for Green Cuisine is that it ensures a profit is made on every meal... (U)\nFor example, with a meal costing £12, the 10% mark-up ensures a price of £13.20... (APP)\nThis means the business will make £120 profit a week... (AN)\n\nHowever, a disadvantage is that cost-plus ignores external factors... (U)\nFor instance, Burgerz4U charges only £11 and local unemployment is high... (APP)\nThis rigid pricing might mean Green Cuisine loses price-sensitive customers... (AN)\n\nOverall, I think cost-plus pricing is/is not the most effective method because... (EVAL)",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 9 marks</h5><p><strong>Level 3 (7-9 marks):</strong> Good knowledge/understanding, good application of the data (using £ figures or customer quotes), good analysis, and strong, justified evaluation.<br><strong>Pros:</strong> Ensures profit margin, simple, owners control the mark-up. Fits with customers 'prepared to pay extra'.<br><strong>Cons:</strong> Ignores the £11 rival. Ignores high local unemployment. Sales drop sharply if price rises (from 100 sales at £13.20 to 45 at £14.40).<br><strong>Evaluation:</strong> Cost-plus is flawed here because the market has high unemployment and a cheaper rival. A flexible method or competitor pricing might be safer to ensure survival.</p></div>`,
+                modelAnswer: "One advantage of cost-plus pricing is that it can help Rory and Jayda ensure they generate a specific, guaranteed profit margin on each meal sold (U). By knowing the exact average cost of producing the locally sourced organic meal is £12, adding a strict 10% mark-up sets the price at £13.20 (APP). Because market research shows they can sell 100 meals a week at this price, cost-plus pricing provides a reliable financial forecast, generating £120 profit a week, which is highly beneficial for budgeting in a brand new startup business (AN).\n\nHowever, a major drawback of cost-plus pricing is that it completely ignores external market factors, such as competitor actions or the economic climate (U). For instance, the local area suffers from high unemployment, and the nearest rival, Burgerz4U, only charges £11 for a meal (APP). By rigidly sticking to a cost-plus formula, Green Cuisine risks setting a price that is simply too expensive for the local demographic, potentially driving highly price-sensitive customers straight to their cheaper, well-known rival, leading to a massive loss in potential sales revenue (AN).\n\nOverall, I feel that cost-plus pricing is not the most effective method for Green Cuisine to use (EVAL). Although they are offering a premium service (organic food and EV charging), they are setting up a new, unknown business in an area with high unemployment. Gaining a competitive advantage is vital to ensure they win customers over from Burgerz4U. A rigid cost-plus strategy does not offer the flexibility needed to react to competitors or economic hardship. A better strategy would be penetration pricing to initially tempt customers away from the fast-food rival, before raising prices once their reputation for quality is established (EVAL)."
+            },
+            {
+                num: "Q7",
+                marks: 2,
+                type: "written",
+                caseStudy: "Price is an important factor which customers consider when choosing an electricity supplier.",
+                question: "State two pricing methods that a business could use. [2 marks]",
+                hint: "Simply list any two pricing methods. No explanation needed.",
+                starter: "1. ...\n2. ...",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks</h5><ul><li>1 mark for each correct identification: Cost-plus, Skimming, Penetration, Competitor, Promotional, Loss Leader.</li></ul></div>`,
+                modelAnswer: "1. Penetration pricing\n2. Price skimming"
+            }
+        ];
+
+    </script>
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
