@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.4.5 Place (Distribution Channels) – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Business — Component 1</div>
+            <h1>2.4.5 Place (Distribution Channels)</h1>
+            <p>Interactive revision guide · All key content + full exam practice</p>
+        </div>
+        <a href="index.html" class="home-link">← 🏡 Home</a>
+
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn',this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq',this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching',this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib',this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions',this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips',this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards',this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse',this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice',this)">📝 Exam Practice</button>
+    </nav>
+
+    <main>
+
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct answers</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+            <div style="margin-bottom:16px;">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size:12px;color:var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+                <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span>
+                        First attempt correct</span>
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span>
+                        Correct after mistake</span>
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span>
+                        Wrong — try again</span>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">What students often think — and what examiners actually want.</p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge. Review your weak areas at the
+                end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display:none; margin-bottom: 20px;">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color:#2d7a4f;">0</div>
+                        <div style="font-size:12px;color:var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color:#c84b31;">0</div>
+                        <div style="font-size:12px;color:var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px;">
+                        <button class="fc-btn outline" style="border-color:#c84b31; color:#c84b31; flex:1;"
+                            onclick="markCard(false)">❌
+                            Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f; border-color:#2d7a4f; flex:1;"
+                            onclick="markCard(true)">✅
+                            Got
+                            It</button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px;">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0;">You knew <strong id="fcSummaryKnown">0</strong> out of <strong
+                            id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background:#c84b31; border-color:#c84b31;">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence
+                    Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+
+    </main>
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.4 Sub-topic 5: Place (Distribution Channels)
+    // ══════════════════════════════════════
+
+    const topics = [
+        {
+            title: "What is Place?",
+            tag: "Core Concepts",
+            content: `<p><strong>Place</strong> in the marketing mix does not just mean the physical location of a shop. It refers to the <strong>channels of distribution</strong> — the methods used to get a product or service from the producer to the final consumer.</p>
+  <p>Distribution can be broadly split into two categories:</p>
+  <ul>
+  <li><strong>Physical Distribution:</strong> The movement of physical, tangible goods from the producer to the consumer (e.g., delivering a car, a loaf of bread, or a physical book).</li>
+  <li><strong>Digital Distribution:</strong> When a product or service is downloaded or streamed by the consumer directly from the seller via the internet (e.g., streaming music on Spotify, downloading software, or buying travel insurance online).</li>
+  </ul>
+  <p>With the rapid growth of e-commerce, the way products are distributed has changed dramatically, forcing traditional high-street businesses to adapt.</p>`
+        },
+        {
+            title: "Physical Distribution Channels",
+            tag: "Channels",
+            content: `<p>There are three main physical distribution channels a business can use:</p>
+  <ol>
+  <li><strong>Channel 1: Producer → Consumer (Direct Selling)</strong><br>
+  The product goes straight from the maker to the buyer. This is often used by small businesses (e.g., a small bakery, a farmer selling strawberries at a stall, or a bespoke furniture maker).<br>
+  <em>Advantage:</em> The producer keeps all the profit because there are no 'middlemen' taking a cut.</li>
+  <li><strong>Channel 2: Producer → Retailer → Consumer</strong><br>
+  The producer sells in large quantities to a retailer (like Currys or B&Q), who then sells to the public. <br>
+  <em>Advantage:</em> The producer benefits from keeping the profit margin usually given to a wholesaler, whilst relying on the retailer's massive footfall to sell the goods.</li>
+  <li><strong>Channel 3: Producer → Wholesaler → Retailer → Consumer</strong><br>
+  Used heavily for fast-moving consumer goods (e.g., corner shops buying chocolate and drinks). The producer sells massive quantities to a wholesaler (like Costco or Booker). The wholesaler then sells smaller boxes to independent retailers, who sell individual items to consumers.</li>
+  </ol>`
+        },
+        {
+            title: "The Role of the Wholesaler",
+            tag: "Key Term",
+            content: `<p>A <strong>wholesaler</strong> acts as a vital link between massive producers and tiny independent retailers.</p>
+  <p>Their main job is to <strong>'break bulk'</strong>. A huge producer (like Coca-Cola) will not sell just one box of cans to a small local corner shop; they only sell by the lorry-load. The wholesaler buys the massive lorry-load (the bulk), stores it in a giant warehouse, and breaks it down into smaller, affordable boxes that a small retailer can afford to buy.</p>
+  <div class="two-col">
+  <div>
+  <div class="col-head">✓ Advantages to the Producer</div>
+  <div class="pro-item">Saves warehousing costs because the wholesaler stores the massive stock.</div>
+  <div class="pro-item">Guaranteed massive sales volumes in a single transaction.</div>
+  <div class="pro-item">The wholesaler handles the logistics of delivering to thousands of small shops.</div>
+  </div>
+  <div>
+  <div class="col-head">✗ Disadvantages to the Producer</div>
+  <div class="con-item">Profit margins are reduced because the wholesaler takes a cut of the profit.</div>
+  <div class="con-item">Loss of control over how the product is displayed and marketed to the final consumer.</div>
+  </div>
+  </div>`
+        },
+        {
+            title: "Digital Distribution",
+            tag: "Modern Methods",
+            content: `<p>Digital distribution allows products to be delivered electronically. This is suited to software, media (music/films), and services (insurance, banking).</p>
+  <div class="two-col">
+  <div>
+  <div class="col-head">✓ Advantages</div>
+  <div class="pro-item">A business can sell globally, massively increasing potential customers.</div>
+  <div class="pro-item">Can be open 24/7, all year round.</div>
+  <div class="pro-item">Massive cost savings: no physical shop rent, less staff needed, and zero transport/delivery costs for digital files.</div>
+  <div class="pro-item">Eco-friendly (no plastic packaging or diesel delivery lorries).</div>
+  </div>
+  <div>
+  <div class="col-head">✗ Disadvantages</div>
+  <div class="con-item">Global reach means global competition; it is very hard to stand out.</div>
+  <div class="con-item">Requires credit/debit cards, creating potential security/fraud issues that put off some consumers.</div>
+  <div class="con-item">Massive initial and ongoing costs for building and maintaining a secure e-commerce website.</div>
+  <div class="con-item"><strong>Piracy:</strong> Digital content can easily be copied and illegally shared for free online.</div>
+  </div>
+  </div>`
+        },
+        {
+            title: "Case Studies: Morrisons, Amazon, and Sony",
+            tag: "Case Studies",
+            content: `<p><strong>Morrisons on Amazon (Physical Distribution Innovation):</strong><br>
+  Morrisons was late to the home-delivery market compared to Tesco. To catch up, they partnered with Amazon to offer 'Morrisons on Amazon'. This physical distribution uses Amazon's massive logistics network to deliver groceries to Prime members on the same day. By emphasizing speed of delivery, they aim to pull customers away from rival supermarkets.</p>
+  <p><strong>Sony & Netflix (Digital Distribution Transition):</strong><br>
+  In the past, Sony physically distributed Elvis records on vinyl. Today, music and films are streamed. Netflix originally physically posted DVDs to customers. Now, it is a giant of digital distribution, streaming directly to TVs. This cuts out physical manufacturing costs entirely but forces them to battle illegal downloading (piracy) and intense competition from Disney+ and Amazon Prime.</p>`
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "Digital distribution is best suited to:",
+            opts: [
+                "selling goods and services from a high-street shop",
+                "selling goods and services through a massive warehouse",
+                "selling and delivering goods in a digital, electronic format",
+                "selling goods and services at airports"
+            ],
+            ans: 2,
+            explain: "Correct answer: C. Digital distribution involves sending products electronically over the internet, like music streams or software downloads."
+        },
+        {
+            q: "A distribution channel is defined as:",
+            opts: [
+                "a method of improving the physical quality of goods",
+                "the path taken to get goods and services from the producer to the customer",
+                "a method of advertising products on digital television",
+                "the physical location of the factory where goods are made"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. A distribution channel is the journey a product takes from the manufacturer to the final end-user."
+        },
+        {
+            q: "Which of the following products would be suited to BOTH physical and digital distribution?",
+            opts: [
+                "Potatoes",
+                "Newspapers",
+                "Luxury Watches",
+                "Designer Clothes"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Newspapers can be bought physically in a shop or read digitally via a tablet app. The others can only be distributed physically."
+        },
+        {
+            q: "What is the primary role of a wholesaler in a distribution channel?",
+            opts: [
+                "To manufacture the goods from raw materials",
+                "To 'break bulk' by buying massive quantities and selling them in smaller boxes",
+                "To sell single items directly to the final consumer",
+                "To create advertising campaigns for television"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Wholesalers buy in massive bulk from producers and break it down into smaller, affordable quantities for independent retailers."
+        },
+        {
+            q: "Which distribution channel is represented by: Producer → Consumer?",
+            opts: [
+                "Channel 1",
+                "Channel 2",
+                "Channel 3",
+                "Wholesale Channel"
+            ],
+            ans: 0,
+            explain: "Correct answer: A. Channel 1 is direct selling, with no intermediaries (middlemen) between the maker and the buyer."
+        },
+        {
+            q: "Why might a massive paint manufacturer like Dulux choose to sell directly to large retailers (like B&Q) instead of using a wholesaler?",
+            opts: [
+                "Because B&Q cannot afford to buy in bulk",
+                "To keep the profit margin that would normally be taken by the wholesaler",
+                "Because wholesalers only sell digital products",
+                "Because Dulux wants to personally sell paint to individual homeowners"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Cutting out the wholesaler (the middleman) allows the producer to keep a larger share of the profit."
+        },
+        {
+            q: "Which of the following is a major disadvantage of DIGITAL distribution?",
+            opts: [
+                "The business has to close at 5:00 PM every day",
+                "Digital content can be easily copied and illegally shared for free",
+                "It limits the business to only selling to local customers",
+                "The physical transport costs (lorries and fuel) are very high"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Piracy (illegal copying and sharing) is a massive threat to digital products like music, films, and software."
+        },
+        {
+            q: "A small farmer selling organic strawberries from a roadside stall is using which distribution method?",
+            opts: [
+                "Digital Distribution",
+                "Producer → Wholesaler → Retailer",
+                "Producer → Retailer → Consumer",
+                "Producer → Consumer (Direct Selling)"
+            ],
+            ans: 3,
+            explain: "Correct answer: D. The farmer is the producer, and they are selling directly to the person who will eat the strawberries. This is Channel 1."
+        },
+        {
+            q: "What is an advantage to a small independent corner shop of using a wholesaler?",
+            opts: [
+                "They can buy huge factory-sized lorry loads of stock",
+                "They can buy smaller, affordable quantities of various goods in one place",
+                "The wholesaler will pay the corner shop's rent",
+                "The wholesaler will manufacture bespoke products for them"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. A corner shop doesn't have the money or space for a whole lorry of Coca-Cola. The wholesaler allows them to buy a few cases at a time alongside crisps, bread, etc."
+        },
+        {
+            q: "Which of the following businesses relies entirely on physical distribution?",
+            opts: [
+                "Netflix",
+                "Spotify",
+                "A comparison website selling car insurance",
+                "A bakery selling fresh bread"
+            ],
+            ans: 3,
+            explain: "Correct answer: D. Bread is a physical, tangible good that cannot be distributed over the internet."
+        },
+        {
+            q: "One disadvantage to a clothing business (like Boohoo) of distributing purely through e-commerce is:",
+            opts: [
+                "Customers cannot try the clothes on before buying, leading to high return rates",
+                "They have to pay massive rent for high-street shops in London",
+                "They cannot accept credit card payments",
+                "They are only open during normal daylight hours"
+            ],
+            ans: 0,
+            explain: "Correct answer: A. Without physical fitting rooms, online clothing retailers face massive logistical costs dealing with returned items that did not fit the customer."
+        },
+        {
+            q: "What is a major financial benefit to a business of switching from physical high-street shops to purely digital e-commerce?",
+            opts: [
+                "They no longer have to pay for web servers",
+                "They will automatically gain a 100% market share",
+                "They drastically reduce overhead costs like shop rent and sales staff wages",
+                "They no longer need to advertise their products"
+            ],
+            ans: 2,
+            explain: "Correct answer: C. E-commerce avoids the massive fixed costs associated with physical retail premises on expensive high streets."
+        }
+    ];
+
+    const matchData = [
+        { term: "Place", def: "The part of the marketing mix concerned with the distribution channels used to get goods to customers." },
+        { term: "Physical Distribution", def: "The movement of tangible goods from the producer to the consumer using transport." },
+        { term: "Digital Distribution", def: "Delivering products electronically over the internet, such as streaming music or software." },
+        { term: "Distribution Channel", def: "The specific route a product takes from the manufacturer to the end-user." },
+        { term: "Wholesaler", def: "A business that buys in massive bulk from producers and sells smaller quantities to retailers." },
+        { term: "Breaking Bulk", def: "The process of splitting massive factory shipments into smaller, affordable boxes for small shops." },
+        { term: "Retailer", def: "A business (like a supermarket or high-street shop) that sells goods directly to the general public." },
+        { term: "Direct Selling (Channel 1)", def: "Producer → Consumer. Cuts out all middlemen." },
+        { term: "Channel 2", def: "Producer → Retailer → Consumer. Often used by large brands selling to big supermarkets." },
+        { term: "Piracy", def: "The illegal copying and sharing of digital content, acting as a massive disadvantage to digital distribution." },
+        { term: "E-commerce", def: "Buying and selling goods over the internet, which allows businesses to operate 24/7 globally." },
+        { term: "Middleman", def: "An intermediary (like a wholesaler or retailer) that sits between the producer and the consumer." },
+        { term: "Return logistics", def: "A major cost for online clothing retailers when customers send back items that do not fit." }
+    ];
+
+    const fibData = [
+        {
+            display: "Physical distribution is all about getting the _____ to the customer. Some small businesses sell _____ to the consumer.",
+            blanks: { B1: "product", B2: "direct" }
+        },
+        {
+            display: "Larger businesses may sell to a _____ such as Currys, who then sells the goods to the final _____.",
+            blanks: { B1: "retailer", B2: "consumer" }
+        },
+        {
+            display: "Massive producers often sell to a _____ whose job it is to break _____ and sell smaller amounts to independent shops.",
+            blanks: { B1: "wholesaler", B2: "bulk" }
+        },
+        {
+            display: "Businesses such as Tesco and Marks & Spencer have their own _____ distribution centres where massive amounts of their _____ is stored.",
+            blanks: { B1: "regional", B2: "stock" }
+        },
+        {
+            display: "Digital distribution means products are delivered electronically. A major advantage is that the business can sell throughout the _____, massively increasing potential _____.",
+            blanks: { B1: "world", B2: "customers" }
+        },
+        {
+            display: "Because digital businesses operate online, they can be open _____ hours a day throughout the year, but they face global _____.",
+            blanks: { B1: "all", B2: "competition" }
+        },
+        {
+            display: "A disadvantage of digital distribution is that content (like music or software) can be easily copied and illegally shared for _____, known as _____.",
+            blanks: { B1: "free", B2: "piracy" }
+        },
+        {
+            display: "Selling directly to the consumer (Channel 1) means the producer makes more _____ because they do not have to share it with a _____.",
+            blanks: { B1: "profit", B2: "middleman" }
+        },
+        {
+            display: "If an online clothing store uses physical delivery, a disadvantage for the customer is that they cannot _____ the product before buying, making it difficult if they need to _____ the item.",
+            blanks: { B1: "try", B2: "return" }
+        },
+        {
+            display: "Using e-commerce means a business needs fewer shop floor _____, which significantly cuts their running _____.",
+            blanks: { B1: "staff", B2: "costs" }
+        },
+        {
+            display: "To accept digital payments, a business requires customers to enter _____ card details, which creates potential _____ and fraud problems.",
+            blanks: { B1: "credit", B2: "security" }
+        }
+    ];
+
+    const fibWords = [
+        "product", "direct", "retailer", "consumer", "wholesaler", "bulk", "regional", "stock",
+        "world", "customers", "all", "competition", "free", "piracy", "profit", "middleman",
+        "try", "return", "staff", "costs", "credit", "security", "digital", "physical", "shop"
+    ];
+
+    const tfData = [
+        {
+            statement: "In the marketing mix, 'Place' refers only to the physical town where the factory is built.",
+            answer: false,
+            explanation: "FALSE. Place refers to Distribution Channels — how the product gets from the producer to the customer."
+        },
+        {
+            statement: "A major role of a wholesaler is to break bulk shipments into smaller quantities.",
+            answer: true,
+            explanation: "TRUE. Wholesalers buy in massive bulk from factories and break it down into affordable boxes for small retailers."
+        },
+        {
+            statement: "Channel 1 (Direct Selling) involves a wholesaler and a retailer.",
+            answer: false,
+            explanation: "FALSE. Channel 1 is Producer directly to Consumer. There are no wholesalers or retailers involved."
+        },
+        {
+            statement: "Digital distribution allows a business to be open 24 hours a day, 7 days a week.",
+            answer: true,
+            explanation: "TRUE. E-commerce websites and digital downloads do not require staff to be awake, allowing 24/7 global sales."
+        },
+        {
+            statement: "A disadvantage of digital distribution is that it limits the business to only selling to people in their local town.",
+            answer: false,
+            explanation: "FALSE. Digital distribution does the exact opposite; it allows the business to sell globally to anyone with an internet connection."
+        },
+        {
+            statement: "Selling through a wholesaler means the producer has to accept a lower profit margin per item.",
+            answer: true,
+            explanation: "TRUE. The wholesaler is a business that needs to make money, so they take a cut of the profit, reducing the margin left for the producer."
+        },
+        {
+            statement: "Piracy (illegal copying and sharing) is a major risk for businesses using digital distribution.",
+            answer: true,
+            explanation: "TRUE. Products like digital music, software, and eBooks can easily be duplicated and shared illegally online, losing the business revenue."
+        },
+        {
+            statement: "A small local farmer selling vegetables at a farm gate is using Physical Distribution Channel 3.",
+            answer: false,
+            explanation: "FALSE. They are selling directly to the consumer, which is Channel 1 (Producer to Consumer)."
+        },
+        {
+            statement: "One benefit of an online clothing store is that customers can easily try the clothes on before they pay.",
+            answer: false,
+            explanation: "FALSE. A major disadvantage of online retail is that customers CANNOT try items on beforehand, leading to high return rates."
+        },
+        {
+            statement: "Using digital distribution cuts down on costs because the business does not need to pay for high-street shop rent.",
+            answer: true,
+            explanation: "TRUE. Removing physical retail premises massively reduces fixed overhead costs like rent and shop-floor staff wages."
+        },
+        {
+            statement: "All products can be distributed digitally if the business upgrades its technology.",
+            answer: false,
+            explanation: "FALSE. Physical, tangible goods like fresh food, cars, and clothing cannot be distributed digitally; they must be physically transported."
+        },
+        {
+            statement: "If a business sells online, it faces more intense competition because consumers can buy from anywhere in the world.",
+            answer: true,
+            explanation: "TRUE. While global reach is an advantage, the disadvantage is that you are now competing against every other similar business on the planet."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Students often write that 'Place' means the location of the business (e.g. 'The shop is in London').",
+            correct: "In the marketing mix, Place specifically means DISTRIBUTION CHANNELS — the method/journey used to get the product to the consumer (e.g. e-commerce, wholesalers, direct selling)."
+        },
+        {
+            wrong: "Students think wholesalers sell to the general public.",
+            correct: "Wholesalers (like Booker) generally sell to other businesses (Retailers). Retailers (like Tesco or a corner shop) are the ones who sell to the general public (Consumers)."
+        },
+        {
+            wrong: "When answering 'disadvantages of online distribution for the CUSTOMER', students write about website maintenance costs.",
+            correct: "Always read the entity in the question. If it asks for a disadvantage to the CUSTOMER, write about inability to try things on, postage delays, or security fears. Website costs are a disadvantage to the BUSINESS."
+        },
+        {
+            wrong: "Students state that selling directly to consumers (Channel 1) increases total sales volume for massive brands.",
+            correct: "Actually, massive brands (like Coca-Cola) use wholesalers because they CANNOT physically distribute millions of single cans to individuals efficiently. Direct selling is usually best for smaller, bespoke, or service businesses."
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "Key Term (1 mark)",
+            title: "Breaking Bulk",
+            content: `<p>If asked to define the role of a wholesaler, always use the phrase <strong>'breaking bulk'</strong>.</p>
+  <p>This means buying in massive quantities directly from the factory and splitting it into smaller, manageable, affordable boxes for small independent retailers.</p>`,
+            pills: ["K"]
+        },
+        {
+            type: "Analyse (3 marks)",
+            title: "Impact on the Customer vs Business",
+            content: `<p>Pay close attention to WHO the question is asking about.</p>
+  <p><strong>Impact on Customer:</strong> "A disadvantage to the customer of Boohoo's online distribution is that they cannot try the clothes on (U), meaning they might order the wrong size (APP) and have to suffer the inconvenience of returning it via post (AN)."</p>
+  <p><strong>Impact on Business:</strong> "A disadvantage to the business is that returns are high (U) for online clothing (APP), which severely increases logistics and repacking costs (AN)."</p>`,
+            pills: ["U", "app", "an"]
+        },
+        {
+            type: "Recommend (3 marks)",
+            title: "Choosing a Channel",
+            content: `<p>When asked to recommend a channel (e.g., direct vs wholesaler for Dulux paint), your justification MUST be comparative.</p>
+  <p><strong>Example:</strong> "Dulux should sell to large retailers directly (1) because they keep a higher profit margin by cutting out the middleman, whereas selling to wholesalers means giving up a percentage of their profits (+2)."</p>`,
+            pills: ["eval"]
+        }
+    ];
+
+    const flashcards = [
+        { term: "Place", def: "The distribution channels used to get the product from the producer to the final consumer." },
+        { term: "Physical Distribution", def: "The movement of tangible goods (like food or clothes) using transport networks." },
+        { term: "Digital Distribution", def: "The delivery of products or services electronically over the internet (e.g., streaming, software)." },
+        { term: "Channel 1 (Direct Selling)", def: "Producer → Consumer. Cuts out the middleman, maximizing profit margin for the producer." },
+        { term: "Channel 3 (Wholesaler Route)", def: "Producer → Wholesaler → Retailer → Consumer. Used for mass-market consumer goods." },
+        { term: "Wholesaler", def: "A business that 'breaks bulk' by buying massive quantities from producers and selling smaller batches to retailers." },
+        { term: "Retailer", def: "A business that sells goods directly to the final consumer (the general public)." },
+        { term: "E-commerce Disadvantage (Customer)", def: "Cannot try physical goods on before buying; postage delays; credit card security risks." },
+        { term: "E-commerce Advantage (Business)", def: "Access to a global market 24/7; massive reduction in fixed costs (no shop rent or sales staff)." },
+        { term: "Piracy", def: "The illegal copying and sharing of digital products online, resulting in lost revenue for the business." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 3,
+            type: "written",
+            caseStudy: "Dulux is an internationally available brand of paint... Dulux produces paint for indoors and outdoors. It sells some paint directly to large retailers such as B&Q and Wickes, and some paint to wholesalers who then sell it on to retailers.",
+            question: "Analyse one advantage to Dulux of selling paint directly to retailers. [3 marks]",
+            hint: "Think about profit margins. If they cut out the wholesaler (middleman), what happens to their profit?",
+            starter: "One advantage of selling directly to retailers is that the producer keeps a higher profit margin... (U)\nWhen Dulux sells its paint straight to massive retailers like B&Q... (APP)\nThis means they do not have to share their profits with a wholesaler, leading to... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks</h5><ul><li><strong>Understanding (1 mark):</strong> e.g., Missing out the wholesaler means the producer keeps more profit / closer relationship with the seller.</li><li><strong>Application (1 mark):</strong> e.g., Relates to paint / large retailers like B&Q / Wickes / indoor or outdoor paint.</li><li><strong>Analysis (1 mark):</strong> e.g., Increases the profit margin per tin sold / improves revenue / gives them more control over how it is sold.</li></ul></div>`,
+            modelAnswer: "One advantage of selling directly to retailers is that it cuts out the middleman, allowing the producer to keep a higher profit margin (U). By selling its indoor and outdoor paint straight to massive retailers like B&Q (APP), Dulux does not have to surrender a percentage of its profits to a wholesaler. This significantly increases the profit margin made on every tin of paint sold, boosting overall profitability (AN)."
+        },
+        {
+            num: "Q2",
+            marks: 3,
+            type: "written",
+            caseStudy: "Dulux sells some paint to wholesalers who then sell it on to smaller independent retailers.",
+            question: "Analyse one advantage to Dulux of selling paint to wholesalers. [3 marks]",
+            hint: "Think about the logistics of trying to deliver to thousands of tiny shops. How does a wholesaler help a massive factory?",
+            starter: "One advantage is that the wholesaler buys in massive bulk quantities... (U)\nFor a large manufacturer like Dulux producing thousands of tins of paint... (APP)\nThis guarantees massive sales volumes instantly and saves them... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks</h5><ul><li><strong>Understanding (1 mark):</strong> e.g., Wholesaler buys in bulk / breaks bulk / takes on the storage costs / distributes to smaller shops.</li><li><strong>Application (1 mark):</strong> e.g., Relates to Dulux / paint / decorators.</li><li><strong>Analysis (1 mark):</strong> e.g., Saves the producer massive warehousing costs / guarantees high sales volume instantly / saves transport costs of delivering to thousands of small stores.</li></ul></div>`,
+            modelAnswer: "One advantage of using a wholesaler is that they buy in massive bulk quantities and handle the storage and distribution (U). Because Dulux manufactures paint on a massive international scale, the wholesaler will buy thousands of tins at once and store them in their own warehouses (APP). This guarantees massive, instant sales revenue for Dulux and significantly reduces their own warehousing and transport costs, as they do not have to deliver individual tins to thousands of tiny independent decorator shops (AN)."
+        },
+        {
+            num: "Q3",
+            marks: 3,
+            type: "written",
+            caseStudy: "Dulux uses wholesalers to distribute some of its paint.",
+            question: "Analyse one disadvantage to Dulux of selling its paint to wholesalers. [3 marks]",
+            hint: "The wholesaler is a business that needs to make money. How do they do that, and how does it affect Dulux?",
+            starter: "A disadvantage of using wholesalers is the loss of profit margin... (U)\nBecause Dulux has to sell the paint to the wholesaler at a discounted rate... (APP)\nThis means that Dulux... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks</h5><ul><li><strong>Understanding (1 mark):</strong> e.g., Have to share profit with the middleman / loss of control over marketing.</li><li><strong>Application (1 mark):</strong> e.g., Relates to Dulux / paint.</li><li><strong>Analysis (1 mark):</strong> e.g., Reduces the profit margin per item / the product might not be displayed properly to the end customer.</li></ul></div>`,
+            modelAnswer: "A major disadvantage of using a wholesaler is that the producer suffers a reduced profit margin on each item sold (U). Because the wholesaler needs to make their own profit, Dulux must sell the tins of paint to them at a significantly discounted wholesale price (APP). This means Dulux earns less revenue per tin than if they sold directly to the retailer, reducing their overall profitability on those specific sales (AN)."
+        },
+        {
+            num: "Q4",
+            marks: 3,
+            type: "written",
+            caseStudy: "Boohoo.com uses social media to promote its products, selling clothing to 16-24 year olds. Boohoo has also introduced apps for smartphones and tablets that allow customers to browse and buy products very easily. They operate entirely as an online retailer with no physical high-street shops.",
+            question: "Analyse one disadvantage to a CUSTOMER of Boohoo's distribution channel. [3 marks]",
+            hint: "The distribution channel is digital e-commerce with postal delivery. What goes wrong for a customer buying clothes online?",
+            starter: "A disadvantage to the customer of online distribution is that they cannot try the product on before purchasing... (U)\nSince Boohoo only sells its clothing via smartphone apps and websites... (APP)\nThis means the customer might... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks</h5><ul><li><strong>Understanding (1 mark):</strong> e.g., No way to 'try' the product / requires internet access / difficult or time-consuming to return items / postage wait times / security fears.</li><li><strong>Application (1 mark):</strong> e.g., Relates to clothing / smartphone apps / 16-24 year olds.</li><li><strong>Analysis (1 mark):</strong> e.g., The customer might be disappointed with the fit / suffers inconvenience and cost of posting returns.</li></ul><p><em>Examiner Note: Do not award marks for disadvantages to the BUSINESS (e.g. 'returns cost the business money'). Must be from customer perspective.</em></p></div>`,
+            modelAnswer: "A disadvantage to the customer of an online-only distribution channel is the inability to physically try the product before buying it (U). Because Boohoo only sells its clothing via smartphone apps and websites, customers cannot check the fit or quality of the fabric in a changing room (APP). This means the customer is at a high risk of ordering the wrong size, leading to the frustration and time-consuming inconvenience of having to package and post the item back for a return (AN)."
+        },
+        {
+            num: "Q5",
+            marks: 3,
+            type: "written",
+            caseStudy: "Netflix began by sending physical DVDs to customers through the post. They have completely shifted to digital distribution, streaming movies and TV shows directly to customers over the internet.",
+            question: "Analyse one advantage to Netflix of using digital distribution. [3 marks]",
+            hint: "Think about the costs they save by not using physical products.",
+            starter: "An advantage of digital distribution is the massive reduction in physical manufacturing and transport costs... (U)\nBecause Netflix streams its movies directly to customers via the internet... (APP)\nThis allows them to... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks</h5><ul><li><strong>Understanding (1 mark):</strong> e.g., Massively reduces transport/manufacturing costs / allows instant delivery 24/7 / global reach.</li><li><strong>Application (1 mark):</strong> e.g., Relates to streaming movies/TV shows instead of DVDs.</li><li><strong>Analysis (1 mark):</strong> e.g., Increases profit margins significantly / attracts a massive global subscriber base.</li></ul></div>`,
+            modelAnswer: "An advantage of digital distribution is the elimination of physical manufacturing and logistical transport costs (U). Because Netflix now streams its movies and TV shows instantly over the internet instead of pressing physical DVDs and paying for postage (APP), their variable costs per customer are almost zero. This massively increases their profit margins and allows them to distribute to millions of global customers instantly without logistical delays (AN)."
+        },
+        {
+            num: "Q6",
+            marks: 3,
+            type: "written",
+            caseStudy: "Netflix shifted from physical DVDs to digital streaming over the internet.",
+            question: "Analyse one disadvantage to Netflix of using digital distribution. [3 marks]",
+            hint: "Think about the main threat to digital media files.",
+            starter: "A major disadvantage of digital distribution is the high risk of piracy... (U)\nBecause Netflix's movies and shows are distributed electronically... (APP)\nThis means that... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks</h5><ul><li><strong>Understanding (1 mark):</strong> e.g., Digital content can be easily copied and shared illegally (piracy) / intense global competition / high server maintenance costs.</li><li><strong>Application (1 mark):</strong> e.g., Relates to streaming movies/TV shows.</li><li><strong>Analysis (1 mark):</strong> e.g., Results in massive lost sales revenue from non-paying viewers.</li></ul></div>`,
+            modelAnswer: "A major disadvantage of digital distribution is the severe risk of digital piracy and illegal file sharing (U). Because Netflix's movies and TV shows are transmitted electronically over the internet, hackers and users can record or rip the video files and distribute them on free streaming sites (APP). This results in a massive loss of potential subscription revenue, as thousands of people watch their expensive content without paying for the service (AN)."
+        },
+        {
+            num: "Q7",
+            marks: 1,
+            type: "mcq",
+            question: "Which of the following is true about a wholesaler?",
+            options: [
+                "They manufacture raw materials into finished products",
+                "They buy in bulk from producers and sell in smaller quantities to retailers",
+                "They only sell directly to the final consumer",
+                "They design television advertising campaigns"
+            ],
+            answer: 1,
+            hint: "Think about the term 'breaking bulk'.",
+            starter: "A wholesaler's main job is to...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: B</strong></p><p>This describes the process of 'breaking bulk', which is the primary function of a wholesaler in the distribution channel.</p></div>`,
+            modelAnswer: ""
+        }
+    ];
+
+</script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

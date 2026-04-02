@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.4.6 Interpreting Market Data & The Integrated Mix – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Business — Component 1</div>
+            <h1>2.4.6 Interpreting Market Data & The Integrated Mix</h1>
+            <p>Interactive revision guide · All key content + full exam practice</p>
+        </div>
+        <a href="index.html" class="home-link">← 🏡 Home</a>
+
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn',this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq',this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching',this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib',this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions',this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips',this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards',this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse',this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice',this)">📝 Exam Practice</button>
+    </nav>
+
+    <main>
+
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct answers</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+            <div style="margin-bottom:16px;">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size:12px;color:var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+                <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span>
+                        First attempt correct</span>
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span>
+                        Correct after mistake</span>
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span>
+                        Wrong — try again</span>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">What students often think — and what examiners actually want.</p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge. Review your weak areas at the
+                end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display:none; margin-bottom: 20px;">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color:#2d7a4f;">0</div>
+                        <div style="font-size:12px;color:var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color:#c84b31;">0</div>
+                        <div style="font-size:12px;color:var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px;">
+                        <button class="fc-btn outline" style="border-color:#c84b31; color:#c84b31; flex:1;"
+                            onclick="markCard(false)">❌
+                            Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f; border-color:#2d7a4f; flex:1;"
+                            onclick="markCard(true)">✅
+                            Got
+                            It</button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px;">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0;">You knew <strong id="fcSummaryKnown">0</strong> out of <strong
+                            id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background:#c84b31; border-color:#c84b31;">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence
+                    Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+
+    </main>
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.4 Sub-topic 6: Interpreting Market Data & The Integrated Mix
+    // ══════════════════════════════════════
+
+    const topics = [
+        {
+            title: "The Integrated Marketing Mix",
+            tag: "Core Concepts",
+            content: `<p>The elements of the marketing mix (Product, Price, Place, Promotion) must work and fit together. If they do not complement each other, the product is unlikely to be successful. This is called an <strong>Integrated Marketing Mix</strong>.</p>
+  <p>If a business wants to increase sales, the mix must be coordinated:</p>
+  <ul>
+  <li><strong>Price:</strong> Must be at a level to attract the target market but also reflect the product's quality.</li>
+  <li><strong>Product:</strong> Does the product justify the price? (e.g., A brand new tech model can justify a higher price than an older model).</li>
+  <li><strong>Place:</strong> The distribution channel affects the price. If a product is distributed digitally (no physical transport costs), the price can potentially be lower.</li>
+  <li><strong>Promotion:</strong> Customers need to know about the product. The advertising media chosen must target the specific people who want the product and can afford the price.</li>
+  </ul>
+  <div class="case-study-box">
+  <h4>Example of a POOR Marketing Mix</h4>
+  <p>A business develops a highly premium, expensive new bottled soft drink (<em>Product/Price</em>). However, it is only sold online with no supermarket availability (<em>Place</em>), and it is advertised in teen magazines where the readers cannot afford it (<em>Promotion</em>). This sends a confused message and will fail.</p>
+  </div>`
+        },
+        {
+            title: "Case Study: The Nintendo Switch",
+            tag: "Case Study",
+            content: `<p>A highly successful integrated marketing mix ensures that different elements complement each other. The <strong>Nintendo Switch</strong> is a perfect example:</p>
+  <ul>
+  <li><strong>Product:</strong> A games console with innovative controllers allowing players to take their gaming outside the home (highly portable).</li>
+  <li><strong>Price:</strong> Launched at £279.99. Nintendo used a <em>Price Skimming</em> strategy, setting the launch price higher than some competitors because of its unique innovation.</li>
+  <li><strong>Place:</strong> Sold through usual physical retail outlets and digital downloads. Initial physical supplies were deliberately restricted, creating a shortage (a technique Nintendo often uses to increase demand).</li>
+  <li><strong>Promotion:</strong> Advertisements heavily focused on the portability of the system within social settings, perfectly complementing the unique feature of the <em>Product</em>.</li>
+  </ul>`
+        },
+        {
+            title: "Interpreting Market Data",
+            tag: "Quantitative Skills",
+            content: `<p><strong>Market Data</strong> is information that can help a business make marketing decisions. Businesses use this data (such as changes in demand or competitor sales) to adjust their integrated marketing mix.</p>
+  <p><strong>Key Formulas & Concepts:</strong></p>
+  <ul>
+  <li><strong>Target Market:</strong> The specific group of consumers to whom the business tries to sell its products.</li>
+  <li><strong>Market Share:</strong> The percentage of total sales in a whole market that one single business has made.</li>
+  <li><strong>Market Growth:</strong> The percentage increase in the size of the overall market.</li>
+  </ul>
+  <div class="formula-box">
+  <strong>Market Share (%) =</strong> (Sales of the business / Total sales in the market) &times; 100<br><br>
+  <strong>Market Growth (%) =</strong> ((New Market Size - Original Market Size) / Original Market Size) &times; 100
+  </div>`
+        },
+        {
+            title: "The Market Share Trap (LXFridges)",
+            tag: "Analysis",
+            content: `<p>Students often assume that if a business's sales increase, its market share must also increase. <strong>This is false.</strong></p>
+  <div class="case-study-box">
+  <h4>Case Study: LXFridges</h4>
+  <p>In 2014, LXFridges sold 120,000 fridges. The total fridge market was 500,000. <br><em>(Market Share = 24%)</em></p>
+  <p>In 2016, LXFridges sold 145,200 fridges. The total fridge market grew to 720,000. <br><em>(Market Share = 20.1%)</em></p>
+  </div>
+  <p><strong>Analysis:</strong> Although LXFridges sold 25,200 <em>more</em> fridges (a 21% increase), the total market grew much faster (by 44%). Because competitors grew faster than LXFridges, LXFridges actually <strong>lost market share</strong>. To respond to this market data, LXFridges must review its marketing mix (e.g., improve the product or increase promotion) to catch up with competitors.</p>`
+        },
+        {
+            title: "Interpreting Long-Term Data Trends",
+            tag: "Evaluation",
+            content: `<p>When reviewing market data (like customer preference surveys), businesses must look at long-term trends before taking drastic action.</p>
+  <p><strong>Chocolate Preference Data (2014 to 2016):</strong><br>
+  A survey of 5,000 people showed 'Fruit and Nut' steadily increasing in popularity over three years. However, 'Plain Milk Chocolate' spiked in 2015 and then dropped significantly in 2016.</p>
+  <p><strong>How should the business respond?</strong><br>
+  There will always be slight changes in the popularity of a product. A drop in one year could be the result of a competitor running a massive promotion, rather than customers suddenly disliking milk chocolate. A business must view data against a longer-term view before making drastic, expensive decisions to cut production or change a product entirely.</p>`
+        },
+        {
+            title: "Activity: Devising a Marketing Mix",
+            tag: "Application",
+            content: `<p><strong>Beth's Playball Centre</strong></p>
+  <p>Beth is opening a playball centre targeting children aged 2 to 12. She used market data and the integrated marketing mix to plan her launch:</p>
+  <ul>
+  <li><strong>Promotion:</strong> Social media is ideal. Her target market is young parents (who pay the entry fee), and they are heavy users of Facebook/Instagram. This keeps costs low for a new business.</li>
+  <li><strong>Product:</strong> She needs ball-play areas for children, but also a cafe/waiting area for parents. This adds value and creates a secondary revenue stream.</li>
+  <li><strong>Price:</strong> She could use penetration pricing (or opening offers like "5th visit free") to tempt parents away from established local competitors until her brand is known.</li>
+  <li><strong>Place/Extension:</strong> She can hire the entire centre out for private birthday parties. This guarantees a set income and acts as a promotional tool when invited children visit the centre for the first time.</li>
+  </ul>`
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "Market data includes:",
+            opts: [
+                "changes in the school curriculum",
+                "changes in market demand",
+                "changes in the number of factory workers",
+                "changes in workers' hourly pay"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Market data relates to external consumer and competitor behaviors, such as demand, market share, and sales trends."
+        },
+        {
+            q: "Which of the following will NOT normally be helped by the use of market data?",
+            opts: [
+                "Decisions on whether to increase production output",
+                "Decisions on what questions to ask a candidate at a job interview",
+                "Decisions on whether to build a new factory",
+                "Decisions on whether to start a television advertising campaign"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Job interviews are a Human Resources function. Market data is used for Marketing and Operational planning."
+        },
+        {
+            q: "Market share is best defined as:",
+            opts: [
+                "the product's share of the total marketing mix budget",
+                "the amount of goods a business sells in a 12-month period",
+                "the amount of goods a business sells as a percentage of the total market for a product",
+                "the goods that a business sells as a percentage of its previous year's sales"
+            ],
+            ans: 2,
+            explain: "Correct answer: C. Market share measures how dominant a business is compared to ALL other competitors in that specific market combined."
+        },
+        {
+            q: "PQS Ltd makes computer printers. The total market for the printers is 550,000 items per year. PQS Ltd sells 40,000 printers per year. What is PQS Ltd's market share?",
+            opts: [
+                "7.27%",
+                "8.21%",
+                "8.79%",
+                "9.14%"
+            ],
+            ans: 0,
+            explain: "Correct answer: A. Formula: (Business Sales / Total Market Sales) x 100. (40,000 / 550,000) x 100 = 7.27%."
+        },
+        {
+            q: "What does it mean to have an 'Integrated Marketing Mix'?",
+            opts: [
+                "The business only focuses on Product and Price.",
+                "The 4 Ps all complement each other and send a consistent message to the target market.",
+                "The business spends an equal amount of money on all 4 Ps.",
+                "The business integrates its marketing department with the HR department."
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Integration means the parts fit together—e.g., a high-quality product is sold at a premium price, in an exclusive place, with high-end promotion."
+        },
+        {
+            q: "A business launches a highly premium, luxury perfume. It prices it at £150 a bottle, but sells it only in a budget discount supermarket. This is an example of:",
+            opts: [
+                "Price skimming",
+                "A poor integrated marketing mix",
+                "Excellent use of market data",
+                "Digital distribution"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. The 'Place' (a discount supermarket) heavily conflicts with the 'Product' (luxury) and 'Price' (£150), confusing the consumer and leading to failure."
+        },
+        {
+            q: "How did Nintendo ensure its 'Promotion' integrated perfectly with its 'Product' for the Nintendo Switch?",
+            opts: [
+                "They advertised it as the cheapest console on the market.",
+                "They focused all advertisements on the portability of the system within social settings.",
+                "They offered a free game with every purchase.",
+                "They only sold it through digital distribution."
+            ],
+            ans: 1,
+            explain: "Correct answer: B. The core Product innovation was portability; the Promotion highlighted this exactly, ensuring the mix was perfectly integrated."
+        },
+        {
+            q: "Company X sells 5,000 units in Year 1. In Year 2, Company X sells 6,000 units. However, their market share DROPPED. How is this mathematically possible?",
+            opts: [
+                "They increased their prices.",
+                "The total market size grew faster than Company X's sales grew.",
+                "They spent less on advertising.",
+                "It is mathematically impossible."
+            ],
+            ans: 1,
+            explain: "Correct answer: B. If Company X grows by 20%, but competitors grow by 50%, Company X's slice of the overall 'pie' becomes smaller, meaning market share drops."
+        },
+        {
+            q: "A target market is defined as:",
+            opts: [
+                "A supermarket where target goods are sold.",
+                "The financial sales goal a business wishes to hit.",
+                "The specific group of consumers to whom the business tries to sell its products.",
+                "The percentage increase in the size of the total market."
+            ],
+            ans: 2,
+            explain: "Correct answer: C. Every element of the integrated marketing mix must be designed to appeal to this specific target group."
+        },
+        {
+            q: "If a business decides to use digital distribution (Place), how might this logically affect its Pricing strategy?",
+            opts: [
+                "Prices must always be higher because of website costs.",
+                "Prices can potentially be lower because physical overhead costs (rent, delivery) are reduced.",
+                "Prices must use price skimming.",
+                "Digital distribution has absolutely no effect on Price."
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Because the 4 Ps are integrated, a change in Place (going digital = lower costs) allows the business flexibility to lower its Price."
+        },
+        {
+            q: "Before taking drastic action (like stopping production) due to a sudden drop in sales shown in market data, a business should:",
+            opts: [
+                "Immediately fire the marketing team.",
+                "Double the price of the product.",
+                "View the data against a longer-term trend to see if it is just a temporary dip.",
+                "Switch completely to digital distribution."
+            ],
+            ans: 2,
+            explain: "Correct answer: C. Short-term data can be misleading (e.g., a bad month due to a competitor's brief sale). Long-term trends are required for major business decisions."
+        }
+    ];
+
+    const matchData = [
+        { term: "Integrated Mix", def: "When all elements of the 4 Ps work together and complement each other to target a market successfully." },
+        { term: "Poor Marketing Mix", def: "Selling a high-end luxury watch in a budget discount store, causing consumer confusion." },
+        { term: "Market Data", def: "Information (like sales trends or competitor pricing) that helps a business make marketing decisions." },
+        { term: "Market Share", def: "The percentage of total sales in a specific market that one single business has made." },
+        { term: "Target Market", def: "The specific group of consumers a business attempts to aim its 4 Ps at." },
+        { term: "Market Growth", def: "The percentage increase in the overall size of the total market over time." },
+        { term: "Nintendo Switch (Promotion)", def: "Advertisements focusing on portability and social aspects, perfectly matching the product's USP." },
+        { term: "Nintendo Switch (Price)", def: "Launched using price skimming because of its highly innovative features." },
+        { term: "Market Share Trap", def: "A business can increase its total sales but still lose market share if competitors grow much faster." },
+        { term: "Product & Price Integration", def: "The quality, materials, and brand image of the item must logically justify the amount being charged." },
+        { term: "Place & Price Integration", def: "Using digital distribution cuts out physical overheads, which can allow a business to lower its selling price." },
+        { term: "Long-term data trends", def: "Must be analyzed before a business makes drastic changes to production or withdraws a product." }
+    ];
+
+    const fibData = [
+        {
+            display: "The elements of the marketing mix must _____ and complement each other; this is called an _____ mix.",
+            blanks: { B1: "work", B2: "integrated" }
+        },
+        {
+            display: "Market _____ is the percentage of total sales of a product that a single _____ has made.",
+            blanks: { B1: "share", B2: "business" }
+        },
+        {
+            display: "If a product is an older model, the _____ might be lowered in order to increase _____.",
+            blanks: { B1: "price", B2: "sales" }
+        },
+        {
+            display: "Market _____ is quantitative information that helps a business make strategic marketing _____.",
+            blanks: { B1: "data", B2: "decisions" }
+        },
+        {
+            display: "Even if a business's sales increase, its market share can still _____ if the total market grows much _____.",
+            blanks: { B1: "fall", B2: "faster" }
+        },
+        {
+            display: "A business must ensure that the features and quality of the _____ logically justifies the _____ being charged.",
+            blanks: { B1: "product", B2: "price" }
+        },
+        {
+            display: "The _____ market is the specific group of consumers to whom the business tries to _____ its products.",
+            blanks: { B1: "target", B2: "sell" }
+        },
+        {
+            display: "Printed media (like magazines) can _____ a specific market effectively, saving the business _____ on wasted, broad advertising.",
+            blanks: { B1: "target", B2: "money" }
+        },
+        {
+            display: "Selling an expensive, luxury perfume only in a budget supermarket is an example of a _____ marketing _____.",
+            blanks: { B1: "poor", B2: "mix" }
+        },
+        {
+            display: "Nintendo used price _____ for the Switch because it was highly _____ and faced little direct competition at launch.",
+            blanks: { B1: "skimming", B2: "innovative" }
+        },
+        {
+            display: "Sales data must be viewed over the _____ term before a business makes drastic, expensive changes to _____.",
+            blanks: { B1: "long", B2: "production" }
+        },
+        {
+            display: "Market _____ is calculated by finding the difference between the new market size and the _____ market size.",
+            blanks: { B1: "growth", B2: "original" }
+        }
+    ];
+
+    const fibWords = [
+        "work", "integrated", "share", "business", "price", "sales", "data", "decisions",
+        "fall", "faster", "product", "price", "target", "sell", "money", "poor", "mix",
+        "skimming", "innovative", "long", "production", "growth", "original", "profit"
+    ];
+
+    const tfData = [
+        {
+            statement: "Market data helps a business decide what questions to ask a candidate at a job interview.",
+            answer: false,
+            explanation: "FALSE. Market data is used for marketing and production decisions, not HR/recruitment processes."
+        },
+        {
+            statement: "Market share is the amount of goods a business sells as a percentage of the total market for a product.",
+            answer: true,
+            explanation: "TRUE. It measures how much of the total market 'pie' is controlled by one specific business."
+        },
+        {
+            statement: "If a company's sales figures go up from one year to the next, their market share is guaranteed to go up as well.",
+            answer: false,
+            explanation: "FALSE. If the total market grows faster than the company's sales (e.g., competitors are selling even more), the company's market share will actually fall."
+        },
+        {
+            statement: "An integrated marketing mix means all 4 Ps work together and send a consistent message to the target market.",
+            answer: true,
+            explanation: "TRUE. The product, price, place, and promotion must all logically align. You cannot have a luxury price for a budget product in a discount store."
+        },
+        {
+            statement: "The Nintendo Switch used penetration pricing at launch because it was a cheap, basic console.",
+            answer: false,
+            explanation: "FALSE. Nintendo used Price Skimming (£279.99) because the Switch was a highly innovative, unique product."
+        },
+        {
+            statement: "A poor marketing mix would be selling a highly priced luxury item on a basic, unsecure website.",
+            answer: true,
+            explanation: "TRUE. The premium Price and premium Product conflict directly with the poor-quality Place (distribution channel), which will deter customers."
+        },
+        {
+            statement: "Using penetration pricing is a guaranteed way to make a large profit immediately.",
+            answer: false,
+            explanation: "FALSE. Penetration pricing involves setting artificially low prices. It sacrifices short-term profit to gain market share quickly."
+        },
+        {
+            statement: "Market growth compares the original size of a market to the new size of the market to find a percentage increase.",
+            answer: true,
+            explanation: "TRUE. The formula is: ((New Market Size - Original Size) / Original Size) * 100."
+        },
+        {
+            statement: "Market data is useless for a small business like a local market stall.",
+            answer: false,
+            explanation: "FALSE. Even small businesses use market data (e.g., looking at local competitor pricing or changes in local demographics) to adjust their marketing mix."
+        },
+        {
+            statement: "If a product uses digital distribution, it might allow the business to charge a lower price due to reduced overhead costs.",
+            answer: true,
+            explanation: "TRUE. This is a perfect example of an integrated mix. Digital distribution (Place) has no shop rent or transport costs, allowing a reduction in Price."
+        },
+        {
+            statement: "A business should immediately stop production of a product if market data shows sales fell for one month.",
+            answer: false,
+            explanation: "FALSE. A business must look at long-term trends. A one-month drop could just be seasonal or due to a competitor's short-term promotion."
+        },
+        {
+            statement: "When starting a new local business, social media is an excellent promotional tool because it can target specific demographics cheaply.",
+            answer: true,
+            explanation: "TRUE. For a new business (like Beth's playball centre), targeted social media keeps costs low while directly reaching the target market (young parents)."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Students assume that increasing sales automatically means increasing market share.",
+            correct: "This is a massive trap in data interpretation questions. If LXFridges increases sales by 20%, but the total market grows by 40%, LXFridges' market share has actually HALVED because competitors grew faster."
+        },
+        {
+            wrong: "Students think 'Integrated Marketing Mix' means spending exactly the same amount of money on all 4 Ps.",
+            correct: "Integration has nothing to do with budget equality. It means the 4 Ps send a CONSISTENT MESSAGE. A high-end product needs a high price, an exclusive place, and premium promotion."
+        },
+        {
+            wrong: "In 9-mark questions about market data, students just copy numbers from the table without manipulating them.",
+            correct: "To score high analysis marks, you MUST manipulate the data. Don't just say 'Sales went from 120k to 145k'. Say 'Sales increased by 25,200, which is a 21% increase, but the market grew by 44%'. Calculate the differences!"
+        },
+        {
+            wrong: "Students recommend drastic actions (like closing a factory) based on a slight dip in data.",
+            correct: "Always evaluate the need for a 'long-term view'. A slight dip in chocolate sales in one year does not mean the product is dead; it could be due to a short-term competitor promotion."
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "Formula (Quantitative Skills)",
+            title: "Calculating Market Share & Growth",
+            content: `<p>You must memorise these two formulas for data interpretation questions:</p>
+  <p><strong>Market Share (%) =</strong> (Sales of the business / Total sales in the market) &times; 100</p>
+  <p><strong>Market Growth (%) =</strong> ((New Market Size - Original Size) / Original Size) &times; 100</p>`,
+            pills: ["K", "U"]
+        },
+        {
+            type: "Evaluate (9 marks)",
+            title: "Structuring a 9-Mark Recommendation",
+            content: `<p>For the massive 9-mark questions (like Joe Allen or 2wheels Ltd), follow this exact structure:</p>
+  <ul>
+  <li><strong>K & U:</strong> Define the marketing concept/method and state an advantage.</li>
+  <li><strong>APP:</strong> Make TWO separate applied points using context (e.g., the specific target market, or calculating data from a table).</li>
+  <li><strong>AN:</strong> Explain the business impact (e.g., increased revenue, reduced costs) for BOTH points.</li>
+  <li><strong>EVAL:</strong> State a clear decision (Judgement) and back it up with a strong reason drawn from the case study (Justification).</li>
+  </ul>`,
+            pills: ["K", "U", "app", "an", "eval"]
+        },
+        {
+            type: "Analysis Trick",
+            title: "The Market Data Trap",
+            content: `<p>If an exam question gives you a table showing a business's sales increasing, immediately check the 'Total Market' figures.</p>
+  <p>Examiners love to trick you into saying "the business is doing well because sales are up". If the total market is growing faster than the business, their market share is dropping, which is a massive <strong>negative</strong> point for analysis.</p>`,
+            pills: ["an"]
+        }
+    ];
+
+    const flashcards = [
+        { term: "Integrated Marketing Mix", def: "When Product, Price, Place, and Promotion all work together to complement each other and send a consistent brand message." },
+        { term: "Market Data", def: "Quantitative information (sales, demand, market size) used by a business to inform and adjust its marketing decisions." },
+        { term: "Target Market", def: "The specific demographic or group of consumers to whom a business aims to sell its products." },
+        { term: "Market Share Formula", def: "(Sales of the business / Total sales in the entire market) x 100." },
+        { term: "Market Growth Formula", def: "((New Market Size - Original Market Size) / Original Market Size) x 100." },
+        { term: "Poor Marketing Mix (Example)", def: "Selling a premium, high-priced luxury item in a budget, discount supermarket. It confuses the customer." },
+        { term: "The Market Share Trap", def: "A business can increase its total sales volume, but still lose market share if its competitors grow at a much faster rate." },
+        { term: "Long-term data trends", def: "What a business must look at before making drastic changes (like stopping production) due to a short-term dip in sales." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 3,
+            type: "written",
+            caseStudy: "The table below shows the sales data for LXFridges and the total UK fridge market.\n\n2014: LXFridges Sales = 120,000 | Total Market = 500,000\n2015: LXFridges Sales = 132,000 | Total Market = 600,000\n2016: LXFridges Sales = 145,200 | Total Market = 720,000",
+            question: "Explain whether or not the owners of LXFridges will be happy with the sales figures in the table above. [3 marks]",
+            hint: "Calculate the percentage increase of LXFridges' sales vs the percentage increase of the total market. Even though sales are up, what is happening to their market share?",
+            starter: "The owners of LXFridges will likely be unhappy with these figures... (K)\nAlthough their sales increased by 25,200 fridges (or 21%) from 2014 to 2016... (APP)\nThe total fridge market grew by 44%, meaning LXFridges' market share has actually dropped... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (Activity 27 adaptation)</h5><ul><li><strong>Knowledge (1 mark):</strong> Statement that they will be unhappy due to market share loss (or happy due to sales volume increase, if argued well).</li><li><strong>Application (1 mark):</strong> Accurate use/calculation of the data. E.g. Sales increased by 25,200 / 21%. Total market increased by 220,000 / 44%.</li><li><strong>Analysis (1 mark):</strong> Impact on the business. E.g. Because the total market grew faster than LXFridges, their overall market share has significantly decreased, showing competitors are outperforming them.</li></ul></div>`,
+            modelAnswer: "The owners of LXFridges will likely be unhappy with these figures because they are losing market dominance (K). Although their own sales increased by 25,200 fridges (a 21% increase) between 2014 and 2016, the total fridge market increased by an enormous 220,000 (a 44% increase) (APP). Because the overall market grew at a much faster rate than LXFridges' sales, their actual market share has dropped significantly, indicating that rival businesses are stealing their potential customers (AN)."
+        },
+        {
+            num: "Q2",
+            marks: 9,
+            type: "written",
+            caseStudy: "Joe Allen runs a market stall in Nantwich... The market is open on Tuesdays, Thursdays and Saturdays. Nantwich is a prosperous town with lots of retired people living in the area, many of whom have incomes that are above the national average. In the past, running his stall on just three days a week brought in enough income for Joe to support his family and gave him time to work as a volunteer... He buys vegetables from the local wholesale market. His prices are generally lower than those in the supermarkets.\n\nSales figures for the past year show a 15% decline and his profits have fallen by 20%, while competition from supermarkets has increased.",
+            question: "Recommend how Joe might change his marketing mix in response to the fall in sales and profits. [9 marks]",
+            hint: "Address the 4 Ps using the data provided. Nantwich is prosperous/high-income retired people. His prices are currently low. Supermarkets are beating him. How can he adapt Price, Product, Place, or Promotion to target wealthy retired people?",
+            starter: "Joe's marketing mix is currently failing to target the wealthy demographic of Nantwich. To improve his Product and Price, Joe should...\nBecause Nantwich is prosperous, he could charge...\nRegarding Place and Promotion, Joe could...\nOverall, I recommend the most important change is... (EVAL)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 9 marks</h5><p><strong>Level 3 (7-9 marks):</strong> Strong knowledge of the marketing mix. Excellent application using the specific demographic (retired, wealthy, prosperous) and his current situation (3 days a week, low prices). Strong business analysis and justified evaluation.</p><p><strong>Application points to use:</strong> Nantwich is prosperous / above average income / retired demographic / works 3 days a week / currently lower prices than supermarkets / 20% profit fall.</p><p><strong>Analysis points:</strong> Product: Shift to premium/organic veg to attract wealthy retirees. Price: Increase prices (abandon budget pricing) as locals have high incomes, improving profit margins. Place: Open 5 days a week instead of 3 to increase availability. Promotion: Target leaflets at retired communities.</p></div>`,
+            modelAnswer: "Currently, Joe's marketing mix is poorly integrated with his local market data. To fix his falling profits, Joe should radically alter his Product and Price mix (K). Because Nantwich is a prosperous town filled with retired people who have above-average incomes, Joe's current strategy of selling basic wholesale vegetables at budget prices is flawed; wealthy consumers often prefer premium quality (APP). Joe should start selling high-quality, locally sourced, or organic vegetables and significantly increase his prices. This differentiates his product from the basic supermarket offerings and uses a premium pricing strategy that the wealthy retired demographic can afford, instantly improving his failing profit margins (AN).\n\nJoe must also alter the Place and Promotion elements of his mix (K). Currently, he only opens his stall three days a week so he can volunteer. However, with sales declining by 15%, he needs more footfall (APP). Joe should increase his 'Place' availability by opening five days a week, making it more convenient for shoppers than the supermarket. Furthermore, he should use targeted printed media promotion, such as leaflets dropped in retirement communities, to directly inform his new wealthy target market about his premium organic produce, thereby increasing sales volume (AN).\n\nOverall, I highly recommend that Joe completely shifts his marketing mix away from trying to compete with supermarkets on low prices (EVAL). Supermarkets have massive economies of scale and will always beat him on price. By using the demographic data of Nantwich, Joe can exploit a niche market: wealthy retirees. By providing a premium product at a higher price, he caters exactly to their needs, allowing him to reverse his 20% profit decline without needing to compete with the supermarket giants (EVAL)."
+        },
+        {
+            num: "Q3",
+            marks: 9,
+            type: "written",
+            caseStudy: "2wheels Ltd manufactures e-bikes... The marketing director decided to spend £50,000 on printed media advertising in 2020. This resulted in a 90% increase in 2wheels' sales income. In the same year, the total UK market value for e-bikes increased by 95%.\n\nIn 2021, the director decided to use penetration pricing instead, which cost the business £30,000 in lost revenue margins. This resulted in a 10% increase in 2wheels' sales income. In 2021, the total UK market value for e-bikes increased by 25%.",
+            question: "Evaluate, using the case study and data, whether printed media or penetration pricing was the most successful marketing method for 2wheels Ltd. [9 marks]",
+            hint: "Compare the two methods using the data. Printed media cost more (£50k) but got 90% growth (though still 5% behind total market). Penetration pricing was cheaper (£30k) but got terrible growth (10% vs market's 25%). Which is better?",
+            starter: "Printed media includes advertising in magazines. An advantage is it can target a specific market... (K/U)\nFor 2wheels, spending £50,000 on printed media in 2020 led to a 90% increase in sales income... (APP)\nHowever, the total market grew by 95%, meaning... (AN)\n\nPenetration pricing means setting prices below competitors... (K/U)\nIn 2021, this cost 2wheels £30,000 but only yielded a 10% income increase, while the market grew by 25%... (APP)\nThis massive gap means... (AN)\n\nOverall, I think printed media was the most successful method because... (EVAL)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 9 marks (Case Study 14)</h5><p><strong>K/U:</strong> Printed media (magazines) can target markets closely. Penetration pricing reduces prices to attract customers.<br><strong>Application:</strong> Use the numerical data. 2020: Market +95%, 2wheels +90%. 2021: Market +25%, 2wheels +10%. Printed media cost £50k, Penetration cost £30k.<br><strong>Analysis:</strong> Printed media targets effectively, but 2wheels still lost slight market share as they grew 5% slower than the market. Penetration pricing failed severely, causing them to fall 15% behind market growth, losing significant market dominance.<br><strong>Evaluation:</strong> Printed media was more successful. Although it cost £20k more to implement, it generated a massive 90% increase in income, almost keeping pace with the booming market. Penetration pricing was a disaster, causing them to hemorrhage market share.</p></div>`,
+            modelAnswer: "Printed media involves advertising in physical formats like magazines, which has the advantage of targeting specific enthusiast markets very closely (K/U). In 2020, 2wheels Ltd spent £50,000 on printed media, which resulted in a massive 90% increase in sales income. However, the data shows the total e-bike market value increased by 95% that year (APP). While the advertising effectively generated huge sales growth, 2wheels still technically lost a slight amount of market share because their 90% growth was 5% below the overall market growth rate, meaning competitors grew slightly faster (AN).\n\nPenetration pricing involves reducing prices below competitors to attract price-sensitive customers (K/U). In 2021, 2wheels used this method, costing them £30,000 in lost margins, but it only generated a 10% increase in sales income. Shockingly, the total e-bike market grew by 25% that year (APP). This means penetration pricing was a severe failure; because 2wheels' sales only grew by 10% while the market grew by 25%, there was a massive 15% gap. They lost significant market share and dominance to their rivals, proving that lowering prices did not generate enough volume to compensate for the lost profit margins (AN).\n\nOverall, I evaluate that printed media was by far the most successful marketing method (EVAL). Even though printed media was more expensive to implement (£50,000 compared to £30,000), it resulted in a massive 90% boost in sales income, keeping 2wheels highly competitive in a booming 2020 market. Conversely, penetration pricing failed to integrate well with their product; sacrificing their price reputation only yielded a pathetic 10% growth during a year when the rest of the market grew by 25%. Printed media provided a vastly superior return on investment (EVAL)."
+        }
+    ];
+
+</script>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

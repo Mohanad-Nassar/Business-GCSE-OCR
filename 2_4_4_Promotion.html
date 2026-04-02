@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.4.4 Promotion (Point of Sale & Advertising) – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Business — Component 1</div>
+            <h1>2.4.4 Promotion (Point of Sale & Advertising)</h1>
+            <p>Interactive revision guide · All key content + full exam practice</p>
+        </div>
+        <a href="index.html" class="home-link">← 🏡 Home</a>
+
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn',this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq',this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching',this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib',this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions',this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips',this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards',this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse',this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice',this)">📝 Exam Practice</button>
+    </nav>
+
+    <main>
+
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct answers</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+            <div style="margin-bottom:16px;">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size:12px;color:var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+                <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span>
+                        First attempt correct</span>
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span>
+                        Correct after mistake</span>
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span>
+                        Wrong — try again</span>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">What students often think — and what examiners actually want.</p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge. Review your weak areas at the
+                end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display:none; margin-bottom: 20px;">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color:#2d7a4f;">0</div>
+                        <div style="font-size:12px;color:var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color:#c84b31;">0</div>
+                        <div style="font-size:12px;color:var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px;">
+                        <button class="fc-btn outline" style="border-color:#c84b31; color:#c84b31; flex:1;"
+                            onclick="markCard(false)">❌
+                            Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f; border-color:#2d7a4f; flex:1;"
+                            onclick="markCard(true)">✅
+                            Got
+                            It</button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px;">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0;">You knew <strong id="fcSummaryKnown">0</strong> out of <strong
+                            id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background:#c84b31; border-color:#c84b31;">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence
+                    Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+
+    </main>
+    <script>
+        // ══════════════════════════════════════
+        //  DATA: 2.4 Sub-topic 4: Promotion (Point of Sale & Advertising)
+        // ══════════════════════════════════════
+
+        const topics = [
+            {
+                title: "Introduction to Promotion",
+                tag: "Core Concepts",
+                content: `<p><strong>Promotion</strong> is about informing customers about what is for sale and persuading them to buy. When a business has a good product, or is offering a good price, it needs to inform its customers. This makes promotion highly interconnected with the other 'Ps' of the marketing mix.</p>
+      <p><strong>There are four key aims of promotion:</strong></p>
+      <ol>
+      <li>To inform customers about a product or service (especially when it is new or has changed).</li>
+      <li>To keep a business ahead of its competitors.</li>
+      <li>To create or change the image of a business, its products, and services.</li>
+      <li>To maintain or increase sales.</li>
+      </ol>
+      <p>Promotion is generally divided into two main areas: <strong>Point of Sale Promotion</strong> and <strong>Advertising Media</strong>.</p>`
+            },
+            {
+                title: "Point of Sale Promotion",
+                tag: "Sales Promotion",
+                content: `<p><strong>Point of Sale promotions</strong> are specific offers available when purchasing a product. They are designed to tempt customers to make an immediate purchase.</p>
+      <ul>
+      <li><strong>Price Reductions (Sales):</strong> Used mainly to sell off old stock (e.g., winter clothes as spring approaches). The disadvantage is that the business makes less profit per item than if sold at the original price.</li>
+      <li><strong>Competitions:</strong> A person who buys a product is entered into a competition (e.g., to win a free holiday). This encourages large, multiple, or repeat purchases as customers buy more to gain extra entries.</li>
+      <li><strong>Free Samples:</strong> Often seen with products like cosmetics or food/soft drinks. Giving a 30% extra free bottle or a free tasting sample persuades consumers to try a product they haven't had before.</li>
+      <li><strong>Loss Leaders:</strong> Items that are deliberately sold at a loss to attract customers into a store. The hope is that once the customer is inside, they will be tempted to buy other, highly profitable products at the same time.</li>
+      </ul>`
+            },
+            {
+                title: "Advertising Media",
+                tag: "Advertising",
+                content: `<p><strong>Advertising media</strong> are the various ways a company can communicate its message to the wider public to build brand awareness.</p>
+      <ul>
+      <li><strong>Social Media (Facebook, Instagram, Twitter/X):</strong> Excellent for targeting specific demographics (like 16-24 year olds). It is relatively cheap and has a global reach, but users can easily skip ads, and maintaining a social media presence requires constant monitoring.</li>
+      <li><strong>Television:</strong> Reaches millions of people and has high visual and audio impact. It is perfect for mass-market products (like supermarkets or insurance comparison sites). However, it is the most expensive form of advertising.</li>
+      <li><strong>Print Media (Newspapers & Magazines):</strong> Magazines are great for targeting specific groups (e.g., a high-end perfume in a glossy fashion magazine). National newspapers reach a wide audience, while local newspapers are perfect for small, local businesses.</li>
+      <li><strong>Radio:</strong> Local radio allows a business to target a specific geographical area cheaply. National radio reaches a wide audience. However, it lacks visual impact so products cannot be demonstrated.</li>
+      <li><strong>Websites:</strong> Businesses use their own sites or pay for banner ads on other popular sites. E-commerce platforms like ASOS or Boohoo rely heavily on digital advertising to drive traffic directly to their digital checkout.</li>
+      </ul>`
+            },
+            {
+                title: "Case Study: Mobile Phone Services",
+                tag: "Case Study",
+                content: `<p><strong>Three, EE, Vodafone, O2</strong></p>
+      <p>Millions of people buy and use mobile phones. The main companies supplying the phones and services are in close competition. They are constantly updating the deals they offer (e.g., price, 5G coverage, data, Apple Music add-ons) hoping to persuade consumers to change to their service.</p>
+      <p>Without promotion, customers would be completely unaware of these deals. Mobile phone companies spend a massive amount of money on advertising to ensure all potential buyers know about their offers. Because the market is so saturated, each company has to aggressively match the promotion of the others to attract new customers and keep existing ones; otherwise, rivals will step in and steal their market share.</p>`
+            },
+            {
+                title: "Case Study: Go Compare & Compare the Market",
+                tag: "Case Study",
+                content: `<p>Price comparison websites like <strong>Go Compare</strong> and <strong>Compare the Market</strong> use heavy Television advertising to promote their services. Their target market is essentially every household in the UK that needs car, home, or pet insurance.</p>
+      <p><strong>Evaluation: Should they concentrate on TV?</strong><br>
+      Yes, they should. They earn their money by providing links to different insurance companies; the more links clicked, the more money they earn. Because their target market is so broad (all UK households), no other advertising media can match the sheer volume and reach of TV. While radio or social media might be cheaper, it would not reach the same millions of potential mass-market consumers, allowing rivals to 'steal' their customers and reduce their income.</p>`
+            },
+            {
+                title: "Choosing the Right Promotion",
+                tag: "Application",
+                content: `<p>Different situations require different promotional methods. A business must evaluate the <strong>Cost</strong> vs the <strong>Target Audience</strong>.</p>
+      <ul>
+      <li><strong>A local chip shop or cafe:</strong> Needs local advertising. A leaflet drop through local letterboxes or an ad on local radio is cost-effective and hits the exact geographic target. TV would be a massive waste of money.</li>
+      <li><strong>A famous perfume brand:</strong> Needs to maintain a premium brand image. Glossy photographs in high-end fashion magazines are ideal.</li>
+      <li><strong>A highly specialized tech product (e.g., advanced sat-nav):</strong> Should be advertised in specialist motoring or tech magazines to hit a niche target market directly.</li>
+      <li><strong>ASOS / Boohoo.com:</strong> Both target 16-24 year old fashion-conscious consumers. Social media (Instagram, TikTok) is the most effective way to reach this demographic, combining targeted ads with direct links to their e-commerce apps.</li>
+      </ul>`
+            }
+        ];
+
+        const mcqData = [
+            {
+                q: "Loss leaders are:",
+                opts: [
+                    "leaders who always lose their way",
+                    "losses that a business makes when it sells leading products",
+                    "the losses a business makes every time it has a sale",
+                    "items that are sold at a low price to attract customers into a store"
+                ],
+                ans: 3,
+                explain: "Correct answer: D. A loss leader is a point of sale promotion where a specific item is sold at a loss to entice shoppers into the store, hoping they buy other profitable items while there."
+            },
+            {
+                q: "Which of the following is an example of social media advertising?",
+                opts: [
+                    "A glossy advert in a fashion magazine",
+                    "Promoted posts on Facebook and Instagram",
+                    "A 30-second commercial on ITV",
+                    "A leaflet dropped through a letterbox"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. Facebook, Instagram, Twitter/X, and TikTok are all social media platforms used for digital advertising."
+            },
+            {
+                q: "A local chip shop wanting to advertise its new menu would most likely use:",
+                opts: [
+                    "a leaflet drop through letter boxes",
+                    "nationwide television advertising",
+                    "national radio advertising at peak times",
+                    "a glossy magazine advertising campaign"
+                ],
+                ans: 0,
+                explain: "Correct answer: A. A local chip shop only needs to reach people in its immediate geographical area. Nationwide TV or radio would be far too expensive and reach millions of people who live too far away to ever visit."
+            },
+            {
+                q: "A business wanting to let consumers try a small sample of its new cheese in a supermarket would be said to be using:",
+                opts: [
+                    "loss leaders",
+                    "promotional advertising",
+                    "a promotion campaign",
+                    "point-of-sale promotion"
+                ],
+                ans: 3,
+                explain: "Correct answer: D. Free samples given in the store where the product is sold are a form of Point of Sale promotion, designed to encourage an immediate purchase."
+            },
+            {
+                q: "Which of the following is a benefit to a business of advertising on local radio?",
+                opts: [
+                    "Detailed financial information can be included",
+                    "Can target a specific geographical area",
+                    "Free samples can be given out with the advertisement",
+                    "The product can be seen and demonstrated visually"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. Local radio broadcasts to a specific town or county, allowing local businesses to target a specific geographical area very cost-effectively. Options A, C, and D are impossible on radio."
+            },
+            {
+                q: "What is a major disadvantage to a business of using social media to promote its products?",
+                opts: [
+                    "It is the most expensive form of advertising",
+                    "It can only reach people in a local town",
+                    "Customers can easily skip or ignore the adverts",
+                    "It is completely unregulated by law"
+                ],
+                ans: 2,
+                explain: "Correct answer: C. While social media is cheap and highly targeted, users often scroll past or use ad-blockers, making it easy for the promotion to be ignored."
+            },
+            {
+                q: "Sainsbury's uses television to advertise its products. What is an advantage of this?",
+                opts: [
+                    "It allows them to give out free samples to viewers",
+                    "It is the cheapest method of advertising available",
+                    "It uses high-impact audio and visuals to reach millions of mass-market consumers",
+                    "It guarantees that every viewer will visit the store"
+                ],
+                ans: 2,
+                explain: "Correct answer: C. TV is very expensive, but it offers unparalleled reach (millions of viewers) and the ability to combine moving images, colour, and sound to demonstrate products."
+            },
+            {
+                q: "Which point of sale promotion involves reducing prices specifically to clear out old stock?",
+                opts: [
+                    "Loss leaders",
+                    "Competitions",
+                    "Price reductions (Sales)",
+                    "Free samples"
+                ],
+                ans: 2,
+                explain: "Correct answer: C. Price reductions (like January sales) are heavily used by clothing retailers to get rid of last season's stock to make room for new items."
+            },
+            {
+                q: "Walkers Crisps runs a prize competition on the back of its Quavers packaging. What is the main business advantage of this?",
+                opts: [
+                    "It targets people who have never eaten crisps before",
+                    "It guarantees the crisps taste better",
+                    "It reduces the cost of manufacturing the crisps",
+                    "It encourages existing customers to make large or repeat purchases for extra entries"
+                ],
+                ans: 3,
+                explain: "Correct answer: D. Competitions on packaging encourage people who already buy the product to buy it *more often* in the hopes of winning the prize, driving up sales volume."
+            },
+            {
+                q: "A company that sells highly specialised, expensive diving equipment wants to advertise. Which media is most appropriate?",
+                opts: [
+                    "National television during a soap opera",
+                    "A local newspaper",
+                    "A specialist scuba-diving and watersports magazine",
+                    "A loss leader promotion in a supermarket"
+                ],
+                ans: 2,
+                explain: "Correct answer: C. Specialist magazines allow a business to target a very specific, niche audience directly, meaning they don't waste money advertising to the general public who do not dive."
+            },
+            {
+                q: "Boohoo.com targets 16-24 year olds who are fashion conscious. Which advertising media is best for this target market?",
+                opts: [
+                    "National radio",
+                    "Social media (Instagram/TikTok)",
+                    "Local newspapers",
+                    "Television soap operas"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. 16-24 year olds are heavy users of social media. Advertising there allows Boohoo to target their core demographic accurately and link them directly to their online store."
+            },
+            {
+                q: "Which of the following is NOT a key aim of promotion?",
+                opts: [
+                    "To inform customers about a new product",
+                    "To create or change the brand's image",
+                    "To reduce the costs of manufacturing",
+                    "To maintain or increase sales"
+                ],
+                ans: 2,
+                explain: "Correct answer: C. Promotion is a marketing function and involves spending money to increase sales or awareness. It has absolutely nothing to do with reducing the operational costs of manufacturing a product."
+            }
+        ];
+
+        const matchData = [
+            { term: "Promotion", def: "Informing customers about a product or service and persuading them to buy it." },
+            { term: "Point of Sale Promotion", def: "Offers available at the exact time and place of purchase, designed to tempt an immediate sale." },
+            { term: "Advertising Media", def: "The various communication channels used to broadcast a message to a wider audience (e.g., TV, Radio, Social Media)." },
+            { term: "Loss Leader", def: "A product sold at a financial loss to attract customers into a store, hoping they buy other profitable items." },
+            { term: "Free Sample", def: "Giving away a small amount of a product (like food or cosmetics) to persuade consumers to try it." },
+            { term: "Price Reduction", def: "Lowering the price of an item temporarily, often used to sell off old or seasonal stock." },
+            { term: "Prize Competition", def: "Entering buyers into a draw to win a prize, which encourages repeat purchases." },
+            { term: "Television Advertising", def: "An expensive media that reaches millions of people using high-impact moving images and sound." },
+            { term: "Print Media", def: "Advertising in physical formats like national/local newspapers and glossy magazines." },
+            { term: "Local Radio", def: "An audio-only media that allows a business to target a specific geographical area cheaply." },
+            { term: "Social Media", def: "Digital platforms like Facebook and Instagram that allow highly targeted advertising to specific age groups and interests." },
+            { term: "Target Market", def: "The specific group of consumers a business wants to reach, which dictates the choice of advertising media." }
+        ];
+
+        const fibData = [
+            {
+                display: "Promotion is about _____ customers about what is for sale and _____ them to buy.",
+                blanks: { B1: "informing", B2: "persuading" }
+            },
+            {
+                display: "A _____ leader is a product deliberately sold at a _____ to attract customers into a store.",
+                blanks: { B1: "loss", B2: "loss" }
+            },
+            {
+                display: "Point of _____ promotions include price reductions, competitions, and free _____.",
+                blanks: { B1: "sale", B2: "samples" }
+            },
+            {
+                display: "Television advertising has high _____ impact and reaches millions of people, but it is the most _____ form of media.",
+                blanks: { B1: "visual", B2: "expensive" }
+            },
+            {
+                display: "A local chip shop would use a _____ drop or local _____ to advertise to its specific geographical area.",
+                blanks: { B1: "leaflet", B2: "radio" }
+            },
+            {
+                display: "ASOS and Boohoo target 16-24 year olds, so they use _____ media to reach their target _____.",
+                blanks: { B1: "social", B2: "market" }
+            },
+            {
+                display: "A famous perfume brand launching a new fragrance would use glossy fashion _____ to maintain its premium brand _____.",
+                blanks: { B1: "magazines", B2: "image" }
+            },
+            {
+                display: "Price _____ are often used by clothing retailers in January to clear out old _____ and make room for spring lines.",
+                blanks: { B1: "reductions", B2: "stock" }
+            },
+            {
+                display: "A key aim of promotion is to keep a business ahead of its _____, ensuring they do not steal _____ share.",
+                blanks: { B1: "competitors", B2: "market" }
+            },
+            {
+                display: "A prize _____ printed on the back of a cereal box encourages customers to make _____ purchases to gain more entries.",
+                blanks: { B1: "competition", B2: "repeat" }
+            },
+            {
+                display: "Price comparison sites like Go Compare use _____ advertising because their service is aimed at a mass market of all UK _____.",
+                blanks: { B1: "television", B2: "households" }
+            },
+            {
+                display: "One disadvantage of social media advertising is that users can easily _____ or ignore the adverts on their _____.",
+                blanks: { B1: "skip", B2: "screen" }
+            }
+        ];
+
+        const fibWords = [
+            "informing", "persuading", "loss", "sale", "samples", "visual", "expensive",
+            "leaflet", "radio", "social", "market", "magazines", "image", "reductions",
+            "stock", "competitors", "market", "competition", "repeat", "television",
+            "households", "skip", "screen", "profit", "customers", "national"
+        ];
+
+        const tfData = [
+            {
+                statement: "A loss leader is meant to make a loss to keep the business in the lead.",
+                answer: false,
+                explanation: "FALSE. A loss leader is a product sold at a financial loss to attract customers into a store, in the hope they will buy other, fully-priced profitable items while there."
+            },
+            {
+                statement: "Competitions are only used by supermarkets to promote the food they sell.",
+                answer: false,
+                explanation: "FALSE. Competitions can be used by any business (e.g., car dealerships, clothing brands, cereal manufacturers) to encourage purchases."
+            },
+            {
+                statement: "Price reductions are often seen in shops in January.",
+                answer: true,
+                explanation: "TRUE. January sales are a classic example of using price reductions as a point of sale promotion to clear out old winter stock."
+            },
+            {
+                statement: "Free samples are often seen in products such as cosmetics or food.",
+                answer: true,
+                explanation: "TRUE. Free samples persuade customers to try a product risk-free, which is highly effective for items where scent or taste is the primary selling point."
+            },
+            {
+                statement: "Supermarkets use loss leaders to encourage shoppers to visit their stores.",
+                answer: true,
+                explanation: "TRUE. Supermarkets might sell bread or milk at a loss, knowing that a customer will likely also buy meat, vegetables, and treats that have a high profit margin."
+            },
+            {
+                statement: "Promotion is mainly concerned with making sure that old stock is sold at the best possible price.",
+                answer: false,
+                explanation: "FALSE. While price reductions clear old stock, the main aims of promotion are much wider: informing customers of new products, increasing sales, and building brand image."
+            },
+            {
+                statement: "Not all businesses use promotion to help them sell products and services.",
+                answer: false,
+                explanation: "FALSE. Virtually every business must use some form of promotion (even if it's just a shop sign or word of mouth) to make customers aware they exist."
+            },
+            {
+                statement: "Local radio is an excellent way for a national supermarket chain to reach the whole UK.",
+                answer: false,
+                explanation: "FALSE. Local radio only reaches a small geographical area. A national supermarket would use national television or national newspapers to reach the whole UK."
+            },
+            {
+                statement: "Social media allows a business to target its advertising very precisely based on user age and interests.",
+                answer: true,
+                explanation: "TRUE. Platforms like Instagram and Facebook collect massive amounts of user data, allowing businesses (like Boohoo) to target exact demographics like 16-24 year olds."
+            },
+            {
+                statement: "One advantage of print media (like magazines) is that they can include physical scent samples or glossy images.",
+                answer: true,
+                explanation: "TRUE. Glossy magazines are perfect for high-end fashion and perfume brands because they support a premium image and can even include physical 'rub and sniff' samples."
+            },
+            {
+                statement: "A major disadvantage of television advertising is that it lacks visual impact.",
+                answer: false,
+                explanation: "FALSE. Television has massive visual and audio impact. It is *radio* that lacks visual impact."
+            },
+            {
+                statement: "A business should choose its advertising media based on where its target market is most likely to see it.",
+                answer: true,
+                explanation: "TRUE. A business must match its media to its market. You wouldn't advertise skateboards in a retirement magazine, or luxury cars on a budget leaflet."
+            },
+            {
+                statement: "Social media advertising is generally much more expensive than national television advertising.",
+                answer: false,
+                explanation: "FALSE. National TV is usually the most expensive form of advertising, costing millions. Social media can be done on a much smaller, highly targeted budget."
+            },
+            {
+                statement: "Giving away 30% extra free in a bottle of cola is an example of point of sale promotion.",
+                answer: true,
+                explanation: "TRUE. This acts like a free sample/bonus that tempts the customer to choose that specific bottle off the shelf over a rival brand."
+            }
+        ];
+
+        const miscData = [
+            {
+                wrong: "Students often confuse 'Point of Sale Promotion' with 'Advertising Media'.",
+                correct: "Point of Sale is the specific offer at the shop/checkout to force a quick sale (e.g. BOGOF, 50% off, free sample). Advertising Media is the channel used to broadcast a message to the wider world (e.g. TV, Radio, Social Media)."
+            },
+            {
+                wrong: "Students think 'Loss Leader' just means the business is losing money generally.",
+                correct: "A Loss Leader is a highly specific strategy: deliberately pricing ONE specific item below its cost to make, acting as bait to draw customers into the store so they buy OTHER profitable items."
+            },
+            {
+                wrong: "When asked for an advantage of a specific media (e.g. TV), students give a generic advantage of promotion (e.g. 'it gets more customers').",
+                correct: "You must give an advantage UNIQUE to that media. For TV: 'It provides moving images and sound to demonstrate the product'. For Local Radio: 'It targets a specific geographical town cheaply'."
+            },
+            {
+                wrong: "Students suggest TV advertising for small, local businesses (like a single café).",
+                correct: "TV advertising is massively expensive and reaches a national audience. It is completely inappropriate for a single local café. Always match the scale of the media to the scale of the business."
+            }
+        ];
+
+        const examTips = [
+            {
+                type: "State / Identify (1 mark)",
+                title: "Naming Advertising Media",
+                content: `<p>If asked to state an advertising media, be specific. "Internet" is a bit vague — use "Social media" or "Company Website".</p>
+      <p><strong>Accepted Media:</strong> Television / Local or National Radio / Social Media / Print Media (Newspapers/Magazines) / Leaflets / Billboards.</p>`,
+                pills: ["kn"]
+            },
+            {
+                type: "Analyse (3 marks)",
+                title: "Analysing a Media Choice",
+                content: `<p>Structure: Identify a feature of the media (U) &rarr; Apply to the business scenario (APP) &rarr; State the business impact (AN).</p>
+      <p><strong>Example (Sainsbury's using TV):</strong> "TV allows the use of moving images and sound to demonstrate products (U). Sainsbury's can use this to visually show the high quality of its food ranges to middle-income earners (APP), which will increase brand awareness and boost total sales revenue (AN)."</p>`,
+                pills: ["un", "app", "an"]
+            },
+            {
+                type: "Evaluate (7 marks)",
+                title: "Evaluating Promotional Methods",
+                content: `<p>When asked to recommend or evaluate a promotional method (like the Boohoo social media question or Walkers Newspaper vs Competition question), you must weigh the <strong>Pros and Cons</strong>.</p>
+      <ul>
+      <li><strong>Cost:</strong> Is the business a small sole trader or a massive Plc? Can they afford TV?</li>
+      <li><strong>Target Market:</strong> Where does the target market look? (e.g., 16-24 year olds look at TikTok, not the local newspaper).</li>
+      <li><strong>Reach:</strong> Do they need national reach or just local town reach?</li>
+      </ul>
+      <p>Always justify your final decision using the specific context of the case study business.</p>`,
+                pills: ["app", "an", "eval"]
+            }
+        ];
+
+        const flashcards = [
+            { term: "Promotion", def: "The process of communicating with customers to inform them about a product and persuade them to buy it." },
+            { term: "Point of Sale Promotion", def: "Offers or displays placed exactly where the product is sold to encourage an immediate, impulse purchase (e.g., BOGOF, sales, samples)." },
+            { term: "Loss Leader", def: "An item sold at a deliberate financial loss to act as bait, drawing customers into the store to buy other profitable goods." },
+            { term: "Advertising Media", def: "The channels through which advertising is broadcast (e.g., TV, radio, print, social media)." },
+            { term: "Social Media Advertising", def: "Using platforms like Instagram or Facebook. Pro: Highly targeted to specific ages/interests. Con: Users easily skip or ignore ads." },
+            { term: "Television Advertising", def: "Pro: Reaches millions of people globally/nationally with massive visual and audio impact. Con: Extremely expensive to produce and air." },
+            { term: "Print Media (Magazines)", def: "Pro: Can target niche markets (e.g., fishing, fashion) and supports a high-quality, glossy brand image. Con: Readership numbers are declining." },
+            { term: "Local Radio Advertising", def: "Pro: Cost-effective way to target a specific town or geographic region. Con: Audio only; cannot visually demonstrate the product." }
+        ];
+
+        const examQuestions = [
+            {
+                num: "Q1",
+                marks: 6,
+                type: "written",
+                caseStudy: "Walkers Snack Foods Ltd manufactures well-known snacks... The marketing department is considering a new promotion method for the Quavers brand and is considering either:\n1) advertising in national newspapers for a four-week period, or\n2) running a prize competition.",
+                question: "Analyse one advantage for Walkers of each promotion method. [6 marks]",
+                hint: "This is 3 marks for the newspaper and 3 marks for the competition. Understand the benefit of the specific method -> Apply to Walkers/crisps -> Analyze business impact.",
+                starter: "National Newspapers:\nAn advantage of national newspapers is that they have a huge readership... (U)\nThis means Walkers can reach people who might not currently buy Quavers... (APP)\nThis will lead to... (AN)\n\nPrize Competition:\nAn advantage of a competition is that it encourages repeat purchases... (U)\nBecause customers will buy more bags of Quavers to gain extra entries... (APP)\nThis boosts Walkers'... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 6 marks</h5><p><strong>National Newspapers (3 marks):</strong><br>Understanding (1): Large readership / reaches a wide mass-market audience.<br>Application (1): Applies to Walkers aim to maintain 50% market share / selling crisps.<br>Analysis (1): Increases brand awareness leading to higher sales revenue.</p><p><strong>Prize Competition (3 marks):</strong><br>Understanding (1): Encourages multiple/repeat purchases to get more entries.<br>Application (1): Applies to buyers of Quavers/snacks.<br>Analysis (1): Increases sales volume and boosts profitability.</p></div>`,
+                modelAnswer: "**Advertising in national newspapers:** An advantage of national newspapers is that they have a massive daily readership across the whole country (U). By advertising here, Walkers can reach adults and families who might not usually think about buying Quavers (APP). This increases brand awareness among a new audience, leading to an increase in total sales and helping Walkers maintain its 50% market share (AN).\n\n**Running a prize competition:** An advantage of a prize competition is that it directly encourages bulk buying and repeat purchases (U). If Walkers prints the competition entry on the back of the Quavers packets, existing customers will actively buy more bags than usual just to gain extra chances to win the prize (APP). This rapid increase in sales volume will directly boost Walkers' revenue and profitability (AN)."
+            },
+            {
+                num: "Q2",
+                marks: 3,
+                type: "written",
+                caseStudy: "Walkers Snack Foods Ltd is deciding between national newspapers and a prize competition to promote Quavers.",
+                question: "Recommend whether advertising in national newspapers or a prize competition would be the most appropriate promotion method for Walkers to use. Give a reason for your answer. [3 marks]",
+                hint: "Make a decision. Then justify it by COMPARING the two methods based on the context of Walkers.",
+                starter: "I recommend Walkers uses a prize competition... (1)\nThis is more appropriate because...",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks</h5><ul><li><strong>Decision (1 mark):</strong> Select either method.</li><li><strong>Justification (2 marks):</strong> A contextual, comparative justification. E.g. A prize competition is better because it targets people already in the snack aisle to buy more, whereas newspapers target an older demographic who are less likely to buy crisps.</li></ul></div>`,
+                modelAnswer: "Walkers should run a prize competition (1). This is a more appropriate method because it acts as a direct point of sale promotion that tempts existing customers in supermarkets to buy more bags of Quavers immediately, whereas newspaper advertising is very expensive and easily ignored by readers who are not actively shopping for snacks (+2)."
+            },
+            {
+                num: "Q3",
+                marks: 7,
+                type: "written",
+                caseStudy: "Go Compare & Compare the Market are price comparison websites... They earn their money through providing links to different insurance companies. The more links they can get, the more money they earn. Their target market is millions of households in the UK.",
+                question: "Evaluate whether Go Compare and Compare the Market should concentrate on using TV to promote their services. [7 marks]",
+                hint: "Weigh the pros and cons of TV for a MASS MARKET internet business. Pro: Huge reach. Con: Very expensive compared to digital/radio. Conclusion: Give a final justified judgement.",
+                starter: "An advantage of using TV is that it reaches millions of people... (U)\nBecause they target almost all UK households for insurance... (APP)\nThis massive reach will lead to... (AN)\n\nHowever, a disadvantage is that TV is the most expensive media... (U)\nThis could severely affect their... (AN)\n\nOverall, I think they should/should not concentrate on TV because... (EVAL)",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 7 marks (AO2x2, AO3ax2, AO3bx3)</h5><p><strong>Application:</strong> Linking to internet-based companies / millions of consumers / insurance links.<br><strong>Analysis:</strong> TV reaches millions resulting in high link clicks and massive income (pro). TV is expensive and might reduce profit margins if not enough people click (con).<br><strong>Evaluation:</strong> A justified decision based on the fact that no other media can match the sheer mass-market reach required for an insurance comparison site.</p></div>`,
+                modelAnswer: "An advantage of using television advertising is that it provides massive visual and audio impact to a nationwide audience (U). Because Go Compare and Compare the Market are looking for anyone in the UK who needs car or home insurance, their target market is essentially millions of regular households (APP). Television is the only media that can broadcast their catchy jingles and characters to millions of potential consumers simultaneously, driving massive traffic to their websites to click the insurance links, which rapidly increases their revenue (AN).\n\nHowever, a disadvantage of TV advertising is that it is the most expensive form of media to produce and air (U). Because they are internet-based businesses, they must spend millions on peak-time TV slots to maintain visibility (APP). This massive advertising cost acts as a huge expense that could lower their overall profit margins if the adverts do not result in enough website clicks (AN).\n\nOverall, I think they must continue to concentrate on using TV promotion (EVAL). While it is highly expensive, their entire business model relies on volume—getting as many people as possible to click their insurance links. The comparison market is extremely crowded, and if they stop advertising on TV, their rivals will dominate the airwaves and steal their mass-market customers. No other media provides the nationwide scale required for their survival (EVAL)."
+            },
+            {
+                num: "Q4",
+                marks: 6,
+                type: "written",
+                caseStudy: "ASOS is an online clothing retailer. They sell a large range of men's and women's clothing... ASOS has a target market of 16-24 year olds who are fashion conscious. It advertises on social media such as Facebook and Instagram to reach its target market.",
+                question: "Analyse the advantages and disadvantages to ASOS of using social media to advertise its products. [6 marks]",
+                hint: "This requires 1 advantage and 1 disadvantage. Identify the point -> Apply to ASOS (16-24 year olds/fashion) -> Analyze the business impact.",
+                starter: "One advantage of using social media is that it allows for highly targeted advertising... (U)\nBecause ASOS targets 16-24 year olds who are heavy users of Instagram... (APP)\nThis ensures marketing money is spent efficiently, increasing... (AN)\n\nA disadvantage of social media is that users can easily skip or block the ads... (U)\nIf young fashion shoppers scroll past the ASOS adverts... (APP)\nThis means the advertising spend is wasted, reducing... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 6 marks</h5><p><strong>Advantage (3 marks):</strong> Cheap/Targeted (U). Applied to 16-24 year olds/fashion (APP). Increases sales efficiently / direct link to buy (AN).<br><strong>Disadvantage (3 marks):</strong> Ads easily skipped/ignored or negative comments spread quickly (U). Applied to ASOS online store (APP). Wasted advertising budget / damaged brand reputation (AN).</p></div>`,
+                modelAnswer: "One advantage of using social media is that it allows for highly precise, targeted marketing (U). Because ASOS's specific target market is 16-24 year olds who are fashion conscious, platforms like Instagram are perfect as they are dominated by this age group (APP). This means ASOS does not waste money advertising to older demographics who won't buy their clothes, leading to a much higher return on investment and increased sales revenue (AN).\n\nHowever, a disadvantage of social media is that advertisements can be easily skipped, ignored, or blocked by users (U). Many 16-24 year olds quickly scroll past sponsored posts when browsing their social feeds for fashion (APP). If the adverts do not grab their attention instantly, the money spent on the social media campaign is wasted, reducing ASOS's overall profitability (AN)."
+            },
+            {
+                num: "Q5",
+                marks: 3,
+                type: "written",
+                caseStudy: "Boohoo.com uses social media to promote its products, selling clothing to 16-24 year olds. Boohoo has also introduced apps for smartphones and tablets that allow customers to browse and buy products very easily.",
+                question: "Analyse one disadvantage to a customer of Boohoo's distribution channel (online only). [3 marks]",
+                hint: "This question asks about the CUSTOMER's disadvantage of an ONLINE ONLY store. Think about trying things on or returning them.",
+                starter: "A disadvantage of Boohoo's online distribution channel is that the customer cannot try the product before buying... (U)\nBecause they only sell clothes via apps and websites... (APP)\nThis means the customer might... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks</h5><ul><li><strong>Understanding (1 mark):</strong> No way to 'try' the product / requires internet / difficult to return.</li><li><strong>Application (1 mark):</strong> Applies to clothes / smartphone apps.</li><li><strong>Analysis (1 mark):</strong> The customer might be disappointed / has to spend time sending clothes back.</li></ul><p><em>Note: This question specifically asks for an impact on the CUSTOMER, not the business.</em></p></div>`,
+                modelAnswer: "A major disadvantage of Boohoo's digital distribution channel is that there is no physical way for the customer to try the product before purchasing it (U). This is particularly difficult when buying fashion clothing, as sizes and fits vary greatly, and they can only look at pictures on the smartphone app (APP). This means the customer may be disappointed when the item arrives and will have to suffer the inconvenience and time of posting the clothes back for a return (AN)."
+            },
+            {
+                num: "Q6",
+                marks: 6,
+                type: "written",
+                caseStudy: "Sainsbury's is one of the UK's largest supermarket chains... The supermarket industry is very competitive, and marketing promotions are important... Sainsbury's spends a large proportion of its marketing budget on television advertising.",
+                question: "Explain three advantages for Sainsbury's of using television to advertise its products. [6 marks]",
+                hint: "Provide 3 separate advantages. Each one must have 1 mark for Understanding the benefit of TV, and 1 mark for Applying it to Sainsbury's. No analysis is required for 'Explain' questions.",
+                starter: "Advantage 1: TV uses visual moving images... (U) This allows Sainsbury's to show how fresh its food products look... (APP)\nAdvantage 2: ...",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme — 6 marks (3 x 2 marks)</h5><p>For each of the 3 advantages: 1 mark for understanding a feature of TV, 1 mark for application to Sainsbury's.<br><strong>Acceptable points:</strong> Visual/Audio impact, Reaches massive mass-market audience, Can adapt for different seasons (e.g., Christmas food).</p></div>`,
+                modelAnswer: "1. Television relies on high-impact visual moving images and sound (U). This is advantageous because Sainsbury's can visually demonstrate how high-quality and fresh its food product ranges look to tempt viewers into the supermarket (APP).\n\n2. TV advertising reaches a massive, nationwide audience (U). Because Sainsbury's is one of the UK's largest supermarket chains targeting middle-to-high income earners, TV ensures their adverts are seen by millions of potential shoppers across the entire country (APP).\n\n3. Television allows for adaptable, campaign-style advertising throughout the year (U). For example, Sainsbury's can easily change its television adverts to focus on specific seasonal food events, such as turkeys for Christmas or BBQ food in the summer, keeping the promotion highly relevant (APP)."
+            },
+            {
+                num: "Q7",
+                marks: 1,
+                type: "mcq",
+                question: "Which of the following is not a benefit to a business of using television advertising to promote its products?",
+                options: [
+                    "Celebrity endorsements can be used",
+                    "Financial risks are large",
+                    "Millions of potential customers can be reached",
+                    "Sound and moving images are very effective"
+                ],
+                answer: 1,
+                hint: "A 'benefit' is a good thing. Which of these is a BAD thing (a disadvantage)?",
+                starter: "Large financial risks are a...",
+                markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p><strong>Correct answer: B</strong></p><p>Large financial risks (due to the extremely high cost of TV advertising) are a major disadvantage, not a benefit.</p></div>`,
+                modelAnswer: ""
+            }
+        ];
+
+    </script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
