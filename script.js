@@ -6,19 +6,32 @@ function switchTab(id, btn) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('tab-' + id).classList.add('active');
     btn.classList.add('active');
+
+    // NEW: Show the hint if they switch to Key Learning or Exam Tips
+    if (id === 'learn' || id === 'examtips') {
+        showDoubleClickHint();
+    }
 }
+
 
 // ══════════════════════════════════════
 //  BUILD LEARN
 // ══════════════════════════════════════
 function buildLearn() {
     const grid = document.getElementById('topicGrid');
-    if (!grid) return; // 🛡️ Safety check
+    if (!grid) return;
+
     topics.forEach(t => {
         const card = document.createElement('div');
         card.className = 'topic-card';
         card.innerHTML = `<span class="tag">${t.tag}</span><h3>${t.title}</h3><span class="toggle-icon">+</span><div class="topic-content">${t.content}</div>`;
-        card.addEventListener('click', () => card.classList.toggle('open'));
+
+        // We only listen for the double-click now. No more single-click timers!
+        card.addEventListener('dblclick', () => {
+            card.classList.toggle('open');
+            window.getSelection().removeAllRanges();
+        });
+
         grid.appendChild(card);
     });
 }
@@ -176,11 +189,31 @@ function buildMisc() {
 // ══════════════════════════════════════
 function buildTips() {
     const grid = document.getElementById('tipsGrid');
-    if (!grid) return; // 🛡️ Safety check
+    if (!grid) return;
+
     examTips.forEach(t => {
-        const card = document.createElement('div'); card.className = 'tip-card';
+        const card = document.createElement('div');
+        card.className = 'tip-card';
+        card.style.cursor = 'pointer';
+
         const pills = t.pills.map(p => `<span class="mark-pill ${p}">${p.toUpperCase()}</span>`).join('');
-        card.innerHTML = `<div class="tip-type">${t.type}</div><h4>${t.title}</h4><p>${t.content}</p>${t.pills.length ? `<div class="mark-breakdown">${pills}</div>` : ''}`;
+
+        card.innerHTML = `
+            <span class="toggle-icon" style="position:absolute; right:20px; top:20px; color:#5a6e7f; font-size:18px; transition:transform 0.3s;">+</span>
+            <div class="tip-type">${t.type}</div>
+            <h4>${t.title}</h4>
+            <div class="tip-content">
+                ${t.content}
+                ${t.pills.length ? `<div class="mark-breakdown">${pills}</div>` : ''}
+            </div>
+        `;
+
+        // Just the double-click logic remains
+        card.addEventListener('dblclick', () => {
+            card.classList.toggle('open');
+            window.getSelection().removeAllRanges();
+        });
+
         grid.appendChild(card);
     });
 }
@@ -430,6 +463,60 @@ function togglePop(qi, type) {
 }
 
 // ══════════════════════════════════════
+//  SCROLL TO TOP BUTTON
+// ══════════════════════════════════════
+function initScrollToTop() {
+    // 1. Create the button element
+    const scrollBtn = document.createElement('button');
+    scrollBtn.innerHTML = '↑ Top';
+    scrollBtn.className = 'scroll-to-top';
+    document.body.appendChild(scrollBtn);
+
+    // 2. Show/hide the button based on how far the user scrolls
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollBtn.classList.add('visible');
+        } else {
+            scrollBtn.classList.remove('visible');
+        }
+    });
+
+    // 3. Smoothly scroll to top when clicked
+    scrollBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+// ══════════════════════════════════════
+//  TOAST NOTIFICATION LOGIC
+// ══════════════════════════════════════
+let toastEl = null;
+let toastTimeout = null;
+
+function showDoubleClickHint() {
+    // Create the notification element if it doesn't exist
+    if (!toastEl) {
+        toastEl = document.createElement('div');
+        toastEl.className = 'toast-hint';
+        toastEl.innerHTML = `💡 <strong>Hint:</strong> Double-tap to open or close details.`;
+        document.body.appendChild(toastEl);
+    }
+
+    // Show it
+    toastEl.classList.add('show');
+
+    // Reset the timer so it doesn't hide early if they keep clicking
+    if (toastTimeout) clearTimeout(toastTimeout);
+
+    // Hide it automatically after 3 seconds
+    toastTimeout = setTimeout(() => {
+        toastEl.classList.remove('show');
+    }, 3000);
+}
+
+// ══════════════════════════════════════
 //  SAFE INITIALIZATION
 // ══════════════════════════════════════
 document.addEventListener("DOMContentLoaded", () => {
@@ -443,4 +530,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof flashcards !== 'undefined') initFlashcards();
     if (typeof tfData !== 'undefined') buildTF();
     if (typeof examQuestions !== 'undefined') buildExamPractice();
+    initScrollToTop();
+    // NEW: Show the hint shortly after the page loads 
+    // (Since Key Learning is the default open tab)
+    setTimeout(() => {
+        showDoubleClickHint();
+    }, 800);
 });

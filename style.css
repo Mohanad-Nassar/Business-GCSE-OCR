@@ -12,7 +12,7 @@
      --card-bg: #fffcf6;
  }
 
- .case-img{
+ .case-img {
      display: block;
      width: 100%;
      max-width: 400px;
@@ -114,6 +114,11 @@
      border-bottom: 2px solid var(--accent);
      padding: 0 40px;
      scrollbar-width: none;
+
+     /* --- NEW CODE TO MAKE IT STICKY --- */
+     position: sticky;
+     top: 0;
+     z-index: 100;
  }
 
  .tab-bar::-webkit-scrollbar {
@@ -692,16 +697,18 @@
      border-color: #4a90a4;
      color: #1a5060;
  }
+
  .mark-pill.un {
      background: #f0f8e8;
      border-color: #5a9a40;
      color: #2a5a18;
  }
-  .mark-pill.U {
-      background: #f0f8e8;
-      border-color: #5a9a40;
-      color: #2a5a18;
-  }
+
+ .mark-pill.U {
+     background: #f0f8e8;
+     border-color: #5a9a40;
+     color: #2a5a18;
+ }
 
  .mark-pill.app {
      background: #fdf5df;
@@ -1221,4 +1228,209 @@
      .ep-btn-row {
          flex-direction: column;
      }
+ }
+
+ /* Case Study Highlight Box */
+ .case-study-box {
+     background: var(--cream);
+     border: 1px solid var(--border);
+     border-left: 4px solid var(--accent);
+     padding: 20px;
+     margin: 24px 0;
+     border-radius: 6px;
+ }
+
+ .case-study-box h4 {
+     margin-top: 0;
+     margin-bottom: 12px;
+     color: var(--accent);
+     font-size: 1.1rem;
+ }
+
+ .case-study-box p:last-child {
+     margin-bottom: 0;
+ }
+
+ /* Formula Highlight Box */
+ .formula-box {
+     background: var(--card-bg);
+     border: 2px dashed var(--teal);
+     padding: 20px;
+     margin: 24px 0;
+     text-align: center;
+     font-family: 'DM Mono', monospace;
+     /* Matches your marks-section font */
+     font-size: 1.1rem;
+     color: var(--ink);
+     border-radius: 8px;
+     box-shadow: inset 0 0 10px rgba(26, 107, 107, 0.05);
+ }
+
+ /* Exam Tips Folding CSS */
+ .tip-card {
+     position: relative;
+     /* Keeps the + icon positioned correctly */
+     transition: box-shadow .2s, transform .2s;
+ }
+
+ .tip-content {
+     display: none;
+     margin-top: 12px;
+     border-top: 1px solid var(--border);
+     padding-top: 12px;
+ }
+
+ .tip-card.open .tip-content {
+     display: block;
+ }
+
+ .tip-card.open .toggle-icon {
+     transform: rotate(45deg) !important;
+ }
+
+
+ /* Scroll to Top Button */
+ .scroll-to-top {
+     position: fixed;
+     bottom: 30px;
+     right: 30px;
+     background: var(--ink);
+     color: var(--paper);
+     border: none;
+     border-radius: 50px;
+     padding: 12px 20px;
+     font-family: 'DM Mono', monospace;
+     font-size: 13px;
+     font-weight: 600;
+     cursor: pointer;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+     z-index: 9999;
+
+     /* Hidden state */
+     opacity: 0;
+     visibility: hidden;
+     transform: translateY(20px);
+     transition: all 0.3s ease;
+ }
+
+ /* Visible state (toggled by JS) */
+ .scroll-to-top.visible {
+     opacity: 1;
+     visibility: visible;
+     transform: translateY(0);
+ }
+
+ .scroll-to-top:hover {
+     background: var(--accent);
+ }
+
+ /* Make it slightly smaller on mobile */
+ @media(max-width: 640px) {
+     .scroll-to-top {
+         bottom: 20px;
+         right: 20px;
+         padding: 10px 16px;
+         font-size: 12px;
+     }
+ }
+
+ /* Toast Notification for Double-Click Hint */
+ .toast-hint {
+     position: fixed;
+     bottom: 30px;
+     left: 30px;
+     background: var(--ink);
+     color: var(--paper);
+     padding: 14px 20px;
+     border-radius: 8px;
+     font-family: 'DM Sans', sans-serif;
+     font-size: 13.5px;
+     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+     z-index: 10000;
+     pointer-events: none;
+     /* Lets users click right through it */
+
+     /* Hidden state */
+     opacity: 0;
+     visibility: hidden;
+     transform: translateY(20px);
+     transition: all 0.3s ease;
+ }
+
+ .toast-hint.show {
+     opacity: 1;
+     visibility: visible;
+     transform: translateY(0);
+ }
+
+ .toast-hint strong {
+     color: var(--gold);
+ }
+
+ @media(max-width: 640px) {
+     .toast-hint {
+         bottom: 20px;
+         left: 20px;
+         right: 20px;
+         /* Makes it span the width of the screen on mobile */
+         text-align: center;
+     }
+ }
+
+ /* ── Case Study Tables ── */
+ .case-table {
+     width: 100%;
+     max-width: 600px;
+     margin: 4px auto;
+     border-collapse: collapse;
+     font-size: 0.9rem;
+     text-align: center;
+     display: table;
+ }
+
+ .case-table caption {
+     font-weight: 600;
+     font-size: 0.85rem;
+     margin-bottom: 4px;
+     color: #444;
+     text-align: center;
+     caption-side: top;
+ }
+
+ .case-table th {
+     background-color: var(--primary, #1a5276);
+     color: #ffffff;
+     padding: 8px 12px;
+     border: 1px solid #ccc;
+     font-weight: 600;
+     text-align: center;
+ }
+
+ .case-table td {
+     padding: 7px 12px;
+     border: 1px solid #ccc;
+     text-align: center;
+     background-color: #fff;
+ }
+
+ .case-table tr:nth-child(even) td {
+     background-color: #f4f6f8;
+ }
+
+ /* ── Text that introduces a second table ── */
+ .table-intro {
+     margin: 6px 0 2px 0;
+     text-align: center;
+     font-size: 0.95rem;
+ }
+
+ /* ── Case study wrapper — must be a div, not a p ── */
+ .case-study-text {
+     line-height: 1.6;
+ }
+
+ .case-study-text br+table,
+ .case-study-text table {
+     margin-top: 4px;
+     margin-bottom: 4px;
  }

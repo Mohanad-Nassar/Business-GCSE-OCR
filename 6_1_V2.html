@@ -2,219 +2,223 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unit 6.1 — Ethical & Environmental Considerations – Interactive Study Guide</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 6.1 — Ethical & Environmental Considerations – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <header>
-    <div>
-      <div class="badge">OCR GCSE Business — Component 2</div>
-      <h1>6.1 — Ethical & Environmental Considerations</h1>
-      <p>Interactive revision guide · All key content + full exam practice</p>
-    </div>
-    <a href="index.html" class="home-link">← 🏡 Home</a>
-
-  </header>
-
-  <nav class="tab-bar" id="tabBar">
-    <button class="tab-btn active" onclick="switchTab('learn',this)">📚 Key Learning</button>
-    <button class="tab-btn" onclick="switchTab('mcq',this)">❓ MCQ Quiz</button>
-    <button class="tab-btn" onclick="switchTab('matching',this)">🔗 Matching</button>
-    <button class="tab-btn" onclick="switchTab('fib',this)">✏️ Fill the Blanks</button>
-    <button class="tab-btn" onclick="switchTab('misconceptions',this)">⚠️ Misconceptions</button>
-    <button class="tab-btn" onclick="switchTab('examtips',this)">🎯 Exam Tips</button>
-    <button class="tab-btn" onclick="switchTab('flashcards',this)">🃏 Flashcards</button>
-    <button class="tab-btn" onclick="switchTab('truefalse',this)">✅ True / False</button>
-    <button class="tab-btn" onclick="switchTab('exampractice',this)">📝 Exam Practice</button>
-  </nav>
-
-  <main>
-
-    <div class="tab-panel active" id="tab-learn">
-      <h2 class="section-title">Key Learning Topics</h2>
-      <p class="section-sub">Click any card to expand detailed notes.</p>
-      <div class="topic-grid" id="topicGrid"></div>
-    </div>
-
-    <div class="tab-panel" id="tab-mcq">
-      <h2 class="section-title">Multiple Choice Questions</h2>
-      <p class="section-sub">Select an answer to reveal instant feedback.</p>
-      <div class="score-bar">
+    <header>
         <div>
-          <div class="score-num" id="mcqScore">0</div>
-          <div style="font-size:12px;color:var(--mid)">correct answers</div>
+            <div class="badge">OCR GCSE Business — Component 2</div>
+            <h1>6.1 — Ethical & Environmental Considerations</h1>
+            <p>Interactive revision guide · All key content + full exam practice</p>
         </div>
-        <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
-        <button class="reset-btn" onclick="resetMCQ()">RESET</button>
-      </div>
-      <div class="quiz-wrap" id="mcqWrap"></div>
-    </div>
+        <a href="index.html" class="home-link">← 🏡 Home</a>
 
-    <div class="tab-panel" id="tab-matching">
-      <h2 class="section-title">Matching Activity</h2>
-      <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
-      <div style="margin-bottom:16px;">
-        <div class="score-bar">
-          <div>
-            <div class="score-num" id="matchScore">0</div>
-            <div style="font-size:12px;color:var(--mid)">matched</div>
-          </div>
-          <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
-          <button class="reset-btn" onclick="resetMatch()">RESET</button>
-        </div>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
-          <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
-              style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span>
-            First attempt correct</span>
-          <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
-              style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span>
-            Correct after mistake</span>
-          <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
-              style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span>
-            Wrong — try again</span>
-        </div>
-      </div>
-      <div class="match-grid">
-        <div>
-          <div class="match-label">TERMS</div>
-          <div class="match-col" id="matchLeft"></div>
-        </div>
-        <div>
-          <div class="match-label">DEFINITIONS</div>
-          <div class="match-col" id="matchRight"></div>
-        </div>
-      </div>
-    </div>
+    </header>
 
-    <div class="tab-panel" id="tab-fib">
-      <h2 class="section-title">Fill in the Blanks</h2>
-      <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
-      <div class="score-bar">
-        <div>
-          <div class="score-num" id="fibScore">0</div>
-          <div style="font-size:12px;color:var(--mid)">correct</div>
-        </div>
-        <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
-        <button class="reset-btn" onclick="resetFIB()">RESET</button>
-      </div>
-      <div class="fib-wrap" id="fibWrap"></div>
-    </div>
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn',this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq',this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching',this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib',this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions',this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips',this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards',this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse',this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice',this)">📝 Exam Practice</button>
+    </nav>
 
-    <div class="tab-panel" id="tab-misconceptions">
-      <h2 class="section-title">Common Misconceptions</h2>
-      <p class="section-sub">What students often think — and what examiners actually want.</p>
-      <div class="misc-list" id="miscList"></div>
-    </div>
+    <main>
 
-    <div class="tab-panel" id="tab-examtips">
-      <h2 class="section-title">Exam Questions &amp; Tips</h2>
-      <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
-      <div class="tips-grid" id="tipsGrid"></div>
-    </div>
-
-    <div class="tab-panel" id="tab-flashcards">
-      <h2 class="section-title">Flashcards</h2>
-      <p class="section-sub">Test yourself! Flip the card and rate your knowledge. Review your weak areas at the
-        end.
-      </p>
-
-      <div class="fc-container">
-        <div class="score-bar" id="fcScoreBar" style="display:none; margin-bottom: 20px;">
-          <div>
-            <div class="score-num" id="fcKnown" style="color:#2d7a4f;">0</div>
-            <div style="font-size:12px;color:var(--mid)">known</div>
-          </div>
-          <div>
-            <div class="score-num" id="fcUnknown" style="color:#c84b31;">0</div>
-            <div style="font-size:12px;color:var(--mid)">learning</div>
-          </div>
-          <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
-          <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
         </div>
 
-        <div id="fcActiveArea">
-          <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
-          <div class="flashcard" id="flashcard" onclick="flipCard()">
-            <div class="fc-inner">
-              <div class="fc-front">
-                <div class="fc-label">KEY TERM</div>
-                <div class="fc-term" id="fcTerm"></div>
-              </div>
-              <div class="fc-back">
-                <div class="fc-def" id="fcDef"></div>
-              </div>
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct answers</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
-          </div>
-          <p class="fc-hint">👆 Click card to flip</p>
-
-          <div class="fc-nav" id="fcNavDefault">
-            <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
-            <button class="fc-btn outline" onclick="flipCard()">Flip</button>
-            <button class="fc-btn" onclick="nextCard()">Next →</button>
-          </div>
-
-          <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px;">
-            <button class="fc-btn outline" style="border-color:#c84b31; color:#c84b31; flex:1;"
-              onclick="markCard(false)">❌
-              Still Learning</button>
-            <button class="fc-btn" style="background:#2d7a4f; border-color:#2d7a4f; flex:1;" onclick="markCard(true)">✅
-              Got
-              It</button>
-          </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
 
-        <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px;">
-          <h3>Session Complete! 🎉</h3>
-          <p style="margin: 15px 0;">You knew <strong id="fcSummaryKnown">0</strong> out of <strong
-              id="fcSummaryTotal">0</strong> cards.</p>
-          <div style="margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-            <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-              style="background:#c84b31; border-color:#c84b31;">Review Incorrect</button>
-            <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
-          </div>
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+            <div style="margin-bottom:16px;">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size:12px;color:var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+                <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span>
+                        First attempt correct</span>
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span>
+                        Correct after mistake</span>
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span>
+                        Wrong — try again</span>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div class="tab-panel" id="tab-truefalse">
-      <h2 class="section-title">True or False?</h2>
-      <p class="section-sub">Test your knowledge with these statements.</p>
-      <div class="score-bar">
-        <div>
-          <div class="score-num" id="tfScore">0</div>
-          <div style="font-size:12px;color:var(--mid)">correct</div>
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
         </div>
-        <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
-        <button class="reset-btn" onclick="resetTF()">RESET</button>
-      </div>
-      <div class="tf-wrap" id="tfWrap"></div>
-    </div>
 
-    <div class="tab-panel" id="tab-exampractice">
-      <h2 class="section-title">Exam Practice Questions</h2>
-      <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence
-          Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
-      <div class="ep-list" id="epList"></div>
-    </div>
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">What students often think — and what examiners actually want.</p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
 
-  </main>
-  <script>
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge. Review your weak areas at the
+                end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display:none; margin-bottom: 20px;">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color:#2d7a4f;">0</div>
+                        <div style="font-size:12px;color:var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color:#c84b31;">0</div>
+                        <div style="font-size:12px;color:var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px;">
+                        <button class="fc-btn outline" style="border-color:#c84b31; color:#c84b31; flex:1;"
+                            onclick="markCard(false)">❌
+                            Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f; border-color:#2d7a4f; flex:1;"
+                            onclick="markCard(true)">✅
+                            Got
+                            It</button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px;">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0;">You knew <strong id="fcSummaryKnown">0</strong> out of <strong
+                            id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background:#c84b31; border-color:#c84b31;">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence
+                    Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+
+    </main>
+<script>
     // ══════════════════════════════════════
     //  DATA: 6.1 Ethical and Environmental Considerations
     // ══════════════════════════════════════
 
     const topics = [
-      {
-        title: "Core Definitions — Ethics & Environment",
-        tag: "Key Terms",
-        content: `<ul>
+     {
+            title: "Core Definitions — Ethics & Environment",
+            tag: "Key Terms",
+            content: `<ul>
 <li><strong>Ethics</strong> — what is right and wrong</li>
 <li><strong>Ethical behaviour</strong> — doing what is morally right; concerns how workers, suppliers and customers are treated</li>
 <li><strong>Child labour</strong> — the use of young children below the legal age for employment to achieve low-cost production</li>
@@ -225,11 +229,11 @@
 <li><strong>Non-renewable resources</strong> — resources that can only be used once (e.g. oil)</li>
 <li><strong>Recycling</strong> — when resources are reused to produce something new</li>
 </ul>`
-      },
-      {
-        title: "Four Areas of Ethical Consideration",
-        tag: "Ethical Areas",
-        content: `<p><strong>1. Treatment of Workers</strong></p>
+        },
+        {
+            title: "Four Areas of Ethical Consideration",
+            tag: "Ethical Areas",
+            content: `<p><strong>1. Treatment of Workers</strong></p>
 <ul>
 <li>No child labour</li>
 <li>Pay at least the National Minimum/Living Wage</li>
@@ -255,11 +259,11 @@
 <li>Do not buy from anyone who does not produce sustainably</li>
 <li>Consider using the Fairtrade Mark — guarantees a fair price was paid to farmers</li>
 </ul>`
-      },
-      {
-        title: "Benefits & Drawbacks of Being Ethical",
-        tag: "Analysis",
-        content: `<div class="two-col">
+        },
+        {
+            title: "Benefits & Drawbacks of Being Ethical",
+            tag: "Analysis",
+            content: `<div class="two-col">
 <div>
 <div class="col-head">✓ Benefits</div>
 <div class="pro-item">Improved reputation — more customers buy from trustworthy businesses</div>
@@ -276,11 +280,11 @@
 <div class="con-item">Threat to survival — in highly competitive markets, extra costs may threaten existence</div>
 </div>
 </div>`
-      },
-      {
-        title: "Key Environmental Issues",
-        tag: "Environment",
-        content: `<ul>
+        },
+        {
+            title: "Key Environmental Issues",
+            tag: "Environment",
+            content: `<ul>
 <li><strong>Pollution</strong> — causing harm to the environment: air, land, water and noise</li>
 <li><strong>Waste disposal</strong> — getting rid of unwanted materials; traditionally via incineration or landfill</li>
 <li><strong>Recycling</strong> — reusing resources to produce something new</li>
@@ -294,11 +298,11 @@
 <li><strong>Resource management</strong> — rotating crops, fixing water leaks, sensor-controlled lighting</li>
 <li><strong>Transport</strong> — fuel-efficient vehicles, car-sharing, video-conferencing to reduce travel</li>
 </ul>`
-      },
-      {
-        title: "Benefits & Drawbacks of Being Environmentally Friendly",
-        tag: "Environmental Analysis",
-        content: `<div class="two-col">
+        },
+        {
+            title: "Benefits & Drawbacks of Being Environmentally Friendly",
+            tag: "Environmental Analysis",
+            content: `<div class="two-col">
 <div>
 <div class="col-head">✓ Benefits</div>
 <div class="pro-item">Increased sales — consumers increasingly choose 'green' brands</div>
@@ -314,22 +318,22 @@
 <div class="con-item">Expensive production methods — organic farming costs more than using fertilisers and pesticides</div>
 </div>
 </div>`
-      },
-      {
-        title: "Key Case Studies",
-        tag: "Examples",
-        content: `<p><strong>Pukka Teas (Fairtrade ethics):</strong> Certified 'Fair for Life' producer. Turnover grew from £9m (2012) to £45m (2019) — proof ethical businesses can thrive. Cost: paid £148,000 into a Fairtrade community fund in 2017.</p>
+        },
+        {
+            title: "Key Case Studies",
+            tag: "Examples",
+            content: `<p><strong>Pukka Teas (Fairtrade ethics):</strong> Certified 'Fair for Life' producer. Turnover grew from £9m (2012) to £45m (2019) — proof ethical businesses can thrive. Cost: paid £148,000 into a Fairtrade community fund in 2017.</p>
 <p><strong>Olleco (Sustainability):</strong> Collects waste cooking oil/food to produce biodiesel. Revenue exceeds £220m across 19 UK sites. Cost: spent millions on R&D and specialist processing plants (anaerobic digesters).</p>
 <p><strong>Tesco (Unethical supplier treatment):</strong> Found guilty of delaying payments to small suppliers — one waited 24 months for £2 million, damaging their cash flow.</p>
 <p><strong>Unilever (Environment):</strong> Aims to halve greenhouse gas emissions by 2030 through 'cool blending' and compressed packaging.</p>
 <p><strong>Shanks plc (Waste):</strong> Turns rubbish into fuel, compost and wood products instead of landfill — 'waste to product' process.</p>
 <p><strong>Boohoo (Unethical sourcing):</strong> Faced heavy criticism in 2020/21 for supplier allegations of underpaying workers and ignoring COVID-19 safety rules in Leicester factories.</p>
 <p><strong>Woody's Caravan Park:</strong> Reduced carbon emissions by 50% using electric vehicles and solar panels; pays above minimum wage; recycles all waste.</p>`
-      },
-      {
-        title: "CSR and Long-Term Business Strategy",
-        tag: "Synoptic",
-        content: `<p><strong>Corporate Social Responsibility (CSR)</strong> is the idea that businesses should be judged on their overall contribution to society — not just on profits. Key examples:</p>
+        },
+        {
+            title: "CSR and Long-Term Business Strategy",
+            tag: "Synoptic",
+            content: `<p><strong>Corporate Social Responsibility (CSR)</strong> is the idea that businesses should be judged on their overall contribution to society — not just on profits. Key examples:</p>
 <ul>
 <li><strong>Next plc</strong> — recognises success is judged on ethical and environmental duties, not just financial performance</li>
 <li><strong>M&S 'Plan A'</strong> — three pillars: nourishing wellbeing, transforming local communities, caring for the planet</li>
@@ -343,7 +347,7 @@
 <li><strong>Finance</strong> — ethical/environmental practices can raise costs but also reduce tax and attract investment</li>
 <li><strong>Operations</strong> — sustainable production methods change production processes and supply chains</li>
 </ul>`
-      },
+        },
       {
         title: "Case Studies: Olleco & Costa Coffee",
         tag: "Case Studies",
@@ -640,90 +644,90 @@
       {
         wrong: "For 'analyse' questions, students just state 'it gives a good reputation'.",
         correct: "You must explain the BUSINESS IMPACT. 'It improves reputation (U), which attracts more ethically-minded customers (APP), leading to an increase in sales revenue and market share (AN).'"
-      },
+      }, 
       {
-        wrong: "Obeying the law (e.g. paying minimum wage, not discriminating) counts as ethical behaviour.",
-        correct: "Ethics is about what a firm does OVER AND ABOVE what the law requires. Paying the minimum wage is a legal obligation — not an ethical choice. Ethical behaviour means going further: paying a living wage, treating suppliers fairly, and choosing Fairtrade even when not legally required."
-      },
-      {
-        wrong: "Environmental considerations and ethical considerations are the same thing and can be used interchangeably.",
-        correct: "They are different. ETHICAL considerations concern the treatment of people — workers, suppliers and customers (fair pay, child labour, false claims). ENVIRONMENTAL considerations concern the natural world — pollution, global warming, waste disposal, sustainable production. Mixing them up loses marks in the exam."
-      },
-      {
-        wrong: "Being ethical is always bad for business because it increases costs.",
-        correct: "Being ethical has BOTH costs and benefits. Yes, it raises costs (higher wages, Fairtrade prices) but it also brings benefits: improved reputation, increased sales from ethical consumers, more motivated staff (lower turnover and recruitment costs), and long-term survival. The net effect depends on the market and the business."
-      },
-      {
-        wrong: "Using robotics instead of workers is an example of ethical treatment of the workforce.",
-        correct: "Using robotics is a business OPERATIONS/TECHNOLOGY decision, not an ethical one. Ethical treatment of workers is about HOW existing and future human workers are treated — pay, hours, safety, fairness. Replacing workers with machines is a productivity/cost decision, not an ethical employer practice."
-      },
-      {
-        wrong: "For 'analyse one benefit of being ethical' (3 marks), stating 'the business gets a better reputation' is enough.",
-        correct: "3 marks require: Understanding (1) — explain what the ethical action is. Application (1) — link to the specific business using case study detail. Analysis (1) — show the business IMPACT (e.g. 'this leads to increased sales and higher revenue'). A bare statement earns only 1 mark. You must chain: ethical action → intermediate effect → business consequence."
-      },
-      {
-        wrong: "The Fairtrade Mark guarantees that a product is organic and environmentally produced.",
-        correct: "The Fairtrade Mark specifically guarantees that a FAIR PRICE was paid to the farmers/suppliers in developing countries. It is an ETHICAL guarantee about fair treatment of suppliers — not a guarantee about organic farming or environmental production methods, though these may overlap."
-      },
-      {
-        wrong: "For a 9-mark evaluate question, listing as many ethical and environmental points as possible will score high marks.",
-        correct: "9-mark questions require a structured chain: K (define) → U (explain) → APP x2 (use the case study twice) → AN x2 (show the business impact) → EVAL (make a judgement and justify it using the context). Listing generic points without application to the case study earns very few marks. Depth and context always outperform breadth."
-      }
+            wrong: "Obeying the law (e.g. paying minimum wage, not discriminating) counts as ethical behaviour.",
+            correct: "Ethics is about what a firm does OVER AND ABOVE what the law requires. Paying the minimum wage is a legal obligation — not an ethical choice. Ethical behaviour means going further: paying a living wage, treating suppliers fairly, and choosing Fairtrade even when not legally required."
+        },
+        {
+            wrong: "Environmental considerations and ethical considerations are the same thing and can be used interchangeably.",
+            correct: "They are different. ETHICAL considerations concern the treatment of people — workers, suppliers and customers (fair pay, child labour, false claims). ENVIRONMENTAL considerations concern the natural world — pollution, global warming, waste disposal, sustainable production. Mixing them up loses marks in the exam."
+        },
+        {
+            wrong: "Being ethical is always bad for business because it increases costs.",
+            correct: "Being ethical has BOTH costs and benefits. Yes, it raises costs (higher wages, Fairtrade prices) but it also brings benefits: improved reputation, increased sales from ethical consumers, more motivated staff (lower turnover and recruitment costs), and long-term survival. The net effect depends on the market and the business."
+        },
+        {
+            wrong: "Using robotics instead of workers is an example of ethical treatment of the workforce.",
+            correct: "Using robotics is a business OPERATIONS/TECHNOLOGY decision, not an ethical one. Ethical treatment of workers is about HOW existing and future human workers are treated — pay, hours, safety, fairness. Replacing workers with machines is a productivity/cost decision, not an ethical employer practice."
+        },
+        {
+            wrong: "For 'analyse one benefit of being ethical' (3 marks), stating 'the business gets a better reputation' is enough.",
+            correct: "3 marks require: Understanding (1) — explain what the ethical action is. Application (1) — link to the specific business using case study detail. Analysis (1) — show the business IMPACT (e.g. 'this leads to increased sales and higher revenue'). A bare statement earns only 1 mark. You must chain: ethical action → intermediate effect → business consequence."
+        },
+        {
+            wrong: "The Fairtrade Mark guarantees that a product is organic and environmentally produced.",
+            correct: "The Fairtrade Mark specifically guarantees that a FAIR PRICE was paid to the farmers/suppliers in developing countries. It is an ETHICAL guarantee about fair treatment of suppliers — not a guarantee about organic farming or environmental production methods, though these may overlap."
+        },
+        {
+            wrong: "For a 9-mark evaluate question, listing as many ethical and environmental points as possible will score high marks.",
+            correct: "9-mark questions require a structured chain: K (define) → U (explain) → APP x2 (use the case study twice) → AN x2 (show the business impact) → EVAL (make a judgement and justify it using the context). Listing generic points without application to the case study earns very few marks. Depth and context always outperform breadth."
+        }
     ];
 
     const examTips = [
-      {
-        type: "State / Identify (1 mark)",
-        title: "Naming Considerations",
-        content: `<p>If asked to state an <strong>Ethical</strong> consideration, use: Fair wages, child labour, Fairtrade, treating suppliers fairly.</p>
+        {
+          type: "State / Identify (1 mark)",
+          title: "Naming Considerations",
+          content: `<p>If asked to state an <strong>Ethical</strong> consideration, use: Fair wages, child labour, Fairtrade, treating suppliers fairly.</p>
   <p>If asked to state an <strong>Environmental</strong> consideration, use: Waste disposal, pollution, sustainability, carbon emissions.</p>`,
-        pills: ["K"]
-      },
-      {
-        type: "Analyse (3 marks)",
-        title: "Analysing the Disadvantages",
-        content: `<p>Always remember that Ethics and Environment cost money.</p>
+          pills: ["K"]
+        },
+        {
+          type: "Analyse (3 marks)",
+          title: "Analysing the Disadvantages",
+          content: `<p>Always remember that Ethics and Environment cost money.</p>
   <p><strong>Structure:</strong> "One reason not to be environmentally friendly is the high initial cost (U). For example, installing solar panels to power the caravan park is expensive (APP). This drains cash flow and could reduce short-term profit margins (AN)."</p>`,
-        pills: ["U", "app", "an"]
-      },
-      {
-        type: "Evaluate (9 marks)",
-        title: "Using the Context Data",
-        content: `<p>In large questions (like the Costa Coffee 9-marker), you MUST use the data provided.</p>
+          pills: ["U", "app", "an"]
+        },
+        {
+          type: "Evaluate (9 marks)",
+          title: "Using the Context Data",
+          content: `<p>In large questions (like the Costa Coffee 9-marker), you MUST use the data provided.</p>
   <p>If the text says Costa has 2,100 branches or competes with Starbucks, use those exact facts in your Application (APP) sentences to secure top marks. Do not write a generic essay about ethics.</p>`,
-        pills: ["app", "eval"]
-      },
-      {
-        type: "Most Repeated Question Type",
-        title: "Identify two ethical/environmental considerations (2 marks)",
-        content: `<p><strong>Ethical:</strong> Treatment of workers, Treatment of suppliers, Treatment of customers, Sourcing of materials.</p>
+          pills: ["app", "eval"]
+        },
+        {
+          type: "Most Repeated Question Type",
+          title: "Identify two ethical/environmental considerations (2 marks)",
+          content: `<p><strong>Ethical:</strong> Treatment of workers, Treatment of suppliers, Treatment of customers, Sourcing of materials.</p>
   <p><strong>Environmental:</strong> Sustainability, Waste disposal, Pollution, Climate change.</p>
   <p><em>Tip:</em> Give the CATEGORY name — not just an example. e.g., 'Treatment of workers' earns the mark; 'paying fair wages' alone may not unless the question asks you to explain.</p>`,
-        pills: ["K"]
-      },
-      {
-        type: "Most Repeated Question Type",
-        title: "Analyse one benefit/disadvantage of being ethical (3 marks)",
-        content: `<p><strong>Structure:</strong></p>
+          pills: ["K"]
+        },
+        {
+          type: "Most Repeated Question Type",
+          title: "Analyse one benefit/disadvantage of being ethical (3 marks)",
+          content: `<p><strong>Structure:</strong></p>
   <ul>
     <li><strong>(U)</strong> State and explain the benefit e.g., 'ethical businesses often gain an improved reputation'.</li>
     <li><strong>(APP)</strong> Link to the specific business — e.g., 'Pukka Teas' turnover rose from £9m to £45m'.</li>
     <li><strong>(AN)</strong> Show the business impact — 'this increased revenue can be reinvested to fund further growth'.</li>
   </ul>
   <p>A chain of three linked points earns all 3 marks.</p>`,
-        pills: ["U", "app", "an"]
-      },
-      {
-        type: "Most Repeated Question Type",
-        title: "Analyse one method of sustainable production (3 marks)",
-        content: `<p>Name the method (e.g., solar panels / renewable energy). Apply it to the specific business in the case study. Analyse the business impact — usually reduced costs OR improved reputation &rarr; increased sales.</p>
+          pills: ["U", "app", "an"]
+        },
+        {
+          type: "Most Repeated Question Type",
+          title: "Analyse one method of sustainable production (3 marks)",
+          content: `<p>Name the method (e.g., solar panels / renewable energy). Apply it to the specific business in the case study. Analyse the business impact — usually reduced costs OR improved reputation &rarr; increased sales.</p>
   <p><strong>Example:</strong> 'Aston Martin could install solar panels (K) to power its Warwickshire production site (APP) which would cut energy costs and reduce its carbon footprint, improving its environmental image (AN).'</p>`,
-        pills: ["K", "app", "an"]
-      },
-      {
-        type: "9-Mark Evaluate Question",
-        title: "Evaluate whether ethical/environmental considerations conflict with shareholder objectives",
-        content: `<p><strong>Structure:</strong></p>
+          pills: ["K", "app", "an"]
+        },
+        {
+          type: "9-Mark Evaluate Question",
+          title: "Evaluate whether ethical/environmental considerations conflict with shareholder objectives",
+          content: `<p><strong>Structure:</strong></p>
   <ul>
     <li><strong>K:</strong> Define ethics.</li>
     <li><strong>U:</strong> Explain how ethical practices work (e.g., fair wages, Fairtrade sourcing).</li>
@@ -731,12 +735,12 @@
     <li><strong>AN x2:</strong> Show how each raises costs or reduces profits — conflicting with shareholder profit goals.</li>
     <li><strong>EVAL:</strong> Judge the EXTENT of conflict — e.g., in the LONG TERM, ethical businesses like Pukka Teas may generate more profit through increased sales, but SHORT TERM costs rise and dividends may fall.</li>
   </ul>`,
-        pills: ["K", "U", "app", "an", "eval"]
-      },
-      {
-        type: "9-Mark Evaluate Question",
-        title: "Evaluate how environmental considerations affect the marketing mix",
-        content: `<p>Link environment to each P:</p>
+          pills: ["K", "U", "app", "an", "eval"]
+        },
+        {
+          type: "9-Mark Evaluate Question",
+          title: "Evaluate how environmental considerations affect the marketing mix",
+          content: `<p>Link environment to each P:</p>
   <ul>
     <li><strong>Product:</strong> May need to redesign packaging (e.g., Pukka Pies replacing non-recyclable plastics).</li>
     <li><strong>Price:</strong> May need to rise to cover eco costs.</li>
@@ -744,42 +748,42 @@
     <li><strong>Promotion:</strong> Green credentials become a marketing message.</li>
   </ul>
   <p><strong>Evaluate</strong> which P is most affected, using case study figures. e.g., 'Price is most affected as no waste to landfill reduces costs, offsetting the cost of new packaging.'</p>`,
-        pills: ["app", "an", "eval"]
-      },
-      {
-        type: "Examiner Warning",
-        title: "Do NOT confuse ethical with legal, or ethical with environmental",
-        content: `<p>Three common errors that lose marks:</p>
+          pills: ["app", "an", "eval"]
+        },
+        {
+          type: "Examiner Warning",
+          title: "Do NOT confuse ethical with legal, or ethical with environmental",
+          content: `<p>Three common errors that lose marks:</p>
   <ol>
     <li><strong>Describing legal compliance</strong> (e.g., paying minimum wage) as an ethical choice — it is a legal duty. Ethics goes BEYOND the law.</li>
     <li><strong>Writing about pollution and sustainability</strong> when asked about ethics — these are environmental issues.</li>
     <li><strong>Writing about fair pay and child labour</strong> when asked about environmental considerations — these are ethical issues.</li>
   </ol>`,
-        pills: []
-      },
-      {
-        type: "Evaluation Tip",
-        title: "Short-term costs vs. long-term benefits — the key evaluation point",
-        content: `<p>The strongest evaluations in this unit recognise that:</p>
+          pills: []
+        },
+        {
+          type: "Evaluation Tip",
+          title: "Short-term costs vs. long-term benefits — the key evaluation point",
+          content: `<p>The strongest evaluations in this unit recognise that:</p>
   <ul>
     <li><strong>In the SHORT TERM:</strong> ethical/environmental practices raise costs, may reduce profits, and could conflict with shareholder objectives.</li>
     <li><strong>In the LONG TERM:</strong> they improve reputation, increase sales, motivate workers, reduce turnover, attract investors, and can lower costs (e.g., solar panels).</li>
   </ul>
   <p>Always judge whether short-term costs are outweighed by long-term benefits, using the specific business context.</p>`,
-        pills: ["eval"]
-      },
-      {
-        type: "Case Study Application Tip",
-        title: "Always use specific case study numbers",
-        content: `<p>Application marks are ONLY awarded when you use the specific details from the case study — not generic statements.</p>
+          pills: ["eval"]
+        },
+        {
+          type: "Case Study Application Tip",
+          title: "Always use specific case study numbers",
+          content: `<p>Application marks are ONLY awarded when you use the specific details from the case study — not generic statements.</p>
   <ul>
     <li><strong>Wrong:</strong> 'The business is growing.'<br><strong>Right:</strong> 'Pukka Teas' turnover rose from £9m in 2012 to £45m in 2019.'</li>
     <li><strong>Wrong:</strong> 'The business paid money to a fund.'<br><strong>Right:</strong> 'Pukka Teas paid £148,000 into the Fairtrade community fund in 2017.'</li>
   </ul>
   <p>Always quote figures, names and specific facts from the text.</p>`,
-        pills: ["app"]
-      }
-    ];
+          pills: ["app"]
+        }
+      ];
     const flashcards = [
       { term: "Ethics", def: "Focusing on what is morally 'right' or 'wrong' in business behavior, going beyond just legal requirements." },
       { term: "Fairtrade", def: "A movement encouraging businesses to pay a fair, livable price to suppliers and farmers in developing countries." },
@@ -794,15 +798,15 @@
     ];
 
     const examQuestions = [
-      {
-        num: "Q1",
-        marks: 9,
-        type: "extended",
-        caseStudy: "Primark Ltd is a fashion retailer that sells clothing and homeware at prices lower than most other retailers. The company is aware of the importance of consumer law and of having low-cost suppliers.\n\nPrimark Ltd started to sell its products online in 2022. After changes in buying habits and pressure from customers, in 2022 Primark Ltd launched an online click and collect service for shoppers.\n\nPrimark Ltd is very aware of the need to have ethical suppliers. The following ethical factors are among those important to Primark Ltd:\n• giving clothes a longer life by using material from sustainable sources\n• encouraging its supply chain to pay a living wage and look after the health and well-being of their workers.",
-        question: "Evaluate whether Primark Ltd's use of ethical suppliers comes into conflict with its shareholders' objectives. [9 marks]",
-        hint: "Think about what shareholders want from a business — profits, dividends, growth, share price. Then consider what using ethical suppliers costs. Does this help or hinder those objectives? You must come to a clear, justified judgement at the end specific to Primark.",
-        starter: "Ethics is about doing what is morally right or wrong (K). An example of ethical behaviour is... (U). Shareholders of Primark will want... (APP). However, the use of ethical suppliers may... because... (AN). Overall, I believe this [does/does not] come into conflict with shareholders' objectives because... (EVAL).",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q1",
+                marks: 9,
+                type: "extended",
+                caseStudy: "Primark Ltd is a fashion retailer that sells clothing and homeware at prices lower than most other retailers. The company is aware of the importance of consumer law and of having low-cost suppliers.\n\nPrimark Ltd started to sell its products online in 2022. After changes in buying habits and pressure from customers, in 2022 Primark Ltd launched an online click and collect service for shoppers.\n\nPrimark Ltd is very aware of the need to have ethical suppliers. The following ethical factors are among those important to Primark Ltd:\n• giving clothes a longer life by using material from sustainable sources\n• encouraging its supply chain to pay a living wage and look after the health and well-being of their workers.",
+                question: "Evaluate whether Primark Ltd's use of ethical suppliers comes into conflict with its shareholders' objectives. [9 marks]",
+                hint: "Think about what shareholders want from a business — profits, dividends, growth, share price. Then consider what using ethical suppliers costs. Does this help or hinder those objectives? You must come to a clear, justified judgement at the end specific to Primark.",
+                starter: "Ethics is about doing what is morally right or wrong (K). An example of ethical behaviour is... (U). Shareholders of Primark will want... (APP). However, the use of ethical suppliers may... because... (AN). Overall, I believe this [does/does not] come into conflict with shareholders' objectives because... (EVAL).",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation</h5>
   <ul>
     <li><strong>AO1a (1 mark):</strong> Knowledge of ethics</li>
@@ -875,45 +879,45 @@
   <h5>Examiner's comments</h5>
   <p>About one in six candidates did not attempt this question. Only 10% of answers contained specific knowledge of what ethics means. About half gave a suitable example of ethical behaviour to gain the understanding mark. Many candidates confused shareholders with stakeholders — answers solely about other stakeholders gained very little reward. Many did not know any shareholder objectives and listed items from the text instead. Most weaker answers did not make any attempt to evaluate.</p>
 </div>`,
-        modelAnswer: `<strong>Exemplar response:</strong><br><br>
+                modelAnswer: `<strong>Exemplar response:</strong><br><br>
 Being ethical is doing what is right and wrong <em>(K)</em>. This can be choosing a supplier who is fair trade <em>(U)</em>.<br><br>
 Shareholders will want Primark to make a profit <em>(APP)</em> but ethical suppliers may charge more, increasing costs and reducing profits <em>(AN)</em>.<br><br>
 They may also want Primark to grow <em>(APP)</em>. This growth might be slower if they choose suppliers who cost more and reduce the profit available for growth <em>(AN)</em>.<br><br>
 Primark's ethical supply chain will come into conflict with shareholder objectives <em>(EVAL)</em>. Any increase in costs may force prices up so that customers go to competitors who are now relatively less expensive <em>(EVAL)</em>. As Primark's key focus is low prices <em>(CONT)</em> it could affect profits, so dividends paid to its shareholders may fall <em>(EVAL)</em>.`
-      },
+            },
 
-      {
-        num: "Q2",
-        marks: 1,
-        type: "mcq",
-        caseStudy: "",
-        question: "A health centre wishes to improve its environmental sustainability. Which of the following would help achieve this? [1 mark]",
-        options: [
-          "Asking doctors to wash their hands more frequently",
-          "Encouraging nurses to go out walking during their lunch break",
-          "Giving out free fruit to health centre staff and patients",
-          "Installing sensors to switch off lights when not needed"
-        ],
-        answer: 3,
-        hint: "Environmental sustainability means reducing the impact on the natural world. Which option directly saves energy or resources?",
-        starter: "",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q2",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "A health centre wishes to improve its environmental sustainability. Which of the following would help achieve this? [1 mark]",
+                options: [
+                    "Asking doctors to wash their hands more frequently",
+                    "Encouraging nurses to go out walking during their lunch break",
+                    "Giving out free fruit to health centre staff and patients",
+                    "Installing sensors to switch off lights when not needed"
+                ],
+                answer: 3,
+                hint: "Environmental sustainability means reducing the impact on the natural world. Which option directly saves energy or resources?",
+                starter: "",
+                markScheme: `<div class="marks-section">
   <h5>Correct answer: D</h5>
   <p>Installing sensors to switch off lights when not needed directly reduces energy consumption, improving the environmental sustainability of the health centre.</p>
   <p>Options A, B, and C all relate to health or wellbeing of staff and patients — they are not environmental sustainability measures.</p>
 </div>`,
-        modelAnswer: ""
-      },
+                modelAnswer: ""
+            },
 
-      {
-        num: "Q3",
-        marks: 2,
-        type: "written",
-        caseStudy: "AstraZeneca plc (AZ) is a multinational pharmaceutical company that operates in over 100 countries around the world. AZ develops treatments for a range of diseases. It sells its medicines and vaccines worldwide. Its headquarters are in Cambridge, England. In 2021 AZ's sales revenue was £37,417m, from which it made £24,980m gross profit.\n\nAZ has a code of ethics, which is at the centre of everything that it does. The company has approximately 75,000 employees worldwide; 10,000 of these work in its three research and development centres.\n\nAZ uses technology throughout its operations to provide high quality products for its customers. These customers include doctors, hospitals and governments from around the globe.\n\nIn the UK, AZ has changed the way it sells its products. Previously, sales staff would visit medical professionals; now it uses a call centre and website where medical professionals can order products and samples. AZ says this means it can now provide a high quality service that meets the needs of its customers at a lower cost.",
-        question: "Identify two ethical considerations a business may have. [2 marks]",
-        hint: "Ethics is about doing what is fair and right — going beyond legal requirements. Think about how a business treats its workers, suppliers, and customers in a way that is morally fair, not just legally required.",
-        starter: "1. One ethical consideration is...\n2. Another ethical consideration is...",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q3",
+                marks: 2,
+                type: "written",
+                caseStudy: "AstraZeneca plc (AZ) is a multinational pharmaceutical company that operates in over 100 countries around the world. AZ develops treatments for a range of diseases. It sells its medicines and vaccines worldwide. Its headquarters are in Cambridge, England. In 2021 AZ's sales revenue was £37,417m, from which it made £24,980m gross profit.\n\nAZ has a code of ethics, which is at the centre of everything that it does. The company has approximately 75,000 employees worldwide; 10,000 of these work in its three research and development centres.\n\nAZ uses technology throughout its operations to provide high quality products for its customers. These customers include doctors, hospitals and governments from around the globe.\n\nIn the UK, AZ has changed the way it sells its products. Previously, sales staff would visit medical professionals; now it uses a call centre and website where medical professionals can order products and samples. AZ says this means it can now provide a high quality service that meets the needs of its customers at a lower cost.",
+                question: "Identify two ethical considerations a business may have. [2 marks]",
+                hint: "Ethics is about doing what is fair and right — going beyond legal requirements. Think about how a business treats its workers, suppliers, and customers in a way that is morally fair, not just legally required.",
+                starter: "1. One ethical consideration is...\n2. Another ethical consideration is...",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation (AO1a: 2 marks)</h5>
   <p>One mark for each correct ethical consideration, up to a maximum of two. Answers do not need to relate to AZ.</p>
 </div>
@@ -941,18 +945,18 @@ Primark's ethical supply chain will come into conflict with shareholder objectiv
   <h5>Examiner's comments</h5>
   <p>Around three quarters of candidates gave at least one answer which is a legal requirement or an environmental issue. Ethics considers what is the 'right' or 'fair' thing to do, rather than what is legally required.</p>
 </div>`,
-        modelAnswer: ""
-      },
+                modelAnswer: ""
+            },
 
-      {
-        num: "Q4a",
-        marks: 2,
-        type: "written",
-        caseStudy: "BP plc is a UK energy company, which has its headquarters in London. BP produces oil, gas and petrol. It sells and distributes these products to customers all over the world. It also produces some environmentally friendly energy including biofuels, as well as wind- and solar-powered electrical energy.\n\nThe company's finance function is critical in ensuring the business is managed efficiently. BP plc's revenue increased from $245 billion in 2017 to $283 billion in 2019.\n\nOne of BP's operations involves selling of petrol to the public. BP has 18,700 petrol stations around the globe, with 8,500 in the UK. Another of BP's operations involves extracting oil, using its oil rigs. These are located in the seas around the UK, Norway, Australia, Angola, the Gulf of Mexico (USA) and off the coast of many other countries. Once the oil is extracted it is then transported to refineries.\n\nBP strives to be more sustainable. BP has the aim of cutting its carbon emissions by 2050 to help reduce the effects of climate change. It is installing electric charge points for Police Scotland's electric vehicles and is developing wind farms in America in partnership with an American company.",
-        question: "Identify two possible advantages to a business of being environmentally friendly. [2 marks]",
-        hint: "Focus on advantages for the business itself — not for the planet or customers. Think about how being green can help a business with its costs, reputation, sales, or investment.",
-        starter: "1. One advantage to a business of being environmentally friendly is...\n2. Another advantage is...",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q4a",
+                marks: 2,
+                type: "written",
+                caseStudy: "BP plc is a UK energy company, which has its headquarters in London. BP produces oil, gas and petrol. It sells and distributes these products to customers all over the world. It also produces some environmentally friendly energy including biofuels, as well as wind- and solar-powered electrical energy.\n\nThe company's finance function is critical in ensuring the business is managed efficiently. BP plc's revenue increased from $245 billion in 2017 to $283 billion in 2019.\n\nOne of BP's operations involves selling of petrol to the public. BP has 18,700 petrol stations around the globe, with 8,500 in the UK. Another of BP's operations involves extracting oil, using its oil rigs. These are located in the seas around the UK, Norway, Australia, Angola, the Gulf of Mexico (USA) and off the coast of many other countries. Once the oil is extracted it is then transported to refineries.\n\nBP strives to be more sustainable. BP has the aim of cutting its carbon emissions by 2050 to help reduce the effects of climate change. It is installing electric charge points for Police Scotland's electric vehicles and is developing wind farms in America in partnership with an American company.",
+                question: "Identify two possible advantages to a business of being environmentally friendly. [2 marks]",
+                hint: "Focus on advantages for the business itself — not for the planet or customers. Think about how being green can help a business with its costs, reputation, sales, or investment.",
+                starter: "1. One advantage to a business of being environmentally friendly is...\n2. Another advantage is...",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation (AO1b: 2 marks)</h5>
   <p>One mark for each advantage to a business of being environmentally friendly. Answers do not need to relate to BP.</p>
 </div>
@@ -982,18 +986,18 @@ Primark's ethical supply chain will come into conflict with shareholder objectiv
   <h5>Examiner's comments</h5>
   <p>Most candidates scored 1 or 2 marks, with most selecting increased reputation and increased sales. Less successful responses ignored the phrase 'to a business' and gave responses about consumer behaviour or advantages for climate change.</p>
 </div>`,
-        modelAnswer: ""
-      },
+                modelAnswer: ""
+            },
 
-      {
-        num: "Q4b",
-        marks: 2,
-        type: "written",
-        caseStudy: "",
-        question: "Explain one way climate change might affect business activity. [2 marks]",
-        hint: "Climate change means long-term shifts in global temperatures and weather patterns. Think about how this changes what a business does — does it force them to change behaviour, switch to renewables, alter their marketing, or face new costs? Focus on the business response, not the effect on the planet.",
-        starter: "Climate change might affect business activity by... This means that... which could lead to...",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q4b",
+                marks: 2,
+                type: "written",
+                caseStudy: "",
+                question: "Explain one way climate change might affect business activity. [2 marks]",
+                hint: "Climate change means long-term shifts in global temperatures and weather patterns. Think about how this changes what a business does — does it force them to change behaviour, switch to renewables, alter their marketing, or face new costs? Focus on the business response, not the effect on the planet.",
+                starter: "Climate change might affect business activity by... This means that... which could lead to...",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation (AO1a: 1 mark, AO1b: 1 mark)</h5>
   <ul>
     <li>One mark for knowledge of a way climate change affects business activity</li>
@@ -1026,19 +1030,19 @@ Primark's ethical supply chain will come into conflict with shareholder objectiv
   <h5>Examiner's comments</h5>
   <p>One of the least well answered questions on the paper, with many candidates scoring zero. Many candidates did not know what was meant by climate change, with references to 'poor weather' or 'oceans freezing over'. Few candidates identified how the business would respond to climate change — they described what happened rather than the change the business would make. Other responses considered the implication for the planet rather than the business.</p>
 </div>`,
-        modelAnswer: `<strong>Exemplar response:</strong><br><br>
+                modelAnswer: `<strong>Exemplar response:</strong><br><br>
 May wish to switch to renewable energy <em>(1)</em> to reduce the potential for pollution fines <em>(1)</em>.`
-      },
+            },
 
-      {
-        num: "Q5i",
-        marks: 2,
-        type: "written",
-        caseStudy: "",
-        question: "Identify two ethical considerations for a business. [2 marks]",
-        hint: "Ethics is about doing what is fair and right — not what is legally required. Think about how a business treats workers, suppliers, or customers in a way that is morally fair but not a legal obligation.",
-        starter: "1. One ethical consideration is...\n2. Another ethical consideration is...",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q5i",
+                marks: 2,
+                type: "written",
+                caseStudy: "",
+                question: "Identify two ethical considerations for a business. [2 marks]",
+                hint: "Ethics is about doing what is fair and right — not what is legally required. Think about how a business treats workers, suppliers, or customers in a way that is morally fair but not a legal obligation.",
+                starter: "1. One ethical consideration is...\n2. Another ethical consideration is...",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation (AO1a: 2 marks)</h5>
   <p>One mark for each of two correct considerations. Answers do not need to relate to any specific company.</p>
 </div>
@@ -1066,18 +1070,18 @@ May wish to switch to renewable energy <em>(1)</em> to reduce the potential for 
   <h5>Examiner's comments</h5>
   <p>Most candidates scored 1 or 2 marks. However, a significant minority listed legal requirements such as minimum wage or discrimination, or environmental issues. Ethics is about what is fair or is over and above what is legally required.</p>
 </div>`,
-        modelAnswer: ""
-      },
+                modelAnswer: ""
+            },
 
-      {
-        num: "Q5ii",
-        marks: 2,
-        type: "written",
-        caseStudy: "",
-        question: "Explain one reason why a business should act ethically. [2 marks]",
-        hint: "Think about the benefits to a business of being ethical — what does it do for the business's reputation, customers, employees, or suppliers? Make sure you explain the reason, not just state it.",
-        starter: "A business should act ethically because... This means that... which leads to...",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q5ii",
+                marks: 2,
+                type: "written",
+                caseStudy: "",
+                question: "Explain one reason why a business should act ethically. [2 marks]",
+                hint: "Think about the benefits to a business of being ethical — what does it do for the business's reputation, customers, employees, or suppliers? Make sure you explain the reason, not just state it.",
+                starter: "A business should act ethically because... This means that... which leads to...",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation (AO1a: 1 mark, AO1b: 1 mark)</h5>
   <ul>
     <li>One mark for knowledge of a reason why a business may act ethically</li>
@@ -1108,26 +1112,26 @@ May wish to switch to renewable energy <em>(1)</em> to reduce the potential for 
   <h5>Examiner's comments</h5>
   <p>Even candidates who were unable to correctly identify an ethical consideration were at least able to explain why it was important to be ethical. The most common responses focused on it being about a firm's marketing, so that it appeared to act in a 'good' way so it was able to attract customers or employees more easily.</p>
 </div>`,
-        modelAnswer: `<strong>Exemplar response:</strong><br><br>
+                modelAnswer: `<strong>Exemplar response:</strong><br><br>
 Improves the company's reputation <em>(1)</em> which leads to customers who are concerned about ethics wanting to buy the product <em>(1)</em>.`
-      },
+            },
 
-      {
-        num: "Q6",
-        marks: 1,
-        type: "mcq",
-        caseStudy: "",
-        question: "A business wishes to be known as an ethical employer. Which of the following is NOT an example of ethical treatment of the workforce? [1 mark]",
-        options: [
-          "Allowing flexible working",
-          "Paying high wages",
-          "Providing good working conditions",
-          "Using robotics"
-        ],
-        answer: 3,
-        hint: "The question asks for what is NOT ethical treatment of workers. Three options clearly benefit employees directly. Which one is about business efficiency rather than how workers are treated?",
-        starter: "",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q6",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "A business wishes to be known as an ethical employer. Which of the following is NOT an example of ethical treatment of the workforce? [1 mark]",
+                options: [
+                    "Allowing flexible working",
+                    "Paying high wages",
+                    "Providing good working conditions",
+                    "Using robotics"
+                ],
+                answer: 3,
+                hint: "The question asks for what is NOT ethical treatment of workers. Three options clearly benefit employees directly. Which one is about business efficiency rather than how workers are treated?",
+                starter: "",
+                markScheme: `<div class="marks-section">
   <h5>Correct answer: D — Using robotics</h5>
   <p>Using robotics is about production technology and business efficiency — it does not directly represent ethical treatment of the workforce.</p>
   <ul>
@@ -1137,18 +1141,18 @@ Improves the company's reputation <em>(1)</em> which leads to customers who are 
     <li>Using robotics (D) — relates to production, not the ethical treatment of employees</li>
   </ul>
 </div>`,
-        modelAnswer: ""
-      },
+                modelAnswer: ""
+            },
 
-      {
-        num: "Q7",
-        marks: 3,
-        type: "written",
-        caseStudy: "Increased globalisation has led to more firms becoming multinational companies. Barclays plc is a multinational banking company. Its headquarters are in London. One of the bank's core values is integrity — it tries to act fairly, ethically and openly in all it does.\n\nBarclays plc's personal banking division provides banking services to the general public. These services include providing a place to save and borrow money, as well as a place where customers can obtain advice on financial matters. In 2020 Barclays plc had 24 million UK personal banking customers.\n\nBanks are typically among the first industries to embrace technological advances. Barclays plc has been able to make use of e-commerce by selling loans, savings accounts and insurance through its websites. The bank has also invested in computer technology to provide online banking services to its customers. Online banking services allow customers to access their bank accounts on the Internet. Customers can carry out banking transactions, pay off credit cards or deposit savings 24 hours a day, worldwide. Online banking is one of the fastest growing areas of Internet activities.\n\nFig. 1 — Percentage of UK banking customers who use online banking: 2010: 42%, 2012: 47%, 2014: 53%, 2016: 60%, 2018: 69%, 2020: 75%.",
-        question: "Analyse one way Barclays plc could treat its customers ethically. [3 marks]",
-        hint: "Think about what Barclays does — it provides financial products like loans, savings, and insurance. How could it treat its customers fairly and honestly in how it sells or provides these? Then explain what would happen as a result for the business.",
-        starter: "Barclays could treat its customers ethically by... (understanding). This relates to its... (application to Barclays). This would mean that... (analysis of impact).",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q7",
+                marks: 3,
+                type: "written",
+                caseStudy: "Increased globalisation has led to more firms becoming multinational companies. Barclays plc is a multinational banking company. Its headquarters are in London. One of the bank's core values is integrity — it tries to act fairly, ethically and openly in all it does.\n\nBarclays plc's personal banking division provides banking services to the general public. These services include providing a place to save and borrow money, as well as a place where customers can obtain advice on financial matters. In 2020 Barclays plc had 24 million UK personal banking customers.\n\nBanks are typically among the first industries to embrace technological advances. Barclays plc has been able to make use of e-commerce by selling loans, savings accounts and insurance through its websites. The bank has also invested in computer technology to provide online banking services to its customers. Online banking services allow customers to access their bank accounts on the Internet. Customers can carry out banking transactions, pay off credit cards or deposit savings 24 hours a day, worldwide. Online banking is one of the fastest growing areas of Internet activities.\n\nFig. 1 — Percentage of UK banking customers who use online banking: 2010: 42%, 2012: 47%, 2014: 53%, 2016: 60%, 2018: 69%, 2020: 75%.",
+                question: "Analyse one way Barclays plc could treat its customers ethically. [3 marks]",
+                hint: "Think about what Barclays does — it provides financial products like loans, savings, and insurance. How could it treat its customers fairly and honestly in how it sells or provides these? Then explain what would happen as a result for the business.",
+                starter: "Barclays could treat its customers ethically by... (understanding). This relates to its... (application to Barclays). This would mean that... (analysis of impact).",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation</h5>
   <ul>
     <li><strong>AO1b (1 mark):</strong> Understanding of one way a business could treat customers ethically — no further marks without this</li>
@@ -1192,21 +1196,21 @@ Improves the company's reputation <em>(1)</em> which leads to customers who are 
     <li>Answers which are linked to legal requirements (e.g., consumer law or discrimination)</li>
   </ul>
 </div>`,
-        modelAnswer: `<strong>Exemplar response 1:</strong><br><br>
+                modelAnswer: `<strong>Exemplar response 1:</strong><br><br>
 Businesses should be fair and honest <em>(U)</em> so its customers do not fall foul of misleading practices <em>(AN)</em> concerning financial products <em>(APP)</em> sold by Barclays.<br><br>
 <strong>Exemplar response 2:</strong><br><br>
 Barclays should provide fair and clear information <em>(U)</em> to its customers about the terms of its savings accounts <em>(APP)</em> which will lead to a better brand image for the firm <em>(AN)</em>.`
-      },
+            },
 
-      {
-        num: "Q8",
-        marks: 9,
-        type: "extended",
-        caseStudy: "Pukka Pies Ltd is a family-owned business with approximately 360 employees. It makes a range of high-quality savoury pies, including steak, chicken and mushroom, and chicken balti, in batches at its factory in Leicester, England. Pukka Pies are sold in more than 4,000 food stores nationwide as well as in sports stadiums, fish and chip shops and cafés across the country.\n\nThree of Pukka Pies Ltd's key values are recruiting people who are ambitious, delighting customers with quality pies, and building trust with suppliers through food safety. Each of these values helps the business meet the requirements of consumer law.\n\nThe success of Pukka Pies Ltd is affected by many factors, including its logistical and supply chain decisions. Pukka Pies Ltd procures the ingredients for its pies from businesses across the UK and overseas; consequently its supply chain is long. Nevertheless, all of these ingredients need to arrive in good condition and, therefore, its logistics are time-critical. Unemployment levels also have a significant impact on Pukka Pies Ltd.\n\nPukka Pies Ltd considers its environmental impact across all aspects of business activity. It has already replaced some of the non-recyclable plastics used in its packaging with alternatives that can be recycled. In addition, none of the company's waste goes to landfill.",
-        question: "Evaluate how Pukka Pies Ltd's environmental considerations might influence its marketing mix. [9 marks]",
-        hint: "The marketing mix has four elements: Product, Price, Place, Promotion. Think about how being more environmentally conscious could affect each of these for Pukka Pies. Use details from the case study (recycled packaging, no landfill waste). You need to come to a clear judgement at the end about the overall impact.",
-        starter: "The environment refers to our natural world (K). Environmental considerations include... such as... (U). In terms of Pukka Pies' marketing mix, being environmentally friendly could affect its [Product/Price/Place/Promotion] by... (APP). This means that... (AN). Overall, the most significant impact on the marketing mix would be... because... (EVAL).",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q8",
+                marks: 9,
+                type: "extended",
+                caseStudy: "Pukka Pies Ltd is a family-owned business with approximately 360 employees. It makes a range of high-quality savoury pies, including steak, chicken and mushroom, and chicken balti, in batches at its factory in Leicester, England. Pukka Pies are sold in more than 4,000 food stores nationwide as well as in sports stadiums, fish and chip shops and cafés across the country.\n\nThree of Pukka Pies Ltd's key values are recruiting people who are ambitious, delighting customers with quality pies, and building trust with suppliers through food safety. Each of these values helps the business meet the requirements of consumer law.\n\nThe success of Pukka Pies Ltd is affected by many factors, including its logistical and supply chain decisions. Pukka Pies Ltd procures the ingredients for its pies from businesses across the UK and overseas; consequently its supply chain is long. Nevertheless, all of these ingredients need to arrive in good condition and, therefore, its logistics are time-critical. Unemployment levels also have a significant impact on Pukka Pies Ltd.\n\nPukka Pies Ltd considers its environmental impact across all aspects of business activity. It has already replaced some of the non-recyclable plastics used in its packaging with alternatives that can be recycled. In addition, none of the company's waste goes to landfill.",
+                question: "Evaluate how Pukka Pies Ltd's environmental considerations might influence its marketing mix. [9 marks]",
+                hint: "The marketing mix has four elements: Product, Price, Place, Promotion. Think about how being more environmentally conscious could affect each of these for Pukka Pies. Use details from the case study (recycled packaging, no landfill waste). You need to come to a clear judgement at the end about the overall impact.",
+                starter: "The environment refers to our natural world (K). Environmental considerations include... such as... (U). In terms of Pukka Pies' marketing mix, being environmentally friendly could affect its [Product/Price/Place/Promotion] by... (APP). This means that... (AN). Overall, the most significant impact on the marketing mix would be... because... (EVAL).",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation</h5>
   <ul>
     <li><strong>AO1a (1 mark):</strong> Knowledge of the environment</li>
@@ -1264,22 +1268,22 @@ Barclays should provide fair and clear information <em>(U)</em> to its customers
     <li>Use of contextual evidence to support any judgement</li>
   </ul>
 </div>`,
-        modelAnswer: `<strong>Exemplar response:</strong><br><br>
+                modelAnswer: `<strong>Exemplar response:</strong><br><br>
 Environmental considerations are about the natural world <em>(K)</em> such as increased use of recycled products <em>(U)</em>.<br><br>
 If Pukka Pies is taking its environmental responsibilities seriously then it may have to increase prices <em>(APP)</em> as it may use more expensive suppliers <em>(AN)</em>.<br><br>
 Pukka Pies may also ensure the distribution <em>(APP)</em> of its pies has less of a carbon footprint by using electric transport <em>(AN)</em>.<br><br>
 Overall, PP being more environmentally friendly may have a big impact <em>(EVAL)</em> as costs increase. This may particularly lead to higher prices to cover these costs <em>(EVAL)</em>, although this may be offset by the lower costs now none of Pukka Pies' waste goes to landfill <em>(EVAL)</em>.`
-      },
+            },
 
-      {
-        num: "Q9a",
-        marks: 1,
-        type: "written",
-        caseStudy: "Aston Martin plc (AM plc) is a British manufacturer of luxury sports cars. It has more than 150 car dealerships in over 50 countries on six continents. Its globalised supply chain includes suppliers from the UK, EU and across the world. The company is also expanding its brand to include speed boats, submarines and property development.\n\nIts headquarters and the main production site are centrally located in Warwickshire, England, on the site of a former RAF airbase. It employs over 3,000 workers on this site, who are highly skilled engineers and who produce each car using the most up-to-date machinery. When the cars are finished, they are then transported from central England all over the UK and beyond. The demand for AM plc products is influenced by many factors, including UK unemployment rates and consumer income levels.\n\nAM plc is proud of its commitment to the environment, which includes trying to produce goods sustainably. It also considers ethical issues in its decision making.\n\nBar chart 1 — UK unemployment rate: 2013: 7.5%, 2014: 6%, 2015: 5.5%, 2016: 5%, 2017: 4.5%, 2018: 4%.\nBar chart 2 — Average UK consumer income: 2013: £30,000, 2014: £30,000, 2015: £31,500, 2016: £31,750, 2017: £32,000, 2018: £32,250.",
-        question: "State one ethical consideration a business may need to consider. [1 mark]",
-        hint: "Ethics is about what is fair and morally right — not legal requirements. Think about fair treatment of workers, suppliers, or customers.",
-        starter: "One ethical consideration a business may need to consider is...",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q9a",
+                marks: 1,
+                type: "written",
+                caseStudy: "Aston Martin plc (AM plc) is a British manufacturer of luxury sports cars. It has more than 150 car dealerships in over 50 countries on six continents. Its globalised supply chain includes suppliers from the UK, EU and across the world. The company is also expanding its brand to include speed boats, submarines and property development.\n\nIts headquarters and the main production site are centrally located in Warwickshire, England, on the site of a former RAF airbase. It employs over 3,000 workers on this site, who are highly skilled engineers and who produce each car using the most up-to-date machinery. When the cars are finished, they are then transported from central England all over the UK and beyond. The demand for AM plc products is influenced by many factors, including UK unemployment rates and consumer income levels.\n\nAM plc is proud of its commitment to the environment, which includes trying to produce goods sustainably. It also considers ethical issues in its decision making.\n\nBar chart 1 — UK unemployment rate: 2013: 7.5%, 2014: 6%, 2015: 5.5%, 2016: 5%, 2017: 4.5%, 2018: 4%.\nBar chart 2 — Average UK consumer income: 2013: £30,000, 2014: £30,000, 2015: £31,500, 2016: £31,750, 2017: £32,000, 2018: £32,250.",
+                question: "State one ethical consideration a business may need to consider. [1 mark]",
+                hint: "Ethics is about what is fair and morally right — not legal requirements. Think about fair treatment of workers, suppliers, or customers.",
+                starter: "One ethical consideration a business may need to consider is...",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation (AO1a: 1 mark)</h5>
   <p>1 mark for a correct ethical consideration. Answers do not need to relate to Aston Martin.</p>
 </div>
@@ -1302,18 +1306,18 @@ Overall, PP being more environmentally friendly may have a big impact <em>(EVAL)
     <li>Answers which are clearly environmental considerations (e.g., pollution, sustainability)</li>
   </ul>
 </div>`,
-        modelAnswer: ""
-      },
+                modelAnswer: ""
+            },
 
-      {
-        num: "Q9b",
-        marks: 3,
-        type: "written",
-        caseStudy: "",
-        question: "Analyse one method of sustainable production that AM plc could use. [3 marks]",
-        hint: "Sustainable production means producing goods in a way that reduces the impact on the environment and preserves resources for the future. Think about what AM plc specifically does — luxury car manufacture, large production site, over 3,000 workers, global transportation — and choose a method that fits.",
-        starter: "AM plc could use... as a method of sustainable production (K). As AM plc... (apply to the text), this would... (analysis of impact on the business).",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q9b",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Analyse one method of sustainable production that AM plc could use. [3 marks]",
+                hint: "Sustainable production means producing goods in a way that reduces the impact on the environment and preserves resources for the future. Think about what AM plc specifically does — luxury car manufacture, large production site, over 3,000 workers, global transportation — and choose a method that fits.",
+                starter: "AM plc could use... as a method of sustainable production (K). As AM plc... (apply to the text), this would... (analysis of impact on the business).",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation</h5>
   <ul>
     <li><strong>AO1a (1 mark):</strong> Knowledge of a method of sustainable production — no further marks without this</li>
@@ -1340,41 +1344,41 @@ Overall, PP being more environmentally friendly may have a big impact <em>(EVAL)
     <li>Answers which just focus on producing 'greener' cars / products</li>
   </ul>
 </div>`,
-        modelAnswer: `<strong>Exemplar response:</strong><br><br>
+                modelAnswer: `<strong>Exemplar response:</strong><br><br>
 AM plc could use solar energy in their production plant <em>(K)</em>. This would cut back their use of non-renewable energy to power their up-to-date machinery <em>(APP)</em> which could reduce the cost of producing cars <em>(AN)</em>.`
-      },
+            },
 
-      {
-        num: "Q10",
-        marks: 1,
-        type: "mcq",
-        caseStudy: "",
-        question: "Which of the following issues is climate change an example of? [1 mark]",
-        options: [
-          "A financial issue",
-          "A quality control issue",
-          "An economic issue",
-          "An environmental issue"
-        ],
-        answer: 3,
-        hint: "Climate change concerns the long-term impact of human activity on the natural world. Which category does that belong to?",
-        starter: "",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q10",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Which of the following issues is climate change an example of? [1 mark]",
+                options: [
+                    "A financial issue",
+                    "A quality control issue",
+                    "An economic issue",
+                    "An environmental issue"
+                ],
+                answer: 3,
+                hint: "Climate change concerns the long-term impact of human activity on the natural world. Which category does that belong to?",
+                starter: "",
+                markScheme: `<div class="marks-section">
   <h5>Correct answer: D — An environmental issue</h5>
   <p>Climate change is an environmental issue — it concerns the impact of human activity on the natural world, including rising global temperatures and changing weather patterns. It is not primarily a financial, quality control, or economic issue.</p>
 </div>`,
-        modelAnswer: ""
-      },
+                modelAnswer: ""
+            },
 
-      {
-        num: "Q11i",
-        marks: 3,
-        type: "written",
-        caseStudy: "Virgin Atlantic is a multinational company which flies customers to many destinations around the world. Since its launch in 1984 Virgin Atlantic has pursued objectives of growth and to develop an international brand.\n\nIn 2016, Virgin Atlantic carried 6 million passengers and made £23 million in profit, its highest profit in five years. The company can calculate the number of customers it needs for each of its flights to break-even.\n\nPart of Virgin Atlantic's aim is 'to grow a profitable airline, where people love to fly and people love to work.' The business has always been keen to provide excellent customer service, competitive prices and a fantastic choice of food and drink on its planes. Additionally, the business takes its ethical and environmental responsibilities very seriously too.",
-        question: "Analyse one impact that ethical considerations may have on Virgin Atlantic. [3 marks]",
-        hint: "Think about an area of ethics (e.g., treatment of workers, customers, or suppliers) and how it specifically applies to what Virgin Atlantic does as an airline. Then explain the consequence for the business.",
-        starter: "One ethical consideration for Virgin Atlantic is... (understanding). For example, Virgin Atlantic... (application). This would mean that... (analysis of impact).",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q11i",
+                marks: 3,
+                type: "written",
+                caseStudy: "Virgin Atlantic is a multinational company which flies customers to many destinations around the world. Since its launch in 1984 Virgin Atlantic has pursued objectives of growth and to develop an international brand.\n\nIn 2016, Virgin Atlantic carried 6 million passengers and made £23 million in profit, its highest profit in five years. The company can calculate the number of customers it needs for each of its flights to break-even.\n\nPart of Virgin Atlantic's aim is 'to grow a profitable airline, where people love to fly and people love to work.' The business has always been keen to provide excellent customer service, competitive prices and a fantastic choice of food and drink on its planes. Additionally, the business takes its ethical and environmental responsibilities very seriously too.",
+                question: "Analyse one impact that ethical considerations may have on Virgin Atlantic. [3 marks]",
+                hint: "Think about an area of ethics (e.g., treatment of workers, customers, or suppliers) and how it specifically applies to what Virgin Atlantic does as an airline. Then explain the consequence for the business.",
+                starter: "One ethical consideration for Virgin Atlantic is... (understanding). For example, Virgin Atlantic... (application). This would mean that... (analysis of impact).",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation</h5>
   <ul>
     <li><strong>AO1b (1 mark):</strong> Understanding of ethical considerations</li>
@@ -1393,19 +1397,19 @@ AM plc could use solar energy in their production plant <em>(K)</em>. This would
     <li>Treatment of customers</li>
   </ul>
 </div>`,
-        modelAnswer: `<strong>Exemplar response:</strong><br><br>
+                modelAnswer: `<strong>Exemplar response:</strong><br><br>
 A business being ethical means that it tries to follow moral guidelines in how it carries out its business operations <em>(U)</em>. Being ethical would bring many advantages to Virgin Atlantic such as treating its employees well <em>(APP)</em>, which may lead to Virgin Atlantic having more motivated staff <em>(AN)</em> which means they could provide a better service, resulting in a better reputation and likely more sales <em>(AN)</em>.`
-      },
+            },
 
-      {
-        num: "Q11ii",
-        marks: 3,
-        type: "written",
-        caseStudy: "",
-        question: "Analyse one impact that environmental considerations may have on Virgin Atlantic. [3 marks]",
-        hint: "Think about the type of business Virgin Atlantic is — an airline that flies millions of passengers worldwide. What environmental concerns apply specifically to aviation? Then analyse the financial or operational impact on the business.",
-        starter: "One environmental consideration for Virgin Atlantic is... (understanding). As an airline, Virgin Atlantic... (application). This would result in... for the business (analysis).",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q11ii",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Analyse one impact that environmental considerations may have on Virgin Atlantic. [3 marks]",
+                hint: "Think about the type of business Virgin Atlantic is — an airline that flies millions of passengers worldwide. What environmental concerns apply specifically to aviation? Then analyse the financial or operational impact on the business.",
+                starter: "One environmental consideration for Virgin Atlantic is... (understanding). As an airline, Virgin Atlantic... (application). This would result in... for the business (analysis).",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation</h5>
   <ul>
     <li><strong>AO1b (1 mark):</strong> Understanding of environmental considerations</li>
@@ -1423,19 +1427,19 @@ A business being ethical means that it tries to follow moral guidelines in how i
     <li>Climate change</li>
   </ul>
 </div>`,
-        modelAnswer: `<strong>Exemplar response:</strong><br><br>
+                modelAnswer: `<strong>Exemplar response:</strong><br><br>
 Air pollution <em>(U)</em> could have a big impact on Virgin Atlantic. The aircraft industry, including Virgin Atlantic, are concerned about the emissions their aircraft make so newer planes are designed to be more efficient and cleaner <em>(APP)</em>. This has a major financial impact <em>(AN)</em> as the new planes will cost a lot of money to buy.`
-      },
+            },
 
-      {
-        num: "Q11iii",
-        marks: 3,
-        type: "written",
-        caseStudy: "",
-        question: "Recommend whether ethical considerations or environmental considerations will have the greatest impact on Virgin Atlantic. [3 marks]",
-        hint: "You must make a clear choice and justify it. Think about the scale of each impact on Virgin Atlantic specifically — it is an airline (high pollution, many employees, global operation). Consider which type of consideration has the greater impact and why.",
-        starter: "I recommend that [ethical / environmental] considerations will have the greatest impact on Virgin Atlantic because... However, it could be argued that... Overall, I believe...",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q11iii",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Recommend whether ethical considerations or environmental considerations will have the greatest impact on Virgin Atlantic. [3 marks]",
+                hint: "You must make a clear choice and justify it. Think about the scale of each impact on Virgin Atlantic specifically — it is an airline (high pollution, many employees, global operation). Consider which type of consideration has the greater impact and why.",
+                starter: "I recommend that [ethical / environmental] considerations will have the greatest impact on Virgin Atlantic because... However, it could be argued that... Overall, I believe...",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation (AO3b: 3 marks)</h5>
   <ul>
     <li><strong>1 mark:</strong> A judgement with limited justification showing some appraisal of relevant information</li>
@@ -1444,21 +1448,21 @@ Air pollution <em>(U)</em> could have a big impact on Virgin Atlantic. The aircr
   </ul>
   <p><em>Either judgement can gain full marks — there is no single correct answer.</em></p>
 </div>`,
-        modelAnswer: `<strong>Exemplar — ethical greatest:</strong><br><br>
+                modelAnswer: `<strong>Exemplar — ethical greatest:</strong><br><br>
 Ethics are likely to have a bigger impact on Virgin Atlantic because every airline will pollute but only some will choose to be ethical <em>(1)</em>. This will enable Virgin Atlantic to develop their international brand further which is their objective <em>(1)</em>. However, this assumes that Virgin Atlantic is not polluting any more than any other airline <em>(1)</em>.<br><br>
 <strong>Exemplar — environmental greatest:</strong><br><br>
 The impact of environmental considerations is far more important than ethics because airlines cause so much pollution worldwide <em>(1)</em>. The main driver for customers is price when flying, so ethics are likely to be less important <em>(1)</em>, but if Virgin do not protect the environment then they may get fined which increases their costs and eventually prices <em>(1)</em>.`
-      },
+            },
 
-      {
-        num: "Q12a(i)",
-        marks: 3,
-        type: "written",
-        caseStudy: "NEXT plc is a clothing retailer selling clothing, footwear, accessories and home products through its high street shops and online across the UK. NEXT plc understands the importance of creating good relationships with its customers and constantly tries to improve its levels of customer service.\n\nFor NEXT, responsible business behaviour includes addressing key business-related social, ethical and environmental impacts in a way that aims to bring value to all its stakeholders, including its shareholders.\n\nNEXT plc sources products from many suppliers across the world. The company takes its environmental and ethical responsibilities very seriously.",
-        question: "Analyse one way in which being environmentally friendly could impact on NEXT plc's marketing function. [3 marks]",
-        hint: "The marketing function covers advertising, promotion, pricing, and product development. How might becoming more environmentally friendly change what NEXT does in any of these areas? Think about the consequences for the business too.",
-        starter: "Being environmentally friendly could impact NEXT's marketing function by... (understanding). For NEXT, this could mean... (application). As a result, this would... (analysis).",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q12a(i)",
+                marks: 3,
+                type: "written",
+                caseStudy: "NEXT plc is a clothing retailer selling clothing, footwear, accessories and home products through its high street shops and online across the UK. NEXT plc understands the importance of creating good relationships with its customers and constantly tries to improve its levels of customer service.\n\nFor NEXT, responsible business behaviour includes addressing key business-related social, ethical and environmental impacts in a way that aims to bring value to all its stakeholders, including its shareholders.\n\nNEXT plc sources products from many suppliers across the world. The company takes its environmental and ethical responsibilities very seriously.",
+                question: "Analyse one way in which being environmentally friendly could impact on NEXT plc's marketing function. [3 marks]",
+                hint: "The marketing function covers advertising, promotion, pricing, and product development. How might becoming more environmentally friendly change what NEXT does in any of these areas? Think about the consequences for the business too.",
+                starter: "Being environmentally friendly could impact NEXT's marketing function by... (understanding). For NEXT, this could mean... (application). As a result, this would... (analysis).",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation</h5>
   <ul>
     <li><strong>AO1b (1 mark):</strong> Understanding of one way being environmentally friendly could impact on marketing</li>
@@ -1480,19 +1484,19 @@ The impact of environmental considerations is far more important than ethics bec
     <li>Change in the way NEXT segments the market</li>
   </ul>
 </div>`,
-        modelAnswer: `<strong>Exemplar response:</strong><br><br>
+                modelAnswer: `<strong>Exemplar response:</strong><br><br>
 Being environmentally friendly offers new ways to promote the company <em>(U)</em>. NEXT plc's marketing department could have an increased workload <em>(APP)</em> designing a new television advertisement which promotes its environmentally friendly behaviour <em>(AN)</em>.`
-      },
+            },
 
-      {
-        num: "Q12a(ii)",
-        marks: 3,
-        type: "written",
-        caseStudy: "",
-        question: "Analyse one way in which being environmentally friendly could impact on NEXT plc's human resources function. [3 marks]",
-        hint: "The HR function covers recruitment, training, and managing employees. Think about how going green might change how NEXT recruits people, how it trains them, or how employees work day-to-day.",
-        starter: "Being environmentally friendly could impact NEXT's human resources function by... This could mean that NEXT... As a result, this would lead to...",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q12a(ii)",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Analyse one way in which being environmentally friendly could impact on NEXT plc's human resources function. [3 marks]",
+                hint: "The HR function covers recruitment, training, and managing employees. Think about how going green might change how NEXT recruits people, how it trains them, or how employees work day-to-day.",
+                starter: "Being environmentally friendly could impact NEXT's human resources function by... This could mean that NEXT... As a result, this would lead to...",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation</h5>
   <ul>
     <li><strong>AO1b (1 mark):</strong> Understanding of one way being environmentally friendly could impact on HR</li>
@@ -1517,19 +1521,19 @@ Being environmentally friendly offers new ways to promote the company <em>(U)</e
     <li>Encouraged remote working</li>
   </ul>
 </div>`,
-        modelAnswer: `<strong>Exemplar response:</strong><br><br>
+                modelAnswer: `<strong>Exemplar response:</strong><br><br>
 NEXT plc may need to alter its selection and recruitment processes <em>(U)</em> so that it interviews prospective job candidates online <em>(APP)</em>. This would require less travel, and therefore less pollution <em>(AN)</em>.`
-      },
+            },
 
-      {
-        num: "Q12a(iii)",
-        marks: 3,
-        type: "written",
-        caseStudy: "",
-        question: "Analyse one way in which being environmentally friendly could impact on NEXT plc's finance function. [3 marks]",
-        hint: "The finance function manages costs, cash flow, budgets, and sources of funding. How might becoming more environmentally friendly increase costs or change the financial position of NEXT?",
-        starter: "Being environmentally friendly could impact NEXT's finance function by... This means that NEXT's costs / cash flow... which would result in...",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q12a(iii)",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Analyse one way in which being environmentally friendly could impact on NEXT plc's finance function. [3 marks]",
+                hint: "The finance function manages costs, cash flow, budgets, and sources of funding. How might becoming more environmentally friendly increase costs or change the financial position of NEXT?",
+                starter: "Being environmentally friendly could impact NEXT's finance function by... This means that NEXT's costs / cash flow... which would result in...",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation</h5>
   <ul>
     <li><strong>AO1b (1 mark):</strong> Understanding of one way being environmentally friendly could impact on finance</li>
@@ -1547,19 +1551,19 @@ NEXT plc may need to alter its selection and recruitment processes <em>(U)</em> 
     <li>Effect on break even</li>
   </ul>
 </div>`,
-        modelAnswer: `<strong>Exemplar response:</strong><br><br>
+                modelAnswer: `<strong>Exemplar response:</strong><br><br>
 Being environmentally friendly is likely to increase operating costs <em>(U)</em>. The business may find itself in a more difficult cash flow position than normal <em>(APP)</em> and the finance department may need to apply for an increase in the company's overdraft limit <em>(AN)</em>.`
-      },
+            },
 
-      {
-        num: "Q12a(iv)",
-        marks: 3,
-        type: "written",
-        caseStudy: "",
-        question: "Recommend which function would be most affected by NEXT plc being environmentally friendly. Give reasons for your answer. [3 marks]",
-        hint: "You need to make a clear choice between marketing, human resources, and finance. Think about which function would face the biggest change across NEXT as a whole business, and justify your choice with reasons.",
-        starter: "The function most affected by NEXT being environmentally friendly would be... because... Furthermore... Overall, this function is most impacted because...",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q12a(iv)",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Recommend which function would be most affected by NEXT plc being environmentally friendly. Give reasons for your answer. [3 marks]",
+                hint: "You need to make a clear choice between marketing, human resources, and finance. Think about which function would face the biggest change across NEXT as a whole business, and justify your choice with reasons.",
+                starter: "The function most affected by NEXT being environmentally friendly would be... because... Furthermore... Overall, this function is most impacted because...",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation (AO3b: 3 marks)</h5>
   <ul>
     <li><strong>1 mark:</strong> A judgement with limited justification showing some appraisal of relevant information and/or issues</li>
@@ -1567,19 +1571,19 @@ Being environmentally friendly is likely to increase operating costs <em>(U)</em
     <li><strong>3 marks:</strong> A judgement with strong justification showing detailed appraisal of relevant information and/or issues</li>
   </ul>
 </div>`,
-        modelAnswer: `<strong>Exemplar response:</strong><br><br>
+                modelAnswer: `<strong>Exemplar response:</strong><br><br>
 The human resource function is likely to be the most affected by NEXT plc being environmentally friendly <em>(1)</em> because it would affect the way all of its workers are employed, how they are trained and how they are managed on a day to day basis <em>(1)</em>. This will require the introduction of new IT-based processes and mobile technologies <em>(1)</em>.`
-      },
+            },
 
-      {
-        num: "Q12b",
-        marks: 3,
-        type: "written",
-        caseStudy: "",
-        question: "Analyse how NEXT plc could ethically source the clothes that it sells. [3 marks]",
-        hint: "NEXT sources clothes from suppliers around the world. Ethical sourcing means ensuring suppliers act fairly in their treatment of workers. Think about what NEXT could demand of its suppliers, and then explain why this matters.",
-        starter: "NEXT could ethically source its clothes by... (understanding). This could mean that NEXT's suppliers... (application). As a result, this would... (analysis).",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q12b",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Analyse how NEXT plc could ethically source the clothes that it sells. [3 marks]",
+                hint: "NEXT sources clothes from suppliers around the world. Ethical sourcing means ensuring suppliers act fairly in their treatment of workers. Think about what NEXT could demand of its suppliers, and then explain why this matters.",
+                starter: "NEXT could ethically source its clothes by... (understanding). This could mean that NEXT's suppliers... (application). As a result, this would... (analysis).",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation</h5>
   <ul>
     <li><strong>AO1b (1 mark):</strong> Understanding of how to ethically source products</li>
@@ -1605,19 +1609,19 @@ The human resource function is likely to be the most affected by NEXT plc being 
     <li>Have a clear ethical supply chain policy</li>
   </ul>
 </div>`,
-        modelAnswer: `<strong>Exemplar response:</strong><br><br>
+                modelAnswer: `<strong>Exemplar response:</strong><br><br>
 NEXT plc should pay its suppliers a reasonable price for the clothing it buys <em>(U)</em>. This will give the supplier sufficient income to pay its workers a fair wage <em>(APP)</em>, allowing those who make the clothes to have a decent standard of living <em>(AN)</em>.`
-      },
+            },
 
-      {
-        num: "Q13a",
-        marks: 3,
-        type: "written",
-        caseStudy: "Marks and Spencer (M&S) is one of the UK's leading retailers. It is committed to making every moment special for its customers, through its high quality, own-brand food, clothing and home products.\n\nM&S has an ethical programme called 'Plan A'. This was relaunched in 2017 with three new objectives for 2025:\n• 'Nourishing our wellbeing' — including looking after staff and their needs.\n• 'Transforming local communities' — including supporting staff who want to volunteer in charities.\n• 'Caring for the planet we share' — including developing better recycling for packaging.\n\nIn 2017, 60% of M&S's revenue came from the sale of food, which it sells through its 1,025 UK stores as well as through e-commerce on its website. The majority of the food it sells comes from one of its 283 'food factories' located around the country. The Montana Bakery is one of these factories. It produces speciality breads, rolls, garlic breads and pizza bases. The bakery is considering switching from batch production to flow production and automating some of the production.",
-        question: "Analyse how M&S's 'Plan A' ethical programme may impact on the profitability of the business. [3 marks]",
-        hint: "Profitability means the difference between revenue and costs. Think about how 'Plan A' could increase costs and/or boost revenue, and link your point specifically to the impact on that difference — not just profit in general.",
-        starter: "M&S's 'Plan A' ethical programme could impact on profitability by... (understanding). For M&S, this means... (application to 'Plan A'). This would lead to... which affects profitability because... (analysis).",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q13a",
+                marks: 3,
+                type: "written",
+                caseStudy: "Marks and Spencer (M&S) is one of the UK's leading retailers. It is committed to making every moment special for its customers, through its high quality, own-brand food, clothing and home products.\n\nM&S has an ethical programme called 'Plan A'. This was relaunched in 2017 with three new objectives for 2025:\n• 'Nourishing our wellbeing' — including looking after staff and their needs.\n• 'Transforming local communities' — including supporting staff who want to volunteer in charities.\n• 'Caring for the planet we share' — including developing better recycling for packaging.\n\nIn 2017, 60% of M&S's revenue came from the sale of food, which it sells through its 1,025 UK stores as well as through e-commerce on its website. The majority of the food it sells comes from one of its 283 'food factories' located around the country. The Montana Bakery is one of these factories. It produces speciality breads, rolls, garlic breads and pizza bases. The bakery is considering switching from batch production to flow production and automating some of the production.",
+                question: "Analyse how M&S's 'Plan A' ethical programme may impact on the profitability of the business. [3 marks]",
+                hint: "Profitability means the difference between revenue and costs. Think about how 'Plan A' could increase costs and/or boost revenue, and link your point specifically to the impact on that difference — not just profit in general.",
+                starter: "M&S's 'Plan A' ethical programme could impact on profitability by... (understanding). For M&S, this means... (application to 'Plan A'). This would lead to... which affects profitability because... (analysis).",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation</h5>
   <ul>
     <li><strong>AO1b (1 mark):</strong> Understanding of the impact of ethical considerations — no further marks without this (note: understanding of the impact, not necessarily understanding of ethics itself)</li>
@@ -1659,19 +1663,19 @@ NEXT plc should pay its suppliers a reasonable price for the clothing it buys <e
   <h5>Examiner's comments</h5>
   <p>Many candidates struggled to analyse how this would impact on profitability. There was a great deal of confusion between an impact on profit (such as revenue increasing or costs decreasing) and an impact on profitability. To show an impact on profitability, there needed to be an understanding that the difference between costs and revenue was either increasing or decreasing.</p>
 </div>`,
-        modelAnswer: `<strong>Exemplar response:</strong><br><br>
+                modelAnswer: `<strong>Exemplar response:</strong><br><br>
 M&S's ethical programme has an impact on the staff retention <em>(U)</em> because M&S will support them in volunteering <em>(APP)</em>. However, this may increase the costs of the business, reducing their profitability if they do not increase their prices <em>(AN)</em>.`
-      },
+            },
 
-      {
-        num: "Q13b",
-        marks: 9,
-        type: "extended",
-        caseStudy: "",
-        question: "Evaluate how the ethical treatment of workers may have an impact on the motivation and retention of M&S's staff. [9 marks]",
-        hint: "You need to cover three areas: (1) what is the ethical treatment of workers, (2) how does it affect motivation, (3) how does it affect retention. Then analyse the business impact of each and make a final judgement about whether motivation or retention is more affected, with justification.",
-        starter: "Ethics is about doing what is morally right (K). An example of ethical treatment of workers is... (U). If M&S treats its workers ethically, this would affect motivation by... (APP + AN). It would also affect retention by... (APP + AN). Overall, the ethical treatment of workers is likely to have the greatest impact on... because... (EVAL).",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q13b",
+                marks: 9,
+                type: "extended",
+                caseStudy: "",
+                question: "Evaluate how the ethical treatment of workers may have an impact on the motivation and retention of M&S's staff. [9 marks]",
+                hint: "You need to cover three areas: (1) what is the ethical treatment of workers, (2) how does it affect motivation, (3) how does it affect retention. Then analyse the business impact of each and make a final judgement about whether motivation or retention is more affected, with justification.",
+                starter: "Ethics is about doing what is morally right (K). An example of ethical treatment of workers is... (U). If M&S treats its workers ethically, this would affect motivation by... (APP + AN). It would also affect retention by... (APP + AN). Overall, the ethical treatment of workers is likely to have the greatest impact on... because... (EVAL).",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation</h5>
   <ul>
     <li><strong>AO1a (1 mark):</strong> Knowledge of ethics</li>
@@ -1750,22 +1754,22 @@ M&S's ethical programme has an impact on the staff retention <em>(U)</em> becaus
   <p>This question synoptically tests knowledge from across the specification — ethical treatment of workers (component 2) alongside motivation and retention (component 1). Most candidates could apply knowledge to motivation; many could also show how it would affect retention. However, candidates found the skills of knowledge and evaluation more difficult.</p>
   <p>Candidates who achieved full marks started with a simple definition and example, applied to both motivation and retention, analysed the business impact of each, then concluded with a supported judgement about whether motivation or retention is more affected. The 9-mark question always requires all five skill areas to be demonstrated explicitly.</p>
 </div>`,
-        modelAnswer: `<strong>Exemplar response:</strong><br><br>
+                modelAnswer: `<strong>Exemplar response:</strong><br><br>
 Ethics is about being moral and fair <em>(K)</em>, which may include paying workers a fair wage <em>(U)</em>.<br><br>
 If M&S is being ethical then workers are likely to feel well looked after, which makes them happier and more motivated <em>(APP)</em>. It may also lead to workers not wanting to leave M&S to work somewhere else <em>(APP)</em>.<br><br>
 By having more motivated workers, M&S won't need to advertise jobs as often, which decreases their costs <em>(AN)</em>. M&S will also find that workers are happier, and this could lead to more sales in their stores <em>(AN)</em>.<br><br>
 Overall, ethics can affect both motivation and retention to a great extent <em>(EVAL)</em>, but the effect of retention on costs is likely to be larger <em>(EVAL)</em> than the effect of motivation on sales because M&S is in a competitive market <em>(EVAL)</em>.`
-      },
+            },
 
-      {
-        num: "Q14a(i)",
-        marks: 2,
-        type: "written",
-        caseStudy: "Costa Coffee is a British multinational coffee shop company owned by Coca-Cola. It is the second largest coffeehouse chain in the world behind Starbucks, and the largest in the UK. It has over 2,100 branches in the UK and over 1,200 branches in the rest of the world including Dubai, China and Poland.\n\nCosta Coffee has recently opened a new branch in Welshpool. It is located in the town centre on the high street near lots of other businesses, including offices and shops. There were only two other coffee shops in the town before they opened.\n\nCosta Coffee takes ethics very seriously and it has switched to environmentally-friendly coffee beans to make its supply chain more sustainable. Now all its stores worldwide use beans from Rainforest Alliance-certified suppliers, who meet ethical and environmental standards for the sustainable supply of coffee beans.\n\nIn order to be successful, Costa Coffee sells a wide range of products and constantly invests in updating this product range as well as refurbishing its shops. Recently it has invested heavily in updating its computer software to assist its many functional areas such as finance.",
-        question: "State two environmental considerations for a business. [2 marks]",
-        hint: "The specification lists four key environmental considerations. Think about what impacts a business has on the natural world — covering areas like the sustainability of resources, the disposal of waste, the release of pollutants, and long-term climate effects.",
-        starter: "1. One environmental consideration is...\n2. Another environmental consideration is...",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q14a(i)",
+                marks: 2,
+                type: "written",
+                caseStudy: "Costa Coffee is a British multinational coffee shop company owned by Coca-Cola. It is the second largest coffeehouse chain in the world behind Starbucks, and the largest in the UK. It has over 2,100 branches in the UK and over 1,200 branches in the rest of the world including Dubai, China and Poland.\n\nCosta Coffee has recently opened a new branch in Welshpool. It is located in the town centre on the high street near lots of other businesses, including offices and shops. There were only two other coffee shops in the town before they opened.\n\nCosta Coffee takes ethics very seriously and it has switched to environmentally-friendly coffee beans to make its supply chain more sustainable. Now all its stores worldwide use beans from Rainforest Alliance-certified suppliers, who meet ethical and environmental standards for the sustainable supply of coffee beans.\n\nIn order to be successful, Costa Coffee sells a wide range of products and constantly invests in updating this product range as well as refurbishing its shops. Recently it has invested heavily in updating its computer software to assist its many functional areas such as finance.",
+                question: "State two environmental considerations for a business. [2 marks]",
+                hint: "The specification lists four key environmental considerations. Think about what impacts a business has on the natural world — covering areas like the sustainability of resources, the disposal of waste, the release of pollutants, and long-term climate effects.",
+                starter: "1. One environmental consideration is...\n2. Another environmental consideration is...",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation (AO1a: 2 marks)</h5>
   <p>One mark for each correct identification, up to a maximum of two.</p>
 </div>
@@ -1792,18 +1796,18 @@ Overall, ethics can affect both motivation and retention to a great extent <em>(
   <h5>Examiner's comments</h5>
   <p>The specification lists four environmental considerations: sustainability, waste disposal, pollution, climate change. Relatively few candidates could name two of these. Where misunderstanding existed, it was often a confusion between environmental and ethical considerations.</p>
 </div>`,
-        modelAnswer: ""
-      },
+                modelAnswer: ""
+            },
 
-      {
-        num: "Q14a(ii)",
-        marks: 3,
-        type: "written",
-        caseStudy: "",
-        question: "Analyse one advantage to Costa Coffee of being a sustainable business. [3 marks]",
-        hint: "Sustainability means using resources in a way that does not deplete them for future generations and minimises environmental harm. Think about a specific advantage for Costa Coffee as a business — not for the environment — and use details from the case study to apply it.",
-        starter: "One advantage to Costa Coffee of being a sustainable business is... (understanding). For Costa Coffee, this means... (application using the text). This would result in... for the business (analysis).",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q14a(ii)",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Analyse one advantage to Costa Coffee of being a sustainable business. [3 marks]",
+                hint: "Sustainability means using resources in a way that does not deplete them for future generations and minimises environmental harm. Think about a specific advantage for Costa Coffee as a business — not for the environment — and use details from the case study to apply it.",
+                starter: "One advantage to Costa Coffee of being a sustainable business is... (understanding). For Costa Coffee, this means... (application using the text). This would result in... for the business (analysis).",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation</h5>
   <ul>
     <li><strong>AO1b (1 mark):</strong> Understanding of what it means to be a sustainable business — no further marks without this</li>
@@ -1844,21 +1848,21 @@ Overall, ethics can affect both motivation and retention to a great extent <em>(
   <h5>Examiner's comments</h5>
   <p>The most common error was to give an answer which showed no understanding of what being a sustainable business means. Sustainability is an environmental consideration in GCSE Business — a generic understanding of the word alone is not sufficient. A strong response has all three elements: understanding of sustainability (positively affecting the environment), application to Costa Coffee using the text, and a chain of analysis of the advantage to the business.</p>
 </div>`,
-        modelAnswer: `<strong>Exemplar response 1:</strong><br><br>
+                modelAnswer: `<strong>Exemplar response 1:</strong><br><br>
 Costa Coffee may use more recycling <em>(U)</em> in all of its 2,100 UK branches <em>(APP)</em> which could persuade more customers to come to their shop <em>(AN)</em>.<br><br>
 <strong>Exemplar response 2:</strong><br><br>
 Costa Coffee uses beans from an environmental supplier <em>(U)</em> for its coffee beans <em>(APP)</em>. This may retain more of its workers as they want to work for a sustainable business <em>(AN)</em>.`
-      },
+            },
 
-      {
-        num: "Q14b",
-        marks: 4,
-        type: "written",
-        caseStudy: "",
-        question: "Explain two possible reasons why Costa Coffee uses coffee beans from Rainforest Alliance-certified coffee suppliers. [4 marks]",
-        hint: "Think about the benefits for Costa Coffee of choosing certified, ethical suppliers. Look back at the case study for clues — what does being certified mean, and why would that appeal to Costa Coffee in a competitive market?",
-        starter: "Reason 1: Costa Coffee uses Rainforest Alliance-certified suppliers because... (understanding). This means that Costa Coffee... (application).\n\nReason 2: Another reason is that... (understanding). This means... (application).",
-        markScheme: `<div class="marks-section">
+            {
+                num: "Q14b",
+                marks: 4,
+                type: "written",
+                caseStudy: "",
+                question: "Explain two possible reasons why Costa Coffee uses coffee beans from Rainforest Alliance-certified coffee suppliers. [4 marks]",
+                hint: "Think about the benefits for Costa Coffee of choosing certified, ethical suppliers. Look back at the case study for clues — what does being certified mean, and why would that appeal to Costa Coffee in a competitive market?",
+                starter: "Reason 1: Costa Coffee uses Rainforest Alliance-certified suppliers because... (understanding). This means that Costa Coffee... (application).\n\nReason 2: Another reason is that... (understanding). This means... (application).",
+                markScheme: `<div class="marks-section">
   <h5>Mark allocation</h5>
   <ul>
     <li><strong>AO1b (2 marks):</strong> One mark for understanding of a reason why certain suppliers are chosen, up to a maximum of 2 marks</li>
@@ -1895,14 +1899,14 @@ Costa Coffee uses beans from an environmental supplier <em>(U)</em> for its coff
   <h5>Examiner's comments</h5>
   <p>To answer this question, candidates needed to understand what benefits a business might gain from choosing an ethical supplier, then apply this to Costa Coffee and the Rainforest Alliance-certified suppliers. Most candidates could understand at least one benefit such as increased reputation, but it was rarer to apply this to the given context. The data is full of signposts to the most appropriate answers — always start with the text itself, not the specification.</p>
 </div>`,
-        modelAnswer: `<strong>Exemplar response 1:</strong><br><br>
+                modelAnswer: `<strong>Exemplar response 1:</strong><br><br>
 Suppliers may be more reliable <em>(U)</em> so that Costa can stock its 2,100 branches in the UK <em>(APP)</em>.<br><br>
 <strong>Exemplar response 2:</strong><br><br>
 Costa Coffee may want to be more ethical <em>(U)</em> than their competition such as Starbucks <em>(APP)</em>.`
-      }
-    ];
-  </script>
-  <script src="script.js"></script>
+            }
+        ];
+</script>
+     <script src="script.js"></script>
 
 </body>
 

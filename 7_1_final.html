@@ -1,1110 +1,1097 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>7.1 Interdependent Nature of Business – Interactive Study Guide</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --ink: #0f1923;
-    --paper: #f5f0e8;
-    --cream: #ede7d9;
-    --accent: #c84b31;
-    --gold: #d4a843;
-    --teal: #1a6b6b;
-    --mid: #5a6e7f;
-    --light: #ffffff;
-    --border: #c9bfaa;
-    --success: #2d7a4f;
-    --wrong: #c84b31;
-    --card-bg: #fffcf6;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--paper);
-    color: var(--ink);
-    min-height: 100vh;
-  }
-
-  header {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 28px 40px 24px;
-    display: flex;
-    align-items: flex-end;
-    gap: 20px;
-    position: relative;
-    overflow: hidden;
-  }
-  header::before {
-    content: '';
-    position: absolute;
-    top: -40px; right: -40px;
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    background: var(--teal);
-    opacity: .18;
-  }
-  header .badge {
-    background: var(--teal);
-    color: #fff;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    padding: 4px 10px;
-    border-radius: 3px;
-    text-transform: uppercase;
-  }
-  header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(22px, 4vw, 40px);
-    line-height: 1.1;
-  }
-  header p { font-size: 13px; color: #aaa; margin-top: 6px; }
-
-  .tab-bar {
-    background: var(--ink);
-    display: flex;
-    gap: 0;
-    overflow-x: auto;
-    border-bottom: 2px solid var(--teal);
-    padding: 0 40px;
-    scrollbar-width: none;
-  }
-  .tab-bar::-webkit-scrollbar { display: none; }
-  .tab-btn {
-    background: none;
-    border: none;
-    color: #999;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: .5px;
-    padding: 14px 18px;
-    cursor: pointer;
-    border-bottom: 3px solid transparent;
-    white-space: nowrap;
-    transition: color .2s, border-color .2s;
-    margin-bottom: -2px;
-  }
-  .tab-btn:hover { color: var(--paper); }
-  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
-
-  main { padding: 32px 40px 60px; max-width: 1100px; margin: 0 auto; }
-
-  .tab-panel { display: none; animation: fadeUp .35s ease; }
-  .tab-panel.active { display: block; }
-  @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
-
-  .section-title { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--ink); margin-bottom: 6px; }
-  .section-sub { font-size: 13px; color: var(--mid); margin-bottom: 28px; }
-
-  /* LEARN CARDS */
-  .topic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-  .topic-card {
-    background: var(--card-bg);
-    border: 1.5px solid var(--border);
-    border-radius: 10px;
-    padding: 22px 24px;
-    cursor: pointer;
-    transition: box-shadow .2s, transform .2s;
-    position: relative;
-    overflow: hidden;
-  }
-  .topic-card::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 4px;
-    background: var(--teal);
-    border-radius: 4px 0 0 4px;
-  }
-  .topic-card:nth-child(2)::before { background: var(--accent); }
-  .topic-card:nth-child(3)::before { background: var(--gold); }
-  .topic-card:nth-child(4)::before { background: #7a5c9e; }
-  .topic-card:nth-child(5)::before { background: var(--success); }
-  .topic-card:nth-child(6)::before { background: #c84b8a; }
-  .topic-card:nth-child(7)::before { background: #4a90d9; }
-  .topic-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.12); transform: translateY(-2px); }
-  .topic-card h3 { font-family: 'Playfair Display', serif; font-size: 17px; margin-bottom: 8px; color: var(--ink); }
-  .topic-card .toggle-icon { position: absolute; right: 20px; top: 20px; font-size: 18px; color: var(--mid); transition: transform .3s; }
-  .topic-card.open .toggle-icon { transform: rotate(45deg); }
-  .topic-content { display: none; margin-top: 12px; border-top: 1px solid var(--border); padding-top: 12px; }
-  .topic-card.open .topic-content { display: block; }
-  .topic-content ul { padding-left: 18px; }
-  .topic-content li { font-size: 13.5px; line-height: 1.7; color: #3a4a56; margin-bottom: 4px; }
-  .topic-content p { font-size: 13.5px; line-height: 1.75; color: #3a4a56; margin-bottom: 8px; }
-  .topic-card .tag {
-    display: inline-block;
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    background: var(--cream);
-    border: 1px solid var(--border);
-    padding: 2px 8px;
-    border-radius: 3px;
-    margin-bottom: 6px;
-    color: var(--mid);
-  }
-
-  /* MCQ */
-  .quiz-wrap { display: flex; flex-direction: column; gap: 28px; }
-  .q-block { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 24px 26px; }
-  .q-block .q-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--teal); letter-spacing: 2px; margin-bottom: 8px; }
-  .q-block .q-text { font-weight: 600; font-size: 15px; margin-bottom: 16px; line-height: 1.5; }
-  .options { display: flex; flex-direction: column; gap: 9px; }
-  .opt-btn {
-    background: var(--cream);
-    border: 1.5px solid var(--border);
-    border-radius: 7px;
-    padding: 11px 16px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13.5px;
-    text-align: left;
-    cursor: pointer;
-    transition: background .15s, border-color .15s;
-  }
-  .opt-btn:hover:not(:disabled) { background: #e8e1d3; border-color: var(--mid); }
-  .opt-btn.correct { background: #d4edda; border-color: var(--success); color: var(--success); font-weight: 600; }
-  .opt-btn.wrong { background: #fde8e5; border-color: var(--accent); color: var(--accent); font-weight: 600; }
-  .q-feedback { margin-top: 12px; padding: 10px 14px; border-radius: 6px; font-size: 13px; display: none; }
-  .q-feedback.show { display: block; }
-  .q-feedback.ok { background: #d4edda; color: #1a5c34; }
-  .q-feedback.no { background: #fde8e5; color: #8b2317; }
-
-  /* MATCHING */
-  .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; }
-  .match-col { display: flex; flex-direction: column; gap: 10px; }
-  .match-item {
-    background: var(--cream);
-    border: 1.5px solid var(--border);
-    border-radius: 7px;
-    padding: 12px 15px;
-    font-size: 13px;
-    cursor: pointer;
-    transition: border-color .15s, background .15s;
-    line-height: 1.5;
-  }
-  .match-item.selected { border-color: var(--gold); background: #fdf5df; }
-  .match-item.matched-ok { border-color: var(--success); background: #d4edda; color: var(--success); cursor: default; }
-  .match-item.matched-eventual { border-color: #b8860b; background: #fff8dc; color: #7a5800; cursor: default; }
-  .match-item.matched-no { border-color: var(--accent); background: #fde8e5; color: var(--accent); animation: shake .35s; }
-  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
-  .match-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; color: var(--mid); margin-bottom: 6px; }
-
-  /* FILL IN BLANKS */
-  .fib-wrap { display: flex; flex-direction: column; gap: 22px; }
-  .fib-sentence {
-    background: var(--card-bg);
-    border: 1.5px solid var(--border);
-    border-radius: 10px;
-    padding: 20px 24px;
-    font-size: 15px;
-    line-height: 2.4;
-  }
-  .blank-select { display: inline-block; position: relative; vertical-align: middle; margin: 0 4px; }
-  .blank-select select {
-    appearance: none;
-    -webkit-appearance: none;
-    background: var(--cream);
-    border: 2px solid var(--teal);
-    border-radius: 6px;
-    padding: 3px 28px 3px 10px;
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--teal);
-    cursor: pointer;
-    min-width: 130px;
-    outline: none;
-    transition: border-color .15s, background .15s, color .15s;
-  }
-  .blank-select::after {
-    content: '▾';
-    position: absolute;
-    right: 8px; top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    font-size: 12px;
-    color: var(--teal);
-  }
-  .blank-select.correct select { border-color: var(--success); background: #d4edda; color: var(--success); }
-  .blank-select.correct::after { color: var(--success); }
-  .blank-select.wrong select { border-color: var(--accent); background: #fde8e5; color: var(--accent); animation: shake .3s; }
-  .blank-select.wrong::after { color: var(--accent); }
-
-  /* MISCONCEPTIONS */
-  .misc-list { display: flex; flex-direction: column; gap: 20px; }
-  .misc-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; overflow: hidden; }
-  .misc-card .wrong-view { background: #fde8e5; border-left: 5px solid var(--accent); padding: 16px 20px; }
-  .misc-card .correct-view { background: #d4edda; border-left: 5px solid var(--success); padding: 16px 20px; }
-  .misc-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 5px; }
-  .wrong-view .misc-tag { color: var(--accent); }
-  .correct-view .misc-tag { color: var(--success); }
-  .misc-card p { font-size: 14px; line-height: 1.65; }
-
-  /* EXAM TIPS */
-  .tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
-  .tip-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 22px 24px; }
-  .tip-card .tip-type { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
-  .tip-card h4 { font-family: 'Playfair Display', serif; font-size: 16px; margin-bottom: 10px; }
-  .tip-card p { font-size: 13.5px; line-height: 1.7; color: #3a4a56; }
-  .tip-card ul { padding-left: 18px; }
-  .tip-card li { font-size: 13.5px; line-height: 1.7; color: #3a4a56; margin-bottom: 4px; }
-  .mark-breakdown { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
-  .mark-pill { font-size: 11px; font-family: 'DM Mono', monospace; padding: 3px 10px; border-radius: 20px; background: var(--cream); border: 1px solid var(--border); }
-  .mark-pill.kn { background: #e8f4f8; border-color: #4a90a4; color: #1a5060; }
-  .mark-pill.un { background: #f0f8e8; border-color: #5a9a40; color: #2a5a18; }
-  .mark-pill.app { background: #fdf5df; border-color: var(--gold); color: #8a6800; }
-  .mark-pill.an { background: #e0f0f5; border-color: #4a90a4; color: #1a5060; }
-  .mark-pill.eval { background: #f0e8ff; border-color: #9a70c0; color: #4a1a80; }
-
-  /* FLASHCARDS */
-  .fc-container { max-width: 600px; margin: 0 auto; text-align: center; }
-  .fc-progress { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--mid); margin-bottom: 16px; }
-  .flashcard { perspective: 1000px; height: 280px; cursor: pointer; margin-bottom: 24px; }
-  .fc-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .5s cubic-bezier(.4,0,.2,1); }
-  .flashcard.flipped .fc-inner { transform: rotateY(180deg); }
-  .fc-front, .fc-back {
-    position: absolute; inset: 0; backface-visibility: hidden;
-    border-radius: 14px; display: flex; align-items: center; justify-content: center;
-    padding: 30px; border: 1.5px solid var(--border);
-  }
-  .fc-front { background: var(--ink); color: var(--paper); }
-  .fc-front .fc-label { position: absolute; top: 16px; left: 20px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
-  .fc-front .fc-term { font-family: 'Playfair Display', serif; font-size: 24px; line-height: 1.3; }
-  .fc-back { background: var(--card-bg); transform: rotateY(180deg); text-align: left; }
-  .fc-back .fc-def { font-size: 14px; line-height: 1.75; color: var(--ink); }
-  .fc-hint { font-size: 12px; color: var(--mid); margin-bottom: 16px; }
-  .fc-nav { display: flex; gap: 12px; justify-content: center; }
-  .fc-btn { background: var(--ink); color: var(--paper); border: none; border-radius: 7px; padding: 10px 22px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: background .15s; }
-  .fc-btn:hover { background: var(--teal); }
-  .fc-btn.outline { background: transparent; border: 1.5px solid var(--border); color: var(--ink); }
-  .fc-btn.outline:hover { background: var(--cream); }
-
-  /* TRUE / FALSE */
-  .tf-wrap { display: flex; flex-direction: column; gap: 18px; }
-  .tf-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 20px 24px; display: flex; align-items: flex-start; gap: 20px; }
-  .tf-card .tf-text { flex: 1; font-size: 14.5px; line-height: 1.6; }
-  .tf-btns { display: flex; gap: 8px; flex-shrink: 0; }
-  .tf-btn { border: 1.5px solid var(--border); background: var(--cream); border-radius: 6px; padding: 8px 16px; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 600; cursor: pointer; transition: background .15s; letter-spacing: .5px; }
-  .tf-btn:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
-  .tf-btn.correct { background: #d4edda; border-color: var(--success); color: var(--success); }
-  .tf-btn.wrong { background: #fde8e5; border-color: var(--accent); color: var(--accent); }
-  .tf-explanation { font-size: 13px; color: var(--mid); margin-top: 10px; display: none; line-height: 1.6; }
-  .tf-explanation.show { display: block; }
-
-  /* SCORE BAR */
-  .score-bar { background: var(--cream); border: 1.5px solid var(--border); border-radius: 8px; padding: 14px 20px; font-size: 14px; margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
-  .score-num { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--teal); line-height: 1; }
-  .reset-btn { margin-left: auto; background: none; border: 1.5px solid var(--border); border-radius: 6px; padding: 7px 16px; font-size: 12px; font-family: 'DM Mono', monospace; cursor: pointer; transition: background .15s; letter-spacing: .5px; }
-  .reset-btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-
-  /* 9-mark diagram */
-  .nine-mark-box {
-    background: var(--ink);
-    color: var(--paper);
-    border-radius: 12px;
-    padding: 24px 28px;
-    margin-bottom: 28px;
-  }
-  .nine-mark-box h3 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--gold); margin-bottom: 14px; }
-  .mark-row { display: flex; gap: 10px; flex-wrap: wrap; }
-  .mark-block {
-    flex: 1; min-width: 100px;
-    background: rgba(255,255,255,.08);
-    border: 1px solid rgba(255,255,255,.15);
-    border-radius: 8px;
-    padding: 12px 14px;
-    text-align: center;
-  }
-  .mark-block .mb-num { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--gold); }
-  .mark-block .mb-label { font-size: 11px; font-family: 'DM Mono', monospace; letter-spacing: 1px; color: #bbb; margin-top: 4px; }
-  .mark-block .mb-desc { font-size: 12px; color: #ddd; margin-top: 6px; line-height: 1.5; }
-
-  @media(max-width:640px) {
-    main { padding: 20px 16px 50px; }
-    header { padding: 20px 16px; }
-    .tab-bar { padding: 0 10px; }
-    .match-grid { grid-template-columns: 1fr; }
-    .tf-card { flex-direction: column; }
-    .tf-btns { flex-direction: row; }
-    .mark-row { flex-direction: column; }
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7 The interdependent nature of business – Interactive Study Guide</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-
-<header>
-  <div>
-    <div class="badge">OCR GCSE Business — Component 2</div>
-    <h1>Unit 7 — The Interdependent Nature of Business</h1>
-    <p>Interactive revision guide · All key content + exam practice</p>
-  </div>
-</header>
-
-<nav class="tab-bar" id="tabBar">
-  <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
-  <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
-  <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
-  <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
-  <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
-  <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
-  <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
-  <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
-</nav>
-
-<main>
-
-<!-- LEARN -->
-<div class="tab-panel active" id="tab-learn">
-  <h2 class="section-title">Key Learning Topics</h2>
-  <p class="section-sub">Click any card to expand detailed notes.</p>
-  <div class="topic-grid" id="topicGrid"></div>
-</div>
-
-<!-- MCQ -->
-<div class="tab-panel" id="tab-mcq">
-  <h2 class="section-title">Multiple Choice Questions</h2>
-  <p class="section-sub">Select an answer to reveal instant feedback.</p>
-  <div class="score-bar">
-    <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
-    <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
-    <button class="reset-btn" onclick="resetMCQ()">RESET</button>
-  </div>
-  <div class="quiz-wrap" id="mcqWrap"></div>
-</div>
-
-<!-- MATCHING -->
-<div class="tab-panel" id="tab-matching">
-  <h2 class="section-title">Matching Activity</h2>
-  <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
-  <div style="margin-bottom:16px;">
-    <div class="score-bar">
-      <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
-      <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
-      <button class="reset-btn" onclick="resetMatch()">RESET</button>
+  <header>
+    <div>
+      <div class="badge">OCR GCSE Business — Component 2</div>
+      <h1>7 The interdependent nature of business</h1>
+      <p>Interactive revision guide · All key content + full exam practice</p>
     </div>
-    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
-      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;">
-        <span style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span> First attempt correct
-      </span>
-      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;">
-        <span style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span> Correct after mistake
-      </span>
-      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;">
-        <span style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span> Wrong — try again
-      </span>
+    <a href="index.html" class="home-link">← 🏡 Home</a>
+  </header>
+
+  <nav class="tab-bar" id="tabBar">
+    <button class="tab-btn active" onclick="switchTab('learn', this)">
+      📚 Key Learning
+    </button>
+    <button class="tab-btn" onclick="switchTab('mcq', this)">
+      ❓ MCQ Quiz
+    </button>
+    <button class="tab-btn" onclick="switchTab('matching', this)">
+      🔗 Matching
+    </button>
+    <button class="tab-btn" onclick="switchTab('fib', this)">
+      ✏️ Fill the Blanks
+    </button>
+    <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+      ⚠️ Misconceptions
+    </button>
+    <button class="tab-btn" onclick="switchTab('examtips', this)">
+      🎯 Exam Tips
+    </button>
+    <button class="tab-btn" onclick="switchTab('flashcards', this)">
+      🃏 Flashcards
+    </button>
+    <button class="tab-btn" onclick="switchTab('truefalse', this)">
+      ✅ True / False
+    </button>
+    <button class="tab-btn" onclick="switchTab('exampractice', this)">
+      📝 Exam Practice
+    </button>
+  </nav>
+
+  <main>
+    <div class="tab-panel active" id="tab-learn">
+      <h2 class="section-title">Key Learning Topics</h2>
+      <p class="section-sub">Click any card to expand detailed notes.</p>
+      <div class="topic-grid" id="topicGrid"></div>
     </div>
-  </div>
-  <div class="match-grid">
-    <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
-    <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
-  </div>
-</div>
 
-<!-- FILL IN BLANKS -->
-<div class="tab-panel" id="tab-fib">
-  <h2 class="section-title">Fill in the Blanks</h2>
-  <p class="section-sub">Click the dropdown in each blank and choose the correct word. Wrong answers stay red — try again!</p>
-  <div class="score-bar">
-    <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
-    <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
-    <button class="reset-btn" onclick="resetFIB()">RESET</button>
-  </div>
-  <div class="fib-wrap" id="fibWrap"></div>
-</div>
-
-<!-- MISCONCEPTIONS -->
-<div class="tab-panel" id="tab-misconceptions">
-  <h2 class="section-title">Common Misconceptions</h2>
-  <p class="section-sub">What students often think — and what examiners actually want.</p>
-  <div class="misc-list" id="miscList"></div>
-</div>
-
-<!-- EXAM TIPS -->
-<div class="tab-panel" id="tab-examtips">
-  <h2 class="section-title">Exam Questions & Tips</h2>
-  <p class="section-sub">The 9-mark question structure, most repeated types, and mark-scheme guidance.</p>
-
-  <div class="nine-mark-box">
-    <h3>The 9-Mark Question — How It's Always Marked</h3>
-    <div class="mark-row">
-      <div class="mark-block"><div class="mb-num">1</div><div class="mb-label">KNOWLEDGE</div><div class="mb-desc">Define the change that makes things happen (e.g. define marketing)</div></div>
-      <div class="mark-block"><div class="mb-num">1</div><div class="mb-label">UNDERSTANDING</div><div class="mb-desc">Explain the concept — what activities does it include?</div></div>
-      <div class="mark-block"><div class="mb-num">2</div><div class="mb-label">APPLICATION</div><div class="mb-desc">Use TWO pieces of case study evidence to illustrate the link</div></div>
-      <div class="mark-block"><div class="mb-num">2</div><div class="mb-label">ANALYSIS</div><div class="mb-desc">Explain the effect/impact on the second business area</div></div>
-      <div class="mark-block"><div class="mb-num">3</div><div class="mb-label">EVALUATION</div><div class="mb-desc">Judgement (1) + Justified with context (2). Must refer to BOTH areas if question names two.</div></div>
+    <div class="tab-panel" id="tab-mcq">
+      <h2 class="section-title">Multiple Choice Questions</h2>
+      <p class="section-sub">Select an answer to reveal instant feedback.</p>
+      <div class="score-bar">
+        <div>
+          <div class="score-num" id="mcqScore">0</div>
+          <div style="font-size: 12px; color: var(--mid)">
+            correct answers
+          </div>
+        </div>
+        <div style="font-size: 13px; color: var(--mid)">
+          out of <strong id="mcqTotal">0</strong> attempted
+        </div>
+        <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+      </div>
+      <div class="quiz-wrap" id="mcqWrap"></div>
     </div>
-  </div>
 
-  <div class="tips-grid" id="tipsGrid"></div>
-</div>
-
-<!-- FLASHCARDS -->
-<div class="tab-panel" id="tab-flashcards">
-  <h2 class="section-title">Flashcards</h2>
-  <p class="section-sub">Click the card to reveal the definition. Use the arrows to navigate.</p>
-  <div class="fc-container">
-    <div class="fc-progress" id="fcProgress">Card 1 of 18</div>
-    <div class="flashcard" id="flashcard" onclick="flipCard()">
-      <div class="fc-inner">
-        <div class="fc-front"><div class="fc-label">KEY TERM</div><div class="fc-term" id="fcTerm"></div></div>
-        <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
+    <div class="tab-panel" id="tab-matching">
+      <h2 class="section-title">Matching Activity</h2>
+      <p class="section-sub">
+        Click a term on the left, then click the matching definition on the
+        right.
+      </p>
+      <div style="margin-bottom: 16px">
+        <div class="score-bar">
+          <div>
+            <div class="score-num" id="matchScore">0</div>
+            <div style="font-size: 12px; color: var(--mid)">matched</div>
+          </div>
+          <div style="font-size: 13px; color: var(--mid)">
+            out of <strong id="matchTotal">0</strong>
+          </div>
+          <button class="reset-btn" onclick="resetMatch()">RESET</button>
+        </div>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px">
+          <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #d4edda;
+                  border: 1.5px solid #2d7a4f;
+                  display: inline-block;
+                "></span>
+            First attempt correct</span>
+          <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fff8dc;
+                  border: 1.5px solid #b8860b;
+                  display: inline-block;
+                "></span>
+            Correct after mistake</span>
+          <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fde8e5;
+                  border: 1.5px solid #c84b31;
+                  display: inline-block;
+                "></span>
+            Wrong — try again</span>
+        </div>
+      </div>
+      <div class="match-grid">
+        <div>
+          <div class="match-label">TERMS</div>
+          <div class="match-col" id="matchLeft"></div>
+        </div>
+        <div>
+          <div class="match-label">DEFINITIONS</div>
+          <div class="match-col" id="matchRight"></div>
+        </div>
       </div>
     </div>
-    <p class="fc-hint">👆 Click card to flip</p>
-    <div class="fc-nav">
-      <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
-      <button class="fc-btn outline" onclick="flipCard()">Flip</button>
-      <button class="fc-btn" onclick="nextCard()">Next →</button>
+
+    <div class="tab-panel" id="tab-fib">
+      <h2 class="section-title">Fill in the Blanks</h2>
+      <p class="section-sub">
+        Click each dropdown and choose the correct word. Wrong answers reset —
+        try again!
+      </p>
+      <div class="score-bar">
+        <div>
+          <div class="score-num" id="fibScore">0</div>
+          <div style="font-size: 12px; color: var(--mid)">correct</div>
+        </div>
+        <div style="font-size: 13px; color: var(--mid)">
+          of <strong id="fibTotal">0</strong> blanks
+        </div>
+        <button class="reset-btn" onclick="resetFIB()">RESET</button>
+      </div>
+      <div class="fib-wrap" id="fibWrap"></div>
     </div>
-  </div>
-</div>
 
-<!-- TRUE / FALSE -->
-<div class="tab-panel" id="tab-truefalse">
-  <h2 class="section-title">True or False?</h2>
-  <p class="section-sub">Test your knowledge with these statements.</p>
-  <div class="score-bar">
-    <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
-    <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
-    <button class="reset-btn" onclick="resetTF()">RESET</button>
-  </div>
-  <div class="tf-wrap" id="tfWrap"></div>
-</div>
+    <div class="tab-panel" id="tab-misconceptions">
+      <h2 class="section-title">Common Misconceptions</h2>
+      <p class="section-sub">
+        What students often think — and what examiners actually want.
+      </p>
+      <div class="misc-list" id="miscList"></div>
+    </div>
 
-</main>
+    <div class="tab-panel" id="tab-examtips">
+      <h2 class="section-title">Exam Questions &amp; Tips</h2>
+      <p class="section-sub">
+        Most repeated question types and mark-scheme structures from real OCR
+        papers.
+      </p>
+      <div class="tips-grid" id="tipsGrid"></div>
+    </div>
 
-<script>
-// ═══════════════════════════════════════════════
-//  DATA
-// ═══════════════════════════════════════════════
+    <div class="tab-panel" id="tab-flashcards">
+      <h2 class="section-title">Flashcards</h2>
+      <p class="section-sub">
+        Test yourself! Flip the card and rate your knowledge. Review your weak
+        areas at the end.
+      </p>
 
-const topics = [
-  {
-    title: "What 'Interdependent' Means",
-    tag: "Core Concept",
-    content: `<p>Interdependent means <strong>linked</strong>. The four main areas of business are all connected to and dependent on each other:</p>
-<ul>
-<li><strong>Marketing</strong> — market research, segmentation, the marketing mix (4Ps), consumer law</li>
-<li><strong>Human Resources</strong> — organisational structure, communication, recruitment, motivation, training, employment law</li>
-<li><strong>Business Operations</strong> — production processes, sales processes, customer service, location, supply chain</li>
-<li><strong>Finance</strong> — sources of finance, revenues, costs and profits, break-even analysis, cash flow</li>
-</ul>
-<p>A decision made in <strong>one area</strong> will always affect one or more <strong>other areas</strong>. Business people must consider these knock-on effects before acting.</p>`
-  },
-  {
-    title: "The Four Features of Interdependence",
-    tag: "Specification",
-    content: `<p>The specification identifies four features:</p>
-<ul>
-<li><strong>Feature 1</strong> — The interdependent nature of operations, finance, marketing and human resources — how these areas link in practice</li>
-<li><strong>Feature 2</strong> — How these interdependencies underpin business decision-making — every decision triggers effects elsewhere</li>
-<li><strong>Feature 3</strong> — The impact of risk and reward on business activity — profit is the reward for enterprise; every decision carries risk</li>
-<li><strong>Feature 4</strong> — The use of financial information in measuring and understanding business performance and decision-making</li>
-</ul>`
-  },
-  {
-    title: "Example 1 — Introducing New Technology",
-    tag: "Worked Example",
-    content: `<p>A business notices falling sales and profits (Feature 4 — financial information signals the problem).</p>
-<p>It decides to <strong>introduce new technology</strong> to cut costs (Business Operations — production processes).</p>
-<ul>
-<li><strong>→ Human Resources:</strong> Fewer or differently skilled workers may be needed — recruitment or redundancy decisions required</li>
-<li><strong>→ Finance:</strong> The technology must be funded — possibly through a loan. Interest costs rise. Costs of production should fall.</li>
-<li><strong>→ Marketing:</strong> Lower costs could mean lower prices — decisions needed on new price and how to promote the change (price + promotion in the marketing mix)</li>
-</ul>
-<p><strong>Risk & Reward (Feature 3):</strong> Taking out a loan is a risk. If the technology fails to reverse the decline, the loan still must be repaid. If it succeeds, the reward is restored profits.</p>`
-  },
-  {
-    title: "Example 2 — Reducing Costs",
-    tag: "Worked Example",
-    content: `<p>A firm considers using <strong>cheaper raw materials</strong> to increase profits.</p>
-<ul>
-<li><strong>Finance:</strong> Reducing costs should increase profits (starting point)</li>
-<li><strong>→ Business Operations:</strong> Cheaper materials may reduce the <em>quality</em> of products made</li>
-<li><strong>→ Marketing:</strong> Lower quality may cause sales to fall — revenue falls</li>
-<li><strong>→ Finance (again):</strong> Falling revenue reduces profits — the opposite of the original aim</li>
-</ul>
-<p>This shows how a single decision ripples through all four areas. Reducing costs to boost profit can ultimately <em>reduce</em> profit if quality and sales suffer.</p>`
-  },
-  {
-    title: "Risk and Reward",
-    tag: "Feature 3",
-    content: `<p>Every business decision involves <strong>risk</strong>. The reward for taking risk and running a business is <strong>profit</strong>.</p>
-<ul>
-<li>Falling profits signal a problem and stimulate decisions</li>
-<li>Those decisions carry their own risks (e.g. borrowing to invest)</li>
-<li>If the decision succeeds, the business gains its reward (profit restored or increased)</li>
-<li>If the decision fails, the business bears the cost while still having to service any debt taken on</li>
-</ul>
-<p>Risk and reward are central to understanding <em>why</em> businesses make the decisions they do. More reward usually requires more risk.</p>`
-  },
-  {
-    title: "Financial Information & Decision-Making",
-    tag: "Feature 4",
-    content: `<p>Businesses use financial information to <strong>measure business performance</strong> and to <strong>inform decisions</strong>.</p>
-<p>Types of financial information used:</p>
-<ul>
-<li>Sales figures and revenue data — identify trends</li>
-<li>Profit data — measure overall business success</li>
-<li>Cost analysis — identify where savings can be made</li>
-<li>Cash flow — ensure the business can pay its bills</li>
-<li>Break-even analysis — plan how much must be sold to cover costs</li>
-</ul>
-<p><strong>Example (Wyke Farm):</strong> The business calculated it would save £100,000 per month on energy costs. This financial information justified a £13 million investment. The investment cost was expected to be paid back in 5–6 years.</p>
-<p>Financial information is not just historical — it drives forward-looking decisions and helps assess risk vs. reward.</p>`
-  },
-  {
-    title: "Synopticity — Component 01 + 02",
-    tag: "Exam Structure",
-    content: `<p><strong>Synopticity</strong> means bringing together knowledge from <em>both</em> components to answer questions holistically.</p>
-<ul>
-<li>Unit 7 is examined in <strong>Paper 2 (Component 2)</strong> but requires knowledge from <strong>Component 1</strong> as well</li>
-<li>The final part of the last case study on Paper 2 is <strong>always a 9-mark question</strong></li>
-<li>One type asks: how does a change in one area affect <strong>one other</strong> area?</li>
-<li>Another type asks: how does a change affect <strong>two other</strong> areas?</li>
-</ul>
-<p><strong>Key rule:</strong> Knowledge/understanding marks = show knowledge of the <em>change that causes things to happen</em>. Application/analysis/evaluation marks = show the effect on the <em>area that is impacted</em>.</p>
-<p><strong>Linear argument rule:</strong> Keep arguments linear — 'A leads to B and C.' Do not over-complicate by then asking whether C affects B. This causes circular arguments and wastes marks.</p>`
-  }
-];
+      <div class="fc-container">
+        <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+          <div>
+            <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+            <div style="font-size: 12px; color: var(--mid)">known</div>
+          </div>
+          <div>
+            <div class="score-num" id="fcUnknown" style="color: #c84b31">
+              0
+            </div>
+            <div style="font-size: 12px; color: var(--mid)">learning</div>
+          </div>
+          <div style="font-size: 13px; color: var(--mid)">
+            out of <strong id="fcTotalTrack">0</strong>
+          </div>
+          <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+        </div>
 
-const mcqData = [
-  {
-    q: "A manufacturer decides to run a national TV marketing campaign. As a result, which of the following is MOST likely to be necessary?",
-    opts: ["Finance should stop monitoring cash flow","Human resources should employ temporary production workers","Operations management should reduce output","Purchasing should buy smaller quantities of raw materials"],
-    ans: 1,
-    explain: "A successful marketing campaign increases demand. The business must increase production to meet this demand, so Human Resources needs to recruit temporary workers. A decision in Marketing affects Human Resources."
-  },
-  {
-    q: "A business reduces costs by using cheaper raw materials. Which sequence BEST describes the chain of interdependence?",
-    opts: ["Finance → HR → Marketing → Operations","Finance → Operations (quality falls) → Marketing (sales fall) → Finance (profits fall)","Marketing → Finance → HR → Operations","Operations → HR → Finance → Marketing"],
-    ans: 1,
-    explain: "The decision starts in Finance (cut costs to boost profits), affects Operations (quality may fall), then Marketing (sales may fall due to lower quality), then Finance again (profits could fall — the opposite of the original aim)."
-  },
-  {
-    q: "A shop decides to market itself as offering the best customer service. This MOST directly requires which business area to act?",
-    opts: ["Finance — provide funds for a new shop","Business Operations — provide better quality products","Human Resources — provide advanced training for all sales staff","Marketing — advertise in national newspapers"],
-    ans: 2,
-    explain: "Offering the best customer service requires staff to be skilled enough to deliver it. Human Resources must provide advanced training for all sales staff to make this marketing promise a reality."
-  },
-  {
-    q: "Which of the following BEST describes 'interdependence' in a business context?",
-    opts: ["Each area of business works independently of the others","A decision in one area of business affects other areas","Finance controls all other business functions","Marketing is the most important area of business"],
-    ans: 1,
-    explain: "Interdependence means the areas of business are linked — a decision in one area will affect one or more other areas. Business people must consider these knock-on effects when making decisions."
-  },
-  {
-    q: "A business wants to increase market share by reducing prices. Which response BEST describes how other areas are affected?",
-    opts: ["Operations should decrease production","HR should review the organisational structure","Marketing should advertise the price reductions","Finance should provide money for a pay rise"],
-    ans: 2,
-    explain: "If prices are cut to gain market share, the business needs to tell customers about the lower prices — this requires Marketing to advertise the reductions. The decision in one area (price strategy) triggers action in another (promotion)."
-  },
-  {
-    q: "The reward for taking a business risk is best described as:",
-    opts: ["Revenue","Break-even","Profit","Market share"],
-    ans: 2,
-    explain: "Profit is the reward for enterprise and for taking risks. Businesses take risks in the hope of making a profit. If the risk pays off, the reward is profit."
-  },
-  {
-    q: "A business making ice cream wants to double production. Which of the following would NOT normally be required?",
-    opts: ["HR to consider the need for extra staff","Finance to look at the money required","Marketing to carry out market research before the decision","Operations to check where products are sold"],
-    ans: 3,
-    explain: "Checking where products are sold is a marketing/location decision, not an operations function. Operations would focus on HOW to produce more — e.g. capacity, machinery, processes — not the distribution/retail locations."
-  },
-  {
-    q: "Wyke Farm invested £13m in new energy technology. Which feature of interdependence does the £100,000 monthly saving primarily illustrate?",
-    opts: ["The link between marketing and human resources","The use of financial information in measuring performance and aiding decisions","The impact of risk and reward on human resources","The link between operations and organisational structure"],
-    ans: 1,
-    explain: "The £100,000 per month saving is financial information that was used to justify and evaluate the investment decision — this is Feature 4: the use of financial information in measuring and understanding business performance and decision-making."
-  },
-  {
-    q: "For the 9-mark synoptic question, knowledge and understanding marks are awarded for:",
-    opts: ["The business area that is affected by the change","The change that causes things to happen — e.g. defining the triggering concept","Giving a final judgement with justification","Using specific figures from the case study"],
-    ans: 1,
-    explain: "For the 9-mark question: K/U marks = show knowledge of the CHANGE that makes things happen (define/explain the trigger). Application/Analysis/Evaluation marks = focus on the area AFFECTED by that change."
-  },
-  {
-    q: "VW switches production to electric cars. This decision MOST directly affects which TWO areas simultaneously?",
-    opts: ["Marketing and Finance","HR and Operations only","Marketing only","Finance and HR only"],
-    ans: 0,
-    explain: "Switching to electric cars affects Marketing (the product changes; a premium can be charged; brand reputation shifts) and Finance (higher production costs due to expensive batteries; long-term cost savings as battery prices fall). Both areas are directly impacted."
-  }
-];
+        <div id="fcActiveArea">
+          <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+          <div class="flashcard" id="flashcard" onclick="flipCard()">
+            <div class="fc-inner">
+              <div class="fc-front">
+                <div class="fc-label">KEY TERM</div>
+                <div class="fc-term" id="fcTerm"></div>
+              </div>
+              <div class="fc-back">
+                <div class="fc-def" id="fcDef"></div>
+              </div>
+            </div>
+          </div>
+          <p class="fc-hint">👆 Click card to flip</p>
 
-const matchData = [
-  { term: "Interdependence", def: "The concept that a decision in one business area will affect one or more other business areas" },
-  { term: "Feature 1", def: "The interdependent nature of operations, finance, marketing and human resources within a business context" },
-  { term: "Feature 3", def: "The impact of risk and reward on business activity" },
-  { term: "Feature 4", def: "The use of financial information in measuring and understanding business performance and decision-making" },
-  { term: "Synopticity", def: "Bringing together knowledge from Component 1 and Component 2 to answer questions holistically" },
-  { term: "Risk", def: "The possibility that a business decision may not produce the expected reward, leading to loss or failure" },
-  { term: "Reward", def: "Profit — what a business earns if it takes a risk successfully" },
-  { term: "Linear argument", def: "Keeping an interdependence answer structured as a chain: A leads to B, B leads to C — without looping back" }
-];
+          <div class="fc-nav" id="fcNavDefault">
+            <button class="fc-btn outline" onclick="prevCard()">
+              ← Prev
+            </button>
+            <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+            <button class="fc-btn" onclick="nextCard()">Next →</button>
+          </div>
 
-const fibData = [
-  {
-    display: "Interdependent means that a decision in one _____ area will affect one or more _____ areas.",
-    blanks: { B1: "business", B2: "other" }
-  },
-  {
-    display: "The reward for taking a business risk is _____.",
-    blanks: { B1: "profit" }
-  },
-  {
-    display: "Feature 4 of interdependence is the use of _____ information in measuring and understanding business _____.",
-    blanks: { B1: "financial", B2: "performance" }
-  },
-  {
-    display: "The final part of the last case study on Paper 2 is always a _____ -mark question.",
-    blanks: { B1: "9" }
-  },
-  {
-    display: "Synopticity means bringing together knowledge from Component _____ and Component _____ to answer holistically.",
-    blanks: { B1: "01", B2: "02" }
-  },
-  {
-    display: "When using cheaper raw materials reduces quality, sales may _____, causing revenue and profits to _____.",
-    blanks: { B1: "fall", B2: "fall" }
-  }
-];
-const fibWords = ["business","other","profit","financial","performance","9","01","02","fall","rise","marketing","operations","revenue","risk","cost"];
+          <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+            <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+              onclick="markCard(false)">
+              ❌ Still Learning
+            </button>
+            <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1" onclick="markCard(true)">
+              ✅ Got It
+            </button>
+          </div>
+        </div>
 
-const miscData = [
-  {
-    wrong: "Interdependence just means all areas of business are related — you can mention any of them in any order.",
-    correct: "Interdependence requires a clear CHAIN of causation: a specific decision in one area causes a specific effect in another. Answers must be structured linearly — show HOW the change in Area A causes the effect in Area B. Random lists of related topics score poorly."
-  },
-  {
-    wrong: "For the 9-mark question, you should write about as many areas of business as possible to show breadth.",
-    correct: "The 9-mark question tells you which areas to write about. If it says 'marketing and costs,' write ONLY about those two. Going beyond the question wastes time and does not earn extra marks. Keep the argument focused and linear."
-  },
-  {
-    wrong: "Knowledge and understanding marks in the 9-mark question are about the AFFECTED area (e.g. cash flow).",
-    correct: "Knowledge (1 mark) = define the CHANGE that makes things happen (e.g. define 'marketing'). Understanding (1 mark) = explain that concept further. Application/Analysis/Evaluation marks are then awarded for showing how the AFFECTED area (e.g. cash flow) is impacted."
-  },
-  {
-    wrong: "Risk and reward only applies to very large business decisions like launching a new product.",
-    correct: "Risk and reward applies to ALL business decisions. Even using cheaper raw materials carries risk (quality and sales may fall). Even a small change to the marketing mix carries risk. Falling profits are the signal that a business is not achieving its reward — they trigger decisions, each of which carries new risks."
-  },
-  {
-    wrong: "If a question asks about the effect of marketing on cash flow, you need deep knowledge of cash flow for the K/U marks.",
-    correct: "For the K/U marks, you need to define and explain MARKETING (the triggering change). The cash flow knowledge comes in for Application/Analysis/Evaluation — where you show how the marketing change causes cash flow to change. Many students write about cash flow first and score poorly on K/U."
-  },
-  {
-    wrong: "Financial information is only used to check how a business performed in the past.",
-    correct: "Financial information has a FORWARD-LOOKING role as well. It identifies problems (e.g. falling profits), informs investment decisions, helps businesses calculate whether a new venture will be profitable, and measures performance against targets. It drives future decisions, not just records the past."
-  },
-  {
-    wrong: "For the evaluation marks, any judgement about whether the impact is 'good' or 'bad' is enough.",
-    correct: "A bare judgement ('this is good/bad') earns only 1 mark. For full evaluation marks (3), you need a justified judgement using SPECIFIC evidence from the case study. When the question names two areas (e.g. marketing AND costs), your evaluation MUST reference both and use the context to support your reasoning."
-  }
-];
+        <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+          <h3>Session Complete! 🎉</h3>
+          <p style="margin: 15px 0">
+            You knew <strong id="fcSummaryKnown">0</strong> out of
+            <strong id="fcSummaryTotal">0</strong> cards.
+          </p>
+          <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+            <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+              style="background: #c84b31; border-color: #c84b31">
+              Review Incorrect
+            </button>
+            <button class="fc-btn outline" onclick="resetFlashcards()">
+              Practice All Again
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-const examTips = [
-  {
-    type: "9-Mark Question — Core Structure",
-    title: "How to score all 9 marks",
-    content: "Step 1: Define the TRIGGERING concept (K — 1 mark). Step 2: Explain it further (U — 1 mark). Step 3: Use TWO pieces of case study evidence to show how it links to the impacted area (APP — 2 marks). Step 4: Explain the effect on the impacted area for TWO separate points (AN — 2 marks). Step 5: Make a judgement AND justify it using the case study context (EVAL — 3 marks).",
-    pills: ["kn","un","app","an","eval"]
-  },
-  {
-    type: "Most Repeated Question Type",
-    title: "Marketing affecting cash flow / costs (Dog and Gun style)",
-    content: "K: Define marketing. U: Explain its components (4Ps). APP: Use TWO case study examples of how marketing changed (e.g. takeaway menu introduced, advertised online and with a sign). AN: Show how each change affects cash flow — new revenue inflows BUT also new cost outflows (delivery, packaging, advertising). EVAL: Judge whether the net effect on cash flow is positive or negative, supported by case study detail.",
-    pills: ["kn","un","app","an","eval"]
-  },
-  {
-    type: "Most Repeated Question Type",
-    title: "Economic climate affecting revenues AND costs",
-    content: "When a question names TWO effects (revenues AND costs), your evaluation MUST address BOTH. For revenue: consider the effect of rising/falling consumer income and unemployment on demand. For costs: consider wage pressures (e.g. shortage of chefs means higher wages). Evaluation: judge which effect is greater, using the specific context (e.g. the Dog and Gun's affluent local customer base means revenue may be less affected).",
-    pills: ["app","an","eval"]
-  },
-  {
-    type: "Most Repeated Question Type",
-    title: "Environmental change affecting marketing AND costs (VW style)",
-    content: "This type names two areas: marketing and costs. Structure: show how switching to electric cars changes the PRODUCT and PRICE (marketing 4Ps) — higher price premium possible. Then show the COST impact — batteries are expensive (25–40% of car cost), but falling battery prices will reduce this. Evaluation: judge short-term vs long-term effects, referencing specific case study figures (e.g. ID-3 at £29,990 vs Golf at £20,000).",
-    pills: ["app","an","eval"]
-  },
-  {
-    type: "Examiner Warning",
-    title: "Do NOT write circular arguments",
-    content: "The biggest mistake in synoptic answers is going around in circles: 'A affects B, B affects C, C affects A again.' Keep arguments LINEAR. Identify the change (A), show it causes effect in area B, then area C if required. Stop there. Circular arguments waste time and confuse the examiner, costing marks.",
-    pills: []
-  },
-  {
-    type: "Examiner Warning",
-    title: "Do NOT write about every area of business",
-    content: "If the question says 'evaluate the effect on cash flow,' write about cash flow only. If it says 'marketing and costs,' write about those two only. Writing about HR, operations and everything else will not earn extra marks and wastes time you need for proper evaluation. The examiner is looking for DEPTH on the stated areas, not breadth.",
-    pills: []
-  },
-  {
-    type: "Evaluation Tip",
-    title: "How to score all 3 evaluation marks",
-    content: "Mark 1: A simple statement of judgement ('The impact on cash flow would be positive overall'). Mark 2: Justify with a reason from the case study ('because the takeaway revenue exceeded the extra costs of packaging and delivery'). Mark 3: Deepen justification further using specific context ('this is supported by the fact the Dog and Gun continued the service after lockdown ended, suggesting it was profitable').",
-    pills: ["eval"]
-  },
-  {
-    type: "Multiple Choice Tip",
-    title: "MCQ on interdependence — always trace the chain",
-    content: "MCQ questions on interdependence show a decision in one area and ask what MUST happen elsewhere. Always trace the logical chain: marketing campaign → more demand → more production needed → HR must recruit workers. The correct answer is always the one that is a DIRECT logical consequence of the decision. Eliminate options that would be illogical (e.g. reducing output when demand increases).",
-    pills: []
-  }
-];
+    <div class="tab-panel" id="tab-truefalse">
+      <h2 class="section-title">True or False?</h2>
+      <p class="section-sub">Test your knowledge with these statements.</p>
+      <div class="score-bar">
+        <div>
+          <div class="score-num" id="tfScore">0</div>
+          <div style="font-size: 12px; color: var(--mid)">correct</div>
+        </div>
+        <div style="font-size: 13px; color: var(--mid)">
+          of <strong id="tfTotal">0</strong> answered
+        </div>
+        <button class="reset-btn" onclick="resetTF()">RESET</button>
+      </div>
+      <div class="tf-wrap" id="tfWrap"></div>
+    </div>
 
-const flashcards = [
-  { term: "Interdependence", def: "The concept that a decision made in one area of business will affect one or more other areas. All four business areas — Marketing, Finance, HR and Operations — are linked." },
-  { term: "Feature 1", def: "The interdependent nature of business operations, finance, marketing and human resources within a business context — how these areas link to each other in practice." },
-  { term: "Feature 2", def: "How these interdependencies underpin business decision-making — every decision in one area triggers knock-on effects in others that must be considered." },
-  { term: "Feature 3 — Risk & Reward", def: "Every business decision involves risk. The reward for enterprise and risk-taking is profit. Falling profits signal a problem, triggering decisions that carry their own new risks." },
-  { term: "Feature 4 — Financial Information", def: "The use of financial data (sales, profit, costs, cash flow, break-even) to measure business performance and to inform forward-looking business decisions." },
-  { term: "Synopticity", def: "Bringing together knowledge from Component 01 and Component 02 to evaluate business decisions holistically. Required for the 9-mark question on Paper 2." },
-  { term: "The 9-Mark Question", def: "Always structured: K(1) + U(1) + APP(2) + AN(2) + EVAL(3). K/U marks = define and explain the TRIGGERING change. APP/AN/EVAL = focus on the AFFECTED area." },
-  { term: "Linear argument", def: "Keeping a synoptic answer as a chain: change A causes effect in B, which causes effect in C. Do NOT loop back (C affects A again) — this creates circular arguments that lose marks." },
-  { term: "Marketing (in interdependence)", def: "Covers market research, segmentation, and the 4Ps (Product, Price, Place, Promotion). A change in marketing (e.g. a new campaign) affects HR (recruit more workers) and Finance (higher costs or revenue)." },
-  { term: "Human Resources (in interdependence)", def: "Covers recruitment, motivation, training and employment law. Affected by changes in other areas: e.g. new technology in Operations may reduce headcount needed; a marketing campaign may require extra staff." },
-  { term: "Business Operations (in interdependence)", def: "Covers production processes, quality, location and supply chain. Decisions here (e.g. using cheaper raw materials) affect quality, then sales, then revenue and profit (Finance)." },
-  { term: "Finance (in interdependence)", def: "Covers sources of finance, costs, profits, break-even and cash flow. Usually the TRIGGER area (falling profits prompt decisions) and also the IMPACTED area (decisions affect revenue, costs and cash flow)." },
-  { term: "Risk", def: "The possibility that a business decision will not produce the expected reward. Risk is inherent in all business decisions. Taking on debt to invest is an example — if the investment fails, the debt still must be repaid." },
-  { term: "Reward", def: "Profit — the financial gain a business achieves for successfully taking risks. Profit is both the motive for enterprise and the measure of business success." },
-  { term: "Cash flow (interdependence)", def: "Cash flow is affected by changes in other areas. A marketing change (e.g. new takeaway service) can increase cash INFLOWS (more sales) but also increase OUTFLOWS (delivery costs, packaging, advertising)." },
-  { term: "Wyke Farm example", def: "Wyke Farm invested £13m in energy technology (Operations). This was funded by a loan and retained profit (Finance). It saves £100,000/month on energy bills (Finance). It also creates marketing benefits — the business can promote its environmentally friendly credentials." },
-  { term: "VW electric cars example", def: "VW's switch to electric cars affects Marketing (new product, higher price premium) and Costs/Finance (batteries are 25–40% of car cost, but falling). Short-term costs are higher; long-term may be more profitable as battery costs fall." },
-  { term: "Dog and Gun Inn example", def: "Marketing change (takeaway service during COVID) affected Finance: new revenue inflows (meal sales) but also new cost outflows (packaging, delivery, advertising). Net effect on cash flow depends on relative size of income vs extra costs." }
-];
+    <div class="tab-panel" id="tab-exampractice">
+      <h2 class="section-title">Exam Practice Questions</h2>
+      <p class="section-sub">
+        Full exam questions with case studies. Use <strong>Hint</strong>,
+        <strong>Sentence Starter</strong> and
+        <strong>Submit &amp; See Mark Scheme</strong> for each question.
+      </p>
+      <div class="ep-list" id="epList"></div>
+    </div>
+  </main>
 
-const tfData = [
-  { statement: "Interdependence means each area of business works independently of the others.", answer: false, explanation: "Interdependence means the opposite — all areas ARE linked. A decision in one area will affect other areas." },
-  { statement: "The four business areas in the interdependence specification are: Marketing, Human Resources, Business Operations, and Finance.", answer: true, explanation: "Correct — these are the four areas. All are linked and a decision in any one affects the others." },
-  { statement: "The reward for taking a business risk is market share.", answer: false, explanation: "The reward for taking a business risk is PROFIT. Market share may be a goal, but profit is the financial reward for enterprise." },
-  { statement: "For the 9-mark question, knowledge and understanding marks are earned by defining the AFFECTED area, not the triggering change.", answer: false, explanation: "Knowledge/Understanding marks are for showing understanding of the TRIGGERING change (e.g. define marketing if the question is about marketing affecting cash flow). APP/AN/EVAL marks focus on the affected area." },
-  { statement: "Feature 4 of interdependence relates to the use of financial information in measuring and understanding business performance.", answer: true, explanation: "Correct — Feature 4 specifically covers how businesses use financial data to measure performance and make decisions." },
-  { statement: "Synopticity in OCR GCSE Business means bringing together knowledge from both Component 1 and Component 2.", answer: true, explanation: "Correct. The 9-mark synoptic question on Paper 2 requires students to draw on knowledge from both components." },
-  { statement: "A business reducing costs by using cheaper raw materials will always increase its profits.", answer: false, explanation: "Not necessarily — cheaper materials may reduce quality, causing sales to fall. Lower revenue can reduce profits despite the cost saving. This illustrates interdependence." },
-  { statement: "The final part of the last case study on Paper 2 is always worth 9 marks.", answer: true, explanation: "Correct — the 9-mark synoptic question always closes Paper 2. It tests interdependence and requires knowledge from both components." },
-  { statement: "When writing a synoptic answer, you should cover ALL four business areas to maximise marks.", answer: false, explanation: "You should ONLY cover the areas named in the question. Writing about irrelevant areas wastes time and earns no marks. The examiner wants depth on the stated areas, not breadth." },
-  { statement: "Financial information only looks backwards at past performance.", answer: false, explanation: "Financial information also drives forward-looking decisions. For example, Wyke Farm used projected savings (£100,000/month) to justify a £13m investment — a future-facing use of financial information." },
-  { statement: "A decision to run a national marketing campaign would require Human Resources to recruit temporary production workers.", answer: true, explanation: "A successful marketing campaign increases demand. This means more production is needed, so HR must recruit temporary workers — a direct interdependence link from Marketing to HR." },
-  { statement: "For the 9-mark evaluation marks, a simple judgement ('this is good/bad') earns all 3 evaluation marks.", answer: false, explanation: "A bare judgement earns only 1 evaluation mark. Full marks (3) require a justified judgement using SPECIFIC case study context. If two areas are named, the evaluation must address both." },
-  { statement: "Risk and reward only applies when a business takes out a loan.", answer: false, explanation: "Risk and reward applies to ALL business decisions — using cheaper materials, launching a campaign, introducing new technology. Any decision that could go wrong involves risk; successful outcomes bring reward (profit)." },
-  { statement: "The Dog and Gun's change to a takeaway service increased cash inflows but also created new cash outflows.", answer: true, explanation: "Correct — new revenue came in from meal sales, but new costs were incurred for packaging, delivery and advertising. The net effect on cash flow depended on the relative size of these changes." }
-];
+  <script>
+    // ══════════════════════════════════════
+    //  DATA: 7. The Interdependent Nature of Business
+    // ══════════════════════════════════════
 
-// ═══════════════════════════════════════════════
-//  TAB SWITCHER
-// ═══════════════════════════════════════════════
-function switchTab(id, btn) {
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
-  btn.classList.add('active');
-}
+    // 1. Main Learning Content
+    const topics = [
+      {
+        title: "Key Terms & Official Definitions",
+        tag: "Core Concepts",
+        content: `<p>These are the essential terms you must know for this topic. Learn the <strong>exact wording</strong> — examiners reward precise definitions.</p>
+        <ul>
+          <li><strong>Interdependent Nature of Business:</strong> The links between different areas of business (operations, finance, marketing, HR) that affect decision making, the risks and rewards of business activity, and the use of financial information to aid business decision making.</li>
+          <li><strong>Financial Information:</strong> Includes information about revenues, costs, profit, rates of return, break-even and cash flow — used to help the business make decisions.</li>
+          <li><strong>Business Performance:</strong> A measure of how well a business is doing. Key measures are sales, profits and rates of return.</li>
+          <li><strong>Financial Reward:</strong> The profit made by the business as a return for taking a risk.</li>
+          <li><strong>Financial Risk:</strong> The possibility the business will lose money from decisions it makes. Owners may lose money they invested.</li>
+          <li><strong>Non-Financial Rewards:</strong> To owners, this includes the satisfaction of running a successful business, being in charge, being independent and having an impact on what consumers buy.</li>
+          <li><strong>Non-Financial Risk:</strong> To business owners this includes health risks due to stress and strained relationships with family and friends.</li>
+          <li><strong>Synopticity:</strong> In OCR GCSE Business, this means that knowledge from Component 01 topics is brought together with knowledge from Component 02 topics to answer a question — showing how different areas of business are truly connected.</li>
+          <li><strong>Business Areas:</strong> The four main functional areas of a business: Marketing, Human Resources (HR), Business Operations, and Finance.</li>
+          <li><strong>Globalisation:</strong> The process of interaction and integration between people, companies and governments worldwide — opening up international markets and supply chains.</li>
+        </ul>`
+      },
+      {
+        title: "The Four Interdependent Business Areas",
+        tag: "Core Concepts",
+        content: `<p>A business has four main functional areas. <strong>Interdependent</strong> means these areas are linked — a decision in one area will always affect at least one other. This is the foundation of the entire topic.</p>
+        <ul>
+          <li><strong>Marketing:</strong> Market research, the marketing mix (price, place, product, promotion), market segmentation, consumer law.</li>
+          <li><strong>Human Resources (HR):</strong> Organisational structure, communication, recruiting and selecting workers, motivating, retaining and training workers, employment law.</li>
+          <li><strong>Business Operations:</strong> Production processes, customer service, location decisions, supply chain management.</li>
+          <li><strong>Finance:</strong> Sources of finance, revenues, costs and profits, break-even analysis, cash flow.</li>
+        </ul>
+        <p>When making decisions, business people must <strong>always</strong> consider the effects of a decision in one area on all other areas. For example:</p>
+        <ul>
+          <li>A <strong>Marketing</strong> decision to launch a new advertising campaign &rarr; <strong>Operations</strong> must increase production to meet higher demand &rarr; <strong>HR</strong> must recruit more workers &rarr; <strong>Finance</strong> must provide the budget and monitor cash flow.</li>
+        </ul>
+        <div class="case-study-box">
+          <h4>Case Study: Wyke Farm</h4>
+          <p>Wyke Farm, a Devon dairy producer, invested in solar panels and biomethane technology. This single decision linked all four areas: <strong>Operations</strong> changed its production process; <strong>Finance</strong> used a £11m bank loan and £2m retained profit; <strong>Marketing</strong> could now promote an environmentally friendly image and sell energy as a new product; <strong>HR</strong> may have needed new skilled workers. The £100,000/month energy saving was a clear financial reward for taking the risk of the investment.</p>
+        </div>`
+      },
+      {
+        title: "Risk and Reward in Business",
+        tag: "Theory",
+        content: `<p>Every business decision involves <strong>risk</strong> — the chance that something could go wrong. The motivation for taking that risk is the <strong>reward</strong> — typically profit.</p>
+        <ul>
+          <li><strong>Financial Risk:</strong> Losing the money invested if the business fails or a decision backfires. When owners start a business, they invest their own or borrowed money — if the business is unprofitable, they risk losing it.</li>
+          <li><strong>Non-Financial Risk:</strong> Health problems from stress, long irregular hours, difficulty taking holidays, strained relationships with family and friends due to the pressure of running a business.</li>
+          <li><strong>Lack of Security:</strong> Entrepreneurs often give up previous jobs, losing the security of a regular income.</li>
+          <li><strong>Business Failure:</strong> The biggest risk. If the business cannot generate enough money to survive, it will be forced to close.</li>
+        </ul>
+        <p><strong>Rewards for taking the risk:</strong></p>
+        <ul>
+          <li><strong>Financial Reward:</strong> Profit — the primary driving force behind most business start-ups. Money can be reinvested to help the business grow.</li>
+          <li><strong>Independence:</strong> Being your own boss — having full control over decisions without answering to someone else.</li>
+          <li><strong>Business Success:</strong> This can mean different things: seeing an idea become popular, growing the business, winning awards, building a positive reputation.</li>
+          <li><strong>Non-Financial Reward:</strong> Personal satisfaction, the sense of achievement, being part of the community, making an impact on what consumers buy.</li>
+        </ul>
+        <div class="two-col">
+          <div>
+            <div class="col-head">✓ Rewards of Starting a Business</div>
+            <div class="pro-item"><strong>Profit:</strong> The financial return for the entrepreneur's effort and risk — can be reinvested to grow the business further.</div>
+            <div class="pro-item"><strong>Independence:</strong> Full control over decisions, work hours and business direction without reporting to a manager.</div>
+            <div class="pro-item"><strong>Personal Satisfaction:</strong> The non-financial reward of seeing your idea succeed and building something of your own.</div>
+          </div>
+          <div>
+            <div class="col-head">✗ Risks of Starting a Business</div>
+            <div class="con-item"><strong>Financial Loss:</strong> Invested capital (personal savings or loans) could be lost if the business fails to become profitable.</div>
+            <div class="con-item"><strong>Lack of Security:</strong> No guaranteed income, long hours, difficulty taking holidays — a significant personal sacrifice.</div>
+            <div class="con-item"><strong>Business Failure:</strong> The ultimate risk — if revenues cannot cover costs, the business must close, potentially leaving the owner in debt.</div>
+          </div>
+        </div>`
+      },
+      {
+        title: "Minimising Risk",
+        tag: "Strategies",
+        content: `<p>Entrepreneurs can take steps to <strong>reduce the risk</strong> of failure before and during the life of a business. These are not guarantees, but they significantly improve the chances of success.</p>
+        <ul>
+          <li><strong>Carry out Market Research:</strong> Gather data on customer needs, competitor prices, and market size before launching. This reduces the risk of producing something nobody wants to buy.</li>
+          <li><strong>Write a Business Plan:</strong> A detailed plan covering objectives, financial forecasts, marketing strategies and operational plans. It forces the entrepreneur to think through every aspect and is required when applying for a bank loan.</li>
+          <li><strong>Ensure Sufficient Finance is Available:</strong> Many businesses fail not because of poor ideas, but because they run out of cash. Planning cash flow carefully and securing enough start-up capital is critical.</li>
+        </ul>
+        <p>All three of these risk-minimisation strategies draw on <strong>financial information</strong> — which demonstrates once again how the different areas of business are interdependent.</p>`
+      },
+      {
+        title: "Using Financial Information to Make Decisions",
+        tag: "Analysis",
+        content: `<p>Businesses use financial information to <strong>measure performance</strong> and <strong>inform decisions</strong>. The most common types include:</p>
+        <ul>
+          <li><strong>Costs and Revenues:</strong> Knowing total costs versus total revenues shows whether the business is profitable.</li>
+          <li><strong>Gross and Net Profit:</strong> Gross profit shows the profit from sales before expenses; net profit shows profit after all costs are deducted.</li>
+          <li><strong>Profit Margins:</strong> Shows what percentage of revenue becomes profit — useful for comparing efficiency over time.</li>
+          <li><strong>Cash Flow:</strong> Shows the timing of money coming in and going out — a business can be profitable but still fail if cash runs out.</li>
+          <li><strong>Break-Even Analysis:</strong> Identifies the sales level at which the business covers all its costs — useful when launching a new product or making investment decisions.</li>
+          <li><strong>Average Rate of Return (ARR):</strong> Used to compare the profitability of different investment options.</li>
+        </ul>
+        <p><strong>For financial information to be useful, it must be:</strong></p>
+        <ul>
+          <li><strong>Accurate:</strong> Incorrect data leads to incorrect decisions and potential financial loss.</li>
+          <li><strong>Sufficient:</strong> There must be enough data to make a meaningful comparison.</li>
+          <li><strong>Up to Date:</strong> Outdated information may be irrelevant, especially if the market has changed significantly.</li>
+        </ul>
+        <div class="formula-box">
+          <strong>Net Profit =</strong> Gross Profit &minus; Expenses (overheads)
+          <br><br>
+            <strong>Gross Profit =</strong> Revenue &minus; Cost of Sales
+            <br><br>
+              <strong>Net Profit Margin (%) =</strong> (Net Profit &divide; Revenue) &times; 100
+            </div>`
+      },
+      {
+        title: "Limitations of Financial Information",
+        tag: "Analysis",
+        content: `<p>While financial information is essential, it has <strong>limitations</strong> that businesses must be aware of when making decisions.</p>
+              <ul>
+                <li><strong>Inflation:</strong> The Average Rate of Return (ARR) does not account for the effects of inflation on the value of money. £1 today is worth more than £1 in five years' time — but ARR treats them the same.</li>
+                <li><strong>Historical Data:</strong> Financial accounts are published after the period they cover. A lot may have changed in the market by the time the data is analysed.</li>
+                <li><strong>Incomplete Picture:</strong> Financial data only measures what can be quantified in money. It cannot capture reputation, staff morale, brand loyalty or the external competitive environment.</li>
+                <li><strong>Comparability:</strong> Comparing accounts between businesses can be misleading if they use different accounting methods or operate in different markets.</li>
+              </ul>
+              <p>Businesses typically compare their accounts in two ways:</p>
+              <ul>
+                <li><strong>Year-on-Year:</strong> Comparing this year's performance against previous years to identify trends.</li>
+                <li><strong>Against Competitors:</strong> Comparing with rivals (only possible for Limited Companies which must publish their accounts) to benchmark performance.</li>
+              </ul>`
+      },
+      {
+        title: "Synoptic Questions: How to Link Business Areas",
+        tag: "Exam Technique",
+        content: `<p>The final 9-mark question on OCR Paper 2 is <strong>always synoptic</strong> — it requires you to link a topic from Component 01 (e.g. stakeholders, globalisation, environment) with a topic from Component 02 (e.g. cash flow, marketing mix, costs). Here is how to approach these questions:</p>
+              <ul>
+                <li><strong>The Change:</strong> This is the topic that "makes something happen" — e.g. a change in marketing, or a decision to go more environmentally friendly. Your Knowledge (K) and Understanding (U) marks come from explaining this topic.</li>
+                <li><strong>The Impact:</strong> This is what is affected — e.g. cash flow, operations, HR. Your Application (APP), Analysis (AN) and Evaluation (EVAL) marks come from explaining the impact on the specific business in the case study.</li>
+              </ul>
+              <div class="case-study-box">
+                <h4>Example: Dog and Gun Inn (Cash Flow)</h4>
+                <p>The question asks: "Evaluate the impact the <strong>change to marketing</strong> by the Dog and Gun Inn may have had on its <strong>cash flow</strong>."</p>
+                <p>&rarr; Knowledge/Understanding marks: define and explain <strong>marketing</strong>.<br>
+                  &rarr; Application/Analysis/Evaluation marks: explain how the specific marketing changes (takeaway menu, website adverts) would have affected the <strong>cash flow</strong> of the Dog and Gun specifically.</p>
+              </div>
+              <p>A common mistake is to write entirely about marketing and forget to link it back to the named impact (cash flow). Always keep asking yourself: <em>"So what does this mean for the cash flow / costs / revenue of this specific business?"</em></p>`
+      }
+    ];
 
-// ═══════════════════════════════════════════════
-//  BUILD LEARN
-// ═══════════════════════════════════════════════
-function buildLearn() {
-  const grid = document.getElementById('topicGrid');
-  topics.forEach(t => {
-    const card = document.createElement('div');
-    card.className = 'topic-card';
-    card.innerHTML = `<span class="tag">${t.tag}</span><h3>${t.title}</h3><span class="toggle-icon">+</span><div class="topic-content">${t.content}</div>`;
-    card.addEventListener('click', () => card.classList.toggle('open'));
-    grid.appendChild(card);
-  });
-}
+    // 2. Multiple Choice Questions (Minimum 10)
+    const mcqData = [
+      {
+        q: "A well-known restaurant chain is reviewing its business performance. Campaign A costs £3m/week and raised sales from £4m to £6m but they dropped back to £4m after. Campaign B costs £0.6m/week and raised sales from £4m to £5m and stayed at £5m after. This data shows that:",
+        opts: [
+          "Both advertising campaigns were cost effective",
+          "Campaign A was cost effective, but campaign B was not",
+          "Campaign B was cost effective, but campaign A was not",
+          "Neither of the advertising campaigns were cost effective"
+        ],
+        ans: 2,
+        explain: "Correct answer: C. Campaign B is cost effective because the £1m increase in weekly sales (from £4m to £5m) has been sustained after the campaign, meaning the £0.6m weekly cost generates a net gain. Campaign A boosted sales by £2m during the campaign, but sales returned to £4m afterwards — meaning the £3m weekly cost produced no lasting benefit."
+      },
+      {
+        q: "A manufacturer has decided to run a marketing campaign on national television in a month's time. As a result of this decision, which one of the following actions might also be necessary?",
+        opts: [
+          "Finance should stop monitoring cash flow",
+          "Human resources should employ some temporary production workers",
+          "Operations management should reduce output",
+          "Purchasing should buy smaller quantities of raw materials"
+        ],
+        ans: 1,
+        explain: "Correct answer: B. If the marketing campaign is successful, demand for the product will increase. The business will need to increase production to meet this higher demand, which means HR will need to employ additional temporary production workers. Options A, C and D are all the opposite of what would be needed."
+      },
+      {
+        q: "The marketing function of a well-known action toy manufacturer is about to launch a major advertising campaign. This advertising campaign will affect the operations function of the business because:",
+        opts: [
+          "Job production will need to be used to speed up production",
+          "Market research into which toy figures are most popular will be required",
+          "More sets of action toy figures will need to be produced",
+          "Vacancies for action toy designers will need to be advertised"
+        ],
+        ans: 2,
+        explain: "Correct answer: C. The advertising campaign (a marketing decision) will increase demand for the toys. Operations must respond by increasing production output to meet this new demand. Option A is wrong because job production is slow, not fast. Option B is a marketing activity, not operations. Option D relates to HR."
+      },
+      {
+        q: "The interdependent nature of business activity means that:",
+        opts: [
+          "Businesses need to merge to increase market share",
+          "Entrepreneurs should favour high risk options",
+          "Global trade is increasing",
+          "The functional areas in a business are linked"
+        ],
+        ans: 3,
+        explain: "Correct answer: D. Interdependence means that the functional areas of a business (finance, marketing, operations and HR) are all linked and connected to one another. A decision in one area will always have an effect on at least one other area."
+      },
+      {
+        q: "The impact of risk taken by a business:",
+        opts: [
+          "Affects all business functions",
+          "Affects all business stakeholders equally",
+          "Only affects the finance function",
+          "Only affects the owners of the business"
+        ],
+        ans: 0,
+        explain: "Correct answer: A. Risk taken by a business can affect all business functions. For example, a risky decision to launch a new product involves operations (producing it), marketing (promoting it), HR (staffing it) and finance (funding it). Risk does not affect all stakeholders equally, nor is it limited to the finance function or owners alone."
+      },
+      {
+        q: `Finance performance data for Pico Ltd:<table class="case-table"><caption>Pico Ltd — Financial Performance</caption><tr><th>Year</th><th>Revenue</th><th>Costs</th></tr><tr><td>2017</td><td>£3.1m</td><td>£2.9m</td></tr><tr><td>2018</td><td>£3.3m</td><td>£2.9m</td></tr><tr><td>2019</td><td>£3.5m</td><td>£2.9m</td></tr></table>According to the table, which of the following MUST be true?`,
+        opts: [
+          "Pico Ltd has improved its market share",
+          "Pico Ltd has decreased its prices year on year",
+          "Pico Ltd has made a profit in all three years",
+          "Pico Ltd has not paid its variable costs"
+        ],
+        ans: 2,
+        explain: "Correct answer: C. In all three years, revenue exceeds costs (e.g. £3.1m > £2.9m in 2017), meaning Pico Ltd has made a profit in every year. Option A cannot be confirmed without knowing total market size. Option B is not necessarily true — revenue could have increased due to selling more units at the same price. Option D is incorrect as costs are recorded."
+      },
+      {
+        q: "Following recent financial success, a business has decided to double the size of its workforce. This decision will significantly increase the workload of the:",
+        opts: [
+          "Finance function because new recruits need to be trained",
+          "Human resources function because applicants need to be interviewed",
+          "Marketing function because person specifications need to be produced",
+          "Purchasing function because contracts of employment need to be issued"
+        ],
+        ans: 1,
+        explain: "Correct answer: B. Doubling the workforce means a large-scale recruitment drive. The HR function is responsible for advertising vacancies, shortlisting applications, and interviewing candidates. Training is also an HR function (not finance). Person specifications and contracts of employment are also HR tasks, not marketing or purchasing."
+      },
+      {
+        q: `Last year's financial performance data:<table class="case-table"><caption>Company Performance</caption><tr><th>Company</th><th>Profit / Loss</th></tr><tr><td>Company A</td><td>£22,000</td></tr><tr><td>Company B</td><td>–£6,000</td></tr><tr><td>Company C</td><td>£14,000</td></tr><tr><td>Company D</td><td>–£3,000</td></tr></table>Which company made the greatest loss?`,
+        opts: [
+          "Company A",
+          "Company B",
+          "Company C",
+          "Company D"
+        ],
+        ans: 1,
+        explain: "Correct answer: B. A negative figure in the profit/loss column means a loss. Company B made a loss of £6,000 and Company D made a loss of £3,000. Since £6,000 is a greater loss than £3,000, Company B made the greatest loss. Companies A and C made profits."
+      },
+      {
+        q: "The finance department has forgotten to authorise the purchase of a large order of raw materials. Which of the following is a likely consequence of this?",
+        opts: [
+          "More marketing will be needed",
+          "Production may be delayed",
+          "Sales will increase",
+          "Storage costs will increase"
+        ],
+        ans: 1,
+        explain: "Correct answer: B. If raw materials are not purchased because finance failed to authorise the order, the operations function will not have the inputs needed to make products. This demonstrates interdependence — a failure in the finance function directly delays production in the operations function."
+      },
+      {
+        q: "A tinned-soup manufacturer is considering extending its product range to include fresh soups. Which one of the following is NOT likely to encourage shareholders to vote for this extension?",
+        opts: [
+          "The opportunity to combine ingredient costs and make higher profits",
+          "The opportunity to gain a reputation for producing healthy meals",
+          "The opportunity to have more customers than other soup manufacturers",
+          "The opportunity to increase the financial risks of the business"
+        ],
+        ans: 3,
+        explain: "Correct answer: D. Shareholders invest in a business to receive a financial reward (dividends and share price growth). Increasing financial risk without a clear reward would not attract shareholder support — shareholders generally want risk to be minimised or managed carefully. Options A, B and C all offer potential rewards which would attract shareholders."
+      },
+      {
+        q: `Quarterly revenue data for Padre Stores Ltd in 2020:<table class="case-table"><caption>Padre Stores Ltd — Quarterly Revenue (2020)</caption><tr><th>Store</th><th>Q1 (Jan–Mar)</th><th>Q2 (Apr–Jun)</th><th>Q3 (Jul–Sep)</th><th>Q4 (Oct–Dec)</th></tr><tr><td>Store A</td><td>£42,000</td><td>£48,000</td><td>£52,000</td><td>£60,000</td></tr><tr><td>Store B</td><td>£58,000</td><td>£60,000</td><td>£58,000</td><td>£60,000</td></tr><tr><td>Store C</td><td>£65,000</td><td>£50,000</td><td>£40,000</td><td>£60,000</td></tr></table>The data shows that:`,
+        opts: [
+          "Average revenue per store in Q2: Apr–Jun was £39,500",
+          "Store A had an average revenue of £50,500 per quarter",
+          "Store C took more revenue in 2020 than either of the other two stores",
+          "Total revenue in Q1: Jan–Mar was better than in any other quarter"
+        ],
+        ans: 1,
+        explain: "Correct answer: B. Store A's total revenue = £42,000 + £48,000 + £52,000 + £60,000 = £202,000. Average = £202,000 ÷ 4 = £50,500. Option A is wrong (Q2 average = (£48k+£60k+£50k)/3 = £52,667). Option C is wrong (Store C total = £215k; Store B total = £236k). Option D is wrong (Q1 total = £165k; Q4 total = £180k)."
+      },
+      {
+        q: `Kareem makes hand-made shoes. His performance data is shown below:<table class="case-table"><caption>Kareem's Shoe Business — Annual Data</caption><tr><th>Year</th><th>Pairs Sold</th><th>Revenue</th><th>Profit / Loss</th></tr><tr><td>Year 1</td><td>104</td><td>£2,080</td><td>–£24,000</td></tr><tr><td>Year 2</td><td>1,040</td><td>£20,800</td><td>£2,000</td></tr><tr><td>Year 3</td><td>820</td><td>£16,400</td><td>–£1,800</td></tr><tr><td>Year 4</td><td>1,860</td><td>£46,500</td><td>£26,000</td></tr></table>According to the data, which of the following is true?`,
+        opts: [
+          "Costs have been greater than revenue in all four years",
+          "In Year 2, Kareem reduced the average selling price of the shoes",
+          "In Year 4, Kareem increased the average selling price of the shoes",
+          "Revenue has increased year on year"
+        ],
+        ans: 2,
+        explain: "Correct answer: C. Year 3 average price: £16,400 ÷ 820 = £20 per pair. Year 4 average price: £46,500 ÷ 1,860 = £25 per pair. This shows Kareem increased his average price in Year 4. Option A is wrong because revenue exceeded costs in Year 2 and Year 4 (both profitable). Option B is wrong as Year 1 and Year 2 both show a £20 average. Option D is wrong — revenue fell in Year 3."
+      }
+    ];
 
-// ═══════════════════════════════════════════════
-//  BUILD MCQ
-// ═══════════════════════════════════════════════
-let mcqScore = 0, mcqTotal = 0;
-function buildMCQ() {
-  const wrap = document.getElementById('mcqWrap');
-  mcqData.forEach((q, qi) => {
-    const block = document.createElement('div');
-    block.className = 'q-block';
-    block.innerHTML = `<div class="q-num">QUESTION ${qi+1}</div>
-      <div class="q-text">${q.q}</div>
-      <div class="options">${q.opts.map((o,oi)=>`<button class="opt-btn" data-qi="${qi}" data-oi="${oi}">${o}</button>`).join('')}</div>
-      <div class="q-feedback" id="qfb-${qi}"></div>`;
-    wrap.appendChild(block);
-  });
-  wrap.addEventListener('click', e => {
-    if (!e.target.classList.contains('opt-btn')) return;
-    const qi = +e.target.dataset.qi;
-    const oi = +e.target.dataset.oi;
-    const block = e.target.closest('.q-block');
-    if (block.dataset.answered) return;
-    block.dataset.answered = 1;
-    mcqTotal++;
-    block.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
-    const fb = document.getElementById(`qfb-${qi}`);
-    if (oi === mcqData[qi].ans) {
-      e.target.classList.add('correct');
-      fb.textContent = '✓ Correct! ' + mcqData[qi].explain;
-      fb.className = 'q-feedback show ok';
-      mcqScore++;
-    } else {
-      e.target.classList.add('wrong');
-      block.querySelectorAll('.opt-btn')[mcqData[qi].ans].classList.add('correct');
-      fb.textContent = '✗ ' + mcqData[qi].explain;
-      fb.className = 'q-feedback show no';
-    }
-    document.getElementById('mcqScore').textContent = mcqScore;
-    document.getElementById('mcqTotal').textContent = mcqTotal;
-  });
-}
-function resetMCQ() {
-  mcqScore = 0; mcqTotal = 0;
-  document.getElementById('mcqScore').textContent = 0;
-  document.getElementById('mcqTotal').textContent = 0;
-  document.getElementById('mcqWrap').innerHTML = '';
-  buildMCQ();
-}
+    // 3. Keyword Matching (Minimum 10)
+    const matchData = [
+      { term: "Interdependent Nature of Business", def: "The links between different areas of business that affect decision making, risks, rewards and the use of financial information." },
+      { term: "Financial Information", def: "Data including revenues, costs, profit, rates of return, break-even and cash flow, used to help a business make decisions." },
+      { term: "Financial Risk", def: "The possibility the business will lose money from decisions it makes; owners may lose invested capital." },
+      { term: "Financial Reward", def: "The profit made by a business as a return for the risk taken by its owners or shareholders." },
+      { term: "Non-Financial Reward", def: "Benefits to owners such as independence, satisfaction, personal achievement and having an impact on consumers." },
+      { term: "Non-Financial Risk", def: "Personal costs to the business owner including health problems, stress, and strained family relationships." },
+      { term: "Business Performance", def: "A measure of how well a business is doing, with key measures being sales, profits and rates of return." },
+      { term: "Synopticity", def: "Linking knowledge from Component 01 and Component 02 to show how different areas of business are connected." },
+      { term: "Globalisation", def: "The process of interaction and integration between people, companies and governments worldwide." },
+      { term: "Average Rate of Return (ARR)", def: "A financial measure used to compare the profitability of different investment options; however, it does not account for inflation." },
+      { term: "Cash Flow", def: "The movement of money into and out of a business over a period of time — a business can be profitable but still fail if cash runs out." },
+      { term: "Break-Even", def: "The level of sales at which total revenue equals total costs — the business makes neither a profit nor a loss." }
+    ];
 
-// ═══════════════════════════════════════════════
-//  BUILD MATCHING
-// ═══════════════════════════════════════════════
-let matchSelected = null, matchScore = 0, matchTotal = 0;
-const matchMistakes = new Set();
-let matchLocked = false;
+    // 4. Fill in the Blanks (Minimum 10)
+    const fibData = [
+      {
+        display: "The _____ nature of business refers to the links between the four areas of business: marketing, HR, operations and _____.",
+        blanks: { B1: "interdependent", B2: "finance" }
+      },
+      {
+        display: "The financial _____ for taking a risk in business is profit, while a key financial _____ is the possibility of losing invested money.",
+        blanks: { B1: "reward", B2: "risk" }
+      },
+      {
+        display: "Three ways to minimise business risk are: carrying out market _____, writing a business _____, and ensuring sufficient finance is available.",
+        blanks: { B1: "research", B2: "plan" }
+      },
+      {
+        display: "Financial information must be _____, sufficient and _____ to date to be useful for business decision making.",
+        blanks: { B1: "accurate", B2: "up" }
+      },
+      {
+        display: "A key limitation of the Average Rate of Return is that it does not account for the effects of _____ on the value of money over _____.",
+        blanks: { B1: "inflation", B2: "time" }
+      },
+      {
+        display: "Businesses compare their accounts _____ on year and also against _____ to measure their performance.",
+        blanks: { B1: "year", B2: "competitors" }
+      },
+      {
+        display: "In OCR GCSE Business, _____ means linking knowledge from Component 01 and Component 02 to show how business areas are _____.",
+        blanks: { B1: "synopticity", B2: "connected" }
+      },
+      {
+        display: "Non-financial risks to a business owner include damage to their _____ due to stress and strained _____ with family and friends.",
+        blanks: { B1: "health", B2: "relationships" }
+      },
+      {
+        display: "If the finance department fails to authorise a purchase of raw materials, it demonstrates interdependence because _____ may be delayed as a result.",
+        blanks: { B1: "production", B2: "" }
+      },
+      {
+        display: "A marketing decision to launch an advertising campaign will require _____ to increase output and _____ to potentially recruit more workers.",
+        blanks: { B1: "operations", B2: "HR" }
+      },
+      {
+        display: "Net profit is calculated by subtracting _____ from gross profit, while gross profit equals _____ minus cost of sales.",
+        blanks: { B1: "expenses", B2: "revenue" }
+      },
+      {
+        display: "Globalisation can bring _____ to shareholders through higher profits from larger markets, but also _____ from increased international competition.",
+        blanks: { B1: "reward", B2: "risk" }
+      }
+    ];
 
-function buildMatch() {
-  matchTotal = matchData.length;
-  document.getElementById('matchTotal').textContent = matchTotal;
-  const left = document.getElementById('matchLeft');
-  const right = document.getElementById('matchRight');
-  const shuffledDefs = [...matchData].sort(() => Math.random() - .5);
-  matchData.forEach(m => {
-    const el = document.createElement('div');
-    el.className = 'match-item';
-    el.textContent = m.term;
-    el.dataset.key = m.term;
-    el.dataset.side = 'left';
-    left.appendChild(el);
-  });
-  shuffledDefs.forEach(m => {
-    const el = document.createElement('div');
-    el.className = 'match-item';
-    el.textContent = m.def;
-    el.dataset.key = m.term;
-    el.dataset.side = 'right';
-    right.appendChild(el);
-  });
-  document.getElementById('matchLeft').addEventListener('click', handleMatch);
-  document.getElementById('matchRight').addEventListener('click', handleMatch);
-}
+    const fibWords = [
+      "interdependent", "finance", "reward", "risk", "research", "plan",
+      "accurate", "up", "inflation", "time", "year", "competitors",
+      "synopticity", "connected", "health", "relationships", "production",
+      "operations", "HR", "expenses", "revenue", "reward", "risk",
+      "marketing", "profit", "stakeholders", "growth", "investment", "cash flow"
+    ];
 
-function handleMatch(e) {
-  if (matchLocked) return;
-  const item = e.target.closest('.match-item');
-  if (!item || item.classList.contains('matched-ok') || item.classList.contains('matched-eventual')) return;
-  if (!matchSelected) {
-    document.querySelectorAll('.match-item.selected').forEach(x => x.classList.remove('selected'));
-    item.classList.add('selected');
-    matchSelected = item;
-  } else {
-    if (matchSelected === item) { item.classList.remove('selected'); matchSelected = null; return; }
-    if (matchSelected.dataset.side === item.dataset.side) {
-      matchSelected.classList.remove('selected');
-      matchSelected = item;
-      item.classList.add('selected');
-      return;
-    }
-    const a = matchSelected, b = item;
-    a.classList.remove('selected'); b.classList.remove('selected');
-    matchSelected = null;
-    if (a.dataset.key === b.dataset.key) {
-      const cls = matchMistakes.has(a.dataset.key) ? 'matched-eventual' : 'matched-ok';
-      a.classList.add(cls); b.classList.add(cls);
-      matchScore++;
-      document.getElementById('matchScore').textContent = matchScore;
-    } else {
-      matchLocked = true;
-      matchMistakes.add(a.dataset.key);
-      matchMistakes.add(b.dataset.key);
-      a.classList.add('matched-no'); b.classList.add('matched-no');
-      setTimeout(() => {
-        a.classList.remove('matched-no'); b.classList.remove('matched-no');
-        matchLocked = false;
-      }, 700);
-    }
-  }
-}
+    // 5. True or False (Minimum 10)
+    const tfData = [
+      {
+        statement: "The interdependent nature of business means that a decision in one business area will always affect at least one other area.",
+        answer: true,
+        explanation: "TRUE. This is the core principle of the topic. For example, a marketing decision to increase advertising will affect operations (more production needed), HR (more workers needed) and finance (more money needed). All four areas are linked."
+      },
+      {
+        statement: "Financial risk only affects the finance department of a business.",
+        answer: false,
+        explanation: "FALSE. The impact of risk taken by a business affects ALL business functions. A risky decision — such as opening a new branch — affects operations, HR, marketing and finance simultaneously. It does not fall solely on the finance department."
+      },
+      {
+        statement: "Non-financial rewards for entrepreneurs can include independence and personal satisfaction.",
+        answer: true,
+        explanation: "TRUE. Not all rewards are monetary. Entrepreneurs value the freedom of being their own boss (independence), the sense of achievement from building something successful, and the impact they have on the lives of customers and employees — these are all non-financial rewards."
+      },
+      {
+        statement: "The Average Rate of Return (ARR) accounts for the effects of inflation on the value of money.",
+        answer: false,
+        explanation: "FALSE. This is a key limitation of ARR. It treats money received in the future as having the same value as money today, which ignores inflation. In reality, £10,000 in 10 years is worth less in real terms than £10,000 today."
+      },
+      {
+        statement: "A business can be profitable and still run out of cash.",
+        answer: true,
+        explanation: "TRUE. Cash flow and profit are different things. A business might be owed money by customers (debtors) but not yet received it — it is 'profitable on paper' but has no cash to pay its immediate bills. This is why cash flow management is a separate and critical business activity."
+      },
+      {
+        statement: "For financial information to be useful, it only needs to be accurate.",
+        answer: false,
+        explanation: "FALSE. For financial information to be useful it must be: (1) Accurate — so correct decisions can be made; (2) Sufficient — enough data for meaningful comparison; AND (3) Up to date — so it reflects the current market situation. All three qualities are required."
+      },
+      {
+        statement: "In the OCR GCSE examination, the final 9-mark question on Paper 2 always requires a synoptic response linking two areas of business.",
+        answer: true,
+        explanation: "TRUE. OCR specifies that the final question on Component 02 will always be a synoptic question, requiring candidates to demonstrate understanding of how different business areas are interconnected. Candidates must link a topic from Component 01 with one from Component 02."
+      },
+      {
+        statement: "Entrepreneurs who carry out market research before launching a product completely eliminate the risk of business failure.",
+        answer: false,
+        explanation: "FALSE. Market research reduces risk by gathering information about customer needs and market conditions, but it cannot eliminate risk entirely. Consumer preferences can change, competition can intensify unexpectedly, and economic conditions can worsen — all despite thorough research."
+      },
+      {
+        statement: "Globalisation can bring both risks and rewards to the shareholders of a business.",
+        answer: true,
+        explanation: "TRUE. Globalisation brings rewards such as access to larger international markets, higher revenues, more customers and potentially higher dividends. However, it also brings risks such as increased international competition, exposure to exchange rate fluctuations, and the need to manage different legal and cultural environments."
+      },
+      {
+        statement: "When a business doubles its workforce, the marketing function has the biggest increase in workload.",
+        answer: false,
+        explanation: "FALSE. When a business doubles its workforce, the Human Resources (HR) function has the biggest increase in workload. HR must advertise vacancies, write job descriptions and person specifications, interview candidates, issue contracts of employment, and organise training for new starters."
+      },
+      {
+        statement: "Businesses can only compare their financial performance with their own previous years' results.",
+        answer: false,
+        explanation: "FALSE. Businesses can compare their accounts in two ways: year-on-year (against their own previous results) AND against competitors. Comparison with competitors is possible for Limited Companies because they are legally required to publish their accounts, making the data publicly available."
+      }
+    ];
 
-function resetMatch() {
-  matchScore = 0; matchSelected = null; matchLocked = false; matchMistakes.clear();
-  document.getElementById('matchScore').textContent = 0;
-  document.getElementById('matchLeft').innerHTML = '';
-  document.getElementById('matchRight').innerHTML = '';
-  buildMatch();
-}
+    // 6. Common Student Misconceptions
+    const miscData = [
+      {
+        wrong: "Students write about 'interdependence' as simply meaning 'businesses need each other' or 'companies trade with each other.'",
+        correct: "Interdependence in this context means the four FUNCTIONAL AREAS within a SINGLE business (marketing, HR, operations, finance) are linked. A decision in one internal area affects the others. It is NOT about businesses trading with each other."
+      },
+      {
+        wrong: "For the 3-mark analyse question, students describe what a function does generally (e.g. 'marketing involves promotion') without linking it to the specific business in the case study.",
+        correct: "The examiner's report highlighted this was the most common reason for scoring zero. You MUST name a specific marketing activity (Understanding), THEN link it to the specific company named (Application), THEN explain the impact on the other function mentioned in the question (Analysis)."
+      },
+      {
+        wrong: "Students confuse 'risk' with only financial risk — they do not mention non-financial risks like stress, health issues or strained family relationships.",
+        correct: "The specification explicitly identifies BOTH financial risk (losing money invested) AND non-financial risk (health, stress, damaged family relationships). For a question asking for two risks, one of each type is a strong answer."
+      },
+      {
+        wrong: "Students write that the limitation of ARR is that 'it is hard to calculate' or 'businesses do not always have the right data.'",
+        correct: "The official, examinable limitation of ARR is that it does NOT account for the effects of INFLATION on the value of money. Money received in the future is worth less in real terms than money received today — ARR ignores this."
+      },
+      {
+        wrong: "For the 9-mark synoptic question, students focus entirely on the 'change' topic (e.g. marketing) and forget to explain the impact on the 'affected' topic (e.g. cash flow).",
+        correct: "Your K and U marks come from explaining the 'change' topic. But your APP, AN and EVAL marks ALL come from explaining the effect on the specific impact named in the question (e.g. cash flow, costs, revenues). You MUST switch focus to the impact in the second half of your answer."
+      },
+      {
+        wrong: "Students confuse 'stakeholders' with 'shareholders' — they write an entire answer referring to 'stakeholders' without ever naming a specific one.",
+        correct: "To gain Application and Analysis marks in the 9-mark question about financial data and stakeholders, you MUST name specific stakeholders (e.g. employees, suppliers, banks, the local community). Vague references to 'stakeholders' do not earn marks."
+      },
+      {
+        wrong: "Students think profit and cash flow are the same thing — they use the terms interchangeably.",
+        correct: "Profit is total revenue minus total costs over a period. Cash flow is the actual movement of money in and out of the business. A business can be profitable but still have a cash flow problem if customers have not yet paid their invoices."
+      },
+      {
+        wrong: "When asked how a marketing decision affects operations, students write about marketing activities (e.g. 'they will advertise more') rather than the impact on the operations/production function.",
+        correct: "The examiner's report noted this was very common. Once you have identified the marketing activity (for the Understanding mark), you MUST explain the consequence for the operations function specifically — e.g. 'this means operations will need to INCREASE PRODUCTION to meet higher demand.'"
+      }
+    ];
 
-// ═══════════════════════════════════════════════
-//  BUILD FILL IN BLANKS (dropdown)
-// ═══════════════════════════════════════════════
-let fibScore = 0, fibCorrectTotal = 0;
+    // 7. Examiner Tips & Structure Guides
+    const examTips = [
+      {
+        type: "Analyse — 3 marks",
+        title: "The Locked Gate: Understanding Opens Everything",
+        content: `
+              <p>Every 3-mark Analyse question in this topic works the same way. There is a <strong>locked gate</strong> — you cannot earn any marks without first showing <strong>Understanding (U)</strong> of the key term in the question.</p>
+              <p><strong>The 3-step formula:</strong></p>
+              <ul>
+                <li><strong>Step 1 — Understanding (U):</strong> Explain what the function or concept DOES. Be specific. Name an activity it carries out.</li>
+                <li><strong>Step 2 — Application (APP):</strong> Link your understanding directly to the business in the case study. Use a specific detail from the text.</li>
+                <li><strong>Step 3 — Analysis (AN):</strong> Explain the impact — what happens as a result? This must be a business-facing consequence (e.g. production increases, costs rise, revenue falls).</li>
+              </ul>
+              <p><strong>❌ Bad Answer (0 marks):</strong><br />
+                <em>"The finance function is important for BP because it manages the company's finances efficiently."</em><br />
+                This is tautological — saying "finance manages finances" earns no understanding mark, and no further marks can follow.</p>
+              <p><strong>✅ Good Answer (3 marks):</strong><br />
+                <em>"The finance function produces cash-flow forecasts and budgets (U) in order to inform BP's managers how much money is available for investment into new technologies (APP), such as the wind farms being developed in America, meaning BP can make financially sound decisions to meet its sustainability objectives (AN)."</em></p>
+              <p><strong>⚠️ Examiner Warning:</strong> On the real exam, two thirds of candidates scored zero on Q2 (Unilever, 3 marks) and the majority scored zero on Q4 (BP, 3 marks). The reason was identical in both cases: they failed to identify a specific activity of the named function. "Marketing the product" or "managing the business efficiently" are too vague and score nothing.</p>
+              `,
+        pills: ["U", "app", "an"]
+      },
+      {
+        type: "Evaluate — 9 marks (Synoptic)",
+        title: "The Synoptic 9: Two Topics, One Answer",
+        content: `
+              <p>The final 9-mark question always links <strong>two topics</strong>: one from Component 01 and one from Component 02. There are <strong>9 marks split across 5 skills</strong>: K (1) + U (1) + APP (2) + AN (2) + EVAL (3).</p>
+              <p><strong>The 4-paragraph structure:</strong></p>
+              <ul>
+                <li><strong>Paragraph 1 — K &amp; U:</strong> Define the 'change' topic (K) and explain how it works (U). Keep this brief — it's only 2 marks total.<br />
+                  <em>Starter: "Marketing refers to [K]... This involves activities such as [U]..."</em></li>
+                <li><strong>Paragraph 2 — APP &amp; AN (Point 1):</strong> Use ONE specific detail from the case study (APP) to explain ONE impact on the named affected area (AN).<br />
+                  <em>Starter: "In the case of [Business Name], [specific detail from text] (APP)... As a result, this would [impact on the named area — cash flow / costs / revenues] (AN)..."</em></li>
+                <li><strong>Paragraph 3 — APP &amp; AN (Point 2):</strong> Use a SECOND specific detail from the case study (APP) to explain a SECOND impact on the named affected area (AN).<br />
+                  <em>Starter: "Furthermore, [second detail from text] (APP)... This means [second impact on the named area] (AN)..."</em></li>
+                <li><strong>Paragraph 4 — EVAL (3 marks):</strong> Make a clear judgement (1 mark), justify it with context (1 mark), and add a conditional 'it depends on' statement (1 mark).<br />
+                  <em>Starter: "Overall, I believe [judgement] (EVAL). This is because [reason using case study context] (EVAL). However, this will ultimately depend on [a contextual condition, e.g. the size of the changes / whether customers continue to buy] (EVAL)."</em></li>
+              </ul>
+              <p><strong>🚫 Critical Warning — Do NOT write evaluation in the wrong place.</strong> The three evaluation marks are ONLY awarded in the final judgement section. Writing "I think this is good" halfway through your analysis does not count as evaluation.</p>
+              <p><strong>⚠️ Examiner Warning:</strong> Many candidates wrote entirely about 'stakeholders' without ever naming a specific one (e.g. employees, suppliers, banks). Vague references to 'stakeholders' earned zero for application AND analysis. You must name them.</p>
+              `,
+        pills: ["K", "U", "app", "an", "eval"]
+      },
+      {
+        type: "Analyse — 3 marks (Pairs of linked questions)",
+        title: "Q16 Style: Same Business, Three Different Functions",
+        content: `
+              <p>Some questions ask you to analyse the impact of the SAME thing (e.g. being environmentally friendly) on THREE DIFFERENT functions (marketing, HR, finance) in separate 3-mark questions. Each is marked independently using the same U &rarr; APP &rarr; AN structure.</p>
+              <p><strong>Key tip:</strong> Do NOT repeat the same point in each answer. Each response must show a different aspect of the same theme.</p>
+              <ul>
+                <li><strong>Marketing (3 marks):</strong> Focus on how the marketing mix changes — e.g. promotion changes to highlight eco-credentials, or product packaging changes.</li>
+                <li><strong>HR (3 marks):</strong> Focus on how staff are recruited, trained or managed differently — e.g. online interviews to reduce travel, remote working, new IT training.</li>
+                <li><strong>Finance (3 marks):</strong> Focus on costs, cash flow or sources of finance — e.g. higher costs from eco-friendly suppliers, need to monitor cash flow more carefully, may need an increased overdraft.</li>
+              </ul>
+              <p><strong>✅ Good Answer for Finance (3 marks):</strong><br />
+                <em>"Being environmentally friendly is likely to increase operating costs (U) as NEXT plc. will need to source products from more expensive ethical/eco-friendly suppliers worldwide (APP). This means the finance department may face cash flow difficulties and need to apply for a larger bank overdraft to cover the shortfall (AN)."</em></p>
+              `,
+        pills: ["U", "app", "an"]
+      },
+      {
+        type: "Recommend — 3 marks",
+        title: "Make a Choice, Back It Up, Compare",
+        content: `
+              <p>A 3-mark 'Recommend' question (like Q16 iv) asks you to make a <strong>clear judgement</strong> about which option is most important or most affected. It is marked on three levels:</p>
+              <ul>
+                <li><strong>1 mark:</strong> A judgement with limited justification — you name a winner but don't really explain why.</li>
+                <li><strong>2 marks:</strong> A judgement with good justification — you name a winner AND give a clear reason with some reference to relevant information.</li>
+                <li><strong>3 marks:</strong> A judgement with strong, detailed justification — you name a winner AND give a detailed, specific reason that shows clear appraisal of why this function is most affected compared to others.</li>
+              </ul>
+              <p><strong>✅ Good Answer (3 marks):</strong><br />
+                <em>"The human resources function would be most affected by NEXT plc. being environmentally friendly (JUDGEMENT) because it would impact the way ALL of its workers are employed, trained and managed on a day-to-day basis (JUSTIFICATION). For example, NEXT would need to introduce new IT-based processes, mobile technologies and online training packages to reduce its carbon footprint across its entire workforce (STRONG CONTEXTUAL DETAIL)."</em></p>
+              `,
+        pills: ["an", "eval"]
+      },
+      {
+        type: "State / Identify — 1–2 marks",
+        title: "Precision Over Paragraphs",
+        content: `
+              <p>For 1-mark 'State' or 'Identify' questions, one precise point earns the full mark. Do NOT write paragraphs — it wastes time and the examiner is only looking for a single correct statement.</p>
+              <p><strong>The Formula:</strong></p>
+              <ul>
+                <li>One clear, specific, relevant point = 1 mark ✅</li>
+                <li>A vague, general statement = 0 marks ❌</li>
+              </ul>
+              <p><strong>❌ Bad Answer (0 marks) for "Identify two variable costs":</strong><br />
+                <em>"Production costs and salaries."</em><br />
+                "Salaries" are a <strong>fixed</strong> cost, not variable. "Production costs" is too vague.</p>
+              <p><strong>✅ Good Answer (2 marks):</strong><br />
+                <em>"1. Raw materials / cost of sales. 2. Packaging."</em></p>
+              <p><strong>⚠️ Examiner Warning on Variable Costs:</strong> Do NOT accept 'salaries' — these are fixed costs. The mark scheme specifically excludes this. Only accept wages (which can vary with hours worked), raw materials, packaging and stock/components.</p>
+              `,
+        pills: ["K"]
+      },
+      {
+        type: "Calculate — 3 marks",
+        title: "Show Your Workings Every Time",
+        content: `
+              <p>For calculation questions, you must <strong>always show your workings</strong> — even if you get the final answer wrong, you can still earn marks for correct method.</p>
+              <p><strong>Net Profit Calculation (3 marks) — The Two-Step Method:</strong></p>
+              <ul>
+                <li><strong>Step 1 — Calculate Gross Profit (1 mark):</strong> Revenue &minus; Cost of Sales</li>
+                <li><strong>Step 2 — Calculate Net Profit (2 marks):</strong> Gross Profit &minus; All Other Expenses (Salaries + Rent + Other expenses)</li>
+              </ul>
+              <p><strong>Example (RCP Question):</strong></p>
+              <ul>
+                <li>Gross Profit = £2,000,000 &minus; £500,000 = <strong>£1,500,000</strong> (1 mark)</li>
+                <li>Total Expenses = £1,300,000 + £100,000 + £50,000 = £1,450,000</li>
+                <li>Net Profit = £1,500,000 &minus; £1,450,000 = <strong>£50,000</strong> (2 marks)</li>
+              </ul>
+              <p><strong>Net Profit Margin</strong> = (£50,000 &divide; £2,000,000) &times; 100 = <strong>2.5%</strong></p>
+              <p><strong>⚠️ Warning:</strong> If you only write the final answer with no workings and it is wrong, you score zero. With workings shown, even a mathematical error in the final step earns 2 out of 3 marks.</p>
+              `,
+        pills: ["U", "app"]
+      }
+    ];
 
-function buildFIB() {
-  fibCorrectTotal = fibData.reduce((a, f) => a + Object.keys(f.blanks).length, 0);
-  document.getElementById('fibTotal').textContent = fibCorrectTotal;
-  const wrap = document.getElementById('fibWrap');
+    // 8. Flashcards
+    const flashcards = [
+      { term: "Interdependent Nature of Business", def: "The links between the four business areas (marketing, HR, operations, finance) that must be considered when making decisions, managing risk and using financial information." },
+      { term: "Four Business Areas", def: "Marketing, Human Resources (HR), Business Operations, and Finance — all linked and dependent on each other." },
+      { term: "Financial Risk", def: "The possibility of losing money invested in a business if decisions prove unsuccessful or the business fails." },
+      { term: "Non-Financial Risk", def: "Personal costs such as stress, health problems, long hours and strained family relationships faced by business owners." },
+      { term: "Financial Reward", def: "Profit — the monetary return an entrepreneur earns for taking a risk and running a business successfully." },
+      { term: "Non-Financial Reward", def: "Independence, personal satisfaction, sense of achievement, and the ability to make an impact on consumers." },
+      { term: "Synopticity", def: "Linking knowledge from OCR Component 01 and Component 02 to show how different business areas are interconnected." },
+      { term: "Requirements for Useful Financial Information", def: "Must be: (1) Accurate, (2) Sufficient in quantity, and (3) Up to date." },
+      { term: "ARR Limitation", def: "The Average Rate of Return does not account for the effects of inflation on the value of money — future cash is treated the same as present cash." },
+      { term: "How Businesses Measure Performance", def: "Year-on-year comparison of their own accounts AND comparison with competitors' accounts (possible for Limited Companies which must publish theirs)." },
+      { term: "Minimising Business Risk (3 Methods)", def: "1. Carry out market research. 2. Write a detailed business plan. 3. Ensure sufficient finance is available." },
+      { term: "Globalisation", def: "The process of interaction and integration between people, companies and governments worldwide — brings both risk (competition, exchange rates) and reward (larger markets, higher revenue) to shareholders." },
+      { term: "Net Profit Formula", def: "Net Profit = Gross Profit − Expenses (overheads such as salaries, rent, other costs)." },
+      { term: "Gross Profit Formula", def: "Gross Profit = Revenue − Cost of Sales" },
+      { term: "Why Financial Information is Limited", def: "It may be outdated, not account for inflation (ARR), not capture non-financial factors like reputation, or be difficult to compare across different businesses." }
+    ];
 
-  fibData.forEach((f, fi) => {
-    const div = document.createElement('div');
-    div.className = 'fib-sentence';
-    const correctAnswers = Object.values(f.blanks);
-    const distractors = fibWords
-      .filter(w => !correctAnswers.includes(w))
-      .sort(() => Math.random() - .5)
-      .slice(0, 4);
+    // 9. Exam-Style Questions
 
-    let html = f.display;
-    let bi = 0;
-    html = html.replace(/_____/g, () => {
-      const key = Object.keys(f.blanks)[bi];
-      const ans = f.blanks[key];
-      bi++;
-      const opts = [ans, ...distractors.filter(d => d !== ans).slice(0, 3)].sort(() => Math.random() - .5);
-      const optHTML = ['— choose —', ...opts].map(o => `<option value="${o === '— choose —' ? '' : o}">${o}</option>`).join('');
-      return `<span class="blank-select" data-fi="${fi}" data-key="${key}" data-ans="${ans}"><select>${optHTML}</select></span>`;
-    });
-    div.innerHTML = html;
-    wrap.appendChild(div);
-  });
+    const examQuestions = [
+      {
+        num: "Q1",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "A well-known restaurant chain is reviewing its business performance. Financial data about two of its recent advertising campaigns are shown below.\n\n• Campaign A: Weekly cost of running the campaign = £3 million. Average weekly sales BEFORE = £4 million. DURING = £6 million. AFTER = £4 million.\n\n• Campaign B: Weekly cost of running the campaign = £0.6 million. Average weekly sales BEFORE = £4 million. DURING = £5 million. AFTER = £5 million.",
+        question: "This data helps the company understand its business performance because it shows that: [1 mark]",
+        options: [
+          "Both advertising campaigns were cost effective",
+          "Campaign A was cost effective, but campaign B was not",
+          "Campaign B was cost effective, but campaign A was not",
+          "Neither of the advertising campaigns were cost effective"
+        ],
+        answer: 2,
+        hint: "Think about what 'cost effective' means — does the campaign generate more in lasting sales than it costs to run?",
+        starter: "The correct answer is C because...",
+        markScheme: `<div class="marks-section"><h5>Answer: C — Campaign B was cost effective, but campaign A was not [1 mark]</h5><p><strong>Why C is correct:</strong> Campaign B costs £0.6m per week and raised weekly sales from £4m to £5m — a £1m increase that was <strong>sustained</strong> after the campaign ended. The permanent sales gain exceeds the cost. Campaign A raised sales by £2m during the campaign, but sales returned to £4m afterwards — meaning the £3m weekly cost produced no lasting benefit, making it not cost effective.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A</strong> is wrong because Campaign A did NOT produce a lasting increase in sales — therefore it was not cost effective.</li><li><strong>B</strong> is wrong — it is the opposite of the correct answer.</li><li><strong>D</strong> is wrong because Campaign B clearly WAS cost effective given its sustained sales increase.</li></ul></div>`,
+        modelAnswer: ""
+      },
+      {
+        num: "Q2",
+        marks: 3,
+        type: "written",
+        caseStudy: "Unilever plc is a multinational company that makes and sells a wide range of quality products including food, cleaning agents and beauty products across 190 countries.\n\nUnilever plc has benefitted from operating in a global marketplace and the majority of its products are international brands. Some of its branded products include Lynx Body Spray, Dove Soap, Hellmann's Mayonnaise, Ben & Jerry's ice cream and Persil washing machine detergent. All of these products are made in factories all around the globe, some using flow production and others using batch production.\n\nUnilever plc's average revenue has grown over the last five years. However, the economic climate is becoming more difficult and Unilever plc's directors are having to adapt to these challenges.",
+        question: "Analyse one way the marketing function impacts on the operations function of Unilever plc. [3 marks]",
+        hint: "You MUST name a SPECIFIC activity the marketing function does (not just 'marketing the product') — this unlocks ALL three marks. Then link it to Unilever, then explain the impact on operations/production.",
+        starter: "The marketing department may [specific activity, e.g. increase advertising / run a price promotion / launch a new product] (U)...\n\nIn the case of Unilever, for example by promoting [specific brand from the text] (APP)...\n\nThis means that operations will need to [specific impact on production] (AN)...",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> A specific activity the marketing function carries out — e.g. advertising/promotion, price changes, new product development, identifying new markets, using different selling methods. <strong>NB: No mark for general comments like 'marketing the product' or 'going global.'</strong></li><li><strong>Application (1 mark):</strong> Links understanding to Unilever plc using evidence from the text — e.g. reference to Lynx Body Spray, Dove, Hellmann's, Persil, 190 countries, flow/batch production, growing revenue, difficult economic climate.</li><li><strong>Analysis (1 mark):</strong> Explains the specific impact on the OPERATIONS function — e.g. changes in output/production quantity, increase in production capacity, need to find new ways to produce a product, need to invest in capital to increase/improve production. <strong>NB: Analysis must be business-facing and focused on operations specifically.</strong></li></ul><p><strong>Examiner's Comment:</strong> This question was very poorly answered — two thirds of candidates scored zero. The most common mistake was identifying only a general marketing activity without naming a specific function action. Students who said the business 'would market the product' or 'use marketing activities' failed to gain the Understanding mark and therefore could not access any further marks. Students also often failed to recognise that 'operations' refers to production activities.</p></div>`,
+        modelAnswer: "The marketing department may increase the amount of advertising (U) for Lynx Body Spray (APP). This means that operations will need to increase production to meet the changes in demand generated by the campaign (AN)."
+      },
+      {
+        num: "Q3",
+        marks: 9,
+        type: "written",
+        caseStudy: `Glorious Kitchens (GK) is a private limited company based in Brighton. The company makes and fits high-quality, luxury wooden kitchens throughout the south-east of England. Its most popular range is the Deluxe.<br><br>The average price of a Deluxe kitchen is £15,000 including fitting. GK calculates its fixed costs for the year to be £250,000 and its variable costs for the Deluxe to be £6,380, which means they need to sell 29 kitchens to break even.<br><br>GK is concerned about the future economic climate and its possible impact on the company's sales. It is predicted that there will be a fall in consumer incomes in the south-east of England until 2025. Unemployment in the south-east of England is forecast to follow the trend shown below:<table class="case-table"><caption>Table 1 — Unemployment Forecast, South-East England</caption><tr><th>Year</th><th>Unemployment Rate</th></tr><tr><td>2022</td><td>4.0%</td></tr><tr><td>2023 (forecast)</td><td>3.7%</td></tr><tr><td>2024 (forecast)</td><td>3.4%</td></tr><tr><td>2025 (forecast)</td><td>3.1%</td></tr></table>Financial data for GK at the end of 2022 is shown in Table 2:<table class="case-table"><caption>Table 2 — GK Financial Data (end of 2022)</caption><tr><th>Item</th><th>Value</th></tr><tr><td>Net profit</td><td>£425,000</td></tr><tr><td>Cash at the bank</td><td>£60,000</td></tr><tr><td>Loans taken out by GK</td><td>£1,500,000</td></tr><tr><td>Donations to food banks in Brighton</td><td>£8,500</td></tr></table>`,
+        question: "Evaluate how useful the financial data in Table 2 is to GK's stakeholders. [9 marks]",
+        hint: "This is a SYNOPTIC question — it links financial data (Component 02) with stakeholders (Component 01). You MUST name specific stakeholders (e.g. employees, suppliers, banks) — not just 'stakeholders' in general — to earn your Application and Analysis marks.",
+        starter: "Paragraph 1 (K & U): Financial data includes [K]... This data can be used to [U]...\n\nParagraph 2 (APP & AN — Stakeholder 1): [Named stakeholder, e.g. Employees] (APP) may find this data useful because [how they use it] (AN)...\n\nParagraph 3 (APP & AN — Stakeholder 2): Another stakeholder who would find the data useful is [Named stakeholder, e.g. Banks/lenders] (APP)... This is because [how they use it] (AN)...\n\nParagraph 4 (EVAL — 3 points): Overall, the financial data is [useful/limited] (EVAL). This is because [contextual reason from GK's data] (EVAL). However, its usefulness is limited because [conditional reason, e.g. data is from 2022 and may be out of date / does not show all aspects of performance] (EVAL).",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 9 marks (AO1a:1 + AO1b:1 + AO2:2 + AO3a:2 + AO3b:3)</h5><ul><li><strong>Knowledge (1 mark):</strong> Knowledge of financial data beyond what is in Table 2 — e.g. financial statements, cash flow forecasts, break-even predictions, ARR, profit & loss / margins.</li><li><strong>Understanding (1 mark):</strong> What financial data is USED FOR — e.g. cost and revenue data is used for cash flow forecasting; profit and loss data is used to judge success; financial data can assess the stability or long-term future of a business.</li><li><strong>Application (2 marks):</strong> TWO named stakeholders (not just 'stakeholders') — e.g. owners/shareholders, employees, managers, customers, suppliers, banks/lenders, local community, government. Each named stakeholder = 1 APP mark.</li><li><strong>Analysis (2 marks):</strong> TWO business-facing pieces of analysis — one per named stakeholder — explaining HOW each one finds the financial data useful. E.g. employees want to know if their job is secure; banks want to know how safe it is to lend money; the local community is interested in donations to food banks.</li><li><strong>Evaluation (3 marks):</strong> A justified, contextual judgement about the usefulness of GK's specific financial data: Judgement (1) + Justification (1) + Contextual detail from Table 2 (1). E.g. noting that the data is from 2022 and may be outdated, or that it doesn't show trends over time.</li></ul><p><strong>Examiner's Comment:</strong> Many candidates confused stakeholders with shareholders, and wrote entirely about 'stakeholders' without naming any specific group — this prevented marks for both application AND analysis. Candidates who named just two stakeholders quickly accessed all 4 marks for APP and AN. About two thirds attempted evaluation, but most could not gain the third evaluation mark as they did not tie their judgement to specific data from Table 2 (e.g. the £425,000 profit, the £1.5m loan, or the £8,500 food bank donations).</p></div>`,
+        modelAnswer: "Financial data includes financial statements and forecasts (K). These can be used to help judge the performance and long-term stability of a business (U).\n\nEmployees (APP) may find the financial information useful as they will be concerned about whether GK is making enough profit to pay their wages in the future — the £425,000 net profit suggests the business is currently financially secure (AN).\n\nAnother key stakeholder is the bank / lender (APP) who provided GK's £1,500,000 loan. They will use the financial data to assess whether GK is generating enough cash and profit to repay the debt — the £60,000 cash at bank is relatively low compared to the £1.5m loan outstanding (AN).\n\nOverall, GK's stakeholders will find the financial data useful (EVAL). The net profit figure of £425,000 is particularly valuable as it indicates the business is currently profitable and able to continue operating (EVAL). However, the usefulness is limited as the data is from 2022 — a lot may have changed since then, particularly given the predicted fall in consumer incomes in the south-east, which could significantly reduce demand for luxury kitchens priced at £15,000 (EVAL)."
+      },
+      {
+        num: "Q4",
+        marks: 3,
+        type: "written",
+        caseStudy: "BP plc is a UK energy company, which has its headquarters in London. BP produces oil, gas and petrol. It sells and distributes these products to customers all over the world. It also produces some environmentally friendly energy including biofuels, as well as wind- and solar-powered electrical energy.\n\nThe company's finance function is critical in ensuring the business is managed efficiently. BP plc's revenue increased from $245 billion in 2017 to $283 billion in 2019.\n\nOne of BP's operations involves selling of petrol to the public. BP has 18,700 petrol stations around the globe, with 8,500 in the UK. Another of BP's operations involves extracting oil, using its oil rigs. These are located in the seas around the UK, Norway, Australia, Angola, the Gulf of Mexico (USA) and off the coast of many other countries. Once the oil is extracted it is then transported to refineries.\n\nBP strives to be more sustainable. BP has the aim of cutting its carbon emissions by 2050 to help reduce the effects of climate change. It is installing electric charge points for Police Scotland's electric vehicles and is developing wind farms in America in partnership with an American company.",
+        question: "Analyse how BP's finance function may influence its ability to meet BP's objectives. [3 marks]",
+        hint: "What does the finance function ACTUALLY DO? (Not just 'it manages money.') Name a specific activity like budgeting, cash-flow forecasting, or calculating costs/profits. This is your Understanding mark — without it, you score zero.",
+        starter: "The finance function [specific activity, e.g. produces budgets / prepares cash-flow forecasts / calculates costs and revenues] (U)...\n\nFor BP, this would allow managers to [link to BP's specific context, e.g. decide how much money is available to invest in wind farms in America] (APP)...\n\nThis means BP will be able to [business-facing consequence related to meeting objectives] (AN)...",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b:1 + AO2:1 + AO3a:1)</h5><ul><li><strong>Understanding (1 mark):</strong> A specific activity the finance function carries out — e.g. budgeting, financial forecasting, cash-flow forecasting, calculating revenue/costs/profit, informing spending or investment decisions. <strong>NB: "The finance function manages the business efficiently" is tautological — no mark awarded.</strong></li><li><strong>Application (1 mark):</strong> Links understanding to BP using evidence from the text — e.g. revenue grew from $245bn to $283bn; 18,700 petrol stations; aim to cut carbon emissions by 2050; installing electric charge points; developing wind farms in America.</li><li><strong>Analysis (1 mark):</strong> Explains the business-facing impact — e.g. finance monitors revenue/profits to inform directors how much money is available for investment; investigates the financial stability of potential partnerships; provides information on costs of diversification.</li></ul><p><strong>Examiner's Comment:</strong> The majority of candidates scored zero as they did not identify what the finance function of a business specifically involves. Many gave credit to the finance function for activities it would not undertake, such as deciding how to increase revenue or what to spend money on. In all analyse questions, candidates must use words OTHER than those in the question to show genuine understanding.</p></div>`,
+        modelAnswer: "The finance function produces budgets and cash-flow forecasts (U) to provide accurate financial information about how much money is available for investment (U). This would allow BP's managers to make informed decisions about funding new partnerships (APP), such as the wind farm development in America (APP). As a result, BP can ensure it has the financial resources to meet its 2050 carbon emissions target without risking insolvency (AN)."
+      },
+      {
+        num: "Q5",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "The impact of risk taken by a business: [1 mark]",
+        options: [
+          "Affects all business functions",
+          "Affects all business stakeholders equally",
+          "Only affects the finance function",
+          "Only affects the owners of the business"
+        ],
+        answer: 0,
+        hint: "Think about what happens to a business when a risky decision is made — does it affect just one department or all of them?",
+        starter: "The correct answer is A because...",
+        markScheme: `<div class="marks-section"><h5>Answer: A — Affects all business functions [1 mark]</h5><p><strong>Why A is correct:</strong> Risk is inherently cross-functional. A risky business decision — for example, launching a new product or opening a new branch — simultaneously affects operations (must produce more), HR (must recruit more), marketing (must promote the new launch) and finance (must fund it all). Risk does not fall on just one function.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>B</strong> is wrong because risk does NOT affect all stakeholders equally — shareholders carry the financial risk of investment loss, while employees carry the risk of job security. The impacts are different in nature and magnitude.</li><li><strong>C</strong> is wrong because risk extends well beyond the finance function — it affects production capacity, staffing levels and marketing strategies.</li><li><strong>D</strong> is wrong because while owners/shareholders bear significant financial risk, employees, suppliers and customers are also affected by the business's risk decisions.</li></ul></div>`,
+        modelAnswer: ""
+      },
+      {
+        num: "Q6",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "The marketing function of a well-known action toy manufacturer is about to launch a major advertising campaign. This advertising campaign will affect the operations function of the business because: [1 mark]",
+        options: [
+          "Job production will need to be used to speed up production",
+          "Market research into which toy figures are most popular will be required",
+          "More sets of action toy figures will need to be produced",
+          "Vacancies for action toy designers will need to be advertised"
+        ],
+        answer: 2,
+        hint: "The operations function is about PRODUCTION. What will happen to production if the advertising campaign successfully drives up demand?",
+        starter: "The correct answer is C because...",
+        markScheme: `<div class="marks-section"><h5>Answer: C — More sets of action toy figures will need to be produced [1 mark]</h5><p><strong>Why C is correct:</strong> A successful advertising campaign will increase consumer demand for the toys. The operations function must respond by increasing production output to ensure there is enough stock to meet this higher demand. This is a direct example of a marketing decision creating an interdependency with the operations function.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A</strong> is wrong because job production is slow and individually customised — it would reduce output speed, not increase it. Mass production methods would be needed to meet higher demand.</li><li><strong>B</strong> is wrong because market research is a marketing function activity, not an operations function activity.</li><li><strong>D</strong> is wrong because advertising vacancies for toy designers is an HR function activity, not operations.</li></ul><p><strong>Examiner's Comment:</strong> Although the question mentions advertising (a marketing activity), the focus is on the impact on OPERATIONS. Some candidates answered B because they saw 'market research' but this is still a marketing activity, not operations.</p></div>`,
+        modelAnswer: ""
+      },
+      {
+        num: "Q9(i)",
+        marks: 2,
+        type: "written",
+        caseStudy: `Alessia and Natalia own Ricardo Costumes and Props (RCP). The business operates as a partnership. RCP makes a range of costumes and props that it sells to UK and EU theatres, schools and amateur dramatics groups.<br><br>Last year, RCP's costumes and props were used in two very successful films. RCP's reputation grew rapidly and its revenue increased from £1,600,000 in 2019 to £2,000,000 in 2020. More financial data for RCP in 2020 is shown in Table 1:<table class="case-table"><caption>Table 1 — RCP Financial Data (2020)</caption><tr><th>Item</th><th>Amount</th></tr><tr><td>Revenue</td><td>£2,000,000</td></tr><tr><td>Cost of sales</td><td>£500,000</td></tr><tr><td>Salaries</td><td>£1,300,000</td></tr><tr><td>Rent</td><td>£100,000</td></tr><tr><td>Other expenses</td><td>£50,000</td></tr></table>Despite being profitable, RCP's bank overdraft is getting bigger every month. Alessia and Natalia realise that they need to carefully consider RCP's cash flow position.<br><br>Alessia and Natalia need to update the laser cutter and 3D printer they use to make some of the props. The total cost of these machines is likely to be over £100,000. Alessia and Natalia are unsure how to finance the purchase of the new machinery. Natalia has suggested they try and sell the old machines and use the money to buy new ones. Alessia thinks it might be better to gain extra capital by finding a new partner to join the business.`,
+        question: "Identify two variable costs which a business may incur. [2 marks]",
+        hint: "Variable costs CHANGE with the level of production. Think about what a business buys more of when it produces more goods.",
+        starter: "Variable cost 1: ...\n\nVariable cost 2: ...",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a)</h5><ul><li><strong>1 mark</strong> for each correct variable cost identified, up to a maximum of 2 marks.</li></ul><p><strong>Acceptable answers include:</strong></p><ul><li>Wages (labour costs)</li><li>Raw materials / cost of sales (or one specific example)</li><li>Stock / components</li><li>Packaging</li></ul><p><strong>⚠️ Do NOT accept:</strong> 'Salaries' (these are fixed costs — paid at a set rate regardless of output) or 'production costs' (too vague).</p><p><strong>NB:</strong> Answers do not need to apply specifically to RCP — any valid variable cost from any business context is acceptable.</p></div>`,
+        modelAnswer: "1. Raw materials / cost of sales.\n2. Packaging."
+      },
+      {
+        num: "Q9(ii)",
+        marks: 3,
+        type: "written",
+        caseStudy: "",
+        question: "Calculate RCP's net profit for 2020. Show your workings. [3 marks]",
+        hint: "This is a two-step calculation. Step 1: Calculate GROSS profit (Revenue minus Cost of Sales). Step 2: Calculate NET profit (Gross Profit minus ALL other expenses — salaries, rent and other expenses).",
+        starter: "Step 1 — Gross Profit: Revenue (£2,000,000) − Cost of Sales (£500,000) = £______\n\nStep 2 — Total Expenses: Salaries + Rent + Other = £______\n\nStep 3 — Net Profit: Gross Profit − Total Expenses = £______",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO2)</h5><ul><li><strong>3 marks:</strong> Correct final answer of £50,000 (with or without workings shown).</li><li><strong>2 marks:</strong> Mathematical error in calculating net profit BUT evidence of correct method shown AND correct use of the data.</li><li><strong>1 mark:</strong> Correct gross profit figure (£1,500,000) shown with evidence of workings, even if net profit is then calculated incorrectly.</li></ul><p><strong>Full working:</strong></p><ul><li>Gross Profit = Revenue − Cost of Sales = £2,000,000 − £500,000 = <strong>£1,500,000</strong></li><li>Total Expenses = £1,300,000 (salaries) + £100,000 (rent) + £50,000 (other) = £1,450,000</li><li>Net Profit = £1,500,000 − £1,450,000 = <strong>£50,000</strong></li></ul><p><strong>Net Profit Margin</strong> = (£50,000 ÷ £2,000,000) × 100 = <strong>2.5%</strong></p></div>`,
+        modelAnswer: "Gross Profit = £2,000,000 − £500,000 = £1,500,000\nTotal Expenses = £1,300,000 + £100,000 + £50,000 = £1,450,000\nNet Profit = £1,500,000 − £1,450,000 = £50,000"
+      },
+      {
+        num: "Q9(iii)",
+        marks: 3,
+        type: "written",
+        caseStudy: "",
+        question: "Analyse one way Alessia and Natalia could use the data shown in Table 1 to improve their net profit margin. [3 marks]",
+        hint: "Look at the data in Table 1 — which cost is by far the largest? How could reducing that cost improve the net profit margin? Remember: U → APP → AN.",
+        starter: "RCP could improve its net profit margin by [action to reduce costs or increase revenue] (U)...\n\nLooking at the data, [specific figure from Table 1] shows that [specific cost or revenue observation] (APP)...\n\nIf RCP [action], this would result in [specific financial impact on net profit margin] (AN)...",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> One way a business could improve its net profit margin — e.g. recognising that expenses/costs are too high and need decreasing; needing to increase revenue relative to costs; identifying which costs are highest.</li><li><strong>Application (1 mark):</strong> Links to specific data from Table 1 — e.g. net profit margin is 2.5%; revenue has increased by 25% in 2020; cost of sales is 25% of revenue; RCP's salaries account for 65% of revenue earned; or any other use of data from Table 1.</li><li><strong>Analysis (1 mark):</strong> Explains a specific business-facing consequence — e.g. a pay cut would reduce salaries and increase profits; using lower quality raw materials would widen the gap between revenue and costs; an example of how to achieve any proposed change.</li></ul></div>`,
+        modelAnswer: "RCP needs to cut its costs (U). Salaries are their largest single cost at £1,300,000 — accounting for 65% of all revenue earned (APP). If Alessia and Natalia were able to reduce staff pay or cut staff hours, this would directly reduce their largest expense and increase the net profit margin above the current 2.5% (AN)."
+      },
+      {
+        num: "Q10(a)",
+        marks: 3,
+        type: "written",
+        caseStudy: "Pukka Pies Ltd is a family-owned business with approximately 360 employees. It makes a range of high-quality savoury pies, including steak, chicken and mushroom, and chicken balti, in batches at its factory in Leicester, England. Pukka Pies are sold in more than 4,000 food stores nationwide as well as in sports stadiums, fish and chip shops and cafés across the country.\n\nThree of Pukka Pies Ltd's key values are recruiting people who are ambitious, delighting customers with quality pies, and building trust with suppliers through food safety. Each of these values helps the business meet the requirements of consumer law.\n\nThe success of Pukka Pies Ltd is affected by many factors, including its logistical and supply chain decisions. Pukka Pies Ltd procures the ingredients for its pies from businesses across the UK and overseas; consequently its supply chain is long. Nevertheless, all of these ingredients need to arrive in good condition and, therefore, its logistics are time-critical. Unemployment levels also have a significant impact on Pukka Pies Ltd.\n\nPukka Pies Ltd considers its environmental impact across all aspects of business activity. It has already replaced some of the non-recyclable plastics used in its packaging with alternatives that can be recycled. In addition, none of the company's waste goes to landfill.",
+        question: "Analyse one way falling unemployment might influence recruitment at Pukka Pies Ltd. [3 marks]",
+        hint: "When unemployment FALLS, there are FEWER people looking for work. How does this make it HARDER or MORE EXPENSIVE for Pukka Pies to recruit? Remember U → APP → AN.",
+        starter: "When unemployment falls, [specific consequence for businesses trying to recruit] (U)...\n\nFor Pukka Pies, which employs [specific detail from text] (APP)...\n\nThis would mean [specific business-facing impact on costs, production or staffing] (AN)...",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> Understanding of the issues surrounding falling unemployment — e.g. higher consumer spending; increased difficulty of replacing workers; inability to recruit enough workers; link between increased employment and demand for products.</li><li><strong>Application (1 mark):</strong> Links to Pukka Pies Ltd — e.g. 360 employees; factory in Leicester; family-owned business.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact — e.g. increased costs of recruitment; higher wages needed to attract applicants; production may decrease or become less efficient if vacancies cannot be filled; business may consider relocating to an area with higher unemployment.</li></ul></div>`,
+        modelAnswer: "When unemployment falls, it becomes harder for businesses to find workers as fewer people are available and actively seeking jobs (U). As Pukka Pies employs 360 workers at its factory in Leicester (APP), finding enough suitable replacements or additional staff will become more difficult and expensive. This would significantly increase Pukka Pies' recruitment costs and potentially force them to offer higher wages to attract applicants — raising overall operating costs and reducing profit margins (AN)."
+      },
+      {
+        num: "Q10(b)",
+        marks: 9,
+        type: "written",
+        caseStudy: "",
+        question: "Evaluate how Pukka Pies Ltd's environmental considerations might influence its marketing mix. [9 marks]",
+        hint: "This is a SYNOPTIC 9-marker linking ENVIRONMENT (Component 01) with THE MARKETING MIX (Component 02). Your K and U marks come from explaining environmental considerations. Your APP, AN and EVAL marks come from how each of the 4Ps (Product, Price, Place, Promotion) is affected — link back to Pukka Pies specifically.",
+        starter: "Paragraph 1 (K & U): Environmental considerations refer to [K, e.g. the natural world / impact on the environment]... This includes issues such as [U, e.g. sustainability, waste disposal, pollution, climate change]...\n\nParagraph 2 (APP & AN — 4P 1): In terms of [Product/Price/Place/Promotion], Pukka Pies could [specific change] (APP)... This would mean [business-facing impact on revenue, costs, brand] (AN)...\n\nParagraph 3 (APP & AN — 4P 2): Another element of the marketing mix that would be affected is [different 4P] (APP)... As a result, [business-facing impact] (AN)...\n\nParagraph 4 (EVAL — 3 points): Overall, the environmental considerations would have a [large/small] impact on Pukka Pies' marketing mix (EVAL). This is particularly true because [contextual reason from Pukka Pies, e.g. its packaging changes] (EVAL). However, the extent of this impact will depend on [conditional factor, e.g. whether eco-friendly suppliers charge significantly more, or whether consumers are willing to pay a higher price] (EVAL).",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 9 marks (AO1a:1 + AO1b:1 + AO2:2 + AO3a:2 + AO3b:3)</h5><ul><li><strong>Knowledge (1 mark):</strong> Environmental considerations are about the natural world / trying to keep the impact of business on the environment to a minimum.</li><li><strong>Understanding (1 mark):</strong> An example of an environmental consideration — e.g. sustainability issues, waste disposal, pollution, climate change.</li><li><strong>Application (2 marks):</strong> TWO synoptic applications to elements of the marketing mix — PRODUCT (impact on range of products, types of products or packaging — NOT quantity); PRICE (impact on prices); PLACE (how distribution/transportation is carried out or where products are sold); PROMOTION (efforts to make customers aware of being more environmentally friendly).</li><li><strong>Analysis (2 marks):</strong> TWO business-facing impacts — e.g. changing pie range to include vegan options using eco-friendly suppliers; creating an advertising campaign that stresses environmentally friendly sourcing; prices may rise due to higher supplier costs or electric delivery vans; packaging replaced with recyclable materials.</li><li><strong>Evaluation (3 marks):</strong> Justified contextual judgement — e.g. whether environmental considerations have bigger implications for Pukka Pies than other factors (economic climate, ethical concerns); whether the impact is larger for one element of the mix than another; use of contextual evidence (e.g. Pukka Pies has already changed its packaging / none of its waste goes to landfill).</li></ul>`,
+        modelAnswer: "Environmental considerations are about the natural world (K) and include issues such as increased use of recycled products, sustainability and reducing carbon emissions (U).\n\nIf Pukka Pies takes its environmental responsibilities seriously, it may need to increase prices (APP) as using more eco-friendly or ethical suppliers is typically more expensive (AN). This could reduce demand for its pies among price-sensitive customers, potentially reducing revenue.\n\nPukka Pies may also need to change its promotion strategy (APP) — for example, launching a new advertising campaign that highlights its eco-friendly packaging and zero-waste policy, which could strengthen its brand and attract environmentally conscious customers (AN).\n\nOverall, environmental considerations are likely to have a significant impact on Pukka Pies' marketing mix (EVAL). This is particularly true in terms of costs, which would rise as eco-friendly suppliers charge more, potentially leading to higher prices that may deter some customers (EVAL). However, this impact may be partially offset by the fact that Pukka Pies has already taken steps such as replacing non-recyclable plastic packaging and sending zero waste to landfill — suggesting the additional cost of further environmental changes may be modest (EVAL)."
+      }, {
+        num: "Q11",
+        marks: 9,
+        type: "written",
+        caseStudy: `Aston Martin plc (AM plc) is a British manufacturer of luxury sports cars. It has more than 150 car dealerships in over 50 countries on six continents. Its globalised supply chain includes suppliers from the UK, EU and across the world. The company is also expanding its brand to include speed boats, submarines and property development.<br><br>Its headquarters and the main production site are centrally located in Warwickshire, England, on the site of a former RAF airbase. It employs over 3,000 workers on this site, who are highly skilled engineers and who produce each car using the most up-to-date machinery. When the cars are finished, they are then transported from central England all over the UK and beyond. The demand for AM plc products is influenced by many factors, including UK unemployment rates and consumer income levels.<br><br>AM plc is proud of its commitment to the environment, which includes trying to produce goods sustainably. It also considers ethical issues in its decision making.<table class="case-table"><caption>Table 1 — UK Unemployment Rate (%)</caption><tr><th>Year</th><th>Unemployment Rate</th></tr><tr><td>2013</td><td>7.5%</td></tr><tr><td>2014</td><td>6.0%</td></tr><tr><td>2015</td><td>5.5%</td></tr><tr><td>2016</td><td>5.0%</td></tr><tr><td>2017</td><td>4.5%</td></tr><tr><td>2018</td><td>4.0%</td></tr></table><table class="case-table"><caption>Table 2 — Average UK Consumer Income</caption><tr><th>Year</th><th>Average Income</th></tr><tr><td>2013</td><td>£30,000</td></tr><tr><td>2014</td><td>£30,000</td></tr><tr><td>2015</td><td>£31,500</td></tr><tr><td>2016</td><td>£32,000</td></tr><tr><td>2017</td><td>£31,750</td></tr><tr><td>2018</td><td>£32,250</td></tr></table>`,
+        question: "Evaluate how globalisation may bring risk and reward to the shareholders of AM plc. [9 marks]",
+        hint: "This is a synoptic 9-marker. K and U come from GLOBALISATION. APP, AN and EVAL must all focus on the impact on SHAREHOLDERS specifically — think about dividends, share price and return on investment. Cover BOTH risk AND reward.",
+        starter: "Paragraph 1 (K & U): Globalisation is [K — definition of globalisation]... This involves [U — example of how globalisation works, e.g. globalised supply chains, movement of capital, exchange rates, international markets]...\n\nParagraph 2 (APP & AN — Reward): Globalisation creates rewards for AM plc shareholders because [specific reward of globalisation, e.g. access to larger international market] (APP)... This means [business-facing impact on shareholders — dividends, share price] (AN)...\n\nParagraph 3 (APP & AN — Risk): However, globalisation also brings risk because [specific risk, e.g. increased international competition / exchange rate fluctuations] (APP)... This could result in [business-facing impact on shareholders — reduced dividends, falling share price] (AN)...\n\nParagraph 4 (EVAL — 3 points): Overall, I believe [whether risk outweighs reward or vice versa for AM plc shareholders] (EVAL). This is because [contextual reason from the case study] (EVAL). However, the impact on shareholders will ultimately depend on [contextual condition, e.g. which countries AM plc expands into / whether exchange rates are favourable] (EVAL).",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 9 marks (AO1a:1 + AO1b:1 + AO2:2 + AO3a:2 + AO3b:3)</h5><ul><li><strong>Knowledge (1 mark):</strong> Globalisation is the process of interaction and integration between people, companies, and governments worldwide.</li><li><strong>Understanding (1 mark):</strong> How globalisation works — e.g. movement of workers and/or capital from country to country; greater dependence on external factors like exchange rates; advances in transportation and communication technology; a globalised supply chain.</li><li><strong>Application (2 marks — Synoptic):</strong> Risk examples: increased competition; having to manage legal, political, cultural and regulatory requirements; risk of failure. Reward examples: more revenue/sales; growth of ideas; larger market size; more customers across 50+ countries; expanding brand into new areas (speed boats, submarines).</li><li><strong>Analysis (2 marks — business-facing for shareholders):</strong> Higher profits → higher dividends/share price; higher market share → higher share price; higher sales → lower average cost per car → more profit; risks may decrease profits → lower dividends and share price; maintaining brand identity across cultures costs money → affects profitability.</li><li><strong>Evaluation (3 marks — must be contextual for full marks):</strong> Whether risk exceeds reward or vice versa; factors that determine the balance; use of contextual evidence from AM plc — e.g. 150+ dealerships in 50+ countries; declining UK unemployment (bar chart) potentially increasing UK demand; globalised supply chain bringing dependency on overseas suppliers.</li></ul>`,
+        modelAnswer: "Globalisation is the process of integration between people and companies worldwide (K). It has led to greater reliance on external factors such as exchange rates and has enabled businesses to access international markets through advances in transportation and communication (U).\n\nGlobalisation increases the size of the market, giving AM plc the opportunity to sell its luxury cars to wealthy customers in over 50 countries (APP). This may lead to more sales, higher profits and increased dividends for shareholders, as well as a higher share price reflecting the growing global brand value (AN).\n\nHowever, being a global brand also exposes AM plc to significant risks. AM plc will face increasing international competition from other luxury car manufacturers in the markets it enters (APP). This could force the business to reduce prices or increase its marketing spend, which would reduce profit margins and potentially lead to lower dividends and a falling share price (AN).\n\nOverall, for AM plc's shareholders, the rewards of globalisation are likely to outweigh the risks in the long term (EVAL). This is because AM plc has already successfully established over 150 dealerships in 50+ countries, suggesting its globalisation strategy is well-established and generating revenue (EVAL). However, the precise impact on shareholders will depend on which new countries AM plc expands into and whether changes in external factors such as the sterling exchange rate make exporting more or less profitable (EVAL)."
+      },
+      {
+        num: "Q16(i)",
+        marks: 3,
+        type: "written",
+        caseStudy: "NEXT plc. is a clothing retailer selling clothing, footwear, accessories and home products through its high street shops and online across the UK. NEXT plc. understands the importance of creating good relationships with its customers and constantly tries to improve its levels of customer service.\n\nFor NEXT, responsible business behaviour includes addressing key business-related social, ethical and environmental impacts in a way that aims to bring value to all its stakeholders, including its shareholders. NEXT plc. sources products from many suppliers across the world. The company takes its environmental and ethical responsibilities very seriously.",
+        question: "Analyse one way in which being environmentally friendly could impact on NEXT plc.'s marketing function. [3 marks]",
+        hint: "What would NEXT plc.'s marketing team actually CHANGE or DO DIFFERENTLY because of its environmental commitment? Think about advertising, promotion, pricing, product range, or how it communicates with customers.",
+        starter: "Being environmentally friendly could impact NEXT plc.'s marketing function by [specific marketing activity change] (U)...\n\nFor NEXT plc., this could mean [specific link to NEXT's context, e.g. its global sourcing / customer service focus] (APP)...\n\nAs a result, [business-facing consequence for NEXT's marketing team — workload, costs, sales, reputation] (AN)...",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b:1 + AO2:1 + AO3a:1)</h5><ul><li><strong>Understanding (1 mark):</strong> One way being environmentally friendly could impact a business's marketing function — e.g. change of advertising strategy; promotion of environmentally friendly behaviour; additional market research; change of target market; charge higher prices; extension of product lifecycle; change in how NEXT segments the market.</li><li><strong>Application (1 mark):</strong> Applies to NEXT plc. specifically using evidence from the text.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact — e.g. increased workload for the marketing department designing new eco-focused promotions; higher promotional costs; potential for attracting a new segment of eco-conscious customers.</li></ul><p>Content from components 01 and 02 is synoptically assessed in this question.</p>`,
+        modelAnswer: "Being environmentally friendly offers new ways for NEXT plc. to promote itself to customers (U). NEXT plc.'s marketing department could create a new advertising campaign highlighting its ethical sourcing from suppliers across the world and its commitment to reducing environmental impact (APP). This would increase the workload of the marketing team and require additional promotional expenditure, but could attract a growing segment of eco-conscious consumers and strengthen NEXT's brand loyalty (AN)."
+      },
+      {
+        num: "Q16(ii)",
+        marks: 3,
+        type: "written",
+        caseStudy: "",
+        question: "Analyse one way in which being environmentally friendly could impact on NEXT plc.'s human resources function. [3 marks]",
+        hint: "How might the HR function at NEXT operate DIFFERENTLY to reduce its environmental footprint? Think about how people are recruited, interviewed, trained or managed.",
+        starter: "Being environmentally friendly could impact NEXT plc.'s HR function by [specific HR change, e.g. conducting job interviews online rather than in person] (U)...\n\nFor NEXT plc., [link to context, e.g. given its large number of shops and employees across the UK] (APP)...\n\nThis would result in [business-facing impact — cost savings, reduced carbon footprint, changes to working practices] (AN)...",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b:1 + AO2:1 + AO3a:1)</h5><ul><li><strong>Understanding (1 mark):</strong> One way being environmentally friendly could impact a business's HR function — e.g. increased use of technology; reduced waste (e.g. paper); use of recycled paper; communication by email; use of online application forms; job interviews conducted online; online training packages; hot desking; home working; issuing mobile communication technologies to staff; encouraging remote working.</li><li><strong>Application (1 mark):</strong> Applies to NEXT plc. specifically.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact — e.g. reduced travel and therefore less pollution; lower costs from less paper usage; a more flexible and motivated workforce; reduced carbon footprint from daily operations.</li></ul>`,
+        modelAnswer: "NEXT plc.'s HR function may need to alter its selection and recruitment processes (U) so that it conducts interviews with prospective job candidates online rather than requiring them to travel to a store or head office (APP). This would significantly reduce the travel and carbon emissions associated with the recruitment process, helping NEXT meet its environmental commitments while also reducing costs (AN)."
+      },
+      {
+        num: "Q16(iii)",
+        marks: 3,
+        type: "written",
+        caseStudy: "",
+        question: "Analyse one way in which being environmentally friendly could impact on NEXT plc.'s finance function. [3 marks]",
+        hint: "Think about what happens to COSTS when a business switches to eco-friendly suppliers, packaging or transport. How does this affect the finance function's responsibilities?",
+        starter: "Being environmentally friendly is likely to [impact on costs or cash flow] (U)...\n\nFor NEXT plc., [link to NEXT's specific context — e.g. its global supply chain] (APP)...\n\nThis means the finance function would need to [specific action — e.g. monitor cash flow more closely / seek additional finance] (AN)...",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b:1 + AO2:1 + AO3a:1)</h5><ul><li><strong>Understanding (1 mark):</strong> One way being environmentally friendly could impact a business's finance function — e.g. increased costs; need to monitor cash flow; need to obtain additional sources of finance; effect on break-even point.</li><li><strong>Application (1 mark):</strong> Applies to NEXT plc. specifically.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact — e.g. may find itself in a more difficult cash flow position; may need to apply for an increase in overdraft; break-even point may rise if costs increase.</li></ul>`,
+        modelAnswer: "Being environmentally friendly is likely to increase NEXT plc.'s operating costs (U) as sourcing products ethically and sustainably from its many global suppliers will typically be more expensive than standard sourcing (APP). As a result, the finance function may find itself managing a more difficult cash flow position and may need to arrange a larger bank overdraft or seek additional sources of finance to cover the higher expenditure (AN)."
+      },
+      {
+        num: "Q16(iv)",
+        marks: 3,
+        type: "written",
+        caseStudy: "",
+        question: "Recommend which function would be most affected by NEXT plc. being environmentally friendly. Give reasons for your answer. [3 marks]",
+        hint: "Make a clear recommendation (this earns 1 mark). Then give a strong, detailed reason that explains WHY this function is more affected than the others — use specific details about NEXT to score all 3 marks.",
+        starter: "The [marketing / HR / finance] function would be most affected by NEXT plc. being environmentally friendly (JUDGEMENT)...\n\nThis is because [strong reason showing why this function is MORE affected than the others] (JUSTIFICATION)...\n\nIn particular, [specific contextual detail that strengthens your justification] (STRONG CONTEXT)...",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO3b:3)</h5><ul><li><strong>1 mark:</strong> A judgement with limited justification — names which function is most affected with a brief, general reason.</li><li><strong>2 marks:</strong> A judgement with good justification — names the function AND provides a clear reason with reference to relevant information and/or issues.</li><li><strong>3 marks:</strong> A judgement with strong justification — names the function AND provides a detailed, specific justification that shows clear appraisal of why this function is more affected than the others, with use of relevant contextual detail.</li></ul><p><strong>ARA — Any function is acceptable as long as the justification is detailed and relevant.</strong></p>`,
+        modelAnswer: "The human resources function would be most affected by NEXT plc. being environmentally friendly (JUDGEMENT). This is because being environmentally friendly would affect the way ALL of its workers are employed, trained and managed on a day-to-day basis — across every single store and department nationwide (JUSTIFICATION). Introducing eco-friendly working practices, such as online recruitment, remote working and IT-based training systems, would require significant changes to HR policies and processes for NEXT's entire workforce, making it the most widely impacted function across the business (STRONG CONTEXT)."
+      }
+    ];
+  </script>
 
-  wrap.addEventListener('change', e => {
-    const sel = e.target;
-    if (sel.tagName !== 'SELECT') return;
-    const wrapper = sel.closest('.blank-select');
-    if (!wrapper || wrapper.dataset.answered === 'correct') return;
-    const chosen = sel.value;
-    const ans = wrapper.dataset.ans;
-    if (!chosen) return;
-    if (chosen === ans) {
-      wrapper.dataset.answered = 'correct';
-      wrapper.classList.remove('wrong');
-      wrapper.classList.add('correct');
-      sel.disabled = true;
-      fibScore++;
-      document.getElementById('fibScore').textContent = fibScore;
-    } else {
-      wrapper.classList.remove('correct');
-      wrapper.classList.add('wrong');
-      setTimeout(() => { wrapper.classList.remove('wrong'); sel.value = ''; }, 700);
-    }
-  });
-}
 
-function resetFIB() {
-  fibScore = 0;
-  document.getElementById('fibScore').textContent = 0;
-  document.getElementById('fibWrap').innerHTML = '';
-  buildFIB();
-}
-
-// ═══════════════════════════════════════════════
-//  BUILD MISCONCEPTIONS
-// ═══════════════════════════════════════════════
-function buildMisc() {
-  const list = document.getElementById('miscList');
-  miscData.forEach(m => {
-    const card = document.createElement('div');
-    card.className = 'misc-card';
-    card.innerHTML = `<div class="wrong-view"><div class="misc-tag">✗ Common Student View</div><p>${m.wrong}</p></div>
-      <div class="correct-view"><div class="misc-tag">✓ Examiner's Correct View</div><p>${m.correct}</p></div>`;
-    list.appendChild(card);
-  });
-}
-
-// ═══════════════════════════════════════════════
-//  BUILD EXAM TIPS
-// ═══════════════════════════════════════════════
-function buildTips() {
-  const grid = document.getElementById('tipsGrid');
-  examTips.forEach(t => {
-    const card = document.createElement('div');
-    card.className = 'tip-card';
-    const pills = t.pills.map(p => `<span class="mark-pill ${p}">${p.toUpperCase()}</span>`).join('');
-    card.innerHTML = `<div class="tip-type">${t.type}</div><h4>${t.title}</h4><p>${t.content}</p>${t.pills.length ? `<div class="mark-breakdown">${pills}</div>` : ''}`;
-    grid.appendChild(card);
-  });
-}
-
-// ═══════════════════════════════════════════════
-//  FLASHCARDS
-// ═══════════════════════════════════════════════
-let fcIndex = 0;
-function renderFC() {
-  const fc = flashcards[fcIndex];
-  document.getElementById('fcTerm').textContent = fc.term;
-  document.getElementById('fcDef').textContent = fc.def;
-  document.getElementById('fcProgress').textContent = `Card ${fcIndex+1} of ${flashcards.length}`;
-  document.getElementById('flashcard').classList.remove('flipped');
-}
-function flipCard() { document.getElementById('flashcard').classList.toggle('flipped'); }
-function nextCard() { fcIndex = (fcIndex + 1) % flashcards.length; renderFC(); }
-function prevCard() { fcIndex = (fcIndex - 1 + flashcards.length) % flashcards.length; renderFC(); }
-
-// ═══════════════════════════════════════════════
-//  BUILD TRUE / FALSE
-// ═══════════════════════════════════════════════
-let tfScore = 0, tfTotal = 0;
-function buildTF() {
-  const wrap = document.getElementById('tfWrap');
-  tfData.forEach((item, i) => {
-    const card = document.createElement('div');
-    card.className = 'tf-card';
-    card.innerHTML = `<div><div class="tf-text">${item.statement}</div><div class="tf-explanation" id="tfExp-${i}">${item.explanation}</div></div>
-    <div class="tf-btns"><button class="tf-btn" data-i="${i}" data-val="true">TRUE</button><button class="tf-btn" data-i="${i}" data-val="false">FALSE</button></div>`;
-    wrap.appendChild(card);
-  });
-  wrap.addEventListener('click', e => {
-    const btn = e.target.closest('.tf-btn');
-    if (!btn) return;
-    const i = +btn.dataset.i;
-    const card = btn.closest('.tf-card');
-    if (card.dataset.answered) return;
-    card.dataset.answered = 1;
-    const val = btn.dataset.val === 'true';
-    const correct = val === tfData[i].answer;
-    tfTotal++;
-    card.querySelectorAll('.tf-btn').forEach(b => b.disabled = true);
-    if (correct) { btn.classList.add('correct'); tfScore++; }
-    else {
-      btn.classList.add('wrong');
-      card.querySelectorAll('.tf-btn').forEach(b => { if (b.dataset.val === String(tfData[i].answer)) b.classList.add('correct'); });
-    }
-    document.getElementById(`tfExp-${i}`).classList.add('show');
-    document.getElementById('tfScore').textContent = tfScore;
-    document.getElementById('tfTotal').textContent = tfTotal;
-  });
-}
-function resetTF() {
-  tfScore = 0; tfTotal = 0;
-  document.getElementById('tfScore').textContent = 0;
-  document.getElementById('tfTotal').textContent = 0;
-  document.getElementById('tfWrap').innerHTML = '';
-  buildTF();
-}
-
-// ═══════════════════════════════════════════════
-//  INIT
-// ═══════════════════════════════════════════════
-buildLearn();
-buildMCQ();
-buildMatch();
-buildFIB();
-buildMisc();
-buildTips();
-renderFC();
-buildTF();
-</script>
+  <script src="script.js"></script>
 </body>
+
 </html>

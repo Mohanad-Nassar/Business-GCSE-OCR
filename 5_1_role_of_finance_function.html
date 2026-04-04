@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.1 Role of the Finance Function – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Business — Component 2</div>
+            <h1>5.1 Role of the Finance Function</h1>
+            <p>Interactive revision guide · All key content + full exam practice</p>
+        </div>
+        <a href="index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px">
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #d4edda;
+                  border: 1.5px solid #2d7a4f;
+                  display: inline-block;
+                "></span>
+                        First attempt correct</span>
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fff8dc;
+                  border: 1.5px solid #b8860b;
+                  display: inline-block;
+                "></span>
+                        Correct after mistake</span>
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fde8e5;
+                  border: 1.5px solid #c84b31;
+                  display: inline-block;
+                "></span>
+                        Wrong — try again</span>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+     <script>// ══════════════════════════════════════
+        //  DATA: 5.1 The Role of the Finance Function
+        // ══════════════════════════════════════
+
+        // 1. Main Learning Content
+        const topics = [
+            {
+                title: "Key Terms & Official Definitions",
+                tag: "Core Concepts",
+                content: `<p>These are the essential terms you must know for this topic. Learn them precisely — examiners reward specific, accurate vocabulary.</p>
+<ul>
+  <li><strong>Finance Function:</strong> The department within a business (also called the finance department) responsible for managing money. Only found in larger businesses — small businesses usually employ an external accountant instead.</li>
+  <li><strong>Financial Information:</strong> Data including profit, loss, cash flow, break-even, profit margin, and average rate of return. Used to support business decision-making.</li>
+  <li><strong>Revenue:</strong> The money a business receives from selling goods or services.</li>
+  <li><strong>Costs:</strong> The expenses involved in making and selling a good or service.</li>
+  <li><strong>Profit/Loss:</strong> Found by subtracting total costs from total revenue. If revenue > costs = profit; if costs > revenue = loss.</li>
+  <li><strong>Break-Even:</strong> The number of products a business must sell to cover all its costs — neither making a profit nor a loss.</li>
+  <li><strong>Cash Flow:</strong> The movement of money into (inflows) and out of (outflows) a business over time.</li>
+  <li><strong>Forecast:</strong> An estimate or prediction of what is expected to happen in the future (e.g. a cash-flow forecast).</li>
+  <li><strong>Sources of Finance:</strong> Where a business gets money from — examples include savings, loans, overdrafts, and share issues.</li>
+  <li><strong>Interdependence:</strong> The way in which different departments within a business rely on each other to operate effectively.</li>
+</ul>`
+            },
+            {
+                title: "The Purpose of the Finance Function",
+                tag: "Core Concepts",
+                content: `<p>The finance function exists to serve the whole business. Its two core purposes are:</p>
+<ul>
+  <li><strong>Supporting business planning and decision-making:</strong> The finance function contributes to the business plan and ensures all decisions are backed by accurate financial data.</li>
+  <li><strong>Providing financial information:</strong> It produces data on costs, revenues, profit/loss, cash flow, and break-even that other departments rely on to operate.</li>
+</ul>
+<p>Without reliable financial information, a business cannot plan effectively, cannot raise the funding it needs, and may make costly mistakes. As the textbook states: <em>it is vital for any business that this data is accurate and up to date.</em></p>
+<div class="two-col">
+  <div>
+    <div class="col-head">✓ Large Businesses</div>
+    <div class="pro-item"><strong>Dedicated team:</strong> Have their own finance department with specialist staff (e.g. accountants, financial analysts).</div>
+    <div class="pro-item"><strong>In-house expertise:</strong> Can respond quickly to financial questions from other departments.</div>
+  </div>
+  <div>
+    <div class="col-head">✗ Small Businesses</div>
+    <div class="con-item"><strong>No finance department:</strong> Sole traders and partnerships usually hire an external accountant to check their finances.</div>
+    <div class="con-item"><strong>Limited resources:</strong> Cannot afford a full-time specialist finance team, which may slow decision-making.</div>
+  </div>
+</div>`
+            },
+            {
+                title: "Roles of the Finance Function",
+                tag: "Methods",
+                content: `<p>The finance function carries out a wide range of tasks to keep a business financially healthy. These include:</p>
+<ul>
+  <li><strong>Calculating sales revenues and production costs:</strong> Ensures the business knows exactly how much it earns and spends.</li>
+  <li><strong>Calculating profit or loss:</strong> Tells managers whether the business is financially viable.</li>
+  <li><strong>Forecasting cash flow:</strong> Uses expected revenues and expenditures to predict whether extra finance will be needed at any point.</li>
+  <li><strong>Calculating the break-even output:</strong> Identifies how many units must be sold to avoid a loss — essential for pricing and production decisions.</li>
+  <li><strong>Calculating the average rate of return:</strong> Measures how well an investment is performing over time.</li>
+  <li><strong>Arranging finance:</strong> Sources funding such as loans, overdrafts, or share issues when the business needs capital.</li>
+  <li><strong>Managing payments and receipts:</strong> Ensures bills are paid on time and money owed to the business is collected.</li>
+</ul>
+<p>⚠️ <strong>Examiner Warning:</strong> The finance function does NOT advertise products, recruit staff, make quality decisions, or choose marketing methods. These belong to other departments. Confusing these is a very common mistake.</p>`
+            },
+            {
+                title: "How the Finance Function Influences Business Activity",
+                tag: "Analysis",
+                content: `<p>The finance function does not just record numbers — it actively shapes what the business can and cannot do. Here are key examples:</p>
+<ul>
+  <li><strong>Going environmentally friendly:</strong> The finance function calculates the extra costs involved, monitors cash flow, and may need to arrange additional finance to fund the changes.</li>
+  <li><strong>Responding to a recession:</strong> Provides revenue and cost data to help the business decide how to cut costs or protect cash flow.</li>
+  <li><strong>Changing production methods (e.g. job to flow):</strong> Forecasts changes in revenue, costs, and cash flow, and calculates the new break-even output.</li>
+  <li><strong>Running a marketing campaign:</strong> Sets a budget and monitors sales and profit data during and after the campaign to judge whether it was successful.</li>
+  <li><strong>Business expansion:</strong> Advises on sources of finance, forecasts costs, and models the impact on break-even and cash flow.</li>
+  <li><strong>Changing the way products are sold (e.g. moving online):</strong> Provides data on the impact of different sales channels on revenues and costs.</li>
+</ul>
+<p>This shows that business departments are <strong>interdependent</strong> — they rely on each other. The finance function sits at the heart of this, providing data that every other department needs to make good decisions.</p>`
+            },
+            {
+                title: "Finance and Business Growth",
+                tag: "Theory",
+                content: `<p>The ability (or inability) to raise finance has a direct effect on how a business grows and what legal form it takes.</p>
+<ul>
+  <li><strong>Sole trader &rarr; Partnership:</strong> A sole trader who wants to expand may invite someone who can provide capital to become a partner.</li>
+  <li><strong>Partnership &rarr; Private Limited Company (Ltd):</strong> Partnerships may incorporate as a private limited company so they can sell shares and expand ownership.</li>
+  <li><strong>Private Limited Company &rarr; Public Limited Company (plc):</strong> A plc can sell shares publicly (on the stock market), gaining access to a much wider pool of investors.</li>
+</ul>
+<p>Many small businesses <strong>remain small</strong> simply because they could not raise the finance needed to expand. This shows how critically the finance function — or the lack of one — can shape the future of a business.</p>
+<div class="case-study-box">
+  <h4>Case Study: Stellantis / Vauxhall — Ellesmere Port</h4>
+  <p>In July 2021, Stellantis (owners of Vauxhall) announced their Ellesmere Port factory would produce all-electric vans. The decision followed lengthy negotiations with the UK government, which reportedly offered a £30 million grant. The finance function at Stellantis played a central role — supporting business planning and ensuring all decision-making was informed by accurate financial data. Without this financial analysis, such a major investment decision could not have been made confidently.</p>
+  <p><strong>Takeaway:</strong> Large-scale business decisions always involve the finance function. It provides the financial evidence needed to justify investment, expansion, or change.</p>
+</div>`
+            },
+            {
+                title: "Financial Information: What It Includes",
+                tag: "Core Concepts",
+                content: `<p>The finance function produces specific types of financial information. You need to know what each one is and why it matters:</p>
+<ul>
+  <li><strong>Sources of Finance (Unit 5.2):</strong> Where does the money come from? Savings, loans, overdrafts, share issues. Needed when the business wants to invest or expand.</li>
+  <li><strong>Revenue, Costs & Profit/Loss (Unit 5.3):</strong> Revenue − Total Costs = Profit or Loss. Tells managers whether the business is making money.</li>
+  <li><strong>Break-Even (Unit 5.4):</strong> How many units must be sold to cover all costs? Based on selling price and costs. Vital for setting prices and production targets.</li>
+  <li><strong>Cash Flow (Unit 5.5):</strong> Tracks money in and money out. Allows the business to spot periods where it may struggle to pay bills and plan ahead.</li>
+</ul>
+<div class="formula-box">
+  <strong>Profit / Loss =</strong> Total Revenue &minus; Total Costs
+</div>
+<div class="formula-box">
+  <strong>Break-Even Output =</strong> Fixed Costs &divide; (Selling Price &minus; Variable Cost per Unit)
+</div>
+<p>Each of these pieces of information feeds into business decision-making — no manager should make a significant decision without consulting the finance function first.</p>`
+            },
+            {
+                title: "Finance & Interdependence Between Departments",
+                tag: "Application",
+                content: `<p>The finance function does not work in isolation. It is deeply connected to every other part of the business. This is called <strong>interdependence</strong>.</p>
+<ul>
+  <li><strong>Marketing:</strong> Finance sets marketing budgets and assesses whether a campaign generated enough extra revenue to justify its cost.</li>
+  <li><strong>Operations/Production:</strong> Finance provides data on production costs and calculates break-even when production methods change.</li>
+  <li><strong>Human Resources:</strong> Finance must approve wage increases, training budgets, and redundancy packages — all of which affect costs.</li>
+  <li><strong>Senior Management:</strong> Finance supplies the data that directors use to make strategic decisions about the future direction of the business.</li>
+</ul>
+<div class="case-study-box">
+  <h4>Case Study: IKEA — Lancing Store Decision</h4>
+  <p>In July 2021, IKEA backed out of opening a new store at Lancing, West Sussex — a site it had identified back in 2016. The coronavirus pandemic had dramatically shifted consumer behaviour towards online shopping, making the financial case for the store much weaker. The finance function would have analysed projected revenues, costs, and profitability of the Lancing store before recommending the business not proceed. IKEA announced it would instead invest further in its online operations.</p>
+  <p><strong>Takeaway:</strong> The finance function doesn't just track money — it protects the business from bad investments by providing the evidence needed to make the right call, even when that means walking away from a major project.</p>
+</div>`
+            }
+        ];
+
+        // 2. Multiple Choice Questions (Minimum 10)
+        const mcqData = [
+            {
+                q: "Sam is a finance assistant for a national taxi firm. Which task is most likely to be part of Sam's job role?",
+                opts: [
+                    "Phoning garages to negotiate vehicle servicing at reduced prices",
+                    "Posting discount codes on social media for pre-booked journeys",
+                    "Producing spreadsheets analysing quantitative market research data",
+                    "Providing cost data to help decide when to purchase new vehicles"
+                ],
+                ans: 3,
+                explain: "Correct answer: D. Providing cost data to help decide when to purchase new vehicles is a finance function — it involves analysing financial information to support a business decision. A is procurement/operations, B is marketing, and C is market research, not finance."
+            },
+            {
+                q: "Which business function is responsible for supporting business planning by anticipating periods of cash shortages?",
+                opts: [
+                    "Finance",
+                    "Logistics",
+                    "Procurement",
+                    "Sales"
+                ],
+                ans: 0,
+                explain: "Correct answer: A. The finance function produces cash-flow forecasts, which identify future periods when the business may have more outflows than inflows — allowing it to plan ahead and arrange additional funding if needed."
+            },
+            {
+                q: "Which of the following tasks is NOT a finance function?",
+                opts: [
+                    "Advertising price reductions",
+                    "Applying for a bank loan",
+                    "Calculating break-even",
+                    "Measuring profit and loss"
+                ],
+                ans: 0,
+                explain: "Correct answer: A. Advertising price reductions is a marketing activity, not a finance function. Applying for a bank loan (sourcing finance), calculating break-even, and measuring profit and loss are all core finance department responsibilities."
+            },
+            {
+                q: "Which functional area is responsible for providing information about a firm's revenue?",
+                opts: [
+                    "Finance",
+                    "Logistics",
+                    "Marketing",
+                    "Production"
+                ],
+                ans: 0,
+                explain: "Correct answer: A. The finance function tracks and reports on revenue — the money received from selling goods and services. Marketing generates sales but it is finance that records and analyses the resulting revenue figures."
+            },
+            {
+                q: "Which one of the following is an example of how the finance function can support business activity?",
+                opts: [
+                    "Analysing primary market research results",
+                    "Predicting revenues and costs",
+                    "Reviewing the quality of the products made by the firm",
+                    "Selecting staff for a business expansion"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. Predicting revenues and costs is a core finance function — it provides the financial forecasts other departments need to plan. A is market research, C is operations/quality control, and D is human resources."
+            },
+            {
+                q: "Taj is a finance assistant working in a secondary school. Which one of the following tasks would be done by Taj?",
+                opts: [
+                    "Creating educational resources",
+                    "Keeping the school website up to date",
+                    "Producing reports on the school's GCSE results",
+                    "Providing financial data on school energy usage"
+                ],
+                ans: 3,
+                explain: "Correct answer: D. Providing financial data on energy usage is a finance task — it involves tracking costs for the school. A is teaching/curriculum, B is IT/marketing, and C is academic reporting, none of which are finance roles."
+            },
+            {
+                q: "Which of the following is a role of the finance function?",
+                opts: [
+                    "Advertise for temporary Christmas staff",
+                    "Decide on the style of a new television advert",
+                    "Monitor the costs and revenues of a business",
+                    "Make sure that the quality of goods made is of the highest standard"
+                ],
+                ans: 2,
+                explain: "Correct answer: C. Monitoring costs and revenues is a core finance function. Advertising for staff is HR, deciding on adverts is marketing, and quality control is an operations function."
+            },
+            {
+                q: "Which of the following statements is FALSE?",
+                opts: [
+                    "Business growth may be limited by problems of raising finance",
+                    "Finance is needed to pay for the start-up costs of a business",
+                    "Marketing costs are always paid out of revenue the business raises so finance is not needed",
+                    "A business may need to change its legal form to raise finances"
+                ],
+                ans: 2,
+                explain: "Correct answer: C. This is false — a new business or one launching a major campaign may need to source finance BEFORE it generates revenue. Marketing costs are not always self-funding, especially at start-up or during expansion."
+            },
+            {
+                q: "A business that makes clothes decides to increase production. Which of the following is NOT likely to happen?",
+                opts: [
+                    "Expenditures measured on the cash flow forecast will increase",
+                    "The firm may need to raise finance to expand the production facilities",
+                    "The total cost of production will increase",
+                    "The firm will spend less money on raw materials"
+                ],
+                ans: 3,
+                explain: "Correct answer: D. Increasing production means the firm will need MORE raw materials, not less. All other options are logical consequences of increasing production — higher expenditure, possible need for new finance, and higher total costs."
+            },
+            {
+                q: "The finance function of a business will NOT usually be involved in decisions about:",
+                opts: [
+                    "Whether a business should introduce environmentally friendly practices",
+                    "Whether to switch production to goods aimed at a different market",
+                    "The appointment of a new apprentice in production",
+                    "How to proceed for a successful expansion of the business"
+                ],
+                ans: 2,
+                explain: "Correct answer: C. Appointing an apprentice is a human resources (HR) decision, not a finance function. The finance team would be involved in environmental decisions (extra costs), switching markets (revenue impact), and expansion planning (sourcing finance)."
+            },
+            {
+                q: "A sole trader who wants to expand their business but cannot raise enough finance on their own might change the legal structure to:",
+                opts: [
+                    "A franchise",
+                    "A partnership",
+                    "A charity",
+                    "A cooperative"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. By taking on a partner who can contribute capital, the sole trader gains access to more finance. The business becomes a partnership. They might later become a private limited company (Ltd) to sell shares for even more funding."
+            },
+            {
+                q: "Which of the following best describes 'break-even'?",
+                opts: [
+                    "The point at which a business starts to make a large profit",
+                    "The number of units a business must sell to cover all its costs",
+                    "The total amount of money coming into a business from sales",
+                    "The difference between a business's revenue and its fixed costs"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. Break-even is the output level at which total revenue equals total costs — meaning the business makes neither a profit nor a loss. It tells managers the minimum sales needed to avoid a financial loss."
+            }
+        ];
+
+        // 3. Keyword Matching (Minimum 10)
+        const matchData = [
+            { term: "Finance Function", def: "The department within a larger business that manages money, produces financial information, and supports decision-making." },
+            { term: "Revenue", def: "The money a business receives from selling its goods or services." },
+            { term: "Costs", def: "The expenses involved in making and selling a product or service." },
+            { term: "Profit", def: "What remains when total costs are subtracted from total revenue and the result is positive." },
+            { term: "Loss", def: "When total costs exceed total revenue — the business spends more than it earns." },
+            { term: "Break-Even", def: "The level of output at which total revenue equals total costs — no profit or loss is made." },
+            { term: "Cash Flow", def: "The movement of money into and out of a business over a period of time." },
+            { term: "Cash-Flow Forecast", def: "A prediction of the future inflows and outflows of money in a business, used to anticipate cash shortages." },
+            { term: "Sources of Finance", def: "The different ways a business can raise money, such as loans, savings, overdrafts, or share issues." },
+            { term: "Financial Information", def: "Data including profit, loss, cash flow, break-even, profit margin and average rate of return, used in business decision-making." },
+            { term: "Interdependence", def: "The way different departments within a business rely on each other to function effectively." },
+            { term: "Forecast", def: "An estimate or prediction of what is expected to happen in the future." },
+            { term: "Average Rate of Return", def: "A measure of how profitable an investment is, calculated as the average annual profit as a percentage of the amount invested." },
+            { term: "Share Issue", def: "When a limited company raises finance by selling ownership stakes (shares) to investors." }
+        ];
+
+        // 4. Fill in the Blanks (Minimum 10)
+        const fibData = [
+            {
+                display: "The finance function is usually only found in _____ businesses, while smaller businesses typically employ an external _____.",
+                blanks: { B1: "larger", B2: "accountant" }
+            },
+            {
+                display: "Break-even is calculated as fixed costs divided by the difference between _____ price and _____ cost per unit.",
+                blanks: { B1: "selling", B2: "variable" }
+            },
+            {
+                display: "Profit or loss is calculated by subtracting total _____ from total _____.",
+                blanks: { B1: "costs", B2: "revenue" }
+            },
+            {
+                display: "A cash-flow forecast allows a business to anticipate periods of cash _____ and plan ahead to raise additional _____.",
+                blanks: { B1: "shortage", B2: "finance" }
+            },
+            {
+                display: "When departments within a business rely on each other to operate, this is called _____.",
+                blanks: { B1: "interdependence" }
+            },
+            {
+                display: "A sole trader who needs more finance to expand might invite someone to become a _____, changing the business into a _____.",
+                blanks: { B1: "partner", B2: "partnership" }
+            },
+            {
+                display: "The finance function provides _____ information to other departments so they can make informed _____.",
+                blanks: { B1: "financial", B2: "decisions" }
+            },
+            {
+                display: "A private limited company may become a _____ limited company in order to sell shares publicly and raise finance from a wider range of _____.",
+                blanks: { B1: "public", B2: "investors" }
+            },
+            {
+                display: "The finance function is critical because it provides data on revenues, costs, _____ flow, and _____-even to help businesses plan.",
+                blanks: { B1: "cash", B2: "break" }
+            },
+            {
+                display: "When a business goes environmentally friendly, the finance function must calculate the extra _____ and may need to arrange additional _____.",
+                blanks: { B1: "costs", B2: "finance" }
+            },
+            {
+                display: "Sources of finance include savings, loans, _____, and share _____.",
+                blanks: { B1: "overdrafts", B2: "issues" }
+            },
+            {
+                display: "The average _____ of return measures how well a business investment is performing over time.",
+                blanks: { B1: "rate" }
+            }
+        ];
+
+        // Word bank for Fill in the Blanks
+        const fibWords = [
+            "larger", "accountant", "selling", "variable", "costs", "revenue",
+            "shortage", "finance", "interdependence", "partner", "partnership",
+            "financial", "decisions", "public", "investors", "cash", "break",
+            "overdrafts", "issues", "rate", "smaller", "profit", "marketing",
+            "manager", "surplus", "budget", "fixed", "private", "customers", "forecast"
+        ];
+
+        // 5. True or False (Minimum 10)
+        const tfData = [
+            {
+                statement: "The finance function is only found in small businesses such as sole traders.",
+                answer: false,
+                explanation: "FALSE. The finance function (finance department) is only found in LARGER businesses. Sole traders and partnerships usually employ an external accountant to manage their finances instead."
+            },
+            {
+                statement: "Break-even is the point at which a business's total revenue equals its total costs.",
+                answer: true,
+                explanation: "TRUE. At the break-even point, the business is making neither a profit nor a loss. Every unit sold beyond break-even contributes to profit."
+            },
+            {
+                statement: "The finance function is responsible for deciding on the style of a television advertisement.",
+                answer: false,
+                explanation: "FALSE. Designing and deciding on advertising is a marketing function. The finance function may set the advertising budget and monitor whether the campaign was profitable, but it does not create the advert."
+            },
+            {
+                statement: "A business that cannot raise finance may be unable to expand.",
+                answer: true,
+                explanation: "TRUE. Many small businesses remain small precisely because they could not raise the capital needed to grow. Finance is a key enabler of business growth."
+            },
+            {
+                statement: "Cash flow records the inflow and outflow of money in a business.",
+                answer: true,
+                explanation: "TRUE. Cash flow tracks money coming in (inflows) and money going out (outflows). A cash-flow forecast helps a business spot future periods where it may not have enough cash to pay its bills."
+            },
+            {
+                statement: "A sole trader who wants to raise more capital might convert their business into a partnership.",
+                answer: true,
+                explanation: "TRUE. By bringing in a partner who provides capital, the sole trader gains access to more finance. The business legally becomes a partnership, sharing ownership and responsibility."
+            },
+            {
+                statement: "The finance function stands alone and does not interact with other departments.",
+                answer: false,
+                explanation: "FALSE. The finance function is deeply interdependent with all other departments. Marketing, operations, and HR all rely on financial data from the finance function to make decisions."
+            },
+            {
+                statement: "Revenue is calculated by subtracting total costs from total profit.",
+                answer: false,
+                explanation: "FALSE. This is the wrong formula. Profit = Revenue − Costs. Revenue is the money received from sales; you cannot calculate it by subtracting costs from profit."
+            },
+            {
+                statement: "Providing financial data on a business's energy usage would be a task for the finance function.",
+                answer: true,
+                explanation: "TRUE. Tracking and reporting on costs — including energy costs — is part of the finance function's role. This data helps management understand expenditure and make cost-saving decisions."
+            },
+            {
+                statement: "Advertising price reductions to customers is a task performed by the finance function.",
+                answer: false,
+                explanation: "FALSE. Advertising is a marketing function. The finance team might set the budget for an advertising campaign, but the actual advertising activity belongs to marketing."
+            },
+            {
+                statement: "A public limited company (plc) can raise more finance than a sole trader because it can sell shares publicly on the stock market.",
+                answer: true,
+                explanation: "TRUE. A plc has access to the widest range of investors because its shares are traded publicly. This is one of the main reasons businesses change their legal form as they grow."
+            },
+            {
+                statement: "The finance function is not involved when a business decides to become more environmentally friendly.",
+                answer: false,
+                explanation: "FALSE. Any change to business practice affects costs and cash flow. The finance function must calculate the extra costs of going green, assess the impact on break-even, and may need to arrange additional finance to fund the changes."
+            }
+        ];
+
+        // 6. Common Student Misconceptions
+        const miscData = [
+            {
+                wrong: "The finance function manages the whole business — it is the most important department.",
+                correct: "The finance function is one of several departments. It provides financial information and supports other departments, but decisions are made across the business collaboratively. Its importance varies depending on the decision being made."
+            },
+            {
+                wrong: "Revenue and profit are the same thing.",
+                correct: "Revenue is the total money received from sales. Profit is what is LEFT after subtracting total costs from revenue. A business can have high revenue but still make a loss if its costs are even higher."
+            },
+            {
+                wrong: "The finance function decides what to spend money on.",
+                correct: "The finance function provides the financial data that informs spending decisions — but it does not make those decisions alone. For example, marketing decides to run a campaign; finance tells them how much they can afford and monitors the results."
+            },
+            {
+                wrong: "Break-even means the business is making a profit.",
+                correct: "Break-even means the business is making exactly zero profit — it has covered all its costs but has nothing left over. Profit only begins after the break-even point is exceeded."
+            },
+            {
+                wrong: "Only large businesses need to worry about finance.",
+                correct: "All businesses — no matter their size — must manage their finances well to survive. Small businesses may not have a finance department, but the owner must still track costs, revenue, and cash flow carefully."
+            },
+            {
+                wrong: "'Finance' and 'finance function' mean the same thing in exam questions.",
+                correct: "In exam questions, 'finance' often refers to money or sources of funding, while 'finance function' refers to the specific department in a business. Read the question carefully to understand which one is being asked about."
+            },
+            {
+                wrong: "Saying 'the finance function manages the business efficiently' is enough to score the understanding mark in an analyse question.",
+                correct: "This is a tautological answer — it just repeats the idea without explaining what the finance function actually does. You must explain a specific task (e.g. producing cash-flow forecasts, calculating break-even) to earn the understanding mark."
+            },
+            {
+                wrong: "Cash flow and profit are the same — if a business is profitable, it won't have cash flow problems.",
+                correct: "A profitable business can still run out of cash if it doesn't receive payment from customers quickly enough. Cash flow is about timing of money in and out; profit is a longer-term calculation. A business can be profitable but cash-poor."
+            }
+        ];
+
+        // 7. Examiner Tips & Structure Guides
+        const examTips = [
+            {
+                type: "Identify / State — 1 mark",
+                title: "One Point. Full Stop. Move On.",
+                content: `
+      <p>A 1-mark <strong>'State' or 'Identify'</strong> question needs exactly one correct, specific point. No explanation. No examples. No paragraphs.</p>
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li>One clear, specific finance function task = 1 mark ✅</li>
+        <li>A vague or general statement = 0 marks ❌</li>
+      </ul>
+      <p><strong>❌ Bad Answer (0 marks):</strong><br/>
+      <em>"The finance function manages money."</em><br/>
+      This is too vague and tautological — it just says finance is about finance.</p>
+      <p><strong>✅ Good Answer (1 mark):</strong><br/>
+      <em>"The finance function produces cash-flow forecasts."</em><br/>
+      This is specific and names a real task the finance function performs.</p>
+      <p><strong>⚠️ Examiner Warning:</strong> Do NOT say "the finance function is important for the business" — this tells the examiner nothing. State a specific role: budgeting, calculating break-even, measuring profit and loss, sourcing finance, forecasting cash flow.</p>
+    `,
+                pills: ["K"]
+            },
+            {
+                type: "Analyse — 3 marks",
+                title: "The Holy Trinity: Understand → Apply → Analyse",
+                content: `
+      <p>A 3-mark analyse question requires three distinct steps. Miss any one of them and you cap your marks at 2. Miss understanding and you score <strong>zero</strong> — even if your other points are excellent.</p>
+
+      <p><strong>Step 1 — Understanding (U): What does the finance function actually do?</strong><br/>
+      Name and briefly explain a specific finance task. Do NOT just repeat words from the question.</p>
+      <p><em>Starter: "The finance function [produces/calculates/forecasts]..."</em></p>
+
+      <p><strong>Step 2 — Application (APP): Link it to the specific business in the case study.</strong><br/>
+      Quote or directly reference information from the text — name the business, use a figure, reference a specific detail.</p>
+      <p><em>Starter: "In the case of [Business Name], which [detail from text]..."</em></p>
+
+      <p><strong>Step 3 — Analysis (AN): What is the impact on the business?</strong><br/>
+      Explain the effect on costs, revenue, profit, cash flow, or the ability to meet objectives.</p>
+      <p><em>Starter: "This means that [Business Name] will be able to... / As a result, the business can..."</em></p>
+
+      <p><strong>✅ Model Answer (BP question):</strong><br/>
+      "The finance function produces budgets (U) in order to provide accurate financial information for BP's managers to make informed decisions about possible partnerships (U), when developing wind farms (APP). This means BP can allocate the correct level of funding to renewable energy investments without putting the wider business at financial risk (AN)."</p>
+
+      <p><strong>🚫 Knowledge Dumping Alert:</strong> Many students write everything they know about the finance function without linking it to BP. The examiner's report noted that the majority of candidates scored zero on Q2 because they did not explain what the finance function involves — they just said it "manages the business efficiently."</p>
+    `,
+                pills: ["U", "app", "an"]
+            },
+            {
+                type: "Evaluate — 7 marks",
+                title: "Argue Both Sides, Then Commit to a Justified Judgement",
+                content: `
+      <p>A 7-mark evaluate question rewards four things: Knowledge, Application, Analysis (two separate points), and Evaluation (a justified judgement). Structure your answer in four paragraphs:</p>
+
+      <p><strong>Paragraph 1 — Knowledge & Understanding (K + U):</strong><br/>
+      Define or explain the finance function and its role in general terms.<br/>
+      <em>Starter: "The finance function is the department responsible for... It plays a key role in..."</em></p>
+
+      <p><strong>Paragraph 2 — Analysis & Application Point 1 (AN + APP):</strong><br/>
+      Give a specific example of how the finance function supports the business in the case study. Explain the impact.<br/>
+      <em>Starter: "For example, in the case of [Business Name], the finance function... This will result in..."</em></p>
+
+      <p><strong>Paragraph 3 — Analysis & Application Point 2 (AN + APP):</strong><br/>
+      Give a second, different example. Use case study detail again.<br/>
+      <em>Starter: "Furthermore, the finance function could also... Because the text states that [quote/detail]..."</em></p>
+
+      <p><strong>Paragraph 4 — Evaluation (EVAL — 3 marks):</strong><br/>
+      Make a clear judgement (1 mark). Then justify it using case study context (up to 2 marks). Your conclusion must add something NEW — do not just repeat your analysis points.</p>
+      <ul>
+        <li><strong>Decision:</strong> "Overall, I believe the finance function is vital to the future success of [Business]..."</li>
+        <li><strong>Context:</strong> "...because the business is facing [specific challenge from text]..."</li>
+        <li><strong>Impact/Reasoning:</strong> "...meaning that without accurate financial data, the business could [specific consequence], putting its long-term survival at risk."</li>
+      </ul>
+      <p><strong>⚠️ The "It Depends" Trap:</strong> Only use "it depends" if you then specify what it depends on and why. A conclusion that simply repeats your analysis scores zero evaluation marks.</p>
+    `,
+                pills: ["K", "U", "app", "an", "eval"]
+            },
+            {
+                type: "The Understanding Mark — Critical Warning",
+                title: "You MUST Define the Finance Function Before Anything Else",
+                content: `
+      <p>In analyse questions about the finance function, <strong>the understanding mark is the gateway mark</strong>. Without it, no further marks can be awarded — regardless of how well you apply or analyse.</p>
+      <p>The examiner's report for Q2 (BP question) stated: <em>"The majority of candidates gained no marks, as they did not identify what the finance function of a business involved."</em></p>
+      <p><strong>What counts as understanding?</strong> You must name a specific task the finance function carries out:</p>
+      <ul>
+        <li>✅ "produces cash-flow forecasts"</li>
+        <li>✅ "calculates break-even output"</li>
+        <li>✅ "measures revenue and costs"</li>
+        <li>✅ "creates budgets to plan spending"</li>
+        <li>✅ "arranges sources of finance such as loans"</li>
+        <li>❌ "manages the business efficiently" — too vague, tautological</li>
+        <li>❌ "looks after the finances" — just repeats the question</li>
+        <li>❌ "decides what to spend money on" — this is not a finance function</li>
+      </ul>
+      <p><strong>Rule of thumb:</strong> Could a student who had never studied business write your answer? If yes, it's not showing understanding — it's just common sense and will score zero.</p>
+    `,
+                pills: ["U", "app", "an"]
+            }
+        ];
+
+        // 8. Flashcards
+        const flashcards = [
+            { term: "Finance Function", def: "The department in a larger business responsible for managing money, producing financial information, and supporting decision-making across the organisation." },
+            { term: "Revenue", def: "The total money received by a business from selling goods or services." },
+            { term: "Profit", def: "Total Revenue minus Total Costs when the result is positive." },
+            { term: "Loss", def: "Total Revenue minus Total Costs when the result is negative (costs exceed revenue)." },
+            { term: "Break-Even", def: "The level of output where total revenue exactly equals total costs — no profit or loss is made." },
+            { term: "Cash Flow", def: "The movement of money into (inflows) and out of (outflows) a business over time." },
+            { term: "Cash-Flow Forecast", def: "A prediction of future inflows and outflows of money, used to identify periods when a business may face a cash shortage." },
+            { term: "Sources of Finance", def: "The ways a business can raise money — examples include savings, loans, overdrafts, and share issues." },
+            { term: "Interdependence", def: "The way different departments within a business rely on each other to function — e.g. marketing relies on finance for budgets." },
+            { term: "Financial Information", def: "Data on profit, loss, cash flow, break-even, profit margin, and average rate of return, used in business decision-making." },
+            { term: "Average Rate of Return", def: "A calculation that measures how profitable an investment is, expressed as an average annual profit as a percentage of investment." },
+            { term: "Sole Trader → Partnership", def: "A sole trader may invite a partner who can provide capital, changing the business's legal form and increasing available finance." },
+            { term: "Tautological Answer", def: "An answer that merely repeats the question using different words — e.g. 'the finance function is about finance.' Scores zero in exams." },
+            { term: "Budget", def: "A financial plan that sets targets for income and expenditure over a given period, helping a business control its spending." }
+        ];
+
+        // 9. Exam-Style Questions
+        const examQuestions = [
+            {
+                num: "Q1",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "Sam is a finance assistant for a national taxi firm.",
+                question: "Which task is most likely to be part of Sam's job role? [1 mark]",
+                options: [
+                    "Phoning garages to negotiate vehicle servicing at reduced prices",
+                    "Posting discount codes on social media for pre-booked journeys",
+                    "Producing spreadsheets analysing quantitative market research data",
+                    "Providing cost data to help decide when to purchase new vehicles"
+                ],
+                answer: 3,
+                hint: "Think about what a finance assistant specifically does — they deal with financial data, not advertising, procurement negotiation, or market research.",
+                starter: "The correct answer is D because...",
+                markScheme: `<div class="marks-section"><h5>Answer: D — Providing cost data to help decide when to purchase new vehicles</h5><p><strong>Why D is correct:</strong> Providing cost data to inform a purchasing decision is a core finance function — it involves producing and analysing financial information to support business decision-making.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — Phoning garages to negotiate vehicle servicing:</strong> This is a procurement or operations task, not a finance function. Finance does not negotiate external service contracts.</li><li><strong>B — Posting discount codes on social media:</strong> This is a marketing or sales activity. The finance team does not manage social media or promotional campaigns.</li><li><strong>C — Producing spreadsheets analysing market research data:</strong> Analysing market research is a marketing function. Finance may use spreadsheets, but for financial data (costs, revenues, forecasts) — not market research.</li></ul></div>`,
+                modelAnswer: "D — Providing cost data to help decide when to purchase new vehicles."
+            },
+            {
+                num: "Q2",
+                marks: 3,
+                type: "written",
+                caseStudy: "BP plc is a UK energy company, which has its headquarters in London. BP produces oil, gas and petrol. It sells and distributes these products to customers all over the world. It also produces some environmentally friendly energy including biofuels, as well as wind- and solar-powered electrical energy.\n\nThe company's finance function is critical in ensuring the business is managed efficiently. BP plc's revenue increased from $245 billion in 2017 to $283 billion in 2019.\n\nOne of BP's operations involves selling of petrol to the public. BP has 18,700 petrol stations around the globe, with 8,500 in the UK. Another of BP's operations involves extracting oil, using its oil rigs. These are located in the seas around the UK, Norway, Australia, Angola, the Gulf of Mexico (USA) and off the coast of many other countries. Once the oil is extracted it is then transported to refineries.\n\nBP strives to be more sustainable. BP has the aim of cutting its carbon emissions by 2050 to help reduce the effects of climate change. It is installing electric charge points for Police Scotland's electric vehicles and is developing wind farms in America in partnership with an American company.",
+                question: "Analyse how BP's finance function may influence its ability to meet BP's objectives. [3 marks]",
+                hint: "Start by naming a specific task the finance function carries out (NOT just 'managing the business'). Then link it to a specific detail from the BP case study. Finally, explain the impact on BP's objectives.",
+                starter: "The finance function [specific task — e.g. produces budgets / forecasts cash flow] (U)\n\nIn the case of BP, which [specific detail from text — e.g. is developing wind farms / aims to cut emissions by 2050]... (APP)\n\nThis means that BP will be able to / As a result, BP can... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b: 1 + AO2: 1 + AO3a: 1)</h5>
+<p><strong>Understanding (1 mark) — must be awarded first; without it, no further marks:</strong></p>
+<ul>
+  <li>Informs the business how much money is available for investment/expansion</li>
+  <li>Budgeting</li>
+  <li>Financial forecasts / Cash-flow forecasts</li>
+  <li>Calculates revenue, costs, profit</li>
+  <li>Informing spending or investment decisions</li>
+</ul>
+<p>⚠️ An answer must say more than "the finance function is about finance" — this is tautological and scores zero.</p>
+<p><strong>Application (1 mark) — must link understanding to BP using text evidence:</strong></p>
+<ul>
+  <li>Sells and distributes products globally</li>
+  <li>Revenue increased from $245bn to $283bn</li>
+  <li>18,700 petrol stations (8,500 in UK)</li>
+  <li>Aims to reduce carbon emissions by 2050</li>
+  <li>Installing electric charging points / investing in wind farms</li>
+</ul>
+<p><strong>Analysis (1 mark) — explain the impact on BP's objectives:</strong></p>
+<ul>
+  <li>Monitors revenue/profits to inform managers how much to invest in environmentally friendly partnerships</li>
+  <li>Investigates financial stability of potential takeovers/partnerships</li>
+  <li>Provides financial information on costs of diversification/investments</li>
+</ul>
+<p><strong>Exemplar Response:</strong> "The finance function produces budgets (U) in order to provide accurate financial information for BP's managers to make informed decisions about possible partnerships (U), when developing wind farms (APP). This allows BP to allocate the correct level of funding to renewable energy without putting the wider business at financial risk (AN)."</p>
+<p><strong>Examiner's Comment:</strong> This was the first 3-mark analyse question requiring understanding before further marks can be accessed. The majority of candidates gained no marks as they did not identify what the finance function involves. Many responses referred generally to 'managing the business efficiently' or credited finance with activities it does not undertake, such as ways of increasing revenue or deciding what to spend money on.</p></div>`,
+                modelAnswer: "The finance function produces financial forecasts and budgets (U) to provide accurate data for BP's managers to make informed investment decisions (U). Since BP is developing wind farms in partnership with an American company (APP), the finance function can calculate the cost of this investment and assess its financial viability. This means BP can confidently allocate funding towards its sustainability objectives without risking its overall financial stability (AN)."
+            },
+            {
+                num: "Q3",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Which business function is responsible for supporting business planning by anticipating periods of cash shortages? [1 mark]",
+                options: [
+                    "Finance",
+                    "Logistics",
+                    "Procurement",
+                    "Sales"
+                ],
+                answer: 0,
+                hint: "Which department produces cash-flow forecasts — the financial plans that predict when money might run low?",
+                starter: "The correct answer is A because...",
+                markScheme: `<div class="marks-section"><h5>Answer: A — Finance</h5><p><strong>Why A is correct:</strong> The finance function produces cash-flow forecasts that predict future inflows and outflows of money. This allows the business to identify in advance any periods where it may face a cash shortage, and arrange additional finance if needed.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>B — Logistics:</strong> Logistics manages the movement and delivery of goods. It does not produce financial forecasts or manage cash.</li><li><strong>C — Procurement:</strong> Procurement is responsible for sourcing and buying supplies. It interacts with finance in terms of budgets but does not itself anticipate cash shortages.</li><li><strong>D — Sales:</strong> Sales generates revenue by selling goods/services but does not manage or forecast the cash position of the business as a whole.</li></ul></div>`,
+                modelAnswer: "A — Finance."
+            },
+            {
+                num: "Q4",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Which of the following tasks is NOT a finance function? [1 mark]",
+                options: [
+                    "Advertising price reductions",
+                    "Applying for a bank loan",
+                    "Calculating break-even",
+                    "Measuring profit and loss"
+                ],
+                answer: 0,
+                hint: "Think about which task involves communicating with customers rather than managing money and financial data.",
+                starter: "The correct answer is A because...",
+                markScheme: `<div class="marks-section"><h5>Answer: A — Advertising price reductions</h5><p><strong>Why A is correct:</strong> Advertising is a marketing function. The finance department may set the advertising budget, but the actual creation and placement of adverts belongs to the marketing team.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>B — Applying for a bank loan:</strong> This is a finance function — sourcing external finance is one of the key roles of the finance department.</li><li><strong>C — Calculating break-even:</strong> Break-even analysis is a core finance function, telling the business how many units must be sold to cover all costs.</li><li><strong>D — Measuring profit and loss:</strong> Calculating and reporting profit and loss is a fundamental finance function, providing critical information for decision-making.</li></ul></div>`,
+                modelAnswer: "A — Advertising price reductions."
+            },
+            {
+                num: "Q5",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Which functional area is responsible for providing information about a firm's revenue? [1 mark]",
+                options: [
+                    "Finance",
+                    "Logistics",
+                    "Marketing",
+                    "Production"
+                ],
+                answer: 0,
+                hint: "Revenue is financial data — which department tracks, calculates and reports on financial data?",
+                starter: "The correct answer is A because...",
+                markScheme: `<div class="marks-section"><h5>Answer: A — Finance</h5><p><strong>Why A is correct:</strong> The finance function records and provides information about revenue — the money received from selling goods and services. Even though marketing activities generate sales, it is the finance function that measures and reports on the resulting revenue figures.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>B — Logistics:</strong> Logistics manages the movement and delivery of goods, not financial data.</li><li><strong>C — Marketing:</strong> Marketing creates campaigns that drive sales, but it does not formally track and report revenue — that is a finance responsibility.</li><li><strong>D — Production:</strong> Production focuses on making goods efficiently. It deals with output and costs, not revenue data.</li></ul></div>`,
+                modelAnswer: "A — Finance."
+            },
+            {
+                num: "Q6",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Which one of the following is an example of how the finance function can support business activity? [1 mark]",
+                options: [
+                    "Analysing primary market research results",
+                    "Predicting revenues and costs",
+                    "Reviewing the quality of the products made by the firm",
+                    "Selecting staff for a business expansion"
+                ],
+                answer: 1,
+                hint: "The finance function deals with financial data — revenues, costs, profits, forecasts. Which option involves financial data?",
+                starter: "The correct answer is B because...",
+                markScheme: `<div class="marks-section"><h5>Answer: B — Predicting revenues and costs</h5><p><strong>Why B is correct:</strong> Predicting (forecasting) revenues and costs is a core finance function. These forecasts support business planning by helping managers understand the financial implications of their decisions.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — Analysing primary market research results:</strong> Market research analysis is a marketing function. Finance does not collect or analyse customer feedback or survey data.</li><li><strong>C — Reviewing product quality:</strong> Quality control is an operations function. Finance does not inspect physical products.</li><li><strong>D — Selecting staff for a business expansion:</strong> Recruitment and selection is a human resources (HR) function, not a finance function.</li></ul></div>`,
+                modelAnswer: "B — Predicting revenues and costs."
+            },
+            {
+                num: "Q7",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "Taj is a finance assistant. He works in a secondary school.",
+                question: "Which one of the following tasks would be done by Taj? [1 mark]",
+                options: [
+                    "Creating educational resources",
+                    "Keeping the school website up to date",
+                    "Producing reports on the school's GCSE results",
+                    "Providing financial data on school energy usage"
+                ],
+                answer: 3,
+                hint: "Taj works in finance — his role involves financial data. Which option involves financial/cost data rather than education, IT, or academic reporting?",
+                starter: "The correct answer is D because...",
+                markScheme: `<div class="marks-section"><h5>Answer: D — Providing financial data on school energy usage</h5><p><strong>Why D is correct:</strong> Tracking and reporting on costs — including energy costs — is a finance function. Providing this data helps management understand expenditure and make cost-saving decisions. This applies in any organisation, including a school.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — Creating educational resources:</strong> This is a teaching/curriculum responsibility, not a finance role.</li><li><strong>B — Keeping the school website up to date:</strong> This is an IT or marketing/communications role, not a finance role.</li><li><strong>C — Producing reports on GCSE results:</strong> Academic performance reporting is the responsibility of senior leadership or data managers, not the finance department.</li></ul></div>`,
+                modelAnswer: "D — Providing financial data on school energy usage."
+            },
+            {
+                num: "Q8a",
+                marks: 2,
+                type: "written",
+                caseStudy: "In July 2021, IKEA announced that it had backed out of opening a new store at Lancing, West Sussex. (It had identified the Lancing site for a potential store in 2016.)\n\nThere has been a great change in shopping habits in the UK since 2016. The coronavirus pandemic of 2020–21 has made consumers use online shopping much more and the financial success of operating a store at Lancing was put into doubt by this change in the market. IKEA plans to sell off the land it had bought for the Lancing store.\n\nIKEA recognised that the decision not to build a new store was a difficult one to make. The final decision would no doubt have involved a lot of departments within IKEA, including the finance function.\n\nIKEA said it still wanted to expand the business in the UK, including investing in the products it offers online.",
+                question: "State two ways in which the finance function is involved in the running of a business. [2 marks]",
+                hint: "This is a knowledge question — no explanation needed. Simply name two specific tasks the finance function carries out.",
+                starter: "One way the finance function is involved is...\n\nA second way is...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a: Knowledge)</h5><p>Award 1 mark for each correct, specific statement. No explanation required.</p><p><strong>Acceptable answers include:</strong></p><ul><li>Planning for the future (e.g. producing forecasts)</li><li>Supporting business decision-making</li><li>Calculating profit or loss</li><li>Producing cash-flow forecasts</li><li>Calculating break-even output</li><li>Sourcing/arranging finance</li><li>Monitoring costs and revenues</li><li>Setting budgets</li></ul><p>⚠️ Do NOT accept answers that describe the work of another department (e.g. "advertise the business", "recruit new staff", "improve product quality").</p></div>`,
+                modelAnswer: "1. The finance function is involved in producing cash-flow forecasts to plan for periods when the business may face cash shortages.\n\n2. The finance function is also involved in calculating profit and loss to provide managers with up-to-date financial information to support decision-making."
+            },
+            {
+                num: "Q8b",
+                marks: 7,
+                type: "written",
+                caseStudy: "",
+                question: "Evaluate the importance of the finance function to the future success of IKEA. [7 marks]",
+                hint: "Plan four paragraphs: (1) define/explain the finance function, (2) first specific example applying to IKEA, (3) second specific example applying to IKEA, (4) a justified judgement using IKEA context. Use figures and details from the case study.",
+                starter: "Paragraph 1 (K & U): The finance function is the department responsible for... It plays a key role by...\n\nParagraph 2 (AN & APP): For example, in the case of IKEA, the decision not to open the Lancing store... The finance function would have... This means that...\n\nParagraph 3 (AN & APP): Furthermore, IKEA has stated it wishes to invest in online operations... The finance function will need to... As a result, IKEA will be able to...\n\nParagraph 4 (EVAL): Overall, I believe the finance function is [very important / crucial] to the future success of IKEA because... The text states that [context]... meaning that without the finance function, IKEA could...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 7 marks</h5>
+<p><strong>Application — AO2 (2 marks):</strong> Two examples relating to the IKEA case study</p>
+<ul>
+  <li>The decision not to open the Lancing store will have been largely made by the finance function, in consultation with other departments.</li>
+  <li>Investing in the online section of the business will be a decision supported by the finance function, along with others.</li>
+</ul>
+<p><strong>Analysis — AO3a (2 marks):</strong> Two separate points explaining the effect/impact on IKEA</p>
+<ul>
+  <li>The finance function at IKEA will enable well-informed decisions that save money in the future, such as not proceeding with the Lancing store. This will help profitability, which could be used to increase investment or dividend payments.</li>
+  <li>Investing in technology to develop the online side of IKEA can help the business become more efficient. Such decisions call on the finance function, which may have to arrange the necessary finance to buy equipment.</li>
+</ul>
+<p><strong>Evaluation — AO3b (3 marks):</strong></p>
+<ul>
+  <li><strong>Judgement (1 mark):</strong> e.g. "The finance function is very important to the future success of IKEA."</li>
+  <li><strong>Justification (up to 2 marks):</strong> IKEA is facing difficult decisions about how many stores it needs and how much it should rely on online selling. Buying the Lancing site and then deciding not to build was a major decision that required detailed financial analysis. The future success of the business is built on these important decisions being well-informed — and this is the role of the finance function.</li>
+</ul></div>`,
+                modelAnswer: "The finance function is the department responsible for producing financial information — such as budgets, cash-flow forecasts, and profit and loss data — that helps managers across the business make well-informed decisions (K & U).\n\nIn the case of IKEA, the decision not to proceed with the Lancing store would have required detailed analysis from the finance function. The team would have modelled the projected revenues and costs of the store given the post-pandemic shift to online shopping, and concluded it was not financially viable (APP). This means IKEA avoided a potentially loss-making investment, protecting its overall profitability and future financial stability (AN).\n\nFurthermore, IKEA has stated it wishes to invest in its online operations. The finance function will need to identify suitable sources of finance, produce cash-flow forecasts, and assess the return on this investment (APP). This will help IKEA grow its online presence in a controlled, financially sustainable way, reaching more customers without taking on unmanageable risk (AN).\n\nOverall, I believe the finance function is crucial to the future success of IKEA. IKEA is at a critical turning point — the Lancing decision shows the business must move away from traditional stores and towards online retail. These are complex, high-cost decisions that cannot be taken without detailed financial analysis. Without the finance function providing accurate data and forecasts, IKEA could commit to costly investments that damage profitability and threaten its long-term survival (EVAL)."
+            },
+            {
+                num: "Q9",
+                marks: 9,
+                type: "written",
+                caseStudy: "Cheeseman Publishers produces guide books for particular geographic areas. The finance department has told the business owners that profits are likely to fall.\n\nCurrently, books are designed in the UK and printed in Italy. The owners have asked the manager to look at ways of reducing costs. They also want to know if it would help if the prices they charge for the books were increased, and if new guide books on different areas would be useful.",
+                question: "Evaluate the importance of the finance department in helping Cheeseman Publishers to be successful. [9 marks]",
+                hint: "Plan four paragraphs: define the finance function, then give TWO specific ways it supports Cheeseman Publishers (with analysis each time), and finish with a strong justified judgement. Use specific details from the case study — falling profits, printing in Italy, cost reduction, pricing decisions.",
+                starter: "Paragraph 1 (K & U): The finance department is the part of a business responsible for... It is important because it provides...\n\nParagraph 2 (AN & APP): One way the finance department supports Cheeseman Publishers is by... The text states that [detail]... This means that...\n\nParagraph 3 (AN & APP): A second way the finance department is important is by... For example, if Cheeseman Publishers decided to [raise prices / produce new books]... As a result...\n\nParagraph 4 (EVAL — 3 points): Overall, I believe the finance department is [essential/very important] to Cheeseman Publishers because... Given that profits are already expected to fall... Without accurate financial information, the business could...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 9 marks</h5>
+<p><strong>Knowledge (1 mark):</strong> Define the role of the finance department (e.g. it produces financial information to help the business plan and make decisions).</p>
+<p><strong>Understanding (1 mark):</strong> Explain how finance is needed for success (e.g. without financial data, managers cannot make informed decisions about costs, pricing, or investment).</p>
+<p><strong>Application (2 marks):</strong> Two ways the finance function supports Cheeseman Publishers specifically:</p>
+<ul>
+  <li>Analysing the cost of printing in Italy vs. alternative options to find savings</li>
+  <li>Calculating the impact on revenue and profit of raising book prices</li>
+  <li>Assessing the financial viability of producing new guide books for different areas</li>
+  <li>Producing updated profit forecasts to show the extent of the likely fall</li>
+</ul>
+<p><strong>Analysis (2 marks):</strong> Benefits of the two ways they can support — explain the impact on Cheeseman Publishers:</p>
+<ul>
+  <li>Identifying cost savings (e.g. alternative printers) would reduce total costs, helping to prevent the predicted fall in profit and improving financial sustainability.</li>
+  <li>Modelling the effect of a price increase allows managers to see whether higher prices would offset falling demand, protecting profit margins.</li>
+</ul>
+<p><strong>Evaluation (3 marks):</strong></p>
+<ul>
+  <li><strong>Decision (1 mark):</strong> e.g. "The finance department is extremely important to the success of Cheeseman Publishers."</li>
+  <li><strong>Context (1 mark):</strong> Reference the falling profits and the multiple decisions the business faces simultaneously — cutting costs, changing prices, expanding the product range.</li>
+  <li><strong>Impact/Reasoning (1 mark):</strong> Without detailed financial analysis from the finance department, the business could make the wrong call — for example, raising prices in a competitive market could reduce sales further, worsening the profit decline rather than reversing it. The finance department's data is the only reliable basis for making these decisions.</li>
+</ul></div>`,
+                modelAnswer: "The finance department is the part of a business responsible for producing and managing financial information, including revenues, costs, profit/loss, cash flow, and break-even data (K). Without this information, business managers cannot make reliable plans or decisions — meaning the finance department is essential to any business's success (U).\n\nOne key way the finance department can help Cheeseman Publishers is by analysing the costs of the current printing arrangement in Italy and comparing them to alternatives (APP). By producing a detailed cost breakdown, the finance department can show management exactly how much is spent on printing and identify whether switching to a different supplier — perhaps one based in the UK — could reduce costs significantly. This would directly address the predicted fall in profits by lowering total expenditure, improving the profit margin without needing to change the selling price (AN).\n\nA second way the finance department supports the business is by modelling the financial impact of raising book prices (APP). The finance team can calculate how a price increase would affect revenue and break-even output, and forecast what would happen to profitability if demand fell slightly as a result of higher prices. This gives management the evidence needed to make an informed pricing decision — rather than guessing (AN).\n\nOverall, the finance department is extremely important to the future success of Cheeseman Publishers. The business is already facing falling profits and must simultaneously decide whether to cut costs, raise prices, and expand its product range — all at the same time (CONTEXT). Without accurate financial analysis, any one of these decisions could backfire. For example, raising prices might reduce sales volume further, making the profit situation even worse. Only the finance department can model these scenarios and give management the confidence to act wisely. In this sense, the finance department is not just supportive — it is the foundation on which all good business decisions must rest (IMPACT/REASONING)."
+            }
+        ];</script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

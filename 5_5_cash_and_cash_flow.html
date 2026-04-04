@@ -1,0 +1,1324 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.5 Cash & Cash Flow – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Business — Component 2</div>
+            <h1>5.5 Cash & Cash Flow</h1>
+            <p>Interactive revision guide · All key content + full exam practice</p>
+        </div>
+        <a href="index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px">
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #d4edda;
+                  border: 1.5px solid #2d7a4f;
+                  display: inline-block;
+                "></span>
+                        First attempt correct</span>
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fff8dc;
+                  border: 1.5px solid #b8860b;
+                  display: inline-block;
+                "></span>
+                        Correct after mistake</span>
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fde8e5;
+                  border: 1.5px solid #c84b31;
+                  display: inline-block;
+                "></span>
+                        Wrong — try again</span>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA TEMPLATE: 5.5 Cash and Cash Flow
+    // ══════════════════════════════════════
+
+    // 1. Main Learning Content
+    const topics = [
+        {
+            title: "Key Terms & Official Definitions",
+            tag: "Core Concepts",
+            content: `<p>These are the essential definitions you <strong>must</strong> know for 5.5 Cash and Cash Flow.</p>
+<ul>
+<li><strong>Cash Flow Forecast:</strong> A statement showing the expected flow of money into and out of a business over a period of time.</li>
+<li><strong>Net Cash Flow:</strong> Total inflow minus total outflow for a given period.</li>
+<li><strong>Opening Balance:</strong> The amount of cash available at the beginning of the month — it is always the closing balance from the previous month.</li>
+<li><strong>Closing Balance:</strong> The amount of cash left at the end of the month. This becomes the opening balance for the next month.</li>
+<li><strong>Total Inflow:</strong> The total amount of cash flowing into a business in a given period.</li>
+<li><strong>Total Outflow:</strong> The total amount of cash flowing out of a business in a given period.</li>
+<li><strong>Positive Cash Flow:</strong> When more cash flows into the business than flows out during a month (also called a cash flow surplus).</li>
+<li><strong>Negative Cash Flow:</strong> When more cash flows out of the business than flows in during a month (also called a cash flow deficit).</li>
+<li><strong>Liquidity:</strong> The ability of a business to pay its short-term debts which must be paid in the near future.</li>
+<li><strong>Cash:</strong> Not simply notes and coins — also includes money held in a bank account.</li>
+<li><strong>Profit:</strong> The revenue received by a business minus the total costs of running that business.</li>
+<li><strong>Income / Revenue:</strong> Money that the business receives.</li>
+<li><strong>Expenditure:</strong> Money that the business pays out.</li>
+<li><strong>Short-term debts / expenses:</strong> Bills that a business has to pay in the near future, such as electricity, wages, or rent.</li>
+</ul>`
+        },
+        {
+            title: "The Importance of Cash to a Business",
+            tag: "Core Concepts",
+            content: `<p>A business needs cash to survive day-to-day, even if it is making a good profit. Cash is used to pay for <strong>short-term expenses and debts</strong> — the bills that arrive regularly and must be paid promptly.</p>
+<p>Examples of what cash is needed for include:</p>
+<ul>
+<li>Wages and salaries for staff</li>
+<li>Rent on premises</li>
+<li>Paying suppliers for stock and raw materials</li>
+<li>Heating, lighting and utility bills</li>
+</ul>
+<p>If these are not paid on time, the consequences can be severe: suppliers may stop delivering, staff may leave, landlords may evict the business, or creditors may force the business to close.</p>
+<h4>Liquidity</h4>
+<p><strong>Liquidity</strong> is the ability of a business to turn its assets into cash quickly enough to pay its short-term debts. A business with poor liquidity cannot pay its bills even if it owns valuable assets (such as machinery or property). A lack of liquidity is one of the main reasons businesses are forced to close — even profitable ones. Creditors (people owed money) can legally force the business to be sold so that debts are repaid from the proceeds.</p>
+<div class="case-study-box">
+<h4>Case Study: Broder Metals Group</h4>
+<p>Broder Metals Group supplies high-quality alloys to power stations, aircraft manufacturers, Formula 1 teams and oil exploration companies. They must order stock up to 12 months in advance. When events like the 2015 oil-price collapse reduced demand, Broder still had to pay wages, rent and suppliers — even though revenue had dropped significantly.</p>
+<p>To stay on top of this, Broder prepares annual budgets and monitors actual cash against the forecast every month. If a shortfall looks likely, they take action early: reducing prices to boost sales, or contacting the bank about available facilities. As their Finance Director states: "Cash flow is fundamental — get it wrong and the company will fail."</p>
+<p><strong>Takeaway:</strong> Even a business selling to major industries can face a cash crisis if it fails to plan. Monitoring cash flow is not optional — it is fundamental to survival.</p>
+</div>`
+        },
+        {
+            title: "Cash vs Profit: A Critical Distinction",
+            tag: "Analysis",
+            content: `<p>This is the most important distinction in this topic — and the one students most commonly confuse in the exam. Examiners consistently report that candidates lose marks by mixing these two concepts up.</p>
+<div class="two-col">
+<div>
+<div class="col-head">💰 Cash</div>
+<div class="pro-item"><strong>What it is:</strong> Money held in bank accounts and on the premises, used to pay day-to-day expenses and short-term debts right now.</div>
+<div class="pro-item"><strong>When it matters:</strong> Today — can you physically pay your bills this week?</div>
+<div class="pro-item"><strong>Shown in:</strong> A cash flow forecast.</div>
+<div class="pro-item"><strong>Formula:</strong> Cash = Opening Balance + Cash Received − Cash Paid</div>
+</div>
+<div>
+<div class="col-head">📈 Profit</div>
+<div class="con-item"><strong>What it is:</strong> Total revenue minus total costs. A calculated figure summarising whether the business has earned more than it spent over a period.</div>
+<div class="con-item"><strong>When it matters:</strong> At the end of a trading period — did the business make money overall?</div>
+<div class="con-item"><strong>Shown in:</strong> An income statement (profit and loss account).</div>
+<div class="con-item"><strong>Formula:</strong> Profit = Revenue − Total Costs</div>
+</div>
+</div>
+<p><strong>Key insight:</strong> A business can be profitable but still run out of cash. For example, if a large customer owes the business £50,000 but hasn't paid yet, the business has high revenue on paper but no cash to pay wages this week. This is sometimes called being "cash poor but profit rich."</p>
+<p>Equally, a business can have lots of cash (e.g. from a bank loan) but still be making a loss.</p>
+<p><strong>Examiner warning:</strong> "A business needs cash to survive" is NOT the same as "cash = profit." Never write that a cash flow forecast shows profit — it does not. The forecast only shows cash movements.</p>`
+        },
+        {
+            title: "How to Read and Complete a Cash Flow Forecast",
+            tag: "Calculations",
+            content: `<p>A cash flow forecast is a table showing predicted cash inflows and outflows over a number of months. Mastering the three formulas below will allow you to calculate any missing figure.</p>
+<div class="formula-box">
+<strong>Net Cash Flow</strong> = Total Inflow − Total Outflow<br><br>
+<strong>Closing Balance</strong> = Opening Balance + Net Cash Flow<br><br>
+<strong>Opening Balance</strong> = Closing Balance of the previous month
+</div>
+<p>A worked example for HMJA Fashion (a business selling teenage clothes):</p>
+<table class="case-table"><caption>Table 1 — HMJA Fashion Cash Flow Forecast</caption><tr><th></th><th>October £</th><th>November £</th><th>December £</th></tr><tr><td>Revenue (Total Inflow)</td><td>30,000</td><td>40,000</td><td>55,000</td></tr><tr><td>Wages</td><td>6,000</td><td>7,500</td><td>10,000</td></tr><tr><td>Overheads</td><td>3,500</td><td>3,500</td><td>4,000</td></tr><tr><td>Stock</td><td>35,000</td><td>15,000</td><td>10,000</td></tr><tr><td><strong>Total Outflow</strong></td><td><strong>44,500</strong></td><td><strong>26,000</strong></td><td><strong>24,000</strong></td></tr><tr><td><strong>Net Cash Flow</strong></td><td><strong>−14,500</strong></td><td><strong>14,000</strong></td><td><strong>31,000</strong></td></tr><tr><td>Opening Balance</td><td>1,000</td><td>−13,500</td><td>500</td></tr><tr><td><strong>Closing Balance</strong></td><td><strong>−13,500</strong></td><td><strong>500</strong></td><td><strong>31,500</strong></td></tr></table>
+<p><strong>October step-by-step:</strong> Net Cash Flow = £30,000 − £44,500 = <strong>−£14,500</strong>. Closing Balance = £1,000 + (−£14,500) = <strong>−£13,500</strong>. This negative closing balance carries forward as November's opening balance.</p>
+<p>Notice: the negative October was planned — the business bought Christmas stock early. By December, cash has recovered strongly. A single negative month is not automatically a crisis.</p>`
+        },
+        {
+            title: "The Usefulness of Cash Flow Forecasting",
+            tag: "Analysis",
+            content: `<p>A cash flow forecast is one of the most important planning tools a business can use. Evaluating its usefulness is a very common exam question — especially at 7 marks.</p>
+<div class="two-col">
+<div>
+<div class="col-head">✓ Benefits (Why it is useful)</div>
+<div class="pro-item"><strong>1. Planning tool:</strong> The forecast can be shown to banks to help secure a loan or overdraft. It demonstrates the business has thought carefully about its financial future.</div>
+<div class="pro-item"><strong>2. Anticipates cash shortages:</strong> By looking ahead, the business can see months where cash may run low — giving time to act before the problem becomes serious.</div>
+<div class="pro-item"><strong>3. Enables remedies:</strong> Once a shortage is spotted in advance, solutions can be arranged — such as an overdraft, delaying purchases, or chasing unpaid invoices.</div>
+<div class="pro-item"><strong>4. Provides targets:</strong> The forecast helps the business set spending targets to ensure there is always enough cash, and may identify a need to build up a cash surplus.</div>
+</div>
+<div>
+<div class="col-head">✗ Limitations (Why it may not always be useful)</div>
+<div class="con-item"><strong>Only an estimate:</strong> A forecast is a prediction — it cannot be 100% accurate. Circumstances can change unexpectedly.</div>
+<div class="con-item"><strong>Supplier price changes:</strong> Unexpected cost increases (e.g. raw materials rising) make the outflow figures immediately inaccurate.</div>
+<div class="con-item"><strong>External shocks:</strong> A pandemic, new competitor, or economic recession can make even well-researched forecasts unreliable very quickly.</div>
+<div class="con-item"><strong>Short-term reliability only:</strong> Short-term forecasts (weeks/months ahead) are far more reliable than long-term ones (1+ years ahead).</div>
+</div>
+</div>`
+        },
+        {
+            title: "Solving a Cash Flow Problem",
+            tag: "Strategies",
+            content: `<p>When a business identifies a negative cash flow in its forecast, it has several options. The best solution depends on <strong>how long the shortage will last</strong>, <strong>how significant it is</strong>, and the specific situation of the business.</p>
+<ul>
+<li><strong>Arrange an overdraft:</strong> A short-term bank facility allowing spending beyond the balance. Quick to arrange but carries interest charges.</li>
+<li><strong>Reduce expenses:</strong> Cut non-essential costs to reduce outflows (e.g. delay new equipment purchases or reduce stock orders).</li>
+<li><strong>Raise prices:</strong> Higher prices increase inflows, though this risks losing customers to competitors.</li>
+<li><strong>Chase customers for payment:</strong> Send invoices promptly and reduce the credit period given to customers so money arrives faster.</li>
+<li><strong>Delay payment of bills:</strong> Negotiate with suppliers to pay later — this keeps cash in the business for longer without borrowing.</li>
+<li><strong>Cut stock levels:</strong> Ordering less stock reduces outflows and frees up cash tied up in unsold inventory.</li>
+<li><strong>Sell assets:</strong> Selling unused equipment or property raises a one-off cash inflow.</li>
+<li><strong>Seek additional finance:</strong> A bank loan or new investor/partner provides an immediate cash injection.</li>
+</ul>
+<div class="case-study-box">
+<h4>Case Study: The Deltic Group (2021)</h4>
+<p>The Deltic Group owned 53 nightclubs in the UK, valued at £80 million. During the Covid-19 pandemic, nightclubs were forced to close. With almost no revenue (only £80,000/month from a few bars), Deltic still faced £1 million per month in rent alone — plus utility bills, wages, and over £17 million in accumulated debt. Despite some government support, the cash flow problem became unsolvable. Unable to keep up with debts and with no certainty of when clubs could reopen, the owners were forced to sell the entire business to a Scandinavian company for just £10 million.</p>
+<p><strong>Takeaway:</strong> Even a large, established, and previously profitable business can be destroyed by a sustained cash flow problem. The business was not unprofitable by nature — it ran out of cash. This is why monitoring and planning cash flow is fundamental to business survival.</p>
+</div>`
+        }
+    ];
+
+    // 2. Multiple Choice Questions (Minimum 10)
+    const mcqData = [
+        {
+            q: "A business has a net profit of £44,000 for the year but is £5,000 overdrawn at the bank. What does this tell us?",
+            opts: [
+                "An accounting error has been made because the business is not profitable",
+                "At least £49,000 must have been stolen from the business",
+                "Despite being profitable, the business may be unable to pay its short-term debts",
+                "The business is highly profitable and unlikely to experience cash shortages"
+            ],
+            ans: 2,
+            explain: "Correct: C. This illustrates the key difference between cash and profit. The business has made a profit (revenue exceeded costs) but has run out of cash — possibly because customers haven't paid yet, or large investments were made. A = wrong because profit and cash are different; a business can have both. B = there is no evidence of theft. D = wrong because the overdraft shows it IS experiencing cash shortages right now."
+        },
+        {
+            q: "Which of the following is the correct formula for net cash flow?",
+            opts: [
+                "Opening balance minus closing balance",
+                "Total outflow minus total inflow",
+                "Total inflow minus total outflow",
+                "Closing balance minus opening balance"
+            ],
+            ans: 2,
+            explain: "Correct: C. Net cash flow = Total Inflow − Total Outflow. A = that formula gives the change in balance, not net cash flow. B = this is the wrong way round and would give a negative when the business is doing well. D = closing minus opening gives the same result as net cash flow numerically, but the formula refers to inflows and outflows."
+        },
+        {
+            q: "A cash flow forecast is most useful for helping a business to:",
+            opts: [
+                "Calculate net profit for the year",
+                "Identify changes in the market",
+                "Predict liquidity problems before they occur",
+                "Understand the concept of break-even"
+            ],
+            ans: 2,
+            explain: "Correct: C. A cash flow forecast predicts when cash may run short — i.e. a potential liquidity problem — so the business can act in advance. A = a cash flow forecast does NOT show profit; that is done using the income statement. B = market analysis is a separate activity. D = break-even analysis uses costs and selling price, not a cash flow forecast."
+        },
+        {
+            q: "A manufacturer is experiencing a range of problems. Which of the following would be classed as a 'liquidity problem'?",
+            opts: [
+                "A breakdown on the production line",
+                "Being short of funds to pay suppliers",
+                "Experiencing high levels of wastage during production",
+                "Having insufficient financial information to make decisions"
+            ],
+            ans: 1,
+            explain: "Correct: B. Liquidity is the ability to pay short-term debts. Being unable to pay suppliers is a classic liquidity problem — not enough cash to meet immediate obligations. A = a production breakdown is an operational problem, not a financial one. C = wastage is an efficiency/quality problem. D = lack of information is a management/planning issue."
+        },
+        {
+            q: "A business will make a profit if it:",
+            opts: [
+                "Ends the year with a positive bank balance",
+                "Exceeds its break-even quantity",
+                "Has costs that are greater than its revenues",
+                "Pays off all of its debts"
+            ],
+            ans: 1,
+            explain: "Correct: B. At break-even, revenue exactly equals total costs. Selling more than the break-even quantity means revenue exceeds total costs — which is the definition of profit. A = a positive bank balance shows liquidity, not profitability (it could come from a loan). C = if costs exceed revenue, the business makes a LOSS, not a profit. D = paying off debts is about solvency, not profitability."
+        },
+        {
+            q: "A company has made a net profit of £16,000. Which statement must be true?",
+            opts: [
+                "The company has at least £16,000 in its bank account",
+                "The company will have no difficulty paying its bills",
+                "The company's cash outflows were £16,000 more than its cash inflows",
+                "The company's revenue exceeded its total costs"
+            ],
+            ans: 3,
+            explain: "Correct: D. Net profit = Revenue − Total Costs. If net profit is positive, revenue must have exceeded costs — that is what profit means. A = the business might have already spent or invested that profit money; cash and profit are separate. B = a profitable business can still have cash flow problems and struggle to pay bills. C = that would describe a net CASH OUTFLOW of £16,000, not profit — completely different concept."
+        },
+        {
+            q: "A cash flow shortage in a business is most often solved in the short term by arranging:",
+            opts: [
+                "An overdraft",
+                "A long-term bank loan",
+                "Crowdfunding",
+                "Selling new shares"
+            ],
+            ans: 0,
+            explain: "Correct: A. An overdraft is specifically designed for short-term cash shortages — it gives the business immediate access to extra funds up to an agreed limit. B = a bank loan is a long-term source of finance, not suited to short-term cash gaps, and takes time to arrange. C = crowdfunding takes considerable time and effort to set up. D = selling shares is a long-term method of raising capital used by limited companies, not a quick fix for a cash shortage."
+        },
+        {
+            q: "An extract from a cash flow forecast shows: Total Inflow £28,000 | Total Outflow £18,500 | Net Cash Flow £9,500 | Opening Balance −£4,700. What is the closing balance?",
+            opts: [
+                "£4,700",
+                "£4,800",
+                "£14,200",
+                "£14,300"
+            ],
+            ans: 1,
+            explain: "Correct: B. Closing Balance = Opening Balance + Net Cash Flow = −£4,700 + £9,500 = £4,800. A = £4,700 is the opening balance with its sign removed — a common error. C = £14,200 would result from adding £9,500 to £4,700 (ignoring the negative sign). D = a rounding error — always be precise with negative opening balances."
+        },
+        {
+            q: "An extract shows: Net Cash Flow −£2,600 | Closing Balance −£7,300. What is the opening balance for this month?",
+            opts: [
+                "−£9,900",
+                "−£4,700",
+                "£4,700",
+                "£9,900"
+            ],
+            ans: 1,
+            explain: "Correct: B. Rearranging: Opening Balance = Closing Balance − Net Cash Flow = −£7,300 − (−£2,600) = −£7,300 + £2,600 = −£4,700. A = −£9,900 results from adding both negative figures together. C = £4,700 ignores the negative sign. D = £9,900 adds the absolute values incorrectly."
+        },
+        {
+            q: "What is the difference between cash and profit?",
+            opts: [
+                "Cash and profit are the same thing — both measure how much money a business has made",
+                "Cash is money available to pay immediate bills; profit is revenue minus total costs over a period",
+                "Profit is the money in the bank; cash is calculated by subtracting costs from revenue",
+                "Cash refers to money earned from sales; profit refers to money received from investors"
+            ],
+            ans: 1,
+            explain: "Correct: B. Cash is the money physically available (in bank accounts/on premises) to pay short-term debts right now. Profit is a calculated financial figure showing whether revenue exceeded costs over a period. A = confusing these two is the most common examiner-noted misconception at GCSE. C = has the definitions backwards. D = both definitions are incorrect."
+        },
+        {
+            q: "Which of the following is an example of a cash inflow for a retail business?",
+            opts: [
+                "Paying wages to shop staff",
+                "Purchasing new stock from a supplier",
+                "Revenue received from customers buying goods",
+                "Paying the monthly rent on the shop premises"
+            ],
+            ans: 2,
+            explain: "Correct: C. A cash inflow is money coming INTO the business. Revenue from customers is the main inflow for a retail business. A = paying wages is a cash OUTFLOW. B = purchasing stock is a cash OUTFLOW (money leaves the business to pay the supplier). D = paying rent is a cash OUTFLOW."
+        },
+        {
+            q: "A business has a closing balance of −£3,500 at the end of March. What does this tell us?",
+            opts: [
+                "The business has made a loss of £3,500 in March",
+                "The business has spent £3,500 more than it earned in March",
+                "The business has an overdraft situation — it owes its bank £3,500",
+                "The business is definitely going to close down"
+            ],
+            ans: 2,
+            explain: "Correct: C. A negative closing balance means the business has spent more than it has received in total, resulting in a deficit — effectively an overdrawn position at the bank. A = a negative closing balance is not the same as a loss; profit is calculated separately. B = the negative closing balance reflects the cumulative position, not just that one month's activity. D = a single negative closing balance does not mean the business will close; it may be temporary and manageable."
+        }
+    ];
+
+    // 3. Keyword Matching (Minimum 10)
+    const matchData = [
+        { term: "Cash Flow Forecast", def: "A statement showing the expected flow of money into and out of a business over a period of time." },
+        { term: "Net Cash Flow", def: "Total inflow minus total outflow for a given period." },
+        { term: "Opening Balance", def: "The amount of cash available at the beginning of the month; equal to the previous month's closing balance." },
+        { term: "Closing Balance", def: "The amount of cash left at the end of the month; becomes the opening balance for the next month." },
+        { term: "Liquidity", def: "The ability of a business to pay its short-term debts which must be paid in the near future." },
+        { term: "Positive Cash Flow", def: "When more cash flows into the business than flows out during a month (a cash flow surplus)." },
+        { term: "Negative Cash Flow", def: "When more cash flows out of the business than flows in during a month (a cash flow deficit)." },
+        { term: "Cash", def: "Money held in bank accounts and on the premises; not simply notes and coins." },
+        { term: "Profit", def: "Revenue received by a business minus the total costs of running the business." },
+        { term: "Expenditure", def: "Money that the business pays out." },
+        { term: "Overdraft", def: "A short-term bank arrangement allowing a business to spend more than its current bank balance up to an agreed limit." },
+        { term: "Total Inflow", def: "The total amount of cash flowing into a business in a given period, including sales revenue and any other receipts." }
+    ];
+
+    // 4. Fill in the Blanks (Minimum 10)
+    const fibData = [
+        {
+            display: "Net cash flow is calculated by subtracting _____ from _____.",
+            blanks: { B1: "total outflow", B2: "total inflow" }
+        },
+        {
+            display: "The _____ balance of one month becomes the _____ balance of the following month.",
+            blanks: { B1: "closing", B2: "opening" }
+        },
+        {
+            display: "A business can be _____ but still have a negative cash flow if customers have not yet paid their invoices.",
+            blanks: { B1: "profitable" }
+        },
+        {
+            display: "_____ is the ability of a business to pay its short-term debts in the near future.",
+            blanks: { B1: "Liquidity" }
+        },
+        {
+            display: "A cash flow forecast is only an _____ of future income and expenditure — it is not guaranteed to be accurate.",
+            blanks: { B1: "estimate" }
+        },
+        {
+            display: "An _____ is a common short-term solution to a cash flow problem, allowing the business to spend beyond its bank balance.",
+            blanks: { B1: "overdraft" }
+        },
+        {
+            display: "Total _____ includes items such as wages, rent, materials and utilities paid out by the business.",
+            blanks: { B1: "outflow" }
+        },
+        {
+            display: "A cash flow forecast can be shown to a _____ to help the business secure a loan or other form of finance.",
+            blanks: { B1: "bank" }
+        },
+        {
+            display: "Short-term cash flow forecasts are generally more _____ than long-term forecasts because there is less uncertainty.",
+            blanks: { B1: "accurate" }
+        },
+        {
+            display: "If a business has a negative closing balance for several consecutive months, it may have to close — not because it is unprofitable, but because it has run out of _____.",
+            blanks: { B1: "cash" }
+        },
+        {
+            display: "Closing Balance = _____ Balance + Net Cash Flow.",
+            blanks: { B1: "Opening" }
+        },
+        {
+            display: "_____ is the revenue received by a business minus the total costs of running that business.",
+            blanks: { B1: "Profit" }
+        }
+    ];
+
+    // Word bank for Fill in the Blanks
+    const fibWords = [
+        "total outflow", "total inflow", "closing", "opening",
+        "profitable", "Liquidity", "estimate", "overdraft",
+        "outflow", "bank", "accurate", "cash",
+        "Opening", "Profit",
+        "revenue", "loan", "inaccurate", "assets", "income", "forecast"
+    ];
+
+    // 5. True or False (Minimum 10)
+    const tfData = [
+        {
+            statement: "A negative net cash flow in one month always means the business is making a loss.",
+            answer: false,
+            explanation: "FALSE. Net cash flow and profit are completely different. A business can have a negative cash flow in one month (e.g. because it paid for a lot of stock in advance) while still being highly profitable overall. For example, HMJA Fashion had a negative cash flow in October when buying Christmas stock, but made a strong profit across the year."
+        },
+        {
+            statement: "The closing balance of one month becomes the opening balance of the next month.",
+            answer: true,
+            explanation: "TRUE. This is one of the key mechanics of a cash flow forecast. The cash remaining at the end of one period carries forward as the starting point for the next. This is why a large negative closing balance in one month immediately makes the following month more difficult."
+        },
+        {
+            statement: "A business that is profitable will always have enough cash to pay its bills on time.",
+            answer: false,
+            explanation: "FALSE. A business can be profitable on paper but still run out of cash — for example, if customers are slow to pay invoices, or if large expenses fall due before revenue arrives. This is called being 'cash poor but profit rich.' This distinction is frequently tested in exams."
+        },
+        {
+            statement: "A cash flow forecast shows predicted future cash movements, not actual historical figures.",
+            answer: true,
+            explanation: "TRUE. A cash flow forecast is exactly that — a forecast, i.e. an estimate of what is expected to happen in the future. It is not the same as a bank statement (which shows actual past transactions). Because it is a prediction, it will not always be perfectly accurate."
+        },
+        {
+            statement: "Net cash flow is calculated by subtracting total inflow from total outflow.",
+            answer: false,
+            explanation: "FALSE. The correct formula is Net Cash Flow = Total Inflow − Total Outflow (inflow minus outflow, not the other way around). Reversing the formula would give a negative number when the business is doing well, and a positive number when it is struggling — the complete opposite of what is correct."
+        },
+        {
+            statement: "Cash includes only physical notes and coins held on the business premises.",
+            answer: false,
+            explanation: "FALSE. Cash is defined as money held in bank accounts as well as any notes and coins on the premises. In the modern business world, most cash is held electronically in bank accounts. A business could have thousands of pounds in 'cash' without holding a single banknote."
+        },
+        {
+            statement: "A business with a negative cash flow for several months in a row faces a serious risk of being forced to close.",
+            answer: true,
+            explanation: "TRUE. If negative cash flow continues over multiple months, the business may not be able to pay its suppliers, staff, or landlord. Creditors can apply to a court to force the business to sell its assets and close down. This can happen even to profitable businesses — as shown by the Deltic Group case study."
+        },
+        {
+            statement: "An overdraft is the most common short-term solution to a cash flow problem.",
+            answer: true,
+            explanation: "TRUE. An overdraft allows a business to spend beyond its bank balance up to an agreed limit. It is specifically designed for short-term shortfalls and can usually be arranged quickly with a bank. Interest is only charged on the amount overdrawn, making it efficient for temporary problems."
+        },
+        {
+            statement: "A cash flow forecast can be useful when a business applies for a bank loan.",
+            answer: true,
+            explanation: "TRUE. Presenting a well-prepared cash flow forecast to a bank demonstrates that the business has carefully planned its financial future. It shows the bank that the business understands when money will come in and go out, and that it will be able to afford loan repayments."
+        },
+        {
+            statement: "Profit is simply the amount of money a business has in its bank account at any given time.",
+            answer: false,
+            explanation: "FALSE. The money in a bank account is cash — not profit. Profit is a calculated figure: Revenue − Total Costs, determined at the end of a trading period. A business might have £500 in the bank (cash) but have made £20,000 in profit over the year. These are completely different measurements."
+        },
+        {
+            statement: "Long-term cash flow forecasts are more reliable than short-term ones.",
+            answer: false,
+            explanation: "FALSE. It is the other way around. Short-term forecasts (e.g. for the next month or few months) are far more reliable because there is less time for unexpected changes to occur. The further ahead you forecast, the more uncertain the figures become — supplier prices may change, new competitors may arrive, or the economy may shift."
+        },
+        {
+            statement: "A positive net cash flow guarantees that a business is profitable.",
+            answer: false,
+            explanation: "FALSE. A positive net cash flow simply means more cash came in than went out that month. The business might have positive cash flow because it received a bank loan (an inflow) — but a loan is not profit. Profit requires revenue to exceed costs, which is a separate calculation. The two do not always move together."
+        }
+    ];
+
+    // 6. Common Student Misconceptions
+    const miscData = [
+        {
+            wrong: "A cash flow forecast shows whether the business is making a profit or a loss.",
+            correct: "A cash flow forecast only shows cash movements — money in and money out. It says nothing about profit. Profit is calculated on the income statement (revenue minus total costs). Examiners consistently note this is the most common error in this topic."
+        },
+        {
+            wrong: "If a business has a negative net cash flow in one month, it is definitely losing money and in serious trouble.",
+            correct: "A negative net cash flow simply means more cash went out than came in that month — it could be planned and temporary, such as buying stock ahead of a busy season. Only sustained negative cash flow over many months becomes a serious problem."
+        },
+        {
+            wrong: "Cash is important to a business because it allows the business to expand and invest.",
+            correct: "Cash is specifically important for paying SHORT-TERM debts and expenses — wages, rent, suppliers, utilities. Examiners do not award marks for answers linking cash to expansion or long-term investment, as that is the role of long-term finance."
+        },
+        {
+            wrong: "The opening balance for a month is calculated by adding up all the inflows.",
+            correct: "The opening balance is simply the CLOSING BALANCE from the previous month — it carries straight over. It has nothing to do with inflows. Many students lose marks in calculation questions by trying to recalculate it."
+        },
+        {
+            wrong: "A business with high revenue must have plenty of cash.",
+            correct: "Revenue and cash are not the same. A business could have high revenue on paper but very little cash if customers are buying on credit and haven't paid yet. This is why businesses with large order books can still face a cash crisis."
+        },
+        {
+            wrong: "Net cash flow = closing balance − opening balance.",
+            correct: "Net Cash Flow = Total Inflow − Total Outflow. While the numerical result may sometimes appear similar, the correct formula is always inflow minus outflow. Using the wrong formula will lead to errors on calculation questions."
+        }
+    ];
+
+    // 7. Examiner Tips & Structure Guides
+    const examTips = [
+        {
+            type: "Identify / State — 1–2 marks",
+            title: "Cash Questions: Avoid the Profit Trap",
+            content: `<p>When asked to "state one reason why cash is important" or "identify a use of a cash flow forecast," students frequently lose marks by writing answers about <strong>profit</strong> or <strong>break-even</strong>.</p>
+<p><strong>⚠️ Examiner Warning:</strong> In real exam papers, nearly half of all candidates scored zero on these questions by giving answers about profit and loss. The examiner's report stated: "The most common wrong answers were to do with being able to calculate profit and loss, or break-even."</p>
+<p><strong>❌ Wrong (0 marks):</strong><br><em>"Cash is important so the business can make a profit."</em><br><em>"The cash flow forecast helps calculate profit."</em></p>
+<p><strong>✅ Correct (1 mark):</strong><br><em>"Cash is important to pay short-term debts such as wages and rent."</em><br><em>"A cash flow forecast anticipates periods when cash may run short so the business can arrange an overdraft in advance."</em></p>
+<p>For "identify" questions, one clear, specific point is all you need. Do not write a paragraph.</p>`,
+            pills: ["K"]
+        },
+        {
+            type: "Calculate — 1–4 marks",
+            title: "Master the Three Cash Flow Formulas",
+            content: `<p>All cash flow calculation marks come from just three formulas. Memorise all three and practise applying them in the right order.</p>
+<div style="background:#f0f4ff;border-left:4px solid #4a6cf7;padding:12px 16px;margin:12px 0;border-radius:4px;"><strong>Formula 1:</strong> Net Cash Flow = Total Inflow − Total Outflow<br><strong>Formula 2:</strong> Closing Balance = Opening Balance + Net Cash Flow<br><strong>Formula 3:</strong> Opening Balance = Closing Balance of the previous month</div>
+<p><strong>Strategy for missing figure questions:</strong></p>
+<ul>
+<li>Identify which formula the missing figure belongs to.</li>
+<li>Fill in the two values you know, and rearrange to find the unknown.</li>
+<li>Always check your answer: does the closing balance equal opening + net? If not, you've made an error.</li>
+</ul>
+<p><strong>⚠️ Watch out for negative numbers!</strong> If the opening balance is −£4,700 and net cash flow is £9,500: Closing = −£4,700 + £9,500 = +£4,800. Many students accidentally add the negative sign in or drop it and get the wrong answer.</p>
+<p><strong>❌ Common Error:</strong> Working out an "opening balance" by adding up inflows — the opening balance just CARRIES OVER from the previous month's closing balance.</p>`,
+            pills: ["K", "U"]
+        },
+        {
+            type: "Analyse — 3 marks",
+            title: "The U → APP → AN Chain (Cash & Profit Questions)",
+            content: `<p>For a 3-mark analyse question, you need exactly three distinct steps. Without all three, you cannot get full marks — even if your business knowledge is perfect.</p>
+<p><strong>Step 1 — Understanding (U):</strong> Define or explain the concept being asked about (cash, profit, liquidity, cash flow). This <em>must</em> come first — if you skip it, the examiner cannot award the application or analysis marks.</p>
+<p><strong>Step 2 — Application (APP):</strong> Use specific data or details from the case study or table. Reference actual numbers, names, or details given to you. Saying "the business" without referencing the specific context earns 0 for APP.</p>
+<p><strong>Step 3 — Analysis (AN):</strong> State the consequence or impact on the business. It must be business-facing (e.g. affects profit, affects ability to expand, risks closure). "Costs will increase" alone scores 0 for analysis — you must explain WHAT THAT MEANS for the business.</p>
+<p><strong>✅ Full-mark example (3 marks):</strong><br><em>"Cash is the money QT has in its bank account available to spend (U). QT's closing balance has fallen from £500 to £0 over five months (APP). This means the bank may refuse to lend QT money to fund its van purchase, preventing its planned expansion (AN)."</em></p>
+<p><strong>❌ 1-mark example:</strong><br><em>"Cash is important. QT needs cash. If it doesn't have cash it will struggle."</em> — vague, no real U, no real APP, no real AN.</p>`,
+            pills: ["U", "app", "an"]
+        },
+        {
+            type: "Explain — 2 marks",
+            title: "Identify + Explain = 2 Marks (Not Just One Point)",
+            content: `<p>A 2-mark "explain" question requires <strong>two separate things</strong>: an identification (1 mark) plus an explanation of how or why that point works (1 mark).</p>
+<p><strong>Formula:</strong> State the point → Then explain the mechanism or effect.</p>
+<p><strong>✅ Good answer (2 marks):</strong><br><em>"A cash flow forecast can be used as a planning tool (1). It can be shown to a bank, helping the business to secure a loan or overdraft if a cash shortage is anticipated (1)."</em></p>
+<p><strong>❌ Bad answer (1 mark maximum):</strong><br><em>"A cash flow forecast is useful for planning."</em> — states the point but does not explain what the planning involves or why it helps the business.</p>
+<p><strong>⚠️ Examiner note:</strong> Many students correctly identified a use of a cash flow forecast but then failed to explain it — earning only 1 out of 2. Always ask yourself: "Have I explained WHY or HOW, or have I just repeated the same point in different words?"</p>`,
+            pills: ["K", "U"]
+        },
+        {
+            type: "Evaluate — 7 marks",
+            title: "The 4-Paragraph Structure for Evaluate Questions",
+            content: `<p>A 7-mark evaluate question is broken into four specific paragraphs. Each has a different job. Write them in this order every time.</p>
+<p><strong>Paragraph 1 — K &amp; U (Knowledge and Understanding):</strong><br>Define the key concept and explain how it works in general. This earns the knowledge mark and sets up everything that follows.<br><em>Starter: "A cash flow forecast is a statement that shows... For a business like [Name], this means..."</em></p>
+<p><strong>Paragraph 2 — AN &amp; APP (First Point with Analysis):</strong><br>Make your first specific point, link it directly to the case study using facts/numbers, and explain the impact on the business.<br><em>Starter: "One benefit of completing a cash flow forecast for [Name] is... because [case study detail]... This would mean that..."</em></p>
+<p><strong>Paragraph 3 — AN &amp; APP (Second Point with Analysis):</strong><br>Make a second, different point. Do not repeat paragraph 2 — explore a different aspect or argue a counterpoint.<br><em>Starter: "Furthermore / However, another [benefit/limitation] is... In [Name]'s case, [case study detail]... As a result..."</em></p>
+<p><strong>Paragraph 4 — Evaluation (Justified Judgement):</strong><br>Make a clear decision, justify it with case study context, and explain why — ideally using an "it depends on..." condition to show sophisticated thinking.<br><em>Starter: "Overall, I believe [the cash flow forecast is very/fairly/limited in its] usefulness to [Name] because... This is particularly important given that [specific case study detail]... However, this depends on..."</em></p>
+<p><strong>⚠️ Warning:</strong> A conclusion that simply repeats what you said in paragraphs 2 and 3 earns ZERO evaluation marks. The judgement must go beyond the analysis — it must make a decision and justify it using context.</p>`,
+            pills: ["K", "U", "app", "an", "eval"]
+        },
+        {
+            type: "Recommend — 3 marks",
+            title: "Recommend Questions: Judgement + Context + Impact",
+            content: `<p>A 3-mark recommend question (e.g. "Recommend whether cash or profit will have the biggest impact") is structured as follows:</p>
+<p><strong>Mark 1 — Basic Judgement:</strong> State your clear decision. "Cash / profit will have the biggest impact."</p>
+<p><strong>Mark 2 — Application (use context):</strong> Back up your choice using specific data from the case study. Reference actual figures, names or situation details.</p>
+<p><strong>Mark 3 — Analysis (the consequence):</strong> Explain what this means for the business going forward — link it back to the question's focus (e.g. expansion plans).</p>
+<p><strong>✅ Full-mark example:</strong><br><em>"QT's cash position will have the biggest impact on its expansion (1). Its closing balance has already fallen to £0 over five months (APP), meaning the bank may refuse to lend it the £40,000 needed for the van (1). Without the loan, the expansion cannot proceed at all (1)."</em></p>
+<p><strong>❌ Common error:</strong> Writing a general discussion of both cash and profit without making a clear decision. Examiners report that some candidates "could not reach a decision, even in the light of being led to this question." A judgement without a clear recommendation earns 0.</p>`,
+            pills: ["app", "an", "eval"]
+        }
+    ];
+
+    // 8. Flashcards
+    const flashcards = [
+        { term: "Cash Flow Forecast", def: "A statement predicting the flow of cash into and out of a business over a future period of time." },
+        { term: "Net Cash Flow", def: "Total Inflow − Total Outflow. Positive = more came in; negative = more went out." },
+        { term: "Closing Balance", def: "Opening Balance + Net Cash Flow. Becomes the next month's opening balance." },
+        { term: "Liquidity", def: "The ability of a business to pay its short-term debts as they fall due." },
+        { term: "Negative Cash Flow", def: "When more cash flows out of a business than flows in during a period — a cash flow deficit." },
+        { term: "Overdraft", def: "A short-term bank facility allowing a business to spend more than its current balance up to an agreed limit." },
+        { term: "Cash vs Profit", def: "Cash = money available now to pay bills. Profit = Revenue − Total Costs (a calculated summary figure). They are NOT the same." },
+        { term: "Opening Balance", def: "The cash available at the start of a month — always the same as the previous month's closing balance." },
+        { term: "4 Uses of Cash Flow Forecast", def: "1. Planning tool (for bank loans) 2. Anticipates cash shortages 3. Enables remedies 4. Provides targets." },
+        { term: "Expenditure", def: "Money that the business pays out — e.g. wages, rent, materials, utilities." },
+        { term: "4 Ways to Improve Cash Flow", def: "1. Arrange overdraft 2. Reduce expenses 3. Chase customer payments 4. Delay paying suppliers." },
+        { term: "Why Cash is Important", def: "To pay SHORT-TERM expenses and debts: wages, rent, suppliers, utilities. Not for long-term investment." },
+        { term: "Limitation of Cash Flow Forecast", def: "It is only an estimate — supplier prices may change, competitors may arrive, or unexpected events (e.g. pandemic) may occur." },
+        { term: "Total Outflow", def: "The total amount of all cash payments leaving the business in a given period (wages + rent + materials + overheads etc.)." },
+        { term: "Cash Flow Deficit / Surplus", def: "Deficit = negative cash flow (more out than in). Surplus = positive cash flow (more in than out)." }
+    ];
+
+    // 9. Exam-Style Questions
+    const examQuestions = [
+
+        // ── SEA VIEW HOTEL ──────────────────────────────────────────
+        {
+            num: "Q1",
+            marks: 2,
+            type: "written",
+            caseStudy: `The Sea View Hotel is a profitable hotel located near the coast. Anika and Charlie own the hotel in a business partnership. They are now considering opening a second hotel in a town further along the coast. It would cost them £1.5 million to buy the property and £0.5 million for redecoration.<br><br>To fund the £2 million expansion, the partners are considering getting a bank loan or accepting a new partner into the business. The partnership already has one bank loan but has worked out it can afford a second loan as long as the cost of borrowing does not rise too much.<br><br>If Anika and Charlie decide to take on a new partner, they would like to ask Finley, a friend of Anika's who has just returned to the UK from travelling around the world. Finley is currently unemployed but is a keen photographer and environmental campaigner.<br><br>Anika has forecasted the following revenues and costs for the proposed 25-room hotel:\n• selling price: £100 a day per room\n• fixed costs: £6,300 per week\n• variable costs: £40 a day per room`,
+            question: "Identify two uses of a cash flow forecast to a business. [2 marks]",
+            hint: "Think about what a business can DO with a cash flow forecast — not what it shows about profit. Each use needs to be a distinct, separate point.",
+            starter: "One use of a cash flow forecast is...\n\nA second use of a cash flow forecast is...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a)</h5><p>One mark for each correct use, up to a maximum of two marks.</p><p><strong>Answers may include:</strong></p><ul><li>A planning tool (e.g. estimating future inflows or outflows)</li><li>Anticipate periods of negative cash flow / cash shortages</li><li>Enable remedies to be put in place (e.g. arrange an overdraft)</li><li>Help with budgeting</li><li>Identify or arrange an overdraft / funding</li><li>Provide targets for managing spending</li></ul><p><strong>No reward for:</strong> answers about profit, loss, break-even, calculating costs or spending money generally.</p><p><strong>Examiner's Comment:</strong> This question was poorly answered — nearly half of candidates scored zero. The most common wrong answers were about calculating profit and loss or break-even. Centres must ensure candidates understand the vital distinction between cash, revenue, and profit.</p></div>`,
+            modelAnswer: "One use of a cash flow forecast is as a planning tool — Anika and Charlie could show it to a bank when applying for a loan to fund the second hotel, demonstrating that they have carefully planned their future cash position.\n\nA second use is to anticipate periods of cash shortage — the forecast would highlight any months where outflows (such as the £0.5m redecoration costs) may exceed inflows, allowing the partners to arrange an overdraft or additional finance in advance."
+        },
+
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "The bank statement for an established firm shows that it ended 2023 close to its overdraft limit with an overdrawn balance of £5,000. The firm's accounts show a profit of £44,000 for the year ending 31 December 2023.",
+            question: "These figures show that:",
+            options: [
+                "An accounting error has been made because the firm is not profitable",
+                "At least £49,000 must have been stolen from the firm's bank account",
+                "Despite being profitable, the firm may be unable to pay its short-term debts",
+                "The firm is unlikely to experience cash shortages and is highly profitable"
+            ],
+            answer: 2,
+            hint: "Think about the difference between cash and profit. Can you have one without the other?",
+            starter: "The answer is C because...",
+            markScheme: `<div class="marks-section"><h5>Answer: C — 1 mark (AO2)</h5><p><strong>Why C is correct:</strong> Profit (revenue − total costs = £44,000) and cash (the bank balance = −£5,000 overdrawn) are completely different. A business can be profitable overall but still have a negative bank balance — for example if it has made large investments or is waiting for customers to pay.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A</strong> — Wrong. Profit of £44,000 is genuine; there is no error. Cash and profit are different calculations.</li><li><strong>B</strong> — Wrong. There is absolutely no evidence of theft. The difference between profit and cash has many legitimate explanations.</li><li><strong>D</strong> — Wrong. The firm IS experiencing cash shortages right now (it is overdrawn); the high profit does not prevent this.</li></ul></div>`,
+            modelAnswer: ""
+        },
+
+        {
+            num: "Q3 (i)",
+            marks: 2,
+            type: "written",
+            caseStudy: "See Sea View Hotel case study in Q1.",
+            question: "Explain why profit is important to a business' future. [2 marks]",
+            hint: "Give one specific reason why profit matters, then explain how or why it leads to a benefit. Do NOT just define profit.",
+            starter: "Profit is important to a business' future because it allows the business to...\n\nThis is important because...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a / AO1b)</h5><p>One mark for identifying why profit is important, plus one further mark for understanding (an explanation of how or why).</p><p><strong>Answers may include:</strong></p><ul><li>To help expansion (1) by opening new stores/hotels (1)</li><li>To attract new investors (1) so that the business can grow (1)</li><li>No need to seek other finance (1) which could be expensive (1)</li><li>To pay dividends (1) which keeps shareholders happy (1)</li><li>To help repay a loan/debt (1) so that costs fall (1)</li><li>Buy new equipment and buildings (1) to replace worn-out items (1)</li><li>Develop new products (1) to allow more profit in the future (1)</li><li>To compare performance against competitors (1) using profitability ratios (1)</li></ul><p><strong>No reward for:</strong> a definition of profit alone; answers about allowing the business to survive (that is about cash, not profit).</p><p><strong>Examiner's Comment:</strong> Most candidates achieved one mark. Popular correct answers included expansion and paying off debts. Many could identify a reason but failed to support it with any explanation. Some confused profit with survival (a cash concept).</p></div>`,
+            modelAnswer: "Profit is important to a business' future because it allows the business to reinvest in expansion (1) — for example, Anika and Charlie could use retained profit from the existing Sea View Hotel to help fund the purchase of the second hotel, reducing their reliance on an expensive bank loan (1)."
+        },
+
+        {
+            num: "Q3 (ii)",
+            marks: 3,
+            type: "written",
+            caseStudy: "See Sea View Hotel case study in Q1.",
+            question: "Calculate the daily break-even quantity for the proposed hotel. [3 marks]",
+            hint: "You need to: (1) find the contribution per room per day, (2) convert weekly fixed costs into daily fixed costs, (3) divide daily fixed costs by contribution. Show all working.",
+            starter: "Step 1 — Contribution per room = Selling price − Variable cost = £100 − £40 = ...\n\nStep 2 — Daily fixed costs = £6,300 ÷ 7 days = ...\n\nStep 3 — Daily break-even = Daily fixed costs ÷ Contribution = ...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO2)</h5><p><strong>Method:</strong></p><ul><li>SP − VC = Contribution: 100 − 40 = <strong>£60</strong> (1 mark)</li><li>FC ÷ 7 days: 6,300 ÷ 7 = <strong>£900 per day</strong> (1 mark)</li><li>Daily break-even = 900 ÷ 60 = <strong>15 rooms</strong> (1 mark) [OFR applies]</li></ul><p><strong>Alternative method:</strong><br>Weekly break-even = 6,300 ÷ 60 = 105 rooms per week (2 marks)<br>Daily break-even = 105 ÷ 7 = 15 rooms (1 mark) [OFR]</p><p><strong>Notes:</strong></p><ul><li>Maximum 2 marks if the weekly fixed costs are not divided by 7 (answer of 105)</li><li>Maximum 2 marks if the answer is given in the wrong units (e.g. £)</li><li>No reward for writing the formula alone</li></ul><p><strong>Examiner's Comment:</strong> Even though 'daily' was emboldened in the question, a significant number of candidates gave 105 rooms (the weekly figure) and scored only 2 marks. Always read the question carefully.</p></div>`,
+            modelAnswer: "Contribution per room per day = £100 − £40 = £60.\nDaily fixed costs = £6,300 ÷ 7 = £900.\nDaily break-even = £900 ÷ £60 = 15 rooms."
+        },
+
+        {
+            num: "Q3 (iii)",
+            marks: 3,
+            type: "written",
+            caseStudy: "See Sea View Hotel case study in Q1.",
+            question: "Analyse one disadvantage to the partnership if the proposed hotel's fixed costs were 10% higher than expected. [3 marks]",
+            hint: "Follow U → APP → AN. First state a disadvantage of higher costs (U). Then use a number from the case study to show the increase (APP). Then explain the business consequence (AN). Do NOT just say 'costs will increase' — that earns zero for analysis.",
+            starter: "One disadvantage of fixed costs being 10% higher is that... (U)\n\nFor the Sea View Hotel, this would mean... [use numbers from the case] (APP)\n\nAs a result, the partnership would... which means... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b / AO2 / AO3a)</h5><p><strong>Understanding (1 mark) — a disadvantage of higher costs:</strong></p><ul><li>Could lead to lower profits (or a loss)</li><li>Could lead to higher prices being charged</li><li>Less money available for other needs (e.g. day-to-day running)</li><li>Increases the break-even level — harder to cover costs</li></ul><p><strong>Application (1 mark) — use case study numbers:</strong></p><ul><li>Fixed costs increase from £6,300 to £6,930 per week (+£630)</li><li>£90 more per day in fixed costs</li><li>Break-even increases from 15 to 17 rooms per day</li><li>Existing bank loan already in place</li></ul><p><strong>Analysis (1 mark) — business consequence:</strong></p><ul><li>Need to fill more rooms to cover the extra costs</li><li>May reduce customer demand if prices are raised</li><li>May put off investors or a new partner joining</li><li>May lead to more debt or need for extra finance</li><li>Expansion decisions may need to be postponed</li></ul><p><strong>No reward for:</strong> 'costs will increase' as analysis; application referring to context about the current hotel being profitable; any mention of owner stress.</p><p><strong>Examiner's Comment:</strong> Better answers showed understanding linked to profit or break-even, applied the numbers, and identified an impact (e.g. needing to sell more rooms). A full-mark answer can be written in two sentences.</p></div>`,
+            modelAnswer: "If fixed costs increased by 10%, the break-even level would rise — the hotel would need to fill more rooms per day just to cover its costs (U). With fixed costs increasing to £6,930 per week (£90 more per day), the break-even would rise from 15 to 17 rooms per day (APP). This means the partnership would need consistently higher occupancy, and if they cannot achieve this, profits will fall — potentially making it harder to repay the existing bank loan (AN)."
+        },
+
+        // ── YOSHI'S SWEET SHOP (MCQ) ─────────────────────────────────
+        {
+            num: "Q4",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `An extract from Yoshi's Sweet Shop's cash flow forecast for November is shown below.<table class="case-table"><caption>Yoshi's Sweet Shop — November Extract</caption><tr><th></th><th>November £</th></tr><tr><td>Total inflow</td><td>28,000</td></tr><tr><td>Total outflow</td><td>18,500</td></tr><tr><td>Net cash flow</td><td>9,500</td></tr><tr><td>Opening balance</td><td>−4,700</td></tr></table>`,
+            question: "Yoshi's Sweet Shop's opening balance for December is expected to be:",
+            options: ["£4,700", "£4,800", "£14,200", "£14,300"],
+            answer: 1,
+            hint: "The opening balance for December = the closing balance for November. Use: Closing Balance = Opening Balance + Net Cash Flow.",
+            starter: "The answer is B because...",
+            markScheme: `<div class="marks-section"><h5>Answer: B — £4,800 (1 mark, AO2)</h5><p><strong>Calculation:</strong> Closing Balance (November) = Opening Balance + Net Cash Flow = −£4,700 + £9,500 = <strong>£4,800</strong>. This closing balance becomes December's opening balance.</p><p><strong>Why others are wrong:</strong></p><ul><li><strong>A — £4,700:</strong> This removes the negative sign from the opening balance but ignores the net cash flow entirely.</li><li><strong>C — £14,200:</strong> This adds £9,500 to £4,700, ignoring the negative opening balance sign.</li><li><strong>D — £14,300:</strong> A rounding or arithmetic error — always be precise with negative values.</li></ul></div>`,
+            modelAnswer: ""
+        },
+
+        // ── CASH FLOW FORECAST PURPOSE (MCQ) ─────────────────────────
+        {
+            num: "Q5",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "A cash flow forecast can help a business:",
+            options: [
+                "Calculate net profit",
+                "Identify changes in the market",
+                "Predict liquidity problems",
+                "Understand the concept of break-even"
+            ],
+            answer: 2,
+            hint: "Think about what a cash flow forecast actually shows — money in vs money out. Which of these four things does that help a business do?",
+            starter: "The answer is C because...",
+            markScheme: `<div class="marks-section"><h5>Answer: C — Predict liquidity problems (1 mark)</h5><p><strong>Why C is correct:</strong> A cash flow forecast shows when more cash goes out than comes in. This allows the business to predict when it may struggle to pay its debts (a liquidity problem) and act in advance.</p><p><strong>Why others are wrong:</strong></p><ul><li><strong>A:</strong> A cash flow forecast does NOT calculate profit. Profit = Revenue − Total Costs, which is on the income statement, not the cash flow forecast.</li><li><strong>B:</strong> Identifying market changes requires market research and competitor analysis — not a cash flow forecast.</li><li><strong>D:</strong> Break-even analysis uses selling price and costs, not a cash flow forecast.</li></ul></div>`,
+            modelAnswer: ""
+        },
+
+        // ── GLORIOUS KITCHENS (GK) ──────────────────────────────────
+        {
+            num: "Q6",
+            marks: 1,
+            type: "written",
+            caseStudy: " ",
+            question: "State one reason why cash is important to a business. [1 mark]",
+            hint: "Think about SHORT-TERM needs — what does a business need cash for right now? Do NOT write about expansion or long-term investment.",
+            starter: "Cash is important to a business because...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 1 mark (AO1a)</h5><p><strong>Answers may include:</strong></p><ul><li>To pay short-term debts / loans / finances</li><li>To pay short-term expenses: heating / lighting / rent / raw materials / supplies / wages</li><li>To maintain liquidity</li><li>To ease cash-flow problems</li></ul><p><strong>No reward for:</strong> answers linking to long-term issues (e.g. expansion, investment in equipment). Cash is specifically for SHORT-TERM needs.</p><p><strong>Examiner's Comment:</strong> Half of candidates either left this blank or wrote that cash was needed "to run the business" — too vague for a mark. Correct answers recognised cash as being for short-term funding (liquidity, paying suppliers, wages, rent). About half of candidates scored zero on this question.</p></div>`,
+            modelAnswer: "Cash is important to a business because it is needed to pay short-term expenses, such as wages, rent, and supplier invoices, which must be settled in the near future."
+        },
+
+        // ── QUALITY TEXTILES (QT) ────────────────────────────────────
+        {
+            num: "Q7 (i)",
+            marks: 3,
+            type: "written",
+            caseStudy: `Quality Textiles Ltd (QT) is a medium-sized, established business that manufactures clothes from its factory in Birmingham. Its clothes are sold to retail shops around the country. A summary of its profitability is shown below.<table class="case-table"><caption>Table 1 — QT Profit Margins</caption><tr><th></th><th>This year</th><th>Last year</th><th>Two years ago</th></tr><tr><td>Gross Profit Margin</td><td>65%</td><td>60%</td><td>57%</td></tr><tr><td>Net Profit Margin</td><td>27%</td><td>25%</td><td>23%</td></tr></table><br>QT wants to expand the business by using a bank loan to buy a large van to help with deliveries. The new van will cost at least £40,000. QT's cash flow forecast suggests it may struggle to pay the monthly van loan repayment.<br><br>QT's closing bank balance for the last five months (January to May) has shown a declining trend, falling from approximately £500 in January to approximately £0 by May.`,
+            question: "Analyse QT's cash position considering its current expansion plans. [3 marks]",
+            hint: "U → APP → AN. First define/explain what 'cash position' means (not profit). Then refer to QT's specific cash data (the declining balance). Then explain what consequence this has for the expansion.",
+            starter: "Cash is [define it in business terms]... (U)\n\nIn QT's case, [use the closing balance data]... (APP)\n\nThis means that, in terms of its expansion plans,... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b / AO2 / AO3a)</h5><p><strong>Understanding (1 mark):</strong></p><ul><li>Money held in the bank / bank balance / closing balance</li><li>Money on the premises (cash in hand)</li><li>The money available to spend / reference to cash flow</li></ul><p><strong>Application (1 mark) — must reference changes in cash:</strong></p><ul><li>Deteriorating cash position</li><li>Cash has fallen from approximately £500 to £0 over five months</li><li>Current cash position is approximately zero / very low</li><li>Will need to take out a bank loan for the £40,000 van</li></ul><p><strong>Analysis (1 mark):</strong></p><ul><li>It will struggle to pay day-to-day debts</li><li>Banks may not lend it money given deteriorating cash position</li><li>May cause liquidity problems</li><li>May be unable to proceed with expansion plans</li></ul><p><strong>Note:</strong> If using the graph/closing balance data for APP, responses must reference the CHANGES in cash flow, not just state the business sells to retail shops.</p></div>`,
+            modelAnswer: "Cash is the money QT holds in its bank account to meet its immediate spending needs (U). QT's cash position is very poor — its closing bank balance has fallen from approximately £500 to £0 over just five months (APP). This means QT may struggle to meet the monthly loan repayments needed to buy the £40,000 van, potentially preventing the expansion from going ahead at all (AN)."
+        },
+
+        {
+            num: "Q7 (ii)",
+            marks: 3,
+            type: "written",
+            caseStudy: "See Quality Textiles (QT) case study in Q7 (i).",
+            question: "Analyse QT's profit position considering its current expansion plans. [3 marks]",
+            hint: "U → APP → AN. Define profit/profit margin. Then refer to QT's specific margin data from the table (not just 'profit is good'). Then explain the business consequence for its expansion.",
+            starter: "Profit is calculated by... and is measured using profit margins, which show... (U)\n\nLooking at QT's data, [name the specific margins and their trend]... (APP)\n\nThis is significant for QT's expansion because... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b / AO2 / AO3a)</h5><p><strong>Understanding (1 mark):</strong></p><ul><li>Profit = total revenue minus total costs</li><li>Shown by/measured through profit margins</li></ul><p><strong>Application (1 mark) — must reference changes in profit margins:</strong></p><ul><li>Gross profit margin has increased from 57% to 65% over three years</li><li>Net profit margin has increased from 23% to 27% over three years</li></ul><p><strong>Analysis (1 mark):</strong></p><ul><li>Increased profits help pay for the expansion</li><li>Managers are keeping costs under control</li><li>Banks/investors may see improving profitability as a good reason to lend/invest</li><li>Profits may be adversely affected by the cost of the expansion</li></ul><p><strong>Examiner's Comment:</strong> This was the least well-answered of the three parts. Many responses did not manage to gain the analysis mark because they did not link back to the expansion plans (the focus of the question). Simply using "profit" without referencing margins or understanding does not earn the understanding mark.</p></div>`,
+            modelAnswer: "Profit is calculated by subtracting total costs from total revenue, and is measured using profit margins (U). QT's profit position has been improving steadily — its gross profit margin has grown from 57% two years ago to 65% this year, and its net profit margin from 23% to 27% (APP). This improving profitability may encourage banks or investors to fund QT's expansion, as the business is clearly managing its costs well and generating increasing returns (AN)."
+        },
+
+        {
+            num: "Q7 (iii)",
+            marks: 3,
+            type: "written",
+            caseStudy: "See Quality Textiles (QT) case study in Q7 (i).",
+            question: "Recommend whether QT's cash position or profit position will have the biggest impact on its expansion plans. [3 marks]",
+            hint: "Make a clear decision first (1 mark). Then justify your choice using specific detail from the case study (APP). Then explain the consequence for the expansion (AN). Do NOT just repeat what you said in Q7(i) or Q7(ii).",
+            starter: "QT's [cash/profit] position will have the biggest impact on its expansion plans (decision).\n\nThis is because [use specific data/context from the case]...\n\nAs a result, [explain the consequence for the expansion]...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO3b)</h5><p><strong>Judgement (1 mark):</strong> A clear statement of whether cash or profit has the biggest impact.</p><p><strong>Justification with context (2 marks):</strong> A clear, contextualised justification using case study details.</p><p><strong>OR Justification without context (1 mark):</strong> A general justification with no reference to QT's specific situation.</p><p><strong>Examiner's Comment:</strong> Some candidates could not reach a clear decision. Others wrote a few focused sentences using the context effectively and earned full marks. Strong responses noted QT's closing balance of £0 (cash problem) while acknowledging improving profit margins. The distinction between cash (right now) and profit (overall performance) was key. Candidates who just said "cash" or "profit" without using language showing understanding of these terms could not gain the understanding mark underpinning the justification.</p></div>`,
+            modelAnswer: "QT's cash position will have the biggest impact on its expansion plans (1). Its closing bank balance has already fallen to approximately £0 over five months, meaning the bank is unlikely to offer a loan for the £40,000 van when QT is already struggling to maintain a positive cash balance (APP). Without the loan, the expansion cannot proceed regardless of how good the profit margins are — profit on paper does not pay monthly loan instalments (1)."
+        },
+
+        // ── MARBLE & SONS (MCQ) ─────────────────────────────────────
+        {
+            num: "Q8",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `An extract from Marble &amp; Sons' cash flow forecast for September is shown below.<table class="case-table"><caption>Marble &amp; Sons — September Extract</caption><tr><th></th><th>September</th></tr><tr><td>Net cash flow</td><td>−£2,600</td></tr><tr><td>Opening balance</td><td>?</td></tr><tr><td>Closing balance</td><td>−£7,300</td></tr></table>`,
+            question: "Marble & Sons' opening balance for September is expected to be:",
+            options: ["−£9,900", "−£4,700", "£4,700", "£9,900"],
+            answer: 1,
+            hint: "Rearrange: Closing Balance = Opening Balance + Net Cash Flow → Opening Balance = Closing Balance − Net Cash Flow. Be careful with negatives.",
+            starter: "The answer is B because...",
+            markScheme: `<div class="marks-section"><h5>Answer: B — −£4,700 (1 mark, AO2)</h5><p><strong>Calculation:</strong> Opening Balance = Closing Balance − Net Cash Flow = −£7,300 − (−£2,600) = −£7,300 + £2,600 = <strong>−£4,700</strong>.</p><p><strong>Why others are wrong:</strong></p><ul><li><strong>A — −£9,900:</strong> This adds both negative figures together (−7,300 + −2,600). When net cash flow is negative, it reduces the balance — so the opening balance must be less negative than the closing balance.</li><li><strong>C — £4,700:</strong> Correct absolute value but wrong sign — the balance is negative.</li><li><strong>D — £9,900:</strong> Adds the absolute values with the wrong sign.</li></ul></div>`,
+            modelAnswer: ""
+        },
+
+        // ── RICARDO COSTUMES AND PROPS (RCP) ─────────────────────────
+        {
+            num: "Q9 (i)",
+            marks: 1,
+            type: "written",
+            caseStudy: `Alessia and Natalia own Ricardo Costumes and Props (RCP). The business operates as a partnership. RCP makes a range of costumes and props that it sells to UK and EU theatres, schools and amateur dramatics groups.<br><br>Last year, RCP's costumes and props were used in two very successful films. RCP's reputation grew rapidly and its revenue increased from £1,600,000 in 2019 to £2,000,000 in 2020. More financial data for RCP in 2020 is shown below.<table class="case-table"><caption>Table 1 — RCP Financial Data 2020</caption><tr><th>Item</th><th>2020</th></tr><tr><td>Revenue</td><td>£2,000,000</td></tr><tr><td>Cost of sales</td><td>£500,000</td></tr><tr><td>Salaries</td><td>£1,300,000</td></tr><tr><td>Rent</td><td>£100,000</td></tr><tr><td>Other expenses</td><td>£50,000</td></tr></table><br>Despite being profitable, RCP's bank overdraft is getting bigger every month. Alessia and Natalia realise that they need to carefully consider RCP's cash flow position.`,
+            question: "State one reason why cash is important to a business. [1 mark]",
+            hint: "Think SHORT-TERM. What must a business pay for right now? Do NOT write about investing or expanding.",
+            starter: "Cash is important to a business because it is needed to...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 1 mark (AO1a)</h5><p><strong>Answers may include:</strong></p><ul><li>To pay expenses / costs</li><li>Meeting short-term debts</li><li>Providing liquidity</li><li>A source of working capital / keeps the business running day-to-day</li><li>Allows spending without needing to arrange finance</li><li>Accept specific examples of expenses (wages, rent, materials, utilities)</li></ul><p><strong>No reward for:</strong> "to invest" or "to help expand" — these relate to long-term uses of finance, not cash.</p></div>`,
+            modelAnswer: "Cash is important to RCP because it is needed to pay short-term expenses such as salaries (£1,300,000) and rent (£100,000) — without cash available, these cannot be paid even if RCP is profitable overall."
+        },
+
+        {
+            num: "Q9 (ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: "See Ricardo Costumes and Props (RCP) case study in Q9 (i).",
+            question: "Explain one use of a cash flow forecast in a business. [2 marks]",
+            hint: "Name a specific use (1 mark) and then explain HOW or WHY that use benefits the business (1 mark). Do not mention profit.",
+            starter: "One use of a cash flow forecast is...\n\nThis benefits a business because...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a / AO1b)</h5><p><strong>1 mark for identifying a use:</strong></p><ul><li>As a planning or targeting tool</li><li>To help anticipate a shortage of money / negative cash flow</li><li>To put remedies in place to address cash shortages</li></ul><p><strong>1 further mark for explanation:</strong> Explain what the use involves or why it helps the business.</p><p><strong>No reward for:</strong> any reference to forecasting profit.</p></div>`,
+            modelAnswer: "One use of a cash flow forecast is to anticipate periods of cash shortage (1). For RCP, whose overdraft is growing each month, this would allow Alessia and Natalia to identify in advance when cash may run out, so they can arrange additional finance (such as a loan) before the shortage becomes a crisis (1)."
+        },
+
+        // ── PIA'S DINER (MCQ) ────────────────────────────────────────
+        {
+            num: "Q10",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `An extract from Pia's Diner's cash flow forecast for July is shown below.<table class="case-table"><caption>Pia's Diner — July Extract</caption><tr><th></th><th>July £</th></tr><tr><td>Total inflow</td><td>?</td></tr><tr><td>Total outflow</td><td>13,500</td></tr><tr><td>Net cash flow</td><td>−1,900</td></tr><tr><td>Opening balance</td><td>−2,300</td></tr><tr><td>Closing balance</td><td>−4,200</td></tr></table>`,
+            question: "Pia's Diner's total inflow for July is expected to be:",
+            options: ["£7,000", "£9,300", "£11,200", "£11,600"],
+            answer: 3,
+            hint: "Net Cash Flow = Total Inflow − Total Outflow. Rearrange to find Total Inflow = Net Cash Flow + Total Outflow.",
+            starter: "The answer is D because...",
+            markScheme: `<div class="marks-section"><h5>Answer: D — £11,600 (1 mark, AO2)</h5><p><strong>Calculation:</strong> Total Inflow = Net Cash Flow + Total Outflow = −£1,900 + £13,500 = <strong>£11,600</strong>.</p><p><strong>Verification:</strong> Closing Balance = Opening Balance + Net Cash Flow = −£2,300 + (−£1,900) = −£4,200 ✓</p><p><strong>Why others are wrong:</strong></p><ul><li><strong>A — £7,000:</strong> No clear logic — possibly a random guess.</li><li><strong>B — £9,300:</strong> Possibly calculated by subtracting net cash flow from opening balance.</li><li><strong>C — £11,200:</strong> Possibly calculated using the closing balance minus net cash flow incorrectly.</li></ul></div>`,
+            modelAnswer: ""
+        },
+
+        // ── LUXURY CUSHIONS (LC) ─────────────────────────────────────
+        {
+            num: "Q11 (i)",
+            marks: 2,
+            type: "written",
+            caseStudy: `Elizabeth owns a small business, Luxury Cushions (LC), making and selling quality cushions. She sells these to retail shops and direct to the public over the internet. Her business became successful when she sent cushions to celebrities who posted them on Instagram. Elizabeth regularly communicates to her 10,000 Instagram followers when she has new designs.<br><br>In 2019 LC earned £150,000 in revenue and had a gross profit of £118,000 and a net profit of £56,800. Elizabeth has provided the following financial information:<table class="case-table"><caption>LC Monthly Financial Data</caption><tr><th>Cushions made &amp; sold (per month)</th><th>Fixed costs (per month)</th><th>Average selling price</th><th>Cost of cushion filling</th><th>Cost of cushion cover</th><th>Wage per cushion made</th></tr><tr><td>250</td><td>£7,440</td><td>£50</td><td>£3</td><td>£6</td><td>£10</td></tr></table><br>Elizabeth has the opportunity to expand her business. Her stable cash flow forecast shows she should be able to afford a bank loan to fund the expansion.`,
+            question: "Calculate the gross profit margin for 2019. Show your workings. [2 marks]",
+            hint: "Gross Profit Margin = (Gross Profit ÷ Revenue) × 100. Both figures are given in the case study for 2019.",
+            starter: "Gross Profit Margin = (Gross Profit ÷ Revenue) × 100 =\n\nAnswer: ____%",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO2)</h5><p><strong>Calculation:</strong> £118,000 ÷ £150,000 × 100 = <strong>78.7%</strong> (Accept 79% or 78.6%)</p><ul><li>2 marks for the correct answer (with or without workings shown)</li><li>1 mark for evidence of using the correct two numbers (£118,000 and £150,000)</li><li>Maximum 1 mark if the answer has the incorrect units or magnitude</li></ul></div>`,
+            modelAnswer: "Gross Profit Margin = (£118,000 ÷ £150,000) × 100 = 78.7%"
+        },
+
+        {
+            num: "Q11 (ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: "See Luxury Cushions (LC) case study in Q11 (i).",
+            question: "Calculate the net profit margin for 2019. Show your workings. [2 marks]",
+            hint: "Net Profit Margin = (Net Profit ÷ Revenue) × 100. Both net profit and revenue for 2019 are given in the case study.",
+            starter: "Net Profit Margin = (Net Profit ÷ Revenue) × 100 =\n\nAnswer: ____%",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO2)</h5><p><strong>Calculation:</strong> £56,800 ÷ £150,000 × 100 = <strong>37.9%</strong> (Accept 38% or 37.8%)</p><ul><li>2 marks for the correct answer (with or without workings shown)</li><li>1 mark for evidence of using the correct two numbers (£56,800 and £150,000)</li><li>Maximum 1 mark if the answer has the incorrect units or magnitude</li></ul></div>`,
+            modelAnswer: "Net Profit Margin = (£56,800 ÷ £150,000) × 100 = 37.9%"
+        },
+
+        // ── PETE'S PET SHOP (MCQ) ────────────────────────────────────
+        {
+            num: "Q12",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `An extract from Pete's Pet Shop's cash flow forecast for July is shown below.<table class="case-table"><caption>Pete's Pet Shop — July Extract</caption><tr><th></th><th>July</th></tr><tr><td>Total cash inflow</td><td>£6,900</td></tr><tr><td>Total cash outflow</td><td>?</td></tr><tr><td>Net cash flow</td><td>−£605</td></tr><tr><td>Opening balance</td><td>£3,000</td></tr><tr><td>Closing balance</td><td>£2,395</td></tr></table>`,
+            question: "What is Pete's Pet Shop's estimated total cash outflow for July?",
+            options: ["£3,900", "£6,295", "£7,505", "£9,295"],
+            answer: 2,
+            hint: "Net Cash Flow = Total Inflow − Total Outflow. Rearrange to find: Total Outflow = Total Inflow − Net Cash Flow.",
+            starter: "The answer is C because...",
+            markScheme: `<div class="marks-section"><h5>Answer: C — £7,505 (1 mark, AO2)</h5><p><strong>Calculation:</strong> Total Outflow = Total Inflow − Net Cash Flow = £6,900 − (−£605) = £6,900 + £605 = <strong>£7,505</strong>.</p><p><strong>Verification:</strong> Closing = Opening + Net = £3,000 + (−£605) = £2,395 ✓</p><p><strong>Why others are wrong:</strong></p><ul><li><strong>A — £3,900:</strong> No logical basis.</li><li><strong>B — £6,295:</strong> Subtracts £605 from £6,900 without considering the sign, giving £6,295 instead of adding.</li><li><strong>D — £9,295:</strong> Adds £6,900 + £3,000 - £605, mixing up different rows incorrectly.</li></ul></div>`,
+            modelAnswer: ""
+        },
+
+        // ── LIQUIDITY (MCQ) ──────────────────────────────────────────
+        {
+            num: "Q13",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "A manufacturer is experiencing a range of problems.",
+            question: "Which of the following problems would be classed as a 'liquidity problem'?",
+            options: [
+                "A breakdown on the production line",
+                "Being short of funds to pay suppliers",
+                "Experiencing high levels of wastage during the production process",
+                "Having insufficient financial information to make business decisions"
+            ],
+            answer: 1,
+            hint: "Liquidity = ability to pay SHORT-TERM debts. Which option is about an immediate inability to pay a bill?",
+            starter: "The answer is B because...",
+            markScheme: `<div class="marks-section"><h5>Answer: B — Being short of funds to pay suppliers (1 mark)</h5><p><strong>Why B is correct:</strong> Liquidity is defined as the ability to pay short-term debts. Being unable to pay suppliers is a direct example of a liquidity problem — the business does not have enough cash available to meet an immediate payment obligation.</p><p><strong>Why others are wrong:</strong></p><ul><li><strong>A:</strong> A production line breakdown is an operational problem, not a financial one.</li><li><strong>C:</strong> High wastage is an efficiency and quality management issue — not directly a cash/liquidity problem.</li><li><strong>D:</strong> Lack of financial information is a management and planning issue, not a liquidity problem.</li></ul></div>`,
+            modelAnswer: ""
+        },
+
+        // ── PROFIT (MCQ) ─────────────────────────────────────────────
+        {
+            num: "Q14",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "A business will make a profit if it:",
+            options: [
+                "Ends the year with a positive bank balance",
+                "Exceeds its break-even quantity",
+                "Has costs that are greater than its revenues",
+                "Pays off all of its debts"
+            ],
+            answer: 1,
+            hint: "Profit = Revenue − Total Costs. Which answer describes a situation where revenue is greater than costs?",
+            starter: "The answer is B because...",
+            markScheme: `<div class="marks-section"><h5>Answer: B — Exceeds its break-even quantity (1 mark)</h5><p><strong>Why B is correct:</strong> At break-even, revenue exactly equals total costs. If a business sells more than the break-even quantity, revenue exceeds total costs, which is the definition of profit.</p><p><strong>Why others are wrong:</strong></p><ul><li><strong>A:</strong> A positive bank balance shows liquidity (cash), not profitability. The money in the bank could have come from a loan.</li><li><strong>C:</strong> If costs are greater than revenues, the business is making a LOSS, not a profit.</li><li><strong>D:</strong> Paying off debts relates to solvency, not to whether revenue exceeds costs.</li></ul></div>`,
+            modelAnswer: ""
+        },
+
+        // ── CAFÉ FRESHLY MADE (CFM) ──────────────────────────────────
+        {
+            num: "Q15 (i)",
+            marks: 1,
+            type: "written",
+            caseStudy: `Anne and Martin opened Café Freshly Made (CFM) as a partnership two years ago. It sells sandwiches and fruit juice cocktails direct to the public and also provides a delivery service.<br><br>CFM's gross profit margin has improved from 60% in Year 1 to 70% in Year 2. Its net profit margin has improved from 20% to 25%.<br><br>Martin wants to open another café but Anne is concerned about CFM's cash flow (see below). She knows they will need to buy a new property and pay for fixtures, fittings and staff training. Anne has suggested financing the new shop either using CFM's retained profit or by becoming a private limited company and issuing shares.<table class="case-table"><caption>Table 2 — Extract from CFM's Cash Flow Forecast for Next Month</caption><tr><th></th><th>£</th></tr><tr><td>Revenue</td><td>23,000</td></tr><tr><td>Total inflow</td><td>23,000</td></tr><tr><td>Total outflow</td><td>25,000</td></tr><tr><td>Net cash flow</td><td>?</td></tr><tr><td>Opening balance</td><td>−3,500</td></tr><tr><td>Closing balance</td><td>−5,500</td></tr></table>`,
+            question: "Calculate the net cash flow in Table 2. [1 mark]",
+            hint: "Net Cash Flow = Total Inflow − Total Outflow. Both figures are given in the table.",
+            starter: "Net Cash Flow = Total Inflow − Total Outflow = £23,000 − £25,000 = ...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 1 mark (AO2)</h5><p><strong>Answer: −£2,000</strong></p><p>Net Cash Flow = £23,000 − £25,000 = −£2,000.</p><p><strong>Verification:</strong> Closing Balance = −£3,500 + (−£2,000) = −£5,500 ✓</p><p>The £ sign does not have to be included. Accept −2000 or −£2,000.</p></div>`,
+            modelAnswer: "Net Cash Flow = £23,000 − £25,000 = −£2,000"
+        },
+
+        {
+            num: "Q15 (ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: "See Café Freshly Made (CFM) case study in Q15 (i).",
+            question: "Identify two cash outflows from CFM if Anne and Martin open a new café. [2 marks]",
+            hint: "Think about what CFM would need to PAY FOR when opening a new café. Look at the clues in the case study for specific examples.",
+            starter: "Outflow 1: ...\n\nOutflow 2: ...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO2)</h5><p>1 mark for each correct identification of a cash outflow, up to a maximum of 2 marks.</p><p><strong>Answers may include:</strong></p><ul><li>Fixtures and fittings for the new café</li><li>Property costs / purchase price of new premises</li><li>Staff training costs</li><li>Raw materials / ingredients</li><li>Fuel for delivery service</li><li>Wages / salaries for new staff</li><li>Rent on new premises</li></ul></div>`,
+            modelAnswer: "Outflow 1: Fixtures and fittings for the new café premises.\nOutflow 2: Staff training costs for new employees at the second café."
+        },
+
+        {
+            num: "Q15 (iii)",
+            marks: 1,
+            type: "written",
+            caseStudy: "See Café Freshly Made (CFM) case study in Q15 (i).",
+            question: "State one way Anne and Martin could use the cash flow forecast in Table 2. [1 mark]",
+            hint: "The forecast shows a negative cash balance. What could Anne and Martin DO about this, or USE the forecast to help them do?",
+            starter: "Anne and Martin could use the cash flow forecast to...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 1 mark (AO2)</h5><p><strong>Answers may include:</strong></p><ul><li>Obtain a short-term overdraft or finance to cover the negative balance</li><li>Negotiate with suppliers about when to make purchases</li><li>Make decisions over when to employ staff</li><li>Decide on resource allocation (opening times, stock levels etc.)</li><li>Show to the bank to support a loan application for the new café</li></ul></div>`,
+            modelAnswer: "Anne and Martin could use the cash flow forecast to identify that they will have a negative cash balance next month, and arrange an overdraft with their bank in advance to ensure they can continue paying their bills."
+        },
+
+        // ── NET PROFIT (MCQ) ─────────────────────────────────────────
+        {
+            num: "Q16",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "A company has made a net profit of £16,000.",
+            question: "Which of the following statements must be true?",
+            options: [
+                "The company has at least £16,000 in its bank account",
+                "The company will have no difficulty paying its bills",
+                "The company's cash outflows were £16,000 more than its cash inflows",
+                "The company's revenue exceeded its costs"
+            ],
+            answer: 3,
+            hint: "Think about the definition of profit. Profit = Revenue − Costs. If profit is positive, what does that tell us about revenue vs costs?",
+            starter: "The answer is D because...",
+            markScheme: `<div class="marks-section"><h5>Answer: D — The company's revenue exceeded its costs (1 mark, AO2)</h5><p><strong>Why D is correct:</strong> Net profit = Revenue − Total Costs. If net profit is £16,000 (positive), then by definition revenue must have been greater than total costs.</p><p><strong>Why others are wrong:</strong></p><ul><li><strong>A:</strong> The company might have spent or invested the profit money; profit and cash are different. The bank balance could be very low even with a good profit.</li><li><strong>B:</strong> A profitable business can still struggle to pay its bills if it has a cash flow problem (e.g. customers not paying on time).</li><li><strong>C:</strong> That would describe a net CASH OUTFLOW of £16,000 — meaning a cash deficit, not a profit. It is the complete opposite of what happened.</li></ul></div>`,
+            modelAnswer: ""
+        },
+
+        // ── MILLICAN GARAGE (MCQ) ────────────────────────────────────
+        {
+            num: "Q17",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `A cash flow forecast for Millican Garage is shown below.<table class="case-table"><caption>Millican Garage — Cash Flow Forecast</caption><tr><th></th><th>July £</th><th>August £</th><th>September £</th></tr><tr><td>Revenue (Total Inflow)</td><td>13,055</td><td>12,200</td><td>12,945</td></tr><tr><td>Car parts</td><td>4,200</td><td>4,240</td><td>3,900</td></tr><tr><td>Wages</td><td>3,100</td><td>3,250</td><td>4,450</td></tr><tr><td>Overheads</td><td>5,500</td><td>5,500</td><td>5,500</td></tr><tr><td><strong>Total outflow</strong></td><td><strong>12,800</strong></td><td><strong>12,990</strong></td><td><strong>13,850</strong></td></tr><tr><td><strong>Net cash flow</strong></td><td><strong>255</strong></td><td><strong>−790</strong></td><td><strong>−905</strong></td></tr><tr><td>Opening balance</td><td>1,760</td><td>2,015</td><td>1,225</td></tr><tr><td>Closing balance</td><td>2,015</td><td>1,225</td><td>?</td></tr></table>`,
+            question: "What is Millican Garage's closing balance for September?",
+            options: ["−£2,130", "£320", "£2,130", "£12,040"],
+            answer: 1,
+            hint: "Closing Balance = Opening Balance + Net Cash Flow. Use September's opening balance and net cash flow.",
+            starter: "The answer is B because...",
+            markScheme: `<div class="marks-section"><h5>Answer: B — £320 (1 mark, AO2)</h5><p><strong>Calculation:</strong> Closing Balance = Opening Balance + Net Cash Flow = £1,225 + (−£905) = <strong>£320</strong>.</p><p><strong>Why others are wrong:</strong></p><ul><li><strong>A — −£2,130:</strong> Adds −£905 and −£1,225 incorrectly (opening balance is +£1,225, not negative).</li><li><strong>C — £2,130:</strong> Adds 1,225 + 905 (ignores the negative sign on net cash flow).</li><li><strong>D — £12,040:</strong> Adds total inflow and opening balance, ignoring outflows — not a valid formula.</li></ul></div>`,
+            modelAnswer: ""
+        },
+
+        // ── PASHA'S CARPETS (MCQ) ────────────────────────────────────
+        {
+            num: "Q18",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `An extract from Pasha's Carpets' cash flow forecast for August 2019 is shown below.<table class="case-table"><caption>Pasha's Carpets — August 2019 Extract</caption><tr><th></th><th>August £</th></tr><tr><td>Total inflow</td><td>44,000</td></tr><tr><td>Total outflow</td><td>45,500</td></tr><tr><td>Net cash flow</td><td>?</td></tr><tr><td>Opening balance</td><td>−1,100</td></tr><tr><td>Closing balance</td><td>−2,600</td></tr></table>`,
+            question: "Pasha's Carpets' net cash flow for August 2019 is expected to be:",
+            options: ["−£3,700", "−£1,500", "£1,500", "£3,700"],
+            answer: 1,
+            hint: "Net Cash Flow = Total Inflow − Total Outflow. Both figures are given.",
+            starter: "The answer is B because...",
+            markScheme: `<div class="marks-section"><h5>Answer: B — −£1,500 (1 mark, AO2)</h5><p><strong>Calculation:</strong> Net Cash Flow = £44,000 − £45,500 = <strong>−£1,500</strong>.</p><p><strong>Verification:</strong> Closing = Opening + Net = −£1,100 + (−£1,500) = −£2,600 ✓</p><p><strong>Why others are wrong:</strong></p><ul><li><strong>A — −£3,700:</strong> Possibly adds the opening balance to the outflow difference. Examiner noted many candidates chose C or A by recognising the inflow/outflow difference but failing to apply the correct sign.</li><li><strong>C — £1,500:</strong> Correct absolute value but the sign is wrong — outflow exceeded inflow so net cash flow must be negative.</li><li><strong>D — £3,700:</strong> No clear basis — possibly adds the two figures.</li></ul><p><strong>Examiner's Comment:</strong> Candidates who got this wrong often recognised the difference between inflow and outflow, but did not see that it was a negative amount, therefore choosing C instead of B.</p></div>`,
+            modelAnswer: ""
+        },
+
+        // ── CLARANN (CASE STUDY 35) ──────────────────────────────────
+        {
+            num: "CS35 (a)",
+            marks: 2,
+            type: "written",
+            caseStudy: `Clara and Annabelle have just opened their new business, ClarAnn, selling vegetarian and vegan foods from a small shop in their home town. They have no previous business experience.<br><br>In order to start the business, they borrowed money from their parents, and together with all their own savings they were ready to go.<br><br>They both realise that the first few months of running the business will be tough. There are a number of competitors selling similar products, but Clara and Annabelle feel that as they are both vegan, they understand the needs of their potential customers.<br><br>Clara and Annabelle have been advised that they should complete a cash flow forecast for the business. Along with many other forms to fill in, they both feel that running their own business will not be entirely straightforward.`,
+            question: "Identify two items of expenditure that Clara and Annabelle are likely to have in their cash flow forecast. [2 marks]",
+            hint: "Expenditure = money going OUT. Think about what a small food shop would need to pay for regularly.",
+            starter: "Expenditure item 1: ...\n\nExpenditure item 2: ...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a / Knowledge)</h5><p>1 mark for each correct item of expenditure, up to a maximum of 2 marks.</p><p><strong>Answers may include:</strong></p><ul><li>Stock for the shop (food items / vegetarian or vegan products)</li><li>Overheads — heating / lighting / electricity</li><li>Wages / salaries (if they employ staff)</li><li>Rent for the shop premises</li><li>Packaging materials</li><li>Loan repayments (repaying parents)</li></ul></div>`,
+            modelAnswer: "Expenditure item 1: Stock — Clara and Annabelle will need to regularly purchase vegetarian and vegan food products to sell in their shop.\nExpenditure item 2: Overheads — they will need to pay for heating, lighting and electricity for the shop."
+        },
+
+        {
+            num: "CS35 (b)",
+            marks: 7,
+            type: "written",
+            caseStudy: "See ClarAnn case study in CS35 (a).",
+            question: "Evaluate the usefulness to Clara and Annabelle of completing a cash flow forecast. [7 marks]",
+            hint: "This is a 7-mark evaluate question — use the 4-paragraph structure: (1) K&U — explain what a cash flow forecast is and does; (2) AN&APP — first benefit linked to ClarAnn's specific situation; (3) AN&APP — second benefit or counterpoint; (4) EVAL — justified judgement using ClarAnn's context.",
+            starter: "Para 1 (K&U): A cash flow forecast is a statement that shows... For a new business like ClarAnn, completing one means...\n\nPara 2 (AN&APP): One way a cash flow forecast is useful to ClarAnn is... because [use case study detail]... This would mean that...\n\nPara 3 (AN&APP): Furthermore / However, another benefit/limitation is... In ClarAnn's case, [case study detail]... As a result...\n\nPara 4 (EVAL): Overall, I believe the cash flow forecast is [very/fairly] useful to Clara and Annabelle because... This is particularly important given that... However, this depends on...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 7 marks</h5><p><strong>AO2 / Application (2 marks):</strong> Two examples that relate specifically to the ClarAnn case study.</p><ul><li>This is a new business with no experience; they must keep a careful eye on cash, especially with competition present.</li><li>They need to anticipate possible cash shortages — they have used all their savings and borrowed from parents, so they have nothing to fall back on.</li></ul><p><strong>AO3a / Analysis (2 marks):</strong> Two separate points explaining the effect or impact on the business.</p><ul><li>Without cash, a business will not be able to meet its short-term debts. As a new business, ClarAnn must not fail to pay suppliers — it has no reputation to fall back on. Without suppliers, there is no stock to sell.</li><li>Planning ahead with a cash flow forecast means a business can arrange finance ahead of any potential shortfall. This is especially important for a new business with no financial history.</li></ul><p><strong>AO3b / Evaluation (3 marks):</strong></p><ul><li><strong>Judgement (1 mark):</strong> A clear statement — e.g. "I think completing a cash flow forecast will be very useful to Clara and Annabelle."</li><li><strong>Justification (up to 2 marks):</strong> A clear justification using case study context — e.g. Clara and Annabelle are new to running a business with no experience, so the forecast will force them to think about inflows and outflows and help them arrange finance if needed.</li></ul></div>`,
+            modelAnswer: `A cash flow forecast is a statement showing the expected flow of money into and out of a business over a future period (K). For a new business like ClarAnn, completing one means they can plan ahead and understand when cash is likely to be tight (U).
+
+One benefit of completing a cash flow forecast for ClarAnn is that it will help them anticipate cash shortages. As they have used all their savings and borrowed from their parents, they have no financial cushion to fall back on (APP). If the forecast reveals a month where outflows (stock, rent, overheads) exceed inflows from sales, ClarAnn can arrange a short-term overdraft in advance — rather than discovering the problem when it is too late (AN).
+
+Furthermore, as a new business facing competitors, completing the forecast acts as a planning tool that can be shown to a bank. This is significant because ClarAnn will need to demonstrate financial credibility if they ever need further finance (APP). Without this planning, they may struggle to secure a loan and could be forced to close even though the business is viable (AN).
+
+Overall, I believe completing a cash flow forecast is very useful to Clara and Annabelle (JUDGEMENT). They have no previous business experience, which makes financial planning even more critical than usual. The forecast will force them to think carefully about their cash position and help them avoid the most common reason new businesses fail — running out of cash, not because they are unprofitable, but because they have not planned their spending properly (JUSTIFICATION using context).`
+        },
+
+        // ── DELTIC GROUP (CASE STUDY 36) ────────────────────────────
+        {
+            num: "CS36 (a)",
+            marks: 2,
+            type: "written",
+            caseStudy: `The Deltic Group owned 53 nightclubs in the UK including Pryzm in Birmingham and Eden in Newcastle. It had been valued at £80 million. In early 2021, the Group was sold to a Scandinavian business, Rekom, for only £10 million. This happened during the third period of lockdown during the coronavirus pandemic 2020–21, when nightclubs were not allowed to open.<br><br>The problem for the Deltic Group was that it had severe cash flow problems. With the nightclubs closed, the Deltic Group had changed some of its venues to become bars which had been allowed to open for some of the time. This was bringing in £80,000 per month — a significant drop in income. Although Deltic laid off some staff to reduce costs, it still had other bills to pay. The total rent on the premises was £1 million per month. It also had service charges, utility bills and staff wages to pay. Despite some government support, Deltic continued to experience a cash flow problem.<br><br>By the time it was sold, Deltic owed £9.4 million to landlords and had further debt of £7.7 million, and did not have large cash reserves. The owners decided they had to sell up.`,
+            question: "Explain what is meant by a cash flow problem. [2 marks]",
+            hint: "Define 'cash flow' (income and expenditure over time) and then explain what a 'problem' means in this context — link to negative cash flow and the inability to pay debts.",
+            starter: "Cash flow refers to the movement of money into and out of a business over a period of time...\n\nA cash flow problem occurs when...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a / Knowledge)</h5><p>A clear explanation of the term 'cash flow problem' for 2 marks.</p><p><strong>Key points to include:</strong></p><ul><li>Cash flow = income received and payments made by the business over a period</li><li>A problem = when income is less than that needed to make payments (negative cash flow)</li><li>Reference to 'negative cash flow' is useful and well-regarded</li><li>A business with a cash flow problem cannot pay its short-term debts on time</li></ul></div>`,
+            modelAnswer: "Cash flow refers to the movement of money into and out of a business over time (1). A cash flow problem occurs when the money flowing out (expenditure) consistently exceeds the money flowing in (income), creating a negative cash flow — meaning the business cannot pay its immediate debts such as rent, wages or supplier invoices (1)."
+        },
+
+        {
+            num: "CS36 (b)",
+            marks: 7,
+            type: "written",
+            caseStudy: "See Deltic Group case study in CS36 (a).",
+            question: "Discuss the factors that may have influenced the owners' decision to sell the Deltic Group. [7 marks]",
+            hint: "This is a 7-mark discuss/evaluate question. Use the 4-paragraph structure: (1) K&U — explain a factor; (2) AN&APP — analyse one factor using Deltic's specific data; (3) AN&APP — analyse another factor; (4) EVAL — justified judgement about which factor was MOST important, using context.",
+            starter: "Para 1 (K&U): One factor that influenced the decision to sell was... This refers to...\n\nPara 2 (AN&APP): In the case of the Deltic Group, [use specific figures from the case]... This meant that...\n\nPara 3 (AN&APP): A further factor was... The data shows that... As a result...\n\nPara 4 (EVAL): Overall, the most significant factor influencing the decision to sell was... because [use Deltic data]... However, this depends on...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 7 marks</h5><p><strong>AO2 / Application (1 mark):</strong></p><ul><li>Reference to Deltic's income falling to £80,000/month while rent alone was £1 million/month</li><li>Rising debts: £9.4m to landlords, £7.7m further debt</li><li>Lack of cash reserves</li><li>The sale price was only £10 million vs £80 million valuation</li></ul><p><strong>AO3a / Analysis (3 marks):</strong></p><ul><li>To continue trading, Deltic needed to make payments. When there is a negative cash flow, an overdraft can help but this incurs extra costs and raises debts further.</li><li>The selling price of £10m was far below the £80m valuation — the owners would incur a significant loss from the sale.</li><li>With £17m+ in total debt and no certainty of when clubs would reopen, the position was getting worse each month.</li></ul><p><strong>AO3b / Evaluation (3 marks):</strong></p><ul><li><strong>Judgement (1 mark):</strong> e.g. "The decision was most influenced by the rising debts and continuing cash flow problem."</li><li><strong>Justification (up to 2 marks):</strong> Rising debts and rising interest costs meant the financial position was deteriorating rapidly. Creditors could force the business to close, giving the owners nothing. By selling, at least they received £10 million. The uncertainty over reopening dates made it impossible to plan a recovery.</li></ul></div>`,
+            modelAnswer: `One factor that influenced the owners' decision to sell was the severity of the cash flow problem — where the money flowing out far exceeded the money coming in (K). This is directly relevant to Deltic's situation.
+
+In terms of the cash flow crisis, the Deltic Group was earning only £80,000 per month from the few bars that could open, while facing £1 million per month in rent alone — plus service charges, utility bills and wages (APP). This gap of nearly £1 million per month was creating a deepening negative cash flow that made it almost impossible to continue trading (AN).
+
+Furthermore, the accumulation of debt was a critical factor. By the time of the sale, Deltic owed £9.4 million to landlords and had a further £7.7 million in other debt (APP). With no large cash reserves, there was a real risk that creditors would legally force the business to close — in which case the owners would receive nothing at all from the assets (AN).
+
+Overall, the most significant factor was the combination of mounting debt and the complete uncertainty over when nightclubs would be allowed to reopen (JUDGEMENT). Even with the pandemic support from the government, the monthly shortfall was so large and the debt so significant that there was no realistic path to recovery without selling. By selling for £10 million, the owners at least received some return — whereas a forced closure by creditors would have given them nothing (JUSTIFICATION). However, this decision depended entirely on whether the owners believed lockdowns would continue — if clubs could have reopened quickly, the decision might have been different.`
+        },
+
+        // ── BOWTON GARAGE (WORKSHEET) ────────────────────────────────
+        {
+            num: "WQ1",
+            marks: 4,
+            type: "written",
+            caseStudy: `The cash flow forecast below is for Bowton Garage Ltd for the first three months of the year.<table class="case-table"><caption>Cash Flow Forecast — Bowton Garage Ltd</caption><tr><th></th><th>January £</th><th>February £</th><th>March £</th></tr><tr><td>Sales (Total Inflows)</td><td>35,000</td><td>25,000</td><td>30,000</td></tr><tr><td>Materials</td><td>8,000</td><td>8,000</td><td>6,000</td></tr><tr><td>Electricity and gas</td><td>1,000</td><td>1,000</td><td>1,000</td></tr><tr><td>Rent paid for premises</td><td>2,000</td><td>2,000</td><td>2,000</td></tr><tr><td>Wages</td><td>14,000</td><td><strong>B</strong></td><td>14,000</td></tr><tr><td><strong>Total outflow</strong></td><td>25,000</td><td>22,000</td><td>23,000</td></tr><tr><td><strong>Net cash flow</strong></td><td><strong>A</strong></td><td>3,000</td><td>7,000</td></tr><tr><td>Opening balance</td><td>5,000</td><td><strong>C</strong></td><td>18,000 (given)</td></tr><tr><td>Closing balance</td><td>15,000</td><td>18,000</td><td><strong>D</strong></td></tr></table>`,
+            question: "Calculate the missing figures A, B, C, and D in the cash flow forecast for Bowton Garage Ltd. [4 marks]",
+            hint: "Work through each missing figure in order. A = Net cash flow (inflow − outflow). B = a missing outflow (total outflow − other outflows). C = opening balance February (= closing balance January). D = closing balance March.",
+            starter: "A = Net Cash Flow (January) = Total Inflow − Total Outflow = £35,000 − £25,000 = ...\n\nB = Wages (February) = Total Outflow − Materials − E&G − Rent = £22,000 − ... = ...\n\nC = Opening Balance (February) = Closing Balance (January) = ...\n\nD = Closing Balance (March) = Opening Balance + Net Cash Flow = £18,000 + £7,000 = ...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 4 marks (1 mark each)</h5><ul><li><strong>A = £10,000</strong> — Net Cash Flow (January) = £35,000 − £25,000 = £10,000 (1 mark)</li><li><strong>B = £11,000</strong> — Wages (February) = £22,000 − £8,000 − £1,000 − £2,000 = £11,000 (1 mark)</li><li><strong>C = £15,000</strong> — Opening Balance (February) = Closing Balance (January) = £5,000 + £10,000 = £15,000 (1 mark)</li><li><strong>D = £25,000</strong> — Closing Balance (March) = £18,000 + £7,000 = £25,000 (1 mark)</li></ul></div>`,
+            modelAnswer: "A = £35,000 − £25,000 = £10,000\nB = £22,000 − £8,000 − £1,000 − £2,000 = £11,000\nC = £15,000 (closing balance of January = opening balance of February)\nD = £18,000 + £7,000 = £25,000"
+        },
+
+        {
+            num: "WQ2",
+            marks: 1,
+            type: "written",
+            caseStudy: "See Bowton Garage case study in WQ1.",
+            question: "State one reason why drawing up a cash flow forecast is useful for Bowton Garage Ltd. [1 mark]",
+            hint: "Think about what Bowton Garage can DO with or because of the cash flow forecast. One clear, specific point.",
+            starter: "Drawing up a cash flow forecast is useful for Bowton Garage because it allows them to...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 1 mark (AO1a)</h5><p><strong>Answers may include:</strong></p><ul><li>It helps them to plan ahead / acts as a planning tool</li><li>It allows them to anticipate months of negative cash flow or cash shortage</li><li>It can be used to arrange finance (e.g. overdraft) in advance</li><li>It can be shown to a bank to support a loan application</li><li>It provides targets for managing their spending</li></ul><p><strong>No reward for:</strong> answers about profit or break-even.</p></div>`,
+            modelAnswer: "Drawing up a cash flow forecast is useful for Bowton Garage because it allows them to anticipate months when cash may run short, so they can arrange an overdraft with their bank before the problem occurs."
+        },
+
+        {
+            num: "WQ3",
+            marks: 2,
+            type: "written",
+            caseStudy: "See Bowton Garage case study in WQ1.",
+            question: "Explain the difference between cash and profit. [2 marks]",
+            hint: "Define BOTH terms clearly — one sentence for each. Make sure your definitions show they are different measurements of a business's financial situation.",
+            starter: "Cash is [define it and what it is used for]...\n\nProfit is [define how it is calculated and how it differs from cash]...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a / AO1b)</h5><ul><li><strong>Cash (1 mark):</strong> Money held in bank accounts or on the premises, used to pay short-term debts and expenses as they arise.</li><li><strong>Profit (1 mark):</strong> Calculated by subtracting total costs from total revenue; shows whether the business has earned more than it spent over a period. A business could be short of cash one month but still make a good profit overall (e.g. if waiting for a large order to be paid).</li></ul></div>`,
+            modelAnswer: "Cash is the money held in a business's bank account or on its premises, used to pay short-term debts such as wages and rent as they fall due (1).\n\nProfit is calculated by subtracting total costs from total revenue — a business could be profitable overall but still have very little cash in a particular month, for example if it is waiting for a large customer payment to arrive (1)."
+        },
+
+        {
+            num: "WQ4",
+            marks: 4,
+            type: "written",
+            caseStudy: "See Bowton Garage case study in WQ1.",
+            question: "If Bowton Garage had a negative cash flow, explain two ways in which the business could deal with it. [4 marks]",
+            hint: "Give two SEPARATE ways. For each one: (1) name the method clearly, and (2) use evidence from the actual Bowton Garage cash flow to explain HOW it would help. Do not give vague answers like 'get more money.'",
+            starter: "Way 1: One way Bowton Garage could deal with a negative cash flow is... This would help because [link to the specific cash flow data]...\n\nWay 2: A second way would be to... In the case of Bowton Garage, this would mean...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 4 marks (AO1b / AO2)</h5><p>2 marks for each way (1 for identifying the method + 1 for explaining/applying it to Bowton Garage's situation).</p><p><strong>Possible ways include:</strong></p><ul><li>Arrange an overdraft (1) — this would give Bowton Garage access to short-term funds to cover the shortfall, e.g. to pay wages and rent in a difficult month (1)</li><li>Reduce expenditure (1) — for example, Bowton Garage could negotiate lower material costs or delay purchasing non-essential items (1)</li><li>Increase revenue / raise prices (1) — higher sales revenue would increase inflows, reducing the gap between inflows and outflows (1)</li><li>Delay payment of bills (1) — Bowton Garage could negotiate with suppliers to extend payment terms, keeping cash in the business longer (1)</li><li>Chase customers for quicker payment (1) — if some of Bowton Garage's customers pay on credit, speeding up payments would improve cash inflows (1)</li></ul><p><strong>Note:</strong> Each way must be genuinely different. Two marks cannot be awarded for the same type of action described twice.</p></div>`,
+            modelAnswer: "Way 1: Bowton Garage could arrange an overdraft with its bank (1). This would provide immediate access to extra funds to cover the negative balance, ensuring they can still pay their wages (£14,000 per month) and rent (£2,000) even if sales revenue falls short in a particular month (1).\n\nWay 2: Bowton Garage could reduce its materials spending (1). Looking at the forecast, materials drop from £8,000 in January and February to £6,000 in March — this suggests there is flexibility in this expenditure. If facing a negative cash flow, they could negotiate lower material orders or delay non-urgent purchases to reduce outflows (1)."
+        }
+
+    ];
+</script>
+    <script src="script.js"></script>
+</body>
+
+</html>

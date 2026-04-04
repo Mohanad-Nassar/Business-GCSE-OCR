@@ -1,0 +1,1258 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>.4 Break-Even Analysis – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Business — Component 2</div>
+            <h1>5.4 Break-Even Analysis</h1>
+            <p>Interactive revision guide · All key content + full exam practice</p>
+        </div>
+        <a href="index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px">
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #d4edda;
+                  border: 1.5px solid #2d7a4f;
+                  display: inline-block;
+                "></span>
+                        First attempt correct</span>
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fff8dc;
+                  border: 1.5px solid #b8860b;
+                  display: inline-block;
+                "></span>
+                        Correct after mistake</span>
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fde8e5;
+                  border: 1.5px solid #c84b31;
+                  display: inline-block;
+                "></span>
+                        Wrong — try again</span>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+    <script>
+        // ══════════════════════════════════════
+        //  DATA TEMPLATE: 5.4 Break-even
+        // ══════════════════════════════════════
+
+        // 1. Main Learning Content
+        const topics = [
+            {
+                title: "Key Terms & Official Definitions",
+                tag: "Core Concepts",
+                content: `<p>Break-even analysis is a financial tool that helps businesses calculate the minimum number of units they must sell to cover all costs — making neither a profit nor a loss.</p>
+    <ul>
+      <li><strong>Break-even quantity:</strong> The amount a business must sell to earn enough revenue to just cover its costs so that it does not make a profit or a loss.</li>
+      <li><strong>Contribution per unit:</strong> Selling price minus variable cost per unit. Each unit sold "contributes" towards covering fixed costs before profit can be made.</li>
+      <li><strong>Total Revenue (TR):</strong> Selling price × quantity sold.</li>
+      <li><strong>Fixed Costs:</strong> Costs that do not change depending on output (e.g., rent, insurance, loan repayments).</li>
+      <li><strong>Variable Costs:</strong> Costs that change depending on the level of output (e.g., raw materials, packaging, direct labour).</li>
+      <li><strong>Total Costs:</strong> Total fixed costs + total variable costs.</li>
+      <li><strong>Margin of Safety:</strong> Actual sales − break-even sales. The amount by which a business's actual output is greater than its break-even level of output.</li>
+      <li><strong>Break-even forecast:</strong> A prediction about the break-even quantity based on estimates of future sales revenues and costs.</li>
+      <li><strong>Profit:</strong> Total revenue − total costs (when TR > TC).</li>
+      <li><strong>Loss:</strong> When total costs exceed total revenue (TC > TR) — this occurs when output is below the break-even point.</li>
+    </ul>`
+            },
+            {
+                title: "Calculating the Break-Even Quantity",
+                tag: "Formulas & Calculations",
+                content: `<p>There is one formula you must know for the OCR GCSE exam. Break-even is <strong>always recorded in units</strong>, never in pounds (£).</p>
+    <div class="formula-box">
+      <strong>Break-Even Output =</strong> Total Fixed Costs ÷ Contribution per Unit<br><br>
+      <strong>Contribution per Unit =</strong> Selling Price − Variable Cost per Unit
+    </div>
+    <p><strong>Worked Example:</strong> A toy manufacturer has fixed costs of £50,000, sells toys at £6 each, and variable costs of £2 per toy.</p>
+    <ul>
+      <li>Contribution = £6 − £2 = <strong>£4 per unit</strong></li>
+      <li>Break-even = £50,000 ÷ £4 = <strong>12,500 units</strong></li>
+    </ul>
+    <p><strong>⚠️ Key Rules:</strong></p>
+    <ul>
+      <li><strong>Always round UP</strong> if your answer is a decimal — you cannot break even on a fraction of a unit. For example, 583.3 rounds up to 584.</li>
+      <li><strong>Always show your working</strong> — even if the final answer is wrong, you can earn method marks for each correct step.</li>
+      <li><strong>Watch for time period traps</strong> — if costs are given weekly but the question asks for a daily break-even, divide fixed costs by 7 first.</li>
+    </ul>`
+            },
+            {
+                title: "The Break-Even Graph",
+                tag: "Theory",
+                content: `<p>Break-even can be shown visually using a line graph. You may be asked to <strong>read and interpret</strong> a break-even graph in the exam.</p>
+    <ul>
+      <li><strong>Horizontal axis (x-axis):</strong> Output / Units sold</li>
+      <li><strong>Vertical axis (y-axis):</strong> Costs and Revenue (£)</li>
+      <li><strong>Fixed Costs line:</strong> A <em>horizontal</em> straight line — costs stay the same at all levels of output</li>
+      <li><strong>Total Costs line:</strong> Starts at the fixed cost level, then rises diagonally as output increases (adding variable costs)</li>
+      <li><strong>Total Revenue line:</strong> Starts at zero (no sales = no revenue), rises diagonally as output increases</li>
+      <li><strong>Break-even point:</strong> Where the Total Revenue line crosses the Total Costs line (TR = TC)</li>
+      <li><strong>Loss area:</strong> To the <em>left</em> of the break-even point — TC > TR, so the business makes a loss</li>
+      <li><strong>Profit area:</strong> To the <em>right</em> of the break-even point — TR > TC, so the business makes a profit</li>
+    </ul>
+    <p>The <strong>Margin of Safety</strong> is shown as the horizontal distance between actual output and the break-even point. A larger margin of safety means the business has more protection against a fall in sales.</p>`
+            },
+            {
+                title: "Benefits of Break-Even Analysis",
+                tag: "Analysis",
+                content: `<p>Break-even analysis is a powerful planning tool with several key benefits for businesses:</p>
+    <ul>
+      <li><strong>Planning sales targets:</strong> It shows exactly how many units must be sold to make a profit, giving the business a specific, measurable target to aim for.</li>
+      <li><strong>Securing a bank loan:</strong> Banks often ask to see a break-even forecast as part of a business plan. It demonstrates that the owner has planned carefully, reducing the risk for the bank and making them more willing to lend.</li>
+      <li><strong>Pricing and cost decisions:</strong> If the break-even output is too high to be realistic, the business can consider raising its price or cutting variable/fixed costs to lower the break-even point.</li>
+      <li><strong>Estimating expected profit:</strong> Once break-even is known, the business can forecast how much profit it would make at different levels of output.</li>
+      <li><strong>Assessing the margin of safety:</strong> The business can evaluate how far sales can fall before it starts making a loss, helping it plan for economic uncertainty.</li>
+    </ul>`
+            },
+            {
+                title: "Limitations of Break-Even Analysis",
+                tag: "Analysis",
+                content: `<p>Despite its usefulness, break-even analysis has several important limitations that businesses must be aware of:</p>
+    <ul>
+      <li><strong>It is only a prediction:</strong> All figures used are estimates of future costs and revenues. Actual results may differ significantly from the forecast.</li>
+      <li><strong>Competitors may change:</strong> If a new competitor enters the market, the business may have to lower its price to maintain sales. This reduces contribution per unit and raises the break-even output — making the original forecast inaccurate.</li>
+      <li><strong>Variable costs may change:</strong> If the cost of raw materials rises or falls unexpectedly, the variable cost per unit changes, altering the contribution and therefore the break-even point.</li>
+      <li><strong>Difficult for multi-product businesses:</strong> Calculating break-even is straightforward for a single-product business but becomes complex and less reliable when a firm sells many different products at different prices and costs.</li>
+      <li><strong>Promotional pricing is ignored:</strong> A business may offer discounts at launch, meaning actual revenue is less than the planned price — raising the real break-even output.</li>
+      <li><strong>Price increases may not raise revenue:</strong> If a price rise leads to a large fall in demand, total revenue could actually decrease — meaning the assumed revenue line on the graph would be inaccurate.</li>
+    </ul>`
+            },
+            {
+                title: "Advantages vs Disadvantages of Break-Even Analysis",
+                tag: "Pros & Cons",
+                content: `<div class="two-col">
+    <div>
+    <div class="col-head">✓ Advantages</div>
+    <div class="pro-item"><strong>Clear sales target:</strong> Shows exactly how many units must be sold to cover all costs and move into profit — giving management a specific goal to plan around.</div>
+    <div class="pro-item"><strong>Supports bank loan applications:</strong> A bank manager is more likely to lend money if the business can present a break-even forecast as part of a well-prepared business plan.</div>
+    <div class="pro-item"><strong>Informs pricing and cost decisions:</strong> If the break-even output is too high, the business knows it must either raise its price or reduce its costs to make profitability realistic.</div>
+    <div class="pro-item"><strong>Forecasts profit at different outputs:</strong> Allows the business to estimate how much profit it could make at various sales levels, aiding strategic planning.</div>
+    </div>
+    <div>
+    <div class="col-head">✗ Disadvantages</div>
+    <div class="con-item"><strong>Based on estimates only:</strong> All revenue and cost figures are predictions. If prices or costs change unexpectedly, the entire forecast becomes inaccurate.</div>
+    <div class="con-item"><strong>Ignores competition:</strong> New competitors entering the market may force price cuts, reducing contribution per unit and pushing the real break-even output above what was forecast.</div>
+    <div class="con-item"><strong>Variable costs can change:</strong> Raw material price increases raise the variable cost per unit, shrinking the contribution and raising the break-even output beyond the original calculation.</div>
+    <div class="con-item"><strong>Not suitable for multi-product businesses:</strong> Firms selling several products with different costs and prices find break-even analysis complex and unreliable as a guide to overall performance.</div>
+    </div>
+    </div>`
+            },
+            {
+                title: "How Changes Affect the Break-Even Point",
+                tag: "Theory",
+                content: `<p>A key exam skill is predicting what happens to the break-even output when variables change. Use the formula to reason through each scenario logically:</p>
+    <ul>
+      <li><strong>Selling price increases &rarr;</strong> Contribution per unit rises &rarr; Break-even output <strong>decreases</strong> (fewer units needed).</li>
+      <li><strong>Selling price decreases &rarr;</strong> Contribution per unit falls &rarr; Break-even output <strong>increases</strong> (more units needed).</li>
+      <li><strong>Fixed costs increase &rarr;</strong> More costs to cover &rarr; Break-even output <strong>increases</strong>.</li>
+      <li><strong>Fixed costs decrease &rarr;</strong> Fewer costs to cover &rarr; Break-even output <strong>decreases</strong>.</li>
+      <li><strong>Variable cost per unit increases &rarr;</strong> Contribution per unit falls &rarr; Break-even output <strong>increases</strong>.</li>
+      <li><strong>Variable cost per unit decreases &rarr;</strong> Contribution per unit rises &rarr; Break-even output <strong>decreases</strong>.</li>
+    </ul>
+    <p>On a break-even graph: a <strong>price increase</strong> is shown as a steeper Total Revenue line (pivoting upward). A <strong>rise in variable costs</strong> is shown as a steeper Total Costs line (pivoting upward from the fixed cost level).</p>`
+            },
+            {
+                title: "Case Study: Lord Digby Jones & Hereford Furniture",
+                tag: "Case Study",
+                content: `<div class="case-study-box">
+    <h4>Case Study: Hereford Furniture</h4>
+    <p>Lord Digby Jones, a respected businessman, appeared on a BBC TV programme called <em>The New Trouble Shooter</em>. He visited Hereford Furniture, a family-owned business run by Mike Muxworthy and his daughter Kate. At the time of his visit, the business was making a loss of £80,000 and the jobs of 40 workers were at risk.</p>
+    <p>Lord Jones <strong>heavily criticised the owners for not completing break-even forecasts</strong>, calling them "essential for good business planning." Without knowing their break-even output, the owners had no clear sales target and no way of knowing whether their pricing was sufficient to cover costs.</p>
+    <p><strong>The Takeaway:</strong> Even established businesses must regularly calculate break-even. Without it, managers are effectively "flying blind" — unable to make informed decisions about price, costs, or how much to produce. Lord Jones' intervention helped the business develop a clear financial plan to return to profitability.</p>
+    </div>`
+            },
+            {
+                title: "Case Study: Samantha Dixon — Cake Decorating",
+                tag: "Application",
+                content: `<div class="case-study-box">
+    <h4>Case Study: Samantha Dixon — Wedding Cake Business</h4>
+    <p>Samantha Dixon is starting up a cake decorating business. In her area there are already two other cake decorating businesses. She estimates she can sell wedding cakes at £300 each — slightly less than her competitors. Variable costs per cake are £180. Her fixed costs are £3,600 per year.</p>
+    <p><strong>Break-Even Calculation:</strong></p>
+    <ul>
+      <li>Contribution = £300 − £180 = £120 per cake</li>
+      <li>Break-even = £3,600 ÷ £120 = <strong>30 cakes per year</strong></li>
+    </ul>
+    <p><strong>What this means for Samantha:</strong></p>
+    <ul>
+      <li>She must sell at least 30 cakes before making any profit.</li>
+      <li>If she expects to sell 35 cakes, her margin of safety is 35 − 30 = 5 cakes.</li>
+      <li>She can show this forecast to a bank manager to support a loan application, demonstrating she has a clear financial plan.</li>
+    </ul>
+    <p><strong>Key Limitation:</strong> There are already 2 competitors. If they lower their prices below £300, Samantha may have to follow — reducing contribution per cake and pushing her break-even output above 30, making the forecast inaccurate.</p>
+    </div>`
+            }
+        ];
+
+
+        // 2. Multiple Choice Questions (Minimum 10)
+        const mcqData = [
+            {
+                q: "What is the break-even quantity?",
+                opts: [
+                    "The output level at which a business maximises its profit",
+                    "The output level at which total revenue equals total costs",
+                    "The output level at which fixed costs equal variable costs",
+                    "The output level at which a business earns its highest revenue"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. Break-even is the point where total revenue exactly equals total costs, so the business makes neither a profit nor a loss."
+            },
+            {
+                q: "A manufacturer that makes and sells MORE than its break-even quantity will:",
+                opts: [
+                    "Have insufficient revenue to cover costs",
+                    "Make a profit",
+                    "Need to improve its quality control",
+                    "Require an overdraft"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. Once a business sells beyond its break-even output, total revenue exceeds total costs, resulting in a profit. Options A and D are what happens BELOW break-even. Option C is unrelated to break-even."
+            },
+            {
+                q: "At break-even, a firm's total revenue equals its:",
+                opts: [
+                    "Fixed costs only",
+                    "Gross profit",
+                    "Net profit",
+                    "Total costs"
+                ],
+                ans: 3,
+                explain: "Correct answer: D. At break-even, TR = TC. The business covers ALL costs (fixed AND variable), meaning there is zero profit and zero loss."
+            },
+            {
+                q: "Amaya is a gardener. She charges £15 per hour. Her fixed costs are £18,000 per annum. Her variable costs are £2 per hour. How many hours does Amaya need to work to START making a profit?",
+                opts: [
+                    "1,059 hours",
+                    "1,385 hours",
+                    "2,340 hours",
+                    "3,060 hours"
+                ],
+                ans: 1,
+                explain: "Correct answer: B — 1,385 hours. Contribution = £15 − £2 = £13. Break-even = £18,000 ÷ £13 = 1,384.6 → round UP to 1,385 hours. Always round up because you cannot break even on a fraction of a unit."
+            },
+            {
+                q: "Kim is a driving instructor charging £30 per lesson. Fixed costs are £14,000 per year. Variable costs are £6 per lesson. How many lessons must Kim give before making a profit?",
+                opts: [
+                    "389 lessons",
+                    "467 lessons",
+                    "584 lessons",
+                    "2,334 lessons"
+                ],
+                ans: 2,
+                explain: "Correct answer: C — 584 lessons. Contribution = £30 − £6 = £24. Break-even = £14,000 ÷ £24 = 583.3 → round UP to 584. Option D results from dividing by variable cost only (÷ £6), ignoring the selling price."
+            },
+            {
+                q: "Which of the following is a limitation of break-even analysis?",
+                opts: [
+                    "It cannot be used to estimate the profit a business is likely to make",
+                    "It cannot factor in seasonal pricing and price discounts",
+                    "It cannot show how much a business needs to sell to cover its costs",
+                    "It cannot show the level of profit or loss at a range of outputs"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. Break-even assumes a single fixed price. It cannot account for seasonal pricing, promotional discounts, or variable pricing — all of which affect actual revenue. Options A, C, and D are all things break-even CAN do."
+            },
+            {
+                q: "A business has fixed costs of £20,000, a selling price of £50, and variable costs of £30 per unit. What is its break-even output?",
+                opts: [
+                    "400 units",
+                    "667 units",
+                    "1,000 units",
+                    "1,500 units"
+                ],
+                ans: 2,
+                explain: "Correct answer: C — 1,000 units. Contribution = £50 − £30 = £20. Break-even = £20,000 ÷ £20 = 1,000 units."
+            },
+            {
+                q: "A business's actual output is 5,000 units and its break-even output is 3,500 units. What is the margin of safety?",
+                opts: [
+                    "1,500 units",
+                    "3,500 units",
+                    "5,000 units",
+                    "8,500 units"
+                ],
+                ans: 0,
+                explain: "Correct answer: A — 1,500 units. Margin of safety = actual sales − break-even sales = 5,000 − 3,500 = 1,500 units."
+            },
+            {
+                q: "Carlton Press Ltd has fixed costs of £30,000, variable costs of £2 per booklet, and sells each booklet at £5. What is the break-even output?",
+                opts: [
+                    "5,000 booklets",
+                    "10,000 booklets",
+                    "15,000 booklets",
+                    "20,000 booklets"
+                ],
+                ans: 1,
+                explain: "Correct answer: B — 10,000 booklets. Contribution = £5 − £2 = £3. Break-even = £30,000 ÷ £3 = 10,000 booklets."
+            },
+            {
+                q: "Which of these may cause a break-even forecast to turn out to be incorrect?",
+                opts: [
+                    "The number of competitors in the market remains the same",
+                    "The business sells all its goods at its planned price",
+                    "The cost of importing raw materials increases",
+                    "Workers accept the planned rise in wages"
+                ],
+                ans: 2,
+                explain: "Correct answer: C. If raw material costs increase, variable costs rise unexpectedly — making the original break-even forecast inaccurate. Options A, B, and D all describe scenarios where things go exactly as planned, so the forecast would remain valid."
+            },
+            {
+                q: "A business will make a LOSS if:",
+                opts: [
+                    "Its revenues are greater than its costs",
+                    "It uses its revenues to pay off all its debts",
+                    "It sells less than its break-even output",
+                    "It has to take out an overdraft"
+                ],
+                ans: 2,
+                explain: "Correct answer: C. A business makes a loss when it sells fewer units than its break-even output — meaning total costs exceed total revenue. An overdraft is a cash flow issue; it does not automatically mean the business is making a loss."
+            },
+            {
+                q: "If Carlton Press Ltd (break-even = 10,000) sells 20,000 books, what is its margin of safety?",
+                opts: [
+                    "5,000 booklets",
+                    "10,000 booklets",
+                    "15,000 booklets",
+                    "20,000 booklets"
+                ],
+                ans: 1,
+                explain: "Correct answer: B — 10,000 booklets. Margin of safety = actual sales − break-even output = 20,000 − 10,000 = 10,000 booklets."
+            },
+            {
+                q: "If a business's fixed costs INCREASE, what happens to its break-even output?",
+                opts: [
+                    "It decreases because there are more costs to spread",
+                    "It increases because more units must be sold to cover the higher costs",
+                    "It stays the same because variable costs are unchanged",
+                    "It decreases because contribution per unit rises"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. Break-even = FC ÷ contribution. If fixed costs rise (numerator increases) while contribution stays the same, the result is a higher break-even output — the business must sell more units to cover all its costs."
+            },
+            {
+                q: "Andrea paints portraits. Labour VC = £52, materials VC = £23 per portrait, fixed costs = £1,000 per month. If she paints 50 portraits per year, total annual costs are:",
+                opts: [
+                    "£1,075 per year",
+                    "£4,750 per year",
+                    "£12,075 per year",
+                    "£15,750 per year"
+                ],
+                ans: 3,
+                explain: "Correct answer: D — £15,750. Annual FC = £1,000 × 12 = £12,000. VC per portrait = £52 + £23 = £75. TVC = £75 × 50 = £3,750. Total costs = £12,000 + £3,750 = £15,750. Many students forget to convert monthly FC to annual."
+            }
+        ];
+
+
+        // 3. Keyword Matching (Minimum 10)
+        const matchData = [
+            { term: "Break-even quantity", def: "The amount a business must sell to earn enough revenue to just cover its costs so that it does not make a profit or a loss." },
+            { term: "Contribution per unit", def: "Selling price minus variable cost per unit — the amount each unit sold contributes towards covering fixed costs." },
+            { term: "Margin of safety", def: "Actual sales minus break-even sales — showing how far output can fall before the business starts making a loss." },
+            { term: "Total Revenue", def: "Selling price multiplied by quantity sold." },
+            { term: "Fixed Costs", def: "Costs that do not change depending on the level of output, such as rent, insurance, and loan repayments." },
+            { term: "Variable Costs", def: "Costs that change in line with the level of output, such as raw materials and packaging." },
+            { term: "Total Costs", def: "Total fixed costs plus total variable costs at a given level of output." },
+            { term: "Break-even forecast", def: "A prediction of the break-even quantity based on estimated future sales revenues and costs." },
+            { term: "Profit area (on a break-even graph)", def: "The region to the right of the break-even point where total revenue exceeds total costs." },
+            { term: "Loss area (on a break-even graph)", def: "The region to the left of the break-even point where total costs exceed total revenue." },
+            { term: "Break-even formula", def: "Total fixed costs divided by contribution per unit (selling price minus variable cost per unit)." },
+            { term: "Fixed costs line (on a graph)", def: "A horizontal straight line showing that fixed costs remain constant regardless of the level of output." }
+        ];
+
+
+        // 4. Fill in the Blanks (Minimum 10)
+        const fibData = [
+            {
+                display: "The break-even formula is: total _____ costs divided by _____ per unit.",
+                blanks: { B1: "fixed", B2: "contribution" }
+            },
+            {
+                display: "Contribution per unit is calculated as selling _____ minus _____ cost per unit.",
+                blanks: { B1: "price", B2: "variable" }
+            },
+            {
+                display: "A business breaks even when total _____ equals total _____.",
+                blanks: { B1: "revenue", B2: "costs" }
+            },
+            {
+                display: "The margin of safety is calculated as actual sales minus _____ sales.",
+                blanks: { B1: "break-even" }
+            },
+            {
+                display: "Break-even output is always measured in _____, never in pounds.",
+                blanks: { B1: "units" }
+            },
+            {
+                display: "If a business sells _____ than its break-even output, it will make a loss.",
+                blanks: { B1: "less" }
+            },
+            {
+                display: "If fixed costs increase, the break-even output will _____.",
+                blanks: { B1: "increase" }
+            },
+            {
+                display: "If the selling price increases, the contribution per unit will _____, and the break-even output will _____.",
+                blanks: { B1: "increase", B2: "decrease" }
+            },
+            {
+                display: "A bank manager may ask to see a break-even _____ as part of a business _____.",
+                blanks: { B1: "forecast", B2: "plan" }
+            },
+            {
+                display: "Break-even analysis is described as a _____ because the figures are based on estimates of future costs and revenues.",
+                blanks: { B1: "prediction" }
+            },
+            {
+                display: "If variable costs per unit rise, the contribution per unit _____, causing the break-even output to _____.",
+                blanks: { B1: "falls", B2: "increase" }
+            },
+            {
+                display: "On a break-even graph, the profit area is to the _____ of the break-even point, and the loss area is to the _____.",
+                blanks: { B1: "right", B2: "left" }
+            }
+        ];
+
+        // Word bank for Fill in the Blanks
+        const fibWords = [
+            "fixed", "contribution", "price", "variable", "revenue", "costs",
+            "break-even", "units", "less", "more", "increase", "decrease",
+            "forecast", "plan", "prediction", "falls", "rises", "right", "left",
+            "total", "profit", "loss", "output", "quantity", "pounds"
+        ];
+
+
+        // 5. True or False (Minimum 10)
+        const tfData = [
+            {
+                statement: "Break-even is the point at which total revenue equals total costs.",
+                answer: true,
+                explanation: "TRUE. At break-even, TR = TC exactly. The business covers all its costs but makes neither a profit nor a loss. This is the core definition."
+            },
+            {
+                statement: "Break-even output is measured in pounds (£), not units.",
+                answer: false,
+                explanation: "FALSE. Break-even output is always measured in UNITS (e.g., 12,500 toys or 30 cakes). Writing a £ sign instead of units will cost you a mark in the exam."
+            },
+            {
+                statement: "If a business sells more than its break-even output, it will make a profit.",
+                answer: true,
+                explanation: "TRUE. Once output exceeds break-even, every additional unit sold generates profit — because total revenue now exceeds total costs."
+            },
+            {
+                statement: "Fixed costs change depending on the level of output produced.",
+                answer: false,
+                explanation: "FALSE. Fixed costs remain the same regardless of output. Rent is the same whether a business produces 100 or 10,000 units. It is variable costs that change with output."
+            },
+            {
+                statement: "An increase in selling price will cause the break-even output to decrease.",
+                answer: true,
+                explanation: "TRUE. A higher price increases the contribution per unit. Since break-even = FC ÷ contribution, a larger contribution means fewer units need to be sold to cover fixed costs."
+            },
+            {
+                statement: "An increase in variable costs per unit will cause the break-even output to decrease.",
+                answer: false,
+                explanation: "FALSE. If variable costs increase, contribution per unit falls (price − VC is smaller). A lower contribution means MORE units must be sold to cover fixed costs — so break-even output INCREASES."
+            },
+            {
+                statement: "The margin of safety is calculated by subtracting break-even sales from actual sales.",
+                answer: true,
+                explanation: "TRUE. Margin of safety = actual sales − break-even sales. It shows how far sales can fall before the business starts making a loss."
+            },
+            {
+                statement: "Break-even analysis gives perfectly accurate predictions because it is based on mathematical calculations.",
+                answer: false,
+                explanation: "FALSE. Break-even uses estimated figures for future costs and revenues — it is a forecast, not a certainty. Actual results may differ due to competitors, price changes, or rising raw material costs."
+            },
+            {
+                statement: "Break-even analysis is most accurate for businesses that sell a wide variety of different products.",
+                answer: false,
+                explanation: "FALSE. Break-even is most straightforward for single-product businesses. Multi-product businesses have different costs and prices for each product, making break-even analysis complex and much less reliable."
+            },
+            {
+                statement: "A break-even forecast can help a business secure a bank loan.",
+                answer: true,
+                explanation: "TRUE. Banks often ask to see a break-even forecast as part of a business plan. It demonstrates the owner has planned carefully and understood their finances, reassuring the bank that the loan is less risky."
+            },
+            {
+                statement: "On a break-even graph, the Total Revenue line starts at zero when output is zero.",
+                answer: true,
+                explanation: "TRUE. If a business sells zero units, it earns zero revenue. The Total Revenue line always begins at the origin (0, 0) and rises diagonally as units are sold."
+            },
+            {
+                statement: "On a break-even graph, the Fixed Costs line rises diagonally from left to right.",
+                answer: false,
+                explanation: "FALSE. The Fixed Costs line is horizontal — it stays flat at the same level regardless of output. It is the Total Costs and Total Revenue lines that are diagonal."
+            }
+        ];
+
+
+        // 6. Common Student Misconceptions
+        const miscData = [
+            {
+                wrong: "Students write the break-even output in pounds, e.g. '£12,500' or '£30'.",
+                correct: "Break-even output must always be written in UNITS (e.g., '12,500 units' or '30 cakes'). Writing a £ sign loses you a mark — the examiner is strict on this."
+            },
+            {
+                wrong: "Students think 'break-even' means the business is doing well or making a profit.",
+                correct: "At break-even, the business makes NEITHER a profit NOR a loss. Total revenue exactly equals total costs — there is no money left over. It is the minimum acceptable level of sales."
+            },
+            {
+                wrong: "Students use total costs (not fixed costs) in the break-even formula: 'TC ÷ contribution'.",
+                correct: "The formula uses FIXED COSTS only: FC ÷ contribution. Variable costs are already built into the contribution figure (price − VC), so using total costs would count variable costs twice."
+            },
+            {
+                wrong: "Students round DOWN when the break-even gives a decimal (e.g., 583.3 becomes 583).",
+                correct: "Always round UP. At 583 units the business has NOT yet covered all fixed costs — it needs to sell at least 584 to actually break even."
+            },
+            {
+                wrong: "Students say break-even analysis is perfectly accurate and reliable because it uses maths.",
+                correct: "Break-even is a PREDICTION based on estimated figures. Actual costs and revenues may differ significantly — competitors, price changes, or rising material costs can all make the forecast inaccurate."
+            },
+            {
+                wrong: "When asked to 'analyse a benefit of break-even', students simply describe what break-even is.",
+                correct: "The examiner wants U + APP + AN. State the benefit (U), apply it to the specific business in the case study (APP), and explain the impact on THAT business (AN). Describing the concept of break-even without any analysis or application scores zero."
+            },
+            {
+                wrong: "Students say 'it shows how many a business needs to sell to break-even' as their Understanding mark.",
+                correct: "This is tautological — you cannot explain break-even by using the term 'break-even'. You must show understanding by explaining WHAT break-even means: 'the point at which total revenue covers all costs, with no profit or loss.'"
+            },
+            {
+                wrong: "When asked about a limitation, students say 'the figures might be wrong' or 'it is inaccurate'.",
+                correct: "This is too vague and scores zero marks. You must explain WHY the figures could be wrong — e.g., 'A new competitor could force the business to lower its price, reducing contribution per unit and raising the real break-even output above the forecast.'"
+            },
+            {
+                wrong: "Students confuse 'margin of safety' with 'profit'.",
+                correct: "The margin of safety is measured in UNITS (actual sales minus break-even sales). It shows how far output can fall before a loss is made. Profit is a financial value in £ (TR minus TC) — a completely different calculation."
+            },
+            {
+                wrong: "Students think any business can use break-even analysis equally well.",
+                correct: "Break-even works best for businesses selling a SINGLE product at a fixed price. For businesses with multiple products at varying prices and costs, break-even is difficult to calculate accurately and much less useful as a planning tool."
+            }
+        ];
+
+
+        // 7. Examiner Tips & Structure Guides
+        const examTips = [
+            {
+                type: "State / Identify — 1 mark",
+                title: "One Specific Point. One Sentence. Full Stop.",
+                content: `
+          <p>A 1-mark question needs exactly <strong>one correct, specific point</strong>. Do not write a paragraph — one focused sentence is more than enough.</p>
+    
+          <p><strong>The Formula:</strong></p>
+          <ul>
+            <li>One clear, specific, relevant point = <strong>1 mark ✅</strong></li>
+            <li>A vague or general statement = <strong>0 marks ❌</strong></li>
+          </ul>
+    
+          <p><strong>❌ Bad Answer (0 marks):</strong><br>
+          <em>"Break-even helps a business."</em><br>
+          Too vague — doesn't say what the business can actually do with break-even information.</p>
+    
+          <p><strong>✅ Good Answer (1 mark):</strong><br>
+          <em>"Break-even analysis allows Virgin Atlantic to identify the minimum number of passengers needed on each flight to cover all operating costs."</em><br>
+          Specific, relevant, and applied to the business context.</p>
+    
+          <p><strong>⚠️ Examiner Warning:</strong> Do NOT define break-even when the question asks for a USE of it. Re-read the exact wording of the question before writing your answer. A definition of "what break-even is" when asked "how can break-even be used" will score zero.</p>
+        `,
+                pills: ["K"]
+            },
+            {
+                type: "Explain — 2 marks",
+                title: "Make Your Point, Then Explain the 'Why'",
+                content: `
+          <p>A 2-mark question requires a <strong>point + explanation</strong>. State a fact, then immediately explain WHY or HOW it matters.</p>
+    
+          <p><strong>The Formula:</strong></p>
+          <ul>
+            <li><strong>Point (K — 1 mark):</strong> State the benefit, reason, or fact.</li>
+            <li><strong>Explanation (U — 1 mark):</strong> Explain why this matters or how it works.</li>
+          </ul>
+    
+          <p><strong>❌ Bad Answer (1 mark max):</strong><br>
+          <em>"Profit is important because it means the business has money."</em></p>
+    
+          <p><strong>✅ Good Answer (2 marks):</strong><br>
+          <em>"Profit allows the business to invest in new equipment (K). This helps the business expand, replace worn-out assets, and remain competitive in its market in the long term (U)."</em></p>
+    
+          <p><strong>⚠️ Examiner Warning — "Survival" Trap:</strong> Answers linking profit solely to survival were not awarded full marks in the exam. Survival is about cash flow, not profit. Focus on what profit <em>allows</em> the business to do: invest, expand, attract shareholders, repay debts, or develop new products.</p>
+        `,
+                pills: ["K", "U"]
+            },
+            {
+                type: "Calculate Break-Even — 3 marks",
+                title: "Always Show Every Step of Your Working",
+                content: `
+          <p>Calculation questions are among the most predictable in the exam — but students still lose marks by not showing workings or forgetting to convert time periods.</p>
+    
+          <p><strong>The 3-Step Method:</strong></p>
+          <ul>
+            <li><strong>Step 1 — Contribution:</strong> Selling price − variable cost per unit (1 mark)</li>
+            <li><strong>Step 2 — Divide:</strong> Fixed costs ÷ contribution, written clearly (1 mark)</li>
+            <li><strong>Step 3 — Final answer in UNITS:</strong> Write the number and the word "units" or the appropriate measure — never a £ sign (1 mark)</li>
+          </ul>
+    
+          <p><strong>⚠️ Watch for Multi-Step / Time Period Questions:</strong><br>
+          In the Sea View Hotel exam question, many students calculated the <em>weekly</em> break-even (105 rooms) instead of the <em>daily</em> break-even (15 rooms) — missing the final mark because they forgot to divide the weekly fixed costs by 7.<br>
+          <strong>Always re-read the question</strong> to check what time period is required.</p>
+    
+          <p><strong>⚠️ Add up ALL variable costs:</strong><br>
+          In the Luxury Cushions question, variable costs had three components (filling + cover + wage = £19 per unit). Students who missed one component got the wrong contribution and the wrong answer.</p>
+    
+          <p><strong>⚠️ Always round UP:</strong> If your answer is 583.3 → write 584. At 583 the business has not yet covered all its fixed costs.</p>
+        `,
+                pills: ["app"]
+            },
+            {
+                type: "Analyse — 3 marks",
+                title: "The Holy Trinity: Understanding → Application → Analysis",
+                content: `
+          <p>The 3-mark analyse question is the most common written question on break-even. You <strong>must</strong> follow this exact structure to earn all 3 marks:</p>
+    
+          <ol>
+            <li><strong>Understanding (U) — 1 mark:</strong> State what the benefit/limitation IS. Explain the concept without using the term "break-even" tautologically.</li>
+            <li><strong>Application (APP) — 1 mark:</strong> Use a specific figure, name, or fact from the case study. Quote data from the text directly.</li>
+            <li><strong>Analysis (AN) — 1 mark:</strong> Explain the business-facing IMPACT. What does this mean FOR the business? Use language like "this means that...", "as a result...", "this will lead to..."</li>
+          </ol>
+    
+          <p><strong>Critical Rules:</strong></p>
+          <ul>
+            <li>You CANNOT score the Application mark without first scoring the Understanding mark.</li>
+            <li>Analysis must be <em>business-facing</em> — "costs will increase" alone is not enough. Say what the business must then DO as a result.</li>
+            <li>You cannot explain break-even by using the word "break-even": "it helps GK know when it reaches break-even" scores ZERO.</li>
+          </ul>
+    
+          <p><strong>Sentence Starters:</strong></p>
+          <ul>
+            <li><em>U: "Break-even shows the point at which all costs are covered but no profit has yet been made..."</em></li>
+            <li><em>APP: "For [business name], this means that..." / "As the text states that [figure/fact]..."</em></li>
+            <li><em>AN: "As a result, the business will..." / "This means the business could..." / "This will lead to..."</em></li>
+          </ul>
+    
+          <p><strong>❌ Bad Answer (0 marks):</strong><br>
+          <em>"Break-even analysis helps GK know when it breaks even."</em></p>
+    
+          <p><strong>✅ Full-Mark Answer (3 marks):</strong><br>
+          <em>"Break-even shows the point at which GK covers all of its costs but has not yet made a profit (U). GK's break-even is 29 Deluxe kitchens per year (APP). This means the sales team can be set a target of selling more than 29 to move into profit, and GK can calculate its margin of safety to assess how resilient it is to falling consumer demand (AN)."</em></p>
+        `,
+                pills: ["U", "app", "an"]
+            },
+            {
+                type: "Analyse Two Impacts — 6 marks",
+                title: "Two Complete Chains of Analysis — No Conclusion Needed",
+                content: `
+          <p>A 6-mark question is simply <strong>two 3-mark analyse questions written in sequence</strong>. You need two completely separate points, each with a full U → APP → AN chain.</p>
+    
+          <p><strong>Structure:</strong></p>
+          <ul>
+            <li><strong>Point 1:</strong> Understanding (1 mark) → Application (1 mark) → Analysis (1 mark)</li>
+            <li><strong>Point 2:</strong> Understanding (1 mark) → Application (1 mark) → Analysis (1 mark)</li>
+          </ul>
+    
+          <p><strong>⚠️ Do NOT write a conclusion</strong> — there are zero marks available for evaluation in a 6-mark question. Every sentence must earn marks for U, APP, or AN. A conclusion wastes time and earns nothing.</p>
+    
+          <p><strong>🚫 Knowledge Dumping Alert:</strong> Do not list every limitation you know. Write two limitations in full — with application and analysis each time. A long bullet-point list of vague statements scores very poorly.</p>
+    
+          <p><strong>✅ Example — "Analyse two limitations of Samantha's break-even forecast":</strong></p>
+          <p><em><strong>Limitation 1:</strong> A new competitor could enter the market, increasing competition (U). There are already two other cake decorating businesses in Samantha's area (APP). If they reduce their prices, Samantha may have to follow — cutting her contribution per cake and pushing her break-even output above 30 cakes, making the forecast inaccurate (AN).</em></p>
+          <p><em><strong>Limitation 2:</strong> The cost of ingredients could rise unexpectedly (U). Samantha's variable cost is currently £180 per cake (APP). If ingredient costs increase, her contribution per cake falls, meaning she would need to sell more than 30 cakes to break even — making her existing forecast an underestimate (AN).</em></p>
+        `,
+                pills: ["U", "app", "an"]
+            }
+        ];
+
+
+        // 8. Flashcards
+        const flashcards = [
+            { term: "Break-even quantity", def: "The amount a business must sell to earn enough revenue to just cover its costs so that it does not make a profit or a loss." },
+            { term: "Break-even formula", def: "Total Fixed Costs ÷ Contribution per Unit\n(where Contribution = Selling Price − Variable Cost per Unit)" },
+            { term: "Contribution per unit", def: "Selling price minus variable cost per unit. Each unit sold 'contributes' towards covering fixed costs before profit is made." },
+            { term: "Margin of safety", def: "Actual sales − break-even sales (in units). Shows how far output can fall before a loss is made." },
+            { term: "Total Revenue", def: "Selling price × quantity sold" },
+            { term: "Fixed Costs", def: "Costs that do NOT change with the level of output, e.g. rent, loan repayments, insurance." },
+            { term: "Variable Costs", def: "Costs that DO change with the level of output, e.g. raw materials, packaging, direct labour per unit." },
+            { term: "Total Costs", def: "Total fixed costs + total variable costs" },
+            { term: "Break-even forecast", def: "A prediction of the break-even output based on estimated future revenues and costs. It is not a guarantee — actual results may differ." },
+            { term: "Effect of a price INCREASE on break-even", def: "Contribution increases → break-even output DECREASES (fewer units needed to cover fixed costs)." },
+            { term: "Effect of HIGHER fixed costs on break-even", def: "More costs to cover → break-even output INCREASES (more units must be sold)." },
+            { term: "Effect of HIGHER variable costs on break-even", def: "Contribution falls → break-even output INCREASES." },
+            { term: "Why is break-even useful for bank loans?", def: "Banks ask to see a break-even forecast as part of a business plan. It shows the owner has thought carefully about costs, revenue, and viability — reducing the bank's risk." },
+            { term: "Key limitation of break-even analysis", def: "All figures are estimates. Actual costs, prices, or competitor behaviour may differ — especially if a new competitor enters the market or raw material costs change unexpectedly." },
+            { term: "What does the break-even POINT look like on a graph?", def: "It is where the Total Revenue line crosses the Total Costs line. To the left = loss zone. To the right = profit zone." }
+        ];
+
+
+        // 9. Exam-Style Questions
+        const examQuestions = [
+            {
+                num: "Q1",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "A manufacturer that makes and sells more than its break-even quantity will:",
+                options: [
+                    "Have insufficient revenue to cover costs",
+                    "Make a profit",
+                    "Need to improve its quality control",
+                    "Require an overdraft"
+                ],
+                answer: 1,
+                hint: "Think about what happens to profit when total revenue exceeds total costs.",
+                starter: "The correct answer is B because selling beyond break-even means...",
+                markScheme: `<div class="marks-section"><h5>Answer: B — Make a profit</h5><p><strong>Why B is correct:</strong> Once a business sells more units than its break-even output, total revenue exceeds total costs — a profit is made on every additional unit sold.</p><p><strong>Why the others are wrong:</strong></p><ul><li><strong>A — Incorrect:</strong> Insufficient revenue to cover costs describes what happens BELOW break-even. Above break-even, revenue more than covers all costs.</li><li><strong>C — Incorrect:</strong> Quality control is unrelated to the break-even quantity. Selling above break-even says nothing about product quality.</li><li><strong>D — Incorrect:</strong> An overdraft relates to a cash flow problem, not to selling above the break-even point. A business can be profitable but still have cash flow issues.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Q2 (i)",
+                marks: 2,
+                type: "written",
+                caseStudy: "The Sea View Hotel is a profitable hotel located near the coast. Anika and Charlie own the hotel in a business partnership. They are now considering opening a second hotel in a town further along the coast. It would cost them £1.5 million to buy the property and £0.5 million for redecoration.\n\nTo fund the £2 million expansion, the partners are considering getting a bank loan or accepting a new partner into the business. The partnership already has one bank loan but has worked out it can afford a second loan as long as the cost of borrowing does not rise too much.\n\nIf Anika and Charlie decide to take on a new partner, they would like to ask Finley, a friend of Anika's who has just returned to the UK from travelling around the world. Finley is currently unemployed but is a keen photographer and environmental campaigner.\n\nAnika has forecasted the following revenues and costs for the proposed 25-room hotel:\n• selling price: £100 a day per room\n• fixed costs: £6,300 per week\n• variable costs: £40 a day per room.",
+                question: "Explain why profit is important to a business' future. [2 marks]",
+                hint: "Give ONE reason profit is important, then explain HOW or WHY this benefits the business. Do NOT simply define profit. Avoid linking profit to 'survival' — that's a cash flow point.",
+                starter: "Profit is important because it allows the business to... (K)\nThis means the business is able to... (U)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a + AO1b)</h5><p>One mark for identifying why profit is important, plus one further mark for explaining the benefit (how or why profit enables this).</p><p><strong>Acceptable identification points (1 mark):</strong></p><ul><li>To invest in new equipment / buildings (to replace worn-out items)</li><li>To help fund expansion (e.g. opening new hotels/stores)</li><li>To repay a loan or debt (so that future costs fall)</li><li>To pay dividends (which keeps shareholders satisfied)</li><li>To attract new investors (enabling further growth)</li><li>To develop new products (allowing more future profit)</li><li>To compare performance against competitors (using profitability ratios)</li></ul><p><strong>Note:</strong> Answers do NOT need to relate to The Sea View Hotel. No reward for a definition of profit. No reward for answers about "allowing the business to survive."</p><p><strong>Examiner's Comment:</strong> Most candidates achieved at least 1 mark. The most popular answer was expansion or growth. Many candidates failed to explain HOW or WHY the profit enables the benefit, missing the second mark. Answers mentioning "survival" confused profit with cash flow and did not score the second mark.</p></div>`,
+                modelAnswer: "Profit allows the business to invest in new equipment and expand into new premises (K). This means the business can grow, attract new investors, and remain competitive in the long term — rather than being reliant on expensive external finance (U)."
+            },
+            {
+                num: "Q2 (ii)",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Calculate the daily break-even quantity for the proposed hotel. [3 marks]",
+                hint: "The fixed costs are given WEEKLY — you must convert to a daily figure by dividing by 7 before using the formula. Your final answer should be in rooms per day, not pounds.",
+                starter: "Contribution per room per day = selling price − variable cost = £100 − £40 = ... (APP)\nDaily fixed costs = £6,300 ÷ 7 = ... (APP)\nBreak-even = daily FC ÷ contribution = ... ÷ ... = ... rooms per day (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO2)</h5><ul><li><strong>Mark 1:</strong> Correct contribution = £100 − £40 = £60 per room per day</li><li><strong>Mark 2:</strong> Correct daily fixed costs = £6,300 ÷ 7 = £900</li><li><strong>Mark 3 (OFR):</strong> Correct final answer = £900 ÷ £60 = <strong>15 rooms per day</strong></li></ul><p><strong>Alternative method (also earns full marks):</strong></p><ul><li>Contribution = £60 (1 mark)</li><li>Weekly break-even = £6,300 ÷ £60 = 105 (1 mark)</li><li>Daily break-even = 105 ÷ 7 = 15 rooms (1 mark OFR)</li></ul><p><strong>Partial credit:</strong> A total of 2 marks for arriving at 105 rooms (weekly break-even, without dividing by 7). Maximum 2 marks for an answer with the wrong units (e.g. £15).</p><p><strong>Examiner's Comment:</strong> Even though the word 'daily' was emboldened in the question, a significant number of candidates stopped at 105 rooms (the weekly break-even) and only gained 2 marks. Always re-read the question to check what time period the answer requires.</p></div>`,
+                modelAnswer: "Contribution = £100 − £40 = £60 per room per day.\nDaily fixed costs = £6,300 ÷ 7 = £900.\nBreak-even = £900 ÷ £60 = 15 rooms per day."
+            },
+            {
+                num: "Q2 (iii)",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Analyse one disadvantage to the partnership if the proposed hotel's fixed costs were 10% higher than expected. [3 marks]",
+                hint: "Start with WHAT the disadvantage is (U). Then use a specific number from the case study — calculate the 10% increase (APP). Finally, explain the impact on Anika and Charlie's business (AN). The analysis must be business-facing — 'costs will increase' alone scores zero.",
+                starter: "If fixed costs are higher than expected, this could lead to... (U)\nFor the Sea View Hotel, fixed costs would rise from £6,300 to £6,930 per week (APP)\nThis means that Anika and Charlie would... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5><p><strong>Understanding (1 mark) — a disadvantage of higher-than-expected fixed costs:</strong></p><ul><li>Could lead to lower profits or a loss</li><li>Increases the break-even level of output (harder to reach)</li><li>Could force a price increase</li><li>Less money available for day-to-day running of the hotel</li></ul><p><strong>Application (1 mark) — use of case study figures:</strong></p><ul><li>Fixed costs rise from £6,300 to £6,930 per week (10% increase = +£630)</li><li>That's an extra £90 per day in fixed costs</li><li>Break-even rises from 15 rooms to approximately 17 rooms per day</li><li>Reference to the 25-room hotel, existing bank loan, or the £2m expansion cost</li></ul><p><strong>Analysis (1 mark) — business-facing impact:</strong></p><ul><li>The hotel must fill more rooms each day to cover the higher costs</li><li>Could make it harder to attract a new partner or investor like Finley</li><li>May lead to a need for additional finance or higher debt levels</li><li>Could prevent the partnership from repaying its existing bank loan</li></ul><p><strong>No reward for:</strong> "Costs will increase" (this is the given fact, not an analysis). Context about the existing hotel (e.g. "it is already profitable"). Answers about owner stress levels.</p><p><strong>Examiner's Comment:</strong> Better answers showed understanding about profit or break-even, applied the specific numbers (£6,930 / 17 rooms), and explained the need to fill more rooms. This full-mark answer can be written in just two sentences.</p></div>`,
+                modelAnswer: "If fixed costs increased by 10%, they would rise from £6,300 to £6,930 per week, meaning the hotel would earn less profit than forecast (U+APP). The daily break-even would rise from 15 to approximately 17 rooms — and if Anika and Charlie cannot achieve this higher occupancy rate, the business could make a loss, making it more difficult to attract a new partner like Finley or repay their existing bank loan (APP+AN)."
+            },
+            {
+                num: "Q3 (i)",
+                marks: 3,
+                type: "written",
+                caseStudy: "Glorious Kitchens (GK) is a private limited company based in Brighton. The company makes and fits high-quality, luxury wooden kitchens throughout the south-east of England. Its most popular range is the Deluxe.<br><br>The average price of a Deluxe kitchen is £15,000 including fitting. GK calculates its fixed costs for the year to be £250,000 and its variable costs for the Deluxe to be £6,380, which means they need to sell 29 kitchens to break even.<br><br>GK is concerned about the future economic climate and its possible impact on the company's sales. It is predicted that there will be a fall in consumer incomes in the south-east of England until 2025. Unemployment in the south-east is forecast to follow the trend shown in Table 1.<table class=\"case-table\"><caption>Table 1 — Unemployment Rate Forecast (South-East England)</caption><tr><th>Year</th><th>Unemployment Rate</th></tr><tr><td>2022</td><td>4.0%</td></tr><tr><td>2023 (forecast)</td><td>3.7%</td></tr><tr><td>2024 (forecast)</td><td>3.4%</td></tr><tr><td>2025 (forecast)</td><td>3.1%</td></tr></table>Financial data for GK at the end of 2022 is shown in Table 2.<table class=\"case-table\"><caption>Table 2 — GK Financial Data (End of 2022)</caption><tr><th>Item</th><th>Value</th></tr><tr><td>Net profit</td><td>£425,000</td></tr><tr><td>Cash at the bank</td><td>£60,000</td></tr><tr><td>Loans taken out by GK</td><td>£1,500,000</td></tr><tr><td>Donations to food banks in Brighton</td><td>£8,500</td></tr></table>",
+                question: "Analyse how GK can use the break-even level of output for its Deluxe range. [3 marks]",
+                hint: "Think about what knowing the break-even output (29 kitchens) ALLOWS GK to do. Do NOT say 'it shows them when they break even' — this is tautological and scores zero. Think: sales targets, margin of safety, pricing decisions, securing finance.",
+                starter: "Break-even shows the point at which all of GK's costs are covered, but no profit has yet been made... (U)\nGK's break-even output is 29 Deluxe kitchens per year (APP)\nThis means GK can... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5><p><strong>Understanding (1 mark):</strong></p><ul><li>To identify when total revenue covers all total costs</li><li>To know the point at which a loss turns into a profit</li><li>To set clear sales targets for the team</li><li>To use alongside break-even diagrams for visual planning</li></ul><p><strong>Application (1 mark) — use of GK's specific data:</strong></p><ul><li>Fixed costs = £250,000; Price = £15,000; Variable cost = £6,380 per kitchen</li><li>GK needs to sell 29 Deluxe kitchens to break even</li><li>Concerns about a future economic downturn</li><li>Forecast fall in consumer incomes / unemployment declining</li></ul><p><strong>Analysis (1 mark):</strong></p><ul><li>GK can calculate the margin of safety</li><li>GK can estimate profit at different sales volumes</li><li>GK can use the data when attracting investors or applying for finance</li><li>GK can make decisions about adjusting its price or reducing costs</li><li>GK may use the data to plan increased marketing spend to push sales above 29</li></ul><p><strong>⚠️ Zero marks for:</strong> "It shows how many GK needs to sell to break even." This is tautological — you cannot define break-even by using the word "break-even." The majority of candidates scored zero on this question for exactly this reason.</p><p><strong>Examiner's Comment:</strong> Only a small number of candidates correctly recognised that break-even is used to identify when loss turns to profit and that knowing the output of 29 allows GK to calculate the margin of safety or make marketing/pricing decisions.</p></div>`,
+                modelAnswer: "Break-even shows the point at which all of GK's costs are covered but no profit has yet been made (U). GK needs to sell 29 Deluxe kitchens per year to break even (APP). Knowing this, GK can set a clear sales target for its team — aiming to sell significantly more than 29 kitchens — and can calculate its margin of safety to assess how resilient the business is if consumer incomes continue to fall across the south-east (AN)."
+            },
+            {
+                num: "Q3 (ii)",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Analyse one limitation to GK of using break-even when making decisions about its Deluxe range. [3 marks]",
+                hint: "Pick ONE specific reason the break-even forecast might be inaccurate for GK. Reference a figure or fact from the case study. Then explain what this means for GK's decisions — do NOT just say 'the data is wrong.'",
+                starter: "One limitation is that the data used in break-even analysis are only estimates... (U)\nFor GK, the variable cost of £6,380 or the selling price of £15,000 could change if... (APP)\nThis means GK may need to... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5><p><strong>Understanding (1 mark) — limitations include:</strong></p><ul><li>All data in break-even is estimated / a prediction</li><li>The number of competitors may change</li><li>The business may make promotional offers at a lower price</li><li>Costs may change unexpectedly</li><li>External economic factors may change</li><li>Qualitative / non-financial issues are not considered</li></ul><p><strong>Application (1 mark) — specific reference to GK:</strong></p><ul><li>GK's variable cost of £6,380 per kitchen / price of £15,000</li><li>GK sells high-quality luxury kitchens — demand is sensitive to income changes</li><li>Forecast fall in consumer incomes across the south-east</li><li>Unemployment forecast to fall from 4.0% to 3.1% (suggesting more potential customers)</li></ul><p><strong>Analysis (1 mark):</strong></p><ul><li>GK may need to adjust its prices or costs to overcome uncertainty in the data</li><li>Sales targets may need to be constantly revised as circumstances change</li><li>A price cut to stimulate demand may not lead to an increase in revenue if demand is inelastic</li></ul><p><strong>⚠️ Zero marks for:</strong> Answers suggesting the data is "wrong" or "inaccurate" — this does not show understanding of WHY or HOW it could be inaccurate.</p><p><strong>Examiner's Comment:</strong> Fewer than half of candidates gained at least 1 mark. Most correct answers noted data was estimated, but then failed to apply this to GK's specific context or analyse the resulting impact on the business.</p></div>`,
+                modelAnswer: "GK's suppliers of wood may increase their prices, raising the variable cost above the £6,380 per kitchen currently assumed (U+APP). As GK makes luxury Deluxe kitchens, even a modest rise in material costs could significantly increase the break-even output above 29 — forcing GK to revise its sales targets upward or consider raising its price at a time when consumer incomes in the south-east are already forecast to fall (AN)."
+            },
+            {
+                num: "Q4",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "Amaya is a gardener. She charges £15 per hour. Her fixed costs are £18,000 per annum. Her variable costs are £2 per hour.",
+                question: "How many hours of gardening will Amaya need to do to start to make a profit?",
+                options: [
+                    "1,059 hours",
+                    "1,385 hours",
+                    "2,340 hours",
+                    "3,060 hours"
+                ],
+                answer: 1,
+                hint: "Contribution = selling price − variable cost per hour. Break-even = fixed costs ÷ contribution. Remember to round UP your answer.",
+                starter: "Contribution per hour = £15 − £2 = £13\nBreak-even = £18,000 ÷ £13 = ...\nRound UP to ... hours",
+                markScheme: `<div class="marks-section"><h5>Answer: B — 1,385 hours</h5><p><strong>Working:</strong></p><ul><li>Contribution = £15 − £2 = £13 per hour</li><li>Break-even = £18,000 ÷ £13 = 1,384.6 → round UP = <strong>1,385 hours</strong></li></ul><p><strong>Why the others are wrong:</strong></p><ul><li><strong>A (1,059):</strong> Incorrect — results from using the wrong contribution figure, e.g. dividing by £17 (adding price + VC rather than subtracting).</li><li><strong>C (2,340):</strong> Incorrect — results from an error in dividing by the wrong number, possibly using the selling price alone as the denominator in a partial calculation.</li><li><strong>D (3,060):</strong> Incorrect — results from dividing fixed costs only by the variable cost (£18,000 ÷ £2 × something), ignoring the correct contribution formula entirely.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Q5",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "Kim is a driving instructor. Kim charges £30 for a one-hour lesson. Her fixed costs are £14,000 per annum. The variable cost for a one-hour lesson is £6.",
+                question: "How many one-hour lessons will Kim need to give before making a profit?",
+                options: [
+                    "389 lessons",
+                    "467 lessons",
+                    "584 lessons",
+                    "2,334 lessons"
+                ],
+                answer: 2,
+                hint: "Contribution = price per lesson − variable cost. Break-even = fixed costs ÷ contribution. Remember to round UP.",
+                starter: "Contribution per lesson = £30 − £6 = £24\nBreak-even = £14,000 ÷ £24 = ...\nRound UP to ... lessons",
+                markScheme: `<div class="marks-section"><h5>Answer: C — 584 lessons</h5><p><strong>Working:</strong></p><ul><li>Contribution = £30 − £6 = £24 per lesson</li><li>Break-even = £14,000 ÷ £24 = 583.3 → round UP = <strong>584 lessons</strong></li></ul><p><strong>Why the others are wrong:</strong></p><ul><li><strong>A (389):</strong> Incorrect — results from using an incorrect contribution figure.</li><li><strong>B (467):</strong> Incorrect — results from dividing by the wrong number in the formula.</li><li><strong>D (2,334):</strong> Incorrect — results from dividing fixed costs by the variable cost only (£14,000 ÷ £6 = 2,333.3), completely ignoring the selling price in the contribution calculation.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Q6 (i)",
+                marks: 3,
+                type: "written",
+                caseStudy: "Elizabeth owns a small business, Luxury Cushions (LC), making and selling quality cushions. She sells these to retail shops and direct to the public over the internet. When she first started, Elizabeth used social media to get herself well known. Her business really became successful when she sent some cushions to celebrities and they posted them on their Instagram accounts. Elizabeth regularly communicates to her 10,000 Instagram followers when she has new designs to sell.<br><br>In 2019 LC earned £150,000 in revenue and had a gross profit of £118,000 and a net profit of £56,800. Elizabeth has provided the following financial information:<table class=\"case-table\"><caption>Table 1 — LC Monthly Financial Data</caption><tr><th>Cushions made and sold per month</th><th>Fixed costs each month</th><th>Average Selling price</th><th>Cost of each cushion filling</th><th>Cost of each cushion cover</th><th>Wage paid per cushion made</th></tr><tr><td>250</td><td>£7,440</td><td>£50</td><td>£3</td><td>£6</td><td>£10</td></tr></table>Elizabeth has the opportunity to expand her business by taking over a competitor and moving into larger premises. One of her customers suggested that she could use crowd funding to raise the £30,000 she needs. However, Elizabeth thinks that she might be better using a bank loan. Even though she would need to pay interest on the loan, her stable cash flow forecast shows she should be able to afford it.",
+                question: "Calculate the break-even point for LC. Show your workings. [3 marks]",
+                hint: "You need to add up ALL three variable costs per cushion first (filling + cover + wage). Then use the break-even formula. Show every step clearly.",
+                starter: "Total variable cost per cushion = £3 + £6 + £10 = ... (APP)\nContribution = selling price − total VC = £50 − ... = ... (APP)\nBreak-even = FC ÷ contribution = £7,440 ÷ ... = ... cushions per month (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1a + AO2)</h5><ul><li><strong>Mark 1:</strong> Correct formula stated: BE = FC ÷ (SP − VC)</li><li><strong>Mark 2:</strong> Correct use of figures: £7,440 ÷ (£50 − £19) = £7,440 ÷ £31</li><li><strong>Mark 3 (OFR):</strong> Correct answer = <strong>240 cushions per month</strong></li></ul><p><strong>Key workings:</strong></p><ul><li>Variable cost per unit = £3 + £6 + £10 = £19</li><li>Contribution = £50 − £19 = £31</li><li>Break-even = £7,440 ÷ £31 = 240 cushions</li></ul><p>Maximum 2 marks if wrong units (e.g. £240). OFR applies if the method is correct but figures are used incorrectly.</p></div>`,
+                modelAnswer: "Variable cost per cushion = £3 (filling) + £6 (cover) + £10 (wage) = £19.\nContribution = £50 − £19 = £31 per cushion.\nBreak-even = £7,440 ÷ £31 = 240 cushions per month."
+            },
+            {
+                num: "Q6 (ii)",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Analyse one way Elizabeth could use her break-even data. [3 marks]",
+                hint: "Think about what knowing the break-even output (240 cushions) ALLOWS Elizabeth to do in practice. Consider: supporting her bank loan application, identifying margin of safety, changing her pricing strategy.",
+                starter: "Elizabeth could use her break-even data to... (AN)\nShe currently sells 250 cushions per month, and her break-even is 240 (APP)\nThis means that... (APP/AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO2 + AO3a)</h5><p><strong>Application (up to 2 marks) — using evidence from the text or the calculation:</strong></p><ul><li>Break-even of 240 cushions per month (OFR from part i)</li><li>She currently makes and sells 250 cushions per month</li><li>Margin of safety = 250 − 240 = 10 cushions per month</li><li>She is considering a bank loan of £30,000 for expansion</li><li>She wants to take over a competitor and move to larger premises</li><li>Reference to 2019 revenue of £150,000 or net profit of £56,800</li></ul><p><strong>Analysis (1 mark) — a specific use of break-even data:</strong></p><ul><li>Influence on pricing strategy</li><li>Helps plan to identify profit at different output levels</li><li>To support a bank loan application</li><li>To identify the margin of safety</li><li>To make informed decisions about whether to expand</li></ul><p><strong>Exemplar responses:</strong><br>
+    <em>"Elizabeth could use the break-even data to support her application for a £30,000 bank loan (AN). The bank would be more willing to lend (APP) to help fund her expansion if she could show she already sells above her break-even output of 240 cushions, with a margin of safety of 10 cushions per month (APP)."</em></p><p><em>"Elizabeth could change her pricing strategy (AN). By increasing the price from £50 to £60, this would increase her contribution to £41 and reduce the break-even point to approximately 181 cushions (APP)."</em></p></div>`,
+                modelAnswer: "Elizabeth could use her break-even data to strengthen her bank loan application (AN). The bank would be more willing to lend the £30,000 needed for expansion (APP) if Elizabeth can demonstrate that she currently sells 250 cushions per month — above her break-even of 240 — giving a margin of safety of 10 cushions and proving the business is already profitable (APP+AN)."
+            },
+            {
+                num: "Q7",
+                marks: 1,
+                type: "written",
+                caseStudy: "Virgin Atlantic is a multinational company which flies customers to many destinations around the world. Since its launch in 1984 Virgin Atlantic has pursued objectives of growth and to develop an international brand.\n\nIn 2016, Virgin Atlantic carried 6 million passengers and made £23 million in profit, its highest profit in five years. The company can calculate the number of customers it needs for each of its flights to break-even.\n\nPart of Virgin Atlantic's aim is 'to grow a profitable airline, where people love to fly and people love to work.' The business has always been keen to provide excellent customer service, competitive prices and a fantastic choice of food and drink on its planes. Additionally, the business takes its ethical and environmental responsibilities very seriously too.",
+                question: "State one use of break-even to Virgin Atlantic. [1 mark]",
+                hint: "Be specific — think about what knowing the minimum number of passengers per flight ALLOWS Virgin Atlantic to do operationally or strategically.",
+                starter: "Break-even analysis allows Virgin Atlantic to...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 1 mark (AO2)</h5><p>One mark for a correct, specific statement of a use of break-even applied to Virgin Atlantic's context.</p><p><strong>Acceptable answers include:</strong></p><ul><li>To identify the minimum number of passengers needed on each flight to cover all operating costs</li><li>To inform marketing decisions, such as how many tickets must be sold per flight</li><li>To inform planning decisions, such as how many planes / flights are needed to break even overall</li><li>To set a minimum sales target for ticket sales on each route</li><li>To calculate the margin of safety on ticket sales</li></ul></div>`,
+                modelAnswer: "Break-even analysis allows Virgin Atlantic to identify the minimum number of passengers that must be on each flight to cover all costs, giving the marketing team a clear ticket-sales target to aim for."
+            },
+            {
+                num: "Q8",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "Andrea specialises in painting portraits. She estimates that:\n• variable costs for labour are £52 per portrait\n• variable costs for materials are £23 per portrait\n• fixed costs are £1,000 per month",
+                question: "If Andrea paints and sells 50 portraits a year, total costs are estimated to be:",
+                options: [
+                    "£1,075 per year",
+                    "£4,750 per year",
+                    "£12,075 per year",
+                    "£15,750 per year"
+                ],
+                answer: 3,
+                hint: "Convert monthly fixed costs to annual first (× 12). Then calculate total variable costs (VC per portrait × 50). Finally, add fixed and variable costs together.",
+                starter: "Annual fixed costs = £1,000 × 12 = £12,000\nVC per portrait = £52 + £23 = £75\nTotal VC = £75 × 50 = £3,750\nTotal costs = £12,000 + £3,750 = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: D — £15,750 per year</h5><p><strong>Working:</strong></p><ul><li>Annual fixed costs = £1,000 × 12 = £12,000</li><li>Variable cost per portrait = £52 + £23 = £75</li><li>Total variable costs = £75 × 50 = £3,750</li><li>Total costs = £12,000 + £3,750 = <strong>£15,750</strong></li></ul><p><strong>Why the others are wrong:</strong></p><ul><li><strong>A (£1,075):</strong> Incorrect — results from simply adding £52 + £23 + £1,000 without multiplying by 50 portraits or converting monthly to annual FC. Completely ignores the quantities involved.</li><li><strong>B (£4,750):</strong> Incorrect — results from using the monthly fixed cost (£1,000) instead of the annual figure (£12,000), giving £3,750 + £1,000 = £4,750.</li><li><strong>C (£12,075):</strong> Incorrect — likely used only one variable cost component (e.g. just £52 or £23) rather than adding both together, then added the annual FC of £12,000.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Q9",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "At break-even a firm's total revenue equals its:",
+                options: [
+                    "Fixed costs only",
+                    "Gross profit",
+                    "Net profit",
+                    "Total costs"
+                ],
+                answer: 3,
+                hint: "At break-even, the business makes no profit and no loss. What does this tell you about the relationship between revenue and costs?",
+                starter: "At break-even, TR = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: D — Total costs</h5><p>At break-even, total revenue equals total costs (TR = TC). The business makes neither a profit nor a loss.</p><p><strong>Why the others are wrong:</strong></p><ul><li><strong>A — Fixed costs only:</strong> Total revenue must cover BOTH fixed AND variable costs to break even. Fixed costs alone understates the total costs the business must cover.</li><li><strong>B — Gross profit:</strong> Gross profit = revenue − cost of sales. At break-even, net profit is zero, but gross profit may still exist. Gross profit is not the same as total costs.</li><li><strong>C — Net profit:</strong> If TR equalled net profit, there would be no costs at all — this is clearly impossible for any real business.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Q10",
+                marks: 4,
+                type: "written",
+                caseStudy: "Martina Doyle currently works for the National Health Service (NHS). She has total savings of just over £5,000 in her bank account. Martina is planning to leave the NHS and start up a private sports injury clinic. She intends to call her new business 'MD Sports Clinic'.\n\nMartina wishes to rent a property for her new business and expects to pay rent each month. She wants to take a monthly income from the business. She also wants to employ a part-time receptionist.\n\nMartina needs to buy some equipment to set up MD Sports Clinic. She has estimated the following figures for MD Sports Clinic's first month of trading:\n• fixed costs of £6,000\n• variable costs of £5 per session\n• revenue of £30 per session.",
+                question: "Calculate the number of sessions MD Sports Clinic would need to break-even in its first month of trading. Show your workings. [4 marks]",
+                hint: "Use the full break-even formula and show every step. Four steps = four marks: (1) state the formula, (2) calculate the contribution, (3) divide FC by contribution, (4) state the final answer in sessions.",
+                starter: "Break-even formula = FC ÷ (SP − VC) (K)\nContribution = £30 − £5 = £25 per session (APP)\nBreak-even = £6,000 ÷ £25 = ... sessions (APP)\nAnswer: ... sessions (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 4 marks (AO1a + AO2)</h5><ul><li><strong>Mark 1:</strong> Correct formula: FC ÷ (SP − VC)</li><li><strong>Mark 2:</strong> Correct contribution: £30 − £5 = £25</li><li><strong>Mark 3:</strong> Correct use of figures: £6,000 ÷ £25</li><li><strong>Mark 4 (OFR):</strong> Correct final answer = <strong>240 sessions</strong></li></ul><p>Award full marks for a correct final answer regardless of how workings are set out. Check workings and award marks as shown above if the final answer is incorrect. Award maximum 1 mark for a correct formula in the absence of any numerical workings. OFR applies throughout.</p></div>`,
+                modelAnswer: "Break-even = FC ÷ (SP − VC)\nContribution = £30 − £5 = £25 per session\nBreak-even = £6,000 ÷ £25 = 240 sessions"
+            },
+            {
+                num: "Q11",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Which of the following is a limitation of break-even analysis?",
+                options: [
+                    "It cannot be used to estimate the profit a business is likely to make",
+                    "It cannot factor in seasonal pricing and price discounts",
+                    "It cannot show how much a business needs to sell to cover its costs",
+                    "It cannot show the level of profit or loss at a range of outputs"
+                ],
+                answer: 1,
+                hint: "Think about what break-even CANNOT do. Eliminate options A, C, and D by checking whether break-even CAN actually do those things.",
+                starter: "The correct answer is B because break-even analysis assumes...",
+                markScheme: `<div class="marks-section"><h5>Answer: B — It cannot factor in seasonal pricing and price discounts</h5><p>Break-even assumes a single, fixed selling price throughout. It cannot account for price changes such as seasonal discounts, promotional pricing, or variable pricing strategies — all of which affect actual revenue differently at different points in time.</p><p><strong>Why the others are wrong:</strong></p><ul><li><strong>A — Incorrect:</strong> Break-even CAN be used to estimate profit at different output levels — by comparing TR with TC at any point on the graph or table.</li><li><strong>C — Incorrect:</strong> Showing how much a business must sell to cover its costs IS the core purpose and main strength of break-even analysis.</li><li><strong>D — Incorrect:</strong> By comparing TR and TC at various outputs (on a graph or in a table), break-even CAN show the level of profit or loss across a full range of outputs.</li></ul><p><strong>Examiner's Comment:</strong> Many candidates chose A because they saw the word "estimate" and assumed it must be a limitation. This is a common trap — always read all four options carefully before selecting. Each MCQ is worth 1 mark and deserves at least a minute of careful thought.</p></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Case 33a",
+                marks: 3,
+                type: "written",
+                caseStudy: "Samantha Dixon is starting up a cake decorating business. In the area where she lives and works there are two other cake decorating businesses. She has estimated that she can sell wedding cakes at £300 each which is slightly less than the prices currently charged by competitors. She estimates the variable costs of each cake to be £180. Samantha has calculated that her fixed costs are £3,600 per year for her premises (making use of her own kitchen) and interest payments on a bank loan.",
+                question: "Calculate how many cakes Samantha must sell to break even. [3 marks]",
+                hint: "Use the standard break-even formula. Show all three steps — even if your final answer is wrong, you may still earn method marks.",
+                starter: "Contribution per cake = selling price − variable cost = £300 − £180 = ... (APP)\nBreak-even = FC ÷ contribution = £3,600 ÷ ... = ... cakes per year (APP)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO2/Application)</h5><p>Calculates the break-even output using the data provided. One or two marks may be awarded where the final answer is incorrect but the method uses correct figures.</p><ul><li><strong>Mark 1:</strong> Correct contribution = £300 − £180 = £120</li><li><strong>Mark 2:</strong> Correct formula applied: £3,600 ÷ £120</li><li><strong>Mark 3:</strong> Correct answer = <strong>30 cakes per year</strong></li></ul><p>Method marks: one mark for using £3,600 in the numerator; one mark for using (£300 − £180) as the denominator.</p></div>`,
+                modelAnswer: "Contribution = £300 − £180 = £120 per cake.\nBreak-even = £3,600 ÷ £120 = 30 cakes per year."
+            },
+            {
+                num: "Case 33b",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Analyse one advantage to Samantha of calculating the break-even level of output. [3 marks]",
+                hint: "Choose ONE advantage. Follow the U → APP → AN chain. The understanding mark needs you to explain what the advantage IS (without using 'break-even' tautologically). Then apply it specifically to Samantha. Then explain the impact on Samantha's business.",
+                starter: "One advantage of break-even analysis for Samantha is that it helps her... (U)\nFor Samantha, this means she now knows she must sell at least 30 cakes per year... (APP)\nAs a result, Samantha can... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5><p><strong>Understanding (1 mark) — one advantage, e.g.:</strong></p><ul><li>Aid to planning (knowing how many to sell to cover costs)</li><li>Supporting a loan application to a bank</li><li>Helping make decisions about pricing and costs</li><li>Estimating the expected level of profit at different outputs</li><li>Identifying the margin of safety</li></ul><p><strong>Application (1 mark) — specific to Samantha's situation:</strong></p><ul><li>Samantha must plan to sell at least 30 cakes to break even</li><li>Samantha can show the forecast to a bank manager when asking for a loan</li><li>If Samantha expects to sell more than 30, she knows she has a margin of safety</li></ul><p><em>Note: Application cannot be awarded without Understanding.</em></p><p><strong>Analysis (1 mark) — the effect on Samantha's business:</strong></p><ul><li>If she expects to sell fewer than 30, she must change her plans — raise price, reduce costs, or find ways to increase sales</li><li>Knowing the margin of safety means she can assess how far demand could fall before she makes a loss</li><li>Presenting a break-even forecast to a bank manager helps convince them to provide a loan, as it shows careful planning</li></ul></div>`,
+                modelAnswer: "Break-even analysis helps Samantha plan how many cakes she must sell to cover all of her costs before moving into profit (U). Samantha now knows she must sell at least 30 wedding cakes per year to break even (APP). If she expects to sell more than 30, she can calculate her margin of safety and assess how much her sales could fall before she starts making a loss — helping her plan pricing and production decisions with confidence (AN)."
+            },
+            {
+                num: "Case 33c",
+                marks: 6,
+                type: "written",
+                caseStudy: "",
+                question: "Analyse two limitations to the break-even forecast that Samantha has calculated. [6 marks]",
+                hint: "Write TWO separate paragraphs, each following the full U → APP → AN chain. Pick two DIFFERENT limitations and apply each one specifically to Samantha. Do NOT write a conclusion — there are zero evaluation marks available here.",
+                starter: "Limitation 1: One limitation is that the break-even forecast is based on estimated figures... (U)\nFor Samantha, there are already two competitors in her area, meaning... (APP)\nThis could result in Samantha having to... (AN)\n\nLimitation 2: Another limitation is that the cost of ingredients could change unexpectedly... (U)\nSamantha's variable cost is currently £180 per cake (APP)\nIf this rises, it means... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 6 marks (2× AO1b + 2× AO2 + 2× AO3a)</h5><p>Two lines of answer required, each demonstrating U + APP + AN.</p><p><strong>Understanding (2 marks — one per limitation):</strong></p><ul><li>The number of competitors / behaviour of competitors may change</li><li>Effect of promotional offers reducing actual price received</li><li>Changes in variable or fixed costs</li><li>External factors (e.g. economy) may affect demand</li></ul><p><strong>Application (2 marks — one per limitation, relating to Samantha's case):</strong></p><ul><li>New competitors could enter the market, increasing competition in her area</li><li>Existing competitors could reduce their prices below £300</li><li>Samantha might sell for less than £300 initially as a promotional offer</li><li>The cost of cake ingredients (currently £180 per cake) may rise or fall</li></ul><p><strong>Analysis (2 marks — one per limitation):</strong></p><ul><li>Increased competition may force Samantha to lower her price, reducing contribution per cake and pushing her real break-even above 30 cakes</li><li>If competitors cut prices, Samantha may not achieve planned sales of 30, meaning she operates at a loss</li><li>A promotional offer brings in less revenue than forecasted, raising the actual break-even output</li><li>If ingredient costs rise, contribution falls and Samantha must sell more than 30 cakes to break even — making the forecast an underestimate</li><li>Changes to break-even output will affect the margin of safety and could change the viability of the business</li></ul></div>`,
+                modelAnswer: "Limitation 1: A new competitor could enter the cake decorating market in Samantha's area (U). There are already two competitors nearby, and if a third opened or an existing one cut prices below £300, Samantha may be forced to reduce her price too (APP). This would lower her contribution per cake below £120, pushing her real break-even above 30 cakes and making the original forecast inaccurate (AN).\n\nLimitation 2: The cost of ingredients could change unexpectedly (U). Samantha currently estimates her variable cost at £180 per cake, but if the price of flour, sugar, or decorations rises (APP), her contribution per cake will fall. This means she would need to sell more than 30 cakes to break even — and the forecast would have underestimated the true sales target needed to avoid a loss (AN)."
+            },
+            {
+                num: "Case 34a (i)",
+                marks: 2,
+                type: "written",
+                caseStudy: "Helle Schmidt runs Bentham Pallets, a business making and selling pallets. She has estimated the following:\n• She can currently produce 20,000 pallets per year.\n• The total fixed cost of production will be £40,000 for the year.\n• She buys in wood and nails to make the pallets. The average variable cost will be £9 per pallet.\n• At present, she intends to sell pallets at an average price of £10.\n\nHelle has been told that another firm is starting up in the area which will also sell pallets.",
+                question: "Calculate the total variable cost of producing 20,000 pallets. [2 marks]",
+                hint: "Total variable cost = variable cost per unit × quantity produced. Show your working.",
+                starter: "Total variable cost = variable cost per pallet × number of pallets = £9 × 20,000 = ...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO2/Application)</h5><ul><li><strong>Mark 1:</strong> Correct method shown: 20,000 × £9</li><li><strong>Mark 2:</strong> Correct answer: <strong>£180,000</strong></li></ul><p>2 marks for the correct answer. 1 mark if a correct method is shown but the answer is incorrect.</p></div>`,
+                modelAnswer: "TVC = 20,000 × £9 = £180,000"
+            },
+            {
+                num: "Case 34a (ii)",
+                marks: 2,
+                type: "written",
+                caseStudy: "",
+                question: "Calculate the total costs of producing 20,000 pallets. [2 marks]",
+                hint: "Total costs = total fixed costs + total variable costs. Use your answer from part (i) for the variable costs.",
+                starter: "Total costs = fixed costs + total variable costs = £40,000 + £180,000 = ...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO2/Application)</h5><ul><li><strong>Mark 1:</strong> Correct method: £40,000 + £180,000</li><li><strong>Mark 2:</strong> Correct answer: <strong>£220,000</strong></li></ul><p>OFR applies from part (i).</p></div>`,
+                modelAnswer: "TC = £40,000 + £180,000 = £220,000"
+            },
+            {
+                num: "Case 34a (iii)",
+                marks: 2,
+                type: "written",
+                caseStudy: "",
+                question: "Calculate the total revenue from selling 20,000 pallets. [2 marks]",
+                hint: "Total revenue = selling price × quantity sold. Use the price stated in the case study.",
+                starter: "Total revenue = selling price × quantity = £10 × 20,000 = ...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO2/Application)</h5><ul><li><strong>Mark 1:</strong> Correct method: 20,000 × £10</li><li><strong>Mark 2:</strong> Correct answer: <strong>£200,000</strong></li></ul><p>Note: Helle would make a LOSS of £20,000 at this output and price (TC = £220,000 > TR = £200,000). The current price of £10 does not cover all costs.</p></div>`,
+                modelAnswer: "TR = 20,000 × £10 = £200,000"
+            },
+            {
+                num: "Case 34b",
+                marks: 2,
+                type: "written",
+                caseStudy: "",
+                question: "Calculate the price that Helle must charge on average for each pallet for Bentham Pallets to break even. [2 marks]",
+                hint: "To break even, total revenue must equal total costs. If she produces and sells 20,000 pallets, divide the total costs (from part a ii) by 20,000 to find the minimum price per pallet.",
+                starter: "Break-even price = total costs ÷ number of pallets = £220,000 ÷ 20,000 = ...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO2/Application)</h5><ul><li><strong>Mark 1:</strong> Correct method: £220,000 ÷ 20,000</li><li><strong>Mark 2:</strong> Correct answer: <strong>£11 per pallet</strong></li></ul><p>OFR from part a(ii) applies. 2 marks for the correct answer; 1 mark if a correct method is used but the final figure is incorrect.</p></div>`,
+                modelAnswer: "Break-even price = £220,000 ÷ 20,000 = £11 per pallet.\nHelle would need to charge at least £11 per pallet to cover all her costs — £1 more than her current intended price of £10."
+            },
+            {
+                num: "Case 34c",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Analyse one way in which the start-up of a new firm selling pallets in the same area might affect Bentham Pallets' business. [3 marks]",
+                hint: "Think about what a new competitor could do — reduce Helle's price, lower her sales volume, or increase costs. Then link this back to what it means for Bentham Pallets' break-even output.",
+                starter: "The start-up of a new competitor could mean that Helle has to lower her price... (U)\nBentham Pallets currently needs to charge £11 to break even, but Helle intends to sell at only £10... (APP)\nThis means that Helle... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5><p><strong>Understanding (1 mark):</strong></p><ul><li>The price Helle can charge may have to be lower</li><li>Variable costs may rise (increased demand for raw materials)</li><li>Helle's sales volume may decrease if customers switch to the new competitor</li></ul><p><strong>Application (1 mark) — using case study data:</strong></p><ul><li>The average price Helle achieves may fall below £10</li><li>The increased demand for raw materials (wood and nails) may push variable costs above £9 per pallet</li><li>Helle may sell fewer than the 20,000 pallets she currently forecasts</li></ul><p><strong>Analysis (1 mark):</strong></p><ul><li>A fall in price would mean Helle's break-even output increases (beyond the current 20,000 pallets)</li><li>A rise in variable costs reduces contribution per pallet and raises the break-even price above £11</li><li>A fall in sales means Helle may not sell enough to cover all her costs, causing a loss</li></ul></div>`,
+                modelAnswer: "The new competitor may force Helle to lower her selling price to retain customers (U). Bentham Pallets is already selling at £10 per pallet while needing to charge £11 just to break even — meaning the business is already forecast to make a loss before the competitor even opens (APP). If Helle further reduces her price to compete, contribution per pallet falls even more, making it impossible to cover total costs of £220,000 and pushing the business deeper into loss (AN)."
+            }
+        ];
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

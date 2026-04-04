@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Business — Component 2</div>
+            <h1>Testing --2 </h1>
+            <p>Interactive revision guide · All key content + full exam practice</p>
+        </div>
+        <a href="index.html" class="home-link">← 🏡 Home</a>
+
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn',this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq',this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching',this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib',this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions',this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips',this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards',this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse',this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice',this)">📝 Exam Practice</button>
+    </nav>
+
+    <main>
+
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct answers</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+            <div style="margin-bottom:16px;">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size:12px;color:var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+                <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span>
+                        First attempt correct</span>
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span>
+                        Correct after mistake</span>
+                    <span
+                        style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+                            style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span>
+                        Wrong — try again</span>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">What students often think — and what examiners actually want.</p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge. Review your weak areas at the
+                end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display:none; margin-bottom: 20px;">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color:#2d7a4f;">0</div>
+                        <div style="font-size:12px;color:var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color:#c84b31;">0</div>
+                        <div style="font-size:12px;color:var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px;">
+                        <button class="fc-btn outline" style="border-color:#c84b31; color:#c84b31; flex:1;"
+                            onclick="markCard(false)">❌
+                            Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f; border-color:#2d7a4f; flex:1;"
+                            onclick="markCard(true)">✅
+                            Got
+                            It</button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px;">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0;">You knew <strong id="fcSummaryKnown">0</strong> out of <strong
+                            id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background:#c84b31; border-color:#c84b31;">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size:12px;color:var(--mid)">correct</div>
+                </div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence
+                    Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+
+    </main>
+
+    <script>
+
+        const topics = [
+                {
+                    title: "What is Globalisation?",
+                    tag: "Core Concepts",
+                    content: `<p><strong>Globalisation</strong> is the process by which business activity around the world has become increasingly interconnected. It involves three key movements:</p>
+<ul>
+<li><strong>Trade:</strong> Buying and selling goods and services made in different countries.</li>
+<li><strong>People:</strong> The movement of workers from country to country.</li>
+<li><strong>Capital:</strong> The movement of money or assets (machines, buildings, vehicles) from country to country.</li>
+</ul>
+<p>Globalisation has increased at a rapid rate, driven by three major improvements:</p>
+<ul>
+<li><strong>Transport:</strong> Costs have fallen as ships and planes have grown bigger. The development of <strong>containers</strong> — standardised boxes lifted by crane from ship to lorry — has significantly reduced costs.</li>
+<li><strong>Telecommunications & the Internet:</strong> Communication is faster and cheaper. Businesses can research suppliers worldwide, order via email or video-conferencing, and promote products through websites and social media.</li>
+<li><strong>Free Trade Arrangements:</strong> <strong>Free trade</strong> exists when there are no barriers such as <strong>tariffs</strong> (taxes on imports), <strong>quotas</strong> (limits on the amount imported) or <strong>regulations</strong> (rules on goods that can be sold). The WTO encourages countries to remove these barriers. Examples of free trade areas include NAFTA (USA, Canada, Mexico) and SAFTA (South Asia).</li>
+</ul>`
+                },
+                {
+                    title: "Key Terminology",
+                    tag: "Definitions",
+                    content: `<ul>
+<li><strong>Globalisation:</strong> The process by which business activity around the world has become increasingly interconnected.</li>
+<li><strong>International Branding:</strong> Creating an image or values for a product that are communicated in countries around the world.</li>
+<li><strong>Free Trade:</strong> The absence of restrictions on trade between countries.</li>
+<li><strong>Tariff:</strong> A tax on a good or service that is imported.</li>
+<li><strong>Quota:</strong> A limit in terms of weight or value on the amount of a good or service that can be imported.</li>
+<li><strong>Regulations:</strong> Rules about the goods and services that can be sold in a country.</li>
+<li><strong>Multinational Company (MNC):</strong> A business that operates in different countries around the world.</li>
+<li><strong>Productivity:</strong> A measure of the output of each worker on average.</li>
+<li><strong>Unit Cost:</strong> The cost per unit produced. The greater the productivity of workers, the lower the unit cost.</li>
+<li><strong>Exchange Rate:</strong> The price of one currency in terms of another (e.g. £1 = €1.2).</li>
+</ul>`
+                },
+                {
+                    title: "Multinational Companies (MNCs)",
+                    tag: "Theory",
+                    content: `<p><strong>Multinational companies (MNCs)</strong> are businesses that operate in more than one country. They are a key feature of globalisation. Well-known examples include Google, Amazon, Coca-Cola, Starbucks and McDonald's.</p>
+<p>There are several advantages to a <strong>business</strong> of becoming a multinational:</p>
+<ul>
+<li><strong>Increasing sales:</strong> Selling in more countries increases the size of the market and potential revenue.</li>
+<li><strong>Spreading risk:</strong> If one market suffers a recession, the company can compensate with sales growth in another country.</li>
+<li><strong>Lower costs:</strong> Production may be cheaper in another country due to lower wages, cheaper land, or better technology.</li>
+<li><strong>Tax avoidance:</strong> MNCs may set up headquarters in low-tax countries (e.g. Luxembourg or Ireland) to reduce their overall tax bill, even while selling in higher-tax countries.</li>
+</ul>`
+                },
+                {
+                    title: "Impact of MNCs on the Host Country",
+                    tag: "Analysis",
+                    content: `<p>The country where a multinational locates is called the <strong>host country</strong>. MNCs bring both benefits and drawbacks to that country.</p>
+<div class="two-col">
+<div>
+<div class="col-head">✓ Advantages to Host Country</div>
+<div class="pro-item"><strong>Creates demand for local businesses:</strong> MNCs employ local people, increasing incomes and local spending. They may also buy supplies from local firms.</div>
+<div class="pro-item"><strong>Taxes & public services:</strong> Tax payments by MNCs help governments fund education, health and infrastructure.</div>
+<div class="pro-item"><strong>Lower prices:</strong> By keeping costs low, MNCs may offer goods and services at cheaper prices for consumers and businesses.</div>
+</div>
+<div>
+<div class="col-head">✗ Disadvantages to Host Country</div>
+<div class="con-item"><strong>Business closures:</strong> Local firms may be unable to compete on price or quality and get forced out of business. MNCs may also pay higher wages, pulling workers away from local employers.</div>
+<div class="con-item"><strong>Outflows of money:</strong> Profits are often sent back to the MNC's home country headquarters, limiting the financial benefit to the host country.</div>
+<div class="con-item"><strong>Diseconomies of scale:</strong> As MNCs grow very large, they can become harder to manage and less efficient.</div>
+</div>
+</div>
+<div class="case-study-box">
+<h4>Case Study: Vodafone in the UK</h4>
+<p>Vodafone sells mobile and ICT services across many countries. Although headquartered in the UK, profits are routed to Luxembourg where taxation is much lower — a practice accused of being tax avoidance. Vodafone disputes this, arguing it pays all taxes legally owed and contributes through investment, job creation and over £1.2 billion spent on UK network upgrades. This case illustrates the debate around whether MNCs truly benefit host countries or exploit lower-tax loopholes.</p>
+</div>`
+                },
+                {
+                    title: "Influences on Business Location",
+                    tag: "Theory",
+                    content: `<p>Globalisation means businesses have greater freedom to choose <strong>where</strong> they locate production. A UK business may move production abroad — or bring it back home — for several reasons.</p>
+<p><strong>Reasons to locate ABROAD:</strong></p>
+<ul>
+<li><strong>Lower labour costs:</strong> Wages are much lower in many countries, especially in the Far East. This is why Raleigh Cycles moved production to Taiwan.</li>
+<li><strong>Lower technology costs:</strong> Some foreign firms have invested more in up-to-date manufacturing technology, reducing production costs.</li>
+<li><strong>Lower property/land costs:</strong> Factories and premises may be cheaper abroad.</li>
+<li><strong>Access to expertise:</strong> Businesses may locate near specialist skills or R&D talent in other countries.</li>
+<li><strong>Proximity to demand:</strong> Locating near the target market can increase sales. The Electric Car Corporation moved production to Denmark because demand for electric cars was stronger there.</li>
+</ul>
+<p><strong>Reasons to move production BACK to the UK:</strong></p>
+<ul>
+<li><strong>Quality control:</strong> It is easier to monitor standards when production is close to headquarters.</li>
+<li><strong>Communications:</strong> No language barriers or time zone differences with a UK workforce.</li>
+<li><strong>Skilled labour:</strong> The UK has a strong supply of skilled workers in many industries.</li>
+<li><strong>Consumer preference:</strong> Many UK customers prefer goods labelled 'Made in Britain'.</li>
+<li><strong>Environment:</strong> UK production reduces transport distances, lowering the business's carbon footprint — a strong marketing point.</li>
+<li><strong>Rising foreign wages:</strong> As wages in developing countries increase, the cost advantage of producing abroad shrinks.</li>
+</ul>
+<div class="case-study-box">
+<h4>Case Study: Raleigh Cycles</h4>
+<p>Raleigh, the famous Nottingham bicycle manufacturer, went bankrupt in the 2000s. New owners moved production to Taiwan and South East Asia to cut costs, while keeping sales, marketing and design in the UK. The business recovered strongly and has since moved some assembly back to Nottingham — showing that location decisions are not permanent and must be regularly reviewed.</p>
+</div>`
+                },
+                {
+                    title: "International Branding",
+                    tag: "Theory",
+                    content: `<p><strong>Branding</strong> refers to a product's image, reputation and values — communicated through logos, words, images, music and media (TV, social media, websites). When selling globally, a business must adapt its branding to suit each country. The key principle is: <strong>"Think global, act local"</strong> — promote the same core values worldwide, but deliver the message differently in each market.</p>
+<p>Businesses must consider the following factors when creating an international brand:</p>
+<ul>
+<li><strong>Culture & Religion:</strong> Images or themes acceptable in one country may deeply offend in another. A Coca-Cola ad featuring Father Christmas would not work in a predominantly Muslim country like Pakistan.</li>
+<li><strong>Language:</strong> Product names, slogans and advertisements must be translated carefully. An American fast food company mistakenly advertised 'yassuppoi' chips in Japan — meaning 'low quality' in Japanese.</li>
+<li><strong>Names:</strong> Products sometimes need different names. Burger King operates as 'Hungry Jack's' in Australia because the Burger King name was already trademarked there.</li>
+<li><strong>Level & Distribution of Income:</strong> There is no point promoting a luxury product in a country where most people cannot afford it. Businesses must research average incomes and how evenly wealth is spread.</li>
+<li><strong>Legal Factors:</strong> Businesses must follow local advertising laws. Alcohol advertising is illegal in Sri Lanka; cigarettes are banned entirely in Bhutan.</li>
+<li><strong>Bribery:</strong> In some countries, bribery is commonplace in business dealings. In the UK it is illegal and carries serious reputational and legal consequences.</li>
+</ul>
+<div class="case-study-box">
+<h4>Case Study: McDonald's in India</h4>
+<p>McDonald's adapts its products to suit local cultures. In India, where beef is not eaten for religious reasons, the Big Mac is made from chicken and marketed as the 'Maharajah Mac' (meaning king-size burger). Prices are also lower — around £1.97 compared to £3.25 in the UK — to reflect lower average incomes. This shows how the 4 Ps (Product, Price, Promotion, Place) must all be adapted for international markets.</p>
+</div>`
+                },
+                {
+                    title: "How Businesses Compete Internationally",
+                    tag: "Strategies",
+                    content: `<p>Competing internationally means both selling abroad and competing against foreign firms at home. Businesses must adapt across all areas of the organisation:</p>
+<ul>
+<li><strong>Growth:</strong> Businesses may expand organically (e.g. Marks & Spencer opening shops across the world) or through joint ventures (e.g. Jaguar Land Rover partnering with Chery in China to produce and sell cars without import tariffs).</li>
+<li><strong>Marketing (4 Ps):</strong> Products may need to be changed (e.g. JLR makes longer wheelbase cars for Chinese buyers); prices adjusted for local incomes; promotions must reflect local culture; and place decisions must consider whether to be near customers or raw materials.</li>
+<li><strong>Human Resources:</strong> Businesses must recruit and train overseas workers, comply with local employment laws, and find suitable ways to motivate staff in different cultural contexts.</li>
+<li><strong>Business Operations:</strong> Methods of production may need to change — switching from job to batch production to cut costs. Quality assurance processes must be put in place if producing abroad.</li>
+<li><strong>Finance:</strong> International expansion requires sources of finance for investment. Break-even analysis helps businesses assess whether selling in a new country will be profitable.</li>
+<li><strong>Ethical & Environmental:</strong> Businesses must consider the ethical implications of producing in countries with weaker labour laws or environmental standards. Negative publicity (e.g. Primark and child labour accusations) can damage a brand significantly.</li>
+</ul>`
+                },
+                {
+                    title: "Exchange Rates & International Competitiveness",
+                    tag: "Analysis",
+                    content: `<p>The <strong>exchange rate</strong> is the price of one currency in terms of another (e.g. £1 = €1.20). Changes in the exchange rate directly affect the price of exports and imports, and therefore a business's competitiveness abroad.</p>
+<p>A useful mnemonic to remember the effects is <strong>SPICED</strong>:</p>
+<div class="formula-box">
+<strong>SPICED</strong> = Strong Pound → Imports Cheaper, Exports Dearer
+</div>
+<ul>
+<li><strong>If the pound rises (strengthens):</strong> Exports become more expensive for foreign buyers (likely to reduce export sales). Imports become cheaper for UK businesses (good for importers, but harder for domestic producers to compete).</li>
+<li><strong>If the pound falls (weakens):</strong> Exports become cheaper for foreign buyers (likely to increase export sales). Imports become more expensive (raises costs for UK firms that rely on imported materials).</li>
+</ul>
+<div class="two-col">
+<div>
+<div class="col-head">✓ Weak Pound — Good For</div>
+<div class="pro-item"><strong>Exporters:</strong> Their goods become cheaper abroad, increasing overseas sales. Brandauer, a Birmingham engineering firm, saw export sales rise after the pound fell following Brexit.</div>
+</div>
+<div>
+<div class="col-head">✗ Weak Pound — Bad For</div>
+<div class="con-item"><strong>Importers:</strong> Imported raw materials and components become more expensive, pushing up production costs. Princess Yachts noted costs rose as imported components became pricier after the pound fell.</div>
+</div>
+</div>
+<div class="case-study-box">
+<h4>Case Study: Princess Yachts</h4>
+<p>Princess Yachts, based in Plymouth, sells 80% of its yachts abroad. After the pound fell in value, exports became cheaper for overseas buyers and sales increased. However, costs also rose slightly as some imported components became more expensive. This illustrates that exchange rate changes rarely have a simple, one-sided effect — businesses that both import and export must weigh up the overall impact carefully.</p>
+</div>`
+                },
+                {
+                    title: "Brexit & Its Impact on UK Businesses",
+                    tag: "Application",
+                    content: `<p>The UK officially left the European Union in January 2020. Since 1 January 2021, new trading rules have applied. Brexit has had both negative and positive effects on UK businesses.</p>
+<div class="two-col">
+<div>
+<div class="col-head">✗ Negative Effects</div>
+<div class="con-item"><strong>New paperwork & inspections:</strong> UK exports to the EU must now meet EU standards and be accompanied by documentation. This costs time and money, and border delays have slowed deliveries. Some UK firms have stopped trading with the EU entirely.</div>
+<div class="con-item"><strong>Labour shortages:</strong> Freedom of movement has ended. EU workers must now apply for the right to work in the UK. Restaurant chains like D&D London (43 restaurants) have struggled to recruit skilled chefs as a result.</div>
+<div class="con-item"><strong>Rules of origin:</strong> UK-made goods must use a minimum proportion of British components to qualify as 'Made in the UK' when exporting to the EU.</div>
+<div class="con-item"><strong>Northern Ireland complications:</strong> Goods moving from the rest of the UK to Northern Ireland are treated as exports to the EU, requiring extra checks.</div>
+</div>
+<div>
+<div class="col-head">✓ Positive Effects</div>
+<div class="pro-item"><strong>New trade deals:</strong> The UK is now free to negotiate independently with non-EU countries. A deal with Japan already makes 99% of UK exports to Japan tariff-free.</div>
+<div class="pro-item"><strong>Weaker pound boosts exports:</strong> The fall in the pound's value after Brexit made UK exports cheaper. Brandauer (Birmingham) increased EU exports of precision-engineered components as a result.</div>
+<div class="pro-item"><strong>Some inward investment:</strong> Nissan announced over £1 billion of investment to expand electric car production in Sunderland after the Brexit free-trade deal was secured.</div>
+</div>
+</div>
+<div class="case-study-box">
+<h4>Case Study: The Cheshire Cheese Company</h4>
+<p>Before Brexit, the Cheshire Cheese Company exported cheese to the EU with no tariffs and no additional paperwork. After Brexit, each export now requires a health certificate costing £180 — even for a gift package worth just £30. The owner estimated a loss of revenue of up to £250,000. This illustrates how non-tariff barriers (like certificates and inspections) can be just as damaging as tariffs for small exporters.</p>
+</div>`
+                }
+            ];
+        const examQuestions = [
+                {
+                    num: "Q1",
+                    marks: 1,
+                    type: "mcq",
+                    caseStudy: "",
+                    question: "What has NOT contributed to increased globalisation?",
+                    options: [
+                        "A reduction in shipping costs due to bulk containerisation",
+                        "An increase in labour migration worldwide",
+                        "Restrictions on international trade",
+                        "The internet and mobile communication technologies"
+                    ],
+                    answer: 2,
+                    hint: "Think about what BLOCKS or LIMITS globalisation rather than what encourages it.",
+                    starter: "The answer is C because...",
+                    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — Restrictions on international trade</strong></p></div><div class="marks-section"><h5>Why the correct answer is C</h5><p>Restrictions on international trade (such as tariffs, quotas, and trade barriers) actively prevent globalisation by making it harder for goods and services to move between countries. All other options are factors that have <em>encouraged</em> globalisation.</p></div><div class="marks-section"><h5>Why the other options are wrong</h5><ul><li><strong>A is wrong:</strong> Bulk containerisation has dramatically reduced the cost of shipping goods internationally, making it easier and cheaper to trade globally — this has contributed to globalisation.</li><li><strong>B is wrong:</strong> Labour migration allows workers to move between countries, increasing the flow of people and skills across borders — a key feature of a globalised world.</li><li><strong>D is wrong:</strong> The internet and mobile technologies have allowed businesses and consumers to connect instantly across the globe, massively accelerating globalisation.</li></ul></div>`,
+                    modelAnswer: ""
+                },
+                {
+                    num: "Q2 (i)",
+                    marks: 2,
+                    type: "written",
+                    caseStudy: `Unilever plc is a multinational company that makes and sells a wide range of quality products including food, cleaning agents and beauty products across 190 countries.
+
+Unilever plc has benefitted from operating in a global marketplace and the majority of its products are international brands. Some of its branded products include Lynx Body Spray, Dove Soap, Hellmann's Mayonnaise, Ben & Jerry's ice cream and Persil washing machine detergent. All of these products are made in factories all around the globe, some using flow production and others using batch production.
+
+Unilever plc's average revenue has grown over the last five years. However, the economic climate is becoming more difficult and Unilever plc's directors are having to adapt to these challenges.
+
+Fig. 1 shows Unilever plc worldwide revenue from 2018 to 2022 (Revenue in € millions):
+\n• 2018: €50,900m
+\n• 2019: €51,900m
+\n• 2020: €50,700m
+\n• 2021: €52,400m
+\n• 2022: €60,000m`,
+                    question: "State what is meant by international branding. [2 marks]",
+                    hint: "Think about what a 'brand' is (an image/identity for a product) and then add the 'international' element — where is that brand known?",
+                    starter: "International branding is when a business creates an image or identity for its product...\n\n...that is then recognised and communicated across countries all around the world.",
+                    markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1a = 2 marks)</h5><ul><li><strong>2 marks:</strong> A clear and complete definition that covers BOTH the idea of creating a brand/image AND that it is known/communicated worldwide.</li><li><strong>1 mark:</strong> A partial definition — e.g., defines 'branding' only, or mentions 'international marketing' without explaining the brand element.</li></ul></div><div class="marks-section"><h5>Acceptable answers include</h5><ul><li>Creating an image for a product (1) that is then communicated in countries all around the world (1).</li><li>A recognisable brand (1) that is known worldwide (1).</li><li>Having a logo (1) which is recognised around the globe (1).</li><li>Promoting your product all over the world (1).</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>This term was not well understood by most candidates. It was often confused with 'international marketing' and many answers suggested it was the same as being a multinational or partaking in international trade. International branding has a very specific meaning. Answers do not need to relate to Unilever. No reward for a definition which is solely about international trade or being a multinational.</p></div>`,
+                    modelAnswer: `<strong>Model Answer (2 marks):</strong> International branding is when a business creates a recognisable image or identity for its product (1) that is then promoted and communicated to customers in countries all around the world (1).`
+                },
+                {
+                    num: "Q2 (ii)",
+                    marks: 7,
+                    type: "written",
+                    caseStudy: "",
+                    question: "Evaluate the benefits of international branding to Unilever plc. [7 marks]",
+                    hint: "Use the case study! Mention specific Unilever products or facts (e.g. 190 countries, Lynx, Persil). Explain the benefit, then judge HOW important international branding really is for Unilever — does anything limit it?",
+                    starter: `1. K & U: International branding is when a business creates a product image that is recognised across many countries worldwide...\n\n2. AN & APP: One benefit of international branding for Unilever is... For example, as Unilever sells products like [Lynx/Persil/Dove] across 190 countries...\n\n3. AN & APP: A further benefit is... Because Unilever operates globally, having a consistent international brand means...\n\n4. EVAL: Overall, I believe international branding is [very/fairly] important to Unilever because... However, this depends on... For example, even with strong brands like Ben & Jerry's and Dove, if consumer incomes fall globally...`,
+                    markScheme: `<div class="marks-section"><h5>Mark Allocation (7 marks total)</h5><ul><li><strong>Application (up to 2 marks):</strong> Uses context from the case study in relation to the benefits of international branding [APP][APP]</li><li><strong>Analysis (up to 2 marks):</strong> Two different business-facing benefits of international branding [AN][AN]</li><li><strong>Evaluation (up to 3 marks):</strong> A justified contextual judgement about the benefits to Unilever of international branding [EVAL][EVAL][EVAL]</li></ul></div><div class="marks-section"><h5>Application may include</h5><ul><li>Multinational company operating in 190 countries</li><li>Products include Lynx, Dove, Hellmann's, Ben & Jerry's, Persil</li><li>Sells a wide range of quality products</li><li>Factories around the globe</li><li>Economic climate is difficult</li><li>Worldwide revenue high and increasing since 2020</li></ul></div><div class="marks-section"><h5>Analysis may include</h5><ul><li>Operating in many more countries may increase sales / profits</li><li>Develop a global brand that is recognisable in every country to build customer loyalty or increase sales / profits</li><li>Allows development of a larger range of products</li><li>The brand / reputation can provide a competitive advantage</li><li>More businesses may want to set up partnerships or joint ventures</li><li>Able to focus on countries where the economy is strong at that time</li></ul></div><div class="marks-section"><h5>Evaluation may include</h5><ul><li>The particular importance for a global business</li><li>The relative influence of different factors — e.g., despite strong international brands, if consumer incomes reduce around the world, Unilever profit levels will go down and lead to cost cutting such as redundancies</li><li>Having strong international brands is very important to the growth of Unilever in terms of sales/profit, but so is the range and quality of products they provide</li></ul></div><div class="marks-section"><h5>Marking Grid</h5><ul><li><strong>Strong:</strong> 2 APP + 2 AN + 3 EVAL (contextual judgement)</li><li><strong>Good:</strong> 2 APP + 2 AN + 2 EVAL (justified judgement, no context)</li><li><strong>Limited:</strong> 1 APP + 1 AN + 1 EVAL (basic decision only)</li></ul></div><div class="marks-section"><h5>Important Notes</h5><ul><li>Context must be USED (not just mentioned) to be awarded as application</li><li>Analysis must be a business-facing impact</li><li>For full 3 evaluation marks, the evaluation must be contextual</li><li>No reward for answers about being a multinational</li><li>No reward for disadvantages/drawbacks of international branding, unless it is part of evaluation</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Many candidates only gained 2–3 marks by confusing international branding with being an MNC or with international trade. Candidates often repeated points like 'leads to higher sales' without developing brand loyalty or competitive advantage. Application was noticeably weak. Evaluation was rare — most gave only a basic statement. To score full evaluation marks, candidates must reference the context specifically.</p></div><div class="marks-section"><h5>Exemplar Response</h5><p>Unilever has a range of global brands that are familiar in the 190 countries <strong>(APP)</strong> they operate in. By having an international brand, Unilever can use the same advertising across the globe to increase demand <strong>(AN)</strong>.</p><p>By having a marketing campaign that runs around the globe for its products like Ben and Jerry's ice cream <strong>(APP)</strong>, marketing costs can be kept down <strong>(AN)</strong>.</p><p>I think international branding does have many benefits for Unilever <strong>(EVAL)</strong> because they are able to save on advertising costs through economies of scale <strong>(EVAL)</strong>, which increases the profit margins on those branded products like Persil and Lynx <strong>(EVAL)</strong>.</p></div>`,
+                    modelAnswer: ""
+                },
+                {
+                    num: "Q3",
+                    marks: 1,
+                    type: "mcq",
+                    caseStudy: "",
+                    question: "Globalisation refers to:",
+                    options: [
+                        "the financial data used to measure the success of a multinational company",
+                        "the interconnected nature of business activities across the world",
+                        "the interdependencies that underpin decision-making in a large organisation",
+                        "the relationships that exist between the functional areas of a business"
+                    ],
+                    answer: 1,
+                    hint: "Globalisation is about the world — think about how businesses and economies are linked ACROSS countries.",
+                    starter: "The answer is B because...",
+                    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>B — the interconnected nature of business activities across the world</strong></p></div><div class="marks-section"><h5>Why the correct answer is B</h5><p>Globalisation specifically refers to the process by which businesses, economies, and people become increasingly connected and interdependent across national borders. It is about the world as a whole — not just one organisation.</p></div><div class="marks-section"><h5>Why the other options are wrong</h5><ul><li><strong>A is wrong:</strong> Financial data measuring a multinational's success describes performance measurement or accounting — not globalisation itself.</li><li><strong>C is wrong:</strong> This describes internal decision-making interdependencies within a single large organisation, not global business connections.</li><li><strong>D is wrong:</strong> The relationships between functional areas (e.g. marketing, finance, HR) is an internal business concept — nothing to do with globalisation across the world.</li></ul></div>`,
+                    modelAnswer: ""
+                },
+                {
+                    num: "Q4 (i)",
+                    marks: 6,
+                    type: "written",
+                    caseStudy: `AstraZeneca plc (AZ) is a multinational pharmaceutical company that operates in over 100 countries around the world. AZ develops treatments for a range of diseases. It sells its medicines and vaccines worldwide. Its headquarters are in Cambridge, England. In 2021 AZ's sales revenue was £37,417m, from which it made £24,980m gross profit.
+
+AZ has a code of ethics, which is at the centre of everything that it does. The company has approximately 75,000 employees worldwide; 10,000 of these work in its three research and development centres.
+
+AZ uses technology throughout its operations to provide high quality products for its customers. These customers include doctors, hospitals and governments from around the globe.
+
+In the UK, AZ has changed the way it sells its products. Previously, sales staff would visit medical professionals; now it uses a call centre and website where medical professionals can order products and samples. AZ says this means it can now provide a high quality service that meets the needs of its customers at a lower cost.`,
+                    question: "Analyse one advantage and one disadvantage to AZ of operating as a multinational company. [6 marks]",
+                    hint: "For EACH point: (1) State the advantage/disadvantage, (2) Link it specifically to AZ using the case study, (3) Explain the business impact — what does it mean for profits, costs, efficiency etc.?",
+                    starter: "One advantage of AZ operating as a multinational is...\n\nFor example, because AZ operates in over 100 countries...\n\nOne disadvantage of AZ operating as a multinational is...\n\nFor example, because AZ has 75,000 employees worldwide across different countries...",
+                    markScheme: `<div class="marks-section"><h5>Mark Allocation (6 marks total)</h5><ul><li><strong>AO1b (2 marks):</strong> 1 mark for understanding of a possible advantage + 1 mark for understanding of a possible disadvantage</li><li><strong>AO2 (2 marks):</strong> 1 mark for applying the advantage to AZ using evidence from the text + 1 mark for applying the disadvantage to AZ using evidence from the text</li><li><strong>AO3a (2 marks):</strong> 1 mark for analysis of the advantage + 1 mark for analysis of the disadvantage</li></ul></div><div class="marks-section"><h5>Structure per point</h5><ul><li>1 mark: Understanding of the advantage/disadvantage</li><li>1 mark: Application — use evidence from the AZ case study [APP]</li><li>1 mark: Analysis — business-facing impact [AN]</li></ul></div><div class="marks-section"><h5>Advantages of operating as a multinational — Understanding may include</h5><ul><li>Higher sales (revenue)</li><li>Spread risk</li><li>Access to skilled workers in other countries</li><li>Lower costs — labour / land / technology</li><li>Benefits of competition</li><li>Lower legal or ethical standards in other countries</li></ul></div><div class="marks-section"><h5>Advantages — Analysis may include</h5><ul><li>Setting up where there is demand for the products making distribution easier</li><li>Higher profits</li><li>Larger dividends for shareholders</li><li>Higher market share</li><li>More money to invest (make the business more competitive)</li><li>Growth of ideas and innovation</li><li>Increased efficiency</li></ul></div><div class="marks-section"><h5>Disadvantages of operating as a multinational — Understanding may include</h5><ul><li>Various legal differences / regulatory requirements in each country</li><li>May become too large — difficult to manage</li><li>Transport costs increase when moving the product around the globe</li><li>Costs of operating across a large number of countries</li><li>Worldwide opposition to multinational businesses</li><li>Communication difficulties due to language / cultural / time differences</li><li>Will face more competition</li><li>Will have to deal with currencies / exchange rate fluctuations</li></ul></div><div class="marks-section"><h5>Disadvantages — Analysis may include</h5><ul><li>May have an impact on quality control due to co-ordination around the globe</li><li>May lead to decreased profits / margins</li><li>Effect on brand identity while customising brand message for local cultures</li></ul></div><div class="marks-section"><h5>Important Notes</h5><ul><li>No further marks can be gained without understanding</li><li>Do NOT reward answers which consider being an MNC to be only about selling internationally</li><li>Application must use evidence from the text</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Many answers were narrow — being a multinational is more than just selling abroad. What makes a business a multinational is that it OPERATES in more than one country. Advantages should focus on spreading risk, lower costs in host countries, access to skilled labour, etc. Disadvantages should focus on legal differences, coordination challenges, and communication issues across time zones and cultures.</p></div><div class="marks-section"><h5>Exemplar Response</h5><p><strong>Advantage:</strong> One advantage is that AZ is likely to achieve higher sales (1) as AZ sells its medicines worldwide <strong>(APP)</strong>. This should mean larger profits which can be used to reinvest in developing new medicines (1).</p><p><strong>Disadvantage:</strong> One disadvantage is that AZ might experience communication problems (1). This is because they operate in over 100 countries <strong>(APP)</strong> in different time zones. This may reduce efficiency and have an impact on profit margins (1).</p></div>`,
+                    modelAnswer: ""
+                },
+                {
+                    num: "Q4 (ii)",
+                    marks: 3,
+                    type: "written",
+                    caseStudy: "",
+                    question: "Recommend whether AZ should continue to operate as a multinational company. [3 marks]",
+                    hint: "Make a clear recommendation first (YES or NO). Then justify it using specific details from the AZ case study — what would happen if AZ stopped operating globally?",
+                    starter: "AZ should [continue / not continue] to operate as a multinational because...\n\nThis is supported by the fact that AZ [case study detail]...\n\nTherefore, operating as a multinational is important to AZ because...",
+                    markScheme: `<div class="marks-section"><h5>Mark Allocation (AO3b = 3 marks)</h5><ul><li><strong>1 mark:</strong> A basic judgement — clear recommendation whether AZ should or should not continue as a multinational</li><li><strong>+ 1 further mark:</strong> Justification of the recommendation with NO use of context</li><li><strong>OR + 2 further marks:</strong> Justification of the recommendation WITH use of context from the case study [APP]</li></ul></div><div class="marks-section"><h5>Important Notes</h5><ul><li>Further analysis of advantages/disadvantages should not be rewarded, but CAN form part of a candidate's justification</li><li>A full answer needs a justified judgement based on context</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>The majority of candidates scored at least 2 marks on this question. Most decided AZ should continue as a multinational, although answers were not always justified and often lacked context.</p></div><div class="marks-section"><h5>Exemplar Response</h5><p>AZ should continue to operate as a multinational (1). If AZ do not operate globally, they would be restricted on how much profit they can make and therefore how much they can reinvest (1). This would restrict AZ's ability to develop new medicines (1) at its 3 research and development centres <strong>(APP)</strong>.</p></div>`,
+                    modelAnswer: `<strong>Model Answer (3 marks):</strong> AZ should continue to operate as a multinational (JUDGEMENT). If AZ stopped operating globally, it would lose access to customers — doctors, hospitals and governments — across 100+ countries (CONTEXT), which would drastically reduce the £37,417m in sales revenue it currently earns (+2 MARKS).`
+                },
+                {
+                    num: "Q5 (i)",
+                    marks: 2,
+                    type: "written",
+                    caseStudy: `BP plc is a UK energy company, which has its headquarters in London. BP produces oil, gas and petrol. It sells and distributes these products to customers all over the world. It also produces some environmentally friendly energy including biofuels, as well as wind- and solar-powered electrical energy.
+
+The company's finance function is critical in ensuring the business is managed efficiently. BP plc's revenue increased from $245 billion in 2017 to $283 billion in 2019.
+
+One of BP's operations involves selling of petrol to the public. BP has 18,700 petrol stations around the globe, with 8,500 in the UK. Another of BP's operations involves extracting oil, using its oil rigs. These are located in the seas around the UK, Norway, Australia, Angola, the Gulf of Mexico (USA) and off the coast of many other countries. Once the oil is extracted it is then transported to refineries.
+
+BP strives to be more sustainable. BP has the aim of cutting its carbon emissions by 2050 to help reduce the effects of climate change. It is installing electric charge points for Police Scotland's electric vehicles and is developing wind farms in America in partnership with an American company.`,
+                    question: "Identify two reasons why a UK business might choose to locate in another country. [2 marks]",
+                    hint: "Think about what a business GAINS from being physically located abroad — focus on costs, resources, workers, or raw materials. Don't just say 'more customers' — that can be done without moving abroad.",
+                    starter: "One reason a UK business might locate in another country is...\n\nA second reason is...",
+                    markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1a = 2 marks)</h5><ul><li>One mark for each of two correct reasons for locating in another country, up to a maximum of 2 marks</li></ul></div><div class="marks-section"><h5>Acceptable answers include</h5><ul><li>Lower costs such as labour, technology, property / land</li><li>Availability of skilled labour</li><li>Proximity to customers / market</li><li>Proximity / availability of raw materials</li><li>Availability of subsidies / grants</li><li>Level of taxation</li></ul></div><div class="marks-section"><h5>Important Notes</h5><ul><li>Answers do NOT need to relate to BP</li><li>This is about the firm's LOCATION (operations), not where the product is sold</li><li>No reward for general answers such as 'more customers' or 'more business opportunities' — these can be achieved without relocating</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Many responses considered location to be more of a marketing concern rather than an operations issue. This led to answers linked to increases in customers and market share, which could be achieved regardless of physical location.</p></div>`,
+                    modelAnswer: `<strong>Model Answer:</strong>\n1. Lower labour costs — wages in some countries are significantly cheaper, helping the business reduce production costs and increase profit margins.\n2. Proximity to raw materials — locating near to where raw materials are found reduces transport costs and makes supply more reliable.`
+                },
+                {
+                    num: "Q5 (ii)",
+                    marks: 7,
+                    type: "written",
+                    caseStudy: "",
+                    question: "Evaluate how globalisation has influenced where BP locates its businesses. [7 marks]",
+                    hint: "Focus on LOCATION — why has globalisation caused BP to place its operations (oil rigs, petrol stations, wind farms) in specific countries? Use the case study figures. Then evaluate — is this location decision essential or does it have drawbacks?",
+                    starter: `1. K & U: Globalisation refers to the increasing interconnectedness of business activities across the world...\n\n2. AN & APP: One way globalisation has influenced BP's location is... For example, BP has 18,700 petrol stations globally and extracts oil using rigs in Norway, Australia and Angola...\n\n3. AN & APP: A further influence of globalisation on BP's location is... Because BP needs to be near its raw materials...\n\n4. EVAL: Overall, globalisation has [greatly / somewhat] influenced where BP locates because... However, this comes at a cost because... For BP specifically, locating globally is [essential / risky] because...`,
+                    markScheme: `<div class="marks-section"><h5>Mark Allocation (7 marks total)</h5><ul><li><strong>Application (up to 2 marks):</strong> Uses context from the BP case study [APP][APP]</li><li><strong>Analysis (up to 2 marks):</strong> Two business-facing pieces of analysis of how globalisation affects location [AN][AN]</li><li><strong>Evaluation (up to 3 marks):</strong> A justified contextual judgement about how globalisation has influenced BP's location [EVAL][EVAL][EVAL]</li></ul></div><div class="marks-section"><h5>Application may include</h5><ul><li>UK based company</li><li>Sells and distributes products all over the world</li><li>18,700 petrol stations around the world</li><li>Extracts oil using rigs in the seas around UK, Norway, Australia, Angola, the Gulf of Mexico</li><li>Striving to be more sustainable (aims to cut carbon emissions by 2050)</li><li>Wind farms in America</li></ul></div><div class="marks-section"><h5>Analysis may include</h5><ul><li>Being near customers so they can sell more</li><li>Being near raw materials to keep transport costs down</li><li>Having skilled workers in refineries to save labour costs</li><li>Large multinational can afford to operate in many markets across the globe</li><li>Reduces costs by being where new technology is developed</li></ul></div><div class="marks-section"><h5>Evaluation may include</h5><ul><li>Essential for BP as its raw materials are found all over the globe</li><li>But it costs BP a lot to set up locations around the globe</li><li>Potential downsides of locating globally (e.g., working conditions, political repression of minorities)</li></ul></div><div class="marks-section"><h5>Important Notes</h5><ul><li>Answers must be focused on the influence on LOCATION, not just the influence of globalisation on the business generally</li><li>Context must be used to be awarded as application</li><li>Analysis must be a business-facing impact</li><li>For full 3 evaluation marks, evaluation must be contextual</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Many candidates wasted time defining globalisation — there are no knowledge marks in this question. Answers often mentioned the petrol stations and oil rigs but did not link them to globalisation. Few candidates evaluated well. The best responses linked location clearly to globalisation, analysed the business impact, and gave a contextual judgement.</p></div><div class="marks-section"><h5>Exemplar Response</h5><p>BP needs to be near its customers, so it has set up 18,700 <strong>(APP)</strong> petrol stations around the world. This helps them get more sales which will contribute to their profits <strong>(AN)</strong>.</p><p>BP's raw materials need to be extracted at sites all over the world from their oil rigs <strong>(APP)</strong> so BP needs to be global so they can find and drill for oil, producing more to sell on the global market <strong>(AN)</strong>.</p><p>Globalisation is very important for BP's location <strong>(EVAL)</strong> because its product is found all over the world <strong>(EVAL)</strong> and it needs to set up operations to extract and sell this to countries everywhere <strong>(EVAL)</strong>.</p></div>`,
+                    modelAnswer: ""
+                },
+                {
+                    num: "Q6 (i)",
+                    marks: 2,
+                    type: "written",
+                    caseStudy: `Increased globalisation has led to more firms becoming multinational companies. Barclays plc is a multinational banking company. Its headquarters are in London. One of the bank's core values is integrity — it tries to act fairly, ethically and openly in all it does.
+
+Barclays plc's personal banking division provides banking services to the general public. These services include providing a place to save and borrow money, as well as a place where customers can obtain advice on financial matters. In 2020 Barclays plc had 24 million UK personal banking customers.
+
+Banks are typically among the first industries to embrace technological advances. Barclays plc has been able to make use of e-commerce by selling loans, savings accounts and insurance through its websites. The bank has also invested in computer technology to provide online banking services to its customers. Online banking services allow customers to access their bank accounts on the Internet. Customers can carry out banking transactions, pay off credit cards or deposit savings 24 hours a day, worldwide. Online banking is one of the fastest growing areas of Internet activities.
+
+Fig. 1 shows the percentage of UK banking customers who use online banking:
+\n• 2010: 42%
+\n• 2012: 47%
+\n• 2014: 53%
+\n• 2016: 60%
+\n• 2018: 69%
+\n• 2020: 75%`,
+                    question: "Identify two factors that have led to increased globalisation. [2 marks]",
+                    hint: "Think about what has made it easier for businesses to operate across borders — technology, transport, agreements between countries?",
+                    starter: "One factor that has led to increased globalisation is...\n\nA second factor is...",
+                    markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1a = 2 marks)</h5><ul><li>One mark for each correct factor, up to a maximum of two marks</li></ul></div><div class="marks-section"><h5>Acceptable answers include</h5><ul><li>Improved technology / telecommunications / Internet / e-commerce</li><li>Improved global infrastructure</li><li>Improvements in transportation / containerisation</li><li>Free trade agreements</li></ul></div><div class="marks-section"><h5>Important Notes</h5><ul><li>Answers do NOT need to apply to Barclays plc</li><li>Accept specific examples of technology or uses of the Internet (e.g. online spending)</li><li>The two factors must be DIFFERENT — e.g. use of the Internet / e-commerce / online banking are all the same thing and would count as repetition (REP)</li></ul></div>`,
+                    modelAnswer: `<strong>Model Answer:</strong>\n1. Improvements in technology and the internet — this has allowed businesses to communicate and trade instantly across the world.\n2. Improvements in transportation and containerisation — this has made shipping goods globally much cheaper and more efficient.`
+                },
+                {
+                    num: "Q6 (ii)",
+                    marks: 2,
+                    type: "written",
+                    caseStudy: "",
+                    question: "Explain one possible advantage to a business of operating as a multinational. [2 marks]",
+                    hint: "Name ONE advantage (1 mark) and then explain WHY that gives the business a benefit — what does it lead to? (1 mark).",
+                    starter: "One advantage of operating as a multinational is...\n\nThis is an advantage because it means the business can...",
+                    markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1a/AO1b = 2 marks)</h5><ul><li><strong>1 mark:</strong> Identifying an advantage of operating as a multinational</li><li><strong>1 further mark:</strong> Explaining WHY it is an advantage — what it leads to for the business</li></ul></div><div class="marks-section"><h5>Acceptable answers include</h5><ul><li>The ability to source labour cheaply to help maximise profit</li><li>Access to a larger number of customers (size of market) leading to increased sales / market share</li><li>Spreading risk by increasing sales in one country if another is in decline</li><li>Take advantage of different tax regimes to help reduce costs / increase retained profit</li></ul></div><div class="marks-section"><h5>Important Notes</h5><ul><li>Answers must apply to a BUSINESS (not to the host country)</li><li>No reward for answers which are simply an advantage of a business growing in general</li><li>Answer does NOT need to apply to Barclays plc</li></ul></div>`,
+                    modelAnswer: `<strong>Model Answer (2 marks):</strong> One advantage is that a multinational can spread its risk (1). This means that if sales fall in one country, the business can rely on income from other countries to maintain overall profit levels (1).`
+                },
+                {
+                    num: "Q7",
+                    marks: 1,
+                    type: "mcq",
+                    caseStudy: "",
+                    question: "International branding requires a business to:",
+                    options: [
+                        "advertise online",
+                        "ignore religious differences",
+                        "sell its goods in every country",
+                        "take account of cultural differences"
+                    ],
+                    answer: 3,
+                    hint: "Think about what makes a brand work across DIFFERENT countries — what does a business need to be aware of?",
+                    starter: "The answer is D because...",
+                    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>D — take account of cultural differences</strong></p></div><div class="marks-section"><h5>Why the correct answer is D</h5><p>International branding requires a business to be aware of and adapt to cultural differences between countries. This includes respecting religious beliefs, customs, language, and values so that the brand is received positively in each country rather than causing offence or being misunderstood.</p></div><div class="marks-section"><h5>Why the other options are wrong</h5><ul><li><strong>A is wrong:</strong> Advertising online is one marketing channel but is not a requirement of international branding — many international brands also use TV, print, and physical advertising.</li><li><strong>B is wrong:</strong> This is the opposite of what is needed. A business must RESPECT religious differences, not ignore them — ignoring them could damage the brand in certain markets.</li><li><strong>C is wrong:</strong> A business does not need to sell in every country to have an international brand — it just needs to have a brand that is recognised and consistent across the countries where it does operate.</li></ul></div>`,
+                    modelAnswer: ""
+                },
+                {
+                    num: "Q8",
+                    marks: 9,
+                    type: "written",
+                    caseStudy: `Aston Martin plc (AM plc) is a British manufacturer of luxury sports cars. It has more than 150 car dealerships in over 50 countries on six continents. Its globalised supply chain includes suppliers from the UK, EU and across the world. The company is also expanding its brand to include speed boats, submarines and property development.
+
+Its headquarters and the main production site are centrally located in Warwickshire, England, on the site of a former RAF airbase. It employs over 3,000 workers on this site, who are highly skilled engineers and who produce each car using the most up-to-date machinery. When the cars are finished, they are then transported from central England all over the UK and beyond. The demand for AM plc products is influenced by many factors, including UK unemployment rates and consumer income levels.
+
+Bar Chart 1 — UK unemployment rate:
+\n• 2013: 7.5%
+\n• 2014: 6%
+\n• 2015: 5.5%
+\n• 2016: 5%
+\n• 2017: 4.5%
+\n• 2018: 4%
+
+Bar Chart 2 — Average UK consumer income:
+\n• 2013: £30,000
+\n• 2014: £30,000
+\n• 2015: £31,500
+\n• 2016: £31,750
+\n• 2017: £32,000
+\n• 2018: £32,250
+
+AM plc is proud of its commitment to the environment, which includes trying to produce goods sustainably. It also considers ethical issues in its decision making.`,
+                    question: "* Evaluate how globalisation may bring risk and reward to the shareholders of AM plc. [9 marks]",
+                    hint: "Cover BOTH risk AND reward — don't just do one side. Use specific details from the case study (e.g. 150 dealerships, 50 countries, globalised supply chain). Always think about how this affects SHAREHOLDERS specifically — dividends, share price, profitability.",
+                    starter: `1. K & U: Globalisation is the process of interaction and integration between people, companies and governments worldwide. It involves businesses operating across national borders...\n\n2. AN & APP: One reward of globalisation for AM plc's shareholders is... For example, with 150 dealerships in over 50 countries...\n\n3. AN & APP: However, globalisation also brings risk for AM plc's shareholders. For example, AM plc uses a globalised supply chain including suppliers from the UK, EU and across the world...\n\n4. EVAL: Overall, I believe the [rewards / risks] of globalisation outweigh the [risks / rewards] for AM plc's shareholders because... This depends on factors such as... Given that AM plc sells luxury cars, a change in [exchange rates / consumer income] could...`,
+                    markScheme: `<div class="marks-section"><h5>Mark Allocation (9 marks total)</h5><ul><li><strong>AO1a (1 mark):</strong> Knowledge — definition or description of globalisation [K]</li><li><strong>AO1b (1 mark):</strong> Understanding — how globalisation works / what it involves [U]</li><li><strong>AO2 (up to 2 marks):</strong> Application — synoptic application to AM plc using case study evidence [APP][APP]</li><li><strong>AO3a (up to 2 marks):</strong> Analysis — business-facing impact for shareholders [AN][AN]</li><li><strong>AO3b (up to 3 marks):</strong> Evaluation — contextual justified judgement about whether risk or reward is greater [EVAL][EVAL][EVAL]</li></ul></div><div class="marks-section"><h5>Knowledge may include</h5><ul><li>Globalisation is the process of interaction and integration between people, companies, and governments worldwide</li></ul></div><div class="marks-section"><h5>Understanding may include</h5><ul><li>Involves the movement of workers and/or capital from country to country</li><li>Greater dependence on external factors, e.g. exchange rates</li><li>Advances in transportation and communication technology</li><li>Any other examples of how globalisation is found in an economy (e.g. a globalised supply chain)</li></ul></div><div class="marks-section"><h5>Application may include — Risk</h5><ul><li>Increased competition</li><li>Global brands will have to carefully manage legal, political, cultural and regulatory requirements</li><li>Failure to survive</li></ul></div><div class="marks-section"><h5>Application may include — Reward</h5><ul><li>More revenue / sales</li><li>Growth of ideas</li><li>Larger market size</li></ul></div><div class="marks-section"><h5>Analysis (for shareholders of AM plc) may include</h5><ul><li>Higher profits / dividends / share price</li><li>Higher market share may lead to a higher share price</li><li>Higher sales may mean reducing average cost per car, hence increasing profitability and share price / dividends</li><li>Risks may mean profits decrease, which may decrease share price and dividends</li><li>Maintaining brand identity while customising products/marketing for local cultures costs money, which impacts profitability and may decrease share price and dividends</li></ul></div><div class="marks-section"><h5>Evaluation may include</h5><ul><li>The extent to which risk exceeds reward or vice versa</li><li>The factors which may determine the balance between risk and reward</li><li>The use of contextual evidence to support any judgement</li></ul></div><div class="marks-section"><h5>Important Notes</h5><ul><li>Application refers to synoptic application only</li><li>Analysis must be a business-facing impact</li><li>For full 3 evaluation marks, evaluation must be contextual</li></ul></div><div class="marks-section"><h5>Exemplar Response</h5><p>Globalisation is the process of integration between people and companies worldwide <strong>(K)</strong>. It has led to greater reliance on external factors <strong>(U)</strong>. Globalisation increases the size of the market, giving AM plc opportunities to sell more cars to more customers <strong>(APP)</strong>. This may lead to more profits and increased dividends for shareholders <strong>(AN)</strong>.</p><p>However, being a global brand, AM plc will also face more competition <strong>(APP)</strong>. This may force the business to cut costs or change the way in which the product is promoted in different countries, which may affect profitability and lead to a fall in its share price <strong>(AN)</strong>.</p><p>AM plc will need to carefully monitor the legal, political and regulatory requirements in each of the countries they sell to <strong>(EVAL)</strong>. Of course, the impact on shareholders will depend on which countries AM plc expands to <strong>(EVAL)</strong> and whether a change in an external factor, such as the sterling exchange rate, will most affect risks or rewards <strong>(EVAL)</strong>.</p></div>`,
+                    modelAnswer: ""
+                },
+                {
+                    num: "Q9",
+                    marks: 6,
+                    type: "written",
+                    caseStudy: `Virgin Atlantic is a multinational company which flies customers to many destinations around the world. Since its launch in 1984 Virgin Atlantic has pursued objectives of growth and to develop an international brand.
+
+In 2016, Virgin Atlantic carried 6 million passengers and made £23 million in profit, its highest profit in five years. The company can calculate the number of customers it needs for each of its flights to break-even.
+
+Part of Virgin Atlantic's aim is 'to grow a profitable airline, where people love to fly and people love to work.' The business has always been keen to provide excellent customer service, competitive prices and a fantastic choice of food and drink on its planes. Additionally, the business takes its ethical and environmental responsibilities very seriously too.`,
+                    question: "Analyse two benefits to Virgin Atlantic of developing an international brand. [6 marks]",
+                    hint: "For EACH benefit: (1) State the benefit of an international brand (1 mark), (2) Link it to Virgin Atlantic using case study detail (1 mark), (3) Explain the business impact — what does this lead to for Virgin? (1 mark).",
+                    starter: "One benefit of Virgin Atlantic developing an international brand is...\n\nFor example, because Virgin Atlantic flies to many destinations worldwide and carried 6 million passengers in 2016...\n\nA second benefit is...\n\nFor example, as Virgin Atlantic aims to grow a profitable airline...",
+                    markScheme: `<div class="marks-section"><h5>Mark Allocation (6 marks total)</h5><ul><li><strong>AO1b (2 marks):</strong> 1 mark for understanding of a benefit of international branding, up to a maximum of 2 marks</li><li><strong>AO2 (2 marks):</strong> 1 mark for applying a benefit to Virgin Atlantic using case study evidence, up to a maximum of 2 marks</li><li><strong>AO3a (2 marks):</strong> 1 mark for analysis of the benefit, up to a maximum of 2 marks</li></ul></div><div class="marks-section"><h5>Benefits of international branding may include</h5><ul><li>Consistent message across many markets</li><li>Reduced risk</li><li>Centralised decision making</li><li>Reduced cost</li><li>Can use global media</li><li>Takes advantage of global social media / platforms</li></ul></div><div class="marks-section"><h5>Structure per benefit</h5><ul><li>1 mark: Understanding of the benefit [AO1b]</li><li>1 mark: Application — link to Virgin Atlantic using case study evidence [APP]</li><li>1 mark: Analysis — what does this lead to for the business? [AN]</li></ul></div><div class="marks-section"><h5>Exemplar Response</h5><p><strong>Benefit 1:</strong> International branding is about creating a name for a business that will influence sales across more than one country <strong>(AO1a)</strong>. Virgin Atlantic need to have an international brand because they sell flights around the world, not just from the UK <strong>(AO2)</strong>. If more people around the world know the brand of Virgin Atlantic then this could lead to more flights being booked with Virgin, more sales and potentially more profit for the business <strong>(AO3a)</strong>.</p><p><strong>Benefit 2:</strong> An international brand will make people more confident about buying products and services from a business <strong>(AO1b)</strong>. Some people are scared of flying, so if Virgin Atlantic has an internationally recognised brand then more people are likely to have confidence that they provide a quality service <strong>(AO2)</strong>. This could lead to Virgin gaining more sales than less well-known airlines and could allow Virgin to become the market leader <strong>(AO3a)</strong>.</p></div>`,
+                    modelAnswer: ""
+                },
+                {
+                    num: "Q10",
+                    marks: 1,
+                    type: "mcq",
+                    caseStudy: "",
+                    question: "A company operates in several countries. This is an example of:",
+                    options: [
+                        "a multinational organisation",
+                        "customer engagement",
+                        "international branding",
+                        "operations management"
+                    ],
+                    answer: 0,
+                    hint: "Think about the definition of a multinational — what makes a business a multinational rather than just a business that sells abroad?",
+                    starter: "The answer is A because...",
+                    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>A — a multinational organisation</strong></p></div><div class="marks-section"><h5>Why the correct answer is A</h5><p>A multinational organisation is defined as a business that operates (not just sells) in more than one country. Having bases, offices, factories or operations in several countries is exactly what makes a business multinational.</p></div><div class="marks-section"><h5>Why the other options are wrong</h5><ul><li><strong>B is wrong:</strong> Customer engagement refers to how a business interacts with and builds relationships with its customers — it is not about operating in multiple countries.</li><li><strong>C is wrong:</strong> International branding is about creating and maintaining a consistent brand image across multiple countries. A business can have an international brand without necessarily operating (having physical locations) in those countries.</li><li><strong>D is wrong:</strong> Operations management refers to the processes a business uses to produce goods and services efficiently — it is not specific to operating in multiple countries.</li></ul></div>`,
+                    modelAnswer: ""
+                },
+                {
+                    num: "Q11 (a)",
+                    marks: 1,
+                    type: "written",
+                    caseStudy: `Jaguar Land Rover (JLR) is one of the largest manufacturers of cars in the UK. The business buys some of the parts it uses to make the cars from the UK; other parts are bought from overseas. JLR specialises in producing luxury cars. JLR's main competitors are German car manufacturers — BMW and Mercedes.
+
+In recent years, sales of JLR cars have been affected by:
+\n• the slowdown of consumer spending in China and Russia
+\n• the increase in consumer spending in Europe.`,
+                    question: "If JLR buys 500,000 tyres and 80% of these are bought from overseas suppliers, calculate the number of tyres JLR buys from overseas. [1 mark]",
+                    hint: "Multiply the total number of tyres by the percentage bought from overseas. Remember: 80% = 80/100 = 0.8.",
+                    starter: "500,000 × 80/100 = ...",
+                    markScheme: `<div class="marks-section"><h5>Mark Allocation (AO2 = 1 mark)</h5><ul><li><strong>1 mark:</strong> Correct answer of 400,000</li></ul></div><div class="marks-section"><h5>Working</h5><p>500,000 × 80/100 = <strong>400,000 tyres</strong></p></div>`,
+                    modelAnswer: `<strong>Model Answer:</strong> 500,000 × 80/100 = <strong>400,000 tyres</strong>`
+                },
+                {
+                    num: "Q11 (b)(i)",
+                    marks: 6,
+                    type: "written",
+                    caseStudy: "",
+                    question: "Analyse two impacts of globalisation on JLR. [6 marks]",
+                    hint: "For EACH impact: (1) State the impact of globalisation (1 mark), (2) Link it to JLR using case study detail (1 mark), (3) Explain the business consequence — what does it mean for JLR? (1 mark). Impacts can be positive or negative.",
+                    starter: "One impact of globalisation on JLR is...\n\nFor example, because JLR buys parts from overseas suppliers and sells to countries including China and Europe...\n\nA second impact of globalisation on JLR is...\n\nFor example, JLR faces competition from German manufacturers BMW and Mercedes...",
+                    markScheme: `<div class="marks-section"><h5>Mark Allocation (6 marks total)</h5><ul><li><strong>AO1b (2 marks):</strong> 1 mark for understanding of an impact of globalisation, up to a maximum of 2 marks</li><li><strong>AO2 (2 marks):</strong> 1 mark for applying the impact to JLR using case study evidence, up to a maximum of 2 marks</li><li><strong>AO3a (2 marks):</strong> 1 mark for analysis of the impact on JLR, up to a maximum of 2 marks</li></ul></div><div class="marks-section"><h5>Impacts of globalisation may include</h5><ul><li>Larger market size</li><li>Increased competition</li><li>Increased international trade / movement of goods and services</li><li>The greater movement of people and capital</li><li>More businesses operating in more than one country</li><li>Interdependence of businesses in different countries</li><li>Globalisation of brands</li><li>Greater dependence on external / global factors</li></ul></div><div class="marks-section"><h5>Important Notes</h5><ul><li>Impacts can be positive or negative</li><li>1 mark for understanding — no further marks without this</li><li>1 mark for application — must use JLR case study evidence</li><li>1 mark for analysis — must be a business-facing consequence</li></ul></div><div class="marks-section"><h5>Exemplar Response</h5><p>Globalisation makes the market bigger (1) giving JLR opportunities to sell more cars to more customers (1) and therefore make more profit (1).</p></div>`,
+                    modelAnswer: `<strong>Model Answer — Impact 1:</strong> Globalisation has increased the level of competition JLR faces (1). JLR's main competitors, BMW and Mercedes, are German manufacturers that now sell their cars globally (APP). This puts pressure on JLR to keep prices competitive and invest in quality, which may increase costs and reduce profit margins (1).\n\n<strong>Model Answer — Impact 2:</strong> Globalisation has increased the size of the market available to JLR (1). JLR can now sell its luxury cars in countries such as China and Europe, expanding its customer base far beyond the UK (APP). This could lead to higher revenues and profits for the business (1).`
+                },
+                {
+                    num: "Q11 (b)(ii)",
+                    marks: 3,
+                    type: "written",
+                    caseStudy: "",
+                    question: "JLR must consider the impact of globalisation when making business decisions. Recommend which impact of globalisation is most likely to affect JLR? Give reasons for your answer. [3 marks]",
+                    hint: "Pick ONE specific impact (e.g. spreading of risk, increased competition, global supply chain). Make a clear recommendation, then justify it using specific detail from the JLR case study.",
+                    starter: "The impact of globalisation most likely to affect JLR is...\n\nThis is because JLR [case study detail]...\n\nTherefore, this impact is the most significant because...",
+                    markScheme: `<div class="marks-section"><h5>Mark Allocation (AO3b = 3 marks)</h5><ul><li><strong>1 mark:</strong> A judgement with limited justification — some appraisal of relevant information and/or issues</li><li><strong>2 marks:</strong> A judgement with good justification — shows appraisal of relevant information and/or issues</li><li><strong>3 marks:</strong> A judgement with strong justification — shows detailed appraisal of relevant information and/or issues, using context</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Candidates should use the case study to support their recommendation. The best answers link their chosen impact clearly to the case study evidence and explain why that impact is the MOST significant compared to others.</p></div><div class="marks-section"><h5>Exemplar Response</h5><p>The impact of globalisation that is most likely to affect JLR will be the spreading of risk (1). If sales of cars slow down in one part of the world as they did in China, increased sales in another part of the world may offset this, as it did in the EU (1). The spreading of risk may encourage JLR to sell in many different countries as it gives the company more stability because overall sales are less likely to be affected (1).</p></div>`,
+                    modelAnswer: `<strong>Model Answer (3 marks):</strong> The impact most likely to affect JLR is the spreading of risk across global markets (JUDGEMENT). As the case study shows, consumer spending slowed in China and Russia but increased in Europe — meaning JLR's global presence helped protect its overall revenue (CONTEXT). This is the most significant impact because, as a luxury car manufacturer, JLR's sales are highly sensitive to changes in consumer income levels, making geographic diversification essential for long-term stability (+2 MARKS).`
+                }
+            ];
+    const examTips = [
+        {
+            type: "Identify / State — 1–2 marks",
+            title: "One Point. Full Stop. Move On.",
+            content: `
+      <p>A 1-mark <strong>'State' or 'Identify'</strong> question needs exactly one correct point. No explanation, no examples, no paragraphs. For a 2-mark <strong>'Explain'</strong> question, add one sentence explaining <em>why</em> — nothing more.</p>
+
+      <p><strong>The Formula (1 mark):</strong></p>
+      <ul>
+        <li>One clear, specific point = 1 mark ✅</li>
+        <li>A vague, general point = 0 marks ❌</li>
+      </ul>
+
+      <p><strong>The Formula (2 marks):</strong></p>
+      <ul>
+        <li>Make a point (1) + Explain how it works (1)</li>
+      </ul>
+
+      <p><strong>❌ Bad Answer — "Identify a reason why a UK business might locate in another country" (0 marks):</strong><br/>
+      <em>"More customers."</em><br/>
+      This is a marketing answer, not a location answer. You can gain more customers without moving abroad.</p>
+
+      <p><strong>✅ Good Answer (1 mark):</strong><br/>
+      <em>"Lower labour costs in the host country."</em><br/>
+      This is specific to location — it explains WHY a business would physically move operations.</p>
+
+      <p><strong>❌ Bad Answer — "Explain one advantage of operating as a multinational" (0 marks):</strong><br/>
+      <em>"A multinational can sell to more people and make more money."</em><br/>
+      Any business can sell abroad without being a multinational. This doesn't explain what's special about operating in multiple countries.</p>
+
+      <p><strong>✅ Good Answer (2 marks):</strong><br/>
+      <em>"A multinational can spread its risk across different markets (1). This means that if consumer spending falls in one country, the business can rely on income from other countries to protect overall profits (1)."</em></p>
+
+      <p><strong>⚠️ Examiner Warning:</strong> On this paper, many students lost marks on the 'identify two factors that led to increased globalisation' question by listing the same factor twice in different words (e.g., "the internet" and "e-commerce" and "online banking" — these are all the same thing and count as one answer). Make sure your two factors are genuinely different.</p>
+
+      <p><strong>🚫 Knowledge Dumping Alert:</strong> Do NOT write a paragraph about everything you know about globalisation when asked to simply identify a factor. You will waste time and score the same mark as someone who wrote two words.</p>
+    `,
+            pills: ["K", "U"]
+        },
+        {
+            type: "Calculate — 1 mark",
+            title: "Show Your Working. Every Single Time.",
+            content: `
+      <p>Calculation questions in globalisation topics are usually straightforward — but students regularly drop marks by not showing their working. Even if your final answer is wrong, you can still earn the mark if your method is correct.</p>
+
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li>Write the calculation clearly: e.g., <strong>500,000 × 80/100</strong></li>
+        <li>Write the final answer with the correct unit: e.g., <strong>400,000 tyres</strong></li>
+      </ul>
+
+      <p><strong>❌ Bad Answer (0 marks):</strong><br/>
+      <em>"400,000"</em><br/>
+      No working shown. If the examiner can't see your method, they can't award a method mark.</p>
+
+      <p><strong>✅ Good Answer (1 mark):</strong><br/>
+      <em>500,000 × 80/100 = <strong>400,000 tyres</strong></em></p>
+
+      <p><strong>⚠️ Examiner Warning:</strong> For percentage questions, always convert the percentage properly. 80% means 80 divided by 100 — not 80 divided by 10. A common mistake is dividing by the wrong number.</p>
+
+      <p><strong>💡 Tip:</strong> Always include the unit in your answer (e.g., "tyres", "£", "%"). Examiners appreciate precision and it shows you understood the question.</p>
+    `,
+            pills: ["K", "U"]
+        },
+        {
+            type: "Analyse — 3 marks (per point)",
+            title: "The Holy Trinity: U → APP → AN",
+            content: `
+      <p>Every single 3-mark analyse question in Business Studies follows the same pattern. Master this structure and you will pick up marks consistently across the whole exam.</p>
+
+      <p><strong>The 3-Step Formula:</strong></p>
+      <ul>
+        <li><strong>Step 1 — U (Understanding):</strong> State the advantage, disadvantage, or impact using business terminology.</li>
+        <li><strong>Step 2 — APP (Application):</strong> Quote or refer directly to the specific business in the case study. Use their name, a figure, or a detail from the text.</li>
+        <li><strong>Step 3 — AN (Analysis):</strong> State the financial or operational consequence for the business. Think: costs, revenue, profit, efficiency, market share, share price, dividends.</li>
+      </ul>
+
+      <p><strong>❌ Bad Answer — "Analyse an advantage of AZ operating as a multinational" (1 mark max):</strong><br/>
+      <em>"AZ can make more money because it sells to more people."</em><br/>
+      This is vague, has no case study detail, and any business can sell to more people without being a multinational.</p>
+
+      <p><strong>✅ Good Answer (3 marks):</strong><br/>
+      <em>"One advantage is that AZ is able to access a larger pool of skilled workers in different countries (U). AZ has approximately 75,000 employees worldwide across its three research and development centres (APP). This means AZ can attract the best scientific talent globally, leading to more innovative treatments and higher profits in the long run (AN)."</em></p>
+
+      <p><strong>🚫 Critical Warning — Being a Multinational ≠ Just Selling Abroad:</strong><br/>
+      The examiner's report on this paper specifically stated: <em>"Being a multinational is more than just being able to sell abroad. Any business can sell to more countries without being a multinational."</em> What makes an MNC special is that it physically OPERATES in multiple countries — so your advantages must reflect this: lower costs in host countries, access to local labour, spreading risk, dealing with different tax regimes.</p>
+
+      <p><strong>💡 The "So What?" Rule for Analysis:</strong><br/>
+      Keep asking yourself "So what?" until you hit a bottom-line business impact.</p>
+      <ul>
+        <li>"AZ operates in over 100 countries." → So what?</li>
+        <li>"They can sell more medicines." → So what?</li>
+        <li>"This increases total revenue and allows AZ to reinvest profits into developing new treatments." ✅ <strong>This is AN.</strong></li>
+      </ul>
+
+      <p><strong>Sentence Starters to Use:</strong></p>
+      <ul>
+        <li><strong>APP:</strong> "Because the text states that AZ operates in over 100 countries..." / "In the case of AZ, with 75,000 employees worldwide..."</li>
+        <li><strong>AN:</strong> "This will lead to..." / "As a result, the business will..." / "This reduces costs, meaning profit margins improve..."</li>
+      </ul>
+    `,
+            pills: ["U", "app", "an"]
+        },
+        {
+            type: "Analyse Two Impacts — 6 marks",
+            title: "Just Do the 3-Mark Formula Twice",
+            content: `
+      <p>A 6-mark 'Analyse two impacts' question is simply a <strong>3-mark question done twice</strong>. There are no evaluation marks here — do not write a conclusion or recommendation. You will score zero for it and waste precious time.</p>
+
+      <p><strong>The Structure:</strong></p>
+      <ul>
+        <li><strong>Impact 1:</strong> U → APP → AN (3 marks)</li>
+        <li><strong>Impact 2:</strong> U → APP → AN (3 marks)</li>
+      </ul>
+
+      <p><strong>❌ Bad Answer — "Analyse two benefits to Virgin Atlantic of developing an international brand" (2 marks max):</strong><br/>
+      <em>"International branding helps Virgin Atlantic get more customers and make more money. It also means people trust the brand more."</em><br/>
+      There is no case study detail and no clear business-facing consequence. This scores at most 1 mark per impact.</p>
+
+      <p><strong>✅ Good Answer — Impact 1 (3 marks):</strong><br/>
+      <em>"International branding creates a consistent message that is recognised across many markets (U). Virgin Atlantic flies to destinations around the world and has pursued growth and international branding since its launch in 1984 (APP). This means that customers globally associate Virgin with quality service, leading to more flight bookings and higher revenue for the business (AN)."</em></p>
+
+      <p><strong>✅ Good Answer — Impact 2 (3 marks):</strong><br/>
+      <em>"An international brand can reduce the marketing costs of operating globally (U). Because Virgin Atlantic already has a globally recognised brand identity, it can use the same advertising campaigns across all the countries it flies to (APP). This avoids the need to develop separate campaigns for each market, reducing overall costs and improving profit margins (AN)."</em></p>
+
+      <p><strong>⚠️ Examiner Warning:</strong> The most common mistake in 6-mark questions is repeating the same impact twice with slightly different words (e.g., 'more sales' and 'more customers' — this is the same point). Make sure your two impacts are genuinely different.</p>
+
+      <p><strong>🚫 Knowledge Dumping Alert:</strong> Do NOT spend half your answer defining what international branding is. The examiner already knows. Use that time to apply it to the specific business and analyse the impact.</p>
+
+      <p><strong>💡 Tip — Impacts can be negative too:</strong> For questions like "Analyse two impacts of globalisation on JLR", you can use one positive and one negative impact. This shows balanced thinking and is perfectly acceptable.</p>
+    `,
+            pills: ["U", "app", "an"]
+        },
+        {
+            type: "State What is Meant By — 2 marks",
+            title: "Define the Term Precisely — Not Vaguely",
+            content: `
+      <p>A 2-mark 'State what is meant by' question wants a <strong>clear, complete definition</strong>. It must include both key parts of the concept — not just one half of it.</p>
+
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li><strong>Part 1 (1 mark):</strong> The core idea or feature of the term.</li>
+        <li><strong>Part 2 (1 mark):</strong> The full scope — e.g., where it happens, who it involves, what it leads to.</li>
+      </ul>
+
+      <p><strong>The Classic Trap — International Branding:</strong><br/>
+      The examiner's report on this paper stated this was <em>"not well understood by most candidates"</em> and was frequently confused with being a multinational or international trade. These are <strong>completely different concepts</strong>:</p>
+      <ul>
+        <li><strong>International branding</strong> = creating a recognisable image/identity for a product that is promoted consistently across multiple countries.</li>
+        <li><strong>International trade</strong> = buying and selling goods between countries.</li>
+        <li><strong>Multinational</strong> = a business that operates (has facilities) in more than one country.</li>
+      </ul>
+
+      <p><strong>❌ Bad Answer — "State what is meant by international branding" (0 marks):</strong><br/>
+      <em>"When a company sells its products all over the world."</em><br/>
+      This is a definition of international trade, not international branding. No marks.</p>
+
+      <p><strong>❌ Partial Answer (1 mark only):</strong><br/>
+      <em>"When a business creates a brand for its product."</em><br/>
+      This only defines 'branding' — there is nothing 'international' about it.</p>
+
+      <p><strong>✅ Good Answer (2 marks):</strong><br/>
+      <em>"International branding is when a business creates a recognisable image or identity for its product (1) that is then promoted and recognised consistently in countries all around the world (1)."</em></p>
+
+      <p><strong>⚠️ Examiner Warning:</strong> This term has a very specific meaning. The examiner will not reward an answer that talks about selling abroad, being a multinational, or expanding internationally — unless it specifically mentions creating a consistent brand image across countries.</p>
+    `,
+            pills: ["K", "U"]
+        },
+        {
+            type: "Evaluate — 7 marks",
+            title: "APP + AN First, Then Make a Judgement That Uses the Case Study",
+            content: `
+      <p>A 7-mark evaluate question has three layers of marks: Application (2), Analysis (2), and Evaluation (3). Most students pick up the first four marks without too much difficulty — it's the <strong>3 evaluation marks</strong> where marks are lost.</p>
+
+      <p><strong>The 4-Paragraph Structure:</strong></p>
+      <ul>
+        <li><strong>Paragraph 1 — APP + AN:</strong> Benefit/impact 1, linked to the business with a financial consequence.</li>
+        <li><strong>Paragraph 2 — APP + AN:</strong> Benefit/impact 2, linked to the business with a different financial consequence.</li>
+        <li><strong>Paragraph 3 — EVAL (Start):</strong> A clear judgement — state your overall view.</li>
+        <li><strong>Paragraph 4 — EVAL (Develop):</strong> Justify and contextualise — reference the case study evidence to support your judgement. Use "it depends on..." or weigh one factor against another.</li>
+      </ul>
+
+      <p><strong>❌ Bad Evaluation (1 mark max):</strong><br/>
+      <em>"Overall, international branding is very important for Unilever."</em><br/>
+      This is a basic decision with no justification. It scores 1 mark at best.</p>
+
+      <p><strong>✅ Good Evaluation (3 marks):</strong><br/>
+      <em>"Overall, international branding is the most important factor in Unilever's growth (EVAL) because it allows a consistent campaign to run across all 190 countries they operate in, saving on marketing costs through economies of scale (EVAL). However, the value of this depends on the economic climate — if consumer incomes fall globally, even well-known brands like Persil and Dove may see declining sales as customers switch to cheaper alternatives (EVAL)."</em></p>
+
+      <p><strong>💡 The "It Depends On..." Rule:</strong><br/>
+      The very best evaluation answers don't just say "X is important." They say: <em>"X is the most important factor, BUT it depends on [a specific contextual condition]."</em></p>
+      <ul>
+        <li>"Globalisation is essential for BP's location decisions, but it depends on whether the global oil price remains high enough to justify the cost of operating rigs in Norway and Angola."</li>
+        <li>"International branding is vital for Unilever, but its impact depends on whether the difficult economic climate suppresses consumer spending worldwide."</li>
+      </ul>
+
+      <p><strong>⚠️ Examiner Warning:</strong> On this paper, the examiner noted that many evaluation answers simply repeated analysis from earlier paragraphs. <em>Repeating analysis is NOT evaluation.</em> Evaluation must add something new — a judgement, a condition, a weighing of factors.</p>
+
+      <p><strong>🚫 Knowledge Dumping Alert:</strong> Do NOT open a 7-mark evaluate question with a long definition of globalisation or international branding. There are <strong>zero knowledge marks</strong> in a pure evaluate question. Go straight to APP and AN.</p>
+
+      <p><strong>Sentence Starters for Evaluation:</strong></p>
+      <ul>
+        <li>"Overall, I believe that... because..."</li>
+        <li>"The most significant factor is... because it directly affects..."</li>
+        <li>"However, this depends entirely on whether..."</li>
+        <li>"In the context of [business name], this is particularly important because..."</li>
+      </ul>
+    `,
+            pills: ["app", "an", "eval"]
+        },
+        {
+            type: "Evaluate — 9 marks",
+            title: "Knowledge + Balanced Analysis + A Contextual Verdict",
+            content: `
+      <p>A 9-mark evaluate question is the most demanding question type. It tests all five assessment objectives: K, U, APP, AN, and EVAL. You must cover <strong>both sides</strong> (risk AND reward, or advantage AND disadvantage) and reach a clear, justified verdict that uses the case study.</p>
+
+      <p><strong>The Mark Split to Remember:</strong></p>
+      <ul>
+        <li>Knowledge (1) + Understanding (1) + Application (2) + Analysis (2) + Evaluation (3) = 9</li>
+      </ul>
+
+      <p><strong>The 4-Paragraph Structure:</strong></p>
+      <ul>
+        <li><strong>Paragraph 1 — K + U:</strong> Define the key concept (e.g., globalisation) and explain what it involves. Keep this brief — 2 sentences maximum.</li>
+        <li><strong>Paragraph 2 — APP + AN (Reward/Advantage):</strong> One clear benefit, linked to the business, with a financial/operational consequence for shareholders.</li>
+        <li><strong>Paragraph 3 — APP + AN (Risk/Disadvantage):</strong> One clear risk, linked to the business, with a financial/operational consequence for shareholders.</li>
+        <li><strong>Paragraph 4 — EVAL × 3:</strong> A clear overall judgement, justified with case study context, and a condition that could change your verdict.</li>
+      </ul>
+
+      <p><strong>❌ Bad Answer (3 marks max):</strong><br/>
+      <em>"Globalisation is when businesses operate around the world. Aston Martin can sell to more countries, which means more profit. But it also faces more competition. Overall globalisation is good for Aston Martin."</em><br/>
+      No case study detail, no financial consequences, and the evaluation is just a basic statement.</p>
+
+      <p><strong>✅ Good Answer — Paragraph structure (approaching full marks):</strong></p>
+      <ul>
+        <li><strong>K+U:</strong> "Globalisation is the process of interaction and integration between businesses, governments and people worldwide. It involves the increasing movement of goods, capital and labour across national borders."</li>
+        <li><strong>APP+AN (Reward):</strong> "One reward for AM plc's shareholders is that globalisation has allowed AM plc to open 150 dealerships in over 50 countries across six continents (APP). With a larger global customer base, revenue from car sales can increase significantly, leading to higher profits and potentially higher dividends paid to shareholders (AN)."</li>
+        <li><strong>APP+AN (Risk):</strong> "However, globalisation also creates risk. AM plc relies on a globalised supply chain with suppliers from the UK, EU and across the world (APP). If a supplier in another country experiences disruption — for example due to political instability or exchange rate fluctuations — production could be delayed, increasing costs and reducing profit margins, which would lower the dividends shareholders receive (AN)."</li>
+        <li><strong>EVAL:</strong> "Overall, the rewards of globalisation are likely to outweigh the risks for AM plc's shareholders (EVAL), because the global demand for luxury sports cars is growing and AM plc's strong brand identity across 50+ countries gives it a competitive advantage in premium markets (EVAL). However, this depends on whether exchange rate movements make AM plc's cars more expensive abroad — if sterling strengthens, exports become pricier and international sales could fall, directly reducing shareholder dividends (EVAL)."</li>
+      </ul>
+
+      <p><strong>⚠️ Examiner Warning:</strong> Always link analysis to the <strong>shareholders specifically</strong> — not just 'the business'. Shareholders care about: dividends, share price, return on investment, and financial risk. Make sure your consequences reference at least one of these.</p>
+
+      <p><strong>💡 The Contextual Evaluation Rule:</strong> To earn all 3 evaluation marks, your judgement must reference specific detail from the case study. A general statement like "globalisation is mostly beneficial" only scores 1 mark. A contextual verdict using the bar charts, specific figures, or named products earns all 3.</p>
+    `,
+            pills: ["K", "U", "app", "an", "eval"]
+        },
+        {
+            type: "Recommend — 3 marks",
+            title: "Judgement First, Then Justify Using the Case Study",
+            content: `
+      <p>A 3-mark 'Recommend' question follows a clear pattern: <strong>make a decision, justify it, and use the case study</strong>. These marks are very accessible if you stick to the structure — but many students lose 2 out of 3 by giving a vague, unsupported recommendation.</p>
+
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li><strong>1 mark:</strong> A clear recommendation (yes/no, continue/stop, option A/B).</li>
+        <li><strong>+ 1 mark:</strong> A reason WHY — with no case study detail needed.</li>
+        <li><strong>+ 1 mark (or replaces above):</strong> A contextual justification — use a specific fact, figure, or detail from the case study.</li>
+      </ul>
+
+      <p><strong>❌ Bad Answer — "Recommend whether AZ should continue to operate as a multinational" (1 mark):</strong><br/>
+      <em>"Yes, AZ should continue as a multinational because it is a good idea."</em><br/>
+      There is no justification and no case study detail.</p>
+
+      <p><strong>✅ Good Answer (3 marks):</strong><br/>
+      <em>"AZ should continue to operate as a multinational (1). Without global operations, AZ would be unable to generate the profits needed to fund its research (1). This is particularly important as AZ has three research and development centres and 10,000 staff working to develop new treatments — all of which require significant ongoing investment (1)."</em></p>
+
+      <p><strong>⚠️ Examiner Warning:</strong> On this paper, the examiner noted that most candidates correctly said AZ should continue as a multinational, but many failed to justify it with case study context. Always find at least one specific detail from the text to support your recommendation.</p>
+
+      <p><strong>💡 Tip — You don't always have to recommend "yes":</strong> If there is a strong case for the opposite view, argue it — as long as you can justify it with context. Examiners award marks for the quality of justification, not for picking the "right" side.</p>
+
+      <p><strong>Sentence Starters:</strong></p>
+      <ul>
+        <li>"[Business] should [recommendation] because..."</li>
+        <li>"Without this, [business] would be unable to..."</li>
+        <li>"This is supported by the fact that the case study states..."</li>
+      </ul>
+    `,
+            pills: ["app", "eval"]
+        },
+        {
+            type: "MCQ — 1 mark",
+            title: "Eliminate First. Don't Rush. Watch the 'NOT' Questions.",
+            content: `
+      <p>Multiple choice questions on globalisation are worth just 1 mark each — but students regularly drop them through careless reading. The most dangerous word in an MCQ is <strong>NOT</strong>.</p>
+
+      <p><strong>The Strategy:</strong></p>
+      <ul>
+        <li><strong>Step 1:</strong> Read the question stem carefully. Underline key words like "NOT", "most likely", "best describes".</li>
+        <li><strong>Step 2:</strong> Eliminate the options you're certain are wrong.</li>
+        <li><strong>Step 3:</strong> Choose from what remains — don't second-guess yourself.</li>
+      </ul>
+
+      <p><strong>⚠️ The "NOT" Trap:</strong><br/>
+      Q1 on this paper asked: <em>"What has NOT contributed to increased globalisation?"</em><br/>
+      Many students chose options A, B or D because they are true statements about globalisation — but the question asked for what has NOT contributed. The answer is C (trade restrictions) because restrictions <em>block</em> globalisation.</p>
+
+      <p><strong>⚠️ The Terminology Trap:</strong><br/>
+      Questions on this paper tested whether students could distinguish between very similar terms:</p>
+      <ul>
+        <li><strong>Globalisation</strong> = the interconnected nature of business activities across the world.</li>
+        <li><strong>International branding</strong> = creating a consistent brand image across countries — requires taking account of <em>cultural differences</em>.</li>
+        <li><strong>Multinational organisation</strong> = a business that <em>operates</em> in several countries.</li>
+      </ul>
+
+      <p><strong>❌ Common MCQ Mistake:</strong><br/>
+      Confusing 'international branding' (requires cultural awareness — Answer D) with 'selling goods in every country' (Answer C). A brand can be international without selling everywhere — but it always requires sensitivity to local culture.</p>
+
+      <p><strong>💡 Final Tip:</strong> If you are unsure between two answers, re-read the question one more time and pick the answer that most precisely matches the exact wording. Never leave an MCQ blank — there is no negative marking.</p>
+    `,
+            pills: ["K"]
+        },
+        {
+            type: "Common Misconceptions — All Question Types",
+            title: "The Four Concepts Students Constantly Confuse",
+            content: `
+      <p>The examiner's report on this paper explicitly stated that students regularly confused four key globalisation concepts. <strong>These are not the same thing.</strong> Using one term when you mean another will cost you marks across every question type.</p>
+
+      <p><strong>The Four Concepts — Know the Difference:</strong></p>
+      <ul>
+        <li><strong>Globalisation:</strong> The process by which businesses, governments, and people become increasingly interconnected and interdependent across the world. It is driven by improvements in technology, transport, and trade agreements.</li>
+
+        <li><strong>International Trade:</strong> The buying and selling of goods and services between countries. A small local business can participate in international trade without being a multinational or having an international brand.</li>
+
+        <li><strong>International Branding:</strong> Creating a consistent image, logo, or identity for a product that is recognised and promoted across multiple countries. It requires taking account of cultural and religious differences in each market.</li>
+
+        <li><strong>Multinational Company (MNC):</strong> A business that physically OPERATES in more than one country — not just sells there. This means having factories, offices, staff, or facilities in other countries.</li>
+      </ul>
+
+      <p><strong>❌ Classic Confusion (costs marks in EVERY question):</strong><br/>
+      <em>"Unilever is an international brand because it sells products in 190 countries."</em><br/>
+      Selling in 190 countries makes Unilever a multinational. The international BRAND part is about the consistent logo/image (Dove, Lynx, Persil) that is recognised in those countries.</p>
+
+      <p><strong>✅ Correct Distinction:</strong><br/>
+      <em>"Unilever is a multinational company that uses international branding — products like Persil and Dove have a consistent image that is recognised worldwide, helping build customer loyalty across all 190 markets."</em></p>
+
+      <p><strong>⚠️ Examiner Warning:</strong> The examiner's report on this paper specifically said: <em>"International branding, international trade, international marketing, and multinational companies are not inter-changeable terms. This confusion has been seen from many candidates. Centres need to ensure that these are understood as clearly separate concepts."</em></p>
+
+      <p><strong>💡 Quick Test — Can You Answer These?</strong></p>
+      <ul>
+        <li>Can a business trade internationally without being a multinational? <strong>YES</strong> — it just sells abroad.</li>
+        <li>Can a multinational exist without an international brand? <strong>YES</strong> — it could operate different brands in different countries.</li>
+        <li>Does international branding require selling in every country? <strong>NO</strong> — just a consistent brand across the countries where it does operate.</li>
+      </ul>
+    `,
+            pills: ["K", "U"]
+        }
+    ];
+    
+    </script>
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>

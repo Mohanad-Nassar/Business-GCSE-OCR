@@ -1,0 +1,1576 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.3 Revenue, Costs, Profit & Loss – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Business — Component 2</div>
+            <h1>5.3 — Revenue, Costs, Profit & Loss</h1>
+            <p>Interactive revision guide · All key content + full exam practice</p>
+        </div>
+        <a href="index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px">
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #d4edda;
+                  border: 1.5px solid #2d7a4f;
+                  display: inline-block;
+                "></span>
+                        First attempt correct</span>
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fff8dc;
+                  border: 1.5px solid #b8860b;
+                  display: inline-block;
+                "></span>
+                        Correct after mistake</span>
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fde8e5;
+                  border: 1.5px solid #c84b31;
+                  display: inline-block;
+                "></span>
+                        Wrong — try again</span>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+    <script>
+        // ══════════════════════════════════════
+        //  DATA: 5.3 Revenue, Costs, Profit and Loss
+        // ══════════════════════════════════════
+
+        // 1. Main Learning Content
+        const topics = [
+            {
+                title: "Key Terms & Official Definitions",
+                tag: "Core Concepts",
+                content: `<p>This unit covers how businesses calculate and use financial data to measure performance and guide decisions. Master these terms before attempting any exam question.</p>
+    <ul>
+    <li><strong>Revenue (Total Revenue):</strong> The money received from sales. Calculated as: Revenue = Quantity Sold × Selling Price.</li>
+    <li><strong>Fixed Costs:</strong> Costs that stay the same regardless of a change in output — e.g. rent, salaries, business rates, insurance.</li>
+    <li><strong>Variable Costs:</strong> Costs that change as output changes — e.g. wages, raw materials, packaging, energy used in production.</li>
+    <li><strong>Total Costs:</strong> The addition of total fixed costs and total variable costs. TC = TFC + TVC.</li>
+    <li><strong>Cost of Sales:</strong> The direct cost of producing the goods sold — e.g. buying materials, buying stock, paying workers to make a product.</li>
+    <li><strong>Expenses:</strong> The ongoing costs of running the business — e.g. rent, wages, insurance, heating and lighting, advertising.</li>
+    <li><strong>Gross Profit:</strong> Revenue minus the cost of sales. Profit before running costs are deducted.</li>
+    <li><strong>Net Profit:</strong> Gross profit minus expenses. The most accurate measure of overall business performance.</li>
+    <li><strong>Loss:</strong> When the costs of the business are greater than its revenue.</li>
+    <li><strong>Gross Profit Margin (GPM):</strong> (Gross Profit ÷ Revenue) × 100. Expressed as a percentage.</li>
+    <li><strong>Net Profit Margin (NPM):</strong> (Net Profit ÷ Revenue) × 100. Expressed as a percentage.</li>
+    <li><strong>Profitability Ratios:</strong> Calculations (GPM and NPM) used to measure how efficiently a business generates profit from its revenue.</li>
+    <li><strong>Average Rate of Return (ARR):</strong> A method of calculating the average annual return on an investment as a percentage of its cost.</li>
+    </ul>`
+            },
+            {
+                title: "Revenue — Formula & Decision Making",
+                tag: "Calculations",
+                content: `<p><strong>Revenue</strong> is the income coming into a business from the sale of products and services. It is NOT the same as profit.</p>
+    <div class="formula-box">
+      <strong>Revenue = Quantity Sold × Selling Price</strong>
+    </div>
+    <p>Example: A business sells 25 cars at £7,500 each → TR = 25 × £7,500 = <strong>£187,500</strong></p>
+    <p>Revenue must be analysed carefully before making pricing decisions. Simply cutting the price does not guarantee higher revenue — you must calculate total revenue at each price point.</p>
+    <ul>
+    <li><strong>Raise price:</strong> Earns more per unit but may lose customers. Works when competitors are few.</li>
+    <li><strong>Lower price:</strong> Sells more units but earns less each. Works when demand is price-sensitive.</li>
+    <li><strong>Increase advertising:</strong> Can drive more sales, but the extra revenue must exceed the cost of advertising.</li>
+    <li><strong>Expand product range:</strong> More products attract more customers (e.g. Dyson, Tesco, Amazon).</li>
+    <li><strong>Open new markets / e-commerce:</strong> Reaches customers globally without high fixed costs.</li>
+    </ul>
+    <div class="two-col">
+    <div>
+    <div class="col-head">Factors That Increase Revenue</div>
+    <div class="pro-item"><strong>Fewer competitors:</strong> A business can raise prices without losing customers to rivals.</div>
+    <div class="pro-item"><strong>Competitor price rises:</strong> Allows you to raise prices too without losing market share.</div>
+    <div class="pro-item"><strong>Product is already cheap:</strong> A percentage price rise has little impact on demand and boosts revenue.</div>
+    </div>
+    <div>
+    <div class="col-head">Factors That May Reduce Revenue</div>
+    <div class="con-item"><strong>Many competitors:</strong> Customers switch, reducing sales volume and revenue.</div>
+    <div class="con-item"><strong>Competitor price cuts:</strong> You may need to match them or lose customers.</div>
+    <div class="con-item"><strong>Premium-priced products:</strong> Any further price rise may significantly reduce demand.</div>
+    </div>
+    </div>`
+            },
+            {
+                title: "Fixed Costs vs Variable Costs",
+                tag: "Core Concepts",
+                content: `<p>Every cost a business pays falls into one of two categories. Getting this distinction right is essential for exam questions on costs, break-even and profit.</p>
+    <div class="two-col">
+    <div>
+    <div class="col-head">Fixed Costs</div>
+    <div class="pro-item"><strong>Do NOT change</strong> when output changes. Must be paid whether the business produces 0 or 10,000 units.</div>
+    <div class="pro-item"><strong>Examples:</strong> Rent, business rates, insurance, <em>salaries</em>, interest on loans, mortgage payments, advertising (if contracted).</div>
+    <div class="pro-item"><strong>Key fact:</strong> Even if a business temporarily closes, fixed costs continue.</div>
+    </div>
+    <div>
+    <div class="col-head">Variable Costs</div>
+    <div class="con-item"><strong>DO change</strong> when output changes. The more the business produces, the higher the total variable cost.</div>
+    <div class="con-item"><strong>Examples:</strong> Raw materials, <em>wages</em> (hourly paid), packaging, energy used in production, stock purchased to resell.</div>
+    <div class="con-item"><strong>Formula:</strong> Total Variable Costs = Quantity × Variable Cost per Unit</div>
+    </div>
+    </div>
+    <p>⚠️ <strong>Salaries vs Wages:</strong> Salaries (fixed annual pay) = fixed cost. Hourly wages (paid per hour worked) = variable cost.</p>
+    <div class="formula-box">
+      <strong>Total Costs (TC) = Total Fixed Costs (TFC) + Total Variable Costs (TVC)</strong>
+    </div>
+    <p><strong>Worked Example:</strong> Fixed costs = £18,000/month. Variable cost per unit = £2.75. Units sold = 5,450.<br>
+    TVC = 5,450 × £2.75 = £14,987.50 &nbsp; TC = £18,000 + £14,987.50 = <strong>£32,987.50</strong></p>`
+            },
+            {
+                title: "Gross Profit and Net Profit",
+                tag: "Calculations",
+                content: `<p>There are two types of profit. Both are calculated differently and tell you different things about a business.</p>
+    <div class="formula-box">
+      <strong>Gross Profit = Revenue − Cost of Sales</strong>
+    </div>
+    <p>Gross profit measures the profit from buying and selling goods <em>before</em> the running costs of the business are deducted. Example: buy goods for £30, sell for £50 → Gross profit = £20.</p>
+    <div class="formula-box">
+      <strong>Net Profit = Gross Profit − Expenses</strong>
+    </div>
+    <p>Net profit is a more accurate measure because it accounts for ALL costs. Example:</p>
+    <ul>
+    <li>Gross profit: £500,000</li>
+    <li>Wages &amp; salaries: £300,000 &nbsp;|&nbsp; Rent: £50,000 &nbsp;|&nbsp; Heating: £10,000 &nbsp;|&nbsp; Insurance: £5,000 = Total expenses: £365,000</li>
+    <li><strong>Net profit = £500,000 − £365,000 = £135,000</strong></li>
+    </ul>
+    <div class="two-col">
+    <div>
+    <div class="col-head">✓ When Profit Rises...</div>
+    <div class="pro-item">Buy new equipment and buildings</div>
+    <div class="pro-item">Expand or take over other businesses</div>
+    <div class="pro-item">Pay increasing dividends to shareholders</div>
+    <div class="pro-item">Develop new products and services</div>
+    </div>
+    <div>
+    <div class="col-head">✗ When Losses Occur...</div>
+    <div class="con-item">Investment decisions postponed</div>
+    <div class="con-item">May be forced to accept a takeover</div>
+    <div class="con-item">Dividends reduced or cancelled</div>
+    <div class="con-item">Cannot invest in new products — loses customers to rivals</div>
+    </div>
+    </div>`
+            },
+            {
+                title: "Profitability Ratios — GPM & NPM",
+                tag: "Calculations",
+                content: `<p>Profitability ratios allow a business to <strong>measure and compare performance</strong> more accurately than just looking at profit figures. A rising profit can still mean falling profitability if revenue rises faster.</p>
+    <div class="formula-box">
+      <strong>Gross Profit Margin (%) = (Gross Profit ÷ Revenue) × 100</strong>
+    </div>
+    <div class="formula-box">
+      <strong>Net Profit Margin (%) = (Net Profit ÷ Revenue) × 100</strong>
+    </div>
+    <p><strong>Example — Jacquelyn Williams Booksellers:</strong></p>
+    <ul>
+    <li>Year 1: Revenue £150,000 | Gross Profit £70,000 | Net Profit £30,000</li>
+    <li>Year 2: Revenue £225,000 | Gross Profit £85,000 | Net Profit £30,000</li>
+    </ul>
+    <p>Year 1 GPM = (70,000 ÷ 150,000) × 100 = <strong>46.7%</strong> &nbsp; Year 2 GPM = (85,000 ÷ 225,000) × 100 = <strong>37.8%</strong></p>
+    <p>Year 1 NPM = (30,000 ÷ 150,000) × 100 = <strong>20%</strong> &nbsp; Year 2 NPM = (30,000 ÷ 225,000) × 100 = <strong>13.3%</strong></p>
+    <p>Although net profit stayed the same in pounds, <strong>both margins fell</strong> — the business is becoming less efficient at converting revenue into profit. Action should be taken.</p>
+    <p>⚠️ <strong>Net profit margin is considered the more accurate profitability measure</strong> because it accounts for ALL costs, not just cost of sales.</p>`
+            },
+            {
+                title: "Interpreting Profitability Ratios",
+                tag: "Analysis",
+                content: `<p>Being able to calculate a ratio is only the first step. Examiners award the higher marks for interpreting what the figures mean and recommending appropriate action.</p>
+    <div class="two-col">
+    <div>
+    <div class="col-head">↑ GPM Improves When...</div>
+    <div class="pro-item">Revenue rises faster than cost of sales</div>
+    <div class="pro-item">Revenue falls but cost of sales falls more</div>
+    <div class="pro-item">Revenue rises AND cost of sales falls</div>
+    <div class="col-head" style="margin-top:8px">↑ NPM Improves When...</div>
+    <div class="pro-item">Gross profit rises faster than expenses</div>
+    <div class="pro-item">Gross profit falls but expenses fall more</div>
+    <div class="pro-item">Gross profit rises AND expenses fall</div>
+    </div>
+    <div>
+    <div class="col-head">↓ GPM Worsens When...</div>
+    <div class="con-item">Revenue falls AND cost of sales rises</div>
+    <div class="con-item">Revenue rises but cost of sales rises more</div>
+    <div class="con-item">Revenue falls but cost of sales falls less</div>
+    <div class="col-head" style="margin-top:8px">↓ NPM Worsens When...</div>
+    <div class="con-item">Gross profit falls AND expenses rise</div>
+    <div class="con-item">Gross profit rises but expenses rise more</div>
+    <div class="con-item">Gross profit falls but expenses fall less</div>
+    </div>
+    </div>
+    <p><strong>How to improve GPM:</strong> Increase revenue (adjust pricing, increase advertising, enter new markets) OR reduce cost of sales (negotiate lower supplier prices, find cheaper suppliers).</p>
+    <p><strong>How to improve NPM:</strong> All GPM strategies PLUS reduce expenses — cut the wage bill, save on energy, reduce rent.</p>`
+            },
+            {
+                title: "Average Rate of Return (ARR)",
+                tag: "Calculations",
+                content: `<p>ARR is used to judge whether a business investment (in equipment or another business) is worthwhile, by expressing the average annual profit as a percentage of the original cost.</p>
+    <div class="formula-box">
+      <strong>Step 1: Total Profit = Total Income (from investment) − Cost of Investment</strong><br><br>
+      <strong>Step 2: Average Annual Profit = Total Profit ÷ Life of Investment (years)</strong><br><br>
+      <strong>Step 3: ARR (%) = (Average Annual Profit ÷ Cost of Investment) × 100</strong>
+    </div>
+    <p><strong>Worked Example:</strong> A business buys a mower for £5,000 and earns £13,000 over 5 years.</p>
+    <ul>
+    <li>Step 1: £13,000 − £5,000 = £8,000 total profit</li>
+    <li>Step 2: £8,000 ÷ 5 = £1,600 average annual profit</li>
+    <li>Step 3: (£1,600 ÷ £5,000) × 100 = <strong>32%</strong></li>
+    </ul>
+    <div class="two-col">
+    <div>
+    <div class="col-head">✓ Advantages of ARR</div>
+    <div class="pro-item">Gives a percentage return easily compared with other investments or savings rates</div>
+    <div class="pro-item">Focuses on profitability — key for shareholders and investors</div>
+    <div class="pro-item">Straightforward to calculate and explain</div>
+    </div>
+    <div>
+    <div class="col-head">✗ Disadvantages of ARR</div>
+    <div class="con-item">Based on a forecast — actual results may differ significantly</div>
+    <div class="con-item">Does not account for the timing of cash flows</div>
+    <div class="con-item">Ignores the time value of money</div>
+    </div>
+    </div>
+    <p><strong>How ARR is used:</strong> Compare two investments and choose the one with the higher ARR. Compare ARR against a bank interest rate — if ARR is only slightly higher than a risk-free savings rate, the investment may not be worth the risk.</p>`
+            },
+            {
+                title: "Revenue, Costs & Profit in Decision Making",
+                tag: "Analysis",
+                content: `<p>Financial data is only valuable if it is used to make better business decisions. Each measure of performance has specific implications for what a business should do next.</p>
+    <p><strong>Revenue and Decision Making:</strong> Revenue data helps set pricing strategy. A business must test different price points to find which maximises total revenue. Increasing sales volume through advertising or expansion is another route — but the cost must be outweighed by the revenue gain.</p>
+    <p><strong>Costs and Decision Making:</strong> High fixed costs mean the business must sell many products just to break even. If variable costs rise (e.g. raw materials become more expensive), the business can accept the increase, find a cheaper supplier, or negotiate with the existing one.</p>
+    <p><strong>Profit and Loss in Decision Making:</strong> Sustained profit funds expansion and investment. Losses force cuts. A business that continues to make losses will eventually fail.</p>
+    <div class="case-study-box">
+      <h4>Case Study: Zara (Global Fashion)</h4>
+      <p>Zara keeps its variable costs low by buying fabric in large quantities from European suppliers. This lowers cost of sales and improves gross profit margin. With better margins, Zara's owners receive more profit. When COVID-19 struck in 2020, Zara's revenue fell 29% from €19,954m to €14,129m. Its ability to control costs helped it survive the fall. This shows that profitability ratios — not just revenue — are the true test of financial health.</p>
+    </div>`
+            },
+            {
+                title: "How to Increase Revenue & Reduce Costs",
+                tag: "Strategies",
+                content: `<p>Businesses can improve their profitability from two sides: increasing revenue or reducing costs. Both affect profit margins.</p>
+    <div class="two-col">
+    <div>
+    <div class="col-head">↑ Strategies to Increase Revenue</div>
+    <div class="pro-item"><strong>Raise selling price:</strong> Works if customers are not very price-sensitive (few alternatives)</div>
+    <div class="pro-item"><strong>Lower price to increase volume:</strong> Works if demand is highly price-sensitive</div>
+    <div class="pro-item"><strong>Increase advertising:</strong> Builds brand awareness and drives sales</div>
+    <div class="pro-item"><strong>Expand product range:</strong> Appeal to more customer segments</div>
+    <div class="pro-item"><strong>Open new markets / sell online:</strong> Reach more customers globally</div>
+    </div>
+    <div>
+    <div class="col-head">↓ Strategies to Reduce Costs</div>
+    <div class="con-item"><strong>Find cheaper suppliers:</strong> Must also check quality and reliability</div>
+    <div class="con-item"><strong>Negotiate lower prices:</strong> Ask existing suppliers for discounts, especially on bulk orders</div>
+    <div class="con-item"><strong>Use technology:</strong> Automate production to reduce labour costs</div>
+    <div class="con-item"><strong>Reduce the wage bill:</strong> Cut hours, reduce pay, or replace labour with machines</div>
+    <div class="con-item"><strong>Save on energy:</strong> More efficient equipment, better insulation</div>
+    </div>
+    </div>`
+            },
+            {
+                title: "Real-World Examples",
+                tag: "Case Study",
+                content: `<div class="case-study-box">
+      <h4>Case Study: Alan Cropley Guitars (ACG)</h4>
+      <p>ACG's guitars were featured at a major music festival in 2016, driving huge demand. Revenue doubled as Alan was able to increase prices. However, he also hired six more skilled workers and the factory was reaching capacity. His financial data (Revenue: £860,000 | Gross Profit: £550,000 | Net Profit: £210,000 | Guitars sold: 520) gives a net profit margin of 24.4%. Alan must consider whether a new factory investment (a higher fixed cost) would be justified by the additional revenue it could generate — this is exactly the kind of decision ARR is designed to support.</p>
+      <p><strong>Takeaway:</strong> Revenue growth does not automatically guarantee rising profitability. Tracking profit margins over time is essential to spot whether costs are rising faster than revenue.</p>
+    </div>
+    <div class="case-study-box">
+      <h4>Case Study: Unilever plc</h4>
+      <p>Unilever sells products including Lynx, Dove, Hellmann's and Persil across 190 countries. Its worldwide revenue grew from €50,900m (2018) to €60,000m (2022) — but dipped to €50,700m in 2020. Despite revenue growth, Unilever must manage both variable costs (raw materials per product) and fixed costs (factory rent, salaries) to protect its profit margins. This illustrates that revenue trends alone do not tell the full financial story.</p>
+    </div>`
+            }
+        ];
+
+        // 2. Multiple Choice Questions (Minimum 10 — practice questions)
+        const mcqData = [
+            {
+                q: "Which formula correctly calculates a business's total revenue?",
+                opts: ["Revenue = Gross Profit + Total Costs", "Revenue = Quantity Sold × Selling Price", "Revenue = Net Profit + Expenses", "Revenue = Fixed Costs + Variable Costs"],
+                ans: 1,
+                explain: "Correct: B. Revenue = Quantity Sold × Selling Price. This gives total income from sales. For example, 200 units at £10 each = £2,000 revenue. Revenue is NOT profit — costs have not yet been subtracted."
+            },
+            {
+                q: "A hairdresser pays £800 per month rent for her salon regardless of how many customers she serves. Rent is an example of:",
+                opts: ["A variable cost", "A fixed cost", "The cost of sales", "A net profit"],
+                ans: 1,
+                explain: "Correct: B. Fixed cost. Rent does not change with output — the hairdresser pays £800 whether she serves 5 customers or 500. Fixed costs must be paid even if the business produces nothing."
+            },
+            {
+                q: "A bakery uses more flour as it bakes more loaves. The cost of flour is a:",
+                opts: ["Fixed cost", "Salary cost", "Variable cost", "Total cost"],
+                ans: 2,
+                explain: "Correct: C. Variable cost. The cost of flour increases directly with the number of loaves produced. Variable costs change as output changes."
+            },
+            {
+                q: "A business has revenue of £90,000 and cost of sales of £30,000. What is the gross profit?",
+                opts: ["£120,000", "£30,000", "£60,000", "£90,000"],
+                ans: 2,
+                explain: "Correct: C. Gross Profit = Revenue − Cost of Sales = £90,000 − £30,000 = £60,000. Remember: gross profit does NOT deduct expenses such as wages or rent."
+            },
+            {
+                q: "A business has gross profit of £60,000 and expenses of £35,000. What is the net profit?",
+                opts: ["£95,000", "£35,000", "£25,000", "£60,000"],
+                ans: 2,
+                explain: "Correct: C. Net Profit = Gross Profit − Expenses = £60,000 − £35,000 = £25,000. Net profit is the more accurate measure of performance because it accounts for ALL running costs."
+            },
+            {
+                q: "A business has gross profit of £45,000 and revenue of £150,000. What is the gross profit margin?",
+                opts: ["3%", "30%", "33%", "45%"],
+                ans: 1,
+                explain: "Correct: B. GPM = (Gross Profit ÷ Revenue) × 100 = (£45,000 ÷ £150,000) × 100 = 30%. This means the business keeps 30p of every £1 of revenue after paying for the goods it sells."
+            },
+            {
+                q: "Which of the following statements about net profit margin is correct?",
+                opts: ["It equals gross profit divided by cost of sales × 100", "It is considered a more accurate measure of profitability than gross profit margin", "It always rises when revenue rises", "It is calculated before expenses are deducted"],
+                ans: 1,
+                explain: "Correct: B. NPM is considered more accurate because it accounts for ALL business costs — not just cost of sales. It shows how much net profit is generated per pound of revenue."
+            },
+            {
+                q: "A business invests £20,000 in a machine. Over 4 years it earns total income of £36,000 from the investment. What is the ARR?",
+                opts: ["45%", "80%", "20%", "25%"],
+                ans: 3,
+                explain: "Correct: D. Step 1: Total profit = £36,000 − £20,000 = £16,000. Step 2: Average annual profit = £16,000 ÷ 4 = £4,000. Step 3: ARR = (£4,000 ÷ £20,000) × 100 = 25%."
+            },
+            {
+                q: "A business's net profit margin falls from 18% to 12%. Which statement is correct?",
+                opts: ["The business is now making a loss", "For every £100 of sales, the business earns £6 less net profit", "Net profit has fallen by 33%", "The business's revenue has fallen by 6%"],
+                ans: 1,
+                explain: "Correct: B. A margin of 18% means £18 per £100 of sales. At 12% it is £12 per £100. The difference is £6 per £100 — the business earns £6 less net profit for every £100 of sales. The business is still profitable (not making a loss)."
+            },
+            {
+                q: "Which of the following would MOST LIKELY improve a business's gross profit margin?",
+                opts: ["Increasing rent on the factory", "Raising wages for all staff", "Negotiating lower prices from raw material suppliers", "Taking out a larger bank loan"],
+                ans: 2,
+                explain: "Correct: C. Lower raw material costs reduce cost of sales. Since GPM = (Gross Profit ÷ Revenue) × 100 and Gross Profit = Revenue − Cost of Sales, lower cost of sales increases gross profit and therefore GPM."
+            },
+            {
+                q: "Total costs for a business with fixed costs of £12,000 and variable costs of £5 per unit, producing 800 units, would be:",
+                opts: ["£4,000", "£12,000", "£16,000", "£28,000"],
+                ans: 2,
+                explain: "Correct: C. TVC = 800 × £5 = £4,000. TC = TFC + TVC = £12,000 + £4,000 = £16,000."
+            },
+            {
+                q: "ARR is most useful for a business because it:",
+                opts: ["Shows the total income from an investment", "Allows comparison of the profitability of different investments over their lifetime", "Calculates how long until an investment pays for itself", "Shows the business's annual revenue"],
+                ans: 1,
+                explain: "Correct: B. ARR allows a business to compare investments — e.g. Machine A vs Machine B — by expressing the average annual return as a percentage of the investment cost."
+            },
+            {
+                q: "A business has total revenue of £200,000, cost of sales of £80,000, and expenses of £60,000. What is the net profit margin?",
+                opts: ["30%", "60%", "40%", "20%"],
+                ans: 0,
+                explain: "Correct: A. Gross Profit = £200,000 − £80,000 = £120,000. Net Profit = £120,000 − £60,000 = £60,000. NPM = (£60,000 ÷ £200,000) × 100 = 30%."
+            },
+            {
+                q: "Which of these would be a fixed cost for a pizza delivery business?",
+                opts: ["Pizza dough and toppings", "Fuel for delivery vehicles", "Packaging boxes per pizza", "Monthly lease on the delivery van"],
+                ans: 3,
+                explain: "Correct: D. A monthly lease (like rent) does not change with the number of pizzas sold — it is fixed. Pizza ingredients, fuel, and packaging all change with output, making them variable costs."
+            },
+            {
+                q: "When net profit stays the same but revenue doubles, what happens to the net profit margin?",
+                opts: ["It doubles", "It stays the same", "It halves", "It falls to zero"],
+                ans: 2,
+                explain: "Correct: C. NPM = (Net Profit ÷ Revenue) × 100. If net profit is constant but revenue doubles, the margin halves. This is why businesses must watch profitability ratios, not just absolute profit figures."
+            }
+        ];
+
+        // 3. Keyword Matching (Minimum 10)
+        const matchData = [
+            { term: "Revenue", def: "The income received from sales, calculated as quantity sold × selling price." },
+            { term: "Fixed Costs", def: "Costs that do not change when output changes — e.g. rent, insurance, salaries." },
+            { term: "Variable Costs", def: "Costs that change directly with output — e.g. raw materials, packaging, hourly wages." },
+            { term: "Total Costs", def: "Fixed costs plus variable costs (TC = TFC + TVC)." },
+            { term: "Cost of Sales", def: "The direct cost of producing the goods sold — e.g. materials, bought-in stock, direct labour to make the product." },
+            { term: "Expenses", def: "The ongoing running costs of the business — rent, wages, insurance, heating, lighting, advertising." },
+            { term: "Gross Profit", def: "Revenue minus cost of sales — profit before running costs are deducted." },
+            { term: "Net Profit", def: "Gross profit minus expenses — the most accurate measure of overall business performance." },
+            { term: "Loss", def: "When total costs are greater than total revenue." },
+            { term: "Gross Profit Margin", def: "(Gross Profit ÷ Revenue) × 100 — measures profit efficiency from buying and selling." },
+            { term: "Net Profit Margin", def: "(Net Profit ÷ Revenue) × 100 — the most accurate profitability ratio, accounting for all costs." },
+            { term: "Average Rate of Return", def: "(Average Annual Profit ÷ Cost of Investment) × 100 — compares the profitability of different investments." },
+            { term: "Profitability Ratios", def: "Calculations such as GPM and NPM that measure how efficiently a business generates profit from revenue." }
+        ];
+
+        // 4. Fill in the Blanks (Minimum 10)
+        const fibData = [
+            {
+                display: "Revenue is calculated by multiplying _____ by _____.",
+                blanks: { B1: "quantity sold", B2: "selling price" }
+            },
+            {
+                display: "Costs that do NOT change when output changes are called _____ costs.",
+                blanks: { B1: "fixed" }
+            },
+            {
+                display: "Costs that rise as production increases are called _____ costs.",
+                blanks: { B1: "variable" }
+            },
+            {
+                display: "Gross Profit = Revenue minus _____.",
+                blanks: { B1: "cost of sales" }
+            },
+            {
+                display: "Net Profit = _____ minus _____.",
+                blanks: { B1: "gross profit", B2: "expenses" }
+            },
+            {
+                display: "The Gross Profit Margin formula is: (Gross Profit ÷ Revenue) × _____.",
+                blanks: { B1: "100" }
+            },
+            {
+                display: "The _____ profit margin is considered the more accurate measure of profitability.",
+                blanks: { B1: "net" }
+            },
+            {
+                display: "When costs are greater than revenue, the business makes a _____.",
+                blanks: { B1: "loss" }
+            },
+            {
+                display: "Total Costs = Total _____ Costs + Total _____ Costs.",
+                blanks: { B1: "Fixed", B2: "Variable" }
+            },
+            {
+                display: "In the ARR calculation, Step 3 is: (Average Annual _____ ÷ Cost of Investment) × 100.",
+                blanks: { B1: "Profit" }
+            },
+            {
+                display: "In ARR, you first subtract the _____ from total income to find total profit.",
+                blanks: { B1: "cost of investment" }
+            },
+            {
+                display: "Rent, business rates and insurance are all examples of _____ costs.",
+                blanks: { B1: "fixed" }
+            },
+            {
+                display: "Raw materials and packaging are examples of _____ costs because they change with output.",
+                blanks: { B1: "variable" }
+            }
+        ];
+
+        // Word bank for Fill in the Blanks
+        const fibWords = [
+            "quantity sold", "selling price", "fixed", "variable", "cost of sales",
+            "gross profit", "expenses", "100", "net", "loss", "Profit",
+            "cost of investment", "Fixed", "Variable", "revenue", "total",
+            "salaries", "wages", "output", "margin", "return", "investment"
+        ];
+
+        // 5. True or False (Minimum 10)
+        const tfData = [
+            {
+                statement: "Fixed costs remain the same whether a business produces 0 or 1,000 units.",
+                answer: true,
+                explanation: "TRUE. Fixed costs (e.g. rent, insurance) do not vary with output. They must be paid regardless of how much or how little the business produces."
+            },
+            {
+                statement: "Gross profit is calculated by subtracting all business expenses from revenue.",
+                answer: false,
+                explanation: "FALSE. Gross Profit = Revenue − Cost of Sales ONLY. Expenses are only deducted when calculating NET profit."
+            },
+            {
+                statement: "A business with increasing revenue is always becoming more profitable.",
+                answer: false,
+                explanation: "FALSE. Revenue can increase while costs rise faster, causing profit margins to fall. You must analyse profitability ratios, not just revenue figures."
+            },
+            {
+                statement: "Net profit margin is considered a more accurate measure of performance than gross profit margin.",
+                answer: true,
+                explanation: "TRUE. Net profit margin accounts for ALL running costs (wages, rent, utilities, insurance), giving a fuller picture of how efficiently the business generates profit."
+            },
+            {
+                statement: "Raw materials used in manufacturing are a variable cost.",
+                answer: true,
+                explanation: "TRUE. As more products are made, more raw materials are consumed. The cost rises directly with output — a classic variable cost."
+            },
+            {
+                statement: "ARR is calculated by dividing total income by the cost of investment × 100.",
+                answer: false,
+                explanation: "FALSE. ARR requires three steps. First: Total Profit = Total Income − Cost of Investment. Then: Average Annual Profit = Total Profit ÷ Years. Finally: ARR = (Average Annual Profit ÷ Cost of Investment) × 100. Using total income alone gives the wrong answer."
+            },
+            {
+                statement: "A business that consistently makes losses will eventually be unable to continue operating.",
+                answer: true,
+                explanation: "TRUE. If costs continually exceed revenue, the business depletes its cash and resources and will eventually be unable to pay its bills."
+            },
+            {
+                statement: "Salaries paid to permanent staff are generally considered a variable cost.",
+                answer: false,
+                explanation: "FALSE. Salaries are a fixed annual payment — they do not change with output levels. Hourly wages can be variable, but annual salaries are typically classified as fixed costs."
+            },
+            {
+                statement: "If a business's net profit margin falls from 10% to 8%, it means the business has made a loss.",
+                answer: false,
+                explanation: "FALSE. A net profit margin of 8% still indicates a profit. The business has become less efficient (less profitable) but it is still making a positive net profit."
+            },
+            {
+                statement: "ARR allows a business to compare two different investments and choose the one with the better return.",
+                answer: true,
+                explanation: "TRUE. By expressing the average annual return as a percentage of cost, ARR provides a common basis for comparing different investment options."
+            },
+            {
+                statement: "Increasing the selling price will always increase a business's total revenue.",
+                answer: false,
+                explanation: "FALSE. Revenue = Price × Quantity. If raising the price causes a significant fall in the quantity sold, total revenue could actually decrease. The impact depends on how price-sensitive demand is."
+            },
+            {
+                statement: "Total Costs = Total Fixed Costs + Total Variable Costs.",
+                answer: true,
+                explanation: "TRUE. Every cost a business incurs is either fixed or variable. Adding all fixed and variable costs together gives total costs."
+            }
+        ];
+
+        // 6. Common Student Misconceptions
+        const miscData = [
+            {
+                wrong: "Revenue is the same as profit.",
+                correct: "Revenue is the total income from sales (quantity × price). Profit is what remains AFTER costs are deducted. A business can have high revenue but still make a loss if costs are even higher."
+            },
+            {
+                wrong: "If net profit in pounds increases, the net profit margin must also increase.",
+                correct: "Not necessarily. If revenue grows faster than net profit, the margin actually falls. For example: net profit stays at £30,000 but revenue doubles from £150,000 to £300,000 — the NPM halves from 20% to 10%."
+            },
+            {
+                wrong: "All wages are variable costs.",
+                correct: "It depends on how workers are paid. Hourly wages that vary with output are variable. Annual salaries (a fixed payment) are a fixed cost. Examiners specifically do NOT accept 'salaries' as a variable cost."
+            },
+            {
+                wrong: "In ARR, you divide total income by the cost of investment.",
+                correct: "You must first subtract the investment cost from total income to get total PROFIT, then divide by years for average annual profit, THEN divide by cost of investment × 100. Skipping step 1 is one of the most common exam errors."
+            },
+            {
+                wrong: "Gross profit margin and net profit margin measure the same thing.",
+                correct: "GPM = (Gross Profit ÷ Revenue) × 100 — only deducts cost of sales. NPM = (Net Profit ÷ Revenue) × 100 — deducts ALL expenses too. NPM is always lower and is the more accurate measure."
+            },
+            {
+                wrong: "If costs increase, the business must be performing worse.",
+                correct: "Not necessarily. If revenue increases by MORE than the cost increase, profitability can actually improve. The key is the relationship between revenue and costs — measured by profit margins."
+            },
+            {
+                wrong: "Revenue and profit are interchangeable terms for 'money the business makes'.",
+                correct: "They are completely different. Revenue is total income from sales. Profit is what is left after ALL costs are paid. In an exam, mixing these up will cost you marks on every finance question."
+            },
+            {
+                wrong: "A business that is 'profitable' always has a positive cash flow.",
+                correct: "Profit and cash flow are different. A business can be profitable on paper but still run out of cash (e.g. if customers owe money that hasn't been paid yet). This is a common real-world business failure."
+            }
+        ];
+
+        // 7. Examiner Tips & Structure Guides
+        const examTips = [
+            {
+                type: "State / Identify — 1 mark",
+                title: "One Point. Stop. Move On.",
+                content: `<p>A 1-mark <strong>'State' or 'Identify'</strong> question needs exactly one correct point. No explanation, no examples, no paragraphs.</p>
+    <p><strong>The common trap:</strong> Writing too much and contradicting yourself, or naming a variable cost when asked for a fixed cost (or vice versa).</p>
+    <ul>
+    <li><strong>✅ Good (1 mark):</strong> <em>"Rent"</em> (in response to 'identify a fixed cost')</li>
+    <li><strong>❌ Bad (0 marks):</strong> <em>"Production costs"</em> — too vague. Always name a specific cost.</li>
+    <li><strong>❌ Bad (0 marks):</strong> <em>"Salaries"</em> — in response to 'identify a variable cost'. Examiners specifically do NOT accept salaries as a variable cost.</li>
+    </ul>
+    <p><strong>⚠️ Examiner Warning:</strong> The word 'vary' or 'variable' cannot be used to define 'variable costs'. A derivative of the keyword appearing in the question gains no marks. Say what they ARE (costs that change with output), not what they're called.</p>`,
+                pills: ["K"]
+            },
+            {
+                type: "Explain — 2 marks",
+                title: "State + Develop: The Two-Step Formula",
+                content: `<p>Every 2-mark 'Explain' question needs two linked steps. State a point, then develop it with a 'because' or 'this means' or 'so that'.</p>
+    <p><strong>Formula: Point (K) → Development / So what? (U)</strong></p>
+    <ul>
+    <li><strong>❌ Bad (1 mark only):</strong> <em>"Variable costs change when output changes."</em></li>
+    <li><strong>✅ Good (2 marks):</strong> <em>"Variable costs change when output changes (K), which means if a business produces more units, it will spend more on raw materials and packaging (U)."</em></li>
+    </ul>
+    <p>For 'Explain why profit is important': identify a benefit (K) + explain how that benefit actually works for a business (U).</p>
+    <p><strong>✅ Example:</strong> <em>"Profit can be reinvested in the business (K) to buy new equipment that increases production capacity and reduces costs in the long run (U)."</em></p>
+    <p><strong>⚠️ Warning:</strong> Do NOT just write a definition when asked to 'explain why'. Definitions score only 1 mark. Always ask yourself: <em>so what? why does it matter?</em></p>`,
+                pills: ["K", "U"]
+            },
+            {
+                type: "Analyse — 3 marks",
+                title: "The U → APP → AN Chain: All Three or Zero",
+                content: `<p>A 3-mark Analyse question follows a strict chain. <strong>You cannot score Application or Analysis marks without first scoring Understanding.</strong></p>
+    <p><strong>Step 1 — Understanding (U):</strong> Show you understand the concept. What is it? What does it do?</p>
+    <p><strong>Step 2 — Application (APP):</strong> Link your point DIRECTLY to the business in the case study. Quote or reference specific data from the text. Phrases: <em>"For ACG..."</em> / <em>"As the text states..."</em> / <em>"With net profit of £210,000 from £860,000 revenue..."</em></p>
+    <p><strong>Step 3 — Analysis (AN):</strong> State the impact/effect on the business. Phrases: <em>"This means..."</em> / <em>"As a result..."</em> / <em>"This will lead to..."</em> / <em>"This could cause..."</em></p>
+    <p><strong>❌ Bad answer (1 mark):</strong> <em>"Calculating the net profit margin is useful because it shows how profitable a business is."</em></p>
+    <p><strong>✅ Good answer (3 marks):</strong> <em>"Net profit margin shows the percentage of revenue kept as net profit (U). For ACG, with net profit of £210,000 from £860,000 revenue (APP), this is 24.4%, allowing ACG to compare this year's efficiency against previous years (AN), alerting them if the margin is falling even as profit in pounds appears to rise."</em></p>
+    <p><strong>🚫 No case study reference = maximum 2 marks.</strong> Always name the business and use its specific data.</p>`,
+                pills: ["U", "app", "an"]
+            },
+            {
+                type: "Calculation — 2-3 marks",
+                title: "Always Show Your Workings — Every Step Earns Marks",
+                content: `<p>Calculation questions award marks for the process, not just the answer. Even if your final number is wrong, correct working earns marks.</p>
+    <p><strong>Golden Rules:</strong></p>
+    <ul>
+    <li>Write the formula first: <em>NPM = (Net Profit ÷ Revenue) × 100</em></li>
+    <li>Substitute the numbers: <em>(£210,000 ÷ £860,000) × 100</em></li>
+    <li>Write the answer with units: <em>= 24.4%</em></li>
+    <li>Always include the % sign for margin and ARR answers</li>
+    </ul>
+    <p><strong>Most Common Calculation Mistakes:</strong></p>
+    <ul>
+    <li>❌ <strong>ARR:</strong> Dividing total income (not profit) by cost of investment. You MUST subtract the investment cost first.</li>
+    <li>❌ <strong>GPM / NPM:</strong> Using the wrong denominator — always divide by REVENUE, not by cost of sales or gross profit.</li>
+    <li>❌ <strong>Average Revenue:</strong> Using the wrong time period — re-read the question carefully for start and end dates.</li>
+    <li>❌ <strong>Percentage change:</strong> Dividing by the NEW value instead of the ORIGINAL value.</li>
+    </ul>
+    <p><strong>Percentage Change Formula: (Change ÷ Original Value) × 100</strong></p>
+    <p>⚠️ If an answer seems unrealistically large (e.g. £1600m), always re-check whether you accidentally multiplied instead of divided.</p>`,
+                pills: ["app"]
+            },
+            {
+                type: "Recommend / Evaluate — 3 marks",
+                title: "Make a Clear Decision — Never Sit on the Fence",
+                content: `<p>A recommendation question requires a <strong>clear, committed judgement</strong>. Sitting on the fence scores zero evaluation marks.</p>
+    <p><strong>Three-Part Structure:</strong></p>
+    <ul>
+    <li><strong>Judgement (1 mark):</strong> State your recommendation clearly. <em>"SP should buy HD Sewing."</em></li>
+    <li><strong>Justification (1 mark):</strong> Explain WHY using sound business reasoning.</li>
+    <li><strong>Context (1 mark):</strong> Support with specific data from the table or case study.</li>
+    </ul>
+    <p><strong>✅ Model Response:</strong><br>
+    <em>"SP should buy Fast Stitch (JUDGEMENT) because Pippa stated she wants to see her investment returned within five years (CONTEXT), and Fast Stitch has a higher ARR of 13.8% compared to HD Sewing's 11.25% (DATA), meaning it offers a better return on investment and is more likely to achieve Pippa's goal (JUSTIFICATION)."</em></p>
+    <p><strong>⚠️ Examiner Warning:</strong> "It could go either way" or "both have advantages" without a final decision = 0 marks for evaluation. You MUST commit. You can briefly acknowledge the other side, but always return to your chosen recommendation.</p>`,
+                pills: ["an", "eval"]
+            },
+            {
+                type: "Profitability Interpretation — 3 marks",
+                title: "Impact on Profitability ≠ Impact on Profit",
+                content: `<p>When analysing profitability data, examiners look for the <strong>difference between profit (£ amount) and profitability (the ratio)</strong>. Many students confuse these.</p>
+    <p><strong>To show an impact on PROFITABILITY, the relationship between costs and revenue must change.</strong></p>
+    <p><strong>Three-Step Structure:</strong></p>
+    <ul>
+    <li><strong>Understanding (U):</strong> <em>"CFM's gross profit margin rose from 60% in Year 1 to 70% in Year 2."</em></li>
+    <li><strong>Application (APP):</strong> <em>"This means CFM retained 70p of every £1 of revenue after paying for its food supplies in Year 2, compared to 60p in Year 1."</em></li>
+    <li><strong>Analysis (AN):</strong> <em>"This improvement shows CFM is becoming more efficient at generating profit from its sales — the business could use this improved margin to fund the new café from retained profit rather than borrowing."</em></li>
+    </ul>
+    <p><strong>❌ Common mistake:</strong> Saying <em>"the business's profit will increase"</em> when asked about profitability. Always discuss the RATIO and what it means for efficiency, not just the pound figure.</p>
+    <p><strong>Sentence starters for AN marks:</strong> <em>"This means the business is becoming more/less efficient at..."</em> / <em>"As a result, the business generates more/less profit per pound of revenue..."</em></p>`,
+                pills: ["U", "app", "an"]
+            }
+        ];
+
+        // 8. Flashcards
+        const flashcards = [
+            { term: "Revenue Formula", def: "Revenue = Quantity Sold × Selling Price" },
+            { term: "Gross Profit Formula", def: "Gross Profit = Revenue − Cost of Sales" },
+            { term: "Net Profit Formula", def: "Net Profit = Gross Profit − Expenses" },
+            { term: "Total Costs Formula", def: "TC = Total Fixed Costs + Total Variable Costs" },
+            { term: "Gross Profit Margin Formula", def: "(Gross Profit ÷ Revenue) × 100 = GPM %" },
+            { term: "Net Profit Margin Formula", def: "(Net Profit ÷ Revenue) × 100 = NPM %" },
+            { term: "ARR — Step 1", def: "Total Profit = Total Income (from investment) − Cost of Investment" },
+            { term: "ARR — Step 2", def: "Average Annual Profit = Total Profit ÷ Number of Years" },
+            { term: "ARR — Step 3", def: "ARR = (Average Annual Profit ÷ Cost of Investment) × 100" },
+            { term: "Percentage Change Formula", def: "(Change ÷ Original Value) × 100" },
+            { term: "Fixed Cost", def: "A cost that does NOT change when output changes — e.g. rent, insurance, salaries" },
+            { term: "Variable Cost", def: "A cost that DOES change when output changes — e.g. raw materials, wages, packaging" },
+            { term: "Cost of Sales", def: "The direct cost of producing the goods sold — e.g. buying materials, stock, or paying workers to make the product" },
+            { term: "Expenses", def: "Ongoing running costs of the business — rent, wages, utilities, insurance, advertising" },
+            { term: "Why NPM is more accurate than GPM", def: "NPM accounts for ALL business costs including expenses, not just cost of sales — giving a fuller picture of profitability" },
+            { term: "Why use ARR?", def: "To compare the profitability of different investments over their lifetime and decide which offers the best return relative to cost" },
+            { term: "Revenue vs Profit", def: "Revenue = total income from sales. Profit = revenue MINUS all costs. A business can have high revenue but still make a loss." },
+            { term: "Loss", def: "When total costs exceed total revenue — costs > revenue = loss" }
+        ];
+
+        // 9. Exam-Style Questions — ALL questions from resources
+        const examQuestions = [
+
+            // ── SECTION A: MCQ ──────────────────────────────────────────
+
+            {
+                num: "Q1",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "In 2023 a business sold 22 million items at an average price of £0.75 per item. Its total costs for the year were £13.5 million.",
+                question: "The business made a net profit of: [1 mark]",
+                options: ["£3 million", "£16.5 million", "£1636.5 million", "£1650 million"],
+                answer: 0,
+                hint: "First calculate revenue (quantity × price), then subtract total costs to find profit.",
+                starter: "Revenue = quantity × price, so the net profit is...",
+                markScheme: `<div class="marks-section"><h5>Answer: A — £3 million</h5><ul><li><strong>Working:</strong> Revenue = 22m × £0.75 = £16.5m. Net profit = £16.5m − £13.5m = £3m.</li><li><strong>Why B is wrong:</strong> £16.5m is the revenue figure, not the profit — costs have not been subtracted.</li><li><strong>Why C is wrong:</strong> No valid calculation produces this figure — a common error from multiplying rather than subtracting.</li><li><strong>Why D is wrong:</strong> £1,650m incorrectly treats both figures as millions and adds them rather than subtracting.</li></ul></div>`,
+                modelAnswer: "Revenue = 22 million × £0.75 = £16.5 million. Net profit = Revenue − Total Costs = £16.5m − £13.5m = £3 million. Answer: A."
+            },
+
+            {
+                num: "Q2",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Which would be variable costs for a building firm? [1 mark]",
+                options: ["Administrative and legal expenses", "Bricks and roof tiles", "Business rates and buildings insurance", "Cement mixers and tools"],
+                answer: 1,
+                hint: "Variable costs change with output — think about what the building firm uses MORE of when it builds more houses.",
+                starter: "Variable costs change when output changes, so the answer is...",
+                markScheme: `<div class="marks-section"><h5>Answer: B — Bricks and roof tiles</h5><ul><li><strong>Why B is correct:</strong> Bricks and roof tiles are raw materials — the more buildings the firm constructs, the more materials it uses. They change directly with output.</li><li><strong>Why A is wrong:</strong> Administrative and legal expenses are largely fixed — they don't change significantly with the number of buildings constructed.</li><li><strong>Why C is wrong:</strong> Business rates and buildings insurance are fixed costs — paid regardless of output.</li><li><strong>Why D is wrong:</strong> Cement mixers and tools are capital equipment — a one-off fixed cost, not a variable cost.</li></ul></div>`,
+                modelAnswer: "B — Bricks and roof tiles. These are raw materials that the firm uses more of when it builds more — a classic variable cost. Answer: B."
+            },
+
+            {
+                num: "Q3",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "A company has recently experienced a fall in its net profit margin from 4.2% to 2.9%.",
+                question: "This means that: [1 mark]",
+                options: ["every £100 of sales earns £1.30 less net profit than it used to", "for every £100 of sales the company only earns £1.30", "net profit levels have fallen by 1.3%", "the company has made a net loss of 1.3%"],
+                answer: 0,
+                hint: "A net profit margin of 4.2% means £4.20 per £100 of sales. A margin of 2.9% means £2.90 per £100. What is the difference?",
+                starter: "A net profit margin of 4.2% means £4.20 per £100 of sales, so the fall means...",
+                markScheme: `<div class="marks-section"><h5>Answer: A — every £100 of sales earns £1.30 less net profit than it used to</h5><ul><li><strong>Why A is correct:</strong> 4.2% means £4.20 per £100. 2.9% means £2.90 per £100. The difference is £1.30 per £100 of sales.</li><li><strong>Why B is wrong:</strong> The company earns £2.90 per £100 (the current margin), not £1.30. B confuses the margin difference with the current margin.</li><li><strong>Why C is wrong:</strong> Net profit LEVELS (the £ amount) have not necessarily fallen by 1.3% — the MARGIN has fallen by 1.3 percentage points. These are different things.</li><li><strong>Why D is wrong:</strong> A margin of 2.9% still means a positive profit. The company is less profitable but is NOT making a loss.</li></ul><p><strong>Examiner's Comment:</strong> This was the least well-answered question in the paper. Many students chose C, confusing a fall in the margin with a fall in the actual profit level.</p></div>`,
+                modelAnswer: "Net profit margin of 4.2% = £4.20 per £100 of sales. Net profit margin of 2.9% = £2.90 per £100. Difference = £1.30 less per £100. The company earns £1.30 less net profit for every £100 of sales. Answer: A."
+            },
+
+            {
+                num: "Q4",
+                marks: 1,
+                type: "mcq",
+                caseStudy: `The table below shows a company's total costs over the last four years.<table class="case-table"><caption>Company Total Costs 2020–2023</caption><thead><tr><th></th><th>2020</th><th>2021</th><th>2022</th><th>2023</th></tr></thead><tbody><tr><td>Operating costs</td><td>£200,000</td><td>£170,000</td><td>£280,000</td><td>£320,000</td></tr><tr><td>Other costs</td><td>£40,000</td><td>£30,000</td><td>£30,000</td><td>£40,000</td></tr></tbody></table>`,
+                question: "The percentage change in the company's total costs from 2020 to 2023 was: [1 mark]",
+                options: ["33%", "37.5%", "50%", "60%"],
+                answer: 2,
+                hint: "First calculate total costs in 2020 and 2023 by adding operating + other costs. Then use the percentage change formula: (change ÷ original) × 100.",
+                starter: "Total costs in 2020 = ..., total costs in 2023 = ..., so the percentage change is...",
+                markScheme: `<div class="marks-section"><h5>Answer: C — 50%</h5><ul><li><strong>Working:</strong> 2020 total = £200,000 + £40,000 = £240,000. 2023 total = £320,000 + £40,000 = £360,000. Change = £120,000. % change = (£120,000 ÷ £240,000) × 100 = 50%.</li><li><strong>Why A is wrong:</strong> 33% comes from dividing the change by the wrong denominator.</li><li><strong>Why B is wrong:</strong> 37.5% may come from comparing operating costs alone or using incorrect figures.</li><li><strong>Why D is wrong:</strong> 60% is produced by dividing by the new (2023) total rather than the original (2020) total — always use the original as the denominator.</li></ul></div>`,
+                modelAnswer: "2020: £200,000 + £40,000 = £240,000. 2023: £320,000 + £40,000 = £360,000. Change = £120,000. % change = (£120,000 ÷ £240,000) × 100 = 50%. Answer: C."
+            },
+
+            {
+                num: "Q5",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "A market trader paid £4,600 for goods which they sold for £12,500.",
+                question: "The market trader's gross profit margin was approximately: [1 mark]",
+                options: ["37%", "63%", "79%", "172%"],
+                answer: 1,
+                hint: "First calculate gross profit (selling price minus cost price), then express it as a percentage of the selling price (revenue).",
+                starter: "Gross profit = £12,500 − £4,600 = ..., then GPM = (gross profit ÷ revenue) × 100 = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: B — 63%</h5><ul><li><strong>Working:</strong> Gross profit = £12,500 − £4,600 = £7,900. GPM = (£7,900 ÷ £12,500) × 100 = 63.2% ≈ 63%.</li><li><strong>Why A is wrong:</strong> 37% is the cost of sales as a percentage of revenue (£4,600 ÷ £12,500), not the gross profit margin.</li><li><strong>Why C is wrong:</strong> 79% incorrectly divides gross profit by cost of sales instead of revenue.</li><li><strong>Why D is wrong:</strong> 172% is produced by dividing selling price by cost, which is not a margin calculation.</li></ul><p><strong>Examiner's Comment:</strong> Under 40% of candidates got this right. The most common mistake was not calculating gross profit first, and just dividing figures directly.</p></div>`,
+                modelAnswer: "Gross profit = £12,500 − £4,600 = £7,900. GPM = (£7,900 ÷ £12,500) × 100 = 63.2% ≈ 63%. Answer: B."
+            },
+
+            {
+                num: "Q6",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "An entrepreneur has invested £150,000 to start up their own business. Their expected average rate of return is 10% per annum for the first three years.",
+                question: "Over the first three years of trading, the entrepreneur should expect to make: [1 mark]",
+                options: ["average profits of £45,000 per year", "average profits of £135,000 per year", "profits totalling £15,000", "profits totalling £45,000"],
+                answer: 3,
+                hint: "ARR = (Average Annual Profit ÷ Cost of Investment) × 100. Rearrange to find average annual profit, then multiply by 3 years for the total.",
+                starter: "If ARR is 10% and the investment is £150,000, then average annual profit = ..., and over 3 years...",
+                markScheme: `<div class="marks-section"><h5>Answer: D — profits totalling £45,000</h5><ul><li><strong>Working:</strong> ARR 10% of £150,000 = £15,000 average profit per year. Over 3 years: £15,000 × 3 = £45,000 total profit.</li><li><strong>Why A is wrong:</strong> £45,000 per year would be the total profit spread wrongly — that would imply an ARR of 30% per year, not 10%.</li><li><strong>Why B is wrong:</strong> £135,000 per year represents 90% ARR — far too high and comes from multiplying the investment by the years and the rate incorrectly.</li><li><strong>Why C is wrong:</strong> £15,000 is the average ANNUAL profit, not the total profit over 3 years.</li></ul><p><strong>Examiner's Comment:</strong> Only half of candidates identified D. Many chose A, suggesting they did not read carefully — £45,000 is the total over 3 years, not per year.</p></div>`,
+                modelAnswer: "Average annual profit = 10% × £150,000 = £15,000 per year. Total over 3 years = 3 × £15,000 = £45,000. Answer: D."
+            },
+
+            {
+                num: "Q9",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Which of the following would be fixed costs of a fruit farm? [1 mark]",
+                options: ["Farm workers' wages", "Plant food and fertiliser", "Rent and rates", "Seeds and seedlings"],
+                answer: 2,
+                hint: "Fixed costs don't change with how much fruit is grown. Which of these stays the same regardless of harvest size?",
+                starter: "Fixed costs stay the same regardless of output, so the answer is...",
+                markScheme: `<div class="marks-section"><h5>Answer: C — Rent and rates</h5><ul><li><strong>Why C is correct:</strong> Rent and rates are paid regardless of how much fruit is grown. They are fixed costs.</li><li><strong>Why A is wrong:</strong> Farm workers' wages are variable — more workers (or more hours) are needed during harvest seasons when output is higher.</li><li><strong>Why B is wrong:</strong> Plant food and fertiliser change with the amount of crop being grown — a variable cost.</li><li><strong>Why D is wrong:</strong> Seeds and seedlings are variable — more seeds are used when planting more crops.</li></ul></div>`,
+                modelAnswer: "C — Rent and rates. These are paid regardless of the size of the harvest, making them fixed costs. Answer: C."
+            },
+
+            {
+                num: "Q10",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "Four years ago an entrepreneur invested £200,000 to start up their own business. The business is making an average profit of £53,000 per year.",
+                question: "The entrepreneur's average rate of return is: [1 mark]",
+                options: ["6.6%", "26.5%", "73.5%", "106%"],
+                answer: 1,
+                hint: "ARR = (Average Annual Profit ÷ Cost of Investment) × 100. You already have the average annual profit — just plug it in.",
+                starter: "ARR = (£53,000 ÷ £200,000) × 100 = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: B — 26.5%</h5><ul><li><strong>Working:</strong> ARR = (£53,000 ÷ £200,000) × 100 = 26.5%.</li><li><strong>Why A is wrong:</strong> 6.6% would come from incorrectly dividing £200,000 by £53,000 × something.</li><li><strong>Why C is wrong:</strong> 73.5% incorrectly calculates the proportion of investment NOT returned (100% − 26.5%).</li><li><strong>Why D is wrong:</strong> 106% would mean the total profit over all years exceeded the original investment, not the annual average rate.</li></ul></div>`,
+                modelAnswer: "ARR = (Average Annual Profit ÷ Cost of Investment) × 100 = (£53,000 ÷ £200,000) × 100 = 26.5%. Answer: B."
+            },
+
+            {
+                num: "Q11",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "Emma and Henry are in a partnership that runs a small building firm. Despite being profitable, the business is having difficulty paying all its expenses.",
+                question: "Which of the following would help Emma and Henry deal with this problem? [1 mark]",
+                options: ["Holding larger stocks of raw materials", "Increasing the labourers' wages", "Issuing shares", "Taking on a new partner"],
+                answer: 3,
+                hint: "The problem is paying expenses (a cash flow problem), not a profit problem. Which option injects cash into the business without increasing costs?",
+                starter: "To help with paying expenses, the business needs more funds, so...",
+                markScheme: `<div class="marks-section"><h5>Answer: D — Taking on a new partner</h5><ul><li><strong>Why D is correct:</strong> A new partner brings capital (money) into the business, which directly addresses the problem of not being able to pay expenses.</li><li><strong>Why A is wrong:</strong> Holding larger stocks ties up cash, making the cash flow problem worse, not better.</li><li><strong>Why B is wrong:</strong> Increasing wages increases costs and makes the problem worse.</li><li><strong>Why C is wrong:</strong> A partnership cannot issue shares — only limited companies can do this.</li></ul></div>`,
+                modelAnswer: "D — Taking on a new partner. A new partner contributes capital to the business, which provides the cash needed to pay expenses. Answer: D."
+            },
+
+            {
+                num: "Q12",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "Financial data for Pilti plc in 2022 is shown below.\n• Revenue £44 million\n• Expenses £12 million\n• Net profit £14 million",
+                question: "Pilti plc's gross profit in 2022 was: [1 mark]",
+                options: ["£18 million", "£26 million", "£32 million", "£58 million"],
+                answer: 1,
+                hint: "Net profit = Gross profit − Expenses. Rearrange: Gross profit = Net profit + Expenses.",
+                starter: "Since Net Profit = Gross Profit − Expenses, then Gross Profit = Net Profit + Expenses = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: B — £26 million</h5><ul><li><strong>Working:</strong> Net profit = Gross profit − Expenses → Gross profit = Net profit + Expenses = £14m + £12m = £26m.</li><li><strong>Why A is wrong:</strong> £18m comes from subtracting expenses from net profit rather than adding them.</li><li><strong>Why C is wrong:</strong> £32m comes from subtracting net profit from revenue (Revenue − Net profit), which is not a standard formula.</li><li><strong>Why D is wrong:</strong> £58m adds revenue and net profit, which has no financial meaning.</li></ul><p><strong>Examiner's Comment:</strong> Less than 1 in 5 candidates got this right. The key rearrangement is: Gross Profit = Net Profit + Expenses.</p></div>`,
+                modelAnswer: "Gross Profit = Net Profit + Expenses = £14m + £12m = £26 million. Answer: B."
+            },
+
+            {
+                num: "Q13",
+                marks: 1,
+                type: "mcq",
+                caseStudy: `Riley runs his own cleaning business. He wishes to keep supply costs as low as possible. The table below shows the price of cleaning fluid at four possible suppliers.<table class="case-table"><caption>Cleaning Fluid Prices by Supplier</caption><thead><tr><th></th><th>Supplier 1</th><th>Supplier 2</th><th>Supplier 3</th><th>Supplier 4</th></tr></thead><tbody><tr><td>Quantity</td><td>100 litre barrels</td><td>200 litre barrels</td><td>1000 litre barrels</td><td>2000 litre barrels</td></tr><tr><td>Price</td><td>£80</td><td>£100</td><td>£600</td><td>£800</td></tr></tbody></table>`,
+                question: "The lowest cost that Riley can obtain 1200 litres of cleaning fluid from one supplier is: [1 mark]",
+                options: ["£480", "£600", "£700", "£800"],
+                answer: 1,
+                hint: "You must get AT LEAST 1200 litres from ONE supplier only. Work out the cost of getting 1200L from each supplier.",
+                starter: "From one supplier, to get 1200 litres: Supplier 2 (6 × 200L barrels) = 6 × £100 = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: B — £600</h5><ul><li><strong>Working:</strong> Supplier 2 sells 200L barrels at £100 each. 1200L ÷ 200L = 6 barrels. Cost = 6 × £100 = £600.</li><li><strong>Why A is wrong:</strong> £480 is not achievable from any single supplier for 1200L. Supplier 1 sells 100L at £80 = £0.80/L, but 12 × £80 = £960.</li><li><strong>Why C is wrong:</strong> £700 is not achievable from any one supplier for exactly 1200L.</li><li><strong>Why D is wrong:</strong> £800 is what Supplier 4 charges for 2000L — more expensive than Supplier 2 for 1200L.</li></ul><p><strong>Examiner's Comment:</strong> Around half got this right. Key insight: Supplier 3 sells 1000L for £600 but that is only 1000L, not enough. Supplier 2 provides exactly 1200L for £600.</p></div>`,
+                modelAnswer: "Supplier 2: 200L barrels at £100 each. Need 1200L = 6 barrels. Cost = 6 × £100 = £600. Answer: B."
+            },
+
+            {
+                num: "Q14",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "The net profit margin of a business has increased from 6% in 2021 to 9% in 2022.",
+                question: "Which of the following must be true for this business? [1 mark]",
+                options: ["Expenses have fallen by 50%", "Net profit has increased by 3%", "Profitability has increased by 50%", "Revenue has increased by 3%"],
+                answer: 2,
+                hint: "The margin went from 6% to 9% — that is an increase of 3 percentage points. Think about what 3 extra percentage points means as a percentage change FROM 6%.",
+                starter: "An increase from 6% to 9% is an increase of 3 percentage points. As a percentage change from 6%, this is...",
+                markScheme: `<div class="marks-section"><h5>Answer: C — Profitability has increased by 50%</h5><ul><li><strong>Working:</strong> Percentage change in profitability = (3 ÷ 6) × 100 = 50%. The margin increased from 6% to 9% — an increase of 50% relative to the starting margin of 6%.</li><li><strong>Why A is wrong:</strong> There is no information to say expenses have fallen. Even if they have, we cannot confirm by exactly 50%.</li><li><strong>Why B is wrong:</strong> Net profit (the £ figure) has not necessarily increased by 3%. The MARGIN has risen by 3 percentage points — the actual profit change depends on revenue levels too.</li><li><strong>Why D is wrong:</strong> Revenue could have risen, fallen, or stayed the same — we cannot determine this from margin data alone.</li></ul><p><strong>Examiner's Comment:</strong> The least well-answered MCQ. B was the most common wrong answer — students confused 'net profit' with 'net profit margin'.</p></div>`,
+                modelAnswer: "Profitability increased from 6% to 9% — a change of 3 from a starting point of 6. Percentage change = (3 ÷ 6) × 100 = 50%. Answer: C."
+            },
+
+            {
+                num: "Q15",
+                marks: 1,
+                type: "mcq",
+                caseStudy: `Amir runs a market stall that sells bread. His most popular product, the Farmhouse Loaf, is currently priced at £2.00. Amir is considering changing the price he charges for the Farmhouse Loaf. The table below shows Amir's expected weekly sales of the Farmhouse Loaf at various prices.<table class="case-table"><caption>Farmhouse Loaf — Price vs Expected Weekly Sales</caption><thead><tr><th>Price</th><th>Expected weekly sales</th></tr></thead><tbody><tr><td>£1.50</td><td>350</td></tr><tr><td>£1.75</td><td>250</td></tr><tr><td>£2.00</td><td>150</td></tr><tr><td>£2.25</td><td>50</td></tr></tbody></table>`,
+                question: "This data is useful to Amir when making this pricing decision because it shows that: [1 mark]",
+                options: ["changing the price charged for each loaf will have little effect on total revenue", "charging a relatively high price for each loaf is likely to increase total revenue", "reducing the price charged for each loaf is likely to increase total revenue", "the current price should not be changed because it maximises total revenue"],
+                answer: 2,
+                hint: "Calculate total revenue at each price point (price × quantity) and see which price gives the highest revenue.",
+                starter: "Calculate TR at each price: £1.50×350=..., £1.75×250=..., £2.00×150=..., £2.25×50=... Which is highest?",
+                markScheme: `<div class="marks-section"><h5>Answer: C — reducing the price charged for each loaf is likely to increase total revenue</h5><ul><li><strong>Working:</strong> £1.50 × 350 = £525 | £1.75 × 250 = £437.50 | £2.00 × 150 = £300 | £2.25 × 50 = £112.50. The lowest price (£1.50) produces the highest revenue.</li><li><strong>Why A is wrong:</strong> The data shows clearly that price changes have a significant effect on revenue — from £525 down to £112.50.</li><li><strong>Why B is wrong:</strong> The highest price (£2.25) produces the lowest revenue of only £112.50.</li><li><strong>Why D is wrong:</strong> The current price of £2.00 gives revenue of only £300 — lower than £1.50 would deliver.</li></ul></div>`,
+                modelAnswer: "TR at £1.50 = £525; at £1.75 = £437.50; at £2.00 = £300; at £2.25 = £112.50. The lowest price generates the highest revenue. Answer: C."
+            },
+
+            {
+                num: "Q20",
+                marks: 1,
+                type: "mcq",
+                caseStudy: `Performance data for Pallin Ltd for the last five years of trading is shown below.<table class="case-table"><caption>Pallin Ltd — Annual Profit Data</caption><thead><tr><th></th><th>2017</th><th>2018</th><th>2019</th><th>2020</th><th>2021</th></tr></thead><tbody><tr><td>Profit</td><td>£15,000</td><td>£0</td><td>−£9,000</td><td>£17,000</td><td>−£3,000</td></tr></tbody></table>`,
+                question: "Pallin Ltd's average level of profit over the last five years is: [1 mark]",
+                options: ["£4,000 per year", "£5,000 per year", "£6,400 per year", "£8,000 per year"],
+                answer: 0,
+                hint: "Add all five profit figures (including the negative ones/losses) and divide by 5.",
+                starter: "Total profit = £15,000 + £0 + (−£9,000) + £17,000 + (−£3,000) = ... ÷ 5 = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: A — £4,000 per year</h5><ul><li><strong>Working:</strong> Total = £15,000 + 0 + (−£9,000) + £17,000 + (−£3,000) = £20,000. Average = £20,000 ÷ 5 = £4,000 per year.</li><li><strong>Why B is wrong:</strong> £5,000 may come from summing only the profitable years or using incorrect figures.</li><li><strong>Why C is wrong:</strong> £6,400 may result from ignoring the loss years entirely.</li><li><strong>Why D is wrong:</strong> £8,000 comes from summing all positive figures and dividing by 2 profitable years only, rather than all 5 years.</li></ul></div>`,
+                modelAnswer: "£15,000 + 0 − £9,000 + £17,000 − £3,000 = £20,000. Average = £20,000 ÷ 5 = £4,000 per year. Answer: A."
+            },
+
+            {
+                num: "Q21",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "A perfume shop has a gross profit margin of 50%.",
+                question: "This means: [1 mark]",
+                options: ["for every £10 of sales, it makes £5 profit after all costs have been paid", "the perfume shop's variable costs are exactly half of its fixed costs", "the shop charges customers double what it pays when buying the perfume", "to make £10 of profit, it needs to sell £50 of perfume"],
+                answer: 2,
+                hint: "A GPM of 50% means gross profit is 50% of revenue. If selling price is double the cost price, what is the gross profit as a percentage of sales?",
+                starter: "GPM 50% means for every £100 of sales, £50 is gross profit and £50 is cost of sales. If cost = £50 and revenue = £100, then...",
+                markScheme: `<div class="marks-section"><h5>Answer: C — the shop charges customers double what it pays when buying the perfume</h5><ul><li><strong>Why C is correct:</strong> GPM = 50% means cost of sales = 50% of revenue. If selling price is £10 and cost of sales is £5 (50%), the shop charges double what it pays. Gross profit = £5, which is 50% of £10 revenue.</li><li><strong>Why A is wrong:</strong> GPM is gross profit — it does NOT account for all costs. After all costs, the NET profit margin applies. £5 after ALL costs would require a net profit margin of 50%.</li><li><strong>Why B is wrong:</strong> There is no relationship between GPM and the ratio of variable to fixed costs.</li><li><strong>Why D is wrong:</strong> If GPM = 50% and profit = £10, revenue needed = £10 ÷ 0.50 = £20, not £50.</li></ul><p><strong>Examiner's Comment:</strong> This was the least well-answered question in Section A. A was the most popular wrong answer — students confused gross profit (before expenses) with net profit (after all costs).</p></div>`,
+                modelAnswer: "GPM = 50% means cost of sales = 50% of revenue. So selling price = twice the cost price. The shop charges double what it pays for the perfume. Answer: C."
+            },
+
+            {
+                num: "Q22",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "A drum kit manufacturer plans to make 500 drum kits this year. Estimated costs are as follows:\n• raw materials £40 per drum kit\n• rent £600 per month\n• heating and lighting £900 per quarter\n• other expenses £56,000 per annum",
+                question: "The manufacturer's estimated total cost for the year is: [1 mark]",
+                options: ["£66,840", "£77,500", "£85,900", "£86,800"],
+                answer: 3,
+                hint: "Convert all costs to annual figures: raw materials × 500 kits; rent × 12 months; heating × 4 quarters; other expenses are already annual.",
+                starter: "Variable costs = 500 × £40 = ... Fixed costs: rent = £600×12 = ..., heating = £900×4 = ..., other = £56,000. Total = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: D — £86,800</h5><ul><li><strong>Working:</strong> Variable: 500 × £40 = £20,000. Fixed: rent = £600 × 12 = £7,200; heating = £900 × 4 = £3,600; other = £56,000. Fixed total = £66,800. TC = £20,000 + £66,800 = £86,800.</li><li><strong>Why A is wrong:</strong> £66,840 might come from using only part of the fixed costs or miscalculating heating/rent periods.</li><li><strong>Why B is wrong:</strong> £77,500 comes from miscalculating one or more of the cost components.</li><li><strong>Why C is wrong:</strong> £85,900 may come from a small arithmetic error in one category.</li></ul></div>`,
+                modelAnswer: "VC = 500 × £40 = £20,000. Rent = £600 × 12 = £7,200. Heating = £900 × 4 = £3,600. Other = £56,000. TC = £20,000 + £7,200 + £3,600 + £56,000 = £86,800. Answer: D."
+            },
+
+            {
+                num: "Q23",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Which of the following would be a variable cost for a restaurant? [1 mark]",
+                options: ["Advertising fees", "Buildings insurance", "Chef's salary", "Fruit and vegetables"],
+                answer: 3,
+                hint: "Variable costs change with how much the restaurant produces (serves). Which item changes with the number of meals prepared?",
+                starter: "Variable costs change with output. The more meals served, the more... is needed.",
+                markScheme: `<div class="marks-section"><h5>Answer: D — Fruit and vegetables</h5><ul><li><strong>Why D is correct:</strong> Fruit and vegetables are raw materials (ingredients). The more meals served, the more ingredients are needed — a classic variable cost.</li><li><strong>Why A is wrong:</strong> Advertising fees are typically fixed (contracted or decided in advance) — they don't change with the number of meals served.</li><li><strong>Why B is wrong:</strong> Buildings insurance is a fixed cost — it doesn't change with output.</li><li><strong>Why C is wrong:</strong> The chef's salary is a fixed annual payment — not variable. (If the chef were paid per meal cooked, it would be variable.)</li></ul></div>`,
+                modelAnswer: "D — Fruit and vegetables are ingredients (raw materials). The more meals the restaurant serves, the more ingredients are needed. Answer: D."
+            },
+
+            {
+                num: "Q24",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "Financial data for Tictal Ltd in 2020 is shown below.\n\nRevenue £180,000\nCost of sales £45,000\nExpenses £36,000",
+                question: "Tictal Ltd's gross profit margin in 2020 was: [1 mark]",
+                options: ["25%", "45%", "55%", "75%"],
+                answer: 3,
+                hint: "First calculate gross profit (Revenue − Cost of Sales), then divide by Revenue and multiply by 100.",
+                starter: "Gross profit = £180,000 − £45,000 = ..., GPM = (... ÷ £180,000) × 100 = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: D — 75%</h5><ul><li><strong>Working:</strong> Gross profit = £180,000 − £45,000 = £135,000. GPM = (£135,000 ÷ £180,000) × 100 = 75%.</li><li><strong>Why A is wrong:</strong> 25% is the cost of sales as a percentage of revenue (£45,000 ÷ £180,000 × 100), not the gross profit margin.</li><li><strong>Why B is wrong:</strong> 45% may come from incorrectly using net profit (revenue − cost of sales − expenses) and dividing by a wrong figure.</li><li><strong>Why C is wrong:</strong> 55% may come from subtracting both cost of sales and expenses from revenue before calculating the margin.</li></ul></div>`,
+                modelAnswer: "Gross profit = £180,000 − £45,000 = £135,000. GPM = (£135,000 ÷ £180,000) × 100 = 75%. Answer: D."
+            },
+
+            {
+                num: "Q25",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "An advertising agency wishes to upgrade its design software at a cost of £60,000. The net cash flow generated by the software for each of the next two years is forecast to be £60,000.",
+                question: "Assuming the forecasted figures are correct, the average rate of return for this upgrade will be: [1 mark]",
+                options: ["33%", "50%", "67%", "100%"],
+                answer: 1,
+                hint: "Step 1: Total income = 2 × £60,000. Step 2: Total profit = Total income − Cost of investment. Step 3: Average annual profit ÷ cost of investment × 100.",
+                starter: "Total income = 2 × £60,000 = ... Total profit = ... − £60,000 = ... Average annual profit = ... ÷ 2 = ... ARR = (... ÷ £60,000) × 100 = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: B — 50%</h5><ul><li><strong>Working:</strong> Total income = 2 × £60,000 = £120,000. Total profit = £120,000 − £60,000 = £60,000. Average annual profit = £60,000 ÷ 2 = £30,000. ARR = (£30,000 ÷ £60,000) × 100 = 50%.</li><li><strong>Why A is wrong:</strong> 33% may come from dividing by 3 years incorrectly.</li><li><strong>Why C is wrong:</strong> 67% may come from miscalculating the profit or average.</li><li><strong>Why D is wrong:</strong> 100% would come from ignoring Step 1 (not subtracting cost) and just dividing total income by cost.</li></ul></div>`,
+                modelAnswer: "Total income = £120,000. Profit = £120,000 − £60,000 = £60,000. Average annual = £30,000. ARR = (£30,000 ÷ £60,000) × 100 = 50%. Answer: B."
+            },
+
+            {
+                num: "Q27",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "Shanco plc has managed to reduce its transport costs from £0.7 million in 2019 to £0.6 million in 2020.",
+                question: "What percentage reduction in transport costs has Shanco plc achieved? [1 mark]",
+                options: ["6%", "7%", "14.3%", "16.7%"],
+                answer: 2,
+                hint: "Percentage change = (Change ÷ Original) × 100. The original is the 2019 figure.",
+                starter: "Change = £0.7m − £0.6m = £0.1m. % reduction = (£0.1m ÷ £0.7m) × 100 = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: C — 14.3%</h5><ul><li><strong>Working:</strong> Change = £0.7m − £0.6m = £0.1m. % change = (£0.1m ÷ £0.7m) × 100 = 14.3%.</li><li><strong>Why A is wrong:</strong> 6% has no clear derivation from the given figures.</li><li><strong>Why B is wrong:</strong> 7% is not achieved by any correct method.</li><li><strong>Why D is wrong:</strong> 16.7% comes from dividing by the NEW value (£0.6m) instead of the ORIGINAL value (£0.7m) — always use the original as the denominator.</li></ul></div>`,
+                modelAnswer: "Change = £0.1m. % reduction = (£0.1m ÷ £0.7m) × 100 = 14.3%. Answer: C."
+            },
+
+            {
+                num: "Q29",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "A company's total costs in 2019 were £9 million. The company's labour costs were 40% of the company's total costs.",
+                question: "The company's labour costs in 2019 were: [1 mark]",
+                options: ["£3.6 million", "£5.4 million", "£12.6 million", "£14.4 million"],
+                answer: 0,
+                hint: "Labour costs = 40% of total costs. Calculate 40% of £9 million.",
+                starter: "Labour costs = 40% × £9 million = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: A — £3.6 million</h5><ul><li><strong>Working:</strong> 40% × £9m = 0.40 × £9m = £3.6 million.</li><li><strong>Why B is wrong:</strong> £5.4m is 60% of £9m — the proportion that is NOT labour costs.</li><li><strong>Why C is wrong:</strong> £12.6m incorrectly adds 40% to £9m instead of finding 40% of £9m.</li><li><strong>Why D is wrong:</strong> £14.4m comes from multiplying £9m by 1.6 rather than 0.4.</li></ul></div>`,
+                modelAnswer: "Labour costs = 40% × £9m = £3.6 million. Answer: A."
+            },
+
+            {
+                num: "Q30",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Variable costs: [1 mark]",
+                options: ["are not affected by changes in output", "fall as output rises", "increase as output rises", "remain constant over time"],
+                answer: 2,
+                hint: "Think about what happens to a manufacturer's raw material costs when they produce twice as many products.",
+                starter: "Variable costs are costs that... as output changes.",
+                markScheme: `<div class="marks-section"><h5>Answer: C — increase as output rises</h5><ul><li><strong>Why C is correct:</strong> Variable costs (e.g. raw materials, packaging) increase directly as more is produced — more output requires more inputs.</li><li><strong>Why A is wrong:</strong> That describes fixed costs, not variable costs.</li><li><strong>Why B is wrong:</strong> Variable costs do not fall as output rises — they increase.</li><li><strong>Why D is wrong:</strong> Remaining constant describes fixed costs.</li></ul></div>`,
+                modelAnswer: "C — Variable costs increase as output rises. As more products are made, more raw materials, packaging and labour are needed. Answer: C."
+            },
+
+            {
+                num: "Q31",
+                marks: 1,
+                type: "mcq",
+                caseStudy: `A furniture maker intends to purchase a new wood cutting machine. The expected cost and incomes generated by the machine for the next three years are shown in the table below.<table class="case-table"><caption>Wood Cutting Machine — Expected Costs and Income</caption><thead><tr><th></th><th>Amount</th></tr></thead><tbody><tr><td>Cost of machine</td><td>£6,000</td></tr><tr><td>Income year 1</td><td>£3,000</td></tr><tr><td>Income year 2</td><td>£3,000</td></tr><tr><td>Income year 3</td><td>£3,000</td></tr></tbody></table>`,
+                question: "The expected average rate of return for this purchase is: [1 mark]",
+                options: ["£1,000", "£3,000", "16.67%", "33.33%"],
+                answer: 2,
+                hint: "Step 1: Total income = £9,000. Total profit = £9,000 − £6,000 = £3,000. Step 2: Average annual profit = £3,000 ÷ 3. Step 3: ARR = (average annual profit ÷ £6,000) × 100.",
+                starter: "Total profit = £9,000 − £6,000 = £3,000. Average annual profit = £3,000 ÷ 3 = £1,000. ARR = (£1,000 ÷ £6,000) × 100 = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: C — 16.67%</h5><ul><li><strong>Working:</strong> Total income = £9,000. Total profit = £9,000 − £6,000 = £3,000. Average annual profit = £3,000 ÷ 3 = £1,000. ARR = (£1,000 ÷ £6,000) × 100 = 16.67%.</li><li><strong>Why A is wrong:</strong> £1,000 is the average annual profit — the number used IN the ARR calculation, not the ARR itself.</li><li><strong>Why B is wrong:</strong> £3,000 is total profit, not ARR.</li><li><strong>Why D is wrong:</strong> 33.33% comes from dividing total profit by cost (£3,000 ÷ £6,000 × 100) — skipping Step 2 (averaging over the years).</li></ul></div>`,
+                modelAnswer: "Profit = £9,000 − £6,000 = £3,000. Average annual = £1,000. ARR = (£1,000 ÷ £6,000) × 100 = 16.67%. Answer: C."
+            },
+
+            {
+                num: "Q33",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "Andrea specialises in painting portraits. She estimates that:\n• variable costs for labour are £52 per portrait\n• variable costs for materials are £23 per portrait\n• fixed costs are £1,000 per month",
+                question: "If Andrea paints and sells 50 portraits a year, total costs are estimated to be: [1 mark]",
+                options: ["£1,075 per year", "£4,750 per year", "£12,075 per year", "£15,750 per year"],
+                answer: 3,
+                hint: "Variable cost per portrait = £52 + £23 = £75. Total variable costs = 50 × £75. Fixed costs = £1,000 × 12 months. Add both.",
+                starter: "VC per portrait = £52 + £23 = £75. TVC = 50 × £75 = ... Fixed costs = £1,000 × 12 = ... TC = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: D — £15,750 per year</h5><ul><li><strong>Working:</strong> VC per portrait = £52 + £23 = £75. TVC = 50 × £75 = £3,750. Fixed costs = £1,000 × 12 months = £12,000. TC = £3,750 + £12,000 = £15,750.</li><li><strong>Why A is wrong:</strong> £1,075 ignores most costs — possibly just adding £52 + £23 = £75 then adding £1,000 once.</li><li><strong>Why B is wrong:</strong> £4,750 is the variable costs only (£3,750) plus one month's fixed costs (£1,000).</li><li><strong>Why C is wrong:</strong> £12,075 is the annual fixed costs (£12,000) plus only one portrait's variable costs (£75).</li></ul></div>`,
+                modelAnswer: "VC = 50 × (£52 + £23) = 50 × £75 = £3,750. FC = £1,000 × 12 = £12,000. TC = £3,750 + £12,000 = £15,750. Answer: D."
+            },
+
+            {
+                num: "Q34",
+                marks: 1,
+                type: "mcq",
+                caseStudy: `Seiji, a sole trader, has some important decisions to make about his business. He has produced a table showing the costs of running his business over the last four years.<table class="case-table"><caption>Seiji's Business Costs 2015–2018</caption><thead><tr><th></th><th>2015</th><th>2016</th><th>2017</th><th>2018</th></tr></thead><tbody><tr><td>Labour costs</td><td>£44,000</td><td>£66,000</td><td>£65,000</td><td>£62,000</td></tr><tr><td>Raw material costs</td><td>£36,000</td><td>£35,000</td><td>£34,000</td><td>£33,000</td></tr><tr><td>Other costs</td><td>£18,000</td><td>£25,000</td><td>£32,000</td><td>£39,000</td></tr></tbody></table>`,
+                question: "This data is useful to Seiji when making business decisions because it shows that: [1 mark]",
+                options: ["labour costs are increasing every year", "profit levels are falling", "the business is producing less than it used to", "total costs are increasing"],
+                answer: 3,
+                hint: "Add up all three cost rows for each year and compare. Which statement can definitely be proven from this data?",
+                starter: "Total costs: 2015 = £98,000; 2016 = ...; 2017 = ...; 2018 = ... The trend is...",
+                markScheme: `<div class="marks-section"><h5>Answer: D — total costs are increasing</h5><ul><li><strong>Working:</strong> 2015: £98,000. 2016: £126,000. 2017: £131,000. 2018: £134,000. Total costs are clearly rising year on year.</li><li><strong>Why A is wrong:</strong> Labour costs are NOT increasing every year — they rose from 2015 to 2016 but then fell in 2017 and 2018.</li><li><strong>Why B is wrong:</strong> We have no revenue data, so we cannot determine whether profit levels are falling.</li><li><strong>Why C is wrong:</strong> We cannot determine output levels from cost data alone.</li></ul></div>`,
+                modelAnswer: "Total costs: 2015=£98,000; 2016=£126,000; 2017=£131,000; 2018=£134,000 — consistently rising. Answer: D."
+            },
+
+            {
+                num: "Q35",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "A tractor manufacturer wishes to upgrade its robotics at a total cost of £4 million. The cash inflow for each of the next five years is forecasted to be £1 million.",
+                question: "Assuming the forecasted figures are correct, the average rate of return for upgrading the robotics will be: [1 mark]",
+                options: ["5%", "20%", "25%", "125%"],
+                answer: 0,
+                hint: "Step 1: Total income = 5 × £1m. Total profit = total income − cost. Step 2: Average annual profit ÷ 5. Step 3: ARR = (average annual profit ÷ £4m) × 100.",
+                starter: "Total income = £5m. Profit = £5m − £4m = £1m. Average annual profit = £1m ÷ 5 = £0.2m. ARR = (£0.2m ÷ £4m) × 100 = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: A — 5%</h5><ul><li><strong>Working:</strong> Total income = 5 × £1m = £5m. Total profit = £5m − £4m = £1m. Average annual profit = £1m ÷ 5 = £0.2m. ARR = (£0.2m ÷ £4m) × 100 = 5%.</li><li><strong>Why B is wrong:</strong> 20% skips Step 2 — dividing £1m (total profit) by £4m gives 25%, not 20%.</li><li><strong>Why C is wrong:</strong> 25% comes from dividing total profit (£1m) by cost (£4m) without dividing by years first.</li><li><strong>Why D is wrong:</strong> 125% comes from total income (£5m) ÷ cost (£4m) × 100 — ignoring the need to subtract cost first.</li></ul></div>`,
+                modelAnswer: "Profit = £5m − £4m = £1m. Average annual = £0.2m. ARR = (£0.2m ÷ £4m) × 100 = 5%. Answer: A."
+            },
+
+            {
+                num: "Q36",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "A market research agency needs to constantly improve its digital communications to keep up with the competition. In 2017 it spent £250,000 on digital communication. In 2018 it spent £525,000.",
+                question: "The agency's percentage increase in spending on digital communications from 2017 to 2018 was approximately equal to: [1 mark]",
+                options: ["48%", "52%", "110%", "210%"],
+                answer: 2,
+                hint: "Percentage change = (Change ÷ Original) × 100. The 2017 figure is the original. The figures have more than doubled, so the answer must be over 100%.",
+                starter: "Change = £525,000 − £250,000 = £275,000. % change = (£275,000 ÷ £250,000) × 100 = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: C — 110%</h5><ul><li><strong>Working:</strong> Change = £525,000 − £250,000 = £275,000. % change = (£275,000 ÷ £250,000) × 100 = 110%.</li><li><strong>Why A is wrong:</strong> 48% comes from dividing by the NEW value (£525,000): 275/525 × 100 ≈ 52%. Not 48%.</li><li><strong>Why B is wrong:</strong> 52% comes from (£275,000 ÷ £525,000) × 100 — using the new figure as denominator instead of the original.</li><li><strong>Why D is wrong:</strong> 210% comes from (£525,000 ÷ £250,000) × 100 — this is the new value as a % of old, not the % CHANGE.</li></ul><p><strong>Examiner's Comment:</strong> This had the most incorrect answers of all MCQs. Key rule: always divide by the ORIGINAL value for percentage change. Since spending more than doubled, the answer must exceed 100%.</p></div>`,
+                modelAnswer: "Change = £275,000. % change = (£275,000 ÷ £250,000) × 100 = 110%. Answer: C."
+            },
+
+            {
+                num: "Q38",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "A market stall sells bread for £1 a loaf and cookies for 60p each. Yesterday 1,000 loaves of bread and 2,000 cookies were sold.",
+                question: "What was the market stall's revenue? [1 mark]",
+                options: ["£200", "£1,000", "£1,200", "£2,200"],
+                answer: 3,
+                hint: "Calculate revenue for bread and cookies separately, then add them together.",
+                starter: "Bread revenue = 1,000 × £1 = ... Cookie revenue = 2,000 × £0.60 = ... Total = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: D — £2,200</h5><ul><li><strong>Working:</strong> Bread: 1,000 × £1 = £1,000. Cookies: 2,000 × £0.60 = £1,200. Total = £1,000 + £1,200 = £2,200.</li><li><strong>Why A is wrong:</strong> £200 is not achievable from any correct calculation with these figures.</li><li><strong>Why B is wrong:</strong> £1,000 is bread revenue only — cookies have been ignored.</li><li><strong>Why C is wrong:</strong> £1,200 is cookie revenue only — bread has been ignored.</li></ul></div>`,
+                modelAnswer: "Bread: 1,000 × £1 = £1,000. Cookies: 2,000 × £0.60 = £1,200. Total revenue = £2,200. Answer: D."
+            },
+
+            {
+                num: "Q39",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Gross profit margin is: [1 mark]",
+                options: ["a computerised method of production", "a financial ratio", "a pricing method", "a variable cost"],
+                answer: 1,
+                hint: "GPM measures the percentage of revenue kept as gross profit. Which category does this type of calculation belong to?",
+                starter: "The gross profit margin is a type of...",
+                markScheme: `<div class="marks-section"><h5>Answer: B — a financial ratio</h5><ul><li><strong>Why B is correct:</strong> GPM is a profitability ratio — a calculation that expresses one financial figure as a percentage of another (gross profit as a % of revenue).</li><li><strong>Why A is wrong:</strong> A computerised method of production is something like an automated assembly line — completely unrelated to financial performance.</li><li><strong>Why C is wrong:</strong> A pricing method (e.g. cost-plus pricing, penetration pricing) is how a business sets its selling price — not a measure of profitability.</li><li><strong>Why D is wrong:</strong> Variable costs are costs that change with output — not a financial ratio.</li></ul></div>`,
+                modelAnswer: "B — a financial ratio. GPM = (Gross Profit ÷ Revenue) × 100. It is a profitability ratio that measures efficiency. Answer: B."
+            },
+
+            {
+                num: "Q40",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "A business has a net profit margin of 8%.",
+                question: "Which one of the following must be true for this business? [1 mark]",
+                options: ["The business cannot pay its short term debts", "The business has made a loss", "The business has revenues that are greater than its costs", "The business is operating below its break even level"],
+                answer: 2,
+                hint: "A positive net profit margin (8%) means the business is making a profit. What does profit mean for the relationship between revenue and costs?",
+                starter: "A net profit margin of 8% means the business is making a profit, which means revenue is...",
+                markScheme: `<div class="marks-section"><h5>Answer: C — The business has revenues that are greater than its costs</h5><ul><li><strong>Why C is correct:</strong> Net profit margin of 8% means net profit is positive. Net Profit = Revenue − Total Costs > 0, therefore Revenue > Total Costs.</li><li><strong>Why A is wrong:</strong> Profit and cash flow are different. A profitable business can still have cash flow problems — but we cannot determine this from profit margin alone.</li><li><strong>Why B is wrong:</strong> A positive net profit margin means a profit, not a loss.</li><li><strong>Why D is wrong:</strong> If the business is above break-even, it is making a profit. An 8% NPM confirms it is above break-even.</li></ul></div>`,
+                modelAnswer: "A net profit margin of 8% is positive — the business is making a profit. Profit = Revenue − Total Costs > 0, so revenue MUST be greater than total costs. Answer: C."
+            },
+
+            {
+                num: "Q41",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "The production costs for Jimco plc were £21.3 million in 2015 and £22.9 million in 2016.",
+                question: "What is the approximate increase between 2015 and 2016 in Jimco plc's production costs? [1 mark]",
+                options: ["0.9%", "1.6%", "7.0%", "7.5%"],
+                answer: 3,
+                hint: "% change = (change ÷ original) × 100. Change = £22.9m − £21.3m = £1.6m. Original = £21.3m.",
+                starter: "Change = £22.9m − £21.3m = £1.6m. % change = (£1.6m ÷ £21.3m) × 100 = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: D — 7.5%</h5><ul><li><strong>Working:</strong> Change = £22.9m − £21.3m = £1.6m. % change = (£1.6m ÷ £21.3m) × 100 ≈ 7.5%.</li><li><strong>Why A is wrong:</strong> 0.9% has no logical derivation from these figures.</li><li><strong>Why B is wrong:</strong> 1.6% confuses the absolute change (£1.6m) with the percentage change — these are different things.</li><li><strong>Why C is wrong:</strong> 7.0% may come from rounding errors or using a slightly different denominator.</li></ul></div>`,
+                modelAnswer: "Change = £1.6m. % change = (£1.6m ÷ £21.3m) × 100 ≈ 7.5%. Answer: D."
+            },
+
+            {
+                num: "Q43",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "Financial data for Pluck and Grow Ltd in 2018 is shown below.\n\nTotal revenue £68,000\nTotal labour costs £26,000\nTotal material costs £16,000\nOther costs £10,000",
+                question: "In 2018 Pluck and Grow Ltd made: [1 mark]",
+                options: ["a loss of £52,000", "a loss of £42,000", "a profit of £16,000", "a profit of £26,000"],
+                answer: 2,
+                hint: "Add up all three cost categories to find total costs, then subtract from revenue. If positive = profit, if negative = loss.",
+                starter: "Total costs = £26,000 + £16,000 + £10,000 = ... Profit/Loss = £68,000 − ... = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: C — a profit of £16,000</h5><ul><li><strong>Working:</strong> Total costs = £26,000 + £16,000 + £10,000 = £52,000. Profit = £68,000 − £52,000 = £16,000.</li><li><strong>Why A is wrong:</strong> A loss of £52,000 uses total costs as the answer — forgetting to subtract from revenue.</li><li><strong>Why B is wrong:</strong> A loss of £42,000 has no logical derivation from these figures.</li><li><strong>Why D is wrong:</strong> A profit of £26,000 uses only labour costs rather than all three cost types.</li></ul></div>`,
+                modelAnswer: "Total costs = £26,000 + £16,000 + £10,000 = £52,000. Profit = £68,000 − £52,000 = £16,000. Answer: C."
+            },
+
+            {
+                num: "Q44",
+                marks: 1,
+                type: "mcq",
+                caseStudy: `The transport costs of Global Logistics United plc (GLU plc) for the last five years are shown below.<table class="case-table"><caption>GLU plc — Transport Costs by Mode (£)</caption><thead><tr><th>Mode</th><th>2014</th><th>2015</th><th>2016</th><th>2017</th><th>2018</th></tr></thead><tbody><tr><td>By road</td><td>£150,000</td><td>£160,000</td><td>£170,000</td><td>£180,000</td><td>£190,000</td></tr><tr><td>By rail</td><td>£350,000</td><td>£370,000</td><td>£390,000</td><td>£410,000</td><td>£430,000</td></tr><tr><td>By air</td><td>£600,000</td><td>£620,000</td><td>£635,000</td><td>£640,000</td><td>£650,000</td></tr></tbody></table>`,
+                question: "The data shows that: [1 mark]",
+                options: ["the company prefers to transport its goods by air", "the company's transport costs have fallen year on year", "GLU plc spent more than £1.25 million on transport costs in 2018", "GLU plc transports more goods by rail than by road"],
+                answer: 2,
+                hint: "Add all three transport modes for 2018 to test option C. Check the other options against the data.",
+                starter: "2018 total = £190,000 + £430,000 + £650,000 = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: C — GLU plc spent more than £1.25 million on transport costs in 2018</h5><ul><li><strong>Working:</strong> 2018 total = £190,000 + £430,000 + £650,000 = £1,270,000 &gt; £1,250,000. ✓</li><li><strong>Why A is wrong:</strong> The data shows costs, not preference. Highest cost could mean they are forced to use air, not that they prefer it. No preference data is given.</li><li><strong>Why B is wrong:</strong> All three transport modes show rising costs year on year, not falling.</li><li><strong>Why D is wrong:</strong> The data shows the COST of transport, not the quantity of goods. Higher cost per rail doesn't mean more goods are transported by rail.</li></ul></div>`,
+                modelAnswer: "2018 total transport cost = £190,000 + £430,000 + £650,000 = £1,270,000, which is more than £1.25m. Answer: C."
+            },
+
+            {
+                num: "Q45",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "Exobike made a gross profit of £9,996 from selling 42 exercise bikes at £350 each.",
+                question: "What was Exobike's gross profit margin? [1 mark]",
+                options: ["68%", "147%", "£4,704", "£14,700"],
+                answer: 0,
+                hint: "First calculate total revenue (42 × £350). Then GPM = (Gross Profit ÷ Revenue) × 100. The answer must be a percentage.",
+                starter: "Revenue = 42 × £350 = ... GPM = (£9,996 ÷ ...) × 100 = ...",
+                markScheme: `<div class="marks-section"><h5>Answer: A — 68%</h5><ul><li><strong>Working:</strong> Revenue = 42 × £350 = £14,700. GPM = (£9,996 ÷ £14,700) × 100 ≈ 68%.</li><li><strong>Why B is wrong:</strong> 147% would only be possible if gross profit exceeded revenue — impossible.</li><li><strong>Why C is wrong:</strong> £4,704 is the cost of sales (£14,700 − £9,996) — not a gross profit margin.</li><li><strong>Why D is wrong:</strong> £14,700 is the total revenue — not a gross profit margin.</li></ul><p><strong>Examiner's Comment:</strong> Students who knew a GPM must be a percentage could immediately eliminate C and D. Only A and B are percentages, and 147% exceeding 100% for a GPM is unrealistic.</p></div>`,
+                modelAnswer: "Revenue = 42 × £350 = £14,700. GPM = (£9,996 ÷ £14,700) × 100 = 68%. Answer: A."
+            },
+
+            // ── SECTION B: WRITTEN QUESTIONS ───────────────────────────
+
+            {
+                num: "Q7 (i)",
+                marks: 2,
+                type: "written",
+                caseStudy: `Unilever plc is a multinational company that makes and sells a wide range of quality products including food, cleaning agents and beauty products across 190 countries.<br><br>Unilever plc has benefitted from operating in a global marketplace and the majority of its products are international brands. Some of its branded products include Lynx Body Spray, Dove Soap, Hellmann's Mayonnaise, Ben &amp; Jerry's ice cream and Persil washing machine detergent. All of these products are made in factories all around the globe, some using flow production and others using batch production.<br><br>Unilever plc's average revenue has grown over the last five years. However, the economic climate is becoming more difficult and Unilever plc's directors are having to adapt to these challenges.<br><br>The chart below shows Unilever plc's worldwide revenue from 2018 to 2022 (revenue in € millions):<table class="case-table"><caption>Fig. 1 — Unilever plc Worldwide Revenue 2018–2022</caption><thead><tr><th>Year</th><th>2018</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th></tr></thead><tbody><tr><td>Revenue (€m)</td><td>50,900</td><td>51,900</td><td>50,700</td><td>52,400</td><td>60,000</td></tr></tbody></table>`,
+                question: "Calculate Unilever plc's average revenue from 2019 to 2022. [2 marks]",
+                hint: "Add the four revenue figures from 2019, 2020, 2021 and 2022 — NOT 2018 — then divide by 4.",
+                starter: "Add 2019 to 2022 figures: 51,900 + 50,700 + 52,400 + 60,000 = ...\nDivide by 4 years: ... ÷ 4 = ...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO2)</h5><ul><li><strong>2 marks:</strong> Correct answer of €53,750m (with or without workings).</li><li><strong>1 mark:</strong> Correct method shown (adding 2019–2022 figures and dividing by 4) but arithmetic error in final answer.</li><li><strong>0 marks:</strong> Using all five years (2018–2022) or calculating difference rather than average.</li></ul><p><strong>Working:</strong> 51,900 + 50,700 + 52,400 + 60,000 = 215,000m. Average = 215,000 ÷ 4 = €53,750m.</p><p><strong>Examiner's Comment:</strong> Less than half of candidates scored full marks. Most common mistake: using all five figures from 2018–2022 instead of the four from 2019–2022.</p></div>`,
+                modelAnswer: "51,900 + 50,700 + 52,400 + 60,000 = 215,000. Average = 215,000 ÷ 4 = €53,750 million."
+            },
+
+            {
+                num: "Q7 (ii)",
+                marks: 2,
+                type: "written",
+                caseStudy: "",
+                question: "Explain one way revenue affects a business' decision making. [2 marks]",
+                hint: "Think of a specific business decision (pricing, expansion, product development) and explain HOW revenue data informs that decision.",
+                starter: "Revenue can affect a business's decision by informing... (K)\nFor example, if revenue is [high/low], a business might decide to... (U)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1b)</h5><ul><li><strong>1 mark:</strong> Identifying a specific way revenue affects decision making (e.g. pricing decisions, expansion, new products, reducing costs).</li><li><strong>1 further mark:</strong> Explaining HOW revenue data leads to that decision.</li><li><strong>Note:</strong> Answers do not need to relate to Unilever. No reward for a definition of revenue only.</li></ul><p><strong>Acceptable answers include:</strong></p><ul><li>Pricing decisions — if revenue is low, consider raising/lowering prices.</li><li>Expansion decisions — high revenue may justify opening new stores.</li><li>Product development — revenue data guides which products to invest in.</li><li>Cost management — low revenue signals the need to reduce costs.</li></ul><p><strong>Examiner's Comment:</strong> Most candidates scored at least 1 mark. A common weakness was not specifying a decision — just saying 'revenue helps make decisions' without explaining how.</p></div>`,
+                modelAnswer: "Revenue helps a business decide how to price its products (K). If revenue is falling, a business might consider reducing prices to attract more customers and increase the volume sold, hopefully raising total revenue (U)."
+            },
+
+            {
+                num: "Q8 (i)",
+                marks: 2,
+                type: "written",
+                caseStudy: `The Sea View Hotel is a profitable hotel located near the coast. Anika and Charlie own the hotel in a business partnership. They are now considering opening a second hotel in a town further along the coast. It would cost them £1.5 million to buy the property and £0.5 million for redecoration.<br><br>To fund the £2 million expansion, the partners are considering getting a bank loan or accepting a new partner into the business. The partnership already has one bank loan but has worked out it can afford a second loan as long as the cost of borrowing does not rise too much.<br><br>If Anika and Charlie decide to take on a new partner, they would like to ask Finley, a friend of Anika's who has just returned to the UK from travelling around the world. Finley is currently unemployed but is a keen photographer and environmental campaigner.<br><br>Anika has forecasted the following revenues and costs for the proposed 25-room hotel:<br><br>\n• selling price: £100 a day per room\n• fixed costs: £6,300 per week\n• variable costs: £40 a day per room`,
+                question: "Explain why profit is important to a business' future. [2 marks]",
+                hint: "Think of a specific benefit that profit enables a business to do — reinvest, expand, reward owners. Then explain WHY that benefit matters.",
+                starter: "Profit is important because it allows a business to... (K)\nThis is important because without it, the business would... (U)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a + AO1b)</h5><ul><li><strong>1 mark:</strong> Identifying a specific reason why profit is important.</li><li><strong>1 further mark:</strong> Explaining HOW or WHY that benefit matters to the business.</li><li><strong>No reward for:</strong> a definition of profit, or answers purely about survival.</li></ul><p><strong>Acceptable answers include:</strong></p><ul><li>To reinvest in new equipment (K) — allowing the business to improve productivity/reduce costs over time (U).</li><li>To fund expansion (K) — allowing the business to grow and increase future revenue (U).</li><li>To pay dividends (K) — keeping shareholders satisfied so they do not sell their shares (U).</li><li>To repay loans (K) — reducing interest costs and improving the business's financial position (U).</li><li>To develop new products (K) — allowing the business to compete with rivals and maintain market share (U).</li></ul><p><strong>Examiner's Comment:</strong> Most students identified one reason but many failed to develop it with a clear explanation of why it matters.</p></div>`,
+                modelAnswer: "Profit allows a business to invest in new equipment and technology (K). This is important because it improves efficiency and reduces costs in the long run, helping the business remain competitive and generate even more profit in the future (U)."
+            },
+
+            {
+                num: "Q8 (ii)",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Calculate the daily break-even quantity for the proposed hotel. [3 marks]",
+                hint: "Break-even = Fixed Costs ÷ Contribution per unit. Contribution = Selling Price − Variable Cost. Fixed costs are given weekly — convert to daily by dividing by 7.",
+                starter: "Contribution per room = £100 − £40 = £60 per room per day\nFixed costs per day = £6,300 ÷ 7 = £900 per day\nBreak-even = £900 ÷ £60 = ... rooms",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO2)</h5><ul><li><strong>1 mark:</strong> Correct contribution calculation: £100 − £40 = £60.</li><li><strong>1 mark:</strong> Correct daily fixed cost calculation: £6,300 ÷ 7 = £900.</li><li><strong>1 mark:</strong> Correct final answer: £900 ÷ £60 = 15 rooms. [OFR applies]</li><li><strong>2 marks max:</strong> If student does not divide by 7 days: FC ÷ Contribution = 6,300 ÷ 60 = 105 (weekly break-even).</li><li><strong>No reward:</strong> for stating the formula alone without calculation.</li></ul><p><strong>Examiner's Comment:</strong> Despite 'daily' being emboldened, many candidates scored only 2 marks by producing 105 (the weekly break-even) rather than dividing by 7.</p></div>`,
+                modelAnswer: "Contribution = £100 − £40 = £60 per room per day. Daily fixed costs = £6,300 ÷ 7 = £900. Daily break-even = £900 ÷ £60 = 15 rooms."
+            },
+
+            {
+                num: "Q8 (iii)",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Analyse one disadvantage to the partnership if the proposed hotel's fixed costs were 10% higher than expected. [3 marks]",
+                hint: "Structure: Understanding (what does higher fixed costs mean for a business?) → Application (use the actual figures from the case study) → Analysis (what is the specific impact on Anika and Charlie?).",
+                starter: "Higher fixed costs mean that... (U)\nFor Anika and Charlie, fixed costs would rise from £6,300 to £6,930 per week (APP)\nThis means that... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>1 mark (U):</strong> Understanding — higher fixed costs could lead to lower profits, higher break-even point, price increases needed, or less money available for other needs.</li><li><strong>No further marks without understanding.</strong></li><li><strong>1 further mark (APP):</strong> Application to Sea View Hotel — FC rises from £6,300 to £6,930 per week (increase of £630/week or £90/day), or break-even rises from 15 to 17 rooms per day, or reference to existing bank loan.</li><li><strong>1 further mark (AN):</strong> Analysis of impact on the partnership — need to sell more rooms to cover costs; may reduce dividends/profit for owners; may make second bank loan unaffordable; less attractive to new investors.</li><li><strong>No reward:</strong> 'Costs will increase' as understanding. Analysis must be business-facing.</li></ul><p><strong>Examiner's Comment:</strong> Many students named a disadvantage without showing understanding. The best answers quantified the change (£6,300 → £6,930) and linked it to a specific business impact such as needing to fill more rooms.</p></div>`,
+                modelAnswer: "Higher fixed costs would increase the break-even point (U). For Sea View Hotel, a 10% rise would increase weekly fixed costs from £6,300 to £6,930 — an extra £90 per day (APP). This means Anika and Charlie would need to fill more rooms each day to cover costs, reducing the profit they could reinvest in the new hotel and making it harder to repay the bank loan (AN)."
+            },
+
+            {
+                num: "Q16 (a)",
+                marks: 3,
+                type: "written",
+                caseStudy: `Zara is a global fashion brand based in Spain. Zara is best known for the speed and frequency it can get its new clothing ranges into its online shop and 2,270 stores. Approximately 50% of Zara's clothes are manufactured in Spain; the rest come from other European countries, or from Asia and Africa. Like most firms in 2020, Zara experienced a fall in sales. Zara's global sales revenues in 2019 were €19,954 million, but in 2020 these fell to €14,129 million. However, during this period Zara's online sales increased by approximately 75%, as consumer buying habits changed in favour of e-commerce.<br><br>Zara can get new clothing designed, manufactured and delivered to its stores within 15 days. It does this by buying fabric in large quantities from suppliers in Europe, which helps keep its variable costs low. This means that it is delivered quickly to its factory in Spain, where it can then be made up into the new designs.<br><br>Zara's highly responsive supply chain is central to its business success. This means it can change its clothing designs on average every two weeks, while competitors change their designs every two or three months.`,
+                question: "Analyse one reason why keeping variable costs low may reward Zara's owners. [3 marks]",
+                hint: "Structure: Understanding (how does lower VC lead to reward for owners?) → Application (reference specific Zara details from the case study) → Analysis (what is the specific impact on Zara's owners?).",
+                starter: "Keeping variable costs low can lead to better profit margins for the business (U)\nFor Zara, buying fabric in large quantities from European suppliers helps to keep variable costs low (APP)\nThis means Zara's owners may receive... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>1 mark (U):</strong> Lower variable costs → lower total costs → better profit margins.</li><li><strong>No further marks without understanding.</strong></li><li><strong>1 further mark (APP):</strong> Application to Zara — buying fabric in large quantities from European suppliers; 2,270 stores; online sales up 75%; 15-day delivery cycle.</li><li><strong>1 further mark (AN):</strong> Analysis of benefit to owners — higher dividends; ability to reinvest and expand; business can grow and increase owner value.</li><li><strong>No reward:</strong> Answers suggesting lower costs increase revenue. Analysis must relate to owner reward specifically.</li></ul><p><strong>Examiner's Comment:</strong> Many responses were too generic. Answers must be contextual (refer to Zara). The key link is: lower VC → better profit margin → owners receive more dividends or business can expand, increasing the value of their investment.</p></div>`,
+                modelAnswer: "Keeping variable costs low leads to lower total costs, improving Zara's profit margins (U). By buying fabric in large quantities from European suppliers, Zara reduces its cost of sales (APP). This improves profitability, meaning Zara's owners could receive higher dividends, and the business has more retained profit to reinvest in new stores and expansion (AN)."
+            },
+
+            {
+                num: "Q16 (b)(i)",
+                marks: 2,
+                type: "written",
+                caseStudy: "",
+                question: "Calculate the percentage decrease in Zara's sales revenue between 2019 and 2020. Show your workings. [2 marks]",
+                hint: "% change = (Change ÷ Original) × 100. The original is the 2019 figure. Change = 2019 revenue − 2020 revenue.",
+                starter: "Change = €19,954m − €14,129m = €5,825m\n% decrease = (€5,825m ÷ €19,954m) × 100 = ...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO2)</h5><ul><li><strong>2 marks:</strong> Correct answer of 29.2% (or 29% accepted) with or without workings.</li><li><strong>1 mark:</strong> Correct calculation of change (€5,825m) shown in workings, but error in final percentage.</li><li><strong>Note:</strong> Negative sign is not required. Accept any reasonable level of accuracy (29% to 29.2%).</li></ul><p><strong>Working:</strong> €19,954m − €14,129m = €5,825m. (€5,825m ÷ €19,954m) × 100 = 29.2%.</p></div>`,
+                modelAnswer: "Change = €19,954m − €14,129m = €5,825m. % decrease = (€5,825m ÷ €19,954m) × 100 = 29.2%."
+            },
+
+            {
+                num: "Q16 (b)(ii)",
+                marks: 2,
+                type: "written",
+                caseStudy: "",
+                question: "Explain one possible advantage to a business of selling its products via e-commerce. [2 marks]",
+                hint: "Think about what e-commerce specifically enables (24/7 selling, global reach, lower operating costs) and explain WHY that is an advantage.",
+                starter: "One advantage of e-commerce is that... (K)\nThis benefits the business because... (U)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1b)</h5><ul><li><strong>1 mark:</strong> Identifying an advantage specific to e-commerce (not just 'selling more').</li><li><strong>1 further mark:</strong> Explaining the advantage — how does it help the business?</li><li><strong>Acceptable answers include:</strong></li></ul><ul><li>Can sell worldwide / to a wider audience (K) — increasing potential customer base beyond local area (U).</li><li>Open 24/7 (K) — generating sales outside normal trading hours without additional staff costs (U).</li><li>Lower operating costs (K) — no need for expensive high-street premises, reducing fixed costs (U).</li></ul><p><strong>Examiner's Comment:</strong> 'Selling more products' without linking to e-commerce features gains no marks. Answers from the customer's perspective also gain no marks — the question asks about the business.</p></div>`,
+                modelAnswer: "E-commerce allows a business to sell its products 24 hours a day, 7 days a week (K). This means the business can generate sales outside normal trading hours without needing to pay extra staff wages, reducing costs and increasing revenue (U)."
+            },
+
+            {
+                num: "Q17",
+                marks: 2,
+                type: "written",
+                caseStudy: `AstraZeneca plc (AZ) is a multinational pharmaceutical company that operates in over 100 countries around the world. AZ develops treatments for a range of diseases. It sells its medicines and vaccines worldwide. Its headquarters are in Cambridge, England. In 2021 AZ's sales revenue was £37,417m, from which it made £24,980m gross profit.<br><br>AZ has a code of ethics, which is at the centre of everything that it does. The company has approximately 75,000 employees worldwide; 10,000 of these work in its three research and development centres.<br><br>AZ uses technology throughout its operations to provide high quality products for its customers. In the UK, AZ changed the way it sells its products — now using a call centre and website where medical professionals can order products and samples, at a lower cost.`,
+                question: "Calculate AZ's gross profit margin for 2021. Show your workings. [2 marks]",
+                hint: "GPM = (Gross Profit ÷ Revenue) × 100. Both figures are given in the case study.",
+                starter: "GPM = (Gross Profit ÷ Revenue) × 100\nGPM = (£24,980m ÷ £37,417m) × 100 = ...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO2)</h5><ul><li><strong>2 marks:</strong> Correct answer of 66.8% (accept 67%, 66.76%, 66.7%, or the full decimal).</li><li><strong>1 mark:</strong> Setting out the correct calculation (£24,980m ÷ £37,417m × 100) even if answer is incorrect or missing units.</li><li><strong>0 marks:</strong> Incorrect formula or answer without any supporting workings.</li></ul><p><strong>Examiner's Comment:</strong> Mistakes included rounding errors and omitting the % sign.</p></div>`,
+                modelAnswer: "GPM = (£24,980m ÷ £37,417m) × 100 = 66.8%."
+            },
+
+            {
+                num: "Q18 (i)",
+                marks: 2,
+                type: "written",
+                caseStudy: `BP plc is a UK energy company, which has its headquarters in London. BP produces oil, gas and petrol. It sells and distributes these products to customers all over the world. It also produces some environmentally friendly energy including biofuels, as well as wind- and solar-powered electrical energy.<br><br>The company's finance function is critical in ensuring the business is managed efficiently. BP plc's revenue increased from $245 billion in 2017 to $283 billion in 2019.<br><br>One of BP's operations involves selling petrol to the public. BP has 18,700 petrol stations around the globe, with 8,500 in the UK. Another involves extracting oil using oil rigs located in the seas around the UK, Norway, Australia, Angola, the Gulf of Mexico, and off the coast of many other countries.<br><br>BP strives to be more sustainable, with the aim of cutting its carbon emissions by 2050 to help reduce the effects of climate change.`,
+                question: "Calculate the percentage change in BP's revenue between 2017 and 2019. Show your workings. [2 marks]",
+                hint: "% change = (Change ÷ Original) × 100. The original is the 2017 figure. Change = 2019 − 2017.",
+                starter: "Change = $283bn − $245bn = $38bn\n% change = ($38bn ÷ $245bn) × 100 = ...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO2)</h5><ul><li><strong>2 marks:</strong> Correct answer of 15.5% (accept 15% or 16% with workings shown).</li><li><strong>1 mark:</strong> Correct change calculation of $38bn shown in workings with arithmetic error in percentage.</li><li><strong>Note:</strong> An answer of 13.4% (using 2019 as denominator) earns 1 mark OFR if working is shown.</li></ul><p><strong>Working:</strong> Change = $283bn − $245bn = $38bn. % change = ($38bn ÷ $245bn) × 100 = 15.5%.</p></div>`,
+                modelAnswer: "Change = $283bn − $245bn = $38bn. % change = ($38bn ÷ $245bn) × 100 = 15.5%."
+            },
+
+            {
+                num: "Q18 (ii)",
+                marks: 2,
+                type: "written",
+                caseStudy: "",
+                question: "Identify two factors that can affect a company's revenue. [2 marks]",
+                hint: "Revenue = Price × Quantity sold. Think of factors that change either the price a business charges OR the number of units sold.",
+                starter: "Factor 1: ...\nFactor 2: ...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a)</h5><ul><li><strong>1 mark per factor</strong> (up to 2 marks): Any two correct factors affecting revenue.</li><li><strong>Acceptable answers include:</strong> number of competitors, actions of competitors, selling price of the product, level of advertising, quality of the product, customer service, product range, entry into new markets.</li><li><strong>No reward for:</strong> factors affecting only costs (e.g. supplier prices, wage levels). Revenue is affected by price and quantity sold — any factor affecting either of these is acceptable.</li></ul><p><strong>Examiner's Comment:</strong> Some students confused 'price' (what a business charges customers) with 'cost' (what a business pays). These are completely different concepts.</p></div>`,
+                modelAnswer: "1. The selling price of the product — a higher/lower price directly affects revenue. 2. The number of competitors — more competitors may cause customers to switch, reducing units sold."
+            },
+
+            {
+                num: "Q19 (i)",
+                marks: 3,
+                type: "written",
+                caseStudy: `Quality Textiles Ltd (QT) is a medium-sized, established business that manufactures clothes from its factory in Birmingham. Its clothes are sold to retail shops around the country. A summary of its profitability is shown in Table 1.<table class="case-table"><caption>Table 1 — QT Profitability</caption><thead><tr><th></th><th>This year</th><th>Last year</th><th>Two years ago</th></tr></thead><tbody><tr><td>Gross Profit Margin</td><td>65%</td><td>60%</td><td>57%</td></tr><tr><td>Net Profit Margin</td><td>27%</td><td>25%</td><td>23%</td></tr></tbody></table><br>QT wants to expand the business by using a bank loan to buy a large van to help with deliveries. It will use average rate of return (ARR) to assess which model of van it will buy. Further information is provided in Table 2, below. The new van will mean employing a driver, in addition to the five drivers already working for the business.<table class="case-table"><caption>Table 2 — Van Investment Data</caption><thead><tr><th></th><th>Standard Van</th><th>Superior Van</th></tr></thead><tbody><tr><td>Price</td><td>£40,000</td><td>£50,000</td></tr><tr><td>Total net profit for the life of the van</td><td>£60,000</td><td>£70,000</td></tr><tr><td>Estimated life</td><td>3 years</td><td>4 years</td></tr><tr><td>ARR</td><td>?</td><td>35%</td></tr></tbody></table><br>QT's cash flow forecast suggests it may struggle to pay the monthly van loan repayment.`,
+                question: "Calculate the average rate of return (ARR) for the Standard Van by using the information in Table 2. Show your workings. [3 marks]",
+                hint: "The 'total net profit for the life of the van' is already given (this IS the profit, not the income). Step 2: divide by years. Step 3: ARR = (average annual profit ÷ cost) × 100.",
+                starter: "Average annual profit = £60,000 ÷ 3 years = £20,000\nARR = (£20,000 ÷ £40,000) × 100 = ...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO2)</h5><ul><li><strong>1 mark:</strong> Average annual profit = £60,000 ÷ 3 = £20,000.</li><li><strong>1 mark:</strong> Setting up: (£20,000 ÷ £40,000) × 100. [OFR]</li><li><strong>1 mark:</strong> Correct final answer of 50%. [OFR]</li><li><strong>Note:</strong> 'Total net profit' is already given — no need to subtract cost. % sign not required as printed on paper.</li></ul><p><strong>Examiner's Comment:</strong> Generally well answered. Errors came from inability to select the correct data from Table 2 or poor knowledge of the formula.</p></div>`,
+                modelAnswer: "Average annual profit = £60,000 ÷ 3 = £20,000. ARR = (£20,000 ÷ £40,000) × 100 = 50%."
+            }];
+        
+        
+        </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -13,7 +13,7 @@
 <header>
   <div>
     <div class="badge">OCR GCSE Business — Component 1</div>
-    <h1>Unit 3.2 — Organisational Structures &amp; Ways of Working</h1>
+    <h1>3.2 — Organisational Structures &amp; Ways of Working</h1>
     <p>Interactive revision guide · All key content + full exam practice</p>
   </div>
       <a href="index.html" class="home-link">← 🏡 Home</a>
@@ -32,115 +32,173 @@
   <button class="tab-btn" onclick="switchTab('exampractice',this)">📝 Exam Practice</button>
  
 </nav>
-
 <main>
 
-<!-- LEARN -->
-<div class="tab-panel active" id="tab-learn">
-  <h2 class="section-title">Key Learning Topics</h2>
-  <p class="section-sub">Click any card to expand detailed notes.</p>
-  <div class="topic-grid" id="topicGrid"></div>
-</div>
-
-<!-- MCQ -->
-<div class="tab-panel" id="tab-mcq">
-  <h2 class="section-title">Multiple Choice Questions</h2>
-  <p class="section-sub">Select an answer to reveal instant feedback.</p>
-  <div class="score-bar">
-    <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
-    <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
-    <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+  <div class="tab-panel active" id="tab-learn">
+    <h2 class="section-title">Key Learning Topics</h2>
+    <p class="section-sub">Click any card to expand detailed notes.</p>
+    <div class="topic-grid" id="topicGrid"></div>
   </div>
-  <div class="quiz-wrap" id="mcqWrap"></div>
-</div>
 
-<!-- MATCHING -->
-<div class="tab-panel" id="tab-matching">
-  <h2 class="section-title">Matching Activity</h2>
-  <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
-  <div style="margin-bottom:16px;">
+  <div class="tab-panel" id="tab-mcq">
+    <h2 class="section-title">Multiple Choice Questions</h2>
+    <p class="section-sub">Select an answer to reveal instant feedback.</p>
     <div class="score-bar">
-      <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
-      <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
-      <button class="reset-btn" onclick="resetMatch()">RESET</button>
+      <div>
+        <div class="score-num" id="mcqScore">0</div>
+        <div style="font-size:12px;color:var(--mid)">correct answers</div>
+      </div>
+      <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+      <button class="reset-btn" onclick="resetMCQ()">RESET</button>
     </div>
-    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
-      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span> First attempt correct</span>
-      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span> Correct after mistake</span>
-      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span> Wrong — try again</span>
-    </div>
+    <div class="quiz-wrap" id="mcqWrap"></div>
   </div>
-  <div class="match-grid">
-    <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
-    <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
-  </div>
-</div>
 
-<!-- FIB -->
-<div class="tab-panel" id="tab-fib">
-  <h2 class="section-title">Fill in the Blanks</h2>
-  <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
-  <div class="score-bar">
-    <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
-    <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
-    <button class="reset-btn" onclick="resetFIB()">RESET</button>
-  </div>
-  <div class="fib-wrap" id="fibWrap"></div>
-</div>
-
-<!-- MISCONCEPTIONS -->
-<div class="tab-panel" id="tab-misconceptions">
-  <h2 class="section-title">Common Misconceptions</h2>
-  <p class="section-sub">What students often think — and what examiners actually want.</p>
-  <div class="misc-list" id="miscList"></div>
-</div>
-
-<!-- EXAM TIPS -->
-<div class="tab-panel" id="tab-examtips">
-  <h2 class="section-title">Exam Questions &amp; Tips</h2>
-  <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
-  <div class="tips-grid" id="tipsGrid"></div>
-</div>
-
-<!-- FLASHCARDS -->
-<div class="tab-panel" id="tab-flashcards">
-  <h2 class="section-title">Flashcards</h2>
-  <p class="section-sub">Click the card to reveal the definition. Use the arrows to navigate.</p>
-  <div class="fc-container">
-    <div class="fc-progress" id="fcProgress">Card 1 of 20</div>
-    <div class="flashcard" id="flashcard" onclick="flipCard()">
-      <div class="fc-inner">
-        <div class="fc-front"><div class="fc-label">KEY TERM</div><div class="fc-term" id="fcTerm"></div></div>
-        <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
+  <div class="tab-panel" id="tab-matching">
+    <h2 class="section-title">Matching Activity</h2>
+    <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+    <div style="margin-bottom:16px;">
+      <div class="score-bar">
+        <div>
+          <div class="score-num" id="matchScore">0</div>
+          <div style="font-size:12px;color:var(--mid)">matched</div>
+        </div>
+        <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+        <button class="reset-btn" onclick="resetMatch()">RESET</button>
+      </div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
+        <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+            style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span>
+          First attempt correct</span>
+        <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+            style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span>
+          Correct after mistake</span>
+        <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span
+            style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span>
+          Wrong — try again</span>
       </div>
     </div>
-    <p class="fc-hint">👆 Click card to flip</p>
-    <div class="fc-nav">
-      <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
-      <button class="fc-btn outline" onclick="flipCard()">Flip</button>
-      <button class="fc-btn" onclick="nextCard()">Next →</button>
+    <div class="match-grid">
+      <div>
+        <div class="match-label">TERMS</div>
+        <div class="match-col" id="matchLeft"></div>
+      </div>
+      <div>
+        <div class="match-label">DEFINITIONS</div>
+        <div class="match-col" id="matchRight"></div>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- TRUE / FALSE -->
-<div class="tab-panel" id="tab-truefalse">
-  <h2 class="section-title">True or False?</h2>
-  <p class="section-sub">Test your knowledge with these statements.</p>
-  <div class="score-bar">
-    <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
-    <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
-    <button class="reset-btn" onclick="resetTF()">RESET</button>
+  <div class="tab-panel" id="tab-fib">
+    <h2 class="section-title">Fill in the Blanks</h2>
+    <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
+    <div class="score-bar">
+      <div>
+        <div class="score-num" id="fibScore">0</div>
+        <div style="font-size:12px;color:var(--mid)">correct</div>
+      </div>
+      <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+      <button class="reset-btn" onclick="resetFIB()">RESET</button>
+    </div>
+    <div class="fib-wrap" id="fibWrap"></div>
   </div>
-  <div class="tf-wrap" id="tfWrap"></div>
-</div>
 
-<!-- EXAM PRACTICE -->
-<div class="tab-panel" id="tab-exampractice">
-  <h2 class="section-title">Exam Practice Questions</h2>
-  <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
-  <div class="ep-list" id="epList"></div>
-</div>
+  <div class="tab-panel" id="tab-misconceptions">
+    <h2 class="section-title">Common Misconceptions</h2>
+    <p class="section-sub">What students often think — and what examiners actually want.</p>
+    <div class="misc-list" id="miscList"></div>
+  </div>
+
+  <div class="tab-panel" id="tab-examtips">
+    <h2 class="section-title">Exam Questions &amp; Tips</h2>
+    <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
+    <div class="tips-grid" id="tipsGrid"></div>
+  </div>
+
+  <div class="tab-panel" id="tab-flashcards">
+    <h2 class="section-title">Flashcards</h2>
+    <p class="section-sub">Test yourself! Flip the card and rate your knowledge. Review your weak areas at the end.
+    </p>
+
+    <div class="fc-container">
+      <div class="score-bar" id="fcScoreBar" style="display:none; margin-bottom: 20px;">
+        <div>
+          <div class="score-num" id="fcKnown" style="color:#2d7a4f;">0</div>
+          <div style="font-size:12px;color:var(--mid)">known</div>
+        </div>
+        <div>
+          <div class="score-num" id="fcUnknown" style="color:#c84b31;">0</div>
+          <div style="font-size:12px;color:var(--mid)">learning</div>
+        </div>
+        <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
+        <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+      </div>
+
+      <div id="fcActiveArea">
+        <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+        <div class="flashcard" id="flashcard" onclick="flipCard()">
+          <div class="fc-inner">
+            <div class="fc-front">
+              <div class="fc-label">KEY TERM</div>
+              <div class="fc-term" id="fcTerm"></div>
+            </div>
+            <div class="fc-back">
+              <div class="fc-def" id="fcDef"></div>
+            </div>
+          </div>
+        </div>
+        <p class="fc-hint">👆 Click card to flip</p>
+
+        <div class="fc-nav" id="fcNavDefault">
+          <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+          <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+          <button class="fc-btn" onclick="nextCard()">Next →</button>
+        </div>
+
+        <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px;">
+          <button class="fc-btn outline" style="border-color:#c84b31; color:#c84b31; flex:1;"
+            onclick="markCard(false)">❌
+            Still Learning</button>
+          <button class="fc-btn" style="background:#2d7a4f; border-color:#2d7a4f; flex:1;" onclick="markCard(true)">✅
+            Got
+            It</button>
+        </div>
+      </div>
+
+      <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px;">
+        <h3>Session Complete! 🎉</h3>
+        <p style="margin: 15px 0;">You knew <strong id="fcSummaryKnown">0</strong> out of <strong
+            id="fcSummaryTotal">0</strong> cards.</p>
+        <div style="margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+          <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+            style="background:#c84b31; border-color:#c84b31;">Review Incorrect</button>
+          <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="tab-truefalse">
+    <h2 class="section-title">True or False?</h2>
+    <p class="section-sub">Test your knowledge with these statements.</p>
+    <div class="score-bar">
+      <div>
+        <div class="score-num" id="tfScore">0</div>
+        <div style="font-size:12px;color:var(--mid)">correct</div>
+      </div>
+      <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+      <button class="reset-btn" onclick="resetTF()">RESET</button>
+    </div>
+    <div class="tf-wrap" id="tfWrap"></div>
+  </div>
+
+  <div class="tab-panel" id="tab-exampractice">
+    <h2 class="section-title">Exam Practice Questions</h2>
+    <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence
+        Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
+    <div class="ep-list" id="epList"></div>
+  </div>
 
 </main>
 
@@ -522,152 +580,961 @@ const tfData = [
 // ══════════════════════════════════════
 //  EXAM PRACTICE DATA
 // ══════════════════════════════════════
-
-const examQuestions = [
-  {
-    num: "Q1", marks: 1, type: "mcq",
-    caseStudy: "",
-    question: "A business with a tall organisational structure will have:",
-    options: ["A high market share","Lots of distribution channels","Multiple layers of authority","Short chains of command"],
-    answer: 2,
-    hint: "Think about what 'tall' means physically — many floors/layers stacked on top of each other. What does each floor represent?",
-    starter: "A tall organisational structure is one that has...",
-    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — Multiple layers of authority</strong></p></div>
-<div class="marks-section"><h5>Why</h5><p>A tall structure is defined by having many levels (layers) of authority from top to bottom. This creates long chains of command. Market share and distribution channels have nothing to do with organisational structure.</p></div>`,
-    modelAnswer: ""
-  },
-  {
-    num: "Q2", marks: 1, type: "mcq",
-    caseStudy: "",
-    question: "A clothing designer may choose to flatten its organisational structure to reduce the:",
-    options: ["Creativity of its garment designers","Independence of its fabric buyers","Need for innovation and change","Time it takes to respond to changes in fashion"],
-    answer: 3,
-    hint: "A flat structure has fewer layers. What does fewer layers mean for the speed of getting a decision from the top to the bottom of the business?",
-    starter: "A flat structure reduces the number of layers, which means...",
-    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>D — Time it takes to respond to changes in fashion</strong></p></div>
-<div class="marks-section"><h5>Why</h5><p>Fewer layers means fewer people for messages and decisions to pass through — so communication is faster. A clothing designer can therefore respond more quickly to changes in fashion trends. Flattening does not reduce creativity — it usually enhances it by giving workers more trust and authority.</p></div>`,
-    modelAnswer: ""
-  },
-  {
-    num: "Q3", marks: 1, type: "mcq",
-    caseStudy: "An extract from the organisation chart of a manufacturing company is shown below.\n\nManaging Director\n↓\nProduction Manager\n↓\nProduction Supervisor (×3)\n↓\n20 Production Workers (under each supervisor)",
-    question: "The span of control of the Production Manager is:",
-    options: ["1","3","21","63"],
-    answer: 1,
-    hint: "Span of control = the number of people who report DIRECTLY to that manager. Who reports directly to the Production Manager — not who is below in the hierarchy?",
-    starter: "The span of control is the number of subordinates who report directly to...",
-    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>B — 3</strong></p></div>
-<div class="marks-section"><h5>Why</h5><p>Span of control only counts DIRECT reports. Three Production Supervisors report directly to the Production Manager. The 20 workers under each supervisor report to their supervisor — not directly to the Production Manager. Therefore span = 3, not 21 or 63.</p></div>`,
-    modelAnswer: ""
-  },
-  {
-    num: "Q4 (i)", marks: 3, type: "extended",
-    caseStudy: "HSBC offers a range of banking and financial services for personal and business customers. The bank has branches in many cities and towns across the UK. Employing the best people is important to HSBC. It uses several methods to select new employees. Once appointed, all employees are offered training and development opportunities that include studying for academic qualifications such as degrees and professional diplomas. Over 70% of HSBC's call centre employees in the UK have begun working from home permanently. Before this change the employees worked together in a busy call centre. The tasks performed by call centre employees are varied, but include taking telephone calls from customers and completing administrative work, such as opening new bank accounts. Senior managers are now considering whether to introduce working from home for all of its UK call centre employees.",
-    question: "Analyse one advantage for HSBC of its UK call centre employees working from home. [3 marks]",
-    hint: "Think about what a business GAINS when employees work from home. Consider: office costs, recruitment, productivity, or staff wellbeing. Link your advantage to the specific details about HSBC in the case study.",
-    starter: "One advantage for HSBC of its employees working from home is... This is because... As a result, HSBC could...",
-    markScheme: `<div class="marks-section"><h5>Mark Allocation</h5><ul><li><strong>AO1b — Understanding (1 mark):</strong> Identify a business advantage of home working (e.g. motivation, lower overhead costs, wider recruitment pool, higher productivity, lower absenteeism)</li><li><strong>AO2 — Application (1 mark):</strong> Link to HSBC using case study detail (e.g. 70% already working from home; busy call centre; tasks include opening bank accounts)</li><li><strong>AO3a — Analysis (1 mark):</strong> Show the business-facing impact (e.g. improves cash flow, increases customer satisfaction, increases profit)</li></ul></div>`,
-    modelAnswer: `<strong>Model Answer 1:</strong> It improves staff motivation (U) because employees at HSBC no longer need to commute to a busy call centre (APP). This could lead to better customer service when opening bank accounts, improving HSBC's reputation (AN).<br><br><strong>Model Answer 2:</strong> Staff absenteeism may reduce (U) as 70% of HSBC's UK call centre employees already enjoy working from home (APP). This will reduce HSBC's operating costs, freeing up funds to invest in training and development (AN).`
-  },
-  {
-    num: "Q4 (ii)", marks: 3, type: "extended",
-    caseStudy: "HSBC offers a range of banking and financial services for personal and business customers. The bank has branches in many cities and towns across the UK. Employing the best people is important to HSBC. It uses several methods to select new employees. Once appointed, all employees are offered training and development opportunities that include studying for academic qualifications such as degrees and professional diplomas. Over 70% of HSBC's call centre employees in the UK have begun working from home permanently. Before this change the employees worked together in a busy call centre. The tasks performed by call centre employees are varied, but include taking telephone calls from customers and completing administrative work, such as opening new bank accounts. Senior managers are now considering whether to introduce working from home for all of its UK call centre employees.",
-    question: "Analyse one disadvantage for HSBC of its UK call centre employees working from home. [3 marks]",
-    hint: "What problems does a business face when it cannot see its employees? Think about monitoring, communication between colleagues, or the cost of setting up home working. Link your answer to HSBC specifically.",
-    starter: "One disadvantage for HSBC of its employees working from home is... This is because... As a result...",
-    markScheme: `<div class="marks-section"><h5>Mark Allocation</h5><ul><li><strong>AO1b — Understanding (1 mark):</strong> Identify a business disadvantage of home working (e.g. difficult to monitor/manage, limited teamwork, reduced productivity if distracted, cost of providing IT equipment)</li><li><strong>AO2 — Application (1 mark):</strong> Link to HSBC using case study detail</li><li><strong>AO3a — Analysis (1 mark):</strong> Show the negative business-facing impact (e.g. damage to reputation, higher costs, reduced service quality)</li></ul></div>`,
-    modelAnswer: `<strong>Model Answer 1:</strong> There is limited control over staff (U) which could impact negatively on the services provided for business and personal customers (APP), damaging the bank's reputation if calls are handled poorly (AN).<br><br><strong>Model Answer 2:</strong> Since 70% of call centre employees already work from home (APP), a lot of IT equipment needs to be purchased for the remaining 30% (U), which will significantly increase HSBC's costs (AN).`
-  },
-  {
-    num: "Q4 (iii)", marks: 3, type: "extended",
-    caseStudy: "HSBC offers a range of banking and financial services for personal and business customers. The bank has branches in many cities and towns across the UK. Employing the best people is important to HSBC. It uses several methods to select new employees. Once appointed, all employees are offered training and development opportunities that include studying for academic qualifications such as degrees and professional diplomas. Over 70% of HSBC's call centre employees in the UK have begun working from home permanently. Before this change the employees worked together in a busy call centre. The tasks performed by call centre employees are varied, but include taking telephone calls from customers and completing administrative work, such as opening new bank accounts. Senior managers are now considering whether to introduce working from home for all of its UK call centre employees.",
-    question: "Recommend whether HSBC should introduce working from home for all of its UK call centre employees. Give a reason for your answer. [3 marks]",
-    hint: "Make a CLEAR recommendation first (yes or no). Then give TWO reasons that use specific details from the HSBC case study to justify your recommendation — not just general points.",
-    starter: "HSBC should / should not introduce working from home for all call centre employees because...",
-    markScheme: `<div class="marks-section"><h5>Mark Allocation</h5><ul><li><strong>AO3b — Evaluation (3 marks):</strong> 1 mark for a judgement (Yes or No). Up to 2 further marks for a contextual justification using case study detail. 1 mark for non-contextual justification.</li></ul></div>`,
-    modelAnswer: `<strong>Model Answer — Yes:</strong> HSBC should introduce working from home for all UK call centre employees (1) because it will reduce overheads further now that the other 30% of workers start working from home — saving on the cost of maintaining a large call centre building (CONT +1). Staff morale is also likely to improve as all employees gain the same flexibility as the 70% already at home, which can improve the quality of customer service when opening bank accounts (CONT +2).<br><br><strong>Model Answer — No:</strong> HSBC should keep some call centre employees working in the call centre (1) because certain tasks, such as opening new bank accounts, may require closer supervision and teamwork to ensure accuracy and compliance (CONT +1), and maintaining a physical presence reduces the risk of poor customer service damaging HSBC's reputation (CONT +2).`
-  },
-  {
-    num: "Q5", marks: 2, type: "extended",
-    caseStudy: "Dyson Ltd produces a range of home appliances including vacuum cleaners, hand dryers, heaters, hair dryers and lights. Creating new and innovative products continues to be important for the company. The company has over 12,000 employees worldwide and a unique organisational structure.",
-    question: "Explain one reason why businesses have different organisational structures. [2 marks]",
-    hint: "Think about what factors affect whether a business needs many layers (tall) or few layers (flat). Consider: size, type of work, leadership style, or how creative the work is.",
-    starter: "One reason why businesses have different organisational structures is... This means that...",
-    markScheme: `<div class="marks-section"><h5>Mark Allocation</h5><ul><li><strong>AO1a — Knowledge (1 mark):</strong> Identify a reason (e.g. size of business, nature of industry, objectives, style of management, skills of employees)</li><li><strong>AO1b — Understanding (1 mark):</strong> Explain how this reason relates to the structure chosen (e.g. number of layers, chain of command, span of control)</li></ul></div>`,
-    modelAnswer: `<strong>Model Answer 1:</strong> A creative business like Dyson (1) would prefer a flat structure with few layers (+1) so that employees feel trusted to innovate and share ideas freely with managers.<br><br><strong>Model Answer 2:</strong> As an organisation grows in size with 12,000+ employees (1), it may choose to appoint more managers, adding more layers to the structure (+1) to ensure clear lines of authority and supervision.`
-  },
-  {
-    num: "Q6", marks: 2, type: "extended",
-    caseStudy: "",
-    question: "Part-time is one way of working. State two other ways of working. [2 marks]",
-    hint: "There are many ways of working covered in this unit. Think about: hours, location, contract type, or employment status.",
-    starter: "Two other ways of working are: 1)... 2)...",
-    markScheme: `<div class="marks-section"><h5>Mark Allocation</h5><p>1 mark for each correct way of working (maximum 2).</p><p><strong>Acceptable answers include:</strong> Full-time, Temporary/fixed term, Permanent, Flexible working/flexi-time, Zero hours, Shift work, Working from home, Working whilst mobile, Self-employed/Freelance.</p></div>`,
-    modelAnswer: `<strong>Model Answer:</strong> 1) Full-time working (35+ hours per week with a permanent contract). 2) Working from home / hybrid working (completing work tasks at home rather than at a workplace).`
-  },
-  {
-    num: "Q7 (i)", marks: 6, type: "extended",
-    caseStudy: "Miles Ahead is a bicycle retailer set up in 2001 by Reg Patel. There are now six shops. Reg operates as a sole trader with 15 employees and a tall organisational structure. Sales revenue has fallen over the past two years and customer satisfaction survey results show increasing dissatisfaction. Nessa, Reg's daughter, has taken over management of the business. She is considering changing the structure.",
-    question: "Analyse one benefit for Miles Ahead of each of the following organisational structures. [6 marks]\na) Tall organisational structure [3 marks]\nb) Flat organisational structure [3 marks]",
-    hint: "For each structure, follow the 3-mark chain: (1) State a benefit of the structure. (2) Link it to Miles Ahead using specific case study detail (6 shops, falling sales, 15 employees, customer dissatisfaction). (3) Show the business impact — how does this benefit help Miles Ahead's specific problem?",
-    starter: "a) One benefit of a tall organisational structure for Miles Ahead is... This means that... As a result, Miles Ahead could...\n\nb) One benefit of a flat organisational structure for Miles Ahead is... This means that... As a result, Miles Ahead could...",
-    markScheme: `<div class="marks-section"><h5>Mark Allocation — Each structure worth 3 marks</h5><ul><li><strong>AO1b — Understanding (1 mark each):</strong> State a benefit of the structure</li><li><strong>AO2 — Application (1 mark each):</strong> Link to Miles Ahead using case study evidence</li><li><strong>AO3a — Analysis (1 mark each):</strong> Show the business-facing impact</li></ul></div>`,
-    modelAnswer: `<strong>Tall structure model answer:</strong> There will be more opportunities for promotion (U) across the six shops at Miles Ahead (APP) which will encourage employees to work harder to climb the hierarchy, potentially improving customer satisfaction scores (AN).<br><br><strong>Flat structure model answer:</strong> Vertical communication will be quicker with fewer layers (U) which may help Nessa respond quickly to problems in all six stores (APP), helping to reverse the declining sales revenue and customer dissatisfaction (AN).`
-  },
-  {
-    num: "Q7 (ii)", marks: 3, type: "extended",
-    caseStudy: "Miles Ahead is a bicycle retailer set up in 2001 by Reg Patel. There are now six shops. Reg operates as a sole trader with 15 employees and a tall organisational structure. Sales revenue has fallen over the past two years and customer satisfaction survey results show increasing dissatisfaction. Nessa, Reg's daughter, has taken over management of the business. She is considering changing the structure.",
-    question: "Recommend which type of organisational structure would be the most appropriate for Nessa to use at Miles Ahead. Give reasons for your answer. [3 marks]",
-    hint: "State your recommendation clearly first. Then give TWO reasons using specific details from the Miles Ahead case study (falling sales, falling customer satisfaction, 6 shops, 15 employees). The recommendation must relate to the business's specific problems.",
-    starter: "Miles Ahead should use a [tall/flat] organisational structure because...",
-    markScheme: `<div class="marks-section"><h5>Mark Allocation</h5><ul><li>1 mark for a clear recommendation (tall OR flat)</li><li>Up to 2 further marks for a contextual justification using Miles Ahead case study details</li></ul></div>`,
-    modelAnswer: `<strong>Model Answer — Flat structure:</strong> Miles Ahead should move to a flat structure (1) so that decisions can be made more quickly to reverse the fall in sales revenue seen since Reg handed over to Nessa (CONT +1). Faster communication between the six shops and Nessa will also allow her to respond quickly to customer complaints, which should improve the declining satisfaction survey results (CONT +2).`
-  },
-  {
-    num: "Q8", marks: 3, type: "extended",
-    caseStudy: "EDF owns two fossil fuel power stations, three wind farms and eight nuclear power stations. During the construction of Hinkley Point C, the project has created thousands of jobs, many filled by self-employed workers.",
-    question: "Analyse one benefit for EDF of using self-employed workers during the construction of Hinkley Point C nuclear power station. [3 marks]",
-    hint: "What do self-employed workers NOT get from EDF that permanent employees would? Think about costs (sick pay, holiday pay, pension contributions). Also think about the NATURE of construction — is it a permanent or temporary need for specific skills?",
-    starter: "One benefit for EDF of using self-employed workers is... This is relevant because at Hinkley Point C... This means that EDF...",
-    markScheme: `<div class="marks-section"><h5>Mark Allocation</h5><ul><li><strong>AO1b — Understanding (1 mark):</strong> Identify a benefit of using self-employed workers (e.g. flexibility, no pension/sick pay costs, no long-term commitment, specialist skills available only when needed)</li><li><strong>AO2 — Application (1 mark):</strong> Link to EDF and Hinkley Point C specifically</li><li><strong>AO3a — Analysis (1 mark):</strong> Show the business-facing benefit (e.g. lower costs, reduced financial risk, greater flexibility)</li></ul></div>`,
-    modelAnswer: `<strong>Model Answer:</strong> EDF can benefit from specialist skills only as and when required (U). The construction of Hinkley Point C nuclear power station will require certain specialist construction skills at specific stages through to its completion (APP). This means EDF's costs will be lower because it is not committed to long-term ongoing employment costs such as sick pay, holiday pay or pension contributions for workers who are not needed permanently (AN).`
-  },
-  {
-    num: "Q9 (i)", marks: 1, type: "mcq",
-    caseStudy: "Boots UK is a leading retailer with about 2,500 stores. Stores are busy from September to December, and a Christmas recruitment campaign is run every year to find temporary staff.",
-    question: "State one advantage to a business of using temporary employees. [1 mark]",
-    options: ["Workers can be paid below the minimum wage during busy periods","The business only pays for workers when it is busy, reducing costs","Temporary workers never require any training or induction","Discrimination laws do not apply to temporary workers"],
-    answer: 1,
-    hint: "Why would Boots specifically want temporary workers at Christmas? Think about what happens to demand in September–December and how temporary workers help manage costs.",
-    starter: "One advantage to a business of using temporary employees is...",
-    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>B — The business only pays for workers when it is busy, reducing costs</strong></p></div>
-<div class="marks-section"><h5>Acceptable answers for 1 mark</h5><ul><li>Workers are only paid when needed / during busy periods</li><li>Easier to recruit flexible staff for short periods</li><li>Can check workers' potential before offering a permanent contract</li></ul></div>`,
-    modelAnswer: ""
-  },
-  {
-    num: "Q9 (ii)", marks: 1, type: "mcq",
-    caseStudy: "Boots UK is a leading retailer with about 2,500 stores. Stores are busy from September to December, and a Christmas recruitment campaign is run every year to find temporary staff.",
-    question: "State one disadvantage to a business of using temporary employees. [1 mark]",
-    options: ["Temporary staff are always less productive than permanent staff","The business must provide holiday pay to temporary staff from day one","There may be a lack of skilled or committed applicants for temporary roles","Temporary employees always need more supervision than permanent staff"],
-    answer: 2,
-    hint: "What problems might Boots face when it tries to find good workers for just a few months? Think about commitment, skills, and the cost of getting them ready to work.",
-    starter: "One disadvantage to a business of using temporary employees is...",
-    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — There may be a lack of skilled or committed applicants for temporary roles</strong></p></div>
-<div class="marks-section"><h5>Acceptable answers for 1 mark</h5><ul><li>Lack of skilled or committed applicants</li><li>Costly to train workers for only a short period</li><li>Workers may not stay for the full contract if a better opportunity arises</li></ul></div>`,
-    modelAnswer: ""
-  },
-  {
-    num: "Q10", marks: 9, type: "extended",
-    caseStudy: "Beautiful Buds plc grows plants sold to garden centres. The MD is planning to change its organisational structure by removing two layers of management (Middle Managers and Team Leaders). Redundancy costs are estimated at £200,000.\n\nCurrent structure (124 employees): 3 Directors, 9 Senior Managers, 12 Middle Managers (average salary £50,000), 20 Team Leaders (average salary £35,000), 30 Supervisors (average salary £30,000), 50 Operatives.\n\nPlanned structure: 3 Directors, 9 Senior Managers, 40 Supervisors (10 new supervisors to be recruited at £30,000 each), 50 Operatives.",
-    question: "Discuss, with reference to the data in the case study, whether Beautiful Buds plc should go ahead with the plan to change its organisational structure. [9 marks]",
-    hint: "This is a 9-mark discuss question. Use this structure: K (define delayering) → U (explain what it involves) → APP x2 (use the NUMBERS from the case study — calculate the savings!) → AN x2 (show the business impact of savings AND risks) → EVAL x3 (overall judgement with justification). Key calculation: 12 × £50k = £600k + 20 × £35k = £700k saved. 10 × £30k = £300k new cost. £200k redundancy one-off. Net annual saving = £1,000,000.",
-    starter: "Delayering is when a business reduces the number of layers in its structure... By removing Middle Managers and Team Leaders, Beautiful Buds could save... However, there are risks because... Overall, I think Beautiful Buds [should/should not] go ahead because...",
-    markScheme: `<div class="marks-section"><h5>Mark Allocation (9 marks)</h5><ul><li><strong>AO1a — Knowledge (1 mark):</strong> Define delayering / organisational structure change</li><li><strong>AO1b — Understanding (1 mark):</strong> Explain what the process involves (removing layers, redundancies)</li><li><strong>AO2 — Application (2 marks):</strong> Use data from the case study — e.g. £600k saving from Middle Managers, £700k from Team Leaders, £300k new supervisor costs, £200k redundancy</li><li><strong>AO3a — Analysis (2 marks):</strong> Show business impact: cost savings enabling reinvestment OR risks to communication/motivation</li><li><strong>AO3b — Evaluation (3 marks):</strong> Clear judgement (1) + justified with context (up to 2) referencing specific figures and long-term vs short-term impact</li></ul></div>
-<div class="marks-section"><h5>Key Numbers to Use</h5><ul><li>12 Middle Managers × £50,000 = £600,000 saved</li><li>20 Team Leaders × £35,000 = £700,000 saved</li><li>10 new Supervisors × £30,000 = £300,000 new cost</li><li>Net annual saving = £1,000,000</li><li>One-off redundancy cost = £200,000</li></ul></div>`,
-    modelAnswer: `<strong>Full marks model answer:</strong> Delayering is when a business reduces the number of layers in its organisational structure (K). This means removing layers of management, which usually leads to redundancies and a flatter structure (U). Beautiful Buds would save £600,000 by removing its 12 Middle Managers (APP) and a further £700,000 by removing its 20 Team Leaders (APP). After the cost of 10 new supervisors (£300,000), the net annual saving is £1,000,000 which could be reinvested in developing new plant varieties to grow the business (AN). However, removing these layers reduces promotion opportunities for the 30 supervisors and 50 operatives, which may lead to demotivation and higher staff turnover, increasing recruitment costs (AN). Overall, Beautiful Buds should go ahead with delayering (EVAL) because the £1,000,000 annual saving far outweighs the one-off £200,000 redundancy cost (EVAL). In the long term, the business can reinvest these savings in expanding its product range to grow market share with garden centres (EVAL).`
-  }
-];
-
+  const examQuestions = [
+    {
+      num: "Q1",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "In 2023 a business sold 22 million items at an average price of £0.75 per item. Its total costs for the year were £13.5 million.",
+      question: "The business made a net profit of: [1 mark]",
+      options: [
+        "A — £3 million",
+        "B — £16.5 million",
+        "C — £1636.5 million",
+        "D — £1650 million"
+      ],
+      answer: 0,
+      hint: "First calculate total revenue (price × quantity), then subtract total costs.",
+      starter: "The net profit is calculated by...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>A — £3 million</strong></p></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q2",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "",
+      question: "Which would be variable costs for a building firm? [1 mark]",
+      options: [
+        "A — Administrative and legal expenses",
+        "B — Bricks and roof tiles",
+        "C — Business rates and buildings insurance",
+        "D — Cement mixers and tools"
+      ],
+      answer: 1,
+      hint: "Variable costs change with the level of output — think about what is used directly in building.",
+      starter: "Variable costs for a building firm would be...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>B — Bricks and roof tiles</strong></p></div><div class="marks-section"><h5>Why</h5><p>Bricks and roof tiles are used directly in production and increase as more buildings are constructed. Admin/legal expenses, business rates, insurance, and equipment like cement mixers are either fixed or indirect costs.</p></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q3",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "A company has recently experienced a fall in its net profit margin from 4.2% to 2.9%.",
+      question: "This means that: [1 mark]",
+      options: [
+        "A — every £100 of sales earns £1.30 less net profit than it used to",
+        "B — for every £100 of sales the company only earns £1.30",
+        "C — net profit levels have fallen by 1.3%",
+        "D — the company has made a net loss of 1.3%"
+      ],
+      answer: 0,
+      hint: "A profit margin is expressed as pence per £1 of sales. Calculate the difference between the two margins and think about what that means per £100.",
+      starter: "The fall in net profit margin means that...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>A — every £100 of sales earns £1.30 less net profit than it used to</strong></p></div><div class="marks-section"><h5>Examiner's Comment</h5><p>This was the least well answered question in the whole paper. If the margin falls from 4.2% to 2.9%, that is a fall of 1.3 pence per pound, so £1.30 for each £100.</p><ul><li>Answer C was the most common wrong answer — a fall from 4.2% to 2.9% is actually a decrease of 31%, not 1.3%</li><li>Answer D was also popular — but the margin remains positive, so a profit is still being made</li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q4",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "The table below shows a company's total costs over the last four years.\n\n2020: Operating £200,000 + Other £40,000 = £240,000\n2021: Operating £170,000 + Other £30,000 = £200,000\n2022: Operating £280,000 + Other £30,000 = £310,000\n2023: Operating £320,000 + Other £40,000 = £360,000",
+      question: "The percentage change in the company's total costs from 2020 to 2023 was: [1 mark]",
+      options: [
+        "A — 33%",
+        "B — 37.5%",
+        "C — 50%",
+        "D — 60%"
+      ],
+      answer: 2,
+      hint: "Add both cost rows together for each year. Then apply the percentage change formula: (new − old) ÷ old × 100.",
+      starter: "The percentage change in total costs is calculated by...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — 50%</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>2020 total: £200,000 + £40,000 = £240,000</li><li>2023 total: £320,000 + £40,000 = £360,000</li><li>Change: £120,000 ÷ £240,000 × 100 = 50%</li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q5",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "A market trader paid £4600 for goods which they sold for £12,500.",
+      question: "The market trader's gross profit margin was approximately: [1 mark]",
+      options: [
+        "A — 37%",
+        "B — 63%",
+        "C — 79%",
+        "D — 172%"
+      ],
+      answer: 1,
+      hint: "Gross profit = Revenue − Cost of sales. Then: Gross Profit ÷ Revenue × 100.",
+      starter: "The gross profit margin is calculated by first finding gross profit, which is...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>B — 63%</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>Gross profit = £12,500 − £4,600 = £7,900</li><li>GPM = £7,900 ÷ £12,500 × 100 = 63.2%</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>The correct answer of B was chosen by less than 40% of candidates.</p><ul><li>Many chose A because they did not first calculate gross profit</li><li>Some who did calculate gross profit then chose D because they divided by cost of sales rather than revenue</li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q6",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "An entrepreneur has invested £150,000 to start up their own business. Their expected average rate of return is 10% per annum for the first three years.",
+      question: "Over the first three years of trading, the entrepreneur should expect to make: [1 mark]",
+      options: [
+        "A — average profits of £45,000 per year",
+        "B — average profits of £135,000 per year",
+        "C — profits totalling £15,000",
+        "D — profits totalling £45,000"
+      ],
+      answer: 3,
+      hint: "10% per annum means 10% per year. Calculate annual profit first, then multiply by 3.",
+      starter: "A 10% ARR on a £150,000 investment means...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>D — profits totalling £45,000</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>Annual profit = 10% × £150,000 = £15,000</li><li>Total profit over 3 years = £15,000 × 3 = £45,000</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Only half of candidates identified the correct answer as D.</p><ul><li>Answer A was the most popular wrong answer — candidates confused £15,000/year with £45,000/year</li><li>Answer C was also chosen — candidates calculated annual profit correctly but forgot to multiply by 3</li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q7i",
+      marks: 2,
+      type: "written",
+      caseStudy: "Unilever plc is a multinational company that makes and sells a wide range of quality products including food, cleaning agents and beauty products across 190 countries. Unilever plc has benefitted from operating in a global marketplace and the majority of its products are international brands. Some of its branded products include Lynx Body Spray, Dove Soap, Hellmann's Mayonnaise, Ben & Jerry's ice cream and Persil washing machine detergent. All of these products are made in factories all around the globe, some using flow production and others using batch production.\n\nUnilever plc's average revenue has grown over the last five years. However, the economic climate is becoming more difficult and Unilever plc's directors are having to adapt to these challenges.\n\nFig. 1 — Unilever plc worldwide revenue (€ millions):\n2018: €50,900m | 2019: €51,900m | 2020: €50,700m | 2021: €52,400m | 2022: €60,000m",
+      question: "Calculate Unilever plc's average revenue from 2019 to 2022. [2 marks]",
+      hint: "Add together only the four figures from 2019, 2020, 2021 and 2022 — do NOT include 2018. Then divide by 4.",
+      starter: "The average revenue from 2019 to 2022 is calculated by adding the four years together and dividing by 4...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO2 = 2 marks)</h5><ul><li><strong>2 marks:</strong> Correct answer of €53,750m (with or without workings)</li><li>Accept 53,750 without units</li><li>No reward for calculating the average over the wrong period</li></ul></div><div class="marks-section"><h5>Working</h5><ul><li>51,900 + 50,700 + 52,400 + 60,000 = 215,000</li><li>215,000 ÷ 4 = <strong>€53,750m</strong></li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Less than half of candidates gained full marks.</p><ul><li>Most common error: including 2018 figure (using all 5 years)</li><li>Another common error: calculating the difference between 2019 and 2022 (€8,100) rather than the average</li></ul></div>`,
+      modelAnswer: "51,900 + 50,700 + 52,400 + 60,000 = 215,000 ÷ 4 = <strong>€53,750m</strong>"
+    },
+    {
+      num: "Q7ii",
+      marks: 2,
+      type: "written",
+      caseStudy: "",
+      question: "Explain one way revenue affects a business' decision making. [2 marks]",
+      hint: "Think of a specific business decision (e.g. pricing, expansion, new products). Then explain HOW revenue affects that particular decision.",
+      starter: "Revenue affects business decision making because...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1b = 2 marks)</h5><ul><li><strong>1 mark:</strong> Identifying a way revenue affects decision making</li><li><strong>1 further mark:</strong> Explaining the way</li><li>Answers do not need to relate to Unilever</li><li>No reward for a definition of revenue</li></ul></div><div class="marks-section"><h5>Answers may include:</h5><ul><li>Price setting</li><li>Need to reduce costs</li><li>Ability to spend money on raw materials</li><li>Entering a new market / expansion</li><li>Decision to remove / develop new products</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Generally well answered, although some answers did not refer to specific business decisions. A number misunderstood the question and considered how decisions affect revenue instead.</p></div>`,
+      modelAnswer: "<strong>Model Answer 1:</strong> It helps to decide how to price a product (1). If revenue is low, they may consider increasing prices (1).<br><br><strong>Model Answer 2:</strong> A business can look to expand (1) if it has lots of revenue (1)."
+    },
+    {
+      num: "Q8i",
+      marks: 2,
+      type: "written",
+      caseStudy: "The Sea View Hotel is a profitable hotel located near the coast. Anika and Charlie own the hotel in a business partnership. They are now considering opening a second hotel in a town further along the coast. It would cost them £1.5 million to buy the property and £0.5 million for redecoration.\n\nTo fund the £2 million expansion, the partners are considering getting a bank loan or accepting a new partner into the business. The partnership already has one bank loan but has worked out it can afford a second loan as long as the cost of borrowing does not rise too much.\n\nIf Anika and Charlie decide to take on a new partner, they would like to ask Finley, a friend of Anika's who has just returned to the UK from travelling around the world. Finley is currently unemployed but is a keen photographer and environmental campaigner.\n\nAnika has forecasted the following revenues and costs for the proposed 25-room hotel:\n• Selling price: £100 a day per room\n• Fixed costs: £6,300 per week\n• Variable costs: £40 a day per room",
+      question: "Explain why profit is important to a business' future. [2 marks]",
+      hint: "Think about what a business can DO with profit — e.g. expand, invest, repay debt. Explain why this benefits the future.",
+      starter: "Profit is important to a business' future because it allows...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1a + AO1b = 2 marks)</h5><ul><li><strong>1 mark:</strong> Identifying why profit is important</li><li><strong>1 further mark:</strong> Understanding/explanation of why</li><li>Answers do not need to relate to The Sea View Hotel</li><li>No reward for a definition of profit</li><li>No reward for answers about allowing the business to survive</li></ul></div><div class="marks-section"><h5>Answers may include:</h5><ul><li>To help expansion (1) by opening new stores (1)</li><li>To help repay a loan / debt (1) so that costs fall (1)</li><li>Buy new equipment and buildings (1) to replace worn out items (1)</li><li>Attract new investors (1) so that the business can expand (1)</li><li>Develop new products (1) to allow more profit to be made in the future (1)</li><li>To pay dividends (1) which keep shareholders happy (1)</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Most candidates achieved at least one mark, with expansion or growth being a popular answer. Although a clear majority could identify a reason, many did not support their answer with a relevant explanation.</p></div>`,
+      modelAnswer: "<strong>Model Answer:</strong> Profit allows the business to expand (1) by opening new hotels in different locations (1)."
+    },
+    {
+      num: "Q8ii",
+      marks: 3,
+      type: "written",
+      caseStudy: "",
+      question: "Calculate the daily break-even quantity for the proposed hotel. [3 marks]",
+      hint: "Step 1: Calculate contribution (selling price − variable cost per room). Step 2: Convert weekly fixed costs to daily. Step 3: Break-even = daily fixed costs ÷ contribution.",
+      starter: "The contribution per room is calculated as selling price minus variable cost, which is...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO2 = 3 marks)</h5><ul><li><strong>1 mark:</strong> Contribution = £100 − £40 = £60</li><li><strong>1 mark:</strong> Daily fixed costs = £6,300 ÷ 7 = £900</li><li><strong>1 mark:</strong> Break-even = £900 ÷ £60 = <strong>15 rooms</strong></li></ul></div><div class="marks-section"><h5>Alternative method:</h5><ul><li>Contribution = £60</li><li>Weekly break-even = £6,300 ÷ £60 = 105</li><li>Daily break-even = 105 ÷ 7 = 15 rooms</li></ul></div><div class="marks-section"><h5>Notes:</h5><ul><li>No reward for the formula alone</li><li>Max 2 marks if weekly fixed costs not divided by 7 (giving answer of 105)</li><li>Max 2 marks if answer has wrong units (e.g. £)</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Even though 'daily' was emboldened, many candidates stopped at 105 rooms (weekly) and only gained 2 marks.</p></div>`,
+      modelAnswer: "<strong>Contribution:</strong> £100 − £40 = £60<br><strong>Daily FC:</strong> £6,300 ÷ 7 = £900<br><strong>Break-even:</strong> £900 ÷ £60 = <strong>15 rooms</strong>"
+    },
+    {
+      num: "Q8iii",
+      marks: 3,
+      type: "written",
+      caseStudy: "",
+      question: "Analyse one disadvantage to the partnership if the proposed hotel's fixed costs were 10% higher than expected. [3 marks]",
+      hint: "Start with the disadvantage (understanding). Then apply using numbers from the case study. Finally analyse the impact on the business.",
+      starter: "If fixed costs were 10% higher than expected, this would...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1b + AO2 + AO3a = 3 marks)</h5><ul><li><strong>1 mark:</strong> Identifying a disadvantage of higher than expected costs</li><li><strong>1 further mark:</strong> Application to the Sea View Hotel partnership (using numbers)</li><li><strong>1 further mark:</strong> Analysis of the disadvantage to the business</li><li>No reward for 'costs will increase'</li><li>No application marks for context about the current hotel</li><li>Analysis must be business-facing</li></ul></div><div class="marks-section"><h5>Understanding may include:</h5><ul><li>Could lead to lower profits (or a loss)</li><li>Could lead to price increases</li><li>Increases break-even level of output</li><li>Less money available for other needs</li></ul></div><div class="marks-section"><h5>Application may include:</h5><ul><li>Fixed costs of £6,300 a week</li><li>Increase of £630 a week / to £6,930 / £90 more per day</li><li>Break-even increases from 15 to 17 rooms per day (119 per week)</li></ul></div><div class="marks-section"><h5>Analysis may include:</h5><ul><li>Need to fill more rooms to cover the extra costs</li><li>May reduce customer demand if price has increased</li><li>Share of profits could be reduced for the owners</li><li>May lead to business debts or a need for more finance</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Better answers showed understanding related to profit or break-even, applied to the numbers, with an impact on the need to sell more rooms. Some analytical answers did not include any application.</p></div>`,
+      modelAnswer: "If the fixed costs increased to £6,930 (APP), the hotel makes less profit (1). This may make it difficult to attract new investors (1)."
+    },
+    {
+      num: "Q9",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "",
+      question: "Which of the following would be fixed costs of a fruit farm? [1 mark]",
+      options: [
+        "A — Farm workers' wages",
+        "B — Plant food and fertiliser",
+        "C — Rent and rates",
+        "D — Seeds and seedlings"
+      ],
+      answer: 2,
+      hint: "Fixed costs do not change with the level of output. Which of these stays the same whether or not crops are being grown?",
+      starter: "A fixed cost for a fruit farm would be...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — Rent and rates</strong></p></div><div class="marks-section"><h5>Why</h5><p>Rent and rates must be paid regardless of output levels. Workers' wages, fertiliser and seeds are all variable because they increase when more crops are produced.</p></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q10",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "Four years ago an entrepreneur invested £200,000 to start up their own business. The business is making an average profit of £53,000 per year.",
+      question: "The entrepreneur's average rate of return is: [1 mark]",
+      options: [
+        "A — 6.6%",
+        "B — 26.5%",
+        "C — 73.5%",
+        "D — 106%"
+      ],
+      answer: 1,
+      hint: "ARR = (Average annual profit ÷ Cost of investment) × 100.",
+      starter: "The average rate of return is calculated by dividing average annual profit by the initial investment...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>B — 26.5%</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>ARR = £53,000 ÷ £200,000 × 100 = 26.5%</li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q11",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "Emma and Henry are in a partnership that runs a small building firm. Despite being profitable, the business is having difficulty paying all its expenses.",
+      question: "Which of the following would help Emma and Henry deal with this problem? [1 mark]",
+      options: [
+        "A — Holding larger stocks of raw materials",
+        "B — Increasing the labourers' wages",
+        "C — Issuing shares",
+        "D — Taking on a new partner"
+      ],
+      answer: 3,
+      hint: "The problem is a cash flow issue, not a profit issue. Which option brings in new capital to fund day-to-day expenses?",
+      starter: "To deal with the difficulty of paying expenses, Emma and Henry should...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>D — Taking on a new partner</strong></p></div><div class="marks-section"><h5>Why</h5><p>A new partner would inject capital into the business, helping to resolve the cash flow problem. Holding more stock or increasing wages would make things worse. Issuing shares is not available to partnerships.</p></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q12",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "Financial data for Pilti plc in 2022:\n• Revenue: £44 million\n• Expenses: £12 million\n• Net profit: £14 million",
+      question: "Pilti plc's gross profit in 2022 was: [1 mark]",
+      options: [
+        "A — £18 million",
+        "B — £26 million",
+        "C — £32 million",
+        "D — £58 million"
+      ],
+      answer: 1,
+      hint: "Rearrange: Gross profit = Net profit + Expenses. Net profit = Gross profit − Expenses.",
+      starter: "Gross profit is found by adding net profit and expenses together...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>B — £26 million</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>Gross profit = Net profit + Expenses = £14m + £12m = £26m</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Less than one in five candidates selected the correct answer. Answer C was the most popular wrong answer — candidates confused expenses with cost of sales. The formula rearranges to: Gross profit = Net profit + Expenses.</p></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q13",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "Riley runs his own cleaning business and wishes to keep supply costs as low as possible.\n\nSupplier 1: 100 litre barrels @ £80\nSupplier 2: 200 litre barrels @ £100\nSupplier 3: 1,000 litre barrels @ £600\nSupplier 4: 2,000 litre barrels @ £800",
+      question: "The lowest cost that Riley can obtain 1,200 litres of cleaning fluid from one supplier is: [1 mark]",
+      options: [
+        "A — £480",
+        "B — £600",
+        "C — £700",
+        "D — £800"
+      ],
+      answer: 1,
+      hint: "Work out how many barrels of each size you would need to get at least 1,200 litres. Then calculate the total cost for each option.",
+      starter: "To obtain 1,200 litres from one supplier, Riley would need...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>B — £600</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>Supplier 3: 1 × 1,000L barrel = £600, but only 1,000L — not enough</li><li>Riley needs to buy 2 × 1,000L barrels from Supplier 3 = £1,200 — too expensive</li><li>Supplier 3: 1 barrel = 1,000L, need at least 1,200L → buy 2 = £1,200</li><li>Best option: 6 × 200L barrels from Supplier 2 = 1,200L @ £100 each = £600</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Around half of candidates answered correctly. Answer A was most common wrong answer — it is not possible to get 1,200L for £480 from any supplier.</p></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q14",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "The net profit margin of a business has increased from 6% in 2021 to 9% in 2022.",
+      question: "Which of the following must be true for this business? [1 mark]",
+      options: [
+        "A — Expenses have fallen by 50%",
+        "B — Net profit has increased by 3%",
+        "C — Profitability has increased by 50%",
+        "D — Revenue has increased by 3%"
+      ],
+      answer: 2,
+      hint: "The question is about the margin (a ratio), not the absolute profit figure. Calculate the percentage change in the margin itself.",
+      starter: "If the net profit margin has increased from 6% to 9%, this means profitability has changed by...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — Profitability has increased by 50%</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>Change = 9% − 6% = 3 percentage points</li><li>% change in profitability = 3 ÷ 6 × 100 = 50%</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>This was the least well answered multiple-choice question. The most common wrong answer was B — candidates confused 'net profit' with 'net profit margin'.</p></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q15",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "Amir runs a market stall that sells bread. His most popular product, the Farmhouse Loaf, is currently priced at £2.00.\n\nExpected weekly sales at various prices:\n£1.50 → 350 loaves\n£1.75 → 250 loaves\n£2.00 → 150 loaves\n£2.25 → 50 loaves",
+      question: "This data is useful to Amir when making this pricing decision because it shows that: [1 mark]",
+      options: [
+        "A — changing the price charged for each loaf will have little effect on total revenue",
+        "B — charging a relatively high price for each loaf is likely to increase total revenue",
+        "C — reducing the price charged for each loaf is likely to increase total revenue",
+        "D — the current price should not be changed because it maximises total revenue"
+      ],
+      answer: 2,
+      hint: "Calculate total revenue (price × quantity) for each price point and compare.",
+      starter: "The data shows that reducing the price is likely to increase total revenue because...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — reducing the price charged for each loaf is likely to increase total revenue</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>£1.50 × 350 = £525</li><li>£1.75 × 250 = £437.50</li><li>£2.00 × 150 = £300</li><li>£2.25 × 50 = £112.50</li><li>Total revenue is highest at £1.50, so reducing price increases revenue</li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q16a",
+      marks: 3,
+      type: "written",
+      caseStudy: "Zara is a global fashion brand based in Spain. Zara is best known for the speed and frequency it can get its new clothing ranges into its online shop and 2,270 stores. Approximately 50% of Zara's clothes are manufactured in Spain; the rest come from other European countries, or from Asia and Africa. Like most firms in 2020, Zara experienced a fall in sales. Zara's global sales revenues in 2019 were €19,954 million, but in 2020 these fell to €14,129 million. However, during this period Zara's online sales increased by approximately 75%, as consumer buying habits changed in favour of e-commerce.\n\nZara can get new clothing designed, manufactured and delivered to its stores within 15 days. It does this by buying fabric in large quantities from suppliers in Europe, which helps keep its variable costs low. This means that it is delivered quickly to its factory in Spain, where it can then be made up into the new designs.\n\nZara's highly responsive supply chain is central to its business success. This means it can change its clothing designs on average every two weeks, while competitors change their designs every two or three months.",
+      question: "Analyse one reason why keeping variable costs low may reward Zara's owners. [3 marks]",
+      hint: "Start with understanding (why does lower variable cost matter?). Then apply to Zara using a specific detail from the text. Then analyse how the owner is REWARDED — think dividends or business value.",
+      starter: "Keeping variable costs low may reward Zara's owners because it leads to...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1b + AO2 + AO3a = 3 marks)</h5><ul><li><strong>1 mark:</strong> Understanding a reason why lower costs reward an owner</li><li><strong>1 further mark:</strong> Application of understanding to Zara using evidence from the text</li><li><strong>1 further mark:</strong> Analysis of how lower variable costs help reward an owner</li><li>No reward for answers suggesting that controlling variable costs increases sales revenue</li><li>Analysis must show what the owner does with the profit (e.g. dividends, expansion)</li></ul></div><div class="marks-section"><h5>Understanding may include:</h5><ul><li>Lower costs could lead to lower total costs / better profits / margins</li><li>Lower costs could enable a reduction in price</li><li>Lowers the break-even level of output</li></ul></div><div class="marks-section"><h5>Application may include:</h5><ul><li>Buying fabric in large quantities from European suppliers</li><li>2,270 stores</li><li>Online sales increased by approximately 75%</li><li>Fast delivery / lead time of 15 days</li></ul></div><div class="marks-section"><h5>Analysis may include:</h5><ul><li>May lead to owners receiving more money / dividends</li><li>Allows the business to expand / investment in growth / improve the stores</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Without context from the case study, the answer is limited to 2 marks. Many answers focused on the benefit to customers or employees rather than the owners. Keeping variable costs low only rewards the owner if it affects dividends or the value of the business.</p></div>`,
+      modelAnswer: "It may lead to better profit margins (1) if Zara reduces variable costs from buying large quantities of fabric (APP). This may mean that Zara's owners receive more dividends (1)."
+    },
+    {
+      num: "Q16bi",
+      marks: 2,
+      type: "written",
+      caseStudy: "",
+      question: "Calculate the percentage decrease in Zara's sales revenue between 2019 and 2020. Show your workings. [2 marks]",
+      hint: "Percentage change = (change ÷ original) × 100. The original is the 2019 figure.",
+      starter: "The percentage decrease is calculated by first finding the change in revenue, which is...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO2 = 2 marks)</h5><ul><li><strong>1 mark:</strong> Correct change in revenue = €5,825m</li><li><strong>1 further mark (OFR):</strong> €5,825m ÷ €19,954m × 100 = 29.2%</li><li>Negative sign not required</li><li>Accept 29% or any reasonable rounding</li></ul></div><div class="marks-section"><h5>Working</h5><ul><li>€19,954m − €14,129m = €5,825m</li><li>€5,825m ÷ €19,954m × 100 = <strong>29.2%</strong></li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>More than half of candidates gained full marks. The most common wrong answer was 13.4%, from using the wrong denominator (2020 figure). If the working showing €5,825m was clear, this still gained 1 mark.</p></div>`,
+      modelAnswer: "€19,954m − €14,129m = €5,825m<br>€5,825m ÷ €19,954m × 100 = <strong>29.2%</strong>"
+    },
+    {
+      num: "Q16bii",
+      marks: 2,
+      type: "written",
+      caseStudy: "",
+      question: "Explain one possible advantage to a business of selling its products via e-commerce. [2 marks]",
+      hint: "Think about what is unique about selling online. Make sure your answer is from the BUSINESS's point of view, not the customer's.",
+      starter: "One advantage to a business of selling via e-commerce is...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1b = 2 marks)</h5><ul><li><strong>1 mark:</strong> Identifying an advantage of selling via e-commerce</li><li><strong>1 further mark:</strong> Explaining the advantage</li><li>Answers do not need to relate to Zara</li><li>An answer of 'selling more products' without a link to e-commerce gains no marks</li></ul></div><div class="marks-section"><h5>Answers may include:</h5><ul><li>Sell worldwide / wider audience</li><li>Open all the time (24/7)</li><li>Professional look at little cost / easier to display products online</li><li>Lower operating costs (no need for physical stores)</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Generally well answered. Some answers were from the customer's point of view rather than the business. Candidates must read the question carefully.</p></div>`,
+      modelAnswer: "A business selling online may have lower operating costs (1) because it does not need to have an expensive location to sell from (1)."
+    },
+    {
+      num: "Q17",
+      marks: 2,
+      type: "written",
+      caseStudy: "AstraZeneca plc (AZ) is a multinational pharmaceutical company that operates in over 100 countries around the world. AZ develops treatments for a range of diseases. It sells its medicines and vaccines worldwide. Its headquarters are in Cambridge, England. In 2021 AZ's sales revenue was £37,417m, from which it made £24,980m gross profit.\n\nAZ has a code of ethics, which is at the centre of everything that it does. The company has approximately 75,000 employees worldwide; 10,000 of these work in its three research and development centres.",
+      question: "Calculate AZ's gross profit margin for 2021. Show your workings. [2 marks]",
+      hint: "Gross profit margin = (Gross profit ÷ Revenue) × 100. Both figures are given in the case study.",
+      starter: "AZ's gross profit margin is calculated by dividing gross profit by revenue and multiplying by 100...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO2 = 2 marks)</h5><ul><li><strong>2 marks:</strong> Correct answer of 66.8% (with or without workings)</li><li><strong>1 mark:</strong> For setting out the correct calculation</li><li>Accept 67%, 66.76%, 66.7%</li><li>Maximum one mark if incorrect or no units</li></ul></div><div class="marks-section"><h5>Working</h5><ul><li>£24,980m ÷ £37,417m × 100 = <strong>66.8%</strong></li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Nearly half of candidates gained full marks. Mistakes were made with rounding and with including the wrong or no units.</p></div>`,
+      modelAnswer: "£24,980m ÷ £37,417m × 100 = <strong>66.8%</strong>"
+    },
+    {
+      num: "Q18i",
+      marks: 2,
+      type: "written",
+      caseStudy: "BP plc is a UK energy company which has its headquarters in London. BP produces oil, gas and petrol. It sells and distributes these products to customers all over the world. It also produces some environmentally friendly energy including biofuels, as well as wind- and solar-powered electrical energy.\n\nThe company's finance function is critical in ensuring the business is managed efficiently. BP plc's revenue increased from $245 billion in 2017 to $283 billion in 2019.",
+      question: "Calculate the percentage change in BP's revenue between 2017 and 2019. Show your workings. [2 marks]",
+      hint: "Percentage change = (change ÷ original) × 100. Use the 2017 figure as the original (denominator).",
+      starter: "The percentage change in BP's revenue is calculated by first finding the change...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO2 = 2 marks)</h5><ul><li><strong>1 mark:</strong> Correct change = $38bn</li><li><strong>1 further mark (OFR):</strong> $38bn ÷ $245bn × 100 = 15.5%</li><li>Accept 15% or 16% with workings shown</li><li>% sign not required (printed on paper)</li><li>Using wrong denominator giving 13.4% = 1 mark (OFR)</li></ul></div><div class="marks-section"><h5>Working</h5><ul><li>$283bn − $245bn = $38bn</li><li>$38bn ÷ $245bn × 100 = <strong>15.5%</strong></li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Most candidates did well. The most common wrong answer was 13.4% when the wrong denominator (2019) was used.</p></div>`,
+      modelAnswer: "$283bn − $245bn = $38bn<br>$38bn ÷ $245bn × 100 = <strong>15.5%</strong>"
+    },
+    {
+      num: "Q18ii",
+      marks: 2,
+      type: "written",
+      caseStudy: "",
+      question: "Identify two factors that can affect a company's revenue. [2 marks]",
+      hint: "Revenue = price × quantity sold. Think about factors that affect either the price charged or the number of sales.",
+      starter: "Two factors that can affect a company's revenue are...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1a = 2 marks)</h5><ul><li><strong>1 mark each</strong> for two correct factors (max 2)</li><li>Answers do not need to relate to BP</li><li>No reward for answers about costs or production levels alone</li><li>Accept answers which cause a change in demand (e.g. company reputation, promotion, customer service)</li></ul></div><div class="marks-section"><h5>Answers may include:</h5><ul><li>The number of competitors</li><li>The actions of competitors</li><li>The price of the product</li><li>The level of sales / output</li><li>Quality of the product</li><li>Increasing product range</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Some candidates confused costs and revenue. Revenue is ultimately price × quantity sold, so any factor affecting either variable was accepted.</p></div>`,
+      modelAnswer: "<strong>1.</strong> The price charged for the product<br><strong>2.</strong> The level of competition in the market"
+    },
+    {
+      num: "Q19i",
+      marks: 3,
+      type: "written",
+      caseStudy: "Quality Textiles Ltd (QT) is a medium-sized, established business that manufactures clothes from its factory in Birmingham. Its clothes are sold to retail shops around the country.\n\nProfitability (Table 1):\nThis year: GPM 65%, NPM 27%\nLast year: GPM 60%, NPM 25%\nTwo years ago: GPM 57%, NPM 23%\n\nQT wants to expand the business by using a bank loan to buy a large van to help with deliveries. It will use average rate of return (ARR) to assess which model of van it will buy.\n\nTable 2:\nStandard Van: Price £40,000 | Total net profit over life = £60,000 | Life = 3 years | ARR = ?\nSuperior Van: Price £50,000 | Total net profit over life = £70,000 | Life = 4 years | ARR = 35%\n\nQT's cash flow forecast suggests it may struggle to pay the monthly van loan repayment.",
+      question: "Calculate the average rate of return (ARR) for the Standard Van by using the information in Table 2. Show your workings. [3 marks]",
+      hint: "Step 1: Calculate average annual profit (total net profit ÷ years). Step 2: ARR = (average annual profit ÷ cost of investment) × 100.",
+      starter: "The average rate of return for the Standard Van is calculated by first finding average annual profit...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO2 = 3 marks)</h5><ul><li><strong>1 mark:</strong> Average annual profit = £60,000 ÷ 3 = £20,000</li><li><strong>1 further mark (OFR):</strong> £20,000 ÷ £40,000 (correct division)</li><li><strong>1 further mark (OFR):</strong> = 50%</li><li>% sign not required (printed on paper)</li></ul></div><div class="marks-section"><h5>Working</h5><ul><li>£60,000 ÷ 3 years = £20,000 average annual profit</li><li>(£20,000 ÷ £40,000) × 100 = <strong>50%</strong></li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Generally well answered. Most candidates either scored 3 marks or 0 (by omitting the question). Errors were due to poor formula knowledge or selecting data from the wrong table.</p></div>`,
+      modelAnswer: "£60,000 ÷ 3 = £20,000<br>(£20,000 ÷ £40,000) × 100 = <strong>50%</strong>"
+    },
+    {
+      num: "Q19ii",
+      marks: 3,
+      type: "written",
+      caseStudy: "",
+      question: "Analyse one reason why QT should buy the Standard Van. Refer to Table 2 in your answer. [3 marks]",
+      hint: "Use a specific figure from Table 2 to support your reason. Then explain the impact on QT — don't just say 'it is cheaper', say what that means for the business.",
+      starter: "QT should buy the Standard Van because...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1b + AO2 + AO3a = 3 marks)</h5><ul><li><strong>1 mark:</strong> Understanding a reason for buying the Standard Van</li><li><strong>1 further mark:</strong> Application of understanding to QT using Table 2 data</li><li><strong>1 further mark:</strong> Analysis of benefit of buying the Standard Van</li><li>To award APP, data must be explicitly used — 'the price is lower' only gains understanding; 'the price is £10,000 less' gains both</li></ul></div><div class="marks-section"><h5>Understanding may include:</h5><ul><li>It is cheaper</li><li>Higher ARR / better return on investment</li><li>Meets cash flow objectives</li></ul></div><div class="marks-section"><h5>Application may include:</h5><ul><li>Standard Van is £10,000 less than the Superior Van</li><li>Standard Van has a better ARR of 50% (OFR) compared to 35%</li><li>Total profit of £60,000 over 3 years</li></ul></div><div class="marks-section"><h5>Analysis may include:</h5><ul><li>Less risk to QT</li><li>Less damage to cash flow</li><li>Allows the business to grow</li><li>Will recover the cost more quickly</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>A common error was not using data from Table 2 as instructed. Another error was for candidates to question whether to buy a van at all — that decision had already been made.</p></div>`,
+      modelAnswer: "The Standard Van's rate of return has a better ARR (1) of 50% compared to the Superior Van of 35% (APP). This means that QT will gain more profit when compared to the capital outlay (1)."
+    },
+    {
+      num: "Q20",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "Performance data for Pallin Ltd for the last five years of trading:\n2017: £15,000\n2018: £0\n2019: −£9,000\n2020: £17,000\n2021: −£3,000",
+      question: "Pallin Ltd's average level of profit over the last five years is: [1 mark]",
+      options: [
+        "A — £4,000 per year",
+        "B — £5,000 per year",
+        "C — £6,400 per year",
+        "D — £8,000 per year"
+      ],
+      answer: 0,
+      hint: "Add all five profit/loss figures together (remember losses are negative) then divide by 5.",
+      starter: "The average profit is calculated by adding all five years together and dividing by 5...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>A — £4,000 per year</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>£15,000 + £0 + (−£9,000) + £17,000 + (−£3,000) = £20,000</li><li>£20,000 ÷ 5 = <strong>£4,000 per year</strong></li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q21",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "A perfume shop has a gross profit margin of 50%.",
+      question: "This means: [1 mark]",
+      options: [
+        "A — for every £10 of sales, it makes £5 profit after all costs have been paid",
+        "B — the perfume shop's variable costs are exactly half of its fixed costs",
+        "C — the shop charges customers double what it pays when buying the perfume",
+        "D — to make £10 of profit, it needs to sell £50 of perfume"
+      ],
+      answer: 2,
+      hint: "GPM = (Gross Profit ÷ Revenue) × 100. If GPM is 50%, what is the relationship between the buying price and the selling price?",
+      starter: "A gross profit margin of 50% means that...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — the shop charges customers double what it pays when buying the perfume</strong></p></div><div class="marks-section"><h5>Why</h5><p>If GPM = 50%, then gross profit = 50% of revenue. This means cost of sales = 50% of revenue. If cost = 50% of selling price, then selling price = 2 × cost — i.e. the shop charges double what it paid.</p></div><div class="marks-section"><h5>Examiner's Comment</h5><p>This was the least well answered question in Section A. Answer A was most common wrong answer — £5 is 50% of £10, but this profit is after variable costs only, not 'all costs'.</p></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q22",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "A drum kit manufacturer plans to make 500 drum kits this year. Estimated costs:\n• Raw materials: £40 per drum kit\n• Rent: £600 per month\n• Heating and lighting: £900 per quarter\n• Other expenses: £56,000 per annum",
+      question: "The manufacturer's estimated total cost for the year is: [1 mark]",
+      options: [
+        "A — £66,840",
+        "B — £77,500",
+        "C — £85,900",
+        "D — £86,800"
+      ],
+      answer: 3,
+      hint: "Convert all costs to annual figures first, then add them together. Remember: rent × 12, heating × 4.",
+      starter: "To calculate total annual costs, I need to convert all costs to annual figures...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>D — £86,800</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>Variable: 500 × £40 = £20,000</li><li>Rent: £600 × 12 = £7,200</li><li>Heating & lighting: £900 × 4 = £3,600</li><li>Other expenses: £56,000</li><li>Total = £20,000 + £7,200 + £3,600 + £56,000 = <strong>£86,800</strong></li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q23",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "",
+      question: "Which of the following would be a variable cost for a restaurant? [1 mark]",
+      options: [
+        "A — Advertising fees",
+        "B — Buildings insurance",
+        "C — Chef's salary",
+        "D — Fruit and vegetables"
+      ],
+      answer: 3,
+      hint: "Variable costs increase as output increases. Which item would a restaurant need more of when serving more meals?",
+      starter: "A variable cost for a restaurant would be...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>D — Fruit and vegetables</strong></p></div><div class="marks-section"><h5>Why</h5><p>Fruit and vegetables are ingredients used directly in food preparation — the more meals served, the more ingredients needed. Salaries, insurance and advertising fees are fixed or semi-fixed costs.</p></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q24",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "Financial data for Tictal Ltd in 2020:\n• Revenue: £180,000\n• Cost of sales: £45,000\n• Expenses: £36,000",
+      question: "Tictal Ltd's gross profit margin in 2020 was: [1 mark]",
+      options: [
+        "A — 25%",
+        "B — 45%",
+        "C — 55%",
+        "D — 75%"
+      ],
+      answer: 3,
+      hint: "Gross profit = Revenue − Cost of sales. Then GPM = (Gross profit ÷ Revenue) × 100. Do not use expenses for this calculation.",
+      starter: "Gross profit margin is calculated using revenue and cost of sales only...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>D — 75%</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>Gross profit = £180,000 − £45,000 = £135,000</li><li>GPM = £135,000 ÷ £180,000 × 100 = <strong>75%</strong></li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q25",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "An advertising agency wishes to upgrade its design software at a cost of £60,000. The net cash flow generated by the software for each of the next two years is forecast to be £60,000.",
+      question: "Assuming the forecasted figures are correct, the average rate of return for this upgrade will be: [1 mark]",
+      options: [
+        "A — 33%",
+        "B — 50%",
+        "C — 67%",
+        "D — 100%"
+      ],
+      answer: 1,
+      hint: "Total profit = total income − cost of investment. Then ARR = (average annual profit ÷ cost) × 100.",
+      starter: "The ARR is calculated by first finding total profit (total income minus the cost)...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>B — 50%</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>Total income = £60,000 × 2 = £120,000</li><li>Total profit = £120,000 − £60,000 = £60,000</li><li>Average annual profit = £60,000 ÷ 2 = £30,000</li><li>ARR = £30,000 ÷ £60,000 × 100 = <strong>50%</strong></li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q26i",
+      marks: 2,
+      type: "written",
+      caseStudy: "Alessia and Natalia own Ricardo Costumes and Props (RCP). The business operates as a partnership. RCP makes a range of costumes and props that it sells to UK and EU theatres, schools and amateur dramatics groups.\n\nLast year, RCP's costumes and props were used in two very successful films. RCP's reputation grew rapidly and its revenue increased from £1,600,000 in 2019 to £2,000,000 in 2020. More financial data for RCP in 2020:\n\nRevenue: £2,000,000\nCost of sales: £500,000\nSalaries: £1,300,000\nRent: £100,000\nOther expenses: £50,000\n\nDespite being profitable, RCP's bank overdraft is getting bigger every month.",
+      question: "Identify two variable costs which a business may incur. [2 marks]",
+      hint: "Variable costs change with the level of output. Think about what a business uses more of when it produces more.",
+      starter: "Two variable costs a business may incur are...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1a = 2 marks)</h5><ul><li><strong>1 mark each</strong> for two correct variable costs</li><li>Answers do not need to apply to RCP</li><li>Do not accept 'salaries' or 'production costs'</li></ul></div><div class="marks-section"><h5>Answers may include:</h5><ul><li>Wages (labour costs)</li><li>Raw materials / cost of sales (or one example)</li><li>Stock / components</li><li>Packaging</li></ul></div>`,
+      modelAnswer: "<strong>1.</strong> Raw materials / cost of sales<br><strong>2.</strong> Wages"
+    },
+    {
+      num: "Q26ii",
+      marks: 3,
+      type: "written",
+      caseStudy: "",
+      question: "Calculate RCP's net profit for 2020. Show your workings. [3 marks]",
+      hint: "Step 1: Gross profit = Revenue − Cost of sales. Step 2: Net profit = Gross profit − all other expenses (salaries + rent + other).",
+      starter: "Gross profit = Revenue − Cost of sales = ...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO2 = 3 marks)</h5><ul><li><strong>1 mark:</strong> Gross profit = £2,000,000 − £500,000 = £1,500,000</li><li><strong>1 further mark:</strong> Net profit = £1,500,000 − (£1,300,000 + £100,000 + £50,000) = £1,500,000 − £1,450,000</li><li><strong>1 further mark:</strong> = £50,000</li><li>3 marks for correct answer with or without workings</li><li>2 marks for mathematical error with correct method shown</li><li>1 mark for correct gross profit figure with evidence of workings</li></ul></div><div class="marks-section"><h5>Working</h5><ul><li>Gross profit = £2,000,000 − £500,000 = £1,500,000</li><li>Total expenses = £1,300,000 + £100,000 + £50,000 = £1,450,000</li><li>Net profit = £1,500,000 − £1,450,000 = <strong>£50,000</strong></li></ul></div>`,
+      modelAnswer: "Gross profit = £2,000,000 − £500,000 = £1,500,000<br>Net profit = £1,500,000 − £1,450,000 = <strong>£50,000</strong>"
+    },
+    {
+      num: "Q26iii",
+      marks: 3,
+      type: "written",
+      caseStudy: "",
+      question: "Analyse one way Alessia and Natalia could use the data shown in Table 1 to improve their net profit margin. [3 marks]",
+      hint: "Look at which cost in the table is the largest. Then suggest how reducing it would improve the net profit margin, and explain the impact on the business.",
+      starter: "To improve the net profit margin, Alessia and Natalia could...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1b + AO2 + AO3a = 3 marks)</h5><ul><li><strong>1 mark:</strong> Understanding of one way to improve net profit margin</li><li><strong>1 further mark:</strong> Application to RCP using data from Table 1</li><li><strong>1 further mark:</strong> Analysis of how this would improve the profit margin</li></ul></div><div class="marks-section"><h5>Understanding may include:</h5><ul><li>Recognise expenses / salaries / costs are too high or need decreasing</li><li>Need to increase revenue relative to costs</li><li>Identify which costs are highest</li></ul></div><div class="marks-section"><h5>Application may include:</h5><ul><li>Net profit margin is 2.5% (£50,000 ÷ £2,000,000)</li><li>RCP's salaries account for 65% of revenue earned (£1,300,000)</li><li>Cost of sales = 25% of revenue</li></ul></div><div class="marks-section"><h5>Analysis may include:</h5><ul><li>A pay cut would reduce salaries so that profits will increase</li><li>Lower quality raw materials would increase the gap between revenue and costs</li></ul></div>`,
+      modelAnswer: "RCP need to cut its costs (U). Salaries are their largest single cost (APP) so if they were to get staff to take a pay cut (AN) they could reduce the salaries and increase the profit margin."
+    },
+    {
+      num: "Q27",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "Shanco plc has managed to reduce its transport costs from £0.7 million in 2019 to £0.6 million in 2020.",
+      question: "What percentage reduction in transport costs has Shanco plc achieved? [1 mark]",
+      options: [
+        "A — 6%",
+        "B — 7%",
+        "C — 14.3%",
+        "D — 16.7%"
+      ],
+      answer: 2,
+      hint: "Percentage change = (change ÷ original) × 100. The original is the 2019 figure.",
+      starter: "The percentage reduction is calculated using the 2019 figure as the original...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — 14.3%</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>Change = £0.7m − £0.6m = £0.1m</li><li>% reduction = £0.1m ÷ £0.7m × 100 = <strong>14.3%</strong></li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q28i",
+      marks: 2,
+      type: "written",
+      caseStudy: "Elizabeth owns a small business, Luxury Cushions (LC), making and selling quality cushions. She sells these to retail shops and direct to the public over the internet.\n\nIn 2019 LC earned £150,000 in revenue and had a gross profit of £118,000 and a net profit of £56,800.\n\nMonthly data:\n• Cushions made and sold: 250\n• Fixed costs each month: £7,440\n• Average selling price: £50\n• Cost of each cushion filling: £3\n• Cost of each cushion cover: £6\n• Wage paid per cushion made: £10",
+      question: "Calculate the gross profit margin for 2019. Show your workings. [2 marks]",
+      hint: "Gross profit margin = (Gross profit ÷ Revenue) × 100. Both figures are given in the case study.",
+      starter: "The gross profit margin for 2019 is...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO2 = 2 marks)</h5><ul><li><strong>2 marks:</strong> Correct answer (with or without workings)</li><li><strong>1 mark:</strong> Evidence of using the correct two numbers</li><li>Maximum 1 mark if incorrect units or magnitude</li><li>Accept 79% or 78.6%</li></ul></div><div class="marks-section"><h5>Working</h5><ul><li>£118,000 ÷ £150,000 × 100 = <strong>78.7%</strong></li></ul></div>`,
+      modelAnswer: "£118,000 ÷ £150,000 × 100 = <strong>78.7%</strong>"
+    },
+    {
+      num: "Q28ii",
+      marks: 2,
+      type: "written",
+      caseStudy: "",
+      question: "Calculate the net profit margin for 2019. Show your workings. [2 marks]",
+      hint: "Net profit margin = (Net profit ÷ Revenue) × 100. Both figures are given in the case study.",
+      starter: "The net profit margin for 2019 is...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO2 = 2 marks)</h5><ul><li><strong>2 marks:</strong> Correct answer (with or without workings)</li><li><strong>1 mark:</strong> Evidence of using the correct two numbers</li><li>Maximum 1 mark if incorrect units or magnitude</li><li>Accept 38% or 37.8%</li></ul></div><div class="marks-section"><h5>Working</h5><ul><li>£56,800 ÷ £150,000 × 100 = <strong>37.9%</strong></li></ul></div>`,
+      modelAnswer: "£56,800 ÷ £150,000 × 100 = <strong>37.9%</strong>"
+    },
+    {
+      num: "Q29",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "A company's total costs in 2019 were £9 million. The company's labour costs were 40% of the company's total costs.",
+      question: "The company's labour costs in 2019 were: [1 mark]",
+      options: [
+        "A — £3.6 million",
+        "B — £5.4 million",
+        "C — £12.6 million",
+        "D — £14.4 million"
+      ],
+      answer: 0,
+      hint: "Calculate 40% of £9 million.",
+      starter: "Labour costs = 40% × £9 million = ...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>A — £3.6 million</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>£9m × 0.40 = <strong>£3.6 million</strong></li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q30",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "",
+      question: "Variable costs: [1 mark]",
+      options: [
+        "A — are not affected by changes in output",
+        "B — fall as output rises",
+        "C — increase as output rises",
+        "D — remain constant over time"
+      ],
+      answer: 2,
+      hint: "Think about what happens to variable costs when a business produces more — e.g. more raw materials needed.",
+      starter: "Variable costs increase as output rises because...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — increase as output rises</strong></p></div><div class="marks-section"><h5>Why</h5><p>Variable costs (e.g. raw materials, direct labour) rise directly in line with the level of production. Fixed costs remain constant; variable costs do not.</p></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q31",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "A furniture maker intends to purchase a new wood cutting machine:\n• Cost of machine: £6,000\n• Income Year 1: £3,000\n• Income Year 2: £3,000\n• Income Year 3: £3,000",
+      question: "The expected average rate of return for this purchase is: [1 mark]",
+      options: [
+        "A — £1,000",
+        "B — £3,000",
+        "C — 16.67%",
+        "D — 33.33%"
+      ],
+      answer: 2,
+      hint: "Total profit = total income − cost. Average annual profit = total profit ÷ years. ARR = (average annual profit ÷ cost) × 100.",
+      starter: "The ARR is calculated by first working out total profit over the machine's life...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — 16.67%</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>Total income = £3,000 × 3 = £9,000</li><li>Total profit = £9,000 − £6,000 = £3,000</li><li>Average annual profit = £3,000 ÷ 3 = £1,000</li><li>ARR = £1,000 ÷ £6,000 × 100 = <strong>16.67%</strong></li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q32i",
+      marks: 2,
+      type: "written",
+      caseStudy: "Anne and Martin opened Café Freshly Made (CFM) as a partnership two years ago. It sells sandwiches and fruit juice cocktails direct to the public as well as providing a delivery service.\n\nTable 1 — CFM's Gross and Net Profit Margins:\nYear 1: GPM 60%, NPM 20%\nYear 2: GPM 70%, NPM 25%\n\nMartin wants to open another café but Anne is concerned about CFM's cash flow.\n\nTable 2 — Extract from CFM's cash flow forecast for next month:\n• Revenue: £23,000\n• Total outflow: £25,000\n• Net cash flow: ?\n• Opening balance: −£3,500\n• Closing balance: −£5,500",
+      question: "Explain what is meant by the gross profit margin. [2 marks]",
+      hint: "Think about what gross profit margin measures and how it is calculated. You can reference the formula.",
+      starter: "The gross profit margin is...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1a = 2 marks)</h5><ul><li><strong>2 marks:</strong> A correct explanation of gross profit margin</li><li><strong>1 mark:</strong> A partial explanation</li><li>Allow explanation through use of the formula: GPM = (Revenue − Cost of sales) ÷ Revenue × 100</li></ul></div>`,
+      modelAnswer: "The gross profit margin is the proportion of revenue which is left after the cost of goods sold has been paid (1). It is expressed as a percentage of revenue (1)."
+    },
+    {
+      num: "Q32ii",
+      marks: 2,
+      type: "written",
+      caseStudy: "",
+      question: "In year 2, CFM made £200,000 total revenue. Calculate CFM's net profit for year 2. Show your workings. [2 marks]",
+      hint: "Net profit = Net profit margin % × Revenue. The NPM for Year 2 is given in Table 1.",
+      starter: "Net profit = NPM% × Revenue = 25% × £200,000 = ...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1a + AO2 = 2 marks)</h5><ul><li><strong>1 mark:</strong> Stating the formula to calculate net profit</li><li><strong>1 further mark:</strong> Correct answer of £50,000</li><li>2 marks for correct answer even if workings not shown</li></ul></div><div class="marks-section"><h5>Working</h5><ul><li>Net profit = 25% × £200,000 = <strong>£50,000</strong></li></ul></div>`,
+      modelAnswer: "Net profit = 25% × £200,000 = <strong>£50,000</strong>"
+    },
+    {
+      num: "Q32iii",
+      marks: 3,
+      type: "written",
+      caseStudy: "",
+      question: "Analyse one change in CFM's profitability. Refer to Table 1 in your answer. [3 marks]",
+      hint: "State what has changed in the margins (use figures). Then explain what 'profitability' means. Then analyse what this change means for the business.",
+      starter: "CFM's profitability has changed because...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1b + AO2 + AO3 = 3 marks)</h5><ul><li><strong>1 mark:</strong> Understanding of profitability</li><li><strong>1 further mark:</strong> Application of a change in CFM's profitability from Table 1</li><li><strong>1 further mark:</strong> Analysis of a change in CFM's profitability</li></ul></div><div class="marks-section"><h5>Application may include:</h5><ul><li>GPM increased from 60% in Year 1 to 70% in Year 2</li><li>NPM increased from 20% in Year 1 to 25% in Year 2</li></ul></div><div class="marks-section"><h5>Analysis may include:</h5><ul><li>More profit for Martin and Anne</li><li>More likely to obtain finance for the new café</li></ul></div>`,
+      modelAnswer: "Profitability is the proportion of a business's revenue that is profit (AO1b). CFM's gross profitability has increased from 60% in Year 1 to 70% in Year 2 (AO2). This may lead to the business making more profit if they can gain enough sales at the given price (AO3)."
+    },
+    {
+      num: "Q33",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "Andrea specialises in painting portraits. She estimates that:\n• Variable costs for labour: £52 per portrait\n• Variable costs for materials: £23 per portrait\n• Fixed costs: £1,000 per month",
+      question: "If Andrea paints and sells 50 portraits a year, total costs are estimated to be: [1 mark]",
+      options: [
+        "A — £1,075 per year",
+        "B — £4,750 per year",
+        "C — £12,075 per year",
+        "D — £15,750 per year"
+      ],
+      answer: 3,
+      hint: "Total variable cost = (£52 + £23) × 50. Total fixed cost = £1,000 × 12. Add them together.",
+      starter: "Total costs = total variable costs + total fixed costs = ...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>D — £15,750 per year</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>Variable cost per portrait = £52 + £23 = £75</li><li>Total variable costs = £75 × 50 = £3,750</li><li>Total fixed costs = £1,000 × 12 = £12,000</li><li>Total costs = £3,750 + £12,000 = <strong>£15,750</strong></li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q34",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "Seiji, a sole trader, has produced a table showing the costs of running his business over the last four years.\n\n2015: Labour £44,000 | Raw materials £36,000 | Other £18,000\n2016: Labour £66,000 | Raw materials £35,000 | Other £25,000\n2017: Labour £65,000 | Raw materials £34,000 | Other £32,000\n2018: Labour £62,000 | Raw materials £33,000 | Other £39,000",
+      question: "This data is useful to Seiji when making business decisions because it shows that: [1 mark]",
+      options: [
+        "A — labour costs are increasing every year",
+        "B — profit levels are falling",
+        "C — the business is producing less than it used to",
+        "D — total costs are increasing"
+      ],
+      answer: 3,
+      hint: "Add up all three cost rows for each year and compare. What trend can you see?",
+      starter: "The data shows that total costs are...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>D — total costs are increasing</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>2015: £44,000 + £36,000 + £18,000 = £98,000</li><li>2016: £66,000 + £35,000 + £25,000 = £126,000</li><li>2017: £65,000 + £34,000 + £32,000 = £131,000</li><li>2018: £62,000 + £33,000 + £39,000 = £134,000</li><li>Labour costs fell after 2016, so A is wrong. No revenue data, so B and C cannot be confirmed. D is correct.</li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q35",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "A tractor manufacturer wishes to upgrade its robotics at a total cost of £4 million. The cash inflow for each of the next five years is forecasted to be £1 million.",
+      question: "Assuming the forecasted figures are correct, the average rate of return for upgrading the robotics will be: [1 mark]",
+      options: [
+        "A — 5%",
+        "B — 20%",
+        "C — 25%",
+        "D — 125%"
+      ],
+      answer: 0,
+      hint: "Total profit = total income − cost. Average annual profit = total profit ÷ years. ARR = (average annual profit ÷ cost) × 100.",
+      starter: "Total income = £1m × 5 = £5m. Total profit = £5m − £4m = £1m...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>A — 5%</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>Total income = £1m × 5 = £5m</li><li>Total profit = £5m − £4m = £1m</li><li>Average annual profit = £1m ÷ 5 = £200,000</li><li>ARR = £200,000 ÷ £4,000,000 × 100 = <strong>5%</strong></li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q36",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "A market research agency spent £250,000 on digital communication in 2017 and £525,000 in 2018.",
+      question: "The agency's percentage increase in spending on digital communications from 2017 to 2018 was approximately equal to: [1 mark]",
+      options: [
+        "A — 48%",
+        "B — 52%",
+        "C — 110%",
+        "D — 210%"
+      ],
+      answer: 2,
+      hint: "The spending has more than doubled, so the answer must be more than 100%. Use the 2017 figure as the original.",
+      starter: "Percentage change = (change ÷ original) × 100 = (£275,000 ÷ £250,000) × 100 = ...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — 110%</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>Change = £525,000 − £250,000 = £275,000</li><li>% change = £275,000 ÷ £250,000 × 100 = <strong>110%</strong></li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>This had the greatest proportion of incorrect answers of all the MCQ questions. The figures have more than doubled, so the answer must be greater than 100%. A common misconception is dividing by the new value instead of the original.</p></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q37",
+      marks: 2,
+      type: "written",
+      caseStudy: "Martina Doyle currently works for the National Health Service (NHS). She has total savings of just over £5,000 in her bank account. Martina is planning to leave the NHS and start up a private sports injury clinic. She intends to call her new business 'MD Sports Clinic'.\n\nMartina wishes to rent a property for her new business and expects to pay rent each month. She wants to take a monthly income from the business. She also wants to employ a part time receptionist.\n\nMartina needs to buy some equipment to set up MD Sports Clinic. She has estimated the following figures for MD Sports Clinic's first month of trading:\n• Fixed costs of £6,000\n• Variable costs of £5 per session\n• Revenue of £30 per session",
+      question: "Explain, giving an example, what is meant by 'fixed costs'. [2 marks]",
+      hint: "A fixed cost does not change when output changes. Give a definition AND an example relevant to the case study.",
+      starter: "Fixed costs are costs that do not change with the level of output, for example...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1a + AO1b = 2 marks)</h5><ul><li><strong>1 mark:</strong> Meaning of the term 'fixed cost' (a cost that does not vary with level of output/sales)</li><li><strong>1 mark:</strong> A suitable example</li></ul></div><div class="marks-section"><h5>Answers may include (examples):</h5><ul><li>Rent</li><li>Equipment costs</li><li>Receptionist's salary</li></ul></div>`,
+      modelAnswer: "Fixed costs are costs that have to be paid regardless of how many sessions the clinic holds (1). For example, the rent Martina pays each month stays the same whether she sees 10 or 100 patients (1)."
+    },
+    {
+      num: "Q38",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "A market stall sells bread for £1 a loaf and cookies for 60p each. Yesterday 1,000 loaves of bread and 2,000 cookies were sold.",
+      question: "What was the market stall's revenue? [1 mark]",
+      options: [
+        "A — £200",
+        "B — £1,000",
+        "C — £1,200",
+        "D — £2,200"
+      ],
+      answer: 2,
+      hint: "Revenue = price × quantity for each product. Then add the two totals together.",
+      starter: "Total revenue = (bread revenue) + (cookie revenue) = ...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>D — £2,200</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>Bread revenue = £1 × 1,000 = £1,000</li><li>Cookie revenue = £0.60 × 2,000 = £1,200</li><li>Total revenue = £1,000 + £1,200 = <strong>£2,200</strong></li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q39",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "",
+      question: "Gross profit margin is: [1 mark]",
+      options: [
+        "A — a computerised method of production",
+        "B — a financial ratio",
+        "C — a pricing method",
+        "D — a variable cost"
+      ],
+      answer: 1,
+      hint: "Think about what category gross profit margin belongs to — it's a way of measuring financial performance.",
+      starter: "Gross profit margin is classified as...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>B — a financial ratio</strong></p></div><div class="marks-section"><h5>Why</h5><p>Gross profit margin expresses gross profit as a proportion (ratio) of revenue. It is used to assess a business's financial performance — it is not a method of production, pricing strategy, or cost.</p></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q40",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "A business has a net profit margin of 8%.",
+      question: "Which one of the following must be true for this business? [1 mark]",
+      options: [
+        "A — The business cannot pay its short term debts",
+        "B — The business has made a loss",
+        "C — The business has revenues that are greater than its costs",
+        "D — The business is operating below its break even level"
+      ],
+      answer: 2,
+      hint: "A positive net profit margin means the business is profitable. What does that tell you about revenues vs costs?",
+      starter: "A net profit margin of 8% means that...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — The business has revenues that are greater than its costs</strong></p></div><div class="marks-section"><h5>Why</h5><p>A positive net profit margin of 8% means the business is making a profit — so revenues must exceed total costs. It does not tell us about short-term debt or whether it is above break-even in terms of units.</p></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q41",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "The production costs for Jimco plc were £21.3 million in 2015 and £22.9 million in 2016.",
+      question: "What is the approximate increase between 2015 and 2016 in Jimco plc's production costs? [1 mark]",
+      options: [
+        "A — 0.9%",
+        "B — 1.6%",
+        "C — 7.0%",
+        "D — 7.5%"
+      ],
+      answer: 3,
+      hint: "Percentage change = (change ÷ original) × 100. Use the 2015 figure as the original.",
+      starter: "Percentage increase = (£1.6m ÷ £21.3m) × 100 = ...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>D — 7.5%</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>Change = £22.9m − £21.3m = £1.6m</li><li>% change = £1.6m ÷ £21.3m × 100 = <strong>7.5%</strong></li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q42",
+      marks: 3,
+      type: "written",
+      caseStudy: "Marks and Spencer (M&S) is one of the UK's leading retailers. It is committed to making every moment special for its customers, through its high quality, own-brand food, clothing & home products.\n\nM&S has an ethical programme called 'Plan A'. This was relaunched in 2017 with three new objectives for 2025:\n1. 'Nourishing our wellbeing' – including looking after staff and their needs\n2. 'Transforming local communities' – including supporting staff who want to volunteer in charities\n3. 'Caring for the planet we share' – including developing better recycling for packaging\n\nIn 2017, 60% of M&S's revenue came from the sale of food, which it sells through its 1,025 UK stores as well as through e-commerce on its website.",
+      question: "Analyse how M&S's 'Plan A' ethical programme may impact on the profitability of the business. [3 marks]",
+      hint: "Think about BOTH a cost side and a revenue/benefit side. Make sure your analysis links to profitability — not just profit — by explaining the gap between revenue and costs.",
+      starter: "M&S's ethical programme may impact on profitability because...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1b + AO2 + AO3a = 3 marks)</h5><ul><li><strong>1 mark:</strong> Understanding of the impact of ethical considerations</li><li><strong>1 further mark:</strong> Application to M&S using evidence from the text</li><li><strong>1 further mark:</strong> Analysis of impact on M&S's profitability</li><li>No marks without understanding</li></ul></div><div class="marks-section"><h5>Understanding may include:</h5><ul><li>It may cost more to be ethical to workers / suppliers / customers</li><li>It may benefit a business's reputation</li><li>It may benefit sales revenue or recruitment/retention</li></ul></div><div class="marks-section"><h5>Application may include:</h5><ul><li>'Nourishing our wellbeing' — staff wages, hours, safe working conditions</li><li>'Transforming local communities' — supporting staff who volunteer in charities</li><li>'Caring for the planet we share' — developing better recycling for packaging</li></ul></div><div class="marks-section"><h5>Analysis may include:</h5><ul><li>If costs stay the same, ethical actions will increase profitability</li><li>If costs rise more than revenue, profitability will decrease</li><li>Improved reputation may increase sales and revenue</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Many candidates struggled to analyse the impact on profitability (not just profit). To show an impact on profitability, the answer must show that the difference between costs and revenue is either increasing or decreasing.</p></div>`,
+      modelAnswer: "M&S's ethical programme has an impact on staff retention (U) because M&S will support them in volunteering (APP). However, this may increase the costs of the business, reducing their profitability if they do not increase their prices (AN)."
+    },
+    {
+      num: "Q43",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "Financial data for Pluck and Grow Ltd in 2018:\n• Total revenue: £68,000\n• Total labour costs: £26,000\n• Total material costs: £16,000\n• Other costs: £10,000",
+      question: "In 2018 Pluck and Grow Ltd made: [1 mark]",
+      options: [
+        "A — a loss of £52,000",
+        "B — a loss of £42,000",
+        "C — a profit of £16,000",
+        "D — a profit of £26,000"
+      ],
+      answer: 2,
+      hint: "Add up all costs, then subtract from revenue.",
+      starter: "Total costs = £26,000 + £16,000 + £10,000 = ...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — a profit of £16,000</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>Total costs = £26,000 + £16,000 + £10,000 = £52,000</li><li>Profit = £68,000 − £52,000 = <strong>£16,000</strong></li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q44",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "Transport costs of Global Logistics United plc (GLU plc) for the last five years:\n\nBy road: 2014 £150k | 2015 £160k | 2016 £170k | 2017 £180k | 2018 £190k\nBy rail: 2014 £350k | 2015 £370k | 2016 £390k | 2017 £410k | 2018 £430k\nBy air: 2014 £600k | 2015 £620k | 2016 £635k | 2017 £640k | 2018 £650k",
+      question: "The data shows that: [1 mark]",
+      options: [
+        "A — the company prefers to transport its goods by air",
+        "B — the company's transport costs have fallen year on year",
+        "C — GLU plc spent more than £1.25 million on transport costs in 2018",
+        "D — GLU plc transports more goods by rail than by road"
+      ],
+      answer: 2,
+      hint: "Add up all three transport modes for 2018 and compare to £1.25 million.",
+      starter: "Total transport costs in 2018 = £190k + £430k + £650k = ...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — GLU plc spent more than £1.25 million on transport costs in 2018</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>2018 total: £190,000 + £430,000 + £650,000 = £1,270,000 > £1.25m ✓</li><li>Costs are rising (not falling), so B is wrong</li><li>Higher spending on air does not mean preference, so A is unconfirmed</li><li>Higher costs by rail doesn't confirm more goods transported, so D is unconfirmed</li></ul></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q45",
+      marks: 1,
+      type: "mcq",
+      caseStudy: "Exobike made a gross profit of £9,996 from selling 42 exercise bikes at £350 each.",
+      question: "What was Exobike's gross profit margin? [1 mark]",
+      options: [
+        "A — 68%",
+        "B — 147%",
+        "C — £4,704",
+        "D — £14,700"
+      ],
+      answer: 0,
+      hint: "First calculate total revenue (price × quantity). Then GPM = (gross profit ÷ revenue) × 100. Note: two options are not even percentages, so you can eliminate them.",
+      starter: "Total revenue = 42 × £350 = ...",
+      markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>A — 68%</strong></p></div><div class="marks-section"><h5>Working</h5><ul><li>Revenue = 42 × £350 = £14,700</li><li>GPM = £9,996 ÷ £14,700 × 100 = <strong>68%</strong></li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Candidates could eliminate C and D immediately as they are monetary values, not percentages. Even without doing the full calculation, knowledge that a GPM is a percentage narrows the answer to A or B — and 68% is a realistic margin while 147% is not possible.</p></div>`,
+      modelAnswer: ""
+    },
+    {
+      num: "Q46a",
+      marks: 1,
+      type: "written",
+      caseStudy: "Stuart and Pippa own a dry cleaning and launderette business called SP Dry Cleaners (SP). The pie charts below show the monthly variable costs for SP in 2017 and 2018.\n\nPie chart 1 — Monthly variable costs 2017 (£4,400):\n• Wages 40% | Dry cleaning chemicals 20% | Water 20% | Soap powder 10% | Packaging 10%\n\nPie chart 2 — Monthly variable costs 2018 (£5,500):\n• Wages 35% | Dry cleaning chemicals 20% | Water 25% | Soap powder 15% | Packaging 5%\n\nStuart and Pippa are looking to expand into clothing repair. They have investigated two sewing repair businesses, HD Sewing and Fast Stitch, for sale.\n\nPippa has stated she wants to see her investment returned within five years.\n\nTable 1 — Financial data:\nHD Sewing: Purchase price £80,000 | Sales revenue/year £90,000 | Net profit/year £25,000 | ARR ?\nFast Stitch: Purchase price £65,000 | Sales revenue/year £82,500 | Net profit/year £22,000 | ARR 13.8%",
+      question: "Identify one fixed cost a business could have. [1 mark]",
+      hint: "A fixed cost does not change when output changes. Think of a cost that stays the same regardless of how many items are made.",
+      starter: "One fixed cost a business could have is...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1b = 1 mark)</h5><ul><li><strong>1 mark:</strong> A correct identification of a fixed cost</li><li>This is not a contextual question — any valid fixed cost is acceptable</li></ul></div><div class="marks-section"><h5>Answers may include:</h5><ul><li>Salaries</li><li>Rent</li><li>Insurance</li><li>Business rates</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>The most common correct answer was 'rent'. Salaries were also accepted as a fixed payment to workers that does not vary as output changes.</p></div>`,
+      modelAnswer: "Rent — this must be paid regardless of how many customers the business has."
+    },
+    {
+      num: "Q46bi",
+      marks: 2,
+      type: "written",
+      caseStudy: "",
+      question: "Explain what is meant by 'variable costs'. [2 marks]",
+      hint: "Variable costs change. But change in relation to what? Make sure your explanation links the change to output or sales.",
+      starter: "Variable costs are costs that change as...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1a = 2 marks)</h5><ul><li><strong>1 mark:</strong> Identifying that variable costs change</li><li><strong>1 further mark:</strong> Linking the change to output/sales</li><li>Do not accept tautological answers using the word 'vary'</li></ul></div>`,
+      modelAnswer: "Variable costs are costs that change (1) as the level of output or sales changes (1)."
+    },
+    {
+      num: "Q46bii",
+      marks: 2,
+      type: "written",
+      caseStudy: "",
+      question: "Calculate how much SP spent on wages in 2018. Show your workings. [2 marks]",
+      hint: "Use Pie chart 2 to find the percentage spent on wages in 2018. Then multiply by the total monthly variable costs. Remember the question asks for annual spending — multiply by 12.",
+      starter: "Wages in 2018 = 35% × £5,500 per month × 12 months = ...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO2 = 2 marks)</h5><ul><li><strong>1 mark:</strong> Correctly calculating monthly wage spend = 35% × £5,500 = £1,925</li><li><strong>1 further mark (OFR):</strong> Annual wages = £1,925 × 12 = £23,100</li><li>2 marks for correct final answer</li><li>If 2017 figures used: 40% × £4,400 = £1,760 × 12 = £21,120 (OFR) = 1 mark</li></ul></div><div class="marks-section"><h5>Working</h5><ul><li>35% × £5,500 = £1,925 per month</li><li>£1,925 × 12 = <strong>£23,100</strong></li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>The vast majority stopped at £1,925 (monthly figure) and did not multiply by 12. Candidates must read whether a question asks for a monthly or annual figure.</p></div>`,
+      modelAnswer: "35% × £5,500 = £1,925 per month<br>£1,925 × 12 = <strong>£23,100</strong>"
+    },
+    {
+      num: "Q46biii",
+      marks: 3,
+      type: "written",
+      caseStudy: "",
+      question: "Analyse one change in SP's dry cleaning chemical costs between 2017 and 2018. Refer to Pie charts 1 and 2 in your answer. [3 marks]",
+      hint: "Use both pie charts to calculate the actual cost in pounds for dry cleaning chemicals in each year. Then compare the change and explain what it means for SP.",
+      starter: "SP's dry cleaning chemical costs changed between 2017 and 2018 because...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO2 + AO3a = 3 marks)</h5><ul><li><strong>1 mark:</strong> Applying information from Pie charts 1 and 2 to SP (using actual figures)</li><li><strong>2 marks:</strong> Analysing the change in SP's spending on dry cleaning chemicals</li><li>Analysis marks can come from two separate effects OR development of one effect</li></ul></div><div class="marks-section"><h5>Application may include:</h5><ul><li>2017: 20% × £4,400 = £880/month (£10,560/year)</li><li>2018: 20% × £5,500 = £1,100/month (£13,200/year)</li><li>Increase of £220/month or £2,640/year</li></ul></div><div class="marks-section"><h5>Analysis may include:</h5><ul><li>Costs increased by £220/month, however the proportion of all variable costs stayed the same (both 20%)</li><li>May be due to more sales, leading SP to purchase more chemicals</li><li>May be due to the cost of chemicals increasing</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>The dry cleaning chemical proportion stayed at 20%, but the actual value increased by £220/month. Many candidates lacked analysis of what this change meant for the business.</p></div>`,
+      modelAnswer: "The dry cleaning chemical costs increased from £880/month in 2017 to £1,100/month in 2018 (APP), an increase of £220 per month. However, as a proportion of total variable costs they stayed the same at 20% (AN). This may be because SP is serving more customers and therefore needs more chemicals (AN)."
+    },
+    {
+      num: "Q46c",
+      marks: 3,
+      type: "written",
+      caseStudy: "",
+      question: "Calculate SP's Average Rate of Return (ARR) on the purchase of HD Sewing. Show your workings. [3 marks]",
+      hint: "Step 1: Total income = net profit per year × years (5). Step 2: Total profit = total income − purchase price. Step 3: Average annual profit = total profit ÷ years. Step 4: ARR = (average annual profit ÷ purchase price) × 100.",
+      starter: "Total income from HD Sewing over 5 years = £25,000 × 5 = ...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO2 = 3 marks)</h5><ul><li><strong>1 mark:</strong> Total income = £25,000 × 5 = £125,000</li><li><strong>1 further mark (OFR):</strong> Total profit = £125,000 − £80,000 = £45,000</li><li><strong>1 further mark (OFR):</strong> ARR = (£45,000 ÷ 5) ÷ £80,000 × 100 = 11.25%</li><li>Accept 11.3% or 11%</li><li>Answer of 31.25% (without subtracting purchase price) = 2 marks</li></ul></div><div class="marks-section"><h5>Working</h5><ul><li>£25,000 × 5 = £125,000</li><li>£125,000 − £80,000 = £45,000</li><li>£45,000 ÷ 5 = £9,000</li><li>£9,000 ÷ £80,000 × 100 = <strong>11.25%</strong></li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>The most important step candidates missed was subtracting the purchase price to find SP's profit. Without this, the answer of 31.25% was awarded 2 marks. Stages of calculation should be clearly set out.</p></div>`,
+      modelAnswer: "£25,000 × 5 = £125,000<br>£125,000 − £80,000 = £45,000<br>£45,000 ÷ 5 = £9,000<br>£9,000 ÷ £80,000 × 100 = <strong>11.25%</strong>"
+    },
+    {
+      num: "Q46di",
+      marks: 3,
+      type: "written",
+      caseStudy: "",
+      question: "Analyse one reason why SP should buy HD Sewing. Refer to data from Table 1 in your answer. [3 marks]",
+      hint: "Use a specific figure from Table 1 to support your reason. Then analyse the impact on SP as a business.",
+      starter: "SP should buy HD Sewing because...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1b + AO2 + AO3a = 3 marks)</h5><ul><li><strong>1 mark:</strong> Understanding a reason for buying HD Sewing</li><li><strong>1 further mark:</strong> Use of data from Table 1 (or Q46c ARR — OFR)</li><li><strong>1 further mark:</strong> Analysis of one advantage to SP of purchasing HD Sewing</li></ul></div><div class="marks-section"><h5>Application may include:</h5><ul><li>HD has higher sales revenue of £90,000 (vs £82,500)</li><li>HD has higher annual net profit of £25,000 (vs £22,000)</li><li>HD has higher net profit margin of 28% (vs 27%)</li><li>HD has better ARR of 11.25% vs 13.8% — OFR</li></ul></div><div class="marks-section"><h5>Analysis may include:</h5><ul><li>Higher net profit means Stuart and Pippa can pay themselves a bigger income</li><li>Allows the business to grow more quickly</li><li>Better net profit margin indicates a more efficient business</li></ul></div>`,
+      modelAnswer: "HD has a better annual net profit (1) than Fast Stitch by £3,000 (APP). This means that it is likely to be a more successful business and Stuart and Pippa will be able to pay themselves a bigger income (1)."
+    },
+    {
+      num: "Q46dii",
+      marks: 3,
+      type: "written",
+      caseStudy: "",
+      question: "Analyse one reason why SP should buy Fast Stitch. Refer to data from Table 1 in your answer. [3 marks]",
+      hint: "Use a specific figure from Table 1 to support your reason. Think about what makes Fast Stitch attractive — price, ARR, risk.",
+      starter: "SP should buy Fast Stitch because...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO1b + AO2 + AO3a = 3 marks)</h5><ul><li><strong>1 mark:</strong> Understanding a reason for buying Fast Stitch</li><li><strong>1 further mark:</strong> Use of data from Table 1 (or Q46c ARR — OFR)</li><li><strong>1 further mark:</strong> Analysis of one advantage to SP of purchasing Fast Stitch</li></ul></div><div class="marks-section"><h5>Application may include:</h5><ul><li>FS has lower purchase price of £65,000 (vs £80,000 for HD)</li><li>FS has a better ARR of 13.8% compared to HD's 11.25% (OFR)</li><li>FS will return the investment in less than three years</li></ul></div><div class="marks-section"><h5>Analysis may include:</h5><ul><li>Lower purchase price means less money and risk for SP</li><li>Higher ARR means SP gains more profit relative to the cost of investment</li><li>Less risk to SP's cash flow</li></ul></div>`,
+      modelAnswer: "Fast Stitch has a better return than HD (1) of 13.8% compared to 11.25% (APP). This means that SP will gain more profit when compared to the cost of the investment (1)."
+    },
+    {
+      num: "Q46diii",
+      marks: 3,
+      type: "written",
+      caseStudy: "",
+      question: "Recommend whether SP should buy HD Sewing or Fast Stitch to expand their business. Refer to data from Table 1 to support your judgement. [3 marks]",
+      hint: "Make a clear recommendation (1 mark). Then justify it with a reason linked to the data (1 mark). Then use a specific detail from the case study to contextualise your judgement (1 mark). Do NOT sit on the fence.",
+      starter: "SP should buy [HD Sewing / Fast Stitch] because...",
+      markScheme: `<div class="marks-section"><h5>Mark Allocation (AO3b = 3 marks)</h5><ul><li><strong>1 mark:</strong> A judgement — recommend HD Sewing OR Fast Stitch</li><li><strong>1 further mark:</strong> Justification for the judgement</li><li><strong>1 further mark:</strong> Use of context within the justification (reference to data from Table 1)</li><li>All 3 marks are for evaluation only — no marks for other skill areas</li><li>No reward for 'sitting on the fence'</li></ul></div><div class="marks-section"><h5>Examiner's Comment</h5><p>Most candidates made a recommendation. The most common argument for HD was higher net profit per year; the most common argument for Fast Stitch was the lower purchase price. Figures needed to be referenced but did not need to be quoted exactly. The command word 'recommend' requires a decision to be made.</p></div>`,
+      modelAnswer: "<strong>Model Answer 1 (Fast Stitch):</strong> It is clear that SP should buy Fast Stitch (1) because Pippa is more concerned about the return on her investment within five years (1) and Fast Stitch has the higher ARR of 13.8% (1).<br><br><strong>Model Answer 2 (HD Sewing):</strong> SP should buy HD Sewing (1) because Stuart and Pippa as business owners want to make as much profit as possible (1) and HD has the higher annual net profit of £25,000 (1)."
+    }
+  ];
 
 </script>
 <script src="script.js"></script>
