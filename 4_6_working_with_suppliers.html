@@ -301,8 +301,940 @@
         </div>
     </main>
 
-    <script></script>
+<script>
+// ══════════════════════════════════════
+//  DATA TEMPLATE: 4.6 Working With Suppliers
+// ══════════════════════════════════════
 
+// 1. Main Learning Content
+const topics = [
+  {
+    title: "Key Terms & Official Definitions",
+    tag: "Core Concepts",
+    content: `<p>These are the essential terms you must be able to define accurately in the exam. Learn these using look, say, cover, write, check.</p>
+<ul>
+  <li><strong>Procurement:</strong> The management of purchasing (buying) goods and services within a business.</li>
+  <li><strong>Logistics:</strong> The management of the transportation and storage of goods from seller to buyer.</li>
+  <li><strong>Supply Chain:</strong> The chain of businesses involved in the production of a product and its delivery to the end user.</li>
+  <li><strong>Supplier:</strong> A party (business or individual) that supplies goods and/or services to another business.</li>
+  <li><strong>Just-In-Time (JIT):</strong> A system where parts or materials are delivered exactly when they are needed for production, minimising storage costs.</li>
+  <li><strong>Ethical Sourcing:</strong> Choosing suppliers who operate responsibly — paying fair wages, protecting workers, and using sustainable materials.</li>
+</ul>`
+  },
+  {
+    title: "The Procurement Process — 4 Stages",
+    tag: "Core Concepts",
+    content: `<p><strong>Procurement</strong> is the management of all buying activity within a business. Whether it's a supermarket buying thousands of product lines or a small café ordering coffee beans, every business must manage procurement. There are four key stages:</p>
+<ul>
+  <li><strong>Stage 1 — Identifying goods and services to buy:</strong> What to buy can be influenced by the time of year, changes in fashion, technology developments, or customer demand. For example, a clothing retailer must decide whether to stock winter coats or summer dresses based on the season.</li>
+  <li><strong>Stage 2 — Choosing suppliers:</strong> Who can supply the goods? What do they charge? What is their reputation for quality and reliability? Businesses must evaluate multiple suppliers before committing.</li>
+  <li><strong>Stage 3 — Ordering goods and services:</strong> The actual process of placing orders and procuring goods. Procurement teams consider whether bulk ordering offers a discount, or whether a longer contract reduces unit costs.</li>
+  <li><strong>Stage 4 — Receiving deliveries from suppliers:</strong> When will goods arrive? Where will they be stored? Access for delivery vehicles and sufficient storage space must be planned in advance.</li>
+</ul>
+<div class="case-study-box">
+  <h4>Case Study: Tesco plc</h4>
+  <p>Tesco is one of the UK's largest retailers, selling thousands of product lines through its stores and online. Its procurement department manages relationships with hundreds of suppliers across the UK and abroad. If a supplier fails to deliver — say, during a factory flood like the Crawford's Biscuits incident in 2016 — Tesco suffers immediately: empty shelves, lost sales, and damage to its reputation. This shows why all four stages of procurement must be managed carefully and continuously.</p>
+</div>`
+  },
+  {
+    title: "Factors Affecting What to Buy",
+    tag: "Theory",
+    content: `<p>Before a business can even choose a supplier, it must decide <em>what</em> to buy and <em>when</em> to buy it. Getting this wrong can lead to waste, lost sales, or surplus stock. Three key factors affect this decision:</p>
+<ul>
+  <li><strong>Time of year:</strong> Demand for many products is seasonal. A garden centre must stock barbeques and plants in spring/summer and pivot to Christmas items in winter. Ordering too early or too late leads to either stockouts or unsold goods sold at a loss.</li>
+  <li><strong>Changes in technology:</strong> Technology evolves rapidly. A business must avoid buying too much of a product that is about to be replaced by a newer model — for example, buying large quantities of a laptop that will be superseded in two months.</li>
+  <li><strong>Changes in fashion and lifestyle:</strong> Consumer tastes shift constantly. The rise of veganism and gluten-free diets has forced supermarkets to dramatically increase the range of plant-based and free-from products they procure. Failing to anticipate trends means missing sales opportunities.</li>
+</ul>`
+  },
+  {
+    title: "Choosing the Right Supplier",
+    tag: "Theory",
+    content: `<p>Choosing the wrong supplier can damage a business's reputation, increase costs, and disrupt production. Businesses evaluate potential suppliers against several criteria:</p>
+<ul>
+  <li><strong>Quality of goods supplied:</strong> The quality of supplies must consistently meet the expected standard. Car manufacturers, for example, cannot afford faulty brake components — quality must be right every time.</li>
+  <li><strong>Reputation of the supplier:</strong> If a supplier is exposed for unethical practices (e.g., poor working conditions or child labour), the reputation of the buying business is also damaged — even if the buying business had no direct involvement. Primark and other fashion retailers have faced exactly this challenge.</li>
+  <li><strong>Cost of supplies:</strong> Lower costs can improve profit margins or allow the business to lower prices. However, the cheapest supplier is not always the best choice if it sacrifices quality or reliability.</li>
+  <li><strong>Reliability:</strong> Can the supplier deliver the right quantity of the right quality on time, every time? For fresh food retailers, daily reliability is non-negotiable.</li>
+  <li><strong>Customer service:</strong> When problems occur — late deliveries, faulty goods — how quickly and effectively will the supplier respond? Poor supplier customer service will force the buying business to find alternatives.</li>
+</ul>
+<div class="case-study-box">
+  <h4>Case Study: Zara (Fast Fashion)</h4>
+  <p>Zara is a global fashion retailer based in Spain with 2,270 stores worldwide. Its entire business model is built on speed — getting new designs from concept to shelf in just 15 days. To achieve this, Zara buys large quantities of fabric from European suppliers, which guarantees fast delivery to its factories in Spain. If its suppliers were unreliable, Zara could not change its clothing designs every two weeks (while competitors take two to three months). Reliable, quality suppliers are therefore central to Zara's competitive advantage and its USP.</p>
+</div>`
+  },
+  {
+    title: "Logistical Decisions — Time, Reliability, Supply Chain Length, Costs & Customer Service",
+    tag: "Analysis",
+    content: `<p><strong>Logistics</strong> is the management of the transportation and storage of goods. Once a business has chosen its suppliers, it must ensure the physical movement of goods is managed effectively. Five key factors affect logistical decisions:</p>
+<ul>
+  <li><strong>Time:</strong> For some businesses, timing is critical. A plumber mid-job needs a part immediately. Car manufacturers use just-in-time delivery so parts arrive exactly when needed on the production line. Any delay stops production and costs money.</li>
+  <li><strong>Reliability of supply:</strong> A shop selling fresh bread needs daily deliveries — if a delivery fails, it has nothing to sell and its reputation suffers. Reliability and time work closely together: a supplier that is sometimes on time is not truly reliable.</li>
+  <li><strong>Length of the supply chain:</strong> The more businesses involved in getting a product from raw material to consumer, the higher the risk of disruption. A car maker relying on brake components from a specialist who relies on steel from a mine in another country has a very long and complex supply chain — one failure anywhere in that chain affects everyone downstream.</li>
+  <li><strong>Costs:</strong> Lower supply costs improve profit margins, but not at the expense of quality or reliability. Paying slightly more for a reliable, high-quality supplier often works out cheaper in the long run than constantly dealing with problems caused by a cheaper but unreliable one.</li>
+  <li><strong>Customer service from suppliers:</strong> Businesses are themselves customers of their suppliers. If a supplier fails to deliver or delivers faulty goods, how quickly do they resolve the problem? A supplier with poor customer service creates knock-on problems that damage the buying business's own service to its customers.</li>
+</ul>`
+  },
+  {
+    title: "Advantages & Disadvantages of Long vs Short Supply Chains",
+    tag: "Analysis",
+    content: `<p>One of the most important logistical decisions is how many businesses sit between raw material and final product. Here is how the length of the supply chain affects a business:</p>
+<div class="two-col">
+  <div>
+    <div class="col-head">✓ Short Supply Chain</div>
+    <div class="pro-item"><strong>Greater reliability:</strong> Fewer links in the chain means fewer points of potential failure. Disruption is less likely and easier to manage.</div>
+    <div class="pro-item"><strong>Better communication:</strong> Fewer parties to coordinate with means faster responses to problems and clearer relationships.</div>
+    <div class="pro-item"><strong>Lower transport costs:</strong> Shorter distances between supplier and business reduce delivery costs and carbon footprint.</div>
+    <div class="pro-item"><strong>Faster delivery:</strong> Products arrive more quickly, which is vital for time-sensitive goods like fresh food or fashion.</div>
+  </div>
+  <div>
+    <div class="col-head">✗ Long Supply Chain</div>
+    <div class="con-item"><strong>Higher risk of disruption:</strong> More businesses involved means more opportunities for something to go wrong — a strike, a flood, a factory fire — anywhere in the chain.</div>
+    <div class="con-item"><strong>Harder to manage:</strong> Co-ordinating multiple businesses across different countries and time zones is complex and costly.</div>
+    <div class="con-item"><strong>Quality control difficulties:</strong> Monitoring the quality and ethical standards of many suppliers across the world is extremely challenging.</div>
+    <div class="con-item"><strong>Reputational risk:</strong> If one supplier in a long chain behaves unethically, the final seller bears much of the public criticism.</div>
+  </div>
+</div>`
+  },
+  {
+    title: "Key Issues in Supply Chain Management",
+    tag: "Analysis",
+    content: `<p>When things go wrong in a supply chain, the consequences ripple through the entire chain. The table below summarises the key issues and their potential problems:</p>
+<ul>
+  <li><strong>Time:</strong> If a supplier cannot deliver on time, production may halt and the business loses sales and revenue.</li>
+  <li><strong>Reliability:</strong> If the quantity or quality of goods supplied falls short, production is delayed or stopped, again leading to lost sales and revenue.</li>
+  <li><strong>Length of supply chain:</strong> A long supply chain increases the risk of problems at each stage — one broken link can halt the entire chain.</li>
+  <li><strong>Costs:</strong> High delivery costs raise total production costs. If costs become too high, the business may be unable to sell goods at a profit. Keeping delivery costs low is important, but not at the expense of reliability.</li>
+  <li><strong>Customer service:</strong> If a supplier has poor customer service, the buying business may lose its own customers due to unresolved problems and delays.</li>
+</ul>
+<div class="case-study-box">
+  <h4>Case Study: Crawford's Biscuits & Tesco (2016)</h4>
+  <p>In 2016, Crawford's Biscuits factory in Carlisle was badly damaged during winter floods, halting production of custard creams. Tesco could not get enough biscuits to meet customer demand. When production eventually restarted, rising UK fuel prices pushed up transport costs, threatening Tesco's ability to keep prices competitive. This real-world example shows how natural disasters, supply chain disruptions, and rising costs can combine to damage a retailer's sales and profitability — even when the problem originates with a supplier, not the retailer itself.</p>
+</div>`
+  },
+  {
+    title: "Ethical Sourcing & Sustainable Supply Chains",
+    tag: "Application",
+    content: `<p>Increasingly, businesses must think beyond price and reliability when choosing suppliers. Consumers, investors, and regulators are all paying close attention to <strong>ethical sourcing</strong> — how and where a business's supplies are produced.</p>
+<ul>
+  <li><strong>Living wages:</strong> Businesses like Primark have committed to encouraging their supply chains to pay workers a living wage. Ethical treatment of workers reduces the risk of negative press coverage and boycotts.</li>
+  <li><strong>Sustainable materials:</strong> Primark sources material from sustainable sources to give clothes a longer life and reduce environmental impact. This appeals to environmentally-conscious consumers and reduces long-term resource risk.</li>
+  <li><strong>Certified suppliers:</strong> Costa Coffee uses Rainforest Alliance-certified suppliers, guaranteeing ethical and environmental standards. This protects Costa's reputation and aligns with its brand values.</li>
+  <li><strong>Reputational risk:</strong> Unethical suppliers damage the reputation of the businesses that buy from them. Even if a retailer was unaware of the problem, they often face the most public criticism.</li>
+</ul>
+<div class="two-col">
+  <div>
+    <div class="col-head">✓ Benefits of Ethical Sourcing</div>
+    <div class="pro-item"><strong>Reputation:</strong> Enhances brand image and builds customer loyalty, especially among younger, ethically-conscious consumers.</div>
+    <div class="pro-item"><strong>Legal compliance:</strong> Reduces the risk of breaching supply chain regulations and consumer protection laws.</div>
+    <div class="pro-item"><strong>Long-term sustainability:</strong> Sustainable sourcing protects the supply of raw materials into the future.</div>
+  </div>
+  <div>
+    <div class="col-head">✗ Drawbacks of Ethical Sourcing</div>
+    <div class="con-item"><strong>Higher costs:</strong> Ethically sourced materials and certified suppliers often charge more, increasing variable costs.</div>
+    <div class="con-item"><strong>Fewer options:</strong> Limiting suppliers to those with ethical certification reduces choice and negotiating power.</div>
+    <div class="con-item"><strong>Monitoring difficulty:</strong> Verifying ethical standards throughout a global supply chain is complex and expensive.</div>
+  </div>
+</div>`
+  }
+];
+
+// 2. Multiple Choice Questions (Minimum 10)
+const mcqData = [
+  {
+    q: "What is the correct definition of procurement?",
+    opts: [
+      "The process of transporting goods from seller to buyer",
+      "The management of purchasing goods and services within a business",
+      "The chain of businesses involved in producing and delivering a product",
+      "The process of checking the quality of goods upon delivery"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. Procurement is specifically the management of the purchasing/buying function within a business. Logistics (A) deals with transport and storage. The supply chain (C) is the wider chain of businesses. Quality checking (D) is part of operations, not procurement itself."
+  },
+  {
+    q: "Which of the following best describes logistics?",
+    opts: [
+      "Choosing which goods and services a business should sell",
+      "Managing the quality of a finished product",
+      "The management of the transportation and storage of goods",
+      "The process of negotiating prices with suppliers"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. Logistics is specifically about managing the movement and storage of goods. Choosing what to sell (A) is a marketing and procurement decision. Quality management (B) is a separate operations function. Negotiating prices (D) is part of procurement."
+  },
+  {
+    q: "A longer supply chain means:",
+    opts: [
+      "A business will always receive lower quality goods",
+      "It may be more difficult for a business to manage supplies",
+      "It will take longer to find the right supplier",
+      "The supplier will always demand higher prices"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. A longer supply chain involves more businesses, increasing complexity and the risk of disruption — making it harder to manage. It does NOT automatically mean lower quality (A), longer supplier searches (C), or higher prices (D)."
+  },
+  {
+    q: "The role of procurement for a car manufacturer might involve:",
+    opts: [
+      "Advertising a new range of electric vehicles",
+      "Negotiating deals with car showrooms",
+      "Receiving deliveries of tyres and windscreens",
+      "Testing the brakes of every new car"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. Receiving deliveries of components like tyres and windscreens is a classic procurement function (Stage 4 of procurement). Advertising (A) is marketing. Negotiating with showrooms (B) is sales. Brake testing (D) is quality control/operations."
+  },
+  {
+    q: "Which of the following would NOT be part of a procurement officer's job at a jeans factory?",
+    opts: [
+      "Choosing a supplier of zips and buttons",
+      "Ordering printer paper and ink cartridges",
+      "Receiving delivery of threads and fabrics",
+      "Sewing the size label on to the waistband"
+    ],
+    ans: 3,
+    explain: "Correct answer: D. Sewing labels is a production/manufacturing task, not a procurement task. Procurement covers choosing suppliers (A), ordering all goods the business needs including office supplies (B), and receiving deliveries (C)."
+  },
+  {
+    q: "Choosing which supplier to use is a:",
+    opts: [
+      "Marketing decision",
+      "Pricing decision",
+      "Procurement decision",
+      "Sales decision"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. Selecting and managing suppliers is the core function of procurement. It is not marketing (A), pricing (B), or sales (D). Many students confuse procurement with other business functions — procurement is specifically about the buying/purchasing side."
+  },
+  {
+    q: "The length of a firm's supply chain:",
+    opts: [
+      "Affects how quickly it can respond to changes in demand",
+      "Depends on the production method used by the business",
+      "Has no impact on the procurement function",
+      "Is shown on an organisation chart"
+    ],
+    ans: 0,
+    explain: "Correct answer: A. A shorter supply chain allows a business to respond more quickly to demand changes (like Zara's 15-day turnaround). Production methods (B) do not determine supply chain length. The supply chain absolutely does impact procurement (C is wrong). Organisation charts show internal structure, not supply chains (D is wrong)."
+  },
+  {
+    q: "A supermarket decides to extend its opening hours. The supermarket is likely to need:",
+    opts: [
+      "A longer supply chain",
+      "Fewer staff",
+      "Lower quality products",
+      "Reliable suppliers"
+    ],
+    ans: 3,
+    explain: "Correct answer: D. Extended opening hours means more products need to be on shelves for longer — this requires reliable suppliers to ensure stock does not run out. A longer supply chain (A) would make this harder, not easier. More staff would be needed (B is wrong). Product quality requirements do not decrease (C is wrong)."
+  },
+  {
+    q: "Choosing how products will be delivered to customers is an example of a:",
+    opts: [
+      "Flow production issue",
+      "Liquidity problem",
+      "Logistical decision",
+      "Purchasing concern"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. Decisions about how to transport and deliver goods are logistical decisions — logistics is the management of transportation and storage. Flow production (A) is about manufacturing methods. Liquidity (B) is about cash in finance. Purchasing (D) is about buying inputs, not delivering outputs."
+  },
+  {
+    q: "Which factor would be MOST important to a discount shop selling all goods at £1?",
+    opts: [
+      "Customer service from suppliers",
+      "Length of the supply chain",
+      "Cost of supplies",
+      "Reliability of supply"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. A £1 discount shop has an extremely tight pricing model. It cannot absorb any increase in supply costs without losing its competitive advantage or profitability. Cost is therefore the dominant factor. While reliability (D) also matters to keep shelves stocked, the business model is fundamentally driven by keeping costs as low as possible."
+  },
+  {
+    q: "Crawford's Biscuits factory was damaged in floods, halting production of custard creams. What type of supply chain problem does this illustrate?",
+    opts: [
+      "Poor customer service from Tesco",
+      "A disruption in the reliability of supply",
+      "A failure of Tesco's logistics team",
+      "A rise in variable costs at Tesco"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. The flood disrupted the reliable supply of custard creams — Crawford's could not produce and therefore could not deliver. This is a supply reliability failure. It was not a customer service failure by Tesco (A), a logistics problem at Tesco (C), or directly a cost problem (D), though costs did rise later due to fuel prices."
+  },
+  {
+    q: "If JLR buys 500,000 tyres and 80% come from overseas suppliers, how many tyres come from overseas?",
+    opts: [
+      "80,000",
+      "400,000",
+      "420,000",
+      "450,000"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. 500,000 × 80% = 500,000 × 0.8 = 400,000 tyres from overseas. Always show your working: (500,000 ÷ 100) × 80 = 400,000."
+  },
+  {
+    q: "The transport costs table for GLU plc (2014–2018) shows costs by road, rail, and air. Which statement about the data is correct?",
+    opts: [
+      "The company prefers to transport its goods by air",
+      "The company's transport costs have fallen year on year",
+      "GLU plc spent more than £1.25 million on transport costs in 2018",
+      "GLU plc transports more goods by rail than by road"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. In 2018: Road (£190,000) + Rail (£430,000) + Air (£650,000) = £1,270,000, which is more than £1.25 million. Option A is wrong — higher air costs reflect higher air prices, not preference. Option B is wrong — all costs increased year on year. Option D is wrong — we cannot determine volume from cost alone (air is most expensive per unit so higher cost ≠ more goods)."
+  }
+];
+
+// 3. Keyword Matching (Minimum 10)
+const matchData = [
+  { term: "Procurement", def: "The management of purchasing goods and services within a business." },
+  { term: "Logistics", def: "The management of the transportation and storage of goods from seller to buyer." },
+  { term: "Supply Chain", def: "The chain of businesses involved in the production of a product and its delivery to the end user." },
+  { term: "Supplier", def: "A party that supplies goods and/or services to another business." },
+  { term: "Just-In-Time (JIT)", def: "A system where materials or parts are delivered exactly when needed for production, minimising storage costs." },
+  { term: "Ethical Sourcing", def: "Selecting suppliers who operate responsibly — paying fair wages, protecting workers, and using sustainable materials." },
+  { term: "Reliability of Supply", def: "The ability of a supplier to consistently deliver the right quantity and quality of goods on time." },
+  { term: "Stage 1 of Procurement", def: "Identifying the goods and services a business needs to buy, influenced by season, fashion, and technology." },
+  { term: "Stage 2 of Procurement", def: "Choosing suppliers — evaluating who can supply the goods, at what price, and with what level of quality." },
+  { term: "Stage 3 of Procurement", def: "Ordering goods and services — the actual process of placing orders and procuring goods." },
+  { term: "Stage 4 of Procurement", def: "Receiving deliveries from suppliers — managing storage and access for delivery." },
+  { term: "Customer Service (B2B)", def: "The service a supplier provides to business customers to handle problems, faults, and enquiries." },
+  { term: "Rainforest Alliance Certification", def: "A certification awarded to suppliers who meet ethical and environmental standards for sustainable production." }
+];
+
+// 4. Fill in the Blanks (Minimum 10)
+const fibData = [
+  {
+    display: "Procurement is the management of _____ within a business.",
+    blanks: { B1: "purchasing" }
+  },
+  {
+    display: "Logistics is the management of the _____ and storage of goods.",
+    blanks: { B1: "transportation" }
+  },
+  {
+    display: "The _____ is the chain of businesses involved in the production of a product and its delivery to the user.",
+    blanks: { B1: "supply chain" }
+  },
+  {
+    display: "The four stages of procurement are: identifying goods to buy, choosing _____, ordering goods, and receiving _____.",
+    blanks: { B1: "suppliers", B2: "deliveries" }
+  },
+  {
+    display: "A _____ supply chain is usually more reliable and easier to manage than a long one.",
+    blanks: { B1: "shorter" }
+  },
+  {
+    display: "Zara can get new clothing designed, manufactured and delivered to its stores within _____ days.",
+    blanks: { B1: "15" }
+  },
+  {
+    display: "Businesses that buy from suppliers with poor ethical standards risk damaging their own _____.",
+    blanks: { B1: "reputation" }
+  },
+  {
+    display: "Eddie Stobart is an example of a _____ business that manages the movement of goods for companies like Tesco.",
+    blanks: { B1: "logistics" }
+  },
+  {
+    display: "Just-in-time delivery means parts arrive exactly when needed, which reduces _____ costs.",
+    blanks: { B1: "storage" }
+  },
+  {
+    display: "When Crawford's Biscuits factory was flooded in 2016, Tesco was unable to meet customer _____ for custard creams.",
+    blanks: { B1: "demand" }
+  },
+  {
+    display: "Costa Coffee uses Rainforest Alliance-certified suppliers who meet _____ and environmental standards.",
+    blanks: { B1: "ethical" }
+  },
+  {
+    display: "The _____ of the supply chain refers to how many businesses are involved between raw material and final product.",
+    blanks: { B1: "length" }
+  }
+];
+
+// Word bank for Fill in the Blanks
+const fibWords = [
+  "purchasing", "transportation", "supply chain", "suppliers", "deliveries",
+  "shorter", "15", "reputation", "logistics", "demand", "ethical", "length",
+  "storage", "marketing", "quality", "sales", "longer", "reliability", "costs", "production"
+];
+
+// 5. True or False (Minimum 10)
+const tfData = [
+  {
+    statement: "Procurement is the management of the transportation and storage of goods.",
+    answer: false,
+    explanation: "FALSE. This is the definition of logistics, not procurement. Procurement is the management of purchasing within a business. This is one of the most common mix-ups students make in the exam."
+  },
+  {
+    statement: "A longer supply chain is generally harder to manage than a shorter one.",
+    answer: true,
+    explanation: "TRUE. More businesses involved in the chain means more coordination, more points of potential failure, and greater complexity. A shorter supply chain is easier to manage and generally more reliable."
+  },
+  {
+    statement: "Just-in-time delivery means a business holds large stocks of materials in a warehouse at all times.",
+    answer: false,
+    explanation: "FALSE. Just-in-time is the opposite — materials and parts arrive exactly when needed for production, so the business holds minimal stock. This reduces storage costs but requires highly reliable suppliers."
+  },
+  {
+    statement: "Zara's supply chain allows it to change clothing designs every two weeks.",
+    answer: true,
+    explanation: "TRUE. Zara's highly responsive supply chain — buying fabric in bulk from European suppliers for fast delivery to its Spanish factory — allows it to get new designs to stores in just 15 days, enabling bi-weekly design changes."
+  },
+  {
+    statement: "The four stages of procurement are: identify goods, choose suppliers, order goods, receive deliveries.",
+    answer: true,
+    explanation: "TRUE. These are the four official stages of the procurement process in the correct order. You should be able to recall and explain all four in an exam."
+  },
+  {
+    statement: "Choosing the cheapest supplier is always the best procurement decision for a business.",
+    answer: false,
+    explanation: "FALSE. The cheapest supplier may sacrifice quality, reliability, or ethical standards. A saving on costs could result in lower quality goods, less reliability, and a loss of reputation that is difficult to recover. Factors must be weighed together."
+  },
+  {
+    statement: "If a supplier acts unethically, the reputation of the business that buys from them can also be damaged.",
+    answer: true,
+    explanation: "TRUE. The buying business is often blamed in the media even if it was unaware of the ethical problem. This is why businesses like Primark, Zara, and Costa Coffee invest heavily in auditing their supply chains."
+  },
+  {
+    statement: "Tesco's procurement department deals only with buying food products for its supermarkets.",
+    answer: false,
+    explanation: "FALSE. Procurement covers all goods and services a business needs to operate — including office supplies, cleaning services, technology, packaging, and more. It is not limited to the products sold in store."
+  },
+  {
+    statement: "Reliability and time are closely linked logistical considerations.",
+    answer: true,
+    explanation: "TRUE. A supplier that is 'sometimes' on time is not truly reliable. Reliability includes delivering the right goods, in the right quantity, at the right time — consistently. The two factors reinforce each other."
+  },
+  {
+    statement: "Eddie Stobart is an example of a procurement business.",
+    answer: false,
+    explanation: "FALSE. Eddie Stobart (now The Logistics Development Group) is a logistics business — it manages the transportation of goods. Procurement is the buying/purchasing function. Tesco is the one doing the procurement; Eddie Stobart handles the logistics."
+  },
+  {
+    statement: "A business can lose customers if its logistics supplier is unreliable, even if the product itself is good.",
+    answer: true,
+    explanation: "TRUE. If goods are not delivered on time or are delivered incorrectly, the customer (who sees the retailer's name, not the logistics firm's) will lose confidence and may switch to a competitor. Poor logistics damages the reputation of the selling business."
+  }
+];
+
+// 6. Common Student Misconceptions
+const miscData = [
+  {
+    wrong: "Procurement and logistics mean the same thing.",
+    correct: "They are two distinct concepts. Procurement is about managing the buying/purchasing of goods. Logistics is about managing the transportation and storage of goods. Many students swap these definitions and lose marks."
+  },
+  {
+    wrong: "The supply chain only includes the final manufacturer and the customer.",
+    correct: "The supply chain includes ALL businesses involved from raw material to the end user. A car's supply chain might include mines, steel producers, component manufacturers, the car assembler, and the dealer — all are part of the chain."
+  },
+  {
+    wrong: "A longer supply chain means lower costs because more suppliers are competing.",
+    correct: "A longer supply chain actually tends to increase costs and risk. More businesses means more transport, more handling, more coordination, and more potential points of failure. Costs are generally higher and reliability is lower in a long supply chain."
+  },
+  {
+    wrong: "Low-cost suppliers will allow a business to raise its prices and make more profit.",
+    correct: "Low-cost suppliers allow a business to either keep prices competitive (lower than rivals) OR increase profit margins by keeping selling prices the same while paying less for inputs. They do not justify price increases — Primark, for example, uses low-cost suppliers specifically to undercut rivals on price."
+  },
+  {
+    wrong: "Procurement only covers the goods a business sells to customers.",
+    correct: "Procurement covers ALL goods and services a business needs to operate — including office stationery, cleaning services, IT equipment, and staff uniforms — as well as stock. David the biscuit factory procurement officer orders sugar AND printer paper."
+  },
+  {
+    wrong: "If a business has a reliable supplier, cost is irrelevant.",
+    correct: "Both reliability AND cost must be considered together. A very reliable but extremely expensive supplier may make the business unprofitable. The examiner expects students to evaluate both factors, not treat one as automatically more important."
+  },
+  {
+    wrong: "Just-in-time means the business orders goods just before they run out.",
+    correct: "Just-in-time (JIT) is a precise system where materials arrive exactly when needed on the production line — not simply 'ordering when stock is low'. It requires highly reliable suppliers and sophisticated coordination between buyer and supplier."
+  },
+  {
+    wrong: "A business that uses ethical suppliers will always have higher costs.",
+    correct: "While ethical suppliers can be more expensive, this is not always the case. Ethical sourcing can also bring long-term savings through reduced reputational risk, better supplier relationships, and more sustainable supply of materials. The examiner expects a balanced answer."
+  }
+];
+
+// 7. Examiner Tips & Structure Guides
+const examTips = [
+  {
+    type: "Identify / State — 1 mark",
+    title: "One Fact. Nothing More. Move On.",
+    content: `
+      <p>A 1-mark <strong>'State' or 'Identify'</strong> question needs exactly one correct, specific point. No explanation. No examples. No full sentences required.</p>
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li>One clear, specific point = 1 mark ✅</li>
+        <li>A vague, general answer = 0 marks ❌</li>
+      </ul>
+      <p><strong>❌ Bad Answer (0 marks):</strong><br/>
+      <em>"Procurement is about suppliers."</em><br/>
+      This is too vague — it says nothing specific about what procurement does.</p>
+      <p><strong>✅ Good Answer (1 mark):</strong><br/>
+      <em>"Choosing suppliers."</em> or <em>"Ordering goods and services."</em><br/>
+      Short, specific, and directly answers the question.</p>
+      <p><strong>⚠️ Examiner Warning:</strong> The examiner's report noted that more than half of candidates did not know what the 'procurement function' meant — many linked it to finance or marketing. Know your key terms cold.</p>
+    `,
+    pills: ["K"]
+  },
+  {
+    type: "Explain — 2 marks",
+    title: "Point + Link = 2 Marks",
+    content: `
+      <p>A 2-mark <strong>'Explain'</strong> question requires two connected steps: a point of knowledge AND a brief explanation of how it works or why it matters.</p>
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li><strong>Step 1 (K):</strong> State the relevant fact or concept.</li>
+        <li><strong>Step 2 (APP):</strong> Link it briefly to the business in the question.</li>
+      </ul>
+      <p><strong>❌ Bad Answer (1 mark max):</strong><br/>
+      <em>"JLP's procurement team orders goods."</em><br/>
+      This states a role but gives no application to JLP specifically.</p>
+      <p><strong>✅ Good Answer (2 marks):</strong><br/>
+      <em>"One role of procurement is choosing which suppliers to use (K) — for example, JLP takes time evaluating high quality suppliers for its wide range of products including clothing and electronics (APP)."</em></p>
+    `,
+    pills: ["K", "U", "app"]
+  },
+  {
+    type: "Analyse — 3 marks",
+    title: "The Holy Trinity: U → APP → AN",
+    content: `
+      <p>Every 3-mark Analyse question on this topic follows the same structure. Miss any one of the three steps and you miss a mark. Miss application and you <strong>cannot</strong> gain the analysis mark either.</p>
+      <p><strong>The 3-Step Formula:</strong></p>
+      <ul>
+        <li><strong>Step 1 — Understanding (U):</strong> State the benefit/impact/concept clearly. e.g., "Having low-cost suppliers helps a business keep its prices lower than rivals..."</li>
+        <li><strong>Step 2 — Application (APP):</strong> Quote or reference the specific business from the case study. e.g., "...As Primark aims to sell clothing and homeware at prices lower than most other retailers..."</li>
+        <li><strong>Step 3 — Analysis (AN):</strong> State the business-facing financial or operational impact. e.g., "...this will help Primark increase its market share and maintain its competitive advantage."</li>
+      </ul>
+      <p><strong>🚫 Knowledge Dumping Alert:</strong> Do NOT write everything you know about procurement or supply chains. Examiners only award marks for content that directly answers the specific question asked.</p>
+      <p><strong>💡 The "So What?" Rule:</strong> After each sentence, ask yourself "So what?" until you reach a bottom-line business impact (profit, sales, reputation, market share, costs).</p>
+      <p><em>"Low-cost suppliers keep costs down." → So what? → "This improves profit margins." → So what? → "This allows Primark to survive and grow in a competitive retail market."</em> ✅</p>
+    `,
+    pills: ["U", "app", "an"]
+  },
+  {
+    type: "Analyse Two Impacts — 6 marks",
+    title: "Two Separate 3-Mark Answers",
+    content: `
+      <p>A 6-mark question is simply <strong>two 3-mark questions written back-to-back</strong>. Each impact needs its own U → APP → AN chain.</p>
+      <p><strong>The Structure:</strong></p>
+      <ul>
+        <li><strong>Impact 1:</strong> U → APP → AN (3 marks)</li>
+        <li><strong>Impact 2:</strong> U → APP → AN (3 marks)</li>
+      </ul>
+      <p><strong>⚠️ Warning:</strong> Do NOT write a conclusion. There are zero marks available for evaluation in a 6-mark question. Spend the time making sure both impacts are fully analysed with application instead.</p>
+      <p><strong>Example (Pukka Pies, 6 marks):</strong></p>
+      <p><em>Impact 1 — Supply Chain Length: "A long supply chain involves many businesses (U). Pukka Pies sources ingredients from across the UK and overseas (APP). This makes it harder to coordinate deliveries, increasing the risk that ingredients do not arrive on time and production is disrupted (AN)."</em></p>
+      <p><em>Impact 2 — Time-Critical Logistics: "Timing is vital for delivering fresh ingredients to ensure production is not delayed (U). Pukka Pies makes high-quality savoury pies that need fresh ingredients and has food safety as a key value (APP). If deliveries are late, the business may need to recall products or halt production, increasing costs and damaging its reputation (AN)."</em></p>
+    `,
+    pills: ["U", "app", "an"]
+  },
+  {
+    type: "Evaluate — 7 marks",
+    title: "Argue Both Sides, Then Make a Justified Judgement",
+    content: `
+      <p>A 7-mark evaluate question tests all skills. You need application, analysis, AND a justified evaluation. This is the question where most students leave marks on the table.</p>
+      <p><strong>The 4-Paragraph Structure:</strong></p>
+      <ul>
+        <li><strong>Paragraph 1 — K &amp; U:</strong> Introduce the key concept and show you understand the issue. e.g., "Reliable suppliers are those who consistently deliver the right quality and quantity on time..."</li>
+        <li><strong>Paragraph 2 — AN &amp; APP (Side A):</strong> Analyse the first side using case study context. e.g., "Given that Zara has 2,270 stores (APP), reliable suppliers ensure products are available in every shop — without them, Zara would miss out on sales (AN)."</li>
+        <li><strong>Paragraph 3 — AN &amp; APP (Counter-argument):</strong> Analyse the other side. e.g., "However, if customer incomes fall, Zara's sales will decline regardless of supplier reliability (APP/AN)."</li>
+        <li><strong>Paragraph 4 — Evaluation (3 points):</strong> Make a justified decision using context. Decision + Reason using context + Qualifying condition ("It depends on...").</li>
+      </ul>
+      <p><strong>✅ Evaluation Sentence Starters:</strong></p>
+      <ul>
+        <li>"Overall, I believe reliable suppliers are the most important factor for Zara because..."</li>
+        <li>"Without reliable suppliers, Zara's USP of changing designs every 2 weeks would be impossible..."</li>
+        <li>"However, this depends on whether Zara's competitors also improve their supply chains..."</li>
+      </ul>
+      <p><strong>❌ A weak conclusion that scores 0 eval marks:</strong><br/>
+      <em>"In conclusion, reliable suppliers are important for Zara."</em><br/>
+      This just repeats what was already said. A good evaluation adds NEW reasoning, a condition, or a comparison.</p>
+    `,
+    pills: ["U", "app", "an", "eval"]
+  },
+  {
+    type: "Evaluate (Recommend) — 3 marks",
+    title: "Judgement + Justification + Context",
+    content: `
+      <p>Some 3-mark questions ask you to <strong>recommend</strong> or <strong>evaluate</strong> between two options. This is a mini-evaluation requiring three clear elements.</p>
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li><strong>Judgement (1 mark):</strong> State your clear choice. e.g., "I think reliability is the most important consideration for Tesco when choosing a logistics business."</li>
+        <li><strong>Justification (1 mark):</strong> Give a reason that compares both options. e.g., "If the logistics operator is not reliable, goods will not be on shelves at the right time and customers will go to competitors — having a greater impact than a small cost increase."</li>
+        <li><strong>Context (1 mark):</strong> Use specific detail from the case study to support your judgement.</li>
+      </ul>
+      <p><strong>⚠️ Critical Rule:</strong> Your justification MUST compare both options (cost vs reliability, meeting vs email, etc.). Simply saying why Option A is good, without comparing it to Option B, will not earn the full justification mark.</p>
+    `,
+    pills: ["app", "eval"]
+  }
+];
+
+// 8. Flashcards
+const flashcards = [
+  { term: "Procurement", def: "The management of purchasing goods and services within a business." },
+  { term: "Logistics", def: "The management of the transportation and storage of goods from seller to buyer." },
+  { term: "Supply Chain", def: "The chain of businesses involved in the production of a product and its delivery to the end user." },
+  { term: "Stage 1 of Procurement", def: "Identifying goods and services to buy — influenced by time of year, fashion, and technology." },
+  { term: "Stage 2 of Procurement", def: "Choosing suppliers — evaluating quality, cost, reliability, and reputation." },
+  { term: "Stage 3 of Procurement", def: "Ordering goods and services — placing orders, negotiating discounts for bulk buying." },
+  { term: "Stage 4 of Procurement", def: "Receiving deliveries — managing storage space and access for delivery vehicles." },
+  { term: "Just-In-Time (JIT)", def: "Materials arrive exactly when needed for production, minimising storage costs but requiring reliable suppliers." },
+  { term: "Reliability of Supply", def: "The ability of a supplier to deliver the right quality and quantity of goods consistently on time." },
+  { term: "Ethical Sourcing", def: "Choosing suppliers who pay fair wages, protect workers, and use sustainable materials." },
+  { term: "Zara's Supply Chain Advantage", def: "Zara can get new designs to 2,270 stores in 15 days by sourcing fabric from European suppliers close to its Spanish factories." },
+  { term: "Eddie Stobart / Logistics Development Group", def: "A UK logistics company that transports goods for businesses like Tesco, ensuring products reach stores reliably." },
+  { term: "Why length of supply chain matters", def: "Longer chains involve more businesses = more risk of disruption, higher complexity, harder to manage, greater reputational risk." },
+  { term: "Rainforest Alliance Certification", def: "A certification used by Costa Coffee's suppliers confirming they meet ethical and environmental sustainability standards." }
+];
+
+// 9. Exam-Style Questions (All questions from resources)
+const examQuestions = [
+  {
+    num: "Q1",
+    marks: 1,
+    type: "written",
+    caseStudy: "In 2016, supermarkets such as Tesco were unable to buy enough custard cream biscuits to meet demand. The biscuits were made by Crawford's Biscuits at its factory in Carlisle. The factory was damaged during winter floods and this led to production being halted while the factory was refurbished. Once production re-started, fuel prices rose in the UK, leading to a rise in the cost of transporting goods.",
+    question: "Explain what is meant by logistics. [1 mark]",
+    hint: "Give the official definition — what does logistics manage?",
+    starter: "Logistics is the management of...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 1 mark</h5><ul><li><strong>1 mark:</strong> The management of the transportation (and storage) of goods / organising how goods are moved from seller to buyer.</li></ul><p>Accept any answer that references the movement/transport/storage of goods.</p></div>`,
+    modelAnswer: "Logistics is the management of the transportation and storage of goods from the seller to the buyer."
+  },
+  {
+    num: "Q2",
+    marks: 2,
+    type: "written",
+    caseStudy: "",
+    question: "Explain how logistics is involved in the production of custard creams. [2 marks]",
+    hint: "Think about how the biscuits get from Crawford's factory to Tesco's shelves — what needs to happen? Apply the definition of logistics to the actual process described.",
+    starter: "Logistics is involved in getting the ingredients/biscuits to... (K/U)\nFor example, Crawford's Biscuits needs to transport its finished custard creams from Carlisle to Tesco's distribution centres across the UK... (APP)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks</h5><ul><li><strong>Knowledge/Understanding (1 mark):</strong> Shows understanding of logistics — e.g., the transportation/movement of goods from producer to retailer/consumer.</li><li><strong>Application (1 mark):</strong> Links logistics specifically to custard creams — e.g., Crawford's delivers biscuits from its factory in Carlisle to Tesco stores / warehouses across the UK.</li></ul></div>`,
+    modelAnswer: "Logistics is involved in transporting the finished custard cream biscuits from Crawford's factory in Carlisle to Tesco's distribution centres and then to individual stores across the UK, so that the shelves are stocked in time to meet customer demand."
+  },
+  {
+    num: "Q3",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Analyse the impact on Tesco of the problems with the supply chain of custard creams. [3 marks]",
+    hint: "Use U → APP → AN. First explain what the supply chain problem was, then link it to Tesco, then state the business impact on Tesco (sales, reputation, costs, revenue).",
+    starter: "The supply chain problem meant that Tesco could not get enough custard creams to meet demand... (U)\nBecause Crawford's factory in Carlisle was damaged by floods and production was halted... (APP)\nAs a result, Tesco's shelves were empty, leading to lost sales and potential loss of customers to competitors... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation (3 marks: U + APP + AN)</h5><ul><li><strong>Understanding (1 mark):</strong> Shows understanding of the supply chain problem — e.g., Crawford's could not produce/supply biscuits due to factory damage.</li><li><strong>Application (1 mark):</strong> Links to Tesco specifically — e.g., Tesco was unable to buy enough custard creams to stock its shelves.</li><li><strong>Analysis (1 mark):</strong> States the business-facing impact on Tesco — e.g., lost sales and revenue / damage to reputation / customers going to competitors.</li></ul><p><strong>Note:</strong> Application and Analysis marks cannot be awarded without Understanding.</p></div>`,
+    modelAnswer: "A disruption in the supply chain means the business cannot obtain the goods it needs to sell (U). Crawford's Biscuits factory in Carlisle was flooded and halted production, meaning Tesco could not source enough custard creams (APP). As a result, Tesco's shelves were empty and it lost sales revenue, with the risk that customers switched to other supermarkets to find the biscuits they wanted (AN)."
+  },
+  {
+    num: "Q4",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Analyse how the rise in fuel prices might affect sales of custard creams at Tesco. [3 marks]",
+    hint: "Think about the chain of effects: fuel prices rise → transport costs rise → production costs rise → what happens to the price of biscuits in Tesco → what happens to sales?",
+    starter: "A rise in fuel prices will increase the cost of transporting goods... (U)\nCrawford's Biscuits delivers custard creams from Carlisle to Tesco's stores across the UK, so higher fuel prices increase Crawford's delivery costs... (APP)\nThese higher costs may be passed on to Tesco as higher prices, forcing Tesco to raise its selling price — which could reduce customer demand and lower sales... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation (3 marks: U + APP + AN)</h5><ul><li><strong>Understanding (1 mark):</strong> Rising fuel prices increase transport/logistics costs.</li><li><strong>Application (1 mark):</strong> Links to custard creams/Crawford's/Tesco specifically — delivery costs from Carlisle increase.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact — higher costs passed on through higher prices → reduced sales / lower profitability for Tesco.</li></ul></div>`,
+    modelAnswer: "A rise in fuel prices increases the cost of transporting goods (U). Crawford's Biscuits transports custard creams from its Carlisle factory to Tesco stores nationwide, so higher fuel costs raise Crawford's delivery costs (APP). Crawford's may pass these higher costs on to Tesco in the form of higher prices, meaning Tesco must either absorb the cost (reducing profit margins) or raise the shelf price of custard creams — which could reduce sales as customers switch to cheaper alternatives (AN)."
+  },
+  {
+    num: "Q5 (a)",
+    marks: 3,
+    type: "written",
+    caseStudy: "Eddie Stobart started his haulage business in 1970. The business now operates some 270 vehicles and approximately 5,000 trailers, and has 43 operating centres throughout the UK. It is a well-established logistics company. The owners of Eddie Stobart changed its name in February 2021 to The Logistics Development Group, reflecting its role in the logistics industry.\n\nThe business is part of the supply chain for businesses, making sure that products for businesses such as Tesco plc arrive on time for customers. It is essential that supermarkets, for example, have the correct amount of goods on their shelves at all times. Some products, such as fresh produce, must be delivered reliably on a daily basis. Other businesses, such as car assembly factories, need parts brought to them just in time for them to be used.\n\nThe logistics industry is very competitive. In April 2021, DHL won the contract to move goods from two Tesco distribution centres. Eddie Stobart kept the contract to move goods from four Tesco plc centres. Tesco plc is in a very competitive market and needs to keep costs down at all times. It must also make sure that supplies reach it at the correct times.\n\nFor any business, the choice of which logistics business to use as a supplier, needs careful consideration. Factors such as cost and reliability play an important part in decision-making.",
+    question: "Analyse one benefit to Tesco plc of using cost as a consideration when choosing a logistics business as part of its supply chain. [3 marks]",
+    hint: "U → APP → AN. The benefit is about keeping costs down. Why does that matter specifically to Tesco? What is the financial or competitive impact?",
+    starter: "One benefit of considering cost is that it helps maintain profitability / keep prices competitive... (U)\nTesco plc operates in a very competitive supermarket market and needs to keep costs down at all times... (APP)\nBy choosing a lower-cost logistics provider, Tesco can keep its prices lower than competitors, helping to maintain or grow its market share... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation (3 marks: U + APP + AN)</h5><ul><li><strong>Understanding (1 mark):</strong> Gives an advantage of considering costs — e.g., helps maintain profitability / keeps prices low / reduces break-even point.</li><li><strong>Application (1 mark):</strong> Links to Tesco from the case study — e.g., Tesco is in a competitive market and needs to keep costs down; DHL won two distribution contracts (competitive bidding).</li><li><strong>Analysis (1 mark):</strong> States the impact on the business — e.g., reducing costs allows Tesco to keep prices lower than competitors, helping maintain market share and profitability.</li></ul><p><strong>Note:</strong> No reward for simply stating 'lower costs' without explaining the benefit.</p></div>`,
+    modelAnswer: "Considering cost when choosing a logistics provider helps Tesco maintain its profit margins (U). The case study states that Tesco plc is in a very competitive market and must keep costs down at all times — DHL won a contract by offering competitive rates (APP). By selecting a lower-cost logistics provider, Tesco can reduce its operating costs, allowing it to keep shelf prices competitive and retain customers against rivals such as Sainsbury's and ASDA (AN)."
+  },
+  {
+    num: "Q5 (b)",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Analyse one benefit to Tesco plc of using reliability as a consideration when choosing a logistics business as part of its supply chain. [3 marks]",
+    hint: "U → APP → AN. What is the benefit of a reliable logistics provider? Why is this particularly important for a supermarket like Tesco? What happens if logistics is unreliable?",
+    starter: "One benefit of a reliable logistics provider is that it ensures goods are on the shelves when customers need them... (U)\nAs a supermarket, Tesco needs fresh goods delivered daily to ensure shelves are always stocked... (APP)\nIf deliveries are not reliable, customers will find empty shelves and switch to competitors, causing Tesco to lose sales and revenue... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation (3 marks: U + APP + AN)</h5><ul><li><strong>Understanding (1 mark):</strong> Shows understanding of a benefit of reliability — e.g., ensures goods are available at the right time in the right quantity.</li><li><strong>Application (1 mark):</strong> Links to Tesco — e.g., as a supermarket, Tesco needs fresh produce delivered daily; Eddie Stobart retained four distribution centre contracts by being reliable.</li><li><strong>Analysis (1 mark):</strong> States the business-facing impact — e.g., if logistics is unreliable, goods are not on shelves and customers go to competitors, permanently damaging Tesco's reputation.</li></ul></div>`,
+    modelAnswer: "A reliable logistics provider ensures that Tesco has the right goods on its shelves at the right time (U). As a supermarket, Tesco needs fresh produce such as bread, fruit, and dairy delivered reliably on a daily basis — Eddie Stobart retained four of Tesco's distribution centre contracts demonstrating the importance Tesco places on reliability (APP). If deliveries are unreliable, shelves will be empty and customers will switch to competitors, leading to a loss of sales and lasting damage to Tesco's reputation (AN)."
+  },
+  {
+    num: "Q5 (c)",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Evaluate whether Tesco plc should use cost or reliability as a consideration when choosing a logistics business as part of its supply chain. [3 marks]",
+    hint: "Make a clear choice (1 mark). Give a reason that compares BOTH options (1 mark). Use specific details from the case study (1 mark). Your justification must explain why your chosen factor is MORE important than the other.",
+    starter: "I recommend that Tesco should prioritise [cost/reliability] when choosing a logistics provider...\nThis is because... compared to [the other factor]...\nIn the context of Tesco, the case study shows that...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation (AO3b = 3 marks: Judgement + Justification + Context)</h5><ul><li><strong>Judgement (1 mark):</strong> Clear recommendation — reliability OR cost is most important.</li><li><strong>Justification (up to 2 marks):</strong> Comparative reason using case study detail explaining why the chosen factor is more important than the other.</li><li><strong>Non-contextual justification (1 mark only):</strong> Comparative reason without case study detail.</li></ul><p><strong>Note:</strong> Justification must cover BOTH factors to earn justification marks.</p></div>`,
+    modelAnswer: "<strong>Model Answer 1 (reliability):</strong> I recommend Tesco prioritises reliability when choosing a logistics provider. If goods are not on the shelves at the right time, customers will go to competitors and may not return — this long-term loss of customers would have a far greater impact on Tesco's profitability than any savings made from choosing a slightly cheaper but less reliable logistics firm. The case study shows that fresh produce must be delivered daily, meaning reliability is non-negotiable for Tesco's core product range.<br><br><strong>Model Answer 2 (cost):</strong> I recommend Tesco prioritises cost. Tesco operates in a highly competitive supermarket market and must keep costs down to maintain its ability to offer competitive prices. If Tesco chooses a higher-cost logistics provider, it may need to raise prices, making it less competitive — customers are unlikely to change their weekly shopping habits for a small reliability improvement if prices are higher."
+  },
+  {
+    num: "Q6",
+    marks: 3,
+    type: "written",
+    caseStudy: "Primark Ltd is a fashion retailer that sells clothing and homeware at prices lower than most other retailers. The company is aware of the importance of consumer law and of having low-cost suppliers.\n\nPrimark Ltd started to sell its products online in 2022. After changes in buying habits and pressure from customers, in 2022 Primark Ltd launched an online click and collect service for shoppers.\n\nPrimark Ltd is very aware of the need to have ethical suppliers. The following ethical factors are among those important to Primark Ltd:\n•  giving clothes a longer life by using material from sustainable sources\n•  encouraging its supply chain to pay a living wage and look after the health and well-being of their workers.",
+    question: "Analyse one benefit for Primark Ltd of having low-cost suppliers. [3 marks]",
+    hint: "Remember: the benefit of LOW-COST suppliers is NOT to raise prices — it is to keep prices LOW or to increase profit margins. Apply this specifically to what Primark is known for.",
+    starter: "One benefit of having low-cost suppliers is that it allows Primark to keep its prices lower than competitors... (U)\nPrimark is known for selling clothing and homeware at prices lower than most other retailers... (APP)\nThis helps Primark increase its sales and market share, as more customers are attracted by its competitive pricing... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation (3 marks: U + APP + AN)</h5><ul><li><strong>Understanding (1 mark):</strong> States a benefit of low-cost suppliers — e.g., can pay less for raw materials / keep prices low / buy in bulk / reduce break-even / more money available for other areas.</li><li><strong>Application (1 mark):</strong> Links to Primark — e.g., sells clothing and homeware at prices lower than most retailers / has a click and collect service / aware of need for ethical suppliers.</li><li><strong>Analysis (1 mark):</strong> States the business impact — e.g., can increase sales / maintain market share / compete with other retailers / maintain or improve profit margins.</li></ul><p><strong>NB:</strong> Analysis must be business-facing. No reward for only stating 'low costs' or 'costs will be lower' as a benefit.</p><p><strong>⚠️ Examiner's Comment:</strong> About 60% of candidates gained 2–3 marks. Many candidates did not clearly state a benefit — they only mentioned 'low cost' and did not gain the understanding mark. Some incorrectly suggested low-cost suppliers would allow Primark to raise prices, which shows a misunderstanding of Primark's business model.</p></div>`,
+    modelAnswer: "Having low-cost suppliers allows Primark to keep its selling prices lower than rival retailers (U). The case study states that Primark sells clothing and homeware at prices lower than most other retailers — this is central to its business model and brand identity (APP). By keeping supplier costs low, Primark can maintain its competitive pricing advantage, attracting more customers and increasing its market share (AN)."
+  },
+  {
+    num: "Q7",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "The role of procurement for a car manufacturer might involve:",
+    options: [
+      "Advertising a new range of electric vehicles",
+      "Negotiating deals with car showrooms",
+      "Receiving deliveries of tyres and windscreens",
+      "Testing the brakes of every new car"
+    ],
+    answer: 2,
+    hint: "Think: which option is about BUYING or receiving goods — not selling, marketing, or testing?",
+    starter: "The correct answer is...",
+    markScheme: `<div class="marks-section"><h5>Answer: C — Receiving deliveries of tyres and windscreens</h5><ul><li><strong>Why C is correct:</strong> Procurement covers all stages of buying — including receiving deliveries of components like tyres and windscreens (Stage 4 of procurement).</li><li><strong>Why A is wrong:</strong> Advertising is a marketing activity, not procurement.</li><li><strong>Why B is wrong:</strong> Negotiating with showrooms is a sales/distribution decision, not procurement.</li><li><strong>Why D is wrong:</strong> Testing brakes is a quality control or operations task, not procurement.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q8 (i)",
+    marks: 2,
+    type: "written",
+    caseStudy: "Zara is a global fashion brand based in Spain. Zara is best known for the speed and frequency it can get its new clothing ranges into its online shop and 2270 stores. Approximately 50% of Zara's clothes are manufactured in Spain; the rest come from other European countries, or from Asia and Africa. Like most firms in 2020, Zara experienced a fall in sales. Zara's global sales revenues in 2019 were €19,954 million, but in 2020 these fell to €14,129 million. However, during this period Zara's online sales increased by approximately 75%, as consumer buying habits changed in favour of e-commerce.\n\nZara can get new clothing designed, manufactured and delivered to its stores within 15 days. It does this by buying fabric in large quantities from suppliers in Europe, which helps keep its variable costs low. This means that it is delivered quickly to its factory in Spain, where it can then be made up into the new designs.\n\nZara's highly responsive supply chain is central to its business success. This means it can change its clothing designs on average every two weeks, while competitors change their designs every two or three months.",
+    question: "Identify two roles of the procurement function in a business. [2 marks]",
+    hint: "There are four official stages of procurement. State two of them clearly. Your answers do not need to relate specifically to Zara.",
+    starter: "Role 1: ...\nRole 2: ...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation (2 marks: 1 mark per correct role)</h5><ul><li>Identifying goods and services to buy / finding materials</li><li>Ordering or purchasing goods and services</li><li>Identifying or choosing suppliers</li><li>Receiving deliveries from suppliers</li></ul><p><strong>Note:</strong> Answers do not need to relate to Zara. 1 mark for each correct role, up to 2 marks.</p><p><strong>⚠️ Examiner's Comment:</strong> Only about 1 in 5 candidates gained both marks. More than half did not know what 'procurement function' meant — many gave answers about finance or marketing.</p></div>`,
+    modelAnswer: "Role 1: Choosing and evaluating suppliers.\nRole 2: Ordering goods and services from suppliers."
+  },
+  {
+    num: "Q8 (ii)",
+    marks: 7,
+    type: "written",
+    caseStudy: "",
+    question: "Evaluate the importance to Zara of having reliable suppliers in the supply chain for its clothing. [7 marks]",
+    hint: "This is a 7-mark evaluate question. Use all four skills: APP, AN, and EVAL. Argue both sides (why reliable suppliers matter AND whether other factors could be more important). End with a justified conclusion using context from the case study.",
+    starter: "Paragraph 1 — K & U:\nReliable suppliers are those who consistently deliver the right quantity and quality of goods on time...\n\nParagraph 2 — AN & APP (Importance of reliability for Zara):\nGiven that Zara has 2,270 stores worldwide (APP), reliable suppliers ensure products are available in every location...\n\nParagraph 3 — AN & APP (Counter-argument / other factors):\nHowever, even with reliable suppliers, Zara's sales fell by approximately 29% in 2020 (APP), suggesting that external factors such as consumer incomes can override supplier reliability...\n\nParagraph 4 — Evaluation (Decision + Context + Condition):\nOverall, reliable suppliers are essential to Zara because its entire USP depends on them...\nWithout reliable suppliers, Zara cannot change designs every two weeks, losing its competitive advantage over rivals who change every 2–3 months...\nHowever, this depends on whether Zara's competitors also develop more responsive supply chains...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation (7 marks total)</h5><ul><li><strong>Application — up to 2 marks:</strong> Context from the case study must be used (not just referenced). e.g., 2,270 stores / changing designs every 2 weeks / 15-day turnaround / suppliers from Europe, Asia, Africa / sales fell 29% in 2020 / online sales up 75%.</li><li><strong>Analysis — up to 2 marks:</strong> Business-facing impact. e.g., without reliable suppliers sales/profits would fall as Zara cannot stock shelves; Zara's reputation would suffer if designs cannot be changed every 2 weeks; loss of USP and competitive advantage.</li><li><strong>Evaluation — up to 3 marks:</strong> Justified judgement about importance of reliable suppliers using case study evidence. For full 3 marks: decision + contextual reasoning + qualification or comparison.</li></ul></div><div class="marks-section"><h5>Level of Response Grid</h5><ul><li><strong>Strong (7 marks):</strong> Two uses of context [APP][APP] + Two business-facing analyses [AN][AN] + Justified contextual evaluation [EVAL][EVAL][EVAL]</li><li><strong>Good (4–5 marks):</strong> One/two uses of context + one/two analyses + limited evaluation</li><li><strong>Limited (1–2 marks):</strong> General points without context or analysis</li></ul><p><strong>⚠️ Examiner's Comment:</strong> Excellent answers made good use of Zara's reputation for speed and frequency, changing designs every two weeks, and global suppliers. About a third of answers contained no context. Very few candidates gained all 3 evaluation marks — a conclusion must add NEW reasoning, not just repeat analysis points.</p><p><strong>Assessment for Learning:</strong> There are only 2 marks each for application and analysis. Candidates should make only TWO well-developed points, not three or four. More points gain no extra marks but waste time.</p></div>`,
+    modelAnswer: "Reliable suppliers are those who consistently deliver the right quantity and quality of goods on time (U). This is particularly important for Zara, which operates 2,270 stores worldwide and changes its clothing designs on average every two weeks (APP). Without reliable suppliers to deliver fabric quickly to its Spanish factory, Zara would be unable to maintain its 15-day turnaround from design to shelf — meaning empty stores and lost sales (AN).\n\nIf Zara's European fabric suppliers were unreliable, it would lose the competitive advantage that sets it apart — competitors already take two to three months to change designs (APP). Unreliable supply would mean Zara could not respond quickly to fashion trends, damaging its brand image and causing customers to shop elsewhere (AN).\n\nOverall, reliable suppliers are essential to Zara because its entire business model and USP depend on them (EVAL). No amount of marketing or price adjustment can compensate for empty shelves or outdated stock (EVAL). However, this depends on whether Zara's competitors also develop faster supply chains — if all rivals achieve similar response times, supplier reliability alone will no longer be Zara's key differentiator (EVAL)."
+  },
+  {
+    num: "Q9 (i)",
+    marks: 6,
+    type: "written",
+    caseStudy: "Pukka Pies Ltd is a family-owned business with approximately 360 employees. It makes a range of high-quality savoury pies, including steak, chicken and mushroom, and chicken balti, in batches at its factory in Leicester, England. Pukka Pies are sold in more than 4000 food stores nationwide as well as in sports stadiums, fish and chip shops and cafés across the country.\n\nThree of Pukka Pies Ltd's key values are recruiting people who are ambitious, delighting customers with quality pies, and building trust with suppliers through food safety. Each of these values helps the business meet the requirements of consumer law.\n\nThe success of Pukka Pies Ltd is affected by many factors, including its logistical and supply chain decisions. Pukka Pies Ltd procures the ingredients for its pies from businesses across the UK and overseas; consequently its supply chain is long. Nevertheless, all of these ingredients need to arrive in good condition and, therefore, its logistics are time-critical. Unemployment levels also have a significant impact on Pukka Pies Ltd.\n\nPukka Pies Ltd considers its environmental impact across all aspects of business activity. It has already replaced some of the non-recyclable plastics used in its packaging with alternatives that can be recycled. In addition, none of the company's waste goes to landfill.",
+    question: "Analyse the impact of each of the following on Pukka Pies Ltd:\n• the length of its supply chain\n• the time-critical nature of its logistics\n[6 marks]",
+    hint: "This is TWO separate 3-mark analyses. For each one: U (what is the issue?) → APP (link to Pukka Pies specifically) → AN (what is the business impact on Pukka Pies?). Do NOT write a conclusion — there are no evaluation marks here.",
+    starter: "Supply Chain Length — U: The supply chain includes all the businesses involved in bringing ingredients to the factory...\nSupply Chain Length — APP: Pukka Pies sources ingredients from businesses across the UK and overseas, giving it a long supply chain...\nSupply Chain Length — AN: This makes coordination complex and costly, increasing the risk that ingredients do not arrive on time and disrupting production...\n\nTime-Critical Logistics — U: Timing is vital for the delivery of raw materials to ensure production is not delayed...\nTime-Critical Logistics — APP: Pukka Pies makes high-quality pies requiring fresh ingredients, and food safety is a key value...\nTime-Critical Logistics — AN: If deliveries are late, production may halt or unsafe products could be made, requiring an expensive recall and damaging the business's reputation...",
+    markScheme: `<div class="marks-section"><h5>Supply Chain Length (3 marks: U + APP + AN)</h5><ul><li><strong>Understanding (1 mark):</strong> The supply chain is the number of organisations involved in bringing the product/materials to the business; longer chain = more coordination required.</li><li><strong>Application (1 mark):</strong> Pukka Pies sources ingredients from across the UK and overseas; supply chain is described as 'long'; must meet demand of 4,000+ food stores.</li><li><strong>Analysis (1 mark):</strong> Need to manage and coordinate many suppliers to ensure timely delivery; risk of disruption anywhere in the chain; increased cost of operating a complex supply chain; impact on quality.</li></ul></div><div class="marks-section"><h5>Time-Critical Nature of Logistics (3 marks: U + APP + AN)</h5><ul><li><strong>Understanding (1 mark):</strong> Timing is vital for delivery of raw materials so production is not delayed and finished products are delivered on time.</li><li><strong>Application (1 mark):</strong> Pukka Pies makes high-quality pies requiring fresh ingredients; food safety is a key value; perishable product; supplies come from UK and overseas.</li><li><strong>Analysis (1 mark):</strong> Increased costs if supply chain fails; risk of unsafe food preparation and expensive product recall; loss of reputation if products not delivered on time to 4,000+ stores.</li></ul></div>`,
+    modelAnswer: "<strong>Supply Chain Length:</strong> The length of the supply chain refers to the number of businesses involved in getting resources from raw material to finished product (U). Pukka Pies sources ingredients for its steak, chicken and mushroom, and chicken balti pies from businesses across the UK and overseas — giving it a particularly long and complex supply chain (APP). This requires careful management and coordination to ensure all ingredients arrive at its Leicester factory on time; any disruption to one supplier could halt production and prevent Pukka Pies from meeting the demand of its 4,000+ food store customers (AN).\n\n<strong>Time-Critical Logistics:</strong> Time is a vital element of logistics — ingredients must arrive at exactly the right time to keep production running smoothly (U). Pukka Pies makes high-quality savoury pies that require fresh ingredients, and food safety is described as a key business value (APP). If ingredient deliveries are delayed, Pukka Pies may be forced to halt production or, worse, use substandard ingredients — potentially resulting in a costly product recall and lasting reputational damage with its retail partners (AN)."
+  },
+  {
+    num: "Q9 (ii)",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Recommend whether the length of its supply chain or the time-critical nature of its logistics has the greater impact on Pukka Pies Ltd's success. [3 marks]",
+    hint: "Make a clear choice (1 mark). Give a comparative reason (1 mark). Use context from the case study in your justification (1 mark). Your reason must explain why your choice has MORE impact than the other.",
+    starter: "I recommend that [the length of the supply chain / the time-critical nature of its logistics] has the greater impact on Pukka Pies Ltd's success...\nThis is because...\nIn the context of Pukka Pies, the case study states that...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation (AO3b = 3 marks)</h5><ul><li><strong>Judgement (1 mark):</strong> Clear recommendation — supply chain length OR time-critical logistics has the greater impact.</li><li><strong>Justification (1 mark):</strong> Comparative reason explaining why the chosen factor has a greater impact on Pukka Pies's success than the other.</li><li><strong>Context (1 mark):</strong> Use of specific information from the case study within the justification.</li></ul></div>`,
+    modelAnswer: "The time-critical nature of its logistics will have the greatest impact on Pukka Pies Ltd's success (JUDGEMENT). Pukka Pies produces high-quality pies requiring fresh ingredients, and food safety is stated as a key value (CONTEXT). If logistics fail and ingredients arrive late or in poor condition, Pukka Pies risks breaching food safety regulations, potentially triggering an expensive product recall — which would have a far more severe and immediate impact on the business than the general complexity of managing a long supply chain (JUSTIFICATION)."
+  },
+  {
+    num: "Q10",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "Hugh works in procurement at a factory that makes jeans. Which of the following would NOT be part of Hugh's job role?",
+    options: [
+      "Choosing a supplier of zips and buttons",
+      "Ordering printer paper and ink cartridges",
+      "Receiving delivery of threads and fabrics",
+      "Sewing the size label on to the waistband"
+    ],
+    answer: 3,
+    hint: "Procurement is about BUYING goods and services. Which option is a manufacturing/production task, not a purchasing task?",
+    starter: "The correct answer is...",
+    markScheme: `<div class="marks-section"><h5>Answer: D — Sewing the size label on to the waistband</h5><ul><li><strong>Why D is correct:</strong> Sewing labels is a production/manufacturing task carried out on the factory floor — it has nothing to do with purchasing or procurement.</li><li><strong>Why A is wrong:</strong> Choosing a supplier of zips and buttons is Stage 2 of procurement — this is clearly part of Hugh's role.</li><li><strong>Why B is wrong:</strong> Procurement covers ALL goods the business needs, including office supplies like printer paper — not just production materials.</li><li><strong>Why C is wrong:</strong> Receiving deliveries of threads and fabrics is Stage 4 of procurement.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q11 (a)",
+    marks: 2,
+    type: "written",
+    caseStudy: "John Lewis & Partners (JLP) is a chain of department stores that stocks a wide range of products from clothing to home furnishings. As a result it is always looking for high quality suppliers for its products.\n\nJLP uses face-to-face selling in its stores. Staff in the electrical department are trained to have good product knowledge. These products include a wide range of computers, televisions and washing machines. However, JLP's recent growth has come from e-commerce.\n\nJLP has a wide range of suppliers. It is important that the right supplier is chosen, so JLP will take time evaluating new suppliers and will review existing suppliers regularly so that it can continue supplying high quality products to its customers.",
+    question: "Explain one role of procurement within JLP. [2 marks]",
+    hint: "State a specific role of procurement (1 mark), then link it to JLP's actual products or business context (1 mark). Do NOT just say JLP has a wide range of products — that is not knowledge of procurement.",
+    starter: "One role of procurement is... (K)\nFor JLP, this means... / For example, JLP... (APP)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation (2 marks: K + APP)</h5><ul><li><strong>Knowledge (1 mark):</strong> Identifying goods and services to buy / choosing suppliers / ordering goods and services / receiving deliveries from suppliers.</li><li><strong>Application (1 mark):</strong> Links to JLP — e.g., evaluating high quality suppliers for its clothing, home furnishings, electronics; reviewing suppliers regularly; sourcing computers, TVs, and washing machines.</li></ul><p><strong>Note:</strong> Do not reward answers that only refer to JLP 'having a wide range of products' — this is not knowledge of procurement.</p><p><strong>✅ Exemplar response 1:</strong> "To identify high-quality suppliers (K) for the wide range of products JLP sells, such as computers and washing machines (APP)."</p><p><strong>✅ Exemplar response 2:</strong> "One role of procurement is to choose which suppliers to use (K) — JLP takes time evaluating new and existing suppliers to ensure it can supply high-quality products to its customers (APP)."</p></div>`,
+    modelAnswer: "One role of procurement is to evaluate and choose the best suppliers (K). For JLP, this means regularly reviewing both new and existing suppliers of products such as clothing, home furnishings, and electrical items like televisions and washing machines, to ensure they consistently meet JLP's high quality standards (APP)."
+  },
+  {
+    num: "Q11 (b)(i)",
+    marks: 2,
+    type: "written",
+    caseStudy: "",
+    question: "Identify two factors that affect the supply decisions made by a business. [2 marks]",
+    hint: "Name two separate factors from the list of logistical/supply considerations. No explanation needed — just name them clearly.",
+    starter: "Factor 1: ...\nFactor 2: ...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation (2 marks: 1 mark each)</h5><ul><li>Reliability / reputation of supplier</li><li>Length of supply chain</li><li>Time / speed / location</li><li>Costs / price of supplies</li><li>Customer service</li><li>Availability of substitutes / number of competing suppliers</li><li>Quality of goods supplied</li></ul><p><strong>Note:</strong> Answers do not need to relate to JLP. 1 mark for each correct factor, maximum 2.</p></div>`,
+    modelAnswer: "Factor 1: Reliability of the supplier — whether they can consistently deliver the right quantity and quality on time.\nFactor 2: Cost of supplies — whether the supplier offers competitive prices that allow the business to maintain its profit margins."
+  },
+  {
+    num: "Q11 (b)(ii)",
+    marks: 7,
+    type: "written",
+    caseStudy: "",
+    question: "Evaluate factors that may have influenced JLP when choosing which suppliers to use. [7 marks]",
+    hint: "This is a 7-mark evaluate question. Discuss multiple factors (quality, reliability, cost, speed), apply each to JLP's specific context, analyse the business impact, then evaluate which factor is most important for JLP and why — using the case study.",
+    starter: "Paragraph 1 — K & U:\nWhen choosing suppliers, businesses consider factors such as quality, cost, reliability, and customer service...\n\nParagraph 2 — AN & APP (Factor 1 — e.g., Quality):\nFor JLP, quality is particularly important because it stocks a wide range of products and takes time evaluating new and existing suppliers (APP)...\n\nParagraph 3 — AN & APP (Factor 2 — e.g., Reliability/Speed):\nHowever, JLP's recent growth has come from e-commerce (APP), meaning speed and reliability of delivery have become increasingly important...\n\nParagraph 4 — Evaluation (Decision + Context + Condition):\nOverall, I believe quality is the most important factor for JLP because...\nThis is supported by the case study which states JLP is always looking for high quality suppliers...\nHowever, this depends on whether JLP's online customers are willing to wait longer for higher quality goods...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation (7 marks total)</h5><ul><li><strong>Application — up to 2 marks:</strong> Context from JLP case study used — e.g., chain of department stores / wide range of products / clothing, home furnishings, computers, TVs, washing machines / e-commerce growth / high quality suppliers / regular evaluation of suppliers.</li><li><strong>Analysis — up to 2 marks:</strong> Business-facing impacts — e.g., impact on customer service, sales, reputation, supply chain length, costs, or business risk.</li><li><strong>Evaluation — up to 3 marks:</strong> Justified judgement about which factor(s) are most important for JLP when choosing suppliers, using case study context.</li></ul><p><strong>Note:</strong> Ensure answers focus on CHOOSING SUPPLIERS rather than choosing specific products. For full 3 evaluation marks, the evaluation must be contextual.</p></div>`,
+    modelAnswer: "When choosing suppliers, businesses consider factors including quality, reliability, cost, and speed of delivery (U). For JLP, quality is a critical factor — the case study states JLP is 'always looking for high quality suppliers' and regularly evaluates both new and existing suppliers to ensure standards are maintained (APP). If suppliers provide poor quality goods, customers will return products and JLP may have to issue refunds, damaging its reputation and reducing sales (AN).\n\nHowever, speed and reliability of delivery have become increasingly important as JLP's recent growth has come from e-commerce (APP). If suppliers cannot deliver stock to JLP's warehouses quickly, online orders cannot be fulfilled on time, and customers — who expect fast delivery — may switch to competitors like Amazon (AN).\n\nOverall, quality is likely to be the most important factor for JLP when choosing suppliers (EVAL). JLP operates in the competitive retail market and its reputation for quality products is a key reason customers choose JLP over cheaper alternatives (EVAL). However, this depends on the purchasing channel — for online shoppers, delivery speed may matter equally, suggesting JLP needs suppliers who offer both high quality AND reliable fast delivery to remain competitive (EVAL)."
+  },
+  {
+    num: "Q12",
+    marks: 4,
+    type: "written",
+    caseStudy: "Tesco plc is one of the largest retailers in the UK. It sells a range of products through its shops and uses e-commerce across the UK. The business procures its supplies from a range of UK and foreign businesses.\n\nOn its website, Tesco plc states its core purpose as 'wanting to be a champion for customers, helping them to enjoy a better quality of life and an easier way of living. Customers want great products at great value which they can buy easily and it's our job to deliver this in the right way for them.'\n\nIn recent years, sales of Tesco plc's products and services have been affected by increasing competition, consumer law and the growth of e-commerce. In addition, sales are impacted by how the UK economy is performing and the level of UK employment.",
+    question: "Explain two reasons why Tesco plc needs reliable suppliers. [4 marks]",
+    hint: "For each reason: state the reason (U/K) and then apply it to Tesco (APP). 2 marks per reason. Think about what would happen to Tesco's shelves, reputation, and sales if suppliers were unreliable.",
+    starter: "Reason 1 — U: Reliable suppliers ensure Tesco has products to sell at all times...\nReason 1 — APP: As Tesco sells products through both its physical stores and e-commerce, empty shelves or failed online orders would directly reduce its sales and profits...\n\nReason 2 — U: Reliable suppliers help Tesco maintain its reputation for quality and availability...\nReason 2 — APP: Tesco's core purpose states it wants to provide customers with great products at great value — unreliable suppliers would prevent Tesco from fulfilling this promise...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation (4 marks: 2 marks per reason)</h5><ul><li><strong>Knowledge/Understanding of each reason (1 mark each):</strong> e.g., need products to sell in store; reputation harmed if products unavailable; customers expect same products each visit; building trust with suppliers; quality of products sold.</li><li><strong>Application to Tesco (1 mark each):</strong> e.g., Tesco sells through shops AND e-commerce so needs stock for both channels; facing increasing competition — stock availability is key to retaining customers; core purpose is to provide great products at great value.</li></ul><p><strong>Exemplar response 1:</strong> "Tesco needs reliable suppliers to ensure it has products to sell on its shelves (K). Without reliable supplies, Tesco's profit and sales could be affected as customers may go to competitors (APP)."</p><p><strong>Exemplar response 2:</strong> "Reliable suppliers must deliver quality products consistently (K). If quality is inconsistent, Tesco's reputation may be damaged and its sales may decrease (APP)."</p></div>`,
+    modelAnswer: "Reason 1: Reliable suppliers ensure Tesco always has products available for sale (K). As Tesco sells through both physical stores and e-commerce, unreliable suppliers would lead to stockouts — customers finding empty shelves or failed deliveries would switch to competitors like ASDA or Sainsbury's, reducing Tesco's revenue (APP).\n\nReason 2: Reliable suppliers help Tesco protect its reputation for quality and consistency (K). Tesco's core purpose is to provide customers with 'great products at great value' — if suppliers deliver substandard or late goods, Tesco fails to meet this promise, damaging customer trust, especially important as it faces increasing competition from rival supermarkets (APP)."
+  },
+  {
+    num: "Q13",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "The length of a firm's supply chain:",
+    options: [
+      "Affects how quickly it can respond to changes in demand",
+      "Depends on the production method used by the business",
+      "Has no impact on the procurement function",
+      "Is shown on an organisation chart"
+    ],
+    answer: 0,
+    hint: "Think about Zara — how does its short, fast supply chain allow it to respond to fashion trends every two weeks?",
+    starter: "The correct answer is...",
+    markScheme: `<div class="marks-section"><h5>Answer: A — Affects how quickly it can respond to changes in demand</h5><ul><li><strong>Why A is correct:</strong> A shorter supply chain allows a business to respond much more quickly to changes in customer demand — as shown by Zara's 15-day turnaround. A longer chain means slower response times.</li><li><strong>Why B is wrong:</strong> Production methods (batch, flow, job) do not determine the length of the supply chain — these are separate decisions.</li><li><strong>Why C is wrong:</strong> Supply chain length absolutely affects procurement — longer chains are harder to manage and more prone to disruption.</li><li><strong>Why D is wrong:</strong> Organisation charts show internal staff hierarchy, not supply chain structure.</li></ul><p><strong>⚠️ Examiner's Comment:</strong> This question is best approached by discounting wrong options one at a time. Many candidates rush MCQs — take time to eliminate each incorrect answer carefully.</p></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q14",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "David works in a biscuit factory and is responsible for procurement. Which task is NOT likely to be part of David's job role?",
+    options: [
+      "Buying sugar",
+      "Ordering biscuit packaging materials",
+      "Purchasing stationery",
+      "Selling biscuits"
+    ],
+    answer: 3,
+    hint: "Procurement is about BUYING goods and services. Which option is about SELLING — which is a completely different business function?",
+    starter: "The correct answer is...",
+    markScheme: `<div class="marks-section"><h5>Answer: D — Selling biscuits</h5><ul><li><strong>Why D is correct:</strong> Selling biscuits is a sales and marketing task — completely separate from procurement. Procurement manages purchasing/buying, not selling.</li><li><strong>Why A is wrong:</strong> Buying sugar is a core procurement task — purchasing raw materials for production.</li><li><strong>Why B is wrong:</strong> Ordering packaging materials is procurement — everything needed to operate the factory falls under procurement.</li><li><strong>Why C is wrong:</strong> Procurement covers all goods a business needs, including office stationery — not just production inputs.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q15",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "Choosing how products will be delivered to customers is an example of a:",
+    options: [
+      "Flow production issue",
+      "Liquidity problem",
+      "Logistical decision",
+      "Purchasing concern"
+    ],
+    answer: 2,
+    hint: "Logistics is the management of transportation and storage. Which answer word directly links to this?",
+    starter: "The correct answer is...",
+    markScheme: `<div class="marks-section"><h5>Answer: C — Logistical decision</h5><ul><li><strong>Why C is correct:</strong> Choosing how products are delivered is a transportation/logistics decision — logistics manages the movement of goods from seller to buyer.</li><li><strong>Why A is wrong:</strong> Flow production is a manufacturing method (mass production on a conveyor belt) — it is not about delivery to customers.</li><li><strong>Why B is wrong:</strong> Liquidity is a finance concept about a business's ability to meet short-term debts — nothing to do with delivery.</li><li><strong>Why D is wrong:</strong> Purchasing concerns involve buying goods and services — not deciding how finished products reach customers.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q16",
+    marks: 1,
+    type: "written",
+    caseStudy: "Jaguar Land Rover (JLR) is one of the largest manufacturers of cars in the UK. The business buys some of the parts it uses to make the cars from the UK; other parts are bought from overseas. JLR specialises in producing luxury cars. JLR's main competitors are German car manufacturers — BMW and Mercedes.\n\nIn recent years, sales of JLR cars have been affected by:\n•  the slowdown of consumer spending in China and Russia\n•  the increase in consumer spending in Europe.",
+    question: "If JLR buys 500,000 tyres and 80% of these are bought from overseas suppliers, calculate the number of tyres JLR buys from overseas. [1 mark]",
+    hint: "Percentage calculation: (500,000 ÷ 100) × 80 = ? Always show your working even for 1-mark calculations.",
+    starter: "Workings: 500,000 × 80/100 =\nAnswer:",
+    markScheme: `<div class="marks-section"><h5>Answer: 400,000 tyres</h5><ul><li><strong>Workings:</strong> 500,000 × 80 ÷ 100 = 400,000</li><li>1 mark for the correct answer of 400,000.</li></ul></div>`,
+    modelAnswer: "Workings: 500,000 × 80/100 = 400,000\nAnswer: 400,000 tyres are bought from overseas suppliers."
+  },
+  {
+    num: "Q17",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "Choosing which supplier to use is a:",
+    options: [
+      "Marketing decision",
+      "Pricing decision",
+      "Procurement decision",
+      "Sales decision"
+    ],
+    answer: 2,
+    hint: "Which business function is specifically responsible for managing the buying and purchasing of goods and services?",
+    starter: "The correct answer is...",
+    markScheme: `<div class="marks-section"><h5>Answer: C — Procurement decision</h5><ul><li><strong>Why C is correct:</strong> Selecting and managing suppliers is the core activity of procurement. Stage 2 of the procurement process is 'Choosing Suppliers'.</li><li><strong>Why A is wrong:</strong> Marketing involves promoting products and understanding customer needs — not purchasing from suppliers.</li><li><strong>Why B is wrong:</strong> Pricing decisions involve setting the price of the business's own products or services.</li><li><strong>Why D is wrong:</strong> Sales decisions involve selling the business's products to customers.</li></ul><p><strong>⚠️ Examiner's Comment:</strong> Many candidates did not know what 'procurement' meant, making all options seem plausible. Know your key terms — procurement is the management of purchasing within a business.</p></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q18",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "A supermarket decides to extend its opening hours. The supermarket is likely to need:",
+    options: [
+      "A longer supply chain",
+      "Fewer staff",
+      "Lower quality products",
+      "Reliable suppliers"
+    ],
+    answer: 3,
+    hint: "Extended hours means more time when customers can buy products. What does the supermarket need to ensure those products are always available?",
+    starter: "The correct answer is...",
+    markScheme: `<div class="marks-section"><h5>Answer: D — Reliable suppliers</h5><ul><li><strong>Why D is correct:</strong> Extended opening hours means goods must be available for longer periods. Reliable suppliers ensure shelves stay stocked throughout extended trading hours. Without reliable deliveries, extended hours would mean empty shelves.</li><li><strong>Why A is wrong:</strong> A longer supply chain increases risk and complexity — it makes stocking shelves harder, not easier.</li><li><strong>Why B is wrong:</strong> Extended hours typically require MORE staff to cover longer shifts, not fewer.</li><li><strong>Why C is wrong:</strong> There is no reason extended opening hours would reduce the quality required of products.</li></ul><p><strong>⚠️ Examiner's Comment:</strong> This question is best approached by discounting wrong options. Each option is close to a right-sounding answer — careful elimination of A, B, and C reveals D as the only logical choice.</p></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q19",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "The transport costs of Global Logistics United plc (GLU plc) for the last five years are shown below.<br><br><table class=\"case-table\"><caption>Table 1 — GLU plc Transport Costs by Mode (2014–2018)</caption><tr><th>Mode of Transport</th><th>By Road</th><th>By Rail</th><th>By Air</th></tr><tr><td>2014</td><td>£150,000</td><td>£350,000</td><td>£600,000</td></tr><tr><td>2015</td><td>£160,000</td><td>£370,000</td><td>£620,000</td></tr><tr><td>2016</td><td>£170,000</td><td>£390,000</td><td>£635,000</td></tr><tr><td>2017</td><td>£180,000</td><td>£410,000</td><td>£640,000</td></tr><tr><td>2018</td><td>£190,000</td><td>£430,000</td><td>£650,000</td></tr></table>",
+    question: "The data shows that:",
+    options: [
+      "The company prefers to transport its goods by air",
+      "The company's transport costs have fallen year on year",
+      "GLU plc spent more than £1.25 million on transport costs in 2018",
+      "GLU plc transports more goods by rail than by road"
+    ],
+    answer: 2,
+    hint: "Add up all three transport costs for 2018: Road + Rail + Air. Is the total more than £1,250,000? Check each other option by working through the data carefully.",
+    starter: "The correct answer is...",
+    markScheme: `<div class="marks-section"><h5>Answer: C — GLU plc spent more than £1.25 million on transport costs in 2018</h5><ul><li><strong>Why C is correct:</strong> 2018 costs: Road £190,000 + Rail £430,000 + Air £650,000 = £1,270,000. This is greater than £1,250,000 ✅</li><li><strong>Why A is wrong:</strong> Higher air costs reflect the higher unit price of air freight, not a preference. We cannot determine preference from cost data alone.</li><li><strong>Why B is wrong:</strong> ALL costs increased year on year in every category — they did not fall.</li><li><strong>Why D is wrong:</strong> Higher rail costs than road costs do not mean more goods are transported by rail — air freight costs more per unit so fewer goods could generate a higher total cost.</li></ul><p><strong>⚠️ Examiner's Comment:</strong> This numerical question required time to validate or discount each option. Do not rush MCQs — spend time checking the data carefully.</p></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q20",
+    marks: 4,
+    type: "written",
+    caseStudy: "Costa Coffee is a British multinational coffee shop company owned by Coca-Cola. It is the second largest coffeehouse chain in the world behind Starbucks, and the largest in the UK. It has over 2100 branches in the UK and over 1200 branches in the rest of the world including Dubai, China and Poland.\n\nCosta Coffee has recently opened a new branch in Welshpool. It is located in the town centre on the high street near lots of other businesses, including offices and shops. There were only two other coffee shops in the town before they opened.\n\nCosta Coffee takes ethics very seriously and it has switched to environmentally-friendly coffee beans to make its supply chain more sustainable. Now all its stores worldwide use beans from Rainforest Alliance-certified suppliers, who meet ethical and environmental standards for the sustainable supply of coffee beans.\n\nIn order to be successful, Costa Coffee sells a wide range of products and constantly invests in updating this product range as well as refurbishing its shops. Recently it has invested heavily in updating its computer software to assist its many functional areas such as finance.",
+    question: "Explain two possible reasons why Costa Coffee uses coffee beans from Rainforest Alliance-certified coffee suppliers. [4 marks]",
+    hint: "For each reason: state WHY Costa chooses certified suppliers (U/K) and then apply it to Costa's specific situation (APP). Think about reputation, competition, reliability, and ethical positioning.",
+    starter: "Reason 1 — U: Using Rainforest Alliance-certified suppliers ensures the coffee beans are ethically and sustainably sourced...\nReason 1 — APP: Costa Coffee, owned by Coca-Cola and competing with Starbucks, has a strong global brand reputation that could be damaged by unethical supplier practices...\n\nReason 2 — U: Certified suppliers are often more reliable and provide consistent quality...\nReason 2 — APP: With over 2,100 UK branches and 1,200 internationally, Costa needs to ensure consistent coffee quality across all stores worldwide...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation (4 marks: 2 marks per reason)</h5><ul><li><strong>Understanding of each reason (1 mark each):</strong> e.g., to protect/enhance reputation; to use in marketing; reliability of supplies; quality of beans (certified standard); ethical reasons; environmental reasons.</li><li><strong>Application to Costa Coffee (1 mark each):</strong> e.g., Costa meets its own ethical/environmental standards; competitive market with Starbucks; switched to environmentally-friendly coffee; owned by Coca-Cola (importance of reputation); importance of consistency when selling an edible product across 3,300+ stores.</li></ul><p><strong>⚠️ Examiner's Comment:</strong> Most candidates could state one benefit such as increased reputation, but fewer could apply it to Costa's specific context. Start with the data — what does the case study tell you about Costa that makes each reason particularly relevant?</p></div>`,
+    modelAnswer: "Reason 1: Using Rainforest Alliance-certified suppliers helps Costa Coffee protect and enhance its ethical reputation (K). Costa operates in the competitive coffeehouse market against Starbucks — being seen as environmentally responsible differentiates the brand and appeals to ethically-conscious consumers, helping Costa attract and retain customers across its 2,100+ UK branches (APP).\n\nReason 2: Certified suppliers are likely to be more reliable and provide consistent quality of coffee beans (K). With over 3,300 stores worldwide across very different markets including Dubai, China, and Poland, Costa Coffee must ensure every branch uses the same standard of beans to deliver a consistent product — Rainforest Alliance certification provides that guarantee of quality (APP)."
+  }
+];
+</script>
     <script src="script.js"></script>
 </body>
 

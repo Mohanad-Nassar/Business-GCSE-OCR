@@ -301,8 +301,839 @@
         </div>
     </main>
 
-    <script></script>
+<script>
+// ══════════════════════════════════════
+//  DATA TEMPLATE: 4.5 Business Location
+// ══════════════════════════════════════
 
+// 1. Main Learning Content
+const topics = [
+  {
+    title: "Key Terms & Official Definitions",
+    tag: "Core Concepts",
+    content: `<p>Understanding the key vocabulary for business location is essential for exam success.</p>
+<ul>
+  <li><strong>Location:</strong> The place where a business is sited.</li>
+  <li><strong>Proximity:</strong> Means 'nearness to' — e.g., proximity to the market means being close to customers.</li>
+  <li><strong>Transport infrastructure:</strong> The provision of roads, railways, ports and airports in an area for transporting goods and people, including ICT infrastructure such as broadband.</li>
+  <li><strong>Labour:</strong> A factor of production — the workers employed by businesses to produce goods and services.</li>
+  <li><strong>Raw materials:</strong> Materials that are processed in some way as part of the manufacture of a product.</li>
+  <li><strong>Enterprise zone:</strong> A government-designated area where businesses are offered incentives such as reduced business rates, lower taxes on investment, and superfast broadband to encourage them to locate there.</li>
+  <li><strong>Freeport:</strong> An area where businesses can import goods without paying tariffs or VAT — duties are only payable if goods are sold in the wider UK market.</li>
+  <li><strong>Northern Powerhouse:</strong> A UK Government initiative to encourage businesses to locate, stay and expand in the north of England by improving infrastructure and providing funding from Liverpool to Hull.</li>
+</ul>`
+  },
+  {
+    title: "Why Location Matters",
+    tag: "Core Concepts",
+    content: `<p>For many businesses, choosing <strong>where to locate</strong> is one of the most critical decisions they make. The right location can help a business flourish; the wrong one can make success almost impossible.</p>
+<p>Location affects a business across multiple areas:</p>
+<ul>
+  <li>The <strong>costs</strong> of running the business (rent, wages, transport)</li>
+  <li>Access to <strong>customers</strong> and sales potential</li>
+  <li>Access to <strong>skilled workers</strong></li>
+  <li>Access to <strong>raw materials</strong> and suppliers</li>
+</ul>
+<p>It is rarely just <strong>one</strong> factor that determines where a business locates — usually it is a <strong>combination of factors</strong>. As globalisation increases, some businesses (especially multinationals) consider locations in different countries, not just different regions.</p>
+<div class="case-study-box">
+  <h4>Key Evaluation Point</h4>
+  <p>Proximity to the market remains a very important factor for many businesses. However, the growth of internet selling and the reduction in transport and shipping costs has made it possible for more and more businesses to compete even when not near their customers. A business like <strong>Amazon</strong> competes effectively by selling vast quantities at low prices from strategically positioned warehouses — proximity to the customer is far less important than proximity to a good road network.</p>
+</div>`
+  },
+  {
+    title: "Factor 1: Costs",
+    tag: "Location Factors",
+    content: `<p>The <strong>cost of production</strong> varies significantly between locations. Businesses look for sites where costs are kept as low as possible without sacrificing access to key resources.</p>
+<ul>
+  <li><strong>Site and premises costs:</strong> Rents in prosperous cities like London and Cambridge are far higher than in areas with declining industries like Teesside. The cost of the location must be recovered through the prices charged — higher costs can reduce competitiveness.</li>
+  <li><strong>Labour costs:</strong> Wages vary by region. In 2021, the average salary in London was £38,000 vs £33,000 in Leeds — a significant saving for employers considering a move north.</li>
+  <li><strong>Transport costs:</strong> Good road, rail, sea and air links reduce the cost of moving raw materials and finished goods.</li>
+  <li><strong>ICT infrastructure:</strong> Fast broadband and reliable digital communications are increasingly essential for modern businesses.</li>
+</ul>
+<div class="case-study-box">
+  <h4>Case Study: Cambridge Research Biochemicals (CRB)</h4>
+  <p>CRB produces peptides and antibodies. Originally based in Cambridge, it moved to Billingham in Teesside in 1999 because rents there were only <strong>10% of those in Cambridge</strong>. Labour was also cheaper. In 2014, CRB used a government 'Let's Grow' grant of £65,000 to move to the Teesside Valley enterprise zone — receiving both cost savings and government support.</p>
+  <p><strong>Takeaway:</strong> Production cost savings can be so significant that businesses relocate over long distances. Government incentives can make the decision even more attractive.</p>
+</div>
+<div class="case-study-box">
+  <h4>Case Study: Burberry</h4>
+  <p>Burberry — a luxury fashion brand with a Royal Warrant — moved production from Wales to China because UK factory and labour costs were higher than almost anywhere else in the world.</p>
+  <p><strong>Takeaway:</strong> Even prestigious brands prioritise cost efficiency, especially when manufacturing is labour-intensive.</p>
+</div>`
+  },
+  {
+    title: "Factor 2: Proximity to the Market",
+    tag: "Location Factors",
+    content: `<p><strong>Proximity to the market</strong> means locating close to the business's customers. This is especially important for service businesses and retailers.</p>
+<ul>
+  <li><strong>Service businesses</strong> (e.g., hairdressers, dentists, cafés) must locate near consumers, who are unlikely to travel far.</li>
+  <li><strong>Retailers</strong> consider the number of potential customers, the level of competition, and whether the local population will buy the product.</li>
+  <li><strong>Manufacturers</strong> may locate near buyers for easy communication and to reduce delivery costs — e.g., Toyota Tsusho UK makes wheels for Jaguar Land Rover cars and is sited just 33 miles from JLR's Castle Bromwich assembly plant.</li>
+  <li><strong>Online businesses</strong> have changed this dynamic — they need good transport links for their warehouses rather than a high-street location.</li>
+</ul>
+<div class="two-col">
+  <div>
+    <div class="col-head">✓ Benefits of Locating Near the Market</div>
+    <div class="pro-item"><strong>Higher footfall:</strong> More passing customers means greater potential sales revenue for retailers and service businesses.</div>
+    <div class="pro-item"><strong>Lower delivery costs:</strong> Shorter distances to customers reduce transport expenses for manufacturers.</div>
+    <div class="pro-item"><strong>Better communication:</strong> Easier to respond quickly to customer needs, complaints and orders.</div>
+  </div>
+  <div>
+    <div class="col-head">✗ Drawbacks of Locating Near the Market</div>
+    <div class="con-item"><strong>Higher rents:</strong> Prime locations (town centres, airports) command much higher rental costs, increasing overheads.</div>
+    <div class="con-item"><strong>More competition:</strong> Popular locations attract rival businesses, increasing competitive pressure and potentially driving down prices.</div>
+    <div class="con-item"><strong>Not always necessary:</strong> Online businesses and manufacturers of small, lightweight goods do not always need to be near their customers.</div>
+  </div>
+</div>`
+  },
+  {
+    title: "Factor 3: Proximity to Raw Materials",
+    tag: "Location Factors",
+    content: `<p>Some businesses — particularly <strong>manufacturers</strong> — need to locate close to their raw material sources. This is most important when:</p>
+<ul>
+  <li>Raw materials are <strong>bulky</strong> and costly to transport (e.g., wheat, iron ore, stone).</li>
+  <li>Raw materials are <strong>perishable</strong> (e.g., fresh milk for cheese-making).</li>
+  <li>The finished product is <strong>smaller and lighter</strong> than the raw material, making it more efficient to process on-site before transporting.</li>
+</ul>
+<p>There is also an <strong>environmental benefit</strong>: shorter supply chains reduce carbon emissions and help businesses present themselves as environmentally responsible.</p>
+<div class="case-study-box">
+  <h4>Case Study: Cargill Foods, Liverpool Docks</h4>
+  <p>Cargill Foods processes wheat imported from several countries. Its factory is located directly on the Liverpool docks — wheat arriving by ship is unloaded straight into the factory. If the factory were elsewhere, the wheat would need to be loaded onto lorries, transported, and unloaded again, adding significant cost and time.</p>
+  <p><strong>Takeaway:</strong> When raw materials arrive by sea, locating at a port can dramatically cut transport costs and improve operational efficiency.</p>
+</div>
+<div class="case-study-box">
+  <h4>Case Study: Dewlay Cheesemakers, Lancashire</h4>
+  <p>Dewlay buys milk from dairy farms within six miles of its dairy in Garstang, Lancashire. This reduces transport costs <em>and</em> allows Dewlay to market its 'green' credentials — it was the first cheese producer to generate its own electricity from a wind turbine.</p>
+  <p><strong>Takeaway:</strong> Locating near raw materials can bring both financial savings and reputational benefits in an environmentally conscious market.</p>
+</div>`
+  },
+  {
+    title: "Factor 4: Proximity to Labour",
+    tag: "Location Factors",
+    content: `<p>All businesses need workers. The availability and cost of <strong>labour</strong> in an area is a key location factor, especially when a business requires large numbers of workers or specific skills.</p>
+<ul>
+  <li>Businesses needing <strong>skilled workers</strong> may locate near universities or in established industry clusters. <strong>'Silicon Fen'</strong> near Cambridge is a concentration of ICT firms and skilled technology workers.</li>
+  <li>Businesses needing large numbers of <strong>unskilled or semi-skilled</strong> workers may target areas of high population or high unemployment, where labour is plentiful and wages may be lower.</li>
+  <li>In areas where traditional industries (coal mining, steel, shipbuilding) have declined, labour supply is often <strong>plentiful and relatively cheap</strong>.</li>
+</ul>
+<div class="case-study-box">
+  <h4>Case Study: Channel 4 Moves to Leeds</h4>
+  <p>Channel 4 opened additional headquarters in Leeds. Key reasons: office space costs £250–£300/month in Leeds vs £650–£2,500/month in London; average salaries are lower (£33,000 vs £38,000); and Leeds has three universities — three-quarters of Leeds Beckett graduates stay in the city, providing a strong talent pipeline.</p>
+  <p><strong>Takeaway:</strong> For office-based businesses, northern cities can offer a compelling mix of lower costs AND a well-educated, skilled labour pool.</p>
+</div>`
+  },
+  {
+    title: "Factor 5: Government Influence",
+    tag: "Location Factors",
+    content: `<p>Governments — national and local — often try to <strong>influence where businesses locate</strong> to create jobs and raise incomes in specific regions.</p>
+<ul>
+  <li><strong>Enterprise Zones (48 in the UK):</strong> Businesses benefit from reduced business rates, higher capital allowances (lower taxes on investment), superfast broadband, faster planning approvals, and ready-built premises. Four enterprise zones are in South Wales.</li>
+  <li><strong>Freeports (8 announced in 2021):</strong> Businesses can import goods without paying tariffs or VAT. If goods are exported after processing, no duties are paid at all — encouraging trade, investment and job creation.</li>
+  <li><strong>The Northern Powerhouse:</strong> Invests in infrastructure and provides funds for businesses starting or growing in northern England, from Liverpool to Hull.</li>
+  <li><strong>Regional Growth Funds:</strong> One-off government grants to help businesses relocate or expand in high-unemployment areas (e.g., CRB's £65,000 'Let's Grow' grant).</li>
+</ul>
+<div class="two-col">
+  <div>
+    <div class="col-head">✓ Benefits of Government Incentives</div>
+    <div class="pro-item"><strong>Reduced costs:</strong> Lower business rates and taxes directly improve profitability for businesses locating in enterprise zones.</div>
+    <div class="pro-item"><strong>Grant funding:</strong> One-off financial support reduces start-up or relocation costs significantly.</div>
+    <div class="pro-item"><strong>Infrastructure improvements:</strong> Government investment in roads, broadband, and buildings makes areas more attractive over time.</div>
+  </div>
+  <div>
+    <div class="col-head">✗ Limitations of Government Incentives</div>
+    <div class="con-item"><strong>Temporary benefits:</strong> Incentives may not last forever — once they end, the underlying disadvantages of the location remain.</div>
+    <div class="con-item"><strong>Other factors persist:</strong> Incentives alone cannot compensate for poor transport links, low skilled labour supply, or limited customer base.</div>
+    <div class="con-item"><strong>Bureaucracy:</strong> Applying for grants or enterprise zone status can be time-consuming and the outcome is uncertain.</div>
+  </div>
+</div>`
+  },
+  {
+    title: "Online vs Physical Location",
+    tag: "Analysis",
+    content: `<p>The rise of <strong>e-commerce</strong> has fundamentally changed location decisions. Online businesses have very different priorities to traditional high-street retailers.</p>
+<div class="two-col">
+  <div>
+    <div class="col-head">✓ Advantages of an Online/Warehouse Location</div>
+    <div class="pro-item"><strong>Lower costs:</strong> Warehouses on the outskirts or in industrial areas have far lower rents than high-street shops, improving profit margins.</div>
+    <div class="pro-item"><strong>Wider market reach:</strong> An online business is not restricted to local customers — it can sell nationally or globally from a single location.</div>
+    <div class="pro-item"><strong>Location flexibility:</strong> The business can locate wherever land, labour, and transport links are most cost-effective.</div>
+    <div class="pro-item"><strong>Scalability:</strong> Easier to expand warehouse space than to open multiple physical shops.</div>
+  </div>
+  <div>
+    <div class="col-head">✗ Disadvantages of an Online/Warehouse Location</div>
+    <div class="con-item"><strong>No walk-in customers:</strong> Cannot benefit from passing trade or impulse purchases — all marketing must drive customers to the website.</div>
+    <div class="con-item"><strong>Transport dependency:</strong> Must have excellent road/rail links and reliable delivery partners to reach customers on time.</div>
+    <div class="con-item"><strong>Brand visibility:</strong> Without a physical presence, building brand recognition is harder and more expensive.</div>
+    <div class="con-item"><strong>Returns logistics:</strong> Managing customer returns across a wide geographic area can be costly and complex.</div>
+  </div>
+</div>
+<div class="case-study-box">
+  <h4>Case Study: The Wool Warehouse</h4>
+  <p>Set up in 2012, the Wool Warehouse deliberately chose a warehouse rather than a high street shop to enter the online yarn market. At the time, there were only 2–3 yarn suppliers online. Online sales took off, and by 2014 they doubled their warehouse space as their range expanded.</p>
+  <p><strong>Takeaway:</strong> Going online allowed the Wool Warehouse to enter a market with very little competition, reach customers nationally, and keep overheads low — all without needing a prime retail location.</p>
+</div>`
+  }
+];
+
+// 2. Multiple Choice Questions (Minimum 10)
+const mcqData = [
+  {
+    q: "In the context of business operations, what does the phrase 'proximity to market' refer to?",
+    opts: [
+      "Advertising the business specifically to those who live in the local area",
+      "Locating a business close to its potential customers",
+      "Only employing workers who are part of the local community",
+      "Working on a site that is close to a source of raw materials"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. 'Proximity to market' means locating a business near its potential customers. A relates to marketing, C relates to proximity to labour, and D refers to proximity to raw materials — all separate location factors."
+  },
+  {
+    q: "Which one of the following is the most likely reason for a greeting card manufacturer to locate its factory on an out-of-town industrial estate?",
+    opts: [
+      "Council incentives offering reduced business rates",
+      "Greeting cards are destroyed if they get wet during transportation",
+      "Lots of people who work on the industrial estate will buy cards",
+      "The need to be close to the market because customers are unwilling to travel"
+    ],
+    ans: 0,
+    explain: "Correct answer: A. A greeting card manufacturer does not need to be near its final customers — cards are small and easy to transport. An industrial estate offers lower costs, and council incentives such as reduced business rates make it even more attractive. B is not valid (cards are packaged), C is incorrect (industrial workers are not a significant market), and D contradicts the out-of-town choice."
+  },
+  {
+    q: "Which one of the following is a benefit of locating a tomato farm near to a ready supply of labour?",
+    opts: [
+      "Ease of recruitment of tomato pickers",
+      "Personal contact with supermarket buyers",
+      "Sales of fresh tomatoes are likely to increase",
+      "The tomatoes will not need to be transported"
+    ],
+    ans: 0,
+    explain: "Correct answer: A. Locating near a supply of labour means the farm can easily recruit workers — in this case, tomato pickers. B relates to proximity to the market (customers), not labour. C is also about market proximity. D is incorrect — tomatoes still need to be transported to supermarkets regardless of where the farm is relative to its workers."
+  },
+  {
+    q: "Which of the following is NOT a reason for a business to locate near to its market?",
+    opts: [
+      "It produces a large finished product",
+      "It uses bulky raw materials to produce a smaller, finished product",
+      "Its customers are not likely to travel far, nor shop over the internet",
+      "It sells fresh products such as cream cakes"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. Using bulky raw materials to produce a smaller finished product is a reason to locate near RAW MATERIALS, not near the market. The logic is that it's cheaper to transport the light finished product than the heavy raw material. A, C, and D are all valid reasons to locate near the market."
+  },
+  {
+    q: "Which one of these statements about business location is NOT true?",
+    opts: [
+      "Firms that produce small, finished products are best locating near to their market",
+      "Governments often influence the location of businesses to reduce unemployment in certain areas",
+      "Low-cost locations are important for every single producer",
+      "Where a business locates is often influenced by more than one location factor"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. It is NOT true that low-cost locations are important for every single producer. Some businesses prioritise skilled labour, prestige location, or proximity to customers over minimising costs (e.g., a luxury hotel in central London). A, B, and D are all true statements."
+  },
+  {
+    q: "A firm is comparing four possible locations. Which site offers the lowest cost per unit produced?",
+    opts: [
+      "Site W: 10,000 units/year, rent £30,000, wages £80,000 → £11.00 per unit",
+      "Site X: 12,000 units/year, rent £42,000, wages £102,000 → £12.00 per unit",
+      "Site Y: 11,000 units/year, rent £34,000, wages £81,500 → £10.50 per unit",
+      "Site Z: 9,000 units/year, rent £32,000, wages £71,500 → £11.50 per unit"
+    ],
+    ans: 2,
+    explain: "Correct answer: C — Site Y. Cost per unit = (Total costs) ÷ Output. Site W: £110,000 ÷ 10,000 = £11.00. Site X: £144,000 ÷ 12,000 = £12.00. Site Y: £115,500 ÷ 11,000 = £10.50 ✅. Site Z: £103,500 ÷ 9,000 = £11.50. Site Y has the lowest cost per unit."
+  },
+  {
+    q: "An online retailer sells goods across the UK. When deciding where to locate a warehouse, which of the following would NOT be important?",
+    opts: [
+      "Having good access to the road network",
+      "Being near a supply of raw materials",
+      "Being near to most of its customers",
+      "Being in a location where there is a ready supply of labour"
+    ],
+    ans: 1,
+    explain: "Correct answer: B (and C is also accepted). An online retailer sells finished goods — it does not manufacture, so proximity to raw materials is irrelevant. Being near most customers (C) is also less critical since national delivery handles distribution. Good road access (A) and available labour (D) are both essential for a warehouse operation."
+  },
+  {
+    q: "Cambridge Research Biochemicals (CRB) moved production from Cambridge to Billingham in Teesside. What was the primary reason?",
+    opts: [
+      "The government gave CRB a large grant specifically to relocate",
+      "CRB's main customers were all based in the north of England",
+      "Production costs — especially rent and labour — were much lower in Teesside",
+      "Teesside had better transport links to international markets"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. The primary reason was significantly lower costs — rents in Billingham were only 10% of those in Cambridge, and labour was cheaper too. CRB did later receive a 'Let's Grow' grant (A), but this was a secondary benefit that helped fund the move to the enterprise zone in 2014, not the original reason for relocating in 1999."
+  },
+  {
+    q: "Why might a cheese manufacturer choose to locate near to dairy farms?",
+    opts: [
+      "To benefit from government enterprise zone grants",
+      "To reduce the cost and distance of transporting bulky raw materials (milk)",
+      "To be near to its final customers in supermarkets",
+      "To access a supply of skilled cheese-making labour in rural areas"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. Milk is a bulky, perishable raw material. Locating close to dairy farms reduces transport costs and spoilage risk. It also reduces the carbon footprint of the business. This is proximity to raw materials. C relates to the market, A to government, and D to labour — all separate location factors."
+  },
+  {
+    q: "What benefits do UK Enterprise Zones offer to businesses that locate there?",
+    opts: [
+      "Free land and premises, unlimited government funding, and exemption from all taxes",
+      "Reduced business rates, lower taxes on investment, superfast broadband, and faster planning approvals",
+      "Guaranteed customers, government contracts, and free advertising",
+      "Exemption from employment law and the right to pay below minimum wage"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. Enterprise zones offer a specific package: reduced business rates (taxes on premises), higher capital allowances (lower taxes when businesses invest), superfast broadband, faster planning approvals, and sometimes ready-built premises. They do not offer free land, unlimited funding, or exemptions from employment law."
+  },
+  {
+    q: "Lo-Cost Rental, which offers cheap low-specification cars, is considering locating at Heathrow Airport. What is the GREATEST concern?",
+    opts: [
+      "The airport only has 75 million passengers per year — not enough customers",
+      "The high cost of renting a service desk and parking spaces makes profitability very difficult",
+      "There are no competitors at Heathrow, so demand is uncertain",
+      "The airport's road links are too poor to operate a car rental business"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. The greatest concern for a LOW-COST company is that operating costs at Heathrow (service desk rental and parking) are very high. This makes it almost impossible to maintain low rental prices while remaining profitable. Competition (from Hertz, Avis etc.) is also a concern, but costs are the primary issue for Lo-Cost's business model."
+  },
+  {
+    q: "'Silicon Fen' is an area near Cambridge. Why might an ICT company choose to locate there?",
+    opts: [
+      "It is close to major sea ports for importing computer hardware",
+      "The government offers free land to all technology businesses in the area",
+      "There is a concentration of skilled ICT workers and technology firms already based there",
+      "The area has the lowest business rates of any location in the UK"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. Silicon Fen is attractive to ICT firms because of its cluster of existing technology businesses and the proximity to Cambridge University, which produces large numbers of highly skilled technology graduates. This makes recruitment of skilled workers much easier — a key location factor for ICT businesses."
+  }
+];
+
+// 3. Keyword Matching (Minimum 10)
+const matchData = [
+  { term: "Location", def: "The place where a business is sited." },
+  { term: "Proximity", def: "Nearness to something — such as a market, raw materials, or a labour supply." },
+  { term: "Transport infrastructure", def: "The roads, railways, airports and ports in an area for transporting goods and people, including ICT infrastructure like broadband." },
+  { term: "Enterprise zone", def: "A government-designated area offering incentives including reduced business rates, lower taxes on investment, and superfast broadband to attract businesses." },
+  { term: "Freeport", def: "An area where businesses can import goods without paying tariffs or VAT, unless those goods are sold in the wider UK market." },
+  { term: "Northern Powerhouse", def: "A UK Government scheme to invest in infrastructure and provide funding for businesses across the north of England, from Liverpool to Hull." },
+  { term: "Silicon Fen", def: "An area near Cambridge with a high concentration of skilled ICT workers and technology firms." },
+  { term: "Raw materials", def: "Materials that are processed in some way as part of the manufacture of a product." },
+  { term: "Labour", def: "The workers employed by a business to produce goods and services — a key factor of production." },
+  { term: "Carbon footprint", def: "The total greenhouse gases produced by a business's activities — reduced by shorter supply chains and local sourcing." },
+  { term: "Proximity to market", def: "Locating a business close to its customers to increase sales, improve communication, and reduce delivery costs." },
+  { term: "Proximity to raw materials", def: "Locating near the source of inputs used in production — most important when materials are bulky, perishable, or expensive to transport." }
+];
+
+// 4. Fill in the Blanks (Minimum 10)
+const fibData = [
+  {
+    display: "A business's _____ refers to the place where it is sited.",
+    blanks: { B1: "location" }
+  },
+  {
+    display: "_____ means 'nearness to' — for example, nearness to customers or raw materials.",
+    blanks: { B1: "Proximity" }
+  },
+  {
+    display: "Businesses may choose to locate near their _____ to reduce the cost of delivering finished goods and improve communication with buyers.",
+    blanks: { B1: "market" }
+  },
+  {
+    display: "Cambridge Research Biochemicals moved to Billingham because rents there were only _____ per cent of those in Cambridge.",
+    blanks: { B1: "10" }
+  },
+  {
+    display: "The 'Silicon _____' is a cluster of ICT firms and skilled workers located near Cambridge.",
+    blanks: { B1: "Fen" }
+  },
+  {
+    display: "Cargill Foods located its factory on the _____ in Liverpool so imported wheat could be unloaded directly into the processing plant.",
+    blanks: { B1: "docks" }
+  },
+  {
+    display: "Enterprise zones offer businesses incentives such as reduced _____ rates, superfast broadband, and faster planning approvals.",
+    blanks: { B1: "business" }
+  },
+  {
+    display: "The growth of _____ selling has reduced the importance of being located near customers for many businesses.",
+    blanks: { B1: "internet" }
+  },
+  {
+    display: "Burberry moved its clothing production to _____ in order to reduce factory and labour costs significantly.",
+    blanks: { B1: "China" }
+  },
+  {
+    display: "An area of high _____ may attract businesses that need a large supply of unskilled or low-cost workers.",
+    blanks: { B1: "unemployment" }
+  },
+  {
+    display: "The _____ Powerhouse is a UK Government initiative to encourage businesses to locate and grow in the north of England.",
+    blanks: { B1: "Northern" }
+  },
+  {
+    display: "Locating near raw material sources reduces _____ costs and can also lower the business's carbon footprint.",
+    blanks: { B1: "transport" }
+  }
+];
+
+// Word bank for Fill in the Blanks
+const fibWords = [
+  "location", "Proximity", "market", "10", "Fen", "docks",
+  "business", "internet", "China", "unemployment", "Northern", "transport",
+  "labour", "government", "customers", "London", "Southern", "20", "Cambridge", "online"
+];
+
+// 5. True or False (Minimum 10)
+const tfData = [
+  {
+    statement: "For many businesses, the decision of where to locate is one of the most important decisions they make.",
+    answer: true,
+    explanation: "TRUE. Making the right location decision can help a business flourish and become very successful. Making the wrong decision can make success very difficult. Location affects costs, access to customers, labour supply, and raw material access."
+  },
+  {
+    statement: "Low-cost locations are important for every single type of business.",
+    answer: false,
+    explanation: "FALSE. While cost is important for many businesses, it is not the top priority for every business. Some prioritise skilled labour, proximity to customers, or prestigious location above minimising costs — a luxury hotel in central London is an example."
+  },
+  {
+    statement: "Proximity to raw materials is most important for businesses that use bulky materials to produce a smaller, lighter finished product.",
+    answer: true,
+    explanation: "TRUE. When raw materials are bulky and the finished product is lighter (e.g., wheat → flour, milk → cheese), it is more cost-effective to locate the factory near the raw materials and transport the finished product — not the other way around."
+  },
+  {
+    statement: "Online retailers like Amazon need to locate their warehouses close to customers rather than near transport infrastructure.",
+    answer: false,
+    explanation: "FALSE. Online retailers prioritise access to the road/rail network and a supply of labour for their warehouses. Being near customers is far less important than having a location that allows efficient national delivery."
+  },
+  {
+    statement: "Enterprise zones offer incentives such as reduced business rates and faster planning approvals to attract businesses.",
+    answer: true,
+    explanation: "TRUE. UK enterprise zones offer a package of benefits: reduced business rates, higher capital allowances (lower taxes on investment), superfast broadband, faster planning approvals, and sometimes ready-built premises."
+  },
+  {
+    statement: "A business will always be influenced by only one location factor when making its location decision.",
+    answer: false,
+    explanation: "FALSE. It is rarely only one factor — usually it is a combination. A bakery may consider proximity to customers AND transport costs. A manufacturer may weigh raw material access, labour supply, AND government incentives simultaneously."
+  },
+  {
+    statement: "Cambridge Research Biochemicals (CRB) moved to Teesside partly because rents there were only 10% of those in Cambridge.",
+    answer: true,
+    explanation: "TRUE. The case study explicitly states that rents in Billingham are only 10% of those in Cambridge — a massive cost saving that made the relocation financially compelling for CRB."
+  },
+  {
+    statement: "Service businesses such as hairdressers and dentists rarely need to consider proximity to customers when choosing a location.",
+    answer: false,
+    explanation: "FALSE. Service businesses like hairdressers and dentists MUST locate near their customers because the service is delivered in person. Unlike manufacturers, they cannot transport their service — the customer must come to them, so proximity to potential customers is essential."
+  },
+  {
+    statement: "The Northern Powerhouse initiative aims to encourage business growth across the north of England from Liverpool to Hull.",
+    answer: true,
+    explanation: "TRUE. The Northern Powerhouse is a government scheme investing in infrastructure and providing funding across northern regions from Liverpool in the west to Hull in the east, aiming to create jobs and raise incomes."
+  },
+  {
+    statement: "Locating near raw material suppliers always reduces a business's carbon footprint.",
+    answer: true,
+    explanation: "TRUE. Shorter supply chains mean less transportation, which means fewer carbon emissions. Dewlay Cheesemakers, for example, sources milk from farms within six miles and uses this as a marketing advantage — highlighting its environmental credentials."
+  },
+  {
+    statement: "The Wool Warehouse chose a high street location to benefit from maximum footfall from passing shoppers.",
+    answer: false,
+    explanation: "FALSE. The Wool Warehouse deliberately chose a WAREHOUSE (not a high street shop) to enter the online market easily, keep costs low, and serve customers nationally. High street locations were irrelevant to their online business model."
+  },
+  {
+    statement: "In 2021, the UK government announced eight freeports where businesses can import goods without paying tariffs, unless those goods are sold in the wider UK market.",
+    answer: true,
+    explanation: "TRUE. Freeports allow businesses to import goods tariff-free and VAT-free. Duties are only paid if the goods enter the wider UK market. If the goods are exported after processing, no duties are paid at all — encouraging trade and investment."
+  }
+];
+
+// 6. Common Student Misconceptions
+const miscData = [
+  {
+    wrong: "Students think 'the high street' is the only location option for a business.",
+    correct: "Businesses can locate anywhere — high streets, industrial estates, online warehouses, near ports, in enterprise zones. The best location depends entirely on the type of business and which factors are most important to it."
+  },
+  {
+    wrong: "Students confuse 'proximity to market' (near customers) with 'proximity to raw materials' (near suppliers).",
+    correct: "These are two completely separate location factors. 'Proximity to market' = near customers. 'Proximity to raw materials' = near suppliers of inputs. A business can prioritise one, the other, or both — depending on what it produces."
+  },
+  {
+    wrong: "Students write that 'an online business doesn't need to think about location at all.'",
+    correct: "Online businesses still have critical location decisions — particularly for their warehouses. They need good transport links (road/rail), a reliable labour supply, and affordable land. The Wool Warehouse is a clear example of deliberate location planning for an online business."
+  },
+  {
+    wrong: "Students write that 'government grants automatically make a location the best choice.'",
+    correct: "Government incentives reduce costs but do not eliminate other disadvantages. A location with good grants but poor transport links, scarce skilled labour, or no market access may still be unsuitable for certain businesses."
+  },
+  {
+    wrong: "Students believe all businesses must locate near their raw materials.",
+    correct: "Proximity to raw materials only matters when materials are bulky, perishable, or expensive to transport. A business making small, lightweight products (e.g., greeting cards) has no reason to locate near raw materials."
+  },
+  {
+    wrong: "For a 7-mark 'discuss' or 'evaluate' question, students list location factors without making a final judgement.",
+    correct: "The examiner's report highlights that most students gain marks for application and analysis but miss evaluation marks by not making a judgement. You MUST weigh up which factor is most important and state WHY, using context from the case study. Even a simple, contextualised judgement earns evaluation marks."
+  },
+  {
+    wrong: "Students think 'Silicon Fen' is in Silicon Valley, USA.",
+    correct: "Silicon Fen is an area near Cambridge, UK. It is named after the Fens (the flat marshy land near Cambridge). It is a cluster of ICT firms and highly skilled technology workers, not connected to Silicon Valley in California."
+  },
+  {
+    wrong: "When asked to 'analyse one factor', students write about several factors briefly rather than one factor in depth.",
+    correct: "The examiner wants ONE factor developed with three steps: Understanding (explain the factor) → Application (link to the specific business using case study evidence) → Analysis (explain the impact on the business). Two brief points will not score full marks."
+  }
+];
+
+// 7. Examiner Tips & Structure Guides
+const examTips = [
+  {
+    type: "Identify / State — 1 mark",
+    title: "One Specific Point. Full Stop. Move On.",
+    content: `
+      <p>A 1-mark <strong>'Identify' or 'State'</strong> question needs exactly one correct, specific point. No explanation, no examples, no paragraphs required.</p>
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li>One clear, specific location factor = ✅ 1 mark</li>
+        <li>A vague or repeated answer = ❌ 0 marks</li>
+      </ul>
+      <p><strong>❌ Bad Answer (0 marks):</strong><br/>
+      <em>"The location."</em><br/>
+      Too vague — this just repeats the topic of the question.</p>
+      <p><strong>✅ Good Answers (1 mark each):</strong></p>
+      <ul>
+        <li><em>"Proximity to customers / the market."</em></li>
+        <li><em>"Cost of the site / rent."</em></li>
+        <li><em>"Transport infrastructure / road links."</em></li>
+        <li><em>"Government incentives / enterprise zone."</em></li>
+        <li><em>"Proximity to a supply of labour / workers."</em></li>
+      </ul>
+      <p><strong>⏱️ Exam Tip:</strong> Do NOT write more than one sentence for a 1-mark question. Move on quickly — every minute counts in the exam.</p>
+    `,
+    pills: ["K"]
+  },
+  {
+    type: "Analyse — 3 marks",
+    title: "The Holy Trinity: U → APP → AN",
+    content: `
+      <p>A 3-mark <strong>'Analyse'</strong> question awards one mark for each of three steps. Miss any one and you lose that mark — even if the rest is excellent.</p>
+      <p><strong>The 3-Step Formula:</strong></p>
+      <ul>
+        <li><strong>Step 1 — Understanding (U):</strong> State and briefly explain the location factor you are discussing.</li>
+        <li><strong>Step 2 — Application (APP):</strong> Link it directly to the specific business using evidence from the case study. Quote or paraphrase specific details.</li>
+        <li><strong>Step 3 — Analysis (AN):</strong> Explain the financial or operational impact on the business. Keep asking "So what?" until you reach a bottom-line effect (costs, revenue, profit, productivity).</li>
+      </ul>
+      <p><strong>❌ Bad Answer (1 mark — only U):</strong><br/>
+      <em>"AM plc should locate where there are skilled workers because they are important for production."</em><br/>
+      Vague, no case study link, no analysis of impact on the business.</p>
+      <p><strong>✅ Good Answer (3 marks):</strong><br/>
+      <em>"AM plc must locate in an area with a supply of skilled engineers (U), as its Warwickshire site already employs over 3,000 highly skilled workers who use up-to-date machinery to produce each luxury car by hand (APP). If AM plc struggled to recruit these workers, productivity would fall and quality could deteriorate, threatening the premium reputation and pricing of its luxury cars (AN)."</em></p>
+      <p><strong>🚫 Knowledge Dumping Warning:</strong> Do NOT write everything you know about business location. Pick ONE factor and develop it fully through all three steps. Two half-finished points will not earn full marks.</p>
+      <p><strong>Sentence starters:</strong></p>
+      <ul>
+        <li><em>U: "One factor [business name] would consider is..."</em></li>
+        <li><em>APP: "This is evident because the text states that..." / "In the case of [business]..."</em></li>
+        <li><em>AN: "As a result, the business would..." / "This means costs would..." / "This could lead to..."</em></li>
+      </ul>
+    `,
+    pills: ["U", "app", "an"]
+  },
+  {
+    type: "Recommend — 3 marks",
+    title: "Make a Decision, Then Back It Up with Both Sides",
+    content: `
+      <p>A 3-mark <strong>'Recommend'</strong> question has a specific structure. There is 1 mark for a clear judgement and 2 marks for justification. Crucially, your justification must address BOTH sides.</p>
+      <p><strong>The Structure:</strong></p>
+      <ul>
+        <li><strong>Judgement (1 mark):</strong> State your clear recommendation — e.g., "Lo-Cost should / should not locate at Heathrow Airport."</li>
+        <li><strong>Justification (2 marks):</strong> Explain precisely WHY using specific details from the case study. Your justification must cover both the advantages AND the drawbacks — one-sided answers earn at most 1 justification mark.</li>
+      </ul>
+      <p><strong>❌ Bad Answer (1 mark):</strong><br/>
+      <em>"Lo-Cost should not locate at Heathrow because it is expensive."</em><br/>
+      Only earns the judgement mark — 'expensive' is too vague, and there is no case study reference.</p>
+      <p><strong>✅ Good Answer (3 marks):</strong><br/>
+      <em>"Lo-Cost Rental should NOT locate at Heathrow Airport (JUDGEMENT). The very high cost of renting a service desk and parking spaces at the airport would make it almost impossible for Lo-Cost to maintain its low-priced model while staying profitable. Furthermore, well-established competitors such as Hertz and Avis can subsidise lower prices with revenue from premium cars — a strategy Lo-Cost cannot replicate (JUSTIFICATION ×2)."</em></p>
+      <p><strong>💡 The Rule:</strong> Justification MUST address both sides to earn 2 justification marks. Defending only one side = maximum 1 justification mark.</p>
+    `,
+    pills: ["U", "app", "eval"]
+  },
+  {
+    type: "Discuss / Evaluate — 7 marks",
+    title: "4 Paragraphs — Don't Forget to Judge!",
+    content: `
+      <p>A 7-mark <strong>'Discuss'</strong> or <strong>'Evaluate'</strong> question uses levels of response marking. To reach the top level (5–7 marks), you must demonstrate <strong>application</strong>, <strong>analysis</strong>, AND <strong>evaluation</strong>.</p>
+      <p><strong>⚠️ The examiner's report warns:</strong> Most candidates gain around 4/7 by demonstrating application and analysis well — but only the very best pick up evaluation marks. Even a simple judgement is worth marks. Don't skip it!</p>
+      <p><strong>The 4-Paragraph Structure:</strong></p>
+      <ul>
+        <li><strong>Para 1 — K &amp; U:</strong> Introduce your first location factor with knowledge and understanding. Explain what it means and why it matters.</li>
+        <li><strong>Para 2 — APP &amp; AN:</strong> Apply your first factor to the specific business using evidence from the case study. Analyse the impact on the business.</li>
+        <li><strong>Para 3 — APP &amp; AN:</strong> Introduce a second factor or the opposing perspective. Apply it to the business and analyse the impact.</li>
+        <li><strong>Para 4 — EVAL (3 points = Decision + Context + Impact/Reasoning):</strong> Make a clear judgement about which factor is most important, using specific context from the business to justify your conclusion.</li>
+      </ul>
+      <p><strong>Evaluation sentence starters:</strong></p>
+      <ul>
+        <li><em>"Overall, I believe the most important factor for [business] was... because..."</em></li>
+        <li><em>"However, this depends on whether..."</em></li>
+        <li><em>"The decision to [go online / locate here] was [justified / unjustified] because, given that [specific context]..."</em></li>
+      </ul>
+      <p><strong>🚫 The Most Common Mistake:</strong> Writing a conclusion that simply repeats the two points already made. That earns 0 evaluation marks. A real evaluation makes a <em>judgement about which factor matters most</em> and explains <em>why</em>, using the specific business context.</p>
+      <p><strong>✅ Simple but effective evaluation example (Costa Coffee):</strong><br/>
+      <em>"Overall, the most important factor for Costa Coffee was the high footfall from the town centre location, because as a retailer selling products in person — not online — passing trade is essential for survival. Without customers walking past, no other factor matters."</em><br/>
+      This earns all 3 evaluation marks: a specific judgement (footfall), justified in context (Costa sells in person), with clear reasoning (passing trade is essential).</p>
+    `,
+    pills: ["K", "U", "app", "an", "eval"]
+  }
+];
+
+// 8. Flashcards
+const flashcards = [
+  { term: "Location", def: "The place where a business is sited." },
+  { term: "Proximity", def: "Nearness to something — e.g., proximity to the market means being close to customers." },
+  { term: "Transport infrastructure", def: "Roads, railways, airports and ports that allow goods and people to move — also includes ICT infrastructure like broadband." },
+  { term: "Enterprise zone", def: "A government-designated area offering incentives (reduced rates, lower taxes on investment, superfast broadband, faster planning) to attract businesses and create jobs." },
+  { term: "Freeport", def: "An area where businesses import goods without paying tariffs or VAT — duties are only charged if goods are sold in the wider UK market." },
+  { term: "Northern Powerhouse", def: "A UK Government scheme to invest in infrastructure and provide funding for businesses in the north of England, from Liverpool to Hull." },
+  { term: "Silicon Fen", def: "A cluster of ICT firms and skilled technology workers located near Cambridge, UK — named after the flat Fens landscape of the region." },
+  { term: "Proximity to market", def: "Locating close to customers to increase sales, improve communication, and reduce delivery costs — essential for service businesses and retailers." },
+  { term: "Proximity to raw materials", def: "Locating near the source of inputs used in production — most important when materials are bulky, perishable, or expensive to transport." },
+  { term: "Proximity to labour", def: "Locating where there is a sufficient supply of workers with the right skills — near universities for skilled roles, or in high-unemployment areas for unskilled roles." },
+  { term: "Carbon footprint", def: "The total greenhouse gas emissions caused by a business — reduced by shorter supply chains and sourcing raw materials locally." },
+  { term: "Key location factors (4)", def: "1. Costs (rent, wages, transport) → 2. Proximity to market → 3. Proximity to raw materials → 4. Proximity to labour. Government incentives can also influence all of these." },
+  { term: "Why online businesses still need a location strategy", def: "Their warehouses must have good transport links, available labour, and affordable land — even without needing to be near customers." },
+  { term: "Cost per unit formula", def: "Cost per unit = Total costs (rent + wages) ÷ Number of units produced. Used to compare the efficiency of different site locations." },
+  { term: "Freeport vs Enterprise Zone — key difference", def: "Enterprise zones offer reduced domestic taxes and faster approvals. Freeports additionally allow TARIFF-FREE import of goods — particularly beneficial for businesses that import, process, and re-export products." }
+];
+
+// 9. Exam-Style Questions
+const examQuestions = [
+  {
+    num: "Q1",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "In the context of business operations, what does the phrase 'proximity to market' refer to?",
+    options: [
+      "Advertising the business specifically to those who live in the local area",
+      "Locating a business close to its potential customers",
+      "Only employing workers who are part of the local community",
+      "Working on a site that is close to a source of raw materials"
+    ],
+    answer: 1,
+    hint: "Think about what 'proximity' means — it means 'nearness to'. What does 'market' refer to in a business context?",
+    starter: "Proximity to market means locating a business close to...",
+    markScheme: `<div class="marks-section"><h5>Answer: B — Locating a business close to its potential customers</h5><p><strong>Why B is correct:</strong> 'Proximity to market' is a specific business location term meaning nearness to where the business's customers are. It encourages businesses to locate where they can access the most potential buyers.</p><ul><li><strong>❌ A is wrong:</strong> Advertising to local people is a marketing decision, not a location factor.</li><li><strong>❌ C is wrong:</strong> Employing local workers relates to proximity to labour, not the market.</li><li><strong>❌ D is wrong:</strong> Being near a source of raw materials is the separate factor of 'proximity to raw materials.'</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q2",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "Which one of the following is the most likely reason for a greeting card manufacturer to locate its factory on an out-of-town industrial estate?",
+    options: [
+      "Council incentives offering reduced business rates",
+      "Greeting cards are destroyed if they get wet during transportation",
+      "Lots of people who work on the industrial estate will buy cards",
+      "The need to be close to the market because customers are unwilling to travel"
+    ],
+    answer: 0,
+    hint: "Greeting cards are small, lightweight, and easy to transport. The business does not need to be near its final customers. Think about what advantage an out-of-town industrial estate offers over a high-street location.",
+    starter: "The most likely reason is reduced costs, specifically...",
+    markScheme: `<div class="marks-section"><h5>Answer: A — Council incentives offering reduced business rates</h5><p><strong>Why A is correct:</strong> A greeting card manufacturer does not need to be near its final customers — cards are small, durable, and easy to transport nationally. An out-of-town industrial estate offers lower costs, and council incentives such as reduced business rates make it even more financially attractive.</p><ul><li><strong>❌ B is wrong:</strong> Greeting cards are packaged and not significantly damaged during normal transportation — this is not a valid reason for choosing an industrial estate.</li><li><strong>❌ C is wrong:</strong> Industrial estate workers are not the primary market for greeting cards. This would not justify the location decision.</li><li><strong>❌ D is wrong:</strong> The question describes an out-of-town location, which directly contradicts the idea of being close to customers. Customers do not travel to a factory to purchase cards.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q3",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "Which one of the following is a benefit of locating a tomato farm near to a ready supply of labour?",
+    options: [
+      "Ease of recruitment of tomato pickers",
+      "Personal contact with supermarket buyers",
+      "Sales of fresh tomatoes are likely to increase",
+      "The tomatoes will not need to be transported"
+    ],
+    answer: 0,
+    hint: "Focus on what 'near to a ready supply of labour' means. Labour = workers. What specific benefit does having workers nearby provide for a farm?",
+    starter: "A benefit of locating near a supply of labour is that it makes it easier to...",
+    markScheme: `<div class="marks-section"><h5>Answer: A — Ease of recruitment of tomato pickers</h5><p><strong>Why A is correct:</strong> Locating near a ready supply of labour means the business can easily recruit the workers it needs. For a tomato farm, this means pickers are available locally, reducing recruitment costs and labour shortages during harvest time.</p><ul><li><strong>❌ B is wrong:</strong> Personal contact with supermarket buyers relates to proximity to the market (customers), not to labour.</li><li><strong>❌ C is wrong:</strong> Increased tomato sales relate to market proximity, not the labour supply.</li><li><strong>❌ D is wrong:</strong> Tomatoes still need to be transported to supermarkets and shops regardless of where the farm is relative to its workers. Labour location does not affect transportation requirements.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q4",
+    marks: 3,
+    type: "written",
+    caseStudy: `Aston Martin plc (AM plc) is a British manufacturer of luxury sports cars. It has more than 150 car dealerships in over 50 countries on six continents. Its globalised supply chain includes suppliers from the UK, EU and across the world. The company is also expanding its brand to include speed boats, submarines and property development.<br><br>Its headquarters and the main production site are centrally located in Warwickshire, England, on the site of a former RAF airbase. It employs over 3,000 workers on this site, who are highly skilled engineers and who produce each car using the most up-to-date machinery. When the cars are finished, they are then transported from central England all over the UK and beyond.<br><br>The demand for AM plc products is influenced by many factors, including UK unemployment rates and consumer income levels. AM plc is proud of its commitment to the environment, which includes trying to produce goods sustainably. It also considers ethical issues in its decision making.<br><br>Key economic data for AM plc:<table class="case-table"><caption>Table 1 — UK Unemployment Rate (2013–2018)</caption><tr><th>Year</th><th>2013</th><th>2014</th><th>2015</th><th>2016</th><th>2017</th><th>2018</th></tr><tr><td>UK Unemployment Rate</td><td>7.5%</td><td>6.0%</td><td>5.5%</td><td>5.0%</td><td>4.5%</td><td>4.0%</td></tr></table><table class="case-table"><caption>Table 2 — Average UK Consumer Income (2013–2018)</caption><tr><th>Year</th><th>2013</th><th>2014</th><th>2015</th><th>2016</th><th>2017</th><th>2018</th></tr><tr><td>Average Consumer Income</td><td>£30,000</td><td>£30,000</td><td>£31,500</td><td>£31,750</td><td>£32,000</td><td>£32,250</td></tr></table>`,
+    question: "Analyse one possible factor that AM plc may have considered when choosing the location of its main production site. [3 marks]",
+    hint: "Choose ONE location factor from the case study. You need three things: (1) explain what the factor is, (2) link it to AM plc using specific evidence from the text, (3) explain the impact on the business. Do NOT try to cover multiple factors.",
+    starter: "One factor AM plc may have considered is... (U)\nThis is supported by the case study, which states that... (APP)\nAs a result, AM plc would... / This means that... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b: 1, AO2: 1, AO3a: 1)</h5><ul><li><strong>Understanding (1 mark):</strong> States and explains a relevant location factor. Examples include: availability/cost of skilled workers, cost of premises/rent, space available on site, transport infrastructure, government incentives, proximity to market or suppliers, economic conditions.</li><li><strong>Application (1 mark):</strong> Uses specific evidence from the case study. Examples: luxury sports cars (skilled production required), 150+ dealerships in 50+ countries (global reach), globalised supply chain (transport needs), 3,000+ highly skilled workers, cars transported all over UK and beyond, commitment to the environment, bar chart data showing falling unemployment and rising consumer income.</li><li><strong>Analysis (1 mark):</strong> Explains the impact or consequence. Examples: impact on costs, impact on productivity and efficiency, impact on competitive advantage, impact on quality/reputation.</li></ul><p><strong>Note:</strong> No further marks can be gained without the Understanding mark. Application requires using evidence from the text, not just naming AM plc.</p></div><div class="marks-section"><h5>Exemplar Response (3/3)</h5><p><em>"AM plc must locate in an area where there are highly skilled engineers (U), as the text states that its Warwickshire site employs over 3,000 highly skilled workers who use up-to-date machinery to produce each luxury car (APP). If AM plc struggled to recruit these workers, its productivity could fall and the quality of its luxury cars could deteriorate, threatening the premium pricing and brand reputation on which the business depends (AN)."</em></p></div>`,
+    modelAnswer: "AM plc must locate in an area where there are highly skilled engineers (U), as its Warwickshire site employs over 3,000 skilled workers who use up-to-date machinery to produce each luxury car (APP). If AM plc struggled to recruit these workers, productivity would fall and quality could be compromised, threatening the premium reputation and pricing that justify its position in the global luxury car market (AN)."
+  },
+  {
+    num: "Q5",
+    marks: 1,
+    type: "written",
+    caseStudy: `Martina Doyle currently works for the National Health Service (NHS). She has total savings of just over £5,000 in her bank account. Martina is planning to leave the NHS and start up a private sports injury clinic. She intends to call her new business 'MD Sports Clinic'.\n\nMartina wishes to rent a property for her new business and expects to pay rent each month. She wants to take a monthly income from the business. She also wants to employ a part-time receptionist.\n\nMartina needs to buy some equipment to set up MD Sports Clinic. She has estimated the following figures for MD Sports Clinic's first month of trading:\n• Fixed costs of £6,000\n• Variable costs of £5 per session\n• Revenue of £30 per session`,
+    question: "Identify one factor that a new business like Martina's should consider when choosing a location for its business. [1 mark]",
+    hint: "Think about the four main location factors from the specification: Costs, Proximity to market, Proximity to labour, Proximity to raw materials. Which would be most relevant for a private sports injury clinic?",
+    starter: "One factor Martina should consider when choosing a location is...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 1 mark (AO1a: 1)</h5><p>1 mark for any correct identification of a relevant location factor. Acceptable answers include:</p><ul><li>Cost/rent of the location</li><li>Proximity to customers/patients</li><li>Where the owner lives</li><li>Proximity to staff/labour (e.g., physiotherapists)</li><li>Amount of competition (other clinics nearby)</li></ul></div>`,
+    modelAnswer: "One factor Martina should consider is the proximity to customers — she should locate MD Sports Clinic where there are enough potential patients, such as near sports clubs or gyms, or in an area with good transport links."
+  },
+  {
+    num: "Q6 (i)",
+    marks: 2,
+    type: "written",
+    caseStudy: `Costa Coffee is a British multinational coffee shop company owned by Coca-Cola. It is the second largest coffeehouse chain in the world behind Starbucks, and the largest in the UK. It has over 2,100 branches in the UK and over 1,200 branches in the rest of the world including Dubai, China and Poland.\n\nCosta Coffee has recently opened a new branch in Welshpool. It is located in the town centre on the high street near lots of other businesses, including offices and shops. There were only two other coffee shops in the town before they opened.\n\nCosta Coffee takes ethics very seriously and it has switched to environmentally-friendly coffee beans to make its supply chain more sustainable. Now all its stores worldwide use beans from Rainforest Alliance-certified suppliers, who meet ethical and environmental standards for the sustainable supply of coffee beans.\n\nIn order to be successful, Costa Coffee sells a wide range of products and constantly invests in updating this product range as well as refurbishing its shops. Recently it has invested heavily in updating its computer software to assist its many functional areas such as finance.`,
+    question: "Identify two factors that influence the location of a business. [2 marks]",
+    hint: "There are four main location factors in the specification. Name two of them clearly. You do not need to explain them for this question — just identify each one.",
+    starter: "Factor 1: ...\nFactor 2: ...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a: 2)</h5><p>1 mark for each correct identification, up to a maximum of 2 marks. Acceptable answers include:</p><ul><li>Cost/rent of the location</li><li>Transport/infrastructure</li><li>Proximity to the market/customers (number of customers, size/population)</li><li>Proximity to labour/workers</li><li>Proximity to raw materials</li><li>Government incentives (enterprise zones)</li><li>Competition/rivals</li><li>Marketing reasons</li></ul><p><strong>Examiner's Comment:</strong> This question requires knowledge of factors which influence business location. The specification lists four key factors: costs, proximity to market, labour and materials. Examples of each were also permitted.</p></div>`,
+    modelAnswer: "Factor 1: Proximity to the market/customers — locating near potential buyers to increase footfall and sales. Factor 2: Cost of the location — the rent and business rates of the premises, which affect profitability."
+  },
+  {
+    num: "Q6 (ii)",
+    marks: 7,
+    type: "written",
+    caseStudy: "",
+    question: "Discuss the factors that may have influenced Costa Coffee's decision to locate a new branch in Welshpool. [7 marks]",
+    hint: "Use specific details from the Costa Coffee case study above. Cover at least two location factors, apply them directly to Costa Coffee (do not just define them), analyse the impact on the business, and then make a final judgement about which factor was MOST important and why. The command word 'discuss' requires evaluation — you must weigh up the factors.",
+    starter: "Para 1 (K & U): One factor that would have influenced Costa Coffee's location decision is proximity to the market. This means locating where there are large numbers of potential customers who are likely to regularly purchase the product...\n\nPara 2 (APP & AN): In the case of Costa Coffee's Welshpool branch, the text states it is located 'in the town centre on the high street near lots of other businesses, including offices and shops.' This means there will be a high volume of passing customers from office workers and shoppers... This would lead to...\n\nPara 3 (APP & AN): Another factor to consider is the level of competition. The case study states there were 'only two other coffee shops in the town before they opened.' This suggests that competition was limited, meaning Costa Coffee could...\n\nPara 4 (EVAL — Decision + Context + Impact/Reasoning): Overall, I believe the most important factor for Costa Coffee was... / However, this depends on whether... / The key reason [factor] matters most is because Costa Coffee, as a retailer that sells products in person...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 7 marks (AO2: 2 APP, AO3a: 2 AN, AO3b: 3 EVAL)</h5><h5>Level 3 (5–7 marks)</h5><p>Good application of knowledge and understanding of location factors specific to Costa Coffee in Welshpool. Good analysis with logical chains of reasoning. Strong evaluation with a fully justified judgement drawing on underpinning knowledge and case study context.</p><h5>Level 2 (3–4 marks)</h5><p>Good application of location factors to Costa Coffee with detailed understanding. Limited analysis (some cause and consequence). Limited evaluation.</p><h5>Level 1 (1–2 marks)</h5><p>Limited application of location factors to Costa Coffee. Some use of the scenario. Limited analysis. No evaluation.</p></div><div class="marks-section"><h5>Application evidence may include:</h5><ul><li>Town centre location / high street position</li><li>Near other businesses including offices and shops</li><li>Only two other coffee shops in the town</li></ul><h5>Analysis may include:</h5><ul><li>Low competition means Costa can attract a larger share of the market</li><li>Being a large firm, location costs may not have been a primary barrier</li><li>High footfall expected from town centre, offices, and shops nearby</li><li>Good infrastructure means stock and staff can access the site easily</li></ul><h5>Evaluation may include:</h5><ul><li>Which factor is most influential and why</li><li>The relative importance of footfall vs competition vs costs in this specific context</li><li>What the success of the decision depends upon</li></ul></div><div class="marks-section"><h5>Exemplar Response (7/7)</h5><p><em>"By locating in the town centre there will be many people walking past (APP), and so Costa is likely to have more customers and make a profit (AN). However, there were two other coffee shops already located there when Costa set up (APP). This may make it difficult to get enough customers to make the shop profitable (AN). Overall, the number of potential customers is more important than the level of competition (EVAL) when deciding on a suitable location, because a coffee shop cannot compete at all without passing trade (EVAL) — so the High Street is ideal (EVAL)."</em></p><p><strong>Examiner's Comment:</strong> Most candidates gained 4/7 for application and analysis. Only the very best picked up evaluation marks. The command word 'discuss' is evaluative — you MUST weigh up factors and reach a conclusion about their relative influence. Even a simple contextualised judgement earns evaluation marks.</p></div>`,
+    modelAnswer: "One factor that influenced Costa Coffee's location is proximity to the market. This means locating where there are large numbers of potential customers likely to regularly buy coffee.\n\nIn the case of the Welshpool branch, the text states it is located in the town centre on the high street, near offices and shops. This means there will be high footfall from office workers, shoppers, and passing locals throughout the day — increasing the likelihood of consistent sales and profitability.\n\nAnother factor is the level of competition. The case study states there were only two other coffee shops in the town when Costa opened. This low level of competition means Costa could attract a large share of the local market without being undercut by many rivals, making the location commercially attractive.\n\nOverall, I believe the most important factor was the volume of potential customers from the town centre and nearby offices. Costa Coffee sells its products in person — without passing trade, no other factor matters. The limited competition further supports the decision, but footfall was the primary driver. However, this depends on whether Costa's brand and product range are strong enough to win customers from the two existing coffee shops."
+  },
+  {
+    num: "Q7",
+    marks: 3,
+    type: "written",
+    caseStudy: `The Wool Warehouse was set up in 2012 in response to Holly and Andy not being able to get hold of the yarn Holly needed for a knitted blanket. They deliberately chose to set up their business in a warehouse instead of a high street shop as they felt that they could enter the online market easily as there were only 2 or 3 yarn suppliers online. The business grew quickly as online sales took off and in 2014 they doubled their warehouse space as their range expanded.`,
+    question: "State three factors Holly and Andy would have considered when deciding their business location. [3 marks]",
+    hint: "Think about the four main location factors from the specification: Costs, Proximity to market, Proximity to labour, Proximity to raw materials. Which are most relevant for an online warehouse business? You do not need to explain — just state three clearly.",
+    starter: "1. ...\n2. ...\n3. ...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (1 mark each)</h5><p>1 mark for each correct factor stated, up to a maximum of 3 marks. Acceptable answers include:</p><ul><li>Cost of the warehouse / rent</li><li>Access to transport links (for deliveries from suppliers and to customers)</li><li>Proximity to the market / access to customers (via online delivery infrastructure)</li><li>Access to reliable broadband / ICT infrastructure (essential for an online business)</li><li>Proximity to labour / workforce</li><li>Government incentives / enterprise zone benefits</li><li>Space available for stock storage</li></ul></div>`,
+    modelAnswer: "1. Cost of the warehouse — Holly and Andy would want to minimise rent to keep overheads low for their online business.\n2. Access to transport links — they need good road links for supplier deliveries and for sending orders to customers nationwide.\n3. Reliable ICT infrastructure / broadband — as an online-only business, fast and reliable internet is essential for managing their website, processing orders, and communicating with customers."
+  },
+  {
+    num: "Q8",
+    marks: 7,
+    type: "written",
+    caseStudy: "",
+    question: "Evaluate the decision by Holly and Andy to set up a business as an online-only business. [7 marks]",
+    hint: "Use TWO pieces of information from the Wool Warehouse case study (APP). Analyse the impact of each one on the business (AN). Then evaluate: was going online-only the right decision? Consider the advantages AND the disadvantages before making your final judgement.",
+    starter: "Para 1 (K & U): One advantage of setting up as an online-only business is that it significantly reduces costs. By avoiding a high street shop, a business does not need to pay premium retail rents, which keeps overheads lower and improves profitability...\n\nPara 2 (APP & AN): In the case of the Wool Warehouse, the text states that 'there were only 2 or 3 yarn suppliers online' when they launched in 2012. This means they entered the market with very little online competition, giving them first-mover advantage... As a result, they were able to...\n\nPara 3 (APP & AN): A potential concern with an online-only model is the lack of physical presence to build brand trust. However, the case study also shows that 'online sales took off' and by 2014 the business 'doubled their warehouse space as their range expanded.' This suggests that... meaning...\n\nPara 4 (EVAL — Decision + Context + Impact/Reasoning): Overall, I believe the decision to go online-only was [correct/incorrect] because... / However, this depends on whether... / The key factor that makes this decision [strong/weak] is that in 2012, the online yarn market was very limited, so...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 7 marks</h5><ul><li><strong>Application (2 marks):</strong> Use 2 pieces of specific, named information from the Wool Warehouse case study.</li><li><strong>Analysis (2 marks):</strong> Analyse each piece of information, discussing the implication for the business (impact on costs, revenue, competition, growth).</li><li><strong>Evaluation (3 marks):</strong> Make a clear judgement — was going online-only the right decision? Use case study context to justify. Ideally consider both sides.</li></ul><h5>Application evidence from the case study:</h5><ul><li>"There were only 2 or 3 yarn suppliers online" → very low online competition</li><li>"Online sales took off" → strong market demand for online yarn</li><li>"They doubled their warehouse space in 2014" → evidence of strong growth</li><li>They chose a warehouse instead of a high street shop → deliberate cost-saving decision</li></ul><h5>Evaluation may include:</h5><ul><li>Low online competition in 2012 made going online a smart first-mover advantage decision</li><li>The business could reach a national market rather than just local customers</li><li>An online-only business faces challenges in building trust without a physical presence</li><li>The success (doubling warehouse space) suggests the decision was justified</li><li>It depends on whether they can maintain advantage as more online competitors emerge</li></ul></div>`,
+    modelAnswer: "One advantage of setting up as an online-only business is that it significantly reduces overhead costs. By choosing a warehouse instead of a high street shop, Holly and Andy avoided expensive retail rents — keeping their fixed costs lower and allowing them to price their products more competitively.\n\nIn the case of the Wool Warehouse, the text states there were 'only 2 or 3 yarn suppliers online' when they launched in 2012. This means they entered a market with almost no online competition, giving them a first-mover advantage. They could build a loyal customer base before rivals appeared, boosting their sales and market share rapidly.\n\nFurthermore, 'online sales took off' and by 2014 the business 'doubled their warehouse space as their range expanded.' This demonstrates that the online strategy generated significant revenue growth and allowed the business to scale effectively without the constraints of a physical shop.\n\nOverall, the decision to go online-only was correct and well-timed. In 2012, the online yarn market was very small — the Wool Warehouse could dominate a niche quickly. The evidence of rapid growth and warehouse expansion confirms this. However, this depends on whether the business can continue to differentiate itself as more competitors enter the online yarn market in future years."
+  },
+  {
+    num: "Q9 (a)",
+    marks: 3,
+    type: "written",
+    caseStudy: `Heathrow is the UK's busiest airport with around 75 million passengers passing through each year. Europ Car, Sixt, Hertz and Avis Car Hire are some of the car rental companies located at Heathrow Airport. These companies hire out a range of cars, from very high-priced models to some low-priced cars. However, many passengers travelling through the airport are middle- and high-income earners. The cost of renting the service desk to deal with customers at the airport is high, as is the cost of the parking spaces needed for the cars when they are not on hire.\n\nA new car hire company, Lo-Cost Rental, is considering offering car rentals from Heathrow. As its name implies, it offers cars with low rental charges. It offers low specification, low-priced cars.`,
+    question: "Analyse one benefit to car rental companies of locating at Heathrow Airport. [3 marks]",
+    hint: "Choose ONE benefit and develop it fully using the U → APP → AN structure. What is the benefit? Link it to the specific numbers in the case study. What is the financial or commercial impact on a car rental company?",
+    starter: "One benefit of locating at Heathrow Airport is... (U)\nThis is supported by the case study, which states that... (APP)\nAs a result, car rental companies would... / This means that... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b: 1, AO2: 1, AO3a: 1)</h5><ul><li><strong>Understanding (1 mark):</strong> Identifies a benefit. Examples: large number of potential customers, high level of demand, large and accessible market.</li><li><strong>Application (1 mark):</strong> Links to the case study. Example: "There are 75 million passengers who pass through the airport each year."</li><li><strong>Analysis (1 mark):</strong> Explains the impact on a car rental company. Example: "The high volume of customers means car rental companies should be able to rent out a large number of cars consistently, significantly increasing revenue and profit."</li></ul><p><strong>Note:</strong> The Application mark cannot be gained without the Understanding mark first.</p></div>`,
+    modelAnswer: "One benefit of locating at Heathrow Airport is access to a very large number of potential customers (U). The case study states that around 75 million passengers pass through the airport each year (APP). This enormous footfall means car rental companies have consistent access to a huge pool of potential customers, making it very likely they can rent out cars on a regular basis — significantly increasing revenue and overall profitability (AN)."
+  },
+  {
+    num: "Q9 (b)",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Analyse one disadvantage to car rental companies of locating at Heathrow Airport. [3 marks]",
+    hint: "Choose ONE disadvantage and develop it fully using U → APP → AN. Think about what the case study tells you about costs at the airport, the level of competition, or the profile of customers.",
+    starter: "One disadvantage of locating at Heathrow Airport is... (U)\nThe case study states that... (APP)\nThis means that... / As a result, a car rental company would... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b: 1, AO2: 1, AO3a: 1)</h5><ul><li><strong>Understanding (1 mark):</strong> Identifies a disadvantage. Examples: high operating costs, high level of competition, customer profile mismatch (many are high-income earners preferring premium cars).</li><li><strong>Application (1 mark):</strong> Links to the case study. Examples: "The cost of renting a service desk and the parking spaces at the airport is high." OR "Competition from Europ Car, Sixt, Hertz, and Avis will be high." OR "Many passengers are middle- and high-income earners."</li><li><strong>Analysis (1 mark):</strong> Explains the impact. Examples: "Lo-Cost may struggle to attract enough customers as established competitors are already well-known." OR "High costs make it very difficult for Lo-Cost to remain profitable while keeping rental prices low."</li></ul></div>`,
+    modelAnswer: "One disadvantage of locating at Heathrow Airport is the very high operating costs (U). The case study states that the cost of renting a service desk and parking spaces for cars at the airport is high (APP). For a company like Lo-Cost, which offers low-priced, low-specification cars, these high fixed costs make it extremely difficult to cover expenses while maintaining low rental prices — directly threatening the profitability of the business and its core value proposition (AN)."
+  },
+  {
+    num: "Q9 (c)",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Recommend whether or not Lo-Cost Rental should start to offer car rentals at Heathrow Airport. Give reasons for your recommendation. [3 marks]",
+    hint: "Make a CLEAR decision first (1 mark). Then give a precise justification that addresses BOTH sides of the argument using specific details from the case study (2 marks). One-sided justification earns at most 1 mark for justification.",
+    starter: "Lo-Cost Rental should / should not locate at Heathrow Airport. (JUDGEMENT)\nThis is because... / Unlike the alternative, this matters because... (JUSTIFICATION)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO3b: 3)</h5><ul><li><strong>Judgement (1 mark):</strong> A clear recommendation — Lo-Cost should / should not locate at Heathrow Airport. OR "More information is needed before a decision can be made."</li><li><strong>Contextual justification (up to 2 marks):</strong> A precise, case-study-based justification that addresses both sides of the argument.</li></ul><h5>Acceptable justifications include:</h5><ul><li>Lo-Cost cannot make a profit as the very high costs at Heathrow do not suit a low-cost car rental model. Established competitors like Hertz and Avis can subsidise lower prices with revenue from premium vehicle hire — Lo-Cost cannot replicate this.</li><li>It depends on what percentage of the 75 million passengers prefer low-priced rentals. There may be sufficient demand, but there is not enough information in the case study to confirm this.</li><li>It depends on how much Lo-Cost would need to charge to cover Heathrow's costs. If prices must rise significantly, the business loses its core competitive advantage of offering low-cost cars.</li></ul></div>`,
+    modelAnswer: "Lo-Cost Rental should NOT locate at Heathrow Airport. The very high cost of renting a service desk and parking spaces makes it almost impossible for Lo-Cost to keep rental prices low while remaining profitable — contradicting its entire business model. Furthermore, established rivals such as Hertz and Avis can subsidise lower-priced car options with revenue from their premium fleet, meaning Lo-Cost cannot compete on price even with lower overheads. While 75 million annual passengers represent a large market, without the ability to offer competitive pricing, Lo-Cost is unlikely to attract enough customers to justify the high location costs."
+  },
+  {
+    num: "Q10",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "Which of these is NOT a reason for a business locating near to its market?",
+    options: [
+      "It produces a large finished product",
+      "It uses bulky raw materials to produce a smaller, finished product",
+      "Its customers are not likely to travel far, nor shop over the internet, to buy what it sells",
+      "It sells fresh products such as cream cakes"
+    ],
+    answer: 1,
+    hint: "Think about which option describes locating near RAW MATERIALS rather than near the MARKET. Which one is actually the opposite reason?",
+    starter: "The answer is... because this is a reason to locate near [raw materials / the market], not near...",
+    markScheme: `<div class="marks-section"><h5>Answer: B — It uses bulky raw materials to produce a smaller, finished product</h5><p><strong>Why B is NOT a reason to locate near the market:</strong> Using bulky raw materials to produce a smaller finished product is a reason to locate near the RAW MATERIALS — not near customers. The logic is that transporting heavy raw materials long distances is more expensive than transporting the lighter finished product.</p><ul><li><strong>❌ A is a valid reason to locate near the market:</strong> Producing a large finished product makes it expensive to transport — so locating near the buyer keeps delivery costs low.</li><li><strong>❌ C is a valid reason:</strong> If customers won't travel or shop online, the business must go to where the customers are.</li><li><strong>❌ D is a valid reason:</strong> Fresh/perishable products (like cream cakes) must reach customers quickly — locating near the market prevents spoilage and reduces waste.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q11",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "Which one of these statements about business location is NOT true?",
+    options: [
+      "Firms that produce small, finished products are best locating near to their market",
+      "Governments often influence the location of businesses so that they can reduce unemployment and raise incomes in certain parts of the country",
+      "Low-cost locations are important for every single producer",
+      "Where a business locates is often influenced by more than one location factor"
+    ],
+    answer: 2,
+    hint: "Think about whether ALL businesses need to prioritise keeping costs low, or whether some businesses prioritise other factors — like prestige, skilled labour, or access to customers — above minimising costs.",
+    starter: "The statement that is NOT true is C, because not all businesses...",
+    markScheme: `<div class="marks-section"><h5>Answer: C — Low-cost locations are important for every single producer</h5><p><strong>Why C is NOT true:</strong> Low-cost locations are important for many businesses, but NOT every single producer. Some businesses — such as luxury brands, specialist service providers, or those requiring highly skilled labour near universities — prioritise location quality, skilled workers, or proximity to customers above cost minimisation.</p><ul><li><strong>A is true:</strong> Small, light finished products are cheap to transport, so proximity to the market matters less. However, it may still be beneficial for customer accessibility.</li><li><strong>B is true:</strong> Governments use enterprise zones, grants, and freeports to encourage businesses to locate in high-unemployment areas.</li><li><strong>D is true:</strong> Most location decisions involve weighing up multiple factors simultaneously — costs, labour, transport, customers, and government incentives.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q12",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "A firm has identified four possible locations. Based on the figures available, which offers the lowest cost per unit produced?",
+    options: [
+      "Site W: Output 10,000 units/year. Annual rental £30,000. Annual wages £80,000.",
+      "Site X: Output 12,000 units/year. Annual rental £42,000. Annual wages £102,000.",
+      "Site Y: Output 11,000 units/year. Annual rental £34,000. Annual wages £81,500.",
+      "Site Z: Output 9,000 units/year. Annual rental £32,000. Annual wages £71,500."
+    ],
+    answer: 2,
+    hint: "Calculate: Cost per unit = (Annual rent + Annual wages) ÷ Units produced. Work this out for all four sites, then compare.",
+    starter: "Cost per unit = (rent + wages) ÷ output. I will calculate each site: W = £___ / 10,000 = ... X = £___ / 12,000 = ... Y = £___ / 11,000 = ... Z = £___ / 9,000 = ...",
+    markScheme: `<div class="marks-section"><h5>Answer: C — Site Y (£10.50 per unit)</h5><p><strong>Calculations (Cost per unit = Total costs ÷ Output):</strong></p><ul><li>Site W: (£30,000 + £80,000) ÷ 10,000 = £110,000 ÷ 10,000 = <strong>£11.00 per unit</strong></li><li>Site X: (£42,000 + £102,000) ÷ 12,000 = £144,000 ÷ 12,000 = <strong>£12.00 per unit</strong></li><li>Site Y: (£34,000 + £81,500) ÷ 11,000 = £115,500 ÷ 11,000 = <strong>£10.50 per unit ✅ LOWEST</strong></li><li>Site Z: (£32,000 + £71,500) ÷ 9,000 = £103,500 ÷ 9,000 = <strong>£11.50 per unit</strong></li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q13",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "An online retailer sells goods across the UK. When deciding where to locate a warehouse, which of the following would NOT be important?",
+    options: [
+      "Having good access to the road network",
+      "Being near a supply of raw materials",
+      "Being near to most of its customers",
+      "Being in a location where there is a ready supply of labour"
+    ],
+    answer: 1,
+    hint: "An online retailer SELLS finished goods — it does not manufacture them. Think about which of these factors would only matter for a manufacturing business, not a warehouse.",
+    starter: "The factor that would NOT be important for an online retailer's warehouse is... because an online retailer does not...",
+    markScheme: `<div class="marks-section"><h5>Answer: B — Being near a supply of raw materials (C is also accepted)</h5><p><strong>Why B is not important:</strong> An online retailer sells finished goods to customers — it does not manufacture anything, so it has no need for raw materials. Proximity to raw materials is completely irrelevant to a warehouse operation.</p><p><strong>Why C may also be accepted:</strong> An online retailer delivers to customers nationally — it does not need to be near most of its customers since deliveries are handled by couriers. Warehouse location is more about transport infrastructure than customer geography.</p><ul><li><strong>❌ A is important:</strong> Good road network access is essential for receiving stock from suppliers and dispatching customer orders efficiently.</li><li><strong>❌ D is important:</strong> Online warehouses require many workers to pick, pack, and dispatch orders — labour availability is critical to operations.</li></ul></div>`,
+    modelAnswer: ""
+  }
+];
+</script>
     <script src="script.js"></script>
 </body>
 
