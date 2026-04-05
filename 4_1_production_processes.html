@@ -1,0 +1,1316 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.1 Production Processes – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Business — Component 2</div>
+            <h1>4.1 Production Processes</h1>
+            <p>Interactive revision guide · All key content + full exam practice</p>
+        </div>
+        <a href="index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px">
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #d4edda;
+                  border: 1.5px solid #2d7a4f;
+                  display: inline-block;
+                "></span>
+                        First attempt correct</span>
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fff8dc;
+                  border: 1.5px solid #b8860b;
+                  display: inline-block;
+                "></span>
+                        Correct after mistake</span>
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fde8e5;
+                  border: 1.5px solid #c84b31;
+                  display: inline-block;
+                "></span>
+                        Wrong — try again</span>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+    <script>
+        // ══════════════════════════════════════
+        //  DATA: 4.1 Production Processes
+        // ══════════════════════════════════════
+
+        // 1. Main Learning Content
+        const topics = [
+            {
+                title: "Key Terms & Official Definitions",
+                tag: "Core Concepts",
+                content: `<p>These are the <strong>official OCR definitions</strong> you must know precisely for the exam. Learn them word for word.</p>
+    <ul>
+      <li><strong>Job Production:</strong> Is the process of production where products are made individually.</li>
+      <li><strong>Batch Production:</strong> Is the process of production where one type of product is made and then production is switched to make a different product.</li>
+      <li><strong>Flow Production:</strong> Is production of one product that takes place continuously using a production or assembly line. This is sometimes called mass production.</li>
+      <li><strong>Automation:</strong> Is a production process involving machinery that is not controlled by a person but usually controlled by a computer.</li>
+      <li><strong>Robotics:</strong> Is the use of robots in the process of production.</li>
+      <li><strong>Production Processes:</strong> Are the three methods or processes of production – job, batch and flow.</li>
+    </ul>`
+            },
+            {
+                title: "Job Production",
+                tag: "Methods",
+                content: `<p><strong>Job production</strong> involves producing each product individually. Each item is unique and made to meet the exact requirements of an individual customer. Products made this way are often called <strong>bespoke</strong>.</p>
+    <p><strong>Examples of job production:</strong></p>
+    <ul>
+      <li>Building a bridge, factory, or shopping centre</li>
+      <li>Craft production: paintings, pottery, sculptures</li>
+      <li>Tailoring hand-made dresses and suits</li>
+      <li>Creating an advertising campaign</li>
+      <li>Building ships and aircraft</li>
+      <li>Taking wedding photographs or making a film</li>
+      <li>Hand-crafted furniture (e.g., Louis le Glas at the Coppice Co-op)</li>
+    </ul>
+    <div class="two-col">
+    <div>
+    <div class="col-head">✓ Advantages</div>
+    <div class="pro-item"><strong>High quality:</strong> Products are usually high quality as they are made with great care and skill to meet the specific needs of the customer.</div>
+    <div class="pro-item"><strong>Bespoke products:</strong> Products can be made to exactly meet the needs of individual customers, giving a strong competitive edge and justifying premium prices.</div>
+    <div class="pro-item"><strong>Worker satisfaction:</strong> Workers often get more satisfaction from working on something until it is finished, which can improve motivation and reduce absenteeism.</div>
+    </div>
+    <div>
+    <div class="col-head">✗ Disadvantages</div>
+    <div class="con-item"><strong>High production costs:</strong> Costs of production will be high as each product is individually crafted, meaning higher prices for customers.</div>
+    <div class="con-item"><strong>High labour costs:</strong> Labour costs may be high because job production often requires skilled labour who command higher wages.</div>
+    <div class="con-item"><strong>Slow output:</strong> Production is slow — only one item is made at a time, limiting the ability to meet large-scale or mass-market demand.</div>
+    </div>
+    </div>
+    <div class="case-study-box">
+    <h4>Case Study: The Coppice Co-op Ltd</h4>
+    <p>Louis Le Glas is a skilled woodworker at the Coppice Co-op Ltd in Carnforth, Lancashire. He designs and carves unique pieces of furniture, and each piece is one-of-a-kind. Customers can have furniture made exactly as they want it — true bespoke production. The business is also fiercely concerned about sustainable production, managing woodlands through a process called coppicing.</p>
+    <p><strong>Takeaway:</strong> Job production allows Louis to charge premium prices because each piece is unique. However, it limits how many products he can make, keeping the scale of the business small.</p>
+    </div>`
+            },
+            {
+                title: "Batch Production",
+                tag: "Methods",
+                content: `<p><strong>Batch production</strong> involves producing one type of product for a period, then switching to make a different type. The business will switch back to the first product when more is needed. Machinery may need to be re-set between batches.</p>
+    <p><strong>Examples of batch production:</strong></p>
+    <ul>
+      <li>Bakeries making a batch of white bread, then switching to wholemeal</li>
+      <li>Paint manufacturing — different colours and types (e.g., Crown Paints)</li>
+      <li>Clothing manufacturers switching between different garment types</li>
+      <li>Newspapers, books, furniture, and electrical goods</li>
+    </ul>
+    <div class="two-col">
+    <div>
+    <div class="col-head">✓ Advantages</div>
+    <div class="pro-item"><strong>Meets varied customer needs:</strong> Batches of different goods can be made, allowing a business to offer a range of products to different customer groups.</div>
+    <div class="pro-item"><strong>Made to order:</strong> Batches can be made to meet specific orders, reducing storage costs as goods do not need to be held in stock for long periods.</div>
+    <div class="pro-item"><strong>Specialist machinery:</strong> It may be possible to use specialist machines and automate parts of production, helping to save costs compared to job production.</div>
+    </div>
+    <div>
+    <div class="col-head">✗ Disadvantages</div>
+    <div class="con-item"><strong>Switching time and costs:</strong> It takes time to switch production from one batch to another. Machinery may need to be re-set, adding costs and reducing output.</div>
+    <div class="con-item"><strong>Stock holding costs:</strong> It may be necessary to keep stocks of materials ready to switch production. Holding stock is a cash flow problem — money has been paid out but revenue is not yet earned.</div>
+    <div class="con-item"><strong>Repetitive work:</strong> Tasks can be repetitive and boring for workers, which can reduce motivation and increase staff turnover.</div>
+    <div class="con-item"><strong>Less variety than job:</strong> There is usually less product choice for customers compared with job production.</div>
+    </div>
+    </div>
+    <div class="case-study-box">
+    <h4>Case Study: Crown Paints</h4>
+    <p>Crown Paints, based in Darwen, Lancashire, makes a range of paints including silk and matte emulsions, gloss paints, and primers in many colours and shades. The ingredients are mixed to make one type and colour of paint. Once this batch is finished, tins are labelled and filled. The factory then switches to produce a different colour or type of paint entirely.</p>
+    <p><strong>Takeaway:</strong> Batch production lets Crown Paints offer a huge range of colours without needing a permanently separate production line for each one. However, cleaning and resetting equipment between batches costs time and money.</p>
+    </div>`
+            },
+            {
+                title: "Flow Production",
+                tag: "Methods",
+                content: `<p><strong>Flow production</strong> (also called <strong>mass production</strong>) involves producing one type of product continuously using a production or assembly line. The product moves along a conveyor belt and different workers or machines complete different tasks at each stage. There is no stopping.</p>
+    <p><strong>Examples of flow production:</strong></p>
+    <ul>
+      <li>Car manufacturing — Ford, Jaguar Land Rover (JLR)</li>
+      <li>Heinz baked beans — over 1 billion tins per year at their factory near Wigan</li>
+      <li>Plate glass manufacturing</li>
+      <li>Bottled drinks and canned foods produced at scale</li>
+    </ul>
+    <div class="two-col">
+    <div>
+    <div class="col-head">✓ Advantages</div>
+    <div class="pro-item"><strong>Large quantities:</strong> Massive amounts can be produced continuously to meet high levels of demand in the mass market.</div>
+    <div class="pro-item"><strong>Low unit costs:</strong> The cost per unit is low because the firm benefits from economies of scale — costs are spread over millions of products.</div>
+    <div class="pro-item"><strong>Machinery keeps costs low:</strong> Heavy use of machinery reduces the need for large numbers of workers and lowers wage bills.</div>
+    <div class="pro-item"><strong>Some flexibility:</strong> Modern computer-controlled machines can be programmed to introduce some design variation into the production run.</div>
+    </div>
+    <div>
+    <div class="col-head">✗ Disadvantages</div>
+    <div class="con-item"><strong>Quality concerns:</strong> Mass-produced goods may not always meet the high quality or individuality that some customers expect from premium products.</div>
+    <div class="con-item"><strong>Very expensive to set up:</strong> The initial investment in setting up an assembly line is enormous — a major barrier to entry.</div>
+    <div class="con-item"><strong>Large stock required:</strong> Large stocks of raw materials must be maintained to keep the production line running at all times.</div>
+    <div class="con-item"><strong>Breakdown risk:</strong> If production stops at any point on the line (mechanical failure or strike), the entire factory may shut down — extremely costly.</div>
+    <div class="con-item"><strong>Repetitive work:</strong> Assembly line jobs can be very repetitive and boring, leading to lower motivation and higher staff turnover.</div>
+    </div>
+    </div>
+    <div class="case-study-box">
+    <h4>Case Study: Heinz Baked Beans</h4>
+    <p>Heinz makes its baked beans at a factory just outside Wigan. Over 1 billion tins are made each year using a continuous flow method. The beans are mixed with sauce, put into tins that are sealed, then cooked in ovens. From there, the tins go on to be labelled. This entire process runs every day, throughout the year, without stopping.</p>
+    <p><strong>Takeaway:</strong> Flow production allows Heinz to keep the price of baked beans extremely low by producing at massive scale. However, any breakdown on the production line could halt the entire factory and cost millions in lost output and missed orders.</p>
+    </div>`
+            },
+            {
+                title: "Automation, Computers & Robotics in Production",
+                tag: "Theory",
+                content: `<p>Technology has increasingly been introduced into production. The three key forms are <strong>automation</strong>, <strong>computers</strong>, and <strong>robotics</strong>.</p>
+    <p><strong>Automation</strong> means production is controlled by computer rather than by a human worker. Workers' roles shift to overseeing the computer systems and checking that production is occurring correctly. Examples include:</p>
+    <ul>
+      <li>Crown Paints — the entire canning process runs automatically, with tins being labelled, filled, weighed, and sealed by machines</li>
+      <li>Autopilot on aircraft and ships</li>
+      <li>Automated banking payments and online transactions</li>
+      <li>School systems automatically sending attendance alerts to parents</li>
+    </ul>
+    <p><strong>Computers</strong> are used across service industries to automate processes previously done by people — online banking (Android Pay, Apple Pay), insurance claims, energy billing, and concert ticket booking.</p>
+    <p><strong>Robotics</strong> is a specific type of automation where a computer programs a robot to carry out specific tasks. Around <strong>65% of robot use</strong> is in car manufacturing (welding, painting, lifting). Robots are also used in:</p>
+    <ul>
+      <li>Food, electronics, plastics, and medical sectors</li>
+      <li>Hotel receptions and hospitals (collecting laundry)</li>
+      <li>Dangerous environments — robots entered the Fukushima nuclear site after the 2014 explosion; humans could not safely do so</li>
+      <li>Surgery — robots assist surgeons with high-precision operations</li>
+    </ul>
+    <p>Thanks to <strong>artificial intelligence (AI)</strong>, robots are increasingly capable of skilled and complex tasks: writing reports, making decisions, and even performing surgery autonomously. The World Economic Forum (2020) predicted that by 2025, technology would eliminate 85 million jobs — but create 97 million new ones, a net gain of 12 million.</p>
+    <div class="case-study-box">
+    <h4>Case Study: Amazon Warehouses</h4>
+    <p>Amazon has over 100,000 robots in its UK warehouses. When a customer places an order, the request is automatically passed to a robot. The robot follows digital patterns on the warehouse floor to locate the correct shelf and brings it to a human worker, who boxes and ships the item. Previously, human 'pickers' walked many miles per day to do this manually.</p>
+    <p>Amazon's UK sales rose by 51% to £19.4 billion in 2020. Employment actually grew by 3,000 workers despite the robot introduction. The robots enabled Prime next-day delivery. However, worker injury rates increased, and robots represent a breakdown risk.</p>
+    <p><strong>Takeaway:</strong> Amazon's robots dramatically increased productivity and created a major competitive advantage (next-day delivery). But technology does not simply replace all workers — it often creates new roles and new problems.</p>
+    </div>`
+            },
+            {
+                title: "Advantages & Disadvantages of Technology in Production",
+                tag: "Analysis",
+                content: `<p>For evaluation questions, you must be able to weigh up <strong>both sides</strong> of using technology. Here is a comprehensive breakdown.</p>
+    <div class="two-col">
+    <div>
+    <div class="col-head">✓ Advantages of Technology</div>
+    <div class="pro-item"><strong>Lower labour costs:</strong> Fewer workers are needed, reducing wage costs. Average costs of production fall, helping the business keep prices competitive in the market.</div>
+    <div class="pro-item"><strong>Greater accuracy:</strong> Machines are more accurate than humans — improving product quality and reducing costly waste.</div>
+    <div class="pro-item"><strong>Flexible production:</strong> Computer-controlled machines can be reprogrammed to produce a variety of products without restructuring the factory.</div>
+    <div class="pro-item"><strong>Works 24/7:</strong> Machines work 24 hours a day, 7 days a week — unlike humans who need rest, take sick days, and go on holiday.</div>
+    <div class="pro-item"><strong>Handles dangerous tasks:</strong> Machines can carry out dangerous or boring jobs that workers may be unable or unwilling to do, improving workplace safety.</div>
+    <div class="pro-item"><strong>New products:</strong> New technology creates entirely new products and new markets (e.g., smartphones, tablets), growing the economy.</div>
+    </div>
+    <div>
+    <div class="col-head">✗ Disadvantages of Technology</div>
+    <div class="con-item"><strong>Redundancy costs:</strong> Workers may be made redundant when technology is introduced, resulting in short-term redundancy payments which add to costs.</div>
+    <div class="con-item"><strong>Skilled recruitment:</strong> New skilled workers to manage the technology may need to be recruited. These workers are in high demand and may command large salaries.</div>
+    <div class="con-item"><strong>Training costs:</strong> Existing workers may need retraining to use new technology — an additional business expense.</div>
+    <div class="con-item"><strong>Breakdown risk:</strong> Machines can break down, disrupting production — especially serious in flow production where one fault halts the entire line.</div>
+    <div class="con-item"><strong>High initial cost:</strong> Buying and financing new technology is expensive. The upfront investment may take many years to recoup.</div>
+    <div class="con-item"><strong>Customer and data concerns:</strong> Customers sometimes dislike automated systems (e.g., automated phone lines). Where personal data is stored, there are also security risks.</div>
+    </div>
+    </div>`
+            },
+            {
+                title: "Choosing the Right Production Method (Evaluation)",
+                tag: "Evaluation",
+                content: `<p>In an exam evaluation question, you must weigh up which production method is most appropriate. There is <strong>no single best method</strong> — it <em>depends on</em> the specific context of the business.</p>
+    <p><strong>Key factors that determine the right method:</strong></p>
+    <ul>
+      <li><strong>Volume of demand:</strong> High, consistent mass demand → flow. Unique, individual orders → job. Varied products in moderate quantities → batch.</li>
+      <li><strong>Price sensitivity:</strong> Customers wanting the lowest price → flow (economies of scale). Customers willing to pay a premium for uniqueness → job.</li>
+      <li><strong>Product type:</strong> Identical standardised products suit flow; varied or unique products suit job or batch.</li>
+      <li><strong>Capital investment available:</strong> Flow requires enormous set-up costs. Job requires skilled (expensive) labour. Batch sits in between.</li>
+      <li><strong>Flexibility required:</strong> Businesses needing to switch frequently between product types should use batch. Single high-volume product → flow.</li>
+    </ul>
+    <p><strong>Important evaluation point:</strong> Businesses can use a <em>combination</em> of methods. A caravan manufacturer might use job production to assemble each caravan but batch production to produce the shared components. Modern AI-driven machines are also blurring the lines between batch and flow, allowing variation in mass production.</p>
+    <p><strong>Useful "it depends on..." evaluation phrases:</strong></p>
+    <ul>
+      <li><em>"This depends on whether the business can afford the high initial investment in an assembly line..."</em></li>
+      <li><em>"This depends on the level of demand — if the market grows significantly, flow production would lower unit costs and improve competitiveness..."</em></li>
+      <li><em>"This depends on whether customers in this market prioritise uniqueness and quality over low price..."</em></li>
+      <li><em>"This depends on whether the Montana Bakery wants to continue making the range of speciality breads it currently offers..."</em></li>
+    </ul>`
+            }
+        ];
+
+        // 2. Multiple Choice Questions (Minimum 10)
+        const mcqData = [
+            {
+                q: "Which is an advantage for a manufacturer of using robotics?",
+                opts: ["Greater productivity", "Initial investment cost", "Operatives will require training", "Will not break down"],
+                ans: 0,
+                explain: "Correct answer: A — Greater productivity. Robots can work 24/7 without breaks, producing more output in less time and at greater consistency. B (initial investment) and C (training costs) are both disadvantages. D is incorrect — machines CAN and do break down, which is actually a key disadvantage of robotics."
+            },
+            {
+                q: "Jenny Carson makes and ices wedding cakes individually to order. Which method of production is she most likely to use?",
+                opts: ["Job production", "Batch production", "Flow production", "Robotic production"],
+                ans: 0,
+                explain: "Correct answer: A — Job production. Each wedding cake is unique and made individually to the customer's specific requirements — the definition of job production. Batch (B) would mean switching between types; flow (C) means mass-producing identical cakes on a line; robotic production (D) is not one of the three official OCR production methods."
+            },
+            {
+                q: "Warburton's bakery uses batch production to make its bread. Which of the following is a disadvantage of this approach?",
+                opts: [
+                    "The costs of production are lower than using other methods.",
+                    "It can meet the demand for different types of bread from different customers.",
+                    "It may have to reduce the different types of bread that it can offer.",
+                    "It can make bread to order so the bread does not need to be stored."
+                ],
+                ans: 2,
+                explain: "Correct answer: C. If managing too many product switches becomes too costly or complex, Warburton's may be forced to limit its product range — a disadvantage. Options A, B, and D are all advantages of batch production: lower costs (A), meeting varied demand (B), and made-to-order reducing storage (D)."
+            },
+            {
+                q: "Which of the following is NOT an example of automation?",
+                opts: [
+                    "Beer bottles are labelled by a machine when they pass it on the production line.",
+                    "The hand-making of a wedding dress.",
+                    "A business has sensors on its doors to make them open when someone approaches.",
+                    "Customers of Vauxhall Motors can configure and order a car online which is added to production without any further input."
+                ],
+                ans: 1,
+                explain: "Correct answer: B. Hand-making a wedding dress is job production — carried out by a skilled human worker, not a computer-controlled machine. All other options describe processes controlled automatically by machines or computers with no direct human operation."
+            },
+            {
+                q: "Which of these statements is FALSE?",
+                opts: [
+                    "Modern businesses do not use job production.",
+                    "Flow production uses machines only, no workers are required at all.",
+                    "Batch production is often used by bakeries to make different kinds of bread and cakes.",
+                    "Using flow production usually results in lower unit costs than using job production."
+                ],
+                ans: 0,
+                explain: "Correct answer: A. It is FALSE that modern businesses do not use job production. Many modern businesses — including those running large construction projects like Crossrail — use job production. C and D are both true. B is also false (flow production still requires workers to oversee machines), but A is the most clearly false and is the intended answer."
+            },
+            {
+                q: "Which of the following is NOT a disadvantage of automation?",
+                opts: [
+                    "Expensive to buy, so will need to find a way of raising finance",
+                    "Machines can break down, disrupting production",
+                    "Operatives may need additional training, increasing business costs",
+                    "The machinery can be reprogrammed, making production more flexible"
+                ],
+                ans: 3,
+                explain: "Correct answer: D. Being reprogrammable and flexible is an ADVANTAGE of automation, not a disadvantage. Options A (high cost to buy), B (breakdown risk), and C (training costs) are all genuine disadvantages of investing in automation technology."
+            },
+            {
+                q: "A company's total costs are too high due to increasing wage costs as it expands. Which action would provide a long-term solution?",
+                opts: [
+                    "Applying for an overdraft",
+                    "Automating the production process",
+                    "Employing a finance assistant",
+                    "Switching to job production"
+                ],
+                ans: 1,
+                explain: "Correct answer: B — Automating the production process. Automation replaces labour with machines, directly reducing wage costs long-term. An overdraft (A) only provides short-term finance and must be repaid. Employing a finance assistant (C) would add costs. Switching to job production (D) typically increases labour costs as it demands skilled workers."
+            },
+            {
+                q: "HealthBisc Ltd predicts it will struggle to produce enough breakfast biscuits to meet growing demand. Which action could best help?",
+                opts: [
+                    "Automate the production process",
+                    "Improve its after-sales service",
+                    "Reduce its prices",
+                    "Switch to job production"
+                ],
+                ans: 0,
+                explain: "Correct answer: A — Automate the production process. Automation enables machines to work 24/7, significantly increasing output and productivity to meet higher demand. Improving after-sales service (B) and reducing prices (C) are marketing decisions that do not increase production capacity. Switching to job production (D) would actually decrease output as items are made individually."
+            },
+            {
+                q: "An entrepreneur makes individual handmade prom dresses to order. What method of production does the entrepreneur use?",
+                opts: ["Automated", "Batch", "Flow", "Job"],
+                ans: 3,
+                explain: "Correct answer: D — Job production. Each dress is made individually to a specific customer's order — the definition of job production. Automated (A) means computer-controlled machinery. Batch (B) would mean making a group of dresses of the same style then switching to another. Flow (C) means continuous mass production of identical items."
+            },
+            {
+                q: "Which of the following is a characteristic of flow production?",
+                opts: [
+                    "Products are made individually to customer specifications",
+                    "Production is switched between different product types",
+                    "Goods are produced continuously using an assembly line",
+                    "High labour costs due to the need for skilled workers"
+                ],
+                ans: 2,
+                explain: "Correct answer: C. Flow production uses a continuous assembly line to make large quantities of the same product without stopping. Option A describes job production. Option B describes batch production. Option D describes job production, which requires skilled and therefore expensive labour."
+            },
+            {
+                q: "Which of the following is a disadvantage of flow production?",
+                opts: [
+                    "Unit costs per product are very high",
+                    "If the production line breaks down, the entire factory may shut down",
+                    "Machinery cannot be used in flow production",
+                    "Products made using flow production are always of poor quality"
+                ],
+                ans: 1,
+                explain: "Correct answer: B. A major risk of flow production is that a single breakdown on the assembly line can halt the entire factory, causing huge financial losses. Option A is wrong — unit costs are actually LOW in flow production. Option C is wrong — machinery is central to flow production. Option D is incorrect — quality can still be high and consistent in flow production."
+            },
+            {
+                q: "Crown Paints makes different types and colours of paint in its factory. Which method of production does Crown Paints use?",
+                opts: ["Job production", "Batch production", "Flow production", "Robotic production"],
+                ans: 1,
+                explain: "Correct answer: B — Batch production. Crown Paints makes one type and colour of paint, fills and labels the tins, then switches production to a different type or colour. This is the definition of batch production — switching between different products. Job (A) makes one unique item at a time. Flow (C) makes the same product continuously. Robotic (D) is not one of the three main production methods."
+            }
+        ];
+
+        // 3. Keyword Matching (Minimum 10)
+        const matchData = [
+            { term: "Job Production", def: "The process of production where products are made individually." },
+            { term: "Batch Production", def: "The process of production where one type of product is made and then production is switched to make a different product." },
+            { term: "Flow Production", def: "Production of one product that takes place continuously using a production or assembly line. Also called mass production." },
+            { term: "Automation", def: "A production process involving machinery that is not controlled by a person but usually controlled by a computer." },
+            { term: "Robotics", def: "The use of robots in the process of production." },
+            { term: "Bespoke", def: "A product made to the exact individual specification of a customer — unique to that person." },
+            { term: "Assembly Line", def: "A method used in flow production where a product moves along a conveyor belt and workers or machines complete different tasks at each stage." },
+            { term: "Economies of Scale", def: "Reductions in the average cost per unit that a large business benefits from by producing in very large quantities." },
+            { term: "Redundancy", def: "When a worker loses their job because their role no longer exists, often because technology has replaced it." },
+            { term: "Unit Cost", def: "The cost of producing one item. Calculated by dividing total costs by the number of units produced." },
+            { term: "Mass Production", def: "Another term for flow production — producing very large quantities of a standardised product continuously on an assembly line." },
+            { term: "Production Processes", def: "The three methods or processes of production: job, batch, and flow." }
+        ];
+
+        // 4. Fill in the Blanks (Minimum 10)
+        const fibData = [
+            {
+                display: "Job production is the process where products are made _____.",
+                blanks: { B1: "individually" }
+            },
+            {
+                display: "Flow production is sometimes called _____ production.",
+                blanks: { B1: "mass" }
+            },
+            {
+                display: "Automation is a production process involving machinery controlled by a _____, not a person.",
+                blanks: { B1: "computer" }
+            },
+            {
+                display: "A key advantage of job production is that products are usually high _____ and can meet individual customer _____.",
+                blanks: { B1: "quality", B2: "needs" }
+            },
+            {
+                display: "A key disadvantage of flow production is that if the _____ line breaks down, the entire factory may shut _____.",
+                blanks: { B1: "assembly", B2: "down" }
+            },
+            {
+                display: "Batch production allows a business to meet the needs of _____ customers by producing batches of _____ goods.",
+                blanks: { B1: "different", B2: "different" }
+            },
+            {
+                display: "A key advantage of using technology in production is that machines can work _____ hours a day, _____ days a week.",
+                blanks: { B1: "24", B2: "7" }
+            },
+            {
+                display: "The use of robots in production is known as _____, and it accounts for around _____ per cent of all robot use in car manufacturing.",
+                blanks: { B1: "robotics", B2: "65" }
+            },
+            {
+                display: "Flow production benefits from _____ of scale, meaning the _____ cost per unit falls as output rises.",
+                blanks: { B1: "economies", B2: "average" }
+            },
+            {
+                display: "A disadvantage of introducing technology is that workers may be made _____, adding to the _____ costs of the business.",
+                blanks: { B1: "redundant", B2: "short-term" }
+            },
+            {
+                display: "The three methods of production are job, _____, and _____ production.",
+                blanks: { B1: "batch", B2: "flow" }
+            },
+            {
+                display: "Crown Paints uses _____ production, making different colours and types of paint before switching to the next _____.",
+                blanks: { B1: "batch", B2: "batch" }
+            }
+        ];
+
+        // Word bank for Fill in the Blanks
+        const fibWords = [
+            "individually", "mass", "computer", "quality", "needs", "assembly", "down",
+            "different", "24", "7", "robotics", "65", "economies", "average",
+            "redundant", "short-term", "batch", "flow", "person", "job", "continuous",
+            "weekly", "skilled", "automated", "manually", "machine"
+        ];
+
+        // 5. True or False (Minimum 10)
+        const tfData = [
+            {
+                statement: "Modern businesses do not use job production.",
+                answer: false,
+                explanation: "FALSE. Many modern businesses still use job production. Large-scale projects like the Crossrail railway in London are examples of job production. It is a common misconception that job production is only for small artisan businesses — it is not."
+            },
+            {
+                statement: "Goods produced by flow production are usually made to suit the needs of individual customers.",
+                answer: false,
+                explanation: "FALSE. Flow production makes standardised, identical products in large quantities for the mass market. It is JOB production that creates products tailored to individual customer needs."
+            },
+            {
+                statement: "Flow production is suited to large-scale production.",
+                answer: true,
+                explanation: "TRUE. Flow production is specifically designed to produce very large quantities of the same product continuously. This is what makes it suited to mass markets and high-demand products like cars and baked beans."
+            },
+            {
+                statement: "Working in a batch production process can be repetitive and boring for workers.",
+                answer: true,
+                explanation: "TRUE. Because batch production involves repeating the same tasks many times within each batch, workers can find the work monotonous. This can negatively affect motivation and productivity."
+            },
+            {
+                statement: "Flow production does not require any workforce at all.",
+                answer: false,
+                explanation: "FALSE. Flow production does still require workers — they oversee the machines, perform quality checks, manage supply chains, and complete tasks not fully automated. Technology reduces but rarely eliminates the need for workers entirely."
+            },
+            {
+                statement: "Job production workers are often highly skilled.",
+                answer: true,
+                explanation: "TRUE. Job production requires skilled labour because each product is unique and made to a high standard. This is a key reason why the costs of job production are high — skilled workers command higher wages."
+            },
+            {
+                statement: "Goods produced by job production are usually high quality.",
+                answer: true,
+                explanation: "TRUE. Because each item is individually made with care and expertise to meet a specific customer's requirements, job production typically produces high-quality, bespoke products. This justifies the premium prices charged."
+            },
+            {
+                statement: "Many dangerous processes are best carried out by automated machinery.",
+                answer: true,
+                explanation: "TRUE. Automation is ideal for dangerous environments. Robots were sent into the Fukushima nuclear site in Japan after the 2014 explosion because it was too dangerous for humans to enter. Machines can also do other hazardous tasks that workers may be unwilling or unable to do safely."
+            },
+            {
+                statement: "Supermarket in-store bakeries use the batch production method.",
+                answer: true,
+                explanation: "TRUE. In-store bakeries make a batch of one type of bread or pastry, then switch to produce a different type. This is the definition of batch production — making one product type, then switching to another."
+            },
+            {
+                statement: "It is cheap to set up a flow manufacturing process.",
+                answer: false,
+                explanation: "FALSE. Setting up a flow production line is very expensive. The machinery, conveyor systems, and factory layout all require enormous capital investment — this is one of the key disadvantages of flow production."
+            },
+            {
+                statement: "Automation can increase the flexibility of production because machines can be reprogrammed.",
+                answer: true,
+                explanation: "TRUE. Unlike fixed machinery, computer-controlled automated machines can be reprogrammed to produce a variety of products without rebuilding the production line. This is a key advantage of automation over older fixed machinery."
+            },
+            {
+                statement: "Job production is exclusively used by small businesses.",
+                answer: false,
+                explanation: "FALSE. This is a very common misconception. Job production is used by businesses of all sizes. The Crossrail project, large ship-building companies, and major advertising agencies all use job production on a very large scale. The method refers to HOW something is made, not the size of the business."
+            }
+        ];
+
+        // 6. Common Student Misconceptions
+        const miscData = [
+            {
+                wrong: "Once a business chooses a production method, it is stuck with that method and cannot change.",
+                correct: "Businesses can use a combination of methods simultaneously. A caravan manufacturer might use job production to assemble each caravan but batch production to make shared components. The method can also evolve as the business grows or demand changes."
+            },
+            {
+                wrong: "Job production is only suitable for small businesses.",
+                correct: "Job production is used by businesses of all sizes. The Crossrail project in London (one of Europe's largest infrastructure projects), ship-building companies, and bespoke advertising agencies all use job production. Size is irrelevant — the method refers to making individual, unique products."
+            },
+            {
+                wrong: "Flow production workers are highly skilled.",
+                correct: "Flow production workers typically carry out repetitive, specialised tasks on an assembly line and are generally not considered highly skilled. It is JOB production that requires skilled workers — craftspeople, architects, surgeons, etc. — which is why job production has higher labour costs."
+            },
+            {
+                wrong: "Technology always replaces all workers, resulting in zero employment.",
+                correct: "Technology reduces the number of workers needed but rarely eliminates them entirely. It also creates new jobs. Amazon introduced 100,000+ robots in its warehouses, but UK employment at Amazon actually grew by 3,000 workers as sales increased — because robots created new demand and new roles."
+            },
+            {
+                wrong: "Batch production and flow production are basically the same — they both make lots of products.",
+                correct: "They are fundamentally different. Batch makes a group of one type of product, then stops and switches to a different type. Flow makes the same product continuously without ever stopping. Flow is for very high volumes of an identical product; batch allows product variety through switching."
+            },
+            {
+                wrong: "Automation and robotics mean exactly the same thing.",
+                correct: "Automation is the broader term — any computer-controlled production process. Robotics is a specific type of automation where programmable robots perform tasks. All robotics is automation, but not all automation involves robots (e.g., automated door sensors, online banking systems)."
+            },
+            {
+                wrong: "For a 3-mark 'Analyse' question, simply naming a benefit and writing a general explanation is enough for full marks.",
+                correct: "For 3 marks (U + APP + AN), you must: (1) state the benefit/point clearly, (2) apply it to the specific business in the case study using evidence from the text, AND (3) explain the business impact (on costs, revenue, or competitiveness). Without the Application, you cannot score the Analysis mark."
+            },
+            {
+                wrong: "Flow production always produces lower quality goods compared to job production.",
+                correct: "Flow production CAN produce high-quality, consistent goods. Modern computer-controlled machines are highly accurate. Cars produced on assembly lines, for example, undergo rigorous quality checks. The assumption that mass-produced automatically means low quality is outdated and incorrect."
+            }
+        ];
+
+        // 7. Examiner Tips & Structure Guides
+        const examTips = [
+            {
+                type: "Identify / State — 1 mark",
+                title: "One Point. Full Stop. Move On.",
+                content: `
+          <p>A 1-mark <strong>'State' or 'Identify'</strong> question needs exactly <strong>one correct point</strong>. No explanation. No examples. No paragraphs.</p>
+    
+          <p><strong>The Formula:</strong></p>
+          <ul>
+            <li>One clear, specific point = 1 mark ✅</li>
+            <li>A vague, general point = 0 marks ❌</li>
+          </ul>
+    
+          <p><strong>❌ Bad Answer (0 marks):</strong><br/>
+          <em>"Flow production is when things are made."</em><br/>
+          Too vague — doesn't identify a specific characteristic of flow production.</p>
+    
+          <p><strong>✅ Good Answer (1 mark):</strong><br/>
+          <em>"Goods are produced continuously using an assembly line."</em><br/>
+          Specific, precise, and directly answers the question.</p>
+    
+          <p><strong>⚠️ Examiner Warning:</strong> The OCR examiners noted that saying flow production is "faster" will NOT be rewarded — this depends on what is being produced and is not a specific characteristic. Always be precise: say "uses an assembly line," "continuous production," or "low unit costs per product."</p>
+    
+          <p><strong>🚫 Knowledge Dumping Alert:</strong> Do NOT write a full paragraph for a 1-mark question. Every extra sentence you write here is wasted time you need for the higher-mark questions.</p>
+        `,
+                pills: ["K"]
+            },
+            {
+                type: "Explain — 2 marks",
+                title: "Name It + Explain It",
+                content: `
+          <p>A 2-mark <strong>'Explain'</strong> question needs two things: <strong>identify</strong> the concept AND <strong>explain</strong> what it means or how it works.</p>
+    
+          <p><strong>The Formula:</strong></p>
+          <ul>
+            <li><strong>Mark 1 (Knowledge):</strong> Name the production process or concept.</li>
+            <li><strong>Mark 2 (Understanding):</strong> Explain what it involves or how it works.</li>
+          </ul>
+    
+          <p><strong>❌ Bad Answer (1 mark only):</strong><br/>
+          <em>"Batch production."</em><br/>
+          Named it but failed to explain it — only 1 mark.</p>
+    
+          <p><strong>✅ Good Answer (2 marks):</strong><br/>
+          <em>"Batch production (1), which is when a group of similar products are made together before production switches to a different type of product (1)."</em></p>
+    
+          <p><strong>⚠️ Critical Examiner Warning:</strong> The OCR examiner noted that some candidates explained the process without naming it — and scored ZERO. Always NAME the concept first, then explain it.</p>
+    
+          <p><strong>⚠️ Application Warning:</strong> For a 2-mark 'Explain one way technology might affect production' question, you MUST apply your point to the specific business. Answers about selling online or marketing when the question asks about <em>production</em> scored zero — always re-read the question carefully.</p>
+        `,
+                pills: ["K", "U"]
+            },
+            {
+                type: "Analyse — 3 marks",
+                title: "The Holy Trinity: U → APP → AN",
+                content: `
+          <p>A 3-mark <strong>'Analyse'</strong> question has a strict formula. You <strong>cannot</strong> score Application without Understanding. You <strong>cannot</strong> score Analysis without Application.</p>
+    
+          <p><strong>The 3-Step Formula:</strong></p>
+          <ul>
+            <li><strong>Step 1 — Understanding (U):</strong> State the benefit or drawback in general terms.<br/><em>"Batch production allows a business to meet the needs of different customers..."</em></li>
+            <li><strong>Step 2 — Application (APP):</strong> Link it specifically to the case study business using a fact from the text.<br/><em>"...Pukka Pies produces different flavours of pies — steak, chicken balti, chicken and mushroom..."</em></li>
+            <li><strong>Step 3 — Analysis (AN):</strong> State the business-facing impact — on costs, revenue, or competitiveness.<br/><em>"...This allows different standardised products to be made to satisfy a wide range of customers, helping Pukka Pies grow its revenue."</em></li>
+          </ul>
+    
+          <p><strong>❌ Bad Answer (1 mark):</strong><br/>
+          <em>"Batch production is good because it makes more products."</em><br/>
+          No application to the business, no business impact — 1 mark at best.</p>
+    
+          <p><strong>✅ Good Answer (3 marks):</strong><br/>
+          <em>"Each batch of pies can be made to match a specific order (U) for each different flavour of pie Pukka Pies produces (APP). This allows standardised products to be made to satisfy a range of customers, helping Pukka Pies increase its sales across its 4,000 outlets (AN)."</em></p>
+    
+          <p><strong>🚫 Knowledge Dumping Alert:</strong> Do NOT write everything you know about batch production. The examiner specifically noted that analysis must be about specific benefits of the production process — not generic outcomes like "higher sales" without explanation.</p>
+    
+          <p><strong>⚠️ The "So What?" Rule:</strong> Keep asking "So what?" until you reach a bottom-line business impact.<br/>
+          "Automation reduces the number of workers needed." → So what? → "This lowers wage costs." → So what? → "This reduces average costs, allowing JLR to price its cars more competitively and increase profit margins." Now you have AN.</p>
+        `,
+                pills: ["U", "app", "an"]
+            },
+            {
+                type: "Analyse Two Points — 6 marks",
+                title: "Two 3-Mark Answers Written Back to Back",
+                content: `
+          <p>A 6-mark <strong>'Analyse two...'</strong> question is simply <strong>two 3-mark analyses written consecutively</strong>. Use the exact same U → APP → AN formula for each point.</p>
+    
+          <p><strong>Structure:</strong></p>
+          <ul>
+            <li><strong>Point 1:</strong> U (state the advantage) → APP (link to the business using case study evidence) → AN (business-facing impact)</li>
+            <li><strong>Point 2:</strong> U (state the second advantage) → APP (link to the business again) → AN (different business impact)</li>
+          </ul>
+    
+          <p><strong>⚠️ DO NOT write a conclusion</strong> — there are zero marks available for evaluation in a 6-mark 'Analyse' question. Every sentence must be U, APP, or AN.</p>
+    
+          <p><strong>Useful sentence starters:</strong></p>
+          <ul>
+            <li><em>"Automation will [benefit] because..."</em> (U)</li>
+            <li><em>"In the case of JLR, this means..."</em> or <em>"As stated in the text, JLR..."</em> (APP)</li>
+            <li><em>"As a result, JLR will [lower costs / increase revenue / be more competitive]..."</em> (AN)</li>
+          </ul>
+    
+          <p><strong>Exemplar (JLR, Advantage 1):</strong><br/>
+          <em>"Automation will increase the number of cars JLR can produce (U). Machines can work 24/7, unlike human workers, meaning more cars move along the production line at JLR's factories (APP). This should increase JLR's total sales revenue and help it compete more effectively with BMW and Mercedes (AN)."</em></p>
+        `,
+                pills: ["U", "app", "an"]
+            },
+            {
+                type: "Evaluate / Recommend — 3 marks (AO3b)",
+                title: "Judgement + Reason + Context",
+                content: `
+          <p>A 3-mark <strong>'Recommend' or 'Evaluate'</strong> question (AO3b only) does NOT reward more analysis. It rewards a <strong>justified, contextual judgement</strong>.</p>
+    
+          <p><strong>The 3-Part Formula:</strong></p>
+          <ul>
+            <li><strong>Judgement (1 mark):</strong> Make a clear decision — yes/no, method A or B.<br/><em>"The Montana Bakery should switch to flow production..."</em></li>
+            <li><strong>Justification (1 mark):</strong> Give a reason that weighs up the decision.<br/><em>"...because the cost savings it is likely to make are more important than any loss of perceived quality..."</em></li>
+            <li><strong>Context (1 mark):</strong> Use specific information from the case study.<br/><em>"...in a competitive market for bread where customers often buy the cheapest option."</em></li>
+          </ul>
+    
+          <p><strong>Power Phrase:</strong> Use "it depends on..." to show sophisticated evaluation:<br/>
+          <em>"It depends on whether Montana Bakery wishes to continue making the range of speciality breads it currently supplies, as flow production may reduce their perceived uniqueness and lead M&S to lose confidence in the supplier."</em></p>
+    
+          <p><strong>❌ Common Mistake:</strong> Simply repeating the analysis points from the previous question does NOT earn evaluation marks. The evaluation must weigh up, make a decision, and say something NEW about whether it is worthwhile.</p>
+    
+          <p><strong>⚠️ Examiner Note:</strong> Both judgements (switch / don't switch; use robots / don't use robots) are perfectly valid in the exam — what matters is your contextual justification, not which side you pick.</p>
+        `,
+                pills: ["eval"]
+            },
+            {
+                type: "Evaluate — 7 marks (APP + AN + EVAL)",
+                title: "Build the Case, Then Make the Call",
+                content: `
+          <p>A 7-mark evaluation question (e.g., the Barclays question) awards marks for: <strong>Application (up to 2)</strong> + <strong>Analysis (up to 2)</strong> + <strong>Evaluation (up to 3)</strong>. There are NO knowledge marks — start with application immediately.</p>
+    
+          <p><strong>Four-Paragraph Structure:</strong></p>
+          <ul>
+            <li><strong>Paragraph 1 — Point 1 with Application:</strong><br/><em>"By investing in online banking, Barclays is likely to gain more UK customers. As shown in Fig. 1, 75% of UK customers now use online banking..."</em> (APP)</li>
+            <li><strong>Paragraph 2 — Analysis of Point 1:</strong><br/><em>"...This means Barclays can earn more revenue from new accounts and transaction fees, improving its overall profit margins."</em> (AN)</li>
+            <li><strong>Paragraph 3 — Counter-point with Application:</strong><br/><em>"However, all major competitor banks will have made similar investments in online banking, so Barclays may need to spend even more to maintain a competitive advantage..."</em> (APP + AN)</li>
+            <li><strong>Paragraph 4 — Evaluation (3 parts: Decision + Context + Impact/Reasoning):</strong><br/><em>"Overall, the investment is likely to benefit Barclays [Decision], given that 75% of its 24 million customers already use online banking [Context]. The cost savings from reducing branch staff will likely outweigh implementation costs in the long run [Reasoning]."</em></li>
+          </ul>
+    
+          <p><strong>⚠️ Evaluation Warning:</strong> For the full 3 evaluation marks, your conclusion MUST be contextual — referring to specific facts from the case study. A generic conclusion ("Technology is good for businesses") scores 0 evaluation marks.</p>
+    
+          <p><strong>🚫 Customer-Only Impacts:</strong> The OCR examiner explicitly states "No reward for answers which only consider impacts on the customer." Your analysis and evaluation MUST focus on the impact on the BUSINESS — costs, revenue, profit, reputation, and competitiveness.</p>
+        `,
+                pills: ["app", "an", "eval"]
+            }
+        ];
+
+        // 8. Flashcards
+        const flashcards = [
+            { term: "Job Production", def: "The process of production where products are made individually, tailored to the specific needs of individual customers." },
+            { term: "Batch Production", def: "The process of production where one type of product is made, then production switches to make a different type of product." },
+            { term: "Flow Production", def: "Production of one product that takes place continuously using a production or assembly line. Also called mass production." },
+            { term: "Automation", def: "A production process involving machinery controlled by a computer rather than a person." },
+            { term: "Robotics", def: "The use of robots in the process of production — a specific type of automation." },
+            { term: "Bespoke", def: "A product made to the exact individual specification of a customer — unique and personalised to that person's requirements." },
+            { term: "Economies of Scale", def: "Reductions in the average cost per unit that a large business achieves by producing in very large quantities. Flow production benefits from this." },
+            { term: "Unit Cost", def: "The cost of producing one item. Calculated as: Total Costs ÷ Number of Units Produced." },
+            { term: "Assembly Line", def: "A production method used in flow production where the product moves along a conveyor belt and workers/machines each complete a different task at each station." },
+            { term: "Redundancy", def: "When a worker loses their job because the role no longer exists — often because technology has replaced it." },
+            { term: "Advantages of Job Production", def: "High quality, bespoke products tailored to individual customers; worker satisfaction. Disadvantages: high costs and skilled labour required." },
+            { term: "Advantages of Flow Production", def: "Low unit costs due to economies of scale; continuous 24/7 production. Disadvantages: expensive to set up; if the line stops the whole factory halts." },
+            { term: "Advantages of Technology", def: "Works 24/7, reduces wage costs, improves accuracy, handles dangerous jobs, creates new products. Disadvantages: high initial cost, breakdown risk, redundancy costs, training needed." }
+        ];
+
+        // 9. Exam-Style Questions (All questions from resources)
+        const examQuestions = [
+            {
+                num: "Exam Paper Q1",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Which is an advantage for a manufacturer of using robotics? [1 mark]",
+                options: [
+                    "Greater productivity",
+                    "Initial investment cost",
+                    "Operatives will require training",
+                    "Will not break down"
+                ],
+                answer: 0,
+                hint: "Think about what robots do BETTER than humans — not what they cost or what goes wrong with them.",
+                starter: "The advantage of using robotics for a manufacturer is...",
+                markScheme: `<div class="marks-section"><h5>Answer: A — Greater productivity</h5><p><strong>Why A is correct:</strong> Robots can work 24/7 without breaks, producing more output in less time and with greater consistency than human workers — this directly increases productivity.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>B (Initial investment cost)</strong> — This is a <em>disadvantage</em> of robotics, not an advantage. The upfront cost of buying and installing robots is very high.</li><li><strong>C (Operatives will require training)</strong> — This is also a <em>disadvantage</em>. Workers need to be trained to operate and oversee the robots, which adds to business costs.</li><li><strong>D (Will not break down)</strong> — This is factually <em>incorrect</em>. Machines CAN and do break down — breakdown risk is actually a key disadvantage of using robotics.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Exam Paper Q2",
+                marks: 2,
+                type: "written",
+                caseStudy: "Unilever plc is a multinational company that makes and sells a wide range of quality products including food, cleaning agents and beauty products across 190 countries.<br><br>Unilever plc has benefitted from operating in a global marketplace and the majority of its products are international brands. Some of its branded products include Lynx Body Spray, Dove Soap, Hellmann's Mayonnaise, Ben & Jerry's ice cream and Persil washing machine detergent. All of these products are made in factories all around the globe, some using flow production and others using batch production.<br><br>Unilever plc's average revenue has grown over the last five years. However, the economic climate is becoming more difficult and Unilever plc's directors are having to adapt to these challenges.<table class=\"case-table\"><caption>Fig. 1 — Unilever plc Worldwide Revenue (2018–2022)</caption><tr><th>Year</th><th>Revenue (€ millions)</th></tr><tr><td>2018</td><td>50,900</td></tr><tr><td>2019</td><td>51,900</td></tr><tr><td>2020</td><td>50,700</td></tr><tr><td>2021</td><td>52,400</td></tr><tr><td>2022</td><td>60,000</td></tr></table>",
+                question: "Identify two characteristics of flow production. [2 marks]",
+                hint: "Think about what DEFINES flow production — how it works, what it uses, and what it produces. Avoid saying it is 'quicker' without being more specific.",
+                starter: "One characteristic of flow production is...\nA second characteristic of flow production is...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a)</h5><p>One mark for each correct characteristic, up to a maximum of two marks. Answers do NOT need to relate to Unilever.</p><ul><li>A business can make large quantities / in bulk</li><li>Costs of production per unit are lower (economies of scale)</li><li>Uses machinery / automation</li><li>Very expensive to initially set up</li><li>Products are undifferentiated / all the same / consistent quality</li><li>Uses an assembly line / conveyor belt</li><li>Production is continuous / can run 24/7</li><li>Large stocks of components or raw materials may be necessary</li></ul><p><strong>No reward for:</strong> comparative statements (e.g., "cheaper than job production") unless they contain a specific characteristic. "It is faster" alone is not sufficient — not always true.</p></div><div class="marks-section"><h5>Examiner's Comments</h5><p>Most candidates identified at least one characteristic. A significant number said flow production was "quicker or faster" — this was not rewarded as it may or may not be true depending on what is being produced. Some gave consequences of flow production rather than characteristics. Always be precise about HOW flow production works, not what it might lead to.</p></div>`,
+                modelAnswer: "1. Flow production uses an assembly line where goods are produced continuously without stopping.\n\n2. The costs of production per unit are lower because the business benefits from economies of scale — costs are spread across millions of units."
+            },
+            {
+                num: "Exam Paper Q3 (i)",
+                marks: 2,
+                type: "written",
+                caseStudy: "Zara is a global fashion brand based in Spain. Zara is best known for the speed and frequency it can get its new clothing ranges into its online shop and 2,270 stores. Approximately 50% of Zara's clothes are manufactured in Spain; the rest come from other European countries, or from Asia and Africa. Like most firms in 2020, Zara experienced a fall in sales. Zara's global sales revenues in 2019 were €19,954 million, but in 2020 these fell to €14,129 million. However, during this period Zara's online sales increased by approximately 75%, as consumer buying habits changed in favour of e-commerce.<br><br>Zara can get new clothing designed, manufactured and delivered to its stores within 15 days. It does this by buying fabric in large quantities from suppliers in Europe, which helps keep its variable costs low. This means that it is delivered quickly to its factory in Spain, where it can then be made up into the new designs.<br><br>Zara's highly responsive supply chain is central to its business success. This means it can change its clothing designs on average every two weeks, while competitors change their designs every two or three months.",
+                question: "Explain one production process a business may use when making its products. [2 marks]",
+                hint: "Name one of the three production methods (job, batch, or flow) — then explain what that process involves. You need BOTH for the 2 marks.",
+                starter: "One production process a business may use is...\nThis is where...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a 1, AO1b 1)</h5><ul><li><strong>Mark 1 (Knowledge):</strong> Identifying the production process by name.</li><li><strong>Mark 2 (Understanding):</strong> Explaining what the process involves.</li></ul><p>Answers do NOT need to relate to Zara.</p><p><strong>Acceptable answers include:</strong></p><ul><li>Batch — groups of a product made together (before production switches to another type)</li><li>Flow / Mass — continuous production / production line / assembly line</li><li>Job — one product made at a time / individually made</li></ul><p><strong>Exemplar response:</strong> Batch production (1) which is when a group of similar products are made together before production switches to a different type of product (1).</p></div><div class="marks-section"><h5>Examiner's Comments</h5><p>Most candidates named one of the three production methods. Some candidates only explained the process without naming it — and therefore scored zero. Flow and job production were more accurately explained than batch production. Always NAME the concept first, then explain it.</p></div>`,
+                modelAnswer: "Batch production (1 mark) is where a group of similar products are made together — for example, making a batch of white shirts before switching production to make a batch of blue shirts — before switching to a different type of product (1 mark)."
+            },
+            {
+                num: "Exam Paper Q3 (ii)",
+                marks: 2,
+                type: "written",
+                caseStudy: "",
+                question: "Explain one method that a business could use to ensure the quality of its products. [2 marks]",
+                hint: "Name a specific quality method — either quality control or quality assurance. Then explain what it involves. Do not confuse the two.",
+                starter: "One method a business could use to ensure quality is...\nThis involves...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a 1, AO1b 1)</h5><ul><li><strong>Mark 1 (Knowledge):</strong> Identifying a method to ensure quality.</li><li><strong>Mark 2 (Understanding):</strong> Explaining what the method involves.</li></ul><p><strong>Acceptable answers include:</strong></p><ul><li>Quality control — checking/inspection at the END of the production process / before being sold</li><li>Quality assurance — checking quality DURING the production process / by production workers / whole business responsibility</li></ul><p><strong>Exemplar response:</strong> Quality control (1) which is where an inspector would check a sample of the finished goods to ensure they meet the required standard before being sold (1).</p></div><div class="marks-section"><h5>Examiner's Comments</h5><p>Some answers did not name a specific method — this prevented any marks being awarded. There was significant confusion between quality control and quality assurance. Many candidates' explanations described the wrong method. Less than half of candidates gained both marks on this question.</p><p><strong>Key distinction to learn:</strong> Quality CONTROL = checking at the END (inspector). Quality ASSURANCE = checking quality THROUGHOUT the whole process by all workers.</p></div>`,
+                modelAnswer: "Quality control (1 mark) is where an inspector checks a sample of the finished goods at the end of the production process to make sure they meet the required standard before they are sold to customers (1 mark)."
+            },
+            {
+                num: "Exam Paper Q4",
+                marks: 2,
+                type: "written",
+                caseStudy: "AstraZeneca plc (AZ) is a multinational pharmaceutical company that operates in over 100 countries around the world. AZ develops treatments for a range of diseases. It sells its medicines and vaccines worldwide. Its headquarters are in Cambridge, England. In 2021 AZ's sales revenue was £37,417m, from which it made £24,980m gross profit.<br><br>AZ has a code of ethics, which is at the centre of everything that it does. The company has approximately 75,000 employees worldwide; 10,000 of these work in its three research and development centres.<br><br>AZ uses technology throughout its operations to provide high quality products for its customers. These customers include doctors, hospitals and governments from around the globe.<br><br>In the UK, AZ has changed the way it sells its products. Previously, sales staff would visit medical professionals; now it uses a call centre and website where medical professionals can order products and samples. AZ says this means it can now provide a high quality service that meets the needs of its customers at a lower cost.",
+                question: "Explain one way technology might affect production at AZ. [2 marks]",
+                hint: "Focus specifically on PRODUCTION — how things are made, not how they are sold or marketed. Think about automation, accuracy, speed, or costs in making vaccines/medicines.",
+                starter: "One way technology might affect production at AZ is...\nFor AZ, this means that...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1b 1, AO2 1)</h5><ul><li><strong>Mark 1 (Understanding):</strong> A way technology can influence PRODUCTION specifically.</li><li><strong>Mark 2 (Application):</strong> Applying this to AZ specifically.</li></ul><p><strong>No mark can be gained for the application without first gaining the understanding mark.</strong></p><p><strong>Acceptable answers include:</strong></p><ul><li>Automation can increase productivity / can work 24/7</li><li>Lower unit costs / fewer workers needed</li><li>Fewer mistakes / higher quality levels of medicines/vaccines</li><li>Machines can slow production down if training is needed (disadvantage)</li><li>Increased chance of breakdowns (disadvantage)</li></ul><p><strong>Exemplar response:</strong> Automation can increase productivity (1) in the production of vaccines and medicines at AZ (APP) (1).</p><p><strong>No reward for:</strong> answers about e-commerce, online selling, or the call centre — the question specifically asks about <em>production</em>.</p></div><div class="marks-section"><h5>Examiner's Comments</h5><p>Many candidates did not read this question carefully enough, giving answers about selling online rather than production. Less than a quarter of candidates gained full marks. Most identified a way technology affects a business generally, but failed to apply it specifically to AZ's production of medicines and vaccines.</p></div>`,
+                modelAnswer: "Automation can increase the productivity of AZ's production process (1 mark), as machines can work 24/7 to produce vaccines and medicines at its factories, meaning AZ can produce larger quantities at a lower cost per unit (1 mark — applied to AZ)."
+            },
+            {
+                num: "Exam Paper Q5",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Which of the following is NOT a disadvantage of automation? [1 mark]",
+                options: [
+                    "Expensive to buy, so will need to find a way of raising finance",
+                    "Machines can break down, disrupting production",
+                    "Operatives may need additional training, increasing business costs",
+                    "The machinery can be reprogrammed, making production more flexible"
+                ],
+                answer: 3,
+                hint: "Look for the option that is actually a BENEFIT of automation, not a drawback.",
+                starter: "The option that is NOT a disadvantage of automation is...",
+                markScheme: `<div class="marks-section"><h5>Answer: D — The machinery can be reprogrammed, making production more flexible</h5><p><strong>Why D is correct:</strong> Being reprogrammable and flexible is an ADVANTAGE of automation — it allows the business to produce a variety of products without rebuilding its production line.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A (Expensive to buy)</strong> — This IS a disadvantage. Technology requires high upfront capital investment, which the business must find a way to finance.</li><li><strong>B (Machines can break down)</strong> — This IS a disadvantage. Breakdown risk is a key concern, especially in flow production where one failure can halt the entire line.</li><li><strong>C (Training costs)</strong> — This IS a disadvantage. Existing workers need to be retrained to work with new technology, which increases costs.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Exam Paper Q6 (i)",
+                marks: 2,
+                type: "written",
+                caseStudy: "Barclays plc is a multinational banking company. Its headquarters are in London. One of the bank's core values is integrity — it tries to act fairly, ethically and openly in all it does.<br><br>Barclays plc's personal banking division provides banking services to the general public. These services include providing a place to save and borrow money, as well as a place where customers can obtain advice on financial matters. In 2020 Barclays plc had 24 million UK personal banking customers.<br><br>Banks are typically among the first industries to embrace technological advances. Barclays plc has been able to make use of e-commerce by selling loans, savings accounts and insurance through its websites. The bank has also invested in computer technology to provide online banking services to its customers. Online banking services allow customers to access their bank accounts on the Internet. Customers can carry out banking transactions, pay off credit cards or deposit savings 24 hours a day, worldwide. Online banking is one of the fastest growing areas of Internet activities.<table class=\"case-table\"><caption>Fig. 1 — Percentage of UK Banking Customers Who Use Online Banking</caption><tr><th>Year</th><th>Percentage (%)</th></tr><tr><td>2010</td><td>42</td></tr><tr><td>2012</td><td>47</td></tr><tr><td>2014</td><td>53</td></tr><tr><td>2016</td><td>60</td></tr><tr><td>2018</td><td>69</td></tr><tr><td>2020</td><td>75</td></tr></table>",
+                question: "Identify two factors that may influence whether a business invests in new computer technology. [2 marks]",
+                hint: "Think about what a business would need to consider before making a major investment decision — what might stop them or push them towards investing?",
+                starter: "Factor 1 that may influence Barclays' decision is...\nFactor 2 that may influence Barclays' decision is...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a)</h5><p>One mark for each correct factor, up to a maximum of two marks. Ensure the two factors are clearly different. Answers do NOT need to apply to Barclays.</p><p><strong>Acceptable answers include:</strong></p><ul><li>Cost of the technology (including running costs)</li><li>Availability of the technology</li><li>The state of its current technology</li><li>Technology quality / the expected impact on the business</li><li>Forecast return on investment (e.g., average rate of return)</li><li>Actions of competitors</li><li>Availability of capital / access to finance</li><li>Employee skills / readiness of the workforce</li></ul></div>`,
+                modelAnswer: "Factor 1: The cost of the technology — Barclays would need to consider whether the upfront investment in new computer systems is affordable and will generate a sufficient return.\n\nFactor 2: The actions of competitors — if rival banks are already offering online banking, Barclays may feel compelled to invest to remain competitive and retain its 24 million customers."
+            },
+            {
+                num: "Exam Paper Q6 (ii)",
+                marks: 7,
+                type: "written",
+                caseStudy: "",
+                question: "Evaluate possible impacts on Barclays plc of investing in computer technology to provide online banking services to its customers. [7 marks]",
+                hint: "This is a 7-mark evaluate question — you need Application (2) + Analysis (2) + Evaluation (3). Use specific data from the case study and Fig. 1. Your evaluation must make a justified judgement about WHETHER the overall impact is positive or negative for Barclays — not just for its customers.",
+                starter: "Paragraph 1 — K & U:\nOne impact of Barclays investing in computer technology to provide online banking is...\n\nParagraph 2 — AN & APP:\nAs shown in Fig. 1, 75% of UK banking customers now use online banking, which means that for Barclays...\nAs a result, Barclays will...\n\nParagraph 3 — AN & APP (Counter-point):\nHowever, a risk for Barclays is that...\nGiven that Barclays has 24 million UK personal banking customers...\nThis could lead to...\n\nParagraph 4 — Evaluation (Decision + Context + Impact/Reasoning):\nOverall, I recommend that Barclays [should / should not] invest in computer technology because...\nThis is particularly important given that [use data from Fig. 1 / 24 million customers / banking is the fastest growing internet area]...\nUltimately, this investment is worthwhile/not worthwhile because...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 7 marks (AO2: 2, AO3a: 2, AO3b: 3)</h5><p>Use the level of response marking grid:</p><ul><li><strong>Application (up to 2 marks):</strong> Uses specific context from the case study or Fig. 1</li><li><strong>Analysis (up to 2 marks):</strong> Business-facing impact (costs, revenue, reputation, competitiveness)</li><li><strong>Evaluation (up to 3 marks):</strong> Justified contextual judgement</li></ul></div><div class="marks-section"><h5>Application may include:</h5><ul><li>Banking is one of the first sectors to embrace technology</li><li>Data from Fig. 1 (e.g., 75% of UK customers use online banking by 2020)</li><li>24 million UK personal banking customers</li><li>Online banking allows 24/7 access worldwide</li><li>Fastest growing area of internet activity</li></ul></div><div class="marks-section"><h5>Analysis may include:</h5><ul><li>Competition — gaining an advantage or being left behind by rivals</li><li>Enhanced reputation as an innovative, modern bank</li><li>Reputational damage if there are data breaches or security failures</li><li>Cost savings from closing branches (premises, staff, utilities)</li><li>Cost of training staff and maintaining security systems</li><li>Loss of the personal touch — risk of alienating older customers</li></ul></div><div class="marks-section"><h5>Evaluation may include:</h5><ul><li>The relative importance of different factors</li><li>The sharp and consistent increase in online banking adoption (42% → 75% over a decade) suggests customers have an appetite for it</li><li>A comparison and weighing of advantages against disadvantages with a justified conclusion</li></ul><p><strong>For strong evaluation (3 marks):</strong> The evaluation must be contextual — referring to specific data from the case study. A generic conclusion scores limited marks.</p><p><strong>No reward</strong> for answers that only consider impacts on the customer.</p></div><div class="marks-section"><h5>Exemplar Model Answer</h5><p>By investing in new technology to allow online banking, Barclays is likely to gain more UK customers (AN). As Fig. 1 shows, 75% of UK banking customers now use online banking (APP), so Barclays needs to offer this service to retain its 24 million customers and avoid losing them to competitors (AN).</p><p>However, other banks will have made the same investment (APP), so Barclays may have to spend even more to stay ahead and differentiate its online services, adding to costs (AN).</p><p>Overall, the investment in online banking is likely to be a net positive for Barclays (EVAL). Given that 75% of its 24 million customers already use online banking (EVAL — context), the cost savings from reducing branch staff and the revenue gains from attracting new digital customers are likely to outweigh the implementation and security costs in the long run (EVAL — reasoning).</p></div>`,
+                modelAnswer: "By investing in new technology to allow online banking, Barclays is likely to gain more UK customers (AN). As Fig. 1 shows, 75% of UK banking customers now use online banking (APP), so Barclays needs to offer this service to retain its 24 million customers and avoid losing them to competitors (AN).\n\nHowever, other banks will have made the same investment (APP), so Barclays may have to spend even more to stay ahead and differentiate its online services, adding to costs (AN).\n\nOverall, the investment in online banking is likely to be a net positive for Barclays. Given that 75% of its 24 million UK customers already use online banking, the cost savings from reducing branch staff and the revenue gains from new digital customers are likely to outweigh the implementation and security costs in the long run."
+            },
+            {
+                num: "Exam Paper Q7",
+                marks: 3,
+                type: "written",
+                caseStudy: "Pukka Pies Ltd is a family-owned business with approximately 360 employees. It makes a range of high-quality savoury pies, including steak, chicken and mushroom, and chicken balti, in batches at its factory in Leicester, England. Pukka Pies are sold in more than 4,000 food stores nationwide as well as in sports stadiums, fish and chip shops and cafés across the country.<br><br>Three of Pukka Pies Ltd's key values are recruiting people who are ambitious, delighting customers with quality pies, and building trust with suppliers through food safety. Each of these values helps the business meet the requirements of consumer law.<br><br>The success of Pukka Pies Ltd is affected by many factors, including its logistical and supply chain decisions. Pukka Pies Ltd procures the ingredients for its pies from businesses across the UK and overseas; consequently its supply chain is long. Nevertheless, all of these ingredients need to arrive in good condition and, therefore, its logistics are time-critical. Unemployment levels also have a significant impact on Pukka Pies Ltd.<br><br>Pukka Pies Ltd considers its environmental impact across all aspects of business activity. It has already replaced some of the non-recyclable plastics used in its packaging with alternatives that can be recycled. In addition, none of the company's waste goes to landfill.",
+                question: "Analyse the benefits to Pukka Pies Ltd of using a batch production process. [3 marks]",
+                hint: "Use the 3-step formula: (1) State a benefit of batch production (U), (2) link it to something specific about Pukka Pies from the case study (APP), (3) explain the business impact this creates (AN).",
+                starter: "A benefit of batch production for Pukka Pies is... (U)\nIn the case of Pukka Pies, this is shown by... (APP)\nAs a result, Pukka Pies will... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b, AO2, AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> States a benefit of using batch production.</li><li><strong>Application (1 mark):</strong> Applies the benefit specifically to Pukka Pies Ltd using evidence from the text. <em>No application mark without understanding.</em></li><li><strong>Analysis (1 mark):</strong> Explains the effect/impact of this benefit on the business.</li></ul><p><strong>NB:</strong> Analysis must be about specific benefits of the production process (e.g., 'provides a range of options') — NOT generic outcomes like 'higher sales' without explanation.</p></div><div class="marks-section"><h5>Understanding may include:</h5><ul><li>Can match the needs of different customers</li><li>Batches are made to match specific orders</li><li>Can automate part of the process</li><li>Can produce different ranges of products</li><li>Production rates are higher than job production</li></ul></div><div class="marks-section"><h5>Application may include:</h5><ul><li>High quality requirements / different flavours of pies</li><li>360 employees</li><li>4,000 different outlets ranging from sports stadiums to cafés</li><li>Ingredients from UK and overseas / long supply chain</li><li>Logistics are time-critical</li></ul></div><div class="marks-section"><h5>Analysis may include:</h5><ul><li>Batch minimises waste compared to flow production</li><li>Can lead to lower average cost per pie</li><li>Allows different but standardised types of pies to be produced</li><li>Increased flexibility of production</li></ul></div><div class="marks-section"><h5>Exemplar Model Answer</h5><p>Each batch of pies can be made to match a specific order (U) for each different flavour of pie Pukka Pies produces — steak, chicken and mushroom, and chicken balti (APP). This allows standardised products to be made to satisfy a range of different customers across its 4,000 outlets, keeping costs manageable while meeting varied demand (AN).</p></div>`,
+                modelAnswer: "Each batch of pies can be made to match a specific order (U) for each different flavour Pukka Pies produces — steak, chicken and mushroom, and chicken balti (APP). This allows standardised products to be made to satisfy a range of different customers across its 4,000 nationwide outlets, improving Pukka Pies' competitiveness and sales revenue (AN)."
+            },
+            {
+                num: "Exam Paper Q8",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "A company's total costs are too high. The finance manager advises that this is being caused by increasing wage costs as the company expands. Which one of the following actions would provide a long-term solution to this problem? [1 mark]",
+                options: [
+                    "Applying for an overdraft",
+                    "Automating the production process",
+                    "Employing a finance assistant",
+                    "Switching to job production"
+                ],
+                answer: 1,
+                hint: "The problem is rising WAGE costs long-term. Which option directly and permanently reduces the need for workers?",
+                starter: "The best long-term solution to high wage costs is...",
+                markScheme: `<div class="marks-section"><h5>Answer: B — Automating the production process</h5><p><strong>Why B is correct:</strong> Automation replaces labour with computer-controlled machinery. This directly reduces the number of workers needed, permanently lowering wage costs in the long term.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A (Applying for an overdraft)</strong> — An overdraft provides short-term finance to cover a cash shortage. It must be repaid with interest and does nothing to solve the underlying wage cost problem.</li><li><strong>C (Employing a finance assistant)</strong> — This would ADD to wage costs, making the problem worse, not better.</li><li><strong>D (Switching to job production)</strong> — Job production typically requires highly skilled workers who command HIGHER wages. This would increase wage costs, not reduce them.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Exam Paper Q9",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Breakfast biscuits are becoming increasingly popular. HealthBisc Ltd predicts that in future years it will have difficulty producing enough breakfast biscuits to keep up with demand. Which one of the following actions could help HealthBisc Ltd deal with this problem? [1 mark]",
+                options: [
+                    "Automate the production process",
+                    "Improve its after-sales service",
+                    "Reduce its prices",
+                    "Switch to job production"
+                ],
+                answer: 0,
+                hint: "The problem is production CAPACITY — not enough output to meet demand. Which option increases the amount that can be produced?",
+                starter: "The best action to increase production capacity is...",
+                markScheme: `<div class="marks-section"><h5>Answer: A — Automate the production process</h5><p><strong>Why A is correct:</strong> Automation allows machines to work 24/7, dramatically increasing the rate and volume of production to meet higher levels of demand. This directly solves the capacity problem.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>B (Improve after-sales service)</strong> — After-sales service relates to customer experience after purchase. It does nothing to increase production output or capacity.</li><li><strong>C (Reduce its prices)</strong> — Reducing prices would likely increase demand even further, making the production shortfall problem worse, not better.</li><li><strong>D (Switch to job production)</strong> — Job production makes items individually, one at a time. This would dramatically REDUCE output, making it impossible to meet the high levels of demand.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Exam Paper Q10",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "An entrepreneur makes individual handmade prom dresses to order. What method of production does the entrepreneur use? [1 mark]",
+                options: ["Automated", "Batch", "Flow", "Job"],
+                answer: 3,
+                hint: "The key word is 'individual' and 'to order'. Which method makes each product one at a time to a specific customer's requirements?",
+                starter: "The method of production used by the entrepreneur is...",
+                markScheme: `<div class="marks-section"><h5>Answer: D — Job production</h5><p><strong>Why D is correct:</strong> Job production involves making each product individually to meet the exact requirements of a specific customer order. Each prom dress is unique and made one at a time — this is the definition of job production.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A (Automated)</strong> — Automation involves computer-controlled machinery. This handmade dress is made by a skilled person, not a machine.</li><li><strong>B (Batch)</strong> — Batch production would mean making a group of the same dress style, then switching to a different style. Each dress here is individual, not part of a batch.</li><li><strong>C (Flow)</strong> — Flow production continuously makes the same product in large quantities on an assembly line. Individual handmade dresses are the opposite of this.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Exam Paper Q11",
+                marks: 6,
+                type: "written",
+                caseStudy: "Jaguar Land Rover (JLR) is one of the largest manufacturers of cars in the UK. The business buys some of the parts it uses to make the cars from the UK; other parts are bought from overseas. JLR specialises in producing luxury cars. JLR's main competitors are German car manufacturers — BMW and Mercedes.<br><br>In recent years, sales of JLR cars have been affected by:\n• the slowdown of consumer spending in China and Russia\n• the increase in consumer spending in Europe.\n\nJLR uses automation to produce cars in its factories.",
+                question: "Analyse two advantages to JLR of using automation to produce its cars. [6 marks]",
+                hint: "This is two 3-mark analyses in one. For each advantage: (1) State what the advantage is (U), (2) Apply it to JLR specifically using case study evidence (APP), (3) Explain the business impact on JLR (AN). Do NOT write a conclusion — no evaluation marks available here.",
+                starter: "Advantage 1:\nAutomation will [benefit] because... (U)\nIn the case of JLR, which specialises in luxury cars and competes with BMW and Mercedes... (APP)\nAs a result, JLR will... (AN)\n\nAdvantage 2:\nA second advantage of automation for JLR is... (U)\nThis is particularly relevant for JLR because... (APP)\nThis means JLR will... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 6 marks (AO1b: 2, AO2: 2, AO3a: 2)</h5><ul><li>1 mark for understanding of an advantage of automation (max 2 marks, one per advantage)</li><li>1 further mark for applying the advantage to JLR specifically (max 2 marks)</li><li>1 further mark for analysis of the impact on JLR (max 2 marks)</li></ul><p>ARA (any reasonable answer)</p></div><div class="marks-section"><h5>Understanding may include:</h5><ul><li>Increased output / greater productivity</li><li>Consistent quality of output</li><li>Increased flexibility of production (reprogrammable)</li><li>Continuous 24/7 operation</li><li>Less reliant on labour / lower labour costs</li></ul></div><div class="marks-section"><h5>Application may include:</h5><ul><li>JLR makes luxury cars (quality expectations are high)</li><li>JLR competes with BMW and Mercedes</li><li>Parts come from UK and overseas (complex supply chain)</li><li>Sales declining in China and Russia but growing in Europe</li></ul></div><div class="marks-section"><h5>Analysis may include:</h5><ul><li>Automation should increase sales revenue / profit</li><li>Lower costs allow JLR to remain price-competitive with BMW and Mercedes</li><li>Higher quality reduces warranty claims and reputational damage</li><li>24/7 operation allows JLR to increase output to meet European demand growth</li></ul></div><div class="marks-section"><h5>Exemplar Model Answer</h5><p><strong>Advantage 1:</strong> Automation will increase the number of cars JLR can produce (U). Machines can work 24/7, unlike human workers, meaning more luxury cars can be produced at JLR's factories (APP). This should increase JLR's total sales revenue and help it compete more effectively against rivals BMW and Mercedes in the European market (AN).</p><p><strong>Advantage 2:</strong> Automation can ensure more consistent and accurate production quality (U). Since JLR specialises in luxury cars, its customers expect very high standards of quality and finishing (APP). Reducing errors and defects will lower costs associated with warranty claims and repairs, protecting JLR's premium reputation and profit margins (AN).</p></div>`,
+                modelAnswer: "Advantage 1: Automation will increase the number of luxury cars JLR can produce, as machines can work 24/7 unlike human workers (U). Since JLR's competitors BMW and Mercedes are likely using similar technology, maintaining high output is essential to remain competitive in the European market (APP). This should increase JLR's total sales revenue and help protect its market share (AN).\n\nAdvantage 2: Automation ensures more consistent and accurate production quality (U). JLR specialises in luxury cars where customers pay premium prices and expect a very high standard of finish and reliability (APP). This will reduce the number of defects and warranty claims, lowering costs and protecting JLR's premium brand reputation (AN)."
+            },
+            {
+                num: "Exam Paper Q12 (i)",
+                marks: 6,
+                type: "written",
+                caseStudy: "Marks and Spencer (M&S) is one of the UK's leading retailers. It is committed to making every moment special for its customers, through its high quality, own-brand food, clothing and home products.<br><br>M&S has an ethical programme called 'Plan A', relaunched in 2017 with three new objectives for 2025:\n1. 'Nourishing our wellbeing' — including looking after staff and their needs\n2. 'Transforming local communities' — including supporting staff who want to volunteer in charities\n3. 'Caring for the planet we share' — including developing better recycling for packaging<br><br>In 2017, 60% of M&S's revenue came from the sale of food, which it sells through its 1,025 UK stores as well as through e-commerce on its website.<br><br>The majority of the food it sells comes from one of its 283 'food factories' located around the country. The Montana Bakery is one of these factories. It produces speciality breads, rolls, garlic breads and pizza bases for retailers and sandwich makers. The bakery has grown and has moved to a larger factory, where it is considering switching from batch production to flow production and automating some of its production.",
+                question: "Analyse one advantage and one disadvantage to the Montana Bakery of switching from batch production to flow production in the new factory. [6 marks]",
+                hint: "This is two 3-mark analyses. For each (advantage AND disadvantage): (1) State the point (U), (2) Apply it to the Montana Bakery using evidence from the text (APP), (3) Explain the business impact (AN). The most powerful application points are: the variety of speciality products Montana makes, its high quality requirements for M&S, and the use of automation.",
+                starter: "Advantage:\nFlow production would allow the Montana Bakery to... (U)\nThis is relevant because the text states that Montana produces... / Montana has grown and moved to a larger factory... (APP)\nAs a result, the Montana Bakery will... (AN)\n\nDisadvantage:\nHowever, a disadvantage of switching to flow production is... (U)\nThis is a concern for Montana because it produces speciality breads... / M&S has high quality requirements... (APP)\nThis could lead to... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 6 marks (AO1b: 2, AO2: 2, AO3a: 2)</h5><ul><li>1 mark for understanding of an ADVANTAGE of switching to flow (max 1)</li><li>1 mark for applying the advantage to Montana Bakery using text evidence (max 1)</li><li>1 mark for analysing the impact of the advantage on Montana (max 1)</li><li>1 mark for understanding of a DISADVANTAGE of switching to flow (max 1)</li><li>1 mark for applying the disadvantage to Montana Bakery using text evidence (max 1)</li><li>1 mark for analysing the impact of the disadvantage on Montana (max 1)</li></ul></div><div class="marks-section"><h5>Advantages (Understanding) may include:</h5><ul><li>Quicker / cheaper to produce at higher volume</li><li>More machinery can be used / fewer workers needed</li><li>Better productivity / improved quality control at scale</li></ul></div><div class="marks-section"><h5>Disadvantages (Understanding) may include:</h5><ul><li>Cost of making the change / stopping production to install line</li><li>Perceived quality may fall / products become less unique</li><li>Cost of making workers redundant</li><li>Production line breakdown halts everything</li></ul></div><div class="marks-section"><h5>Application may include:</h5><ul><li>Montana produces speciality breads, rolls, garlic breads and pizza bases — a range of products</li><li>Montana is automating some production in the new factory</li><li>M&S has high quality requirements (own-brand, premium retailer)</li><li>Montana also sells to other retailers and sandwich makers</li><li>Montana has grown and moved to a larger factory</li></ul></div><div class="marks-section"><h5>Analysis may include:</h5><ul><li>Increased output could allow Montana to supply more M&S stores / gain new customers</li><li>Loss of speciality quality could cause M&S to reduce its orders / find a different supplier</li><li>Lower costs could improve profit margins</li><li>Assembly line breakdown could halt all production, losing customers and profit</li></ul></div><div class="marks-section"><h5>Examiner's Comments</h5><p>Most candidates identified an advantage and disadvantage of switching to flow production. Many could analyse the effects on Montana Bakery. However, applying the analysis to the specific data about Montana (the variety of speciality products, the automation of the new factory, the M&S relationship) proved more difficult.</p></div>`,
+                modelAnswer: "Advantage: Flow production would allow the Montana Bakery to produce more bread and other products in its new, larger factory at a lower cost per unit (U). Since Montana has grown and moved to a larger factory where it is automating some of its production, flow production would allow it to maximise the use of this new space and equipment (APP). This could reduce Montana's average costs, allowing it to offer lower prices to M&S and its other retail customers, potentially winning more business (AN).\n\nDisadvantage: However, switching to flow production would make Montana's products less unique (U). Montana currently makes speciality breads, rolls, garlic breads and pizza bases — a range of distinct products — and M&S has a commitment to high quality, own-brand food (APP). Flow production makes identical, standardised products, which may damage the perceived quality of Montana's speciality range and cause M&S to lose confidence in the supplier, reducing Montana's orders and revenue (AN)."
+            },
+            {
+                num: "Exam Paper Q12 (ii)",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Recommend whether the Montana Bakery should switch from batch production to flow production in the new factory. [3 marks]",
+                hint: "This is a 3-mark EVALUATE/RECOMMEND question — it is AO3b only. You will NOT gain marks for more analysis. Make a clear recommendation (switch or don't switch), give a reason that weighs up the options, and use specific information from the case study to support your judgement.",
+                starter: "The Montana Bakery should / should not switch to flow production because... (Judgement)\nThis is because the cost savings / quality benefits / [your reason]... (Justification)\nThis is particularly relevant given that Montana produces speciality products / M&S has high quality requirements / Montana has grown... (Context from text)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO3b)</h5><ul><li><strong>Judgement (1 mark):</strong> A clear recommendation — should OR should not switch (either is valid)</li><li><strong>Justification (1 mark):</strong> A clear reason supporting the judgement, weighing up the options</li><li><strong>Context (1 mark):</strong> Use of specific information from the case study in the justification</li></ul><p><strong>Note:</strong> Further analysis of production methods does not earn marks here. Only evaluation (judgement + justification + context) is rewarded.</p></div><div class="marks-section"><h5>Exemplar Model Answers</h5><p><strong>Option 1 (Switch to flow):</strong> The Montana Bakery should switch to flow production (1) because the cost savings it is likely to make are more important than any loss of perceived quality (1) in a competitive bread market where customers often buy the cheapest option (1).</p><p><strong>Option 2 (Stay with batch):</strong> The Montana Bakery should NOT switch to flow production (1) because its reputation for speciality breads is central to its value to M&S (1). M&S is committed to high quality own-brand food, and if Montana's speciality range becomes standardised through flow production, M&S may lose confidence and switch to a different supplier, which would threaten Montana's entire business (1).</p></div><div class="marks-section"><h5>Examiner's Comments</h5><p>A good answer made a clear recommendation with a contextual justification. Both judgements were perfectly acceptable. The most powerful evaluations used "it depends on..." phrasing — e.g., "it depends on whether Montana wants to continue making speciality breads" or "it depends on whether cost or quality is more important to M&S in the bread market."</p></div>`,
+                modelAnswer: "The Montana Bakery should NOT switch to flow production (Judgement) because its reputation for making speciality breads, rolls, garlic breads and pizza bases is central to why M&S uses it as a supplier (Context). Flow production makes standardised, identical products — which may undermine the perceived quality of Montana's speciality range and risk M&S reducing its orders, which would be very damaging for Montana's revenue (Justification)."
+            },
+            {
+                num: "Exam Paper Q13",
+                marks: 2,
+                type: "written",
+                caseStudy: "Costa Coffee is a British multinational coffee shop company owned by Coca-Cola. It is the second largest coffeehouse chain in the world behind Starbucks, and the largest in the UK. It has over 2,100 branches in the UK and over 1,200 branches in the rest of the world including Dubai, China and Poland.<br><br>Costa Coffee has recently opened a new branch in Welshpool. It is located in the town centre on the high street near lots of other businesses, including offices and shops. There were only two other coffee shops in the town before they opened.<br><br>Costa Coffee takes ethics very seriously and it has switched to environmentally-friendly coffee beans to make its supply chain more sustainable. Now all its stores worldwide use beans from Rainforest Alliance-certified suppliers, who meet ethical and environmental standards for the sustainable supply of coffee beans.<br><br>In order to be successful, Costa Coffee sells a wide range of products and constantly invests in updating this product range as well as refurbishing its shops. Recently it has invested heavily in updating its computer software to assist its many functional areas such as finance.",
+                question: "Explain one impact on Costa Coffee employees of the business investing in updating computer software. [2 marks]",
+                hint: "Think about HOW updated computer software would change what Costa Coffee employees actually do — especially in the finance function. Remember: the question is about the impact on EMPLOYEES, not on customers.",
+                starter: "One impact on Costa Coffee employees of investing in updated computer software is...\nFor Costa Coffee, this means that its employees will...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a: 1, AO2: 1)</h5><ul><li><strong>Mark 1 (Knowledge):</strong> Identifying an impact of computer software on employees.</li><li><strong>Mark 2 (Application):</strong> Applying the impact specifically to Costa Coffee employees.</li></ul><p><strong>No application marks can be gained without the knowledge mark.</strong></p><p><strong>Acceptable answers (Knowledge) include:</strong></p><ul><li>Efficiency / quicker completion of tasks</li><li>Training required to use the new software</li><li>May lead to redundancy (fewer staff needed)</li><li>Ease of completing administrative tasks</li><li>Improved motivation through less repetitive manual tasks</li></ul><p><strong>Acceptable answers (Application) include:</strong></p><ul><li>Less time taken doing jobs in the finance department</li><li>May lead to redundancy in the finance area</li><li>Allow management employees to co-ordinate the 2,100 UK branches / 1,200 international branches</li><li>Employees in Welshpool branch benefit from improved systems</li><li>Helps co-ordinate the supply chain for coffee beans</li></ul><p><strong>Exemplar response:</strong> One possible impact is that the new software may improve the efficiency (1) of a Costa Coffee employee as they can produce financial data more quickly (APP) (1).</p></div><div class="marks-section"><h5>Examiner's Comments</h5><p>The impact needed to be applied to the specific scenario of Costa Coffee employees. The most obvious good answers linked the impact to employees working within the finance function. Many answers were too generic and could have applied to any business rather than specifically to Costa Coffee.</p></div>`,
+                modelAnswer: "One impact on Costa Coffee employees is that the updated computer software may improve their efficiency (1 mark), as finance staff will be able to process and analyse financial data for all 2,100 UK branches more quickly and accurately, freeing up time for other tasks (1 mark — applied to Costa Coffee)."
+            },
+            {
+                num: "Textbook Practice MCQ 1",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Jenny Carson makes and ices wedding cakes. Which method of production is she likely to use? [1 mark]",
+                options: ["Job production", "Batch production", "Flow production", "Robotic production"],
+                answer: 0,
+                hint: "Each wedding cake is unique and made to a specific customer's order. Which method makes one product at a time?",
+                starter: "The method of production Jenny Carson is most likely to use is...",
+                markScheme: `<div class="marks-section"><h5>Answer: A — Job production</h5><p><strong>Why A is correct:</strong> Each wedding cake is unique and made individually to the specific order of the customer. This is the definition of job production — products are made individually, often requiring skilled labour and producing high-quality, bespoke items.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>B (Batch production)</strong> — This would mean making a group of the same type of cake, then switching to a different type. Jenny makes each cake uniquely to order, not in batches.</li><li><strong>C (Flow production)</strong> — Flow production makes the same product continuously in large quantities. Individual, unique wedding cakes cannot be mass-produced on an assembly line.</li><li><strong>D (Robotic production)</strong> — Robotic production is not one of the three official OCR production methods. The skill and artistry involved in icing a wedding cake also requires human craftsmanship.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Textbook Practice MCQ 2",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Warburton's bakery uses batch production to make its bread. Which of the following is a disadvantage to Warburton's of using batch production to make its bread? [1 mark]",
+                options: [
+                    "The costs of production are lower than using other methods.",
+                    "It can meet the demand for different types of bread from different customers.",
+                    "It may have to reduce the different types of bread that it can offer.",
+                    "It can make bread to order so the bread does not need to be stored."
+                ],
+                answer: 2,
+                hint: "Look for the option that is a PROBLEM for Warburton's — not a benefit. Think about what batch production prevents or limits.",
+                starter: "The disadvantage of batch production for Warburton's is...",
+                markScheme: `<div class="marks-section"><h5>Answer: C — It may have to reduce the different types of bread that it can offer.</h5><p><strong>Why C is correct:</strong> If production switching becomes too complex or costly, Warburton's may be forced to limit the number of different bread varieties it produces — reducing customer choice and potentially losing sales to competitors with wider ranges.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A (Lower costs)</strong> — Lower costs is an ADVANTAGE of batch production, as specialist machinery can be used and production runs are efficient.</li><li><strong>B (Meets varied demand)</strong> — Meeting the needs of different customers is an ADVANTAGE — it is the main reason bakeries use batch production.</li><li><strong>D (Made to order / no storage needed)</strong> — Making bread to specific orders, reducing storage costs, is an ADVANTAGE of batch production.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Textbook Practice MCQ 3",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Which of the following is not an example of automation? [1 mark]",
+                options: [
+                    "Beer bottles are labelled by a machine when they pass it on the production line.",
+                    "The hand-making of a wedding dress.",
+                    "A business has sensors on its doors to make them open when someone approaches.",
+                    "Customers of Vauxhall Motors can configure and order their own car online which is added to production without any further input."
+                ],
+                answer: 1,
+                hint: "Automation means a computer or machine does the task with NO human direct control. Which option requires a skilled human to do the work?",
+                starter: "The option that is NOT an example of automation is...",
+                markScheme: `<div class="marks-section"><h5>Answer: B — The hand-making of a wedding dress.</h5><p><strong>Why B is correct:</strong> Hand-making a wedding dress is done by a skilled human worker using their own judgement, creativity, and craft skills. There is no machine or computer controlling the process. This is an example of job production, not automation.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A</strong> — Beer bottles passing a labelling machine is automation: the machine applies labels without a human controlling it at each step.</li><li><strong>C</strong> — Door sensors that detect people and open automatically are automation — the computer/sensor controls the door without human input.</li><li><strong>D</strong> — The Vauxhall Motors example is automation: the online order goes directly into the production system without any further human input, which is a form of computer-controlled automation.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Textbook Practice MCQ 4",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Which of these statements is false? [1 mark]",
+                options: [
+                    "Modern businesses do not use job production.",
+                    "Flow production uses machines only, no workers are required at all.",
+                    "Batch production is often used by bakeries to make different kinds of bread and cakes.",
+                    "Using flow production usually results in lower unit costs than using job production."
+                ],
+                answer: 0,
+                hint: "Think carefully — TWO of these statements are false, but which one is the MOST clearly false and directly contradicts what you've learned?",
+                starter: "The statement that is false is...",
+                markScheme: `<div class="marks-section"><h5>Answer: A — Modern businesses do not use job production.</h5><p><strong>Why A is correct (i.e., A is FALSE):</strong> Many modern businesses use job production — from large construction projects like Crossrail, to hand-crafted furniture makers, to bespoke advertising campaigns. This statement is factually incorrect.</p><p><strong>Note on the other options:</strong></p><ul><li><strong>B</strong> is also false (flow production still requires workers to oversee machines), but A is the intended answer as it directly targets a common student misconception.</li><li><strong>C</strong> is TRUE — bakeries like Warburton's and Crown Paints use batch production.</li><li><strong>D</strong> is TRUE — flow production benefits from economies of scale, giving lower unit costs than job production.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Delicious Cakes Q1",
+                marks: 1,
+                type: "written",
+                caseStudy: "'Delicious Cakes' is a successful business employing 10 employees. They focus on making unique, tailor-made cakes to meet specific customer needs and have strong customer loyalty. They are renowned for their spectacular wedding cakes that are decorated with intricately designed flowers. The minimum price for one of their wedding cakes is £700.",
+                question: "What is meant by the term 'job production'? [1 mark]",
+                hint: "Give the official definition. Use the key word 'individually'.",
+                starter: "Job production is...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 1 mark (AO1a)</h5><p>Award 1 mark for a correct definition:</p><ul><li>Is the process of production where products are made <strong>individually</strong></li><li>Each product is made one at a time / to the specific order of the customer</li><li>Products are unique / bespoke</li></ul></div>`,
+                modelAnswer: "Job production is the process of production where products are made individually (to the specific requirements of each customer)."
+            },
+            {
+                num: "Delicious Cakes Q2",
+                marks: 1,
+                type: "written",
+                caseStudy: "",
+                question: "What is meant by the term 'batch production'? [1 mark]",
+                hint: "Give the official definition. The key idea is that one type of product is made, then production switches to a different type.",
+                starter: "Batch production is...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 1 mark (AO1a)</h5><p>Award 1 mark for a correct definition:</p><ul><li>Is the process of production where one type of product is made and then production is switched to make a different product</li><li>Groups of similar products are made together before switching to a different group</li></ul></div>`,
+                modelAnswer: "Batch production is the process of production where one type of product is made and then production is switched to make a different type of product."
+            },
+            {
+                num: "Delicious Cakes Q3",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Analyse one benefit of 'Delicious Cakes' using job production. [3 marks]",
+                hint: "Use the 3-step formula: (U) State a benefit of job production → (APP) Link it to something specific about Delicious Cakes in the case study → (AN) Explain the business impact this creates for Delicious Cakes.",
+                starter: "A benefit of job production for Delicious Cakes is... (U)\nThis is shown in the case of Delicious Cakes because... (APP)\nAs a result, Delicious Cakes will... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b, AO2, AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> States a benefit of job production (e.g., high quality / bespoke / meets individual needs / worker satisfaction)</li><li><strong>Application (1 mark):</strong> Applies to Delicious Cakes specifically — e.g., their spectacular wedding cakes decorated with intricately designed flowers / minimum price of £700 / strong customer loyalty</li><li><strong>Analysis (1 mark):</strong> Explains the business impact — e.g., can charge premium prices / strong customer loyalty → repeat business → increased revenue</li></ul></div><div class="marks-section"><h5>Exemplar Model Answer</h5><p>Job production allows Delicious Cakes to produce high-quality, unique products that are tailored to each customer's exact requirements (U). Delicious Cakes makes spectacular wedding cakes decorated with intricately designed flowers, with a minimum price of £700 (APP). This allows the business to charge premium prices and build strong customer loyalty, generating high revenue per cake despite lower volumes of output (AN).</p></div>`,
+                modelAnswer: "Job production allows Delicious Cakes to make high-quality, bespoke products tailored to each customer's exact requirements (U). Their wedding cakes are decorated with intricate flower designs and start at a minimum price of £700, showing that each cake is unique (APP). This means Delicious Cakes can charge premium prices, which generates strong revenue and builds customer loyalty, giving the business a competitive advantage over mass-market cake producers (AN)."
+            },
+            {
+                num: "Delicious Cakes Q4",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Analyse one drawback of 'Delicious Cakes' using batch production. [3 marks]",
+                hint: "Delicious Cakes currently uses job production to make unique cakes. If it SWITCHED to batch production, what would be the drawback? Think about what the business would LOSE by making cakes in batches rather than individually.",
+                starter: "A drawback of Delicious Cakes using batch production is... (U)\nThis is a particular issue for Delicious Cakes because... (APP)\nAs a result, Delicious Cakes would... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b, AO2, AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> States a drawback of batch production (e.g., switching time / stock costs / repetitive work / less unique products / less customer choice)</li><li><strong>Application (1 mark):</strong> Applies to Delicious Cakes specifically — e.g., their focus on unique, tailor-made cakes / intricately designed flowers / strong customer loyalty / minimum £700 price</li><li><strong>Analysis (1 mark):</strong> Explains the business impact — e.g., loss of bespoke nature → loss of premium pricing / loss of customer loyalty → reduced revenue</li></ul></div><div class="marks-section"><h5>Exemplar Model Answer</h5><p>A drawback of batch production is that the products made would be less unique — each batch makes the same design (U). Delicious Cakes is renowned for its unique, tailor-made wedding cakes decorated with intricately designed flowers that meet specific customer needs (APP). If Delicious Cakes switched to batch production, it would lose this bespoke quality, meaning it could no longer justify its minimum £700 price point and would likely lose its strong customer loyalty and revenue (AN).</p></div>`,
+                modelAnswer: "A drawback of batch production is that it produces groups of identical or similar products, reducing the uniqueness of each item (U). Delicious Cakes is renowned for making unique, tailor-made cakes with intricately designed flowers — and customers pay a minimum of £700 for this bespoke service (APP). If they switched to batch production, they would lose this unique quality, meaning they could no longer charge premium prices and their strong customer loyalty would likely be damaged, reducing revenue (AN)."
+            },
+            {
+                num: "Amazon Case Study (a)",
+                marks: 3,
+                type: "written",
+                caseStudy: "Amazon sells a very wide range of goods including books and electronic items, many of which are also sold by other online and high-street traders. Goods are stored in warehouses. Amazon currently has 12 warehouses in the UK. There are now over 100,000 robots in use in these warehouses. When a customer orders a product, the request is passed automatically to one of the robots. The robot follows digital patterns on the floor of the warehouse to find the shelf where the product is stored and brings it to a human worker who will box the product and then ship it off. Previously, the products would have been collected by human workers called 'pickers' whose jobs were physical and demanding as they had to walk many miles at speed each day.<br><br>There has, however, been an increase in the number of injuries experienced by workers since they stopped picking items by hand, and these can be associated with the robots as each warehouse worker can now handle over three times more packages. There is also a risk that robots can develop mechanical faults, though so far this has not happened. Introducing technology can lead to job losses but this will depend also on what happens to sales. Amazon sales increased by 51 per cent rising to £19.4 billion in the UK in 2020. In 2020, employment actually grew by 3,000 workers in the UK. Importantly, the robots have enabled the speed of the delivery of goods to be increased. Amazon has introduced a 'Prime' delivery service which promises delivery within one day.",
+                question: "Analyse one benefit to Amazon from using robots in their warehouses. [3 marks]",
+                hint: "Use U → APP → AN. Pick ONE benefit (productivity, speed, cost saving, worker motivation). Link it specifically to the Amazon case study — use the data (e.g., three times more packages, Prime delivery, 51% sales increase). End with a clear business impact.",
+                starter: "One benefit to Amazon of using robots in its warehouses is... (U)\nThe text shows that in Amazon's warehouses... (APP)\nAs a result, Amazon will... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b, AO2, AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> Gives an example of a benefit of using robots, e.g.: speed up production / increase productivity of workers / save on wage costs / improve motivation (less walking) / faster delivery</li><li><strong>Application (1 mark):</strong> Relates to the Amazon case study specifically — cannot be gained without Understanding, e.g.: Workers at Amazon can handle over three times as many packages. Amazon can now deliver to customers within one day (Prime).</li><li><strong>Analysis (1 mark):</strong> Gives the effect/impact on Amazon, e.g.: Cost savings may allow Amazon to reduce prices, making it more competitive. Speedier Prime delivery will increase sales as customers want purchases quickly.</li></ul></div><div class="marks-section"><h5>Exemplar Model Answers</h5><p><strong>Model Answer 1 (productivity):</strong> A benefit of using robots is that they increase the productivity of workers in the warehouse (U). The text states that each Amazon warehouse worker can now handle over three times more packages per shift than before (APP). This means Amazon can process and dispatch orders much faster, increasing sales and enabling the introduction of the Prime next-day delivery service, which is a major competitive advantage (AN).</p><p><strong>Model Answer 2 (cost):</strong> Robots help Amazon reduce its labour costs as fewer human pickers are needed (U). Previously, human 'pickers' had to walk many miles each day — with robots doing this task, fewer workers are required for the same output (APP). The saving on wages means Amazon can afford to keep its prices competitive, helping it win sales from other online and high-street traders (AN).</p></div>`,
+                modelAnswer: "A benefit of using robots is that they increase the productivity of workers in Amazon's warehouses (U). The text states that each warehouse worker can now handle over three times more packages per shift than before the robots were introduced (APP). This means Amazon can process and dispatch customer orders much faster, enabling the introduction of its Prime next-day delivery service — a key competitive advantage that has contributed to Amazon's 51% sales increase in the UK (AN)."
+            },
+            {
+                num: "Amazon Case Study (b)",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Analyse one problem for Amazon from using robots in warehouses. [3 marks]",
+                hint: "Use U → APP → AN. Pick ONE problem (injuries, breakdown risk, cost, worker morale). Link it specifically to the Amazon case study. End with a clear business impact on Amazon — not just on the workers.",
+                starter: "One problem for Amazon of using robots in its warehouses is... (U)\nThe case study states that at Amazon... (APP)\nAs a result, Amazon faces a risk that... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b, AO2, AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> Gives an example of a problem with using robots, e.g.: could demotivate staff / robots cost money / robots replace workers / robots can break down / increased injury risk</li><li><strong>Application (1 mark):</strong> Relates to the Amazon case study specifically, e.g.: The number of injuries at Amazon has increased since robots were introduced. Each worker now handles three times more packages, creating physical strain.</li><li><strong>Analysis (1 mark):</strong> Gives the effect/impact on Amazon, e.g.: The rise in injuries may lead to increased compensation claims and costs. Amazon's reputation may suffer, deterring job applicants. A robot breakdown could cause customers to cancel orders and order from competitors.</li></ul></div><div class="marks-section"><h5>Exemplar Model Answer</h5><p>A problem with using robots is that they can increase the risk of injury to workers (U). The text states that since Amazon introduced robots, there has been an increase in the number of worker injuries — as each worker now handles over three times more packages, placing greater physical demands on them (APP). This may lead to an increase in compensation claims, adding to Amazon's costs, and could damage Amazon's reputation as an employer, making it harder to recruit workers in the future (AN).</p></div>`,
+                modelAnswer: "A problem for Amazon of using robots is the increase in worker injuries (U). The text states that since robots were introduced, the number of worker injuries has increased — as each warehouse worker now handles over three times more packages, placing much greater physical strain on them (APP). This could lead to increased compensation claims and legal costs for Amazon, and may damage its reputation as an employer, making it harder to recruit and retain workers in the future (AN)."
+            },
+            {
+                num: "Amazon Case Study (c)",
+                marks: 3,
+                type: "written",
+                caseStudy: "",
+                question: "Evaluate whether or not Amazon should continue to use robots in their warehouses. [3 marks]",
+                hint: "This is an AO3b EVALUATE question — do NOT repeat analysis points. Make a JUDGEMENT (yes or no), JUSTIFY it with a reason, and SUPPORT it with specific data from the case study.",
+                starter: "Amazon should / should not continue to use robots in its warehouses because... (Judgement)\nThis is because the [benefits / costs]... (Justification)\nThis is supported by the fact that... [use data: 51% sales increase, Prime delivery, injuries, £19.4 billion] (Context)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO3b)</h5><ul><li><strong>Judgement (1 mark):</strong> Makes a clear statement about whether Amazon should or should not continue to use robots (either is acceptable)</li><li><strong>Justification (up to 2 marks):</strong> Justifies the judgement using information from the case study</li></ul><p>Both "should continue" and "should not continue" are perfectly valid answers — marks depend on the quality of justification, not the direction of the argument.</p></div><div class="marks-section"><h5>Exemplar Model Answers</h5><p><strong>Option 1 (should continue):</strong> The use of robots has been very important for Amazon (Judgement). Amazon's UK sales increased by 51% to £19.4 billion and employment grew by 3,000 workers, suggesting that the use of robots has been good for the business overall (Justification + Context). The robots have given Amazon a major competitive advantage through Prime next-day delivery, which is a key reason customers choose Amazon over other retailers.</p><p><strong>Option 2 (depends / qualified yes):</strong> The overall impact of robots depends on whether the additional revenue from increased sales outweighs the additional costs (Judgement). Sales have risen by 51% suggesting revenues have increased significantly (Context). However, if compensation claims for the increased worker injuries are very high, and if a robot breakdown caused major disruption, the net benefit might be lower than it appears (Justification).</p></div>`,
+                modelAnswer: "Amazon should continue to use robots in its warehouses (Judgement). Amazon's UK sales increased by 51% to £19.4 billion in 2020 and employment actually grew by 3,000 workers, suggesting the robots have been a net positive for the business (Context). The ability to offer Prime next-day delivery — made possible by the robots' speed and productivity — is a significant competitive advantage that is likely to continue driving sales growth, making the investment worthwhile despite the increased injury risk (Justification)."
+            }
+        ];
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

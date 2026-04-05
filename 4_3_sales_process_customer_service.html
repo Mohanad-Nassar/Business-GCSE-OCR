@@ -1,0 +1,1656 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.3 Sales Process & Customer Service – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Business — Component 2</div>
+            <h1>4.3 Sales Process & Customer Service</h1>
+            <p>Interactive revision guide · All key content + full exam practice</p>
+        </div>
+        <a href="index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px">
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #d4edda;
+                  border: 1.5px solid #2d7a4f;
+                  display: inline-block;
+                "></span>
+                        First attempt correct</span>
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fff8dc;
+                  border: 1.5px solid #b8860b;
+                  display: inline-block;
+                "></span>
+                        Correct after mistake</span>
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fde8e5;
+                  border: 1.5px solid #c84b31;
+                  display: inline-block;
+                "></span>
+                        Wrong — try again</span>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 4.3 The Sales Process and Customer Service
+    // ══════════════════════════════════════
+
+    // 1. Main Learning Content
+    const topics = [
+        {
+            title: "Key Terms & Official Definitions",
+            tag: "Core Concepts",
+            content: `<p>These are the essential terms you must know for 4.3. Learn them precisely — examiners reward specific, accurate definitions.</p>
+<ul>
+<li><strong>E-commerce:</strong> The bringing together of buying and selling electronically (online sales).</li>
+<li><strong>Customer service:</strong> The name given to an area of business that deals with customer enquiries.</li>
+<li><strong>Customer engagement:</strong> The contact between the business and customer.</li>
+<li><strong>Click and collect:</strong> Ordering online and collecting goods from store at a later time.</li>
+<li><strong>Face to face selling:</strong> Usually completed in a shop where there is direct contact between buyer and seller.</li>
+<li><strong>Telesales:</strong> Sales completed over the telephone.</li>
+<li><strong>After-sales service:</strong> Advice and help given to a customer after they have bought a product or service.</li>
+<li><strong>Product knowledge:</strong> The detailed knowledge of a product or service that staff within a business use to help persuade a customer to buy.</li>
+</ul>`
+        },
+        {
+            title: "Methods of Selling",
+            tag: "Core Concepts",
+            content: `<p>Businesses can use a range of selling methods depending on the product, target market, and business size. The three main methods are:</p>
+<ul>
+<li><strong>E-commerce:</strong> Bringing a buyer and seller together electronically. Involves physical delivery after an online sale.</li>
+<li><strong>Face to face:</strong> Direct contact between buyer and seller, typically in a shop, bank, or travel agent. Allows advice and interaction.</li>
+<li><strong>Telesales:</strong> Sales completed over the telephone. Acts as a bridge between e-commerce and face to face, especially useful for customers less comfortable with the internet.</li>
+</ul>
+<p>Not all businesses are suited to every method. The best method depends on the <strong>product type</strong>, the <strong>target market</strong>, and the level of <strong>service</strong> required.</p>
+<div class="case-study-box">
+<h4>Case Study: John Lewis & Partners</h4>
+<p>John Lewis uses all three methods. Its department stores use face-to-face selling with trained staff who have excellent product knowledge, particularly in electronics. It also has a fast-growing e-commerce operation and uses phone lines for customer queries. JLP's strategy shows how a business can combine multiple selling methods to serve different customers effectively.</p>
+</div>`
+        },
+        {
+            title: "The Influence of E-commerce on Business Activity",
+            tag: "Theory",
+            content: `<p>The growth of e-commerce — accelerated dramatically during the COVID-19 pandemic of 2020–21 — has changed business activity in several key ways:</p>
+<ul>
+<li><strong>Location:</strong> Businesses can locate almost anywhere. A telephone/internet connection handles the "front end" (orders), while warehouses can be separately sited near motorway networks for fast delivery.</li>
+<li><strong>New skill development:</strong> Staff need new skills — website maintenance, email responses, warehouse packing. Extra training may be required at all levels.</li>
+<li><strong>Levels of employment:</strong> E-commerce may increase OR decrease employment. Existing businesses may need fewer branch staff (e.g. banks), but new e-commerce startups must recruit website, logistics, and customer service staff.</li>
+<li><strong>Creation of specific departments:</strong> Large businesses like M&S, Next, and John Lewis have set up dedicated online departments to manage e-commerce sales and avoid losing business to competitors.</li>
+<li><strong>Click and collect:</strong> Customers order online and collect in-store later, solving the "not home for delivery" problem. Stores must dedicate space for click and collect areas.</li>
+<li><strong>Delivery options:</strong> Speed of delivery is a key competitive area. Amazon Prime offers next-day and same-day delivery. Drone delivery is a future possibility but faces security and safety hurdles.</li>
+</ul>`
+        },
+        {
+            title: "Advantages & Disadvantages of E-commerce for Businesses",
+            tag: "Analysis",
+            content: `<p>When evaluating e-commerce, always check whether the question asks for the <strong>business's</strong> perspective or the <strong>customer's</strong> perspective. Mixing these up is one of the most common reasons students lose marks.</p>
+<div class="two-col">
+<div>
+<div class="col-head">✓ Advantages for Businesses</div>
+<div class="pro-item"><strong>Sell worldwide:</strong> Even the smallest business can reach a global market, significantly increasing the potential customer base, sales, and profit.</div>
+<div class="pro-item"><strong>Open all the time:</strong> No restriction on opening hours — the business can generate sales 24 hours a day, 7 days a week.</div>
+<div class="pro-item"><strong>Professional look at little cost:</strong> A well-designed website creates a strong brand image, attracting customers without the need for expensive premises.</div>
+<div class="pro-item"><strong>Lower operating costs:</strong> No need to pay expensive city-centre rents. The business can operate from anywhere with an internet connection, keeping profits high.</div>
+</div>
+<div>
+<div class="col-head">✗ Disadvantages for Businesses</div>
+<div class="con-item"><strong>Worldwide competition:</strong> All e-commerce businesses face global competitors. Customers can easily compare prices, putting downward pressure on margins.</div>
+<div class="con-item"><strong>Problems of delivering goods and accepting returns:</strong> Reliance on third-party logistics adds cost. High return rates increase expenses further.</div>
+<div class="con-item"><strong>Online security:</strong> Businesses must maintain a secure website and keep customer data safe. A breach destroys customer trust and adds significant costs.</div>
+<div class="con-item"><strong>Advances in technology:</strong> Businesses must constantly update their technology (e.g. mobile-optimised sites) to keep up with customer buying habits. This is ongoing and costly.</div>
+</div>
+</div>`
+        },
+        {
+            title: "Advantages & Disadvantages of E-commerce for Customers",
+            tag: "Analysis",
+            content: `<p>Customers experience both benefits and drawbacks from e-commerce. Remember — some exam questions specifically ask about the <strong>customer's</strong> perspective, not the business's.</p>
+<div class="two-col">
+<div>
+<div class="col-head">✓ Advantages for Customers</div>
+<div class="pro-item"><strong>Price comparison:</strong> Customers can easily compare prices across multiple sites, getting the best deal and saving money.</div>
+<div class="pro-item"><strong>Seven-day availability:</strong> Customers can buy at any time convenient to them — not restricted to shop opening hours.</div>
+<div class="pro-item"><strong>Wide range of products:</strong> The internet provides worldwide access, giving customers far greater choice than any single physical store could offer.</div>
+</div>
+<div>
+<div class="col-head">✗ Disadvantages for Customers</div>
+<div class="con-item"><strong>Lack of personal contact:</strong> No person to talk to directly, which may deter some customers — especially for complex or expensive purchases.</div>
+<div class="con-item"><strong>Security risk:</strong> Customers worry about credit card and personal data being stolen, even with encryption available.</div>
+<div class="con-item"><strong>Methods of payment:</strong> Customers who prefer cash cannot use e-commerce, as payment is geared towards credit/debit cards.</div>
+<div class="con-item"><strong>Technology barriers:</strong> Some customers (especially older groups) lack internet access or confidence with technology.</div>
+<div class="con-item"><strong>Only images seen:</strong> Cannot touch, feel, or try products before buying. This is less of a problem for familiar products (e.g. a known DVD) but significant for clothing or furniture.</div>
+</div>
+</div>`
+        },
+        {
+            title: "Face to Face Selling & Telesales",
+            tag: "Methods",
+            content: `<p><strong>Face to face selling</strong> is typically done in a shop, bank, or travel agent. Key features:</p>
+<ul>
+<li>Direct interaction allows advice, demonstrations, questions, and answers</li>
+<li>Customers can see and handle products before buying</li>
+<li>Builds trust and personal relationships, encouraging return visits</li>
+<li>However, shops are <strong>expensive to operate</strong> — staff wages, rent, local taxes, cleaning and maintenance all apply</li>
+<li>Poor weather or inconvenience may push customers to shop online instead</li>
+</ul>
+<p><strong>Telesales</strong> bridges e-commerce and face to face. Key features:</p>
+<ul>
+<li>Useful for customers not comfortable with online shopping but happy to talk by phone</li>
+<li>Allows the customer to negotiate — e.g. renewing a mobile phone contract by phone lets them bargain for a better deal</li>
+<li>Larger businesses have dedicated telesales departments; smaller businesses may lack staff</li>
+<li><strong>Cold calling</strong> — unsolicited calls at inconvenient times — is seen as a nuisance by many customers</li>
+</ul>
+<div class="two-col">
+<div>
+<div class="col-head">✓ Best for Face to Face</div>
+<div class="pro-item">High-value or complex products (e.g. cars, wedding dresses, electronics)</div>
+<div class="pro-item">When service and advice are central to the buying decision</div>
+<div class="pro-item">When customers want to touch or try the product before buying</div>
+</div>
+<div>
+<div class="col-head">✓ Best for Telesales</div>
+<div class="con-item">Renewing subscriptions or contracts (e.g. insurance, phone, utilities)</div>
+<div class="con-item">Reaching customers who are not tech-savvy</div>
+<div class="con-item">When customers want to negotiate terms or receive personalised guidance by phone</div>
+</div>
+</div>`
+        },
+        {
+            title: "The Importance of Customer Service & After-Sales Service",
+            tag: "Theory",
+            content: `<p><strong>Customer service</strong> is vital to maintaining and increasing sales. A business must retain existing customers and attract new ones — losing customers to competitors is extremely costly.</p>
+<p>Good customer service is especially important where the product requires a high level of service — compare buying a book online (low service needed) with buying a wedding dress (high service, face-to-face essential).</p>
+<p><strong>After-sales service</strong> is what happens when things go wrong after a purchase. It might include:</p>
+<ul>
+<li>Offering refunds or exchanges (even where not legally required)</li>
+<li>Organising speedy repairs</li>
+<li>Keeping the customer informed about a problem being resolved</li>
+</ul>
+<p>The goal is to leave the customer satisfied, so they return and spend more in the future. Competitors are always ready to take customers from any business seen to be falling short on service.</p>
+<div class="two-col">
+<div>
+<div class="col-head">✓ Why After-Sales Service Matters</div>
+<div class="pro-item">Ensures customers are satisfied after purchase, encouraging repeat business and loyalty.</div>
+<div class="pro-item">Builds trust — customers who experience good problem resolution are more likely to return.</div>
+<div class="pro-item">Positive word-of-mouth — satisfied customers recommend the business, attracting new customers at no extra marketing cost.</div>
+</div>
+<div>
+<div class="col-head">✗ Risks of Poor After-Sales Service</div>
+<div class="con-item">Customers switch to competitors after a bad post-purchase experience.</div>
+<div class="con-item">Negative online reviews can rapidly damage brand reputation in the e-commerce age.</div>
+<div class="con-item">Lost sales and reduced market share in the long run.</div>
+</div>
+</div>`
+        },
+        {
+            title: "Product Knowledge & Customer Engagement",
+            tag: "Theory",
+            content: `<p><strong>Product knowledge</strong> is the detailed understanding staff have about what they sell. Its importance varies by business type:</p>
+<ul>
+<li>In a <strong>garden centre</strong>, staff need to advise on plants for specific conditions.</li>
+<li>In an <strong>electronics store</strong>, staff need to explain the latest TV or laptop technology to less-informed customers.</li>
+<li>In a <strong>newsagent</strong>, product knowledge is relatively less critical.</li>
+</ul>
+<p>Training costs time and money, but better product knowledge &rarr; better customer service &rarr; more sales &rarr; profits cover the cost of training.</p>
+<p><strong>Customer engagement</strong> is the contact between a customer and the business. Good engagement means:</p>
+<ul>
+<li>Well-trained, polite, knowledgeable staff in face-to-face settings</li>
+<li>A friendly, helpful voice in telesales</li>
+<li>Carefully worded emails and texts in e-commerce (replicating the feeling of face-to-face engagement)</li>
+</ul>
+<p>⚠️ There is a fine line between being helpful and being too "pushy." Car salespeople have a reputation for over-engagement — too much information or pressure can drive customers away.</p>
+<div class="case-study-box">
+<h4>Case Study: Amazon vs John Lewis</h4>
+<p>Amazon competes on <strong>price, choice, and speed of delivery</strong> — using Prime's next-day and same-day delivery to stay ahead. John Lewis, by contrast, focuses on <strong>product knowledge and face-to-face customer engagement</strong>, especially important for complex electronics purchases where customers need explanation. Both approaches show that excellent customer service can take very different forms depending on the business model.</p>
+</div>`
+        },
+        {
+            title: "Real-World Application: Amazon & E-commerce Growth",
+            tag: "Case Study",
+            content: `<div class="case-study-box">
+<h4>Case Study: Amazon</h4>
+<p>Amazon was started by Jeff Bezos in 1994, initially selling books online. It later expanded into electronics, video games, and through Amazon Marketplace, an enormous range of products. It is now one of the world's leading e-commerce businesses.</p>
+<p>Amazon has always responded to competitors by focusing on speed and enhanced service. In 2007 it launched its <strong>Prime service</strong> in the UK, promising next-day delivery. When competitors matched this, Amazon added "extras" — free music and video streaming, same-day food delivery through Morrisons, and exclusive "Prime Day" deals for subscribers.</p>
+<p>Prime is a subscription service, and consumers are willing to pay for this enhanced level of service. Amazon places great emphasis on <strong>pricing, choice, and speed of delivery</strong> rather than face-to-face customer engagement.</p>
+</div>
+<p><strong>Key takeaways for the exam:</strong></p>
+<ul>
+<li>Amazon is an e-commerce business because it brings buyers and sellers together digitally, with physical delivery following the online sale</li>
+<li>It competes through speed and choice rather than in-person customer engagement</li>
+<li>Its success is closely tied to the logistics industry (warehouses, delivery networks)</li>
+<li>The coronavirus pandemic of 2020–21 accelerated e-commerce growth, forcing many traditional retailers to adapt or close (e.g. Debenhams and Top Shop left the high street)</li>
+</ul>`
+        }
+    ];
+
+    // 2. Multiple Choice Questions (Minimum 10)
+    const mcqData = [
+        {
+            q: "Which of the following is the correct definition of e-commerce?",
+            opts: [
+                "The buying and selling of goods in a physical shop",
+                "The bringing together of buying and selling electronically",
+                "Selling goods over the telephone",
+                "The delivery of goods using drones"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. E-commerce is specifically defined as the bringing together of buying and selling electronically (online sales). It always involves some form of physical delivery after the online sale — unlike digital distribution where the product itself is delivered digitally."
+        },
+        {
+            q: "Which of the following is an advantage to a BUSINESS of using e-commerce?",
+            opts: [
+                "Customers can compare prices easily across multiple websites",
+                "Customers can shop at any time of day or night",
+                "Lower operating costs as no expensive shop premises are needed",
+                "Customers can touch and examine products before buying"
+            ],
+            ans: 2,
+            explain: "Correct answer: C. Lower operating costs is an advantage to the BUSINESS — no need to pay expensive city-centre rents. Options A, B, and D are advantages to CUSTOMERS, not businesses. Always check whose perspective the question is asking about."
+        },
+        {
+            q: "Customer engagement refers to:",
+            opts: [
+                "Allowing customers to try products before they buy",
+                "The contact between the business and customer",
+                "Improving the product knowledge of employees",
+                "Shortening the supply chain"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Customer engagement is defined as the contact between the business and customer. This includes face-to-face interaction in stores, friendly voices in telesales, and carefully worded emails/texts in e-commerce."
+        },
+        {
+            q: "A business finds it easy to gain customers but has difficulty retaining them. Which aspect of the business most likely needs improving?",
+            opts: [
+                "After-sales service",
+                "E-commerce",
+                "Marketing",
+                "Procurement"
+            ],
+            ans: 0,
+            explain: "Correct answer: A. After-sales service. Marketing (C) is clearly working — it is attracting customers. The problem is what happens AFTER the sale. After-sales service keeps customers satisfied and coming back."
+        },
+        {
+            q: "Face to face selling will help a business most when:",
+            opts: [
+                "The goods being sold are cheap and simple",
+                "Service and advice are important to the customer",
+                "The customer has a computer and internet access",
+                "The goods are small and easily transported"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Face to face selling is most valuable when service matters — for example, buying a wedding dress, complex electronics, or financial products. The physical presence of staff allows advice, demonstrations, and relationship-building that e-commerce cannot fully replicate."
+        },
+        {
+            q: "Which of the following is a disadvantage to CUSTOMERS of using e-commerce?",
+            opts: [
+                "Having to pay expensive city-centre rents",
+                "Increased worldwide competition from other businesses",
+                "Difficulty keeping up with advances in technology costs",
+                "Inability to touch or inspect products before purchasing"
+            ],
+            ans: 3,
+            explain: "Correct answer: D. Only being able to see images of goods (not touch or inspect them) is a disadvantage to the CUSTOMER. Options A (rents), B (competition), and C (technology update costs) are all disadvantages to BUSINESSES using e-commerce."
+        },
+        {
+            q: "Why is good product knowledge important to a business?",
+            opts: [
+                "It helps recruit better staff to the business",
+                "It will help a business in the sales process",
+                "It will develop better working conditions for staff",
+                "It will mean that training costs are lower"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Good product knowledge helps staff in the sales process by allowing them to advise customers confidently, increasing the chance of a purchase. It does NOT reduce training costs (D) — in fact, gaining product knowledge requires investment in training."
+        },
+        {
+            q: "Click and collect is best described as:",
+            opts: [
+                "Buying goods in a shop and having them delivered to your home",
+                "Ordering goods online and collecting them from a store at a later time",
+                "Using a phone to order goods from a telesales department",
+                "Returning faulty goods to a warehouse after an online purchase"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Click and collect means ordering online and collecting goods from a store later. It solves the problem of customers not being home for delivery, while ensuring the product is in stock before the customer makes the journey."
+        },
+        {
+            q: "Which of the following businesses is most likely to use telesales as a primary method of selling?",
+            opts: [
+                "A burger van",
+                "A petrol station",
+                "A school",
+                "An insurance company"
+            ],
+            ans: 3,
+            explain: "Correct answer: D. An insurance company commonly uses telesales — customers call to get quotes, renew policies, or negotiate better deals. Burger vans (A) and petrol stations (B) use face-to-face selling, and schools (C) do not sell products in the conventional sense."
+        },
+        {
+            q: "A manufacturer of diamond rings employs staff to visit jewellery stores. Which is an advantage to the manufacturer of selling face to face?",
+            opts: [
+                "The cut and colour of the diamonds can be clearly demonstrated",
+                "The jewellery stores have the opportunity to negotiate very low prices",
+                "The risk of the rings being stolen is kept as low as possible",
+                "The sales staff can give out lots of free samples"
+            ],
+            ans: 0,
+            explain: "Correct answer: A. Face-to-face selling allows the physical product to be demonstrated and examined — crucial for diamond rings where cut, colour, and quality must be seen in person. Option B (negotiating low prices) is a benefit to the BUYER, not the manufacturer."
+        },
+        {
+            q: "Which of the following will NOT improve customer engagement for an e-commerce business?",
+            opts: [
+                "Training staff on the benefits of the product range",
+                "Only selling products that have been certified as organic",
+                "Sending carefully worded personalised emails to interested customers",
+                "Sending text messages to previous customers about new products"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Only selling certified organic products is a product/sourcing decision — it does not directly improve the CONTACT between the business and customer. Options A, C, and D all directly improve how the business communicates and connects with its customers."
+        },
+        {
+            q: "Which of the following would help a sole trader whose shop has difficulty RETAINING customers?",
+            opts: [
+                "Advertise other competing shops in the local area",
+                "Close the shop early on weekdays in the school holidays",
+                "Improve customer service by being friendly and polite",
+                "Offer a free item to new customers who spend over a threshold"
+            ],
+            ans: 2,
+            explain: "Correct answer: C. If the shop is advertised and prices are reasonable, the problem is RETENTION. Customer service (being friendly and polite) improves customer engagement and gives customers a reason to return. Option D attracts NEW customers, not retains existing ones."
+        }
+    ];
+
+    // 3. Keyword Matching (Minimum 10)
+    const matchData = [
+        { term: "E-commerce", def: "The bringing together of buying and selling electronically." },
+        { term: "Customer service", def: "The name given to an area of business that deals with customer enquiries." },
+        { term: "Customer engagement", def: "The contact between the business and customer." },
+        { term: "Click and collect", def: "Ordering online and collecting goods from store at a later time." },
+        { term: "Face to face selling", def: "Usually completed in a shop where there is direct contact between buyer and seller." },
+        { term: "Telesales", def: "Sales completed over the telephone." },
+        { term: "After-sales service", def: "Advice and help given to a customer after they have bought a product or service." },
+        { term: "Product knowledge", def: "The detailed knowledge of a product or service that staff within a business use to help persuade a customer to buy." },
+        { term: "Price comparison", def: "An advantage of e-commerce to customers — the ability to easily compare prices across multiple sellers to find the best deal." },
+        { term: "Cold calling", def: "Unsolicited telesales calls made to potential customers at home, often at inconvenient times, widely viewed as a nuisance." },
+        { term: "Logistics", def: "The industry responsible for the movement and delivery of goods to customers; closely linked to the success of e-commerce." },
+        { term: "Amazon Prime", def: "A subscription service offering next-day and same-day delivery plus streaming benefits, used by Amazon to stay ahead of competitors." }
+    ];
+
+    // 4. Fill in the Blanks (Minimum 10)
+    const fibData = [
+        {
+            display: "E-commerce is the bringing together of _____ and selling _____.",
+            blanks: { B1: "buying", B2: "electronically" }
+        },
+        {
+            display: "Customer _____ is the contact between the business and customer, while customer _____ deals with enquiries.",
+            blanks: { B1: "engagement", B2: "service" }
+        },
+        {
+            display: "After-sales service is advice and help given to a customer _____ they have bought a product.",
+            blanks: { B1: "after" }
+        },
+        {
+            display: "Face to face selling is usually completed in a _____ where there is direct contact between buyer and _____.",
+            blanks: { B1: "shop", B2: "seller" }
+        },
+        {
+            display: "A disadvantage of e-commerce for businesses is _____ competition, as customers can easily compare prices online.",
+            blanks: { B1: "worldwide" }
+        },
+        {
+            display: "_____ and collect allows customers to order online and then pick up their goods from a _____ at a later time.",
+            blanks: { B1: "Click", B2: "store" }
+        },
+        {
+            display: "Good _____ knowledge helps staff to persuade customers to buy and increases the chance of making a _____.",
+            blanks: { B1: "product", B2: "sale" }
+        },
+        {
+            display: "One advantage of e-commerce to businesses is _____ operating costs, as they do not need to pay expensive city-centre _____.",
+            blanks: { B1: "lower", B2: "rents" }
+        },
+        {
+            display: "Telesales can be used as a bridge between e-commerce and _____ to _____ selling.",
+            blanks: { B1: "face", B2: "face" }
+        },
+        {
+            display: "The growth of e-commerce has led to the creation of _____ departments and new _____ development requirements.",
+            blanks: { B1: "specific", B2: "skill" }
+        },
+        {
+            display: "Amazon launched its _____ service in the UK in 2007, promising _____ delivery on a wide range of products.",
+            blanks: { B1: "Prime", B2: "next-day" }
+        },
+        {
+            display: "A disadvantage of e-commerce for customers is that only _____ of goods can be seen, unlike in a shop where they can _____ the product.",
+            blanks: { B1: "images", B2: "touch" }
+        }
+    ];
+
+    // Word bank for Fill in the Blanks (correct words + decoys)
+    const fibWords = [
+        "buying", "electronically", "engagement", "service", "after",
+        "shop", "seller", "worldwide", "Click", "store",
+        "product", "sale", "lower", "rents", "face",
+        "specific", "skill", "Prime", "next-day", "images", "touch",
+        "before", "digital", "local", "online", "higher", "free",
+        "telesales", "supplier", "national", "training"
+    ];
+
+    // 5. True or False (Minimum 10)
+    const tfData = [
+        {
+            statement: "E-commerce involves some form of physical delivery after an online sale.",
+            answer: true,
+            explanation: "TRUE. This is what distinguishes e-commerce from digital distribution — with e-commerce, the product is still physically delivered to the customer after being purchased online."
+        },
+        {
+            statement: "A business using e-commerce must always be located near a city centre.",
+            answer: false,
+            explanation: "FALSE. E-commerce businesses can locate almost anywhere. The 'front end' (order taking) only requires an internet connection, and the warehouse simply needs to be near good transport links like a motorway network for efficient delivery."
+        },
+        {
+            statement: "After-sales service is only important if a product is legally required to come with a guarantee.",
+            answer: false,
+            explanation: "FALSE. After-sales service is important regardless of legal requirements. Businesses that offer refunds or resolve problems (even when not legally required to) build customer loyalty and encourage repeat purchases."
+        },
+        {
+            statement: "Telesales can be a useful method of selling to older customers who are less comfortable with online shopping.",
+            answer: true,
+            explanation: "TRUE. Telesales bridges the gap between e-commerce and face-to-face selling. Customers who are not comfortable using the internet may be very happy to talk to someone on the phone and be guided through the buying process."
+        },
+        {
+            statement: "A business with a well-designed website will always provide better customer engagement than a physical shop.",
+            answer: false,
+            explanation: "FALSE. A website creates a professional image, but customer engagement — the contact between business and customer — is often stronger in face-to-face settings where staff can directly answer questions, demonstrate products, and build personal relationships."
+        },
+        {
+            statement: "Click and collect has meant that businesses need to dedicate more in-store space for collection points.",
+            answer: true,
+            explanation: "TRUE. The success of click and collect has led businesses to allocate dedicated floor space for collection customers inside their stores, affecting how the available space is used overall."
+        },
+        {
+            statement: "E-commerce always reduces the number of employees a business needs.",
+            answer: false,
+            explanation: "FALSE. The effect on employment depends on the situation. An existing business switching to e-commerce may reduce staff in branches. But a new e-commerce business must recruit warehouse staff, website managers, and customer service representatives."
+        },
+        {
+            statement: "Online security is only a concern for customers, not for businesses using e-commerce.",
+            answer: false,
+            explanation: "FALSE. Security is a concern for BOTH customers AND businesses. Businesses must operate a secure website and keep customer data safe. A security breach damages customer trust and can result in significant financial costs and reputational harm."
+        },
+        {
+            statement: "Product knowledge is equally important in all types of businesses.",
+            answer: false,
+            explanation: "FALSE. The importance of product knowledge varies by context. It is highly important in electronics stores or garden centres where customers need expert advice. It is relatively less critical in, for example, a newsagent."
+        },
+        {
+            statement: "Amazon focuses more on pricing, choice, and speed of delivery than on face-to-face customer engagement.",
+            answer: true,
+            explanation: "TRUE. Amazon competes primarily through price, product range, and delivery speed (Amazon Prime). John Lewis, by contrast, relies on face-to-face customer engagement and product knowledge in its stores."
+        },
+        {
+            statement: "Cold calling (unsolicited telesales) is generally viewed positively by customers.",
+            answer: false,
+            explanation: "FALSE. Cold calling is widely seen as a nuisance by many customers, particularly when calls arrive at inconvenient times. This is a growing issue with telesales as a selling method."
+        },
+        {
+            statement: "E-commerce can help a small business compete with much larger firms on a global scale.",
+            answer: true,
+            explanation: "TRUE. E-commerce allows even the smallest business to reach a worldwide market with a professional-looking website at relatively low cost — competing on a scale that would not have been possible through traditional retail."
+        }
+    ];
+
+    // 6. Common Student Misconceptions
+    const miscData = [
+        {
+            wrong: "Having a website means a business is doing e-commerce.",
+            correct: "E-commerce means the business actually SELLS products online — not just advertises them. A business with only a promotional website that does not take online orders is NOT an e-commerce business."
+        },
+        {
+            wrong: "E-commerce is only suitable for large businesses like Amazon.",
+            correct: "E-commerce is accessible to businesses of all sizes. A small business can set up a website for relatively little cost and reach a worldwide market, competing with larger firms in ways that were not possible before the internet."
+        },
+        {
+            wrong: "Customer service only means being polite to customers in a shop.",
+            correct: "Customer service covers the FULL customer journey: before, during, AND after the sale. After-sales service (handling returns, repairs, complaints) is a critical and separately examinable component of good customer service."
+        },
+        {
+            wrong: "E-commerce always reduces costs for a business.",
+            correct: "While e-commerce can lower operating costs (no shop rent), it also creates NEW costs: website security, delivery logistics, returns handling, and keeping up with technology. The net financial effect depends on the specific business."
+        },
+        {
+            wrong: "A disadvantage of e-commerce to the customer is that it costs the business more money.",
+            correct: "When a question asks for a disadvantage to the CUSTOMER, you must write about how the customer is negatively affected — not how the business is affected. Mixing up perspectives is one of the most common ways students lose marks."
+        },
+        {
+            wrong: "Good customer engagement means being as helpful and informative as possible at all times.",
+            correct: "There is a fine line between being helpful and being 'pushy.' Too much information or pressure can drive customers away. Good engagement means reading the customer's needs and responding appropriately — not overwhelming them."
+        },
+        {
+            wrong: "Product knowledge is only important for face-to-face selling.",
+            correct: "Product knowledge is also important in telesales (staff must advise customers over the phone) and e-commerce (website descriptions, FAQs, and live chat all require accurate, detailed product information)."
+        },
+        {
+            wrong: "Click and collect is the same as home delivery.",
+            correct: "Click and collect means the customer orders online but COLLECTS from a store — there is NO home delivery. It is specifically designed to solve the problem of customers not being home when a delivery arrives."
+        },
+        {
+            wrong: "E-commerce and digital distribution mean the same thing.",
+            correct: "E-commerce involves an online sale followed by PHYSICAL delivery. Digital distribution means the product itself is delivered digitally (e.g. a downloaded game or e-book) with no physical delivery required."
+        },
+        {
+            wrong: "Telesales is becoming irrelevant because of e-commerce.",
+            correct: "Telesales remains important as a bridge between e-commerce and face-to-face selling, particularly for older customers, subscription renewals (insurance, utilities, phone contracts), and situations where customers want to negotiate directly."
+        }
+    ];
+
+    // 7. Examiner Tips & Structure Guides
+    const examTips = [
+        {
+            type: "Identify / State — 1 mark",
+            title: "One Point. Full Stop. Move On.",
+            content: `
+      <p>A 1-mark <strong>'State' or 'Identify'</strong> question needs exactly one correct point. No explanation. No case study. No paragraphs.</p>
+      <p><strong>The Formula:</strong> One specific, correct point = 1 mark ✅</p>
+      <ul>
+        <li><strong>❌ Bad Answer (0 marks):</strong> <em>"Promotion."</em> — This is a marketing concept, not a method of selling.</li>
+        <li><strong>✅ Good Answer (1 mark):</strong> <em>"E-commerce / telesales / face to face selling."</em></li>
+      </ul>
+      <p><strong>⚠️ Examiner Warning:</strong> Many students lost marks by writing promotional methods (price skimming, advertising) when asked for a <em>method of selling</em>. Read the exact question wording before writing.</p>
+      <p><strong>🚫 Knowledge Dumping Alert:</strong> Do NOT write a definition when asked to 'identify'. Just name the thing.</p>
+    `,
+            pills: ["K"]
+        },
+        {
+            type: "Explain — 2 marks",
+            title: "Point + Explain = 2 Marks",
+            content: `
+      <p>For a 2-mark <strong>'Explain'</strong> question, you need a point AND an explanation of how it works. Two sentences — two marks.</p>
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li><strong>Sentence 1 — State the point (K/U):</strong> Name the advantage, disadvantage, or concept.</li>
+        <li><strong>Sentence 2 — Explain it (U):</strong> Say WHY or HOW it works.</li>
+      </ul>
+      <p><strong>❌ Bad Answer (1 mark max):</strong><br/><em>"E-commerce means the business can sell more."</em><br/>Too vague — doesn't explain the mechanism.</p>
+      <p><strong>✅ Good Answer (2 marks):</strong><br/><em>"A business using e-commerce has lower operating costs (1) because it does not need to pay expensive city-centre rents for a physical shop (1)."</em></p>
+      <p><strong>⚠️ Examiner Warning:</strong> Some students answered from the customer's perspective when asked about a business advantage. Re-read: who does the question say the advantage is FOR?</p>
+    `,
+            pills: ["K", "U"]
+        },
+        {
+            type: "Analyse — 3 marks",
+            title: "The Holy Trinity: U → APP → AN",
+            content: `
+      <p>A 3-mark analyse question requires all three elements. You will score <strong>ZERO for analysis</strong> if you don't apply your answer to the specific business in the case study.</p>
+      <p><strong>The 3-Step Formula:</strong></p>
+      <ul>
+        <li><strong>Step 1 — Understanding (U):</strong> State the theory or benefit clearly.</li>
+        <li><strong>Step 2 — Application (APP):</strong> Directly reference the case study business with specific text evidence.</li>
+        <li><strong>Step 3 — Analysis (AN):</strong> State the financial or operational IMPACT on the business.</li>
+      </ul>
+      <p><strong>Sentence Starters:</strong></p>
+      <ul>
+        <li><em>U: "Good product knowledge means staff can advise customers on..."</em></li>
+        <li><em>APP: "In the case of [Business Name], the text states that..."</em></li>
+        <li><em>AN: "This will lead to more sales, meaning..." / "As a result, the business will..."</em></li>
+      </ul>
+      <p><strong>❌ Bad Answer (1 mark only):</strong><br/><em>"Product knowledge helps employees advise customers so they buy more."</em><br/>No application to the specific business = maximum 1 mark.</p>
+      <p><strong>✅ Good Answer (3 marks):</strong><br/><em>"Call centre employees need to be able to advise customers on what is best to buy (U). AZ's products are sold to qualified medical professionals, hospitals and governments (APP), so if employees cannot answer technical questions, sales and profits may fall (AN)."</em></p>
+      <p><strong>🚫 Knowledge Dumping Alert:</strong> Do not write everything you know about the topic. Answer the specific question with reference to the specific business.</p>
+    `,
+            pills: ["U", "app", "an"]
+        },
+        {
+            type: "Analyse (Two impacts) — 6 marks",
+            title: "Two 3-Mark Chains. No Conclusion Needed.",
+            content: `
+      <p>A 6-mark question is simply a <strong>3-mark question done twice</strong>. You must analyse TWO separate impacts, each with its own U → APP → AN chain.</p>
+      <p><strong>⚠️ Critical Warning:</strong> There are <strong>ZERO marks</strong> available for a conclusion or evaluation here. Do NOT write "Overall, I think..." — it wastes time and scores nothing.</p>
+      <p><strong>Structure:</strong></p>
+      <ul>
+        <li><strong>Impact 1 (3 marks):</strong> U → APP → AN</li>
+        <li><strong>Impact 2 (3 marks):</strong> U → APP → AN</li>
+      </ul>
+      <p><strong>Sentence Starters for each paragraph:</strong></p>
+      <ul>
+        <li><em>"One advantage/disadvantage is that... (U)"</em></li>
+        <li><em>"In the case of [Business], the text tells us that... (APP)"</em></li>
+        <li><em>"This means that... resulting in... (AN)"</em></li>
+      </ul>
+      <p><strong>⚠️ Examiner Warning (Primark question):</strong> Many students wrote from the CUSTOMER'S point of view when the question asked about Primark Ltd. If the question says "to Primark Ltd," every point must show how PRIMARK is affected — not how customers feel about it.</p>
+    `,
+            pills: ["U", "app", "an"]
+        },
+        {
+            type: "Recommend — 3 marks",
+            title: "Decision + Contextual Justification",
+            content: `
+      <p>A 3-mark recommend question is NOT just a repeat of advantages and disadvantages. It needs a <strong>clear decision</strong> supported by a <strong>contextual justification</strong>.</p>
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li><strong>1 mark — Judgement:</strong> Make a clear recommendation (should / should not).</li>
+        <li><strong>2 marks — Contextual justification:</strong> Use EVIDENCE from the case study text to support your decision. The evidence must be USED (not just repeated).</li>
+        <li><strong>OR 1 mark — Non-contextual justification:</strong> A reason without specific text reference.</li>
+      </ul>
+      <p><strong>❌ Bad Answer (1 mark only):</strong><br/><em>"Primark should continue click and collect because it is good for customers."</em><br/>Wrong perspective, no context used.</p>
+      <p><strong>✅ Good Answer (3 marks):</strong><br/><em>"Primark should continue (JUDGEMENT). If it stops, it may lose customers who have already changed their buying habits and got used to ordering online, as the text states buying habits have already changed (CONTEXT). This would reduce Primark's revenue and market share. (+2 MARKS)"</em></p>
+      <p><strong>⚠️ Examiner Comment:</strong> Less than a quarter of students got full marks on this type of question. Most could make a recommendation but could not justify it using the context — they repeated the text rather than using it to support their argument.</p>
+    `,
+            pills: ["U", "app", "an"]
+        },
+        {
+            type: "Evaluate — 9 marks",
+            title: "Four-Paragraph Structure for Full Marks",
+            content: `
+      <p>A 9-mark evaluate question tests your ability to argue both sides and make a justified judgement. Structure your answer in <strong>four paragraphs</strong>:</p>
+      <ul>
+        <li><strong>Paragraph 1 — Knowledge & Understanding (K + U):</strong> Define key concepts relevant to the question (e.g. what customer service is, what growth means as a business objective).</li>
+        <li><strong>Paragraph 2 — First side with analysis (AN + APP):</strong> Argue FOR the importance of customer service, with a full chain of reasoning linked to the specific business.</li>
+        <li><strong>Paragraph 3 — Counterargument with analysis (AN + APP):</strong> Argue against or present a counter-view (e.g. other factors affecting growth such as price or competition from no-frills rivals).</li>
+        <li><strong>Paragraph 4 — Evaluation (EVAL — 3 marks):</strong> Write a justified conclusion using the "It depends on..." rule. Decision + Context + Impact/Reasoning.</li>
+      </ul>
+      <p><strong>Evaluation Sentence Starters:</strong></p>
+      <ul>
+        <li><em>"Overall, good customer service is important to Virgin Atlantic achieving growth because..."</em></li>
+        <li><em>"However, this depends on whether Virgin Atlantic is targeting price-conscious customers or premium travellers..."</em></li>
+        <li><em>"In conclusion, I recommend... because... but this depends on..."</em></li>
+      </ul>
+      <p><strong>⚠️ Evaluation Warning:</strong> A conclusion that only repeats what you already wrote scores ZERO for evaluation. The "It depends on..." must introduce a NEW condition or consideration not already covered.</p>
+      <p><strong>🚫 Knowledge Dumping Alert:</strong> Do NOT list every fact you know about customer service. Every sentence must be specifically linked to the business's objective in the question.</p>
+    `,
+            pills: ["K", "U", "app", "an", "eval"]
+        },
+        {
+            type: "Perspective Trap — All Questions",
+            title: "Business vs Customer: Never Mix These Up",
+            content: `
+      <p>One of the most common ways students lose marks in 4.3 is answering from the <strong>wrong perspective</strong>.</p>
+      <p><strong>Always identify WHO the question is asking about before you write:</strong></p>
+      <ul>
+        <li>If the question says "advantage to the BUSINESS" — every point must show how the BUSINESS benefits.</li>
+        <li>If the question says "disadvantage to the CUSTOMER" — every point must show how the CUSTOMER is negatively affected.</li>
+      </ul>
+      <p><strong>Examples of the perspective trap:</strong></p>
+      <ul>
+        <li><strong>❌ Wrong (0 marks):</strong> Answering "customers can't touch the product" when asked about a disadvantage to M&S of selling food via e-commerce. That is a customer disadvantage.</li>
+        <li><strong>✅ Right (1 mark):</strong> "M&S may suffer reputational damage if its website crashes, leading to a loss of customers and reduced revenue." — This is a business disadvantage.</li>
+      </ul>
+      <p><strong>⚠️ Direct Examiner Quote:</strong> On the Primark question, many students wrote advantages and disadvantages from the customer's point of view even when the question clearly asked about Primark Ltd. This was one of the main reasons students scored 0 marks on that question.</p>
+    `,
+            pills: ["U", "app"]
+        }
+    ];
+
+    // 8. Flashcards
+    const flashcards = [
+        { term: "E-commerce", def: "The bringing together of buying and selling electronically." },
+        { term: "Customer service", def: "The area of a business that deals with customer enquiries." },
+        { term: "Customer engagement", def: "The contact between the business and customer." },
+        { term: "After-sales service", def: "Advice and help given to a customer after they have bought a product or service." },
+        { term: "Product knowledge", def: "Detailed knowledge of a product/service that staff use to help persuade customers to buy." },
+        { term: "Telesales", def: "Sales completed over the telephone." },
+        { term: "Face to face selling", def: "Direct contact between buyer and seller, usually completed in a shop." },
+        { term: "Click and collect", def: "Ordering online and collecting goods from a store at a later time." },
+        { term: "Advantage of e-commerce (business)", def: "Lower operating costs — no need for expensive city-centre premises or rent." },
+        { term: "Disadvantage of e-commerce (business)", def: "Worldwide competition — customers can easily compare prices online against global competitors." },
+        { term: "Advantage of e-commerce (customer)", def: "Price comparison — can find the best deal easily across multiple sellers at any time." },
+        { term: "Disadvantage of e-commerce (customer)", def: "Only images of goods seen — cannot touch or inspect the product before buying." },
+        { term: "Why customer service matters", def: "It helps maintain or increase sales by retaining existing customers and attracting new ones." },
+        { term: "Why product knowledge matters", def: "It encourages customers to make a purchase by providing clear, confident, helpful advice." },
+        { term: "Impact of e-commerce on location", def: "Businesses can locate almost anywhere — only an internet connection is needed for orders; warehouse sited near motorway for deliveries." },
+        { term: "Amazon Prime", def: "Amazon's subscription service offering next-day/same-day delivery and streaming extras, used to stay ahead of competitors." }
+    ];
+
+    // 9. Exam-Style Questions
+    const examQuestions = [
+        {
+            num: "Q1 (i)",
+            marks: 6,
+            type: "written",
+            caseStudy: "Primark Ltd is a fashion retailer that sells clothing and homeware at prices lower than most other retailers. The company is aware of the importance of consumer law and of having low-cost suppliers.<br><br>Primark Ltd started to sell its products online in 2022. After changes in buying habits and pressure from customers, in 2022 Primark Ltd launched an online click and collect service for shoppers.<br><br>Primark Ltd is very aware of the need to have ethical suppliers. The following ethical factors are among those important to Primark Ltd:\n• giving clothes a longer life by using material from sustainable sources\n• encouraging its supply chain to pay a living wage and look after the health and well-being of their workers.",
+            question: "Analyse one advantage and one disadvantage to Primark Ltd of offering an online click and collect service for shoppers. [6 marks]",
+            hint: "This question is asking about the impact on PRIMARK — not on customers. For each point, use the U → APP → AN chain. Make sure your application uses details from the case study (e.g. Primark only started online selling in 2022, changes in buying habits, fashion retailer with low prices).",
+            starter: "One advantage to Primark of offering click and collect is... (U)\nThis is relevant to Primark because the text states that... (APP)\nThis will lead to... meaning Primark's revenue/market share... (AN)\n\nOne disadvantage to Primark of offering click and collect is... (U)\nIn the case of Primark, the text tells us that... (APP)\nAs a result, Primark may face... which could reduce... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 6 marks (AO1b + AO2 + AO3a)</h5>
+<p><strong>Advantage (3 marks):</strong></p>
+<ul>
+<li><strong>Understanding (1 mark):</strong> Identify an advantage of offering click and collect (e.g. open 24/7 for orders; reach more people; professional website adds to brand image; save money on home deliveries).</li>
+<li><strong>Application (1 mark):</strong> Apply to Primark using text evidence (e.g. only started online selling in 2022; pressure from customers; changes in buying habits; fashion retailer with low-cost suppliers).</li>
+<li><strong>Analysis (1 mark):</strong> State the business impact (e.g. may boost revenue; increase/maintain market share; more brand awareness). Note: "make more profit" alone is insufficient — must link to higher revenue or competitiveness.</li>
+</ul>
+<p><strong>Disadvantage (3 marks):</strong></p>
+<ul>
+<li><strong>Understanding (1 mark):</strong> Identify a disadvantage (e.g. increased costs for staffing or website; increased returns/refunds; reduced impulse purchases; more online competition; keeping data safe; keeping up with technology; still requires a collection service — no home delivery).</li>
+<li><strong>Application (1 mark):</strong> Apply to Primark using text evidence.</li>
+<li><strong>Analysis (1 mark):</strong> State the business impact (e.g. competitors can now see and react to Primark's strategy; may reduce profit margins; fines if data not kept safely; still needs expensive high street stores).</li>
+</ul>
+<p><strong>NB:</strong> Analysis must be business-facing. Both points must be for Primark Ltd — NOT for customers. "Customers may not want to buy online" scores no marks — they can still go to the retail store.</p>
+<p><strong>Examiner's Comment:</strong> Less than a quarter of candidates gained 4 or more marks. Many wrote from the customer's perspective rather than Primark's. A significant number also incorrectly discussed home delivery — the service Primark offers is click and collect (in-store collection), not home delivery.</p></div>`,
+            modelAnswer: `<strong>Advantage:</strong> One advantage is that Primark can now take orders online 24 hours a day, 7 days a week (U). The text states that Primark only launched online selling in 2022 following pressure from customers and changes in buying habits (APP). This means that by being available round the clock, Primark comes in line with competitors, which should boost its revenue and help maintain its market share (AN).<br><br><strong>Disadvantage:</strong> One disadvantage is that Primark will face increased costs to set up and manage the website and click and collect infrastructure (U). As the text confirms Primark only started selling online in 2022, it is relatively new to e-commerce and would need to hire dedicated technical and logistics staff (APP). These increased costs could reduce Primark's profit margins, which is particularly challenging given its business model is built on selling clothing and homeware at prices lower than most other retailers (AN).`
+        },
+        {
+            num: "Q1 (ii)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Recommend whether Primark Ltd should continue to offer an online click and collect service for shoppers. [3 marks]",
+            hint: "Make a clear decision first (1 mark). Then justify your decision using CONTEXT from the case study — not just general points about click and collect. The context must be USED to support your argument, not just repeated.",
+            starter: "Primark should [continue / stop] offering click and collect because... (DECISION)\nIf it [continues / stops], based on the fact that [specific detail from the case study]... (CONTEXT)\nThis will result in... for Primark's sales/competitiveness. (IMPACT)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO3b)</h5>
+<ul>
+<li><strong>Judgement (1 mark):</strong> Clear recommendation — should continue OR should stop offering click and collect.</li>
+<li><strong>Contextual justification (2 marks):</strong> A reason using evidence from the case study TEXT — the context must be USED (not just repeated) to support the decision.</li>
+<li><strong>OR Non-contextual justification (1 mark):</strong> A valid reason without specific case study reference.</li>
+</ul>
+<p><strong>Exemplar response (full marks):</strong><br>"Primark should continue (1). If it stops, it may lose customers who have already got used to ordering online, as the text confirms that buying habits have already changed (CONTEXT). This would reduce Primark's revenue and market share. (+2)"</p>
+<p><strong>Examiner's Comment:</strong> Most candidates could make a recommendation but could not justify it adequately — often writing from the customer's point of view. Less than a quarter gained full marks. Examiners look for the context to be USED, not simply repeated.</p></div>`,
+            modelAnswer: `Primark should continue to offer its click and collect service (JUDGEMENT). The text states that buying habits have already changed and customers put pressure on Primark to go online — if it now removes this service, it risks losing customers to competitors who do offer e-commerce shopping (CONTEXT). This would likely reduce Primark's revenue and damage its competitive position in the fashion retail market. (+2)`
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "A manufacturer of diamond rings employs sales staff to visit jewellery stores across the UK to encourage them to purchase its products.",
+            question: "Which of the following is an advantage to the manufacturer of selling face to face to jewellery stores?",
+            options: [
+                "The cut and colour of the diamonds can be clearly demonstrated",
+                "The jewellery stores have the opportunity to negotiate very low prices",
+                "The risk of the rings being stolen is kept as low as possible",
+                "The sales staff can give out lots of free samples"
+            ],
+            answer: 0,
+            hint: "Think about what face-to-face selling uniquely allows that e-commerce or telesales cannot — particularly for a high-value, visual product like diamond rings.",
+            starter: "The correct answer is A because...",
+            markScheme: `<div class="marks-section"><h5>Answer: A</h5>
+<p><strong>A — The cut and colour of the diamonds can be clearly demonstrated.</strong></p>
+<p><strong>Why A is correct:</strong> Face-to-face selling allows the physical product to be examined in person. For diamond rings, where cut, colour, clarity, and craftsmanship are key selling points, a live demonstration is far more effective than an image or telephone description.</p>
+<p><strong>Why the others are wrong:</strong></p>
+<ul>
+<li><strong>B — Negotiating very low prices</strong> is a benefit to the BUYER (jewellery stores), not the manufacturer/seller.</li>
+<li><strong>C — Reducing theft risk</strong> is not a specific or notable advantage of face-to-face selling over other methods.</li>
+<li><strong>D — Free samples</strong> are not realistic for diamond rings, and giving away samples is not a defining feature of face-to-face selling.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q3 (i)",
+            marks: 2,
+            type: "written",
+            caseStudy: "Zara is a global fashion brand based in Spain. Zara is best known for the speed and frequency it can get its new clothing ranges into its online shop and 2270 stores. Approximately 50% of Zara's clothes are manufactured in Spain; the rest come from other European countries, or from Asia and Africa. Like most firms in 2020, Zara experienced a fall in sales. Zara's global sales revenues in 2019 were €19 954 million, but in 2020 these fell to €14 129 million. However, during this period Zara's online sales increased by approximately 75%, as consumer buying habits changed in favour of e-commerce.<br><br>Zara can get new clothing designed, manufactured and delivered to its stores within 15 days. It does this by buying fabric in large quantities from suppliers in Europe, which helps keep its variable costs low. This means that it is delivered quickly to its factory in Spain, where it can then be made up into the new designs.<br><br>Zara's highly responsive supply chain is central to its business success. This means it can change its clothing designs on average every two weeks, while competitors change their designs every two or three months.",
+            question: "Calculate the percentage decrease in Zara's sales revenue between 2019 and 2020. Show your workings. [2 marks]",
+            hint: "First calculate the change in revenue (2019 minus 2020). Then divide by the ORIGINAL (2019) figure and multiply by 100. No need to include a negative sign — the question already states it is a decrease.",
+            starter: "Change in revenue = €19,954m − €14,129m = ...\nPercentage decrease = (change ÷ original) × 100 = ...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO2)</h5>
+<ul>
+<li><strong>Step 1 (1 mark):</strong> €19,954m − €14,129m = €5,825m</li>
+<li><strong>Step 2 (1 mark):</strong> (€5,825m ÷ €19,954m) × 100 = 29.2% (accept 29% or any other reasonable level of accuracy)</li>
+</ul>
+<p>Two marks for a correct final answer, with or without workings shown. If the final answer is wrong but working clearly shows €5,825m, award 1 mark (own figure rule).</p>
+<p>Negative sign not required. Percentage sign not required.</p>
+<p><strong>Examiner's Comment:</strong> Generally well answered. Common errors: using the 2020 figure as the denominator instead of the 2019 figure, or inverting the formula entirely.</p></div>`,
+            modelAnswer: "Change in revenue: €19,954m − €14,129m = €5,825m\nPercentage decrease: (€5,825m ÷ €19,954m) × 100 = 29.2%"
+        },
+        {
+            num: "Q3 (ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Explain one possible advantage to a business of selling its products via e-commerce. [2 marks]",
+            hint: "Make sure your advantage is clearly linked to e-commerce (not just 'selling more products' without explanation) and is from the BUSINESS'S perspective, not the customer's.",
+            starter: "One advantage of e-commerce to a business is... (K/U)\nThis means the business can... because... (U — explain how it works)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1b)</h5>
+<ul>
+<li><strong>1 mark:</strong> Identify an advantage of selling via e-commerce (e.g. sell worldwide; open all the time; professional look at little cost; lower operating costs).</li>
+<li><strong>1 further mark:</strong> Explain the advantage — say how or why it benefits the business.</li>
+</ul>
+<p>Answers do not need to relate to Zara. "Selling more products" without any link to e-commerce scores 0.</p>
+<p><strong>Examiner's Comment:</strong> Generally well answered. Most students focused on 24/7 availability or wider audience. Some answered from the customer's perspective — the question asks about a BUSINESS advantage. Read the question carefully.</p></div>`,
+            modelAnswer: "A business selling via e-commerce may have lower operating costs (1) because it does not need to pay for expensive city-centre premises or shop rent to sell its goods (1)."
+        },
+        {
+            num: "Q4",
+            marks: 3,
+            type: "written",
+            caseStudy: "AstraZeneca plc (AZ) is a multinational pharmaceutical company that operates in over 100 countries around the world. AZ develops treatments for a range of diseases. It sells its medicines and vaccines worldwide. Its headquarters are in Cambridge, England. In 2021 AZ's sales revenue was £37 417m, from which it made £24 980m gross profit.<br><br>AZ has a code of ethics, which is at the centre of everything that it does. The company has approximately 75 000 employees worldwide; 10 000 of these work in its three research and development centres.<br><br>AZ uses technology throughout its operations to provide high quality products for its customers. These customers include doctors, hospitals and governments from around the globe.<br><br>In the UK, AZ has changed the way it sells its products. Previously, sales staff would visit medical professionals; now it uses a call centre and website where medical professionals can order products and samples. AZ says this means it can now provide a high quality service that meets the needs of its customers at a lower cost.",
+            question: "Analyse one reason why it is important to AZ that its call centre employees have good product knowledge. [3 marks]",
+            hint: "Use U → APP → AN. Your application MUST use specific evidence from the AZ case study — simply naming the product (medicines) is NOT enough for the application mark.",
+            starter: "Good product knowledge is important for call centre employees because... (U)\nIn the case of AZ, the text states that customers include... (APP)\nIf employees can/cannot answer questions, this will lead to... which means AZ's sales/reputation... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5>
+<ul>
+<li><strong>Understanding (1 mark):</strong> Identify a reason why product knowledge matters for call centre staff (e.g. can offer correct advice; deal with customer queries; increase customer satisfaction; customer trusts the business/product).</li>
+<li><strong>Application (1 mark):</strong> Apply to AZ using TEXT EVIDENCE (e.g. operates in 100+ countries; sells to qualified medical professionals, hospitals and governments; switched from sales visits to a call centre; high quality products/code of ethics).</li>
+<li><strong>Analysis (1 mark):</strong> State the business impact (e.g. if employees cannot answer questions, sales/profits will decrease; could affect reputation; may reduce money available for R&D of new medicines).</li>
+</ul>
+<p><strong>NB:</strong> A basic reference to the product (medicines and vaccines) is NOT sufficient for the application mark — must use specific text evidence about AZ's operations or customers.</p>
+<p><strong>Examiner's Comment:</strong> Generally well answered, but many answers used no text evidence beyond naming the product, limiting those responses to 2 marks maximum.</p></div>`,
+            modelAnswer: "Call centre employees need to be able to advise customers on what is best for them to buy (U). AZ's products are sold to qualified medical professionals, hospitals, and governments — highly knowledgeable professionals who require detailed and accurate information (APP). If employees cannot answer their technical questions, AZ may lose these customers to rival pharmaceutical companies, reducing sales and profits, and leaving less money available for research and development of new treatments (AN)."
+        },
+        {
+            num: "Q5",
+            marks: 1,
+            type: "written",
+            caseStudy: "Quality Textiles Ltd (QT) is a medium-sized, established business that manufactures clothes from its factory in Birmingham. Its clothes are sold to retail shops around the country.",
+            question: "Identify one method of selling products to customers. [1 mark]",
+            hint: "There are three main selling methods covered in this topic. Name just one — no explanation needed.",
+            starter: "One method of selling is...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 1 mark (AO1a)</h5>
+<ul>
+<li><strong>1 mark</strong> for any correct method: e-commerce / online / websites / digitally; shops / retail / face to face; telesales; mail order / catalogues.</li>
+</ul>
+<p><strong>Examiner's Comment:</strong> Most candidates gained this mark, but some wrote promotional methods (price skimming, advertising) instead of methods of selling. Read the question carefully.</p></div>`,
+            modelAnswer: "E-commerce / Face to face selling / Telesales"
+        },
+        {
+            num: "Q6",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Customer engagement:",
+            options: [
+                "Allows customers to try before they buy",
+                "Contributes to good customer service",
+                "Improves the product knowledge of employees",
+                "Shortens the supply chain"
+            ],
+            answer: 1,
+            hint: "Think about the official definition of customer engagement — what does it directly contribute to in a business?",
+            starter: "The correct answer is B because...",
+            markScheme: `<div class="marks-section"><h5>Answer: B</h5>
+<p><strong>B — Contributes to good customer service.</strong></p>
+<p><strong>Why B is correct:</strong> Customer engagement (the contact between business and customer) is one of the key ways a business delivers good customer service — well-trained, engaged staff build loyalty and improve customer satisfaction.</p>
+<p><strong>Why the others are wrong:</strong></p>
+<ul>
+<li><strong>A — Trying before buying</strong> is a feature of face-to-face retail, not customer engagement per se.</li>
+<li><strong>C — Improving product knowledge of employees</strong> is about staff training, not customer engagement.</li>
+<li><strong>D — Shortening the supply chain</strong> is a logistics and procurement concept, unrelated to customer engagement.</li>
+</ul>
+<p><strong>Examiner's Comment:</strong> Some students showed misunderstanding of 'customer engagement'. Always take time to read what the question is actually asking.</p></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q7 (i)",
+            marks: 2,
+            type: "written",
+            caseStudy: "Barclays plc is a multinational banking company. Its headquarters are in London. One of the bank's core values is integrity – it tries to act fairly, ethically and openly in all it does.<br><br>Barclays plc's personal banking division provides banking services to the general public. These services include providing a place to save and borrow money, as well as a place where customers can obtain advice on financial matters. In 2020 Barclays plc had 24 million UK personal banking customers.<br><br>Banks are typically among the first industries to embrace technological advances. Barclays plc has been able to make use of e-commerce by selling loans, savings accounts and insurance through its websites. The bank has also invested in computer technology to provide online banking services to its customers. Online banking services allow customers to access their bank accounts on the Internet. Customers can carry out banking transactions, pay off credit cards or deposit savings 24 hours a day, worldwide. Online banking is one of the fastest growing areas of Internet activities.<br><br>The percentage of UK banking customers using online banking was: 42% (2010), 47% (2012), 53% (2014), 60% (2016), 69% (2018), 75% (2020).",
+            question: "Calculate, using the figures shown in Fig. 1, the number of Barclays plc's UK personal banking customers who are likely to have used online banking in 2020. Show your workings. [2 marks]",
+            hint: "From the bar chart, 75% of UK banking customers used online banking in 2020. Barclays had 24 million UK personal banking customers. Calculate 75% of 24 million.",
+            starter: "Percentage from graph = 75%\n24,000,000 × 0.75 = ...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO2)</h5>
+<ul>
+<li><strong>Step 1 (1 mark):</strong> Identifies 75% of customers used online banking in 2020.</li>
+<li><strong>Step 2 (1 mark):</strong> 24m × 0.75 = 18 million.</li>
+</ul>
+<p>Two marks for the correct final answer (18m or 18,000,000), with or without workings shown.</p></div>`,
+            modelAnswer: "75% of Barclays' 24 million customers used online banking in 2020.\n24,000,000 × 0.75 = 18,000,000 (18 million customers)"
+        },
+        {
+            num: "Q7 (ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify two impacts that e-commerce might have on business activity. [2 marks]",
+            hint: "Think about what changes INSIDE a business when it adopts e-commerce — departments, employment levels, location decisions, skills requirements, delivery costs, etc.",
+            starter: "Impact 1: E-commerce may require a business to...\nImpact 2: E-commerce could lead to...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1b)</h5>
+<ul>
+<li><strong>1 mark each</strong> for two different, correct impacts.</li>
+</ul>
+<p>Acceptable answers include: need to set up specific departments; recruit dedicated website/technical staff; invest in staff training; increased delivery costs; more online marketing needed; ability to sell 24/7 increasing customer numbers; fewer physical customers visiting a store; access to new international markets.</p>
+<p>No reward for general IT failure or general expansion answers without an e-commerce link. Both answers must be clearly different from each other.</p></div>`,
+            modelAnswer: "Impact 1: The business may need to create a specific online department with dedicated website and technical staff to manage e-commerce sales.\nImpact 2: The business can sell to an international market 24 hours a day, potentially increasing its customer base and sales revenue beyond what a physical store allows."
+        },
+        {
+            num: "Q8",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "Geoff, a sole trader, owns a second-hand book shop. Despite being well advertised and selling reasonably priced products, the shop has difficulty retaining customers.",
+            question: "Which of the following would help Geoff deal with this problem?",
+            options: [
+                "Advertise other second-hand book shops in the area",
+                "Close the shop early on weekdays in the school holidays",
+                "Improve customer service by being friendly and polite",
+                "Offer a free book to new customers who spend over £5"
+            ],
+            answer: 2,
+            hint: "Geoff can gain customers (advertising is working and prices are good) but cannot KEEP them. Which option directly addresses the post-purchase experience and encourages customers to return?",
+            starter: "The correct answer is C because...",
+            markScheme: `<div class="marks-section"><h5>Answer: C</h5>
+<p><strong>C — Improve customer service by being friendly and polite.</strong></p>
+<p><strong>Why C is correct:</strong> The shop is advertised and prices are reasonable — marketing and pricing are not the issue. The problem is RETENTION. Friendly, polite customer service improves the experience and gives customers a reason to return.</p>
+<p><strong>Why the others are wrong:</strong></p>
+<ul>
+<li><strong>A — Advertising other book shops</strong> would actively help competitors and drive customers away from Geoff's shop.</li>
+<li><strong>B — Closing early</strong> reduces accessibility and would make retention worse, not better.</li>
+<li><strong>D — Free book for new customers</strong> targets gaining NEW customers, but the problem stated is retaining EXISTING ones.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q9",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "An assistant serves a customer who has come into the post office to top-up their mobile phone credit.",
+            question: "This is an example of:",
+            options: [
+                "After-sales service",
+                "E-commerce",
+                "Face to face selling",
+                "Telesales"
+            ],
+            answer: 2,
+            hint: "The customer physically enters a building and is served in person. Which method of selling involves direct contact between buyer and seller in a physical location?",
+            starter: "The correct answer is C because...",
+            markScheme: `<div class="marks-section"><h5>Answer: C</h5>
+<p><strong>C — Face to face selling.</strong></p>
+<p><strong>Why C is correct:</strong> The customer visits a physical location (post office) and is served directly by an assistant — direct contact between buyer and seller defines face-to-face selling.</p>
+<p><strong>Why the others are wrong:</strong></p>
+<ul>
+<li><strong>A — After-sales service</strong> is advice or help AFTER a purchase has already been made, not at the point of sale.</li>
+<li><strong>B — E-commerce</strong> involves buying and selling electronically — there is no online element here.</li>
+<li><strong>D — Telesales</strong> is completed over the telephone — the customer is physically present, not calling.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q10 (a)(i)",
+            marks: 2,
+            type: "written",
+            caseStudy: "John Lewis & Partners (JLP) is a chain of department stores that stocks a wide range of products from clothing to home furnishings. As a result it is always looking for high quality suppliers for its products.<br><br>JLP uses face-to-face selling in its stores. Staff in the electrical department are trained to have good product knowledge. These products include a wide range of computers, televisions and washing machines. However, JLP's recent growth has come from e-commerce.<br><br>JLP has a wide range of suppliers. It is important that the right supplier is chosen, so JLP will take time evaluating new suppliers and will review existing suppliers regularly so that it can continue supplying high quality products to its customers.",
+            question: "Explain one reason why quality is important to a business in the production of goods. [2 marks]",
+            hint: "Give a reason WHY quality matters (K), then explain HOW that reason benefits the business (U). Answers do not need to refer to JLP.",
+            starter: "Quality is important to a business because... (K)\nThis means the business can / helps the business to... (U)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a + AO1b)</h5>
+<ul>
+<li><strong>1 mark (Knowledge):</strong> State a reason why quality is important (e.g. reputation; gaining new customers; satisfying customer needs; retaining existing customers; reducing product returns and recalls; avoiding waste; avoiding disruption to production; allows a higher price to be charged).</li>
+<li><strong>1 further mark (Understanding):</strong> Explain or exemplify that reason.</li>
+</ul>
+<p>Answers do not need to relate to JLP.</p></div>`,
+            modelAnswer: "Quality is important to maintain a good reputation (1) as consumers expect high standards, and a reputation for quality encourages customers to buy from the business and return in the future, building long-term loyalty (1)."
+        },
+        {
+            num: "Q10 (a)(ii)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "JLP's electrical department staff have good product knowledge. Analyse one positive impact of this on the quality of JLP's customer service. [3 marks]",
+            hint: "Use U → APP → AN. For the application mark, use specific details from the JLP case study (e.g. the wide range of computers, TVs and washing machines; face-to-face selling; chain of department stores).",
+            starter: "Good product knowledge means that JLP's staff are able to... (U)\nThis is especially important for JLP because the text states that... (APP)\nAs a result, customers are more likely to... which leads to JLP's sales... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5>
+<ul>
+<li><strong>Understanding (1 mark):</strong> State a benefit of knowledgeable staff (e.g. able to provide help/advice/suggestions; customer more confident; increased trust; business gets good reviews).</li>
+<li><strong>Application (1 mark):</strong> Apply to JLP using text evidence (e.g. chain of department stores; wide range including computers, TVs and washing machines; uses face-to-face selling; recent growth from e-commerce).</li>
+<li><strong>Analysis (1 mark):</strong> State the business impact (e.g. more sales; customer more likely to return or recommend to others; improved reputation).</li>
+</ul>
+<p>Focus on the selling aspect of the business, not manufacturing or supplier selection.</p></div>`,
+            modelAnswer: "Employees are able to confidently discuss JLP's products with customers (U). This is especially important in JLP's electrical department because customers may not be familiar with the wide range of computers, televisions and washing machines available, and staff who can explain features add real value (APP). As a result, customers are more likely to trust JLP and make a purchase, increasing sales revenue and encouraging repeat visits (AN)."
+        },
+        {
+            num: "Q10 (b)",
+            marks: 4,
+            type: "written",
+            caseStudy: "",
+            question: "Explain two possible advantages to JLP of using e-commerce. [4 marks]",
+            hint: "For each advantage: (1) State the advantage clearly (U), then (2) apply it specifically to JLP using details from the text (APP). Make sure both advantages are DIFFERENT from each other and are advantages to JLP — not to customers.",
+            starter: "Advantage 1: JLP can... (U)\nThis is relevant to JLP because the text tells us that... (APP)\n\nAdvantage 2: Using e-commerce also means JLP... (U)\nIn the case of JLP, because it sells... this means... (APP)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 4 marks (AO1b × 2 + AO2 × 2)</h5>
+<ul>
+<li><strong>1 mark each</strong> for each advantage stated (max 2), and <strong>1 further mark each</strong> for applying to JLP using text evidence (max 2).</li>
+</ul>
+<p>Advantages may include: reduces costs/more profit; wider market; increased sales; wider product range sold; reduces need for physical stores; reduces need to hold large inventory; less staff needed.</p>
+<p>Application evidence: chain of department stores; wide range of products (clothing, home furnishings, computers, TVs, washing machines); face-to-face selling currently used; recent growth from e-commerce.</p>
+<p>Both advantages must be different. Must be advantages to the BUSINESS, not the customer.</p></div>`,
+            modelAnswer: "Advantage 1: Using e-commerce means JLP can reduce the need to hold large amounts of stock in every store (U). This is particularly useful for bulky electrical items like washing machines and televisions that JLP sells — these do not need to take up expensive floor space in every branch (APP).\n\nAdvantage 2: E-commerce allows even more people across the UK and beyond to buy from JLP online (U). Even though JLP already has a chain of department stores, selling online removes geographical barriers so customers who do not live near a store can still access JLP's full range of clothing and home furnishings (APP)."
+        },
+        {
+            num: "Q11",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "A business finds it relatively easy to gain customers but has great difficulty retaining these customers.",
+            question: "Which aspect of the business is most likely to need improving?",
+            options: [
+                "After-sales service",
+                "E-commerce",
+                "Marketing",
+                "Procurement"
+            ],
+            answer: 0,
+            hint: "The business gains customers easily — so what is already working? The problem is keeping customers AFTER their first purchase. Which aspect deals with the post-purchase experience?",
+            starter: "The correct answer is A because...",
+            markScheme: `<div class="marks-section"><h5>Answer: A</h5>
+<p><strong>A — After-sales service.</strong></p>
+<p><strong>Why A is correct:</strong> Marketing (C) is clearly working — the business gains customers easily. The problem is RETENTION. After-sales service determines how customers are treated after a purchase — poor after-sales service leads to customers not returning.</p>
+<p><strong>Why the others are wrong:</strong></p>
+<ul>
+<li><strong>B — E-commerce</strong> relates to the selling method, not to why customers stop returning.</li>
+<li><strong>C — Marketing</strong> is what gains customers — the question confirms this is already working well.</li>
+<li><strong>D — Procurement</strong> relates to buying supplies and inputs, not customer retention.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q12",
+            marks: 9,
+            type: "written",
+            caseStudy: "Virgin Atlantic is a multinational company which flies customers to many destinations around the world. Since its launch in 1984 Virgin Atlantic has pursued objectives of growth and to develop an international brand.<br><br>In 2016, Virgin Atlantic carried 6 million passengers and made £23 million in profit, its highest profit in five years. The company can calculate the number of customers it needs for each of its flights to break-even.<br><br>Part of Virgin Atlantic's aim is 'to grow a profitable airline, where people love to fly and people love to work.' The business has always been keen to provide excellent customer service, competitive prices and a fantastic choice of food and drink on its planes. Additionally, the business takes its ethical and environmental responsibilities very seriously too.",
+            question: "* Evaluate the importance of good customer service to Virgin Atlantic's objective of growth. [9 marks]",
+            hint: "This 9-mark evaluate question needs 4 paragraphs: (1) Define key terms (customer service + growth), (2) argue FOR customer service helping growth with Virgin Atlantic context, (3) argue AGAINST or present a counterpoint (e.g. price, no-frills competition), (4) write a justified 'it depends on...' conclusion — NOT just repeating what you already wrote.",
+            starter: "Paragraph 1 (K + U): Customer service means... Growth as an objective means...\n\nParagraph 2 (AN + APP — FOR): Good customer service can help Virgin Atlantic achieve growth because... The case study states that Virgin Atlantic... This leads to...\n\nParagraph 3 (AN + APP — AGAINST): However, customer service is not the only factor affecting growth. Virgin Atlantic faces competition from no-frills airlines that... This means...\n\nParagraph 4 (EVAL — 3 points): Overall, good customer service is [very / moderately] important to Virgin Atlantic's growth because... However, this depends on whether... In conclusion, the most important factor is... because...",
+            markScheme: `<div class="marks-section"><h5>Level Descriptors — 9 marks (AO1a×1, AO1b×1, AO2×2, AO3a×2, AO3b×3)</h5>
+<p><strong>Level 3 (7–9 marks):</strong> Good knowledge and understanding of customer service and the growth objective. Good application to Virgin Atlantic using specific text evidence. Good analysis showing logical chains of reasoning about the impact on growth. Strong, fully justified evaluation using context — judgement is made and conclusions go beyond what has already been written.</p>
+<p><strong>Level 2 (4–6 marks):</strong> Good knowledge with some application. Limited analysis with cause-and-consequence reasoning. Limited evaluation with a basic judgement.</p>
+<p><strong>Level 1 (1–3 marks):</strong> Limited knowledge of customer service. Some use of the scenario. Some simple cause-and-effect reasoning. No evaluation.</p>
+<p><strong>0 marks:</strong> No response or nothing worthy of credit.</p>
+<p><strong>Indicative content — FOR customer service helping growth:</strong></p>
+<ul>
+<li>Good customer service → repeat passengers → more sales → growth in revenue/profit</li>
+<li>Builds brand loyalty → word-of-mouth → new customers at no marketing cost</li>
+<li>Virgin Atlantic's aim: "people love to fly" — directly requires excellent in-flight and ground service</li>
+<li>Made highest profit in 5 years in 2016 — good service likely contributed</li>
+</ul>
+<p><strong>Indicative content — AGAINST:</strong></p>
+<ul>
+<li>No-frills airlines cut customer service but offer lower prices, attracting price-sensitive customers</li>
+<li>Higher service levels mean higher costs (staff, food, training) — reduces profit available for growth investment</li>
+<li>Growth might require new routes or aircraft — finance may be more important than service</li>
+</ul>
+<p><strong>Evaluation — must use "It depends on..." with new context:</strong></p>
+<ul>
+<li>"It depends on whether Virgin Atlantic is targeting premium travellers (where service is crucial) or price-conscious customers"</li>
+<li>"It depends on whether VA needs to grow by adding new routes/aircraft — if so, controlling costs may matter more"</li>
+</ul></div>`,
+            modelAnswer: `<strong>Paragraph 1 (K + U):</strong> Customer service means ensuring the needs of customers are met in a way that keeps them satisfied and likely to return. Growth as a business objective for Virgin Atlantic means increasing the scale of the business — this could mean more passengers, more routes, higher revenue, or a larger share of the airline market.<br><br><strong>Paragraph 2 (AN + APP — FOR):</strong> Good customer service is vital to Virgin Atlantic's growth because it encourages repeat custom. The case study states that Virgin Atlantic provides excellent customer service including a fantastic choice of food and drink on its planes (APP). Happy passengers are more likely to fly with Virgin Atlantic again and recommend it to others, increasing passenger numbers and revenue — directly supporting the growth objective (AN).<br><br><strong>Paragraph 3 (AN + APP — AGAINST):</strong> However, good customer service is not the only factor driving growth. Virgin Atlantic faces competition from low-cost no-frills airlines that deliberately reduce service to offer lower prices, which attracts price-sensitive customers. By maintaining high service levels, Virgin Atlantic has higher costs — trained staff, better food, and more frequent cleaning — which may reduce the profit available to invest in new aircraft or routes needed for growth (AN).<br><br><strong>Paragraph 4 (EVAL):</strong> Overall, good customer service is important to Virgin Atlantic's growth because building a loyal customer base of repeat passengers is the foundation of sustainable growth in the airline industry. However, this depends on which customer segments Virgin Atlantic is targeting for growth. If it is targeting premium travellers who value service quality, customer service is its most important competitive advantage. But if it needs to grow by competing for price-conscious travellers against budget airlines, it may need to accept some reduction in service standards to keep fares competitive. In conclusion, customer service is a key driver of growth for Virgin Atlantic, but is most effective when combined with competitive pricing across its route network.`
+        },
+        {
+            num: "Q13",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "A store that sells mobile phones wishes to improve the level of customer service it offers to those who come into the store.",
+            question: "Which one of the following will NOT improve the level of customer service the store offers?",
+            options: [
+                "Demonstrating to all staff how to be attentive, polite and helpful",
+                "Giving the sales assistants lists detailing the features of each phone",
+                "Offering a free phone case with every mobile phone purchased",
+                "Training the store manager to deal with technical queries"
+            ],
+            answer: 2,
+            hint: "Think about what customer service actually means — the quality of interaction, advice, and assistance provided. Which option is a promotional or pricing decision rather than a customer service improvement?",
+            starter: "The correct answer is C because...",
+            markScheme: `<div class="marks-section"><h5>Answer: C</h5>
+<p><strong>C — Offering a free phone case with every mobile phone purchased.</strong></p>
+<p><strong>Why C is correct:</strong> A free phone case is a sales promotion / pricing incentive. It may attract customers, but it does not improve the QUALITY of service, advice, or interaction customers receive in store.</p>
+<p><strong>Why the others are wrong (they DO improve customer service):</strong></p>
+<ul>
+<li><strong>A</strong> — Training staff to be attentive and polite directly improves customer engagement — a key part of customer service.</li>
+<li><strong>B</strong> — Giving staff product feature lists improves product knowledge, enabling better advice for customers.</li>
+<li><strong>D</strong> — Training the manager to handle technical queries improves after-sales service and the ability to resolve customer problems effectively.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q14 (i)",
+            marks: 2,
+            type: "written",
+            caseStudy: "Tesco plc is one of the largest retailers in the UK. It sells a range of products through its shops and uses e-commerce across the UK. The business procures its supplies from a range of UK and foreign businesses.<br><br>On its website, Tesco plc states its core purpose as 'wanting to be a champion for customers, helping them to enjoy a better quality of life and an easier way of living. Customers want great products at great value which they can buy easily and it's our job to deliver this in the right way for them.'<br><br>In recent years, sales of Tesco plc's products and services have been affected by increasing competition, consumer law and the growth of e-commerce. In addition, sales are impacted by how the UK economy is performing and the level of UK employment.",
+            question: "State two methods of ensuring quality. [2 marks]",
+            hint: "Think about the two main formal approaches businesses use to check and maintain quality — one checks at the end, one checks continuously throughout production.",
+            starter: "Method 1: ...\nMethod 2: ...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a × 2)</h5>
+<ul>
+<li><strong>1 mark each</strong> for two correct methods of ensuring quality.</li>
+<li>Quality control (e.g. inspection of product samples; mystery shoppers in retail)</li>
+<li>Quality assurance (e.g. continuous checking at every stage of production; training staff to identify errors)</li>
+</ul></div>`,
+            modelAnswer: "Method 1: Quality control — inspecting finished products or samples to check they meet required standards.\nMethod 2: Quality assurance — continuously checking products at every stage of the production or service process to prevent errors occurring."
+        },
+        {
+            num: "Q14 (ii)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Analyse one advantage to Tesco plc of selling using e-commerce. [3 marks]",
+            hint: "Use U → APP → AN. Your application must link to something specific about TESCO from the case study (e.g. one of the UK's largest retailers, sells through shops AND online, affected by competition).",
+            starter: "One advantage of e-commerce to Tesco is... (U)\nThis is relevant to Tesco because the text states... (APP)\nAs a result, Tesco will... which means its sales/profits/competitiveness... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3)</h5>
+<ul>
+<li><strong>Understanding (1 mark):</strong> State an advantage of e-commerce (e.g. customers can buy 24/7; sell to wider market; lower operating costs).</li>
+<li><strong>Application (1 mark):</strong> Apply to Tesco using text evidence (e.g. one of the UK's largest retailers; already uses both shops and e-commerce; affected by increasing competition).</li>
+<li><strong>Analysis (1 mark):</strong> State the impact on Tesco's business (e.g. more sales; helps it compete against rivals; higher revenue).</li>
+</ul></div>`,
+            modelAnswer: "E-commerce allows Tesco's customers to make purchases online at any time of day or night (U). This is important for Tesco because even as one of the UK's largest retailers with many stores, those stores have restricted opening hours — e-commerce means customers can shop for groceries and other products outside those hours (APP). This can lead to higher sales volume and revenue, helping Tesco remain competitive against rival supermarkets who also offer online shopping (AN)."
+        },
+        {
+            num: "Q15",
+            marks: 1,
+            type: "written",
+            caseStudy: "NEXT plc. is a clothing retailer selling clothing, footwear, accessories and home products through its high street shops and online across the UK. NEXT plc. understands the importance of creating good relationships with its customers and constantly tries to improve its levels of customer service.",
+            question: "State one example of good customer service that retailers may provide for their customers. [1 mark]",
+            hint: "Good customer service includes specific actions taken before, during, or after a sale — think beyond just being polite.",
+            starter: "One example of good customer service is...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 1 mark (AO1a)</h5>
+<ul>
+<li><strong>1 mark</strong> for any correct example: giving advice/product knowledge; accepting returns; being friendly/polite/welcoming (customer engagement); prompt delivery; effective after-sales service.</li>
+</ul></div>`,
+            modelAnswer: "Offering effective after-sales service, such as accepting returns or organising repairs if a product is faulty."
+        },
+        {
+            num: "Q16",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "What is e-commerce?",
+            options: [
+                "A method used to ensure quality",
+                "A planning tool",
+                "A type of bank loan",
+                "A way to sell goods on the Internet"
+            ],
+            answer: 3,
+            hint: "Think about the official definition — e-commerce involves buying and selling using internet technology.",
+            starter: "The correct answer is D because...",
+            markScheme: `<div class="marks-section"><h5>Answer: D</h5>
+<p><strong>D — A way to sell goods on the Internet.</strong></p>
+<p><strong>Why D is correct:</strong> E-commerce is the bringing together of buying and selling electronically — commonly known as online sales via the internet.</p>
+<p><strong>Why the others are wrong:</strong></p>
+<ul>
+<li><strong>A</strong> — Quality control and quality assurance are methods to ensure quality, not e-commerce.</li>
+<li><strong>B</strong> — Planning tools include cash flow forecasts and SWOT analysis, not e-commerce.</li>
+<li><strong>C</strong> — A bank loan is a source of finance, completely unrelated to e-commerce.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q17",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which one of the following businesses is most likely to use telesales?",
+            options: [
+                "A burger van",
+                "A petrol station",
+                "A school",
+                "An insurance company"
+            ],
+            answer: 3,
+            hint: "Think about which type of business primarily sells its products or services by phone — where customers call to get a quote, renew a policy, or make a purchase without needing to see anything in person.",
+            starter: "The correct answer is D because...",
+            markScheme: `<div class="marks-section"><h5>Answer: D</h5>
+<p><strong>D — An insurance company.</strong></p>
+<p><strong>Why D is correct:</strong> Insurance companies are classic users of telesales — customers call to get quotes, compare options, negotiate premiums, and renew policies over the phone. The product (insurance) is intangible and requires no physical demonstration, making telephone sales ideal.</p>
+<p><strong>Why the others are wrong:</strong></p>
+<ul>
+<li><strong>A</strong> — A burger van sells face-to-face at a physical location to passing customers.</li>
+<li><strong>B</strong> — A petrol station sells face-to-face at a physical location.</li>
+<li><strong>C</strong> — A school provides education services rather than selling products through telesales.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q18",
+            marks: 1,
+            type: "written",
+            caseStudy: "Marks and Spencer (M&S) is one of the UK's leading retailers. It is committed to making every moment special for its customers, through its high quality, own-brand food, clothing & home products.<br><br>M&S has an ethical programme called 'Plan A'. This was relaunched in 2017 with three new objectives for 2025:\n1. 'Nourishing our wellbeing' – including looking after staff and their needs.\n2. 'Transforming local communities' – including supporting staff who want to volunteer in charities.\n3. 'Caring for the planet we share' – including developing better recycling for packaging.<br><br>In 2017, 60% of M&S's revenue came from the sale of food, which it sells through its 1025 UK stores as well as through e-commerce on its website.",
+            question: "Identify one disadvantage to M&S of selling its food using e-commerce. [1 mark]",
+            hint: "The question asks for a disadvantage to M&S (the BUSINESS) — NOT to the customer. Think about what problems M&S as a company would specifically face when selling food online.",
+            starter: "One disadvantage to M&S of selling food using e-commerce is...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 1 mark (AO2)</h5>
+<ul>
+<li><strong>1 mark</strong> for a correct disadvantage linked to M&S the business.</li>
+</ul>
+<p>Acceptable answers (linked to food or M&S): cost of transporting and delivering food; food may become damaged in transit; reputational damage if website crashes; high cost of website security for a large business; cost of a cyberattack (M&S is a high-profile target); customer loss if food arrives damaged.</p>
+<p><strong>Do NOT reward</strong> disadvantages to the CUSTOMER (e.g. "the food might not be fresh when it arrives" is a customer issue, not a business issue).</p>
+<p><strong>Examiner's Comment:</strong> Many students wrote customer disadvantages. The question asks about M&S. A disadvantage to M&S might be delivery costs, reputational risk, or the technical costs of running and securing a website for such a large business.</p></div>`,
+            modelAnswer: "The cost of transporting and delivering fresh food to customers' homes adds significantly to M&S's operating costs, which could reduce its profit margins."
+        },
+        {
+            num: "Q19",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "A customer comes into a travel agency to book a holiday to Australia. An assistant serves the customer.",
+            question: "Which of the following is this an example of?",
+            options: [
+                "Face to face selling",
+                "International branding",
+                "Sales promotion",
+                "Telesales"
+            ],
+            answer: 0,
+            hint: "The customer physically visits a location and is served in person. Which method of selling is defined by direct physical contact between buyer and seller?",
+            starter: "The correct answer is A because...",
+            markScheme: `<div class="marks-section"><h5>Answer: A</h5>
+<p><strong>A — Face to face selling.</strong></p>
+<p><strong>Why A is correct:</strong> The customer physically enters the travel agency and is served directly by an assistant — direct contact between buyer and seller in a physical setting is the definition of face-to-face selling.</p>
+<p><strong>Why the others are wrong:</strong></p>
+<ul>
+<li><strong>B — International branding</strong> refers to developing a brand identity across countries, not a method of selling.</li>
+<li><strong>C — Sales promotion</strong> refers to short-term marketing incentives (discounts, offers), not the method of selling.</li>
+<li><strong>D — Telesales</strong> would require the customer to be on the phone, not physically present.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q20",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "Coconut Life uses e-commerce to sell its range of innovative coconut products.",
+            question: "Which of the following will NOT improve customer engagement?",
+            options: [
+                "Training staff on the benefit of coconuts",
+                "Only selling products that have been certified as organic",
+                "Sending carefully worded personalised emails to interested customers",
+                "Sending text messages to all previous customers about the benefits of coconut oil"
+            ],
+            answer: 1,
+            hint: "Customer engagement is about improving the CONTACT between the business and its customers. Which option is a product sourcing or quality decision rather than a communication or interaction improvement?",
+            starter: "The correct answer is B because...",
+            markScheme: `<div class="marks-section"><h5>Answer: B</h5>
+<p><strong>B — Only selling products that have been certified as organic.</strong></p>
+<p><strong>Why B is correct:</strong> This is a product sourcing or quality decision — it may influence what is sold, but it does NOT directly improve the CONTACT or interaction between Coconut Life and its customers. Customer engagement requires active communication and connection.</p>
+<p><strong>Why the others are wrong (they DO improve engagement):</strong></p>
+<ul>
+<li><strong>A</strong> — Training staff improves their ability to advise and connect with customers when interacting with them.</li>
+<li><strong>C</strong> — Personalised emails are a direct, thoughtful form of customer contact and engagement.</li>
+<li><strong>D</strong> — Text messages to previous customers are a form of ongoing contact and engagement.</li>
+</ul>
+<p><strong>Examiner's Comment:</strong> Some students misunderstood 'customer engagement'. Also note this question asks what will NOT improve it — always check whether you are looking for the item that will or will not do something.</p></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "CS26 (a)",
+            marks: 2,
+            type: "written",
+            caseStudy: "Amazon is one of the world's leading e-commerce businesses. It was started by Jeff Bezos in 1994, selling books and later electronics and video games through its website. With the addition of Amazon Marketplace an enormous range of products can be bought through the business.<br><br>The e-commerce industry is very competitive, with different businesses within the industry trying to offer the consumer a higher level of service so that they will use their business rather than an e-commerce competitor.<br><br>Amazon has always responded to competitors (other e-commerce businesses and high-street shops with an e-commerce department) by offering an enhanced level of service, often concentrating on speed. In 2007, it launched its Prime service in the UK, promising next-day delivery on a wide range of products. When competitors moved to match this next-day delivery offering, Amazon developed a range of 'extras' that Prime customers would benefit from. These include free music and video streaming, same-day delivery on food through Morrisons and special 'Prime days' where Prime customers have their own offers on goods.<br><br>Prime is a subscription service, though consumers seem willing to pay for enhanced customer service, speedy delivery (same day on certain products in particular locations) and a range of entertainment.<br><br>Other businesses such as John Lewis with high-street shops rely on product knowledge and direct customer engagement from their staff to make sure their customer service is of a high standard. This may be especially important when features of technology products need some explanation. Amazon, however, places rather more emphasis on pricing, choice and speed of delivery.",
+            question: "Explain why Amazon can be described as an e-commerce business. [2 marks]",
+            hint: "This is a Knowledge + Application question. First define what e-commerce means (K), then give a specific example from the Amazon case study to show Amazon fits that definition (APP).",
+            starter: "E-commerce is... (K — define it)\nAmazon can be described as an e-commerce business because the text states that... (APP)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a + AO2)</h5>
+<ul>
+<li><strong>Knowledge (1 mark):</strong> Show knowledge of e-commerce (e.g. an e-commerce business brings buyers and sellers together digitally / electronically).</li>
+<li><strong>Application (1 mark):</strong> Use specific case study evidence showing Amazon fits the definition (e.g. Amazon is an internet-based company; sells books, electronics and video games through its website; customers order online and goods are physically delivered).</li>
+</ul>
+<p>NB: Cannot score the application mark without scoring the knowledge mark first.</p></div>`,
+            modelAnswer: "E-commerce is the bringing together of buying and selling electronically (K). Amazon can be described as an e-commerce business because it sells books, electronics, video games and an enormous range of other products through its website and Amazon Marketplace — customers browse and purchase online, with physical goods then delivered to their homes (APP)."
+        },
+        {
+            num: "CS26 (b)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Analyse one way in which Amazon tries to stay ahead of its competitors. [3 marks]",
+            hint: "Use U → APP → AN. The understanding mark shows you understand HOW Amazon competes. The application mark requires specific evidence from the Amazon text. The analysis mark needs you to explain the IMPACT on Amazon's business.",
+            starter: "Amazon tries to stay ahead by... (U)\nThe text shows that Amazon does this through... (APP — specific evidence)\nThis leads to... which means Amazon's revenue/market share/customer loyalty... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5>
+<ul>
+<li><strong>Understanding (1 mark):</strong> Show appreciation of how Amazon stays competitive (e.g. using technology to improve operations; offering wider product choice; improving speed of delivery).</li>
+<li><strong>Application (1 mark):</strong> Use specific case study evidence (e.g. same-day delivery; Prime streaming/music extras; Amazon Marketplace range; exclusive 'Prime Days').</li>
+<li><strong>Analysis (1 mark):</strong> Explain the impact on Amazon's business (e.g. Prime customers feel exceptional value → more subscription revenue; higher customer loyalty → lower risk of losing customers to competitors).</li>
+</ul></div>`,
+            modelAnswer: "Amazon constantly improves its delivery speed to stay ahead of competitors (U). The case study shows that when rivals matched its next-day delivery, Amazon developed Prime with same-day delivery options, free music and video streaming, and exclusive 'Prime Day' offers (APP). This makes Prime customers feel they receive exceptional value, increasing the number of subscribers and generating more recurring income for Amazon from subscription fees, while making customers less likely to switch to a competitor (AN)."
+        },
+        {
+            num: "CS26 (c)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Analyse one benefit to a business such as John Lewis of concentrating on customer engagement to promote good customer service. [3 marks]",
+            hint: "Use U → APP → AN. Define customer engagement (U), then apply it to John Lewis using specific case study evidence (APP), then explain the business impact (AN).",
+            starter: "Customer engagement is... (U)\nIn the case of John Lewis, the text states that... (APP)\nThis leads to... meaning John Lewis's sales/reputation/customer loyalty... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5>
+<ul>
+<li><strong>Understanding (1 mark):</strong> Show appreciation of customer engagement (e.g. it is the contact between customer and business; it builds trust and helps make a sale).</li>
+<li><strong>Application (1 mark):</strong> Apply to John Lewis using case study evidence (e.g. face-to-face engagement in stores; explaining features of technology products; staff knowledge — especially for electronics).</li>
+<li><strong>Analysis (1 mark):</strong> Explain the impact on John Lewis (e.g. better experience → more likely to be satisfied → more likely to return → increased sales and income for John Lewis).</li>
+</ul></div>`,
+            modelAnswer: "Customer engagement is the contact between a business and its customers, ensuring they feel helped and valued during the buying process (U). John Lewis staff can offer face-to-face engagement in store, which the case study highlights as especially important when customers need features of technology products explained to them (APP). With strong customer engagement, customers have a better buying experience and are more likely to be satisfied with their purchase — meaning they are more likely to return to John Lewis and recommend it to others, increasing the company's sales and giving it a competitive advantage over e-commerce-only rivals like Amazon (AN)."
+        },
+        {
+            num: "JCM Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "JC Motors Ltd have been trading for 10 years. They specialise in selling high-end bespoke cars that start from £50,000 and can be as expensive as £300,000. They are renowned for their excellent customer service as they are always willing to go the extra mile to make customers feel special. Customers are offered a wide range of hot drinks and snacks on arrival that is served to them in the luxurious seating area. Children can be kept entertained with miniature electric cars that they can drive around the specially designed track. The staff have excellent knowledge about each car and are always available following the purchase of the car to answer any queries. JC Motors Ltd have also sold several cars to customers worldwide owing to their website that offers to ship their cars around the globe.",
+            question: "Face-to-face selling involves:",
+            options: [
+                "Advertising goods on a website",
+                "A buyer meeting with a seller",
+                "A seller telephoning buyers to ask them if they want to buy",
+                "Using a website to take orders from customers"
+            ],
+            answer: 1,
+            hint: "What is the one defining feature of face-to-face selling that makes it different from all other methods?",
+            starter: "The correct answer is B because...",
+            markScheme: `<div class="marks-section"><h5>Answer: B</h5>
+<p><strong>B — A buyer meeting with a seller.</strong></p>
+<p><strong>Why B is correct:</strong> Face-to-face selling requires direct physical contact between buyer and seller — they meet in person. This is what makes it distinctly different from all other selling methods.</p>
+<p><strong>Why the others are wrong:</strong></p>
+<ul>
+<li><strong>A — Advertising on a website</strong> is digital marketing, not a selling method involving personal contact.</li>
+<li><strong>C — Telephoning buyers</strong> describes telesales, not face-to-face selling.</li>
+<li><strong>D — Using a website to take orders</strong> describes e-commerce.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "JCM Q2",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "State three methods of selling. [3 marks]",
+            hint: "There are exactly three main methods of selling covered in this topic. Name all three — no explanation is needed.",
+            starter: "Method 1: ...\nMethod 2: ...\nMethod 3: ...",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1a × 3)</h5>
+<ul>
+<li>1 mark each for three correct methods.</li>
+<li>E-commerce / online selling / selling via the internet</li>
+<li>Face to face selling / selling in a shop</li>
+<li>Telesales / telephone sales</li>
+</ul></div>`,
+            modelAnswer: "Method 1: E-commerce (online selling)\nMethod 2: Face to face selling\nMethod 3: Telesales (telephone sales)"
+        },
+        {
+            num: "JCM Q3",
+            marks: 4,
+            type: "written",
+            caseStudy: "",
+            question: "Explain two possible ways JC Motors Ltd can provide good customer service. [4 marks]",
+            hint: "For each way: (1) Name the customer service method (U), then (2) apply it to JC Motors using specific evidence from the case study (APP). There are 2 marks per way. Make sure both ways are different.",
+            starter: "One way JC Motors can provide good customer service is... (U)\nIn the case of JC Motors, the text tells us that... (APP)\n\nA second way JC Motors can provide good customer service is... (U)\nThis is relevant to JC Motors because the text states that... (APP)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 4 marks (AO1b × 2 + AO2 × 2)</h5>
+<ul>
+<li><strong>1 mark (U)</strong> for identifying each way of providing good customer service, and <strong>1 further mark (APP)</strong> for applying it to JC Motors using case study evidence.</li>
+</ul>
+<p>Acceptable ways include: excellent product knowledge (staff know each car); after-sales service (staff available after purchase); customer engagement (hot drinks, snacks, seating area, children's entertainment); worldwide e-commerce with shipping. Each must be linked to specific JC Motors evidence from the text.</p></div>`,
+            modelAnswer: "One way JC Motors can provide good customer service is through excellent product knowledge (U). The text states that staff have excellent knowledge about each car — this allows them to answer any question customers have about the high-end bespoke cars, from £50,000 upwards, helping to reassure buyers and build confidence in their decision (APP).\n\nA second way is through after-sales service (U). JC Motors staff are always available following the purchase to answer any queries — this ensures that customers who have spent up to £300,000 on a car remain satisfied and feel valued well after the sale, building long-term loyalty (APP)."
+        },
+        {
+            num: "JCM Q4",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Analyse one benefit of JC Motors selling their cars online. [3 marks]",
+            hint: "Use U → APP → AN. Give a clear benefit of e-commerce (U), apply it using specific JC Motors case study detail (APP), then explain the business impact on JC Motors (AN).",
+            starter: "One benefit of JC Motors selling online is... (U)\nThis is relevant because the text states that JC Motors... (APP)\nAs a result, JC Motors will... which means their sales/revenue/customer base... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5>
+<ul>
+<li><strong>Understanding (1 mark):</strong> Identify a benefit of selling online (e.g. worldwide market reach; 24/7 availability; lower operating costs; professional image).</li>
+<li><strong>Application (1 mark):</strong> Apply using JC Motors case study detail (e.g. website offers to ship cars worldwide; has already sold to customers worldwide; cars start from £50,000).</li>
+<li><strong>Analysis (1 mark):</strong> Explain the business impact (e.g. more global customers increases sales revenue; JC Motors can expand beyond its local area to a worldwide audience of wealthy buyers).</li>
+</ul></div>`,
+            modelAnswer: "By selling online, JC Motors can reach a worldwide market for its bespoke cars (U). The text confirms this is already happening — JC Motors has sold several cars to customers worldwide through its website that offers to ship cars around the globe (APP). This greatly increases JC Motors' potential customer base beyond the UK, which is particularly important for a business selling high-end cars starting at £50,000 — the target market of very wealthy buyers is necessarily small in any one country, so worldwide access significantly increases sales revenue potential (AN)."
+        }
+    ];
+</script>
+    <script src="script.js"></script>
+</body>
+
+</html>

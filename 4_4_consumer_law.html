@@ -1,0 +1,1057 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.4 Consumer Law – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Business — Component 2</div>
+            <h1>4.4 Consumer Law</h1>
+            <p>Interactive revision guide · All key content + full exam practice</p>
+        </div>
+        <a href="index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px">
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #d4edda;
+                  border: 1.5px solid #2d7a4f;
+                  display: inline-block;
+                "></span>
+                        First attempt correct</span>
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fff8dc;
+                  border: 1.5px solid #b8860b;
+                  display: inline-block;
+                "></span>
+                        Correct after mistake</span>
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fde8e5;
+                  border: 1.5px solid #c84b31;
+                  display: inline-block;
+                "></span>
+                        Wrong — try again</span>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+    <script>
+        // ══════════════════════════════════════
+        //  DATA TEMPLATE: 4.4 Consumer Law
+        // ══════════════════════════════════════
+
+        // 1. Main Learning Content
+        const topics = [
+            {
+                title: "Key Terms & Official Definitions",
+                tag: "Core Concepts",
+                content: `<p>Consumer law protects customers when they buy goods and services. The main piece of legislation you need to understand is the <strong>Consumer Rights Act 2015</strong>.</p>
+    <ul>
+      <li><strong>Consumer Law:</strong> The area of law that protects the customers of a business. This is mainly through the Consumer Rights Act 2015.</li>
+      <li><strong>Consumer Rights Act 2015:</strong> An act of parliament that gives customers protection when they buy goods and services — they must be of satisfactory quality, fit for purpose, and as described.</li>
+      <li><strong>Satisfactory Quality:</strong> How the goods are made must reflect the price. A high-priced product must be of high quality. Goods must not be damaged or faulty when bought.</li>
+      <li><strong>Fit for Purpose:</strong> Goods must do what they are meant to do. If the seller claims that a product performs a particular function, it must be able to do that.</li>
+      <li><strong>As Described:</strong> Goods must be exactly as described or advertised. If you ordered an orange-coloured bike, you should receive an orange bike — not a green one.</li>
+      <li><strong>Reputation:</strong> What customers say and feel about a business. Damage to a reputation can seriously affect a business's long-term survival and sales.</li>
+      <li><strong>Compensation:</strong> A payment made to a customer for loss or damage caused by a defective product, claimable under the Consumer Protection Act 1987.</li>
+      <li><strong>Consumer Protection Act 1987:</strong> Gives consumers the right to claim compensation if a defective product causes death, damage, or personal injury.</li>
+    </ul>`
+            },
+            {
+                title: "The Consumer Rights Act 2015: The Three Requirements",
+                tag: "Core Concepts",
+                content: `<p>The <strong>Consumer Rights Act 2015</strong> is the key law protecting customers in the UK. It states that all goods and services sold to customers must meet three requirements. Businesses that fail to comply face serious legal and financial consequences.</p>
+    <ul>
+      <li><strong>1. Of Satisfactory Quality:</strong> Goods must not be damaged or faulty when bought. The quality expected should reflect the price paid — cheaper 'bargains' are expected to have lower quality than luxury goods. All goods must be appropriate for their price point.</li>
+      <li><strong>2. Fit for Purpose:</strong> Goods must do what they are meant to do. If the seller claims a product performs a specific function, it must be able to do it. For example, a waterproof jacket must actually be waterproof.</li>
+      <li><strong>3. As Described:</strong> Goods must match their description exactly. If you order orange trainers online, you should receive orange ones — not blue ones.</li>
+    </ul>
+    <div class="case-study-box">
+      <h4>Applying the Three Requirements — Real Scenarios</h4>
+      <p><strong>Lisa</strong> buys a washing machine and the start button doesn't work &rarr; <em>Not of satisfactory quality</em> (faulty when bought).</p>
+      <p><strong>Mandy</strong> buys face cream claiming to eliminate wrinkles, but it doesn't work &rarr; <em>Not fit for purpose</em> (does not do what it claims).</p>
+      <p><strong>Tim</strong> orders a blue top online but receives a green one &rarr; <em>Not as described</em> (product does not match its description).</p>
+      <p><strong>Oliver</strong> buys a jumper in the sale and finds the seam is ripped when he gets home &rarr; Could be <em>not of satisfactory quality</em> — even sale goods must meet basic standards unless the fault was pointed out at the time of purchase.</p>
+    </div>`
+            },
+            {
+                title: "Time-Based Customer Rights Under the Consumer Rights Act",
+                tag: "Theory",
+                content: `<p>The Consumer Rights Act also gives customers specific rights depending on <strong>when</strong> a fault is discovered after purchase. These rights change at key time thresholds.</p>
+    <ul>
+      <li><strong>Within 30 Days — Full Refund:</strong> A customer can return faulty goods for a full refund. Important exception: this does <strong>NOT</strong> apply to digital products such as downloaded music or apps. For digital goods, a customer can request a replacement or, if not provided, a price reduction of up to 100%.</li>
+      <li><strong>Within the First 6 Months — Seller's Burden of Proof:</strong> If a product develops a fault within the first six months, it is assumed the fault was present at the time of purchase. The <strong>seller</strong> must prove otherwise. The customer may request a repair, replacement, or price reduction.</li>
+      <li><strong>After 6 Months — Customer's Burden of Proof:</strong> It is up to the <strong>customer</strong> to prove that the fault was present at the time of delivery. This is significantly more difficult. Customers have up to <strong>six years</strong> to complete a claim against the seller.</li>
+      <li><strong>Services:</strong> If a service (e.g. a kitchen fitter or plumber) is not completed in the agreed time or to a reasonable standard, the customer can request the work to be redone. If that is not possible, a price reduction of up to 100% should be agreed.</li>
+    </ul>`
+            },
+            {
+                title: "The Impact of Consumer Law on Business",
+                tag: "Analysis",
+                content: `<p>Consumer law has several significant impacts on how a business must operate. Businesses need to plan carefully to comply — and face serious consequences if they do not.</p>
+    <ul>
+      <li><strong>Production of Quality Goods:</strong> Businesses must ensure goods are produced to a standard that meets legal requirements. This affects how businesses train employees (links to Unit 3.6) and what quality control procedures they use (links to Unit 4.2). If goods are returned for refunds, costs increase and profits fall.</li>
+      <li><strong>Safety of Goods:</strong> Under the Consumer Protection Act 1987, if defective products cause death, injury, or damage to property, customers can claim compensation. This can result in huge financial costs and forces firms to maintain strict safety procedures throughout production.</li>
+      <li><strong>Loss of Reputation:</strong> If a business produces poor-quality or defective goods, customers will complain — often publicly on social media. Negative reviews spread rapidly, damaging a business's reputation and driving customers to competitors. In extreme cases, this could lead to the business closing down entirely.</li>
+      <li><strong>Training Costs:</strong> To comply with consumer law, businesses must invest in training employees to produce goods of the required quality standard. This increases operating costs but reduces the risk of producing defective goods that lead to costly refunds or legal claims.</li>
+    </ul>`
+            },
+            {
+                title: "Advantages & Disadvantages of Complying with Consumer Law",
+                tag: "Pros & Cons",
+                content: `<p>For a 7-mark 'evaluate' or 'discuss' question, you must be able to argue both sides. Complying with consumer law creates both benefits and challenges for a business.</p>
+    <div class="two-col">
+      <div>
+        <div class="col-head">✓ Advantages of Complying</div>
+        <div class="pro-item"><strong>Improved Reputation:</strong> Consistently selling high-quality, correctly described goods builds a strong reputation, increasing customer loyalty and long-term sales revenue.</div>
+        <div class="pro-item"><strong>Fewer Returns & Refunds:</strong> Producing goods of satisfactory quality reduces costly refund and return processing, directly protecting profit margins.</div>
+        <div class="pro-item"><strong>Avoids Legal Action:</strong> Compliance prevents costly compensation claims and court proceedings, protecting the business financially and reputationally.</div>
+        <div class="pro-item"><strong>Competitive Advantage:</strong> A business known for quality and reliability can differentiate itself from competitors and attract more customers over time.</div>
+      </div>
+      <div>
+        <div class="col-head">✗ Disadvantages of Complying</div>
+        <div class="con-item"><strong>Training Costs:</strong> Investing in employee training to ensure goods meet quality standards adds to operating costs, reducing short-term profits.</div>
+        <div class="con-item"><strong>Higher Production Costs:</strong> Meeting quality standards may require better raw materials or upgraded equipment, raising the cost of production.</div>
+        <div class="con-item"><strong>Refund & Compensation Risk:</strong> Even compliant businesses may face unexpected refund demands or compensation claims if products fail, creating unpredictable costs.</div>
+        <div class="con-item"><strong>Reputational Risk Remains:</strong> Even one high-profile product failure — especially amplified on social media — can cause lasting damage despite a strong compliance record.</div>
+      </div>
+    </div>
+    <p style="margin-top:12px;"><strong>Examiner Tip:</strong> When evaluating, always consider the specific business context. A large, well-established business may absorb one complaint without lasting damage — but a smaller business with a local reputation could be severely affected by a single product failure.</p>`
+            },
+            {
+                title: "Case Study: Consumer Law in the Real World",
+                tag: "Case Study",
+                content: `<div class="case-study-box">
+      <h4>Case Study: Primark Ltd</h4>
+      <p>Primark is one of the UK's largest fashion retailers, selling clothing and homeware at prices significantly lower than most competitors. It launched an online click and collect service in 2022.</p>
+      <p>Being a low-cost retailer does NOT exempt Primark from the Consumer Rights Act — all products must still be of satisfactory quality, fit for purpose, and as described.</p>
+      <p><strong>Takeaway:</strong> If Primark's low-cost products are found to be 'not as described' or not of satisfactory quality, the business could face a large volume of returns. Since Primark operates on very thin profit margins with high sales volume, excessive refunds could significantly hurt profitability. Negative social media coverage could further damage its reputation with price-conscious shoppers.</p>
+    </div>
+    <div class="case-study-box">
+      <h4>Case Study: Pukka Pies Ltd</h4>
+      <p>Pukka Pies Ltd is a family-owned business with approximately 360 employees making high-quality savoury pies, sold in over 4,000 food stores nationwide. Three of its key values — delighting customers with quality pies and building trust with suppliers through food safety — directly support its compliance with consumer law.</p>
+      <p><strong>Takeaway:</strong> For a food manufacturer, the safety of goods is especially critical. Defective food products could cause illness or injury, triggering massive compensation claims under the Consumer Protection Act 1987 and catastrophic reputational damage — far outweighing the cost of maintaining quality standards.</p>
+    </div>
+    <div class="case-study-box">
+      <h4>Case Study: Which? — The Consumers' Champion</h4>
+      <p>Which? (formerly the Consumer's Association) was founded in 1957 and works on behalf of customers, making them aware of their legal rights and testing products for compliance with the law. It has challenged supermarkets and banks to treat customers more fairly.</p>
+      <p><strong>Takeaway:</strong> Which? exists to make individual customers as powerful as the large organisations they deal with. Its ability to publicly challenge major businesses puts significant pressure on all firms to stay within the law — reinforcing that consumer law is actively enforced, not just theoretical.</p>
+    </div>`
+            }
+        ];
+
+        // 2. Multiple Choice Questions (Minimum 10)
+        const mcqData = [
+            {
+                q: "When buying any goods or services, customers are entitled to expect:",
+                opts: [
+                    "The goods to be of the best standard possible",
+                    "The goods to be of satisfactory quality",
+                    "The goods to be guaranteed for three years",
+                    "The goods to be the same price as competitors"
+                ],
+                ans: 1,
+                explain: "Correct answer: B — Of satisfactory quality. The Consumer Rights Act 2015 requires goods to be of 'satisfactory quality' reflecting their price — not the absolute best quality possible. There is no legal requirement for a guarantee period, price matching, or best-in-class standards."
+            },
+            {
+                q: "A business must sell goods that:",
+                opts: [
+                    "Do what they are meant to do",
+                    "Perform as well as competitor goods",
+                    "Are made to last for years",
+                    "Are as cheap as possible"
+                ],
+                ans: 0,
+                explain: "Correct answer: A — Do what they are meant to do. This is the 'fit for purpose' requirement of the Consumer Rights Act 2015. Businesses have no legal obligation to match competitors' performance, guarantee longevity, or price goods cheaply."
+            },
+            {
+                q: "A way in which a business can be affected by consumer law is:",
+                opts: [
+                    "Having compensation claims because goods are of high quality",
+                    "Losing reputation due to defective goods",
+                    "Having to sack staff who are always late for work",
+                    "Profits being reduced by paying higher wages"
+                ],
+                ans: 1,
+                explain: "Correct answer: B — Losing reputation due to defective goods. Producing defective goods leads to customer complaints, negative social media posts, and a damaged reputation. Sacking staff and wage levels are employment law issues — not consumer law."
+            },
+            {
+                q: "The loss of a good reputation may mean a business:",
+                opts: [
+                    "Can spend less money on advertising its products",
+                    "Has to increase production to meet demand",
+                    "Can afford to give staff a pay rise",
+                    "May have difficulty in recruiting staff"
+                ],
+                ans: 3,
+                explain: "Correct answer: D — May have difficulty recruiting staff. A poor reputation makes it harder to attract talented workers who want to be associated with respected companies. A damaged reputation would not reduce advertising needs, increase demand, or free up funds for pay rises."
+            },
+            {
+                q: "A company makes wooden jigsaw puzzles. By law, the company must:",
+                opts: [
+                    "Buy its wood from local suppliers",
+                    "Deliver the jigsaw puzzles in electric vans",
+                    "Replace any pieces that customers lose",
+                    "Use paint that is non-toxic and safe"
+                ],
+                ans: 3,
+                explain: "Correct answer: D — Use paint that is non-toxic and safe. Consumer law requires goods to be safe and of satisfactory quality. Using non-toxic paint ensures the product is safe to handle. There is no legal requirement to use local suppliers, deliver by electric van, or replace pieces lost through customer negligence."
+            },
+            {
+                q: "A customer has bought a laptop from a computer shop. By law, the computer shop must:",
+                opts: [
+                    "Match the price charged by a local competitor",
+                    "Offer to upgrade the laptop for no extra charge",
+                    "Provide virus protection to keep the customer's files safe",
+                    "Supply a laptop of satisfactory quality"
+                ],
+                ans: 3,
+                explain: "Correct answer: D — Supply a laptop of satisfactory quality. The Consumer Rights Act 2015 requires goods to be of satisfactory quality — free from defects. Price matching, upgrades, and virus protection may be offered as good customer service, but none are required by law."
+            },
+            {
+                q: "A customer has ordered an electric shower from a plumbing firm. By law, the plumbing firm must:",
+                opts: [
+                    "Charge a lower price than other plumbers",
+                    "Fit the shower without turning the water off",
+                    "Supply a shower that meets current safety standards",
+                    "Use an environmentally friendly supplier"
+                ],
+                ans: 2,
+                explain: "Correct answer: C — Supply a shower that meets current safety standards. Consumer law requires goods and services to be safe and of satisfactory quality. There is no legal requirement to undercut competitors' prices, use a specific installation method, or source from eco-friendly suppliers."
+            },
+            {
+                q: "Consumer law requires shops to sell goods that are:",
+                opts: [
+                    "Cheap",
+                    "High quality",
+                    "Safe",
+                    "Unique"
+                ],
+                ans: 2,
+                explain: "Correct answer: C — Safe. Consumer law requires goods to be safe (of satisfactory quality and fit for purpose). 'High quality' is a very common distractor — the law only requires 'satisfactory' quality, not the highest quality. Price and uniqueness are not legal requirements."
+            },
+            {
+                q: "Consumer law requires shops to sell goods which are:",
+                opts: [
+                    "Environmentally friendly",
+                    "Of satisfactory quality",
+                    "Reasonably priced",
+                    "Unique"
+                ],
+                ans: 1,
+                explain: "Correct answer: B — Of satisfactory quality. The Consumer Rights Act 2015 specifically requires goods to be of satisfactory quality — not defective or damaged when sold. Environmental responsibility, pricing, and uniqueness are not legal requirements under consumer law."
+            },
+            {
+                q: "Within how many days can a customer return faulty goods for a full refund under the Consumer Rights Act 2015?",
+                opts: [
+                    "14 days",
+                    "21 days",
+                    "30 days",
+                    "60 days"
+                ],
+                ans: 2,
+                explain: "Correct answer: C — 30 days. The Consumer Rights Act 2015 gives customers a 30-day window to return faulty goods for a full refund. After 30 days, the right to an automatic full refund ends — within 6 months, a repair or replacement is offered first."
+            },
+            {
+                q: "If a product develops a fault within the first six months of purchase, who must prove the fault was pre-existing?",
+                opts: [
+                    "The customer",
+                    "The manufacturer",
+                    "The seller",
+                    "An independent tribunal"
+                ],
+                ans: 2,
+                explain: "Correct answer: C — The seller. Within the first 6 months, it is assumed the fault was present at the time of purchase. The seller must prove otherwise. After 6 months, the burden of proof shifts to the customer."
+            },
+            {
+                q: "Which of the following is NOT a requirement of the Consumer Rights Act 2015?",
+                opts: [
+                    "Of satisfactory quality",
+                    "Fit for purpose",
+                    "As described",
+                    "Cheapest price on the market"
+                ],
+                ans: 3,
+                explain: "Correct answer: D — Cheapest price on the market. The three requirements under the Consumer Rights Act 2015 are: satisfactory quality, fit for purpose, and as described. There is no requirement for businesses to sell at the lowest market price."
+            }
+        ];
+
+        // 3. Keyword Matching (Minimum 10)
+        const matchData = [
+            { term: "Consumer Law", def: "The area of law that protects the customers of a business, mainly through the Consumer Rights Act 2015." },
+            { term: "Consumer Rights Act 2015", def: "An act of parliament giving customers protection when buying goods and services: they must be of satisfactory quality, fit for purpose, and as described." },
+            { term: "Satisfactory Quality", def: "Goods must not be damaged or faulty when bought; the quality expected should reflect the price paid." },
+            { term: "Fit for Purpose", def: "Goods must do what they are meant to do; if a seller claims a product performs a function, it must be able to do it." },
+            { term: "As Described", def: "Goods must be exactly as described or advertised — receiving the wrong colour or specification breaks this requirement." },
+            { term: "Reputation", def: "What customers say and feel about a business; damage to a reputation can seriously reduce sales and threaten business survival." },
+            { term: "Compensation", def: "A payment made to a customer for loss or damage caused by a defective product, claimable under the Consumer Protection Act 1987." },
+            { term: "Consumer Protection Act 1987", def: "Gives consumers the right to claim compensation if a defective product causes death, damage, or personal injury." },
+            { term: "30-Day Return Rule", def: "Customers may return faulty goods for a full refund within 30 days of purchase; this does NOT apply to downloaded digital products." },
+            { term: "Quality Assurance", def: "Processes a business uses to check that all goods meet the required quality standards before reaching the customer." },
+            { term: "Defective Goods", def: "Products that are faulty, unsafe, or fail to meet the legal standards set by the Consumer Rights Act 2015." },
+            { term: "Social Media", def: "Online platforms that allow customers to publicly voice complaints about defective goods, rapidly damaging a business's reputation." }
+        ];
+
+        // 4. Fill in the Blanks (Minimum 10)
+        const fibData = [
+            {
+                display: "The Consumer Rights Act was introduced in _____.",
+                blanks: { B1: "2015" }
+            },
+            {
+                display: "Under consumer law, goods must be of satisfactory _____, fit for _____, and as _____.",
+                blanks: { B1: "quality", B2: "purpose", B3: "described" }
+            },
+            {
+                display: "A customer can return faulty goods for a full _____ within _____ days of purchase.",
+                blanks: { B1: "refund", B2: "30" }
+            },
+            {
+                display: "If a fault appears within the first six _____, the _____ must prove the fault was not present at point of sale.",
+                blanks: { B1: "months", B2: "seller" }
+            },
+            {
+                display: "After six months, the _____ must prove that the fault was present at the time of _____.",
+                blanks: { B1: "customer", B2: "delivery" }
+            },
+            {
+                display: "Consumer law can damage a business's _____ if defective goods are produced, especially through negative _____ media.",
+                blanks: { B1: "reputation", B2: "social" }
+            },
+            {
+                display: "The Consumer Protection Act _____ gives consumers the right to claim _____ if a defective product causes death or injury.",
+                blanks: { B1: "1987", B2: "compensation" }
+            },
+            {
+                display: "Good _____ of employees helps a business produce goods of satisfactory quality, but it increases _____.",
+                blanks: { B1: "training", B2: "costs" }
+            },
+            {
+                display: "Cheaper bargains are expected to have a _____ quality than _____ goods.",
+                blanks: { B1: "lower", B2: "luxury" }
+            },
+            {
+                display: "If a business does not produce goods of satisfactory quality, customers may demand a _____, which increases costs and reduces _____.",
+                blanks: { B1: "refund", B2: "profits" }
+            },
+            {
+                display: "Digital products such as downloaded music are NOT covered by the _____ return rule; customers can instead request a _____.",
+                blanks: { B1: "30-day", B2: "replacement" }
+            },
+            {
+                display: "Customers have up to _____ years in total to make a legal claim against a seller for faulty goods.",
+                blanks: { B1: "six" }
+            }
+        ];
+
+        // Word bank for Fill in the Blanks (correct words + decoys)
+        const fibWords = [
+            "2015", "quality", "purpose", "described", "refund", "30", "months",
+            "seller", "customer", "delivery", "reputation", "social", "1987",
+            "compensation", "training", "costs", "lower", "luxury", "profits",
+            "30-day", "replacement", "six", "2010", "14", "employer", "higher",
+            "income", "revenue", "1980", "annual", "manager", "guarantee", "warranty"
+        ];
+
+        // 5. True or False (Minimum 10)
+        const tfData = [
+            {
+                statement: "The Consumer Rights Act says that goods must always be of the best possible quality.",
+                answer: false,
+                explanation: "FALSE. The Consumer Rights Act only requires goods to be of 'satisfactory quality' — a standard that reflects the price paid. Cheaper goods have a lower quality expectation than luxury goods; they do not all need to be the best possible standard."
+            },
+            {
+                statement: "Customers can return faulty goods for a full refund within 30 days of purchase.",
+                answer: true,
+                explanation: "TRUE. The Consumer Rights Act 2015 gives customers a 30-day window to return faulty goods for a full refund. Businesses must comply with this legal right."
+            },
+            {
+                statement: "All goods must be described correctly only when they are over £100.",
+                answer: false,
+                explanation: "FALSE. The 'as described' requirement applies to ALL goods regardless of their price. Whether a product costs £1 or £1,000, it must match its description exactly."
+            },
+            {
+                statement: "Safety in goods bought by customers is covered by the Consumer Protection Act 1987.",
+                answer: true,
+                explanation: "TRUE. The Consumer Protection Act 1987 gives consumers the right to claim compensation if a defective product causes death, damage, or personal injury — specifically covering product safety."
+            },
+            {
+                statement: "Digital goods such as downloaded music are covered in exactly the same way as physical goods by the Consumer Rights Act.",
+                answer: false,
+                explanation: "FALSE. Digital products such as downloaded music and apps are NOT covered by the 30-day return rule. Instead, customers can request a replacement or, if not provided, a price reduction of up to 100%."
+            },
+            {
+                statement: "Good training of employees will help a business produce goods of satisfactory quality.",
+                answer: true,
+                explanation: "TRUE. Investing in employee training helps businesses produce goods that meet the satisfactory quality standard required by consumer law. This directly links to Unit 3.6 (Training)."
+            },
+            {
+                statement: "After 30 days, a customer cannot make any claim whatsoever for faulty goods against a business.",
+                answer: false,
+                explanation: "FALSE. After 30 days, the right to a full refund ends, but customers retain rights. Within 6 months, they can request a repair or replacement. After 6 months, they can still claim for up to six years if they prove the fault was present at the time of purchase."
+            },
+            {
+                statement: "A business can face compensation claims if its products cause personal injury or death.",
+                answer: true,
+                explanation: "TRUE. Under the Consumer Protection Act 1987, customers can claim compensation for death, damage, or personal injury caused by defective products. This can result in huge financial costs for the business."
+            },
+            {
+                statement: "Consumer law only applies to physical products and does not cover services such as plumbing or hairdressing.",
+                answer: false,
+                explanation: "FALSE. The Consumer Rights Act 2015 also covers services. If a service is not completed in the agreed time or to a reasonable standard, customers can request the work to be redone or receive a price reduction of up to 100%."
+            },
+            {
+                statement: "If a fault develops after six months, it is the seller's responsibility to prove the fault was not there at the time of purchase.",
+                answer: false,
+                explanation: "FALSE. After six months, the burden of proof shifts to the customer — they must prove the fault existed at the time of delivery. Within the first six months, it is the seller who must prove otherwise."
+            },
+            {
+                statement: "A business that complies with consumer law may benefit from an improved reputation.",
+                answer: true,
+                explanation: "TRUE. Consistently selling goods that are of satisfactory quality, fit for purpose, and as described helps build a strong reputation, increasing customer loyalty and sales over time."
+            },
+            {
+                statement: "Social media makes it easier for businesses to conceal poor quality products from consumers.",
+                answer: false,
+                explanation: "FALSE. Social media makes it significantly harder for businesses to conceal product issues. Customers can post negative reviews publicly and these can spread rapidly, causing serious reputational damage far beyond the original complaint."
+            }
+        ];
+
+        // 6. Common Student Misconceptions
+        const miscData = [
+            {
+                wrong: "Consumer law requires goods to be of the 'best possible quality'.",
+                correct: "Consumer law only requires 'satisfactory quality' — a standard that reflects the price paid. A budget product does not need to be as good as a luxury product; it just needs to be appropriate for its price point."
+            },
+            {
+                wrong: "Writing about fair wages, worker rights, or ethical suppliers will earn marks in a consumer law question.",
+                correct: "Consumer law is specifically about protecting customers when they buy goods and services. Employment law covers workers' rights. Ethical sourcing is a separate topic. The 2025 examiner's report explicitly warned that candidates who wrote about wages or working conditions scored zero — even with good application and analysis."
+            },
+            {
+                wrong: "The 30-day refund rule applies to all products, including downloaded music and apps.",
+                correct: "The 30-day return rule does NOT apply to digital products such as downloaded music, films, or apps. For digital goods, customers can request a replacement or a price reduction of up to 100%."
+            },
+            {
+                wrong: "After 30 days, customers have no rights at all and cannot make any further claims for faulty goods.",
+                correct: "Customer rights continue beyond 30 days. Within 6 months, customers can claim a repair or replacement. After 6 months, they can still claim for up to six years if they can prove the fault existed at the time of purchase."
+            },
+            {
+                wrong: "Complying with consumer law is purely a cost to a business with no benefits.",
+                correct: "Compliance brings significant benefits: improved reputation, fewer returns, increased customer loyalty, and avoidance of costly legal action. In 7-mark questions, you must evaluate both sides — benefits and drawbacks."
+            },
+            {
+                wrong: "Consumer law only applies to large businesses with many customers.",
+                correct: "Consumer law applies to ALL businesses selling goods or services to customers, regardless of size. A small family-run bakery must comply with the same Consumer Rights Act 2015 as a large supermarket like Tesco."
+            },
+            {
+                wrong: "The Consumer Rights Act 2015 and the Consumer Protection Act 1987 are the same law.",
+                correct: "These are two separate laws. The Consumer Rights Act 2015 covers the three requirements (satisfactory quality, fit for purpose, as described). The Consumer Protection Act 1987 specifically covers compensation claims when defective products cause death, injury, or damage."
+            },
+            {
+                wrong: "Repeating earlier analysis points in a conclusion will earn evaluation marks in a 7-mark question.",
+                correct: "Repeating earlier points in a conclusion earns zero evaluation marks. A good conclusion makes a new, justified judgement using specific context from the case study — using 'It depends on...' or 'However, this is only the case if...' style reasoning to show higher-level thinking."
+            }
+        ];
+
+        // 7. Examiner Tips & Structure Guides
+        const examTips = [
+            {
+                type: "Identify / State — 1 mark",
+                title: "One Point. Full Stop. Move On.",
+                content: `
+          <p>A 1-mark <strong>'Identify' or 'State'</strong> question needs exactly one correct, specific point. No explanation. No examples. No paragraphs — just one precise, accurate statement.</p>
+    
+          <p><strong>The Formula:</strong></p>
+          <ul>
+            <li>One clear, specific point = 1 mark ✅</li>
+            <li>A vague or general point = 0 marks ❌</li>
+          </ul>
+    
+          <p><strong>❌ Bad Answer (0 marks):</strong><br/>
+          <em>"Consumer law protects customers."</em><br/>
+          Too vague — it doesn't identify any specific protection.</p>
+    
+          <p><strong>✅ Good Answer (1 mark):</strong><br/>
+          <em>"Goods must be of satisfactory quality."</em><br/>
+          Specific, accurate, and directly answers the question.</p>
+    
+          <p><strong>⚠️ Critical Examiner Warning:</strong> Many students confuse consumer law with employment law, writing about fair wages or working conditions. This scores ZERO — no matter how detailed the answer is. The mark scheme explicitly states: "No further marks can be gained without understanding" of what consumer law actually requires.</p>
+        `,
+                pills: ["K"]
+            },
+            {
+                type: "Explain — 2 marks",
+                title: "Identify It, Then Apply It to the Business",
+                content: `
+          <p>A 2-mark <strong>'Explain'</strong> question requires you to name an impact of consumer law AND link it specifically to the business named in the question. Two clear steps — one per mark.</p>
+    
+          <p><strong>The 2-Step Formula:</strong></p>
+          <ul>
+            <li><strong>Step 1 — Identify the impact (1 mark):</strong> Name a specific way consumer law affects businesses.</li>
+            <li><strong>Step 2 — Apply to the specific business (1 mark):</strong> Use a detail from the case study to show how this applies to that particular business.</li>
+          </ul>
+    
+          <p><strong>❌ Bad Answer (1 mark max):</strong><br/>
+          <em>"Consumer law could affect Tesco's reputation."</em><br/>
+          Identifies an impact but does not apply it to Tesco specifically using case study detail.</p>
+    
+          <p><strong>✅ Good Answer (2 marks):</strong><br/>
+          <em>"If Tesco plc sells products which are not as described (K — 1 mark), it could receive poor press coverage leading to a loss of sales (APP — 1 mark applied to Tesco as a major UK retailer)."</em></p>
+    
+          <p><strong>🚫 Knowledge Dumping Alert:</strong> You only need ONE impact, explained and applied to the business. Writing everything you know about consumer law will NOT earn more marks — only one applied point is needed.</p>
+        `,
+                pills: ["K", "app"]
+            },
+            {
+                type: "Analyse — 3 marks",
+                title: "The Holy Trinity: U → APP → AN",
+                content: `
+          <p>A 3-mark <strong>'Analyse'</strong> question is the most common extended question on consumer law. You must follow a strict 3-step structure — missing any one step costs you marks. And without demonstrating understanding of consumer law first, you cannot earn ANY further marks.</p>
+    
+          <p><strong>The 3-Step Formula:</strong></p>
+          <ul>
+            <li><strong>Step 1 — Understanding (U — 1 mark):</strong> State a specific requirement of consumer law: "Consumer law requires goods to be of satisfactory quality / fit for purpose / as described."</li>
+            <li><strong>Step 2 — Application (APP — 1 mark):</strong> Link directly to the specific business in the case study using a quoted or paraphrased detail from the text.</li>
+            <li><strong>Step 3 — Analysis (AN — 1 mark):</strong> State the financial or operational impact: costs, profit, reputation, or sales. Keep asking "So what does this mean for the business?" until you hit a bottom-line impact.</li>
+          </ul>
+    
+          <p><strong>⚠️ Zero-Mark Trap — Consumer Law vs. Ethical Issues:</strong> Writing about wages, working conditions, or ethical sourcing instead of consumer law will score ZERO — even with perfect application and analysis. The examiner's report confirms many candidates scored zero for this exact reason.</p>
+    
+          <p><strong>❌ Bad Answer (0 marks):</strong><br/>
+          <em>"One impact of consumer law is that Primark must pay workers a fair wage. Primark sells at cheaper prices than most retailers, so this increases costs."</em><br/>
+          This confuses consumer law with employment law. ZERO marks despite having application and analysis.</p>
+    
+          <p><strong>✅ Good Answer (3 marks):</strong><br/>
+          <em>"Consumer law requires goods to be 'not as described' (U — 1 mark). If Primark Ltd sells clothing or homeware products that do not match their online description (APP — 1 mark to Primark as a low-price retailer), the business could face large volumes of returned goods. Since Primark operates on very tight profit margins, the additional refund costs could significantly reduce overall profitability (AN — 1 mark)."</em></p>
+    
+          <p><strong>Sentence Starters to use:</strong></p>
+          <ul>
+            <li><em>"Consumer law requires goods to be... (U)"</em></li>
+            <li><em>"In the case of [Business]... / Because the text states that... (APP)"</em></li>
+            <li><em>"This will lead to... / As a result, the business will... / This reduces... meaning... (AN)"</em></li>
+          </ul>
+        `,
+                pills: ["U", "app", "an"]
+            },
+            {
+                type: "Evaluate / Discuss — 7 marks",
+                title: "Four Paragraphs: Two Impacts + a Justified Conclusion",
+                content: `
+          <p>A 7-mark question is the most demanding on this topic. You need two separately analysed impacts (with case study application) and a justified evaluative conclusion. Marks: APP (2) + AN (2) + EV (3).</p>
+    
+          <p><strong>The 4-Paragraph Structure:</strong></p>
+          <ul>
+            <li><strong>Para 1 — K & U:</strong> Introduce a key requirement of consumer law and explain what this means for a business in general terms.</li>
+            <li><strong>Para 2 — APP & AN (Impact 1):</strong> Apply your first point to the case study using specific details from the text. Analyse the specific financial or operational impact on the business.</li>
+            <li><strong>Para 3 — APP & AN (Impact 2):</strong> Introduce a second, different impact. Apply and analyse in the same way — it must be a different consequence from Para 2.</li>
+            <li><strong>Para 4 — Evaluation (3 marks):</strong>
+              <ul>
+                <li><strong>Decision (1 mark):</strong> A clear, direct judgement — e.g. "Consumer law is very important to QUA" or "It is more beneficial to comply than not."</li>
+                <li><strong>Context (1 mark):</strong> Justify your decision using a specific detail from the case study.</li>
+                <li><strong>Impact/Reasoning (1 mark):</strong> Use a 'depends on' or 'however' argument to show nuanced thinking — e.g. "However, this depends on whether QUA can resolve the quality issues quickly before more negative coverage spreads."</li>
+              </ul>
+            </li>
+          </ul>
+    
+          <p><strong>⚠️ Evaluation Warning:</strong> A conclusion that simply repeats your earlier points scores ZERO evaluation marks. Your conclusion must make a NEW, justified judgement that goes beyond what you said in Paragraphs 2 and 3.</p>
+    
+          <p><strong>Evaluation Sentence Starters:</strong></p>
+          <ul>
+            <li><em>"Overall, I believe consumer law is [very important / more beneficial / more harmful] to [Business] because..." (Decision)</em></li>
+            <li><em>"This is particularly significant because the text states that... (Context)"</em></li>
+            <li><em>"However, the full impact will depend on whether... / This matters more because the business... (Reasoning)"</em></li>
+          </ul>
+        `,
+                pills: ["U", "app", "an", "eval"]
+            },
+            {
+                type: "Critical Warning — All Question Types",
+                title: "Consumer Law ≠ Ethical Behaviour. Know the Difference.",
+                content: `
+          <p>This is the <strong>single most common reason students score zero</strong> on consumer law questions. The examiner's report explicitly highlighted this as the major failure point across multiple exam sittings.</p>
+    
+          <p><strong>✅ Consumer Law — Legal Requirements (Scoreable):</strong></p>
+          <ul>
+            <li>Goods must be of satisfactory quality ✅</li>
+            <li>Goods must be fit for purpose ✅</li>
+            <li>Goods must be as described ✅</li>
+            <li>Compensation rights for defective or dangerous products ✅</li>
+            <li>30-day return right for faulty goods ✅</li>
+          </ul>
+    
+          <p><strong>❌ NOT Consumer Law — Ethical / Employment Issues (Scores Zero):</strong></p>
+          <ul>
+            <li>Paying workers a fair or living wage ❌</li>
+            <li>Using sustainable or ethical suppliers ❌</li>
+            <li>Reducing environmental impact ❌</li>
+            <li>Treating employees fairly ❌</li>
+            <li>Supporting local communities ❌</li>
+          </ul>
+    
+          <p><strong>📋 Direct from the 2025 Examiner's Report:</strong><br/>
+          <em>"Many candidates did not understand consumer law and mixed it up with employment law (many referred to employee rights, fair pay, or working conditions) or ethical considerations. These candidates could not be credited with any marks, despite having application and analysis, due to not specifying any correct understanding."</em></p>
+    
+          <p><strong>The Simple Test:</strong> Can you link your point back to "satisfactory quality," "fit for purpose," or "as described"? If not, you are likely writing about the wrong topic. Stop and refocus.</p>
+        `,
+                pills: ["K", "U"]
+            }
+        ];
+
+        // 8. Flashcards
+        const flashcards = [
+            { term: "Consumer Law", def: "The area of law that protects the customers of a business, mainly through the Consumer Rights Act 2015." },
+            { term: "Consumer Rights Act 2015", def: "An act of parliament giving customers protection when buying goods and services: they must be of satisfactory quality, fit for purpose, and as described." },
+            { term: "Satisfactory Quality", def: "Goods must not be damaged or faulty when bought. Quality must reflect the price — cheaper goods have a lower expectation than luxury goods." },
+            { term: "Fit for Purpose", def: "Goods must do what they are meant to do. If a seller claims a product performs a function, it must be able to do it." },
+            { term: "As Described", def: "Goods must be exactly as described or advertised. Ordering an orange bike and receiving a green one is a breach of this requirement." },
+            { term: "Reputation", def: "What customers say and feel about a business. Damage through defective goods can seriously reduce sales and threaten business survival." },
+            { term: "Consumer Protection Act 1987", def: "Gives consumers the right to claim compensation if a defective product causes death, damage, or personal injury." },
+            { term: "30-Day Return Rule", def: "Customers can return faulty goods for a full refund within 30 days of purchase. Does NOT apply to downloaded digital products." },
+            { term: "6-Month Rule (Seller's Burden)", def: "If a fault appears within 6 months of purchase, the seller must prove the fault was not pre-existing at the point of sale." },
+            { term: "After 6 Months (Customer's Burden)", def: "If a fault appears after 6 months, the customer must prove the fault existed at the time of delivery. Claims can be made for up to 6 years." },
+            { term: "Training & Consumer Law", def: "To comply with consumer law, businesses must train employees to produce goods of the required quality — increasing operating costs." },
+            { term: "Social Media & Reputation", def: "Customers can post complaints about defective goods on social media, rapidly damaging a business's reputation and reducing sales." }
+        ];
+
+        // 9. Exam-Style Questions (All questions from resources)
+        const examQuestions = [
+            {
+                num: "Q1",
+                marks: 3,
+                type: "written",
+                caseStudy: "Primark Ltd is a fashion retailer that sells clothing and homeware at prices lower than most other retailers. The company is aware of the importance of consumer law and of having low-cost suppliers.\n\nPrimark Ltd started to sell its products online in 2022. After changes in buying habits and pressure from customers, in 2022 Primark Ltd launched an online click and collect service for shoppers.\n\nPrimark Ltd is very aware of the need to have ethical suppliers. The following ethical factors are among those important to Primark Ltd:\n• giving clothes a longer life by using material from sustainable sources\n• encouraging its supply chain to pay a living wage and look after the health and well-being of their workers.",
+                question: "Analyse one impact of consumer law on Primark Ltd. [3 marks]",
+                hint: "Think about the three legal requirements (satisfactory quality, fit for purpose, as described). Do NOT write about wages or ethical suppliers — these are ethical issues, NOT consumer law, and will score zero. You must link your chosen impact specifically to Primark as a fashion retailer.",
+                starter: "Consumer law, specifically the Consumer Rights Act 2015, requires goods to be... (U)\n\nIn the case of Primark Ltd, which sells clothing and homeware at prices lower than most retailers... (APP)\n\nAs a result, this could lead to... / This means Primark could face... (AN)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark — AO1b):</strong> States a correct aspect of consumer law — e.g. goods must be of satisfactory quality / fit for purpose / as described / need to comply with the Consumer Rights Act 2015 / products must meet the standard set.</li><li><strong>Application (1 mark — AO2):</strong> Links directly to Primark using a detail from the case study — e.g. Primark is a fashion retailer / sells clothing and homeware / uses low-cost suppliers / prices lower than most retailers / sells online / offers click and collect.</li><li><strong>Analysis (1 mark — AO3a):</strong> Explains the specific financial or operational impact — e.g. higher costs due to quality assurance / need to use better raw materials / potential for returns which leads to loss of profit / not making products fit for purpose negatively affects reputation / financial impact of fines for not complying with the law.</li></ul><p><strong>Critical Guidance:</strong> NO marks can be awarded without first demonstrating understanding of consumer law. Answers about paying fair wages or using ethical/sustainable suppliers score ZERO — these are ethical issues, not legal consumer law requirements.</p></div><div class="marks-section"><h5>Examiner's Comments (2025)</h5><p>This question had a high omit rate and was not well answered. Only around one in five candidates correctly identified consumer law. The best answers cited 'fit for purpose' or 'satisfactory quality' and went on to link this to the cost of quality assurance or the high volume of returns — especially relevant for a low-price retailer like Primark where margins are already thin.</p><p>Many candidates confused consumer law with employment law (fair pay, working conditions) or ethical issues (sustainable suppliers, living wage). Despite having good application and analysis, these answers scored zero because they lacked any understanding of consumer law. The mark scheme on all similar questions makes clear: "No further marks can be gained without understanding."</p></div><div class="marks-section"><h5>Exemplar Model Answer (3/3)</h5><p>If Primark Ltd sells some of its clothing and homeware products which are 'not as described' (U — 1 mark), customers could return large volumes of goods for refunds (APP — 1 mark to Primark as a fashion retailer selling online). Since Primark operates on very thin profit margins due to its low-price model, the additional costs of processing these returns and funding refunds could significantly reduce overall profitability (AN — 1 mark).</p></div>`,
+                modelAnswer: "If Primark Ltd sells some of its clothing and homeware products which are 'not as described' (U), customers could return large volumes of goods for refunds (APP to Primark as a low-cost fashion retailer). Since Primark operates on very thin profit margins, the additional costs of processing returns and funding refunds could significantly reduce overall profitability (AN)."
+            },
+            {
+                num: "Q2",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "A company makes wooden jigsaw puzzles. By law, the company must: [1 mark]",
+                options: [
+                    "Buy its wood from local suppliers",
+                    "Deliver the jigsaw puzzles in electric vans",
+                    "Replace any pieces that customers lose",
+                    "Use paint that is non-toxic and safe"
+                ],
+                answer: 3,
+                hint: "Consumer law is about the safety and quality of the product itself — not about where raw materials come from or how the product is delivered.",
+                starter: "The correct answer is D, because consumer law requires goods to be...",
+                markScheme: `<div class="marks-section"><h5>Answer: D — Use paint that is non-toxic and safe (1 mark)</h5></div><div class="marks-section"><h5>Why the Other Options Are Wrong</h5><ul><li><strong>A — Buy its wood from local suppliers:</strong> Consumer law does not specify where raw materials must be sourced from. Using local suppliers may be an ethical or logistical choice, but it has no legal requirement under the Consumer Rights Act 2015.</li><li><strong>B — Deliver in electric vans:</strong> The method of delivery is not regulated by consumer law. This may relate to environmental responsibility, but the Consumer Rights Act does not require a specific delivery method.</li><li><strong>C — Replace pieces customers lose:</strong> The Consumer Rights Act does not require businesses to replace items lost through customer negligence. Consumer rights apply to faults present at the time of purchase — not losses caused by the customer.</li><li><strong>D — Use non-toxic and safe paint (CORRECT):</strong> Consumer law requires goods to be of satisfactory quality and safe to use. Using non-toxic paint ensures the product is safe for the consumer — especially critical for a product that children might handle.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Q3",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "A customer has bought a laptop from a computer shop. By law, the computer shop must: [1 mark]",
+                options: [
+                    "Match the price charged by a local competitor",
+                    "Offer to upgrade the laptop for no extra charge",
+                    "Provide virus protection to keep the customer's files safe",
+                    "Supply a laptop of satisfactory quality"
+                ],
+                answer: 3,
+                hint: "Think about the three key requirements of the Consumer Rights Act 2015. Which one applies directly here?",
+                starter: "The correct answer is D, because the Consumer Rights Act requires goods to be...",
+                markScheme: `<div class="marks-section"><h5>Answer: D — Supply a laptop of satisfactory quality (1 mark — AO2)</h5></div><div class="marks-section"><h5>Why the Other Options Are Wrong</h5><ul><li><strong>A — Match the price of a local competitor:</strong> Price matching is not a legal requirement. Consumer law does not regulate pricing — businesses are free to charge what they choose.</li><li><strong>B — Offer a free upgrade:</strong> Upgrades are a customer service gesture, not a legal obligation. The Consumer Rights Act does not require businesses to offer product upgrades at any point.</li><li><strong>C — Provide virus protection:</strong> Installing software or providing cybersecurity is not a requirement under consumer law. It may be offered as an extra service, but the Consumer Rights Act 2015 does not mandate it.</li><li><strong>D — Supply a laptop of satisfactory quality (CORRECT):</strong> The Consumer Rights Act 2015 requires all goods to be of satisfactory quality — free from defects and appropriate for the price paid. This is the core legal obligation of any seller.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Q4",
+                marks: 1,
+                type: "written",
+                caseStudy: "Pukka Pies Ltd is a family-owned business with approximately 360 employees. It makes a range of high-quality savoury pies, including steak, chicken and mushroom, and chicken balti, in batches at its factory in Leicester, England. Pukka Pies are sold in more than 4000 food stores nationwide as well as in sports stadiums, fish and chip shops and cafés across the country.\n\nThree of Pukka Pies Ltd's key values are recruiting people who are ambitious, delighting customers with quality pies, and building trust with suppliers through food safety. Each of these values helps the business meet the requirements of consumer law.\n\nThe success of Pukka Pies Ltd is affected by many factors, including its logistical and supply chain decisions. Pukka Pies Ltd procures the ingredients for its pies from businesses across the UK and overseas; consequently its supply chain is long. Nevertheless, all of these ingredients need to arrive in good condition and, therefore, its logistics are time-critical. Unemployment levels also have a significant impact on Pukka Pies Ltd.\n\nPukka Pies Ltd considers its environmental impact across all aspects of business activity. It has already replaced some of the non-recyclable plastics used in its packaging with alternatives that can be recycled. In addition, none of the company's waste goes to landfill.",
+                question: "Identify one way consumer law protects consumers. [1 mark]",
+                hint: "You only need ONE specific point. Think about the three requirements of the Consumer Rights Act 2015 — any one of them is a valid answer. Do not write about the environment or worker pay.",
+                starter: "Consumer law protects consumers by ensuring that...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 1 mark (AO1a)</h5><p>1 mark for a correct identification of how consumer law protects consumers.</p><p><strong>Acceptable answers include:</strong></p><ul><li>Products must be of satisfactory quality</li><li>Products must be fit for purpose</li><li>Products must be as described</li><li>Provides customer rights, including the return of faulty products</li><li>Compensation for damage or injury caused by defective products</li></ul><p><strong>Note:</strong> Only accept references to how consumers are protected — not how businesses are affected. Accept correct examples of specific consumer laws (e.g. Consumer Protection Act 1987). Do NOT accept ethical issues such as sustainability or fair wages.</p></div>`,
+                modelAnswer: "Consumer law protects consumers by requiring that all goods must be of satisfactory quality — meaning they must not be damaged or faulty when purchased."
+            },
+            {
+                num: "Q5",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "A customer has ordered an electric shower from a plumbing firm. By law, the plumbing firm must: [1 mark]",
+                options: [
+                    "Charge a lower price than other plumbers",
+                    "Fit the shower without turning the water off",
+                    "Supply a shower that meets current safety standards",
+                    "Use an environmentally friendly supplier"
+                ],
+                answer: 2,
+                hint: "Consumer law focuses on the safety and quality of goods supplied — not on pricing or the environmental sourcing of materials.",
+                starter: "The correct answer is C, because consumer law requires goods to be...",
+                markScheme: `<div class="marks-section"><h5>Answer: C — Supply a shower that meets current safety standards (1 mark)</h5></div><div class="marks-section"><h5>Why the Other Options Are Wrong</h5><ul><li><strong>A — Charge a lower price than other plumbers:</strong> Pricing is not regulated by consumer law. There is no legal obligation to undercut competitors — businesses are free to set their own prices.</li><li><strong>B — Fit the shower without turning the water off:</strong> This is not a requirement of consumer law, and would in fact be dangerous and unsafe — directly contradicting the spirit of consumer protection legislation.</li><li><strong>C — Supply a shower that meets current safety standards (CORRECT):</strong> Consumer law requires goods and services to be of satisfactory quality, which includes meeting current safety standards. A shower must be safe, functional, and fit for the purpose of providing hot water.</li><li><strong>D — Use an environmentally friendly supplier:</strong> Environmental sourcing is an ethical consideration, not a legal consumer law requirement. Consumer law is about the rights of the buyer — not the environmental practices of the supply chain.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Q6",
+                marks: 2,
+                type: "written",
+                caseStudy: "Tesco plc is one of the largest retailers in the UK. It sells a range of products through its shops and uses e-commerce across the UK. The business procures its supplies from a range of UK and foreign businesses.\n\nOn its website, Tesco plc states its core purpose as 'wanting to be a champion for customers, helping them to enjoy a better quality of life and an easier way of living. Customers want great products at great value which they can buy easily and it's our job to deliver this in the right way for them.'\n\nIn recent years, sales of Tesco plc's products and services have been affected by increasing competition, consumer law and the growth of e-commerce. In addition, sales are impacted by how the UK economy is performing and the level of UK employment.",
+                question: "Explain one way consumer law may impact Tesco plc. [2 marks]",
+                hint: "You need ONE impact on Tesco specifically — use a detail from the case study. Structure: identify the impact of consumer law (1 mark) + apply it specifically to Tesco using the case study (1 mark).",
+                starter: "One way consumer law may impact Tesco plc is... (K — 1 mark)\n\nIn the case of Tesco plc, which sells a wide range of products through shops and e-commerce, this means... (APP — 1 mark)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a 1 mark + AO2 1 mark)</h5><ul><li><strong>Knowledge/Identify (1 mark — AO1a):</strong> Names a specific way consumer law may impact a business — e.g. impact on the reputation of the business / impact on the safety of the consumer / impact on the quality of goods / cost of compliance with the law / fines for not complying.</li><li><strong>Application (1 mark — AO2):</strong> Applies the impact specifically to Tesco plc using a detail from the case study — e.g. references Tesco's wide range of products / its e-commerce operations / its core purpose of being a 'champion for customers' / the range of UK and foreign suppliers it uses.</li></ul></div><div class="marks-section"><h5>Model Answer</h5><p>One possible impact is that if Tesco plc sells products which are not as described (K — 1 mark), it could receive poor press coverage which then leads to a poor reputation and a significant loss of sales (APP — 1 mark, applied to Tesco as a major UK retailer operating across shops and e-commerce).</p></div>`,
+                modelAnswer: "One way consumer law may impact Tesco plc is through damage to its reputation if it sells products that are not as described or not of satisfactory quality (K). Since Tesco plc is one of the largest retailers in the UK, selling across both physical shops and e-commerce, any high-profile quality failure could lead to widespread negative coverage, a loss of customer trust, and a significant fall in sales (APP)."
+            },
+            {
+                num: "Q7",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Consumer law requires shops to sell goods that are: [1 mark]",
+                options: [
+                    "Cheap",
+                    "High quality",
+                    "Safe",
+                    "Unique"
+                ],
+                answer: 2,
+                hint: "Consumer law doesn't require goods to be the best or the cheapest — think about the word used in the law itself for the quality requirement.",
+                starter: "The correct answer is C, because consumer law requires goods to be...",
+                markScheme: `<div class="marks-section"><h5>Answer: C — Safe (1 mark — AO1a)</h5></div><div class="marks-section"><h5>Why the Other Options Are Wrong</h5><ul><li><strong>A — Cheap:</strong> Consumer law does not require goods to be cheap. There is no price regulation in the Consumer Rights Act 2015 — businesses are free to charge market rates.</li><li><strong>B — High quality:</strong> This is the most common wrong answer. The law requires 'satisfactory quality' — a standard that reflects the price paid — NOT the highest possible quality. Luxury goods must be high quality; budget goods only need to meet a lower, price-appropriate standard.</li><li><strong>C — Safe (CORRECT):</strong> Consumer law requires goods to be safe and of satisfactory quality. Safety is a core requirement — goods must not cause harm to the consumer when used as intended.</li><li><strong>D — Unique:</strong> Consumer law places no requirement on uniqueness or exclusivity. There is no legal reason a business cannot sell standard, mass-produced goods.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Q8",
+                marks: 1,
+                type: "mcq",
+                caseStudy: "",
+                question: "Consumer law requires shops to sell goods which are: [1 mark]",
+                options: [
+                    "Environmentally friendly",
+                    "Of satisfactory quality",
+                    "Reasonably priced",
+                    "Unique"
+                ],
+                answer: 1,
+                hint: "Think about the exact wording used in the Consumer Rights Act 2015 for the quality requirement.",
+                starter: "The correct answer is B, because the Consumer Rights Act 2015 specifically states that goods must be...",
+                markScheme: `<div class="marks-section"><h5>Answer: B — Of satisfactory quality (1 mark — AO1a)</h5></div><div class="marks-section"><h5>Why the Other Options Are Wrong</h5><ul><li><strong>A — Environmentally friendly:</strong> Environmental responsibility is an ethical choice, not a legal consumer law requirement. The Consumer Rights Act 2015 makes no mention of environmental standards.</li><li><strong>B — Of satisfactory quality (CORRECT):</strong> The Consumer Rights Act 2015 specifically requires goods to be of satisfactory quality — not defective or damaged when sold, and appropriate for the price paid. This is one of the three core legal requirements.</li><li><strong>C — Reasonably priced:</strong> Consumer law does not regulate pricing. Businesses are free to charge market rates. 'Reasonably priced' is not a requirement found anywhere in the Consumer Rights Act 2015.</li><li><strong>D — Unique:</strong> Consumer law places no requirement on uniqueness. Mass-produced, standard goods are perfectly legal to sell and fully covered by consumer law.</li></ul></div>`,
+                modelAnswer: ""
+            },
+            {
+                num: "Q9 (a)",
+                marks: 2,
+                type: "written",
+                caseStudy: "QUA plc make dishwashers. They have had a good reputation for a number of years, with customers praising the way that dishes always seem cleaner from a QUA wash. Sales have risen each year.\n\nThey have recently introduced a new model of dishwasher using advanced technology. Early reports from consumers have identified a number of problems with the quality of the machine itself and its ability to wash dishes thoroughly. Sales have started to fall. Negative comments have started to appear on social media which mention consumer law being used against QUA.\n\nQUA's production manager, Abigail, wants to stop producing the new model of machine until the cause of the problems have been identified and solved. Jason, the marketing manager, feels that there is no great cause for concern, saying the fall in sales could be temporary and that stopping production of the new model would cost the business a lot of money.",
+                question: "State two possible effects on a business of consumer law. [2 marks]",
+                hint: "You need TWO separate effects — these are simple 1-mark statements, no explanation is required. Think about what could happen to a business if its products don't meet consumer law requirements.",
+                starter: "Effect 1: Consumer law could mean that a business has to...\n\nEffect 2: Another possible effect is that the business may...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a / Knowledge)</h5><p>1 mark for each correct effect. No explanation required — these are knowledge-only marks.</p><p><strong>Acceptable answers include (any two):</strong></p><ul><li>The quality of their products/services must meet legal standards</li><li>Their products must be safe to use</li><li>The business may face compensation claims from customers</li><li>The business may lose its reputation</li><li>The business may have to provide refunds to customers</li><li>Customers may return faulty goods, increasing costs</li><li>The business could face legal action or court cases</li><li>Products must be as described / fit for purpose</li><li>The business may have to recall or stop selling faulty products</li></ul></div>`,
+                modelAnswer: "Effect 1: Consumer law means the business may face compensation claims from customers if its products are defective or cause injury.\n\nEffect 2: The business may lose its reputation if it produces goods that are not of satisfactory quality, leading to a fall in sales."
+            },
+            {
+                num: "Q9 (b)",
+                marks: 7,
+                type: "written",
+                caseStudy: "",
+                question: "Evaluate the importance of consumer law on the running of a business such as QUA. [7 marks]",
+                hint: "Write TWO separate impacts of consumer law on QUA (use specific details from the case study to earn application marks). Analyse the business impact of each one. Then write a justified conclusion — make a judgement and back it up using QUA's specific situation. Do NOT just repeat your earlier analysis in the conclusion.",
+                starter: "Para 1 (K & U): Consumer law, specifically the Consumer Rights Act 2015, requires businesses to ensure goods are of satisfactory quality. For a manufacturer like QUA, this means dishwashers must be free from defects and perform as the seller claims...\n\nPara 2 (APP & AN — Impact 1): QUA's new dishwasher model has already received early consumer reports identifying quality problems and an inability to wash dishes thoroughly... As a result, if customers take legal action against QUA under consumer law, the business could face significant compensation costs, directly reducing profitability...\n\nPara 3 (APP & AN — Impact 2): Furthermore, negative comments have already started appearing on social media mentioning consumer law being used against QUA... This reputational damage could cause QUA's previously loyal customers to switch to competitor brands, resulting in a long-term decline in sales that could threaten the business...\n\nPara 4 (Evaluation): Overall, I believe consumer law is very important to the running of QUA because... (Decision)\nThis is especially significant given that QUA has had a good reputation for many years and sales had been rising year on year until the new model launched... (Context)\nHowever, the full severity of the impact depends on whether QUA can identify and resolve the quality issues quickly — if Abigail's recommendation to halt production is followed promptly, the damage may be contained before it becomes irreversible... (Impact/Reasoning)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 7 marks</h5><ul><li><strong>Application — AO2 (2 marks):</strong> Two separate examples relating specifically to QUA from the case study.</li><li><strong>Analysis — AO3a (2 marks):</strong> Two separate explanations of the effect/impact on QUA as a business.</li><li><strong>Evaluation — AO3b (3 marks):</strong> Judgement (1 mark) + Contextual justification using the case study (up to 2 marks).</li></ul></div><div class="marks-section"><h5>Application Points — Must Refer Specifically to QUA</h5><ul><li>QUA's new model has quality problems identified by consumers / machine not cleaning dishes thoroughly</li><li>QUA has had a good reputation for years — customers praise the quality of a 'QUA wash'</li><li>Falling sales of the new model since quality problems emerged</li><li>Negative comments appearing on social media, specifically mentioning consumer law being used against QUA</li><li>Abigail wants to halt production; Jason argues stopping would cost a lot of money</li></ul></div><div class="marks-section"><h5>Analysis Points — Impact on QUA as a Business</h5><ul><li>If QUA's reputation falls, previous loyal customers will not return to purchase the new dishwasher model</li><li>Falling sales of the new model &rarr; income/revenue for QUA will decline</li><li>Possible compensation claims against QUA &rarr; significant additional costs for the business</li><li>Cost of halting production (Abigail's plan) vs. long-term cost of continued reputational damage</li><li>Further social media coverage could amplify the damage beyond existing customers</li></ul></div><div class="marks-section"><h5>Evaluation — AO3b (3 marks)</h5><ul><li><strong>Judgement (1 mark):</strong> A clear, direct statement — e.g. "I think that consumer law is very important to the running of a business such as QUA."</li><li><strong>Justification (up to 2 marks):</strong> A single, clearly explained idea using QUA's specific context can earn up to 2 marks. Example: "Consumer law is very important because QUA has already received negative comments on social media mentioning consumer law. If consumers take QUA to court, the business may face not only compensation costs but the destruction of the strong reputation it has built over many years — which would be extremely difficult to recover from. QUA must resolve the quality issues urgently or the long-term damage to sales may outweigh any short-term saving from continuing production."</li></ul></div>`,
+                modelAnswer: "Consumer law, specifically the Consumer Rights Act 2015, requires businesses to ensure goods are of satisfactory quality. For QUA, a dishwasher manufacturer, this means machines must work effectively and be free from defects when purchased.\n\nQUA's new model has already received early consumer reports identifying quality problems — machines are not washing dishes thoroughly. This is a direct breach of the 'satisfactory quality' requirement. If customers use consumer law and take QUA to court, the business could face significant compensation payments, directly reducing profitability at a time when sales are already falling.\n\nFurthermore, negative comments have already started appearing on social media, with customers specifically mentioning consumer law being used against QUA. QUA has had a strong reputation for years, with customers praising the quality of a 'QUA wash'. If this reputation is permanently damaged, loyal customers are unlikely to repurchase — causing a long-term fall in sales that could threaten the business's survival.\n\nOverall, I believe consumer law is very important to the running of a business such as QUA. This is particularly significant because QUA has spent years building a competitive advantage based entirely on a reputation for quality — once destroyed, this is extremely difficult to rebuild. However, the full severity of the impact will depend on how quickly QUA resolves the quality issues. If Abigail's recommendation to halt production is implemented promptly, the legal and reputational damage may be contained before it becomes irreversible. If Jason's approach is followed and production continues, QUA risks far greater long-term losses than the short-term cost of stopping production."
+            },
+            {
+                num: "Q10",
+                marks: 3,
+                type: "written",
+                caseStudy: "Delicious Cakes is a family run business and has been running for 10 years. They have an excellent reputation with customers describing their cakes as 'excellent value for money'. They have only recently had an inspection into how the business is run. The findings outlined that all of the equipment they use is up to date and they only use the freshest of ingredients with their fridge being checked daily. They also have clearly on display all of their ingredients that are found in the cakes so customers can check in connection to any allergies.",
+                question: "State the three parts of consumer law that businesses must meet. [3 marks]",
+                hint: "This is a pure knowledge question — no explanation or application needed. Simply name all three requirements of the Consumer Rights Act 2015. One mark per correct part.",
+                starter: "Part 1: Goods must be...\n\nPart 2: Goods must be...\n\nPart 3: Goods must be...",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1 Knowledge)</h5><p>1 mark for each correct part stated. No explanation required.</p><ul><li><strong>1 mark:</strong> Of satisfactory quality</li><li><strong>1 mark:</strong> Fit for purpose</li><li><strong>1 mark:</strong> As described</li></ul><p>All three parts must be stated to achieve full marks. Any other answers score zero — these three are the only requirements students are expected to state for this topic.</p></div>`,
+                modelAnswer: "The three parts of consumer law that businesses must meet are:\n1. Of satisfactory quality — goods must not be damaged or faulty when purchased.\n2. Fit for purpose — goods must do what they are designed and intended to do.\n3. As described — goods must be exactly as described or advertised to the customer."
+            },
+            {
+                num: "Q11",
+                marks: 7,
+                type: "written",
+                caseStudy: "",
+                question: "Discuss the implications on Delicious Cakes of complying with Consumer Law. [7 marks]",
+                hint: "Use TWO specific pieces of information from the Delicious Cakes case study (AP marks). Analyse the implication of each piece for the business (AN marks). Then write a justified conclusion evaluating whether it is more or less beneficial for Delicious Cakes to comply with consumer law. Use the case study to support your conclusion.",
+                starter: "Para 1 (K & U): Consumer law, under the Consumer Rights Act 2015, requires businesses to sell goods that are of satisfactory quality, fit for purpose, and as described. For a food business like Delicious Cakes, this means all cakes must be properly made, free from defects, and accurately labelled...\n\nPara 2 (APP & AN — Implication 1): The case study states that Delicious Cakes clearly displays all ingredients so customers can check for allergies... This directly helps the business comply with the 'as described' requirement, which reduces the risk of consumer complaints or legal claims regarding undisclosed allergens, protecting the business from costly compensation payments...\n\nPara 3 (APP & AN — Implication 2): Furthermore, the inspection found all equipment is up to date and only the freshest ingredients are used, with the fridge checked daily... This means Delicious Cakes is consistently meeting the 'satisfactory quality' standard, which reduces the likelihood of producing substandard cakes and maintains the excellent reputation that customers describe as 'excellent value for money'...\n\nPara 4 (Evaluation): Overall, I believe it is more beneficial for Delicious Cakes to comply with consumer law because... (Decision)\nThis is particularly important given that the business has spent 10 years building an excellent reputation — which is clearly its main competitive advantage... (Context)\nHowever, the benefit depends on whether Delicious Cakes can continue to absorb the cost of compliance without raising prices to a level that undermines the 'value for money' reputation customers value so highly... (Impact/Reasoning)",
+                markScheme: `<div class="marks-section"><h5>Mark Allocation — 7 marks</h5><ul><li><strong>Application — AP (2 marks):</strong> Uses 2 specific pieces of information from the Delicious Cakes case study.</li><li><strong>Analysis — AN (2 marks):</strong> Analyses each piece — what is the actual implication for the business?</li><li><strong>Evaluation — EV (3 marks):</strong> Is it more or less beneficial for Delicious Cakes to comply with consumer law? Justified with reasons using the case study.</li></ul></div><div class="marks-section"><h5>Application Points — Must Refer to Delicious Cakes</h5><ul><li>Ingredients clearly on display for allergy checking &rarr; relates to 'as described' requirement</li><li>Only the freshest ingredients are used, fridge checked daily &rarr; relates to 'satisfactory quality'</li><li>All equipment is up to date &rarr; helps ensure goods are consistently of satisfactory quality</li><li>Excellent reputation — customers describe cakes as 'excellent value for money' &rarr; benefits of compliance already visible</li><li>The business recently had a full inspection which found good practice throughout</li></ul></div><div class="marks-section"><h5>Analysis Points — Implications for Delicious Cakes</h5><ul><li>Displaying ingredients reduces risk of consumer complaints or legal action regarding allergens &rarr; protects the business from costly claims</li><li>Using fresh ingredients reduces risk of producing substandard cakes &rarr; fewer refund demands and less reputational damage</li><li>Up-to-date equipment maintains consistent quality &rarr; reduces risk of producing faulty goods that breach the Consumer Rights Act</li><li>Maintaining quality has helped build the excellent reputation &rarr; this reputation increases customer loyalty and long-term sales</li><li>Cost of compliance (fresh ingredients, updated equipment) &rarr; increases operating costs and may reduce short-term profits</li></ul></div><div class="marks-section"><h5>Evaluation — EV (3 marks)</h5><ul><li><strong>Decision (1 mark):</strong> Clear statement — e.g. "I believe it is more beneficial for Delicious Cakes to comply with consumer law."</li><li><strong>Contextual Justification (up to 2 marks):</strong> Uses specific case study detail. A single, well-explained reason drawing on Delicious Cakes' specific context can earn 2 marks. Example: "Delicious Cakes has built an excellent reputation over 10 years, and this reputation is the business's main competitive advantage. If the business were to breach consumer law — for example, by mislabelling ingredients — it would face not only compensation costs but the rapid destruction of the customer trust that has taken 10 years to build. The ongoing cost of compliance (fresh ingredients, up-to-date equipment) is far lower than the potential cost of non-compliance, particularly for a small family business where a single legal case or viral complaint could permanently damage the brand."</li></ul></div>`,
+                modelAnswer: "Consumer law, under the Consumer Rights Act 2015, requires goods to be of satisfactory quality, fit for purpose, and as described. For Delicious Cakes, a food business, this means all cakes must be properly made, do what is expected of them, and have accurate ingredient information.\n\nThe case study states that Delicious Cakes clearly displays all ingredients so customers can check for allergies. This directly helps the business comply with the 'as described' requirement. As a result, Delicious Cakes significantly reduces the risk of customer complaints or legal claims related to undisclosed allergens — protecting the business from potentially huge compensation payments and avoiding damaging publicity.\n\nFurthermore, the inspection found that all equipment is up to date and only the freshest ingredients are used, with the fridge checked daily. This shows Delicious Cakes is consistently meeting the 'satisfactory quality' standard. The implication is that the business reduces the likelihood of producing substandard or faulty cakes, meaning fewer refund demands and the continued protection of its excellent reputation — with customers already describing their products as 'excellent value for money'.\n\nOverall, I believe it is more beneficial for Delicious Cakes to comply with consumer law. This is particularly important given that the business has spent 10 years building an excellent reputation — which is clearly its strongest competitive asset in a competitive market. The cost of maintaining compliance (fresh ingredients, up-to-date equipment) is an ongoing investment, but it protects the business from the far greater cost of non-compliance: legal claims, refunds, and irreversible reputational damage. However, the long-term benefit depends on whether Delicious Cakes can continue to absorb these compliance costs without raising prices to a level that undermines the 'excellent value for money' reputation that customers value most."
+            }
+        ];
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

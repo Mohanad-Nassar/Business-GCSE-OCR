@@ -1,0 +1,1289 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.2 Quality of Goods & Services – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Business — Component 2</div>
+            <h1>4.2 Quality of Goods & Services</h1>
+            <p>Interactive revision guide · All key content + full exam practice</p>
+        </div>
+        <a href="index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px">
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #d4edda;
+                  border: 1.5px solid #2d7a4f;
+                  display: inline-block;
+                "></span>
+                        First attempt correct</span>
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fff8dc;
+                  border: 1.5px solid #b8860b;
+                  display: inline-block;
+                "></span>
+                        Correct after mistake</span>
+                    <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fde8e5;
+                  border: 1.5px solid #c84b31;
+                  display: inline-block;
+                "></span>
+                        Wrong — try again</span>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA TEMPLATE: 4.2 Quality of Goods and Services
+    // ══════════════════════════════════════
+
+    // 1. Main Learning Content
+    const topics = [
+        {
+            title: "Key Terms & Official Definitions",
+            tag: "Core Concepts",
+            content: `<p>These are the essential terms you <strong>must</strong> know for this topic. Examiners award no credit for vague or imprecise definitions — learn these word-for-word.</p>
+<ul>
+  <li><strong>Quality:</strong> A product or service that is <strong>fit for purpose</strong> — it does what it is supposed to do, meets legislative rules (e.g. design and safety regulations), and meets <strong>customer expectations</strong>.</li>
+  <li><strong>Quality Control:</strong> A system for <strong>inspecting</strong> the quality of goods or services produced to ensure they are of a good standard. Checking is typically carried out by specialist inspectors at the end of, or during, production.</li>
+  <li><strong>Quality Assurance:</strong> An approach that involves the <strong>whole business</strong> focusing on quality, aiming to <strong>prevent</strong> quality problems from arising. Every employee at every stage of production is responsible for quality.</li>
+  <li><strong>Returns:</strong> Goods which customers take back to the shop because there are problems with the quality of them.</li>
+  <li><strong>Recalls:</strong> When a fault occurs with a product and the business asks for the product to be brought back so it can be repaired or replaced (e.g. Whirlpool washing machines in 2019).</li>
+  <li><strong>Mystery Shopper:</strong> A person who pretends to be a normal customer but secretly evaluates whether the service provided meets the required standard.</li>
+  <li><strong>Fit for Purpose:</strong> A product or service that fulfils its intended function and meets the reasonable expectations of the customer at the price they paid.</li>
+</ul>`
+        },
+        {
+            title: "The Concept of Quality",
+            tag: "Core Concepts",
+            content: `<p>Quality does <strong>not</strong> mean the most expensive or the best product on the market. A product or service is considered quality when it meets <strong>three criteria</strong>:</p>
+<ul>
+  <li><strong>Fit for purpose</strong> — it does what it is supposed to do</li>
+  <li><strong>Meets legislative rules</strong> — complies with design and safety regulations</li>
+  <li><strong>Meets customer expectations</strong> — even a cheap product can be quality if it does what the customer expected when buying it at that price point</li>
+</ul>
+<p>⚠️ <strong>Key Examiner Insight:</strong> Quality is about <em>meeting expectations</em>, not luxury. A budget supermarket own-brand tin of beans is quality if it tastes acceptable and the tin seals correctly. A £500 designer handbag that falls apart is <em>not</em> quality. This distinction comes up constantly in exam questions.</p>
+<p>The saying <strong>"It costs five times more to gain a customer than to keep a customer"</strong> highlights why quality matters strategically. Losing a customer through poor quality is easy — winning them back (or finding new ones) requires costly marketing campaigns.</p>
+<div class="case-study-box">
+  <h4>Case Study: The Holiday Park (Tripadvisor)</h4>
+  <p>Online review platforms like Tripadvisor allow customers to share experiences publicly. A negative review describing a dirty caravan, broken TV, and rude staff can be read by thousands of potential customers — devastating a business's bookings overnight. This illustrates how a failure to meet customer quality expectations directly translates into lost revenue and lasting reputational damage.</p>
+</div>`
+        },
+        {
+            title: "The Importance of Quality",
+            tag: "Analysis",
+            content: `<p>There are four key consequences of <strong>poor quality</strong> that a business must avoid:</p>
+<ul>
+  <li><strong>Avoids Waste:</strong> Poor-quality goods cannot be sold at full price (or must be sold cheaply as 'seconds'). The business has already spent money on materials and labour — those resources are wasted. Customer returns also cost money to process and replace.</li>
+  <li><strong>Avoids Recalls:</strong> If a safety fault is discovered after products are already sold, the business must recall them. This is hugely expensive — involving engineer visits, repair costs, compensation payments, and severe reputational damage.</li>
+  <li><strong>Reputation and Sales:</strong> Customers who receive poor-quality goods or services may buy from a competitor in future, tell friends and family, or post negative reviews online. A poor reputation is extremely difficult and expensive to reverse — the business loses both existing and potential new customers.</li>
+  <li><strong>Disrupted Production:</strong> If components produced early in the production process are faulty, they cannot be used in later stages — shutting down or slowing the entire production line and increasing unit costs.</li>
+</ul>
+<div class="case-study-box">
+  <h4>Case Study: Whirlpool Recalls (2019–2020)</h4>
+  <p>In 2019, Whirlpool identified 519,000 Indesit and Hotpoint washing machines at risk of fire due to a door lock fault (machines made 2014–2018). Engineers had to visit every affected customer's home for free. In 2020, a further 55,000 machines were recalled. Earlier, 5 million tumble dryers had also been recalled — some caused actual fires. In 2016, 50 residents at Shepherds Court, London, needed alternative accommodation after a fire caused by a Whirlpool tumble dryer. The company paid compensation to all affected residents. This case illustrates the catastrophic financial and reputational cost of quality failure on a large scale.</p>
+</div>
+<div class="case-study-box">
+  <h4>Case Study: Customer Service Research (Opinium, 2020)</h4>
+  <p>A survey of 2,000 UK consumers found 79% had experienced bad customer service. Of these, 54% said they would not return to a business after poor service — costing the UK economy an estimated £2.5 billion in lost sales annually. The top-rated businesses during the pandemic were Tesco, Asda, and M&S — all of which adapted quickly to meet changed customer needs.</p>
+</div>`
+        },
+        {
+            title: "Quality Control — How It Works",
+            tag: "Methods",
+            content: `<p><strong>Quality control</strong> is about <em>checking</em> that a product or service meets required standards. It catches defects but does <strong>not prevent them from happening</strong> in the first place — that is the key distinction from quality assurance.</p>
+<p>Methods used in quality control:</p>
+<ul>
+  <li><strong>Physical inspection:</strong> Specialist inspectors sample raw materials, goods during manufacture, or finished products. Some items are tested in a laboratory (e.g. pharmaceutical drugs, food products).</li>
+  <li><strong>Automated machine checks:</strong> Machinery programmed to detect faults automatically ejects items that fail to meet standards — no human inspector required for that stage.</li>
+  <li><strong>Mystery shopper:</strong> A paid individual poses as a normal customer and covertly scores the service on categories such as staff helpfulness, facilities, speed, and product quality. A written report is sent to management for action.</li>
+  <li><strong>Customer satisfaction surveys:</strong> Customers rate their experience after purchase. The business uses the data to identify recurring problems and make targeted improvements.</li>
+</ul>
+<div class="case-study-box">
+  <h4>Case Study: Heinz Beanz — Automated Quality Control</h4>
+  <p>The Heinz Beanz factory in Wigan produces approximately 3 million cans every day using a highly automated process. Machinery is programmed to detect faults in cans or labels. If a can is the wrong weight or has not been properly sealed, it is automatically ejected from the production line before it can be sold to customers. This is a textbook example of quality control using technology — faults are caught at the end of production rather than prevented at source.</p>
+</div>`
+        },
+        {
+            title: "Quality Control — Advantages & Disadvantages",
+            tag: "Pros & Cons",
+            content: `<p>Use this two-column layout to evaluate quality control in exam answers:</p>
+<div class="two-col">
+  <div>
+    <div class="col-head">✓ Advantages</div>
+    <div class="pro-item"><strong>Prevents faulty goods reaching customers:</strong> Inspection catches defects before products leave the factory, reducing the number of returns and recalls.</div>
+    <div class="pro-item"><strong>Non-disruptive to production:</strong> Workers continue producing while specialist inspectors do the checking — the production line does not need to stop, keeping output levels high.</div>
+    <div class="pro-item"><strong>Improved reputation:</strong> Consistently meeting quality standards builds consumer confidence, which can increase repeat purchases and attract new customers.</div>
+    <div class="pro-item"><strong>Suitable for technical products:</strong> Products like pharmaceutical drugs or chemicals require specialist laboratory testing that workers could not carry out themselves — quality control is the only viable approach here.</div>
+  </div>
+  <div>
+    <div class="col-head">✗ Disadvantages</div>
+    <div class="con-item"><strong>Does not prevent waste:</strong> Faulty goods are only discovered after they have already been made — the materials and labour used to produce them are wasted, increasing costs.</div>
+    <div class="con-item"><strong>Costly inspection process:</strong> The business must pay inspectors' wages and fund the cost of testing equipment or laboratory analysis, adding to total production costs.</div>
+    <div class="con-item"><strong>Workers not responsible for quality:</strong> Because inspectors do the checking, ordinary workers have no personal ownership of quality standards — this can reduce care and vigilance on the production line.</div>
+    <div class="con-item"><strong>May miss faults:</strong> If only a sample of products are inspected, some faulty items may pass through undetected and reach customers.</div>
+  </div>
+</div>`
+        },
+        {
+            title: "Quality Assurance — How It Works",
+            tag: "Methods",
+            content: `<p><strong>Quality assurance</strong> is about <em>preventing</em> quality problems before they arise. It creates a <strong>culture of quality</strong> throughout the whole organisation — not just in a dedicated inspection department.</p>
+<p>Key features of quality assurance:</p>
+<ul>
+  <li><strong>Every employee is involved</strong> at every stage of the production process — this is sometimes called Total Quality Management (TQM).</li>
+  <li>Each worker treats the <strong>next person in the production process as their internal customer</strong> — they must be satisfied with the quality of what has been passed to them.</li>
+  <li>Employees are <strong>encouraged to suggest improvements</strong> — regular meetings at all levels focus on continuous improvement.</li>
+  <li>Quality is <strong>built into the process</strong> from the start, rather than checked at the end.</li>
+  <li>Products and services are designed with consumer needs at the centre from the outset.</li>
+</ul>
+<div class="case-study-box">
+  <h4>Case Study: Toyota Motors — Quality Assurance in Manufacturing</h4>
+  <p>Toyota is perhaps the company most closely associated with quality assurance. Its system stresses <em>continuous improvement</em> ('kaizen') and requires every employee to suggest improvements and take personal responsibility for the quality of their own work. Toyota aims to reduce waste at every stage and produce cars that precisely meet customer needs. Its two core principles are 'customer first' and 'respect for people'.</p>
+</div>
+<div class="case-study-box">
+  <h4>Case Study: Disney World, Florida — Quality Assurance in Services</h4>
+  <p>Disney World applies quality assurance to a service business. All employees — from actors in parades to street cleaners — are called 'cast members'. The entire visitor experience is treated as a 'show' that every worker contributes to. Each cast member is personally responsible for delivering high-quality service at all times, ensuring every customer has a great experience. This shows that quality assurance is just as relevant to service industries as it is to manufacturing.</p>
+</div>`
+        },
+        {
+            title: "Quality Assurance — Advantages & Disadvantages",
+            tag: "Pros & Cons",
+            content: `<p>Use this two-column layout when evaluating quality assurance in exam answers:</p>
+<div class="two-col">
+  <div>
+    <div class="col-head">✓ Advantages</div>
+    <div class="pro-item"><strong>Reduces wastage and costs:</strong> Because quality is checked at every stage, faults are caught early before more resources are invested in a defective product — reducing production costs.</div>
+    <div class="pro-item"><strong>Motivates workers:</strong> Employees feel valued and trusted when given personal responsibility for quality. This can increase effort, engagement, and output quality.</div>
+    <div class="pro-item"><strong>Improved reputation:</strong> A whole-business focus on quality builds a consistent, strong reputation over time, which attracts and retains customers and may allow the business to charge higher prices.</div>
+    <div class="pro-item"><strong>Fewer returns and recalls:</strong> Catching problems during production means fewer defective products ever reach customers — saving the cost of returns, recalls, and compensation payments.</div>
+  </div>
+  <div>
+    <div class="col-head">✗ Disadvantages</div>
+    <div class="con-item"><strong>May disrupt production:</strong> Workers stopping to check their own work slows down the production line, potentially reducing output per hour and raising the cost per unit.</div>
+    <div class="con-item"><strong>High training costs:</strong> Workers need extensive training to assess and take responsibility for quality standards — this requires significant investment in time and HR resources.</div>
+    <div class="con-item"><strong>Worker resistance:</strong> Some employees may be uncomfortable with the added pressure of responsibility for quality and may resist the introduction of QA methods — potentially causing conflict or lower morale.</div>
+    <div class="con-item"><strong>Not suitable for all products:</strong> Highly technical products such as pharmaceutical drugs still require specialist laboratory testing that ordinary production workers cannot perform, regardless of QA procedures.</div>
+  </div>
+</div>`
+        },
+        {
+            title: "Quality Control vs Quality Assurance — Evaluation",
+            tag: "Evaluation",
+            content: `<p>When a question asks you to evaluate or recommend a quality method, always consider the <strong>context</strong> — the type of product, the business's size, and the specific problem being faced.</p>
+<div class="two-col">
+  <div>
+    <div class="col-head">Use Quality Control when...</div>
+    <div class="pro-item">The product is highly technical and requires specialist lab testing (e.g. drugs, chemicals, food safety checks)</div>
+    <div class="pro-item">The business needs production to run without interruption — workers focus on output, inspectors on quality</div>
+    <div class="pro-item">Automated machinery can perform checks efficiently at high speed (e.g. Heinz Beanz production line)</div>
+  </div>
+  <div>
+    <div class="col-head">Use Quality Assurance when...</div>
+    <div class="pro-item">The workforce is skilled enough to judge and take responsibility for their own work (e.g. car manufacturing at Toyota)</div>
+    <div class="pro-item">The business wants to reduce waste at source rather than discover it at the end of production</div>
+    <div class="pro-item">The business operates in the service sector and wants all staff personally invested in customer experience (e.g. Disney World)</div>
+  </div>
+</div>
+<p><strong>Key evaluation point for high-mark answers:</strong> Building a reputation for quality takes a <em>long time</em>. Losing it can happen <em>very quickly</em>. A business that invests in either quality method protects itself from the costs of waste, returns, recalls, and customer loss. However, the method must match the business context — there is no single 'right' answer.</p>
+<p><strong>The 'It depends on...' rule:</strong> In a 6–9 mark evaluation, always qualify your recommendation. For example: "Quality assurance would be more beneficial for ABC Bicycles because it reduces waste, but this depends on whether the business can afford the significant training costs involved."</p>`
+        }
+    ];
+
+    // 2. Multiple Choice Questions (Minimum 10)
+    const mcqData = [
+        {
+            q: "Which of the following best describes the concept of 'quality' for a business?",
+            opts: [
+                "Producing goods that are more expensive than those of competitors",
+                "Producing goods or services that are fit for purpose and meet customer expectations",
+                "Using only the highest-grade raw materials regardless of cost",
+                "Ensuring all products outperform the market leader"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Quality means a product or service is fit for purpose, meets legal requirements, and meets customer expectations — not about being the most expensive or most luxurious. Option A confuses quality with premium pricing. Options C and D describe standards that exceed what quality requires."
+        },
+        {
+            q: "Which of the following statements best describes quality assurance?",
+            opts: [
+                "Inspectors are used to check the quality of goods being produced",
+                "Only finished goods are checked so no faulty products are sold",
+                "All workers are involved in and responsible for the quality of their work",
+                "Quality is only checked once production is finished so it does not disrupt output"
+            ],
+            ans: 2,
+            explain: "Correct answer: C. Quality assurance involves the whole business in maintaining quality — every worker takes personal responsibility at every stage of production. Option A describes quality control (specialist inspectors). Option B describes end-of-line quality control. Option D is false — QA can slow production because workers stop to check their own work."
+        },
+        {
+            q: "Which of the following is a disadvantage of using quality control?",
+            opts: [
+                "Inspectors do not need to be paid because workers check their own quality",
+                "Inspectors are better at checking the quality of goods than workers",
+                "Workers do not have to disrupt production to check quality",
+                "Inspectors have to be paid for their work, adding to the cost of production"
+            ],
+            ans: 3,
+            explain: "Correct answer: D. Quality control requires specialist inspectors who must be paid a wage, and laboratory testing equipment also has a cost — both add to total production costs. Option A is false (inspectors do need to be paid). Option B is not a disadvantage. Option C is actually an advantage of quality control (production is not disrupted)."
+        },
+        {
+            q: "A manufacturer makes chocolate bars. All bars are passed through a machine to check for production mistakes before being boxed. This is an example of:",
+            opts: [
+                "Product development",
+                "Product recall",
+                "Quality assurance",
+                "Quality control"
+            ],
+            ans: 3,
+            explain: "Correct answer: D. This is quality control — a system where finished goods are inspected (by a machine acting as the inspector) before reaching the customer. It is end-of-production checking, not prevention at every stage, so it is NOT quality assurance. Option A (product development) means creating new products. Option B (product recall) means bringing products back after they have been sold."
+        },
+        {
+            q: "Which of the following would be an example of a quality assurance activity for a car manufacturer?",
+            opts: [
+                "Driving every tenth car to test that the brakes are working correctly",
+                "Holding a meeting with production operatives on how to improve the manufacturing process",
+                "Increasing the amount of money that the operations function can spend",
+                "Visually inspecting two cars of each colour for defects in the paintwork"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Quality assurance involves all workers contributing to improving quality — holding a meeting with production workers to suggest improvements is a classic QA activity (whole-business involvement). Options A and D are quality control examples (sampling and inspection). Option C is a financial/budget decision with no direct link to quality methods."
+        },
+        {
+            q: "The concept of 'quality' refers to making products:",
+            opts: [
+                "By hand",
+                "Of a satisfactory standard",
+                "That are better than the leading brand",
+                "To the highest possible specification"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Quality means producing goods or services to a satisfactory standard — fit for purpose and meeting customer expectations at the price paid. Option A is wrong (quality can apply to machine-made products). Option C is wrong (quality does not mean being better than competitors). Option D is wrong (the highest possible specification may exceed what customers expect or are willing to pay for)."
+        },
+        {
+            q: "Zayn owns a business making heated gloves. The business has recently experienced an increase in product returns. Which of the following would best help Zayn deal with this problem?",
+            opts: [
+                "Giving a bonus to the employee who sews the most gloves each month",
+                "Improving quality checks to ensure every glove heats up correctly",
+                "Researching other types of heated clothing the business could make",
+                "Segmenting the market by age, gender and lifestyle"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Product returns indicate a quality problem — gloves are not meeting customer expectations. Improving quality checks (quality control) would catch faulty gloves before they are sold. Option A rewards speed, which may actually make the quality problem worse. Options C and D are unrelated to the quality/returns issue."
+        },
+        {
+            q: "QT Homeware Ltd manufactures small kitchen appliances and has received complaints that its kettles leak. Which action would best help deal with this problem?",
+            opts: [
+                "Include a cloth to wipe up any leaks in the box of all new kettles",
+                "Launch a promotional campaign in a housekeeping magazine",
+                "Meet with production workers to discuss how to reduce costs",
+                "Physically test every hundredth kettle to ensure it is watertight"
+            ],
+            ans: 3,
+            explain: "Correct answer: D. Physically testing kettles to ensure they are watertight is a quality control measure that directly addresses the root cause of the complaints. Option A treats the symptom (leaks) rather than solving the underlying quality fault. Option B is a marketing activity that does not fix the product. Option C focuses on cost reduction, not quality improvement."
+        },
+        {
+            q: "Sabena works for a small business that makes computers. Her main task is to test every computer before it leaves the factory. What key business function does Sabena perform?",
+            opts: [
+                "After sales service",
+                "Quality control",
+                "Setting production levels",
+                "Supply chain management"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Sabena inspects every finished computer before it reaches the customer — this is quality control (checking finished goods to ensure they meet the required standard). After-sales service (A) happens after the product is sold and delivered. Setting production levels (C) is an operations management decision. Supply chain management (D) involves managing suppliers and logistics."
+        },
+        {
+            q: "The concept of quality requires a business to:",
+            opts: [
+                "Charge low prices for its services",
+                "Produce the best goods on the market",
+                "Provide services to required standards",
+                "Source its raw materials from ethical suppliers"
+            ],
+            ans: 2,
+            explain: "Correct answer: C. Quality requires a business to produce goods or services that meet required standards — fit for purpose and meeting customer expectations. Option A (low prices) is about pricing strategy, not quality. Option B (best goods) exceeds what quality requires — being satisfactory is enough. Option D (ethical suppliers) relates to CSR, not the definition of quality."
+        },
+        {
+            q: "Which of these statements is TRUE about the importance of quality?",
+            opts: [
+                "It is easy to gain a reputation for quality",
+                "It is easy to lose a reputation for quality",
+                "Producing high-quality goods always increases sales",
+                "Producing high quality is always cheaper than producing low quality"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. It is easy to lose a reputation for quality — one product failure or poor customer experience can damage a reputation built over many years. Option A is false: gaining a reputation for quality takes significant time and investment. Option C is false: other factors like price and marketing affect sales. Option D is false: quality production (e.g. better materials, QA training) usually costs more, not less."
+        },
+        {
+            q: "A pottery business produces 200 vases per week. Each item costs £45. On average, 2 out of every 50 are faulty and must be scrapped. What is the total cost of this wastage in an average week?",
+            opts: [
+                "£9,000",
+                "£180",
+                "£360",
+                "£720"
+            ],
+            ans: 2,
+            explain: "Correct answer: C. Step 1 — find the number of faulty vases: 200 ÷ 50 = 4 batches of 50, each with 2 faulty = 4 × 2 = 8 faulty vases. Step 2 — calculate the cost: 8 × £45 = £360. Option A (£9,000) is the total weekly production cost (200 × £45), not the waste cost. Option B (£180) uses the wrong faulty rate. Option D (£720) doubles the correct answer."
+        }
+    ];
+
+    // 3. Keyword Matching (Minimum 10)
+    const matchData = [
+        { term: "Quality", def: "A product or service that is fit for purpose, meets legislative rules, and meets customer expectations." },
+        { term: "Quality Control", def: "A system for inspecting the quality of goods or services produced by specialist inspectors to ensure they meet a good standard." },
+        { term: "Quality Assurance", def: "An approach that involves the whole business focusing on quality, aiming to prevent quality problems from arising at every stage of production." },
+        { term: "Returns", def: "Goods which customers take back to the shop because there are problems with the quality of them." },
+        { term: "Recalls", def: "When a fault occurs with a product and the business asks for the product to be brought back so it can be repaired or replaced." },
+        { term: "Mystery Shopper", def: "A person who pretends to be a normal customer but secretly evaluates whether the service provided meets the required standard." },
+        { term: "Fit for Purpose", def: "A product that fulfils its intended function and meets the reasonable expectations of the customer for the price paid." },
+        { term: "Waste (in quality context)", def: "Resources (materials, labour, time) used to produce goods that turn out to be faulty and cannot be sold at full price." },
+        { term: "Customer Satisfaction Survey", def: "A method of quality control where customers are asked to rate their experience so a business can identify problems and improvements." },
+        { term: "Continuous Improvement", def: "A key principle of quality assurance (associated with Toyota) where all employees constantly look for ways to improve quality and reduce waste." },
+        { term: "Culture of Quality", def: "An environment in a business where every employee at every level takes personal responsibility for maintaining quality standards." },
+        { term: "Seconds", def: "Goods that fail quality inspection but can still be sold to customers at a reduced price, resulting in lower revenue for the business." }
+    ];
+
+    // 4. Fill in the Blanks (Minimum 10)
+    const fibData = [
+        {
+            display: "Quality means a product or service is _____ for _____, meets legislative rules, and meets customer expectations.",
+            blanks: { B1: "fit", B2: "purpose" }
+        },
+        {
+            display: "Quality _____ involves specialist inspectors checking goods, whereas quality _____ involves every worker being responsible for quality.",
+            blanks: { B1: "control", B2: "assurance" }
+        },
+        {
+            display: "When a fault occurs with a product after it has been sold, the business may issue a _____ asking customers to return the product for repair or replacement.",
+            blanks: { B1: "recall" }
+        },
+        {
+            display: "Goods taken back to a shop by dissatisfied customers due to quality problems are called _____.",
+            blanks: { B1: "returns" }
+        },
+        {
+            display: "A _____ shopper is a person who pretends to be a normal customer but secretly evaluates the quality of the service provided.",
+            blanks: { B1: "mystery" }
+        },
+        {
+            display: "An advantage of quality control is that it does not _____ production because workers continue producing while inspectors do the checking.",
+            blanks: { B1: "disrupt" }
+        },
+        {
+            display: "A disadvantage of quality assurance is that it may _____ production because workers stop to check the quality of their own work.",
+            blanks: { B1: "disrupt" }
+        },
+        {
+            display: "Toyota is associated with quality _____ because it encourages every employee to suggest improvements and take responsibility for their part in production.",
+            blanks: { B1: "assurance" }
+        },
+        {
+            display: "Quality control is particularly suitable for _____ products such as pharmaceutical drugs, where specialist laboratory testing is required.",
+            blanks: { B1: "technical" }
+        },
+        {
+            display: "A disadvantage of quality control is that it does not prevent _____ of resources when products are found to be faulty.",
+            blanks: { B1: "waste" }
+        },
+        {
+            display: "A _____ of quality takes a long time to build, but can be lost very quickly if goods or services fail to meet customer expectations.",
+            blanks: { B1: "reputation" }
+        },
+        {
+            display: "In quality assurance, each employee is expected to treat the next person in the production process as an internal _____, who must be satisfied with the quality of work passed to them.",
+            blanks: { B1: "customer" }
+        }
+    ];
+
+    // Word bank for Fill in the Blanks (correct words + decoys)
+    const fibWords = [
+        "fit", "purpose", "control", "assurance", "recall", "returns",
+        "mystery", "disrupt", "technical", "waste", "reputation", "customer",
+        "inspection", "safety", "certified", "standard", "expensive", "workers",
+        "legal", "reduce", "factory", "training", "production", "management"
+    ];
+
+    // 5. True or False (Minimum 10)
+    const tfData = [
+        {
+            statement: "Quality means a product or service must be the most expensive or best on the market.",
+            answer: false,
+            explanation: "FALSE. Quality means a product or service is fit for purpose and meets customer expectations at the price paid — not that it must be the most expensive or best available."
+        },
+        {
+            statement: "In quality assurance, every employee at every stage of production is responsible for quality.",
+            answer: true,
+            explanation: "TRUE. Quality assurance creates a culture of quality throughout the whole business — it is not just the job of specialist inspectors. This is what distinguishes it from quality control."
+        },
+        {
+            statement: "Quality control prevents waste because faults are caught before resources are used to make defective goods.",
+            answer: false,
+            explanation: "FALSE. Quality control does NOT prevent waste — it only catches faults after the goods have already been made. The materials and labour used to produce defective items are already wasted by the time they are inspected."
+        },
+        {
+            statement: "A recall occurs when a business asks customers to return a faulty product so it can be repaired or replaced.",
+            answer: true,
+            explanation: "TRUE. A recall is when a fault is identified in a product that has already been sold, and the business contacts customers to return it for repair or replacement — as Whirlpool did with its washing machines in 2019."
+        },
+        {
+            statement: "Quality assurance is non-disruptive to production because workers continue producing while inspectors do the checking.",
+            answer: false,
+            explanation: "FALSE. This describes quality CONTROL, not quality assurance. Quality assurance can actually disrupt production because workers stop to check the quality of their own work at each stage."
+        },
+        {
+            statement: "It is easier to lose a reputation for quality than it is to build one.",
+            answer: true,
+            explanation: "TRUE. Building a reputation for quality takes a long time and requires consistent investment. Losing it can happen very quickly — a single product failure, recall, or viral negative review can damage years of hard-earned reputation."
+        },
+        {
+            statement: "Toyota Motors is an example of a business that uses quality control because inspectors check every car at the end of the production line.",
+            answer: false,
+            explanation: "FALSE. Toyota is associated with quality ASSURANCE — its system involves all employees being responsible for quality at every stage of production and continuously suggesting improvements. This is the opposite of relying solely on end-of-line inspectors."
+        },
+        {
+            statement: "A mystery shopper is an example of a quality control method used in service businesses.",
+            answer: true,
+            explanation: "TRUE. A mystery shopper is a quality control method — a person posing as a customer who checks the service against required standards and reports findings to management, allowing the business to take corrective action."
+        },
+        {
+            statement: "One disadvantage of quality assurance is that it may cost a business a lot of money to train workers to assess the quality of their own work.",
+            answer: true,
+            explanation: "TRUE. Quality assurance requires all workers to be trained to understand quality standards and assess their own work. This training takes time and money — it is a significant cost, particularly for larger businesses with many employees."
+        },
+        {
+            statement: "Quality control is a better method than quality assurance in all situations.",
+            answer: false,
+            explanation: "FALSE. Neither method is universally better — it depends on the context. Quality control is better suited to highly technical products needing specialist laboratory testing. Quality assurance is better when workers can judge quality themselves and the business wants to build a quality culture and reduce waste."
+        },
+        {
+            statement: "Poor quality can lead to disrupted production if faulty materials from an early stage cannot be used in a later stage.",
+            answer: true,
+            explanation: "TRUE. If materials produced at an early stage in the production process are of insufficient quality, they cannot be passed to the next stage — halting or slowing the entire production line and increasing costs."
+        },
+        {
+            statement: "One advantage of quality control is that it motivates workers by giving them responsibility for quality.",
+            answer: false,
+            explanation: "FALSE. This is an advantage of quality ASSURANCE, not quality control. In quality control, workers simply produce goods — inspectors do the checking. It is quality assurance that motivates workers by giving them personal responsibility and making them feel valued."
+        }
+    ];
+
+    // 6. Common Student Misconceptions
+    const miscData = [
+        {
+            wrong: "Quality means a product is expensive, luxurious, or the best on the market.",
+            correct: "Quality means a product or service is fit for purpose and meets customer expectations at the price paid. A cheap product can be 'quality' if it does what the customer expected. An expensive product that fails is not quality."
+        },
+        {
+            wrong: "Quality control and quality assurance are the same thing — both involve checking goods.",
+            correct: "They are fundamentally different. Quality CONTROL uses specialist inspectors to check products, usually at the end of production. Quality ASSURANCE involves ALL workers being responsible for quality throughout the entire production process, aiming to PREVENT faults rather than just catch them."
+        },
+        {
+            wrong: "Quality assurance does not disrupt production because quality is only checked once production is finished.",
+            correct: "The opposite is true. Quality ASSURANCE can disrupt production because workers stop to check their own work at each stage. It is quality CONTROL that does NOT disrupt production, because workers continue producing while inspectors check."
+        },
+        {
+            wrong: "Quality control prevents waste because it catches faulty goods.",
+            correct: "Quality control does NOT prevent waste — the materials and labour to make a faulty product have already been used up before the inspector finds the fault. Quality ASSURANCE reduces waste because faults are caught early, before more resources are spent on a defective item."
+        },
+        {
+            wrong: "For a 1-mark 'identify' question about quality, writing 'suppliers' is enough for a mark.",
+            correct: "Examiners require a specific, precise answer. 'Suppliers' alone is too vague. The correct answer would be 'the quality of raw materials / supplies used.' Always be specific about WHAT about suppliers affects quality."
+        },
+        {
+            wrong: "For a 3-mark analyse question, writing everything you know about quality control will get full marks.",
+            correct: "This is 'knowledge dumping' and will score 0 for analysis. You MUST follow the U → APP → AN structure: explain the concept (U), link it specifically to the business in the case study (APP), then explain the financial or operational impact on that business (AN)."
+        },
+        {
+            wrong: "A product recall is the same as a product return.",
+            correct: "These are different. A RETURN is when an individual customer brings back a faulty product to the shop. A RECALL is when the business itself identifies a serious fault and proactively contacts all affected customers to return the product for repair or replacement."
+        },
+        {
+            wrong: "Quality assurance only applies to manufacturing businesses.",
+            correct: "Quality assurance applies equally to service businesses. Disney World is a classic example — all 'cast members' (staff) take personal responsibility for delivering a high-quality customer experience, which is quality assurance applied to a service."
+        }
+    ];
+
+    // 7. Examiner Tips & Structure Guides
+    const examTips = [
+        {
+            type: "Identify / State — 1 mark",
+            title: "One Specific Point. That Is All.",
+            content: `
+      <p>A 1-mark <strong>'Identify' or 'State'</strong> question needs exactly one correct, specific point. Nothing more. Do not write a paragraph, do not define the term, do not give an example unless asked.</p>
+
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li>One clear, specific point = 1 mark ✅</li>
+        <li>A vague, general point = 0 marks ❌</li>
+      </ul>
+
+      <p><strong>❌ Bad Answer (0 marks):</strong><br/>
+      <em>"Suppliers."</em><br/>
+      Too vague — it doesn't say WHAT about suppliers affects quality.</p>
+
+      <p><strong>✅ Good Answer (1 mark):</strong><br/>
+      <em>"The quality of raw materials / supplies used."</em><br/>
+      Specific and directly answers the question.</p>
+
+      <p><strong>⚠️ Examiner Warning:</strong> Many candidates lost marks on this question by writing about the <em>cost</em> of raw materials rather than the <em>quality</em> of them. Always re-read the exact wording before writing your answer.</p>
+
+      <p><strong>🚫 Knowledge Dumping Alert:</strong> Do NOT write a definition of quality (e.g. "fit for purpose") when asked for a <em>factor that affects</em> quality. These are different things — read the question carefully.</p>
+    `,
+            pills: ["K"]
+        },
+        {
+            type: "Explain — 2 marks",
+            title: "Name It, Then Explain It",
+            content: `
+      <p>A 2-mark <strong>'Explain'</strong> question needs two distinct steps: <strong>identify</strong> the point and then <strong>explain</strong> how or why it works. You will not get both marks for just naming something twice.</p>
+
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li><strong>Step 1 — Identify (K):</strong> Name the concept clearly (e.g. "quality control")</li>
+        <li><strong>Step 2 — Explain (U):</strong> Explain what it involves or why it matters</li>
+      </ul>
+
+      <p><strong>❌ Bad Answer (1 mark max):</strong><br/>
+      <em>"Quality control is important because it makes goods better."</em><br/>
+      This only gets 1 mark — it names quality control but the explanation is too vague.</p>
+
+      <p><strong>✅ Good Answer (2 marks):</strong><br/>
+      <em>"Quality control (1) involves specialist inspectors checking finished goods to ensure they meet the required standard before reaching customers (1)."</em></p>
+
+      <p><strong>⚠️ Examiner Warning:</strong> Many candidates explained the right concept but named it incorrectly (e.g. describing quality control but calling it quality assurance). You must name AND correctly explain the same method. Less than half of candidates gained both marks on this type of question in recent papers.</p>
+    `,
+            pills: ["K", "U"]
+        },
+        {
+            type: "Analyse — 3 marks",
+            title: "The Holy Trinity: U → APP → AN",
+            content: `
+      <p>A 3-mark <strong>'Analyse'</strong> question is worth 3 marks split across Understanding, Application, and Analysis. You <strong>cannot score the analysis mark without first showing understanding</strong>. And you will score <strong>ZERO for analysis</strong> if you do not link to the specific business in the case study.</p>
+
+      <p><strong>The 3-Step Formula:</strong></p>
+      <ul>
+        <li><strong>Step 1 — Understanding (U):</strong> Explain the concept or benefit clearly</li>
+        <li><strong>Step 2 — Application (APP):</strong> Link it directly to the specific business using evidence from the text (quote it, name the product, or reference a detail)</li>
+        <li><strong>Step 3 — Analysis (AN):</strong> State the financial or operational impact on that business</li>
+      </ul>
+
+      <p><strong>❌ Bad Answer (1 mark):</strong><br/>
+      <em>"Quality is important because it helps the business sell more."</em><br/>
+      This gets U only — no application to the business, no analysis of impact.</p>
+
+      <p><strong>✅ Good Answer (3 marks):</strong><br/>
+      <em>"Maintaining quality helps M&S protect its reputation (U). M&S is committed to high quality own-brand food, clothing and home products (APP). If quality slips, customers may switch to competitors, directly reducing M&S's revenue and profits (AN)."</em></p>
+
+      <p><strong>The 'So What?' Rule for Analysis:</strong> Keep asking yourself 'So what?' until you reach a bottom-line business impact.</p>
+      <ul>
+        <li>"Quality builds reputation" → So what?</li>
+        <li>"Customers are more likely to return" → So what?</li>
+        <li>"This increases repeat sales and reduces the marketing cost of acquiring new customers" ✅ NOW that's analysis.</li>
+      </ul>
+    `,
+            pills: ["U", "app", "an"]
+        },
+        {
+            type: "Analyse Two Benefits/Impacts — 6 marks",
+            title: "Two 3-Mark Answers. No Conclusion Needed.",
+            content: `
+      <p>A 6-mark question is simply <strong>a 3-mark question done twice</strong>. Write two separate, fully developed points, each following the U → APP → AN structure. Do <strong>not</strong> waste time writing a conclusion — there are zero marks available for evaluation here.</p>
+
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li><strong>Point 1:</strong> U (1 mark) + APP (1 mark) + AN (1 mark) = 3 marks</li>
+        <li><strong>Point 2:</strong> U (1 mark) + APP (1 mark) + AN (1 mark) = 3 marks</li>
+      </ul>
+
+      <p><strong>Example Structure for Sainsbury's quality question:</strong></p>
+      <ul>
+        <li><strong>Point 1 (U):</strong> Improving food quality can help Sainsbury's improve its reputation...</li>
+        <li><strong>Point 1 (APP):</strong> ...as its Taste the Difference burgers and dishwasher tablets recently won a Which? Best Buy rating...</li>
+        <li><strong>Point 1 (AN):</strong> ...which may attract new customers and increase market share over competitors like Tesco and Morrisons.</li>
+        <li><strong>Point 2 (U):</strong> Improving quality can also reduce waste...</li>
+        <li><strong>Point 2 (APP):</strong> ...as Sainsbury's is improving the quality of 3,000 own-brand products...</li>
+        <li><strong>Point 2 (AN):</strong> ...meaning less unsold food is thrown away each day, directly reducing costs and improving profit margins.</li>
+      </ul>
+
+      <p><strong>🚫 Do NOT write a conclusion.</strong> A 6-mark question does not reward evaluation — save the "it depends on..." language for 7–9 mark questions only.</p>
+    `,
+            pills: ["U", "app", "an"]
+        },
+        {
+            type: "Explain Two Reasons — 4 marks",
+            title: "Two Points, Each with U + APP",
+            content: `
+      <p>A 4-mark <strong>'Explain two reasons'</strong> question awards 1 mark for understanding each reason plus 1 mark for applying it to the specific business in the case study. Write two separate, clearly structured points.</p>
+
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li><strong>Reason 1 (U):</strong> State the reason clearly → <strong>(APP):</strong> Link to the specific business</li>
+        <li><strong>Reason 2 (U):</strong> State a different reason → <strong>(APP):</strong> Link to the specific business</li>
+      </ul>
+
+      <p><strong>Example for JLR (Jaguar Land Rover):</strong></p>
+      <ul>
+        <li><em>"Quality helps JLR maintain its reputation for luxury vehicles (U), which is especially important as it competes directly with premium German brands BMW and Mercedes (APP)."</em></li>
+        <li><em>"Quality helps JLR reduce the risk of costly product recalls (U), which would be extremely damaging for a company that sells expensive, complex cars where safety faults could be life-threatening (APP)."</em></li>
+      </ul>
+
+      <p><strong>⚠️ Examiner Warning:</strong> Do not just list reasons without linking them to JLR. The application mark requires you to use a specific detail from the case study — mention the luxury segment, the competitors, the international markets, or the car manufacturing context.</p>
+    `,
+            pills: ["U", "app"]
+        },
+        {
+            type: "Quality Control vs Quality Assurance — Distinguish",
+            title: "The Most Common Mix-Up in This Topic",
+            content: `
+      <p>Examiners repeatedly report that students confuse quality control and quality assurance. This mix-up alone costs thousands of marks across every exam series. Learn this distinction perfectly.</p>
+
+      <p><strong>The Key Difference in One Sentence:</strong><br/>
+      Quality control = <em>CHECKING</em> by specialists (after or during production). Quality assurance = <em>PREVENTING</em> by all workers (throughout production).</p>
+
+      <p><strong>Quick Reference Table:</strong></p>
+      <ul>
+        <li><strong>Who checks quality?</strong> QC = specialist inspectors only | QA = every single worker</li>
+        <li><strong>When is quality checked?</strong> QC = end of production or sampling | QA = at every stage continuously</li>
+        <li><strong>Does it disrupt production?</strong> QC = No | QA = Yes (workers stop to check)</li>
+        <li><strong>Does it prevent waste?</strong> QC = No (faults already made) | QA = Yes (caught early)</li>
+        <li><strong>Does it motivate workers?</strong> QC = No (workers have no responsibility) | QA = Yes (workers feel valued)</li>
+      </ul>
+
+      <p><strong>Real-World Memory Aid:</strong></p>
+      <ul>
+        <li><strong>Quality Control:</strong> Heinz Beanz machine ejecting wrong-weight cans ✅</li>
+        <li><strong>Quality Assurance:</strong> Toyota workers suggesting improvements in team meetings ✅</li>
+      </ul>
+
+      <p><strong>⚠️ AfL Note from Examiners:</strong> Creating key term lists, flashcards and mini tests is the most effective way to prevent this mix-up before an exam.</p>
+    `,
+            pills: ["K", "U"]
+        }
+    ];
+
+    // 8. Flashcards
+    const flashcards = [
+        { term: "Quality", def: "A product or service that is fit for purpose, meets legislative rules, and meets customer expectations." },
+        { term: "Quality Control", def: "Inspecting goods or services using specialist inspectors to ensure they meet the required standard — checking happens at or near the end of production." },
+        { term: "Quality Assurance", def: "A whole-business approach to quality where every employee is responsible for preventing quality problems at every stage of production." },
+        { term: "Returns", def: "Goods taken back to a shop by customers because of quality problems." },
+        { term: "Recalls", def: "When a business asks customers to return a product after a fault is identified, so it can be repaired or replaced." },
+        { term: "Mystery Shopper", def: "A person who secretly poses as a customer to evaluate whether a business's service meets the required standard." },
+        { term: "Fit for Purpose", def: "A product that does what it is supposed to do and meets the reasonable expectations of the customer for the price paid." },
+        { term: "Waste (quality)", def: "Resources used to produce faulty goods that cannot be sold at full price — a key cost of poor quality production." },
+        { term: "Advantage of QC over QA", def: "Quality control does not disrupt production — workers keep producing while specialists do the checking." },
+        { term: "Advantage of QA over QC", def: "Quality assurance reduces waste because faults are caught early in production before more resources are spent on defective goods." },
+        { term: "Disadvantage of Quality Control", def: "It does not prevent waste — the materials and labour are already used before the inspector discovers a fault." },
+        { term: "Disadvantage of Quality Assurance", def: "It may disrupt production and requires expensive training for all workers." },
+        { term: "Toyota (quality)", def: "A business associated with quality assurance — uses continuous improvement (kaizen) and makes all employees responsible for quality." },
+        { term: "Heinz Beanz (quality)", def: "A business using quality control — automated machinery ejects cans that are wrong weight or improperly sealed before they can be sold." },
+        { term: "Why quality matters", def: "Avoids waste, avoids recalls, protects reputation, prevents disrupted production, and retains customers." }
+    ];
+
+    // 9. Exam-Style Questions (All questions from resources)
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "written",
+            caseStudy: "Primark Ltd is a fashion retailer that sells clothing and homeware at prices lower than most other retailers. The company is aware of the importance of consumer law and of having low-cost suppliers.\n\nPrimark Ltd started to sell its products online in 2022. After changes in buying habits and pressure from customers, in 2022 Primark Ltd launched an online click and collect service for shoppers.\n\nPrimark Ltd is very aware of the need to have ethical suppliers. The following ethical factors are among those important to Primark Ltd:\n•  giving clothes a longer life by using material from sustainable sources\n•  encouraging its supply chain to pay a living wage and look after the health and well-being of their workers.",
+            question: "Identify one factor which can affect the quality of a business' products. [1 mark]",
+            hint: "Think about what goes INTO making a product — materials, people, processes. Give a specific answer, not a vague one.",
+            starter: "One factor that can affect the quality of a business's products is...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1a)</h5><ul><li><strong>1 mark</strong> for any one correct, specific factor. Accept any reasonable factor including:</li></ul><ul><li>Quality of supplies / raw materials used</li><li>Employees' experience / skill / motivation / training</li><li>Production method used</li><li>Use of technology</li><li>Use of quality control methods</li><li>Legislation</li></ul><p><strong>Do NOT award</strong> a mark for:</p><ul><li>A definition of quality (e.g. "fit for purpose") — that defines quality, it doesn't identify a factor that affects it</li><li>"Low cost" as meaning low quality — cost and quality are not the same thing</li><li>Vague answers like "suppliers" — must specify it is the <em>quality</em> of supplies</li></ul><p><strong>Examiner's Comment:</strong> Nearly two thirds of candidates answered correctly. Those who did not gain the mark gave vague answers such as 'suppliers' rather than 'the quality of the supplies used'. Many incorrectly wrote about the <em>cost</em> of raw materials rather than the <em>quality</em> of them — a surprising error given the Primark context.</p></div>`,
+            modelAnswer: "One factor that can affect the quality of a business's products is the quality of the raw materials / supplies used."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "Zayn is the owner of an established business that makes heated gloves. The business has recently experienced an increase in product returns.",
+            question: "Which of the following would help Zayn deal with this problem?",
+            options: [
+                "Giving a bonus to the employee who sews the most gloves each month",
+                "Improving quality checks to ensure every glove heats up correctly",
+                "Researching other types of heated clothing that the business could make",
+                "Segmenting the market by age, gender and lifestyle"
+            ],
+            answer: 1,
+            hint: "Product returns = a quality problem. Which option directly addresses why the gloves are being returned?",
+            starter: "The correct answer is B because...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark</h5><p><strong>Correct Answer: B — Improving quality checks to ensure every glove heats up correctly</strong></p><p>An increase in returns means the product is failing to meet customer expectations. Improving quality checks addresses the root cause of the problem.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — Bonus for most gloves sewn:</strong> Incentivising speed may actually worsen quality, as workers rush production to earn more. Does not address the heating fault.</li><li><strong>C — Researching other heated clothing:</strong> This is a product development strategy, not a solution to the current quality problem with the gloves.</li><li><strong>D — Market segmentation:</strong> This is a marketing activity. Segmenting the market does not fix the fault that is causing gloves to be returned.</li></ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q3 (i)",
+            marks: 2,
+            type: "written",
+            caseStudy: "Zara is a global fashion brand based in Spain. Zara is best known for the speed and frequency it can get its new clothing ranges into its online shop and 2270 stores. Approximately 50% of Zara's clothes are manufactured in Spain; the rest come from other European countries, or from Asia and Africa. Like most firms in 2020, Zara experienced a fall in sales. Zara's global sales revenues in 2019 were €19,954 million, but in 2020 these fell to €14,129 million. However, during this period Zara's online sales increased by approximately 75%, as consumer buying habits changed in favour of e-commerce.\n\nZara can get new clothing designed, manufactured and delivered to its stores within 15 days. It does this by buying fabric in large quantities from suppliers in Europe, which helps keep its variable costs low. This means that it is delivered quickly to its factory in Spain, where it can then be made up into the new designs.\n\nZara's highly responsive supply chain is central to its business success. This means it can change its clothing designs on average every two weeks, while competitors change their designs every two or three months.",
+            question: "Explain one production process a business may use when making its products. [2 marks]",
+            hint: "You need to name a specific production process AND explain what it involves. Don't just describe it without naming it — you must do both.",
+            starter: "One production process is _____ production (K)...\nThis is where... (U)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1a 1 + AO1b 1)</h5><ul><li><strong>1 mark (AO1a)</strong> for identifying a production process</li><li><strong>1 further mark (AO1b)</strong> for explaining the process</li></ul><p>Answers do not need to relate to Zara.</p><p><strong>Acceptable production processes:</strong></p><ul><li><strong>Batch production</strong> — groups of a similar product are made together before moving to the next batch</li><li><strong>Flow / Mass production</strong> — continuous production, products move along a production line without stopping</li><li><strong>Job production</strong> — one item is made individually at a time to specific customer requirements</li></ul><p><strong>Exemplar response:</strong><br/>Batch production (1) is when a group of similar products are made together at the same time before the production process moves on to a different product (1).</p><p><strong>Examiner's Comment:</strong> Most candidates named one of the three production methods correctly. Some explained the process without naming it and gained no credit. Flow and job production were explained more accurately than batch production.</p></div>`,
+            modelAnswer: "One production process is batch production. This is where a group of similar products are made together at the same time — for example, Zara could produce a batch of one shirt design before switching to produce a batch of a different design."
+        },
+        {
+            num: "Q3 (ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Explain one method that a business could use to ensure the quality of its products. [2 marks]",
+            hint: "Name a specific quality method (quality control OR quality assurance) — don't mix them up. Then explain what that method involves.",
+            starter: "One method a business could use is _____ (K)...\nThis involves... (U)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1a 1 + AO1b 1)</h5><ul><li><strong>1 mark (AO1a)</strong> for identifying a method to ensure quality</li><li><strong>1 further mark (AO1b)</strong> for explaining the method</li></ul><p>Answers do not need to relate to Zara.</p><p><strong>Acceptable methods:</strong></p><ul><li><strong>Quality control</strong> — end of the production process / inspection / before being sold to customers</li><li><strong>Quality assurance</strong> — during the production process / carried out by production workers / involves the whole business</li></ul><p><strong>Exemplar response:</strong><br/>Quality control (1) is where a specialist inspector checks a sample of finished goods before they are sold to ensure they meet the required standard (1).</p><p><strong>⚠️ Examiner's Comment (Misconception):</strong> Many candidates continue to mix up quality assurance and quality control, or give the explanation for the wrong term. This meant less than half of candidates gained both marks. Some answers did not name a specific method at all, which prevented any marks from being awarded. Key term revision is essential for this topic.</p></div>`,
+            modelAnswer: "One method is quality control. This is where specialist inspectors check the quality of goods during or at the end of the production process to ensure they meet the required standard before being sold to customers."
+        },
+        {
+            num: "Q4",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "State two reasons why quality in the production of goods is important to a business. [2 marks]",
+            hint: "Give two separate, distinct reasons. These can be stated briefly — no explanation required. Think about reputation, customers, and costs.",
+            starter: "Reason 1: Quality is important because it...\nReason 2: Quality is also important because it...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1a 2)</h5><p><strong>1 mark for each correct reason, up to a maximum of 2 marks.</strong></p><p>Answers do not need to relate to any specific business. Acceptable answers include:</p><ul><li>Reputation / brand image</li><li>Competitiveness</li><li>To satisfy customer needs / sell more</li><li>Repeat purchasing</li><li>Able to set a higher price</li><li>Making products desirable</li><li>No need to recall / return / waste products</li><li>To satisfy any legal requirement</li></ul><p><strong>Do NOT award</strong> marks for references to profit alone (must link profit to a quality-related reason).</p><p><strong>Examiner's Comment:</strong> This question was well answered, with most candidates gaining full marks for both reasons.</p></div>`,
+            modelAnswer: "Reason 1: Quality is important to maintain the reputation of the business and retain existing customers.\n\nReason 2: Quality is important to avoid the cost of product returns and recalls, which would reduce profits."
+        },
+        {
+            num: "Q5",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "QT Homeware Ltd manufactures small kitchen appliances. The company has recently received a number of emails complaining that its kettles leak.",
+            question: "Which of the following actions would help QT Homeware Ltd deal with this problem?",
+            options: [
+                "Include a cloth to wipe up any leaks in the box of all new kettles",
+                "Launch a promotional campaign in a housekeeping magazine",
+                "Meet with production workers to discuss how to reduce costs",
+                "Physically test every hundredth kettle to ensure it is watertight"
+            ],
+            answer: 3,
+            hint: "The problem is that kettles are leaking — a quality problem. Which option actually fixes the quality of the product?",
+            starter: "The correct answer is D because...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO2 Problem Solving)</h5><p><strong>Correct Answer: D — Physically test every hundredth kettle to ensure it is watertight</strong></p><p>This is a quality control measure that directly addresses the manufacturing fault.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — Include a cloth:</strong> This accepts the fault and asks customers to deal with it — it does not solve the quality problem.</li><li><strong>B — Promotional campaign:</strong> Marketing does not fix a manufacturing defect. It may actually damage the brand further if new customers receive leaking kettles.</li><li><strong>C — Meeting to reduce costs:</strong> Cost reduction is unrelated to solving the leaking kettle problem and may make quality worse if it means cutting corners.</li></ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q6",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The concept of 'quality' requires a business to:",
+            options: [
+                "Produce goods that are better than the competition",
+                "Produce goods that are reasonably priced",
+                "Provide services that are fit for purpose",
+                "Provide services that are value for money"
+            ],
+            answer: 2,
+            hint: "What is the official definition of quality? Think about what 'quality' actually means in a business context.",
+            starter: "The correct answer is C because...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1a)</h5><p><strong>Correct Answer: C — Provide services that are fit for purpose</strong></p><p>"Fit for purpose" is the core definition of quality — a product or service meets its intended function and the expectations of the customer.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — Better than competition:</strong> Quality does not require being better than competitors — just meeting customer expectations at the required standard.</li><li><strong>B — Reasonably priced:</strong> Price is not part of the definition of quality. A cheap product can be quality; an expensive one can fail to be quality.</li><li><strong>D — Value for money:</strong> Value for money is a pricing/marketing concept. Quality means fit for purpose, not necessarily that the customer paid a fair price.</li></ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q7",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following would be an example of a quality assurance activity for a car manufacturer?",
+            options: [
+                "Driving every tenth car to test that the brakes are working correctly",
+                "Holding a meeting with production operatives on how to improve the manufacturing process",
+                "Increasing the amount of money that the operations function can spend",
+                "Visually inspecting two cars of each colour for defects in the paintwork"
+            ],
+            answer: 1,
+            hint: "Quality assurance involves all workers improving quality together — it is not about inspecting finished products.",
+            starter: "The correct answer is B because...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1b)</h5><p><strong>Correct Answer: B — Holding a meeting with production operatives on how to improve the manufacturing process</strong></p><p>Quality assurance involves all workers in a whole-business approach to quality. Meetings where production workers suggest improvements is a classic QA activity.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — Driving every tenth car:</strong> This is quality CONTROL — sampling finished goods to inspect them.</li><li><strong>C — Increasing budget:</strong> This is a financial/resource decision, not a quality method.</li><li><strong>D — Visually inspecting two cars:</strong> This is quality CONTROL — inspecting a sample of finished goods for defects.</li></ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q8 (i)",
+            marks: 2,
+            type: "written",
+            caseStudy: "John Lewis & Partners (JLP) is a chain of department stores that stocks a wide range of products from clothing to home furnishings. As a result it is always looking for high quality suppliers for its products.\n\nJLP uses face-to-face selling in its stores. Staff in the electrical department are trained to have good product knowledge. These products include a wide range of computers, televisions and washing machines. However, JLP's recent growth has come from e-commerce.\n\nJLP has a wide range of suppliers. It is important that the right supplier is chosen, so JLP will take time evaluating new suppliers and will review existing suppliers regularly so that it can continue supplying high quality products to its customers.",
+            question: "Explain one reason why quality is important to a business in the production of goods. [2 marks]",
+            hint: "Name a specific reason (not just 'it's important') and then explain HOW or WHY that reason matters to the business.",
+            starter: "One reason quality is important is because it... (K)\nThis matters because... (U)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1a 1 + AO1b 1)</h5><ul><li><strong>1 mark (AO1a)</strong> for knowledge of a reason why quality is important</li><li><strong>1 further mark (AO1b)</strong> for further exemplification/explanation of that reason</li></ul><p>Answers do not need to relate to JLP. Acceptable reasons include:</p><ul><li>Reputation of the business</li><li>To gain new customers</li><li>To satisfy customer needs</li><li>Retain existing customers</li><li>Reduce product returns and recalls</li><li>Avoids waste</li><li>Avoids disruption to production</li><li>Allows a higher price to be charged</li></ul><p><strong>Exemplar response:</strong><br/>To maintain a good reputation (1) as consumers expect quality to be high and will switch to competitors if it is not met (1).</p></div>`,
+            modelAnswer: "Quality is important to maintain a good reputation (1). If JLP supplies poor-quality goods, customers may lose trust and choose to shop elsewhere, damaging long-term sales and brand image (1)."
+        },
+        {
+            num: "Q8 (ii)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "JLP's electrical department staff have good product knowledge. Analyse one positive impact of this on the quality of JLP's customer service. [3 marks]",
+            hint: "Follow the U → APP → AN structure. Use specific details from the JLP case study in your application step.",
+            starter: "Staff with good product knowledge are able to... (U)\nIn the case of JLP, this is important because the text states that... (APP)\nAs a result, JLP will... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b 1 + AO2 1 + AO3a 1)</h5><ul><li><strong>1 mark (U)</strong> for understanding of a benefit of having knowledgeable employees — no further marks can be gained without this</li><li><strong>1 further mark (APP)</strong> for application to JLP, using evidence from the text</li><li><strong>1 further mark (AN)</strong> for analysis of one positive impact on JLP's business</li></ul><p>The answer should focus on the <em>selling/customer service</em> part of JLP's business — not on manufacturing products or identifying suppliers.</p><p><strong>Understanding may include:</strong></p><ul><li>Able to provide help, advice, and suggestions to customers</li><li>Customer is more confident in their purchase</li><li>Customer more likely to ask for help and make a decision</li><li>Increased trust from consumers</li><li>The business will get better reviews</li></ul><p><strong>Application (using the text) may include:</strong></p><ul><li>JLP is a chain of department stores</li><li>Wide range of products including computers, TVs and washing machines</li><li>Staff use face-to-face selling</li></ul><p><strong>Analysis may include:</strong></p><ul><li>More sales / higher conversion rate</li><li>Customer more likely to return or recommend to others</li><li>Improved reputation / increased customer satisfaction</li></ul><p><strong>Exemplar response:</strong><br/>Employees are able to confidently advise customers on product choices (U). This is especially important for JLP's electrical department as customers buying computers or washing machines may lack technical knowledge and need guidance (APP). As a result, customers are more likely to trust JLP's recommendations and make a purchase, increasing sales and encouraging repeat visits (AN).</p></div>`,
+            modelAnswer: "Staff with good product knowledge are able to confidently provide advice and recommendations to customers (U). This is especially valuable for JLP's electrical department, where customers buying computers, televisions, or washing machines from a wide product range may need help understanding the differences (APP). As a result, customers are more likely to make a confident purchase, increasing sales and the likelihood of them returning to JLP in future rather than going to a competitor (AN)."
+        },
+        {
+            num: "Q9",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The concept of 'quality' refers to making products:",
+            options: [
+                "By hand",
+                "Of a satisfactory standard",
+                "That are better than the leading brand",
+                "To the highest possible specification"
+            ],
+            answer: 1,
+            hint: "What does the official definition of quality say? Think about fit for purpose and meeting customer expectations.",
+            starter: "The correct answer is B because...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1a)</h5><p><strong>Correct Answer: B — Of a satisfactory standard</strong></p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — By hand:</strong> The method of production (hand-made vs machine-made) does not determine quality. A machine-made product can absolutely be quality if it is fit for purpose.</li><li><strong>C — Better than the leading brand:</strong> Quality means meeting expectations, not surpassing the market leader.</li><li><strong>D — Highest possible specification:</strong> Quality does not require the highest specification — only a satisfactory one that meets what the customer expected for that product and price.</li></ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q10",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The concept of quality requires a business to:",
+            options: [
+                "Charge low prices for its services",
+                "Produce the best goods on the market",
+                "Provide services to required standards",
+                "Source its raw materials from ethical suppliers"
+            ],
+            answer: 2,
+            hint: "Focus on the official definition of quality — it is about standards and meeting expectations, not about price or ethics.",
+            starter: "The correct answer is C because...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1b)</h5><p><strong>Correct Answer: C — Provide services to required standards</strong></p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — Charge low prices:</strong> Price strategy has nothing to do with the definition of quality.</li><li><strong>B — Produce the best goods:</strong> Quality requires meeting required standards, not necessarily being the best on the market.</li><li><strong>D — Ethical suppliers:</strong> Ethical sourcing is a CSR/sustainability decision. It is not part of the core definition of quality.</li></ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q11 (i)",
+            marks: 2,
+            type: "written",
+            caseStudy: "Tesco plc is one of the largest retailers in the UK. It sells a range of products through its shops and uses e-commerce across the UK. The business procures its supplies from a range of UK and foreign businesses.\n\nOn its website, Tesco plc states its core purpose as 'wanting to be a champion for customers, helping them to enjoy a better quality of life and an easier way of living. Customers want great products at great value which they can buy easily and it's our job to deliver this in the right way for them.'\n\nIn recent years, sales of Tesco plc's products and services have been affected by increasing competition, consumer law and the growth of e-commerce. In addition, sales are impacted by how the UK economy is performing and the level of UK employment.",
+            question: "State two methods of ensuring quality. [2 marks]",
+            hint: "Name two specific methods — you do not need to explain them, just state them clearly.",
+            starter: "Method 1: ...\nMethod 2: ...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1a 2)</h5><p><strong>1 mark for each correct method identified, up to a maximum of 2 marks.</strong></p><p>Acceptable answers include:</p><ul><li>Quality control — accept specific examples such as inspection of samples, use of a mystery shopper for retail services</li><li>Quality assurance — accept specific examples such as continual checking on a production line, or training staff to look for errors</li></ul></div>`,
+            modelAnswer: "Method 1: Quality control\n\nMethod 2: Quality assurance"
+        },
+        {
+            num: "Q11 (ii)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Analyse one advantage to Tesco plc of selling using e-commerce. [3 marks]",
+            hint: "Follow the U → APP → AN structure. The application step must use a specific detail about Tesco from the case study.",
+            starter: "One advantage of e-commerce is that it allows... (U)\nFor Tesco, this is important because the text states that... (APP)\nAs a result, Tesco will benefit from... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b 1 + AO2 1 + AO3 1)</h5><ul><li><strong>1 mark (U)</strong> for understanding of an advantage of e-commerce</li><li><strong>1 further mark (APP)</strong> for application to Tesco plc specifically, using evidence from the text</li><li><strong>1 further mark (AN)</strong> for analysis of one advantage to Tesco plc of selling through e-commerce</li></ul><p><strong>Advantages of e-commerce may include:</strong></p><ul><li>Open 24/7 — customers can buy at any time</li><li>Reduced overheads compared to physical stores</li><li>Wider market reach — sell to customers across the UK and potentially globally</li><li>Customer data and intelligence to target marketing</li><li>Can handle increased demand without the constraint of physical store space</li></ul><p><strong>Exemplar response:</strong><br/>E-commerce allows customers to make purchases at any time of day or night (U). This is important to Tesco plc as many of its physical stores have limited opening hours (APP). This can lead to more sales which may mean more profit and provide funds for further expansion (AN).</p></div>`,
+            modelAnswer: "E-commerce allows Tesco to sell its products to customers 24 hours a day, 7 days a week (U). This is particularly valuable because many of Tesco's physical stores have limited opening hours and cannot serve customers late at night or early in the morning (APP). As a result, Tesco can generate additional sales at times when its stores are closed, increasing total revenue and potentially improving profit margins (AN)."
+        },
+        {
+            num: "Q12",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "Sabena works for a small business that makes computers. Her main task is to test every computer before it leaves the factory.",
+            question: "What key business function does Sabena perform?",
+            options: [
+                "After sales service",
+                "Quality control",
+                "Setting production levels",
+                "Supply chain management"
+            ],
+            answer: 1,
+            hint: "Sabena tests products BEFORE they reach the customer. Which business function describes checking product quality at the end of production?",
+            starter: "The correct answer is B because...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1b)</h5><p><strong>Correct Answer: B — Quality control</strong></p><p>Sabena tests every finished computer before it leaves the factory — this is quality control (inspecting finished goods to ensure they meet the required standard before reaching the customer).</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — After sales service:</strong> This would involve helping customers after they have already bought and received the product (e.g. repairs, customer complaints).</li><li><strong>C — Setting production levels:</strong> This is an operations management decision about output volume — unrelated to quality testing.</li><li><strong>D — Supply chain management:</strong> This involves managing suppliers and the flow of materials — nothing to do with testing finished products.</li></ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q13",
+            marks: 4,
+            type: "written",
+            caseStudy: "Jaguar Land Rover (JLR) is one of the largest manufacturers of cars in the UK. The business buys some of the parts it uses to make the cars from the UK; other parts are bought from overseas. JLR specialises in producing luxury cars. JLR's main competitors are German car manufacturers — BMW and Mercedes.\n\nIn recent years, sales of JLR cars have been affected by:\n•  the slowdown of consumer spending in China and Russia\n•  the increase in consumer spending in Europe.",
+            question: "Explain two reasons why quality is important to JLR. [4 marks]",
+            hint: "Two separate reasons, each with a named reason (U) and a link to JLR specifically (APP). Use details from the case study.",
+            starter: "Reason 1: Quality is important to JLR because it... (U)\nThis applies to JLR because... (APP)\n\nReason 2: A further reason quality is important is... (U)\nFor JLR, this means... (APP)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO1b 2 + AO2 2)</h5><ul><li><strong>1 mark (U)</strong> for understanding of a reason why quality is important — up to a maximum of 2 marks for understanding</li><li><strong>1 further mark (APP)</strong> for application of that reason to JLR specifically — up to a maximum of 2 marks for application</li></ul><p><strong>Reasons may include:</strong></p><ul><li>To maintain reputation</li><li>To sell more cars</li><li>To reduce recalls</li><li>To reduce production errors / waste</li><li>To meet the needs of the luxury / executive market segment</li><li>To compete with BMW and Mercedes</li></ul><p><strong>Exemplar response:</strong><br/>Quality can help JLR maintain its reputation for producing luxury cars (U) which is vital as it directly competes with premium German brands BMW and Mercedes — if quality slips, customers may choose a competitor (APP).</p><br/><p>Quality also helps JLR reduce the cost of product recalls (U). Given JLR produces complex luxury vehicles, any safety fault could be extremely costly to recall and repair, damaging both profits and the premium brand image (APP).</p></div>`,
+            modelAnswer: "Reason 1: Quality is important to JLR to maintain its reputation for producing luxury, high-performance vehicles (U). JLR competes directly with premium German brands BMW and Mercedes — if its cars develop a reputation for poor quality, customers will switch to these competitors, causing a significant fall in sales (APP).\n\nReason 2: Quality is important to JLR to avoid the enormous cost of product recalls (U). As JLR produces complex luxury cars, identifying a safety fault after sale would require recalling thousands of vehicles — this would be hugely expensive and severely damage the premium brand image that JLR has worked to build (APP)."
+        },
+        {
+            num: "Q14",
+            marks: 3,
+            type: "written",
+            caseStudy: "Marks and Spencer (M&S) is one of the UK's leading retailers. It is committed to making every moment special for its customers, through its high quality, own-brand food, clothing & home products.\n\nM&S has an ethical programme called 'Plan A'. This was relaunched in 2017 with three new objectives for 2025:\n1. 'Nourishing our wellbeing' — including looking after staff and their needs.\n2. 'Transforming local communities' — including supporting staff who want to volunteer in charities.\n3. 'Caring for the planet we share' — including developing better recycling for packaging.\n\nIn 2017, 60% of M&S's revenue came from the sale of food, which it sells through its 1025 UK stores as well as through e-commerce on its website.\n\nThe majority of the food it sells comes from one of its 283 'food factories' located around the country. The Montana Bakery is one of these factories. It produces speciality breads, rolls, garlic breads and pizza bases for retailers and sandwich makers. The bakery has grown and has moved to a larger factory, where it is considering switching from batch production to flow production and automating some of the production.",
+            question: "Analyse one reason why quality is important to M&S. [3 marks]",
+            hint: "Follow the U → APP → AN structure. For application, use a specific detail from the M&S case study — mentioning food, the 283 factories, Plan A, or its positioning as a premium retailer.",
+            starter: "Quality is important to M&S because it... (U)\nIn the case of M&S, the text tells us that... (APP)\nAs a result, M&S will... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b 1 + AO2 1 + AO3a 1)</h5><ul><li><strong>1 mark (U)</strong> for understanding of the importance of quality — no further marks can be gained without this</li><li><strong>1 further mark (APP)</strong> for application to M&S specifically, using evidence from the text</li><li><strong>1 further mark (AN)</strong> for analysis of a reason why quality is important to M&S</li></ul><p><strong>Understanding may include:</strong></p><ul><li>To maintain reputation</li><li>To sell more products</li><li>To reduce returns</li><li>To create brand loyalty</li><li>To comply with food safety legislation</li></ul><p><strong>Application (using the text) may include:</strong></p><ul><li>M&S is committed to high quality own-brand food, clothing & home products</li><li>Food must be of a minimum legal quality standard</li><li>60% of M&S revenue comes from food sales across 1025 stores</li><li>283 food factories must maintain consistent standards</li><li>Ethical programme — poor quality increases waste</li></ul><p><strong>Analysis may include:</strong></p><ul><li>Increased costs from products that do not meet standards</li><li>Lost sales from unhappy customers / poor reputation</li><li>Increased costs from legal disputes (food safety law)</li></ul><p><strong>Exemplar response:</strong><br/>Ensuring quality is vital to M&S as it maintains reputation (U) because M&S is committed to high quality own-brand products and food (APP) which directly links to customer demand, sales, and company profits (AN).</p><p><strong>⚠️ Examiner's Comment:</strong> Candidates struggled to apply the case study data to this question, often giving generic answers about reputation without linking to M&S. Students who knew quality meant 'fit for purpose' found more context — M&S selling food means there is also a legal dimension to quality compliance. Those who mentioned M&S's food factories or its 60% food revenue earned the application mark.</p></div>`,
+            modelAnswer: "Quality is important to M&S because it helps maintain the business's premium reputation (U). Since M&S is committed to selling high-quality own-brand food, clothing and home products, and 60% of its revenue comes from food sold across 1,025 UK stores, any quality failures would quickly damage its carefully built image as a quality retailer (APP). This could cause existing customers to shop elsewhere and make it difficult to attract new ones, leading directly to a fall in revenue and profits (AN)."
+        },
+        {
+            num: "Q15",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "A manufacturer makes chocolate bars. All of the chocolate bars are passed through a machine to check for production mistakes before being boxed. This is an example of:",
+            options: [
+                "Product development",
+                "Product recall",
+                "Quality assurance",
+                "Quality control"
+            ],
+            answer: 3,
+            hint: "Is this preventing mistakes or checking for them after they've been made? Which quality method involves inspection at the end of production?",
+            starter: "The correct answer is D because...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1b)</h5><p><strong>Correct Answer: D — Quality control</strong></p><p>All finished chocolate bars are inspected by a machine before being boxed — this is a classic quality control system (checking finished goods to ensure they meet the required standard before reaching the customer).</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — Product development:</strong> This refers to creating or improving products, not to checking their quality.</li><li><strong>B — Product recall:</strong> A recall happens after products have been sold and a fault is found. This inspection happens before the product leaves the factory.</li><li><strong>C — Quality assurance:</strong> QA would involve ALL workers taking responsibility for preventing mistakes throughout production — not just a machine inspecting at the end. The key distinction: QA prevents, QC checks.</li></ul><p><strong>⚠️ Examiner's Comment:</strong> There was a clear misunderstanding between quality control and quality assurance. These are technical terms that must be understood precisely. Key term revision — lists, flashcards, and mini tests — can prevent these errors.</p></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "CS25 (a)",
+            marks: 2,
+            type: "written",
+            caseStudy: "Sainsbury's is a large supermarket chain with shops across the UK. It tends to sell to middle- and higher-income customers. It competes with all other supermarkets but is most directly compared to Tesco and Morrisons. It has taken steps to improve the quality of service provided by workers, encouraging those on the checkouts and those who stack shelves to be as helpful as possible to customers. There are checks on the performance of these workers so that Sainsbury's can understand the experience of its customers.\n\nSainsbury's has also improved the quality of the food it sells. 'Providing great food is Sainsbury's core purpose. Customers continue to rate us above our main supermarket peers on product quality... We are making good progress in our programme to improve the quality of 3,000 own-brand products, investing in the products that matter most to our customers. For example, we improved the quality of our Taste the Difference burgers, our Sainsbury's cheesecake and our Sainsbury's all-in-one dishwasher tablets recently won a Which? Best Buy rating. The rate at which we launch these new products will increase at pace over the next 12 months.' There are strict legal regulations about food and other products that supermarkets sell and Sainsbury's must follow these.",
+            question: "Explain one method that Sainsbury's could use to judge if the quality of the service provided by shop workers has improved. [2 marks]",
+            hint: "Name a specific quality checking method suitable for a service/retail context, then explain how Sainsbury's would actually use it.",
+            starter: "One method Sainsbury's could use is... (U)\nThis would involve... applied to Sainsbury's... (APP)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1b 1 + AO2 1)</h5><ul><li><strong>1 mark (U)</strong> for identifying one quality control / quality assurance method appropriate to a shop environment</li><li><strong>1 further mark (APP)</strong> for explaining how Sainsbury's would use this method — must relate to the case study</li></ul><p><strong>Acceptable methods include:</strong></p><ul><li>Mystery shopper</li><li>Customer satisfaction survey</li></ul><p><strong>Exemplar responses:</strong></p><ul><li><em>"Use a mystery shopper (U) who would grade the way in which the shop assistants serve customers at the checkout and could score staff on how politely and helpfully they assist with queries (APP)."</em></li><li><em>"Complete a survey of customers (U) who have visited a Sainsbury's store, asking them to rate the helpfulness of staff on the checkout or those stacking shelves (APP)."</em></li></ul></div>`,
+            modelAnswer: "Sainsbury's could use a mystery shopper (U). This would involve a paid individual posing as a normal customer who visits a Sainsbury's store and grades the service provided by checkout staff and shelf-stackers on how helpful, polite, and knowledgeable they are. The results would be reported to management to identify areas for improvement (APP)."
+        },
+        {
+            num: "CS25 (b)",
+            marks: 6,
+            type: "written",
+            caseStudy: "",
+            question: "Analyse two benefits to Sainsbury's of improving the quality of the food it sells. [6 marks]",
+            hint: "Two separate points, each following U → APP → AN. Use specific evidence from the Sainsbury's case study for both application marks — mention the 3,000 own-brand products, the Which? rating, Taste the Difference range, or competition with Tesco and Morrisons.",
+            starter: "Benefit 1: Improving food quality could help Sainsbury's... (U)\nIn the case study it states that... (APP)\nAs a result, Sainsbury's will... (AN)\n\nBenefit 2: A further benefit is that... (U)\nThe text shows that Sainsbury's... (APP)\nThis means that... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 6 marks (AO1b 2 + AO2 2 + AO3a 2)</h5><ul><li><strong>Up to 2 marks (U)</strong> for two benefits of improving food quality</li><li><strong>Up to 2 marks (APP)</strong> for applying understanding to Sainsbury's, using evidence from the case study</li><li><strong>Up to 2 marks (AN)</strong> for explaining the effects or impacts on the business</li></ul><p><strong>Understanding may include:</strong></p><ul><li>Improve reputation for quality</li><li>Gain new customers</li><li>Increase customer satisfaction / loyalty</li><li>May be able to charge a higher price</li><li>Reduce returns / waste</li><li>Avoid legal action (food safety legislation)</li></ul><p><strong>Application (using the case study) may include:</strong></p><ul><li>Reputation improving through word of mouth when customers try improved products</li><li>Sainsbury's gaining awards such as the Which? Best Buy rating</li><li>Reduced waste from less unsold food each day</li><li>Improvement in manufacturing processes / better-quality ingredients in 3,000 own-brand products</li><li>Legal requirements for food quality that Sainsbury's must meet</li></ul><p><strong>Analysis may include:</strong></p><ul><li>Increased sales / market share over Tesco and Morrisons</li><li>Reduced costs (less waste) increasing profits</li><li>Avoid bad publicity / fines from legal action</li><li>Costs of developing high-quality products will increase production costs (negative impact)</li></ul></div>`,
+            modelAnswer: "Benefit 1: Improving food quality can help Sainsbury's strengthen its reputation (U). The case study shows that Sainsbury's dishwasher tablets won a Which? Best Buy rating and customers already rate Sainsbury's above supermarket peers on product quality (APP). As a result, this positive word-of-mouth and media coverage may attract new customers away from competitors such as Tesco and Morrisons, increasing Sainsbury's market share and total revenue (AN).\n\nBenefit 2: Improving food quality can also reduce waste and lower costs (U). Sainsbury's is improving 3,000 own-brand products using better-quality ingredients and manufacturing processes (APP). This means less food fails to meet the required standard and must be discarded unsold each day — reducing waste costs and improving profit margins across Sainsbury's 1,025 stores (AN)."
+        },
+        {
+            num: "QA1",
+            marks: 1,
+            type: "written",
+            caseStudy: "ABC Bicycles Ltd have been producing bikes for over 20 years and have recently introduced new machines to their production line to ensure that their bikes are produced to the highest standard. The machines check that all parts have been fitted accurately. Each employee is also responsible for checking each bike at each stage of the process. They also have to wear white gloves and clothing to ensure that the bikes do not get dirty during the production of the bikes.\n\nThe business used to check the quality of their bikes using a quality control system. Two specially trained employees were responsible for checking the quality of each bike. However, they found that this resulted in too many bikes not meeting the required standard and therefore being classed as waste.",
+            question: "What is meant by the term 'quality control'? [1 mark]",
+            hint: "Give the official definition. Focus on who does the checking and when.",
+            starter: "Quality control is...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1b)</h5><p><strong>1 mark</strong> for a correct definition such as:</p><ul><li>A system where specialist inspectors check the quality of goods or services produced to ensure they are of a good standard</li><li>Checking goods at the end of, or during, production to ensure they meet required standards</li></ul></div>`,
+            modelAnswer: "Quality control is a system for inspecting the quality of goods produced, using specialist inspectors to ensure they meet the required standard before being sold to customers."
+        },
+        {
+            num: "QA2",
+            marks: 1,
+            type: "written",
+            caseStudy: "",
+            question: "What is meant by the term 'quality assurance'? [1 mark]",
+            hint: "Give the official definition. Focus on who is responsible and what the aim is.",
+            starter: "Quality assurance is...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1b)</h5><p><strong>1 mark</strong> for a correct definition such as:</p><ul><li>An approach that involves the whole business focusing on quality at every stage of production</li><li>A system where every employee is responsible for quality, aiming to prevent quality problems from arising</li></ul></div>`,
+            modelAnswer: "Quality assurance is an approach that involves the whole business focusing on quality, with every employee being responsible for preventing quality problems at every stage of the production process."
+        },
+        {
+            num: "QA3",
+            marks: 4,
+            type: "written",
+            caseStudy: "",
+            question: "Explain two possible reasons why ABC Bicycles Ltd uses quality control. [4 marks]",
+            hint: "Two separate reasons (U), each applied to ABC Bicycles using details from the case study (APP). Mention the machines, the faulty bikes, or the white gloves.",
+            starter: "Reason 1: ABC Bicycles uses quality control because... (U)\nThis applies to ABC Bicycles because... (APP)\n\nReason 2: Another reason is... (U)\nIn the case of ABC Bicycles... (APP)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO1b 2 + AO2 2)</h5><ul><li><strong>1 mark (U)</strong> per reason, up to 2 marks for understanding</li><li><strong>1 mark (APP)</strong> per reason, up to 2 marks for applying to ABC Bicycles</li></ul><p><strong>Acceptable reasons include:</strong></p><ul><li>To prevent faulty bikes from reaching customers</li><li>To ensure all parts are correctly fitted</li><li>To protect the reputation of the business</li><li>To reduce returns from customers</li><li>To meet required production standards</li></ul><p><strong>Application must link to the case study</strong> — e.g. mention the machines checking parts are fitted accurately, the white gloves, the fact waste was too high under the previous QC-only system, or that they have been producing bikes for over 20 years.</p></div>`,
+            modelAnswer: "Reason 1: ABC Bicycles uses quality control to prevent faulty bikes from reaching customers (U). The text shows that the business introduced new machines that check all parts have been fitted accurately — this ensures bikes that fail the check are removed before being sold (APP).\n\nReason 2: ABC Bicycles also uses quality control to protect its reputation (U). Having produced bikes for over 20 years, a faulty product reaching a customer could damage the brand image built up over two decades, costing the business long-term sales (APP)."
+        },
+        {
+            num: "QA4",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Analyse one benefit of ABC Bicycles Ltd using quality assurance. [3 marks]",
+            hint: "Follow U → APP → AN. For application, use specific evidence from the ABC Bicycles case study (white gloves, each employee checking at each stage). For analysis, explain the financial or operational impact.",
+            starter: "One benefit of quality assurance for ABC Bicycles is... (U)\nThe text shows that ABC Bicycles already does this because... (APP)\nAs a result, ABC Bicycles will... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b 1 + AO2 1 + AO3 1)</h5><ul><li><strong>1 mark (U)</strong> for understanding of a benefit of quality assurance</li><li><strong>1 further mark (APP)</strong> for application to ABC Bicycles using evidence from the case study</li><li><strong>1 further mark (AN)</strong> for analysis of the impact on the business</li></ul><p><strong>Benefits may include:</strong></p><ul><li>Reduces waste as faults are caught at each stage rather than only at the end</li><li>Motivates workers by giving them personal responsibility for quality</li><li>Reduces returns and recalls, protecting reputation</li></ul></div>`,
+            modelAnswer: "One benefit of quality assurance is that it reduces waste (U). The case study shows that each ABC Bicycles employee is responsible for checking each bike at every stage of production — meaning faults are caught early before more components are added to a defective frame (APP). As a result, fewer finished bikes are scrapped at the end of production, reducing wasted materials and labour costs, which directly improves the profitability of the business (AN)."
+        },
+        {
+            num: "QA5",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Analyse one drawback of ABC Bicycles Ltd using quality control. [3 marks]",
+            hint: "Follow U → APP → AN. Use evidence from the ABC Bicycles case study to earn the application mark. The case study tells you what happened when they relied mainly on quality control.",
+            starter: "One drawback of quality control for ABC Bicycles is... (U)\nThis is shown in the case study because... (APP)\nAs a result, ABC Bicycles... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b 1 + AO2 1 + AO3 1)</h5><ul><li><strong>1 mark (U)</strong> for understanding of a drawback of quality control</li><li><strong>1 further mark (APP)</strong> for application to ABC Bicycles using evidence from the text</li><li><strong>1 further mark (AN)</strong> for analysis of the impact on the business</li></ul><p><strong>Drawbacks may include:</strong></p><ul><li>Does not prevent waste — faults are only caught after the bike has been fully or partially assembled</li><li>Workers are not responsible for quality — reduces motivation and care</li><li>Costly — requires specialist inspectors to be paid</li></ul></div>`,
+            modelAnswer: "One drawback of quality control is that it does not prevent waste — it only catches faults after the goods have already been made (U). The case study states that when ABC Bicycles relied on two specially trained quality control inspectors, too many bikes failed to meet the required standard and were classed as waste (APP). As a result, the business wasted significant materials and labour costs on bikes that could never be sold, reducing the overall profitability of the business and forcing them to look for a better quality approach (AN)."
+        }
+    ];
+</script>
+    <script src="script.js"></script>
+</body>
+
+</html>
