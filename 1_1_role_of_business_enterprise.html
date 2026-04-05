@@ -301,8 +301,760 @@
         </div>
     </main>
 
-    <script></script>
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 1.1 The Role of Business Enterprise and Entrepreneurship
+    // ══════════════════════════════════════
 
+    const topics = [
+        {
+            title: "Key Terms & Official Definitions",
+            tag: "Core Concepts",
+            content: `<p>These are the essential terms you must know and be able to use accurately in the exam.</p>
+<ul>
+  <li><strong>Entrepreneur:</strong> An individual who takes the risk of setting up and running a business enterprise.</li>
+  <li><strong>Enterprise:</strong> Seeing an opportunity to provide a product or service that people are willing to buy — often described as 'spotting an opportunity'.</li>
+  <li><strong>Opportunity:</strong> Taking advantage of a gap in the market or a possibility to provide something customers need that is not currently being met.</li>
+  <li><strong>Characteristics (of an entrepreneur):</strong> The personal features and qualities that make someone likely to succeed — the four accepted ones are: risk-taking, determination, confidence, and creativity.</li>
+  <li><strong>Risk:</strong> The possibility of a negative outcome when starting or running a business, such as financial loss, poor health, or strained relationships.</li>
+  <li><strong>Reward:</strong> The benefit gained from taking a risk — financial (profit) or non-financial (independence, self-satisfaction).</li>
+  <li><strong>Business activity:</strong> The process by which a business produces goods or provides services to satisfy the needs of customers.</li>
+</ul>`
+        },
+        {
+            title: "What is Business Activity & Enterprise?",
+            tag: "Core Concepts",
+            content: `<p>Businesses exist to <strong>satisfy the needs and wants of customers</strong>. They provide goods and services at a price people are willing to pay — and in return, the business earns profit.</p>
+<p>There are three main purposes of business enterprise and entrepreneurship:</p>
+<ul>
+  <li><strong>Spotting an opportunity:</strong> Identifying a gap in the market, improving an existing product or service, or producing something more cheaply than competitors.</li>
+  <li><strong>Developing an idea:</strong> Designing the product or service and planning how to produce it.</li>
+  <li><strong>Satisfying customer needs:</strong> Producing the product, providing the service, and marketing it to the right customers.</li>
+</ul>
+<p><strong>Enterprise</strong> is nothing new — for as long as trade has existed, people have spotted opportunities and acted on them. For example, street sellers appear with umbrellas the moment it rains: they identified a customer need and acted fast.</p>
+<div class="case-study-box">
+  <h4>Case Study: Google — Spotting an Opportunity</h4>
+  <p>Larry Page and Sergey Brin started Google by meeting in a garage. They spotted the need for a reliable search engine in the fast-growing computer market. That small idea grew into one of the world's most valuable companies. Google is now developing drone technology to speed up deliveries — showing that enterprise means continuously spotting new opportunities.</p>
+  <p><strong>Takeaway:</strong> Enterprise is about constantly looking for unmet needs. Entrepreneurs don't just wait — they act.</p>
+</div>`
+        },
+        {
+            title: "Characteristics of an Entrepreneur",
+            tag: "Theory",
+            content: `<p>Successful entrepreneurs share a set of key characteristics. You must be able to <strong>identify, explain, and apply</strong> these in the exam — especially for 6-mark questions that ask you to link them to a specific business.</p>
+<ul>
+  <li><strong>Creativity / Innovative:</strong> The ability to think up new ideas, design new products, or solve problems in original ways. James Dyson invented the bagless vacuum cleaner — something that had never existed before.</li>
+  <li><strong>Risk-taking:</strong> Being prepared to put personal money, time, or reputation at risk in the hope of a reward. Dyson gave up his paid job and invested his own savings to fund his venture — with no guarantee of success.</li>
+  <li><strong>Determination / Perseverance:</strong> Not giving up when things get difficult. Dyson tried over 5,000 designs before finding one that worked. This is the most commonly tested characteristic in context questions.</li>
+  <li><strong>Confidence / Self-belief:</strong> Believing that their idea will succeed and being able to inspire others to believe it too. An confident entrepreneur doesn't say 'I can't' — they say 'I will'.</li>
+</ul>
+<p>⚠️ <strong>Examiner Warning:</strong> Do NOT write traits like <strong>'hardworking', 'motivated', 'well-organised', 'resilient', or 'teamwork'</strong>. The mark scheme explicitly states these will NOT be awarded marks. Stick to the four official characteristics above.</p>`
+        },
+        {
+            title: "Rewards vs Drawbacks of Risk Taking",
+            tag: "Analysis",
+            content: `<p>When an entrepreneur takes a risk, they hope the <strong>rewards</strong> will outweigh the <strong>drawbacks</strong>. There are both financial and non-financial versions of each.</p>
+<div class="two-col">
+  <div>
+    <div class="col-head">✓ Rewards</div>
+    <div class="pro-item"><strong>Financial (Profit):</strong> The greater the risk, the greater the potential reward. Entrepreneurs like Sir Richard Branson and Lord Sugar built personal fortunes by taking calculated risks.</div>
+    <div class="pro-item"><strong>Independence:</strong> Being your own boss — making all your own decisions without answering to anyone else. The feeling of freedom can be a more powerful motivator than money for many entrepreneurs.</div>
+    <div class="pro-item"><strong>Self-satisfaction:</strong> The personal pride of watching your own idea come to life and succeed. A business born from a hobby can bring deep fulfilment even when profit is modest.</div>
+    <div class="pro-item"><strong>Changing customer habits:</strong> Anita Roddick founded The Body Shop on the principle that cosmetics should not be tested on animals — and changed the entire industry in doing so.</div>
+  </div>
+  <div>
+    <div class="col-head">✗ Drawbacks (Risks)</div>
+    <div class="con-item"><strong>Financial loss:</strong> Life savings invested in a failing business may be lost entirely. This is the number one reason why many people never become entrepreneurs.</div>
+    <div class="con-item"><strong>Failing health:</strong> The stress of running a business — whether it is struggling or booming — can cause serious mental and physical illness.</div>
+    <div class="con-item"><strong>Strained relationships:</strong> Starting a business demands enormous time. Holidays are sacrificed, family time is lost, and personal relationships suffer as the business takes priority.</div>
+  </div>
+</div>`
+        },
+        {
+            title: "Real-World Case Studies",
+            tag: "Application",
+            content: `<div class="case-study-box">
+  <h4>Case Study: James Dyson — Determination, Creativity & Risk-Taking</h4>
+  <p>Frustrated with the poor performance of his vacuum cleaner, James Dyson decided to design a better one. He gave up his paid job, used his personal savings, and spent years in his garage creating over 5,000 different prototypes before producing the world's first bagless vacuum cleaner.</p>
+  <p>When his first partnership (with Amway) failed, he didn't stop — he formed his own company in 1991. Dyson Ltd now employs over 12,000 people worldwide and continues to innovate with vacuum cleaners, hand dryers, hair dryers, and air purifiers.</p>
+  <p><strong>Takeaway:</strong> Dyson demonstrates all four characteristics — determination (5,000+ designs), creativity (brand new product), confidence (believed in his idea despite early failure), and risk-taking (quit his job, used his personal savings).</p>
+</div>
+<div class="case-study-box">
+  <h4>Case Study: Zuber & Mohsin Issa — Spotting Opportunities</h4>
+  <p>The Issa brothers started with a single petrol station in Manchester in 2001. By continuously spotting new opportunities — adding supermarkets, coffee shops, and fast-food outlets to their petrol stations — they grew to over 5,000 outlets across Europe and the USA. In October 2020, they purchased a controlling stake in Asda from Walmart for £6.8 billion.</p>
+  <p><strong>Takeaway:</strong> Enterprise is not a one-time event. The Issa brothers show that successful entrepreneurship means spotting new opportunities at every stage of growth.</p>
+</div>`
+        },
+        {
+            title: "Evaluating Risk & Reward",
+            tag: "Evaluation",
+            content: `<p>When evaluating whether it is worth taking the risk of starting a business, you must <strong>weigh up both sides</strong> using the information provided. Evaluation questions rarely have a single correct answer — it depends on context.</p>
+<p>Key points to consider when writing an evaluation:</p>
+<ul>
+  <li>Does the entrepreneur have the right <strong>characteristics</strong> to succeed?</li>
+  <li>Is there genuine <strong>customer demand</strong> for the product or service?</li>
+  <li>How significant is the <strong>competition</strong>? Are there already established businesses in the market?</li>
+  <li>What is the entrepreneur's <strong>financial position</strong> — can they afford to lose the money invested?</li>
+  <li>What are the <strong>non-financial costs</strong> (health, time, relationships) and how might these affect the entrepreneur's ability to run the business long-term?</li>
+</ul>
+<p><strong>Evaluation point:</strong> Just because an entrepreneur is confident, determined, and willing to take a risk does <em>not</em> guarantee success. You must use specific evidence from the case study to justify your judgement — a conclusion that just repeats earlier points scores no evaluation marks.</p>`
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "Which of the following is the correct definition of enterprise?",
+            opts: [
+                "The process of producing goods in a factory",
+                "Spotting an opportunity to provide a product or service people are willing to buy",
+                "Researching what customers want before opening a business",
+                "The act of employing workers to grow a business"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. Enterprise is defined as spotting an opportunity to provide a product or service that customers are willing to buy. It is about identifying a gap in the market and acting on it."
+        },
+        {
+            q: "Two brothers are currently unemployed. They decide to set up their own window cleaning business. What is an entrepreneurial risk for the brothers?",
+            opts: [
+                "Cold weather",
+                "Paying taxes",
+                "Poor health",
+                "Slippery ladders"
+            ],
+            ans: 2,
+            explain: "Correct answer: C — Poor health. Entrepreneurial risks are personal consequences of running a business, such as stress leading to illness. Cold weather and slippery ladders are working hazards. Paying taxes is a legal cost, not an entrepreneurial risk."
+        },
+        {
+            q: "Finley and Umi create personalised pictures using shells and pebbles. What would NOT be an appropriate reason for them to have started this business?",
+            opts: [
+                "They developed an idea for a business by making pictures that are unique",
+                "They satisfied the needs of customers looking for sustainable gifts",
+                "They spotted an opportunity to earn money from a leisure activity they loved",
+                "They wanted to test their physical and mental health by working long hours"
+            ],
+            ans: 3,
+            explain: "Correct answer: D. Working long hours to test physical and mental health is a drawback of entrepreneurship — not a reason to start a business. Options A, B, and C are all valid entrepreneurial motivations: developing an idea, satisfying customer needs, and spotting an opportunity."
+        },
+        {
+            q: "A plumbing firm is struggling to keep up with customer demand. What would help the business to succeed?",
+            opts: [
+                "Asking regular customers with blocked toilets to ring back another day",
+                "Giving customers unrealistic appointment times",
+                "Ignoring customer complaints about delays in fixing water leaks",
+                "Planning all business activity and work schedules carefully"
+            ],
+            ans: 3,
+            explain: "Correct answer: D. Planning business activity carefully allows the firm to manage increased demand effectively. Options A, B, and C all involve poor customer service that would drive customers to competitors and damage the business's reputation."
+        },
+        {
+            q: "Satisfying the needs of customers is:",
+            opts: [
+                "A legal requirement",
+                "A market research task",
+                "A purpose of business activity",
+                "The role of the human resources function"
+            ],
+            ans: 2,
+            explain: "Correct answer: C. Satisfying the needs of customers is the core purpose of business activity. Businesses produce goods and services to meet customer needs and earn profit in return. It is not a legal requirement (A), not just a research task (B), and not limited to HR (D)."
+        },
+        {
+            q: "Which of the following is a financial reward for enterprise?",
+            opts: [
+                "Authority",
+                "Profit",
+                "Success",
+                "Wages"
+            ],
+            ans: 1,
+            explain: "Correct answer: B — Profit. Profit is the key financial reward of enterprise — the money remaining after all costs have been paid. Authority (A) is non-financial. Success (C) is too vague. Wages (D) are paid to employees, not earned by entrepreneurs as a reward for enterprise."
+        },
+        {
+            q: "A wine enthusiast has spotted an opportunity to turn their interest into a business by becoming a blogger. This is called:",
+            opts: [
+                "Delegation",
+                "Enterprise",
+                "Market research",
+                "Productivity"
+            ],
+            ans: 1,
+            explain: "Correct answer: B — Enterprise. Spotting an opportunity and acting on it to create a business is the definition of enterprise. Delegation (A) is passing tasks to others. Market research (C) is gathering information. Productivity (D) measures output per worker."
+        },
+        {
+            q: "Which one of the following is NOT a risk of entrepreneurship?",
+            opts: [
+                "Failing health",
+                "Loss of money",
+                "Self-satisfaction",
+                "Strained personal relationships"
+            ],
+            ans: 2,
+            explain: "Correct answer: C — Self-satisfaction. Self-satisfaction is a non-financial REWARD of entrepreneurship — the personal pride felt when an idea succeeds. Failing health (A), loss of money (B), and strained relationships (D) are all genuine risks."
+        },
+        {
+            q: "Raj has developed an idea for a new business. This is an example of:",
+            opts: [
+                "Discrimination",
+                "Enterprise",
+                "Flexible working",
+                "Productivity"
+            ],
+            ans: 1,
+            explain: "Correct answer: B — Enterprise. Developing an idea for a new business is one of the three core purposes of enterprise. Discrimination (A) means treating people unfairly. Flexible working (C) relates to employment arrangements. Productivity (D) is output per unit of input."
+        },
+        {
+            q: "Which one of the following is UNLIKELY to be a characteristic of a successful entrepreneur?",
+            opts: [
+                "Being able to create opportunities",
+                "Being confident in new situations",
+                "Being determined to work through problems",
+                "Being uncomfortable with taking risks"
+            ],
+            ans: 3,
+            explain: "Correct answer: D. A successful entrepreneur must be comfortable with taking risks — it is a core characteristic. Being uncomfortable with risk would prevent someone from starting a business. Options A, B, and C are all genuine entrepreneurial characteristics."
+        },
+        {
+            q: "An entrepreneur needs which of the following characteristics?",
+            opts: [
+                "Very well dressed at all times",
+                "Know a person in business",
+                "Very good at accounts",
+                "Confident"
+            ],
+            ans: 3,
+            explain: "Correct answer: D — Confident. Confidence is one of the four core entrepreneurial characteristics alongside creativity, determination, and risk-taking. Being well dressed (A), knowing people (B), or being good at accounts (C) are not required characteristics."
+        },
+        {
+            q: "Which of the following is NOT a reward for risk taking when starting a business?",
+            opts: [
+                "Being able to invest money",
+                "Being able to make profits for yourself",
+                "Being independent",
+                "Being able to see your own ideas work"
+            ],
+            ans: 0,
+            explain: "Correct answer: A. Investing money is something you DO when starting a business — it is an action taken (and a financial risk), not a reward received. Making profit (B), independence (C), and seeing your ideas succeed (D) are all genuine rewards of entrepreneurship."
+        }
+    ];
+
+    const matchData = [
+        { term: "Entrepreneur", def: "An individual who takes the risk of setting up and running a business enterprise." },
+        { term: "Enterprise", def: "Seeing an opportunity to provide a product or service that people are willing to buy." },
+        { term: "Spotting an opportunity", def: "The ability to identify a gap in the market or a need that existing businesses are not meeting." },
+        { term: "Creativity", def: "The ability to think of new ideas, design original products, or solve problems in innovative ways." },
+        { term: "Determination", def: "The characteristic of not giving up when difficulties arise — working hard to overcome problems." },
+        { term: "Confidence", def: "Believing strongly in your own ability to succeed and inspiring that belief in others." },
+        { term: "Risk-taking", def: "Being prepared to put personal money, time, or reputation into a business venture that may fail." },
+        { term: "Financial reward", def: "The profit earned by an entrepreneur as a result of taking a risk and running a successful business." },
+        { term: "Independence", def: "Being your own boss and having the freedom to make all your own business decisions." },
+        { term: "Self-satisfaction", def: "The personal pride and fulfilment an entrepreneur feels from making their own idea a success." },
+        { term: "Financial risk", def: "The possibility that money invested in a business could be lost if the venture fails." },
+        { term: "Business activity", def: "The process of producing goods or providing services to satisfy the needs of customers." },
+        { term: "Strained relationships", def: "A non-financial risk where long working hours and business pressure damage personal relationships." }
+    ];
+
+    const fibData = [
+        {
+            display: "Businesses exist to satisfy the _____ of customers by providing goods and services at a price people are willing to _____.",
+            blanks: { B1: "needs", B2: "pay" }
+        },
+        {
+            display: "An _____ is a person who takes the risk of setting up and running a business enterprise.",
+            blanks: { B1: "entrepreneur" }
+        },
+        {
+            display: "Enterprise is often described as _____ an opportunity — seeing a gap in the market that no other business is filling.",
+            blanks: { B1: "spotting" }
+        },
+        {
+            display: "The four core characteristics of an entrepreneur are: creativity, risk-taking, _____, and _____.",
+            blanks: { B1: "determination", B2: "confidence" }
+        },
+        {
+            display: "The greater the _____, the greater the potential _____. This is a key principle behind entrepreneurial decision-making.",
+            blanks: { B1: "risk", B2: "reward" }
+        },
+        {
+            display: "James Dyson showed great _____ by trying over 5,000 different designs before producing a working bagless vacuum cleaner.",
+            blanks: { B1: "determination" }
+        },
+        {
+            display: "Financial rewards of enterprise include _____, while non-financial rewards include independence and self-_____.",
+            blanks: { B1: "profit", B2: "satisfaction" }
+        },
+        {
+            display: "Non-financial risks of entrepreneurship include failing _____ due to stress, and _____ personal relationships due to long working hours.",
+            blanks: { B1: "health", B2: "strained" }
+        },
+        {
+            display: "When Larry Page and Sergey Brin spotted the need for a reliable _____ engine, they developed what became Google.",
+            blanks: { B1: "search" }
+        },
+        {
+            display: "Anita Roddick founded The Body Shop after spotting an opportunity to sell cosmetics that were not _____ on animals, which changed consumer _____.",
+            blanks: { B1: "tested", B2: "attitudes" }
+        },
+        {
+            display: "An entrepreneur who starts a business primarily to be their own boss is motivated by the reward of _____.",
+            blanks: { B1: "independence" }
+        },
+        {
+            display: "Virgin first started as a mail order business selling records before its founder spotted an opportunity to develop it into a business providing _____ travel.",
+            blanks: { B1: "air" }
+        }
+    ];
+
+    const fibWords = [
+        "needs", "pay", "entrepreneur", "spotting", "determination", "confidence",
+        "risk", "reward", "profit", "satisfaction", "health", "strained",
+        "search", "tested", "attitudes", "independence", "air",
+        "wants", "sell", "manager", "creating", "resilience", "leadership",
+        "loss", "penalty", "revenue", "happiness", "stress", "broken",
+        "social", "banned", "opinions", "freedom", "rail"
+    ];
+
+    const tfData = [
+        {
+            statement: "Businesses exist primarily to satisfy the needs of customers.",
+            answer: true,
+            explanation: "TRUE. The primary purpose of business activity is to satisfy the needs of customers by providing goods and services at a price people are willing to pay. Profit is the reward for doing this successfully."
+        },
+        {
+            statement: "The four core characteristics of an entrepreneur include: creativity, determination, confidence, and hardworking.",
+            answer: false,
+            explanation: "FALSE. The four core characteristics are creativity, determination, confidence, and risk-taking. 'Hardworking' is NOT accepted by the OCR mark scheme — writing it in an exam will score zero marks."
+        },
+        {
+            statement: "The financial risk of entrepreneurship includes the possibility of losing personal savings invested in the business.",
+            answer: true,
+            explanation: "TRUE. One of the main financial risks is that money invested — including personal savings — could be lost entirely if the business fails. This is the primary reason many people choose not to start businesses."
+        },
+        {
+            statement: "Self-satisfaction is a risk of entrepreneurship.",
+            answer: false,
+            explanation: "FALSE. Self-satisfaction is a non-financial REWARD of entrepreneurship — the personal pride felt when an idea becomes a successful business. The risks include financial loss, failing health, and strained relationships."
+        },
+        {
+            statement: "James Dyson demonstrated determination by trying thousands of different designs before succeeding with his bagless vacuum cleaner.",
+            answer: true,
+            explanation: "TRUE. Dyson tried over 5,000 designs over several years — the classic exam example of the entrepreneurial characteristic of determination (or perseverance)."
+        },
+        {
+            statement: "Profit is a non-financial reward of enterprise.",
+            answer: false,
+            explanation: "FALSE. Profit is a FINANCIAL reward of enterprise — it is money. Non-financial rewards include independence, self-satisfaction, and changing customer attitudes."
+        },
+        {
+            statement: "An entrepreneur who starts a business to be their own boss is primarily motivated by the reward of independence.",
+            answer: true,
+            explanation: "TRUE. Independence — being your own boss and making your own decisions — is a key non-financial reward. Many entrepreneurs prioritise this over financial gain."
+        },
+        {
+            statement: "Poor health is a financial risk of being an entrepreneur.",
+            answer: false,
+            explanation: "FALSE. Poor health is a NON-FINANCIAL risk. It refers to the mental and physical strain of running a business. The financial risk is the possible loss of money invested in the business."
+        },
+        {
+            statement: "Enterprise only applies to starting a completely new business — improving an existing product is not enterprise.",
+            answer: false,
+            explanation: "FALSE. Enterprise includes improving existing products or services, or providing them more cheaply. Apple did not invent the mobile phone but spotted how to improve it — that is enterprise. Spotting any opportunity counts."
+        },
+        {
+            statement: "The greater the risk taken by an entrepreneur, the greater the potential reward.",
+            answer: true,
+            explanation: "TRUE. This is a fundamental principle of entrepreneurship — higher risk is associated with the potential for higher rewards. This is why some entrepreneurs take large financial risks in pursuit of large profits."
+        },
+        {
+            statement: "'Motivated' and 'well-organised' are accepted characteristics of an entrepreneur in the OCR GCSE Business mark scheme.",
+            answer: false,
+            explanation: "FALSE. The OCR mark scheme specifically states that traits like 'motivated', 'well-organised', 'resilient', 'teamwork', and 'hardworking' are NOT accepted. Always use the four official characteristics: creativity, risk-taking, determination, and confidence."
+        },
+        {
+            statement: "Strained personal relationships are a potential non-financial risk of running a business.",
+            answer: true,
+            explanation: "TRUE. Starting and running a business is extremely time-consuming. This can mean sacrificing holidays, missing family time, and placing enormous pressure on personal relationships — all non-financial costs of entrepreneurship."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Students write 'hardworking', 'motivated', 'resilient', or 'well-organised' as characteristics of an entrepreneur.",
+            correct: "The OCR mark scheme only accepts four characteristics: creativity, risk-taking, determination, and confidence. Writing other traits — no matter how sensible they seem — scores zero marks. The examiner is very specific about this."
+        },
+        {
+            wrong: "Students think 'paying taxes' or 'cold weather' are entrepreneurial risks.",
+            correct: "Entrepreneurial risks are personal consequences of running a business: financial loss, failing health, and strained relationships. Taxes are business costs; weather is a working hazard — neither is an entrepreneurial risk in the OCR context."
+        },
+        {
+            wrong: "Students confuse 'risk' and 'reward' — writing self-satisfaction as a risk, or financial loss as a reward.",
+            correct: "Risks are negative outcomes (financial loss, poor health, damaged relationships). Rewards are positive outcomes (profit, independence, self-satisfaction). Self-satisfaction is always a REWARD, never a risk."
+        },
+        {
+            wrong: "Students explain what a characteristic means instead of applying it to the business in the case study.",
+            correct: "For application marks, you MUST link the characteristic to the specific business. E.g. 'James Dyson showed creativity by designing a bagless vacuum cleaner that had never existed before.' Never just define the term — always say HOW the entrepreneur showed it."
+        },
+        {
+            wrong: "Students think that because an entrepreneur has all four characteristics, their business is guaranteed to succeed.",
+            correct: "Having the right characteristics increases the chance of success but does not guarantee it. Market conditions, competition, economic factors, and access to finance all affect whether a business succeeds. The examiner expects you to consider multiple factors when evaluating."
+        },
+        {
+            wrong: "Students write that wages are a financial reward for enterprise.",
+            correct: "Wages are paid to EMPLOYEES by the business. The financial reward for the entrepreneur is PROFIT — the money left after all costs have been paid. Entrepreneurs do not earn wages from their own business."
+        },
+        {
+            wrong: "Students think enterprise only means starting a brand-new product that has never existed before.",
+            correct: "Enterprise includes spotting opportunities to improve existing products, fill gaps in existing markets, or deliver an existing service more cheaply or in a better location. Improving something that already exists is still enterprise."
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "Identify / State — 1 mark",
+            title: "One Point. Full Stop. Move On.",
+            content: `
+      <p>A 1-mark <strong>'State', 'Identify'</strong> or <strong>'Give'</strong> question needs exactly <strong>one correct point</strong>. No explanation. No examples. No paragraphs.</p>
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li>One clear, specific accepted point = 1 mark ✅</li>
+        <li>A vague or generic point = 0 marks ❌</li>
+        <li>A trait not on the accepted list (e.g. 'hardworking') = 0 marks ❌</li>
+      </ul>
+      <p><strong>❌ Bad Answer (0 marks):</strong><br/><em>"He worked very hard and was motivated."</em><br/>These are not accepted characteristics on the mark scheme.</p>
+      <p><strong>✅ Good Answer (1 mark):</strong><br/><em>"Determination"</em> or <em>"Risk-taking"</em><br/>Specific, accepted — earns the mark with one word.</p>
+      <p><strong>⚠️ Examiner Warning:</strong> The most common correct answer in exams is 'risk taker'. Many students waste time writing full sentences when a single word earns the mark. Do not over-write on 1-mark questions.</p>
+      <p><strong>🚫 Never write:</strong> 'motivated', 'well-organised', 'resilient', 'teamwork', or 'hardworking' for a characteristics question — the examiner explicitly will not award marks for these.</p>
+    `,
+            pills: ["K"]
+        },
+        {
+            type: "Explain — 2 marks",
+            title: "Point + Apply: The 2-Mark Formula",
+            content: `
+      <p>A 2-mark <strong>'Explain'</strong> question needs a characteristic (K) <strong>plus</strong> an application to the specific business in the case study (APP). You <em>cannot</em> score the application mark without first scoring the knowledge mark.</p>
+      <p><strong>The Formula: K (1 mark) + APP (1 mark)</strong></p>
+      <ul>
+        <li><strong>K:</strong> Name the entrepreneurial characteristic clearly.</li>
+        <li><strong>APP:</strong> Explain specifically how this characteristic applies to the business in the case study.</li>
+      </ul>
+      <p><strong>❌ Bad Answer (1 mark only):</strong><br/><em>"Julie and Cathy are creative. Creativity means thinking of new ideas."</em><br/>This just defines the word — it doesn't apply it to the hairdressing business. Only 1 mark.</p>
+      <p><strong>✅ Good Answer (2 marks):</strong><br/><em>"Julie and Cathy must be creative (K) so that they can offer a wide range of different styles for their customers' hair, keeping people coming back to Sophisticutz rather than going to a competitor (APP)."</em></p>
+      <p><strong>Useful sentence starters:</strong></p>
+      <ul>
+        <li><em>"[Characteristic] is important because in the case of [business]..."</em></li>
+        <li><em>"[Business] demonstrates [characteristic] by..."</em></li>
+      </ul>
+    `,
+            pills: ["K", "U", "app"]
+        },
+        {
+            type: "Analyse — 3 marks",
+            title: "The Holy Trinity: U → APP → AN",
+            content: `
+      <p>A 3-mark <strong>'Analyse'</strong> question requires three steps in a chain of reasoning. You <em>cannot</em> score application or analysis marks without scoring understanding first.</p>
+      <p><strong>The 3-Step Formula:</strong></p>
+      <ul>
+        <li><strong>Step 1 — Understanding (U):</strong> State the risk or characteristic and briefly explain what it means.</li>
+        <li><strong>Step 2 — Application (APP):</strong> Link it directly to the specific business using evidence from the case study. Use phrases like <em>"in the case of..."</em> or <em>"the text states that..."</em></li>
+        <li><strong>Step 3 — Analysis (AN):</strong> Explain the <em>impact</em> on the business — think: money, customers, survival, reputation.</li>
+      </ul>
+      <p><strong>❌ Bad Answer (1 mark only):</strong><br/><em>"A risk of starting a hairdressing business is financial loss. This means you could lose money."</em><br/>No application to Sophisticutz. No analysis of impact. Only scores 1 mark.</p>
+      <p><strong>✅ Good Answer (3 marks):</strong><br/><em>"One risk of starting a hairdressing business in competition with Sophisticutz is financial loss (U). The text states there are already several established competitors occupying the best locations in town (APP). As a result, the new salon would struggle to attract customers in the early stages, meaning the entrepreneur could lose their personal savings before the business becomes profitable (AN)."</em></p>
+      <p><strong>The 'So What?' Rule:</strong><br/>Keep asking yourself 'So what?' until you reach a bottom-line business impact (profit, costs, customers, survival).</p>
+    `,
+            pills: ["U", "app", "an"]
+        },
+        {
+            type: "Explain Three Characteristics — 6 marks",
+            title: "Three Mini-Analyses: Apply to the Business Every Time",
+            content: `
+      <p>A 6-mark question asking you to 'explain three entrepreneurial characteristics' is simply <strong>three 2-mark explain answers</strong> written one after another. For each characteristic you score: K (1 mark) + APP (1 mark).</p>
+      <p><strong>The Structure — Repeat 3 Times:</strong></p>
+      <ul>
+        <li><strong>Point 1:</strong> Name the characteristic (K) → Apply to the business using evidence from the text (APP)</li>
+        <li><strong>Point 2:</strong> Name the characteristic (K) → Apply to the business using evidence from the text (APP)</li>
+        <li><strong>Point 3:</strong> Name the characteristic (K) → Apply to the business using evidence from the text (APP)</li>
+      </ul>
+      <p><strong>⚠️ The Most Common Mistake:</strong><br/>Students write: <em>"Creativity means thinking of new ideas."</em><br/>This just defines the word. You will NOT earn the application mark for explaining what a word means. You must say HOW the entrepreneur in the case study showed this characteristic — with evidence.</p>
+      <p><strong>✅ Model structure (Dyson question):</strong></p>
+      <ul>
+        <li><em>"James Dyson showed determination (K) — he tried thousands of designs over several years without giving up (APP)."</em></li>
+        <li><em>"He was also creative (K) — he invented a completely new type of vacuum cleaner, the bagless design, that nobody had made before (APP)."</em></li>
+        <li><em>"Dyson was a risk taker (K) — he gave up his paid job and used his own savings to fund his new product, with no guarantee of success (APP)."</em></li>
+      </ul>
+      <p><strong>Use the text!</strong> The examiner provides information about the entrepreneur specifically so you can apply it. Every application mark requires evidence from the case study.</p>
+    `,
+            pills: ["K", "U", "app"]
+        }
+    ];
+
+    const flashcards = [
+        { term: "Entrepreneur", def: "A person who takes the risk of setting up and running a business enterprise." },
+        { term: "Enterprise", def: "Seeing an opportunity to provide a product or service that people are willing to buy — 'spotting an opportunity'." },
+        { term: "Creativity", def: "An entrepreneurial characteristic — the ability to think of new ideas and design original products or solutions." },
+        { term: "Determination", def: "An entrepreneurial characteristic — not giving up when things are difficult, and working hard to overcome problems." },
+        { term: "Confidence", def: "An entrepreneurial characteristic — believing strongly in your own ideas and inspiring others to believe in them too." },
+        { term: "Risk-taking", def: "An entrepreneurial characteristic — being prepared to invest personal money, time, or reputation into a business that may fail." },
+        { term: "Financial reward", def: "The profit earned by an entrepreneur from running a successful business." },
+        { term: "Independence", def: "A non-financial reward — being your own boss and making your own business decisions." },
+        { term: "Self-satisfaction", def: "A non-financial reward — the personal pride an entrepreneur feels when their idea becomes a successful business." },
+        { term: "Financial risk", def: "The possibility of losing money invested in a business if the venture fails." },
+        { term: "Health risk", def: "The non-financial risk that the stress of running a business could lead to mental or physical illness." },
+        { term: "Strained relationships", def: "A non-financial risk — long working hours and business pressure damaging personal and family relationships." },
+        { term: "Business activity", def: "The process of producing goods or providing services to satisfy the needs of customers." },
+        { term: "Spotting an opportunity", def: "Identifying a gap in the market or a customer need that existing businesses are not meeting." },
+        { term: "James Dyson", def: "Entrepreneur who demonstrated determination (5,000+ designs), creativity (bagless vacuum cleaner), confidence, and risk-taking (quit job, used personal savings)." },
+        { term: "The Issa Brothers", def: "Entrepreneurs who grew from one petrol station in 2001 to buying a controlling stake in Asda for £6.8bn in 2020 — a real-world example of spotting opportunities continuously." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "written",
+            caseStudy: "SJ Salon is a hair salon owned by Sam and Jamila. The business partners met whilst studying hairdressing at college. The partners' creativity has helped make the salon very successful. SJ Salon is currently the only salon in town and uses cost-plus pricing.\n\nSam and Jamila are qualified hairdressers who work full-time in the salon. Until recently, the partners employed one part-time and one full-time worker who works 40 hours per week. However, due to increasing customer demand, two additional part-time employees have recently been recruited.\n\nSam and Jamila have just found out that a national hairdressing chain is planning to open a new salon in their town. They are concerned about the impact of this competition. The partners asked 200 current customers to complete a short questionnaire. The results show that:\n• 130 of the customers have used SJ Salon since 2019\n• 104 of the customers were aware of the national hairdressing chain\n• 84 of the customers would consider trying the new hair salon, if its prices were cheaper\n• 66 of the customers consider quality of service to be more important than price.\n\nWhen SJ Salon was set up in 2014, Sam wrote a business plan. He has not written another one since then, as the business has been profitable. However, Sam now thinks that a new business plan should be written to help the business succeed against any new competition. Jamila disagrees, as the original business plan took Sam 30 hours to write. She feels that his time would be better spent keeping current customers satisfied.",
+            question: "Creativity is one characteristic of an entrepreneur. Identify one other characteristic of an entrepreneur. [1 mark]",
+            hint: "There are three other accepted characteristics. Choose from: risk-taking, determination, or confidence. Do NOT write 'hardworking' or 'motivated' — these are not accepted by the mark scheme.",
+            starter: "One characteristic of an entrepreneur is...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1a)</h5><ul><li><strong>1 mark</strong> for any one of the following: Risk-taking / Determination / Confidence</li></ul><p><strong>Accept:</strong> Synonyms such as 'perseverance' for 'determination' or 'self-assured' for 'confidence'.</p><p><strong>Do NOT accept:</strong> 'Creativity' (excluded by the stem of the question), or traits such as 'motivated', 'well organised', 'resilient', 'teamwork', or 'hardworking'.</p><p><strong>Examiner's Comment:</strong> Most candidates gained the mark. The most common correct response was 'a risk taker'. Some candidates repeated 'creativity', which was excluded by the question stem — always read the stem carefully before answering.</p></div>`,
+            modelAnswer: "Determination."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "Two brothers are currently unemployed. They decide to set up their own window cleaning business, trading as a partnership.",
+            question: "What is an entrepreneurial risk for the brothers?",
+            options: ["Cold weather", "Paying taxes", "Poor health", "Slippery ladders"],
+            answer: 2,
+            hint: "An 'entrepreneurial risk' is a personal consequence of running a business — not a physical hazard of the job or a legal obligation. Think about what happens to the PERSON, not the work.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark</h5><p><strong>Answer: C — Poor health</strong></p><ul><li><strong>Why C is correct:</strong> Poor health is an entrepreneurial risk — the stress of running a business, especially one that may struggle, can cause serious mental and physical illness to the entrepreneur personally.</li><li><strong>Why A is wrong:</strong> Cold weather is a working condition/hazard for window cleaners — it affects the work itself, not the entrepreneur as a business owner.</li><li><strong>Why B is wrong:</strong> Paying taxes is a legal obligation for all businesses — it is a cost, not an entrepreneurial risk.</li><li><strong>Why D is wrong:</strong> Slippery ladders are a health and safety hazard specific to the work of window cleaning — not an entrepreneurial risk.</li></ul><p><strong>Examiner's Comment:</strong> Only one third of candidates selected the correct answer. Many chose A or D (working hazards) or B (a cost). This demonstrates a lack of understanding of what 'entrepreneurial risk' specifically means — it is about personal consequences to the entrepreneur, not the physical conditions of the work.</p><p><strong>Assessment for learning:</strong> Centres are advised not to overlook the third bullet point of Topic 1.1 — The concept of risk and reward.</p></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q3",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "Finley and Umi are business partners. They create personalised pictures, using shells and pebbles. They started the business after attending an art class together.",
+            question: "What would NOT be an appropriate reason for Finley and Umi to have started this business?",
+            options: [
+                "They developed an idea for a business by making pictures that are unique",
+                "They satisfied the needs of customers looking for sustainable gifts",
+                "They spotted an opportunity to earn money from a leisure activity they loved",
+                "They wanted to test their physical and mental health by working long hours"
+            ],
+            answer: 3,
+            hint: "You are looking for the option that is NOT a valid reason to start a business. Think about what enterprise means — and what its drawbacks are.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark</h5><p><strong>Answer: D</strong></p><ul><li><strong>Why D is correct (NOT appropriate):</strong> Wanting to 'test physical and mental health by working long hours' is actually a DRAWBACK of entrepreneurship — not a reason to start a business. No entrepreneur starts a business specifically to damage their health.</li><li><strong>Why A is wrong (it IS an appropriate reason):</strong> Developing a unique product idea is a legitimate purpose of enterprise.</li><li><strong>Why B is wrong (it IS an appropriate reason):</strong> Satisfying the needs of customers is the core purpose of business activity.</li><li><strong>Why C is wrong (it IS an appropriate reason):</strong> Spotting an opportunity to turn a leisure activity into a money-making business is a classic example of enterprise.</li></ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q4",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "A plumbing firm is struggling to keep up with demand.",
+            question: "What would help the business to succeed?",
+            options: [
+                "Asking regular customers with blocked toilets to ring back another day",
+                "Giving customers unrealistic appointment times",
+                "Ignoring customer complaints about delays in fixing water leaks",
+                "Planning all business activity and work schedules carefully"
+            ],
+            answer: 3,
+            hint: "Businesses exist to satisfy customer needs. Which option actually achieves that goal?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark</h5><p><strong>Answer: D</strong></p><ul><li><strong>Why D is correct:</strong> Planning business activity and work schedules carefully allows the plumbing firm to manage increased demand effectively, serving customers efficiently while maintaining quality.</li><li><strong>Why A is wrong:</strong> Turning customers away means they will simply contact a competitor — damaging customer loyalty and revenue.</li><li><strong>Why B is wrong:</strong> Making unrealistic promises leads to disappointment and damages the business's reputation.</li><li><strong>Why C is wrong:</strong> Ignoring complaints accelerates customer loss and destroys the business's reputation — the opposite of success.</li></ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q5",
+            marks: 6,
+            type: "written",
+            caseStudy: "Disappointed with the performance of vacuum cleaners on the market, James Dyson thought he could design a better product. He started to create his first vacuum cleaner in the late-1970s. In 1984, after trying thousands of designs over several years, James Dyson launched a bagless vacuum cleaner in partnership with Amway, a US consumer goods manufacturer. This partnership did not work out, so James Dyson formed his own company in 1991.\n\nToday, Dyson Ltd produces a range of home appliances including vacuum cleaners, hand dryers, heaters, hair dryers and lights. Creating new and innovative products continues to be important for the company, as seen by its expanding product range. The company has over 12,000 employees worldwide.\n\nDyson Ltd has a unique organisational structure.\n\nAll new employees of Dyson Ltd go through an induction training programme. In addition, the company encourages employees to progress by offering apprenticeships and other staff development opportunities. James Dyson promotes careers in engineering, both in schools and in universities.",
+            question: "Explain three entrepreneurial characteristics that have supported James Dyson's success. [6 marks]",
+            hint: "For each characteristic: (1) name it clearly, then (2) explain specifically HOW Dyson showed it using evidence from the text. Do NOT just define the word — you must apply it to James Dyson.",
+            starter: "One characteristic James Dyson showed was [characteristic] (K).\nThis is shown by the fact that [evidence from text] (APP).\n\nA second characteristic is [characteristic] (K).\nDyson demonstrated this by [evidence from text] (APP).\n\nA third characteristic is [characteristic] (K).\nThis can be seen in the text where it states that [evidence from text] (APP).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 6 marks (AO1a: 3 marks + AO2: 3 marks)</h5><p>One mark for each entrepreneurial characteristic named (K), up to a maximum of 3.<br>One further mark for each application to James Dyson using evidence from the text (APP), up to a maximum of 3.<br><strong>No further marks can be gained without first scoring the Knowledge mark.</strong></p><table class="case-table"><caption>Indicative Characteristics and Applications</caption><tr><th>Characteristic (K — 1 mark each)</th><th>Application to Dyson (APP — 1 mark each)</th></tr><tr><td>Confidence</td><td>Believed he could design a better vacuum cleaner than those on the market</td></tr><tr><td>Determination / Perseverance</td><td>Tried thousands of design ideas over several years from the late-1970s to 1984; continued after partnership with Amway failed and formed his own company</td></tr><tr><td>Creativity / Innovative / Inventive</td><td>Created a brand-new type of vacuum cleaner — the bagless design — that had not existed before</td></tr><tr><td>Willingness to take risks</td><td>Set up his own company in 1991 after the partnership with Amway failed, investing his own money and reputation</td></tr></table><p><strong>Examiner's Comment:</strong> Generally well answered. To achieve full marks, students needed to name three characteristics and explain how each applied to Dyson using evidence from the text. Students who did less well named characteristics but then explained the meaning of the term (e.g. 'creativity means being good at design') rather than how it applied to Dyson specifically. This did not earn the application mark.</p></div>`,
+            modelAnswer: "James Dyson showed determination (K) — he tried thousands of design ideas over many years from the late-1970s until 1984 before producing a vacuum cleaner that worked, and continued even after his partnership with Amway failed (APP).\n\nHe was also creative (K) — he invented the bagless vacuum cleaner, a completely new type of product that had not existed on the market before (APP).\n\nDyson was also a risk taker (K) — when his partnership with Amway did not work out, he chose to form his own company in 1991, investing his own money and reputation with no guarantee of success (APP)."
+        },
+        {
+            num: "Q6",
+            marks: 1,
+            type: "written",
+            caseStudy: "Miles Ahead is a bicycle retailer which was set up in 2001 by entrepreneur, Reg Patel. Reg started with one shop, but the business has gradually expanded. There are now six 'Miles Ahead' shops. Despite the growth in Miles Ahead, Reg still operates the business as a sole trader, with 15 employees and a tall organisational structure. Reg segments the market (e.g. different bicycles according to age, gender, lifestyle and income), which he thinks has supported his success.\n\nReg is going to retire in six months' time. He is selling the business to Nessa Watts. Nessa has a lot of business experience. She has sold jewellery online as a sole trader for many years. Nessa has plans to expand Miles Ahead. Nessa has had to borrow £500,000 to purchase the business from Reg.\n\nNessa is considering whether to open more 'Miles Ahead' shops or launch a 'Miles Ahead' website so that customers can purchase online. Sales within the business have fallen over the past two years, which Nessa feels is due to the traditional appearance of the shops.",
+            question: "State one characteristic of an entrepreneur. [1 mark]",
+            hint: "Choose from: creativity, risk-taking, determination, or confidence. One word or a short phrase is all you need.",
+            starter: "One characteristic of an entrepreneur is...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1a)</h5><p>One mark for any accepted characteristic of an entrepreneur:</p><ul><li>Creativity / imaginative / innovative / inventive</li><li>Risk-taking</li><li>Determination</li><li>Confidence</li></ul><p><strong>Do NOT accept:</strong> 'Leadership'</p></div>`,
+            modelAnswer: "Risk-taking."
+        },
+        {
+            num: "Q7",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Satisfying the needs of customers is:",
+            options: [
+                "A legal requirement",
+                "A market research task",
+                "A purpose of business activity",
+                "The role of the human resources function"
+            ],
+            answer: 2,
+            hint: "Think about WHY businesses exist in the first place.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark</h5><p><strong>Answer: C — A purpose of business activity</strong></p><ul><li><strong>Why C is correct:</strong> Satisfying the needs of customers is a core purpose of business activity — businesses produce goods and services to meet customer needs and earn profit in return.</li><li><strong>Why A is wrong:</strong> It is not a legal requirement — businesses that fail to satisfy customers lose them to competitors, but face no legal penalty.</li><li><strong>Why B is wrong:</strong> Market research is a tool used to find out what customers need — not the purpose of business activity itself.</li><li><strong>Why D is wrong:</strong> Human resources manages employees — satisfying customers is the purpose of the entire business, not just one department.</li></ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q8",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following is a financial reward for enterprise?",
+            options: ["Authority", "Profit", "Success", "Wages"],
+            answer: 1,
+            hint: "Financial rewards involve money. Which option is a specific type of money earned by entrepreneurs?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark</h5><p><strong>Answer: B — Profit</strong></p><ul><li><strong>Why B is correct:</strong> Profit is the financial reward of enterprise — the money remaining after all costs have been paid. It is what entrepreneurs aim to earn as a return for taking risks.</li><li><strong>Why A is wrong:</strong> Authority (power or control) is a non-financial benefit, not a financial reward.</li><li><strong>Why C is wrong:</strong> 'Success' is vague and non-specific — it is not a financial reward.</li><li><strong>Why D is wrong:</strong> Wages are paid to employees — entrepreneurs do not earn wages from their own business; they earn profit.</li></ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q9",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "A wine enthusiast has spotted an opportunity to turn their interest into a business by becoming a blogger.",
+            question: "This is called:",
+            options: ["Delegation", "Enterprise", "Market research", "Productivity"],
+            answer: 1,
+            hint: "What is it called when someone spots an opportunity and acts on it to create a business?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark</h5><p><strong>Answer: B — Enterprise</strong></p><ul><li><strong>Why B is correct:</strong> Enterprise is spotting an opportunity to provide a product or service people are willing to pay for. The wine enthusiast has identified a way to turn a hobby into a business — a classic example of enterprise.</li><li><strong>Why A is wrong:</strong> Delegation is the process of passing tasks or authority to others within a business.</li><li><strong>Why C is wrong:</strong> Market research is collecting information about customers and the market — not the act of creating a business.</li><li><strong>Why D is wrong:</strong> Productivity is output per worker — it measures efficiency, not enterprise.</li></ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q10",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which one of the following is NOT a risk of entrepreneurship?",
+            options: ["Failing health", "Loss of money", "Self-satisfaction", "Strained personal relationships"],
+            answer: 2,
+            hint: "Three of these are risks. One of them is actually a REWARD. Which one?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark</h5><p><strong>Answer: C — Self-satisfaction</strong></p><ul><li><strong>Why C is correct (NOT a risk):</strong> Self-satisfaction is a non-financial REWARD of entrepreneurship — the personal pride and fulfilment from making a business idea succeed. This is one of the most frequently confused points in this topic.</li><li><strong>Why A is a risk:</strong> Failing health — the stress of running a business can cause serious mental and physical illness.</li><li><strong>Why B is a risk:</strong> Loss of money — personal savings invested in a failing business can be lost entirely.</li><li><strong>Why D is a risk:</strong> Strained personal relationships — long working hours and financial pressure put enormous strain on family and personal relationships.</li></ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q11",
+            marks: 1,
+            type: "written",
+            caseStudy: "Rory and Jayda are keen entrepreneurs and are aware of the likely growth in the demand for both eating out and electric cars over the coming years. Therefore, they have decided to set up a restaurant with a difference — customers can charge their electric car using one of the car charging points in the restaurant's car park whilst enjoying a meal made from locally sourced, organic ingredients.\n\nRory previously worked in the finance department of a large business. Jayda used to work in a restaurant where she was responsible for marketing the business as well as managing the kitchens. They enjoy coming up with new ideas and not knowing what the future may bring.\n\nRory and Jayda have decided to set up their new business as a partnership. They have carried out market research which shows that there is demand for their business idea, as long as it offers exactly what customers require.",
+            question: "Identify one characteristic of an entrepreneur mentioned in Text 3. [1 mark]",
+            hint: "Read the case study carefully — a characteristic is directly mentioned or strongly implied. Look for clues like 'enjoy coming up with new ideas' or 'not knowing what the future may bring'.",
+            starter: "One characteristic mentioned in the text is...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO2)</h5><p>1 mark for identification of a characteristic <strong>clearly stated or implied in the text</strong>:</p><ul><li><strong>Creativity</strong> — "enjoy coming up with new ideas" / the unique concept of combining a restaurant with electric car charging points</li><li><strong>Risk-taking</strong> — "not knowing what the future may bring" (they embrace uncertainty)</li><li><strong>Decisive/Determination</strong> — "have decided to set up" and acted on their market opportunity</li></ul><p><strong>Note:</strong> The characteristic must be drawn from or supported by the text — generic answers not linked to the case study are not accepted for this question type.</p></div>`,
+            modelAnswer: "Creativity — the text states they 'enjoy coming up with new ideas', shown by their unique concept of combining a restaurant with electric car charging points."
+        },
+        {
+            num: "Q12",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "Raj has developed an idea for a new business.",
+            question: "This is an example of:",
+            options: ["Discrimination", "Enterprise", "Flexible working", "Productivity"],
+            answer: 1,
+            hint: "Developing an idea for a new business is one of the three purposes of what concept?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1a)</h5><p><strong>Answer: B — Enterprise</strong></p><ul><li><strong>Why B is correct:</strong> Developing an idea for a new business is one of the three core purposes of enterprise (alongside spotting an opportunity and satisfying customer needs).</li><li><strong>Why A is wrong:</strong> Discrimination means treating someone unfairly based on protected characteristics such as race, gender, or age.</li><li><strong>Why C is wrong:</strong> Flexible working refers to arrangements where employees can vary their hours or place of work.</li><li><strong>Why D is wrong:</strong> Productivity measures output per worker — it is about efficiency in production, not starting a business.</li></ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q13",
+            marks: 1,
+            type: "written",
+            caseStudy: "The Works is a retailer which sells books, toys, gifts and stationery at lower prices than many of its rivals. It has over 430 stores in the UK and Ireland, as well as a website.\n\nThe Works currently has over 2,500 employees. The company has a basic aim: 'We aim to be the customer's first-choice value alternative to the full price retailers of the products we sell.'\n\nSaranne is a local entrepreneur who wants to set up her own business. She is aware of the success of her local branch of The Works and has decided to open a specialist book store in the same town. She believes there are enough customers for both businesses to succeed. This will be Saranne's first business venture after deciding on a career change since leaving her job working at a local bank. Saranne will need to hire three employees.",
+            question: "State one risk for an entrepreneur when starting a new business. [1 mark]",
+            hint: "Think about what could go wrong personally for the entrepreneur — there are financial and non-financial risks. Either type is acceptable.",
+            starter: "One risk for an entrepreneur when starting a new business is...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1a)</h5><p>1 mark for any appropriate risk. Answers may include:</p><ul><li>Financial loss / loss of money / personal savings could be lost</li><li>Failing health / stress / mental or physical illness</li><li>Strained relationships with friends or family</li><li>Nobody may be interested in the business idea / insufficient demand</li><li>Strong competition (e.g. from The Works already in the same town)</li></ul></div>`,
+            modelAnswer: "Financial loss — Saranne may invest her personal savings into the bookstore and lose them if the business fails to attract enough customers away from The Works."
+        },
+        {
+            num: "Q14",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which one of the following is UNLIKELY to be a characteristic of a successful entrepreneur?",
+            options: [
+                "Being able to create opportunities",
+                "Being confident in new situations",
+                "Being determined to work through problems",
+                "Being uncomfortable with taking risks"
+            ],
+            answer: 3,
+            hint: "All successful entrepreneurs share certain traits. One of these options is the OPPOSITE of what an entrepreneur should be.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1a)</h5><p><strong>Answer: D — Being uncomfortable with taking risks</strong></p><ul><li><strong>Why D is correct (UNLIKELY):</strong> A successful entrepreneur must be willing and comfortable with taking risks — it is a core characteristic. Being uncomfortable with risk would prevent someone from ever starting a business.</li><li><strong>Why A is wrong (it IS a characteristic):</strong> Creating opportunities is central to enterprise — spotting and acting on gaps in the market.</li><li><strong>Why B is wrong (it IS a characteristic):</strong> Confidence in new situations is one of the four official entrepreneurial characteristics.</li><li><strong>Why C is wrong (it IS a characteristic):</strong> Determination to work through problems is one of the four official entrepreneurial characteristics.</li></ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q15",
+            marks: 2,
+            type: "written",
+            caseStudy: "Boohoo was started in 2006 by two entrepreneurs who had the idea of starting a business where customers could buy the latest fashions online.\n\nBoohoo has expanded using organic growth, and has become a global online retailer of its own brand clothes, shoes and accessories. It now sells in over 100 countries. Boohoo charge for delivery. It has millions of website users per month.\n\nThe target market for the Boohoo brand is men and women who are 16 to 24 years old and are fashion conscious. To reach this market, Boohoo uses social media. The business is active on Facebook, Twitter, YouTube and Instagram.\n\nBoohoo has also introduced apps for smartphones and tablets that allow customers to browse and buy products very easily.",
+            question: "State two characteristics of an entrepreneur. [2 marks]",
+            hint: "You need two separate accepted characteristics — each worth 1 mark. One word or a short phrase is enough for each.",
+            starter: "One characteristic of an entrepreneur is...\nA second characteristic of an entrepreneur is...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1a)</h5><p>1 mark for each correct characteristic, up to a maximum of 2 marks. Answers may include:</p><ul><li>Willing to take risks</li><li>Determination</li><li>Confidence</li><li>Creativity / imaginative / innovative</li><li>Passionate</li><li>Hard working</li><li>Motivated</li><li>Disciplined</li><li>Adaptable / flexible</li><li>Knowledgeable</li><li>People person</li></ul><p><strong>Note:</strong> This mark scheme is broader than some other questions (ARA — Any Reasonable Answer). Accept a wider range of traits here.</p></div>`,
+            modelAnswer: "1. Creativity — the ability to think of new ideas.\n2. Risk-taking — being willing to invest money and time in a new business venture with no guarantee of success."
+        },
+        {
+            num: "Q16a",
+            marks: 2,
+            type: "written",
+            caseStudy: "Cathy and Julie are entrepreneurs who set up their own separate hairdressing businesses. They each faced the difficulties of any new business trying to establish itself where there are a number of other businesses already providing the same service. They both grew their own businesses, but then decided to join forces under the Sophisticutz name, recognising that being together does have advantages.\n\nSince that time, the business has developed well with regular trade which keeps the salon busy. There are a number of established competitors in the area. All the present hairdressers in the town occupy the best locations. Sophisticutz as a business must be aware that other younger entrepreneurs are ready to start their own businesses which may affect the future success of Sophisticutz.",
+            question: "State two reasons why businesses exist. [2 marks]",
+            hint: "Think about the fundamental purposes of business activity. What are businesses trying to achieve?",
+            starter: "One reason businesses exist is...\nA second reason businesses exist is...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1a / Knowledge)</h5><p>1 mark for each correct reason why businesses exist, up to a maximum of 2 marks. Reasons may include:</p><ul><li>To satisfy the needs of customers</li><li>To make a profit</li><li>To provide goods or services</li><li>To create employment</li></ul><p><strong>Note:</strong> Knowledge only required — no explanation needed.</p></div>`,
+            modelAnswer: "1. To satisfy the needs of customers by providing goods and services.\n2. To make a profit for the owners."
+        },
+        {
+            num: "Q16b",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Explain one characteristic Julie and Cathy might have as entrepreneurs. [2 marks]",
+            hint: "Name a characteristic (1 mark) then explain how it applies specifically to Julie and Cathy's hairdressing business (1 mark). You cannot score the application mark without first scoring the knowledge mark.",
+            starter: "One characteristic Julie and Cathy might have is [characteristic] (K).\nThis is important because in the case of their hairdressing business... (APP)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1b: Understanding 1 mark + AO2: Application 1 mark)</h5><p><strong>Understanding (1 mark)</strong> — acceptable characteristics:</p><ul><li>Creative</li><li>Prepared to take risks</li><li>Determined</li><li>Confident</li></ul><p><strong>Application (1 mark)</strong> — explanation relating to the hairdressing context:</p><ul><li>"Julie and Cathy must be creative and make sure that customers are offered a range of different styles for their hair."</li><li>"Julie and Cathy must be confident as there will be other hairdressers in the area, and they must demonstrate confidence so that customers will choose their salon."</li></ul><p><strong>Note:</strong> You cannot score the application mark without first scoring the understanding mark.</p></div>`,
+            modelAnswer: "Julie and Cathy must be confident (K) — there are already a number of established hairdressers in the area, and they need to be confident in the quality of their service so that customers choose Sophisticutz over the competition (APP)."
+        },
+        {
+            num: "Q16c",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Analyse one risk to an entrepreneur in starting a new hairdressing business in competition with Sophisticutz. [3 marks]",
+            hint: "Use the three-step formula: (1) state and explain the risk, (2) link it to the Sophisticutz case study using evidence, (3) explain the impact on the new business.",
+            starter: "One risk of starting a hairdressing business in competition with Sophisticutz is [risk] (U).\nIn this case, the text states that... (APP)\nThis means that... / As a result... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b: U 1 mark + AO2: APP 1 mark + AO3a: AN 1 mark)</h5><p><strong>Understanding (1 mark)</strong> — risk examples:</p><ul><li>Financial loss</li><li>Stress and effect on health</li><li>Pressure on relationships with friends/family</li></ul><p><strong>Application (1 mark)</strong> — linked to the Sophisticutz case study:</p><ul><li>"There are already a lot of established hairdressers in the area."</li><li>"All the best locations in town are already occupied by existing hairdressers, so a new business would have to open in a less favourable location."</li></ul><p><strong>Analysis (1 mark)</strong> — the effect/impact on the new business:</p><ul><li>"Competition from Sophisticutz may mean fewer customers in the early stages, resulting in a loss of income."</li><li>"This could lead to the entrepreneur losing their personal savings before the business becomes profitable."</li></ul><p><strong>Note:</strong> You cannot score application or analysis marks without first scoring the understanding mark.</p></div>`,
+            modelAnswer: "One risk of starting a hairdressing business in competition with Sophisticutz is financial loss (U). The text states that all the best locations in the town are already occupied by established hairdressers, meaning the new salon would have to open in a less visible or less convenient spot (APP). As a result, the new salon would struggle to attract customers in the early stages, leading to low revenue and the possible loss of the entrepreneur's personal savings before the business becomes profitable (AN)."
+        },
+        {
+            num: "Q17",
+            marks: 6,
+            type: "written",
+            caseStudy: "Frustrated by a poor quality vacuum cleaner which he used in his home, James Dyson created the idea of the bagless vacuum cleaner. Dyson gave up his paid job and used his savings while he worked in his garage to produce something better. Showing great determination, he tried out over 500 different designs, believing that, in the end, he would be successful. During this time, his wife worked as a teacher to support them. Dyson then risked his money to start up a business producing and selling the vacuum cleaners.",
+            question: "Analyse two characteristics of an entrepreneur that helped James Dyson to succeed when starting up his business. [6 marks]",
+            hint: "For each characteristic: state it (U), apply it to the Dyson case study using evidence from the text (APP), then explain the impact it had on his success (AN). Do this twice for two different characteristics.",
+            starter: "One characteristic that helped James Dyson succeed was [characteristic] (U).\nApplying this to Dyson, the text states that... (APP)\nThis helped him succeed because... / As a result... (AN)\n\nA second characteristic was [characteristic] (U).\nThe text shows this by... (APP)\nThis contributed to his success because... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 6 marks (AO1b: U 2 marks + AO2: APP 2 marks + AO3a: AN 2 marks)</h5><p>For each of two characteristics:</p><ul><li><strong>Understanding (1 mark each):</strong> Name and briefly explain the entrepreneurial characteristic.</li><li><strong>Application (1 mark each):</strong> Link to James Dyson using evidence from the text.</li><li><strong>Analysis (1 mark each):</strong> Explain the impact this characteristic had on his ability to succeed.</li></ul><p><strong>Acceptable characteristics and indicative content:</strong></p><ul><li><strong>Determination:</strong> U — not giving up when things are difficult. APP — tried over 500 designs. AN — without this he would have abandoned the project and the vacuum cleaner would never have been produced.</li><li><strong>Risk-taking:</strong> U — prepared to invest own money. APP — gave up his paid job and risked his savings. AN — this gave him the freedom and commitment to fully develop his idea without the distraction of employment.</li><li><strong>Confidence:</strong> U — believed in his own ability to succeed. APP — 'believing that, in the end, he would be successful.' AN — this confidence kept him going through failures and convinced his wife to support them financially.</li><li><strong>Creativity:</strong> U — ability to design a new type of product. APP — created the bagless vacuum cleaner, a completely new concept. AN — this allowed him to enter a crowded market with a genuinely different product that customers wanted.</li></ul></div>`,
+            modelAnswer: "One characteristic that helped James Dyson succeed was determination (U). The text states that he tried over 500 different designs and refused to give up, even giving up his paid job and relying on his wife's income to support them (APP). Without this level of determination, he would have abandoned the project long before finding a design that worked — the bagless vacuum cleaner would never have been created (AN).\n\nA second characteristic was risk-taking (U). Dyson gave up his job and used his personal savings to fund the project in his garage, with no guarantee that it would ever be commercially successful (APP). By taking this financial risk, he committed himself fully to the project, giving him the time and resources to keep refining his designs until he succeeded (AN)."
+        }
+    ];
+</script>
     <script src="script.js"></script>
 </body>
 
