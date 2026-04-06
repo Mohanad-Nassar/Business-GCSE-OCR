@@ -301,7 +301,703 @@
         </div>
     </main>
 
-    <script></script>
+    <script>
+        // ══════════════════════════════════════
+//  DATA: 1.2 Business Planning
+// ══════════════════════════════════════
+
+// 1. Main Learning Content
+const topics = [
+  {
+    title: "Key Terms & Official Definitions",
+    tag: "Core Concepts",
+    content: `<p>These are the essential terms you must be able to define accurately in the exam. Learn each one precisely — examiners expect specific language.</p>
+<ul>
+  <li><strong>Business Plan:</strong> A document which sets out details of the product or service being sold, how it will be financed, how it will be marketed, and the findings of market research.</li>
+  <li><strong>Finance:</strong> A business word used instead of money. The finance needed to start a business is the money required to buy the resources needed.</li>
+  <li><strong>Markets:</strong> Where a business sells its goods and services.</li>
+  <li><strong>Resources:</strong> The things a business needs to make it work, including finance, staff and materials.</li>
+  <li><strong>Operate:</strong> A term used to explain how a business works.</li>
+  <li><strong>Success:</strong> For a business, can take many forms, including making profit, surviving and providing a good service to customers.</li>
+  <li><strong>Aims and Objectives:</strong> Statements of what the business is trying to achieve (e.g. make a profit, expand, increase market share, survive).</li>
+  <li><strong>SMART Objectives:</strong> Objectives that are Specific, Measurable, Achievable, Realistic and Time-bound.</li>
+</ul>`
+  },
+  {
+    title: "The Purpose of Planning Business Activity",
+    tag: "Core Concepts",
+    content: `<p>Every business — whether brand new or well established — needs to plan. Planning is a vital part of the successful start-up and development of a business. There are two core purposes:</p>
+<ul>
+  <li><strong>Reduce the risk of failure:</strong> Starting a business is risky. There may be competitors and customers might not want the product. Writing a business plan forces entrepreneurs to think through potential problems before they happen, reducing (but not eliminating) risk.</li>
+  <li><strong>Help a business to be as successful as possible:</strong> Thinking carefully about all aspects of running a business allows entrepreneurs to reflect on what they are proposing. The greater the care and thought given to this process, the greater the chance of success.</li>
+</ul>
+<p><strong>When is a business plan written?</strong> A business plan is normally written <strong>before a business starts</strong>, or when there is a major change in what the business plans to do (e.g. expanding into a new market, launching a new product).</p>
+<div class="case-study-box">
+  <h4>Case Study: Electric Cars & Business Planning</h4>
+  <p>By 2030, no new petrol or diesel cars can be sold in the UK. Every car manufacturer — from Ford to Toyota — must plan carefully for this enormous change. Billions of pounds are being spent on changing production methods, and this cannot happen overnight. Careful planning ensures manufacturers meet the 2030 deadline without making costly mistakes in an intensely competitive market.</p>
+  <p><strong>Takeaway:</strong> Even large, established businesses must plan when facing major change. The scale of investment makes planning essential — getting it wrong could be catastrophic.</p>
+</div>`
+  },
+  {
+    title: "The Contents of a Business Plan",
+    tag: "Theory",
+    content: `<p>A business plan is not a standardised document — it is adapted to the specific circumstances of each business. However, most plans will cover the following key areas:</p>
+<ul>
+  <li><strong>The Business Idea:</strong> What the business will produce and sell. Is it a totally new idea or a development of an existing product/service?</li>
+  <li><strong>The People Running the Business:</strong> Details of who is involved and their relevant experience. Banks and investors are far more likely to back a plan from someone with proven experience.</li>
+  <li><strong>Market Research:</strong> Evidence that consumers want the product or service. Includes target market, pricing, how the product will be sold (online, shops, etc.) and promotional plans.</li>
+  <li><strong>Finance:</strong> How much money is needed, what it will be spent on, and where it will come from (e.g. owner's savings, bank loan, overdraft, selling shares).</li>
+  <li><strong>Aims and Objectives:</strong> What the business wants to achieve and by when. These should be SMART.</li>
+  <li><strong>The Target Market:</strong> Who the business is selling to — age, gender, income level, etc.</li>
+  <li><strong>Competitors:</strong> Who the competitors are and how the business will differentiate itself (better quality, lower prices, unique features).</li>
+  <li><strong>Resources Needed:</strong> Equipment, premises, staff — everything required to operate the business.</li>
+</ul>
+<p>⚠️ <strong>What is NOT in a business plan:</strong> Personal hobbies of the owners, dates of birth, favourite school subjects, or titles of business textbooks.</p>`
+  },
+  {
+    title: "The Role of a Business Plan",
+    tag: "Analysis",
+    content: `<p>A business plan serves several important roles beyond simply being a written document. Understanding these roles helps you answer "explain the purpose of…" questions at a higher level.</p>
+<ul>
+  <li><strong>Identifying Markets:</strong> Forces the business to think clearly about who it is targeting. This shapes marketing decisions — the type of advertising, the price point, and the distribution channel all depend on the target market.</li>
+  <li><strong>Helping with Finance:</strong> Banks are more likely to lend money if they can see a detailed, well-thought-out plan. It demonstrates that the owners have considered all aspects of the business and gives lenders confidence they will be repaid.</li>
+  <li><strong>Identifying Resources:</strong> Requires owners to think about what equipment, premises, and staff they need to operate. Without this, a potential investor may view the business as too risky and refuse to invest.</li>
+  <li><strong>Achieving Aims and Objectives:</strong> Setting out aims with a timeline gives the business a clear direction. Without targets, there is no way to measure success or know when things are going wrong.</li>
+  <li><strong>Reducing Risk:</strong> Though a business plan cannot eliminate risk, it significantly reduces it by ensuring the business has thought through the key challenges in advance.</li>
+</ul>`
+  },
+  {
+    title: "Advantages & Disadvantages of a Business Plan",
+    tag: "Analysis",
+    content: `<p>For evaluation questions, you must be able to argue both sides. Here are the key points for and against producing a business plan:</p>
+<div class="two-col">
+  <div>
+    <div class="col-head">✓ Advantages</div>
+    <div class="pro-item"><strong>Reduces risk:</strong> Potential problems are identified before money is spent, giving the business a better chance of surviving.</div>
+    <div class="pro-item"><strong>Secures finance:</strong> Banks and investors will rarely lend money without seeing a detailed plan — it is often essential for external funding.</div>
+    <div class="pro-item"><strong>Sets clear direction:</strong> SMART objectives give the business measurable targets and a timeline, helping to keep focus and motivate staff.</div>
+    <div class="pro-item"><strong>Identifies resources:</strong> Ensures the business has considered what it needs to operate, so it is not caught short once trading begins.</div>
+    <div class="pro-item"><strong>Useful for evaluation:</strong> The plan can be used to monitor progress and identify when the business is falling short of its targets.</div>
+  </div>
+  <div>
+    <div class="col-head">✗ Disadvantages</div>
+    <div class="con-item"><strong>Time-consuming:</strong> Writing a thorough business plan takes significant time — time that could be spent running the business or serving customers.</div>
+    <div class="con-item"><strong>Can be inaccurate:</strong> Forecasts are based on assumptions. If the market changes or competitors respond unexpectedly, the plan may quickly become outdated.</div>
+    <div class="con-item"><strong>No guarantee of success:</strong> Even the best business plan cannot eliminate all risk. Unforeseen events (e.g. economic recessions, new competitors) can still cause a business to fail.</div>
+    <div class="con-item"><strong>Opportunity cost:</strong> The time spent writing a plan has an opportunity cost — the owner cannot do other productive activities during that time.</div>
+  </div>
+</div>`
+  },
+  {
+    title: "Evaluating a Business Plan",
+    tag: "Evaluation",
+    content: `<p>In 9-mark evaluation questions, you will be asked to assess whether a specific business plan is effective or whether a business should write one. Use this framework to structure your thinking:</p>
+<ul>
+  <li><strong>What is included?</strong> Does the plan cover the core areas — market research, finance, target market, competitors, resources, objectives?</li>
+  <li><strong>What is missing?</strong> Any missing section could be a critical weakness, especially if it relates to the business's specific situation (e.g. no competitor analysis for a business entering a crowded market).</li>
+  <li><strong>Are objectives SMART?</strong> Vague targets like "make a profit" or "grow the business" are not measurable. Look for specific figures and timelines.</li>
+  <li><strong>Is the plan relevant to the business context?</strong> A plan for a new start-up needs more detail than a plan for an established business making a minor change.</li>
+  <li><strong>Is the time cost justified?</strong> Weigh the benefit of having a plan against the opportunity cost of the time spent writing it.</li>
+</ul>
+<div class="case-study-box">
+  <h4>Case Study: Dunning Golf Club</h4>
+  <p>Dunning Golf Club produced a plan to increase its membership and profitability. The plan included: improving the golf club facilities, offering more benefits to paid-up members (e.g. subsidised lessons), using outside caterers to ensure better and cheaper catering, and more clearly stated priorities for the future and how these would be financed.</p>
+  <p><strong>Takeaway:</strong> This plan covers several important areas (finance, marketing, customer benefits, objectives) but could be criticised for not explicitly mentioning market research or a detailed competitor analysis. Are the targets SMART? They mention goals but without specific figures or deadlines.</p>
+</div>`
+  },
+  {
+    title: "Business Planning for Different Types of Business",
+    tag: "Application",
+    content: `<p>The importance and content of a business plan can vary significantly depending on the type of business. You may be asked to apply your knowledge to a specific business context.</p>
+<ul>
+  <li><strong>New Start-Up Business:</strong> A business plan is <em>especially</em> critical here. The business has no trading history, no existing customers, and typically needs external finance. Without a plan, a bank will not lend money and the founder has no way to judge whether the idea will work. The risk of failure is highest at the start-up stage.</li>
+  <li><strong>Large Established Business (e.g. Greggs, Ford):</strong> Planning is still vital when entering new markets, launching new products, or making major operational changes. Greggs used market data showing rising vegan numbers to plan and launch new products — this led to a 9.6% increase in sales.</li>
+  <li><strong>Expanding Business:</strong> When a successful business wants to grow (e.g. open new locations), a plan helps identify new resource needs, new competitors in the target area, and the finance required to fund expansion.</li>
+  <li><strong>Seasonal Business (e.g. Boots UK):</strong> Planning helps manage resource needs at different times of year — for example, recruiting temporary staff ahead of the Christmas period to match seasonal demand.</li>
+</ul>`
+  }
+];
+
+// 2. Multiple Choice Questions
+const mcqData = [
+  {
+    q: "A business plan would normally be written:",
+    opts: [
+      "Every month to keep it up to date",
+      "A month after a business starts trading",
+      "After a business has become established and competitors are known",
+      "Before a business starts"
+    ],
+    ans: 3,
+    explain: "Correct: D. A business plan is written before a business starts (or when a major change is planned). Writing it after the business starts defeats the purpose of reducing risk and guiding early decisions."
+  },
+  {
+    q: "A business plan will:",
+    opts: [
+      "Make sure the competitors know you are in business",
+      "Identify the competitors of the business",
+      "Put the competitors out of business",
+      "Allow the competitors to see whether you need finance"
+    ],
+    ans: 1,
+    explain: "Correct: B. One key section of a business plan involves identifying who the competitors are and how the business will compete against them. It does not alert competitors to your existence or remove them from the market."
+  },
+  {
+    q: "The purpose of identifying resources in a business plan is to:",
+    opts: [
+      "Make sure the required resources have been identified and where they will come from, so potential investors feel safer",
+      "Make sure there is a list of some of the resources required",
+      "Make sure each person involved knows what 'resources' means",
+      "Make sure resources required cost less than first thought"
+    ],
+    ans: 0,
+    explain: "Correct: A. Identifying resources in full — and explaining how they will be obtained — gives investors confidence that the owners have thought through how the business will operate. A vague list is not sufficient."
+  },
+  {
+    q: "Which of the following is NOT in a business plan?",
+    opts: [
+      "The target market for the new business",
+      "The objectives of the business",
+      "The dates of birth of the business owners",
+      "The known competitors of the new business"
+    ],
+    ans: 2,
+    explain: "Correct: C. Dates of birth of business owners are personal and irrelevant to running a business. A business plan includes the target market, objectives, and competitors — all of which are relevant to business decisions."
+  },
+  {
+    q: "For which of the following might Sundip & Sons' business plan be useful?",
+    opts: [
+      "Calculating the share of the profit due to each of the three partners",
+      "Complying with current legislation relating to business planning",
+      "Identifying the resources needed to expand into the new market",
+      "Obtaining additional finance from shareholders"
+    ],
+    ans: 2,
+    explain: "Correct: C. A business plan helps identify the resources needed to operate. Sundip & Sons are expanding into laptop and tablet repairs, so they need to identify what new equipment, skills and premises this requires. Profit-sharing is governed by a partnership agreement, and there is no legal requirement to have a business plan."
+  },
+  {
+    q: "Which of the following would help Radi to reduce his level of risk as a business owner?",
+    opts: [
+      "Becoming a sole trader",
+      "Carefully planning all business activity",
+      "Ignoring the needs of customers",
+      "Making employees work long hours"
+    ],
+    ans: 1,
+    explain: "Correct: B. Careful planning reduces business risk by identifying potential problems before they occur and ensuring resources, finance, and markets are all considered. The other options would increase risk or cause harm."
+  },
+  {
+    q: "Why is a business plan especially important for a new business?",
+    opts: [
+      "Because the owner needs something to show friends and family",
+      "Because it guarantees the business will be successful",
+      "Because it helps obtain finance and reduces the risk of failure before trading begins",
+      "Because it tells competitors what the business plans to do"
+    ],
+    ans: 2,
+    explain: "Correct: C. A new business has no trading history, so it is especially important to plan carefully. The plan helps secure finance from banks (who will not lend without one) and reduces the risk of failure by forcing the owner to think through all aspects of the business."
+  },
+  {
+    q: "Should information about the hobbies of the business owners be included in a business plan?",
+    opts: [
+      "Yes, to show the owners are well-rounded individuals",
+      "Yes, because hobbies may be relevant to the business",
+      "No, it is personal and irrelevant to running the business",
+      "No, because it takes up too much space"
+    ],
+    ans: 2,
+    explain: "Correct: C. Hobbies are personal information and are not relevant to business decisions. A business plan should only include information that helps the business or its investors understand how the business will operate and succeed."
+  },
+  {
+    q: "A bank is considering whether to lend money to a new business. Which of the following would most increase the bank's confidence?",
+    opts: [
+      "The business owner's personal bank statements",
+      "A detailed and well-researched business plan",
+      "A list of the products the business wants to sell",
+      "A signed letter from a friend of the owner"
+    ],
+    ans: 1,
+    explain: "Correct: B. A detailed business plan shows the bank that the owner has carefully considered all aspects of the business — market research, competitors, finance needs, and objectives. This gives the bank confidence the loan will be repaid."
+  },
+  {
+    q: "Which statement about a business plan is TRUE?",
+    opts: [
+      "Writing a business plan guarantees the business will succeed",
+      "A business plan eliminates all risk from starting a business",
+      "A business plan reduces risk but cannot eliminate it",
+      "Only new businesses need to write a business plan"
+    ],
+    ans: 2,
+    explain: "Correct: C. A business plan reduces the risk of failure by making owners think carefully about all aspects of their business. However, it cannot eliminate risk entirely — unexpected events can still cause a business to fail even with an excellent plan."
+  },
+  {
+    q: "SJ Salon last wrote its business plan when it opened in 2014. A national competitor is about to open nearby. What does this situation suggest about the need for a new plan?",
+    opts: [
+      "No new plan is needed because the original plan is still valid",
+      "A new plan is needed because the competitive environment has significantly changed",
+      "A new plan should only be written if the salon makes a loss",
+      "A new plan is unnecessary because the salon has been profitable"
+    ],
+    ans: 1,
+    explain: "Correct: B. A business plan should be updated when there is a major change in the business environment. A new national competitor entering the local market is exactly this kind of significant change — it affects the salon's target market, pricing, marketing, and strategic objectives."
+  },
+  {
+    q: "Which of the following is the best definition of a 'business plan'?",
+    opts: [
+      "A thought or idea about what a business might do in the future",
+      "A document detailing the product/service, how it will be financed, marketed, and evidence from market research",
+      "A legal document required by law before starting a business",
+      "A monthly report produced by a business showing its profits"
+    ],
+    ans: 1,
+    explain: "Correct: B. A business plan is specifically a document (not just a thought or idea) that details the product/service, finance sources, marketing approach, and market research findings. It is not a legal requirement and is not produced monthly."
+  }
+];
+
+// 3. Keyword Matching
+const matchData = [
+  { term: "Business Plan", def: "A document setting out details of the product/service, how it will be financed, marketed, and findings from market research." },
+  { term: "Finance", def: "A business word used instead of money — the funds needed to buy the resources required to start or run a business." },
+  { term: "Markets", def: "Where a business sells its goods and services." },
+  { term: "Resources", def: "The things a business needs to make it work, including finance, staff and materials." },
+  { term: "Operate", def: "A term used to explain how a business works day-to-day." },
+  { term: "Success", def: "For a business, can take many forms including making profit, surviving, and providing good service to customers." },
+  { term: "Aims and Objectives", def: "Statements of what the business is trying to achieve, such as growing larger or making more profit." },
+  { term: "SMART Objectives", def: "Objectives that are Specific, Measurable, Achievable, Realistic and Time-bound." },
+  { term: "Target Market", def: "The specific group of customers a business aims to sell its products or services to." },
+  { term: "Competitors", def: "Other businesses offering the same or similar products or services in the same market." },
+  { term: "Market Research", def: "The process of gathering information about consumers and competitors to inform business decisions." },
+  { term: "Opportunity Cost", def: "The next best alternative given up when making a decision — e.g. the time spent writing a plan instead of serving customers." }
+];
+
+// 4. Fill in the Blanks
+const fibData = [
+  {
+    display: "A business plan is normally written _____ a business starts, or when a _____ change takes place.",
+    blanks: { B1: "before", B2: "major" }
+  },
+  {
+    display: "The two main purposes of a business plan are to reduce the _____ of failure and to help a business to be as _____ as possible.",
+    blanks: { B1: "risk", B2: "successful" }
+  },
+  {
+    display: "A business plan must include details of who the _____ market is and who the _____ are.",
+    blanks: { B1: "target", B2: "competitors" }
+  },
+  {
+    display: "The _____ needed to start a business is the money required to buy the _____ needed to operate.",
+    blanks: { B1: "finance", B2: "resources" }
+  },
+  {
+    display: "Good objectives should be SMART — Specific, _____, Achievable, Realistic and _____.",
+    blanks: { B1: "Measurable", B2: "Time-bound" }
+  },
+  {
+    display: "A bank is more likely to lend money if the business can present a detailed _____ plan, as it shows the bank that careful _____ has been given to all aspects of the business.",
+    blanks: { B1: "business", B2: "thought" }
+  },
+  {
+    display: "Writing a business plan _____ risk but does not _____ it entirely.",
+    blanks: { B1: "reduces", B2: "eliminate" }
+  },
+  {
+    display: "The _____ of a business plan is that it takes significant time to write, which has an _____ cost.",
+    blanks: { B1: "disadvantage", B2: "opportunity" }
+  },
+  {
+    display: "Market research is used to show that _____ will use the business and to identify the _____ at which the product will be sold.",
+    blanks: { B1: "consumers", B2: "price" }
+  },
+  {
+    display: "A business plan is a _____, not just a thought or idea — this distinction is important for the _____ mark in longer exam questions.",
+    blanks: { B1: "document", B2: "knowledge" }
+  },
+  {
+    display: "For a new business, obtaining _____ is one of the most important uses of a business plan, as banks will rarely lend without seeing one.",
+    blanks: { B1: "finance", B2: "evidence" }
+  },
+  {
+    display: "The people section of a business plan includes details of who is _____ and their _____ in running a business.",
+    blanks: { B1: "involved", B2: "experience" }
+  }
+];
+
+const fibWords = [
+  "before", "major", "risk", "successful", "target", "competitors",
+  "finance", "resources", "Measurable", "Time-bound", "business", "thought",
+  "reduces", "eliminate", "disadvantage", "opportunity", "consumers", "price",
+  "document", "knowledge", "finance", "evidence", "involved", "experience",
+  "after", "minor", "profit", "efficient", "customer", "suppliers",
+  "money", "equipment", "Specific", "Achievable", "marketing", "plan",
+  "increases", "remove", "advantage", "profit", "investors", "quantity"
+];
+
+// 5. True or False
+const tfData = [
+  {
+    statement: "A business plan should include information about the hobbies of the business owners.",
+    answer: false,
+    explanation: "FALSE. Hobbies are personal and irrelevant to business decisions. A business plan covers business-relevant content only: the business idea, finance, marketing, market research, competitors, target market, and objectives."
+  },
+  {
+    statement: "A business plan should include details of what marketing is planned.",
+    answer: true,
+    explanation: "TRUE. Marketing is a core section of any business plan. It identifies how the business will attract customers, what price it will charge, how it will promote its products, and through which channels it will sell."
+  },
+  {
+    statement: "Writing a business plan guarantees that a business will succeed.",
+    answer: false,
+    explanation: "FALSE. A business plan reduces the risk of failure but cannot guarantee success. Unforeseen circumstances — economic downturns, unexpected competition, changing consumer tastes — can still cause a business to fail even with a thorough plan."
+  },
+  {
+    statement: "A business plan is normally written before a business starts trading.",
+    answer: true,
+    explanation: "TRUE. The business plan is typically produced before the business starts, or when a major change is planned. Writing it after trading begins means many risks may not have been considered at the critical start-up stage."
+  },
+  {
+    statement: "A business plan should include a list of the favourite books read by the business owners.",
+    answer: false,
+    explanation: "FALSE. Titles of business books (or any personal reading material) are irrelevant to the business plan. Only business-relevant information — markets, finance, competitors, resources, objectives — belongs in the plan."
+  },
+  {
+    statement: "A good business plan is necessary if a business hopes to obtain external finance from a bank.",
+    answer: true,
+    explanation: "TRUE. Banks and other external investors will rarely lend money without seeing a detailed business plan. It demonstrates that the owners have thought carefully about how the money will be used and how the loan will be repaid."
+  },
+  {
+    statement: "A business plan should include analysis of the competitors in the market.",
+    answer: true,
+    explanation: "TRUE. Identifying competitors — and explaining how the business will differentiate itself (e.g. lower prices, better quality, unique features) — is an essential part of the business plan."
+  },
+  {
+    statement: "Once written, a business plan never needs to be updated.",
+    answer: false,
+    explanation: "FALSE. A business plan should be reviewed and updated when significant changes occur — such as a new competitor entering the market, the business deciding to expand, or major changes in consumer demand."
+  },
+  {
+    statement: "A description of the target market should be included in a business plan.",
+    answer: true,
+    explanation: "TRUE. Identifying who the business is selling to (age, gender, income level, location, etc.) is fundamental to the business plan. It shapes decisions about pricing, promotion, and distribution."
+  },
+  {
+    statement: "The information about who is running the business is irrelevant to investors and can be left out of a business plan.",
+    answer: false,
+    explanation: "FALSE. Investors and banks are much more likely to fund a business run by people with relevant experience. Details of the owners' qualifications and business experience are an important part of the plan."
+  },
+  {
+    statement: "A business plan helps to identify the resources a business will need to operate.",
+    answer: true,
+    explanation: "TRUE. One of the key roles of a business plan is to identify what resources — equipment, premises, staff — the business requires. Without this, a potential investor may feel the business has not been properly thought through."
+  },
+  {
+    statement: "There is a legal requirement for all businesses to produce a business plan.",
+    answer: false,
+    explanation: "FALSE. There is no legal requirement to produce a business plan. However, it is strongly advisable — particularly for new businesses seeking external finance — as banks will rarely lend without one."
+  }
+];
+
+// 6. Common Student Misconceptions
+const miscData = [
+  {
+    wrong: "A business plan is a thought or process — something the owner thinks about.",
+    correct: "A business plan is specifically a document or written record. The Knowledge mark in long-answer questions requires you to describe it as a document, not just an idea or plan in the owner's head."
+  },
+  {
+    wrong: "Writing a business plan means the business will definitely succeed.",
+    correct: "A business plan reduces risk but cannot eliminate it. Always write 'reduces the risk of failure' — never say it 'guarantees success' or 'ensures the business will be profitable'."
+  },
+  {
+    wrong: "A business plan has a fixed, standard format that every business follows.",
+    correct: "A business plan is adapted to the specific circumstances of the business. There is no single correct format — the content depends on what the business needs to consider."
+  },
+  {
+    wrong: "In an evaluate question about a business plan, simply listing what is in a plan gets full marks.",
+    correct: "Evaluation questions require you to judge whether the plan is good or whether it is missing anything. You must consider whether the objectives are SMART and whether the missing sections matter given the specific business context."
+  },
+  {
+    wrong: "All businesses need to write a new business plan every year.",
+    correct: "A business plan is written when a business starts or when a major change is planned (e.g. expansion, entering a new market). It is not an annual requirement — but it should be updated when significant changes occur."
+  },
+  {
+    wrong: "Including personal information about the owners (hobbies, birth dates, favourite books) makes the business plan more complete.",
+    correct: "Personal information is irrelevant and should not be included. Examiners specifically test this with true/false questions. Only business-relevant information belongs in the plan."
+  },
+  {
+    wrong: "For the Application marks in a 9-mark question, you just need to mention the business name.",
+    correct: "Application marks require you to use specific data from the case study — particularly numerical data. For example, calculating percentages from survey results or using specific figures mentioned in the text."
+  },
+  {
+    wrong: "A conclusion in a 9-mark evaluation can just repeat the points already made.",
+    correct: "To earn full Evaluation marks, the judgement must be explicit AND contextually justified. Simply repeating earlier points without making a clear decision earns only 1 mark out of 3. You must state your decision AND justify it using case study detail."
+  }
+];
+
+// 7. Examiner Tips
+const examTips = [
+  {
+    type: "Define — 1 mark",
+    title: "A Business Plan is a DOCUMENT — Not a Thought",
+    content: `<p>This is one of the most commonly missed marks on the paper. The Knowledge mark requires you to describe a business plan as a <strong>specific document or written record</strong> — not just an idea, thought, or process.</p>
+    <p><strong>❌ Bad Answer (0 marks):</strong><br/><em>"A business plan is when a business thinks about what it wants to do."</em></p>
+    <p><strong>✅ Good Answer (1 mark):</strong><br/><em>"A business plan is a document that sets out the aims, finance, market research, and marketing of a business."</em></p>
+    <p><strong>⚠️ Examiner's Warning:</strong> Candidates who launched straight into pros and cons without defining what a business plan actually is frequently missed this mark. Always define key terms at the start of a long-answer question.</p>`,
+    pills: ["K"]
+  },
+  {
+    type: "Explain — 2 marks",
+    title: "Point + Link to Business = 2 Marks",
+    content: `<p>For a 2-mark "explain" question, you need two things: a clear point AND a development that links it to the business or shows the impact.</p>
+    <p><strong>The Formula:</strong> State the benefit (1) → Explain how it helps the specific business (1)</p>
+    <p><strong>❌ Bad Answer (0–1 marks):</strong><br/><em>"Planning helps Boots UK because it is organised."</em><br/>This is too vague — "organised" is not a business outcome.</p>
+    <p><strong>✅ Good Answer (2 marks):</strong><br/><em>"Business planning helps Boots UK identify what resources (such as labour) are needed at specific times (1), so that when the store is at its busiest over Christmas, staffing levels match demand (1)."</em></p>
+    <p><strong>🚫 Avoid:</strong> Do not confuse WHAT is planned with WHY planning is useful. The question asks for the purpose/advantage — not the contents.</p>`,
+    pills: ["U", "app"]
+  },
+  {
+    type: "Quantitative Application — 2 marks",
+    title: "Use the Numbers — Don't Just Quote Them",
+    content: `<p>In 9-mark questions with data, <strong>two of the nine marks are for quantitative application</strong>. This means you must <strong>calculate or process</strong> the numbers — not just copy them out.</p>
+    <p><strong>The Formula:</strong> Perform any relevant calculation using the data provided.</p>
+    <p><strong>Examples of calculations from the SJ Salon question:</strong></p>
+    <ul>
+      <li>65% of customers have used SJ Salon since 2019 (130 ÷ 200 × 100)</li>
+      <li>42% of customers would consider trying the competitor if cheaper (84 ÷ 200 × 100)</li>
+      <li>Sam last wrote a business plan 10 years ago (2024 − 2014 = 10)</li>
+      <li>Writing the plan would take 75% of a working week (30 ÷ 40 × 100)</li>
+      <li>96 customers were NOT aware of the competitor (200 − 104 = 96)</li>
+    </ul>
+    <p><strong>⚠️ Key Rule:</strong> You need two separate calculations for 2 marks. Any valid calculation counts — even simple ones like 2 + 2 = 4 employees.</p>`,
+    pills: ["app"]
+  },
+  {
+    type: "Analyse — 2 marks",
+    title: "One Pro AND One Con = Full Analysis Marks",
+    content: `<p>For the 2 analysis marks in a 9-mark question, examiners are looking for <strong>one business-facing advantage</strong> AND <strong>one business-facing disadvantage</strong> of writing a business plan.</p>
+    <p><strong>The Formula:</strong> One pro (1) + One con (1) = 2 marks</p>
+    <p><strong>✅ Good Analysis Points:</strong></p>
+    <ul>
+      <li><strong>Pros:</strong> Helps set new goals to compete → Secures finance from a bank → Identifies what resources are needed → Helps measure success against objectives</li>
+      <li><strong>Cons:</strong> Takes significant time to write → Opportunity cost (time away from customers) → May quickly become outdated → No guarantee of success</li>
+    </ul>
+    <p><strong>❌ Common Mistake:</strong> Only writing advantages, or only writing disadvantages. You need both for full marks.</p>
+    <p><strong>🚫 Avoid vague analysis:</strong> "It helps the business" or "it makes things easier" are not specific business impacts. Always say <em>what</em> improves — costs, revenue, customer numbers, market share, etc.</p>`,
+    pills: ["an"]
+  },
+  {
+    type: "Evaluate — 9 marks",
+    title: "The Four-Paragraph Structure for Full Marks",
+    content: `<p>A 9-mark evaluation question is the highest-tariff question on the paper. Marks are split across <strong>Knowledge, Understanding, Application (quantitative), Analysis, and Evaluation</strong>. Structure your answer in four paragraphs:</p>
+    <p><strong>Paragraph 1 — K & U:</strong><br/>Define the key term and explain what it contains.<br/><em>"A business plan is a document (K) that contains details of the business's aims, target market, finance, and market research (U)."</em></p>
+    <p><strong>Paragraph 2 — AN & APP (Advantage):</strong><br/>Give one reason FOR writing the plan, applied to the specific business with data.<br/><em>"One advantage of writing a new plan is that it would help SJ Salon set new strategies to compete. 42% of customers (APP) would consider using the new competitor if its prices were lower — so the salon needs a clear plan to retain these customers (AN)."</em></p>
+    <p><strong>Paragraph 3 — AN & APP (Disadvantage):</strong><br/>Give one reason AGAINST, applied to the business with data.<br/><em>"However, writing the plan will take Sam 30 hours — 75% of a full working week (APP). This is time he will not spend serving customers, which is an opportunity cost that could cost the salon revenue (AN)."</em></p>
+    <p><strong>Paragraph 4 — Evaluation (3 marks):</strong><br/>Make a <strong>clear, explicit decision</strong> (1) + valid justification (1) + contextual justification (1).<br/><em>"Overall, I think Sam SHOULD write a new business plan (DECISION). The arrival of a national hairdressing chain is a significant change to SJ Salon's competitive environment (CONTEXT), and without a plan, the partners have no clear strategy for retaining their customers and could lose a substantial proportion of their revenue (REASONING/IMPACT)."</em></p>
+    <p><strong>⚠️ Examiner's Warning:</strong> The most common reason for losing Evaluation marks was "sitting on the fence" — giving reasons for and against but never stating a final decision. You MUST make a clear choice.</p>`,
+    pills: ["K", "U", "app", "an", "eval"]
+  },
+  {
+    type: "Evaluate — 9 marks",
+    title: "Evaluating a Business Plan's Effectiveness",
+    content: `<p>When asked to evaluate <strong>how effective a specific business plan is</strong> (e.g. Shirtz Ltd or Dunning Golf Club), use this framework:</p>
+    <ul>
+      <li><strong>What is good about it?</strong> Which sections are present and well-developed?</li>
+      <li><strong>What is missing or weak?</strong> Are any key sections absent? Is the detail sufficient?</li>
+      <li><strong>Are the objectives SMART?</strong> Vague goals like "grow the business" are not measurable — this is a critical weakness.</li>
+      <li><strong>Does the missing content matter for this specific business?</strong> A missing competitor analysis is especially damaging if the business is entering a competitive market.</li>
+    </ul>
+    <p><strong>✅ Example Evaluation Sentence:</strong><br/><em>"Overall, the Shirtz Ltd business plan is only partially effective (DECISION). While it identifies the need for new finance and the target pricing strategy, it lacks the financial detail (such as cash flow forecasts) that a bank would need before agreeing to lend money (CONTEXT + IMPACT). Without this, the plan may not help Shirtz Ltd achieve its core objective of expansion (REASONING)."</em></p>`,
+    pills: ["K", "U", "app", "an", "eval"]
+  }
+];
+
+// 8. Flashcards
+const flashcards = [
+  { term: "Business Plan", def: "A document setting out the product/service, how it will be financed and marketed, and market research findings." },
+  { term: "Finance", def: "Money needed to buy the resources required to start or run a business." },
+  { term: "Resources", def: "Everything a business needs to operate: finance, staff, materials, equipment, and premises." },
+  { term: "Markets", def: "Where a business sells its goods and services." },
+  { term: "Target Market", def: "The specific group of customers the business aims to sell to, defined by characteristics such as age, gender, and income." },
+  { term: "Objectives", def: "Specific targets a business aims to achieve — ideally SMART (Specific, Measurable, Achievable, Realistic, Time-bound)." },
+  { term: "Competitors", def: "Other businesses selling the same or similar products in the same market." },
+  { term: "Market Research", def: "The process of gathering information about consumers and the market to inform business decisions." },
+  { term: "Opportunity Cost", def: "The value of the next best alternative foregone when making a decision (e.g. the revenue lost while the owner writes the plan)." },
+  { term: "Purpose of a Business Plan", def: "To reduce the risk of failure and to help the business be as successful as possible." },
+  { term: "When is a Business Plan Written?", def: "Before a business starts trading, or when a major change to the business is planned." },
+  { term: "Why do banks require a business plan?", def: "To show that careful thought has been given to all aspects of the business, giving them confidence the loan will be repaid." }
+];
+
+// 9. Exam-Style Questions
+const examQuestions = [
+  {
+    num: "Q1",
+    marks: 9,
+    type: "written",
+    caseStudy: `SJ Salon is a hair salon owned by Sam and Jamila. The business partners met whilst studying hairdressing at college. The partners' creativity has helped make the salon very successful. SJ Salon is currently the only salon in town and uses cost-plus pricing.\n\nSam and Jamila are qualified hairdressers who work full-time in the salon. Until recently, the partners employed one part-time and one full-time worker who works 40 hours per week. However, due to increasing customer demand, two additional part-time employees have recently been recruited.\n\nSam and Jamila have just found out that a national hairdressing chain is planning to open a new salon in their town. They are concerned about the impact of this competition. The partners asked 200 current customers to complete a short questionnaire. The results show that:\n\n• 130 of the customers have used SJ Salon since 2019\n• 104 of the customers were aware of the national hairdressing chain\n• 84 of the customers would consider trying the new hair salon, if its prices were cheaper\n• 66 of the customers consider quality of service to be more important than price.\n\nWhen SJ Salon was set up in 2014, Sam wrote a business plan. He has not written another one since then, as the business has been profitable. However, Sam now thinks that a new business plan should be written to help the business succeed against any new competition. Jamila disagrees, as the original business plan took Sam 30 hours to write. She feels that his time would be better spent keeping current customers satisfied.`,
+    question: "Evaluate, using the data in Text 3, whether Sam should write a new business plan. [9 marks]",
+    hint: "You need to: (1) define a business plan as a document, (2) explain what it contains, (3) perform two calculations using the survey data, (4) give one advantage AND one disadvantage of writing the plan, and (5) make a clear final decision with a justified, contextual reason.",
+    starter: `Paragraph 1 — K & U: A business plan is a document (K) that contains information such as... (U)\n\nParagraph 2 — AN & APP (For): One advantage of Sam writing a new business plan is that... [use a calculation here]. This means that...\n\nParagraph 3 — AN & APP (Against): However, a disadvantage is that... [use a second calculation here]. This will result in...\n\nParagraph 4 — Evaluation: Overall, I think Sam [should / should not] write a new business plan because... The fact that [specific case study detail] means that...`,
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 9 marks total</h5><ul><li><strong>Knowledge (1 mark AO1a):</strong> Business plan is a document/record/e-file (not just a thought or process)</li><li><strong>Understanding (1 mark AO1b):</strong> Identifies one item of content found in a business plan (e.g. aims, target market, finance, competitors, market research)</li><li><strong>Quantitative Application (2 marks AO2):</strong> Two demonstrations of numerical skill using the data provided</li><li><strong>Analysis (2 marks AO3a):</strong> One business-facing advantage AND one business-facing disadvantage of writing a business plan</li><li><strong>Evaluation (3 marks AO3b):</strong> Explicit decision (1) + valid justification (1) + contextual justification using case study detail (1)</li></ul></div>
+    <div class="marks-section"><h5>Valid Quantitative Calculations (any two)</h5><ul><li>65% have used SJ Salon since 2019 (130 ÷ 200 × 100)</li><li>35% / 70 customers have only recently become customers (200 − 130 = 70)</li><li>52% / 104 customers were aware of the competitor (104 ÷ 200 × 100)</li><li>42% would try the competitor if cheaper (84 ÷ 200 × 100)</li><li>58% / 116 would NOT try the competitor even if cheaper</li><li>33% consider quality more important than price (66 ÷ 200 × 100)</li><li>The plan has not been updated for 10 years (2024 − 2014)</li><li>Writing the plan = 75% of a working week (30 ÷ 40 × 100)</li><li>SJ Salon now has 4 employees (1 FT + 1 PT + 2 new PT = 4, or partners + 4 workers = 6 total)</li></ul></div>
+    <div class="marks-section"><h5>Analysis Points</h5><p><strong>Pros of writing:</strong> Set/adapt goals for new competition → attract investors → develop new strategy/USP → monitor progress against targets</p><p><strong>Cons of writing:</strong> Time cost (30 hours / 75% of working week) → opportunity cost (time away from customers) → cost implications → plan may quickly become outdated</p></div>
+    <div class="marks-section"><h5>Evaluation Guidance</h5><p>No right or wrong decision — marks are awarded for the quality of justification, not the choice made.</p><ul><li><strong>1 mark:</strong> A clear decision (should or should not write the plan)</li><li><strong>2 marks:</strong> Decision + valid reason (applicable to most businesses)</li><li><strong>3 marks:</strong> Decision + contextual reason using specific case study detail</li></ul><p><strong>⚠️ Common Error:</strong> "Sitting on the fence" — giving pros and cons without a final decision = 0 evaluation marks. The decision must be explicit.</p></div>`,
+    modelAnswer: `A business plan is a document (K) that contains information on the business's aims and target market (U).\n\n42% of SJ Salon's customers (84 ÷ 200 × 100) would consider switching to the new competitor if its prices were lower (APP). One advantage of writing a new plan is that it would help Sam and Jamila develop strategies to retain these customers — for example, improving their service quality or introducing a loyalty scheme — which could protect their revenue (AN).\n\nHowever, writing the plan would take Sam 30 hours — 75% of a full working week (APP). This is an opportunity cost: the time Sam spends writing the plan is time he is not spending serving customers, which could reduce the salon's revenue and customer satisfaction in the short term (AN).\n\nOverall, I think Sam should write a new business plan (EVAL). The arrival of a national hairdressing chain is a major change to SJ Salon's competitive environment (CONTEXT), and without a plan, the partners have no clear strategy for retaining the 42% of customers who may be tempted to switch to the cheaper competitor (EVAL). By writing a small section each week, Sam can minimise the opportunity cost while ensuring the salon has a clear plan to survive the new competition (EVAL).`
+  },
+  {
+    num: "Q2",
+    marks: 1,
+    type: "mcq",
+    caseStudy: `A mobile phone repairer, trading as Sundip & Sons, operates as a partnership. Its three partners have produced a business plan outlining their intentions to widen the services offered to include laptop and tablet repairs.`,
+    question: "For which of the following might Sundip & Sons' business plan be useful?",
+    options: [
+      "A — Calculating the share of the profit due to each of the three partners",
+      "B — Complying with current legislation relating to business planning",
+      "C — Identifying the resources needed to expand into the new market",
+      "D — Obtaining additional finance from shareholders"
+    ],
+    answer: 2,
+    hint: "Think about what a business plan actually helps a business to DO. Which of these options is a genuine role of a business plan?",
+    starter: "The answer is C because...",
+    markScheme: `<div class="marks-section"><h5>Answer: C — Identifying the resources needed to expand into the new market</h5><p><strong>Why C is correct:</strong> A key role of a business plan is to identify the resources a business needs to operate. Sundip & Sons are expanding into laptop and tablet repairs, so they need to identify what new equipment, skills, and potentially premises this requires. The plan helps them plan for this expansion systematically.</p><p><strong>Why the others are wrong:</strong></p><ul><li><strong>A (Profit share):</strong> Profit sharing between partners is governed by the partnership agreement, not the business plan. The business plan outlines how the business will operate and grow — not how profits are distributed.</li><li><strong>B (Legislation):</strong> There is no legislation requiring businesses to produce a business plan. It is not a legal requirement — it is a strategic management tool.</li><li><strong>D (Finance from shareholders):</strong> A partnership cannot have shareholders — shareholders are part of limited companies. A business plan could help obtain a bank loan, but not shareholder finance in this context.</li></ul></div>`,
+    modelAnswer: "C — Identifying the resources needed to expand into the new market."
+  },
+  {
+    num: "Q3",
+    marks: 2,
+    type: "written",
+    caseStudy: `Greggs is a modern 'food-on-the-go' retail brand. It specialises in selling sandwiches, cakes, pastries and pies. Most of these are made by Greggs, using raw materials such as flour, meat and yeast. The company opened its first bakery 80 years ago and has since grown significantly. It currently has 20,000 employees. Greggs' aim is to become the customer's favourite for 'food-on-the-go' in the UK. This sector is growing quickly and is forecast to be worth £23.4 billion by 2024 (up from £18.5 billion in 2019).\n\nAccording to The Vegan Society, the number of people in the UK choosing a vegan diet has increased during recent years. Using the market data, Greggs responded to this change by launching vegan sausage rolls in January 2019. The publicity generated helped Greggs' total sales to increase by 9.6% in its next seven weeks of trading. Following this success the business launched other products, including vegan doughnuts and vegan steak bakes, based on consumer demand.\n\nManagers at Greggs constantly monitor changes in consumer tastes. Similarly, they keep up-to-date with changes in employment law. Greggs' managers also take pride in the business being named one of the happiest places to work in the UK. Greggs offers many ways of working, including part-time roles.`,
+    question: "Explain the purpose of planning business activity for Greggs' managers. [2 marks]",
+    hint: "You need one clear purpose (1 mark) and then link it specifically to something in the Greggs case study (1 mark). Do NOT just describe what Greggs plans — explain WHY planning helps.",
+    starter: `Planning business activity helps Greggs to... (U)\n\nThis is important for Greggs because... / In the case of Greggs, this means that... (APP)`,
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a + AO2)</h5><ul><li><strong>1 mark (Knowledge/Understanding):</strong> Identifies a valid purpose of planning business activity</li><li><strong>1 mark (Application):</strong> Links the purpose specifically to Greggs using case study detail</li></ul><p><strong>Note: No application mark can be gained without a knowledge/understanding mark first.</strong></p></div>
+    <div class="marks-section"><h5>Valid Purposes (any one)</h5><ul><li>Reduce risk of failure</li><li>Help a business to succeed / achieve objectives</li><li>Obtain finance / investment</li><li>Identify markets to enter</li><li>Identify resources required to operate</li><li>Support evaluation of business performance</li></ul></div>
+    <div class="marks-section"><h5>Valid Application Points</h5><ul><li>Market growing from £18.5bn to £23.4bn</li><li>New product development (vegan products)</li><li>20,000 employees to manage and resource</li><li>Greggs' aim to be favourite for food-on-the-go</li><li>Growing number of vegans in the UK</li><li>One of the UK's happiest places to work</li></ul></div>
+    <div class="marks-section"><h5>⚠️ Examiner Warning</h5><p>"To be organised" or "help the business flow" are too vague and score zero. You must state the specific business purpose (e.g. reduce risk, obtain finance, identify markets). Do NOT describe WHAT is planned — explain WHY planning is useful.</p></div>`,
+    modelAnswer: "Planning business activity helps Greggs to identify new markets to enter (U), which is important given that the food-on-the-go market is growing rapidly and is forecast to be worth £23.4 billion by 2024 (APP). By planning, Greggs can ensure it has the right resources and products in place to capture this growth."
+  },
+  {
+    num: "Q4",
+    marks: 2,
+    type: "written",
+    caseStudy: `Superdry plc is a successful international brand of clothing featuring American- and Japanese-inspired graphics. In 2018, over 4,800 people were employed by the company, which is committed to high quality. Superdry's policies include one against discrimination in its workforce and another to support employee retention.\n\nThe company uses many different distribution channels. These include:\n• 135 Superdry stores across the UK and Europe\n• Superdry's own website\n• Other retailers, including Next in the UK, which allows the brand to reach new customer groups.\n\nSuperdry regularly invests in its own stores. To keep its retail stores exciting and encourage customers to visit, there is a regular re-fit programme. In 2017, the company spent £41.4m on store-related investment, including the re-fitting of 11 stores.\n\nThe company faces competition from retailers of all sizes, ranging from sole traders to other public limited companies.`,
+    question: "Explain one way planning business activity may help Superdry to succeed. [2 marks]",
+    hint: "Choose one specific way planning helps — then link it to a specific detail from the Superdry case study. Do NOT describe what Superdry does — explain how PLANNING helps them do it better.",
+    starter: `Planning business activity can help Superdry to... (U)\n\nFor example, in the case of Superdry... / This is particularly relevant because Superdry... (APP)`,
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1b + AO2)</h5><ul><li><strong>1 mark (Understanding):</strong> Demonstrates understanding of how planning leads to success</li><li><strong>1 mark (Application):</strong> Links the point specifically to Superdry using case study detail</li></ul><p><strong>Note: No application mark without understanding first.</strong></p></div>
+    <div class="marks-section"><h5>Valid Understanding Points</h5><ul><li>Helps reduce risk</li><li>Helps with resourcing (physical / IT / staffing)</li><li>Helps secure finance</li><li>Helps with decision-making</li><li>Helps the business know HOW to achieve something (not just what to do)</li></ul></div>
+    <div class="marks-section"><h5>Valid Application — Superdry Details</h5><ul><li>Successful international brand</li><li>135 stores across UK and Europe</li><li>4,800 employees</li><li>Committed to high quality</li><li>Policies on discrimination / employee retention</li><li>£41.4m spent on store investment in 2017</li><li>Refitting 11 stores</li><li>Distribution through Next / own website</li></ul></div>
+    <div class="marks-section"><h5>⚠️ Do NOT Award</h5><ul><li>"Helps achieve objectives" — this restates what the question is asking</li><li>Answers about doing market research — research is not the same as planning</li><li>Vague answers: "more organised", "focused", "better chance of survival"</li></ul></div>`,
+    modelAnswer: "Planning can help Superdry to ensure it has the necessary resources in place (U), such as enough staff across its 135 stores in the UK and Europe (APP). Without planning, the business may find it has insufficient staff at peak times, reducing customer service quality and potentially losing sales to competitors."
+  },
+  {
+    num: "Q5",
+    marks: 2,
+    type: "written",
+    caseStudy: `Boots UK is a leading retailer in the UK with about 2,500 stores selling a range of medical, health and beauty products. The company is part of a global business called Walgreens Boots Alliance.\n\nAll of the UK stores are especially busy from September to December, as customers visit to purchase Christmas presents. A Christmas recruitment campaign is run every year to find temporary staff. These staff are recruited to help the stores during this period. In addition, new permanent employees are recruited to work both full-time and part-time throughout the rest of the year. The company's business plan considers seasonal trends and the impact of these on the company's resource needs.\n\nCommunicating effectively with employees is vital. Store managers use short meetings to communicate important messages to all staff, for example, about promotional events during the weeks leading up to Christmas.`,
+    question: "Explain one advantage to Boots UK of planning business activities. [2 marks]",
+    hint: "One advantage (1 mark) + a development that shows the impact on Boots UK specifically (1 mark). Use the information about seasonal demand in the case study.",
+    starter: `One advantage of planning business activities for Boots UK is that it helps... (U)\n\nThis is important for Boots UK because... (APP)`,
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1b + AO2)</h5><ul><li><strong>1 mark (Understanding):</strong> States a clear advantage of planning business activities</li><li><strong>1 mark (Application):</strong> Development point applied in context of Boots UK</li></ul></div>
+    <div class="marks-section"><h5>Valid Advantages</h5><ul><li>Helps reduce risk and/or increase chances of success</li><li>Helps identify markets</li><li>Helps identify what resources are required (e.g. human resources)</li><li>Helps achieve aims/objectives (e.g. increased profitability, customer satisfaction)</li><li>Helps secure additional finance</li></ul></div>
+    <div class="marks-section"><h5>Model Answers</h5><p><em>"Boots UK's trade varies throughout the year. Business planning helps managers identify what resources (such as labour) are needed at specific times (1), so that when Boots UK is at its busiest, staffing levels match customer demand and service quality is maintained (1)."</em></p><p><em>"Business planning can help Boots UK to secure additional finance (1) to fund the opening of new stores or investment in existing stores (1)."</em></p></div>`,
+    modelAnswer: "Business planning helps Boots UK to identify what resources are needed at specific times of year (U). Because stores are especially busy from September to December, the business plan allows managers to predict staffing needs in advance and run a Christmas recruitment campaign to ensure they have enough temporary staff to meet customer demand (APP)."
+  },
+  {
+    num: "Q6",
+    marks: 1,
+    type: "mcq",
+    caseStudy: `Radi owns Chimney Restore Ltd, a company he set up in 2018. The company has grown rapidly and now employs 12 workers. However, Radi is becoming increasingly concerned about the level of risk he faces as the owner of a rapidly growing business.`,
+    question: "Which of the following would help Radi to reduce his level of risk?",
+    options: [
+      "A — Becoming a sole trader",
+      "B — Carefully planning all business activity",
+      "C — Ignoring the needs of customers",
+      "D — Making employees work long hours"
+    ],
+    answer: 1,
+    hint: "Think about which option directly addresses the problem of risk — the core purpose of a business plan.",
+    starter: "The answer is B because...",
+    markScheme: `<div class="marks-section"><h5>Answer: B — Carefully planning all business activity</h5><p><strong>Why B is correct:</strong> The primary purpose of a business plan is to reduce risk. By carefully planning, Radi can identify potential problems before they occur, ensure resources are in place, and set clear objectives for managing growth. This directly addresses his concern about the increasing level of risk.</p><p><strong>Why the others are wrong:</strong></p><ul><li><strong>A (Becoming a sole trader):</strong> Chimney Restore Ltd is already a limited company, which actually gives Radi the protection of limited liability. Becoming a sole trader would increase his personal financial risk (unlimited liability), not reduce it.</li><li><strong>C (Ignoring customers):</strong> Ignoring customer needs would lead to falling sales and reputation damage — this increases risk significantly, not reduces it.</li><li><strong>D (Long hours for employees):</strong> Overworking employees leads to poor morale, mistakes, high staff turnover, and potential legal issues. This increases operational and legal risk.</li></ul></div>`,
+    modelAnswer: "B — Carefully planning all business activity."
+  },
+  {
+    num: "Q7",
+    marks: 2,
+    type: "written",
+    caseStudy: `The Ford Motor Company Limited (Ford Motors) is a global manufacturer of a range of vehicles including cars, vans, trucks and buses. Ford Motors has been one of Britain's best-selling car brands for over 30 years, with a range of models including the KA, Fiesta, Focus, Mondeo and Galaxy. The company's large range of products includes models that differ in size to meet the individual needs of different market segments, including eco-friendly small cars, family cars, sports cars and 7-seater people carriers.\n\nFord Motors carries out a lot of market research when developing new car designs and uses both primary and secondary research. This ensures that new car designs and models meet the needs of potential customers. Each model's sales levels are regularly monitored against the product lifecycle.`,
+    question: "Explain one way that preparing a business plan may be useful to Ford Motors. [2 marks]",
+    hint: "Focus on the USE or BENEFIT of the business plan — not its contents. Then apply it to something specific about Ford Motors (e.g. types of vehicles, number of employees, investment in new designs).",
+    starter: `Preparing a business plan may be useful to Ford Motors because it can help them to... (U)\n\nThis is especially important for Ford because... (APP)`,
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1b + AO2)</h5><ul><li><strong>1 mark (Understanding):</strong> Explains a valid use or benefit of preparing a business plan</li><li><strong>1 mark (Application):</strong> Links the use specifically to Ford Motors</li></ul></div>
+    <div class="marks-section"><h5>Valid Uses</h5><ul><li>Secure finance/investment</li><li>Helps achieve/focus on aims and objectives</li><li>Helps identify markets</li><li>Identify resources needed</li><li>Reduce risk</li><li>Helps with scheduling tasks / managing deadlines</li><li>Helps forecast financial achievement / set budgets</li><li>Helps monitor progress against targets</li></ul></div>
+    <div class="marks-section"><h5>Valid Application — Ford Details</h5><ul><li>Developing new car designs / models</li><li>Manufacturing cars, vans, trucks, buses</li><li>Different market segments (eco, family, sports, people carriers)</li><li>Primary and secondary market research</li><li>Monitoring sales against product lifecycle</li></ul></div>
+    <div class="marks-section"><h5>⚠️ Examiner Warning (from examiner comments)</h5><p>Many candidates scored zero on this question because they described the CONTENTS of a business plan rather than its USE. The question asks how it may be USEFUL — not what it contains.</p><p><strong>Do NOT award:</strong> "Helps set objectives" on its own (too vague) | "Communicate with employees" | "Being organised" | "Improves performance"</p></div>`,
+    modelAnswer: "Preparing a business plan would help Ford Motors to secure the finance needed (U) to invest in designing and manufacturing new eco-friendly car models ahead of the 2030 ban on new petrol and diesel cars (APP). Without a detailed plan, banks and investors would be unlikely to provide the billions of pounds required for this transition."
+  },
+  {
+    num: "Q8",
+    marks: 9,
+    type: "written",
+    caseStudy: `Shirtz Ltd is a private limited company owned by Shamira and her husband, Zubair. The business manufactures colourful T-shirts with logos and pictures on the front.\n\nShirtz Ltd has been operating from a room in their house. Shamira and Zubair make the T-shirts and sell them through online stores such as Amazon and eBay.\n\nShamira and Zubair would like to expand the business. They have created a business plan to help them.\n\n<strong>Shirtz Ltd's Business Plan</strong>\n\n<strong>Aims and Objectives:</strong> To grow by purchasing new machinery and renting a new location for production\n\n<strong>Finance:</strong> New finance will be required to fund the business' aims and objectives\n\n<strong>Business Needs:</strong>\n• New machinery\n• Larger premises/location for production\n\n<strong>Market Research:</strong><table class="case-table"><caption>Table 1 — Estimated Sales at Different Price Points</caption><tr><th>Price per T-shirt</th><th>Estimated Sales (T-shirts per month)</th></tr><tr><td>£18</td><td>600</td></tr><tr><td>£16 (current price)</td><td>800</td></tr><tr><td>£14</td><td>1,000</td></tr></table>\n\n<strong>Changes to the Marketing Mix:</strong>\n• Product — expand the range of T-shirts produced and sold\n• Price — set price to gain highest revenue\n• Place — develop links with a high street shop to sell Shirtz Ltd's products\n• Promotion — use point of sale promotion\n\n<strong>Human Resources:</strong> Employ two full-time production workers`,
+    question: "Evaluate the effectiveness of Shirtz Ltd's business plan as shown in the case study. [9 marks]",
+    hint: "You need to judge HOW GOOD the plan is. What does it do well? What is missing or not detailed enough? Are the objectives SMART? Is there enough financial detail to secure a bank loan? Make a clear final judgement.",
+    starter: `Paragraph 1 — K & U: A business plan is a document (K) that sets out... (U)\n\nParagraph 2 — AN & APP (Strength): One strength of Shirtz Ltd's business plan is that it includes... [use specific detail from the plan]. This will help Shirtz Ltd because...\n\nParagraph 3 — AN & APP (Weakness): However, one weakness of the plan is that... For example, [specific missing or underdeveloped element]. This matters because...\n\nParagraph 4 — Evaluation: Overall, I think the Shirtz Ltd business plan is [effective / partially effective / not effective] because... The most significant issue is... which means that...`,
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 9 marks (Levels of Response)</h5><ul><li><strong>Knowledge (1 mark AO1a):</strong> Purpose of a business plan (e.g. to gain finance, set objectives, identify markets, attract investors, develop strategy, manage cash flow)</li><li><strong>Understanding (1 mark AO1b):</strong> Identifies content or role of a business plan</li><li><strong>Application (2 marks AO2):</strong> Applies knowledge to Shirtz Ltd using specific case study detail (plan content, the pricing table, the expansion aims)</li><li><strong>Analysis (2 marks AO3a):</strong> Explains the effect/impact of the plan's strengths or weaknesses on Shirtz Ltd</li><li><strong>Evaluation (3 marks AO3b):</strong> Judgement on overall effectiveness, with justification using case study context</li></ul></div>
+    <div class="marks-section"><h5>Level Descriptors</h5><p><strong>Level 3 (7–9 marks):</strong> Good knowledge and understanding of business plans. Good application to Shirtz Ltd with detailed understanding of the scenario. Good analysis with logical chains of reasoning. Strong evaluation with a fully justified, contextual judgement.</p><p><strong>Level 2 (4–6 marks):</strong> Good knowledge and understanding. Good application to Shirtz Ltd. Limited analysis (some chains of cause and effect). Limited evaluation attempting a conclusion with some recognition of influencing factors.</p><p><strong>Level 1 (1–3 marks):</strong> Limited knowledge or understanding. Some use of scenario elements. Limited analysis (simple cause/consequence). No evaluation.</p></div>
+    <div class="marks-section"><h5>Content Guidance</h5><p><strong>What the plan does well:</strong> Includes aims/objectives (grow, buy machinery, new location) | Identifies financial needs | Lists business/resource needs | Includes market research (pricing data table) | Covers marketing mix (4Ps) | Identifies human resource needs</p><p><strong>What the plan is missing or weak on:</strong> Objectives are not fully SMART (no specific timeline or measurable profit target) | Finance section lacks detail (how much? from where? loan? shares?) | No competitor analysis | No target market analysis | Market research is limited to pricing only | "New finance will be required" is too vague for a bank to act on</p></div>`,
+    modelAnswer: `A business plan is a document (K) that can be used to gain finance and set out the business's aims, marketing strategy, and resource needs (U).\n\nThe business plan is useful to Shirtz Ltd in several ways. Firstly, it can help them gain finance (K). The plan includes financial information such as the need for new machinery and larger premises, and the market research table shows that selling T-shirts at £16 currently generates 800 sales per month (APP). This demonstrates to a potential bank that the business has customer demand, which may make a bank more likely to lend the money needed to fund expansion (AN).\n\nHowever, the plan has significant weaknesses. The finance section simply states "new finance will be required" without specifying the amount needed, when it is needed, or how it will be repaid (APP). A bank would need far more detailed financial information — such as cash flow forecasts and projected profit — before agreeing to a loan. Without this detail, the plan is unlikely to secure the external finance Shirtz Ltd needs (AN).\n\nOverall, the Shirtz Ltd business plan is only partially effective (EVAL). While it covers areas such as marketing and human resources, it lacks the financial detail that is most critical for a business seeking to expand (CONTEXT). The objectives are also not fully SMART — there is no specific timeline or profit target — which means it will be difficult for Shamira and Zubair to measure whether the expansion has been successful (EVAL + IMPACT).`
+  },
+  {
+    num: "Q9a",
+    marks: 4,
+    type: "written",
+    caseStudy: `A case study was produced by www.englandgolf.org. The focus of the study was Dunning Golf Club, which has produced a plan about how it should increase its membership and profitability. The plan included:\n\n• Improving the golf club facilities\n• Offering more benefits to paid-up members (e.g. subsidised lessons)\n• Using outside caterers to ensure better and cheaper catering\n• More clearly stated priorities for the future and how these would be financed`,
+    question: "Explain the purpose of writing a business plan, such as that produced by Dunning Golf Club. [4 marks]",
+    hint: "You need 2 separate reasons for writing a business plan, each applied to Dunning Golf Club. Structure: Define what a business plan is (1) → Explain what it contains (1) → Apply Reason 1 to Dunning (1) → Apply Reason 2 to Dunning (1).",
+    starter: `A business plan is a document that... (K)\n\nOne purpose of writing a business plan is to... Applied to Dunning Golf Club, this means... (APP 1)\n\nA second purpose is to... Applied to Dunning Golf Club, this means... (APP 2)`,
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 4 marks</h5><ul><li><strong>Knowledge (1 mark):</strong> Define what a business plan is</li><li><strong>Understanding (1 mark):</strong> Explain what it contains or its general purpose</li><li><strong>Application × 2 (2 marks):</strong> Two reasons applied specifically to Dunning Golf Club using the case study detail</li></ul></div>
+    <div class="marks-section"><h5>Valid Purposes</h5><ul><li>Reduce the risk of failure</li><li>Help the business to be as successful as possible</li><li>Obtain external finance / investment</li><li>Set clear aims and objectives with a timeline</li><li>Identify resources needed</li><li>Identify competitors and how to beat them</li></ul></div>
+    <div class="marks-section"><h5>Application to Dunning Golf Club</h5><ul><li>The plan outlines how to increase membership and profitability — clear objectives</li><li>Using outside caterers shows resource planning and cost management</li><li>Subsidised lessons for members = a strategy to attract and retain customers</li><li>Priorities for the future + how they will be financed = financial planning for investors/banks</li></ul></div>`,
+    modelAnswer: `A business plan is a document that sets out what the business aims to achieve and how it plans to achieve it, including details of finance, marketing, and resources (K + U).\n\nOne purpose of a business plan is to reduce the risk of failure. For Dunning Golf Club, this means thinking carefully about what changes will increase membership — for example, improving facilities and offering subsidised lessons — before spending money on these changes (APP 1).\n\nA second purpose is to obtain external finance. By clearly setting out priorities for the future and how these will be financed, Dunning Golf Club gives potential investors confidence that the club has a clear strategy, making them more likely to provide funding (APP 2).`
+  },
+  {
+    num: "Q9b",
+    marks: 9,
+    type: "written",
+    caseStudy: "See Q9a above (same case study — Dunning Golf Club).",
+    question: "Evaluate the Dunning Golf Club business plan. [9 marks]",
+    hint: "Judge whether the plan is good or whether it is missing anything important. Consider: Does it cover the key areas? Are the targets SMART (Specific, Measurable, Achievable, Realistic, Time-bound)? What could be improved? Make a clear final judgement.",
+    starter: `Paragraph 1 — K & U: A business plan is a document (K) that contains... (U)\n\nParagraph 2 — AN & APP (Strength): One way the Dunning Golf Club plan is effective is that it includes... This will help the club because...\n\nParagraph 3 — AN & APP (Weakness): However, one weakness of the plan is... This is a significant problem because...\n\nParagraph 4 — Evaluation: Overall, I think the Dunning Golf Club business plan is [effective / partially effective / not effective] because... The most critical issue is...`,
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 9 marks</h5><ul><li><strong>Knowledge (1 mark):</strong> Business plan is a document</li><li><strong>Understanding (1 mark):</strong> What it contains / its purpose</li><li><strong>Application (2 marks):</strong> Applied to Dunning Golf Club using the plan's specific contents</li><li><strong>Analysis (2 marks):</strong> Benefits of the plan AND weaknesses/what is missing</li><li><strong>Evaluation (3 marks):</strong> Clear decision on whether the plan is good, with justification — particularly whether objectives are SMART</li></ul></div>
+    <div class="marks-section"><h5>Analysis Guidance</h5><p><strong>Benefits:</strong> The plan has clear strategies (outside caterers, subsidised lessons, improved facilities) | It considers finance | It sets priorities for the future</p><p><strong>Weaknesses:</strong> Objectives are not fully SMART — no specific membership targets, no timeline, no measurable profit figure | No market research evidence | No competitor analysis | No detail on target market | Finance section says "how these would be financed" but gives no specific amounts</p></div>
+    <div class="marks-section"><h5>Evaluation — SMART Objectives Test</h5><p>"Increase membership and profitability" is NOT SMART because: no specific number of new members is targeted, no profit figure is stated, no timeline is given. Examiners specifically note that candidates should assess whether targets are SMART and explain why.</p></div>`,
+    modelAnswer: `A business plan is a document (K) that sets out what a business aims to achieve and how it plans to do this, including finance, marketing, and resource needs (U).\n\nOne strength of the Dunning Golf Club plan is that it identifies clear strategies to improve the member experience — for example, offering subsidised lessons and using outside caterers to improve food quality at lower cost (APP). These changes could attract new members and retain existing ones, directly helping the club achieve its aim of increasing membership (AN).\n\nHowever, a significant weakness is that the plan lacks SMART objectives. The aim to "increase membership and profitability" does not specify by how much, by when, or how success will be measured (APP). Without specific, measurable targets, the club has no clear way to judge whether its plan is working or when it has been achieved (AN).\n\nOverall, I think the Dunning Golf Club business plan is partially effective (EVAL). While it identifies sensible strategies for improving the club, the lack of SMART objectives is a critical flaw — without specific targets and timelines, the club cannot monitor its progress or know whether it is on track to increase profitability (CONTEXT + IMPACT). The plan would be significantly strengthened by adding specific membership growth targets and a clear financial forecast (EVAL).`
+  },
+  {
+    num: "Q10a",
+    marks: 2,
+    type: "written",
+    caseStudy: `Ira Rubini opened her first Italian restaurant in 2017. The business, in her home town, proved to be a great success and she is now thinking of expanding by opening up three more restaurants in nearby towns. She knows that she will have to plan this expansion very carefully.\n\nThere are many competitors in the towns where she plans to open her new restaurants, but Ira remains confident that her home-style menu will be attractive to new customers. However, she has not undertaken any market research. Some of the money for the expansion will come from her savings, but she will still have to borrow a considerable amount of money.\n\nIra will need to employ more people, and will have to leave much of the running of the new restaurants to other people. Ira must choose her new staff carefully.`,
+    question: "Identify two elements of a business plan. [2 marks]",
+    hint: "You simply need to name two things that would be found in any business plan. No explanation needed — this is a Knowledge question.",
+    starter: `One element of a business plan is...\n\nA second element of a business plan is...`,
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a — Knowledge)</h5><p>1 mark for each valid element of a business plan (up to a maximum of 2). No explanation is required.</p><p><strong>Valid Elements (any two):</strong></p><ul><li>The business idea</li><li>Market research</li><li>Objectives of the business</li><li>Target market</li><li>Competitors</li><li>Finance</li><li>Resources needed</li><li>Marketing plan / marketing mix</li><li>Details of the people running the business</li></ul></div>`,
+    modelAnswer: "One element of a business plan is market research. A second element is a competitor analysis."
+  },
+  {
+    num: "Q10b",
+    marks: 7,
+    type: "written",
+    caseStudy: "See Q10a above (same case study — Ira Rubini).",
+    question: "Evaluate which of the two identified elements would be more important in the development of Ira's business. [7 marks]",
+    hint: "Apply your two elements from Q10a to Ira's specific situation. For each one, explain what the impact would be on her business. Then make a clear final decision about which is MORE important and justify it using case study detail.",
+    starter: `Paragraph 1 — K & U: [Element 1] refers to... This is important in a business plan because...\n\nParagraph 2 — AN & APP (Element 1 applied to Ira): In the case of Ira's business, [Element 1] means that... Because the text states that...\n\nParagraph 3 — AN & APP (Element 2 applied to Ira): However, [Element 2] is also important because... Ira's situation means that...\n\nParagraph 4 — Evaluation: Overall, I believe [Element 1 / Element 2] is more important for Ira because... [specific case study detail]... which means that...`,
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 7 marks</h5><ul><li><strong>Application (2 marks AO2):</strong> Two points applying the identified elements to Ira's specific business situation</li><li><strong>Analysis (2 marks AO3a):</strong> Explains the effect/impact of the two elements on Ira's business</li><li><strong>Evaluation (3 marks AO3b):</strong> Judgement (1) + valid justification (1) + contextual justification using case study detail (1)</li></ul></div>
+    <div class="marks-section"><h5>Application Guidance (Market Research + Competitors)</h5><p><strong>Market Research applied to Ira:</strong> Ira has not undertaken any market research for the new towns. She needs to understand whether people in those towns want Italian food, what price they will pay, and how the new restaurants should be positioned.</p><p><strong>Competitors applied to Ira:</strong> There are many competitors in the towns where she plans to open. Ira must understand who they are, what they offer, and how her home-style menu can attract customers away from established restaurants.</p></div>
+    <div class="marks-section"><h5>Analysis Guidance</h5><p><strong>Market Research impact:</strong> Without market research, Ira may open restaurants that do not meet local demand → insufficient customers → unable to cover costs → business may fail in the new towns.</p><p><strong>Competitors impact:</strong> Established competitors already have loyal customers. If Ira cannot compete effectively on price or quality, she will not attract enough customers → insufficient revenue → may have to close new restaurants.</p></div>
+    <div class="marks-section"><h5>Evaluation Guidance</h5><p>No right or wrong choice — marks awarded for the quality of justification.</p><ul><li><strong>1 mark:</strong> Clear decision on which element is more important</li><li><strong>2 marks:</strong> Decision + valid justification</li><li><strong>3 marks:</strong> Decision + specific contextual justification using case study detail</li></ul></div>`,
+    modelAnswer: `Market research involves gathering information about consumers and the market to inform business decisions. It is a key element of a business plan as it provides evidence that customers want the product being offered.\n\nFor Ira, market research is critical because she has not undertaken any for the new towns (APP). Without it, she does not know whether people in those towns want Italian food, what they are willing to pay, or whether there is sufficient demand to support three new restaurants. If the market research reveals low demand, Ira could avoid making a very costly mistake (AN).\n\nHowever, competitor analysis is also vital. There are many competitors already established in the towns where Ira plans to open (APP). These businesses already have loyal customers, which makes it harder for Ira to attract enough people to her new restaurants, even if her home-style menu is appealing (AN).\n\nOverall, I believe competitor analysis is more important for Ira's business (EVAL). The competitors are already established and have built customer loyalty — this is a real and immediate threat (CONTEXT). If Ira cannot show, through the business plan, how she will compete against them (perhaps through lower prices or a unique menu), she risks failing to attract customers and being unable to repay the considerable amount of money she will need to borrow (REASONING/IMPACT).`
+  }
+];
+    </script>
 
     <script src="script.js"></script>
 </body>

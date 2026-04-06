@@ -301,8 +301,860 @@
         </div>
     </main>
 
-    <script></script>
+<script>
+// ══════════════════════════════════════
+//  DATA TEMPLATE: 1.4 Business Aims and Objectives
+// ══════════════════════════════════════
 
+// 1. Main Learning Content
+const topics = [
+  {
+    title: "Key Terms & Official Definitions",
+    tag: "Core Concepts",
+    content: `<p>Every business needs a direction — a set of goals that guide all its decisions. These are known as <strong>business aims and objectives</strong>.</p>
+<ul>
+  <li><strong>Business Objectives:</strong> What the business aims to achieve. These can include survival, profit, growth, market share, and providing a service.</li>
+  <li><strong>Profit:</strong> The difference between revenue (money coming in) and costs (money going out). Revenue − Costs = Profit.</li>
+  <li><strong>Satisficing:</strong> Making just enough profit to give the business owner a decent standard of living. More common in smaller businesses such as sole traders.</li>
+  <li><strong>Growth:</strong> Where a business becomes larger — for example by making more products, opening more stores, or selling in new markets.</li>
+  <li><strong>Market Share:</strong> The percentage of the total market that a business holds. Shown as a percentage of total sales in the industry.</li>
+  <li><strong>Survival:</strong> When a business manages to keep trading, often during its early months or in times of difficulty.</li>
+  <li><strong>Providing a Service:</strong> Ensuring the needs of the customer are met, often prioritised over maximising profit.</li>
+  <li><strong>Evolving:</strong> The way a business develops and changes over time — becoming bigger or smaller, selling different goods, or operating in different ways.</li>
+</ul>`
+  },
+  {
+    title: "The Five Main Business Objectives",
+    tag: "Core Concepts",
+    content: `<p>All businesses have at least one objective, but the most common objectives are:</p>
+<ul>
+  <li><strong>Profit:</strong> Most businesses aim to make a profit. Some aim to <em>maximise</em> profit (make as much as possible), while others aim to <em>satisfice</em> (make just enough). Too much focus on profit can damage reputation if customers feel they are being exploited.</li>
+  <li><strong>Growth:</strong> Becoming larger — through more sales, more outlets, or a higher market share. Important for PLCs that need to pay increasing dividends to shareholders. Not all businesses want to grow; many smaller businesses are happy to stay the same size.</li>
+  <li><strong>Market Share:</strong> Gaining a greater percentage of total sales in an industry. For example, if 1,000 tables are sold nationally and a business sells 100, its market share is 10%. A business might take over a competitor to increase its share.</li>
+  <li><strong>Survival:</strong> Simply keeping the business going. Especially important for new businesses in their first months, or for any business facing falling sales, new competition, or economic difficulty. Normally a temporary but vital objective.</li>
+  <li><strong>Providing a Service:</strong> Putting customer satisfaction first, even if it means less profit. Common in smaller local businesses or those that build their reputation on excellent service. Can lead to awards, loyal customers, and long-term success.</li>
+</ul>
+<div class="formula-box">
+  <strong>Market Share (%) =</strong> (Sales of the business ÷ Total sales in the market) &times; 100
+</div>`
+  },
+  {
+    title: "Advantages & Disadvantages of Each Objective",
+    tag: "Analysis",
+    content: `<p>Each objective has strengths and weaknesses depending on the situation of the business.</p>
+<div class="two-col">
+  <div>
+    <div class="col-head">✓ Profit Maximisation</div>
+    <div class="pro-item"><strong>Rewards owners:</strong> Maximising profit ensures shareholders and owners receive the highest possible return for the risks they have taken.</div>
+    <div class="pro-item"><strong>Funds future growth:</strong> High profits can be reinvested to expand the business, open new premises, or research new products.</div>
+    <div class="con-item"><strong>Damages reputation:</strong> Customers and the public may react negatively if a business is seen as purely profit-driven, reducing sales in the long run.</div>
+    <div class="con-item"><strong>Short-term focus:</strong> Chasing maximum profit can lead to cutting corners on quality or customer service.</div>
+  </div>
+  <div>
+    <div class="col-head">✓ Survival</div>
+    <div class="pro-item"><strong>Keeps business alive:</strong> For new or struggling businesses, simply continuing to trade is a crucial achievement that allows future recovery.</div>
+    <div class="pro-item"><strong>Realistic target:</strong> A clear, achievable focus that helps owners prioritise essential costs and decisions during tough times.</div>
+    <div class="con-item"><strong>Not sustainable long-term:</strong> A business cannot survive indefinitely without making profit — survival must eventually lead to other objectives.</div>
+    <div class="con-item"><strong>Limits investment:</strong> When focused on survival, a business cannot invest in growth, marketing, or new technology.</div>
+  </div>
+</div>
+<div class="two-col">
+  <div>
+    <div class="col-head">✓ Growth</div>
+    <div class="pro-item"><strong>Increases profit potential:</strong> A larger business can sell more, benefit from economies of scale, and generate higher revenues.</div>
+    <div class="pro-item"><strong>Greater market power:</strong> Growth can reduce competition by taking over rivals or securing exclusive supplier deals.</div>
+    <div class="con-item"><strong>Loss of control:</strong> Rapid growth can make it harder to maintain quality, communication, and customer service standards.</div>
+    <div class="con-item"><strong>Not always desired:</strong> Many smaller business owners are content to stay small and avoid the stress and risk of expansion.</div>
+  </div>
+  <div>
+    <div class="col-head">✓ Providing a Service</div>
+    <div class="pro-item"><strong>Builds loyalty:</strong> Customers who receive excellent service are more likely to return and recommend the business to others.</div>
+    <div class="pro-item"><strong>Strong reputation:</strong> Businesses known for great service can earn awards and stand out in competitive markets.</div>
+    <div class="con-item"><strong>Lower profit margins:</strong> Investing heavily in service quality can increase costs, reducing overall profitability.</div>
+    <div class="con-item"><strong>Hard to measure:</strong> Unlike profit or market share, the success of a service objective is difficult to quantify precisely.</div>
+  </div>
+</div>`
+  },
+  {
+    title: "How & Why Objectives Change as Businesses Evolve",
+    tag: "Theory",
+    content: `<p>A business's objectives are never fixed forever. As circumstances change, so do the goals a business sets itself. There are three key stages to consider:</p>
+
+<p><strong>1. When a Business Starts</strong></p>
+<ul>
+  <li>The main objective is almost always <strong>survival</strong> — simply getting through the first few months.</li>
+  <li>New businesses face established competitors who may lower prices to squeeze them out of the market.</li>
+  <li>They must build a reputation and find loyal customers from scratch.</li>
+  <li>Some new businesses with experienced owners and contacts may aim for profit from day one.</li>
+</ul>
+
+<p><strong>2. As a Business Grows</strong></p>
+<ul>
+  <li>Once established, owners with ambition may shift from satisficing to <strong>profit maximisation</strong>.</li>
+  <li>Profit can then be reinvested to fund <strong>growth</strong> — new premises, new products, or taking over a competitor.</li>
+  <li>A sole trader may convert to a limited company, attracted by limited liability as personal wealth grows.</li>
+  <li>At some point a business may choose to <em>stop</em> growing — for example, when controlling more stores would reduce quality or customer service.</li>
+  <li>Rapid growth can cause a business to lose sight of customers, so the objective may shift back to <strong>providing a service</strong>.</li>
+</ul>
+
+<p><strong>3. When a Business is in Difficulty</strong></p>
+<ul>
+  <li>Falling profits or losses make profit maximisation an unrealistic objective — <strong>survival</strong> takes priority.</li>
+  <li>Expansion plans are postponed or cancelled entirely.</li>
+  <li>In extreme cases, businesses must close down parts of their operations to reduce losses.</li>
+</ul>`
+  },
+  {
+    title: "Why Different Businesses Have Different Objectives",
+    tag: "Analysis",
+    content: `<p>Not all businesses will have the same objectives. The objective a business sets depends on several key factors:</p>
+<ul>
+  <li><strong>Size of the business:</strong> A sole trader can set whatever objective they like without answering to anyone. A PLC must satisfy shareholders who expect rising dividends — meaning profit and growth are essential.</li>
+  <li><strong>Attitude of the owner(s):</strong> Some owners are driven by ambition; others are happy to earn a comfortable living without expanding. Personal motivation shapes objectives significantly.</li>
+  <li><strong>Stage of development:</strong> New businesses tend to focus on survival or establishing themselves. Mature businesses focus on profit or growth.</li>
+  <li><strong>Level of competition:</strong> A business facing heavy competition (e.g., supermarkets) may focus on survival or providing a better service rather than growth. Aldi and Lidl grew by offering something different (lower prices) in a competitive market.</li>
+  <li><strong>Economic conditions:</strong> During a recession, businesses shift focus to survival. During periods of growth, they may invest in expansion.</li>
+  <li><strong>Values of the business:</strong> Some businesses prioritise community service or social responsibility, keeping prices low even at the expense of profit.</li>
+</ul>
+<div class="case-study-box">
+  <h4>Case Study: Aldi & Tesco</h4>
+  <p>Tesco — a large established PLC — prioritises profit and market share, driven by shareholder expectations. Aldi, entering the UK market as a challenger, focused on growth by offering lower prices than rivals. Meanwhile, a small independent butcher may focus on providing excellent service to the local community, with satisficing profit as the main goal. Three businesses, three very different objectives — all shaped by their size, ownership, and market context.</p>
+</div>`
+  },
+  {
+    title: "Objectives Linked to Business Ownership",
+    tag: "Application",
+    content: `<p>The type of business ownership directly influences which objectives are most appropriate.</p>
+<ul>
+  <li><strong>Sole Trader:</strong> One owner who controls everything. Objectives are personal — often satisficing (making enough to live on) or providing a service to the local community. Growth may not be desired.</li>
+  <li><strong>Partnership:</strong> Partners may have different personal ambitions (as seen in the WYW case study — Rick wanted growth, Francis wanted profit). This can cause conflict over objectives.</li>
+  <li><strong>Private Limited Company (Ltd):</strong> Shareholders want returns, but the close ownership structure means the business can balance profit with values. May aim for growth or market share.</li>
+  <li><strong>Public Limited Company (PLC):</strong> Shareholders on the stock market demand high dividends, which requires consistent profit and growth. Objectives are largely driven by financial performance.</li>
+</ul>
+<div class="two-col">
+  <div>
+    <div class="col-head">✓ Benefits of Having Clear Objectives</div>
+    <div class="pro-item"><strong>Direction:</strong> All employees and stakeholders understand what the business is trying to achieve.</div>
+    <div class="pro-item"><strong>Decision-making:</strong> Objectives help managers make consistent decisions that align with business goals.</div>
+    <div class="pro-item"><strong>Motivation:</strong> Clear targets give employees and owners something to work towards.</div>
+  </div>
+  <div>
+    <div class="col-head">✗ Risks of Poorly Set Objectives</div>
+    <div class="con-item"><strong>Conflict:</strong> Different stakeholders (e.g., partners) may want different objectives, leading to disagreement.</div>
+    <div class="con-item"><strong>Inflexibility:</strong> Sticking rigidly to an objective when circumstances change can harm the business.</div>
+    <div class="con-item"><strong>Unrealistic targets:</strong> Setting objectives that are too ambitious can demoralise staff and lead to poor decisions.</div>
+  </div>
+</div>`
+  }
+];
+
+// 2. Multiple Choice Questions (Minimum 10)
+const mcqData = [
+  {
+    q: "What does 'satisficing' mean in a business context?",
+    opts: [
+      "Making as much profit as possible",
+      "Making just enough profit to provide the owner with a decent living",
+      "Providing the best possible customer service",
+      "Focusing on growth above all else"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. Satisficing means making just enough profit to give the business owner a decent standard of living. It is most common in smaller businesses such as sole traders who are not driven by maximum profit."
+  },
+  {
+    q: "A business has recently changed its main objective from 'survival' to 'growth'. What would most likely explain this change?",
+    opts: [
+      "The business has become too big",
+      "The business has reduced its productivity",
+      "The business is experiencing high demand",
+      "The business needs to lower its costs"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. High demand means the business is performing well and has established itself. This gives it the confidence and resources to shift from simply staying alive (survival) to expanding (growth)."
+  },
+  {
+    q: "DM plc manufactures canned drinks. Its main objective is to increase market share by 2%. What would help achieve this?",
+    opts: [
+      "Increasing the cost of its canned drinks",
+      "Increasing the number of retail outlets it supplies",
+      "Increasing the price of its canned drinks",
+      "Increasing the time it takes to process orders"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. By supplying more retail outlets, DM plc reaches more customers, which increases total sales. A higher share of total market sales means greater market share. Raising prices (A and C) would likely reduce sales, and slower processing (D) would harm competitiveness."
+  },
+  {
+    q: "Firms A and B both operate in the same industry. Firm A's objective is profit; Firm B's objective is survival. What would explain this difference?",
+    opts: [
+      "Firm A has a low market share and Firm B has a high market share",
+      "Firm B is a start-up business and Firm A is an established business",
+      "The owners of Firm A have less determination than the owners of Firm B",
+      "The owners of Firm B are more confident than the owners of Firm A"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. New or start-up businesses typically focus on survival because they are not yet established in the market and face competition from existing firms. Established businesses, having already secured customers and revenue, can focus on higher-level objectives like profit."
+  },
+  {
+    q: "Alex, a sole trader, changed his hair salon's objective from 'profit' to 'survival'. What would explain this?",
+    opts: [
+      "The hair salon has already achieved its profit objective",
+      "The hair salon has gained a lot of new customers",
+      "The hair salon is experiencing intense competition",
+      "The hair salon is now an established business"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. Intense competition would reduce Alex's sales and potentially make profit unachievable in the short term. When revenue falls due to competition, survival becomes the priority — keeping the business trading until conditions improve."
+  },
+  {
+    q: "A business whose main objective is to survive is likely to be:",
+    opts: [
+      "Experiencing growth in its market share",
+      "Making a large profit",
+      "Well established and successful",
+      "Working hard to stay in existence"
+    ],
+    ans: 3,
+    explain: "Correct answer: D. Survival means the business is focused on simply continuing to operate. This typically occurs during early stages or periods of difficulty — the opposite of growing market share or making large profits."
+  },
+  {
+    q: "The 'objectives of a business' are:",
+    opts: [
+      "Negative comments from the local community",
+      "The buildings and equipment the business owns",
+      "The items the business makes and sells",
+      "What the business intends to achieve"
+    ],
+    ans: 3,
+    explain: "Correct answer: D. Business objectives are what the business aims to achieve — targets or goals such as profit, growth, survival, market share, or providing a service. They are not physical assets (B), products (C), or negative feedback (A)."
+  },
+  {
+    q: "Which of the following is NOT normally an aim of a business which is just starting?",
+    opts: [
+      "Survival",
+      "To become established in the market",
+      "To become a plc",
+      "To try to make a profit"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. Becoming a PLC is a long-term structural change requiring significant growth, established reputation, and shareholder investment. A brand new business focuses on survival, building its name, and making early profits — not complex ownership structures."
+  },
+  {
+    q: "Two clothing manufacturers have different objectives. Which of the following is NOT a possible reason for this?",
+    opts: [
+      "One business makes coats and the other makes jeans",
+      "Only one of the businesses makes designer clothing",
+      "There is little innovation in the clothing industry",
+      "They have different owners"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. The level of innovation in an industry does not directly cause different businesses within it to have different objectives. Different products (A), market positioning (B), and owner attitudes (D) are all genuine reasons why two businesses may pursue different goals."
+  },
+  {
+    q: "A business might want to grow because:",
+    opts: [
+      "It sees the opportunity of making more profit",
+      "Growth will mean more people working in the business",
+      "It is the best objective to have",
+      "It will guarantee more profit"
+    ],
+    ans: 0,
+    explain: "Correct answer: A. Businesses pursue growth because a larger business can generate higher revenues and therefore higher profits. Growth does not guarantee profit (D is wrong), and simply having more employees (B) or it being 'best' (C) are not valid motivations."
+  },
+  {
+    q: "A business might change its aims and objectives because:",
+    opts: [
+      "All businesses change their objectives after a year",
+      "A new competitor has become very successful",
+      "It feels that a change will always bring more profits",
+      "It is essential to change objectives as a business grows"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. External factors like new successful competitors can force a business to rethink its objectives — for example switching from growth to survival if competition is fierce. The other options contain false absolutes: not all businesses change after a year (A), and change does not always increase profits (C)."
+  },
+  {
+    q: "Which of the following best describes 'market share'?",
+    opts: [
+      "The total value of all sales in a market",
+      "The number of competitors a business faces",
+      "A business's sales as a percentage of total market sales",
+      "The profit a business earns from each sale"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. Market share is expressed as a percentage showing how much of the total market a business accounts for. It is calculated as (Business sales ÷ Total market sales) × 100."
+  }
+];
+
+// 3. Keyword Matching (Minimum 10)
+const matchData = [
+  { term: "Business Objectives", def: "The goals a business aims to achieve, such as profit, survival, growth, market share, or providing a service." },
+  { term: "Profit", def: "The financial reward for taking risk in business, calculated as revenue minus total costs." },
+  { term: "Satisficing", def: "Making just enough profit to give the business owner a decent standard of living; common in small businesses." },
+  { term: "Growth", def: "When a business becomes larger, for example by increasing sales, opening more outlets, or taking over a competitor." },
+  { term: "Market Share", def: "A business's sales expressed as a percentage of total sales in its market or industry." },
+  { term: "Survival", def: "The objective of simply keeping the business trading, especially important during early months or periods of difficulty." },
+  { term: "Providing a Service", def: "Prioritising customer satisfaction and meeting customer needs, even if it means making less profit." },
+  { term: "Evolving", def: "The way a business develops and changes over time in terms of size, products, location, or methods." },
+  { term: "Profit Maximisation", def: "Trying to make as much profit as possible — the opposite of satisficing." },
+  { term: "Dividend", def: "A share of the company's profit paid out to shareholders, typically of a PLC." },
+  { term: "PLC (Public Limited Company)", def: "A business whose shares are traded on the stock exchange; shareholders expect profit and growth." },
+  { term: "Sole Trader", def: "A business owned and run by one person; objectives are often personal, such as satisficing or service." }
+];
+
+// 4. Fill in the Blanks (Minimum 10)
+const fibData = [
+  {
+    display: "_____ is the difference between revenue and costs, and is the main objective for most private sector businesses.",
+    blanks: { B1: "Profit" }
+  },
+  {
+    display: "Making just enough profit to provide the owner with a decent living is known as _____.",
+    blanks: { B1: "satisficing" }
+  },
+  {
+    display: "A business's _____ share is its sales expressed as a percentage of total sales in the entire market.",
+    blanks: { B1: "market" }
+  },
+  {
+    display: "When a business is new, its most likely objective is _____ — simply keeping the business going through the first few months.",
+    blanks: { B1: "survival" }
+  },
+  {
+    display: "A business that becomes larger by opening more outlets or taking over a competitor is pursuing an objective of _____.",
+    blanks: { B1: "growth" }
+  },
+  {
+    display: "Shareholders in a _____ expect to receive dividends, which means the business must focus on making sufficient profit.",
+    blanks: { B1: "PLC" }
+  },
+  {
+    display: "As a business _____, its aims and objectives may change because owners become more ambitious or because market conditions shift.",
+    blanks: { B1: "evolves" }
+  },
+  {
+    display: "A small business whose owner just wants a comfortable income without expanding is likely to be _____.",
+    blanks: { B1: "satisficing" }
+  },
+  {
+    display: "The formula for market share is: (sales of the business ÷ total sales in the market) × _____.",
+    blanks: { B1: "100" }
+  },
+  {
+    display: "When a business is in difficulty, it may need to change its objective to _____ and cut back on expansion plans.",
+    blanks: { B1: "survival" }
+  },
+  {
+    display: "A business that focuses on customer needs, even at the expense of profit, is said to be providing a _____.",
+    blanks: { B1: "service" }
+  },
+  {
+    display: "Aldi and Lidl grew their _____ in the UK supermarket industry by offering lower prices than established rivals.",
+    blanks: { B1: "market share" }
+  }
+];
+
+// Word bank for Fill in the Blanks
+const fibWords = [
+  "Profit", "satisficing", "market", "survival", "growth", "PLC", "evolves",
+  "100", "service", "market share", "revenue", "competition", "costs", "dividends", "objectives"
+];
+
+// 5. True or False (Minimum 10)
+const tfData = [
+  {
+    statement: "All businesses have profit as their main objective.",
+    answer: false,
+    explanation: "FALSE. Not all businesses prioritise profit. New businesses often focus on survival, small businesses may satisfice, and some businesses (especially in the public sector or community-focused businesses) prioritise providing a service above profit."
+  },
+  {
+    statement: "Satisficing means making as much profit as possible.",
+    answer: false,
+    explanation: "FALSE. Satisficing means making just enough profit to give the owner a decent standard of living. It is the opposite of profit maximisation and is common among sole traders who value a good work-life balance over maximum earnings."
+  },
+  {
+    statement: "Market share is expressed as a percentage of total sales in a market.",
+    answer: true,
+    explanation: "TRUE. Market share = (Business sales ÷ Total market sales) × 100. For example, if a business sells 100 tables out of 1,000 sold in the market, its market share is 10%."
+  },
+  {
+    statement: "A new business is most likely to have survival as its main objective.",
+    answer: true,
+    explanation: "TRUE. New businesses face established competition, must build a reputation from scratch, and often have limited resources. Simply keeping the business trading through the first few months is a major achievement."
+  },
+  {
+    statement: "A PLC must focus on profit because shareholders expect dividends.",
+    answer: true,
+    explanation: "TRUE. Shareholders invest in a PLC expecting a financial return (dividends). These are paid from profits, so a PLC must generate sufficient profit to keep shareholders satisfied — otherwise they may sell their shares, reducing the company's value."
+  },
+  {
+    statement: "Business objectives never change once they have been set.",
+    answer: false,
+    explanation: "FALSE. Business objectives change regularly as circumstances evolve. A new business may start with survival, move to profit, then growth. A business in difficulty might revert to survival. Changes in competition, the economy, or owner ambitions all cause objectives to shift."
+  },
+  {
+    statement: "A sole trader can decide their own objectives without answering to shareholders.",
+    answer: true,
+    explanation: "TRUE. A sole trader owns the entire business themselves. They are free to set their own objectives — whether that is satisficing, providing a community service, or growing — without needing approval from shareholders or a board of directors."
+  },
+  {
+    statement: "Growth is always the most important business objective.",
+    answer: false,
+    explanation: "FALSE. Growth is one of several objectives, and it is not always the most important. Many small businesses are content to remain the same size. Survival takes priority during difficult periods, and some businesses value service or satisficing over expansion."
+  },
+  {
+    statement: "Providing excellent customer service can help a business achieve other objectives such as profit and survival.",
+    answer: true,
+    explanation: "TRUE. Good service builds loyalty, attracts new customers, and generates positive word-of-mouth. This increases sales, which in turn raises revenue and profit — helping achieve a range of business objectives simultaneously."
+  },
+  {
+    statement: "A business facing intense competition might switch its objective from growth to survival.",
+    answer: true,
+    explanation: "TRUE. If competition is severe enough to reduce sales and threaten the business's existence, maintaining growth becomes unrealistic. The priority becomes keeping the business alive until conditions improve."
+  },
+  {
+    statement: "Taking over a competitor is one way a business can increase its market share.",
+    answer: true,
+    explanation: "TRUE. By acquiring a competitor, a business absorbs that competitor's customers and sales. This directly increases its share of the total market."
+  },
+  {
+    statement: "Expansion plans are typically accelerated when a business is in financial difficulty.",
+    answer: false,
+    explanation: "FALSE. When a business is in financial difficulty, expansion plans are postponed or cancelled entirely. The focus shifts to reducing losses and ensuring survival — not investing in costly growth strategies."
+  }
+];
+
+// 6. Common Student Misconceptions
+const miscData = [
+  {
+    wrong: "All businesses have profit as their main objective.",
+    correct: "This is one of the most common misconceptions in GCSE Business. Many businesses — especially new ones — focus on survival. Public sector organisations, charities, and community businesses often prioritise service over profit. Always read the case study to identify the actual objective."
+  },
+  {
+    wrong: "Growth always leads to more profit.",
+    correct: "Growth can increase revenue but does not guarantee more profit. If a business lowers prices to attract more customers, profit per unit may fall. Rapid growth also increases costs. The mark scheme specifically states that growth does NOT guarantee profit."
+  },
+  {
+    wrong: "A business only ever has one objective at a time.",
+    correct: "Businesses often pursue multiple objectives simultaneously. A business might aim for growth AND profit AND providing good service at the same time. The objectives are also often linked — good service leads to more customers, which leads to higher sales, which improves profit."
+  },
+  {
+    wrong: "Once a business sets its objectives, they stay the same forever.",
+    correct: "Business objectives evolve constantly. Changes in competition, economic conditions, the owner's ambitions, or the business's financial position can all trigger a shift in objectives. Examiners expect students to recognise that objectives are dynamic, not fixed."
+  },
+  {
+    wrong: "Survival means the business is failing.",
+    correct: "Survival is a legitimate and rational business objective — especially for new businesses or those facing temporary difficulty. Having survival as an objective shows the business is realistic about its situation. It is not a sign of failure; it is often a sensible short-term strategy."
+  },
+  {
+    wrong: "Market share and profit are the same thing.",
+    correct: "Market share is the percentage of total market sales held by a business. A business can have a high market share but low profit (e.g., if it has cut prices to gain customers). They are related but different concepts with different formulas."
+  },
+  {
+    wrong: "All large businesses want to grow.",
+    correct: "Not all large businesses are pursuing growth. Some may have reached a size at which further growth would reduce control or quality. A business might shift its objective to maintaining current profit levels rather than expanding further."
+  },
+  {
+    wrong: "Satisficing is a strategy used by lazy business owners.",
+    correct: "Satisficing is a perfectly rational and deliberate business strategy. Many sole traders choose to earn a comfortable income without the stress and risk of expansion. It reflects the personal priorities of the owner, not a lack of ambition or effort."
+  }
+];
+
+// 7. Examiner Tips & Structure Guides
+const examTips = [
+  {
+    type: "Identify / State — 1–2 marks",
+    title: "One Point. Full Stop. Move On.",
+    content: `
+      <p>A <strong>'State' or 'Identify'</strong> question needs one clear, specific point per mark. No explanation needed. No paragraphs. Just a direct answer.</p>
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li>One clear, specific point = 1 mark ✅</li>
+        <li>A vague or generic answer = 0 marks ❌</li>
+      </ul>
+      <p><strong>❌ Bad Answer (0 marks):</strong><br/>
+      <em>"To make money."</em><br/>
+      Too vague — could apply to any business in any situation.</p>
+      <p><strong>✅ Good Answer (1 mark):</strong><br/>
+      <em>"Survival."</em> or <em>"To increase market share."</em><br/>
+      Specific, uses the correct business terminology.</p>
+      <p><strong>⚠️ For 2-mark 'State two' questions:</strong> Write two separate points clearly numbered. Do NOT write one long sentence — examiners award one mark per identified objective.</p>
+    `,
+    pills: ["K"]
+  },
+  {
+    type: "Explain — 2 marks",
+    title: "Point + Reason = Full Marks",
+    content: `
+      <p>A 2-mark <strong>'Explain'</strong> question wants a point AND a reason. You must go one step further than just naming the objective.</p>
+      <p><strong>The Formula:</strong> Make a point (K) → Briefly explain why using the business context (APP)</p>
+      <p><strong>❌ Bad Answer (1 mark max):</strong><br/>
+      <em>"The Works may have a different objective to Saranne because The Works is bigger."</em><br/>
+      Names a difference but doesn't explain why size leads to different objectives.</p>
+      <p><strong>✅ Good Answer (2 marks):</strong><br/>
+      <em>"The Works is a large established retailer (APP) so it can pursue growth or profit, whereas Saranne is starting a new business and must focus on survival to get through the first few months (APP)."</em></p>
+      <p><strong>⚠️ Examiner Warning:</strong> Both marks require context. Generic answers about "bigger businesses want more profit" without linking to the case study will only score 1 mark at best.</p>
+    `,
+    pills: ["K", "U", "app"]
+  },
+  {
+    type: "Analyse — 3 marks",
+    title: "The Holy Trinity: U → APP → AN",
+    content: `
+      <p>A 3-mark <strong>'Analyse'</strong> question is worth exactly three steps. Miss any one of them and you lose a mark. This is the most tested question format in this topic.</p>
+      <p><strong>The Three Steps:</strong></p>
+      <ul>
+        <li><strong>Step 1 — Understanding (U):</strong> State the theory or benefit clearly using business terminology.</li>
+        <li><strong>Step 2 — Application (APP):</strong> Quote or directly reference the case study. You CANNOT score analysis marks without this.</li>
+        <li><strong>Step 3 — Analysis (AN):</strong> Explain the <em>impact</em> on the business — specifically how it affects costs, revenue, reputation, profit, or operations.</li>
+      </ul>
+      <p><strong>❌ Bad Answer (1 mark):</strong><br/>
+      <em>"If Samsung values its people, it will make better products and earn more money."</em><br/>
+      No application to Samsung from the case study. No specific impact stated.</p>
+      <p><strong>✅ Good Answer (3 marks):</strong><br/>
+      <em>"When a business invests in its people, employees perform better at their jobs (U). For Samsung, which aims to produce superior products and compete with Apple (APP), well-trained workers can achieve this aim, leading to increased sales and greater revenue for the business (AN)."</em></p>
+      <p><strong>🚫 Knowledge Dumping Alert:</strong> Do NOT write everything you know about business aims. Answer the specific question — one focused chain of reasoning scores more than three vague points.</p>
+      <p><strong>Sentence Starters:</strong><br/>
+      "When a business sets a high value on... (U)"<br/>
+      "In the case of [Business Name], which... (APP)"<br/>
+      "This means that... / As a result, the business will... (AN)"</p>
+    `,
+    pills: ["U", "app", "an"]
+  },
+  {
+    type: "Evaluate — 3 marks (Judgement + Justification)",
+    title: "Judge It — Then Justify It With Context",
+    content: `
+      <p>The 3-mark OCR evaluation question in this topic is unique — it awards <strong>1 mark for a clear judgement</strong> and <strong>2 marks for a precise, contextual justification</strong>.</p>
+      <p><strong>The Structure:</strong></p>
+      <ul>
+        <li><strong>Judgement (1 mark):</strong> Make a clear, decisive statement. No explanation needed yet. "I think people are more important than technology for Samsung."</li>
+        <li><strong>Justification (2 marks):</strong> Use specific detail from the case study to explain WHY. This must go beyond simply repeating the case study — you need to show how the evidence supports your judgement.</li>
+      </ul>
+      <p><strong>❌ Bad Justification (0–1 marks):</strong><br/>
+      <em>"Because Samsung wants to produce superior products and people help them do this."</em><br/>
+      This just repeats the case study without showing understanding of the link.</p>
+      <p><strong>✅ Good Justification (2 marks):</strong><br/>
+      <em>"Even the best technology still requires skilled people to design, operate, and improve it. If Samsung places high value on its people, workers will be motivated to outperform rivals like Apple — the business most likely to threaten Samsung's position as a world leader."</em></p>
+      <p><strong>⚠️ Examiner Warning:</strong> You must use the case study detail — not just repeat it. Examiners call this "using (not simply repeating)" the information.</p>
+      <p><strong>Sentence Starters:</strong><br/>
+      "I believe that [option] is more important because... (Judgement)"<br/>
+      "The evidence from the case study shows that... (Justification)"<br/>
+      "Without [factor], Samsung would not be able to... (Justification)"</p>
+    `,
+    pills: ["app", "an", "eval"]
+  },
+  {
+    type: "Evaluate — 7 marks",
+    title: "Argue Both Sides, Then Deliver Your Verdict",
+    content: `
+      <p>A 7-mark evaluation question wants you to build a <strong>balanced argument</strong> and reach a <strong>justified conclusion</strong>. Think of it as two 3-mark analyses followed by a decision.</p>
+      <p><strong>The Four-Paragraph Structure:</strong></p>
+      <ul>
+        <li><strong>Paragraph 1 — For:</strong> Knowledge + Understanding of why one objective/option is beneficial (U)</li>
+        <li><strong>Paragraph 2 — For (Applied):</strong> Apply to the case study business + analyse the impact (APP + AN)</li>
+        <li><strong>Paragraph 3 — Against:</strong> Apply the counter-argument to the case study + analyse (APP + AN)</li>
+        <li><strong>Paragraph 4 — Conclusion:</strong> Decision + Context-linked reason + Impact/consequence (EVAL ×3)</li>
+      </ul>
+      <p><strong>The Conclusion Must Include:</strong></p>
+      <ul>
+        <li><strong>Decision:</strong> "Overall, I recommend that WYW should/should not have profit as its objective..."</li>
+        <li><strong>Context:</strong> "...because, as the text states, the business is a partnership and both owners need to agree..."</li>
+        <li><strong>Impact/Reasoning:</strong> "...and without an agreed objective, the business risks conflict between partners which could threaten its long-term success."</li>
+      </ul>
+      <p><strong>🚫 Common Mistake:</strong> Students write a conclusion that just repeats their earlier points. A conclusion that adds no new reasoning scores zero evaluation marks. Use the "It depends on..." or "However, this is only true if..." formula to add depth.</p>
+      <p><strong>⚠️ Do NOT write a conclusion for 3-mark or 6-mark questions</strong> — there are zero evaluation marks available for those.</p>
+    `,
+    pills: ["K", "U", "app", "an", "eval"]
+  },
+  {
+    type: "Common Trap — Application",
+    title: "No Case Study = No APP or AN Marks",
+    content: `
+      <p>This is the single biggest reason students lose marks in Business exams. You <strong>cannot</strong> score application or analysis marks without directly referencing the case study business.</p>
+      <p><strong>The Rule:</strong> Every analysis point must be anchored to the specific business in the question.</p>
+      <p><strong>❌ No Application (loses APP + AN marks):</strong><br/>
+      <em>"A business that values its people will produce better products and earn more profit."</em><br/>
+      This could describe any business. The examiner awards zero application marks.</p>
+      <p><strong>✅ With Application:</strong><br/>
+      <em>"Samsung, which faces strong competition from Apple in the technology market (APP), will be able to produce superior products if its people are well-trained, leading to repeat customers and higher long-term revenue (AN)."</em></p>
+      <p><strong>How to Apply:</strong> Use the business's name, quote figures or facts from the case study (e.g. "135 stores", "over 4,800 employees", "7% of UK electricity"), or reference the specific market or situation described.</p>
+      <p><strong>Sentence Starters for Application:</strong><br/>
+      "In the case of [Business Name]..."<br/>
+      "As the text states, [Business] operates in..."<br/>
+      "Because [Business] has [specific detail from case study]..."</p>
+    `,
+    pills: ["app", "an"]
+  }
+];
+
+// 8. Flashcards
+const flashcards = [
+  { term: "Business Objective", def: "A goal or target that a business aims to achieve, such as profit, survival, growth, market share, or providing a service." },
+  { term: "Profit", def: "Revenue minus total costs. The financial reward for taking business risk." },
+  { term: "Satisficing", def: "Making just enough profit for the owner to have a decent standard of living. Common in sole traders." },
+  { term: "Growth", def: "Becoming larger — through more sales, more outlets, higher market share, or taking over a competitor." },
+  { term: "Market Share", def: "(Business sales ÷ Total market sales) × 100. The percentage of the total market held by one business." },
+  { term: "Survival", def: "Simply keeping the business trading. The priority for new businesses and those in difficulty." },
+  { term: "Providing a Service", def: "Prioritising customer satisfaction above profit. Common in smaller, community-focused businesses." },
+  { term: "Evolving", def: "The way a business changes over time in size, products, ownership structure, or objectives." },
+  { term: "Profit Maximisation", def: "Trying to make as much profit as possible — the opposite of satisficing." },
+  { term: "Dividend", def: "A share of company profits paid to shareholders. PLCs must generate profit to pay these." },
+  { term: "Why objectives change (new business)", def: "New businesses focus on survival because they face established competition and must build their reputation from scratch." },
+  { term: "Why objectives change (growing business)", def: "Growing businesses shift to profit, growth, or market share as they become established and owners become more ambitious." },
+  { term: "Why objectives change (in difficulty)", def: "Businesses in difficulty abandon growth plans and refocus on survival, reducing losses until conditions improve." },
+  { term: "Why different businesses have different objectives", def: "Differences in size, ownership type, owner attitude, market competition, and stage of development all lead to different objectives." }
+];
+
+// 9. Exam-Style Questions
+const examQuestions = [
+  {
+    num: "Q1",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "A business has recently changed its main objective from 'survival' to 'growth'. What would most likely explain this change of objective?",
+    options: [
+      "The business has become too big",
+      "The business has reduced its productivity",
+      "The business is experiencing high demand",
+      "The business needs to lower its costs"
+    ],
+    answer: 2,
+    hint: "Think about what would make a business feel confident enough to stop focusing on survival and start focusing on getting bigger.",
+    starter: "The answer is C because...",
+    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — The business is experiencing high demand</strong></p></div><div class="marks-section"><h5>Why the other options are wrong</h5><ul><li><strong>A — The business has become too big:</strong> Becoming too big is not a reason to pursue growth — it would be a reason to consolidate or reduce operations, not expand further.</li><li><strong>B — The business has reduced its productivity:</strong> Reduced productivity would likely harm the business's performance, making survival more relevant — not growth.</li><li><strong>D — The business needs to lower its costs:</strong> Lowering costs is a financial management decision, not a reason to change from survival to growth as an objective.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q2",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "DM plc manufactures canned drinks. The company's main objective for the coming financial year is to increase its market share by 2%.",
+    question: "What would help the company achieve its objective?",
+    options: [
+      "Increasing the cost of its canned drinks",
+      "Increasing the number of retail outlets it supplies",
+      "Increasing the price of its canned drinks",
+      "Increasing the time it takes to process orders"
+    ],
+    answer: 1,
+    hint: "Market share is about reaching more customers and selling more than competitors. Which option makes it easier for more customers to buy DM's drinks?",
+    starter: "The answer is B because...",
+    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>B — Increasing the number of retail outlets it supplies</strong></p></div><div class="marks-section"><h5>Why the other options are wrong</h5><ul><li><strong>A — Increasing the cost:</strong> Higher costs reduce profit margins but do not directly increase sales. If costs rise but prices stay the same, profit falls.</li><li><strong>C — Increasing the price:</strong> Higher prices would likely reduce demand, meaning fewer cans are sold. This would decrease, not increase, market share.</li><li><strong>D — Increasing processing time:</strong> Slower order processing would delay stock reaching retailers and frustrate customers, likely reducing sales and market share.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q3",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "Firms A and B both operate in the same industry.\n• Firm A's objective is to make a profit\n• Firm B's objective is survival.",
+    question: "What would explain this difference in objectives?",
+    options: [
+      "Firm A has a low market share and Firm B has a high market share",
+      "Firm B is a start-up business and Firm A is an established business",
+      "The owners of Firm A have less determination than the owners of Firm B",
+      "The owners of Firm B are more confident than the owners of Firm A"
+    ],
+    answer: 1,
+    hint: "Think about which type of business typically focuses on survival and why.",
+    starter: "The answer is B because...",
+    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>B — Firm B is a start-up business and Firm A is an established business</strong></p></div><div class="marks-section"><h5>Why the other options are wrong</h5><ul><li><strong>A:</strong> A business with a low market share might want growth, not profit — and a high market share business would likely be aiming for profit too. This does not explain the survival objective.</li><li><strong>C:</strong> Having less determination does not lead to a profit objective — it is not a logical or relevant business reason for choosing profit over survival.</li><li><strong>D:</strong> Confidence is not a factor in choosing survival as an objective. Start-up businesses focus on survival due to competition and lack of customer base — not because owners lack confidence.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q4",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "Alex, a sole trader, opened a hair salon three years ago. He has recently changed the main objective of the business from 'profit' to 'survival'.",
+    question: "What would explain this change of objective?",
+    options: [
+      "The hair salon has already achieved its profit objective",
+      "The hair salon has gained a lot of new customers",
+      "The hair salon is experiencing intense competition",
+      "The hair salon is now an established business"
+    ],
+    answer: 2,
+    hint: "The objective has gone from profit DOWN to survival — something has made things harder. What would reduce sales and threaten the business?",
+    starter: "The answer is C because...",
+    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — The hair salon is experiencing intense competition</strong></p></div><div class="marks-section"><h5>Why the other options are wrong</h5><ul><li><strong>A:</strong> Achieving the profit objective would likely lead to a higher objective such as growth — not a switch back down to survival.</li><li><strong>B:</strong> Gaining new customers would improve revenue and profit, making survival less of a concern — not more.</li><li><strong>D:</strong> Being established suggests stability — an established business would typically aim for profit or growth, not survival.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q5",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "Two clothing manufacturers have different objectives.",
+    question: "Which of the following is NOT a possible reason why the two businesses have different objectives?",
+    options: [
+      "One business makes coats and the other makes jeans",
+      "Only one of the businesses makes designer clothing",
+      "There is little innovation in the clothing industry",
+      "They have different owners"
+    ],
+    answer: 2,
+    hint: "Look for the option that has NO logical link to why a business would choose a different objective.",
+    starter: "The answer is C because...",
+    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>C — There is little innovation in the clothing industry</strong></p></div><div class="marks-section"><h5>Why the other options ARE possible reasons</h5><ul><li><strong>A:</strong> Different products (coats vs jeans) may target different markets with different levels of competition or profit potential, influencing objectives.</li><li><strong>B:</strong> Making designer clothing suggests a high-price, service-focused strategy — the business is likely pursuing profit or reputation rather than growth by volume.</li><li><strong>D:</strong> Different owners have different personal ambitions, attitudes to risk, and values — this directly affects which objectives they set for the business.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q6",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "A business whose main objective is to survive is likely to be:",
+    options: [
+      "Experiencing growth in its market share",
+      "Making a large profit",
+      "Well established and successful",
+      "Working hard to stay in existence"
+    ],
+    answer: 3,
+    hint: "Think about what 'survival' actually means — what is the business trying to do?",
+    starter: "The answer is D because...",
+    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>D — Working hard to stay in existence</strong></p></div><div class="marks-section"><h5>Why the other options are wrong</h5><ul><li><strong>A:</strong> Growing market share is a sign of expansion and success — the opposite of a survival-focused business.</li><li><strong>B:</strong> Making a large profit means the business is performing well and would likely pursue growth or profit maximisation — not survival.</li><li><strong>C:</strong> A well-established and successful business would not have survival as its objective — it would focus on maintaining or growing profit.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q7",
+    marks: 3,
+    type: "written",
+    caseStudy: "Superdry plc\n\nSuperdry is a successful international brand of clothing featuring American- and Japanese-inspired graphics. In 2018, over 4800 people were employed by the company, which is committed to high quality.\n\nSuperdry's policies include one against discrimination in its workforce and another to support employee retention.\n\nThe company uses many different distribution channels. These include:\n• 135 Superdry stores across the UK and Europe\n• Superdry's own website\n• Other retailers, including Next in the UK, which allows the brand to reach new customer groups.\n\nSuperdry regularly invests in its own stores. To keep its retail stores exciting and encourage customers to visit, there is a regular re-fit programme. In 2017, the company spent £41.4m on store-related investment, including the re-fitting of 11 stores.\n\nThe company faces competition from retailers of all sizes, ranging from sole traders to other public limited companies.",
+    question: "Analyse one way Superdry's business objectives may change as the business grows. [3 marks]",
+    hint: "Focus on HOW the objective itself changes — not what the business physically does. Think about what a growing business starts to aim for that it didn't need to aim for before. You MUST reference Superdry from the case study to earn APP and AN marks.",
+    starter: "As Superdry grows, its objectives are likely to become... (U)\nFor Superdry, which currently operates 135 stores and sells through retailers like Next... (APP)\nThis means the business will need to... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1a K×1, AO2 APP×1, AO3a AN×1)</h5><ul><li><strong>Knowledge (1 mark):</strong> Any valid point about how objectives become more ambitious/broader as a business grows — e.g. objectives widen, become more diverse, or become more ambitious. Do NOT accept 'growth' as the knowledge point (it is stated in the question).</li><li><strong>Application (1 mark):</strong> Answer must be applied to Superdry using case study detail — e.g. reference to 135 stores, competition, selling through Next, £41.4m investment, 4,800 employees, high quality commitment. No further marks without knowledge.</li><li><strong>Analysis (1 mark):</strong> Impact on business operations — an action Superdry needs to take as a result of the changing objective (not the outcome of achieving it). E.g. will need to do more research, change pricing strategy, increase advertising, contact solicitors.</li></ul></div><div class="marks-section"><h5>Examiner Guidance</h5><ul><li>The question asks HOW objectives change, not WHY. Answers must focus on the objective itself being affected.</li><li>Do NOT award examples of business growth (e.g. "open more shops") — the question is about the objective, not the action.</li><li>Accept both general (e.g. "objectives become more ambitious") and specific (e.g. "profit target will be higher") responses.</li></ul></div><div class="marks-section"><h5>Exemplar Responses</h5><p><strong>Model Answer 1:</strong> As Superdry grows, its objectives also become more ambitious (K). It may want to have far more than 135 shops in the UK and Europe (APP), so will need to carry out a great deal of research to find viable new locations (AN).</p><p><strong>Model Answer 2:</strong> As a business grows, it is likely to want to generate more profit (K). For Superdry, which already operates in a competitive market facing rivals of all sizes (APP), this may mean changing its pricing strategy to attract even more customers (AN).</p></div>`,
+    modelAnswer: "As a business like Superdry grows, its objectives tend to become more ambitious and diverse (K). Superdry already operates 135 stores across the UK and Europe and sells through retailers such as Next (APP). As the business grows further, it will need to invest in more rigorous quality control processes to ensure that the high-quality standards it is committed to are maintained across a larger number of stores and distribution channels (AN)."
+  },
+  {
+    num: "Q8",
+    marks: 2,
+    type: "written",
+    caseStudy: "EDF\n\nEDF is a limited company which supplies gas and electricity to homes and businesses throughout the UK. It is the largest producer of low-carbon electricity in the UK and owns two fossil fuel power stations, three wind farms and eight nuclear power stations.\n\nIn 2016, EDF started to build the new Hinkley Point C nuclear power station in Somerset, which will eventually provide 7% of the UK's electricity needs for 60 years. Managers at EDF expect it to open in 2025.\n\nDuring the construction stage, the project has created thousands of jobs. A number of these construction jobs are filled by self-employed workers. Once it is fully operational, the power station will employ over 900 people, most of whom will be employed by EDF.\n\nEDF produces around 20% of the UK's electricity and is the largest supplier. As EDF operates in a competitive market, the price that it charges its customers is very important.",
+    question: "Explain how the construction of Hinkley Point C nuclear power station may help EDF to achieve one business objective. [2 marks]",
+    hint: "Name a specific business objective (K), then use a fact from the case study about Hinkley Point C to explain how it helps EDF achieve that objective (APP).",
+    starter: "The construction of Hinkley Point C will help EDF to achieve the objective of... (K)\nThis is because Hinkley Point C will... [use a specific fact from the case study] (APP)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a K×1, AO2 APP×1)</h5><ul><li><strong>Knowledge (1 mark):</strong> Identify a valid business objective — e.g. profit, revenue, market share, growth, survival, output. Vague answers such as "be more competitive" are NOT accepted.</li><li><strong>Application (1 mark):</strong> Use specific detail from the case study about Hinkley Point C to explain how it helps achieve the objective. No application marks without knowledge first.</li></ul></div><div class="marks-section"><h5>Acceptable Application Details</h5><ul><li>Largest producer of low-carbon electricity</li><li>Will provide 7% of the UK's electricity</li><li>Expected to operate for 60 years</li><li>Due to open in 2025</li><li>Will employ over 900 people once operational</li></ul><p><em>Do NOT accept</em> "nuclear power station" or "construction" as application — they are stated in the question.</p></div><div class="marks-section"><h5>Exemplar Responses</h5><p><strong>Model Answer 1:</strong> The construction will lead to more profit for EDF (K) as Hinkley Point C will supply an extra 7% of the UK's electricity (APP).</p><p><strong>Model Answer 2:</strong> The new power station should help EDF increase its output (K) and from 2025 onwards (APP) generate higher revenue from additional electricity supply.</p></div>`,
+    modelAnswer: "The construction of Hinkley Point C will help EDF achieve the objective of growth in its revenue and market share (K). Once operational, the station will provide 7% of the UK's electricity for 60 years, significantly increasing the total amount of electricity EDF is able to supply to customers across the country (APP)."
+  },
+  {
+    num: "Q9a",
+    marks: 2,
+    type: "written",
+    caseStudy: "The Works\n\nThe Works is a retailer which sells books, toys, gifts and stationery at lower prices than many of its rivals. It has over 430 stores in the UK and Ireland, as well as a website.\n\nThe Works currently has over 2,500 employees. The company has a basic aim: \"We aim to be the customer's first-choice value alternative to the full price retailers of the products we sell.\"\n\nSaranne is a local entrepreneur who wants to set up her own business. She is aware of the success of her local branch of The Works and has decided to open a specialist book store in the same town. She believes there are enough customers for both businesses to succeed. This will be Saranne's first business venture after deciding on a career change since leaving her job working at a local bank.\n\nSaranne will need to hire three employees.",
+    question: "State two possible objectives for a business. [2 marks]",
+    hint: "Name two of the five main business objectives. You do not need to explain them — just name them clearly.",
+    starter: "1. A possible objective for a business is...\n2. Another possible objective is...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a ×2)</h5><ul><li>1 mark per correctly identified business objective, up to a maximum of 2 marks.</li><li>Accepted answers: Profit / Growth (e.g. to get bigger / have more shops) / Market share / Survival / Providing good service</li></ul></div>`,
+    modelAnswer: "1. Profit — earning more revenue than costs.\n2. Survival — keeping the business trading through difficult periods or early months."
+  },
+  {
+    num: "Q9b",
+    marks: 2,
+    type: "written",
+    caseStudy: "",
+    question: "Explain why the objectives of The Works may differ to those of Saranne's new business. [2 marks]",
+    hint: "Think about what stage each business is at. The Works is large and established — what does that mean for its objectives? Saranne is just starting — what does that mean for hers?",
+    starter: "The Works, as an established large business with over 430 stores... (APP)\nIn contrast, Saranne is starting a new business for the first time... (APP)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO2 ×2)</h5><ul><li><strong>1 mark:</strong> Application of different business objectives for The Works and Saranne — both must be referenced.</li><li><strong>1 further mark:</strong> Explanation of how an established business's objectives differ from those of a business starting up. Both marks require implicit or explicit context from the case study.</li></ul></div><div class="marks-section"><h5>Exemplar Response</h5><p>Once established, a business like The Works may have the ambition to aim for greater profits or further growth across more stores (APP), whereas Saranne's business, which is just starting, is likely to focus on simply surviving the first few months and establishing itself in the market (APP).</p></div>`,
+    modelAnswer: "The Works is a large, established retailer with over 430 stores, so it can realistically aim for growth or maximise profit to remain the customer's first-choice value retailer (APP). In contrast, Saranne is opening her very first business with only three employees in a town where The Works already operates — her most realistic objective is survival, ensuring the business gains enough customers to keep trading through the early months (APP)."
+  },
+  {
+    num: "Q10",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "The 'objectives of a business' are:",
+    options: [
+      "Negative comments from the local community",
+      "The buildings and equipment the business owns",
+      "The items the business makes and sells",
+      "What the business intends to achieve"
+    ],
+    answer: 3,
+    hint: "Think about the definition of the word 'objective' — it's about targets and goals, not physical things.",
+    starter: "The answer is D because...",
+    markScheme: `<div class="marks-section"><h5>Answer</h5><p><strong>D — What the business intends to achieve</strong></p></div><div class="marks-section"><h5>Why the other options are wrong</h5><ul><li><strong>A:</strong> Negative comments are stakeholder feedback — this has nothing to do with the goals the business sets for itself.</li><li><strong>B:</strong> Buildings and equipment are physical assets — these are resources the business uses, not goals it aims for.</li><li><strong>C:</strong> Products are what the business sells — a business might sell trainers, but its objective might be to make a profit or grow its market share.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q11",
+    marks: 2,
+    type: "written",
+    caseStudy: "Boohoo.com\n\nBoohoo was started in 2006 by two entrepreneurs who had the idea of starting a business where customers could buy the latest fashions online.\n\nBoohoo has expanded using organic growth, and has become a global online retailer of its own brand clothes, shoes and accessories. It now sells in over 100 countries. Boohoo charge for delivery. It has millions of website users per month.\n\nThe target market for the Boohoo brand is men and women who are 16 to 24 years old and are fashion conscious. To reach this market, Boohoo uses social media. The business is active on Facebook, Twitter, YouTube and Instagram.\n\nBoohoo has also introduced apps for smartphones and tablets that allow customers to browse and buy products very easily.",
+    question: "Explain how Boohoo's objectives may have changed since 2006. [2 marks]",
+    hint: "Think about what a new business starting in 2006 would need to focus on — and then contrast that with what a global business selling in 100 countries now focuses on.",
+    starter: "When Boohoo started in 2006, it would likely have focused on... (U)\nHowever, now that Boohoo has grown into a global retailer operating in over 100 countries... (APP)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1b U×1, AO2 APP×1)</h5><ul><li><strong>Understanding (1 mark):</strong> Show understanding of a business objective — e.g. survival, profit, growth, establishing brand name.</li><li><strong>Application (1 mark):</strong> Explain how this objective has changed over time for Boohoo specifically, using detail from the case study.</li></ul></div><div class="marks-section"><h5>Acceptable Answers</h5><ul><li>Boohoo would have had a survival objective in 2006 but now pursues profit or growth.</li><li>The business may have been trying to establish the brand name when it started, but now focuses on becoming the market leader.</li><li>Boohoo is likely pursuing profits now to reward the owners/shareholders after years of expansion.</li></ul></div><div class="marks-section"><h5>Exemplar Response</h5><p>Boohoo would have focused on survival when it launched in 2006 (U), but now that the business has expanded organically to sell in over 100 countries with millions of website users per month (APP), it is likely to be pursuing profit or further growth to reward the founders for the risks they took.</p></div>`,
+    modelAnswer: "When Boohoo launched in 2006, its main objective would have been survival — simply establishing the brand and attracting enough online customers to keep trading (U). Now that Boohoo has grown into a global retailer selling in over 100 countries with millions of website users per month (APP), its objective has likely shifted to maximising profit and continuing to grow its market share through new platforms such as smartphone apps."
+  },
+  {
+    num: "Q12a",
+    marks: 2,
+    type: "written",
+    caseStudy: "Samsung Electronics was formed in South Korea in 1938. It is now a world-leading producer of a vast range of technology goods. It has a number of major competitors, notably Apple, and so has to be alert to ensure it retains its position in the market.\n\nTo help maintain its position as a leading producer, Samsung, like many other large businesses, sets itself targets through its aims and objectives.\n\nSamsung follows a simple business philosophy: to devote its talent and technology to creating superior products and services that contribute to a better global society. To achieve this, Samsung sets a high value on its people and technologies.",
+    question: "Explain why a business such as Samsung sets out its aims and objectives. [2 marks]",
+    hint: "First state what a business aim IS (knowledge), then explain why Samsung specifically would want to set one — use the case study.",
+    starter: "A business aim is... (K)\nSamsung would set out its aims and objectives so that it can... [refer to Samsung's situation] (APP)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a K×1, AO2 APP×1)</h5><ul><li><strong>Knowledge (1 mark):</strong> Show knowledge of what an aim is — e.g. a goal the business tries to achieve; a target the business sets itself.</li><li><strong>Application (1 mark):</strong> Explain why Samsung specifically sets aims, using case study material — e.g. to maintain its position against Apple; to guide production of superior products; to give direction to its workforce.</li></ul></div><div class="marks-section"><h5>Exemplar Responses</h5><ul><li>Samsung will set out aims so that it can maintain the high level of quality needed to attract customers who can see what it is trying to achieve.</li><li>Samsung sets aims and objectives to help it compete with businesses such as Apple.</li></ul></div>`,
+    modelAnswer: "A business aim is a goal or target that guides all the decisions a business makes (K). Samsung sets out its aims and objectives so that its workforce can focus on producing superior technology products and services, helping Samsung maintain its position as a world-leading producer in a market where it faces strong competition from Apple (APP)."
+  },
+  {
+    num: "Q12b",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Analyse one benefit to Samsung of setting a high value on its people. [3 marks]",
+    hint: "Use the three-step formula: What is the benefit of valuing people? (U) → How does this apply to Samsung from the case study? (APP) → What is the financial or operational impact on Samsung? (AN)",
+    starter: "When a business sets a high value on its people, employees are likely to... (U)\nFor Samsung, which aims to produce superior products and compete with Apple... (APP)\nThis means that Samsung will... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b U×1, AO2 APP×1, AO3a AN×1)</h5><ul><li><strong>Understanding (1 mark):</strong> Show understanding of the connection between valuing people and business aims — e.g. with good people, better products are made; motivated workers produce higher quality output.</li><li><strong>Application (1 mark):</strong> Relate to Samsung using case study — e.g. Samsung's aim to produce superior products; competing with Apple; producing quality electrical goods. No APP or AN marks without Understanding first.</li><li><strong>Analysis (1 mark):</strong> Explain the effect on Samsung — e.g. increased sales, greater revenue, more repeat customers, stronger market position.</li></ul></div><div class="marks-section"><h5>Exemplar Response</h5><p>With good, well-trained people in a business, better quality products are made (U). Samsung, with valued employees who are skilled at their jobs, can produce quality electrical goods that help to achieve the aim of creating superior products (APP). If Samsung achieves this aim, it can increase its sales, bringing greater revenue to the business and strengthening its position against Apple (AN).</p></div>`,
+    modelAnswer: "When a business sets a high value on its people, employees are motivated and perform to a higher standard (U). For Samsung, which aims to produce superior technology products and services in order to compete with Apple in a highly competitive global market (APP), well-trained and valued workers are better equipped to innovate and manufacture high-quality goods, leading to increased repeat customers and greater long-term revenue for the business (AN)."
+  },
+  {
+    num: "Q12c",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Analyse one benefit to Samsung of setting a high value on its technologies. [3 marks]",
+    hint: "Use the same three-step formula: What is the benefit of leading technology? (U) → How does this link to Samsung's specific situation? (APP) → What impact does this have on Samsung's performance? (AN)",
+    starter: "When a business invests in leading technology, it is able to... (U)\nFor Samsung, which operates in a highly competitive technology market alongside Apple... (APP)\nThis leads to... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b U×1, AO2 APP×1, AO3a AN×1)</h5><ul><li><strong>Understanding (1 mark):</strong> Show understanding of the connection between leading technology and business aims — e.g. better technology = better products; technology improves efficiency and reliability.</li><li><strong>Application (1 mark):</strong> Apply to Samsung using case study material — e.g. Samsung's competitive market with Apple; aim to remain a world-leading producer; creating superior products.</li><li><strong>Analysis (1 mark):</strong> Explain the impact — e.g. more reliable products lead to repeat customers; greater market share; ability to charge premium prices; more revenue.</li></ul></div><div class="marks-section"><h5>Exemplar Response</h5><p>With leading technology, businesses are able to produce better, more reliable products (U). Samsung operates in a highly competitive market and must have the best technology to achieve its aim of remaining a world-leading producer (APP). If Samsung achieves this, it will gain more repeat customers who trust and return to buy Samsung products over many years, increasing long-term revenue (AN).</p></div>`,
+    modelAnswer: "With access to the latest technologies, a business is able to produce more reliable, innovative, and high-quality products (U). Samsung operates in an intensely competitive technology market where it must continually outperform rivals like Apple to maintain its position as a world-leading producer (APP). By using advanced technology to create superior products, Samsung can attract and retain loyal customers who return to buy new Samsung devices, increasing revenue and strengthening its market share over the long term (AN)."
+  },
+  {
+    num: "Q12d",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Evaluate whether Samsung's people or technologies has the greatest influence on Samsung being able to achieve its aims. [3 marks]",
+    hint: "Make a clear choice first (1 mark). Then justify your choice using specific detail from the case study — you must go beyond simply repeating the case study text to earn both justification marks.",
+    starter: "I believe that Samsung's [people/technologies] has the greatest influence on achieving its aims. (Judgement)\nThis is because... [specific reason using case study detail] (Justification 1)\nFurthermore, even the best [technology/people] still requires... (Justification 2)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO3b Evaluation ×3)</h5><ul><li><strong>Judgement (1 mark):</strong> A clear, simple statement choosing either people OR technology as having the greatest influence. No explanation needed for this mark.</li><li><strong>Justification (up to 2 marks):</strong> A clear, contextual justification using (not simply repeating) case study information. Must explain WHY the chosen factor is more important than the other in helping Samsung achieve its aims.</li></ul></div><div class="marks-section"><h5>Exemplar Responses</h5><p><strong>Choosing People:</strong> I think having an aim of placing value on people will have the most effect on Samsung (JUDGEMENT). Putting value on people means workers at Samsung will perform better, enabling the company to produce reliable world-beating products. Even the best technology needs skilled people to design, build, and improve it (JUSTIFICATION ×2).</p><p><strong>Choosing Technology:</strong> I believe Samsung's technology has the greatest influence on achieving its aims (JUDGEMENT). Workers need to be attracted to Samsung rather than Apple. If Samsung has leading technology, it can produce superior products that stand out in the market — and this is what will directly keep it ahead of Apple as a world-leading producer (JUSTIFICATION ×2).</p></div>`,
+    modelAnswer: "I believe that Samsung's people have the greatest influence on helping it achieve its aims (JUDGEMENT). No matter how advanced Samsung's technology becomes, it still requires highly skilled and motivated people to design, develop, and manufacture products that are genuinely superior to those of Apple (JUSTIFICATION 1). Furthermore, by placing high value on its people, Samsung is more likely to attract the best talent away from rivals — workers who could otherwise improve competitors' products instead of Samsung's, directly undermining Samsung's aim to remain a world-leading producer (JUSTIFICATION 2)."
+  },
+  {
+    num: "Q13",
+    marks: 2,
+    type: "written",
+    caseStudy: "WYW was set up as a partnership business with 50% owned by Rick and 50% owned by Francis. WYW sells fashion clothes from a shop on the High Street of a busy town.\n\nFor the first year, both owners had the same objective for the business: to survive. However, when the business started making a profit in the second year, the partners started disagreeing on what the future objective should be. Rick wanted to grow the business and open a new shop in another town as soon as possible. However, Francis wanted to make as much profit as possible while the business was popular.",
+    question: "Explain why WYW needed a new objective in the second year. [2 marks]",
+    hint: "Why is survival no longer the right objective once the business is making a profit? What has changed for WYW? (Apply to the case study.)",
+    starter: "WYW needed a new objective because... (Identify why survival is no longer suitable)\nNow that WYW is making a profit... (Apply to WYW's situation)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks</h5><ul><li><strong>1 mark:</strong> Explain why the objective needs to change — survival is no longer relevant once a business is established and making profit.</li><li><strong>1 mark:</strong> Apply to WYW specifically — the business survived the first year and is now profitable, so a new, more ambitious objective is needed to guide future decisions.</li></ul></div>`,
+    modelAnswer: "WYW needed a new objective because the business successfully achieved its survival objective in the first year and is now making a profit (K/APP). With the business established and profitable, survival is no longer a relevant goal — WYW now needs a new objective to give it direction for what to do next, whether that is to grow or to maximise the profit it is currently earning (APP)."
+  },
+  {
+    num: "Q14",
+    marks: 7,
+    type: "written",
+    caseStudy: "",
+    question: "Evaluate whether WYW should have profit as a business objective. [7 marks]",
+    hint: "Argue BOTH sides: why profit is a good objective for WYW, AND why it might not be the best objective (e.g. growth might be better). Use TWO pieces of information from the case study. End with a justified conclusion that makes a decision and explains why.",
+    starter: "K & U — Profit as an objective means a business aims to maximise the difference between revenue and costs. For a business like WYW...\n\nAN & APP (For Profit) — Because the case study states that WYW is already making a profit in its second year... This means that...\n\nAN & APP (Against / Growth) — On the other hand, Rick believes that WYW should open a new shop in another town... This would mean that...\n\nEvaluation — Overall, I believe WYW should / should not have profit as its main objective because... This depends on whether... Without [factor], the business risks...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 7 marks</h5><ul><li><strong>Application ×2 (APP):</strong> Use two specific pieces of information from the case study to support the argument.</li><li><strong>Analysis ×2 (AN):</strong> Analyse each piece of information — explain the implication for WYW as a business.</li><li><strong>Evaluation ×3 (EV):</strong> Make a clear decision + contextual reason + impact or consequence of that decision.</li></ul></div><div class="marks-section"><h5>Guidance</h5><ul><li>Students must engage with BOTH sides of the argument to access the highest evaluation marks.</li><li>The conclusion must go beyond repeating earlier points — it should add a condition, context, or consequence.</li><li>Accept either judgement (profit OR growth/other objective) provided it is well-justified with case study detail.</li></ul></div><div class="marks-section"><h5>Examiner Tips</h5><ul><li>Use "It depends on..." or "However, this is only appropriate if..." to strengthen the conclusion.</li><li>Avoid knowledge dumping — do not list everything you know about profit. Apply each point to WYW.</li><li>The question is about whether profit is the BEST objective — compare it to alternatives like growth.</li></ul></div>`,
+    modelAnswer: "Profit as an objective means a business aims to ensure that revenue exceeds costs by as much as possible, rewarding owners for the risk they have taken (K/U). For a partnership like WYW, where both Rick and Francis have invested their money and time, profit maximisation would ensure both partners receive a financial reward for establishing the business (APP1). This would provide WYW with retained profit that could be reinvested in the business — for example, improving the shop's appearance or stock range — helping to attract more customers and sustain the business's success (AN1).\n\nHowever, Rick believes WYW should pursue growth by opening a second shop in another town (APP2). If WYW opened a new location, it could reach an entirely new customer base and significantly increase total revenue — meaning more profit in the long run, even if profit margins are temporarily reduced during the expansion period (AN2).\n\nOverall, I believe WYW should prioritise profit over growth at this stage. WYW is a partnership and both owners must agree on objectives — Francis already prefers profit, and forcing rapid growth without agreement could create damaging conflict between the two owners. Furthermore, growth requires significant upfront investment that WYW may not yet be able to afford safely. However, this judgement depends on whether the business has access to sufficient finance — if Rick could secure a business loan, growth might become the more rewarding long-term strategy."
+  }
+];
+</script>
     <script src="script.js"></script>
 </body>
 

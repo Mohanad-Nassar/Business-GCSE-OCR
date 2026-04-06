@@ -301,8 +301,1372 @@
         </div>
     </main>
 
-    <script></script>
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 1.3 Business Ownership
+    // ══════════════════════════════════════
 
+    // 1. Main Learning Content
+    const topics = [
+        {
+            title: "Key Terms & Official Definitions",
+            tag: "Core Concepts",
+            content: `<p>This unit covers the four main types of business ownership. Understanding the features, advantages, and disadvantages of each is essential for your exams.</p>
+<ul>
+<li><strong>Sole Trader:</strong> A business owned by one person. The most common form of business ownership in the UK. The owner can employ as many staff as they wish — 'sole' refers to ownership, not working alone.</li>
+<li><strong>Partnership:</strong> A business owned by two or more people (minimum 2 partners). Common in professions such as law firms, accountancy practices, and dental practices.</li>
+<li><strong>Private Limited Company (Ltd):</strong> A company where shares can only be sold to family and friends with agreement of all existing shareholders. Has 'Ltd' after its name.</li>
+<li><strong>Public Limited Company (plc):</strong> A large company whose shares are sold to the general public through the Stock Exchange. Has 'plc' after its name. Requires a minimum of £50,000 share capital.</li>
+<li><strong>Limited Liability:</strong> The responsibility for the debts of a business is limited to the amount invested by a shareholder. Personal possessions are protected. A feature of private and public limited companies.</li>
+<li><strong>Unlimited Liability:</strong> The responsibility for all debts of a business rests with the owners personally. Personal possessions — including a home or car — may have to be sold to repay debts. A feature of sole traders and ordinary partnerships.</li>
+<li><strong>Deed of Partnership:</strong> A legal document setting out the operations of the partnership — the role of each partner, how profits and losses are shared, and how much capital each partner has contributed.</li>
+<li><strong>Shareholders:</strong> The owners of a private or public limited company. Each shareholder has invested money and owns a share of the business proportional to their investment.</li>
+<li><strong>Dividend:</strong> The money paid to a shareholder from the profits of a limited company. This is the reward for taking a financial risk by investing in the company.</li>
+<li><strong>Capital:</strong> Money raised to start or develop a business.</li>
+<li><strong>Sleeping Partner:</strong> A partner who invests capital into a partnership but takes no active part in running the business. Their liability is limited to the amount they contributed.</li>
+<li><strong>Limited Liability Partnership (LLP):</strong> A hybrid form where partners have limited liability for business debts, but must make their finances publicly available. Common among solicitors.</li>
+</ul>`
+        },
+        {
+            title: "Sole Traders",
+            tag: "Core Concepts",
+            content: `<p>A <strong>sole trader</strong> is a business owned by one person. Despite the name, a sole trader <em>can</em> employ as many people as they wish — 'sole' refers to sole ownership, not working alone. Sole traders are the most common form of business ownership in the UK.</p>
+<p>Common examples include plumbers, electricians, hairdressers, market traders, and freelance consultants.</p>
+<div class="two-col">
+<div>
+<div class="col-head">✓ Advantages</div>
+<div class="pro-item"><strong>Easy to set up:</strong> A sole trader is the easiest and cheapest form of ownership to establish. There are very few forms to complete, making it the most popular choice for start-up businesses.</div>
+<div class="pro-item"><strong>Complete control:</strong> The sole trader makes all decisions without consulting anyone, allowing faster decision-making and full autonomy over the business.</div>
+<div class="pro-item"><strong>Keeps all profits:</strong> Because there is only one owner, all profits belong to the sole trader alone — no obligation to share earnings.</div>
+<div class="pro-item"><strong>Financial privacy:</strong> Unlike limited companies, a sole trader does not have to publish financial information. All accounts remain completely private.</div>
+<div class="pro-item"><strong>Low start-up capital:</strong> A sole trader can be set up with very little money, making it accessible to entrepreneurs with limited savings.</div>
+</div>
+<div>
+<div class="col-head">✗ Disadvantages</div>
+<div class="con-item"><strong>Unlimited liability:</strong> The sole trader is personally responsible for all business debts. If the business fails, personal possessions — including a home or car — may need to be sold to repay what is owed.</div>
+<div class="con-item"><strong>Shortage of capital:</strong> With only one owner, raising money is difficult. Banks may be reluctant to lend, limiting the ability to start or expand.</div>
+<div class="con-item"><strong>Long hours and stress:</strong> The sole trader must manage all aspects of the business alone, often working very long hours — especially when starting out. This can cause serious stress and illness.</div>
+<div class="con-item"><strong>Skill shortage:</strong> The owner may lack specialist skills needed to run the business effectively, meaning staff with specific expertise may need to be hired at additional cost.</div>
+<div class="con-item"><strong>No continuity:</strong> If the sole trader dies or becomes seriously ill, the business may cease to exist entirely or struggle to continue operating.</div>
+</div>
+</div>`
+        },
+        {
+            title: "Partnerships",
+            tag: "Core Concepts",
+            content: `<p>A <strong>partnership</strong> is a business owned by two or more people. There must be a minimum of two partners, but they do not need to have an equal share. Partnerships are very common in certain professions — solicitors, accountants, and dentists often operate as partnerships.</p>
+<p>Because a partnership is more complex than a sole trader, most draw up a <strong>deed of partnership</strong>. This legal document sets out:</p>
+<ul>
+<li>The role of each partner within the business.</li>
+<li>How profits and losses will be shared among the partners.</li>
+<li>How much capital each partner has contributed.</li>
+<li>Information on the way the business operates day-to-day.</li>
+</ul>
+<p>If there is no deed of partnership, the law states that each partner is <strong>equal</strong>, regardless of the amount of capital they invested.</p>
+<p>A <strong>sleeping partner</strong> provides capital but takes no part in running the business and has limited liability for losses up to the amount contributed.</p>
+<div class="two-col">
+<div>
+<div class="col-head">✓ Advantages</div>
+<div class="pro-item"><strong>More capital:</strong> With more than one owner, it is easier to raise capital to start or expand the business, as each partner can contribute savings.</div>
+<div class="pro-item"><strong>Shared workload:</strong> Partners can divide work, reducing stress. If one partner is ill, others can cover — unlike a sole trader who has no one to rely on.</div>
+<div class="pro-item"><strong>More skills:</strong> Different partners often bring complementary skills. A law firm may have partners specialising in different areas of law, improving quality and efficiency.</div>
+<div class="pro-item"><strong>Easy to set up:</strong> Like a sole trader, a partnership is relatively easy and inexpensive to establish compared to a limited company.</div>
+<div class="pro-item"><strong>Financial privacy:</strong> Like sole traders, partnerships do not have to share financial information with the public.</div>
+</div>
+<div>
+<div class="col-head">✗ Disadvantages</div>
+<div class="con-item"><strong>Unlimited liability:</strong> Each partner is personally liable for all the business's debts — including debts created by other partners. Personal possessions may be at serious risk.</div>
+<div class="con-item"><strong>Profit is shared:</strong> Any profit made is split between the partners. This can cause serious conflict if one partner feels they contribute significantly more than others.</div>
+<div class="con-item"><strong>Slower decision-making:</strong> With multiple partners involved, disagreements can arise, slowing decisions compared to a sole trader who acts alone.</div>
+<div class="con-item"><strong>Shortage of capital:</strong> Even with multiple partners, the total capital available may be insufficient for major expansion projects.</div>
+<div class="con-item"><strong>No continuity:</strong> If a partner dies, the partnership may legally have to be dissolved and reconstituted.</div>
+</div>
+</div>`
+        },
+        {
+            title: "Private Limited Companies (Ltd)",
+            tag: "Core Concepts",
+            content: `<p>A <strong>private limited company</strong> is identified by 'Ltd' after its name. The owners are called <strong>shareholders</strong> because they each own a share of the business. A private limited company must have at least two shareholders.</p>
+<p>The defining feature of a private limited company is that <strong>shares can only be sold to family and friends</strong> — not to the general public. Any new shareholder must be agreed upon by all existing shareholders. This gives owners strong control, which is why many private limited companies are family businesses.</p>
+<div class="two-col">
+<div>
+<div class="col-head">✓ Advantages</div>
+<div class="pro-item"><strong>Limited liability:</strong> Shareholders are only responsible for debts up to the amount they invested in the business. Personal possessions are protected, which encourages people to invest.</div>
+<div class="pro-item"><strong>Control over share sales:</strong> Shares can only be sold with agreement from existing shareholders, preventing unwanted takeovers. This is why many Ltd companies remain in family hands for generations.</div>
+<div class="pro-item"><strong>Continuity:</strong> Unlike a sole trader or partnership, if a shareholder dies, the business continues. Shares are simply transferred to another person.</div>
+<div class="pro-item"><strong>Easier to borrow:</strong> Banks are often more willing to lend to limited companies, viewing them as lower risk than sole traders or partnerships.</div>
+</div>
+<div>
+<div class="col-head">✗ Disadvantages</div>
+<div class="con-item"><strong>Financial information is public:</strong> Unlike sole traders and partnerships, limited companies must submit accounts to the Registrar of Companies, which can be viewed by competitors and the general public.</div>
+<div class="con-item"><strong>Complex and expensive to set up:</strong> There are significant legal requirements and administrative forms to complete, making it more costly and time-consuming to establish than a sole trader or partnership.</div>
+<div class="con-item"><strong>Restricted share sales:</strong> Cannot sell shares to the general public, limiting the amount of capital that can be raised for major expansion.</div>
+<div class="con-item"><strong>Dividends:</strong> Shareholders expect a share of profits (dividends). This can cause conflict when directors want to reinvest profits back into the business for growth.</div>
+</div>
+</div>`
+        },
+        {
+            title: "Public Limited Companies (plc)",
+            tag: "Core Concepts",
+            content: `<p>A <strong>public limited company</strong> is identified by 'plc' after its name. The key difference from a private limited company is that a plc can sell its shares to the <strong>general public through the Stock Exchange</strong>. This makes it possible to raise very large amounts of capital — often millions of pounds. Well-known examples include J Sainsbury plc, Marks & Spencer plc, Next plc, Sky plc, and Burberry plc.</p>
+<p>A plc must have a minimum share capital of <strong>£50,000</strong>. This significant requirement means plcs are never used as start-up businesses.</p>
+<div class="two-col">
+<div>
+<div class="col-head">✓ Advantages</div>
+<div class="pro-item"><strong>Raise large amounts of capital:</strong> Shares can be sold to the general public and institutional investors (like pension funds), enabling vast sums to be raised for expansion — often into millions of pounds.</div>
+<div class="pro-item"><strong>Easier to borrow:</strong> Banks see plcs as very low risk due to their size and public accountability, making it easier to secure large loans at competitive interest rates.</div>
+<div class="pro-item"><strong>Limited liability for shareholders:</strong> As with a private limited company, shareholders only risk losing the amount they originally invested.</div>
+</div>
+<div>
+<div class="col-head">✗ Disadvantages</div>
+<div class="con-item"><strong>Risk of hostile takeover:</strong> Since anyone can buy shares on the Stock Exchange, a rival company or investor group can buy 51% of shares and take control — without the original owners' consent. This cannot happen with a private limited company.</div>
+<div class="con-item"><strong>Expensive to set up:</strong> Becoming a plc requires significant legal processes, a minimum of £50,000 share capital, and ongoing compliance costs far exceeding those of a private limited company.</div>
+<div class="con-item"><strong>Financial information fully public:</strong> All accounts must be published annually, giving competitors direct access to sensitive financial performance data. This can trigger other businesses to attempt a takeover.</div>
+<div class="con-item"><strong>Problems of size:</strong> Large plcs often have complex management structures, which can make them inefficient and slow to adapt compared to smaller, more agile businesses.</div>
+</div>
+</div>`
+        },
+        {
+            title: "Limited vs Unlimited Liability",
+            tag: "Analysis",
+            content: `<p><strong>Liability</strong> refers to the legal responsibility an owner has for the debts of their business. This is one of the most important concepts in the unit — and one of the most common sources of lost marks in the exam.</p>
+<div class="two-col">
+<div>
+<div class="col-head">🔒 Limited Liability</div>
+<div class="pro-item"><strong>Who has it?</strong> Shareholders of private limited companies (Ltd) and public limited companies (plc). Also limited liability partnerships (LLP).</div>
+<div class="pro-item"><strong>What does it mean?</strong> If the business cannot pay its debts, shareholders can only lose up to the amount they originally invested. Personal possessions — home, car, savings — are fully protected.</div>
+<div class="pro-item"><strong>Why it matters:</strong> It encourages people to invest in a business, because the maximum they can lose is clearly defined. This makes it far easier for companies to raise capital.</div>
+</div>
+<div>
+<div class="col-head">⚠️ Unlimited Liability</div>
+<div class="con-item"><strong>Who has it?</strong> Sole traders and ordinary partners in a standard partnership.</div>
+<div class="con-item"><strong>What does it mean?</strong> If the business cannot pay its debts, the owner is personally responsible for ALL debts — even if they exceed the value of the business itself. Personal possessions can be seized to repay creditors.</div>
+<div class="con-item"><strong>Why it matters:</strong> A business failure does not just mean losing the business — it can mean losing personal wealth, savings, and even your home. This is a major deterrent to investment and growth.</div>
+</div>
+</div>
+<p><strong>Key Rule to Remember:</strong> Only <em>companies</em> (Ltd and plc) have limited liability. Sole traders and ordinary partnerships always have unlimited liability — unless they are structured as a limited liability partnership (LLP).</p>`
+        },
+        {
+            title: "Suitability of Ownership in Different Contexts",
+            tag: "Application",
+            content: `<p>Choosing the right type of business ownership depends on the specific circumstances of the business. The key factors to consider are: <strong>amount of capital needed</strong>, <strong>level of financial risk</strong>, <strong>desire for control</strong>, and <strong>stage of the business</strong>.</p>
+<ul>
+<li><strong>Sole Trader — suitable for:</strong> Start-ups that need only a small amount of finance, have low financial risk, and where one person has sufficient skills to manage the business alone. Examples: a local plumber, a freelance photographer, a market trader.</li>
+<li><strong>Partnership — suitable for:</strong> Start-ups or established businesses that need more capital than a sole trader can raise, need a wider range of skills, and want to share the workload. Examples: a vet's surgery (three newly qualified vets pooling resources), a dental practice, a small law firm.</li>
+<li><strong>Private Limited Company — suitable for:</strong> Businesses that need more finance, face higher financial risk (so limited liability is important to protect personal wealth), and want to keep control within a trusted group of shareholders. Often used by growing family businesses.</li>
+<li><strong>Public Limited Company — suitable for:</strong> Large, established businesses that need very large amounts of capital (into the millions) to expand — often overseas. Never suitable for start-ups due to the £50,000 minimum share capital requirement and high set-up costs. Examples: Marks & Spencer, Sainsbury's, Next.</li>
+</ul>
+<p><strong>Start-ups:</strong> A new business will begin as a sole trader, partnership, or private limited company. A plc is never used for a start-up.</p>
+<p><strong>Established businesses growing:</strong> As a business grows and requires more capital, it may change ownership type — from sole trader to partnership, from partnership to Ltd, or from Ltd to plc. However, many successful businesses never change their ownership type if their current structure meets their needs.</p>`
+        },
+        {
+            title: "Real-World Case Study: Marks & Spencer",
+            tag: "Case Study",
+            content: `<div class="case-study-box">
+<h4>Case Study: Marks & Spencer — A Journey Through All Four Ownership Types</h4>
+<p>Marks & Spencer is the perfect real-world example of a business that has evolved through all four types of business ownership:</p>
+<ul>
+<li><strong>1884 — Sole Trader:</strong> Michael Marks opened a "penny bazaar" stall in Leeds market, where every product cost one penny. He was the single owner with full control — and unlimited liability.</li>
+<li><strong>1894 — Partnership:</strong> Michael Marks partnered with Tom Spencer, who provided capital to fund expansion. The now-famous partnership of "Marks & Spencer" was born. Two owners; more capital; shared risk.</li>
+<li><strong>Early 20th Century — Private Limited Company (Ltd):</strong> As the business grew significantly, it incorporated as a private limited company. This provided limited liability for investors and enabled more structured capital-raising while keeping control within the company.</li>
+<li><strong>Early 20th Century — Public Limited Company (plc):</strong> Marks & Spencer eventually floated on the London Stock Exchange as a plc, raising the vast sums of capital needed to become one of the UK's largest retailers, with hundreds of stores nationwide.</li>
+</ul>
+<p><strong>Takeaway:</strong> Each change in ownership type was driven by the need to raise more capital to support growth. This story perfectly illustrates that the choice of ownership is not permanent — it evolves as the business's needs, ambitions, and financial requirements change over time.</p>
+</div>`
+        }
+    ];
+
+    // 2. Multiple Choice Questions (Minimum 10)
+    const mcqData = [
+        {
+            q: "A sole trader can:",
+            opts: [
+                "Only employ one person",
+                "Employ as many people as the owner wishes",
+                "Only employ workers where other workers agree",
+                "Not employ any workers because it is a sole trader working on their own"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. A sole trader means ONE OWNER — 'sole' refers to ownership, not working alone. A sole trader can legally employ as many staff as the business requires. This is a very commonly misunderstood point."
+        },
+        {
+            q: "A partnership has:",
+            opts: [
+                "A maximum of 20 partners",
+                "A maximum of 2 partners",
+                "A minimum of 2 partners",
+                "A minimum of 20 partners"
+            ],
+            ans: 2,
+            explain: "Correct answer: C. A partnership must have a minimum of 2 partners. There is no legal maximum in a standard UK partnership. The minimum is 2 — not 4, not 20."
+        },
+        {
+            q: "A private limited company:",
+            opts: [
+                "Is easier to set up than a plc",
+                "Is just as difficult to set up as a plc",
+                "Always has one main shareholder",
+                "Can sell shares to anyone with the agreement of the main shareholder"
+            ],
+            ans: 0,
+            explain: "Correct answer: A. A private limited company is easier and cheaper to set up than a plc. A plc requires at least £50,000 in share capital, more complex legal processes, and ongoing public reporting requirements."
+        },
+        {
+            q: "A public limited company:",
+            opts: [
+                "Must have a minimum of £500,000 share capital",
+                "Must have a minimum of £50,000 share capital",
+                "Must have a maximum of £50,000 share capital",
+                "Has no minimum share capital"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. A plc must have a minimum of £50,000 in share capital. This is a key fact — it is one reason why plcs are not used for start-ups."
+        },
+        {
+            q: "Limited liability applies to:",
+            opts: [
+                "Only private limited companies",
+                "All businesses over a certain size",
+                "Private limited companies and plcs",
+                "Only plcs which operate in more than one country"
+            ],
+            ans: 2,
+            explain: "Correct answer: C. Limited liability applies to both private limited companies (Ltd) AND public limited companies (plc). It does NOT apply to sole traders or standard partnerships — they have unlimited liability."
+        },
+        {
+            q: "What is a disadvantage of being a sole trader?",
+            opts: [
+                "Can only have one employee",
+                "Cannot share business ownership",
+                "Legally required to produce a business plan",
+                "Must pay corporation tax"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. A sole trader cannot share ownership — by definition there is only one owner. This limits capital-raising ability and means all responsibility falls on one person. A: Wrong — sole traders can employ many people. C: Wrong — there is no legal requirement for a business plan. D: Wrong — sole traders pay income tax on profits, not corporation tax (which is for companies)."
+        },
+        {
+            q: "Limited liability protects:",
+            opts: [
+                "Business owners",
+                "Customers",
+                "Suppliers",
+                "The local community"
+            ],
+            ans: 0,
+            explain: "Correct answer: A. Limited liability protects business owners (shareholders) by limiting their personal financial responsibility to the amount they invested. B, C, D: These stakeholders are not protected by limited liability — suppliers actually face financial risk when a company cannot pay its debts."
+        },
+        {
+            q: "Which type of ownership is most suitable for an entrepreneur who wishes to start up their own business quickly and with as little paperwork as possible?",
+            opts: [
+                "Partnership",
+                "Private limited company",
+                "Public limited company",
+                "Sole trader"
+            ],
+            ans: 3,
+            explain: "Correct answer: D. A sole trader is the simplest and fastest form of ownership to establish, with minimal legal requirements and no registration with Companies House required. A: Requires a deed of partnership. B: Must register with Companies House — costly and time-consuming. C: The most demanding legal requirements of all — completely unsuitable for a quick start-up."
+        },
+        {
+            q: "Which of the following types of ownership is most suitable for an established business that needs to raise a large amount of capital to expand overseas?",
+            opts: [
+                "Partnership",
+                "Private limited company",
+                "Public limited company",
+                "Sole trader"
+            ],
+            ans: 2,
+            explain: "Correct answer: C. A public limited company (plc) can sell shares on the Stock Exchange to the general public and institutional investors, enabling it to raise millions of pounds — the only realistic way to fund very large-scale overseas expansion."
+        },
+        {
+            q: "Which stakeholder does limited liability protect?",
+            opts: [
+                "Customers",
+                "Employees",
+                "Shareholders",
+                "Suppliers"
+            ],
+            ans: 2,
+            explain: "Correct answer: C. Limited liability protects shareholders (the owners of a limited company). It means they can only lose up to the amount they originally invested, protecting their personal wealth. Customers, employees, and suppliers each have different legal protections."
+        },
+        {
+            q: "Which one of the following is a disadvantage of being a sole trader?",
+            opts: [
+                "May need to work long hours",
+                "Not being allowed to employ staff",
+                "Profits must be shared with others",
+                "Shares must be sold on the stock exchange"
+            ],
+            ans: 0,
+            explain: "Correct answer: A. A sole trader often must work very long hours as there is no partner to share the workload, which can lead to stress and illness. B: Wrong — sole traders can employ staff. C: Wrong — sole traders keep ALL profits. D: Wrong — sole traders do not issue shares at all."
+        },
+        {
+            q: "Which of the following is a benefit to an entrepreneur of having limited liability?",
+            opts: [
+                "All profits are tax free",
+                "Own possessions are not at risk",
+                "Productivity will fall",
+                "Suppliers are more willing to supply"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. The defining benefit of limited liability is that personal possessions (home, car, savings) cannot be seized to repay business debts — the owner only loses what they invested. A: Wrong — profits are never tax-free. C: Wrong — this is a disadvantage, not a benefit. D: Wrong — limited liability does not directly affect supplier relationships."
+        },
+        {
+            q: "A photography business is owned by three sisters. The sisters have unlimited liability. Which one of the following types of business do the sisters own?",
+            opts: [
+                "A partnership",
+                "A private limited company",
+                "A public limited company",
+                "Sole trader"
+            ],
+            ans: 0,
+            explain: "Correct answer: A. Two key clues — (1) three owners rules out a sole trader, and (2) unlimited liability rules out both types of limited company. Only a partnership has multiple owners with unlimited liability."
+        },
+        {
+            q: "Which one of the following is NOT a benefit of being a sole trader?",
+            opts: [
+                "Keep all profits",
+                "Own boss",
+                "Pursue personal goals",
+                "Shared responsibility"
+            ],
+            ans: 3,
+            explain: "Correct answer: D. Shared responsibility is a benefit of a PARTNERSHIP, not a sole trader. A sole trader carries all responsibility alone — this is actually a disadvantage. A, B, and C are all genuine benefits of being a sole trader."
+        },
+        {
+            q: "Which of the following is a feature of a public limited company?",
+            opts: [
+                "The business does not need to publish its financial information",
+                "The owners have limited liability",
+                "The owners draw up a deed of partnership",
+                "The business cannot sell shares to raise extra finance"
+            ],
+            ans: 1,
+            explain: "Correct answer: B. The owners (shareholders) of a plc have limited liability. A: Wrong — plcs MUST publish annual accounts. C: Wrong — a deed of partnership is for partnerships, not companies. D: Wrong — a plc CAN sell shares on the Stock Exchange, which is its defining feature."
+        },
+        {
+            q: "Which statement about limited liability is FALSE?",
+            opts: [
+                "The owner of a business with limited liability cannot be forced to sell private possessions to pay debts",
+                "The owner of a sole trader business has limited liability",
+                "Limited liability attracts people to invest in a business",
+                "The shareholders of an Ltd benefit from limited liability"
+            ],
+            ans: 1,
+            explain: "Correct answer: B — this statement is FALSE. Sole traders have UNLIMITED liability, NOT limited liability. The owner is personally responsible for all business debts. A: True. C: True — it reduces personal risk, encouraging investment. D: True — Ltd shareholders do have limited liability."
+        }
+    ];
+
+    // 3. Keyword Matching (Minimum 10)
+    const matchData = [
+        { term: "Sole Trader", def: "A business owned by one person. Can employ staff. Has unlimited liability. Most common form of ownership in the UK." },
+        { term: "Partnership", def: "A business owned by two or more people who share capital, skills, and unlimited liability." },
+        { term: "Private Limited Company (Ltd)", def: "A company whose shares can only be sold to family and friends with shareholder agreement. Has 'Ltd' after its name and limited liability." },
+        { term: "Public Limited Company (plc)", def: "A large company whose shares are sold to the general public on the Stock Exchange. Has 'plc' after its name and requires £50,000 minimum share capital." },
+        { term: "Limited Liability", def: "The owner's responsibility for debts is limited to the amount originally invested. Personal possessions are protected." },
+        { term: "Unlimited Liability", def: "The owner is personally responsible for ALL debts of the business. Personal possessions can be seized to repay creditors." },
+        { term: "Deed of Partnership", def: "A legal document setting out each partner's role, capital contribution, and how profits and losses will be shared." },
+        { term: "Shareholders", def: "The owners of a limited company. Each has invested money and owns a proportion of the business." },
+        { term: "Dividend", def: "A payment made to shareholders from the profits of a limited company. The financial reward for investing (and taking a risk)." },
+        { term: "Sleeping Partner", def: "A partner who provides capital for a partnership but takes no active role in running the business." },
+        { term: "Capital", def: "Money raised to start or develop a business." },
+        { term: "Stock Exchange", def: "The market (London Stock Exchange in the UK) where shares in public limited companies are bought and sold by the general public." },
+        { term: "LLP (Limited Liability Partnership)", def: "A form of partnership where owners have limited liability for business debts, but must publish financial accounts publicly." },
+        { term: "Incorporation", def: "The legal process of forming a company, creating a separate legal identity (and limited liability) distinct from its owners." }
+    ];
+
+    // 4. Fill in the Blanks (Minimum 10)
+    const fibData = [
+        {
+            display: "A _____ trader is a business owned by one person and has _____ liability for all business debts.",
+            blanks: { B1: "sole", B2: "unlimited" }
+        },
+        {
+            display: "A partnership must have a minimum of _____ partners and they usually draw up a _____ of partnership.",
+            blanks: { B1: "two", B2: "deed" }
+        },
+        {
+            display: "A private limited company has 'Ltd' after its name and can only sell shares to family and _____, unlike a _____ which sells shares on the Stock Exchange.",
+            blanks: { B1: "friends", B2: "plc" }
+        },
+        {
+            display: "Limited liability means that the owner can only lose the amount they _____ in the business, protecting their _____ possessions.",
+            blanks: { B1: "invested", B2: "personal" }
+        },
+        {
+            display: "A _____ partner invests money in a partnership but takes no part in the running of the business.",
+            blanks: { B1: "sleeping" }
+        },
+        {
+            display: "A public limited company must have a minimum of £_____ in share capital and its shares are sold on the _____.",
+            blanks: { B1: "50,000", B2: "Stock Exchange" }
+        },
+        {
+            display: "A _____ of partnership sets out the duties of the partners and the amount of _____ they put into the business.",
+            blanks: { B1: "deed", B2: "capital" }
+        },
+        {
+            display: "Sole traders and standard partnerships have _____ liability, meaning personal _____ may be sold to pay business debts.",
+            blanks: { B1: "unlimited", B2: "possessions" }
+        },
+        {
+            display: "The owners of a limited company are called _____ and they receive a share of profits called a _____.",
+            blanks: { B1: "shareholders", B2: "dividend" }
+        },
+        {
+            display: "A sole trader keeps all the _____ and makes all _____ without consulting anyone, giving complete control.",
+            blanks: { B1: "profits", B2: "decisions" }
+        },
+        {
+            display: "Private and public limited companies must make their _____ information available to the public, unlike sole traders who keep it _____.",
+            blanks: { B1: "financial", B2: "private" }
+        },
+        {
+            display: "A new business would not start as a _____ limited company because it requires at least £_____ in share capital as a minimum.",
+            blanks: { B1: "public", B2: "50,000" }
+        },
+        {
+            display: "If a sole trader or partner cannot pay business debts, they may have to sell _____ possessions because they have _____ liability.",
+            blanks: { B1: "personal", B2: "unlimited" }
+        }
+    ];
+
+    // Word bank for Fill in the Blanks
+    const fibWords = [
+        "sole", "unlimited", "two", "deed", "friends", "plc", "invested", "personal",
+        "sleeping", "50,000", "Stock Exchange", "capital", "possessions", "shareholders",
+        "dividend", "profits", "decisions", "financial", "private", "public",
+        "partnership", "shares", "limited", "minimum", "four", "three", "income"
+    ];
+
+    // 5. True or False (Minimum 10)
+    const tfData = [
+        {
+            statement: "A partnership has at least four partners.",
+            answer: false,
+            explanation: "FALSE. A partnership must have a minimum of TWO partners. There is no specified maximum number of partners in a standard UK partnership. The number four has no significance here."
+        },
+        {
+            statement: "A sole trader has one owner.",
+            answer: true,
+            explanation: "TRUE. A sole trader is defined as a business owned by exactly one person. However, the sole trader can employ as many members of staff as they wish — 'sole' means one owner, not one worker."
+        },
+        {
+            statement: "A deed of partnership will state how much capital partners should contribute to a business.",
+            answer: true,
+            explanation: "TRUE. The deed of partnership is a legal document that records how much capital each partner has contributed, their roles, and how profits and losses are shared. Without it, the law assumes all partners are equal."
+        },
+        {
+            statement: "A sleeping partner is always asleep.",
+            answer: false,
+            explanation: "FALSE. A 'sleeping partner' is a business term for a partner who invests money but takes no active role in the day-to-day running of the business. They are not literally asleep — it simply means they are a passive investor."
+        },
+        {
+            statement: "Ordinary partners in a partnership and sole traders have unlimited liability.",
+            answer: true,
+            explanation: "TRUE. Both sole traders and ordinary partners in a standard partnership have unlimited liability. This means they are personally responsible for all debts of the business — even if it means selling personal possessions."
+        },
+        {
+            statement: "Sole traders often have difficulty raising money for their business.",
+            answer: true,
+            explanation: "TRUE. As there is only one owner, raising capital can be very difficult. The sole trader can only contribute their own savings, and banks may view them as higher risk. This is one of the main disadvantages of the sole trader model."
+        },
+        {
+            statement: "A partnership has shareholders.",
+            answer: false,
+            explanation: "FALSE. Shareholders are owners of limited companies (Ltd or plc). The owners of a partnership are called 'partners', not shareholders. This is an important distinction — using the wrong terminology in an exam can cost marks."
+        },
+        {
+            statement: "Anyone can see the financial details of a sole trader.",
+            answer: false,
+            explanation: "FALSE. One of the key advantages of being a sole trader is that financial information is completely private and does not need to be shared with the public. Only limited companies (Ltd and plc) must publish their accounts."
+        },
+        {
+            statement: "A sole trader can employ as many people as they wish.",
+            answer: true,
+            explanation: "TRUE. The term 'sole trader' refers to sole ownership, not working alone. A sole trader can legally employ as many staff as the business requires and can afford."
+        },
+        {
+            statement: "A public limited company must have a minimum of £50,000 in share capital.",
+            answer: true,
+            explanation: "TRUE. A plc is legally required to have at least £50,000 in share capital. This significant financial requirement is one key reason why plcs are never used as start-up businesses."
+        },
+        {
+            statement: "A private limited company can sell its shares on the Stock Exchange.",
+            answer: false,
+            explanation: "FALSE. Only a public limited company (plc) can sell shares on the Stock Exchange. A private limited company can only sell shares to family, friends, and existing shareholders — and only with everyone's agreement."
+        },
+        {
+            statement: "Shareholders in a private limited company can be taken over without their consent.",
+            answer: false,
+            explanation: "FALSE. In a private limited company, shares can only be sold with the agreement of all existing shareholders. This protects the business from hostile takeovers — a major advantage over a plc where anyone can buy shares on the Stock Exchange."
+        },
+        {
+            statement: "The main reason a business becomes a plc is to raise large amounts of capital.",
+            answer: true,
+            explanation: "TRUE. The ability to sell shares to the general public through the Stock Exchange allows a plc to raise millions of pounds — far more than any other form of business ownership. This is the primary motivation for converting to a plc."
+        }
+    ];
+
+    // 6. Common Student Misconceptions
+    const miscData = [
+        {
+            wrong: "A sole trader means the owner works alone and cannot have employees.",
+            correct: "A sole trader simply means ONE OWNER. The word 'sole' refers to ownership, not working alone. A sole trader can employ as many staff as they need and can afford. Many successful sole traders run large operations with many employees."
+        },
+        {
+            wrong: "A 'public' limited company means it is owned by the government or the public sector.",
+            correct: "'Public' means the shares are available for the public to BUY on the Stock Exchange. It has nothing to do with government ownership. The public sector is a completely different concept and is NOT on the OCR GCSE Business specification."
+        },
+        {
+            wrong: "Any business can be called a 'company'.",
+            correct: "The word 'company' specifically and legally refers to private limited companies (Ltd) or public limited companies (plc). A sole trader or partnership is a 'business', not a 'company'. Using 'company' for a sole trader in an exam answer can make your answer inaccurate and cost marks."
+        },
+        {
+            wrong: "Limited liability means the business has limited debt or cannot borrow much.",
+            correct: "Limited liability refers to the OWNER'S PERSONAL responsibility for debt — not the amount of debt the business can have. It means the owner can only lose up to the amount they invested in the business, protecting their personal possessions."
+        },
+        {
+            wrong: "Partners in a partnership always share profits equally.",
+            correct: "Partners do NOT have to share profits equally. The deed of partnership sets out exactly how profits (and losses) are shared, which can be in any proportion the partners agree on. ONLY if there is NO deed of partnership does the law require equal sharing."
+        },
+        {
+            wrong: "A sleeping partner runs the business while the other partner takes a rest.",
+            correct: "A sleeping partner provides CAPITAL but takes NO PART in running the business. The word 'sleeping' refers to their passive management role — they are a financial investor only, not an active manager."
+        },
+        {
+            wrong: "A private limited company and a public limited company are basically the same thing — just different sizes.",
+            correct: "They are fundamentally different. Key differences: (1) a plc can sell shares on the Stock Exchange, an Ltd cannot; (2) a plc needs £50,000 minimum share capital; (3) a plc can be taken over by hostile buyers, an Ltd cannot without shareholder consent; (4) a plc faces more public scrutiny of its finances."
+        },
+        {
+            wrong: "When answering about disadvantages of a limited company, it is fine to say 'it is expensive' or 'there is a lot of paperwork'.",
+            correct: "These are too vague for the examiner. You must state specifically WHAT is expensive and WHY, and explain the business-facing impact. For example: 'The requirement to submit detailed accounts to Companies House (U) means Tom and Amir spend time on administration (APP) that could be used for customer service — their priority (AN).'"
+        },
+        {
+            wrong: "Once a business becomes a plc, it must remain a plc permanently.",
+            correct: "Some businesses that became plcs have chosen to return to being private limited companies ('going private'). This can happen when owners want to regain control, protect themselves from hostile takeovers, or reduce the costs and public scrutiny associated with being a plc."
+        },
+        {
+            wrong: "Unlimited liability is always a serious problem for sole traders and partners.",
+            correct: "Unlimited liability is only a practical problem if the business fails and cannot pay its debts. Many successful sole traders and partners never face this issue during their careers. However, the RISK is always present — which is why limited liability is so attractive for businesses with significant financial exposure."
+        }
+    ];
+
+    // 7. Examiner Tips & Structure Guides
+    const examTips = [
+        {
+            type: "Explain — 2 marks",
+            title: "Two Marks = One Point + One Development",
+            content: `
+      <p>A 2-mark <strong>'Explain'</strong> question needs exactly two things: a <strong>point</strong> and a <strong>development</strong>. Do not write a paragraph.</p>
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li><strong>Mark 1 (K):</strong> State the fact or concept clearly and correctly.</li>
+        <li><strong>Mark 2 (U):</strong> Develop it — explain what it means in practice or what the consequence is.</li>
+      </ul>
+
+      <p><strong>❌ Bad Answer (1 mark only):</strong><br/>
+      <em>"Limited liability means the owner doesn't have to pay all the debts."</em><br/>
+      Too vague — no development of what this actually means for the owner.</p>
+
+      <p><strong>✅ Good Answer (2 marks):</strong><br/>
+      <em>"With limited liability, shareholders can only lose up to the amount they originally invested in the company (K), meaning their personal possessions — such as their home — cannot be seized to repay business debts (U)."</em></p>
+
+      <p><strong>⚠️ Examiner Warning:</strong> The most common error on this question type is <strong>confusing limited liability with unlimited liability</strong> — describing owners' possessions being TAKEN when explaining limited liability. This scores ZERO even if the rest of the answer appears correct. Always double-check your definition.</p>
+
+      <p><strong>🚫 The 'Explain' Trap:</strong> The question says 'explain', not 'identify'. If you just state "limited liability means the owner is not responsible for all the debts" without explaining what this means in practice, you will only score 1 mark, not 2.</p>
+    `,
+            pills: ["K", "U"]
+        },
+        {
+            type: "Analyse — 3 marks",
+            title: "The Holy Trinity: U → APP → AN",
+            content: `
+      <p>A 3-mark <strong>'Analyse'</strong> question requires all three assessment objectives in a logical chain. You will score <strong>ZERO for analysis</strong> if you do not apply it to the specific business in the case study.</p>
+      <p><strong>The 3-Step Formula:</strong></p>
+      <ul>
+        <li><strong>Step 1 — Understanding (U):</strong> State and explain the benefit or disadvantage clearly.<br/><em>e.g. "Limited liability means shareholders only risk losing the amount they invested..."</em></li>
+        <li><strong>Step 2 — Application (APP):</strong> Link directly to the case study business. Use their name and refer to specific details from the text.<br/><em>e.g. "...which is important for Pen &amp; Sword Books, a family-owned business expanding into audio books..."</em></li>
+        <li><strong>Step 3 — Analysis (AN):</strong> State the bottom-line impact on the business — costs, revenue, growth, survival, or competitiveness.<br/><em>e.g. "...meaning the family can invest confidently knowing they cannot lose more than their original stake, supporting the digital expansion."</em></li>
+      </ul>
+
+      <p><strong>🚫 Knowledge Dumping Alert:</strong> Do NOT write everything you know about sole traders or partnerships. If the question asks for one advantage, give ONE advantage and develop it fully through all three steps. Three half-developed points score far fewer marks than one fully developed chain.</p>
+
+      <p><strong>The 'So What?' Test for Analysis:</strong> Keep asking "So what?" until you reach a real business impact:</p>
+      <ul>
+        <li>"Partnerships can raise more capital." → <em>So what?</em></li>
+        <li>"This means the business has more money to invest." → <em>So what?</em></li>
+        <li>"This increases the chances of the business surviving start-up and growing." ✅ AN mark earned.</li>
+      </ul>
+    `,
+            pills: ["U", "app", "an"]
+        },
+        {
+            type: "Analyse Two — 6 marks",
+            title: "6 Marks = Two Separate 3-Mark Chains",
+            content: `
+      <p>A 6-mark question asking you to <strong>'Analyse two...'</strong> is simply the 3-mark U → APP → AN formula done <strong>twice</strong>.</p>
+      <p><strong>Key Rules:</strong></p>
+      <ul>
+        <li>Clearly separate each point: label them <em>"Disadvantage 1..."</em> and <em>"Disadvantage 2..."</em></li>
+        <li><strong>Do NOT write a conclusion</strong> — there are zero evaluation marks available in a 6-mark question. A conclusion wastes time.</li>
+        <li>Make sure both points are genuinely different — do not repeat the same idea in different words.</li>
+        <li>Both points must still be applied to the specific business in the case study to earn APP marks.</li>
+        <li><strong>The answer must relate to the legal status</strong> of the ownership type — not just general features of being a large or small business.</li>
+      </ul>
+
+      <p><strong>⚠️ Examiner Warning:</strong> Examiners reported that responses were "often inaccurate or too vague" on this question type. Vague answers like "it costs more money" or "there is more paperwork" will not score without specifying WHAT costs more money, WHY, and what the IMPACT is on the business.</p>
+
+      <p><strong>❌ Vague (scores 0-1 marks):</strong><br/>
+      <em>"A disadvantage is that it costs a lot of money to run."</em></p>
+
+      <p><strong>✅ Full marks chain:</strong><br/>
+      <em>"Shares in Shinz Ltd cannot be sold on the stock market (U). Even though Tom and Amir want to expand by launching a resin polish service (APP), this restriction limits the capital they can raise, potentially delaying their planned growth into this new market (AN)."</em></p>
+    `,
+            pills: ["U", "app", "an"]
+        },
+        {
+            type: "Evaluate — 9 marks",
+            title: "Structure Your Essay in 4 Clear Paragraphs",
+            content: `
+      <p>A 9-mark <strong>'Evaluate'</strong> question tests ALL five assessment objectives. You need a structured response with <strong>four clear paragraphs</strong>. The examiner is looking for a <strong>justified judgement</strong> — not just a list of advantages and disadvantages.</p>
+
+      <p><strong>The 4-Paragraph Structure:</strong></p>
+      <ul>
+        <li><strong>Paragraph 1 — K &amp; U:</strong> Define the key concept (e.g. what a sole trader is) and explain a relevant feature with its implication.</li>
+        <li><strong>Paragraph 2 — AN &amp; APP:</strong> Analyse a reason FOR the ownership type being suitable, using data and evidence from the case study.</li>
+        <li><strong>Paragraph 3 — AN &amp; APP:</strong> Analyse a reason AGAINST the ownership type being suitable, using data and evidence.</li>
+        <li><strong>Paragraph 4 — 3 Evaluation Points:</strong>
+          <ol>
+            <li>State your clear decision.</li>
+            <li>Contextualise it with specific data or facts from the case study.</li>
+            <li>Add a conditional point: "However, this depends on whether..."</li>
+          </ol>
+        </li>
+      </ul>
+
+      <p><strong>Sentence Starters for the Evaluation Paragraph:</strong></p>
+      <ul>
+        <li><em>"Overall, I recommend that [business] should [decision] because..."</em></li>
+        <li><em>"Given that the data shows [specific figure or fact from the case study]..."</em></li>
+        <li><em>"However, this recommendation depends on whether [condition e.g. can secure a loan / find a suitable partner]..."</em></li>
+      </ul>
+
+      <p><strong>⚠️ Examiner Warning:</strong> A conclusion that simply repeats your earlier analysis scores NO evaluation marks. You must make a judgement and justify it using specific case study context. The examiner's report states evaluation must be <em>"contextually robust"</em> for the full 3 marks.</p>
+    `,
+            pills: ["K", "U", "app", "an", "eval"]
+        },
+        {
+            type: "Recommend — 3 marks",
+            title: "Judgement + Comparison = Full Marks",
+            content: `
+      <p>A 3-mark <strong>'Recommend'</strong> question requires three things: a <strong>clear decision</strong>, a <strong>reason for your choice</strong>, and a <strong>comparison with the alternative</strong>. You MUST address both options to earn the full justification marks.</p>
+
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li><strong>Mark 1 (Judgement):</strong> State your recommendation clearly. <em>e.g. "Joe should become a sole trader."</em></li>
+        <li><strong>Marks 2–3 (Contextual Justification):</strong> Explain WHY your choice is BETTER THAN the other option, using specific details from the case study.</li>
+      </ul>
+
+      <p><strong>⚠️ Examiner Warning:</strong> If you only explain why your chosen option is good WITHOUT explaining why it is better than the other option, you can only score a maximum of 1 justification mark. You MUST compare both options explicitly.</p>
+
+      <p><strong>✅ Model Starter:</strong><br/>
+      <em>"Joe should become a sole trader (JUDGEMENT). Although a partnership with Mark would provide additional capital (acknowledge the other option), Joe already has £1,000 covering his first month's costs, meaning he does not need Mark's investment. As a sole trader, Joe keeps all profits and makes decisions without needing Mark's agreement, allowing the barbers shop to respond quickly to customer demand (CONTEXTUAL JUSTIFICATION)."</em></p>
+    `,
+            pills: ["app", "eval"]
+        }
+    ];
+
+    // 8. Flashcards
+    const flashcards = [
+        { term: "Sole Trader", def: "A business owned by one person. Has unlimited liability. Easiest and cheapest to set up. Keeps all profits. Financial information is private. Can employ staff." },
+        { term: "Partnership", def: "A business owned by 2 or more people. Has unlimited liability. Shares workload, capital, and skills. Partners share profits. Should have a deed of partnership." },
+        { term: "Private Limited Company (Ltd)", def: "Company owned by shareholders with limited liability. Shares sold only to family/friends with agreement. Cannot sell on Stock Exchange. More complex to set up than sole trader/partnership." },
+        { term: "Public Limited Company (plc)", def: "Company whose shares are sold on the Stock Exchange. Limited liability. Minimum £50,000 share capital. Risk of hostile takeover. Must publish annual accounts. Not for start-ups." },
+        { term: "Limited Liability", def: "Owners can only lose the amount they invested. Personal possessions — home, car, savings — are protected from business debts. Applies to Ltd and plc only." },
+        { term: "Unlimited Liability", def: "Owners are personally responsible for ALL business debts. Personal possessions can be seized to repay debts. Applies to sole traders and ordinary partnerships." },
+        { term: "Deed of Partnership", def: "A legal document setting out each partner's role, capital invested, and how profits/losses are shared. Without it, all partners are legally equal regardless of contribution." },
+        { term: "Shareholders", def: "The owners of a limited company (Ltd or plc). Each owns a share of the business proportional to their investment. They are NOT called partners." },
+        { term: "Dividend", def: "A payment made to shareholders from company profits. The financial reward shareholders receive for investing their money (and accepting the associated risk)." },
+        { term: "Sleeping Partner", def: "A partner who invests capital in a partnership but takes no active role in running it. Their personal liability is limited to the amount they contributed." },
+        { term: "Capital", def: "Money raised to start or develop a business. Different ownership types have very different abilities to raise capital — from personal savings (sole trader) to millions on the Stock Exchange (plc)." },
+        { term: "Stock Exchange", def: "The market (London Stock Exchange in the UK) where shares in public limited companies are bought and sold by the general public and institutional investors." },
+        { term: "The main reason to become a plc", def: "To raise very large amounts of capital by selling shares to the general public on the Stock Exchange — often tens or hundreds of millions of pounds for major expansion." },
+        { term: "The main risk of being a plc", def: "Hostile takeover. Anyone can buy shares on the Stock Exchange. If any person or group buys 51% of shares, they gain control of the entire business — without the original owners' consent." },
+        { term: "Why stay as an Ltd instead of becoming a plc?", def: "To maintain control over who owns shares (preventing hostile takeovers), keep financial information more private, avoid the high costs of being a plc, and retain family/founder control of the business." }
+    ];
+
+    // 9. Exam-Style Questions
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 2,
+            type: "written",
+            caseStudy: "J Sainsbury plc (Sainsbury's)\n\nSainsbury's is one of the UK's largest supermarket chains. Sainsbury's targets middle to high income customers nationally. Sainsbury's is owned by shareholders who have limited liability.\n\nThe supermarket industry is very competitive, and marketing promotions are important. An example is Sainsbury's price match against similar products sold by Aldi, one of its competitors. Sainsbury's also spends a large proportion of its marketing budget on television advertising.\n\nDeveloping new products is important to remain competitive, as customers are always looking for something new. Sainsbury's uses market segmentation to support successful product development.\n\nSainsbury's managers believe that good food should be accessible to everyone. They use primary market research to ensure the business develops products that meet the needs of its customers.",
+            question: "Explain one way that limited liability affects the owners of a company. [2 marks]",
+            hint: "Think about what happens if the company gets into debt — what is the owner personally responsible for, and what are they protected from? You need a point AND a development.",
+            starter: "Limited liability means that owners/shareholders... (K)\nThis means that if the business cannot pay its debts, the owners... (U)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a: 1 mark, AO1b: 1 mark)</h5>
+<ul>
+<li><strong>Knowledge (1 mark):</strong> A correct statement about limited liability, e.g.:
+<ul>
+<li>Owners/shareholders can only lose up to the amount originally invested</li>
+<li>Shareholders are not required to repay the company's debts personally</li>
+<li>The owner's personal assets are protected / cannot be taken from them</li>
+<li>Due to separate legal identity / incorporation</li>
+<li>Less stress/worry/risk / more financial security for shareholders</li>
+<li>Shareholders may be willing to take more risks</li>
+</ul>
+</li>
+<li><strong>Understanding/Development (1 mark):</strong> An explanation of the consequence, e.g.:
+<ul>
+<li>So their personal belongings cannot be taken to repay debts</li>
+<li>Which means they might be willing to take more financial risks</li>
+<li>Meaning they cannot lose more money than they put in</li>
+</ul>
+</li>
+</ul>
+<p><em>Note: Answers do not need to relate to Sainsbury's.</em></p>
+<p><strong>Examiner's Comment:</strong> Many candidates gained at least one mark. The most common correct responses related to protection of personal assets. Candidates who confused limited liability with unlimited liability (describing possessions being taken away to repay debts) scored zero. The question said 'explain' — some development beyond a simple definition was required for the second mark.</p>
+<p><strong>Exemplar responses:</strong><br>
+"Owners cannot lose more than the amount originally invested (1) so their personal belongings cannot be taken to repay debts (+1)."<br>
+"A shareholder's liability for debts is limited (1) which means that they might be willing to take more risks (+1)."</p></div>`,
+            modelAnswer: "With limited liability, shareholders can only lose up to the amount they originally invested in the company (K). This means that if Sainsbury's were to get into serious debt, the personal possessions of its shareholders — such as their homes or savings — cannot be seized to repay those debts (U)."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "What is a disadvantage of being a sole trader?",
+            options: [
+                "Can only have one employee",
+                "Cannot share business ownership",
+                "Legally required to produce a business plan",
+                "Must pay corporation tax"
+            ],
+            answer: 1,
+            hint: "Think about what 'sole' actually means — and what that limits the owner from doing.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Answer: B — Cannot share business ownership</h5>
+<p><strong>Why B is correct:</strong> By definition, a sole trader has one owner. This limits the ability to raise capital and means all risks and responsibilities fall entirely on one person.</p>
+<p><strong>Why the others are wrong:</strong></p>
+<ul>
+<li><strong>A — Wrong:</strong> Sole traders CAN employ more than one person. 'Sole' means one owner, not one worker.</li>
+<li><strong>C — Wrong:</strong> There is no legal requirement for a sole trader to produce a business plan.</li>
+<li><strong>D — Wrong:</strong> Sole traders pay Income Tax on their profits, not corporation tax. Corporation tax is paid by limited companies only.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q3",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Limited liability protects:",
+            options: [
+                "Business owners",
+                "Customers",
+                "Suppliers",
+                "The local community"
+            ],
+            answer: 0,
+            hint: "Limited liability is about protecting one specific group of people from losing personal wealth when a company cannot pay its debts.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Answer: A — Business owners</h5>
+<p><strong>Why A is correct:</strong> Limited liability is a legal protection for the owners (shareholders) of a company. It limits their personal financial responsibility to the amount originally invested.</p>
+<p><strong>Why the others are wrong:</strong></p>
+<ul>
+<li><strong>B — Wrong:</strong> Customers are protected by consumer law, not limited liability.</li>
+<li><strong>C — Wrong:</strong> Suppliers are creditors — if a company cannot pay its debts, suppliers may actually lose out financially. Limited liability does not protect them.</li>
+<li><strong>D — Wrong:</strong> The local community has no protection from limited liability.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q4",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which type of ownership is most suitable for an entrepreneur who wishes to start up their own business quickly and with as little paperwork as possible?",
+            options: [
+                "Partnership",
+                "Private limited company",
+                "Public limited company",
+                "Sole trader"
+            ],
+            answer: 3,
+            hint: "Which type of ownership has the fewest legal requirements to set up?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Answer: D — Sole trader</h5>
+<p><strong>Why D is correct:</strong> A sole trader is the simplest and quickest form of business to establish, with minimal legal requirements. No registration with Companies House is required.</p>
+<p><strong>Why the others are wrong:</strong></p>
+<ul>
+<li><strong>A — Wrong:</strong> A partnership ideally requires a deed of partnership — adding legal time and cost.</li>
+<li><strong>B — Wrong:</strong> A private limited company must register with Companies House, complete articles of association, and pay registration fees. More complex and time-consuming than a sole trader.</li>
+<li><strong>C — Wrong:</strong> A public limited company has the most demanding legal requirements of all, including a minimum of £50,000 in share capital and full stock exchange listing processes. Completely unsuitable for a quick start-up.</li>
+</ul>
+<p><strong>Examiner's Comment:</strong> Incorrect answers were fairly evenly spread across all three distractors, suggesting a lack of robust understanding across the ability range.</p></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q5",
+            marks: 6,
+            type: "written",
+            caseStudy: "Shinz Ltd\n\nFive years ago, brothers Tom and Amir set up a car washing business called Shinz Ltd in the town of Littlelong. The business has been very successful and currently offers 'economy', 'gloss' and 'high-gloss' washing services. Tom is responsible for the administration, finance and marketing functions. Amir is responsible for the car washing operations and supervises two full-time employees. The prices Shinz Ltd charges are not low when compared to its competitors. Customer service is a priority for the business.\n\nTom and Amir are keen to expand the business and are planning to launch a new 'resin polish' service, to protect car paintwork during the cold winter months. Many of Shinz Ltd's customers have requested this service. 'Resin polish' is not currently available in Littlelong but is offered by a business in another town five miles away. Tom is considering whether to use competitor pricing or price skimming for this new service.\n\nLittlelong Motors Ltd is a used car retailer. The business has three owners. They have suggested a merger with Shinz Ltd. Littlelong Motors Ltd offers a basic car washing service in addition to its car sales. It prides itself on offering the lowest prices in the town. 26% of Littlelong Motors Ltd's customers are 'extremely satisfied' with the car washing service provided. This compares to 68% of Shinz Ltd's customers saying they are 'extremely satisfied'.\n\nThe car washing market in Littlelong is valued at £460,000 per year.",
+            question: "Analyse two disadvantages for Shinz Ltd of operating as a private limited company. [6 marks]",
+            hint: "Each disadvantage must come from the LEGAL STRUCTURE of being a private limited company — not from being a business in general. Think specifically about: restricted share sales, financial disclosure requirements, dividends, or administrative burden.",
+            starter: "Disadvantage 1: A private limited company cannot... (U)\nFor Shinz Ltd, which is planning to expand by launching... (APP)\nThis means that... (AN)\n\nDisadvantage 2: Additionally, a private limited company must... (U)\nFor Tom and Amir, who have two employees and three local competitors... (APP)\nAs a result, this could... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 6 marks (AO1b: 2, AO2: 2, AO3a: 2)</h5>
+<ul>
+<li><strong>Understanding (up to 2 marks):</strong> One mark per disadvantage of operating as a private limited company, e.g.:
+<ul>
+<li>Financial information available to competitors / general public</li>
+<li>Lots of complex paperwork / regulations to set up / run the firm</li>
+<li>Sale of shares restricted — only with agreement of other shareholders, only to family and friends, not quoted on the stock market</li>
+<li>Dividends need to be paid to shareholders</li>
+<li>Potential conflict between shareholders (ownership) and directors (control)</li>
+</ul>
+</li>
+<li><strong>Application (up to 2 marks):</strong> One mark per application to Shinz Ltd using evidence from the text, e.g.:
+<ul>
+<li>Owned by two brothers planning to expand</li>
+<li>Launching a new 'resin polish' service requiring capital</li>
+<li>Three local competitors who could view financial information</li>
+</ul>
+</li>
+<li><strong>Analysis (up to 2 marks):</strong> One mark per business-facing impact, e.g.:
+<ul>
+<li>Lack of finance may limit the business' expansion into resin polish</li>
+<li>Owners may struggle to find time for paperwork, limiting time given to customer service</li>
+<li>Competitors could use financial data to undercut Shinz Ltd's pricing</li>
+</ul>
+</li>
+</ul>
+<p><strong>Important Guidance:</strong></p>
+<ul>
+<li>No further marks can be gained without the Understanding mark first.</li>
+<li>Analysis must be a business-facing impact — not a disadvantage to customers, workers, or owners personally.</li>
+<li>Do NOT award vague answers like "less privacy" or "expensive to set up" unless the specific reason is given.</li>
+<li>Do NOT award answers relating to business size e.g. large so decision-making is slower — answer must relate to legal status.</li>
+</ul>
+<p><strong>Exemplar responses:</strong><br>
+"Shinz Ltd's shares are not available to the general public (1). So, even after five years (APP) a lack of finance may limit the business' expansion (+1)."<br><br>
+"Private limited companies have to submit financial forms disclosing information (1). The two owners (APP) may struggle to find time to complete the paperwork, restricting the time given to customer service (+1)."</p>
+<p><strong>Examiner's Comment:</strong> Responses were often inaccurate or too vague. Examiners were looking for a chain of logical reasoning culminating in a negative impact on Shinz Ltd. A significant proportion of candidates left this space entirely blank.</p></div>`,
+            modelAnswer: "Disadvantage 1: Shares in Shinz Ltd cannot be sold on the Stock Exchange (U). Tom and Amir are planning to expand by launching a new 'resin polish' service, which will require additional capital investment (APP). As a private limited company, they can only raise capital from existing shareholders or bank loans — they cannot access the wider pool of public investors. This may restrict their ability to fund the new service, potentially allowing a competitor to enter the resin polish market first (AN).\n\nDisadvantage 2: Private limited companies are legally required to submit financial accounts to Companies House, which can be viewed by anyone including competitors (U). Shinz Ltd already faces three competitors in the Littlelong car washing market (APP). Competitors could use this financial information to identify Shinz Ltd's profit margins and undercut their pricing strategy, threatening their high customer satisfaction rate of 68% (AN)."
+        },
+        {
+            num: "Q6",
+            marks: 9,
+            type: "written",
+            caseStudy: "Miles Ahead\n\nMiles Ahead is a bicycle retailer which was set up in 2001 by entrepreneur, Reg Patel. Reg started with one shop, but the business has gradually expanded. There are now six 'Miles Ahead' shops. Despite the growth in Miles Ahead, Reg still operates the business as a sole trader, with 15 employees and a tall organisational structure. Reg segments the market (e.g. different bicycles according to age, gender, lifestyle and income), which he thinks has supported his success.\n\nReg is going to retire in six months' time. He is selling the business to Nessa Watts. Nessa has a lot of business experience. She has sold jewellery online as a sole trader for many years. Nessa has plans to expand Miles Ahead. Nessa has had to borrow £500,000 to purchase the business from Reg.\n\nNessa is considering whether to open more 'Miles Ahead' shops or launch a 'Miles Ahead' website so that customers can purchase online. Sales within the business have fallen over the past two years (Fig. 2 — sales revenue fell from approximately £800,000 in 2018 to under £700,000 in 2020), which Nessa feels is due to the traditional appearance of the shops.\n\nCustomer satisfaction data (Fig. 3 — 2015 to 2020) shows that the proportion of 'Extremely Satisfied' customers has declined, whilst 'Unsatisfied' customers have risen significantly, reaching approximately 50% by 2020.",
+            question: "Evaluate, with reference to the data in Text 3, whether operating as a sole trader is the best type of business ownership for Miles Ahead in the future. [9 marks]",
+            hint: "You MUST use specific data from the charts in your answer (sales figures, customer satisfaction percentages). Consider both the arguments FOR and AGAINST remaining as a sole trader for Nessa specifically. Then make a clear, justified recommendation.",
+            starter: "Paragraph 1 — K & U:\nA sole trader is a business owned by one person... (K)\nAs a sole trader, Nessa would face unlimited liability for all debts, and her ability to raise capital would be limited to... (U)\n\nParagraph 2 — AN & APP (argument for sole trader):\nOne argument for remaining a sole trader is that Nessa would retain complete control... (U)\nHowever, Fig. 2 shows that sales revenue has fallen from approximately £800,000 to under £700,000 between 2018 and 2020... (APP — data)\nThis means that as a sole trader, raising the capital needed to invest in a website or shop improvements would be... (AN)\n\nParagraph 3 — AN & APP (argument against sole trader):\nAgainst remaining as a sole trader, Fig. 3 shows that approximately 50% of customers were unsatisfied by 2020... (APP — data)\nWith unlimited liability and having already borrowed £500,000, Nessa faces high personal financial risk if the business continues to decline... (AN)\n\nParagraph 4 — Evaluation:\nOverall, I recommend that Nessa should NOT continue as a sole trader because... (Decision)\nGiven that the data shows sales have fallen by approximately 12% and nearly half of all customers are now unsatisfied... (Context — specific data)\nHowever, this recommendation depends on whether Nessa can find a suitable partner with digital retail experience and sufficient capital to invest in the business... (Reasoning/Impact)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 9 marks (AO1a: 1, AO1b: 1, AO2: 2, AO3a: 2, AO3b: 3)</h5>
+<p><em>Use the level of response marking grid to assess skill levels.</em></p>
+<ul>
+<li><strong>Knowledge (1 mark):</strong> e.g. One owner / sole trader has one owner.</li>
+<li><strong>Understanding (1 mark):</strong> e.g. Unlimited liability / owner liable for all debts / limited capital-raising opportunities / must work long hours / no one to share decision-making / all profits kept / complete control.</li>
+<li><strong>Application — quantitative/graphical (up to 2 marks):</strong> Any correct interpretation of Fig. 2 (e.g. sales revenue has fallen in the last 2 years / approximately 30% decrease in sales revenue since 2018) OR Fig. 3 (e.g. customers becoming more dissatisfied / in 2020 approximately 50% of customers were not satisfied).</li>
+<li><strong>Analysis (up to 2 marks):</strong> The business-facing impact/consequence of any correct understanding about being a sole trader, e.g.:
+<ul>
+<li>May be unable to raise the necessary capital to modernise stores or set up the website</li>
+<li>High risk of personal financial loss — damage to Nessa's personal wealth</li>
+<li>Lack of expertise in bicycle retail / online sales may cause any expansion venture to fail</li>
+</ul>
+</li>
+<li><strong>Evaluation (up to 3 marks):</strong> Candidate may justify remaining as a sole trader, not remaining as a sole trader, or switching to another ownership type (e.g. partnership, Ltd). For full 3 marks, the evaluation must be <strong>contextually robust</strong> — using specific details and data from the case study.</li>
+</ul>
+<p><strong>Examiner's Model Answer:</strong><br>
+A sole trader is a business owned by one individual (K) with limited capital-raising opportunities (U). Miles Ahead has had a near 20% decrease in sales revenue in the last couple of years (APP) and nearly 50% of customers are not satisfied (APP) according to the latest survey data. Nessa wants to improve the appearance of the stores, but clearly does not have available funds as she has already had to borrow £500,000. Getting more funds will be difficult as a sole trader and may delay the set up of the website (AN). Nessa will also want additional help and advice, but her knowledge is limited to the jewellery market. This lack of knowledge may lead to any bicycle retail venture online failing (AN).<br><br>
+I therefore think that Nessa would be wise to take on a business partner, rather than stay as a sole trader (EVAL). Although this will dilute Nessa's ownership, she will be able to find someone with the necessary experience to help overcome a customer satisfaction score where barely half the customers are satisfied (EVAL + contextual robustness).</p></div>`,
+            modelAnswer: "A sole trader is a business with one owner (K). As a sole trader, Nessa would have unlimited liability for all of Miles Ahead's debts, meaning her personal possessions could be seized if the business fails, and her ability to raise large amounts of capital for expansion is severely limited (U).\n\nOne argument for remaining a sole trader is that Nessa would retain complete control over all business decisions, allowing her to act quickly without consulting partners or shareholders. However, Fig. 2 shows sales revenue has fallen from approximately £800,000 in 2018 to under £700,000 in 2020 — a decline of roughly 12% (APP). As a sole trader, Nessa may struggle to raise the capital needed to modernise the shops or launch an e-commerce website, meaning the business continues to decline and she may be unable to recover the £500,000 she has already borrowed (AN).\n\nAgainst remaining as a sole trader, Fig. 3 shows that approximately 50% of customers were 'unsatisfied' by 2020 (APP). With unlimited liability and having already borrowed £500,000 to buy the business, Nessa faces a very high level of personal financial risk. If the business continues to deteriorate, her personal assets could be at serious risk (AN).\n\nOverall, I recommend that Nessa should NOT continue as a sole trader (Decision). Given that sales have fallen by approximately 12% and nearly 50% of customers are now unsatisfied, significant investment is urgently needed — and this is very difficult to fund as a sole trader (Context). Taking on a business partner would bring additional capital and complementary skills, such as digital retail expertise, which Nessa lacks having only operated in jewellery. However, this recommendation depends on whether Nessa can find a suitable partner willing to invest — if not, converting to a private limited company to sell shares to trusted investors may be the better route (Reasoning)."
+        },
+        {
+            num: "Q7",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Explain the concept of limited liability. [2 marks]",
+            hint: "First state WHAT limited liability is (the definition), then explain WHAT IT MEANS for the owner in practice if the business gets into debt.",
+            starter: "Limited liability is a legal protection for... (K)\nThis means that if the business cannot pay its debts, the owners... (U)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a: 1, AO1b: 1)</h5>
+<ul>
+<li><strong>Knowledge (1 mark):</strong> e.g.:
+<ul>
+<li>Owners'/shareholders' responsibility for the debts of the business is limited to the amount they originally invested</li>
+<li>Applies to shareholders of limited companies (Ltd and plc)</li>
+<li>Business is responsible for paying its own debts — it has a separate legal identity from its owners</li>
+</ul>
+</li>
+<li><strong>Understanding (1 mark):</strong> e.g.:
+<ul>
+<li>Owners cannot lose any more money/personal possessions beyond their original investment</li>
+<li>Personal assets such as a home cannot be taken to repay company debts</li>
+</ul>
+</li>
+</ul>
+<p><em>Note: No case study context is required for this question.</em></p>
+<p><strong>Exemplar response:</strong><br>
+"Limited liability is a legal protection for the owners/shareholders of a company (1). It means they cannot lose more money than they originally invested in the company (1)."</p></div>`,
+            modelAnswer: "Limited liability is a legal protection that applies to shareholders of limited companies (Ltd and plc) (K). It means that if the business becomes unable to pay its debts, the shareholders can only lose up to the amount they originally invested — their personal possessions, such as their home or savings, cannot be taken to repay the company's debts (U)."
+        },
+        {
+            num: "Q8",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following types of ownership is most suitable for an established business that needs to raise a large amount of capital to expand overseas?",
+            options: [
+                "Partnership",
+                "Private limited company",
+                "Public limited company",
+                "Sole trader"
+            ],
+            answer: 2,
+            hint: "Which type of ownership allows shares to be sold to the general public, enabling the very largest capital raises?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Answer: C — Public limited company</h5>
+<p><strong>Why C is correct:</strong> A plc can sell shares on the Stock Exchange to the general public and institutional investors, raising millions of pounds. This is the only realistic way to fund very large-scale overseas expansion.</p>
+<p><strong>Why the others are wrong:</strong></p>
+<ul>
+<li><strong>A — Wrong:</strong> A partnership can raise more capital than a sole trader, but is still limited to the personal wealth of the partners — insufficient for major overseas expansion.</li>
+<li><strong>B — Wrong:</strong> A private limited company can only sell shares to family and friends, restricting the total capital that can be raised.</li>
+<li><strong>D — Wrong:</strong> A sole trader has only one owner providing capital — the most limited form of capital-raising of all.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q9",
+            marks: 6,
+            type: "written",
+            caseStudy: "Green Cuisine\n\nRory and Jayda are keen entrepreneurs and are aware of the likely growth in the demand for both eating out and electric cars over the coming years. Therefore, they have decided to set up a restaurant with a difference – customers can charge their electric car using one of the car charging points in the restaurant's car park whilst enjoying a meal made from locally sourced, organic ingredients.\n\nRory previously worked in the finance department of a large business. Jayda used to work in a restaurant where she was responsible for marketing the business as well as managing the kitchens. They enjoy coming up with new ideas and not knowing what the future may bring.\n\nRory and Jayda have decided to set up their new business as a partnership. They have carried out market research which shows that there is demand for their business idea, as long as it offers exactly what customers require.\n\nRory and Jayda have decided to use cost-plus pricing with a mark-up of 10% on total costs. The average cost to produce a two-course meal is £12. Results of their market research:\n\n• Average price £13.20 → 100 customers per week\n• Average price £13.80 → 85 customers per week\n• Average price £14.40 → 45 customers per week\n\nThey intend to charge prices slightly higher than Burgerz4U, the nearest fast-food restaurant, located one mile away. The average price of a two-course meal at Burgerz4U is £11.\n\nComments from market research:\n\n\"An excellent idea. I am prepared to pay extra if I know that I am supporting other businesses in my local area.\"\n\n\"People do not have much money to spend as unemployment is high after the local factory closed. It is a good idea, but it will take a lot to persuade me to stop visiting a cheaper, well-known brand.\"",
+            question: "Analyse two benefits for Rory and Jayda of setting up the business as a partnership. [6 marks]",
+            hint: "Think about what Rory and Jayda each specifically contribute — their different professional backgrounds, their combined capital. Apply each benefit directly to Green Cuisine using names and details from the case study.",
+            starter: "Benefit 1: One benefit of a partnership is... (U)\nApplying this to Green Cuisine, Rory and Jayda each bring... (APP)\nThis means that... (AN)\n\nBenefit 2: A further benefit of a partnership is... (U)\nFor Rory and Jayda, who need significant start-up capital to fund... (APP)\nAs a result, this... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 6 marks (AO1b: 2, AO2: 2, AO3a: 2)</h5>
+<ul>
+<li><strong>Understanding (up to 2 marks):</strong> One mark per benefit of a partnership, e.g.:
+<ul>
+<li>Can share workload and decision-making</li>
+<li>May benefit from complementary/diverse skills and experiences</li>
+<li>Can raise more capital than a sole trader</li>
+<li>Easier/less complex to set up than a limited company</li>
+</ul>
+</li>
+<li><strong>Application (up to 2 marks):</strong> One mark per benefit applied to Rory and Jayda, e.g.:
+<ul>
+<li>Rory has finance experience; Jayda has marketing and kitchen management experience</li>
+<li>Both partners contribute savings to fund the restaurant and car charging infrastructure</li>
+<li>The tasks can be shared according to each partner's strengths</li>
+</ul>
+</li>
+<li><strong>Analysis (up to 2 marks):</strong> One mark per business-facing impact, e.g.:
+<ul>
+<li>Increases the chances of success and improved business performance</li>
+<li>Reduces financial risk as both partners contribute capital</li>
+<li>More likely to meet diverse customer needs through specialised management of different functions</li>
+</ul>
+</li>
+</ul>
+<p><strong>Examiner's Exemplar Response:</strong><br>
+Jayda and Rory each bring diverse skills and experiences from other job roles (U). The various tasks can be shared: Jayda can manage the kitchen and marketing whilst Rory looks after the financial elements (APP). This will increase the chances of success and improved performance of Green Cuisine (AN).</p></div>`,
+            modelAnswer: "Benefit 1: A key benefit of a partnership is that partners can share the workload and bring complementary skills to the business (U). Rory previously worked in finance while Jayda has experience in both marketing and kitchen management (APP). This means both the financial and operational sides of Green Cuisine are managed by someone with directly relevant expertise, significantly increasing the likelihood of the restaurant succeeding and avoiding costly mistakes in either area (AN).\n\nBenefit 2: Setting up as a partnership means both Rory and Jayda can contribute capital to launch Green Cuisine (U). The restaurant will require significant start-up investment — including car charging points and a kitchen for locally sourced organic ingredients — which one person alone may not be able to fund (APP). With both partners pooling their savings, the business has more start-up capital available, reducing the risk of running out of money in the critical early months of trading (AN)."
+        },
+        {
+            num: "Q10",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which stakeholder does limited liability protect?",
+            options: [
+                "Customers",
+                "Employees",
+                "Shareholders",
+                "Suppliers"
+            ],
+            answer: 2,
+            hint: "Limited liability is specifically about protecting one group from losing personal wealth if a company cannot pay its debts.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Answer: C — Shareholders</h5>
+<p><strong>Why C is correct:</strong> Limited liability protects shareholders (the owners of a limited company) by ensuring they can only lose the amount they invested. Their personal wealth beyond that investment is fully protected.</p>
+<p><strong>Why the others are wrong:</strong></p>
+<ul>
+<li><strong>A — Wrong:</strong> Customers are protected by consumer law (e.g. Consumer Rights Act), not limited liability.</li>
+<li><strong>B — Wrong:</strong> Employees are protected by employment law (minimum wage, unfair dismissal legislation), not limited liability.</li>
+<li><strong>D — Wrong:</strong> Suppliers are actually at risk when a company fails — they may not be paid for goods or services already delivered. Limited liability does not protect suppliers.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q11",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which one of the following is a disadvantage of being a sole trader?",
+            options: [
+                "May need to work long hours",
+                "Not being allowed to employ staff",
+                "Profits must be shared with others",
+                "Shares must be sold on the stock exchange"
+            ],
+            answer: 0,
+            hint: "Think about the practical challenges of managing and running a business entirely on your own.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Answer: A — May need to work long hours</h5>
+<p><strong>Why A is correct:</strong> A sole trader has no partner to share the workload, so they often work very long hours — especially when starting out. This can cause stress and serious health problems.</p>
+<p><strong>Why the others are wrong:</strong></p>
+<ul>
+<li><strong>B — Wrong:</strong> Sole traders CAN employ staff. 'Sole' means one owner, not one worker.</li>
+<li><strong>C — Wrong:</strong> Sole traders keep ALL profits entirely for themselves — profit-sharing is a disadvantage of partnerships, not sole trading.</li>
+<li><strong>D — Wrong:</strong> Sole traders do not have shares at all. The Stock Exchange is only relevant to public limited companies.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q12",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following is a benefit to an entrepreneur of having limited liability?",
+            options: [
+                "All profits are tax free",
+                "Own possessions are not at risk",
+                "Productivity will fall",
+                "Suppliers are more willing to supply"
+            ],
+            answer: 1,
+            hint: "The core benefit of limited liability is protection — but protection of what, specifically?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Answer: B — Own possessions are not at risk</h5>
+<p><strong>Why B is correct:</strong> The defining benefit of limited liability is that personal possessions — home, car, savings — cannot be seized to repay business debts. The maximum an owner can lose is what they originally invested.</p>
+<p><strong>Why the others are wrong:</strong></p>
+<ul>
+<li><strong>A — Wrong:</strong> Limited liability has nothing to do with taxation. Company profits are subject to corporation tax.</li>
+<li><strong>C — Wrong:</strong> Productivity falling is a disadvantage, not a benefit. Limited liability has no direct connection to productivity levels.</li>
+<li><strong>D — Wrong:</strong> Suppliers' decisions about whether to supply are based on creditworthiness and payment reliability, not directly on whether the business has limited liability status.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q13",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "A photography business is owned by three sisters. The sisters have unlimited liability. Which one of the following types of business do the sisters own?",
+            options: [
+                "A partnership",
+                "A private limited company",
+                "A public limited company",
+                "Sole trader"
+            ],
+            answer: 0,
+            hint: "Two key clues in the question: (1) three owners, and (2) unlimited liability. Use both clues to eliminate wrong answers.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Answer: A — A partnership</h5>
+<p><strong>Why A is correct:</strong> A partnership has multiple owners (minimum 2) AND unlimited liability. Three owners rules out a sole trader. Unlimited liability rules out both types of limited company.</p>
+<p><strong>Why the others are wrong:</strong></p>
+<ul>
+<li><strong>B — Wrong:</strong> A private limited company has LIMITED liability, not unlimited liability.</li>
+<li><strong>C — Wrong:</strong> A public limited company has LIMITED liability, not unlimited liability.</li>
+<li><strong>D — Wrong:</strong> A sole trader has only ONE owner. Three sisters cannot all be sole traders of the same business.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q14",
+            marks: 6,
+            type: "written",
+            caseStudy: "Shirtz Ltd\n\nShirtz Ltd is a private limited company owned by Shamira and her husband, Zubair. The business manufactures colourful T-shirts with logos and pictures on the front.\n\nShirtz Ltd has been operating from a room in their house. Shamira and Zubair make the T-shirts and sell them through online stores such as Amazon and eBay.\n\nShamira and Zubair would like to expand the business. They have created a business plan to help them.\n\nShirtz Ltd's Business Plan:\n\nAims and Objectives: To grow by purchasing new machinery and renting a new location for production\n\nFinance: New finance will be required to fund the business' aims and objectives\n\nBusiness Needs:\n• New machinery\n• Larger premises / location for production\n\nMarket Research — Price per T-shirt and Estimated Monthly Sales:\n• £18 → 600 T-shirts per month\n• £16 (current price) → 800 T-shirts per month\n• £14 → 1,000 T-shirts per month\n\nChanges to the Marketing Mix:\n• Product – expand the range of T-shirts produced\n• Price – set price to gain highest revenue\n• Place – develop links with a high street shop\n• Promotion – use point of sale promotion\n• Human Resources – employ two full-time production workers",
+            question: "Analyse two benefits to Shamira and Zubair of Shirtz Ltd being a private limited company. [6 marks]",
+            hint: "Focus on the legal advantages of being a private limited company specifically — limited liability, continuity, share sales, or separate legal personality. Each benefit must be applied to Shamira and Zubair's specific situation using details from the case study.",
+            starter: "Benefit 1: One benefit of being a private limited company is... (U)\nFor Shamira and Zubair, who are planning to expand into new premises and machinery... (APP)\nThis means that... (AN)\n\nBenefit 2: A further benefit of being a private limited company is... (U)\nFor Shirtz Ltd, which currently operates from a room in their house... (APP)\nAs a result, this would... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 6 marks (AO1b: 2, AO2: 2, AO3a: 2)</h5>
+<ul>
+<li><strong>Understanding (up to 2 marks):</strong> One mark per benefit of a private limited company, e.g.:
+<ul>
+<li>Limited liability</li>
+<li>Continuity of the business if an owner dies</li>
+<li>Ability to sell shares to raise capital</li>
+<li>Separate legal personality — the business is its own legal entity</li>
+</ul>
+</li>
+<li><strong>Application (up to 2 marks):</strong> One mark per application to Shamira and Zubair, e.g.:
+<ul>
+<li>Need for new finance to fund machinery and larger premises</li>
+<li>Currently operating from their house — personal possessions at risk without limited liability</li>
+<li>If one owner died, the business would continue uninterrupted</li>
+</ul>
+</li>
+<li><strong>Analysis (up to 2 marks):</strong> One mark per business-facing impact, e.g.:
+<ul>
+<li>If the expansion fails, they will not lose their house to repay debts</li>
+<li>Can attract share investment for expansion without additional bank borrowing</li>
+<li>Business would not need to be wound up if Shamira or Zubair died</li>
+</ul>
+</li>
+</ul>
+<p><strong>Examiner's Exemplar Responses:</strong></p>
+<p><em>Response 1:</em> Shamira and Zubair would benefit from limited liability (U), which means they can only lose the money they have already invested in Shirtz Ltd (U), and they would not lose their house if the business got into debt (AN).</p>
+<p><em>Response 2:</em> The business would have continuity (U) so that if Shamira died the business would continue (APP) and her husband would not have to wind the business up and start again (AN).</p>
+<p><em>Response 3:</em> They can sell shares in Shirtz Ltd (U) to gain more finance to expand the business (APP) without having to borrow money from a bank (AN).</p></div>`,
+            modelAnswer: "Benefit 1: As a private limited company, Shamira and Zubair benefit from limited liability (U). This means that if Shirtz Ltd were to fail — for example, if the planned expansion into new machinery and larger premises did not generate sufficient revenue (APP) — they would only lose the amount they originally invested in the company. Their personal possessions, including the house they currently use for production, would be fully protected from creditors (AN).\n\nBenefit 2: A further benefit is that Shirtz Ltd can sell shares to raise capital for expansion (U). The business plan states that new finance is required to fund the purchase of new machinery and larger production premises (APP). By selling shares to family members or trusted individuals — rather than taking on additional bank debt — Shamira and Zubair can fund the expansion while keeping their debt obligations low and maintaining family control of the company (AN)."
+        },
+        {
+            num: "Q15",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which one of the following is NOT a benefit of being a sole trader?",
+            options: [
+                "Keep all profits",
+                "Own boss",
+                "Pursue personal goals",
+                "Shared responsibility"
+            ],
+            answer: 3,
+            hint: "Three of these are genuine advantages of a sole trader. One is actually an advantage of a DIFFERENT type of ownership. Which one?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Answer: D — Shared responsibility</h5>
+<p><strong>Why D is correct (NOT a benefit of a sole trader):</strong> Shared responsibility is a benefit of a PARTNERSHIP — not a sole trader. A sole trader carries ALL responsibility alone. Having no one to share the burden is actually one of the disadvantages of the sole trader model.</p>
+<p><strong>Why the others are wrong (they ARE genuine sole trader benefits):</strong></p>
+<ul>
+<li><strong>A — Wrong (it IS a benefit):</strong> Keeping all profits is a genuine advantage — the sole trader does not share earnings with anyone.</li>
+<li><strong>B — Wrong (it IS a benefit):</strong> Being your own boss — having complete control — is a genuine advantage of sole trading.</li>
+<li><strong>C — Wrong (it IS a benefit):</strong> Pursuing personal goals — running the business according to your own values and objectives — is a genuine advantage of sole trading.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q16 (a)",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "Joe wants to set up his own barbers shop in the centre of Bristol. He has savings of £1,000, which will cover the first month's rent and buy some equipment he needs. His friend Mark has expressed an interest in going into business with Joe. He also has some savings he is willing to invest.",
+            question: "Which of the following is a feature of a public limited company?",
+            options: [
+                "The business does not need to publish its financial information",
+                "The owners have limited liability",
+                "The owners draw up a deed of partnership",
+                "The business cannot sell shares to raise extra finance"
+            ],
+            answer: 1,
+            hint: "Think about the key legal features that define a plc specifically.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section"><h5>Answer: B — The owners have limited liability</h5>
+<p><strong>Why B is correct:</strong> A plc's shareholders have limited liability — they can only lose the amount they originally invested. This is a defining feature of all limited companies.</p>
+<p><strong>Why the others are wrong:</strong></p>
+<ul>
+<li><strong>A — Wrong:</strong> A plc MUST publish its financial information annually. This is actually one of its key disadvantages.</li>
+<li><strong>C — Wrong:</strong> A deed of partnership is a document used in a PARTNERSHIP, not in a public limited company.</li>
+<li><strong>D — Wrong:</strong> A plc CAN — and does — sell shares on the Stock Exchange to raise finance. This is its defining and primary feature.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q16 (b)",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which statement about limited liability is FALSE?",
+            options: [
+                "The owner of a business with limited liability cannot be forced to sell private possessions to pay debts",
+                "The owner of a sole trader business has limited liability",
+                "Limited liability attracts people to invest in a business",
+                "The shareholders of an Ltd benefit from limited liability"
+            ],
+            answer: 1,
+            hint: "Three of these statements are TRUE about limited liability. One is FALSE. Think carefully about which type of ownership actually has UNLIMITED liability.",
+            starter: "The FALSE statement is...",
+            markScheme: `<div class="marks-section"><h5>Answer: B — FALSE statement</h5>
+<p><strong>Why B is the FALSE statement:</strong> Sole traders have UNLIMITED liability — NOT limited liability. The owner of a sole trader is personally responsible for ALL business debts, including having personal possessions at risk.</p>
+<p><strong>Why the others are TRUE statements (and therefore incorrect answers to this question):</strong></p>
+<ul>
+<li><strong>A — True:</strong> With limited liability, personal possessions cannot be taken to repay business debts. This is entirely correct.</li>
+<li><strong>C — True:</strong> Limited liability does attract investors — it clearly defines and limits their personal financial risk, which makes investing more appealing.</li>
+<li><strong>D — True:</strong> Shareholders of an Ltd do benefit from limited liability. This is correct.</li>
+</ul></div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q16 (c)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Analyse one advantage of Joe becoming a sole trader. [3 marks]",
+            hint: "Use the three-step formula: state the advantage (U), link it to Joe's specific situation with his £1,000 savings and barbers shop (APP), then explain the business impact (AN).",
+            starter: "One advantage of Joe becoming a sole trader is... (U)\nFor Joe, who has £1,000 in savings to set up a barbers shop in Bristol... (APP)\nThis means that... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b: 1, AO2: 1, AO3a: 1)</h5>
+<ul>
+<li><strong>Understanding (1 mark):</strong> One advantage of being a sole trader, e.g.:
+<ul>
+<li>Easiest and cheapest to set up — minimal paperwork</li>
+<li>Joe keeps all profits</li>
+<li>Complete control over all decisions</li>
+<li>Financial information stays completely private</li>
+<li>Can be set up with very little capital</li>
+</ul>
+</li>
+<li><strong>Application (1 mark):</strong> Link to Joe's specific situation, e.g.:
+<ul>
+<li>Joe only has £1,000 — a sole trader requires minimal start-up costs beyond what Joe already has</li>
+<li>Joe can make pricing and marketing decisions for the barbers shop without consulting Mark</li>
+<li>Joe does not need to share profits with anyone</li>
+</ul>
+</li>
+<li><strong>Analysis (1 mark):</strong> The bottom-line business impact, e.g.:
+<ul>
+<li>Joe can get the barbers shop open quickly using his existing savings</li>
+<li>Joe retains full flexibility and can respond quickly to what customers want</li>
+<li>Joe's personal income from the business is maximised</li>
+</ul>
+</li>
+</ul></div>`,
+            modelAnswer: "One advantage of Joe becoming a sole trader is that it is the easiest and cheapest form of business to set up, with very little paperwork required (U). Joe already has £1,000 in savings, which will cover his first month's rent and equipment needs (APP). As a sole trader, Joe can start trading almost immediately without the legal registration costs and complexity of forming a company, meaning his entire £1,000 can be directed towards getting the barbers shop operational rather than administrative fees (AN)."
+        },
+        {
+            num: "Q16 (d)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Analyse one disadvantage of Joe becoming a partnership. [3 marks]",
+            hint: "Choose one real disadvantage of being in a partnership (not just of 'working with someone'). Apply it to Joe and Mark specifically using the case study, then state the bottom-line impact.",
+            starter: "One disadvantage of Joe going into partnership with Mark is... (U)\nFor Joe and Mark, both of whom have savings invested in the barbers shop... (APP)\nThis could result in... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b: 1, AO2: 1, AO3a: 1)</h5>
+<ul>
+<li><strong>Understanding (1 mark):</strong> One disadvantage of a partnership, e.g.:
+<ul>
+<li>Unlimited liability — both partners personally responsible for all business debts</li>
+<li>Profits must be shared between the partners</li>
+<li>Slower decision-making due to the need to consult and agree with a partner</li>
+<li>Risk of disagreement / conflict between partners</li>
+<li>If one partner dies, the partnership may have to be dissolved</li>
+</ul>
+</li>
+<li><strong>Application (1 mark):</strong> Link to Joe and Mark's situation, e.g.:
+<ul>
+<li>Both Joe and Mark are investing personal savings, which would be at risk</li>
+<li>Joe and Mark may disagree on how to run the barbers shop — pricing, services, opening hours</li>
+<li>Joe would have to share any profits he earns with Mark</li>
+</ul>
+</li>
+<li><strong>Analysis (1 mark):</strong> The business-facing impact, e.g.:
+<ul>
+<li>If the barbers shop fails, both could face serious personal financial hardship</li>
+<li>Conflict could slow down decision-making and damage the customer experience</li>
+<li>This reduces Joe's personal income compared to operating as a sole trader</li>
+</ul>
+</li>
+</ul></div>`,
+            modelAnswer: "One disadvantage of Joe going into partnership with Mark is that both partners would have unlimited liability for all of the business's debts (U). If the barbers shop in Bristol struggled financially and accumulated debts, both Joe and Mark would be personally responsible — meaning their own savings and personal possessions could be taken to repay what is owed (APP). This is a significant personal financial risk for both individuals, particularly as they are both investing their personal savings as start-up capital, and a business failure could leave both of them worse off than before they started (AN)."
+        },
+        {
+            num: "Q16 (e)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Recommend whether Joe should go as a sole trader or go into partnership with Mark. [3 marks]",
+            hint: "Make a CLEAR choice first (1 mark). Then explain WHY your chosen option is better THAN the other — you MUST reference both options and use specific details from the case study to earn full marks.",
+            starter: "Joe should become a [sole trader / go into partnership with Mark] because... (Recommendation)\nUnlike a [the other option], this means that... (Comparison)\nGiven that Joe has £1,000 in savings to cover his first month's rent and equipment... (Context from case study)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO3b: 3)</h5>
+<ul>
+<li><strong>Judgement (1 mark):</strong> A clear recommendation — sole trader OR partnership.</li>
+<li><strong>Contextual Justification (up to 2 marks):</strong> A comparative reason using case study details that explains why the chosen option is BETTER THAN the other. Both options must be addressed to earn both justification marks.</li>
+<li><strong>OR Non-contextual Justification (1 mark max):</strong> A comparative reason without case study detail.</li>
+</ul>
+<p><em>Important: Justification MUST address BOTH options to earn the full 2 justification marks.</em></p>
+<p><strong>Example Model Answer 1 — Sole Trader:</strong><br>
+Joe should become a sole trader (JUDGEMENT). Joe's savings of £1,000 already cover his initial costs, so he does not need Mark's additional capital right now (CONTEXT). As a sole trader, Joe keeps all profits and makes all decisions himself — whereas a partnership would mean sharing profits with Mark and potentially slowing decision-making if they disagree about the direction of the barbers shop (+2 MARKS).</p>
+<p><strong>Example Model Answer 2 — Partnership:</strong><br>
+Joe should go into partnership with Mark (JUDGEMENT). Mark also has savings to invest, giving the barbers shop more capital to buy better equipment and handle unexpected costs in the early months (CONTEXT). Although Joe would need to share any profits with Mark, having Mark's additional financial contribution reduces the risk of the business running short of money — a common cause of start-up failure — unlike a sole trader arrangement where Joe alone bears all financial risk (+2 MARKS).</p></div>`,
+            modelAnswer: "Joe should become a sole trader (Judgement). Joe already has £1,000 in savings covering his first month's rent and equipment, meaning he does not need Mark's additional investment to get started (Context). As a sole trader, Joe keeps all profits and makes every decision independently, allowing the barbers shop to adapt quickly to customer demand. By contrast, a partnership with Mark would require Joe to share all future profits and would mean decisions needing agreement from both partners — potentially slowing the business down and reducing Joe's personal earnings (Comparison)."
+        },
+        {
+            num: "Q17 (a)",
+            marks: 3,
+            type: "written",
+            caseStudy: "Pen & Sword Books is a book publisher based in Barnsley, South Yorkshire. It is a family-owned private limited company.\n\nThe business is continually expanding. It started by concentrating on history and transport but its titles now include space and wildlife, the environment and sport. Recent developments include an expansion into digital publishing (e-books), crafts, travel and computer-game publications. The business has also developed titles representing the achievements of women through history. The next expansion will be into the audio book market.\n\nPen & Sword Books currently employs 53 staff and published approximately 550 books in 2021. This compares to 42 staff and 450 books in 2016. The business feels it must make substantial investment in data management to help further expand the business.",
+            question: "Analyse one benefit to Pen & Sword Books of being a private limited company. [3 marks]",
+            hint: "Choose ONE benefit of being a private limited company. Explain what it means (U), link it to the fact that it is a family-owned business expanding into new markets (APP), then explain the impact on the business (AN).",
+            starter: "One benefit of Pen & Sword Books being a private limited company is... (U)\nAs a family-owned business that has grown from 450 to 550 books published per year... (APP)\nThis means that... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b: 1, AO2: 1, AO3a: 1)</h5>
+<p><em>Note: You CANNOT score Application or Analysis marks without first scoring the Understanding mark.</em></p>
+<ul>
+<li><strong>Understanding (1 mark):</strong> A benefit of a private limited company, e.g.:
+<ul>
+<li>Share sale can be controlled — all shareholders must agree on any new shareholders</li>
+<li>Business can continue if one shareholder dies (continuity)</li>
+<li>Shareholders benefit from limited liability</li>
+</ul>
+</li>
+<li><strong>Application (1 mark):</strong> Applied to Pen & Sword using the case study, e.g.:
+<ul>
+<li>The present family ownership cannot be changed unless all family members agree</li>
+<li>If a family member who holds shares dies, the business continues publishing</li>
+</ul>
+</li>
+<li><strong>Analysis (1 mark):</strong> Effect/impact on the business, e.g.:
+<ul>
+<li>Family owners can invest confidently in digital and audio expansion knowing business cannot be taken over without consent of all shareholders</li>
+<li>The business can continue expanding its range of titles without disruption if ownership changes</li>
+</ul>
+</li>
+</ul>
+<p><strong>Examiner's Note:</strong> The assessment objective checklist is Understanding (1) → Application (1) → Analysis (1). These must flow logically.</p></div>`,
+            modelAnswer: "One benefit of Pen & Sword Books being a private limited company is that the sale of shares is fully controlled — any new shareholders must be agreed upon by all existing shareholders (U). As a family-owned business, this means the family retains complete control and no outside party can acquire shares without their permission (APP). This gives the family confidence to invest in expanding into the audio book market and digital publishing, knowing the business cannot be taken over against their wishes — protecting the long-term family strategy for the company (AN)."
+        },
+        {
+            num: "Q17 (b)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Analyse one benefit to Pen & Sword Books of becoming a plc. [3 marks]",
+            hint: "Think about what a plc can do that a private limited company cannot. What is the primary advantage of a plc? Then apply it to Pen & Sword's specific expansion needs mentioned in the case study.",
+            starter: "One benefit of Pen & Sword Books becoming a plc is... (U)\nFor Pen & Sword, which needs to make substantial investment in data management and is expanding into audio books... (APP)\nThis would result in... (AN)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b: 1, AO2: 1, AO3a: 1)</h5>
+<ul>
+<li><strong>Understanding (1 mark):</strong> A benefit of a plc, e.g.:
+<ul>
+<li>A business can raise much greater amounts of finance by selling shares to the general public</li>
+<li>Plcs are seen as lower risk and can attract lenders more easily than smaller firms</li>
+</ul>
+</li>
+<li><strong>Application (1 mark):</strong> Applied to Pen & Sword using the case study, e.g.:
+<ul>
+<li>Pen & Sword could raise finance to fund substantial investment in data management</li>
+<li>Pen & Sword could borrow money more easily to further expand into audio books and new publishing categories</li>
+</ul>
+</li>
+<li><strong>Analysis (1 mark):</strong> Effect/impact on the business, e.g.:
+<ul>
+<li>With easier access to larger amounts of capital, Pen & Sword can expand its digital and audio operations, potentially increasing sales revenue significantly</li>
+<li>With additional shareholders bringing in money and expertise, the business can develop faster than a private limited company alone could fund</li>
+</ul>
+</li>
+</ul></div>`,
+            modelAnswer: "One benefit of Pen & Sword Books becoming a plc is that it would be able to raise very large amounts of finance by selling shares to the general public on the Stock Exchange (U). The case study highlights that the business needs substantial investment in data management and is expanding into audio books — both of which require significant capital (APP). As a plc, this capital could be raised from a large pool of public investors, enabling Pen & Sword to fund all of its planned expansions simultaneously without accumulating large bank debts, accelerating growth and increasing revenue (AN)."
+        },
+        {
+            num: "Q17 (c)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Evaluate whether or not Pen & Sword Books should become a plc. [3 marks]",
+            hint: "Make a CLEAR decision first (1 mark). Then justify it using SPECIFIC details from the Pen & Sword case study — not just general knowledge about plcs. You need two pieces of contextual evidence for the full 2 justification marks.",
+            starter: "Pen & Sword Books should [become a plc / remain as a private limited company] because... (Judgement)\nThe evidence shows that [specific data or detail from the case study]... (First piece of contextual justification)\nFurthermore / However, [second piece of contextual justification or counter-consideration]... (Second justification)",
+            markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO3b: 3 — Evaluation)</h5>
+<ul>
+<li><strong>Judgement (1 mark):</strong> A clear statement — Pen & Sword should or should not become a plc.</li>
+<li><strong>Justification (up to 2 marks):</strong> A clear justification in the context of the case study. For 2 marks, justification must be precise — using (not simply repeating) specific information from the case study that clearly supports the judgement.</li>
+</ul>
+<p><strong>Example — Stay as Private Limited Company (recommended approach):</strong><br>
+Pen & Sword Books should continue as a private limited company (JUDGEMENT). The business has expanded successfully from 42 to 53 staff and from 450 to 550 books per year between 2016 and 2021 — there is simply no pressing need to change what is clearly working (+1 MARK). As a family-owned business, becoming a plc would risk a hostile takeover — any investor could buy shares and challenge family control, which could undermine the long-term strategic direction that has driven the business's growth (+1 MARK).</p>
+<p><strong>Example — Become a plc:</strong><br>
+Pen & Sword Books should become a plc (JUDGEMENT). The business needs substantial investment in data management and is expanding into audio books — financial demands that may exceed what private shareholders can fund (+1 MARK). As a plc, it could raise the millions potentially needed for technology investment through the Stock Exchange, accelerating its expansion far beyond what is currently possible (+1 MARK).</p></div>`,
+            modelAnswer: "Pen & Sword Books should remain as a private limited company and NOT become a plc (Judgement). The business has grown impressively from 450 to 550 books published per year and from 42 to 53 employees between 2016 and 2021 — demonstrating that the current structure is working effectively and growth is already being achieved without needing public capital (First justification). As a family-owned business, converting to a plc would expose the company to the serious risk of a hostile takeover — any investor could buy shares, potentially ending family control and the independence that has driven this success. Unless Pen & Sword requires funding in the tens of millions that private shareholders cannot provide, the risks of becoming a plc significantly outweigh the benefits (Second justification)."
+        }
+    ];
+</script>
     <script src="script.js"></script>
 </body>
 
