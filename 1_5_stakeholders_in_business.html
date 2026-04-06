@@ -301,8 +301,906 @@
         </div>
     </main>
 
-    <script></script>
+<script>
+// ══════════════════════════════════════
+//  DATA TEMPLATE: 1.5 Stakeholders in Business
+// ══════════════════════════════════════
 
+// 1. Main Learning Content
+const topics = [
+  {
+    title: "Key Terms & Official Definitions",
+    tag: "Core Concepts",
+    content: `<p>This unit is about understanding who has an interest in a business and how they interact with it. Before studying how stakeholders affect businesses (and vice versa), you must be confident with the following key terms.</p>
+<ul>
+  <li><strong>Stakeholder:</strong> An individual or group of people who have an interest in a business and are affected by, or can affect, its activities.</li>
+  <li><strong>Internal stakeholder:</strong> A stakeholder who is part of the business itself — specifically the owners and employees.</li>
+  <li><strong>External stakeholder:</strong> A stakeholder who exists outside the business — including customers, suppliers, the government and the local community.</li>
+  <li><strong>Shareholder:</strong> An owner of shares in a limited company. All shareholders are stakeholders, but not all stakeholders are shareholders.</li>
+  <li><strong>Dividend:</strong> A share of the profits paid out to shareholders as a reward for their investment.</li>
+  <li><strong>Objective:</strong> A specific goal or target that a stakeholder or business is trying to achieve.</li>
+  <li><strong>Conflicting objectives:</strong> When two or more stakeholder groups want different things from the same business, creating tension or disagreement.</li>
+  <li><strong>Stakeholder influence:</strong> The power a stakeholder group has to change or shape how a business operates.</li>
+</ul>
+<p><strong>⚠️ Common Misconception:</strong> Do NOT confuse <strong>stakeholders</strong> and <strong>shareholders</strong>. A shareholder is one type of stakeholder (an owner of shares). A sole trader has no shareholders — but they are still a stakeholder (as the owner). Getting this wrong in an exam can cost you several marks.</p>`
+  },
+  {
+    title: "Internal vs External Stakeholders",
+    tag: "Core Concepts",
+    content: `<p>Stakeholders are divided into two main categories depending on whether they are inside or outside the business.</p>
+<div class="two-col">
+<div>
+<div class="col-head">🏢 Internal Stakeholders</div>
+<div class="pro-item"><strong>Owners:</strong> For a sole trader or partnership, the owner(s) also work in the business. For a limited company, shareholders are the owners. They want profit, growth and a return on their investment.</div>
+<div class="pro-item"><strong>Employees:</strong> Anyone who works for the business — from managers to shop floor workers. They rely on the business for pay, job security, and working conditions.</div>
+</div>
+<div>
+<div class="col-head">🌍 External Stakeholders</div>
+<div class="con-item"><strong>Customers:</strong> People who buy goods/services from the business. They want quality, fair prices and good customer service.</div>
+<div class="con-item"><strong>Suppliers:</strong> Businesses that provide raw materials or goods. They want regular, large, well-paid orders.</div>
+<div class="con-item"><strong>Government:</strong> Wants businesses to pay taxes, create jobs and follow the law.</div>
+<div class="con-item"><strong>Local Community:</strong> Wants businesses to provide jobs, avoid pollution/noise, and contribute to local prosperity.</div>
+</div>
+</div>
+<p>There may be other stakeholders depending on the business — for example, a bank (lender) or a charity partner. The key is always to think about <strong>who has an interest in that specific business</strong>.</p>`
+  },
+  {
+    title: "Objectives of Each Stakeholder Group",
+    tag: "Theory",
+    content: `<p>Each stakeholder group has different goals — and understanding <em>why</em> they have those goals is just as important as knowing what they are.</p>
+<ul>
+  <li><strong>Owners/Shareholders:</strong> To make <strong>profit</strong> and receive dividends. They want the business to grow so their investment increases in value. They may also make decisions to <em>cut costs</em> (e.g. make workers redundant) to protect profits.</li>
+  <li><strong>Employees:</strong> To receive fair <strong>wages</strong>, job <strong>security</strong>, good <strong>working conditions</strong>, and enjoyment from social aspects of work. Employees can go on strike if their needs are not met.</li>
+  <li><strong>Customers:</strong> To receive <strong>quality products</strong> at <strong>affordable prices</strong>, with good customer service and a reliable range of goods. If unhappy, customers simply stop buying.</li>
+  <li><strong>Suppliers:</strong> To receive <strong>large, frequent orders</strong> and be <strong>paid on time</strong>. If the business fails, the supplier also loses income.</li>
+  <li><strong>Government:</strong> To collect <strong>taxes</strong> (income tax, corporation tax, VAT), encourage <strong>employment</strong>, and ensure businesses follow the law. More business activity = more tax revenue = more money for public services.</li>
+  <li><strong>Local Community:</strong> To see a <strong>prosperous, safe and healthy</strong> local area. They want jobs to be created, noise and pollution to be minimised, and businesses to contribute to community projects.</li>
+</ul>
+<div class="case-study-box">
+  <h4>Case Study: Barratt Developments plc</h4>
+  <p>Barratt is a leading UK house builder. Its shareholders want higher profits and dividends. Its employees want secure, well-paid jobs. Local communities want — or sometimes oppose — new housing developments. The government wants tax revenue and more homes to tackle the housing crisis. Suppliers of bricks, timber and cement want large, reliable orders. Every decision Barratt makes will affect <em>all</em> of these groups differently.</p>
+</div>`
+  },
+  {
+    title: "Conflicting Objectives Between Stakeholders",
+    tag: "Analysis",
+    content: `<p>One of the most important things you need to understand for the exam is that stakeholders often want <strong>different and opposing things</strong>. This creates conflict which can directly affect business decisions.</p>
+<ul>
+  <li><strong>Owners vs Employees:</strong> Owners want to <em>minimise costs</em> to maximise profit — this means keeping wages low. Employees want <em>higher wages</em> and better conditions. This conflict can lead to strikes, which disrupts the business.</li>
+  <li><strong>Owners vs Customers:</strong> Owners want to charge <em>high prices</em> to increase revenue and profit. Customers want <em>low prices</em> and high quality. If prices are too high, customers go to a competitor.</li>
+  <li><strong>Business Growth vs Local Community:</strong> A business expanding its factory creates jobs (positive), but may also increase noise, traffic and pollution (negative), making local residents unhappy.</li>
+  <li><strong>Employees vs Customers:</strong> Employees want higher wages, which increases business costs. To cover these higher costs, the business may raise its prices, meaning customers pay more — directly harming the customer's objective of affordable prices.</li>
+</ul>
+<div class="two-col">
+<div>
+<div class="col-head">✓ When Interests Align</div>
+<div class="pro-item">A growing, profitable business benefits owners (higher profit), employees (more jobs), suppliers (more orders), government (more tax) and the local community (more prosperity).</div>
+</div>
+<div>
+<div class="col-head">✗ When Interests Conflict</div>
+<div class="con-item">Cutting the workforce to save costs helps owners (higher profit margin) but harms employees (job losses), local community (unemployment rises) and potentially customers (reduced service).</div>
+</div>
+</div>`
+  },
+  {
+    title: "The Effect Business Activity Has on Stakeholders",
+    tag: "Analysis",
+    content: `<p>Business decisions ripple outward and affect many different stakeholders. The same decision can be <strong>positive for some stakeholders and negative for others</strong>.</p>
+<p><strong>When a business GROWS:</strong></p>
+<ul>
+  <li><strong>Employees</strong> — more jobs are created, improving job security and pay prospects.</li>
+  <li><strong>Suppliers</strong> — receive larger, more frequent orders, increasing their own revenue.</li>
+  <li><strong>Government</strong> — collects more tax from the business and its employees; pays less in unemployment benefits.</li>
+  <li><strong>Customers</strong> — benefit from a wider product range and potentially lower prices due to economies of scale.</li>
+  <li><strong>Owners</strong> — earn higher profits and potentially larger dividends.</li>
+  <li><strong>Local Community</strong> — greater employment in the area raises local spending and reduces poverty.</li>
+</ul>
+<p><strong>When a business SHRINKS or CLOSES:</strong></p>
+<ul>
+  <li><strong>Employees</strong> — face redundancy and loss of income.</li>
+  <li><strong>Suppliers</strong> — lose orders; in extreme cases they may also go out of business.</li>
+  <li><strong>Government</strong> — sees fewer tax receipts and must pay more in unemployment benefits.</li>
+  <li><strong>Local Community</strong> — suffers from increased unemployment, reduced local spending, and potential social problems.</li>
+</ul>
+<div class="case-study-box">
+  <h4>Case Study: Heathrow Third Runway</h4>
+  <p>The proposed expansion of Heathrow Airport illustrates perfectly how the same business activity can affect stakeholders in opposite ways. A third runway would create thousands of jobs (positive for employees and local community), boost import/export opportunities (positive for businesses and government tax), yet also cause significant noise pollution, increased traffic, and environmental damage to local areas (negative for local residents). This is why stakeholder conflicts arise around major developments.</p>
+</div>`
+  },
+  {
+    title: "The Effect Stakeholders Have on Business",
+    tag: "Analysis",
+    content: `<p>Stakeholders do not just passively experience the effects of business decisions — they actively <strong>influence</strong> how a business operates.</p>
+<ul>
+  <li><strong>Owners:</strong> Can make major decisions such as making workers redundant, changing strategy, or investing in growth. Their primary goal of profit drives most major business choices.</li>
+  <li><strong>Employees:</strong> Can go on <strong>strike</strong> to push for higher wages or better conditions. This disrupts production, damages reputation and can cost the business significant revenue. Highly motivated, reliable employees are also the foundation of business success.</li>
+  <li><strong>Customers:</strong> Can <strong>boycott</strong> a business if unhappy with prices, quality or ethics. A customer boycott leads to lower sales, damaged reputation, and reduced profit. Conversely, loyal customers drive growth.</li>
+  <li><strong>Suppliers:</strong> Poor quality or unreliable suppliers can <strong>damage a business's reputation</strong>. If a supplier to a car manufacturer provides faulty parts, the car maker's reputation suffers and sales fall.</li>
+  <li><strong>Government:</strong> Can affect business through:
+    <ul>
+      <li>Changing <strong>tax rates</strong> (higher tax = less spending power / less profit to reinvest)</li>
+      <li>Offering <strong>grants</strong> to help businesses establish themselves</li>
+      <li>Changing <strong>laws</strong> (e.g. National Living Wage means businesses must pay more)</li>
+      <li><strong>Government spending</strong> on roads, railways and defence increases business activity</li>
+    </ul>
+  </li>
+  <li><strong>Local Community:</strong> Can <strong>protest or campaign</strong> against business developments they oppose. Sufficient community opposition can force businesses to alter or abandon their plans entirely.</li>
+</ul>`
+  },
+  {
+    title: "How Government Affects Business — Four Key Methods",
+    tag: "Theory",
+    content: `<p>The government is a uniquely powerful stakeholder because it has <strong>legal authority</strong> over all businesses. It affects business activity in four main ways:</p>
+<div class="two-col">
+<div>
+<div class="col-head">📋 Method 1: Taxation</div>
+<div class="pro-item"><strong>Income tax cuts</strong> leave consumers with more spending money → businesses benefit from higher sales.</div>
+<div class="con-item"><strong>Higher corporation tax</strong> on business profits → less money for reinvestment or dividends.</div>
+<div class="col-head">📋 Method 2: Grants</div>
+<div class="pro-item">Government <strong>grants to businesses</strong> help new firms establish themselves, boosting jobs and economic activity.</div>
+</div>
+<div>
+<div class="col-head">📋 Method 3: Laws & Regulations</div>
+<div class="con-item">The <strong>National Living Wage</strong> forces businesses to pay a minimum level of pay — this increases costs, especially for labour-intensive businesses like retail and hospitality.</div>
+<div class="col-head">📋 Method 4: Government Spending</div>
+<div class="pro-item">Spending on <strong>defence, roads and railways</strong> directly increases business activity and creates opportunities for suppliers and contractors.</div>
+</div>
+</div>
+<p><strong>Exam tip:</strong> When a question asks how government affects business, use one of these four methods — don't just say "the government can tax businesses." Say <em>which</em> tax and <em>what effect</em> it has on the specific business in the case study.</p>`
+  },
+  {
+    title: "Real-World Application: Stakeholders at Lineside Repairs",
+    tag: "Application",
+    content: `<div class="case-study-box">
+  <h4>Case Study: Lineside Repairs (Steve Loy's Garage)</h4>
+  <p>Steve Loy owns Lineside Repairs, a small garage in Elsecar, South Yorkshire. The business has operated since 1968 and services and repairs cars from the local community. Steve employs staff to help with repairs and must keep up to date with changing government regulations, including buying the correct equipment for MOT tests. He must also ensure noise from the business does not disturb nearby residents.</p>
+</div>
+<p><strong>Local Community as a Stakeholder:</strong></p>
+<ul>
+  <li><strong>Understanding:</strong> The local community is concerned about noise and pollution from the garage.</li>
+  <li><strong>Application:</strong> Noise from servicing and testing cars may disturb people living near the garage in Elsecar.</li>
+  <li><strong>Analysis:</strong> If the community protests, Lineside Repairs may have to change its working practices — for example, restricting testing hours — which could reduce its efficiency and profitability.</li>
+</ul>
+<p><strong>Government as a Stakeholder:</strong></p>
+<ul>
+  <li><strong>Understanding:</strong> The government changes regulations on MOT testing requirements.</li>
+  <li><strong>Application:</strong> Lineside Repairs must keep up to date with government regulations and buy the correct equipment to carry out MOT tests.</li>
+  <li><strong>Analysis:</strong> If new MOT regulations are introduced, Steve may need to invest in expensive new equipment. This increases costs significantly and reduces the profit available for the business.</li>
+</ul>`
+  }
+];
+
+// 2. Multiple Choice Questions (Minimum 10)
+const mcqData = [
+  {
+    q: "Which of the following is the correct definition of a stakeholder?",
+    opts: [
+      "Someone who objects to a business development they do not like",
+      "A person or group of people who have an interest in business activity",
+      "A person or group who always support business activity",
+      "Someone who owns shares in a limited company"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. A stakeholder is any person or group with an interest in a business — this includes owners, employees, customers, suppliers, government and the local community. They do not have to agree with or support the business to be a stakeholder. Option D describes a shareholder specifically, which is only one type of stakeholder."
+  },
+  {
+    q: "Which of the following is an INTERNAL stakeholder?",
+    opts: [
+      "A customer",
+      "A supplier",
+      "An employee",
+      "The local community"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. Internal stakeholders are those who are part of the business itself — owners and employees. Customers, suppliers and the local community are all external stakeholders because they exist outside the business. A is external (they buy from the business). B is external (they supply to the business). D is external (they live near but are not part of the business)."
+  },
+  {
+    q: "What is a benefit to the local community of a nearby carpet factory extending its operating hours?",
+    opts: [
+      "A wider choice of carpet designs will be available",
+      "Increased road congestion from more lorries delivering textiles",
+      "More job opportunities will be created",
+      "The business will pay higher taxes"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. Longer operating hours means the factory needs more workers, creating more job opportunities for local residents — this is a benefit to the local community. Option A relates to customers, not the local community specifically. Option B is a negative impact (congestion is a drawback). Option D may occur but it benefits the government more than the local community directly."
+  },
+  {
+    q: "What impacts is a customer boycott MOST likely to have on a business?",
+    opts: [
+      "External growth, reduced profit, increased dividends",
+      "Fewer customers, reduced profit, increased market share",
+      "Improved brand image, more customers, increased profit",
+      "Worsened reputation, lower sales, reduced profit"
+    ],
+    ans: 3,
+    explain: "Correct answer: D. A boycott means customers refuse to buy from the business. This leads to fewer sales (lower revenue), a worsened public reputation, and ultimately reduced profit. Option A is wrong — a boycott shrinks the business, not grows it. Option B is wrong — a boycott reduces market share, not increases it. Option C is completely wrong — a boycott damages brand image."
+  },
+  {
+    q: "Which of the following is NOT a method by which government as a stakeholder can affect business activity?",
+    opts: [
+      "Increasing the taxation on business profits",
+      "Giving grants to businesses to help new developments",
+      "Increasing the number of MPs in parliament",
+      "Spending money on new road projects"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. Increasing the number of MPs in parliament is a political/electoral matter and does not directly affect how businesses operate. The other three options are all genuine ways government influences business: taxation changes affect profitability (A), grants support new businesses (B), and government infrastructure spending boosts business activity (D)."
+  },
+  {
+    q: "Which of the following is NOT an external stakeholder?",
+    opts: [
+      "The local community",
+      "An employee",
+      "A supplier",
+      "A customer of the business"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. An employee is an INTERNAL stakeholder — they work inside the business. All other options (local community, supplier, customer) are external stakeholders because they exist outside the business itself."
+  },
+  {
+    q: "The directors of a public limited company have decided to reduce the size of the workforce to increase profits. Which stakeholder is MOST likely to benefit from this decision?",
+    opts: [
+      "Customers",
+      "Employees",
+      "Owners",
+      "The local community"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. Reducing the workforce cuts wage costs, which increases profit margins. Owners (shareholders) benefit through higher dividends and increased share value. Employees (B) are directly harmed — some lose their jobs. Customers (A) do not directly benefit from this internal cost-cutting decision. The local community (D) is negatively affected by increased local unemployment."
+  },
+  {
+    q: "Which of the following is an internal stakeholder of a business that trades as a partnership?",
+    opts: [
+      "A customer",
+      "A shareholder",
+      "A supplier",
+      "An employee"
+    ],
+    ans: 3,
+    explain: "Correct answer: D. An employee works within the business, making them an internal stakeholder. A customer (A) and supplier (C) are external stakeholders. Crucially, a partnership does NOT have shareholders (B) — only limited companies have shareholders. This is a common exam trap: do not confuse stakeholders with shareholders, especially for sole traders and partnerships."
+  },
+  {
+    q: "Which of the following are customers of a business MOST likely to be interested in?",
+    opts: [
+      "Employee wages",
+      "Job security",
+      "Product range",
+      "Share dividends"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. Customers are primarily interested in price, quality, and product range — things that affect their purchasing decision. Employee wages (A) and job security (B) are objectives of employees, not customers. Share dividends (D) are the concern of shareholders/owners."
+  },
+  {
+    q: "Which of the following is MOST likely effect of bakery employees refusing to work?",
+    opts: [
+      "Deliveries to supermarkets will be disrupted",
+      "Different ingredients will be used to make the bread loaves",
+      "More bread loaves will be produced",
+      "The bread market will become segmented"
+    ],
+    ans: 0,
+    explain: "Correct answer: A. If employees go on strike (refuse to work), production stops and deliveries to supermarket customers will be disrupted. This demonstrates the power employees have over business operations. Option B is incorrect — a strike does not change ingredients. Option C is the opposite of what happens. Option D is completely unrelated to a workforce dispute."
+  },
+  {
+    q: "JLR has not given employees a pay rise for three consecutive years. Employees have contacted their trade union. Which stakeholder group is directly taking action here?",
+    opts: [
+      "Customers",
+      "Suppliers",
+      "Employees",
+      "Local community"
+    ],
+    ans: 2,
+    explain: "Correct answer: C. The employees are the stakeholder group taking action by contacting their trade union. This is an example of how employees can influence business activity — through negotiation, collective bargaining or strike action — to try to achieve their objective of fair wages."
+  },
+  {
+    q: "Tesco acquires one of its major food and drink suppliers. What is the MOST likely effect on Tesco's customers?",
+    opts: [
+      "They will face higher prices due to reduced competition",
+      "They may benefit from cheaper products as Tesco can lower its supply costs",
+      "They will receive larger orders from Tesco",
+      "They will pay higher dividends to Tesco shareholders"
+    ],
+    ans: 1,
+    explain: "Correct answer: B. By acquiring its supplier, Tesco secures supplies at a lower cost. These savings can be passed on to customers through lower prices. Option A is possible in some scenarios but not the most likely direct effect. Option C describes what happens to suppliers, not customers. Option D is irrelevant to customers."
+  }
+];
+
+// 3. Keyword Matching (Minimum 10)
+const matchData = [
+  { term: "Stakeholder", def: "An individual or group of people who have an interest in a business and are affected by, or can affect, its activities." },
+  { term: "Internal stakeholder", def: "A stakeholder who is part of the business itself — specifically the owners and employees who work within it." },
+  { term: "External stakeholder", def: "A stakeholder who exists outside the business, including customers, suppliers, the government and the local community." },
+  { term: "Shareholder", def: "An owner of shares in a limited company who receives dividends as a return on their investment." },
+  { term: "Dividend", def: "A share of the company's profits paid out to shareholders as a reward for investing their money in the business." },
+  { term: "Conflicting objectives", def: "When two or more stakeholder groups want different, opposing things from the same business — for example owners wanting low wages while employees want high wages." },
+  { term: "Strike", def: "When employees refuse to work as a form of protest, usually to pressure business owners into agreeing to better pay or conditions." },
+  { term: "Customer boycott", def: "When customers deliberately stop buying a business's products or services, usually to protest against the business's practices or pricing." },
+  { term: "Corporation tax", def: "A tax the government charges on a business's profits; if reduced, businesses have more money to reinvest or distribute to owners." },
+  { term: "National Living Wage", def: "A legally required minimum hourly rate that businesses must pay their workers, set by the government, which increases business costs." },
+  { term: "Grant", def: "Money given to a business by the government that does not need to be repaid, used to help new or small businesses establish themselves." },
+  { term: "Stakeholder influence", def: "The power a stakeholder group has to change or shape how a business operates through their decisions, actions or reactions." }
+];
+
+// 4. Fill in the Blanks (Minimum 10)
+const fibData = [
+  {
+    display: "A _____ is an individual or group who has an interest in a business, while a _____ is specifically an owner of shares in a limited company.",
+    blanks: { B1: "stakeholder", B2: "shareholder" }
+  },
+  {
+    display: "Internal stakeholders include _____ and _____, while customers and suppliers are examples of _____ stakeholders.",
+    blanks: { B1: "owners", B2: "employees", B3: "external" }
+  },
+  {
+    display: "Employees want fair _____ and job _____, while owners primarily want to maximise _____.",
+    blanks: { B1: "wages", B2: "security", B3: "profit" }
+  },
+  {
+    display: "When a business grows, _____ benefit from more orders, and the _____ benefits from increased tax revenue.",
+    blanks: { B1: "suppliers", B2: "government" }
+  },
+  {
+    display: "If employees are unhappy with pay, they may go on _____, which can disrupt production and damage the business's _____.",
+    blanks: { B1: "strike", B2: "reputation" }
+  },
+  {
+    display: "The government can affect businesses by changing _____ levels, giving _____ to new businesses, or changing _____.",
+    blanks: { B1: "taxation", B2: "grants", B3: "laws" }
+  },
+  {
+    display: "Owners and employees have _____ objectives because owners want to keep _____ low to maximise profit, while employees want them to be high.",
+    blanks: { B1: "conflicting", B2: "wages" }
+  },
+  {
+    display: "A _____ boycott occurs when customers stop buying from a business, leading to lower _____ and reduced profit.",
+    blanks: { B1: "customer", B2: "sales" }
+  },
+  {
+    display: "The local community wants businesses to provide _____ opportunities and minimise _____ and pollution.",
+    blanks: { B1: "employment", B2: "noise" }
+  },
+  {
+    display: "Suppliers want to receive _____ and _____ orders, and to be paid _____ for the goods they provide.",
+    blanks: { B1: "large", B2: "frequent", B3: "promptly" }
+  },
+  {
+    display: "If a business closes, _____ may lose their jobs and the government must pay more _____ benefit.",
+    blanks: { B1: "employees", B2: "unemployment" }
+  },
+  {
+    display: "In a limited company, profits are distributed to shareholders as _____, which is a key objective for _____ as stakeholders.",
+    blanks: { B1: "dividends", B2: "owners" }
+  }
+];
+
+// Word bank for Fill in the Blanks (correct words + decoys)
+const fibWords = [
+  "stakeholder", "shareholder", "owners", "employees", "external",
+  "wages", "security", "profit", "suppliers", "government",
+  "strike", "reputation", "taxation", "grants", "laws",
+  "conflicting", "customer", "sales", "employment", "noise",
+  "large", "frequent", "promptly", "dividends", "unemployment",
+  "managers", "revenue", "internal", "growth", "marketing",
+  "quality", "costs", "investment", "interest", "competition"
+];
+
+// 5. True or False (Minimum 10)
+const tfData = [
+  {
+    statement: "All stakeholders are owners of a business.",
+    answer: false,
+    explanation: "FALSE. Stakeholders include any group with an interest in the business — customers, employees, suppliers, government and the local community are all stakeholders but none of them are owners. Only the owners (shareholders in a limited company, or the sole trader/partners) are the owners."
+  },
+  {
+    statement: "All businesses have stakeholders.",
+    answer: true,
+    explanation: "TRUE. Every business, no matter how small, has stakeholders. Even a one-person sole trader has stakeholders — the owner themselves, their customers, suppliers, the local community and the government all have an interest in that business."
+  },
+  {
+    statement: "All stakeholders have the same interests.",
+    answer: false,
+    explanation: "FALSE. Different stakeholder groups have very different and often conflicting interests. For example, owners want to minimise wages (to increase profit), while employees want higher wages. Customers want low prices, while owners want high prices."
+  },
+  {
+    statement: "Stakeholders can influence the activity of a business.",
+    answer: true,
+    explanation: "TRUE. Stakeholders actively influence businesses. Employees can go on strike; customers can boycott; the government can change laws and taxes; the local community can protest against developments. All of these actions change how the business must operate."
+  },
+  {
+    statement: "Stakeholders are only interested in the profits of the business.",
+    answer: false,
+    explanation: "FALSE. Different stakeholders care about very different things. Employees care about wages and job security. Customers care about product quality and price. The local community cares about noise, pollution and local employment. Only the owners/shareholders are primarily motivated by profit."
+  },
+  {
+    statement: "Stakeholders generally want a business to succeed.",
+    answer: true,
+    explanation: "TRUE. Most stakeholders benefit when a business succeeds: employees keep their jobs, suppliers receive orders, the government collects taxes, and the local community benefits from employment and prosperity. However, some specific groups (e.g. competitors, or local residents opposed to a development) may not want a particular business to succeed."
+  },
+  {
+    statement: "All of the employees of a business are stakeholders.",
+    answer: true,
+    explanation: "TRUE. Every employee has an interest in the business they work for — they depend on it for their income and job security. Therefore, all employees are stakeholders (specifically, internal stakeholders)."
+  },
+  {
+    statement: "A supplier losing a major customer business would not affect them significantly.",
+    answer: false,
+    explanation: "FALSE. Suppliers are heavily affected when a business they supply to fails or reduces orders. They may lose significant revenue and in extreme cases be put out of business themselves. This is why suppliers want the businesses they supply to continue and grow."
+  },
+  {
+    statement: "The government benefits when more people are employed by businesses.",
+    answer: true,
+    explanation: "TRUE. Higher employment means more people paying income tax (more revenue for the government) and fewer people needing unemployment benefits (lower government spending). This is why the government has a strong interest in businesses succeeding and growing."
+  },
+  {
+    statement: "Shareholders and stakeholders are the same thing.",
+    answer: false,
+    explanation: "FALSE. This is the most common misconception in this topic. Shareholders are one specific type of stakeholder — they are the owners of shares in a limited company. However, stakeholders is a much broader term that includes customers, employees, suppliers, government and the local community. Sole traders and partnerships have no shareholders at all, but they still have many stakeholders."
+  },
+  {
+    statement: "If the government increases income tax, businesses are likely to see higher sales.",
+    answer: false,
+    explanation: "FALSE. If income tax increases, consumers have less disposable income — meaning they have less money to spend on goods and services. This typically leads to lower sales for businesses, not higher sales. Lower income tax has the opposite effect, boosting consumer spending."
+  },
+  {
+    statement: "The local community can force a business to change its plans if there is enough opposition.",
+    answer: true,
+    explanation: "TRUE. If a local community is sufficiently united in opposing a business development, they can campaign, protest or lobby local authorities, which may result in planning permission being refused or the business changing its proposals. The Heathrow third runway debate is a real-world example of community opposition potentially affecting major business plans."
+  }
+];
+
+// 6. Common Student Misconceptions
+const miscData = [
+  {
+    wrong: "Stakeholders and shareholders are the same thing.",
+    correct: "Shareholders are just one type of stakeholder — they are owners of shares in a limited company. Stakeholders is a much broader group that includes customers, employees, suppliers, government and the local community. A sole trader has no shareholders but still has many stakeholders. Confusing these two terms in an exam will cost you marks."
+  },
+  {
+    wrong: "The local community only cares about getting jobs from a nearby business.",
+    correct: "The local community has a range of concerns — both positive (employment, local prosperity, community donations) and negative (noise, pollution, traffic congestion, environmental damage). In the exam, you must consider both sides. Do not write that the local community is only interested in charity work."
+  },
+  {
+    wrong: "All stakeholders want the business to make as much profit as possible.",
+    correct: "Only owners and shareholders have profit as a primary objective. Employees want fair wages and job security; customers want low prices and quality; suppliers want reliable, well-paid orders; the local community wants minimal disruption; the government wants tax revenue and legal compliance. Many of these objectives actually conflict with maximising profit."
+  },
+  {
+    wrong: "If a question asks about the impact on employees, you should discuss the impact on the business.",
+    correct: "The impact must be stakeholder-facing, not business-facing. If asked about the impact on employees, write about wages, job security, working conditions or redundancy — not about business costs or profit. Examiners specifically note this as a common reason for losing marks on 6-mark questions."
+  },
+  {
+    wrong: "When a business makes workers redundant, all stakeholders are negatively affected.",
+    correct: "This is a classic conflicting objectives scenario. Owners/shareholders actually benefit from redundancies because lower wage costs mean higher profit margins and potentially bigger dividends. The negative effects fall on employees (job losses), the local community (unemployment) and government (less tax, more benefits to pay)."
+  },
+  {
+    wrong: "Customers only care about getting the cheapest price.",
+    correct: "Customers care about the overall value they receive — which includes price, product quality, customer service, availability, product range and convenience. In specific contexts, some customers prioritise quality or ethics over price (e.g. choosing ethically-sourced products). Always link customer objectives to the specific business context in the case study."
+  },
+  {
+    wrong: "External stakeholders are less important than internal stakeholders.",
+    correct: "There is no hierarchy of importance — it depends entirely on the business and the situation. In many cases, external stakeholders like customers or the government can have a much greater impact on a business than internal stakeholders. For example, new government regulation on MOT tests fundamentally changes what a garage like Lineside Repairs must do."
+  },
+  {
+    wrong: "Suppliers are only affected if the business fails completely.",
+    correct: "Suppliers are affected by any significant change in a business's orders or financial health. If a business reduces production, the supplier receives smaller orders. If the business faces cash flow problems, the supplier may not be paid on time. Suppliers may even stop supplying goods to a struggling business to protect themselves from losses."
+  }
+];
+
+// 7. Examiner Tips & Structure Guides
+const examTips = [
+  {
+    type: "Identify / State — 1 mark",
+    title: "One Point. Full Stop. Move On.",
+    content: `
+      <p>A 1-mark <strong>'Identify' or 'State'</strong> question needs exactly one correct point. Nothing more. No definitions. No examples. No paragraphs.</p>
+      <p><strong>The Formula:</strong> One specific, accurate point = 1 mark ✅</p>
+      <ul>
+        <li>For <em>"Identify one likely objective of an employee"</em> — write: <em>"To receive a fair wage / To have job security"</em>. Done.</li>
+        <li>Do NOT write about the business's objective (profit, growth) — examiners specifically penalise this.</li>
+      </ul>
+      <p><strong>❌ Bad Answer (0 marks):</strong><br/>
+      <em>"To make the business more profitable."</em><br/>
+      This is a business objective, not a personal employee objective. Zero marks.</p>
+      <p><strong>✅ Good Answer (1 mark):</strong><br/>
+      <em>"To earn a regular income / To have job security."</em><br/>
+      This is specific, personal and directly answers the question.</p>
+      <p><strong>⚠️ Examiner Warning:</strong> The most common mistake on 1-mark employee objective questions is writing about profit, greater output or customer service. These relate to business goals, not personal employee objectives.</p>
+    `,
+    pills: ["K"]
+  },
+  {
+    type: "Explain — 2 marks",
+    title: "Make Your Point, Then Say Why It Matters",
+    content: `
+      <p>A 2-mark <strong>'Explain'</strong> question follows a simple formula: <strong>Knowledge (what) + Application (how/why in context)</strong>.</p>
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li><strong>Point (K — 1 mark):</strong> State the impact/influence clearly.</li>
+        <li><strong>Application (APP — 1 mark):</strong> Link it directly to the specific business in the case study.</li>
+      </ul>
+      <p><strong>❌ Bad Answer (1/2 marks):</strong><br/>
+      <em>"Customers influence Greggs' product range."</em><br/>
+      This gets the knowledge mark but lacks any application to Greggs' specific context.</p>
+      <p><strong>✅ Good Answer (2/2 marks):</strong><br/>
+      <em>"Customers influence Greggs' product range (K), which led to Greggs launching vegan sausage rolls in 2019 due to the growing number of vegans in the UK (APP)."</em></p>
+      <p><strong>⚠️ Key Rule:</strong> The application mark requires you to use a specific detail from the case study — a number, a product, a location, a person's name. Vague references like "the business" will NOT earn the application mark.</p>
+    `,
+    pills: ["K", "app"]
+  },
+  {
+    type: "Analyse — 3 marks",
+    title: "The Holy Trinity: U → APP → AN",
+    content: `
+      <p>A 3-mark analyse question is the most common high-tariff question on this topic. You MUST hit all three steps to get full marks. Miss any one of them and you cap yourself at 2 marks maximum.</p>
+      <p><strong>The 3-Step Formula:</strong></p>
+      <ul>
+        <li><strong>Step 1 — Understanding (U — 1 mark):</strong> Show you understand the stakeholder's interest or impact. Give a relevant example. <br/><em>"The local community is concerned about noise and pollution from businesses..."</em></li>
+        <li><strong>Step 2 — Application (APP — 1 mark):</strong> Link that understanding directly to the named business in the case study using a specific detail. <br/><em>"...Noise from testing and servicing cars at Lineside Repairs could disturb people living in nearby properties in Elsecar..."</em></li>
+        <li><strong>Step 3 — Analysis (AN — 1 mark):</strong> State the final bottom-line impact ON THE BUSINESS. What does this mean for costs, revenue, profit, reputation? <br/><em>"...This could force Steve to restrict his operating hours, reducing efficiency and potentially losing customers to competitors."</em></li>
+      </ul>
+      <p><strong>🚫 The #1 Reason Students Score 0 for Analysis:</strong> Writing a brilliant general point about the stakeholder but failing to link it back to the specific business. You CANNOT score the analysis mark without first scoring the application mark. No APP = No AN.</p>
+      <p><strong>The "So What?" Test:</strong> After every sentence, ask yourself <em>"So what does this mean for the business?"</em> Keep asking until you reach a concrete business impact (profit, costs, sales, reputation, closure).</p>
+    `,
+    pills: ["U", "app", "an"]
+  },
+  {
+    type: "Analyse 2 Impacts — 6 marks",
+    title: "Two Complete Chains of Analysis — No Conclusion Needed",
+    content: `
+      <p>A 6-mark question is simply a <strong>3-mark question done twice</strong>. Write two completely separate, well-structured paragraphs — each one following the U → APP → AN structure.</p>
+      <p><strong>Structure:</strong></p>
+      <ul>
+        <li><strong>Paragraph 1:</strong> Stakeholder Group 1 → Understanding → Application → Analysis</li>
+        <li><strong>Paragraph 2:</strong> Stakeholder Group 2 → Understanding → Application → Analysis</li>
+      </ul>
+      <p><strong>⚠️ Critical Warning — Stakeholder-Facing vs Business-Facing Analysis:</strong><br/>
+      If a question asks for the impact <em>on</em> a stakeholder group (e.g. "Analyse the impact on two stakeholder groups of the merger"), your analysis must describe what happens <em>to them</em>, not just what happens to the business.</p>
+      <p><strong>❌ Wrong (business-facing):</strong> "The merger will reduce costs for Beautiful Buds plc."</p>
+      <p><strong>✅ Correct (stakeholder-facing):</strong> "Employees at Beautiful Buds may face redundancy as the merger creates overlapping roles, meaning they could lose their income and job security."</p>
+      <p><strong>🚫 Do NOT write a conclusion</strong> on a 6-mark question. There are zero marks available for evaluation at this level. Save your time for the analysis marks.</p>
+    `,
+    pills: ["U", "app", "an"]
+  },
+  {
+    type: "Recommend / Evaluate — 3 marks",
+    title: "Make a Clear Judgement — Then Justify It With Context",
+    content: `
+      <p>A 3-mark evaluate/recommend question on stakeholders follows a specific structure: <strong>Decision + Justification + Contextual Evidence</strong>.</p>
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li><strong>Judgement (1 mark):</strong> Make a clear, direct statement about which stakeholder has more/most influence. No explanation required for this mark alone — just a clear choice.</li>
+        <li><strong>Non-contextual justification (1 mark):</strong> Give a reason that is valid for most businesses (not specifically linked to the case study).</li>
+        <li><strong>Contextual justification (up to 2 marks):</strong> Give a reason that uses precise details from the case study. This is the difference between a 2-mark and a 3-mark answer.</li>
+      </ul>
+      <p><strong>❌ 'Sitting on the fence' = 0 marks:</strong><br/>
+      <em>"Both the government and the local community affect the business in different ways."</em><br/>
+      This does not make a judgement. It answers zero marks.</p>
+      <p><strong>✅ Full marks answer:</strong><br/>
+      <em>"I think the government has the greater influence on Lineside Repairs (JUDGEMENT). The government can change MOT regulations which Lineside must legally comply with (JUSTIFICATION). If new equipment is required for updated MOT tests, Steve would face a significant investment cost, potentially wiping out profit and threatening the survival of the business (CONTEXTUAL JUSTIFICATION)."</em></p>
+      <p><strong>Sentence Starters:</strong></p>
+      <ul>
+        <li>"I think [Stakeholder X] has the greater influence because..."</li>
+        <li>"Although [Stakeholder Y] also affects the business, [X] is more significant because..."</li>
+        <li>"This depends on the situation, however overall [X] has more impact because..."</li>
+      </ul>
+    `,
+    pills: ["U", "app", "an", "eval"]
+  },
+  {
+    type: "Explain Objectives — 6 marks",
+    title: "Match the Objective to the Stakeholder AND the Business",
+    content: `
+      <p>Questions asking you to "explain how the objectives of [external] stakeholder groups can be satisfied" require you to do two things for each stakeholder: state what they want (Understanding) and explain how <em>this specific business</em> meets that need (Application).</p>
+      <p><strong>Key Examiner Rules for this question type:</strong></p>
+      <ul>
+        <li>You must cover <strong>three different stakeholder groups</strong> for the full 6 marks (2 marks per group: 1 for U + 1 for APP).</li>
+        <li>You will receive <strong>no marks for simply naming</strong> the stakeholder group — only for explaining their objective and applying it.</li>
+        <li>If you only write what the stakeholder wants without linking it to the specific business, you cap at 3 marks (one per group, no APP marks).</li>
+        <li>The question says <strong>external</strong> stakeholders — do not write about employees or owners.</li>
+      </ul>
+      <p><strong>❌ Generic Answer (1 mark only per group):</strong><br/>
+      <em>"Suppliers want to be paid on time."</em> — This is valid knowledge but earns only 1 mark with no application.</p>
+      <p><strong>✅ Applied Answer (2 marks):</strong><br/>
+      <em>"Suppliers want to receive regular, large orders (U). Since Nina's Knitting Supplies has 10 shops and a website, her orders for knitting wool are likely to be relatively large, giving suppliers the volume they need (APP)."</em></p>
+      <p><strong>⚠️ Examiner's Warning:</strong> Do not confuse local community objectives with charity work. The local community wants employment opportunities, reduced noise/pollution, and local prosperity — not charity donations.</p>
+    `,
+    pills: ["U", "app"]
+  }
+];
+
+// 8. Flashcards
+const flashcards = [
+  { term: "Stakeholder", def: "An individual or group of people who have an interest in a business and can be affected by, or affect, its activities." },
+  { term: "Internal stakeholder", def: "A stakeholder who is part of the business itself — owners and employees." },
+  { term: "External stakeholder", def: "A stakeholder who exists outside the business — customers, suppliers, government and local community." },
+  { term: "Shareholder", def: "An owner of shares in a limited company who receives dividends as a reward for their investment." },
+  { term: "Dividend", def: "A share of company profits distributed to shareholders." },
+  { term: "Conflicting objectives", def: "When different stakeholder groups want opposing things from the same business — e.g. owners want low wages but employees want high wages." },
+  { term: "Strike", def: "When employees refuse to work as collective action to pressure the business into meeting their demands." },
+  { term: "Customer boycott", def: "When customers deliberately stop purchasing from a business, usually in protest, leading to lower sales and damaged reputation." },
+  { term: "National Living Wage", def: "The legally required minimum pay rate set by the government that all businesses must pay their workers." },
+  { term: "Corporation tax", def: "Tax charged by the government on business profits. Lower corporation tax means more profit available for owners." },
+  { term: "Government grant", def: "Money given by government to a business that does not need to be repaid — used to encourage new businesses or economic development." },
+  { term: "Objectives of owners", def: "To maximise profit, achieve business growth, and receive dividends or a return on investment." },
+  { term: "Objectives of employees", def: "To receive fair wages, enjoy job security, have good working conditions, and gain job satisfaction." },
+  { term: "Objectives of customers", def: "To receive quality products at affordable prices, with good customer service and a reliable product range." },
+  { term: "Objectives of suppliers", def: "To receive large, frequent, well-paid orders and to maintain long-term relationships with reliable business customers." },
+  { term: "Objectives of government", def: "To collect taxes, maintain high employment levels, and ensure businesses comply with laws and regulations." },
+  { term: "Objectives of local community", def: "To benefit from local employment, reduced noise/pollution, and a prosperous, safe local environment." }
+];
+
+// 9. Exam-Style Questions
+const examQuestions = [
+  {
+    num: "Q1",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "What is a benefit to the local community of a nearby carpet factory extending its operating hours?",
+    options: [
+      "A wider choice of carpet designs will be available",
+      "Increased road congestion from more lorries delivering textiles",
+      "More job opportunities will be created",
+      "The business will pay higher taxes"
+    ],
+    answer: 2,
+    hint: "Think about what the local community values — focus on people who live nearby, not on customers or the government.",
+    starter: "The benefit to the local community is...",
+    markScheme: `<div class="marks-section"><h5>Answer: C — More job opportunities will be created</h5><p><strong>Why C is correct:</strong> Extending operating hours means the factory needs more workers, creating employment for local residents. Job creation is a key benefit the local community wants from nearby businesses.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — Wrong stakeholder:</strong> A wider choice of carpet designs benefits customers, not the local community specifically. The local community does not gain from product variety.</li><li><strong>B — Negative impact:</strong> Increased road congestion is a <em>drawback</em> of the factory extending hours, not a benefit. This would make local residents' lives worse.</li><li><strong>D — Wrong stakeholder:</strong> Higher tax payments benefit the government's budget, not the local community directly. The local community is a separate stakeholder group.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q2",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "What impacts are a customer boycott MOST likely to have on a business?",
+    options: [
+      "External growth, reduced profit, increased dividends",
+      "Fewer customers, reduced profit, increased market share",
+      "Improved brand image, more customers, increased profit",
+      "Worsened reputation, lower sales, reduced profit"
+    ],
+    answer: 3,
+    hint: "Think about what happens when customers stop buying from a business — follow the chain of effects.",
+    starter: "A customer boycott would most likely lead to...",
+    markScheme: `<div class="marks-section"><h5>Answer: D — Worsened reputation, lower sales, reduced profit</h5><p><strong>Why D is correct:</strong> A boycott means customers deliberately stop buying. This leads directly to fewer sales (lower revenue), damages the business's public image (worsened reputation), and ultimately reduces profit as income falls.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — Wrong:</strong> External growth would mean the business is expanding — the opposite of what a boycott causes. Increased dividends require higher profits, which a boycott would reduce.</li><li><strong>B — Wrong:</strong> A boycott means fewer customers, which is partially correct, but it reduces market share (not increases it) as rival businesses gain customers who leave.</li><li><strong>C — Completely wrong:</strong> A boycott damages brand image, reduces customers and cuts profit. This option describes the exact opposite of a boycott's effect.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q3",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "Which of the following is NOT a method by which government as a stakeholder can affect business activity?",
+    options: [
+      "Increasing the taxation on business profits",
+      "Giving grants to businesses to help new developments",
+      "Increasing the number of MPs in parliament",
+      "Spending money on new road projects"
+    ],
+    answer: 2,
+    hint: "Which of these options is about the internal workings of parliament rather than a direct economic policy affecting business?",
+    starter: "The method that is NOT a way government affects business is...",
+    markScheme: `<div class="marks-section"><h5>Answer: C — Increasing the number of MPs in parliament</h5><p><strong>Why C is correct:</strong> The number of MPs in parliament is a political/electoral matter. It does not directly change the tax burden, regulations, spending or support available to businesses, so it is not a method by which government affects business as a stakeholder.</p><p><strong>Why the other options ARE genuine methods:</strong></p><ul><li><strong>A:</strong> Increasing corporation tax directly reduces business profits and the money available for investment or dividends.</li><li><strong>B:</strong> Grants provide businesses with financial support to grow or establish themselves — directly affecting business activity.</li><li><strong>D:</strong> Government infrastructure spending on roads, railways and defence creates business opportunities and stimulates economic activity.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q4",
+    marks: 6,
+    type: "written",
+    caseStudy: "Nina's Knitting Supplies\n\nNina runs a successful business selling knitting wool and sewing products. She opened her first shop 15 years ago. The business has grown organically and now sells products from 10 shops and a website. Nina uses market segmentation to target customers. Nina employs 80 people. She works hard to meet the shared objectives of her employees, as well as external stakeholder groups such as customers, suppliers, lenders and the local community.\n\nNina produces a weekly update that is sent by email to all employees every Friday. The updates contain information about the future development of the business, plus other stories of interest to employees. Recent stories include congratulating an employee on the birth of a child and the charity fundraising activities of one shop.\n\nNina plans to develop the business further over the next five years, especially as knitting is becoming an increasingly popular pastime. This has led to more competitors entering the market.",
+    question: "Explain how the objectives of three external stakeholder groups can be satisfied by Nina's Knitting Supplies. [6 marks]",
+    hint: "You need THREE different external stakeholder groups. For each one: (1) state what they want (Understanding), and (2) explain how Nina's business specifically meets that need (Application). Do NOT write about employees or Nina herself — the question specifically asks about EXTERNAL stakeholders.",
+    starter: "Stakeholder 1 (Understanding): Customers want... (K)\nApplied to Nina's business: Nina's Knitting Supplies satisfies this by... (APP)\n\nStakeholder 2 (Understanding): Suppliers want... (K)\nApplied to Nina's business: Nina's Knitting Supplies satisfies this by... (APP)\n\nStakeholder 3 (Understanding): The local community wants... (K)\nApplied to Nina's business: Nina's Knitting Supplies satisfies this by... (APP)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation: 6 marks (AO1b × 3, AO2 × 3)</h5><ul><li><strong>Structure:</strong> 1 mark for understanding of an external stakeholder's objective + 1 mark for application to Nina's Knitting Supplies. Maximum of 3 stakeholder groups.</li><li><strong>No application marks can be awarded without first scoring the understanding mark.</strong></li><li><strong>No marks for simply naming the stakeholder group.</strong></li></ul></div><div class="marks-section"><h5>Understanding may include:</h5><ul><li><strong>Customers:</strong> wide product range, quality products, low prices, value for money, good customer service, convenient opening hours, fast/free delivery, etc.</li><li><strong>Suppliers:</strong> to be paid, paid on time, paid quickly, high prices, large orders, frequent orders, repeat orders, client loyalty, etc.</li><li><strong>Lenders:</strong> repayment on time, high interest rates, reliable borrower, etc.</li><li><strong>Government:</strong> taxes paid on time, job creation, sustainability, eco-friendly, etc.</li><li><strong>Local community:</strong> environmentally/socially responsible behaviour, minimise noise/pollution/congestion, provide employment, boost local economy, etc.</li></ul></div><div class="marks-section"><h5>Application must reference Nina's business, e.g.:</h5><ul><li>Nina sells knitting wool and sewing products</li><li>Has 10 shops and a website</li><li>Knitting is increasingly popular</li><li>Employs 80 people</li></ul></div><div class="marks-section"><h5>Examiner's Comments</h5><p>The most common error was writing about employees or Nina (internal stakeholders) when the question specifies external stakeholders. Generic answers (e.g. "paying lenders on time") can only gain 1 mark without application. Do NOT suggest the local community is interested in charity work — their objective is employment and local prosperity, not charity.</p></div>`,
+    modelAnswer: "Customers want to purchase quality products at affordable prices (U). Nina's Knitting Supplies can satisfy this by offering a wide range of knitting wool across 10 shops and a website, giving customers convenient access to what they need (APP).\n\nSuppliers want to receive large, regular orders and be paid promptly (U). Since Nina operates 10 shops and a website, she will need to place substantial and frequent orders for wool and sewing supplies, providing suppliers with reliable, high-volume business (APP).\n\nThe local community wants local employment opportunities and prosperity in the area (U). Nina employs 80 people across her shops, directly providing jobs that support local residents' incomes and contribute to local economic spending (APP)."
+  },
+  {
+    num: "Q5",
+    marks: 1,
+    type: "written",
+    caseStudy: "Shinz Ltd\n\nFive years ago, brothers Tom and Amir set up a car washing business called Shinz Ltd in the town of Littlelong. The business has been very successful and currently offers 'economy', 'gloss' and 'high-gloss' washing services. Tom is responsible for the administration, finance and marketing functions. Amir is responsible for the car washing operations and supervises two full-time employees. The prices Shinz Ltd charges are not low when compared to its competitors. Customer service is a priority for the business.\n\nTom and Amir are keen to expand the business and are planning to launch a new 'resin polish' service, to protect car paintwork during the cold winter months. Many of Shinz Ltd's customers have requested this service. 'Resin polish' is not currently available in Littlelong but is offered by a business in another town five miles away. Tom is considering whether to use competitor pricing or price skimming for this new service.\n\nLittlelong Motors Ltd is a used car retailer. The business has three owners. They have suggested a merger with Shinz Ltd. Littlelong Motors Ltd offers a basic car washing service in addition to its car sales. It prides itself on offering the lowest prices in the town. 26% of Littlelong Motors Ltd's customers are 'extremely satisfied' with the car washing service provided. This compares to 68% of Shinz Ltd's customers saying they are 'extremely satisfied'.\n\nThe car washing market in Littlelong is valued at £460,000 per year.",
+    question: "Identify one likely objective of an employee. [1 mark]",
+    hint: "Think about what a person working a job personally wants from their employment — not what the business wants. Think about pay, security, or satisfaction.",
+    starter: "A likely objective of an employee is...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation: 1 mark (AO1a)</h5><p>One mark for any valid personal employee objective. The answer does not need to relate specifically to Shinz Ltd.</p><p><strong>Acceptable answers include:</strong></p><ul><li>Promotion / career progression</li><li>Payment / wages / earn money / income / earn a living</li><li>To receive recognition / to be praised</li><li>Job security</li><li>Job satisfaction / interesting job / motivation</li><li>Work with friendly colleagues / good morale</li><li>To gain work experience</li><li>Safe working conditions</li></ul><p><strong>Do NOT award answers relating to:</strong> customer service, sales targets, output, quality, training, profit or revenue — these are business objectives, not personal employee objectives.</p><p><strong>Examiner's Comment:</strong> Most common errors were writing about profit or greater output — these are business goals, not personal employee objectives. The question asks for a personal need or want of the employee themselves.</p></div>`,
+    modelAnswer: "A likely objective of an employee is to receive a fair wage / to have job security."
+  },
+  {
+    num: "Q6",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "The directors of a public limited company have decided to reduce the size of the workforce to increase profits. Which stakeholder is MOST likely to benefit from this decision?",
+    options: [
+      "Customers",
+      "Employees",
+      "Owners",
+      "The local community"
+    ],
+    answer: 2,
+    hint: "If the company makes more profit as a result of this decision, who directly receives that benefit?",
+    starter: "The stakeholder most likely to benefit is...",
+    markScheme: `<div class="marks-section"><h5>Answer: C — Owners</h5><p><strong>Why C is correct:</strong> Reducing the workforce cuts wage costs. Lower costs mean higher profit margins. In a public limited company, higher profits lead to larger dividends for shareholders (the owners). This directly benefits the owners of the business.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — Customers:</strong> Customers are not directly affected by a workforce reduction in terms of what they gain financially. They may even be negatively affected if service quality falls.</li><li><strong>B — Employees:</strong> Employees are directly harmed by this decision — those made redundant lose their jobs and income. Remaining employees may face increased workloads.</li><li><strong>D — Local community:</strong> More unemployment in the area is a negative consequence for the local community, not a benefit. Fewer people in work means reduced local spending and potentially increased social problems.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q7",
+    marks: 2,
+    type: "written",
+    caseStudy: "Greggs\n\nGreggs is a modern 'food-on-the-go' retail brand. It specialises in selling sandwiches, cakes, pastries and pies. Most of these are made by Greggs, using raw materials such as flour, meat and yeast. The company opened its first bakery 80 years ago and has since grown significantly. It currently has 20,000 employees. Greggs' aim is to become the customer's favourite for 'food-on-the-go' in the UK. This sector is growing quickly and is forecast to be worth £23.4 billion by 2024 (up from £18.5 billion in 2019).\n\nAccording to The Vegan Society, the number of people in the UK choosing a vegan diet has increased during recent years, rising from approximately 150,000 in 2014 to over 600,000 in 2018.\n\nUsing the market data, Greggs responded to this change by launching vegan sausage rolls in January 2019. The publicity generated helped Greggs' total sales to increase by 9.6% in its next seven weeks of trading. Following this success the business launched other products, including vegan doughnuts and vegan steak bakes, based on consumer demand.\n\nManagers at Greggs constantly monitor changes in consumer tastes. Similarly, they keep up-to-date with changes in employment law. Greggs' managers also take pride in the business being named one of the happiest places to work in the UK. Greggs offers many ways of working, including part-time roles.",
+    question: "Other than the government, explain one external stakeholder's influence on Greggs. [2 marks]",
+    hint: "Choose one external stakeholder (customers, suppliers, or local community) and explain: (1) HOW they influence Greggs (K), and (2) use a specific detail from the Greggs case study (APP).",
+    starter: "One external stakeholder that influences Greggs is [name the stakeholder]... (K)\nThis stakeholder influences Greggs by... which is shown by the fact that... (APP)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation: 2 marks (AO1a + AO2)</h5><ul><li><strong>1 mark:</strong> Knowledge of the influence of an external stakeholder on business.</li><li><strong>1 further mark:</strong> Application of that influence specifically to Greggs.</li><li><strong>No application mark can be awarded without first scoring the knowledge mark.</strong></li></ul></div><div class="marks-section"><h5>Knowledge may include:</h5><ul><li>Customers/consumers influencing product range, prices, quality, new product development</li><li>Suppliers influencing costs, production, quality of raw materials</li><li>Local community influencing store locations, hours, litter policies</li></ul></div><div class="marks-section"><h5>Application to Greggs may include:</h5><ul><li>Growing number of vegans in the UK</li><li>Greggs launched vegan sausage rolls, doughnuts, steak bakes</li><li>Sales increased 9.6% after the vegan launch</li><li>20,000 employees — Greggs named one of the happiest places to work</li><li>'Food-on-the-go' sector worth £23.4 billion</li></ul></div><div class="marks-section"><h5>Examiner's Warning:</h5><p>Watch out for stakeholder/influence mismatch — do not attribute customer influences to the local community or vice versa. The influence stated must logically match the stakeholder group chosen.</p></div>`,
+    modelAnswer: "Customers influence Greggs' product range (K). The growing number of vegans in the UK led to Greggs launching vegan sausage rolls in January 2019, which caused total sales to increase by 9.6% in the following seven weeks (APP)."
+  },
+  {
+    num: "Q8a",
+    marks: 2,
+    type: "written",
+    caseStudy: "EDF\n\nEDF is a limited company which supplies gas and electricity to homes and businesses throughout the UK. It is the largest producer of low-carbon electricity in the UK and owns two fossil fuel power stations, three wind farms and eight nuclear power stations.\n\nIn 2016, EDF started to build the new Hinkley Point C nuclear power station in Somerset, which will eventually provide 7% of the UK's electricity needs for 60 years. Managers at EDF expect it to open in 2025.\n\nDuring the construction stage, the project has created thousands of jobs. A number of these construction jobs are filled by self-employed workers. Once it is fully operational, the power station will employ over 900 people, most of whom will be employed by EDF.\n\nEDF produces around 20% of the UK's electricity and is the largest supplier. As EDF operates in a competitive market, the price that it charges its customers is very important.",
+    question: "Explain how the owners of EDF may be affected by the construction of Hinkley Point C nuclear power station. [2 marks]",
+    hint: "The owners of EDF are its shareholders. Think about what shareholders care about most — dividends and returns. The power station won't open until 2025 — what does that mean for returns in the short term?",
+    starter: "The owners of EDF may be affected because... (K)\nThis is relevant to EDF because... (APP)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation: 2 marks (AO1a + AO2)</h5><ul><li><strong>1 mark:</strong> Knowledge of how owners may be affected (e.g. dividends, share price, return on investment, profit level).</li><li><strong>1 further mark:</strong> Application to EDF specifically.</li><li><strong>No application mark without knowledge mark.</strong></li></ul></div><div class="marks-section"><h5>Knowledge may include:</h5><ul><li>Profit level affected</li><li>Size of dividends may change</li><li>Change in share price</li><li>Return on investment delayed</li></ul></div><div class="marks-section"><h5>Application to EDF:</h5><ul><li>Owners are shareholders (EDF is a limited company)</li><li>Station won't open until 2025 — long wait for returns</li><li>Will eventually provide 7% of UK electricity for 60 years</li><li>Thousands of jobs / significant construction investment</li></ul></div><div class="marks-section"><h5>Important:</h5><p>The impact must be on the <strong>owners specifically</strong> — do NOT award answers about costs, revenues, or general business impacts. Do NOT award 'nuclear power station' or 'construction' as application — these are stated in the question.</p></div>`,
+    modelAnswer: "The owners' (shareholders') dividends may be reduced in the short term (K), as it will not be until 2025 that the power station begins generating electricity and producing returns on their significant investment in the construction (APP)."
+  },
+  {
+    num: "Q8b",
+    marks: 2,
+    type: "written",
+    caseStudy: "",
+    question: "Explain how the construction of Hinkley Point C nuclear power station may affect the local community. [2 marks]",
+    hint: "Think about both positive and negative impacts on people living near Somerset. Consider jobs, traffic, noise, disruption — pick ONE and develop it fully with a specific detail from the case study.",
+    starter: "The local community may be affected because... (K)\nThis relates to Hinkley Point C because... (APP)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation: 2 marks (AO1a + AO2)</h5><ul><li><strong>1 mark:</strong> Knowledge of how the local community may be affected.</li><li><strong>1 further mark:</strong> Application to EDF / Hinkley Point C specifically.</li></ul></div><div class="marks-section"><h5>Knowledge may include:</h5><ul><li>More job opportunities for local residents</li><li>Increased traffic congestion from construction vehicles</li><li>Increased pollution / noise during construction</li><li>Lower property prices near the site</li><li>Greater disruption / negative aesthetic impact</li></ul></div><div class="marks-section"><h5>Application to Hinkley Point C / EDF may include:</h5><ul><li>Construction will last until 2025</li><li>Thousands of jobs created during construction</li><li>Over 900 permanent jobs once operational</li><li>Many construction jobs are self-employed</li><li>Located in Somerset</li><li>Heavy construction vehicles / equipment on local roads</li></ul></div>`,
+    modelAnswer: "The construction of Hinkley Point C will create thousands of new employment opportunities for local residents in Somerset (K), meaning local people can earn income working on the project, boosting prosperity in the area (APP)."
+  },
+  {
+    num: "Q9i",
+    marks: 2,
+    type: "written",
+    caseStudy: "Boots UK\n\nBoots UK is a leading retailer in the UK with about 2,500 stores selling a range of medical, health and beauty products. The company is part of a global business called Walgreens Boots Alliance.\n\nAll of the UK stores are especially busy from September to December, as customers visit to purchase Christmas presents. A Christmas recruitment campaign is run every year to find temporary staff. These staff are recruited to help the stores during this period. In addition, new permanent employees are recruited to work both full-time and part-time throughout the rest of the year. The company's business plan considers seasonal trends and the impact of these on the company's resource needs.\n\nCommunicating effectively with employees is vital. Store managers use short meetings to communicate important messages to all staff, for example, about promotional events during the weeks leading up to Christmas.",
+    question: "Identify two external stakeholder groups of a business. [2 marks]",
+    hint: "Remember: external stakeholders exist OUTSIDE the business. Think about who interacts with Boots but is not an owner or worker.",
+    starter: "External stakeholder group 1: ...\nExternal stakeholder group 2: ...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation: 2 marks (AO1a × 2)</h5><p>1 mark for each correctly identified external stakeholder group, up to a maximum of 2 marks. No marks for internal stakeholders (employees, managers, owners).</p><p><strong>Acceptable answers include:</strong></p><ul><li>Creditors / lenders / the bank</li><li>The Government</li><li>Customers</li><li>Suppliers</li><li>Competitors</li><li>Local community (e.g. residents near a store)</li><li>Charity partners</li><li>Landlords / shopping mall owners</li></ul></div>`,
+    modelAnswer: "External stakeholder group 1: Customers\nExternal stakeholder group 2: Suppliers"
+  },
+  {
+    num: "Q9ii",
+    marks: 2,
+    type: "written",
+    caseStudy: "",
+    question: "Explain one objective which an internal stakeholder group of Boots UK may have. [2 marks]",
+    hint: "Internal stakeholders are owners and employees. Choose one, state what they want (1 mark), then develop that point in the context of Boots UK (1 mark).",
+    starter: "Internal stakeholder group: [owners / employees]\nTheir objective is to... (K)\nThis means that at Boots UK... (APP)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation: 2 marks (AO1a + AO2)</h5><ul><li><strong>1 mark:</strong> Identification of a valid objective of an internal stakeholder group.</li><li><strong>1 further mark:</strong> A development point in context of Boots UK.</li></ul></div><div class="marks-section"><h5>Acceptable answers include:</h5><ul><li>Owners: higher profits, dividends, business growth</li><li>Managers: bonuses, career progression</li><li>Employees: better pay, job security, permanent contracts</li></ul></div><div class="marks-section"><h5>Exemplar responses:</h5><p>"The owners of Boots UK may have the objective of higher profits (1). They will want the company to be successful in the Christmas period and beyond to increase their dividends (1 — APP)."</p><p>"The store workers at Boots UK will be looking for job security (1) so that the temporary Christmas jobs become permanent roles (1 — APP)."</p></div>`,
+    modelAnswer: "Internal stakeholder group: Employees.\nEmployees at Boots UK want job security (K). Given that many staff are recruited temporarily for Christmas, permanent employees will want to ensure they retain their full-time roles beyond the seasonal period (APP)."
+  },
+  {
+    num: "Q10",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "A bakery manufactures and supplies a range of bread loaves to local supermarkets. Which of the following is the MOST likely effect of the bakery employees refusing to work?",
+    options: [
+      "Deliveries to supermarkets will be disrupted",
+      "Different ingredients will be used to make the bread loaves",
+      "More bread loaves will be produced",
+      "The bread market will become segmented"
+    ],
+    answer: 0,
+    hint: "If workers go on strike and stop working, what is the immediate operational consequence for the bakery's customers (the supermarkets)?",
+    starter: "The most likely effect of employees refusing to work is...",
+    markScheme: `<div class="marks-section"><h5>Answer: A — Deliveries to supermarkets will be disrupted</h5><p><strong>Why A is correct:</strong> If employees go on strike (refuse to work), bread cannot be produced. Without production, there is nothing to deliver, so supermarket deliveries will be disrupted. This demonstrates the power employees have over business operations.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>B:</strong> A strike does not cause a change in ingredients. Ingredients are decided by management, not employee action.</li><li><strong>C:</strong> This is the exact opposite. If employees refuse to work, production stops — fewer, not more, bread loaves are produced.</li><li><strong>D:</strong> Market segmentation is a marketing strategy about targeting different customer groups. It has no connection to employees refusing to work.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q11i",
+    marks: 6,
+    type: "written",
+    caseStudy: "Beautiful Buds plc\n\nBeautiful Buds plc is a company which grows plants that are sold to garden centres throughout the UK. Beautiful Buds plc has a new Managing Director who has proposed a merger with Green Gardens plc, a chain of garden centres selling a wide range of plants and other garden products.\n\nGreen Gardens plc is currently one of the country's largest plant and garden retailers, with a market share of approximately 12%. The vertical merger will result in one company owning a chain of garden centres as well as growing the plants which are sold in these retail outlets.\n\nBeautiful Buds plc currently has 124 employees. Its Managing Director is looking to make the business more efficient and is planning to change its organisational structure by removing two layers of management. The Managing Director believes that the tasks carried out by Middle Managers and Team Leaders can be effectively completed by employees either below or above them in the structure. The estimated redundancy costs due to the restructuring are £200,000.\n\nCurrent structure: Directors (3) → Senior Managers (9) → Middle Managers (12) → Team Leaders (20) → Supervisors (30) → Operatives (50)\nPlanned structure: Directors (3) → Senior Managers (9) → Supervisors (40) → Operatives (50)\n\nSalary information: Directors £110,000 | Senior Managers £80,000 | Middle Managers £50,000 | Team Leaders £35,000 | Supervisors £30,000 | Operatives £22,000",
+    question: "Analyse the impact on two stakeholder groups of the proposed vertical merger between Beautiful Buds plc and Green Gardens plc. [6 marks]",
+    hint: "Choose two different stakeholder groups (e.g. employees, customers, shareholders, competitors). For EACH one, follow the U → APP → AN structure. Crucially: your analysis must describe the impact ON the stakeholder, not just on the business. Use specific details from the case study.",
+    starter: "Stakeholder Group 1: [Name the group] — Understanding: One impact on this stakeholder group is... (U)\nApplied to Beautiful Buds: This is relevant because... (APP)\nImpact on the stakeholder: As a result, this stakeholder will... (AN)\n\nStakeholder Group 2: [Name the group] — Understanding: One impact on this stakeholder group is... (U)\nApplied to Beautiful Buds: This is relevant because... (APP)\nImpact on the stakeholder: As a result, this stakeholder will... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation: 6 marks (AO1b × 2, AO2 × 2, AO3a × 2)</h5><p>For each of two stakeholder groups: 1 mark for understanding + 1 mark for application + 1 mark for analysis (stakeholder-facing impact).</p></div><div class="marks-section"><h5>Stakeholder groups and relevant impacts:</h5><ul><li><strong>Employees:</strong> job losses, job (in)security, new opportunities, career progression concerns, fear of redundancy</li><li><strong>Customers:</strong> increased availability of plants, wider product range, potentially lower prices, more convenient shopping</li><li><strong>Shareholders:</strong> change in share price, potential increase in dividends from greater market access, risk of short-term losses from restructuring costs</li><li><strong>Competitors:</strong> may face stronger competition, risk of losing market share, may need to reduce prices</li></ul></div><div class="marks-section"><h5>⚠️ Critical Examiner Note:</h5><p>Analysis must be STAKEHOLDER-FACING — describe the impact on the chosen stakeholder group, NOT on the business. For example: "Customers will benefit from a wider range of plants" — NOT "The business will have a wider product range."</p><p>Contextual references include: plants, garden centres, 12% market share, 124 employees, 2 layers of management, specific job roles and salaries, £200,000 redundancy costs.</p><p>If 'employee' is used as the stakeholder group, then specific job roles (e.g. Middle Managers) count as a separate group only if a different group is named.</p><p><strong>Examiner's Comment:</strong> This was the worst-answered question on the paper. Many students correctly named two stakeholder groups but then discussed impacts on the business rather than on the stakeholders. Read the question carefully — it asks for the impact ON the stakeholders.</p></div>`,
+    modelAnswer: "Stakeholder Group 1: Employees (Middle Managers and Team Leaders).\nThe merger and restructuring will result in redundancies for middle management layers (U). Beautiful Buds plc is removing 12 Middle Manager positions (each earning £50,000) and 20 Team Leader positions (each earning £35,000) from the structure (APP). As a result, these 32 employees face losing their jobs and incomes, creating significant financial insecurity for them and their families (AN).\n\nStakeholder Group 2: Customers.\nA vertical merger means Beautiful Buds will own both the growing and the retail stages of the supply chain (U). This means plants grown by Beautiful Buds will now be sold directly through Green Gardens plc's garden centres, which hold a 12% share of the market (APP). As a result, customers will benefit from a wider and more readily available range of plants across more retail locations, potentially at more competitive prices (AN)."
+  },
+  {
+    num: "Q11ii",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Recommend which stakeholder group will be most affected by the vertical merger between Beautiful Buds plc and Green Gardens plc. Give reasons for your answer. [3 marks]",
+    hint: "Make a clear, direct choice (1 mark). Then give ONE reason why your chosen group is most affected — non-contextual gets 1 mark, but using a specific detail from the case study (12%, specific job titles, salary figures, 124 employees, etc.) gets 2 marks for justification.",
+    starter: "I recommend that [stakeholder group] will be most affected by the merger... (DECISION)\nThis is because... (JUSTIFICATION)\nSpecifically, the case study shows that... (CONTEXTUAL JUSTIFICATION)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation: 3 marks (AO3b × 3)</h5><ul><li><strong>1 mark:</strong> Clear recommendation — names a stakeholder group as most affected.</li><li><strong>+1 mark:</strong> Non-contextual justification — a valid reason applicable to most businesses.</li><li><strong>+2 marks (instead of +1):</strong> Contextual justification — uses specific details from Beautiful Buds plc case study.</li></ul><p>Any stakeholder group can be chosen and receive full marks, provided the justification is strong enough.</p></div><div class="marks-section"><h5>Contextual references for strong answers:</h5><ul><li>Plants, garden, garden centres, 12% market share</li><li>124 employees, 2 layers removed, specific job roles</li><li>Salary figures (e.g. Middle Managers at £50,000)</li><li>£200,000 redundancy costs</li><li>Shareholders of either company</li></ul></div><div class="marks-section"><h5>⚠️ Zero marks for 'sitting on the fence':</h5><p>Saying "both stakeholder groups are affected in different ways" without making a clear choice scores zero. You MUST commit to one stakeholder group as being MOST affected.</p><p><strong>Examiner's Comment:</strong> Almost all students who attempted this question correctly gained the first mark for making a choice. The difference between 1 mark and 3 marks lay entirely in the quality and specificity of the contextual justification.</p></div>`,
+    modelAnswer: "I recommend that employees will be the stakeholder group most affected by the vertical merger (DECISION). The restructuring plan removes two entire layers of management, creating 32 redundancies (CONTEXTUAL JUSTIFICATION — specific number). Middle Managers earning £50,000 and Team Leaders earning £35,000 will lose their jobs, causing significant personal financial hardship, and the business faces £200,000 in redundancy costs showing the scale of the disruption to this group (CONTEXTUAL JUSTIFICATION — salary and cost detail)."
+  },
+  {
+    num: "Q12",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "Which of the following is an internal stakeholder of a business that trades as a partnership?",
+    options: [
+      "A customer",
+      "A shareholder",
+      "A supplier",
+      "An employee"
+    ],
+    answer: 3,
+    hint: "Remember: internal stakeholders are those INSIDE the business. Also remember that partnerships do NOT have shareholders — only limited companies do.",
+    starter: "An internal stakeholder of a partnership is...",
+    markScheme: `<div class="marks-section"><h5>Answer: D — An employee</h5><p><strong>Why D is correct:</strong> An employee works within the business, making them an internal stakeholder. This applies to any business structure, including a partnership.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — Customer:</strong> Customers are external stakeholders — they exist outside the business and buy from it.</li><li><strong>B — Shareholder:</strong> A partnership does NOT have shareholders. Shareholders only exist in limited companies (Ltd and plc). This is a deliberate exam trap to see if students know the difference between business types and stakeholders.</li><li><strong>C — Supplier:</strong> Suppliers are external stakeholders — they provide goods or services to the business from outside.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q13",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "Which of the following are the customers of a business MOST likely to be interested in?",
+    options: [
+      "Employee wages",
+      "Job security",
+      "Product range",
+      "Share dividends"
+    ],
+    answer: 2,
+    hint: "Think about what you care about as a customer when you go shopping. What would make you choose one business over another?",
+    starter: "Customers are most likely to be interested in...",
+    markScheme: `<div class="marks-section"><h5>Answer: C — Product range</h5><p><strong>Why C is correct:</strong> Customers are primarily interested in what the business sells — the quality, price, range and availability of products and services. A wider product range gives customers more choice and increases the chance they will find what they need.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — Employee wages:</strong> This is an objective of employees, not customers. Customers are generally not affected by what workers are paid, unless ethical concerns about pay are involved.</li><li><strong>B — Job security:</strong> This is an objective of employees. Customers do not have a personal stake in whether a business's workers keep their jobs.</li><li><strong>D — Share dividends:</strong> Dividends are paid to shareholders/owners. Customers are not shareholders (unless they happen to own shares separately), and dividends do not affect the price or quality of what customers buy.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q14",
+    marks: 2,
+    type: "written",
+    caseStudy: "Costa Coffee\n\nCosta Coffee is a British multinational coffee shop company owned by Coca-Cola. It is the second largest coffeehouse chain in the world behind Starbucks, and the largest in the UK. It has over 2,100 branches in the UK and over 1,200 branches in the rest of the world including Dubai, China and Poland.\n\nCosta Coffee has recently opened a new branch in Welshpool. It is located in the town centre on the high street near lots of other businesses, including offices and shops. There were only two other coffee shops in the town before they opened.\n\nCosta Coffee takes ethics very seriously and it has switched to environmentally-friendly coffee beans to make its supply chain more sustainable. Now all its stores worldwide use beans from Rainforest Alliance-certified suppliers, who meet ethical and environmental standards for the sustainable supply of coffee beans.\n\nIn order to be successful, Costa Coffee sells a wide range of products and constantly invests in updating this product range as well as refurbishing its shops. Recently it has invested heavily in updating its computer software to assist its many functional areas such as finance.",
+    question: "Explain one impact on Costa Coffee employees of the business investing in updating computer software. [2 marks]",
+    hint: "Think about what changes for employees when their workplace upgrades its technology. Consider: efficiency, training needs, job security, ease of work. Then link your point specifically to Costa Coffee.",
+    starter: "One impact on Costa Coffee employees of the new computer software is... (K)\nThis is because at Costa Coffee... (APP)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation: 2 marks (AO1a + AO2)</h5><ul><li><strong>1 mark:</strong> Identifying an impact of computer software/technology on employees.</li><li><strong>1 further mark:</strong> Application of the impact specifically to Costa Coffee employees.</li><li><strong>No application mark without knowledge mark.</strong></li></ul></div><div class="marks-section"><h5>Knowledge may include:</h5><ul><li>Improved efficiency / faster working</li><li>Need for training on new software</li><li>Easier communication / coordination</li><li>Potential redundancy risk in some roles (e.g. finance)</li><li>Improved motivation from better tools</li></ul></div><div class="marks-section"><h5>Application to Costa Coffee may include:</h5><ul><li>Finance employees can produce data more quickly across 2,100+ UK branches</li><li>Employees may need training to use the new system</li><li>Software helps coordinate the supply chain for Rainforest Alliance-certified beans</li><li>Helps manage staffing across all locations</li><li>May reduce admin roles in the finance function</li></ul></div><div class="marks-section"><h5>Examiner's Comment:</h5><p>The impact needed to be applied to the specific scenario of Costa Coffee employees. The best answers linked the software to employees working within Costa Coffee's finance function specifically. Generic answers not tied to the case study could only earn 1 mark.</p></div>`,
+    modelAnswer: "One impact is that updating the computer software may improve the efficiency of Costa Coffee's employees (K), as finance staff across the 2,100+ UK branches will be able to process financial data and produce reports more quickly using the new system (APP)."
+  },
+  {
+    num: "Case Study Q (a)",
+    marks: 3,
+    type: "written",
+    caseStudy: "Lineside Repairs\n\nSteve Loy owns Lineside Repairs, a small garage in Elsecar, South Yorkshire. The business started in 1968 and Steve has worked there since the early 1980s. The garage services and repairs cars from the local community.\n\nSteve faces many challenges in operating the business. He has to keep up to date with changing government regulation, for example, having to buy the correct equipment to carry out MOT tests on vehicles. He must also make sure that any noise from the business does not upset people living in nearby properties.\n\nSteve employs staff to help him with the repairs and servicing as he would be unable to carry out all of the work himself. Steve also needs someone to look after the running of the business when he is on holiday.",
+    question: "Analyse one impact the local community, as a stakeholder, has on Lineside Repairs. [3 marks]",
+    hint: "You need all three steps: Understanding (what interest does the local community have?), Application (link it specifically to Lineside Repairs and Steve's situation), Analysis (what is the actual impact/effect on the business?).",
+    starter: "The local community, as a stakeholder, has an interest in... (U)\nIn the case of Lineside Repairs, this means that... (APP)\nAs a result, this impacts the business because... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation: 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> Shows understanding of how the local community's interest impacts a business (e.g. concerns about noise/pollution, or appreciating local employment).</li><li><strong>Application (1 mark):</strong> Links the interest to the case study of Lineside Repairs — must reference specific details about Steve's garage.</li><li><strong>Analysis (1 mark):</strong> Explains the effect/impact ON the business (costs, efficiency, reputation, customer numbers).</li><li><strong>Note: Application and Analysis marks cannot be scored if Understanding is not first scored.</strong></li></ul></div><div class="marks-section"><h5>Understanding examples:</h5><ul><li>Concerns about noise from the garage</li><li>Concerns about pollution from vehicle testing</li><li>Appreciation of local employment provided</li></ul></div><div class="marks-section"><h5>Application examples:</h5><ul><li>Noise from servicing and testing cars may disturb people living in nearby properties in Elsecar</li><li>Steve must ensure noise does not upset nearby residents (stated in case study)</li></ul></div><div class="marks-section"><h5>Analysis examples:</h5><ul><li>If the community protests about the noise, Lineside Repairs may have to change its working practices — for example, restricting testing hours — which reduces efficiency and could cost the business customers</li></ul></div>`,
+    modelAnswer: "The local community is concerned about noise and pollution from businesses operating in their area (U). At Lineside Repairs, the noise from servicing, engine testing and MOT checks may disturb residents living near the garage in Elsecar — which is why Steve must ensure noise levels are kept under control (APP). If the community complained or protested, Steve might be forced to restrict his working hours or change his testing procedures. This would reduce the number of jobs he can complete each day, lowering revenue and potentially threatening the profitability of the business (AN)."
+  },
+  {
+    num: "Case Study Q (b)",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Analyse one impact the government, as a stakeholder, has on Lineside Repairs. [3 marks]",
+    hint: "Think about the four ways government can affect businesses (taxation, grants, laws/regulations, spending). Which one is most relevant to a small garage doing MOT tests? Use specific details from the Steve Loy case study for your application mark.",
+    starter: "The government, as a stakeholder, affects businesses by... (U)\nIn the case of Lineside Repairs, this means... (APP)\nAs a result, this impacts Lineside Repairs because... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation: 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> Shows understanding of the government's interest in businesses — e.g. taxation, regulation changes that affect operations.</li><li><strong>Application (1 mark):</strong> Links government influence to Lineside Repairs — references MOT regulations or Steve's specific situation.</li><li><strong>Analysis (1 mark):</strong> Explains the financial or operational impact on the business.</li></ul></div><div class="marks-section"><h5>Understanding examples:</h5><ul><li>Government changes regulations on MOT testing requirements</li><li>Government changes taxation levels affecting business costs</li></ul></div><div class="marks-section"><h5>Application examples:</h5><ul><li>If the government changes the regulations on MOT testing, Lineside Repairs is directly affected</li><li>Steve must buy the correct equipment to carry out MOT tests (stated in case study)</li></ul></div><div class="marks-section"><h5>Analysis examples:</h5><ul><li>If new MOT regulations require expensive new equipment, Steve faces a significant investment cost which reduces profit, and may even threaten the financial survival of the business if funds are unavailable</li></ul></div>`,
+    modelAnswer: "The government changes regulations on how businesses must operate, which businesses are legally required to follow (U). At Lineside Repairs, Steve must buy the correct equipment to carry out MOT tests on vehicles — if the government changes the required standards for MOT testing, Steve would have no choice but to comply (APP). Purchasing new equipment would be a significant financial cost for a small garage, reducing Steve's profit margin and potentially threatening the business's survival if he cannot afford the investment (AN)."
+  },
+  {
+    num: "Case Study Q (c)",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Evaluate whether the local community or the government has more impact on the running of Lineside Repairs. [3 marks]",
+    hint: "Make a CLEAR choice — do not say 'both are equally important'. State which one you think has MORE impact (1 mark). Then justify your choice with reasons linked to Steve's specific situation at Lineside Repairs (up to 2 marks — using case study details earns more).",
+    starter: "I believe [the government / the local community] has more impact on Lineside Repairs... (JUDGEMENT)\nThis is because... (JUSTIFICATION)\nSpecifically, at Lineside Repairs... (CONTEXTUAL JUSTIFICATION)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation: 3 marks (AO3b × 3)</h5><ul><li><strong>Judgement (1 mark):</strong> A clear statement identifying which stakeholder has greater influence. No explanation required for this mark.</li><li><strong>Non-contextual justification (1 mark):</strong> A valid reason applicable to most businesses.</li><li><strong>Contextual justification (up to 2 marks):</strong> A precise reason using specific details from the Lineside Repairs case study. This earns 2 marks for justification instead of 1.</li></ul><p>Either stakeholder can be selected and gain full marks — the quality of justification determines the mark.</p></div><div class="marks-section"><h5>Exemplar response (Government):</h5><p>"I think the government has a greater influence on the running of Lineside Repairs (JUDGEMENT). The government can change regulations on how businesses operate which Lineside must legally comply with (NON-CONTEXTUAL JUSTIFICATION). Unlike community pressure, which Steve can negotiate with, MOT test regulations are compulsory — Steve must buy whatever equipment is required by law. If new regulations are introduced requiring expensive new testing equipment, this could be a huge financial burden for a small garage, significantly reducing profit (CONTEXTUAL JUSTIFICATION)."</p></div>`,
+    modelAnswer: "I think the government has the greater impact on the running of Lineside Repairs (JUDGEMENT). The government's regulations on MOT testing are legally binding — Steve has no choice but to comply, regardless of the cost (JUSTIFICATION). Specifically, the case study states that Steve must buy the correct equipment to carry out MOT tests. Unlike the local community's concerns, which Steve might be able to address through adjusting working practices, government regulations cannot be ignored or negotiated. Failing to comply would mean Steve could no longer legally carry out MOT tests, which would remove a key revenue stream from the business and could force it to close (CONTEXTUAL JUSTIFICATION)."
+  }
+];
+</script>
     <script src="script.js"></script>
 </body>
 

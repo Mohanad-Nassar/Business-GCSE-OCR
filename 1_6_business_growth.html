@@ -301,8 +301,816 @@
         </div>
     </main>
 
-    <script></script>
 
+    <script>
+// ══════════════════════════════════════
+//  DATA: 1.6 Business Growth
+// ══════════════════════════════════════
+
+// 1. Main Learning Content
+const topics = [
+  {
+    title: "Key Terms & Official Definitions",
+    tag: "Core Concepts",
+    content: `<p>This sub-topic covers the ways in which a business can increase in size — either by growing from within (<strong>organic/internal growth</strong>) or by joining with or buying other businesses (<strong>external growth</strong>).</p>
+<ul>
+  <li><strong>Organic Growth:</strong> Concerned with the <em>internal</em> growth of a business, e.g. by increasing sales, developing new products, or gaining new customers — without joining with another business.</li>
+  <li><strong>External Growth:</strong> The growth of a business by <em>takeover or merger</em> with another business.</li>
+  <li><strong>Merger:</strong> Where two or more businesses <em>mutually agree</em> to join together to become one new business.</li>
+  <li><strong>Takeover:</strong> Where a business takes a <em>controlling interest</em> in another business, for example by buying more than 50% of the shares in it.</li>
+  <li><strong>Horizontal Growth:</strong> A merger or takeover where the two businesses are involved in a <em>similar operation at the same stage of production</em> in the same industry.</li>
+  <li><strong>Backward Vertical Growth:</strong> When a business merges with, or takes over, a business that <em>supplies</em> it with goods or services — moving back up the supply chain.</li>
+  <li><strong>Forward Vertical Growth:</strong> When a business merges with, or takes over, a business that it <em>supplies goods or services to</em> — moving forward down the supply chain.</li>
+  <li><strong>Diversification:</strong> When a business merges with or takes over another business with which it has <em>no connection</em> — entering a completely new market.</li>
+  <li><strong>Market Share:</strong> A business's sales as a percentage of total market sales. Formula: (Business Sales ÷ Total Market Sales) × 100.</li>
+</ul>`
+  },
+  {
+    title: "Organic (Internal) Growth — Methods",
+    tag: "Theory",
+    content: `<p><strong>Organic growth</strong> means expanding using the business's own internal resources and capabilities, without merging with or acquiring another business. It is generally a slower but safer form of growth.</p>
+<ul>
+  <li><strong>Increasing Output:</strong> The business produces more — by using resources more efficiently, using spare capacity, or building new factories and expanding premises.</li>
+  <li><strong>Developing New Products:</strong> The business researches and develops new products, buys ideas/licences from others, or copies successful concepts from competitors. Technology businesses like Apple rely heavily on this.</li>
+  <li><strong>Gaining New Customers:</strong> The business attracts customers it did not previously have by reducing prices, opening new shops, or investing in better marketing and advertising.</li>
+  <li><strong>Increasing Market Share:</strong> The business wins a larger proportion of total market sales from rivals through better pricing, quality, or marketing.</li>
+</ul>
+<div class="case-study-box">
+  <h4>Case Study: Pets at Home</h4>
+  <p>Pets at Home achieved organic growth by <strong>expanding the range of services it offers internally</strong> — including grooming services and veterinary services. Rather than buying other businesses, it grew by developing new revenue streams within its existing brand and customer base, attracting new customer segments who need pet care beyond just products.</p>
+  <p><strong>Takeaway:</strong> Adding new services to an existing customer base is a classic method of organic growth — no mergers required.</p>
+</div>`
+  },
+  {
+    title: "External (Inorganic) Growth — Mergers & Takeovers",
+    tag: "Theory",
+    content: `<p><strong>External growth</strong> happens when a business joins with or buys another business. It is a faster way to grow but carries higher risk and cost.</p>
+<ul>
+  <li><strong>Merger:</strong> Two businesses <em>mutually agree</em> to combine and form one new business. Neither forces the other. Example: Orange + T-Mobile agreeing to form EE.</li>
+  <li><strong>Takeover (Acquisition):</strong> One business <em>buys a controlling stake</em> (over 50% of shares) in another, often without the target having a choice. Example: Disney buying Pixar.</li>
+</ul>
+<p><strong>Key difference:</strong> A merger is by <strong>mutual agreement</strong>; a takeover is where one business gains <strong>control</strong> over another by purchasing shares.</p>
+<div class="formula-box">
+  <strong>Supply Chain Direction (Memory Aid):</strong><br>
+  Supplier &rarr; Manufacturer &rarr; Retailer &rarr; Customer<br>
+  <strong>Backward vertical</strong> = buying your supplier (moving ← left)<br>
+  <strong>Forward vertical</strong> = buying your retailer/customer (moving → right)<br>
+  <strong>Horizontal</strong> = buying a business at the same level as you<br>
+  <strong>Diversification</strong> = buying a business in a completely unrelated industry
+</div>`
+  },
+  {
+    title: "Types of External Growth",
+    tag: "Methods",
+    content: `<p>External growth can take several forms depending on the <strong>relationship between the two businesses</strong> involved:</p>
+<ul>
+  <li><strong>Horizontal Growth:</strong> Two businesses at the <em>same stage of production in the same industry</em> join together. Example: A business making radios merges with a business making televisions. Example: Two rival restaurant chains merging.</li>
+  <li><strong>Backward Vertical Growth:</strong> A business joins with a <em>supplier</em>. Example: A computer assembler merges with a microchip supplier. Example: A jam manufacturer buys a fruit farm.</li>
+  <li><strong>Forward Vertical Growth:</strong> A business joins with a business it <em>sells to</em>. Example: A pottery maker takes over a pottery shop. Example: Greggs merging with a sandwich retailer.</li>
+  <li><strong>Diversification:</strong> A business joins a company in a <em>completely different, unrelated industry</em>. Example: A clothing company buying a software firm.</li>
+</ul>
+<p>The table below shows key examples to help you remember:</p>
+<ul>
+  <li>Jam maker + fruit farm = <strong>Backward vertical</strong> (farm supplies fruit)</li>
+  <li>Potter + pottery shop = <strong>Forward vertical</strong> (shop sells the pottery)</li>
+  <li>Radio maker + TV maker = <strong>Horizontal</strong> (same industry, same stage)</li>
+  <li>Clothing brand + tech firm = <strong>Diversification</strong> (no connection)</li>
+</ul>`
+  },
+  {
+    title: "Advantages & Disadvantages: Organic vs External Growth",
+    tag: "Analysis",
+    content: `<p>Both forms of growth have clear benefits and drawbacks. In the exam you may be asked to <strong>analyse</strong> or <strong>evaluate</strong> which method is more appropriate for a specific business.</p>
+<div class="two-col">
+  <div>
+    <div class="col-head">✓ Advantages of Organic Growth</div>
+    <div class="pro-item"><strong>Less risky:</strong> The business grows at a pace it can manage, reducing the chance of financial overextension.</div>
+    <div class="pro-item"><strong>Maintains control:</strong> Owners retain full strategic control and decision-making authority — profits do not need to be shared with new partners.</div>
+    <div class="pro-item"><strong>Builds own expertise:</strong> The business develops its own skills and brand identity, leading to a stronger competitive position over time.</div>
+    <div class="pro-item"><strong>Lower cost:</strong> Funded through internal funds (retained profit), avoiding the large upfront costs of buying another business.</div>
+  </div>
+  <div>
+    <div class="col-head">✗ Disadvantages of Organic Growth</div>
+    <div class="con-item"><strong>Slow:</strong> Takes much longer to achieve significant growth — shareholders may prefer faster expansion to boost returns more quickly.</div>
+    <div class="con-item"><strong>Limited growth potential:</strong> In a competitive or saturated market there may be a ceiling to how much the business can grow from within.</div>
+    <div class="con-item"><strong>Competitors may overtake:</strong> Rivals using external growth can gain market share far more rapidly, potentially leaving organic growers behind.</div>
+  </div>
+</div>
+<div class="two-col">
+  <div>
+    <div class="col-head">✓ Advantages of External Growth</div>
+    <div class="pro-item"><strong>Fast:</strong> Market share and revenue can increase almost immediately, satisfying impatient shareholders and investors.</div>
+    <div class="pro-item"><strong>Reduces competition:</strong> Taking over or merging with a rival removes a competitor from the market — potentially allowing higher prices.</div>
+    <div class="pro-item"><strong>Access to expertise:</strong> The business instantly gains the skills, technology, customer base and reputation of the acquired business.</div>
+    <div class="pro-item"><strong>Economies of scale:</strong> A larger combined business can negotiate bulk discounts, spread fixed costs, and lower unit costs.</div>
+  </div>
+  <div>
+    <div class="col-head">✗ Disadvantages of External Growth</div>
+    <div class="con-item"><strong>Very expensive:</strong> Buying another business requires significant investment or borrowing, greatly increasing financial risk.</div>
+    <div class="con-item"><strong>Loss of control:</strong> In a merger, profits and decisions must be shared with other owners — disagreements and conflict can arise.</div>
+    <div class="con-item"><strong>Management challenges:</strong> Managers may lack the experience to run a much larger, more complex organisation, leading to inefficiency and wasted money.</div>
+    <div class="con-item"><strong>Culture clashes:</strong> Employees from different businesses may have conflicting values or working practices, reducing productivity.</div>
+  </div>
+</div>`
+  },
+  {
+    title: "Market Share — Formula & Calculations",
+    tag: "Calculations",
+    content: `<p>Market share measures a business's dominance within its market. Increasing market share means the business is winning customers from rivals, even if the overall market is growing.</p>
+<div class="formula-box">
+  <strong>Market Share (%) =</strong> (Sales of the business ÷ Total sales in the market) &times; 100
+</div>
+<p><strong>Worked Example (Shinz Ltd):</strong><br>
+The car washing market in Littlelong = £460,000.<br>
+Shinz Ltd holds 40% market share.<br>
+Value = 40% &times; £460,000 = <strong>£184,000</strong></p>
+<p><strong>Worked Example (Combined merger):</strong><br>
+Shinz Ltd (40%) + Littlelong Motors (10%) = <strong>50% combined = £230,000</strong></p>
+<p><strong>Key warning:</strong> If the total market grows by 30% but a business's sales only grow by 20%, that business's market share has actually <em>fallen</em> — even though its sales went up. Market share is always relative to the total market.</p>
+<ul>
+  <li>Market share rises → more competitive, greater pricing power, stronger negotiating position with suppliers.</li>
+  <li>Market share falls → rivals growing faster, business losing ground even if its own sales are rising.</li>
+</ul>`
+  },
+  {
+    title: "Real-World Case Studies in Business Growth",
+    tag: "Case Study",
+    content: `<div class="case-study-box">
+  <h4>Case Study: Apple — Organic Growth</h4>
+  <p>Apple was started in 1976 and has grown to become the largest company in the world — almost entirely through <strong>organic growth</strong>. Rather than buying many other businesses, Apple focused on researching and developing its own products: the MacBook Pro, iPhone, iPad, and Apple Pay. Apple has taken over only a very small number of businesses in its entire history.</p>
+  <p>Apple also invested heavily in innovative marketing — introducing new products around September each year, using catchy music and minimalistic advertising to build a powerful global brand. Revenue grew from $33,300 in 1976 to $49.6 billion in 2016.</p>
+  <p><strong>Takeaway:</strong> Organic growth through product innovation and brand-building allowed Apple to maintain complete strategic control, resulting in one of the world's most profitable companies without relying on expensive acquisitions.</p>
+</div>
+<div class="case-study-box">
+  <h4>Case Study: Boohoo — External Growth</h4>
+  <p>Boohoo started in 2006 as an online fashion retailer targeting 16–24 year olds and initially grew organically via social media and website development. However, in 2020/2021 it shifted to <strong>external growth</strong>, acquiring well-known brands including Debenhams, Oasis, Burton, and Dorothy Perkins. This instantly gave Boohoo access to millions of customers across different demographics.</p>
+  <p>However, taking on so many businesses simultaneously created significant management challenges — controlling a much larger organisation increased costs and risked reducing overall efficiency and profitability.</p>
+  <p><strong>Takeaway:</strong> External growth gave Boohoo rapid access to new markets, but managing multiple acquisitions simultaneously increased the risk of losing control and damaging the original brand.</p>
+</div>
+<div class="case-study-box">
+  <h4>Case Study: Greggs — Choosing Between Growth Methods</h4>
+  <p>Greggs is a 'food-on-the-go' brand with 20,000 employees and a growing vegan product range (vegan sausage rolls launched 2019 boosted sales by 9.6% in 7 weeks). Greggs considered two external growth options: (1) a <strong>backward vertical merger</strong> with a flour producer to secure raw material supply and reduce costs; (2) a <strong>horizontal takeover</strong> of a rival food-on-the-go brand to eliminate competition and rapidly increase market share.</p>
+  <p><strong>Takeaway:</strong> Different growth strategies serve different purposes. Backward vertical growth secures supplies and cuts costs; horizontal takeover removes competition and boosts market share rapidly. The best choice depends on the business's specific aims and context.</p>
+</div>`
+  }
+];
+
+// 2. Multiple Choice Questions (Minimum 10)
+const mcqData = [
+  {
+    q: "Two vets agree to combine their practices and operate as one business. This is an example of a:",
+    opts: ["Diversification", "Horizontal takeover", "Merger", "Vertical takeover"],
+    ans: 2,
+    explain: "Correct answer: C — Merger. Both vet practices mutually agreed to combine — this is the definition of a merger. It is not a takeover because neither bought the other. It is horizontal (same industry) but since they agreed to join, it is a merger not a takeover."
+  },
+  {
+    q: "Eve is a restaurant owner. She has successfully used social media to attract a lot of new customers. This is an example of:",
+    opts: ["Diversification", "Invention", "Organic growth", "Skimming"],
+    ans: 2,
+    explain: "Correct answer: C — Organic growth. Eve has grown her business internally by using better marketing (social media) to gain new customers. Gaining customers through marketing is a classic organic growth method. A: Diversification = merging with an unrelated business. B: Invention = creating a new product. D: Skimming = a pricing strategy."
+  },
+  {
+    q: "A manufacturer of jam buys a fruit farm. This is an example of:",
+    opts: ["A business partnership", "A vertical takeover", "Diversification", "Flexible working"],
+    ans: 1,
+    explain: "Correct answer: B — A vertical takeover. The jam manufacturer is buying its supplier (the fruit farm), moving backwards up the supply chain — backward vertical external growth. A: A partnership is a type of business ownership, not a growth strategy. C: Diversification would mean entering an unrelated industry — fruit and jam are directly connected. D: Flexible working is an HR concept."
+  },
+  {
+    q: "A business has gained more customers by improving the way it markets its products. Which statement must be true?",
+    opts: ["The business has developed a new product", "The business has grown organically", "The business has increased its market share", "The business has made a profit"],
+    ans: 1,
+    explain: "Correct answer: B — The business has grown organically. Improving marketing to gain customers is an internal method of growth — this is always organic growth. A: Not necessarily — marketing may be for existing products. C: Not necessarily — the total market may have grown faster, so market share could have fallen. D: Not necessarily — the business may still have higher costs."
+  },
+  {
+    q: "A well-known restaurant chain buys another well-known restaurant chain. What is this an example of?",
+    opts: ["A horizontal takeover", "A vertical merger", "Diversification", "Innovation"],
+    ans: 0,
+    explain: "Correct answer: A — A horizontal takeover. Both businesses are restaurant chains — same stage, same industry = horizontal. One is buying the other (not mutual agreement) = takeover. B: Vertical = different stages of supply chain. C: Diversification = unrelated industry. D: Innovation = new products or processes."
+  },
+  {
+    q: "Which of the following is NOT an example of organic growth?",
+    opts: ["Increasing output", "Merging with a supplier", "Developing new products", "Gaining new customers"],
+    ans: 1,
+    explain: "Correct answer: B — Merging with a supplier. Merging with any other business is always external (inorganic) growth, regardless of whether it is a supplier, customer or rival. Options A, C, and D are all internal methods of growing the business from within."
+  },
+  {
+    q: "A business increasing its market share would normally lead to the business having:",
+    opts: ["More customers", "A better reputation", "A guarantee of supplies", "A better workforce"],
+    ans: 0,
+    explain: "Correct answer: A — More customers. Market share measures the proportion of total market sales held by the business. If market share increases, the business holds a larger slice of the market, which means more customers relative to rivals. The other options are not direct consequences of increased market share."
+  },
+  {
+    q: "A forwards vertical merger is when:",
+    opts: ["A business merges with another similar business", "A business merges with a supplier", "A business merges with a business it supplies goods to", "A business merges with a totally different business"],
+    ans: 2,
+    explain: "Correct answer: C — A business merges with a business it supplies goods to. Forward vertical = moving forward down the supply chain towards the customer. A: Merging with a similar business is horizontal. B: Merging with a supplier is backward vertical. D: Merging with a totally different business is diversification."
+  },
+  {
+    q: "A takeover is when:",
+    opts: ["A business agrees to join with another business", "A business buys more than 50% of another business", "A business buys any share of another business", "A business takes over paying the workers at another business"],
+    ans: 1,
+    explain: "Correct answer: B — A business buys more than 50% of another business. Owning more than 50% gives a controlling interest — the buyer can outvote all other shareholders on key decisions. A: Agreeing to join is a merger. C: Buying any share does not give control. D: This is not a business growth concept."
+  },
+  {
+    q: "Which of the following describes a takeover?",
+    opts: ["Orange and T-Mobile joined together to become EE", "Disney the film-maker bought the animation company Pixar", "Honda Motor Company builds a factory to manufacture gear boxes for its cars", "Netflix increases its share of the market"],
+    ans: 1,
+    explain: "Correct answer: B — Disney buying Pixar. A takeover is when one business purchases a controlling interest in another. Disney acquired (bought) Pixar. A: Orange and T-Mobile agreed to join — that is a merger. C: Building a new factory is organic growth (increasing capacity internally). D: Netflix growing market share organically is organic growth."
+  },
+  {
+    q: "Which of the following is NOT a method of external growth?",
+    opts: ["Horizontal merger", "Backward vertical takeover", "Developing a new product range", "Diversification"],
+    ans: 2,
+    explain: "Correct answer: C — Developing a new product range. Developing new products internally is a method of organic (internal) growth. Options A, B, and D all involve joining with or buying another business, making them forms of external growth."
+  },
+  {
+    q: "A business assembling computers merges with a microchip supplier. This is an example of:",
+    opts: ["Horizontal growth", "Backward vertical growth", "Forward vertical growth", "Diversification"],
+    ans: 1,
+    explain: "Correct answer: B — Backward vertical growth. The computer assembler is buying its supplier (the microchip company), moving backwards up the supply chain. A: Horizontal would mean both do the same thing. C: Forward vertical would be buying a retailer that sells the computers. D: Diversification would mean an entirely unrelated industry."
+  }
+];
+
+// 3. Keyword Matching (Minimum 10)
+const matchData = [
+  { term: "Organic growth", def: "The internal growth of a business, e.g. by increasing sales or developing new products, without joining with another business." },
+  { term: "External growth", def: "The growth of a business by takeover or merger with another business." },
+  { term: "Merger", def: "Where two or more businesses mutually agree to join together to become one business." },
+  { term: "Takeover", def: "Where a business takes a controlling interest in another business by buying more than 50% of its shares." },
+  { term: "Horizontal growth", def: "A merger or takeover where the two businesses are at the same stage of production in the same industry." },
+  { term: "Backward vertical growth", def: "When a business merges with, or takes over, a business that supplies it with goods or services." },
+  { term: "Forward vertical growth", def: "When a business merges with, or takes over, a business that it supplies goods or services to." },
+  { term: "Diversification", def: "When a business merges with or takes over another business with which it has no connection — a completely new market." },
+  { term: "Market share formula", def: "(Sales of the business ÷ Total sales in the market) × 100" },
+  { term: "Economies of scale", def: "The cost advantages a business gains as it grows larger, such as lower unit costs through bulk buying." },
+  { term: "Market share", def: "A business's sales as a percentage of total sales in its market — shows how dominant it is compared to rivals." },
+  { term: "Controlling interest", def: "Ownership of more than 50% of a company's shares, giving the buyer the power to make key business decisions." }
+];
+
+// 4. Fill in the Blanks (Minimum 10)
+const fibData = [
+  {
+    display: "Organic growth is concerned with the _____ growth of a business, for example by increasing _____.",
+    blanks: { B1: "internal", B2: "sales" }
+  },
+  {
+    display: "A _____ is when two businesses mutually agree to join together, whereas a _____ is when one business buys a controlling interest in another.",
+    blanks: { B1: "merger", B2: "takeover" }
+  },
+  {
+    display: "When a jam manufacturer buys a fruit farm, this is _____ vertical growth because the farm is a _____.",
+    blanks: { B1: "backward", B2: "supplier" }
+  },
+  {
+    display: "A business assembling computers merging with the retailer that sells its computers to the public is an example of _____ vertical growth.",
+    blanks: { B1: "forward" }
+  },
+  {
+    display: "When two rival supermarkets merge, this is known as _____ growth because they operate at the same _____ of production.",
+    blanks: { B1: "horizontal", B2: "stage" }
+  },
+  {
+    display: "_____ is when a business merges with a company in a completely unrelated industry, entering a brand new market.",
+    blanks: { B1: "Diversification" }
+  },
+  {
+    display: "Market share is calculated by dividing the _____ of the business by the total _____ in the market and multiplying by 100.",
+    blanks: { B1: "sales", B2: "sales" }
+  },
+  {
+    display: "A key disadvantage of organic growth is that it is _____, meaning shareholders may prefer the _____ pace of external growth.",
+    blanks: { B1: "slow", B2: "faster" }
+  },
+  {
+    display: "One advantage of external growth is that it can _____ competition by removing a _____ from the market.",
+    blanks: { B1: "reduce", B2: "rival" }
+  },
+  {
+    display: "Boohoo initially grew organically through _____ media, and later grew externally by _____ brands such as Debenhams.",
+    blanks: { B1: "social", B2: "acquiring" }
+  },
+  {
+    display: "Apple has grown primarily through _____ growth by researching and developing new _____, rather than buying many other businesses.",
+    blanks: { B1: "organic", B2: "products" }
+  },
+  {
+    display: "To gain a controlling interest in a takeover, a business must buy more than _____% of the shares in the other business.",
+    blanks: { B1: "50" }
+  }
+];
+
+const fibWords = [
+  "internal", "sales", "merger", "takeover", "backward", "supplier", "forward",
+  "horizontal", "stage", "Diversification", "slow", "faster", "reduce", "rival",
+  "social", "acquiring", "organic", "products", "50", "external", "profit",
+  "market", "vertical", "customers", "shares", "services"
+];
+
+// 5. True or False (Minimum 10)
+const tfData = [
+  {
+    statement: "Organic growth in a business is about growing vegetables organically.",
+    answer: false,
+    explanation: "FALSE. Organic growth means the internal growth of a business — growing from within by increasing sales, developing products, or gaining customers. The word 'organic' here means 'natural/internal', not agricultural."
+  },
+  {
+    statement: "More effective marketing will help a business grow.",
+    answer: true,
+    explanation: "TRUE. Better marketing attracts new customers and increases sales — a classic method of organic growth. It helps the business grow revenue and potentially its market share."
+  },
+  {
+    statement: "Market share is the share a worker has in the business.",
+    answer: false,
+    explanation: "FALSE. Market share is the proportion of total market sales held by one business, expressed as a percentage. It has nothing to do with employees. A 'share' in a company is a unit of ownership — a completely different concept."
+  },
+  {
+    statement: "A merger is when one business buys a controlling interest in another business.",
+    answer: false,
+    explanation: "FALSE. A merger is when two businesses mutually agree to join together. When one business purchases a controlling interest (over 50% of shares), that is a takeover. The key difference is mutual agreement vs one business buying control."
+  },
+  {
+    statement: "With a 30% increase in the total market, a business that increases its sales by 20% will have increased its market share.",
+    answer: false,
+    explanation: "FALSE. Market share is relative to the total market. If the total market grew by 30% but the business only grew by 20%, the business's market share has actually decreased — it is growing more slowly than the market overall."
+  },
+  {
+    statement: "External growth is always a better method of growth than organic growth.",
+    answer: false,
+    explanation: "FALSE. Whether external or organic growth is better depends entirely on the context. External growth is faster but more expensive and risky. Organic growth is slower but cheaper and retains owner control. The best method depends on the business's objectives, finances, and the competitiveness of its market."
+  },
+  {
+    statement: "A backward vertical takeover involves a business buying a company it sells its products to.",
+    answer: false,
+    explanation: "FALSE. Backward vertical means buying a supplier — a business that provides goods or services to you. Buying a business you sell to is forward vertical growth. Remember: backward = moving back up the supply chain towards suppliers."
+  },
+  {
+    statement: "Horizontal growth occurs when two businesses at the same stage of production in the same industry combine.",
+    answer: true,
+    explanation: "TRUE. Horizontal growth is exactly this — two businesses doing the same thing joining together, whether as a merger or takeover. Examples: two competing supermarkets merging, or two rival car wash businesses."
+  },
+  {
+    statement: "Organic growth is less risky than external growth.",
+    answer: true,
+    explanation: "TRUE. Organic growth uses internal resources and grows at a manageable pace, reducing financial risk. External growth involves large upfront costs, potential management difficulties, and culture clashes — making it inherently riskier."
+  },
+  {
+    statement: "A takeover requires a business to buy more than 50% of the shares in another business to gain a controlling interest.",
+    answer: true,
+    explanation: "TRUE. Owning more than 50% means the buyer can outvote all other shareholders on any decision, giving it full control over the business's direction and strategy."
+  },
+  {
+    statement: "Diversification involves a business merging with a direct competitor in the same industry.",
+    answer: false,
+    explanation: "FALSE. Diversification is when a business joins with a company in a completely different, unrelated industry. Joining with a direct competitor would be horizontal growth — they are in the same market."
+  },
+  {
+    statement: "It is important for technology-based businesses to constantly bring out new products if they are to grow.",
+    answer: true,
+    explanation: "TRUE. In the technology sector, products quickly become outdated. Businesses like Apple rely on constant research and development (e.g. new iPhone models each year) to stay competitive and continue growing organically through product development."
+  }
+];
+
+// 6. Common Student Misconceptions
+const miscData = [
+  {
+    wrong: "Students describe organic growth as simply 'growing your business naturally' without specifying a method.",
+    correct: "Organic growth has specific methods: increasing output, developing new products, gaining new customers, and increasing market share. Always name the specific method and explain how it works in the context of the business."
+  },
+  {
+    wrong: "Students confuse mergers and takeovers and use the terms interchangeably.",
+    correct: "A merger is by mutual agreement — both businesses choose to join. A takeover is when one business buys more than 50% of another's shares to gain control — the target may not have wanted this. The examiner will penalise you for using these interchangeably."
+  },
+  {
+    wrong: "Students say a jam maker buying a fruit farm is horizontal growth because both involve food.",
+    correct: "Horizontal growth means SAME stage of production in the SAME industry. A jam maker and a fruit farm are at DIFFERENT stages — one supplies the other. This is BACKWARD VERTICAL growth. Think about the supply chain direction."
+  },
+  {
+    wrong: "Students describe all external growth as 'diversification'.",
+    correct: "Diversification is specifically when a business joins with a company in a completely UNRELATED industry. If the businesses are connected by the supply chain or operate in the same industry, it is horizontal or vertical, NOT diversification."
+  },
+  {
+    wrong: "Students write 'this will lead to more profit' as their analysis mark.",
+    correct: "Examiners will not award analysis marks for just saying 'more profit'. You must explain the chain: WHY does the action lead to more profit? e.g., 'Reducing competition means fewer alternatives for customers, allowing the business to charge higher prices, increasing its profit margin (AN).'"
+  },
+  {
+    wrong: "Students think increasing market share always means a business's sales have increased.",
+    correct: "Market share can increase even if the business's sales stay the same — if the total market shrank. Sales can also rise while market share falls if the total market grew faster. Market share is ALWAYS relative to total market size."
+  },
+  {
+    wrong: "Students think organic growth and internal growth are different terms.",
+    correct: "Organic growth and internal growth are the same thing — both refer to growing the business from within, without joining with another business. These terms are completely interchangeable in the exam."
+  },
+  {
+    wrong: "For evaluation questions, students list pros and cons but never commit to a final decision.",
+    correct: "An evaluation MUST end with a clear, justified decision — 'I recommend X because...'. Sitting on the fence scores zero evaluation marks no matter how good the analysis is. The examiner needs to see a decision AND a contextual justification."
+  }
+];
+
+// 7. Examiner Tips & Structure Guides
+const examTips = [
+  {
+    type: "Identify / State — 1 mark",
+    title: "One Specific Term. Full Stop. Move On.",
+    content: `<p>A 1-mark <strong>'Identify'</strong> question needs exactly one correct, specific answer. Do not waste time writing a sentence or definition.</p>
+    <p><strong>The Formula: One precise term = 1 mark ✅</strong></p>
+    <ul>
+      <li><strong>✅ Good Answer:</strong> <em>"Merger"</em> or <em>"Horizontal takeover"</em></li>
+      <li><strong>❌ Bad Answer:</strong> <em>"The business grew by joining with another company."</em> — Too vague. Name the specific term.</li>
+    </ul>
+    <p><strong>⚠️ Examiner Warning (Q2i — Nina's Knitting Supplies):</strong></p>
+    <p>The examiner noted this question "dichotomised candidates" — students either knew the terms for external growth and scored full marks, or didn't and scored zero. This is a pure <strong>vocabulary test</strong>. Revise these terms: merger, takeover, horizontal, backward/forward vertical, diversification.</p>
+    <p><strong>🚫 Don't confuse organic and external growth methods.</strong> 'Developing new products' is organic. 'Merger' is external. The question will always specify which type it wants.</p>`,
+    pills: ["K"]
+  },
+  {
+    type: "Explain — 2 marks",
+    title: "State It + Apply It to the Business",
+    content: `<p>A 2-mark <strong>'Explain'</strong> question needs a point AND a development linked to the specific business in the case study.</p>
+    <p><strong>The Formula: State the method (1 mark) + Apply to the business context (1 mark)</strong></p>
+    <ul>
+      <li><strong>Step 1 — State:</strong> Name the specific method of organic/external growth.</li>
+      <li><strong>Step 2 — Apply:</strong> Link it directly to the business using a detail from the case study.</li>
+    </ul>
+    <p><strong>✅ Good Answer — Boohoo (2 marks):</strong></p>
+    <p><em>"Boohoo may have expanded organically by gaining new customers (1) through using social media platforms such as Instagram and Facebook to target its 16–24 year old fashion-conscious market (1)."</em></p>
+    <p><strong>❌ Bad Answer (0–1 marks):</strong></p>
+    <p><em>"Boohoo grew by selling more things."</em> — Too vague, no context, scores 0 or 1 at most.</p>
+    <p><strong>🚫 Don't just define organic growth.</strong> The question asks HOW the specific business used it. Use a case study detail to prove you understand the application.</p>`,
+    pills: ["U", "app"]
+  },
+  {
+    type: "Analyse — 3 marks",
+    title: "The Holy Trinity: U → APP → AN",
+    content: `<p>The 3-mark analyse question requires a precise three-step chain. <strong>You will score zero for analysis if you don't apply it to the specific business in the case study.</strong></p>
+    <p><strong>The 3-Step Formula:</strong></p>
+    <ul>
+      <li><strong>Step 1 — Understanding (U):</strong> State the benefit or drawback clearly. e.g., "Merging with a flour producer could reduce raw material costs."</li>
+      <li><strong>Step 2 — Application (APP):</strong> Quote or reference a specific detail from the case study. e.g., "...as flour is a key ingredient in Greggs&apos pastries and sausage rolls."</li>
+      <li><strong>Step 3 — Analysis (AN):</strong> State the bottom-line business impact. e.g., "This would allow Greggs to lower retail prices, increasing sales."</li>
+    </ul>
+    <p><strong>The "So What?" Rule:</strong> Keep asking "So what?" until you reach a real business impact on costs, revenue, profit, market share, or cash flow.</p>
+    <p><strong>✅ Full-mark Answer (Greggs, 3 marks):</strong><br/>
+    <em>"Merging with a flour producer could reduce raw material costs (U), as flour is a key ingredient in Greggs&apos pastries and vegan sausage rolls (APP). This would allow Greggs to lower its retail prices, increasing sales and helping it achieve its aim of being the nation's favourite food-on-the-go provider (AN)."</em></p>
+    <p><strong>❌ Bad Answer (1 mark max):</strong><br/>
+    <em>"It would reduce costs and increase profit."</em> — No application, no chain = 1 mark at best.</p>`,
+    pills: ["U", "app", "an"]
+  },
+  {
+    type: "Analyse Two — 6 marks",
+    title: "Do the 3-Mark Formula Twice",
+    content: `<p>A 6-mark 'Analyse two...' question is a 3-mark question done <strong>twice</strong>. Write two clearly separate, labelled paragraphs.</p>
+    <p><strong>Structure:</strong></p>
+    <ul>
+      <li><strong>Benefit 1:</strong> U → APP → AN (3 marks)</li>
+      <li><strong>Benefit 2:</strong> U → APP → AN (3 marks)</li>
+    </ul>
+    <p><strong>⚠️ Examiner Warning (Beautiful Buds Q8a):</strong></p>
+    <p>The examiner noted that many students jumped straight to "more profit" with no link to external growth. This scores zero. You must build the chain: <em>"Merging (U) gives Beautiful Buds access to Green Gardens' 12% market share (APP), increasing its sales revenue from selling plants through their retail outlets (AN)."</em></p>
+    <p><strong>🚫 Do NOT write a conclusion.</strong> There are zero evaluation marks available in a 6-mark question. A conclusion wastes time.</p>
+    <p><strong>Context tip (Beautiful Buds):</strong> Contextual references include plants, garden centres, 12% market share, country's largest retailer. Use them! 'Managers' or 'Leaders' alone are too vague for application marks.</p>`,
+    pills: ["U", "app", "an"]
+  },
+  {
+    type: "Evaluate — 7 marks",
+    title: "Four-Paragraph Structure for Full Marks",
+    content: `<p>A 7-mark evaluate question tests all four skills. Use this four-paragraph structure:</p>
+    <ul>
+      <li><strong>Paragraph 1 — K & U:</strong> State and briefly define an advantage of the strategy.</li>
+      <li><strong>Paragraph 2 — AN & APP:</strong> Build a contextual chain: U → APP (case study detail) → AN (business impact).</li>
+      <li><strong>Paragraph 3 — AN & APP:</strong> Repeat for a disadvantage or the alternative method.</li>
+      <li><strong>Paragraph 4 — Evaluation (3 points):</strong> Decision + Contextual justification + Impact/reasoning.</li>
+    </ul>
+    <p><strong>Evaluation sentence starters:</strong></p>
+    <ul>
+      <li><em>"Overall, I believe [business] should [action] because..."</em> — Decision (1 mark)</li>
+      <li><em>"This is particularly important because the case study states that..."</em> — Context (+1 mark)</li>
+      <li><em>"Therefore, this approach would [specific business impact], meaning..."</em> — Reasoning (+1 mark)</li>
+    </ul>
+    <p><strong>⚠️ "Sitting on the fence" = 0 evaluation marks.</strong> You MUST make a clear decision. The "It depends on..." construction is only valid if you then commit to which side that condition favours.</p>
+    <p><strong>Exemplar from Nina's Knitting Supplies (full marks):</strong><br/>
+    <em>"I think Nina should switch to external growth. A merger with a competitor knitting retailer (CONT) would help her grow market share faster than organic growth, which she has done for 15 years already (EVAL). This is especially important now that new competitors are entering the market, meaning organic growth alone may no longer be fast enough to protect her business (EVAL)."</em></p>`,
+    pills: ["K", "U", "app", "an", "eval"]
+  },
+  {
+    type: "Evaluate with Data — 9 marks",
+    title: "Use the Numbers — They're Worth 2 Free Marks",
+    content: `<p>The 9-mark question awards <strong>2 separate marks purely for using numerical data</strong>. This is the most commonly missed opportunity on the entire paper.</p>
+    <p><strong>What counts as quantitative application (Shinz Ltd example):</strong></p>
+    <ul>
+      <li>Combined market share: "40% + 10% = 50% combined market share"</li>
+      <li>Market value: "50% of £460,000 = £230,000"</li>
+      <li>Share change: "Shinz's market share rose by 25 percentage points in 3 years"</li>
+      <li>Customer satisfaction gap: "Shinz's satisfaction is 42 percentage points higher than Littlelong's"</li>
+      <li>Post-merger ownership: "The business would have 5 owners"</li>
+    </ul>
+    <p><strong>The 9-mark structure:</strong></p>
+    <ul>
+      <li><strong>K (1 mark):</strong> Define what a merger is OR use merger terminology (horizontal, vertical, etc.)</li>
+      <li><strong>U (1 mark):</strong> State one advantage or disadvantage</li>
+      <li><strong>APP (2 marks):</strong> Two uses of numerical data from the case study</li>
+      <li><strong>AN (2 marks):</strong> Two business-facing impacts</li>
+      <li><strong>EVAL (3 marks):</strong> Justified contextual decision</li>
+    </ul>
+    <p><strong>⚠️ Examiner Warning (Shinz Q3):</strong> Many high-ability students lost the Knowledge mark by not explicitly defining a merger or using merger terminology. Don't assume the examiner knows you know the definition — say it in your first sentence!</p>`,
+    pills: ["K", "U", "app", "an", "eval"]
+  },
+  {
+    type: "Recommend — 3 marks",
+    title: "Compare the Two Options — Don't Just Praise One",
+    content: `<p>A 3-mark 'Recommend' question (like Greggs Q4iii) needs a decision AND a <em>comparative</em> justification.</p>
+    <p><strong>The Formula:</strong></p>
+    <ul>
+      <li><strong>Decision (1 mark):</strong> A clear choice — name the specific method you recommend.</li>
+      <li><strong>Non-contextual comparison (1 mark):</strong> Explain why your choice is BETTER THAN the other option (no case study detail needed).</li>
+      <li><strong>Contextual comparison (2 marks):</strong> Explain why your choice is better using specific details from the case study.</li>
+    </ul>
+    <p><strong>Key rule: The justification MUST be comparative.</strong> Simply listing advantages of your chosen option without mentioning the other gets no justification marks. Look for comparator words: <em>whereas, unlike, compared to, better than, although.</em></p>
+    <p><strong>✅ Full-mark Answer (Greggs):</strong><br/>
+    <em>"Greggs should merge with the flour producer (1) because it allows the business to quality-assure one of the main ingredients it needs for its vegan pastries (CONT), whereas a takeover of a rival would only put more pressure on management capacity and supply of ingredients (+2)."</em></p>
+    <p><strong>❌ Bad Answer (1 mark only):</strong><br/>
+    <em>"Greggs should take over a competitor because it will increase market share."</em> — No comparison, no context. 1 mark maximum.</p>`,
+    pills: ["U", "app", "eval"]
+  }
+];
+
+// 8. Flashcards
+const flashcards = [
+  { term: "Organic growth", def: "The internal growth of a business through increasing sales, developing new products, gaining new customers, or growing market share — without joining with another business." },
+  { term: "External growth", def: "Growth achieved by joining with or buying another business through a merger or takeover." },
+  { term: "Merger", def: "When two or more businesses mutually agree to combine and become one new business." },
+  { term: "Takeover", def: "When a business buys a controlling interest (over 50% of shares) in another business." },
+  { term: "Horizontal growth", def: "A merger/takeover between two businesses at the same stage of production in the same industry." },
+  { term: "Backward vertical growth", def: "A merger/takeover where a business buys its supplier — moving backwards up the supply chain." },
+  { term: "Forward vertical growth", def: "A merger/takeover where a business buys a company it sells to — moving forwards down the supply chain." },
+  { term: "Diversification", def: "A merger/takeover where the two businesses are in completely unrelated industries — entering a brand new market." },
+  { term: "Market share formula", def: "(Sales of the business ÷ Total market sales) × 100 = Market Share (%)" },
+  { term: "Advantages of organic growth", def: "Less risky, maintains owner control, cheaper (funded by retained profit), builds own expertise, grows at a manageable pace." },
+  { term: "Disadvantages of organic growth", def: "Slow — shareholders want faster returns; limited ceiling in a competitive market; rivals using external growth can outpace you." },
+  { term: "Advantages of external growth", def: "Fast — rapidly increases market share and revenue; removes a competitor; gains access to new customers, expertise, and assets immediately." },
+  { term: "Disadvantages of external growth", def: "Very expensive; loss of control (profits shared with more owners); management difficulties with a larger organisation; risk of culture clashes." },
+  { term: "Supply chain memory aid", def: "Supplier → Manufacturer → Retailer → Customer. Backward = buy your supplier. Forward = buy your retailer/customer. Same level = horizontal." }
+];
+
+// 9. Exam-Style Questions
+const examQuestions = [
+  {
+    num: "Q1",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "Two vets agree to combine their practices and operate as one business. This is an example of a:",
+    options: ["Diversification", "Horizontal takeover", "Merger", "Vertical takeover"],
+    answer: 2,
+    hint: "Did the two businesses agree, or did one buy the other? Also consider whether they are in the same or different industries.",
+    starter: "The correct answer is C because...",
+    markScheme: `<div class="marks-section"><h5>Answer: C — Merger [1 mark]</h5><p><strong>Why C is correct:</strong> Both practices mutually agreed to combine — this is the definition of a merger. It is not a takeover because neither business bought control of the other.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — Diversification:</strong> Both are in the same industry (veterinary), not unrelated industries.</li><li><strong>B — Horizontal takeover:</strong> Although horizontal (same industry), the businesses agreed to combine — making it a merger, not a takeover. A takeover requires one buying control of the other.</li><li><strong>D — Vertical takeover:</strong> The businesses are at the same stage of the same industry, not at different stages of a supply chain.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q2 (i)",
+    marks: 2,
+    type: "written",
+    caseStudy: "Nina runs a successful business selling knitting wool and sewing products. She opened her first shop 15 years ago. The business has grown organically and now sells products from 10 shops and a website. Nina uses market segmentation to target customers. Nina employs 80 people. She works hard to meet the shared objectives of her employees, as well as external stakeholder groups such as customers, suppliers, lenders and the local community.<br><br>Nina produces a weekly update that is sent by email to all employees every Friday. The updates contain information about the future development of the business, plus other stories of interest to employees. Recent stories include congratulating an employee on the birth of a child and the charity fundraising activities of one shop.<br><br>Nina plans to develop the business further over the next five years, especially as knitting is becoming an increasingly popular pastime. This has led to more competitors entering the market.",
+    question: "Identify two methods of external growth that a business could use. [2 marks]",
+    hint: "External growth means joining with or buying another business. Think of the two main mechanisms — and the different types of each.",
+    starter: "One method of external growth is...\n\nA second method of external growth is...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a)</h5><p>One mark for each correct method of external growth identified (maximum 2).</p><p><strong>Acceptable answers include:</strong></p><ul><li>Merger / Horizontal merger / Vertical merger (backward or forward) / Lateral merger / Diversified merger</li><li>Takeover / Acquisition / Horizontal takeover / Vertical takeover (backward or forward) / Diversification</li></ul><p>Answers do not need to relate to Nina's Knitting Supplies. 'Horizontal/vertical growth' alone is too vague — must specify merger or takeover.</p></div><div class="marks-section"><h5>Examiner's Comments</h5><p>This question dichotomised candidates — students either knew external growth methods and scored full marks, or did not and scored zero. The most common correct answers were simply 'merger' and 'takeover'. Candidates who knew the sub-types (horizontal, vertical, diversification) all scored full marks. This is a vocabulary test — learn the terms.</p></div>`,
+    modelAnswer: "1. Merger (e.g. a horizontal merger with a rival knitting retailer)\n2. Takeover (e.g. a backward vertical takeover of a wool manufacturer)"
+  },
+  {
+    num: "Q2 (ii)",
+    marks: 7,
+    type: "written",
+    caseStudy: "",
+    question: "Evaluate whether or not Nina's Knitting Supplies should continue to grow organically. [7 marks]",
+    hint: "Weigh the advantages AND disadvantages of organic growth for Nina specifically. Use case study details (15 years, 10 shops, more competitors entering the market). End with a clear, justified decision — do NOT sit on the fence.",
+    starter: "K & U: One advantage of organic growth for a business is... (U)\n\nAN & APP: This is relevant to Nina's Knitting Supplies because the case study states that... (APP). As a result, this would mean that... (AN)\n\nAN & APP: However, a disadvantage of organic growth is... (U). Given that the case study states that knitting is becoming increasingly popular and more competitors are entering the market (APP), this means... (AN)\n\nEvaluation: Overall, I believe Nina's Knitting Supplies should [continue/switch to external growth] because... (EVAL). This is particularly important given that... (contextual detail) (EVAL). Therefore, this would lead to... (EVAL)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 7 marks</h5><ul><li><strong>Application (up to 2 marks):</strong> Contextual advantages/disadvantages applied specifically to Nina's business</li><li><strong>Analysis (up to 2 marks):</strong> Business-facing impacts</li><li><strong>Evaluation (up to 3 marks):</strong> Justified contextual decision</li></ul></div><div class="marks-section"><h5>Useful Application Context</h5><ul><li>Nina sells from 10 shops and a website</li><li>Business has traded for 15 years</li><li>Business has grown organically so far</li><li>Knitting is becoming an increasingly popular pastime</li><li>More competitors are entering the market</li></ul></div><div class="marks-section"><h5>Evaluation Levels</h5><ul><li><strong>Strong (3 marks):</strong> Justified contextual decision referencing Nina's specific situation</li><li><strong>Good (2 marks):</strong> Justified decision — valid but non-contextual</li><li><strong>Limited (1 mark):</strong> A decision only — e.g. "Nina should continue to grow organically"</li></ul></div><div class="marks-section"><h5>Examiner's Comments</h5><p>Most candidates gained at least 1 evaluation mark by making a decision. For full evaluation marks, justification must be contextual (referencing Nina's specific case). The most common correct advantages of organic growth were low cost and retained control. The most common correct advantages of external growth were faster growth and removal of competition. Candidates who embedded case study context throughout their analysis scored best.</p></div>`,
+    modelAnswer: "An advantage of organic growth is that it is low cost (U). This is relevant to Nina's Knitting Supplies as she has funded growth internally over 15 years (APP). Keeping costs low means Nina retains more profit, which she can reinvest into marketing or new product lines to stay ahead of new competitors (AN).\n\nHowever, a key disadvantage is that organic growth is slow (U). The case study states that knitting is becoming increasingly popular, leading to more competitors entering the market (APP). If Nina continues to grow organically, rivals could increase their market share far more rapidly, threatening her long-term sales and profitability (AN).\n\nOverall, I believe Nina's Knitting Supplies should switch to external growth (EVAL). Given that new competitors are now entering the market, another 15 years of organic growth may no longer be fast enough to protect her position (EVAL). A merger with a competing knitting retailer would rapidly increase her market share and eliminate a competitor, safeguarding her long-term profits (EVAL)."
+  },
+  {
+    num: "Q3",
+    marks: 9,
+    type: "written",
+    caseStudy: `Five years ago, brothers Tom and Amir set up a car washing business called Shinz Ltd in the town of Littlelong. The business has been very successful and currently offers 'economy', 'gloss' and 'high-gloss' washing services. Tom is responsible for the administration, finance and marketing functions. Amir is responsible for the car washing operations and supervises two full-time employees. The prices Shinz Ltd charges are not low when compared to its competitors. Customer service is a priority for the business.<br><br>Tom and Amir are keen to expand the business and are planning to launch a new 'resin polish' service to protect car paintwork during the cold winter months. Many of Shinz Ltd's customers have requested this service. 'Resin polish' is not currently available in Littlelong but is offered by a business in another town five miles away. Tom is considering whether to use competitor pricing or price skimming for this new service.<br><br>Littlelong Motors Ltd is a used car retailer. The business has three owners. They have suggested a merger with Shinz Ltd. Littlelong Motors Ltd offers a basic car washing service in addition to its car sales. It prides itself on offering the lowest prices in the town. 26% of Littlelong Motors Ltd's customers are 'extremely satisfied' with the car washing service provided. This compares to 68% of Shinz Ltd's customers saying they are 'extremely satisfied'.<br><br>The car washing market in Littlelong is valued at £460,000 per year. The table below shows the market share of the four car washing businesses:<table class="case-table"><caption>Table 1 — Market Share of Car Washing Businesses in Littlelong</caption><tr><th>Business</th><th>2019 Market Share (%)</th><th>2022 Market Share (%)</th></tr><tr><td>Shinz Ltd</td><td>15%</td><td>40%</td></tr><tr><td>Littlelong Motors Ltd</td><td>35%</td><td>10%</td></tr><tr><td>Ace Clean Ltd</td><td>20%</td><td>25%</td></tr><tr><td>JB Car Wash Ltd</td><td>30%</td><td>25%</td></tr></table>`,
+    question: "Evaluate, with reference to the data in Text 3, whether Shinz Ltd should merge with Littlelong Motors Ltd. [9 marks]",
+    hint: "You need all 5 skills. K = define what a merger is. U = one advantage/disadvantage. APP = USE THE NUMBERS (calculate combined market share and its value). AN = business impact. EVAL = clear decision + justified with data. Don't forget: 40% + 10% = 50%; 50% × £460,000 = £230,000.",
+    starter: "K & U: A merger is when two or more businesses agree to join together (K). One advantage of merging with Littlelong Motors would be... (U)\n\nAN & APP: Currently, Shinz Ltd holds [X]% of the market = £[X]. If it merges with Littlelong Motors, the combined market share would be [X]% = £[X] (APP)(APP). This would mean... (AN)\n\nAN & APP: However, one disadvantage is... (U). The data shows that Littlelong Motors' customer satisfaction is only 26% compared to Shinz's 68% (APP). This could lead to... (AN)\n\nEvaluation: Overall, I [recommend / do not recommend] the merger because... (EVAL). This is supported by the data which shows... (EVAL). Therefore, the long-term impact on Shinz would be... (EVAL)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 9 marks</h5><ul><li><strong>Knowledge (1 mark):</strong> Definition or terminology for merger</li><li><strong>Understanding (1 mark):</strong> One advantage or disadvantage of the merger</li><li><strong>Application — Quantitative (2 marks):</strong> Two uses of numerical data from the case study</li><li><strong>Analysis (2 marks):</strong> Two business-facing impacts</li><li><strong>Evaluation (3 marks):</strong> Justified contextual decision</li></ul></div><div class="marks-section"><h5>Knowledge Examples</h5><ul><li>A merger is a form of external growth</li><li>Two firms join together to form one business</li><li>Businesses agree to join unlike a takeover</li><li>Merger terminology: horizontal, vertical, diversification</li></ul></div><div class="marks-section"><h5>Quantitative Application Examples (must use numbers)</h5><ul><li>Shinz current market share: 40% = £184,000</li><li>Littlelong Motors market share: 10% = £46,000</li><li>Combined market share: 50% = £230,000</li><li>Shinz share risen 25 percentage points in 3 years</li><li>Littlelong share fallen 25 percentage points in 3 years</li><li>Customer satisfaction gap: 68% − 26% = 42 percentage points</li><li>5 owners post-merger</li></ul></div><div class="marks-section"><h5>Evaluation Levels</h5><ul><li><strong>Strong (3 marks):</strong> Justified contextual decision using case study data</li><li><strong>Good (2 marks):</strong> Justified decision without context</li><li><strong>Limited (1 mark):</strong> A decision only</li></ul><p>⚠️ "Sitting on the fence" = 0 evaluation marks. Commit to YES or NO.</p></div><div class="marks-section"><h5>Examiner's Comments</h5><p>This is the highest tariff question on the paper. Most candidates achieved understanding, analysis and evaluation marks. Fewer achieved the knowledge and quantitative application marks. For knowledge, examiners wanted explicit merger terminology or a definition. For application, candidates needed to perform calculations (e.g. 40+10=50%; 50%×£460,000=£230,000). Even high-ability candidates lost the knowledge mark by not stating what a merger is. Centres should encourage students to always start 9-mark answers by defining the key concept.</p></div>`,
+    modelAnswer: "Merging with another business is an example of external growth — it is when two businesses agree to join together to form one organisation (K).\n\nOne advantage of this merger is that it would increase the number of customers Shinz serves (U). Currently Shinz holds 40% of the £460,000 market = £184,000, while Littlelong Motors holds 10% = £46,000. Combined, the new business would hold 50% = £230,000 (APP)(APP). This significantly increases Shinz's revenue and competitive position in Littlelong (AN).\n\nHowever, any profits made would need to be shared with 5 owners post-merger (APP), reducing the amount Tom and Amir can reinvest into expanding the resin polish service (AN).\n\nOverall, I believe Shinz Ltd should NOT merge with Littlelong Motors (EVAL). Littlelong Motors' customer satisfaction rating is only 26%, compared to Shinz's 68% — a gap of 42 percentage points (EVAL). Merging with a business that has such poor customer satisfaction could seriously damage Shinz's premium reputation, causing loyal customers to leave and reducing its market share in the long term (EVAL)."
+  },
+  {
+    num: "Q4 (i)",
+    marks: 3,
+    type: "written",
+    caseStudy: "Greggs is a modern 'food-on-the-go' retail brand. It specialises in selling sandwiches, cakes, pastries and pies. Most of these are made by Greggs, using raw materials such as flour, meat and yeast. The company opened its first bakery 80 years ago and has since grown significantly. It currently has 20,000 employees. Greggs&apos; aim is to become the customer&apos;s favourite for 'food-on-the-go' in the UK. This sector is growing quickly and is forecast to be worth £23.4 billion by 2024 (up from £18.5 billion in 2019).<br><br>According to The Vegan Society, the number of people in the UK choosing a vegan diet has increased during recent years:<table class=\"case-table\"><caption>Fig. 1 — Number of Vegans in the UK</caption><tr><th>Year</th><th>Number of Vegans (approx.)</th></tr><tr><td>2014</td><td>150,000</td></tr><tr><td>2016</td><td>300,000</td></tr><tr><td>2018</td><td>600,000</td></tr></table>Using the market data, Greggs responded to this change by launching vegan sausage rolls in January 2019. The publicity generated helped Greggs&apos; total sales to increase by 9.6% in its next seven weeks of trading. Following this success the business launched other products, including vegan doughnuts and vegan steak bakes, based on consumer demand.<br><br>Managers at Greggs constantly monitor changes in consumer tastes. Similarly, they keep up-to-date with changes in employment law. Greggs&apos; managers also take pride in the business being named one of the happiest places to work in the UK. Greggs offers many ways of working, including part-time roles.<br><br>The managers of Greggs are considering two options for business growth.",
+    question: "Analyse one benefit for Greggs of business growth using the following method: Merger with a flour producer. [3 marks]",
+    hint: "Think about WHY flour matters to Greggs specifically (it's a key ingredient). What happens if Greggs controls its own flour supply? Then push to the business impact — how does this help Greggs compete or achieve its aim?",
+    starter: "One benefit for Greggs of merging with a flour producer is... (U)\n\nThis is relevant to Greggs because the case study states that... (APP)\n\nAs a result, Greggs would be able to... which would mean... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b, AO2, AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> One benefit of merging with a supplier. No further marks without this.</li><li><strong>Application (1 mark):</strong> Link the benefit to Greggs using case study detail.</li><li><strong>Analysis (1 mark):</strong> Business-facing financial or operational impact on Greggs.</li></ul><p>⚠️ Simply mentioning the word 'flour' is NOT application — the question is already about a flour producer. Application means showing WHY flour is important to Greggs&apos specific situation.</p></div><div class="marks-section"><h5>Understanding Examples</h5><ul><li>Could reduce raw material / flour / ingredient costs</li><li>Guarantee the supply of raw materials</li><li>Control the quality of flour (important for vegan products)</li><li>Shorter / more efficient supply chain</li><li>Reduce competitors' access to flour</li></ul></div><div class="marks-section"><h5>Application Examples</h5><ul><li>Flour is a key ingredient in Greggs&apos pastries, pies and sausage rolls</li><li>Greggs aims to be the customers' favourite food-on-the-go in the UK</li><li>Growing vegan market — quality of ingredients important for new vegan product range</li></ul></div><div class="marks-section"><h5>Analysis Examples</h5><ul><li>Reduced costs &rarr; improved profit margins</li><li>Lower unit costs &rarr; Greggs can reduce retail prices &rarr; competitive advantage</li><li>Guaranteed quality &rarr; consistent vegan products &rarr; customer loyalty maintained</li></ul></div>`,
+    modelAnswer: "Merging with a flour producer could reduce Greggs&apos raw material costs (U), as flour is a key ingredient in all of Greggs&apos pastries, pies and vegan sausage rolls (APP). This would allow Greggs to lower its retail prices to customers, giving it a competitive advantage in the rapidly growing £23.4 billion food-on-the-go market and helping it achieve its aim of being the nation's favourite (AN)."
+  },
+  {
+    num: "Q4 (ii)",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Analyse one benefit for Greggs of business growth using the following method: Takeover of a rival 'food-on-the-go' retail brand. [3 marks]",
+    hint: "What does Greggs instantly gain by removing a rival from the market? How does this connect to Greggs&apos specific aim as stated in the case study?",
+    starter: "One benefit for Greggs of taking over a rival food-on-the-go brand is... (U)\n\nThis is particularly relevant to Greggs because the case study states that... (APP)\n\nThis would result in... which means that Greggs would... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b, AO2, AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> One benefit of taking over a rival. No further marks without this.</li><li><strong>Application (1 mark):</strong> Link to Greggs using case study detail.</li><li><strong>Analysis (1 mark):</strong> Business-facing financial or operational impact on Greggs.</li></ul></div><div class="marks-section"><h5>Understanding Examples</h5><ul><li>Less competition / removes a competitor from the market</li><li>Increase in stores / outlets / locations</li><li>Greater brand awareness</li><li>Increase in customers / market share</li><li>Economies of scale — bulk discounts</li><li>More control of the market</li></ul></div><div class="marks-section"><h5>Application Examples</h5><ul><li>Greggs aims to be customers' favourite for food-on-the-go in the UK</li><li>Sector forecast to be worth £23.4 billion by 2024</li><li>Greggs already has 20,000 employees</li><li>Vegan range successfully launched — growth market</li></ul></div><div class="marks-section"><h5>Analysis Examples</h5><ul><li>Helps Greggs meet its aim of being the customer's favourite</li><li>Increases cash inflows and market share</li><li>Expands Greggs into locations the rival already occupies</li></ul></div>`,
+    modelAnswer: "Taking over a rival food-on-the-go brand would help Greggs gain more customers by removing a competitor from the market (U), directly supporting its aim of becoming the customer's favourite food-on-the-go provider in the UK (APP). With fewer alternatives available, customers looking for a quick lunch are more likely to choose Greggs, increasing its market share and cash inflows (AN)."
+  },
+  {
+    num: "Q4 (iii)",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Recommend which of the two methods of business growth Greggs should use. Give reasons for your answer. [3 marks]",
+    hint: "Make a clear decision first. Then compare the two methods — explain why your chosen option is BETTER THAN the other one using case study details. The justification MUST be comparative (use words like 'whereas', 'unlike', 'compared to').",
+    starter: "Greggs should use [merger with flour producer / takeover of a rival] (Decision)\n\nThis is because, unlike [the other option], this method would... (comparison)\n\nThis is particularly important for Greggs because... (contextual detail)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO3b)</h5><ul><li><strong>Decision (1 mark):</strong> Clear recommendation — 'merger' or 'takeover'. Do not accept 'diversification'.</li><li><strong>Non-contextual comparison (1 mark):</strong> Explains why choice is better than the other — valid but without case study detail.</li><li><strong>Contextual comparison (2 marks):</strong> Explains why choice is better using specific Greggs context.</li></ul><p>⚠️ The justification MUST be comparative — why one is better THAN the other. Simply listing benefits of one option without comparing = 0 justification marks.</p><p>⚠️ Do not accept cost comparisons — no cost data is given in the case study.</p><p>Context words: pastries, vegan products, food-on-the-go, £23.4bn, 20,000 employees. Note: 'flour' alone is NOT accepted as context for this question.</p></div><div class="marks-section"><h5>Examiner's Comments</h5><p>The justification must compare both methods. Comparator words to look for: 'whereas', 'although', 'more', 'less', 'unlike', 'better than'. Many students lost marks by only describing their chosen option's benefits without explaining why the other method was inferior.</p></div>`,
+    modelAnswer: "Greggs should merge with the flour producer (1) because it allows the business to quality-assure one of the main ingredients it needs for its vegan pastries and sausage rolls (CONT), whereas the takeover of a rival would only put more pressure on management capacity and could distract from developing the growing vegan product range (+2)."
+  },
+  {
+    num: "Q5",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "Eve is a restaurant owner. She has successfully used social media to attract a lot of new customers to eat in her restaurant. This is an example of:",
+    options: ["Diversification", "Invention", "Organic growth", "Skimming"],
+    answer: 2,
+    hint: "Has Eve merged with or bought another business? Or has she grown her customer base from within using her own marketing?",
+    starter: "The correct answer is C because...",
+    markScheme: `<div class="marks-section"><h5>Answer: C — Organic growth [1 mark]</h5><p><strong>Why C is correct:</strong> Eve has grown her business internally by improving marketing (social media). Gaining new customers through marketing is organic growth — no external business was involved.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — Diversification:</strong> Involves merging with/taking over a business in an unrelated industry. Eve has not joined with any other business.</li><li><strong>B — Invention:</strong> Creating a brand new product or service. Eve has not invented anything — she is just marketing her existing restaurant.</li><li><strong>D — Skimming:</strong> A pricing strategy where a high initial price is charged for a new product. Eve is using a marketing strategy, not a pricing strategy.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q6",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "A manufacturer of jam buys a fruit farm. This is an example of:",
+    options: ["A business partnership", "A vertical takeover", "Diversification", "Flexible working"],
+    answer: 1,
+    hint: "The fruit farm supplies the raw materials (fruit) to the jam maker. Is the jam maker moving backward or forward in the supply chain?",
+    starter: "The correct answer is B because...",
+    markScheme: `<div class="marks-section"><h5>Answer: B — A vertical takeover [1 mark]</h5><p><strong>Why B is correct:</strong> The jam manufacturer is buying its supplier (the fruit farm), moving backwards up the supply chain. Since one business is buying the other (not a mutual agreement), it is a takeover. Backward vertical + takeover = vertical takeover.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — A business partnership:</strong> A partnership is a type of business ownership structure, not a form of external growth.</li><li><strong>C — Diversification:</strong> Diversification means buying a business in a completely unrelated industry. A fruit farm directly supplies the jam maker — they are connected, so this is vertical not diversification.</li><li><strong>D — Flexible working:</strong> Flexible working is an HR concept about working patterns. Entirely unrelated to business growth.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q7",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "A business has gained more customers by improving the way it markets its products. Which one of the following statements must be true for this business?",
+    options: ["The business has developed a new product", "The business has grown organically", "The business has increased its market share", "The business has made a profit"],
+    answer: 1,
+    hint: "Focus on the word 'must'. Only one of these is definitely true in ALL cases when a business gains customers through better marketing.",
+    starter: "The correct answer is B because...",
+    markScheme: `<div class="marks-section"><h5>Answer: B — The business has grown organically [1 mark]</h5><p><strong>Why B is correct:</strong> Gaining customers through improved marketing is internal to the business — this is organic growth by definition. This MUST be true because the business has grown from within, without any external acquisition.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — Developed a new product:</strong> Not necessarily — better marketing could be for existing products. No new product was needed.</li><li><strong>C — Increased its market share:</strong> Not necessarily. If the total market grew faster than the business, its market share could actually have fallen even though it gained more customers.</li><li><strong>D — Made a profit:</strong> Not necessarily — the business may have high costs elsewhere and still operate at a loss despite gaining more customers.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q8 (a)",
+    marks: 6,
+    type: "written",
+    caseStudy: `Beautiful Buds plc is a company which grows plants that are sold to garden centres throughout the UK. Beautiful Buds plc has a new Managing Director who has proposed a merger with Green Gardens plc, a chain of garden centres selling a wide range of plants and other garden products.<br><br>Green Gardens plc is currently one of the country's largest plant and garden retailers, with a market share of approximately 12%. The vertical merger will result in one company owning a chain of garden centres as well as growing the plants which are sold in these retail outlets.<br><br>Beautiful Buds plc currently has 124 employees. Its Managing Director is looking to make the business more efficient and is planning to change its organisational structure by removing two layers of management (Middle Managers and Team Leaders). The estimated redundancy costs due to the restructuring are £200,000.<br><br>Current structure: Directors (3) → Senior Managers (9) → Middle Managers (12) → Team Leaders (20) → Supervisors (30) → Operatives (50)<br>Planned structure: Directors (3) → Senior Managers (9) → Supervisors (40) → Operatives (50)<table class="case-table"><caption>Table 1 — Beautiful Buds plc Current Salary Structure</caption><tr><th>Job Role</th><th>Average Salary</th></tr><tr><td>Directors</td><td>£110,000</td></tr><tr><td>Senior Managers</td><td>£80,000</td></tr><tr><td>Middle Managers</td><td>£50,000</td></tr><tr><td>Team Leaders</td><td>£35,000</td></tr><tr><td>Supervisors</td><td>£30,000</td></tr><tr><td>Operatives</td><td>£22,000</td></tr></table>`,
+    question: "Analyse two benefits for Beautiful Buds plc of growing externally. [6 marks]",
+    hint: "For EACH benefit: name a specific advantage of external growth (U), link it to Beautiful Buds using case study detail — garden centres, plants, 12% market share (APP), then explain the business-facing impact (AN). Two separate paragraphs.",
+    starter: "Benefit 1: One benefit for Beautiful Buds plc of growing externally is... (U)\n\nThis applies to Beautiful Buds because the case study states that... (APP). As a result, this would lead to... (AN)\n\nBenefit 2: A second benefit of external growth for Beautiful Buds plc is... (U)\n\nIn the context of Beautiful Buds, this is significant because... (APP). This means the business would... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 6 marks (AO1b ×2, AO2 ×2, AO3a ×2)</h5><p>For each of two benefits: 1 mark Understanding + 1 mark Application + 1 mark Analysis.</p></div><div class="marks-section"><h5>Understanding Examples (for each benefit)</h5><ul><li>Quick way to grow / faster than organic methods</li><li>Expands into other businesses' markets / gains wider product range</li><li>Benefits from the reputation of the other business</li><li>Acquires skills, technology and assets of the other business</li><li>Secures retail outlets for selling plants (forward vertical integration)</li><li>Gains established customer base of garden centres</li></ul></div><div class="marks-section"><h5>Application Context</h5><p>Must reference specific Beautiful Buds details: plants, garden, garden centres, 12% market share, country's largest, Director salaries of £110,000, operatives etc.</p><p>⚠️ 'Managers' and 'Leaders' alone are too vague — specify the type or reference salary data.</p><p>⚠️ Do NOT award 'money' — must reference costs, revenue, profit, loss, or cash flow specifically.</p></div><div class="marks-section"><h5>Examiner's Comments</h5><p>Many students jumped straight to 'more profit' with no link to external growth — this cannot be awarded. Examiners needed a chain: "Merging (U) with Green Gardens gives Beautiful Buds increased brand awareness in the gardening sector (APP), increasing its sales revenue (AN)."</p></div>`,
+    modelAnswer: "Benefit 1: External growth through a forward vertical merger means Beautiful Buds plc will gain immediate access to retail outlets (U). By merging with Green Gardens plc, one of the country's largest plant retailers with a 12% market share (APP), Beautiful Buds can now sell its plants directly to consumers through Green Gardens' chain of garden centres, increasing its sales revenue significantly (AN).\n\nBenefit 2: Merging with Green Gardens allows Beautiful Buds to benefit from the established brand reputation of the other business (U). Green Gardens is described as one of the country's largest plant and garden retailers (APP), meaning its existing loyal customer base and brand recognition will help Beautiful Buds attract more customers to buy its plants, increasing overall income for the combined business (AN)."
+  },
+  {
+    num: "Q8 (b)",
+    marks: 1,
+    type: "written",
+    caseStudy: "",
+    question: "Identify one way that Beautiful Buds plc could have grown organically. [1 mark]",
+    hint: "Organic growth = growing from within without joining another business. Think about what Beautiful Buds specifically does — it grows plants and sells them. What could it do more of, or differently, from within?",
+    starter: "One way Beautiful Buds plc could have grown organically is...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 1 mark (AO2)</h5><p>1 mark for a contextual identification of an organic growth method. Application to Beautiful Buds plc's specific situation is required.</p><p><strong>Acceptable answers include:</strong></p><ul><li>Increasing output of plants</li><li>Gaining new customers at garden centres</li><li>Improved marketing / promotion of plants</li><li>Reducing prices of plants to attract new buyers</li><li>Developing new types / varieties of plants</li><li>Extending the range of plants grown</li><li>Selling plants online</li><li>Opening a (single) garden centre</li><li>Increasing market share in the gardening industry</li></ul><p>⚠️ Do NOT award 'open more garden centres' — implies existing ones. Award 'open a garden centre'.</p></div><div class="marks-section"><h5>Examiner's Comments</h5><p>Some candidates confused organic and external growth, answering 'merge with a garden centre' or 'take over a garden tools producer' — these score zero. Best answers included 'growing a wider variety of plants', 'selling plants online', and 'gaining new customers through 2-for-1 promotions on house plants'.</p></div>`,
+    modelAnswer: "Beautiful Buds plc could have grown organically by developing new varieties of plants to attract new customers from different segments of the gardening market."
+  },
+  {
+    num: "Q9",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "A well-known restaurant chain buys another well-known restaurant chain. What is this an example of?",
+    options: ["A horizontal takeover", "A vertical merger", "Diversification", "Innovation"],
+    answer: 0,
+    hint: "Both businesses are restaurant chains. One is BUYING the other. Are they at the same or different stages of production?",
+    starter: "The correct answer is A because...",
+    markScheme: `<div class="marks-section"><h5>Answer: A — A horizontal takeover [1 mark]</h5><p><strong>Why A is correct:</strong> Both businesses are restaurant chains — same industry, same stage of production = horizontal. One is buying the other (not mutual agreement) = takeover. Horizontal + takeover = horizontal takeover.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>B — A vertical merger:</strong> Vertical means different stages of the supply chain (e.g., restaurant buying a food supplier). Both are restaurants = same stage = horizontal. Also 'buys' = takeover, not a mutual merger.</li><li><strong>C — Diversification:</strong> Diversification means entering an unrelated industry. Both are in the restaurant industry.</li><li><strong>D — Innovation:</strong> Innovation = developing new products or processes. Buying another business is not innovation.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q10",
+    marks: 2,
+    type: "written",
+    caseStudy: "Boohoo was started in 2006 by two entrepreneurs who had the idea of starting a business where customers could buy the latest fashions online.\n\nBoohoo has expanded using organic growth, and has become a global online retailer of its own brand clothes, shoes and accessories. It now sells in over 100 countries. Boohoo charge for delivery. It has millions of website users per month.\n\nThe target market for the Boohoo brand is men and women who are 16 to 24 years old and are fashion conscious. To reach this market, Boohoo uses social media. The business is active on Facebook, Twitter, YouTube and Instagram.\n\nBoohoo has also introduced apps for smartphones and tablets that allow customers to browse and buy products very easily.",
+    question: "Explain how Boohoo may have expanded using 'organic growth'. [2 marks]",
+    hint: "Organic growth = growing from within. Use a specific detail from the Boohoo case study to show HOW they grew without joining another business.",
+    starter: "Boohoo may have expanded organically by... (U)\n\nThis helped Boohoo grow because... (APP — link to specific case study detail)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1b, AO2)</h5><ul><li><strong>Understanding (1 mark):</strong> A specific method of organic growth shown.</li><li><strong>Application (1 mark):</strong> Development in Boohoo's context — link to a specific detail from the case study.</li></ul><p><strong>Acceptable answers include (context required for second mark):</strong></p><ul><li>Gaining new customers — through social media / Facebook / Instagram / apps</li><li>Increasing market share — by expanding to sell in over 100 countries</li><li>Developing new products — own brand clothes, shoes and accessories</li><li>Improving marketing — using social media to target fashion-conscious 16–24 year olds</li><li>Reinvesting in the business — developing new apps for smartphones and tablets</li></ul></div><div class="marks-section"><h5>Examiner's Comments</h5><p>Best answers linked a specific method of organic growth directly to a detail from the Boohoo case study. Simply defining organic growth scores 1 mark; applying it to Boohoo scores the second mark.</p></div>`,
+    modelAnswer: "Boohoo may have expanded organically by gaining new customers through better marketing (U), using social media platforms such as Facebook, Instagram and YouTube to target its 16–24 year old fashion-conscious market (APP)."
+  },
+  {
+    num: "Case Study 6 (a)",
+    marks: 1,
+    type: "written",
+    caseStudy: "Boohoo started as an online fashion retailer selling its own brand clothing to 16–24 year olds. In 2020/2021, Boohoo bought a number of different businesses including Oasis, Burton, Dorothy Perkins and Debenhams. These were all established UK clothing and retail brands that had been struggling financially. By acquiring these brands, Boohoo aimed to reach different customer demographics and expand its market share across the UK fashion market.",
+    question: "Identify the method of growth that Boohoo has used to help grow the business in 2020/2021. [1 mark]",
+    hint: "Boohoo was buying other businesses. What is the term for this type of growth strategy?",
+    starter: "The method of growth used by Boohoo in 2020/2021 is...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 1 mark (AO1a)</h5><p><strong>Acceptable answers:</strong></p><ul><li>External growth</li><li>Takeover / acquisition</li><li>Horizontal growth / horizontal takeover (accept)</li></ul></div>`,
+    modelAnswer: "The method of growth that Boohoo used in 2020/2021 was external growth (takeover/acquisition)."
+  },
+  {
+    num: "Case Study 6 (b)",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Analyse one problem that Boohoo might have in growing the business in this way. [3 marks]",
+    hint: "What goes wrong when a business suddenly gets much bigger by buying many different companies at once? Use specific brands Boohoo purchased as your application.",
+    starter: "One problem that Boohoo might face from growing through external growth is... (U)\n\nThis is relevant because the case study states Boohoo bought businesses including... (APP)\n\nAs a result of this, Boohoo might... which would mean... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b, AO2, AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> An example of a problem with this type of external growth.</li><li><strong>Application (1 mark):</strong> Explanation relating to the Boohoo case study details.</li><li><strong>Analysis (1 mark):</strong> The business-facing effect or impact.</li></ul></div><div class="marks-section"><h5>Mark Scheme Examples</h5><ul><li><strong>U:</strong> Control of the business might not be as good / harder to manage a much larger organisation effectively</li><li><strong>APP:</strong> Boohoo bought many different businesses in 2020/2021 — Oasis, Burton, Dorothy Perkins, Debenhams — all at once</li><li><strong>AN:</strong> Money may be wasted through inefficiency, causing a drop in profits / may need to employ more managers, increasing salary costs and reducing profit margins</li></ul></div>`,
+    modelAnswer: "One problem is that Boohoo may find it difficult to effectively control and manage the business (U). The case study shows that Boohoo bought a number of different businesses including Oasis, Burton, Dorothy Perkins and Debenhams all within 2020/2021 (APP). Managing such a large and diverse organisation may lead to poor decision-making and wasted resources, causing a significant drop in profits for the business (AN)."
+  },
+  {
+    num: "Case Study 6 (c)",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Analyse one benefit that Boohoo would have in growing the business in this way. [3 marks]",
+    hint: "Think about what Boohoo gained immediately by acquiring famous brands like Debenhams. Who can Boohoo now sell to that it couldn't reach before?",
+    starter: "One benefit for Boohoo of growing through external growth is... (U)\n\nFor example, the case study shows that Boohoo acquired brands such as... (APP)\n\nThis means that Boohoo would be able to... leading to... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b, AO2, AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> An example of a benefit of this external growth.</li><li><strong>Application (1 mark):</strong> Explanation relating to the Boohoo case study.</li><li><strong>Analysis (1 mark):</strong> Business-facing effect or impact.</li></ul></div><div class="marks-section"><h5>Mark Scheme Examples</h5><ul><li><strong>U:</strong> More businesses bring in more customers / can reach different customers with different tastes and demographics</li><li><strong>APP:</strong> Boohoo bought Debenhams — customers who previously bought at Debenhams online will now potentially buy from the Boohoo-owned Debenhams</li><li><strong>AN:</strong> Having new customers from stores like Debenhams will increase total income and so increase profit / growing market share across different clothing segments will increase revenue</li></ul></div>`,
+    modelAnswer: "One benefit is that Boohoo can reach different customer segments by acquiring brands with established, different demographics (U). By buying Debenhams, Boohoo gains access to Debenhams' loyal customer base who may not have previously shopped with Boohoo's core brand (APP). This will increase Boohoo's total income from a much wider range of customers, helping to grow overall profit and reduce the business's dependence on its original 16–24 age group (AN)."
+  },
+  {
+    num: "Case Study 6 (d)",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Evaluate whether or not Boohoo has made the correct decision to grow the business in this way. [3 marks]",
+    hint: "Make a clear YES or NO decision first. Then justify using specific details — the brands Boohoo bought, the risks it faces, and the potential benefits. The best answers give a contextual reason why this was or wasn't the right decision.",
+    starter: "I think that Boohoo [was / was not] right to grow through external growth because... (Judgement)\n\nThis is justified because the case study shows that... (Context)\n\nTherefore, this approach means that... (Impact/Reasoning)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO3b)</h5><ul><li><strong>Judgement (1 mark):</strong> Clear statement on whether Boohoo was right — e.g. "I think Boohoo was right to expand in this way."</li><li><strong>Justification (up to 2 marks):</strong> Contextual justification using case study detail.</li></ul></div><div class="marks-section"><h5>Examiner's Note — Justification for 2 marks</h5><p>Boohoo is safeguarding its future by having a range of businesses (Oasis, Burton, Dorothy Perkins, Debenhams) offering different products to different customers. It is dangerous for any business to rely on a narrow range of products and customers — diversifying the brand portfolio reduces this risk significantly.</p></div>`,
+    modelAnswer: "I think Boohoo was right to expand through external growth (JUDGEMENT). By acquiring brands like Oasis, Burton, Dorothy Perkins and Debenhams, Boohoo can now serve a much wider range of customers across different demographics and price points (CONTEXT). This reduces Boohoo's reliance on its core 16–24 year old target market and protects against falling demand in any single segment, safeguarding the business's long-term profitability and market position (IMPACT)."
+  },
+  {
+    num: "Apple MCQ",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "Apple was started in 1976 and is now the largest company in the world. It began by making and selling desktop computers and its first order was for 50 computers sold at $666 each, bringing in revenue of $33,300. In 2016, its revenue had grown to $49.6bn — a huge increase, even allowing for price rises since 1976. During its history, Apple has taken over only a very small number of other businesses. Apple has researched and developed a range of successful products, including laptop computers such as the MacBook Pro, mobile phones (iPhone), tablet computers (iPad) and services such as Apple Pay. Apple has run some very effective marketing campaigns. It often introduces new products around September and advertises them heavily in the lead-up to Christmas. Its advertising is very innovative, using catchy music, a confident narrator and minimalistic backgrounds in order to focus attention on its products.",
+    question: "Which of the following statements describes a takeover?",
+    options: ["Orange and T-Mobile joined together to become EE", "Disney the film-maker bought the cartoon animation company Pixar", "Honda Motor Company builds a factory to manufacture gear boxes for its cars", "Netflix increases its share of the market"],
+    answer: 1,
+    hint: "A takeover is when one business PURCHASES control of another. Look for a scenario where money was paid to acquire another company.",
+    starter: "The correct answer is B because...",
+    markScheme: `<div class="marks-section"><h5>Answer: B — Disney bought Pixar [1 mark]</h5><p><strong>Why B is correct:</strong> Disney acquired (purchased) Pixar — one business buying a controlling interest in another is a takeover.</p><p><strong>Why the other options are wrong:</strong></p><ul><li><strong>A — Orange and T-Mobile:</strong> They joined together by mutual agreement — this is a merger, not a takeover.</li><li><strong>C — Honda builds a factory:</strong> Building new production capacity is internal/organic growth — Honda is not buying another business.</li><li><strong>D — Netflix increases market share:</strong> Growing market share through better products or marketing is organic growth, not a takeover of another business.</li></ul></div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Apple Q2",
+    marks: 1,
+    type: "written",
+    caseStudy: "",
+    question: "What evidence is given in this case study for the growth of Apple? [1 mark]",
+    hint: "Look for any numbers or facts in the Apple case study that show the company got bigger over time.",
+    starter: "Evidence of Apple's growth is...",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 1 mark</h5><p>Any one piece of specific evidence from the case study showing growth:</p><ul><li>Revenue grew from $33,300 (1976) to $49.6 billion (2016)</li><li>Apple expanded from making desktop computers to a range of products including iPhone, iPad, MacBook Pro and Apple Pay</li><li>Apple is now the largest company in the world</li></ul></div>`,
+    modelAnswer: "Evidence of Apple's growth is that its revenue grew from $33,300 in 1976 to $49.6 billion in 2016 — an enormous increase over its history."
+  },
+  {
+    num: "Apple Q3",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Analyse the advantages to Apple of using organic growth. [3 marks]",
+    hint: "Think about what Apple keeps by growing from within — control, brand identity, profits. Then connect to specific Apple examples from the case study.",
+    starter: "One advantage for Apple of using organic growth is... (U)\n\nThis is relevant to Apple because the case study states that... (APP)\n\nAs a result of this, Apple has been able to... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b, AO2, AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> Advantage of organic growth clearly stated.</li><li><strong>Application (1 mark):</strong> Linked to Apple's specific case study context.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact on Apple.</li></ul></div><div class="marks-section"><h5>Suggested Content</h5><ul><li><strong>U:</strong> Organic growth maintains full control of the business / less costly / builds own brand expertise / allows focused product development</li><li><strong>APP:</strong> Apple developed the iPhone, iPad and MacBook Pro internally; Apple runs highly innovative marketing campaigns; revenue grew to $49.6bn; Apple taken over only a very small number of businesses</li><li><strong>AN:</strong> Apple has retained full control over its strategic direction and profits / built one of the world's most recognisable brands / did not need to share profits with merger partners</li></ul></div>`,
+    modelAnswer: "One advantage of organic growth for Apple is that it allows the business to maintain full strategic control (U). The case study shows that Apple developed all its major products — the iPhone, iPad and MacBook Pro — through internal research and development (APP). This means Apple has not had to share profits or decision-making authority with any external business partner, allowing it to build and maintain the consistent premium brand that made it the world's largest company (AN)."
+  },
+  {
+    num: "Apple Q4",
+    marks: 3,
+    type: "written",
+    caseStudy: "",
+    question: "Analyse the disadvantages to Apple of using external growth. [3 marks]",
+    hint: "Apple has only taken over 'a very small number' of businesses. Why might aggressive external growth actually be risky for a business built on a premium brand and internal innovation?",
+    starter: "One disadvantage for Apple of using external growth would be... (U)\n\nThis is particularly relevant because the case study states that Apple... (APP)\n\nThis could lead to... meaning that... (AN)",
+    markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b, AO2, AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> Disadvantage of external growth clearly stated.</li><li><strong>Application (1 mark):</strong> Linked to Apple's case study context.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact on Apple.</li></ul></div><div class="marks-section"><h5>Suggested Content</h5><ul><li><strong>U:</strong> External growth can be very expensive / causes loss of control / risk of culture clash / management challenges from running a larger organisation</li><li><strong>APP:</strong> Apple has taken over only a very small number of businesses throughout its history; Apple has grown to become the world's largest company through its own product innovation</li><li><strong>AN:</strong> If Apple pursued aggressive external growth, it might struggle to maintain its premium brand values; additional owners would need to share profits; management challenges could reduce efficiency and damage innovation</li></ul></div>`,
+    modelAnswer: "One disadvantage of external growth for Apple would be the potential loss of its premium brand identity and strategic control (U). The case study notes that Apple has taken over only a very small number of businesses throughout its history, preferring to grow through internal product innovation (APP). If Apple pursued aggressive external growth, it might struggle to maintain the consistent, innovative brand values that drove its revenue from $33,300 to $49.6 billion, potentially damaging customer trust and reducing long-term profit (AN)."
+  }
+];
+
+
+</script>
     <script src="script.js"></script>
 </body>
 
