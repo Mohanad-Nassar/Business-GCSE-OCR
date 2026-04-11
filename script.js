@@ -230,36 +230,121 @@ function resetMatch() {
 }
 
 // ══════════════════════════════════════
-//  BUILD FIB
+//  BUILD FIB (ADVANCED TYPING + DROPDOWNS)
 // ══════════════════════════════════════
 let fibScore = 0, fibCorrectTotal = 0;
+let isAdvancedFIB = false; // Tracks which mode the student is in
+
+// Forgiving answer checker
+function isAnswerAcceptable(userInput, actualAnswer) {
+    let u = userInput.trim().toLowerCase();
+    let a = actualAnswer.trim().toLowerCase();
+
+    if (u === a) return true; // Exact match
+    if (u + 's' === a || u === a + 's') return true; // Allows singular/plural leniency
+    return false;
+}
+
 function buildFIB() {
     const wrap = document.getElementById('fibWrap');
-    if (!wrap) return; // 🛡️ Safety check
+    if (!wrap) return;
 
     fibCorrectTotal = fibData.reduce((a, f) => a + Object.keys(f.blanks).length, 0);
     document.getElementById('fibTotal').textContent = fibCorrectTotal;
+
     fibData.forEach((f, fi) => {
-        const div = document.createElement('div'); div.className = 'fib-sentence';
-        const correctAnswers = Object.values(f.blanks);
-        const distractors = fibWords.filter(w => !correctAnswers.includes(w)).sort(() => Math.random() - .5).slice(0, 4);
-        let html = f.display, bi = 0;
-        html = html.replace(/_____/g, () => {
-            const key = Object.keys(f.blanks)[bi]; const ans = f.blanks[key]; bi++;
-            const opts = [ans, ...distractors.filter(d => d !== ans).slice(0, 3)].sort(() => Math.random() - .5);
-            const optHTML = ['— choose —', ...opts].map(o => `<option value="${o === '— choose —' ? '' : o}">${o}</option>`).join('');
-            return `<span class="blank-select" data-fi="${fi}" data-key="${key}" data-ans="${ans}"><select>${optHTML}</select></span>`;
+        const div = document.createElement('div');
+        div.className = 'fib-sentence';
+
+        let html = f.display;
+        let bi = 0;
+
+        // ── MODE: STANDARD DROPDOWNS ──
+        if (!isAdvancedFIB) {
+            const correctAnswers = Object.values(f.blanks);
+            const distractors = fibWords.filter(w => !correctAnswers.includes(w)).sort(() => Math.random() - .5).slice(0, 4);
+
+            html = html.replace(/_____/g, () => {
+                const key = Object.keys(f.blanks)[bi];
+                const ans = f.blanks[key];
+                bi++;
+                const opts = [ans, ...distractors.filter(d => d !== ans).slice(0, 3)].sort(() => Math.random() - .5);
+                const optHTML = ['— choose —', ...opts].map(o => `<option value="${o === '— choose —' ? '' : o}">${o}</option>`).join('');
+                return `<span class="blank-select" data-fi="${fi}" data-key="${key}" data-ans="${ans}"><select>${optHTML}</select></span>`;
+            });
+            div.innerHTML = html;
+            wrap.appendChild(div);
+        }
+        // ── MODE: ADVANCED TYPING ──
+        else {
+            html = html.replace(/_____/g, () => {
+                const key = Object.keys(f.blanks)[bi];
+                const ans = f.blanks[key];
+                bi++;
+                return `<input type="text" class="fib-input" data-fi="${fi}" data-key="${key}" data-ans="${ans}" placeholder="type here...">`;
+            });
+
+            div.innerHTML = html;
+
+            // Add the "Check Answers" button for this specific section
+            const checkBtn = document.createElement('button');
+            checkBtn.className = 'fib-check-btn';
+            checkBtn.innerHTML = '✓ Check Answers';
+
+            checkBtn.addEventListener('click', () => {
+                const inputs = div.querySelectorAll('.fib-input');
+                let allSectionCorrect = true;
+
+                inputs.forEach(input => {
+                    if (input.disabled) return; // Skip ones they already got right
+
+                    if (isAnswerAcceptable(input.value, input.dataset.ans)) {
+                        input.classList.remove('wrong');
+                        input.classList.add('correct');
+                        input.disabled = true; // Lock it in
+                        fibScore++;
+                    } else {
+                        input.classList.remove('correct');
+                        input.classList.add('wrong'); // Turns red, but keeps their text!
+                        allSectionCorrect = false;
+                    }
+                });
+
+                document.getElementById('fibScore').textContent = fibScore;
+
+                if (allSectionCorrect) {
+                    checkBtn.innerHTML = 'Perfect! ✨';
+                    checkBtn.disabled = true;
+                }
+            });
+
+            div.appendChild(document.createElement('br'));
+            div.appendChild(checkBtn);
+            wrap.appendChild(div);
+        }
+    });
+
+    // Attach Dropdown Listener safely (only once, and only for standard mode)
+    if (!isAdvancedFIB && !wrap.dataset.listenerAttached) {
+        wrap.addEventListener('change', e => {
+            const sel = e.target; if (sel.tagName !== 'SELECT') return;
+            const wrapper = sel.closest('.blank-select'); if (!wrapper || wrapper.dataset.answered === 'correct') return;
+            const chosen = sel.value, ans = wrapper.dataset.ans; if (!chosen) return;
+
+            if (chosen === ans) {
+                wrapper.dataset.answered = 'correct';
+                wrapper.classList.remove('wrong'); wrapper.classList.add('correct');
+                sel.disabled = true; fibScore++;
+                document.getElementById('fibScore').textContent = fibScore;
+            } else {
+                wrapper.classList.remove('correct'); wrapper.classList.add('wrong');
+                setTimeout(() => { wrapper.classList.remove('wrong'); sel.value = ''; }, 700);
+            }
         });
-        div.innerHTML = html; wrap.appendChild(div);
-    });
-    wrap.addEventListener('change', e => {
-        const sel = e.target; if (sel.tagName !== 'SELECT') return;
-        const wrapper = sel.closest('.blank-select'); if (!wrapper || wrapper.dataset.answered === 'correct') return;
-        const chosen = sel.value, ans = wrapper.dataset.ans; if (!chosen) return;
-        if (chosen === ans) { wrapper.dataset.answered = 'correct'; wrapper.classList.remove('wrong'); wrapper.classList.add('correct'); sel.disabled = true; fibScore++; document.getElementById('fibScore').textContent = fibScore; }
-        else { wrapper.classList.remove('correct'); wrapper.classList.add('wrong'); setTimeout(() => { wrapper.classList.remove('wrong'); sel.value = ''; }, 700); }
-    });
+        wrap.dataset.listenerAttached = 'true';
+    }
 }
+
 function resetFIB() {
     fibScore = 0;
     const scoreEl = document.getElementById('fibScore');
@@ -267,6 +352,29 @@ function resetFIB() {
     scoreEl.textContent = 0;
     document.getElementById('fibWrap').innerHTML = '';
     buildFIB();
+}
+
+// ── INJECT THE TOGGLE BUTTON ──
+function injectFIBAdvancedToggle() {
+    const fibTab = document.getElementById('tab-fib');
+    if (!fibTab || fibTab.querySelector('.fib-mode-toggle')) return;
+
+    const scoreBar = fibTab.querySelector('.score-bar');
+    if (!scoreBar) return;
+
+    const btn = document.createElement('button');
+    btn.className = 'fc-btn outline fib-mode-toggle';
+    btn.innerHTML = '🔥 Advanced Mode: Typing';
+    btn.style.marginBottom = '20px';
+
+    btn.addEventListener('click', () => {
+        isAdvancedFIB = !isAdvancedFIB;
+        btn.innerHTML = isAdvancedFIB ? '🔽 Standard Mode: Dropdowns' : '🔥 Advanced Mode: Typing';
+        resetFIB(); // Rebuilds the whole section in the new mode
+    });
+
+    // Insert right above the score bar
+    fibTab.insertBefore(btn, scoreBar);
 }
 
 // ══════════════════════════════════════
@@ -634,6 +742,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // NEW: Show the hint shortly after the page loads 
     // (Since Key Learning is the default open tab)
     injectRandomiseButtons(); 
+    injectFIBAdvancedToggle();
     setTimeout(() => {
         showDoubleClickHint();
     }, 800);
