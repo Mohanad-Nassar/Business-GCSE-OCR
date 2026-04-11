@@ -15,7 +15,7 @@
     <header>
         <div>
             <div class="badge">OCR GCSE Business — Component 2</div>
-            <h1>6.2 The Economic Climate</h1>
+            <h1>6.2The Economic Climate</h1>
             <p>Interactive revision guide · All key content + full exam practice</p>
         </div>
         <a href="index.html" class="home-link">← 🏡 Home</a>
@@ -54,7 +54,7 @@
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Double click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
 
@@ -301,732 +301,1254 @@
         </div>
     </main>
 
-    <script>
-        // ══════════════════════════════════════
-        //  DATA TEMPLATE: 6.2 The Economic Climate
-        // ══════════════════════════════════════
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 6.2 The Economic Climate
+    // ══════════════════════════════════════
 
-        // 1. Main Learning Content
-        const topics = [
-            {
-                title: "Key Terms & Official Definitions",
-                tag: "Core Concepts",
-                content: `<p>These are the essential terms you must know for 6.2. Examiners expect you to use them precisely.</p>
+    // 1. Main Learning Content
+    const topics = [
+        {
+            title: "Key Terms & Official Definitions",
+            tag: "Core Concepts",
+            content: `<p>Learn and memorise these official definitions — they are the foundation of every answer you write in this topic.</p>
 <ul>
-  <li><strong>Economic climate:</strong> The general state of the economy a business operates in, in terms of levels of income and employment. It may be favourable (good for business) or unfavourable (bad for business).</li>
-  <li><strong>Income:</strong> The amount of money people receive from work and from assets they own, such as shares and property.</li>
-  <li><strong>Consumer income:</strong> The total amount of income that all customers in a country receive and have available to spend.</li>
+  <li><strong>Economic climate:</strong> Refers to how well the country is doing in terms of the levels of income and employment.</li>
+  <li><strong>Income:</strong> The amount of money that people receive from work and from assets they own, such as shares and property.</li>
+  <li><strong>Customers:</strong> Buyers who buy goods and services for the satisfaction or benefit they will get from them.</li>
+  <li><strong>Consumer income:</strong> The total amount of income that all customers in the country receive and which they have available to spend.</li>
   <li><strong>Level of employment:</strong> The number of people in work in a country.</li>
   <li><strong>Level of unemployment:</strong> The number of people out of work in a country.</li>
-  <li><strong>Gross Domestic Product (GDP):</strong> A measure of how much a country produces in a year. It strongly influences the level of income and employment.</li>
-  <li><strong>Economic growth:</strong> A period when GDP is rising, usually causing income and employment to rise.</li>
+  <li><strong>Level of income:</strong> The average income of people in a country.</li>
+  <li><strong>GDP (Gross Domestic Product):</strong> A measure of how much a country produces in a year. It influences the level of income and employment.</li>
+  <li><strong>Economic growth:</strong> A period when GDP is rising, causing income and employment to rise.</li>
   <li><strong>Recession:</strong> A period when GDP is falling, causing income and employment to fall.</li>
-  <li><strong>Distribution of income:</strong> How income is shared out among different people in the community. It can become more unequal if the incomes of the rich rise faster than those of lower earners.</li>
-  <li><strong>International economic climate:</strong> What is happening to income and employment in different parts of the world, which can affect UK businesses.</li>
-  <li><strong>Disposable income:</strong> The money a consumer has left to spend after paying taxes and essential bills.</li>
+  <li><strong>Distribution of income:</strong> Refers to how the income is shared out among different people in the community. It can become more unequal if the incomes of the rich rise faster than those of lower earners.</li>
+  <li><strong>International economic climate:</strong> Refers to what is happening to income and employment in different parts of the world.</li>
 </ul>`
-            },
-            {
-                title: "What is the Economic Climate?",
-                tag: "Core Concepts",
-                content: `<p>The <strong>economic climate</strong> refers to the state of the economy a business operates in. It is mainly concerned with two things: the <strong>level of income</strong> consumers have and the <strong>level of employment</strong> in the country.</p>
-<p>A <strong>favourable</strong> economic climate means rising incomes and rising employment — good news for most businesses. An <strong>unfavourable</strong> economic climate means falling incomes and rising unemployment — bad news for most businesses. However, what is unfavourable for one business can be an opportunity for another.</p>
-<p><strong>⚠️ Common Misconception Alert:</strong> The word "climate" here does NOT refer to the weather or the environment. It refers to the general economic conditions of the country. Many students in exams have confused this — do not make that mistake.</p>
-<div class="case-study-box">
-  <h4>Real World: Comet vs Carpet Right</h4>
-  <p>When the UK entered recession in 2008, both Comet (electronics) and Carpet Right (carpets) saw sales fall as consumer incomes dropped. Comet failed to adapt and closed in 2012. Carpet Right responded by selling higher-quality products, closing underperforming stores, reducing costs, and offering interest-free credit — and survived. By 2016, its profits had risen by over 33%.</p>
-</div>`
-            },
-            {
-                title: "Income, Employment & GDP",
-                tag: "Theory",
-                content: `<p>These three concepts are closely linked and form the backbone of the economic climate topic.</p>
+        },
+        {
+            title: "What Is the Economic Climate?",
+            tag: "Core Concepts",
+            content: `<p>The <strong>economic climate</strong> refers to the state of the economy a business operates in. It can be:</p>
 <ul>
-  <li><strong>GDP (Gross Domestic Product)</strong> measures the total value of goods and services a country produces in a year. When GDP rises, it is called <strong>economic growth</strong>. When GDP falls for two or more consecutive quarters, it is called a <strong>recession</strong>.</li>
-  <li><strong>Employment and income are linked:</strong> When employment rises, more people have wages, so income rises. When unemployment rises, fewer people have wages, so consumer income and spending fall.</li>
-  <li><strong>Recession cycle:</strong> GDP falls → businesses cut production → workers are laid off → unemployment rises → incomes fall → consumer spending falls → businesses sell less → GDP falls further.</li>
+  <li><strong>Favourable</strong> — good for business (rising incomes, low unemployment, growing GDP)</li>
+  <li><strong>Unfavourable</strong> — bad for business (falling incomes, high unemployment, recession)</li>
 </ul>
-<p>The UK had a severe recession starting in 2008, where GDP fell by approximately 6%. In 2020, the coronavirus pandemic caused the biggest recorded fall in UK GDP ever. Some businesses struggled enormously, while others (such as online retailers and delivery firms) thrived.</p>`
-            },
-            {
-                title: "Impact of Changes in Consumer Income",
-                tag: "Analysis",
-                content: `<p>When consumer incomes change, the effect on a business depends on <strong>what type of product</strong> it sells.</p>
+<p>⚠️ A favourable climate for one business is <strong>not always</strong> favourable for another. For example, a recession is bad for luxury car dealers but can be good for discount supermarkets like Aldi.</p>
+<br>
+<p>The two main factors you need to know for OCR GCSE are:</p>
+<ul>
+  <li><strong>Changes in consumer income</strong></li>
+  <li><strong>Changes in employment / unemployment levels</strong></li>
+</ul>`
+        },
+        {
+            title: "The Impact of Changes in Income",
+            tag: "Analysis",
+            content: `<p>Income levels directly affect how much customers can spend, which in turn affects business sales and profits.</p>
+<br>
 <div class="two-col">
   <div>
-    <div class="col-head">✓ Rising Consumer Incomes</div>
-    <div class="pro-item"><strong>More spending:</strong> Customers have more money, so demand for goods and services rises — especially luxury and premium products.</div>
-    <div class="pro-item"><strong>Higher prices possible:</strong> Businesses may be able to charge more, increasing revenue and profit.</div>
-    <div class="pro-item"><strong>Business expansion:</strong> Firms may need to hire more staff, buy more stock, or build new outlets to meet demand.</div>
+    <div class="col-head">📈 When Income RISES</div>
+    <div class="pro-item"><strong>More spending:</strong> Customers have more money so demand for goods and services increases.</div>
+    <div class="pro-item"><strong>Higher revenue & profit:</strong> Businesses can sell more — or even raise prices.</div>
+    <div class="pro-item"><strong>Business expansion:</strong> Firms may need to hire more staff, buy more stock, or open new outlets.</div>
+    <div class="pro-item"><strong>Exception — cheap goods:</strong> Some lower-quality businesses may see sales fall as customers switch to better products they can now afford.</div>
   </div>
   <div>
-    <div class="col-head">✗ Falling Consumer Incomes</div>
-    <div class="con-item"><strong>Less spending:</strong> Customers have less money, so demand falls — especially for non-essential and luxury items.</div>
-    <div class="con-item"><strong>Sales and profit fall:</strong> Revenue drops, making it harder to cover costs and potentially threatening survival.</div>
-    <div class="con-item"><strong>Switch to cheaper alternatives:</strong> Consumers trade down to budget options, benefiting discount businesses like Aldi but hurting premium brands.</div>
+    <div class="col-head">📉 When Income FALLS</div>
+    <div class="con-item"><strong>Less spending:</strong> Customers have less disposable income, reducing demand.</div>
+    <div class="con-item"><strong>Lower revenue & profit:</strong> Luxury or non-essential businesses are hit hardest.</div>
+    <div class="con-item"><strong>Risk of closure:</strong> Businesses that cannot adapt may close (e.g. Comet in 2012).</div>
+    <div class="con-item"><strong>Exception — budget goods:</strong> Discount businesses like Aldi can actually benefit when incomes fall as customers trade down.</div>
   </div>
 </div>
+<br>
 <p><strong>How much a business is affected depends on:</strong></p>
 <ul>
-  <li>How much income changes — the bigger the change, the bigger the effect.</li>
-  <li>The type of product sold — luxury goods are hit harder than necessities.</li>
-  <li>How competitors respond — if rivals cut prices, that may divert customers away.</li>
-  <li>How the business itself responds — good businesses adapt and can survive or even thrive.</li>
-</ul>
-<div class="case-study-box">
-  <h4>Case Study: Aldi</h4>
-  <p>In 2007, Aldi held just 2.5% of the UK grocery market. By 2020, it had grown to become the sixth-largest supermarket chain with a 7.8% share. Its growth was accelerated by the 2008 recession — as incomes fell, consumers switched to its cheaper, no-frills stores. Aldi's efficient distribution, own-label products, and low prices were exactly what budget-conscious consumers needed. This is an example of a business that turned an unfavourable economic climate into an opportunity.</p>
-</div>`
-            },
-            {
-                title: "Impact of Changes in Employment",
-                tag: "Analysis",
-                content: `<p>Changes in employment affect businesses in <strong>two ways</strong>: through changes in consumer spending, and through changes in the supply of labour (workers).</p>
+  <li>How much income changes — bigger change = bigger impact</li>
+  <li>The type of product sold — luxury goods are more vulnerable than essentials</li>
+  <li>How other businesses respond — competitors may gain market share</li>
+  <li>How the business itself responds — good businesses adapt and survive</li>
+</ul>`
+        },
+        {
+            title: "The Impact of Changes in Employment",
+            tag: "Analysis",
+            content: `<p>Employment and income are closely linked — when more people are in work, incomes tend to rise, and vice versa. But changes in employment also affect <strong>production costs</strong> and <strong>recruitment</strong>.</p>
+<br>
 <div class="two-col">
   <div>
-    <div class="col-head">✓ Rising Employment (Falling Unemployment)</div>
-    <div class="pro-item"><strong>More consumers with income:</strong> More people in work means more spending in the economy, boosting demand for goods and services.</div>
-    <div class="pro-item"><strong>Potential for growth:</strong> Businesses may see increased sales and profits, and feel confident to expand.</div>
+    <div class="col-head">📉 When Unemployment RISES (Employment Falls)</div>
+    <div class="pro-item"><strong>Easier to recruit:</strong> More workers are available, giving businesses a larger pool to choose from.</div>
+    <div class="pro-item"><strong>Lower wages:</strong> Greater competition for jobs means businesses may pay less, reducing labour costs.</div>
+    <div class="con-item"><strong>Lower consumer spending:</strong> More unemployed people means less income in the economy, reducing demand for goods.</div>
   </div>
   <div>
-    <div class="col-head">✗ Rising Employment — Cost Pressures</div>
-    <div class="con-item"><strong>Harder to recruit:</strong> Fewer unemployed workers means businesses compete for a smaller pool of labour, driving wages up.</div>
-    <div class="con-item"><strong>Higher labour costs:</strong> Rising wages increase production costs, which can reduce profit margins or force price increases.</div>
-    <div class="con-item"><strong>Skills shortages:</strong> A rise in demand for skilled workers is harder to manage than a rise in demand for unskilled workers.</div>
+    <div class="col-head">📈 When Unemployment FALLS (Employment Rises)</div>
+    <div class="pro-item"><strong>More consumer spending:</strong> More people in work = higher incomes = more demand for goods and services.</div>
+    <div class="con-item"><strong>Harder to recruit:</strong> Fewer workers available; businesses may struggle to find staff with the right skills.</div>
+    <div class="con-item"><strong>Higher wages:</strong> Competition for workers forces businesses to offer higher pay, raising costs and reducing profits.</div>
   </div>
 </div>
-<p><strong>Falling employment / rising unemployment has the opposite effects:</strong> Consumer spending falls, but businesses find it easier and cheaper to hire workers as there is more competition for jobs, which can lower wage costs.</p>`
-            },
-            {
-                title: "Distribution of Income & the International Economic Climate",
-                tag: "Theory",
-                content: `<p>It is not just the <strong>level</strong> of income that matters, but also how income is <strong>distributed</strong> — i.e., who has the money.</p>
-<p>In the UK, the gap between rich and poor has widened since the 1980s. Even after the 2008 recession, many new jobs were part-time or on zero-hours contracts and were low-paid, so general spending rose slowly. However, spending by wealthier consumers continued to rise. This means luxury goods businesses may still thrive even when the general economic climate is difficult.</p>
-<p>The <strong>international economic climate</strong> also affects UK businesses:</p>
+<br>
+<p><strong>How much a business is affected depends on:</strong></p>
 <ul>
-  <li>If there is a world recession, demand for UK exports falls.</li>
-  <li>The 2008 recession affected the EU and USA as well as the UK, reducing demand for UK goods abroad.</li>
-  <li>The coronavirus pandemic 2020–21 severely disrupted international travel and trade.</li>
-  <li>The UK's exit from the European Union (Brexit) also created uncertainty for businesses trading with EU countries.</li>
+  <li>How much employment changes</li>
+  <li>The type of employment — a rise in demand for <em>skilled</em> workers is harder to deal with than a rise in demand for unskilled workers</li>
 </ul>`
-            },
-            {
-                title: "How Businesses Respond to the Economic Climate",
-                tag: "Strategies",
-                content: `<p>Good businesses <strong>adapt</strong> to changes in the economic climate rather than just accepting falling profits. Strategies can be grouped by business function:</p>
+        },
+        {
+            title: "Business Strategies When Income & Employment Fall",
+            tag: "Strategies",
+            content: `<p>When the economic climate becomes unfavourable, businesses across all departments must respond strategically to survive. Here are the key strategies by department:</p>
+<br>
 <ul>
-  <li><strong>Production:</strong> Reduce production costs per unit (e.g. reduce waste, improve efficiency, outsource to cheaper locations, introduce new technology to replace labour and raise productivity).</li>
-  <li><strong>Human Resources:</strong> Improve worker productivity through motivation schemes (bonuses, awards), better training, and flexible working arrangements.</li>
-  <li><strong>Finance:</strong> Improve cash flow to reduce reliance on overdrafts; renegotiate loans to lower interest rates; cut unnecessary expenditure.</li>
-  <li><strong>Marketing (the 4Ps):</strong>
+  <li>🏭 <strong>Production:</strong>
     <ul>
-      <li><strong>Product:</strong> Change the product — make it more upmarket to target wealthier customers, or cheaper to appeal to a mass market.</li>
-      <li><strong>Price:</strong> Use penetration pricing to attract new customers, or cut prices to maintain sales volume.</li>
-      <li><strong>Promotion:</strong> Increase advertising, target new market segments, or promote value for money.</li>
-      <li><strong>Place:</strong> Open new retail locations, close underperforming stores, or increase online sales.</li>
+      <li>Reduce waste to cut costs per unit</li>
+      <li>Improve worker productivity (e.g. new technology)</li>
+      <li>Outsource production to cheaper locations</li>
     </ul>
   </li>
+  <br>
+  <li>👥 <strong>Human Resources (HR):</strong>
+    <ul>
+      <li>Motivate workers with bonuses or awards to improve productivity</li>
+      <li>Lay off workers to reduce the wage bill</li>
+      <li>Improve skills through training</li>
+    </ul>
+  </li>
+  <br>
+  <li>📣 <strong>Marketing:</strong>
+    <ul>
+      <li>Increase or improve advertising to attract customers</li>
+      <li>Produce a cheaper product to appeal to lower-income consumers</li>
+      <li>Lower prices to increase demand</li>
+      <li>Target new markets (e.g. sell abroad)</li>
+      <li>Change the product upmarket to appeal to wealthier buyers</li>
+    </ul>
+  </li>
+  <br>
+  <li>💰 <strong>Finance:</strong>
+    <ul>
+      <li>Take out cheaper loans to reduce interest payments</li>
+      <li>Reduce overdraft to save on interest costs</li>
+      <li>Improve cash flow management</li>
+    </ul>
+  </li>
+</ul>`
+        },
+        {
+            title: "Distribution of Income & the International Economic Climate",
+            tag: "Theory",
+            content: `<p>Two additional aspects of the economic climate that can affect businesses are:</p>
+<br>
+<p><strong>📊 Distribution of Income</strong></p>
+<p>Even if the overall level of income stays the same, how income is <em>shared</em> among people matters.</p>
+<ul>
+  <li>Since the 1980s, the gap between rich and poor in the UK has <strong>widened</strong>.</li>
+  <li>If richer people's incomes rise faster, businesses selling luxury goods may still perform well even during a wider recession.</li>
+  <li>After the 2008 recession, many new jobs were part-time or zero-hours contracts — so income for many rose only slowly, even as employment recovered.</li>
 </ul>
-<div class="case-study-box">
-  <h4>Case Study: Carpet Right's Recovery</h4>
-  <p>After suffering losses in the 2008 recession, Carpet Right changed its strategy. It moved upmarket, offering better-quality and more expensive carpets, improved customer service, closed loss-making stores to cut costs, and introduced interest-free credit to make purchases more accessible. By 2016, profits had increased by 33.1% and like-for-like sales grew by 4.8%. This demonstrates how a business can overcome a poor economic climate through strategic adaptation.</p>
-</div>`
-            }
-        ];
+<br>
+<p><strong>🌍 International Economic Climate</strong></p>
+<p>The UK does not operate in isolation — global economic conditions affect UK businesses too.</p>
+<ul>
+  <li>A world recession or recession in key trading partners (e.g. EU, USA) reduces demand for UK exports.</li>
+  <li>The 2008–09 recession affected both the UK and its trading partners simultaneously.</li>
+  <li>The COVID-19 pandemic in 2020–21 dramatically reduced international trade and travel.</li>
+  <li>Events like Brexit can also affect UK businesses trading internationally.</li>
+</ul>`
+        },
+        {
+            title: "Case Study: Comet vs Carpet Right",
+            tag: "Case Study",
+            content: `<div class="case-study-box">
+  <h4>Case Study: Comet vs Carpet Right — Two Very Different Responses to Recession</h4>
+  <p>Both Comet (electrical goods) and Carpet Right (carpets) were successful high-street chains before the 2008 recession. Both sold 'big ticket' items — expensive purchases that consumers cut back on when incomes fell.</p>
+  <br>
+  <p><strong>Comet</strong> failed to adapt to the downturn. By December 2012, it had closed entirely.</p>
+  <br>
+  <p><strong>Carpet Right</strong> responded by:</p>
+  <ul>
+    <li>Selling better-quality, more expensive carpets (moving upmarket)</li>
+    <li>Improving customer service</li>
+    <li>Closing some stores to reduce costs</li>
+    <li>Offering interest-free credit to attract cautious buyers</li>
+  </ul>
+  <br>
+  <p>By 2016, Carpet Right's profits had risen by 33.1% and like-for-like sales had grown by 4.8%. It was taken over by Meditor in 2019 and continues to trade.</p>
+</div>
+<br>
+<p><strong>📌 Takeaway:</strong> The same difficult economic climate affected both businesses equally — but only one survived. The key difference was <strong>how each business responded</strong>. Businesses that adapt their strategy (product, price, promotion, place) can survive and even grow through a recession.</p>`
+        },
+        {
+            title: "Case Study: Aldi — Turning Recession Into Opportunity",
+            tag: "Case Study",
+            content: `<div class="case-study-box">
+  <h4>Case Study: Aldi — Growing Through the Downturn</h4>
+  <p>In 2007, Aldi held just a <strong>2.5% share</strong> of the UK supermarket market. By 2020, it had become the <strong>sixth-largest supermarket chain</strong> in the UK with a 7.8% market share. Its rapid growth was driven largely by the poor economic climate after 2008.</p>
+  <br>
+  <p>Aldi's strategy included:</p>
+  <ul>
+    <li>Selling cheaper groceries — some products 50% cheaper than rivals</li>
+    <li>Focusing on own-label products to keep buying costs low</li>
+    <li>A 'no frills' store experience — basic layout, no saunas or cafés</li>
+    <li>Highly efficient warehousing and distribution to keep costs minimal</li>
+  </ul>
+  <br>
+  <p>During the COVID-19 lockdowns (2020–21), Aldi's market share temporarily fell as it lacked online services. However, once restrictions lifted, its share rose again.</p>
+</div>
+<br>
+<p><strong>📌 Takeaway:</strong> A poor economic climate is not bad for every business. Aldi proves that a business model built around <strong>low cost and low price</strong> can turn an economic downturn into a competitive advantage. When consumer incomes fall, customers trade down — and discount retailers benefit directly.</p>`
+        },
+        {
+            title: "Case Study: The Coronavirus Pandemic (2020–21)",
+            tag: "Case Study",
+            content: `<div class="case-study-box">
+  <h4>Case Study: COVID-19 — The Biggest Fall in UK GDP Ever Recorded</h4>
+  <p>The coronavirus pandemic caused the largest drop in UK GDP ever recorded — by March 2021, GDP was <strong>8.1% lower</strong> than pre-pandemic levels.</p>
+  <br>
+  <p><strong>Businesses severely affected:</strong></p>
+  <ul>
+    <li>Travel and tourism</li>
+    <li>Hospitality — pubs, restaurants, cafés</li>
+    <li>Retail (non-essential shops)</li>
+    <li>Entertainment — theatres, cinemas, festivals</li>
+  </ul>
+  <br>
+  <p><strong>Government support measures:</strong></p>
+  <ul>
+    <li>Grants and loans to struggling businesses</li>
+    <li>Furlough scheme — government paid up to 80% of wages for workers who could not work</li>
+  </ul>
+  <br>
+  <p><strong>Businesses that thrived:</strong></p>
+  <ul>
+    <li>Online retailers and delivery companies</li>
+    <li>Home improvement businesses (builders, decorators, home furnishings)</li>
+  </ul>
+</div>
+<br>
+<p><strong>📌 Takeaway:</strong> Even in the worst economic climate, <strong>some businesses benefit</strong>. The pandemic accelerated the shift to online retail and home working. Businesses that could adapt quickly — or whose products were in demand — survived and grew. The pandemic is a perfect exam example of both the negative <em>and</em> positive effects of an unfavourable economic climate.</p>`
+        },
+        {
+            title: "Case Study: Fitspace — Low-Cost Gym in a Changing Economy",
+            tag: "Case Study",
+            content: `<div class="case-study-box">
+  <h4>Case Study: Fitspace — Targeting Lower-Income Consumers</h4>
+  <p>Fitspace is a gym chain that specifically targets lower-paid workers and those without a guaranteed stable income. It operates as follows:</p>
+  <ul>
+    <li>Monthly membership fees lower than most other gyms</li>
+    <li>No annual contract — customers can pay month by month</li>
+    <li>No frills — no luxury changing rooms, saunas or cafés</li>
+  </ul>
+  <br>
+  <p>In 2016, Fitspace was acquired by GLL (which also runs the Better gym chain). By 2018, GLL's turnover had grown 7% to £298 million with a profit of £1.3 million.</p>
+</div>
+<br>
+<p><strong>📌 Takeaway:</strong> Fitspace is a prime example of a business that aligned its model to the economic reality of its target market. By keeping costs and prices low, it attracted customers who would otherwise not join a gym. However, its lack of frills may deter customers seeking higher-quality experiences — showing that <strong>every strategy involves trade-offs</strong>.</p>`
+        }
+    ];
 
-        // 2. Multiple Choice Questions (Minimum 10)
-        const mcqData = [
-            {
-                q: "What does the term 'economic climate' refer to?",
-                opts: [
-                    "The weather conditions affecting agricultural businesses",
-                    "The general state of the economy in terms of income and employment levels",
-                    "The environmental policies of a country",
-                    "The interest rates set by a central bank"
-                ],
-                ans: 1,
-                explain: "Correct answer: B. The economic climate refers to the general state of the economy, specifically regarding the levels of income and employment. It has nothing to do with the weather or environment."
-            },
-            {
-                q: "Consumer spending is likely to fall when:",
-                opts: [
-                    "Average incomes rise",
-                    "Unemployment falls",
-                    "The country produces less than it did, as measured by GDP",
-                    "Immigration rises"
-                ],
-                ans: 2,
-                explain: "Correct answer: C. When GDP falls (a recession), production slows, jobs are lost, incomes fall, and consumer spending decreases as a result."
-            },
-            {
-                q: "In a period of rising income and employment, most businesses can expect:",
-                opts: [
-                    "Sales to rise",
-                    "Prices to fall",
-                    "Profits to fall",
-                    "Immigration to fall"
-                ],
-                ans: 0,
-                explain: "Correct answer: A. When incomes and employment rise, consumers have more money to spend, so demand increases and most businesses will see their sales rise."
-            },
-            {
-                q: "When a business loses sales and profits due to a fall in consumer income, it should:",
-                opts: [
-                    "Increase the amount it produces",
-                    "Reduce production costs",
-                    "Stop selling the product abroad",
-                    "Recruit more workers"
-                ],
-                ans: 1,
-                explain: "Correct answer: B. Reducing production costs allows a business to lower prices or maintain profit margins despite falling sales — the most logical response to falling consumer income."
-            },
-            {
-                q: "A tour company sells £8 million of holidays. When average income falls by 2%, its sales fall by 4%. What is the expected fall in the value of sales?",
-                opts: [
-                    "£80,000",
-                    "£160,000",
-                    "£320,000",
-                    "£640,000"
-                ],
-                ans: 2,
-                explain: "Correct answer: C. A 4% fall on £8,000,000 = 0.04 × £8,000,000 = £320,000."
-            },
-            {
-                q: "Falling levels of consumer income have caused a car dealership to experience a significant reduction in retail sales. Which action should it take to help increase sales?",
-                opts: [
-                    "Advertise less",
-                    "Offer price reductions",
-                    "Reduce customer engagement",
-                    "Reduce its costs only"
-                ],
-                ans: 1,
-                explain: "Correct answer: B. Offering price reductions directly addresses the affordability issue when consumer incomes are falling, making it more likely customers can and will buy."
-            },
-            {
-                q: "Which of the following best describes a recession?",
-                opts: [
-                    "A period when unemployment is falling",
-                    "A period when GDP is rising quickly",
-                    "A period when GDP is falling",
-                    "A period when consumer incomes are rising"
-                ],
-                ans: 2,
-                explain: "Correct answer: C. A recession is defined as a period when GDP is falling. This leads to falling income, rising unemployment, and reduced consumer spending."
-            },
-            {
-                q: "How did Aldi benefit from the 2008 economic recession?",
-                opts: [
-                    "It launched a luxury range to target wealthy customers",
-                    "It increased its prices as competitors closed down",
-                    "It gained market share as budget-conscious consumers switched to its cheaper products",
-                    "It expanded into international markets to replace lost UK sales"
-                ],
-                ans: 2,
-                explain: "Correct answer: C. As consumer incomes fell, shoppers switched to cheaper supermarkets. Aldi's no-frills, low-price model was perfectly positioned to benefit from this shift."
-            },
-            {
-                q: "When unemployment falls, what challenge might a business face in its workforce?",
-                opts: [
-                    "Too many workers applying for each job vacancy",
-                    "Falling wage costs as workers accept lower pay",
-                    "Difficulty recruiting workers and upward pressure on wages",
-                    "Less need to offer training and development"
-                ],
-                ans: 2,
-                explain: "Correct answer: C. When unemployment is low, there are fewer workers looking for jobs, so businesses must compete to attract staff — often by offering higher wages, which increases costs."
-            },
-            {
-                q: "Which of the following is an example of a marketing response to falling consumer incomes?",
-                opts: [
-                    "Increasing production capacity",
-                    "Outsourcing manufacturing abroad",
-                    "Using penetration pricing to attract customers in new markets",
-                    "Reducing the number of employees"
-                ],
-                ans: 2,
-                explain: "Correct answer: C. Penetration pricing (setting a low price to attract customers) is a marketing strategy that can help maintain or grow sales when consumers have less money to spend."
-            },
-            {
-                q: "What is GDP?",
-                opts: [
-                    "The total wages paid to workers in a country per year",
-                    "The measure of how much a country produces in a year",
-                    "The government's total spending on public services",
-                    "The average income per person in a country"
-                ],
-                ans: 1,
-                explain: "Correct answer: B. GDP (Gross Domestic Product) measures the total value of all goods and services produced in a country in a year. It is used to indicate whether the economy is growing or shrinking."
-            },
-            {
-                q: "The distribution of income becoming more unequal means:",
-                opts: [
-                    "All consumers have less money to spend",
-                    "All consumers have more money to spend",
-                    "Incomes of the rich are rising faster than those of lower earners",
-                    "The government is increasing taxes on higher earners"
-                ],
-                ans: 2,
-                explain: "Correct answer: C. An increasingly unequal distribution means the gap between rich and poor widens — the rich get relatively richer. This can actually benefit luxury goods businesses even in a general downturn."
-            }
-        ];
+    // 2. Multiple Choice Questions (Minimum 10)
+    const mcqData = [
+        {
+            q: "What does the term 'economic climate' refer to?",
+            opts: [
+                "The weather conditions affecting a country's agriculture",
+                "How well the country is doing in terms of income and employment levels",
+                "The level of inflation in the economy",
+                "The number of businesses trading in a country"
+            ],
+            ans: 1,
+            explain: "Correct: B. The economic climate refers to how well the country is doing in terms of the levels of income and employment. It does NOT refer to weather or climate change — a common examiner-noted mistake."
+        },
+        {
+            q: "Consumer spending is most likely to fall when:",
+            opts: [
+                "Average incomes rise",
+                "Unemployment falls",
+                "The country produces less as measured by GDP",
+                "Immigration rises"
+            ],
+            ans: 2,
+            explain: "Correct: C. When GDP falls (a recession), incomes and employment also fall, reducing consumer spending. Rising incomes (A) and falling unemployment (B) both increase spending. Immigration (D) is not directly linked."
+        },
+        {
+            q: "In a period of rising income and employment, most businesses can expect:",
+            opts: [
+                "Prices to fall",
+                "Sales to rise",
+                "Profits to fall",
+                "Immigration to fall"
+            ],
+            ans: 1,
+            explain: "Correct: B. When incomes rise, customers have more to spend, so demand increases and sales rise. Prices typically rise (not fall) in a growing economy, and profits usually increase too."
+        },
+        {
+            q: "When a business loses sales due to a fall in consumer income, it should:",
+            opts: [
+                "Increase the amount it produces",
+                "Stop selling the product abroad",
+                "Reduce production costs",
+                "Recruit more workers"
+            ],
+            ans: 2,
+            explain: "Correct: C. Reducing production costs allows the business to lower prices or maintain profit margins despite falling sales. Increasing production (A) or recruiting more workers (D) would be counterproductive when demand is falling."
+        },
+        {
+            q: "A tour company has average annual sales of £8 million. When income falls by 2%, its sales fall by 4%. What is the expected fall in sales if income fell by 2%?",
+            opts: [
+                "£80,000",
+                "£160,000",
+                "£320,000",
+                "£640,000"
+            ],
+            ans: 2,
+            explain: "Correct: C. A 4% fall on £8 million = £8,000,000 × 0.04 = £320,000. Option A (£80,000) is 1% of £8m. Option B (£160,000) is 2% of £8m. Option D (£640,000) is 8% of £8m."
+        },
+        {
+            q: "Which of the following is most likely to benefit from a fall in consumer incomes?",
+            opts: [
+                "A luxury car dealership",
+                "A five-star hotel chain",
+                "A budget supermarket selling own-label products",
+                "A high-end bespoke kitchen manufacturer"
+            ],
+            ans: 2,
+            explain: "Correct: C. When incomes fall, consumers trade down to cheaper alternatives, benefiting discount retailers. Luxury and high-end businesses (A, B, D) suffer as consumers can no longer afford their products."
+        },
+        {
+            q: "What is the most likely impact of falling unemployment on a business's production costs?",
+            opts: [
+                "Costs will fall because there are fewer workers to pay",
+                "Costs will rise because wages increase due to competition for workers",
+                "Costs will remain unchanged",
+                "Costs will fall because workers become more productive"
+            ],
+            ans: 1,
+            explain: "Correct: B. When unemployment falls, fewer workers are available, creating competition for labour. Businesses must offer higher wages to attract and retain staff, raising their production costs."
+        },
+        {
+            q: "What is a recession?",
+            opts: [
+                "A period when GDP is rising",
+                "A period when unemployment is at its lowest",
+                "A period when GDP is falling, causing income and employment to fall",
+                "A period when consumer prices are rising"
+            ],
+            ans: 2,
+            explain: "Correct: C. A recession is defined as a period when GDP is falling, which causes income to fall and unemployment to rise. Option A describes economic growth. Option D describes inflation."
+        },
+        {
+            q: "Falling levels of consumer income have caused a car dealership to experience a significant reduction in retail sales. Which action should the dealership take?",
+            opts: [
+                "Advertise less",
+                "Offer price reductions",
+                "Reduce customer engagement",
+                "Reduce its costs only"
+            ],
+            ans: 1,
+            explain: "Correct: B. Offering price reductions makes the cars more affordable during a period of lower consumer income, helping to maintain sales. Advertising less (A) or reducing customer engagement (C) would further harm sales."
+        },
+        {
+            q: "Which of the following statements about the impact of rising income is TRUE?",
+            opts: [
+                "The sales of all businesses will always increase when incomes rise",
+                "Rising incomes often lead to an increase in sales of luxury goods",
+                "A rise in unemployment will make all consumers worse off",
+                "A fall in consumer income will always cause a business to sell less"
+            ],
+            ans: 1,
+            explain: "Correct: B. Rising incomes often boost luxury goods sales because consumers can now afford higher-quality or non-essential items. 'Always' in options A, C and D is incorrect — there are always exceptions (e.g. budget goods may see falls when incomes rise)."
+        },
+        {
+            q: "What does GDP stand for and what does it measure?",
+            opts: [
+                "General Domestic Price — the average cost of goods in a country",
+                "Gross Domestic Product — a measure of how much a country produces in a year",
+                "Government Debt Percentage — the level of public borrowing",
+                "Gross Disposable Pay — the average take-home wage"
+            ],
+            ans: 1,
+            explain: "Correct: B. GDP (Gross Domestic Product) measures the total value of goods and services a country produces in a year. It is the key indicator of economic growth or recession."
+        },
+        {
+            q: "Which of the following is NOT an example of a business strategy used during a recession?",
+            opts: [
+                "Reducing waste in production",
+                "Increasing advertising to boost sales",
+                "Hiring more full-time workers to increase output",
+                "Taking out cheaper loans to reduce interest costs"
+            ],
+            ans: 2,
+            explain: "Correct: C. During a recession, businesses typically try to reduce costs — hiring more full-time workers increases the wage bill, which is the opposite of what most businesses do in a downturn. All other options are common recession strategies."
+        }
+    ];
 
-        // 3. Keyword Matching (Minimum 10)
-        const matchData = [
-            { term: "Economic climate", def: "The general state of the economy in terms of levels of income and employment, which can be favourable or unfavourable for businesses." },
-            { term: "GDP", def: "A measure of how much a country produces in a year; used to assess whether the economy is growing or shrinking." },
-            { term: "Recession", def: "A period when GDP is falling, typically leading to rising unemployment and falling consumer incomes." },
-            { term: "Economic growth", def: "A period when GDP is rising, usually causing income and employment to rise and boosting business sales." },
-            { term: "Consumer income", def: "The total amount of income that all customers in a country receive and have available to spend." },
-            { term: "Level of unemployment", def: "The number of people who are out of work in a country at a given time." },
-            { term: "Level of employment", def: "The number of people who are in work in a country at a given time." },
-            { term: "Distribution of income", def: "How income is shared out among different people; it can become more unequal if the rich get richer faster than lower earners." },
-            { term: "Disposable income", def: "The money a consumer has left to spend after paying taxes and essential bills." },
-            { term: "International economic climate", def: "What is happening to income and employment in different parts of the world, which can affect UK businesses through trade." },
-            { term: "Favourable economic climate", def: "A state of the economy where rising income and employment leads to increased sales and profits for most businesses." },
-            { term: "Unfavourable economic climate", def: "A state of the economy where falling income and employment leads to reduced sales and profits for most businesses." }
-        ];
+    // 3. Keyword Matching (Minimum 10)
+    const matchData = [
+        { term: "Economic climate", def: "How well the country is doing in terms of the levels of income and employment." },
+        { term: "Income", def: "The amount of money people receive from work and from assets such as shares and property." },
+        { term: "Consumer income", def: "The total amount of income all customers in the country receive and have available to spend." },
+        { term: "Level of unemployment", def: "The number of people out of work in a country." },
+        { term: "Level of employment", def: "The number of people in work in a country." },
+        { term: "GDP", def: "A measure of how much a country produces in a year; influences income and employment levels." },
+        { term: "Economic growth", def: "A period when GDP is rising, causing income and employment to rise." },
+        { term: "Recession", def: "A period when GDP is falling, causing income and employment to fall." },
+        { term: "Distribution of income", def: "How income is shared out among different people in the community." },
+        { term: "International economic climate", def: "What is happening to income and employment in different parts of the world." },
+        { term: "Favourable economic climate", def: "A period when income and employment are rising, generally good for most businesses." },
+        { term: "Unfavourable economic climate", def: "A period when income and employment are falling, generally bad for most businesses." }
+    ];
 
-        // 4. Fill in the Blanks (Minimum 10)
-        const fibData = [
-            {
-                display: "The economic climate refers to the general state of the economy, focusing on the levels of _____ and _____.",
-                blanks: { B1: "income", B2: "employment" }
-            },
-            {
-                display: "When GDP falls, this is known as a _____, which typically causes unemployment to _____ and consumer incomes to fall.",
-                blanks: { B1: "recession", B2: "rise" }
-            },
-            {
-                display: "GDP stands for Gross _____ Product and measures how much a country _____ in a year.",
-                blanks: { B1: "Domestic", B2: "produces" }
-            },
-            {
-                display: "When consumer incomes fall, businesses selling _____ goods are likely to be hit hardest, while budget businesses like _____ may benefit.",
-                blanks: { B1: "luxury", B2: "Aldi" }
-            },
-            {
-                display: "When unemployment falls, businesses may find it harder to _____ workers, and may need to pay higher _____ to attract the staff they need.",
-                blanks: { B1: "recruit", B2: "wages" }
-            },
-            {
-                display: "Carpet Right responded to the recession by moving _____ market, closing underperforming _____, and improving customer service.",
-                blanks: { B1: "up", B2: "stores" }
-            },
-            {
-                display: "The _____ of income refers to the gap between rich and poor. In the UK, this gap has _____ since the 1980s.",
-                blanks: { B1: "distribution", B2: "widened" }
-            },
-            {
-                display: "A business can respond to a difficult economic climate by reducing _____ costs, changing its _____ strategy, or improving staff productivity.",
-                blanks: { B1: "production", B2: "marketing" }
-            },
-            {
-                display: "The _____ economic climate can affect UK businesses when there is a recession in countries the UK trades with, reducing demand for UK _____.",
-                blanks: { B1: "international", B2: "exports" }
-            },
-            {
-                display: "A favourable economic climate encourages businesses to set more challenging _____ or _____ objectives.",
-                blanks: { B1: "profit", B2: "growth" }
-            },
-            {
-                display: "During the 2020 coronavirus pandemic, the UK's GDP fell to _____ per cent below pre-pandemic levels by March 2021, representing the biggest fall ever _____.",
-                blanks: { B1: "8.1", B2: "recorded" }
-            },
-            {
-                display: "Using _____ pricing can help a business gain customers during a recession by setting an initially low price to enter a new _____.",
-                blanks: { B1: "penetration", B2: "market" }
-            }
-        ];
+    // 4. Fill in the Blanks (Minimum 10)
+    const fibData = [
+        {
+            display: "The economic climate refers to how well the country is doing in terms of the levels of _____ and _____.",
+            blanks: { B1: "income", B2: "employment" }
+        },
+        {
+            display: "A period when GDP is falling, causing income and employment to fall, is called a _____.",
+            blanks: { B1: "recession" }
+        },
+        {
+            display: "A period when GDP is rising is called _____ _____.",
+            blanks: { B1: "economic growth" }
+        },
+        {
+            display: "When consumer income rises, businesses often experience an increase in _____ and _____.",
+            blanks: { B1: "sales", B2: "profits" }
+        },
+        {
+            display: "When unemployment falls, businesses may find it harder to _____ workers and may need to pay higher _____.",
+            blanks: { B1: "recruit", B2: "wages" }
+        },
+        {
+            display: "GDP stands for Gross _____ Product.",
+            blanks: { B1: "Domestic" }
+        },
+        {
+            display: "The distribution of income refers to how income is _____ among different people in the community.",
+            blanks: { B1: "shared" }
+        },
+        {
+            display: "During a recession, businesses in the marketing department might try to _____ prices or increase _____ to maintain sales.",
+            blanks: { B1: "lower", B2: "advertising" }
+        },
+        {
+            display: "When income falls, luxury goods businesses are likely to see a _____ in demand, while budget retailers may see demand _____.",
+            blanks: { B1: "fall", B2: "rise" }
+        },
+        {
+            display: "Aldi grew its UK market share from 2.5% in 2007 to _____ by 2020, partly because of the poor economic climate after 2008.",
+            blanks: { B1: "7.8%" }
+        },
+        {
+            display: "The _____ scheme during COVID-19 meant the government paid up to 80% of wages for workers who could not work.",
+            blanks: { B1: "furlough" }
+        },
+        {
+            display: "A business's finance department might respond to a recession by taking out cheaper _____ or reducing its _____.",
+            blanks: { B1: "loans", B2: "overdraft" }
+        }
+    ];
 
-        // Word bank for Fill in the Blanks
-        const fibWords = [
-            "income", "employment", "recession", "rise", "Domestic", "produces",
-            "luxury", "Aldi", "recruit", "wages", "up", "stores", "distribution",
-            "widened", "production", "marketing", "international", "exports",
-            "profit", "growth", "8.1", "recorded", "penetration", "market",
-            "fall", "down", "imports", "costs", "revenue", "inflation", "GDP", "decrease"
-        ];
+    // Word bank for Fill in the Blanks
+    const fibWords = [
+        "income", "employment", "recession", "economic growth", "sales", "profits",
+        "recruit", "wages", "Domestic", "shared", "lower", "advertising",
+        "fall", "rise", "7.8%", "furlough", "loans", "overdraft",
+        "inflation", "taxes", "dividends", "exports", "surplus", "deficit"
+    ];
 
-        // 5. True or False (Minimum 10)
-        const tfData = [
-            {
-                statement: "The term 'economic climate' in business refers to the weather and environmental conditions affecting a business.",
-                answer: false,
-                explanation: "FALSE. The economic climate refers to the general state of the economy — specifically income and employment levels. It has nothing to do with the weather. This is a very common misconception highlighted by examiners."
-            },
-            {
-                statement: "When consumer incomes rise, all businesses will automatically see an increase in sales.",
-                answer: false,
-                explanation: "FALSE. While most businesses benefit from rising incomes, businesses selling cheap or lower-quality goods may actually see sales fall as customers switch to more expensive, better-quality alternatives."
-            },
-            {
-                statement: "A recession is a period when GDP is falling.",
-                answer: true,
-                explanation: "TRUE. A recession occurs when GDP falls. This leads to reduced production, rising unemployment, falling incomes, and lower consumer spending."
-            },
-            {
-                statement: "When unemployment falls, businesses find it cheaper and easier to recruit new workers.",
-                answer: false,
-                explanation: "FALSE. When unemployment falls, there are fewer workers looking for jobs. This means businesses must compete harder to attract staff, often pushing wages up and increasing labour costs."
-            },
-            {
-                statement: "Aldi grew its UK market share during the 2008 recession because consumers with less income switched to its cheaper products.",
-                answer: true,
-                explanation: "TRUE. Aldi's no-frills, low-price model was exactly what budget-conscious consumers needed when incomes fell. It grew from a 2.5% market share in 2007 to 7.8% by 2020."
-            },
-            {
-                statement: "Carpet Right went out of business during the 2008 recession.",
-                answer: false,
-                explanation: "FALSE. Comet went out of business in 2012. Carpet Right survived by adapting its strategy — moving upmarket, closing underperforming stores, and introducing interest-free credit."
-            },
-            {
-                statement: "An unfavourable economic climate always means all businesses will lose profits.",
-                answer: false,
-                explanation: "FALSE. Some businesses actually thrive during an unfavourable economic climate. Budget businesses like discount supermarkets and value retailers can gain customers as people look for cheaper alternatives."
-            },
-            {
-                statement: "GDP is a measure of how much a country produces in a year.",
-                answer: true,
-                explanation: "TRUE. GDP (Gross Domestic Product) measures the total value of goods and services produced by a country in a year. It is the main indicator of whether an economy is growing or shrinking."
-            },
-            {
-                statement: "Luxury goods businesses are generally less affected by a fall in consumer income than businesses selling everyday necessities.",
-                answer: false,
-                explanation: "FALSE. Luxury goods businesses are MORE affected by falling incomes because consumers cut back on non-essential, expensive purchases first. Necessities (food, basic clothing) see less impact."
-            },
-            {
-                statement: "The international economic climate can affect UK businesses even if the UK economy itself is performing well.",
-                answer: true,
-                explanation: "TRUE. If major trading partners (like the USA or EU) experience a recession, demand for UK exports falls. This can reduce revenue for UK businesses even if domestic economic conditions are strong."
-            },
-            {
-                statement: "Improving worker productivity is a human resources strategy that can help a business respond to a difficult economic climate.",
-                answer: true,
-                explanation: "TRUE. If workers are more productive (producing more output per hour), production costs per unit fall, allowing a business to reduce prices or maintain profit margins during tough economic times."
-            },
-            {
-                statement: "Rising employment always means rising wages for businesses to pay.",
-                answer: false,
-                explanation: "FALSE. Rising employment means lower unemployment, which makes it harder for businesses to find workers and can push wages up. However, this depends on the type of jobs and skills required — it is not guaranteed in every case."
-            }
-        ];
+    // 5. True or False (Minimum 10)
+    const tfData = [
+        {
+            statement: "The economic climate only refers to weather and environmental conditions affecting businesses.",
+            answer: false,
+            explanation: "FALSE. The economic climate refers to how well the country is doing in terms of income and employment levels — NOT the weather. This is one of the most common misconceptions noted by examiners."
+        },
+        {
+            statement: "When consumer incomes rise, the sales of ALL businesses will increase.",
+            answer: false,
+            explanation: "FALSE. While most businesses benefit from rising incomes, businesses selling cheap or lower-quality products may actually see sales FALL as customers switch to more expensive alternatives they can now afford."
+        },
+        {
+            statement: "A recession is a period when GDP is falling, causing income and employment to fall.",
+            answer: true,
+            explanation: "TRUE. This is the official definition. During a recession, GDP falls, businesses cut production, workers are laid off, unemployment rises, and incomes fall — reducing consumer spending further."
+        },
+        {
+            statement: "When unemployment falls, businesses will find it easier and cheaper to hire new workers.",
+            answer: false,
+            explanation: "FALSE. When unemployment falls, fewer workers are available. This makes it HARDER to recruit, and businesses often need to offer HIGHER wages to attract staff — increasing their costs."
+        },
+        {
+            statement: "A fall in consumer income always causes a business to sell less.",
+            answer: false,
+            explanation: "FALSE. Some businesses actually benefit from falling incomes. Discount retailers like Aldi saw sales and market share GROW during the 2008 recession as consumers switched to cheaper options."
+        },
+        {
+            statement: "Aldi's rapid growth after 2008 was partly due to the poor economic climate.",
+            answer: true,
+            explanation: "TRUE. As consumer incomes fell after the 2008 recession, shoppers switched to cheaper options. Aldi's low-price model was perfectly positioned to benefit, growing its market share from 2.5% to 7.8% by 2020."
+        },
+        {
+            statement: "GDP (Gross Domestic Product) is a measure of how much a country produces in a year.",
+            answer: true,
+            explanation: "TRUE. GDP measures the total value of goods and services produced by a country in a year. It is the main indicator of economic growth or recession."
+        },
+        {
+            statement: "During a recession, all businesses will lose money and many will close.",
+            answer: false,
+            explanation: "FALSE. While many businesses struggle in a recession, some thrive. Budget retailers, discount stores, and businesses that adapt effectively can grow during a downturn. Carpet Right survived the 2008 recession; Comet did not."
+        },
+        {
+            statement: "The international economic climate can affect UK businesses even if the UK economy itself is performing well.",
+            answer: true,
+            explanation: "TRUE. If major trading partners (such as the EU or USA) go into recession, demand for UK exports falls. The 2008 recession affected the UK AND its trading partners simultaneously."
+        },
+        {
+            statement: "When unemployment rises, businesses will typically face higher wage costs.",
+            answer: false,
+            explanation: "FALSE. When unemployment RISES, there are MORE workers looking for jobs. This gives businesses more choice and reduces competition for labour, often allowing businesses to pay LOWER wages, reducing their costs."
+        },
+        {
+            statement: "The distribution of income refers to how evenly income is shared among people in the community.",
+            answer: true,
+            explanation: "TRUE. Distribution of income describes the gap between rich and poor. In the UK since the 1980s, this gap has widened — the rich have seen incomes rise faster than lower earners."
+        },
+        {
+            statement: "Comet and Carpet Right were both affected equally by the 2008 recession, and both eventually closed.",
+            answer: false,
+            explanation: "FALSE. Both were affected by the recession, but only Comet closed (by December 2012). Carpet Right adapted — it moved upmarket, improved customer service, closed some stores, and offered interest-free credit. It survived and grew."
+        }
+    ];
 
-        // 6. Common Student Misconceptions
-        const miscData = [
-            {
-                wrong: "The 'economic climate' refers to the weather or environmental climate affecting a business (e.g. climate change).",
-                correct: "The economic climate is about the state of the economy — specifically the levels of income and employment. Examiners note this was the most common error in this topic."
-            },
-            {
-                wrong: "If unemployment falls, a business will have fewer employees.",
-                correct: "Falling unemployment means fewer people are out of work across the economy as a whole. It does NOT mean a specific business loses staff. Nearly half of all candidates made this error in one exam series."
-            },
-            {
-                wrong: "Rising incomes always help every business.",
-                correct: "Rising incomes can actually hurt budget businesses (like discount stores or cheap product ranges) as consumers switch to more expensive, higher-quality alternatives they can now afford."
-            },
-            {
-                wrong: "Costs, rents, and prices are 'economic factors'.",
-                correct: "Costs and prices are business factors, not economic factors. Economic factors include income levels, unemployment, GDP, economic growth, and inflation."
-            },
-            {
-                wrong: "Writing about the impact of a poor economic climate without first defining or explaining what a poor economic climate is will still earn marks.",
-                correct: "Examiners will NOT award marks for application or analysis unless you first demonstrate understanding of the economic concept. Always state what a fall in income or rise in unemployment means before explaining its impact."
-            },
-            {
-                wrong: "'Economic climate' and 'climate change' or 'environmental issues' are the same thing in a business context.",
-                correct: "These are completely different topics in the OCR GCSE specification. Economic issues (Section 6.2) include income and employment. Environmental issues are covered separately. Confusing them will cost marks."
-            },
-            {
-                wrong: "In a 3-mark 'Recommend' question, you just need to choose one option and explain why it is good.",
-                correct: "A 'Recommend' question requires you to compare BOTH options. Choosing one option and only justifying it (without contrasting it with the other) can score a maximum of only 1 mark. You must explain why your choice is BETTER than the alternative."
-            },
-            {
-                wrong: "A fall in unemployment means consumers have less income.",
-                correct: "A fall in unemployment means fewer people are out of work — so MORE people have jobs and wages, meaning consumer income tends to RISE, not fall."
-            }
-        ];
+    // 6. Common Student Misconceptions
+    const miscData = [
+        {
+            wrong: "The 'economic climate' is about the weather or environmental climate change.",
+            correct: "The economic climate refers to the state of income and employment levels in a country — it has nothing to do with weather. The examiner reports note that less than 40% of students answered Q1 correctly because of this confusion."
+        },
+        {
+            wrong: "If unemployment falls, a business now has fewer employees.",
+            correct: "A fall in unemployment means there are FEWER unemployed people in the country — not fewer people working for a specific business. It means it becomes HARDER and MORE EXPENSIVE to recruit new workers, as fewer people are available."
+        },
+        {
+            wrong: "A fall in consumer income always causes every business to sell less.",
+            correct: "It depends on the type of product. Luxury goods businesses typically see sales fall. But budget and discount businesses (like Aldi) often see sales RISE as consumers trade down to cheaper options."
+        },
+        {
+            wrong: "Economic factors include things like the cost of raw materials, rents, and prices.",
+            correct: "Costs, rents, and prices are NOT economic factors in the OCR specification. Economic factors specifically refer to consumer income levels, (un)employment, economic growth/GDP, and inflation. Do not confuse these with business costs."
+        },
+        {
+            wrong: "Writing about how the economic climate affects business generally — without linking to the specific case study — is enough for full marks on a 3-mark analyse question.",
+            correct: "You CANNOT score application or analysis marks without first showing understanding. You must also use evidence from the specific business in the question (e.g. the price of a product, number of employees). No context = maximum 1 mark."
+        },
+        {
+            wrong: "For a 3-mark recommend/evaluate question, I just need to explain my chosen option in detail.",
+            correct: "A 3-mark evaluation question REQUIRES a comparison between both options. If you only justify your chosen option without saying why it is better THAN the other option, you can score a maximum of 1 mark."
+        },
+        {
+            wrong: "Inflation, interest rates, and economic growth are outside the scope of this topic.",
+            correct: "While the OCR specification focuses mainly on income and unemployment for 6.2, examiners WILL accept other valid economic factors (such as inflation and economic growth/GDP) when a question asks for an 'economic factor'. These are credit-worthy answers."
+        },
+        {
+            wrong: "The economic climate only affects large businesses — small businesses are too small to be impacted.",
+            correct: "The economic climate affects businesses of ALL sizes. A small independent café may be more vulnerable than a large chain because it has fewer reserves. Small businesses are frequently used as case studies in this topic."
+        }
+    ];
 
-        // 7. Examiner Tips & Structure Guides
-        const examTips = [
-            {
-                type: "Identify / State — 1 mark",
-                title: "One Precise Point. That's All.",
-                content: `
-      <p>A 1-mark <strong>'Identify' or 'State'</strong> question needs exactly one correct, specific point. No explanation required.</p>
-      <p><strong>The Formula:</strong> One specific, accurate point = 1 mark ✅</p>
-      <p><strong>❌ Bad Answer (0 marks):</strong><br/>
-      <em>"The economy."</em><br/>
-      This is too vague — it doesn't identify a specific economic factor.</p>
-      <p><strong>✅ Good Answer (1 mark):</strong><br/>
-      <em>"The level of consumer income / unemployment levels / GDP."</em><br/>
-      Specific and directly answers the question.</p>
-      <p><strong>⚠️ Examiner Warning:</strong> Costs, rents, and prices are NOT accepted as economic factors. Also, 'the economic climate' itself is too vague to earn a mark — you need to name a specific aspect of it.</p>
-      <p><strong>🚫 Watch out:</strong> Environmental factors (pollution, climate change) and legal factors (consumer law) are NOT economic factors. Know the difference.</p>
+    // 7. Examiner Tips & Structure Guides
+    const examTips = [
+        {
+            type: "Explain — 2 marks",
+            title: "Always Define the Economic Problem FIRST",
+            content: `
+      <p>A 2-mark <strong>'Explain'</strong> question needs two things: a feature of the difficult economic climate (1 mark) AND how it affects the business (1 mark).</p>
+      <br>
+      <p><strong>⚠️ Examiner Warning:</strong> In the real exam, fewer than 40% of students scored any marks on this question type because they jumped straight to the business impact without defining what a difficult economic climate actually involves.</p>
+      <br>
+      <p><strong>The Formula:</strong></p>
+      <ul>
+        <li><strong>Step 1 (K):</strong> Identify a feature of a difficult economic climate (e.g. rising unemployment OR falling consumer incomes)</li>
+        <li><strong>Step 2 (U):</strong> Explain how this affects the business (e.g. demand may fall, sales may decrease)</li>
+      </ul>
+      <br>
+      <p><strong>❌ Bad Answer (0 marks):</strong><br>
+      <em>"The economic climate is changing and this affects businesses."</em><br>
+      This shows no understanding of what a difficult economic climate IS.</p>
+      <br>
+      <p><strong>✅ Good Answer (2 marks):</strong><br>
+      <em>"In a difficult economic climate, unemployment may rise (K). This means consumers have less income to spend, so demand for the business's products may fall (U)."</em></p>
+      <br>
+      <p><strong>🚫 Misconception Alert:</strong> The economic climate does NOT refer to weather or environmental change. Always connect it to income and/or unemployment.</p>
     `,
-                pills: ["K"]
-            },
-            {
-                type: "Explain — 2 marks",
-                title: "Knowledge + Impact = 2 Marks",
-                content: `
-      <p>A 2-mark <strong>'Explain'</strong> question needs two connected steps: identify a point AND explain the impact on the business.</p>
-      <p><strong>The Formula:</strong><br/>
-      Step 1 — State the economic condition (K) <br/>
-      Step 2 — Explain how it affects a business (U)</p>
-      <p><strong>❌ Bad Answer (1 mark max):</strong><br/>
-      <em>"There may be increased unemployment."</em><br/>
-      This only shows knowledge — no explanation of impact.</p>
-      <p><strong>✅ Good Answer (2 marks):</strong><br/>
-      <em>"There may be increased unemployment (K), which means consumers have less income and so demand for products may fall (U)."</em></p>
-      <p><strong>⚠️ Examiner Warning:</strong> In the real exam, less than 40% of students scored any marks on the 2-mark Unilever question about the difficult economic climate. Many wrote about climate change or environmental issues instead. Always re-read the question.</p>
-    `,
-                pills: ["K", "U"]
-            },
-            {
-                type: "Analyse — 3 marks",
-                title: "The Holy Trinity: Understand → Apply → Analyse",
-                content: `
-      <p>A 3-mark <strong>'Analyse'</strong> question has three distinct marks available: Understanding, Application, and Analysis. <strong>You cannot score Application or Analysis marks if you skip Understanding.</strong></p>
+            pills: ["K", "U"]
+        },
+        {
+            type: "Analyse — 3 marks",
+            title: "The Holy Trinity: U → APP → AN",
+            content: `
+      <p>Every 3-mark <strong>analyse</strong> question follows the same structure. Miss the understanding step and you score ZERO — even if your application and analysis are perfect.</p>
+      <br>
       <p><strong>The 3-Step Formula:</strong></p>
       <ul>
-        <li><strong>Step 1 — Understanding (U):</strong> Explain what the economic change means. E.g., "A fall in consumer income means customers have less money to spend."</li>
-        <li><strong>Step 2 — Application (APP):</strong> Link it directly to the specific business in the case study using a detail from the text. E.g., "Given GK's Deluxe kitchens are priced at £15,000..."</li>
-        <li><strong>Step 3 — Analysis (AN):</strong> State the business impact — effect on sales, revenue, profit, costs, or ability to break even. E.g., "...it is likely that sales will fall, meaning GK may not reach its break-even of 29 kitchens."</li>
+        <li><strong>Step 1 — Understanding (U):</strong> State what the economic concept means (e.g. "A fall in consumer income means customers have less money to spend.")</li>
+        <li><strong>Step 2 — Application (APP):</strong> Link directly to the specific business in the case study using a fact or figure (e.g. "GK's kitchens are priced at £15,000...")</li>
+        <li><strong>Step 3 — Analysis (AN):</strong> State the bottom-line impact on the business (e.g. "...so demand for GK's kitchens is likely to fall, meaning they may not reach their break-even point of 29 units.")</li>
       </ul>
-      <p><strong>❌ Bad Answer (0 marks):</strong><br/>
-      <em>"GK will sell fewer kitchens because people can't afford them."</em><br/>
-      No understanding of WHY (what is a fall in income?), and no use of figures from the text.</p>
-      <p><strong>✅ Good Answer (3 marks):</strong><br/>
-      <em>"Customers have less income to spend (U) and given GK's kitchens are priced at £15,000 (APP), it is likely sales will decrease, meaning GK may struggle to cover its £250,000 fixed costs (AN)."</em></p>
-      <p><strong>🚫 Knowledge Dumping Alert:</strong> Don't just list everything you know about falling incomes. One well-developed chain of reasoning (U → APP → AN) is all you need.</p>
-    `,
-                pills: ["U", "app", "an"]
-            },
-            {
-                type: "Analyse — 3 marks (Unemployment Questions)",
-                title: "Employment vs Unemployment: Don't Mix These Up!",
-                content: `
-      <p>Unemployment questions are a common source of lost marks. Nearly half of all candidates answered a question about falling unemployment the wrong way around in one exam series.</p>
-      <p><strong>The Core Confusion:</strong></p>
+      <br>
+      <p><strong>❌ Bad Answer (1 mark maximum):</strong><br>
+      <em>"GK will sell fewer kitchens because incomes are falling."</em><br>
+      No understanding shown — skipped straight to the impact.</p>
+      <br>
+      <p><strong>✅ Good Answer (3 marks):</strong><br>
+      <em>"A fall in consumer income means customers have less money to spend (U). As GK's Deluxe kitchen costs £15,000 (APP), it is likely that fewer customers will be able to afford this luxury purchase, causing sales to fall. This may mean GK fails to reach its break-even point of 29 kitchens (AN)."</em></p>
+      <br>
+      <p><strong>📝 Sentence Starters:</strong></p>
       <ul>
-        <li>Falling unemployment = FEWER people out of work = MORE people in jobs = More income in the economy.</li>
-        <li>Rising unemployment = MORE people out of work = FEWER people in jobs = Less income in the economy.</li>
+        <li><em>(U):</em> "A fall in consumer income means that customers have less disposable income to spend..."</li>
+        <li><em>(APP):</em> "In the case of [business], which sells [product/price from text]..."</li>
+        <li><em>(AN):</em> "This will lead to... / As a result, the business will... / This means profits may fall because..."</li>
       </ul>
-      <p><strong>Two effects of falling unemployment to consider:</strong></p>
-      <ul>
-        <li><strong>Demand side:</strong> More people have wages → more consumer spending → increased demand for products.</li>
-        <li><strong>Supply/cost side:</strong> Fewer workers looking for jobs → harder to recruit → wages rise → higher business costs.</li>
-      </ul>
-      <p><strong>✅ Good Answer (falling unemployment, 3 marks):</strong><br/>
-      <em>"When unemployment falls, it becomes harder for businesses to recruit workers (U), as there are fewer people looking for jobs. Pukka Pies employs 360 workers (APP), so competition for labour is significant, leading to higher wages and increased production costs (AN)."</em></p>
-      <p><strong>⚠️ Remember:</strong> Questions asking about the <em>change</em> in unemployment rate must address the <em>direction</em> of change shown in the data — don't just talk about unemployment existing.</p>
     `,
-                pills: ["U", "app", "an"]
-            },
-            {
-                type: "Recommend — 3 marks",
-                title: "Judge AND Compare: Both Are Required",
-                content: `
-      <p>A 3-mark <strong>'Recommend'</strong> question is the most commonly mishandled question type in this topic. Choosing one option and explaining why it is good only scores <strong>1 mark maximum</strong> unless you also compare it to the other option.</p>
-      <p><strong>The Mark Breakdown:</strong></p>
+            pills: ["U", "app", "an"]
+        },
+        {
+            type: "Recommend / Evaluate — 3 marks",
+            title: "You MUST Compare Both Options",
+            content: `
+      <p>A 3-mark <strong>recommend</strong> question is the most commonly under-scored question. Students lose marks because they argue for their chosen option but <strong>never say why it is better than the other option</strong>.</p>
+      <br>
+      <p><strong>The 3-Step Formula:</strong></p>
       <ul>
-        <li><strong>1 mark:</strong> A clear judgement — state which option will have the greater impact (or choose which strategy to use).</li>
-        <li><strong>+1 mark:</strong> A justification comparing the two options (no specific context needed).</li>
-        <li><strong>+1 mark:</strong> The justification uses specific context from the case study (e.g. a price, figure, or detail from the text).</li>
+        <li><strong>Step 1 — Judgement (1 mark):</strong> State your clear decision (e.g. "The fall in consumer income will have the greater impact...")</li>
+        <li><strong>Step 2 — Justification with contrast (1 mark):</strong> Explain WHY your choice is bigger/more important THAN the other factor</li>
+        <li><strong>Step 3 — Context (1 mark):</strong> Use a specific figure or detail from the case study to support your comparison</li>
       </ul>
-      <p><strong>❌ Bad Answer (1 mark only):</strong><br/>
-      <em>"Consumer incomes falling will have a bigger impact because people will have less money to spend, reducing demand."</em><br/>
-      There is no comparison with the unemployment side — only 1 mark.</p>
-      <p><strong>✅ Good Answer (3 marks):</strong><br/>
-      <em>"Consumer incomes falling will have the greater impact (1) because GK sells luxury, non-essential kitchens at £15,000 (APP) — a fall in income means customers cannot afford these. The fall in unemployment rate, while positive, will only fall by 0.9% over 3 years and newly employed people are unlikely to immediately buy a £15,000 kitchen (comparison) (1+1)."</em></p>
-      <p><strong>Sentence Starters for Comparison:</strong><br/>
-      "...whereas the change in unemployment will only..." <br/>
-      "...however, this is less significant than... because..."<br/>
-      "...by contrast, a fall in unemployment is unlikely to..."</p>
+      <br>
+      <p><strong>❌ Bad Answer (1 mark):</strong><br>
+      <em>"Consumer income will have the greatest impact because people will have less money to spend on kitchens."</em><br>
+      A judgement with justification — but no comparison to the unemployment factor.</p>
+      <br>
+      <p><strong>✅ Good Answer (3 marks):</strong><br>
+      <em>"The fall in consumer income will have the greater impact on GK (JUDGEMENT). Although unemployment is forecast to fall by 0.9%, newly employed people are unlikely to immediately purchase a £15,000 luxury kitchen (CONTEXT + CONTRAST). In contrast, falling consumer income directly reduces the spending power of GK's existing customer base, making it much harder for GK to achieve its break-even of 29 kitchens (JUSTIFICATION)."</em></p>
+      <br>
+      <p><strong>⚠️ Examiner Warning:</strong> If you do not compare both factors, you can score a maximum of 1 mark on a 3-mark evaluation question — regardless of how detailed your answer is.</p>
     `,
-                pills: ["app", "an", "eval"]
-            },
-            {
-                type: "Evaluate — 7–9 marks",
-                title: "Two Sides + Justified Conclusion = Top Marks",
-                content: `
-      <p>For 7–9 mark evaluate questions, you must cover <strong>two stakeholders or two impacts</strong>, use the case study context throughout, AND write a justified conclusion.</p>
-      <p><strong>Structure:</strong></p>
+            pills: ["app", "an", "eval"]
+        },
+        {
+            type: "Evaluate — 7 marks",
+            title: "Two Stakeholders: Analyse, Then Judge",
+            content: `
+      <p>The 7-mark evaluate question requires you to discuss the impact on <strong>two different stakeholders</strong> and then make a final judgement about which is more affected.</p>
+      <br>
+      <p><strong>Structure — 3 Paragraphs:</strong></p>
       <ul>
-        <li><strong>Point 1:</strong> Identify a stakeholder / impact → Apply to the business → Analyse the consequence (chain of reasoning).</li>
-        <li><strong>Point 2:</strong> Identify a second stakeholder / impact → Apply → Analyse.</li>
-        <li><strong>Conclusion:</strong> Make a justified judgement about which impact is greater, or whether the strategy should be pursued. Use context. Include "it depends on..." to show nuance.</li>
+        <li><strong>Paragraph 1 — Stakeholder 1 (APP + AN):</strong> Identify stakeholder 1, apply the economic change to them using the case study, and analyse the impact on them specifically.</li>
+        <li><strong>Paragraph 2 — Stakeholder 2 (APP + AN):</strong> Repeat for a different stakeholder — use different impacts to avoid repetition.</li>
+        <li><strong>Paragraph 3 — Evaluation (EVAL × 3):</strong> Make a decision + state context + explain why this stakeholder is MORE affected than the other.</li>
       </ul>
-      <p><strong>For the Tesco unemployment question:</strong><br/>
-      Consider both <em>customers</em> (less income → buy cheaper goods → less satisfaction) AND <em>shareholders</em> (less profit → lower dividends → lower share price). Then judge which stakeholder is more affected, using Tesco's specific context (e.g. it sells products at all price points from 'basics' to 'finest').</p>
-      <p><strong>For the NEXT marketing question:</strong><br/>
-      Consider both the impact on pricing strategy (reduce prices → penetration pricing → lower margins) AND promotion (advertise value for money → change messaging → increase marketing costs). Then evaluate which change to the marketing mix is most important for NEXT specifically.</p>
-      <p><strong>Conclusion Sentence Starters:</strong><br/>
-      "Overall, I believe the greatest impact is... because..."<br/>
-      "However, this depends on whether NEXT..."<br/>
-      "Ultimately, shareholders face the bigger challenge because..."</p>
-      <p><strong>🚫 Avoid:</strong> A conclusion that just repeats what you already said. A good conclusion makes a new, justified judgement — it does NOT just summarise.</p>
+      <br>
+      <p><strong>Good stakeholder choices for a rise in unemployment:</strong></p>
+      <ul>
+        <li>Customers — less income to spend, forced to buy cheaper goods</li>
+        <li>Shareholders — lower profits may reduce dividends and share price</li>
+        <li>Employees — risk of redundancy, pressure to accept lower wages</li>
+        <li>Suppliers — orders may fall if the business reduces production</li>
+      </ul>
+      <br>
+      <p><strong>📝 Sentence Starters:</strong></p>
+      <ul>
+        <li><em>(APP P1):</em> "Customers of Tesco plc would be affected because a rise in unemployment means..."</li>
+        <li><em>(AN P1):</em> "As a result, customers may need to switch to cheaper product ranges, reducing their quality of life..."</li>
+        <li><em>(APP P2):</em> "Shareholders may also be impacted because falling sales lead to lower profits..."</li>
+        <li><em>(EVAL):</em> "Overall, I believe customers are more affected than shareholders because... However, this depends on whether Tesco's product range (from 'basics' to 'finest') allows it to retain customers even during a downturn..."</li>
+      </ul>
     `,
-                pills: ["K", "U", "app", "an", "eval"]
-            }
-        ];
+            pills: ["K", "U", "app", "an", "eval"]
+        },
+        {
+            type: "Evaluate — 9 marks",
+            title: "The Full Essay: Knowledge → Analysis → Evaluation",
+            content: `
+      <p>The 9-mark question is the highest-tariff question in this topic. It requires <strong>knowledge, application, analysis from two angles, and a fully justified conclusion</strong>.</p>
+      <br>
+      <p><strong>Structure — 4 Paragraphs:</strong></p>
+      <ul>
+        <li><strong>Paragraph 1 — K &amp; U:</strong> Define the key economic concept and explain how it generally affects businesses.</li>
+        <li><strong>Paragraph 2 — AN &amp; APP (Impact 1):</strong> Analyse one specific impact on the named business, using evidence from the case study.</li>
+        <li><strong>Paragraph 3 — AN &amp; APP (Impact 2):</strong> Analyse a second, different impact (e.g. the marketing response, or the effect on a different area like HR or Finance).</li>
+        <li><strong>Paragraph 4 — Evaluation (3 points):</strong>
+          <ul>
+            <li><strong>Decision:</strong> State your overall judgement (e.g. "Overall, a fall in consumer income is the greater threat to NEXT...")</li>
+            <li><strong>Context:</strong> Refer to a specific detail from the case study to support your conclusion</li>
+            <li><strong>Impact/Reasoning:</strong> Explain why — include a counterargument or limiting factor (e.g. "However, this depends on whether NEXT can successfully reposition itself as a value-for-money brand...")</li>
+          </ul>
+        </li>
+      </ul>
+      <br>
+      <p><strong>🚫 Knowledge Dumping Alert:</strong> Do NOT write everything you know about the economic climate. Every sentence must link back to the specific business in the question. Generic statements about recessions score very few marks at Level 3.</p>
+      <br>
+      <p><strong>📝 Sentence Starters:</strong></p>
+      <ul>
+        <li><em>(K/U):</em> "A fall in consumer income means customers have less disposable income available to spend..."</li>
+        <li><em>(AN/APP P2):</em> "For NEXT plc, which sells clothing and accessories, this is particularly significant because..."</li>
+        <li><em>(AN/APP P3):</em> "NEXT's marketing department may need to respond by... This could involve changing the 4Ps, specifically..."</li>
+        <li><em>(EVAL — Decision):</em> "Overall, I believe that a fall in consumer income poses the greater threat to NEXT's marketing activities..."</li>
+        <li><em>(EVAL — Context):</em> "This is because NEXT operates in a competitive market where customers can easily switch to cheaper rivals such as Primark..."</li>
+        <li><em>(EVAL — Reasoning):</em> "However, the impact depends on how quickly NEXT adapts its pricing strategy and whether it can maintain brand loyalty during a period of falling incomes..."</li>
+      </ul>
+    `,
+            pills: ["K", "U", "app", "an", "eval"]
+        }
+    ];
 
-        // 8. Flashcards
-        const flashcards = [
-            { term: "Economic climate", def: "The general state of the economy in terms of income and employment levels; can be favourable or unfavourable for businesses." },
-            { term: "Recession", def: "A period when GDP is falling, leading to rising unemployment and falling consumer incomes and spending." },
-            { term: "GDP (Gross Domestic Product)", def: "A measure of the total value of goods and services produced in a country in a year." },
-            { term: "Economic growth", def: "A period when GDP is rising, usually causing income and employment to increase." },
-            { term: "Consumer income", def: "The total amount of income all customers in a country receive and have available to spend." },
-            { term: "Level of unemployment", def: "The number of people who are out of work in a country at a given time." },
-            { term: "Distribution of income", def: "How income is shared out among people in society; the UK has seen this become more unequal since the 1980s." },
-            { term: "International economic climate", def: "What is happening to income and employment in other countries, which can affect UK business through trade." },
-            { term: "Favourable economic climate", def: "When income and employment are rising — most businesses see increased sales and profits." },
-            { term: "Unfavourable economic climate", def: "When income and employment are falling — most businesses experience reduced sales and profits." },
-            { term: "Aldi & the recession", def: "Aldi grew from 2.5% to 7.8% UK market share partly because the 2008 recession drove consumers to its cheaper products — a poor climate became an opportunity." },
-            { term: "Carpet Right's response", def: "Survived the 2008 recession by moving upmarket, closing loss-making stores, reducing costs, and introducing interest-free credit." },
-            { term: "Impact of falling unemployment on costs", def: "Fewer workers available → businesses compete for staff → wages rise → higher production costs → reduced profit margins." },
-            { term: "Impact of falling income on luxury goods", def: "Sales fall sharply as consumers cut non-essential spending first. Budget alternatives may benefit as consumers trade down." },
-            { term: "4Ps marketing response to recession", def: "Product (change range), Price (cut prices / penetration pricing), Promotion (advertise value), Place (close stores / go online)." }
-        ];
+    // 8. Flashcards
+    const flashcards = [
+        { term: "Economic climate", def: "How well the country is doing in terms of the levels of income and employment." },
+        { term: "Recession", def: "A period when GDP is falling, causing income and employment to fall." },
+        { term: "Economic growth", def: "A period when GDP is rising, causing income and employment to rise." },
+        { term: "GDP", def: "Gross Domestic Product — a measure of how much a country produces in a year." },
+        { term: "Consumer income", def: "The total amount of income all customers in the country receive and have available to spend." },
+        { term: "Level of unemployment", def: "The number of people out of work in a country." },
+        { term: "Distribution of income", def: "How income is shared out among different people in the community." },
+        { term: "International economic climate", def: "What is happening to income and employment in different parts of the world." },
+        { term: "Impact of rising income on luxury goods", def: "Demand typically increases as customers can afford higher-quality or non-essential products." },
+        { term: "Impact of falling income on budget goods", def: "Demand may increase as customers trade down from more expensive options." },
+        { term: "Impact of falling unemployment on wages", def: "Wages tend to rise because businesses must compete to attract the smaller pool of available workers." },
+        { term: "Aldi's growth strategy", def: "Low prices, own-label products, no-frills stores, and efficient logistics — which benefited from the post-2008 economic downturn." },
+        { term: "How Carpet Right survived the 2008 recession", def: "Moved upmarket, improved customer service, closed costly stores, and introduced interest-free credit." },
+        { term: "Why Comet closed in 2012", def: "Failed to adapt its strategy in response to falling consumer income — did not change its products, pricing, or service model." },
+        { term: "Finance department recession strategy", def: "Take out cheaper loans, reduce overdraft, improve cash flow to cut interest payments." }
+    ];
 
-        // 9. Exam-Style Questions
-        const examQuestions = [
-            {
-                num: "Q1",
-                marks: 2,
-                type: "written",
-                caseStudy: "Unilever plc is a multinational company that makes and sells a wide range of quality products including food, cleaning agents and beauty products across 190 countries.\n\nUnilever plc has benefitted from operating in a global marketplace and the majority of its products are international brands. Some of its branded products include Lynx Body Spray, Dove Soap, Hellmann's Mayonnaise, Ben & Jerry's ice cream and Persil washing machine detergent.\n\nUnilever plc's average revenue has grown over the last five years. However, the economic climate is becoming more difficult and Unilever plc's directors are having to adapt to these challenges.",
-                question: "Explain how operating in a difficult economic climate might affect a business. [2 marks]",
-                hint: "First define or describe what a 'difficult economic climate' involves (unemployment/falling incomes), THEN explain the impact on a business. Both steps are required.",
-                starter: "In a difficult economic climate, there may be increased unemployment (K)...\nThis means consumers have less income, so demand for products may fall (U)...",
-                markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1a + AO1b)</h5><ul><li><strong>Knowledge (1 mark):</strong> Identifies a feature of a difficult economic climate — e.g. increased unemployment, reduced consumer incomes, falling GDP/negative economic growth. Accept: high inflation, high interest rates.</li><li><strong>Understanding/Impact (1 mark):</strong> Explains how this affects a business — e.g. demand for products may fall; businesses may sell less; profits may fall.</li><li><strong>Important:</strong> There must be evidence of a poor economic climate BEFORE the impact on a business can be credited. Answers do not need to relate specifically to Unilever.</li></ul><p><em>Examiner's Note: Less than 40% of students scored any marks. Many confused 'economic climate' with climate change or environmental issues. Always link to income/unemployment.</em></p></div>`,
-                modelAnswer: "In a difficult economic climate, unemployment may rise, meaning consumers have less income (K). As a result, demand for Unilever's products may fall as people cut back on spending, reducing Unilever's revenue and profits (U)."
-            },
-            {
-                num: "Q2a",
-                marks: 3,
-                type: "written",
-                caseStudy: "Glorious Kitchens (GK) is a private limited company based in Brighton. The company makes and fits high-quality, luxury wooden kitchens throughout the south-east of England. Its most popular range is the Deluxe.\n\nThe average price of a Deluxe kitchen is £15,000 including fitting. GK calculates its fixed costs for the year to be £250,000 and its variable costs for the Deluxe to be £6,380, which means they need to sell 29 kitchens to break even.\n\nGK is concerned about the future economic climate. It is predicted that there will be a fall in consumer incomes in the south-east of England until 2025.",
-                question: "Analyse one impact on GK of the predicted fall in consumer incomes. [3 marks]",
-                hint: "Step 1: What does a fall in consumer income mean? Step 2: How does this specifically apply to GK (use the price and type of product from the text)? Step 3: What is the financial or operational impact on GK?",
-                starter: "A fall in consumer income means customers have less money to spend (U)...\nGiven that GK's Deluxe kitchens cost £15,000, which are luxury items (APP)...\nThis means demand is likely to fall and GK may not reach its break-even of 29 kitchens (AN)...",
-                markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> A fall in consumer income means consumers have less money / less disposable income / lower purchasing power / spend more on necessities.</li><li><strong>Application (1 mark):</strong> Links to GK using text evidence — e.g. kitchens are priced at £15,000; they are luxury/non-essential items; GK sells in the south-east where incomes are falling; GK needs to sell 29 kitchens to break even.</li><li><strong>Analysis (1 mark):</strong> Explains business impact — e.g. decreased demand / revenue / profits; may not achieve break-even; less money available for wages or investment; may need to reduce prices.</li><li><strong>Important:</strong> No marks for Application or Analysis without Understanding first.</li></ul></div>`,
-                modelAnswer: "A fall in consumer income means customers have less money available to spend (U). Given that GK's Deluxe kitchens are priced at £15,000, which are luxury, non-essential purchases (APP), it is likely that demand will fall significantly. As a result, GK may fail to reach its break-even point of 29 kitchens, meaning it could make a loss and struggle to cover its £250,000 fixed costs (AN)."
-            },
-            {
-                num: "Q2b",
-                marks: 3,
-                type: "written",
-                caseStudy: "Glorious Kitchens (GK) is a private limited company based in Brighton. The company makes and fits high-quality, luxury wooden kitchens throughout the south-east of England.\n\nThe average price of a Deluxe kitchen is £15,000. GK needs to sell 29 kitchens to break even.\n\nUnemployment in the south-east of England is forecast to change as follows:\n2022: 4.0% | 2023 (forecast): 3.7% | 2024 (forecast): 3.4% | 2025 (forecast): 3.1%",
-                question: "Analyse one impact on GK of the forecast change in the unemployment rate shown in Table 1. [3 marks]",
-                hint: "The unemployment rate is FALLING. What does falling unemployment mean for (a) consumer incomes/demand, and (b) GK's ability to recruit and retain staff? Use the actual figures from the table.",
-                starter: "The forecast shows unemployment falling from 4.0% to 3.1% by 2025 (APP)...\nThis means more consumers have jobs and income, which may increase demand (U)...\nAlternatively, it may become harder for GK to recruit skilled fitters, pushing wages up and increasing costs (AN)...",
-                markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> Falling unemployment means consumers have more income / it becomes harder to recruit employees / more people are in work.</li><li><strong>Application (1 mark):</strong> Uses Table 1 data — e.g. unemployment rate is expected to fall by 0.9% over 3 years (from 4.0% to 3.1%); any specific comparison of the figures.</li><li><strong>Analysis (1 mark):</strong> Business impact — wages may increase; higher recruitment costs; increased demand/revenue/profits; more likely to reach/exceed break-even.</li><li><strong>Important:</strong> Answers MUST consider the FALL in the unemployment rate. A common error was assuming falling unemployment means GK would have fewer employees.</li></ul><p><em>Examiner's Note: Nearly half of all students answered this the wrong way around — thinking that unemployment falling meant GK would have fewer workers. This is wrong. Unemployment data is about the whole economy, not one specific business.</em></p></div>`,
-                modelAnswer: "Falling unemployment means more consumers have jobs and earn wages, giving them more disposable income (U). The table shows unemployment in the south-east is forecast to fall from 4.0% to 3.1% by 2025 (APP). This could lead to increased demand for GK's kitchens as more consumers may feel financially secure enough to invest in a £15,000 Deluxe kitchen, helping GK exceed its break-even of 29 kitchens and increase profits (AN)."
-            },
-            {
-                num: "Q2c",
-                marks: 3,
-                type: "written",
-                caseStudy: "Glorious Kitchens (GK) makes and fits high-quality, luxury wooden kitchens in the south-east of England. Its Deluxe range is priced at £15,000. It needs to sell 29 kitchens per year to break even.\n\nIt is predicted that consumer incomes in the south-east will fall until 2025. The unemployment rate is also forecast to fall from 4.0% in 2022 to 3.1% by 2025.",
-                question: "Recommend whether the predicted fall in consumer incomes or the forecast change in the unemployment rate will have the greatest impact on GK. [3 marks]",
-                hint: "Make a clear choice. Then COMPARE the two — explain why your choice has a bigger impact AND why the other one matters less. Use specific details from the case study (price, product type, or the data) to support your comparison.",
-                starter: "I recommend that the fall in consumer incomes will have the greatest impact (Judgement)...\nThis is because GK sells expensive, non-essential luxury items at £15,000 (APP)...\nWhilst unemployment will only fall by 0.9% over 3 years, which is a small change and those newly employed may still not afford a £15,000 kitchen (Comparison with context)...",
-                markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO3b)</h5><ul><li><strong>Judgement (1 mark):</strong> A clear statement of which factor will have the greater impact (consumer incomes OR unemployment rate).</li><li><strong>Justification with comparison, no context (1 mark):</strong> Contrasts the impact of the two factors — explains why one is greater than the other.</li><li><strong>Justification with comparison AND context (2 marks):</strong> As above, but uses specific evidence from the case study (e.g. the £15,000 price, the 0.9% change, the 3-year timeframe, luxury/non-essential nature).</li><li><strong>Important:</strong> If the answer does NOT compare the two factors, maximum 1 mark. This was the most common reason students lost marks.</li></ul></div>`,
-                modelAnswer: "The fall in consumer incomes will have the greatest impact on GK (J). GK sells non-essential luxury kitchens at £15,000 — when incomes fall, this is exactly the type of large, discretionary purchase consumers will cut first (APP + comparison). By contrast, whilst unemployment is forecast to fall, it only decreases by 0.9% over three years, and someone newly re-entering the job market is unlikely to immediately purchase a £15,000 kitchen as they may still be on low wages or rebuilding savings (comparison with context)."
-            },
-            {
-                num: "Q3",
-                marks: 1,
-                type: "written",
-                caseStudy: "",
-                question: "Identify one economic factor which may affect a company's profit. [1 mark]",
-                hint: "Think of factors related to the state of the economy — NOT costs, prices, or environmental issues. Remember: income levels, employment, GDP, and inflation are all economic factors.",
-                starter: "One economic factor is...",
-                markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1a)</h5><ul><li><strong>1 mark for any valid economic factor:</strong> Income / wages of consumers; (un)employment levels; economic growth / GDP / state of the economy; inflation.</li><li><strong>NOT accepted:</strong> Costs / rents / prices (these are business factors, not economic factors); 'the economic climate' alone (too vague); environmental factors; legal/political factors.</li></ul><p><em>Examiner's Note: Common wrong answers included climate change, deforestation, and raw material costs. Know the distinction between economic, environmental, ethical, and legal factors.</em></p></div>`,
-                modelAnswer: "One economic factor is the level of consumer income / the level of unemployment / the rate of economic growth (GDP)."
-            },
-            {
-                num: "Q4",
-                marks: 3,
-                type: "written",
-                caseStudy: "Pukka Pies Ltd is a family-owned business with approximately 360 employees. It makes a range of high-quality savoury pies in batches at its factory in Leicester, England. Pukka Pies are sold in more than 4,000 food stores nationwide as well as in sports stadiums, fish and chip shops and cafés.\n\nUnemployment levels have a significant impact on Pukka Pies Ltd.",
-                question: "Analyse one way falling unemployment might influence recruitment at Pukka Pies Ltd. [3 marks]",
-                hint: "Falling unemployment = fewer people out of work = harder to find workers. How does this affect Pukka Pies specifically, given it employs 360 workers at a factory in Leicester?",
-                starter: "When unemployment falls, it becomes harder for businesses to recruit new workers (U)...\nPukka Pies employs approximately 360 workers at its Leicester factory (APP)...\nThis may lead to significantly higher recruitment costs and wage pressure, increasing production costs (AN)...",
-                markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> Falling unemployment means it is harder to find/recruit workers; fewer people are looking for jobs; more consumers have income.</li><li><strong>Application (1 mark):</strong> Applies to Pukka Pies — e.g. reference to 360 employees; factory in Leicester; family-owned business; time-critical logistics.</li><li><strong>Analysis (1 mark):</strong> Impact on recruitment — increased costs of recruitment; higher wages needed to attract staff; production may decrease or become less efficient; may encourage the business to invest in automation.</li></ul></div>`,
-                modelAnswer: "When unemployment falls, there are fewer workers available in the labour market, making it harder for businesses to recruit (U). This is particularly significant for Pukka Pies, which employs around 360 workers at its Leicester factory (APP). As competition for workers increases, Pukka Pies may have to offer higher wages to attract and retain staff, leading to higher production costs and potentially lower profit margins (AN)."
-            },
-            {
-                num: "Q5a",
-                marks: 3,
-                type: "written",
-                caseStudy: "Aston Martin plc (AM plc) is a British manufacturer of luxury sports cars. It has more than 150 car dealerships in over 50 countries. It employs over 3,000 highly skilled engineers at its Warwickshire headquarters.\n\nBar chart data shows the UK unemployment rate fell from 7.5% in 2013 to 4% in 2018.\n\nThe demand for AM plc products is influenced by many factors, including UK unemployment rates and consumer income levels.",
-                question: "Analyse, with reference to Bar chart 1, one impact on AM plc of the changes in the UK unemployment rate. [3 marks]",
-                hint: "The unemployment rate FELL over this period (7.5% to 4%). What does falling unemployment mean for consumer spending power and demand for luxury cars? Use the specific data from the bar chart.",
-                starter: "As the UK unemployment rate fell from 7.5% to 4% between 2013 and 2018 (APP)...\nThis means more consumers had jobs and wages, increasing disposable income (U)...\nThis may have led to greater demand for AM plc's luxury cars, increasing revenue and profits (AN)...",
-                markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> Falling unemployment means consumers have more income; easier to retain employees; increase in GDP/size of economy.</li><li><strong>Application (1 mark):</strong> Uses Bar Chart 1 data — unemployment fell from 7.5% in 2013 to 4% in 2018; the fall in the rate is declining over time.</li><li><strong>Analysis (1 mark):</strong> Wages may increase; higher recruitment costs; increased demand/revenue/profits for AM plc.</li><li><strong>Important:</strong> Answers MUST consider the CHANGE in the unemployment rate — not just the presence of unemployment.</li></ul></div>`,
-                modelAnswer: "The UK unemployment rate fell from 7.5% in 2013 to 4% in 2018 (APP), meaning more people had jobs and were earning wages, increasing consumer disposable income (U). As Aston Martin sells expensive luxury cars, this increase in income may have led to greater demand for AM plc's vehicles, increasing revenue and profitability (AN)."
-            },
-            {
-                num: "Q5b",
-                marks: 3,
-                type: "written",
-                caseStudy: "Aston Martin plc (AM plc) is a British manufacturer of luxury sports cars with over 150 dealerships in 50+ countries.\n\nBar chart data shows average UK consumer income rose from £30,000 in 2013/2014 to £32,250 in 2018.",
-                question: "Analyse, with reference to Bar chart 2, one impact on AM plc of the changes in the average UK consumer income. [3 marks]",
-                hint: "Consumer income ROSE over this period. How does increased income affect demand for luxury goods like Aston Martin cars? Use the specific figures.",
-                starter: "Average UK consumer income increased from £30,000 to £32,250 between 2013 and 2018 (APP)...\nThis means consumers have more disposable income to spend on goods (U)...\nAs Aston Martin sells luxury cars, demand is likely to increase, boosting revenue and profits (AN)...",
-                markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1b + AO2 + AO3a)</h5><ul><li><strong>Understanding (1 mark):</strong> Increased consumer income means more disposable income / spending; customers more able to purchase luxury goods.</li><li><strong>Application (1 mark):</strong> Uses Bar Chart 2 data — average income increased from £30,000 in 2013/14 to £32,250 in 2018.</li><li><strong>Analysis (1 mark):</strong> Increased demand / revenue / profits; consumers more likely to buy luxury products like Aston Martin cars.</li></ul></div>`,
-                modelAnswer: "Average UK consumer income rose from £30,000 in 2013 to £32,250 in 2018 (APP), meaning consumers had more disposable income available to spend (U). As Aston Martin manufactures luxury, high-value sports cars, this increase in income would likely lead to greater demand for its vehicles. This could significantly increase AM plc's revenue and profits, supporting its continued expansion into new markets (AN)."
-            },
-            {
-                num: "Q5c",
-                marks: 3,
-                type: "written",
-                caseStudy: "Aston Martin plc (AM plc) is a British manufacturer of luxury sports cars. UK unemployment fell from 7.5% in 2013 to 4% in 2018. Average UK consumer income rose from £30,000 in 2013 to £32,250 in 2018.",
-                question: "Recommend whether the change in the unemployment rate or the change in consumer income levels will have the greatest impact on AM plc. [3 marks]",
-                hint: "Make a clear choice. Then COMPARE the two factors — why is your chosen factor more important for a luxury car manufacturer specifically? Think about who buys Aston Martins.",
-                starter: "I recommend that the change in consumer income will have the greatest impact (J)...\nHigher earners are most likely to buy AM plc's luxury cars, and their incomes rising to an average of £32,250 directly increases affordability (APP)...\nWhilst falling unemployment brings more people into work, those newly employed are unlikely to be able to afford a luxury sports car (comparison)...",
-                markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO3b)</h5><ul><li><strong>Judgement (1 mark):</strong> Clear choice between unemployment rate or consumer income.</li><li><strong>Justification (1 mark):</strong> Contrasts the impact of both factors.</li><li><strong>Context (1 mark):</strong> Uses case study details to support the comparison.</li></ul></div>`,
-                modelAnswer: "The change in consumer income will have the greatest impact on AM plc (J). As income rose from £30,000 to £32,250, this directly increases the purchasing power of AM plc's target customers — higher earners who can afford luxury sports cars (APP). Whilst falling unemployment brings more people into work, those newly employed are unlikely to be in a financial position to purchase an expensive Aston Martin immediately, making the income change more directly relevant to AM plc's sales (comparison with context)."
-            },
-            {
-                num: "Q6",
-                marks: 7,
-                type: "written",
-                caseStudy: "Tesco plc is one of the largest retailers in the UK. It sells a range of products through its shops and uses e-commerce across the UK. On its website, Tesco states its core purpose as wanting to champion customers, helping them to enjoy a better quality of life.\n\nIn recent years, sales of Tesco plc's products have been affected by increasing competition, consumer law and the growth of e-commerce. In addition, sales are impacted by how the UK economy is performing and the level of UK employment.",
-                question: "Evaluate the impact of a rise in unemployment on any two stakeholders of Tesco plc. [7 marks]",
-                hint: "Choose two different stakeholders (e.g. customers AND shareholders, or employees AND suppliers). For each: identify them, apply to Tesco, analyse the impact. Then write a conclusion that judges which stakeholder is MORE affected and why — using Tesco-specific context.",
-                starter: "Customers of Tesco may be affected by rising unemployment because... (U)\nAs Tesco sells products at all price ranges from basics to 'finest' (APP)...\nThis means customers may switch to cheaper own-brand products, reducing their quality of life slightly (AN)...\n\nShareholders may also be affected... (U)\nA rise in unemployment could reduce Tesco's overall sales and profits (APP)...\nThis may lead to lower dividends and a falling share price (AN)...\n\nOverall, customers face the greater impact because...",
-                markScheme: `<div class="marks-section"><h5>Mark Scheme — 7 marks (Levels of Response)</h5><p><strong>Level 3 (5–7 marks):</strong> Good application to Tesco's stakeholders (AO2 × 2); good analysis with logical chains of reasoning for both stakeholders (AO3a × 2); strong evaluation with a fully justified judgement comparing the impact on both stakeholders (AO3b × 3).</p><p><strong>Level 2 (3–4 marks):</strong> Good application to Tesco; limited analysis (some cause/consequence); limited evaluation attempting a conclusion.</p><p><strong>Level 1 (1–2 marks):</strong> Limited application; some cause and consequence; no evaluation.</p><p><strong>0 marks:</strong> No response worthy of credit.</p><p>Stakeholders may include: shareholders, employees, customers, suppliers, local community, directors.</p></div>`,
-                modelAnswer: "Tesco's customers could be adversely affected by a rise in unemployment. Rising unemployment means more people lose their jobs and have less income to spend on shopping (U). As one of the UK's largest retailers, a significant proportion of Tesco's customers may now have tighter budgets (APP). This could mean they switch to buying Tesco's cheaper 'Everyday Value' range rather than premium products, reducing their overall quality of life (AN).\n\nTesco's shareholders may also be negatively affected. A fall in consumer spending due to unemployment could reduce Tesco's overall revenue and profits (U). As a plc, Tesco's shareholders rely on dividends and share price growth (APP). Lower profits may result in reduced dividends and a declining share price, reducing shareholders' returns on their investment (AN).\n\nOverall, I believe customers face the greater impact because rising unemployment directly affects their ability to afford everyday essentials — food and household goods. However, because Tesco sells products across all price points from basics to 'finest', it is unlikely to lose large numbers of customers altogether — people still need to eat. Shareholders may therefore face a more limited impact than feared, particularly as budget-conscious customers might actually increase their spend at Tesco compared to more expensive competitors. The greatest concern for shareholders would be if the economy deteriorated severely enough to affect profits significantly."
-            },
-            {
-                num: "Q7",
-                marks: 9,
-                type: "written",
-                caseStudy: "NEXT plc is a clothing retailer selling clothing, footwear, accessories and home products through its high street shops and online across the UK. NEXT plc understands the importance of creating good relationships with its customers and constantly tries to improve its levels of customer service.\n\nFor NEXT, responsible business behaviour includes addressing key business-related social, ethical and environmental impacts in a way that aims to bring value to all its stakeholders, including its shareholders. NEXT plc sources products from many suppliers across the world.",
-                question: "* Evaluate how a fall in consumer income levels might impact on the marketing activities of NEXT plc. [9 marks]",
-                hint: "Cover at least two different aspects of the marketing mix (Price, Product, Promotion, Place). For each: explain the impact of falling income → apply to NEXT specifically → analyse the marketing consequence. Then evaluate which change to NEXT's marketing is most significant, with a justified conclusion.",
-                starter: "A fall in consumer income will mean NEXT customers have less disposable income to spend on clothing (K/U)...\nNEXT may need to lower its prices or introduce value ranges to retain customers (APP)...\nThis could mean moving to penetration pricing, which would increase sales volume but reduce profit margins (AN)...\n\nNEXT may also need to change its promotional strategy (U)...\nWith customers more price-conscious, NEXT's marketing could shift to emphasising value for money (APP)...\nThis would require increased advertising spend, potentially raising costs (AN)...\n\nOverall, the most significant marketing impact is likely to be on pricing because...",
-                markScheme: `<div class="marks-section"><h5>Mark Scheme — 9 marks (Levels of Response)</h5><p><strong>Level 3 (7–9 marks):</strong> Good knowledge of marketing activities (AO1a × 1, AO1b × 1); good application to NEXT (AO2 × 2); good analysis with logical chains of reasoning (AO3a × 2); strong evaluation with a fully justified conclusion (AO3b × 3).</p><p><strong>Level 2 (4–6 marks):</strong> Good knowledge and application to NEXT; limited analysis; limited evaluation with some recognition of influencing factors.</p><p><strong>Level 1 (1–3 marks):</strong> Limited knowledge/understanding; some use of case study context; limited analysis; no evaluation.</p><p><strong>0 marks:</strong> No response worthy of credit.</p><p>Content may include: need for greater market research; change in marketing mix (price cuts, new product range, different promotion, change in distribution); importance of planning; change in marketing objectives; ethical sourcing considerations.</p><p><em>Note: This question is synoptically assessed (draws on content from across the course).</em></p></div>`,
-                modelAnswer: "A fall in consumer income will lead to NEXT customers having less disposable money to spend on clothing and home products (K). The marketing department will need to respond if NEXT decides to reduce prices to retain customers (U). NEXT sells a wide range from everyday clothing to premium ranges — a fall in income may push customers towards its lower-price lines, or away from NEXT altogether toward cheaper competitors like Primark (APP).\n\nIn terms of pricing strategy, NEXT may need to introduce price reductions or promotional discounts to remain competitive. A penetration pricing approach could help retain existing customers and attract new ones (AN). However, this would reduce NEXT's profit margins, which could concern shareholders.\n\nNEXT may also need to change its promotional strategy. With customers more budget-conscious, promotional campaigns could shift from lifestyle imagery toward messages emphasising quality and value for money. This would likely require investment in new advertising campaigns, increasing marketing costs (APP/AN).\n\nIn terms of product, NEXT could look to expand its budget-friendly ranges or introduce more sale events to shift stock, while potentially reducing investment in premium lines where demand may fall more sharply (AN).\n\nOverall, I believe the most significant marketing impact will be on pricing and promotion, as these are the most immediate ways NEXT can signal value to cash-strapped consumers. However, this depends on the scale of the income fall — a small decline might be managed through targeted promotions, whereas a severe recession might require a wholesale repositioning of NEXT as a value brand, which could damage its premium image in the long term. NEXT must balance short-term sales with protecting its brand identity."
-            },
-            {
-                num: "Q8",
-                marks: 1,
-                type: "mcq",
-                caseStudy: "Falling levels of consumer income have caused a car dealership to experience a significant reduction in retail sales.",
-                question: "Which one of the following actions should the car dealership take to help increase its sales during a period of falling consumer income?\n\nA) Advertise less\nB) Offer price reductions\nC) Reduce customer engagement\nD) Reduce its costs",
-                hint: "Think about what would directly help a customer who has less money to spend actually make a purchase.",
-                starter: "The answer is B because...",
-                markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1b)</h5><ul><li><strong>Correct answer: B — Offer price reductions.</strong></li><li>Price reductions directly address the affordability barrier when consumer incomes are falling, making it more likely consumers will purchase.</li><li>Advertising less (A) would reduce awareness and make sales worse. Reducing customer engagement (C) would harm relationships. Reducing costs (D) is a production strategy, not a sales strategy — it does not directly help increase sales.</li></ul></div>`,
-                modelAnswer: "B — Offer price reductions."
-            }
-        ];
-    </script>
+    // 9. Exam-Style Questions
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 2,
+            type: "written",
+            caseStudy: `Unilever plc is a multinational company that makes and sells a wide range of quality products including food, cleaning agents and beauty products across 190 countries.<br><br>Unilever plc has benefitted from operating in a global marketplace and the majority of its products are international brands. Some of its branded products include Lynx Body Spray, Dove Soap, Hellmann's Mayonnaise, Ben & Jerry's ice cream and Persil washing machine detergent. All of these products are made in factories all around the globe, some using flow production and others using batch production.<br><br>Unilever plc's average revenue has grown over the last five years. However, the economic climate is becoming more difficult and Unilever plc's directors are having to adapt to these challenges.<br><br><em>(Fig. 1 shows Unilever plc worldwide revenue from 2018 to 2022: €50,900m → €51,900m → €50,700m → €52,400m → €60,000m)</em>`,
+            question: "Explain how operating in a difficult economic climate might affect a business. [2 marks]",
+            hint: "First, state what a difficult economic climate involves (e.g. rising unemployment or falling consumer income). Then explain the impact this has on a business. Do NOT start with the business impact before defining the economic problem.",
+            starter: `<strong>Step 1 — Knowledge (1 mark):</strong> "In a difficult economic climate, [unemployment may rise / consumer incomes may fall]..."<br><br><strong>Step 2 — Understanding (1 mark):</strong> "This means that [customers have less money to spend / demand for the business's products may fall]..."`,
+            markScheme: `<div class="marks-section">
+  <h5>Mark Allocation — 2 marks (AO1a + AO1b)</h5>
+  <ul>
+    <li><strong>Mark 1 (K):</strong> Identifies a feature of a difficult economic climate:<br>
+      • Increased unemployment / fewer jobs<br>
+      • Reduced consumer incomes / less spending</li>
+    <li><strong>Mark 2 (U):</strong> Explains how this affects a business:<br>
+      • If consumer incomes fall, demand for products might fall<br>
+      • People may have less income so demand may fall</li>
+  </ul>
+  <p><strong>Important:</strong> There must be evidence of a poor economic climate issue before any impact on a business can be rewarded. Answers do NOT need to relate to Unilever specifically.</p>
+  <p>Also accept other valid examples of a difficult economic climate: high inflation, low/negative economic growth, high interest rates.</p>
+</div>
+<div class="marks-section">
+  <h5>Examiner's Comments</h5>
+  <p>This was not well answered — fewer than 40% of candidates gained any marks. 'Economic climate' was not understood by many students, including some who thought it referred to climate change or environmental issues. There was little reference to unemployment or consumer income. Some answers correctly described the impact but did not first show understanding of what a poor economic climate is — so no marks could be credited.</p>
+</div>`,
+            modelAnswer: `In a difficult economic climate, unemployment may rise, meaning many people are out of work (K). As a result, consumers have less income to spend on goods and services, so demand for Unilever's products may fall, reducing its revenue and profits (U).`
+        },
+        {
+            num: "Q2 (i)",
+            marks: 3,
+            type: "written",
+            caseStudy: `Glorious Kitchens (GK) is a private limited company based in Brighton. The company makes and fits high-quality, luxury wooden kitchens throughout the south-east of England. Its most popular range is the Deluxe.<br><br>The average price of a Deluxe kitchen is £15,000 including fitting. GK calculates its fixed costs for the year to be £250,000 and its variable costs for the Deluxe to be £6,380, which means they need to sell 29 kitchens to break even.<br><br>GK is concerned about the future economic climate and its possible impact on the company's sales. It is predicted that there will be a fall in consumer incomes in the south-east of England until 2025. Unemployment in the south-east of England is forecast to follow the trend shown in Table 1.<br><br><table class="case-table"><caption>Table 1 — Unemployment Rate Forecast</caption><tr><th>Year</th><th>Unemployment Rate</th></tr><tr><td>2022</td><td>4.0%</td></tr><tr><td>2023 (forecast)</td><td>3.7%</td></tr><tr><td>2024 (forecast)</td><td>3.4%</td></tr><tr><td>2025 (forecast)</td><td>3.1%</td></tr></table><table class="case-table"><caption>Table 2 — Financial Data for GK (end of 2022)</caption><tr><th>Item</th><th>Amount</th></tr><tr><td>Net profit</td><td>£425,000</td></tr><tr><td>Cash at the bank</td><td>£60,000</td></tr><tr><td>Loans taken out by GK</td><td>£1,500,000</td></tr><tr><td>Donations to food banks in Brighton</td><td>£8,500</td></tr></table>`,
+            question: "Analyse one impact on GK of the predicted fall in consumer incomes. [3 marks]",
+            hint: "Start with what a fall in consumer income means (U), then link to GK's specific product and price from the case study (APP), then explain the consequence for the business (AN). You CANNOT score application or analysis marks without the understanding mark.",
+            starter: `<strong>U (1 mark):</strong> "A fall in consumer income means customers have less money to spend..."<br><br><strong>APP (1 mark):</strong> "As GK's Deluxe kitchen is priced at £15,000 and is a luxury, non-essential product..."<br><br><strong>AN (1 mark):</strong> "...it is likely that demand for GK's kitchens will fall, meaning GK may not reach its break-even point of 29 kitchens, resulting in a loss."`,
+            markScheme: `<div class="marks-section">
+  <h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5>
+  <ul>
+    <li><strong>Understanding (1 mark):</strong> Lower consumer spending / cannot afford products / customers have less money to spend / less disposable income</li>
+    <li><strong>Application (1 mark — must use case study):</strong>
+      <ul>
+        <li>The range is £15,000</li>
+        <li>Kitchens are luxury / expensive items</li>
+        <li>Cannot sell 29 kitchens (break-even)</li>
+        <li>GK sells in the south-east (where consumer incomes are falling)</li>
+      </ul>
+    </li>
+    <li><strong>Analysis (1 mark):</strong>
+      <ul>
+        <li>Decreased demand / revenue / profits</li>
+        <li>May not achieve break-even</li>
+        <li>Less money available for wages, investment, etc.</li>
+        <li>Need to reduce prices / cannot buy stock</li>
+      </ul>
+    </li>
+  </ul>
+  <p><strong>No further marks can be gained without the understanding mark.</strong></p>
+</div>
+<div class="marks-section">
+  <h5>Exemplar Response</h5>
+  <p>"Customers have less income to spend (U) and given GK's kitchens are priced at £15,000 (APP) it is likely sales will decrease (AN)."</p>
+</div>
+<div class="marks-section">
+  <h5>Examiner's Comments</h5>
+  <p>This question was answered well — more than half of candidates gained 2 or 3 marks. Better answers quickly identified that lower disposable income means consumers cannot afford £15,000 luxury kitchens. A common error was jumping straight to "GK will sell fewer kitchens" without first explaining WHY (the understanding mark) — this scored zero for both application and analysis even when correct.</p>
+</div>`,
+            modelAnswer: `A fall in consumer income means that customers have less disposable income to spend (U). As GK's Deluxe kitchen is priced at £15,000 — a high-value luxury item in the south-east of England — fewer customers will be able to afford this purchase (APP). This is likely to cause a significant fall in demand and revenue, meaning GK may fail to reach its break-even point of 29 kitchens and could make a loss (AN).`
+        },
+        {
+            num: "Q2 (ii)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Analyse one impact on GK of the forecast change in the unemployment rate shown in Table 1. [3 marks]",
+            hint: "The unemployment rate is FALLING (from 4.0% to 3.1%). Fewer unemployed people means it is harder to find workers AND that more people have jobs and income to spend. Pick ONE angle and follow U → APP → AN. Most students get this wrong by confusing falling unemployment with having fewer employees.",
+            starter: `<strong>U (1 mark):</strong> "A fall in the unemployment rate means fewer people are out of work, which makes it harder for businesses to recruit new workers..."<br><br><strong>OR: </strong>"A fall in unemployment means more consumers have a regular income and are likely to spend more..."<br><br><strong>APP (1 mark):</strong> "The unemployment rate in the south-east is forecast to fall from 4.0% to 3.1% between 2022 and 2025..."<br><br><strong>AN (1 mark):</strong> "...This may increase demand for GK's kitchens, helping it to exceed its break-even of 29 units and grow its profits."`,
+            markScheme: `<div class="marks-section">
+  <h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5>
+  <ul>
+    <li><strong>Understanding (1 mark):</strong> Less easy to recruit employees / more consumers have an income</li>
+    <li><strong>Application (1 mark — must use Table 1):</strong>
+      <ul>
+        <li>Unemployment rate expected to fall by 0.9% over 3 years</li>
+        <li>Any use of individual data comparing the rate to 2022 (e.g. 4.0% falling to 3.1%)</li>
+      </ul>
+    </li>
+    <li><strong>Analysis (1 mark):</strong>
+      <ul>
+        <li>Wages may increase / higher recruitment costs</li>
+        <li>Unable to complete jobs on time</li>
+        <li>Increased demand / revenue / profits</li>
+        <li>Get closer to or exceed break-even</li>
+      </ul>
+    </li>
+  </ul>
+  <p><strong>Answers MUST consider the FALL in the unemployment rate (not just its existence).</strong></p>
+</div>
+<div class="marks-section">
+  <h5>Examiner's Comments</h5>
+  <p>Many candidates mixed up employment and unemployment — some suggested a fall in unemployment meant GK would now have fewer employees. This led to nearly half of all candidates scoring zero. Better answers correctly identified that falling unemployment makes it more expensive to hire staff (rising wages) or that more employed consumers could increase demand for GK's products.</p>
+</div>`,
+            modelAnswer: `A fall in the unemployment rate means fewer people are out of work, making it harder for businesses to find and recruit new workers (U). The data in Table 1 shows the unemployment rate is forecast to fall from 4.0% in 2022 to 3.1% by 2025 — a fall of 0.9% (APP). As a result, GK may need to offer higher wages to attract skilled kitchen fitters, which will increase its production costs and reduce profit margins (AN).`
+        },
+        {
+            num: "Q2 (iii)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Recommend whether the predicted fall in consumer incomes or the forecast change in the unemployment rate will have the greatest impact on GK. [3 marks]",
+            hint: "Make a clear decision first (1 mark). Then COMPARE both factors — say why your chosen factor has a bigger impact than the other (1 mark). Use a specific detail from the case study to support your comparison (1 mark). If you only argue for one side without comparing, maximum 1 mark.",
+            starter: `<strong>Decision (1 mark):</strong> "The fall in consumer income will have the greatest impact on GK because..."<br><br><strong>Contrast (1 mark):</strong> "...whereas the fall in unemployment rate, although positive, is unlikely to generate enough new customers who can afford a £15,000 kitchen immediately..."<br><br><strong>Context (1 mark):</strong> "...The unemployment rate only falls by 0.9% over 3 years, meaning the effect is gradual. In contrast, the fall in consumer incomes is immediate and directly reduces the spending power of GK's target market in the south-east."`,
+            markScheme: `<div class="marks-section">
+  <h5>Mark Allocation — 3 marks (AO3b)</h5>
+  <ul>
+    <li><strong>Judgement (1 mark):</strong> A clear decision — fall in consumer incomes OR fall in unemployment rate will have the greatest impact</li>
+    <li><strong>Justification without context (1 mark):</strong> A comparative reason explaining why the chosen factor is more significant than the other — but without specific reference to the case study data</li>
+    <li><strong>Justification with context (2 marks total for justification):</strong> A comparative reason that explicitly uses data or detail from the case study (e.g. £15,000 price, 0.9% fall, 3-year timeframe)</li>
+  </ul>
+  <p><strong>Note:</strong> A full answer MUST compare both factors. Justifying only one side without reference to the other scores a maximum of 1 mark.</p>
+</div>
+<div class="marks-section">
+  <h5>Exemplar Responses</h5>
+  <p><strong>Example 1 (Full marks):</strong> "Consumer incomes falling will have a bigger impact (JUDGEMENT). As GK sells expensive non-essential products (APP), a fall in consumer incomes will reduce demand, whereas the decrease in unemployment may mean people only have low-paid jobs so still cannot afford GK's £15,000 kitchens (CONTRAST + CONTEXT)."</p>
+  <p><strong>Example 2 (Full marks):</strong> "The fall in unemployment rate will have little impact immediately (JUDGEMENT) as it will take 3 years and only fall by 0.9% (CONTEXT). Therefore, a fall in consumer incomes, which is happening now, will have the greater impact (CONTRAST)."</p>
+</div>
+<div class="marks-section">
+  <h5>Examiner's Comments</h5>
+  <p>Many candidates scored only 1 mark because they justified their chosen option in detail but made no attempt to explain why it was more significant than the other factor. The comparison is essential. Better answers used specific data (e.g. £15,000, 0.9%, 3 years) to sharpen their comparison.</p>
+</div>`,
+            modelAnswer: `The fall in consumer income will have the greatest impact on GK (DECISION). Although the unemployment rate is forecast to fall by 0.9% between 2022 and 2025, newly employed people are unlikely to immediately spend £15,000 on a luxury kitchen — they may first prioritise paying off debts or building savings (CONTRAST + CONTEXT). In contrast, falling consumer incomes directly reduce the spending power of GK's existing customer base in the south-east, meaning demand for the Deluxe range is likely to fall and GK may struggle to achieve its break-even of 29 kitchens (JUSTIFICATION).`
+        },
+        {
+            num: "Q3",
+            marks: 1,
+            type: "written",
+            caseStudy: "",
+            question: "Identify one economic factor which may affect a company's profit. [1 mark]",
+            hint: "Think about the two key areas covered in 6.2 — income and unemployment. You can also include GDP/economic growth or inflation. Do NOT write about costs, rents, or prices — these are NOT economic factors.",
+            starter: `"One economic factor that may affect a company's profit is..."`,
+            markScheme: `<div class="marks-section">
+  <h5>Mark Allocation — 1 mark (AO1a)</h5>
+  <p><strong>Accept any ONE valid economic factor, including:</strong></p>
+  <ul>
+    <li>Income / wages of consumers</li>
+    <li>(Un)employment levels</li>
+    <li>Economic growth / GDP / state of the economy</li>
+    <li>Inflation</li>
+  </ul>
+  <p><strong>Do NOT accept:</strong></p>
+  <ul>
+    <li>Costs / rents / prices — these are business costs, not economic factors</li>
+    <li>'The economic climate' — this is too vague and treated as insufficient alone</li>
+    <li>Environmental factors (climate change, deforestation) — these are NOT economic factors</li>
+  </ul>
+</div>
+<div class="marks-section">
+  <h5>Examiner's Comments &amp; Misconception</h5>
+  <p>Some students correctly identified an economic factor. Wrong answers included climate change, deforestation, and costs of raw materials. Students must understand the clear difference between economic, ethical, and environmental factors — this distinction is directly tested in Section 6 of the specification.</p>
+</div>`,
+            modelAnswer: `One economic factor that may affect a company's profit is the level of consumer income / unemployment levels / GDP growth.`
+        },
+        {
+            num: "Q4",
+            marks: 3,
+            type: "written",
+            caseStudy: `Pukka Pies Ltd is a family-owned business with approximately 360 employees. It makes a range of high-quality savoury pies, including steak, chicken and mushroom, and chicken balti, in batches at its factory in Leicester, England. Pukka Pies are sold in more than 4,000 food stores nationwide as well as in sports stadiums, fish and chip shops and cafés across the country.<br><br>Three of Pukka Pies Ltd's key values are recruiting people who are ambitious, delighting customers with quality pies, and building trust with suppliers through food safety. Each of these values helps the business meet the requirements of consumer law.<br><br>The success of Pukka Pies Ltd is affected by many factors, including its logistical and supply chain decisions. Pukka Pies Ltd procures the ingredients for its pies from businesses across the UK and overseas; consequently its supply chain is long. Nevertheless, all of these ingredients need to arrive in good condition and, therefore, its logistics are time-critical. Unemployment levels also have a significant impact on Pukka Pies Ltd.<br><br>Pukka Pies Ltd considers its environmental impact across all aspects of business activity. It has already replaced some of the non-recyclable plastics used in its packaging with alternatives that can be recycled. In addition, none of the company's waste goes to landfill.`,
+            question: "Analyse one way falling unemployment might influence recruitment at Pukka Pies Ltd. [3 marks]",
+            hint: "Falling unemployment = fewer people out of work = harder to find available staff = businesses must offer higher wages to compete. Use a specific detail from the Pukka Pies case study (e.g. 360 employees, factory in Leicester) for the application mark.",
+            starter: `<strong>U (1 mark):</strong> "Falling unemployment means fewer people are available for work, making it harder for businesses to recruit..."<br><br><strong>APP (1 mark):</strong> "For Pukka Pies, which employs approximately 360 workers at its factory in Leicester..."<br><br><strong>AN (1 mark):</strong> "...this may mean the company needs to offer significantly higher wages to attract new recruits, increasing its production costs and reducing profits."`,
+            markScheme: `<div class="marks-section">
+  <h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5>
+  <ul>
+    <li><strong>Understanding (1 mark):</strong>
+      <ul>
+        <li>The increased difficulty of replacing workers</li>
+        <li>Unable to recruit enough workers</li>
+        <li>Reference to higher consumer spending / linkage to demand for products</li>
+      </ul>
+    </li>
+    <li><strong>Application (1 mark):</strong>
+      <ul>
+        <li>360 employees</li>
+        <li>Factory in Leicester</li>
+        <li>Family-owned business</li>
+      </ul>
+    </li>
+    <li><strong>Analysis (1 mark):</strong>
+      <ul>
+        <li>Increased costs of recruitment</li>
+        <li>Higher wages needed</li>
+        <li>Production may decrease or become less efficient</li>
+        <li>May encourage the business to relocate</li>
+      </ul>
+    </li>
+  </ul>
+  <p><strong>No further marks without the understanding mark.</strong></p>
+</div>
+<div class="marks-section">
+  <h5>Exemplar Response</h5>
+  <p>"It may be harder to recruit workers (U) which will lead to a significant increase in costs (AN) as Pukka Pies employs 360 workers (APP)."</p>
+</div>`,
+            modelAnswer: `Falling unemployment means that fewer people are out of work, making it significantly harder for businesses to recruit new staff (U). As Pukka Pies employs approximately 360 workers at its factory in Leicester (APP), if it needs to replace or expand its workforce, it will face greater competition from other employers. This means Pukka Pies may need to offer higher wages to attract recruits, increasing its labour costs and reducing its profit margins (AN).`
+        },
+        {
+            num: "Q5 (i)",
+            marks: 3,
+            type: "written",
+            caseStudy: `Aston Martin plc (AM plc) is a British manufacturer of luxury sports cars. It has more than 150 car dealerships in over 50 countries on six continents. Its globalised supply chain includes suppliers from the UK, EU and across the world. The company is also expanding its brand to include speed boats, submarines and property development.<br><br>Its headquarters and the main production site are centrally located in Warwickshire, England, on the site of a former RAF airbase. It employs over 3,000 workers on this site, who are highly skilled engineers and who produce each car using the most up-to-date machinery. When the cars are finished, they are then transported from central England all over the UK and beyond. The demand for AM plc products is influenced by many factors, including UK unemployment rates and consumer income levels.<br><br>AM plc is proud of its commitment to the environment, which includes trying to produce goods sustainably. It also considers ethical issues in its decision making.<br><br><strong>Bar chart 1 — UK Unemployment Rate:</strong> 7.5% (2013) → 6% (2014) → 5.5% (2015) → 5% (2016) → 4.5% (2017) → 4% (2018)<br><br><strong>Bar chart 2 — Average UK Consumer Income:</strong> £30,000 (2013) → £30,000 (2014) → £31,500 (2015) → £31,500 (2016) → £31,750 (2017) → £32,250 (2018)`,
+            question: "Analyse, with reference to Bar chart 1, one impact on AM plc of the changes in the UK unemployment rate. [3 marks]",
+            hint: "Bar chart 1 shows UK unemployment FALLING from 7.5% (2013) to 4% (2018). You must reference this change specifically. Then explain what falling unemployment means for AM plc — either more consumer spending (demand side) or harder/more expensive recruitment (cost side).",
+            starter: `<strong>U (1 mark):</strong> "A fall in the unemployment rate means more people are in work and have a regular income, increasing their ability to spend..."<br><br><strong>APP (1 mark):</strong> "Bar chart 1 shows the UK unemployment rate fell from 7.5% in 2013 to 4% in 2018..."<br><br><strong>AN (1 mark):</strong> "...This may increase demand for luxury goods such as Aston Martin's sports cars, potentially boosting the company's revenue and profits."`,
+            markScheme: `<div class="marks-section">
+  <h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5>
+  <ul>
+    <li><strong>Understanding (1 mark):</strong> Less easy to recruit employees / easier retention of employees / consumers have more income / increase in GDP</li>
+    <li><strong>Application (1 mark — must reference Bar chart 1):</strong>
+      <ul>
+        <li>Unemployment rate fell from 7.5% in 2013 to 4% in 2018</li>
+        <li>The fall in the unemployment rate is declining (rate of change)</li>
+      </ul>
+    </li>
+    <li><strong>Analysis (1 mark):</strong>
+      <ul>
+        <li>Wages may increase / higher recruitment costs</li>
+        <li>Increased demand / revenue / profits</li>
+      </ul>
+    </li>
+  </ul>
+  <p><strong>Answers MUST consider the CHANGE in the unemployment rate — not just the presence of unemployment.</strong></p>
+</div>
+<div class="marks-section">
+  <h5>Exemplar Response</h5>
+  <p>"A decrease in the unemployment rate (APP) from 7.5% in 2013 to 4% in 2018 may lead to increased demand in the economy (U), which may lead to increased sales for AM plc (AN)."</p>
+</div>`,
+            modelAnswer: `Falling unemployment means more consumers are in work and have a regular income, making them more able to afford luxury purchases (U). Bar chart 1 shows the UK unemployment rate fell from 7.5% in 2013 to 4% in 2018 (APP). As a result, more consumers are likely to have sufficient income to consider purchasing an Aston Martin, potentially leading to increased sales, revenue and profits for AM plc (AN).`
+        },
+        {
+            num: "Q5 (ii)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Analyse, with reference to Bar chart 2, one impact on AM plc of the changes in the average UK consumer income. [3 marks]",
+            hint: "Bar chart 2 shows average UK consumer income RISING from £30,000 (2013/14) to £32,250 (2018). Reference this data specifically. Then link rising income to AM plc's luxury products — higher income means more people can afford luxury sports cars.",
+            starter: `<strong>U (1 mark):</strong> "A rise in average consumer income means customers have more disposable income available to spend on goods and services..."<br><br><strong>APP (1 mark):</strong> "Bar chart 2 shows average UK consumer income has risen from £30,000 in 2013 to £32,250 in 2018..."<br><br><strong>AN (1 mark):</strong> "...This means more consumers can now afford to purchase luxury Aston Martin sports cars, which may lead to increased demand, sales, and profits for AM plc."`,
+            markScheme: `<div class="marks-section">
+  <h5>Mark Allocation — 3 marks (AO1b + AO2 + AO3a)</h5>
+  <ul>
+    <li><strong>Understanding (1 mark):</strong> Increased disposable income / consumer spending / customers more able to purchase luxury goods</li>
+    <li><strong>Application (1 mark — must reference Bar chart 2):</strong>
+      <ul>
+        <li>Average consumer income increased from £30,000 (2013/14) to £32,250 in 2018</li>
+        <li>Growth was greatest in 2015</li>
+        <li>Consumer income has grown slowly since 2015</li>
+      </ul>
+    </li>
+    <li><strong>Analysis (1 mark):</strong>
+      <ul>
+        <li>Increased demand / revenue / profits</li>
+        <li>Consumers more likely to buy luxury products</li>
+      </ul>
+    </li>
+  </ul>
+  <p><strong>Answers MUST consider the change in consumer income.</strong></p>
+</div>
+<div class="marks-section">
+  <h5>Exemplar Response</h5>
+  <p>"Potential customers have more income to spend on products (U) with an average income increase to £32,250 in 2018 from £30,000 in 2013 (APP). This may also lead to increased sales for AM plc (AN)."</p>
+</div>`,
+            modelAnswer: `A rise in consumer income means customers have more disposable income available to spend on luxury products (U). Bar chart 2 shows that average UK consumer income has risen from £30,000 in 2013 to £32,250 in 2018 — an increase of £2,250 (APP). As Aston Martin produces luxury sports cars, this increase in income means more consumers are able to afford AM plc's products, likely leading to increased demand, higher revenue and improved profit margins (AN).`
+        },
+        {
+            num: "Q5 (iii)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Recommend whether the change in the unemployment rate or the change in consumer income levels will have the greatest impact on AM plc. [3 marks]",
+            hint: "Make a clear decision. Then COMPARE both factors — explain why your chosen one has a bigger effect on AM plc than the other. Use a specific detail from the charts or the case study. Remember: Aston Martin sells expensive LUXURY cars — who is most likely to buy one, and what makes the difference?",
+            starter: `<strong>Decision (1 mark):</strong> "The change in consumer income levels will have the greatest impact on AM plc because..."<br><br><strong>Contrast (1 mark):</strong> "...although unemployment has fallen, a person who has recently found a job is unlikely to be in a financial position to purchase a luxury Aston Martin sports car..."<br><br><strong>Context (1 mark):</strong> "...Whereas the rise in average consumer income from £30,000 to £32,250 (Bar chart 2) is more likely to affect existing high earners who are AM plc's target customers, making them more willing and able to purchase."`,
+            markScheme: `<div class="marks-section">
+  <h5>Mark Allocation — 3 marks (AO3b)</h5>
+  <ul>
+    <li><strong>Judgement (1 mark):</strong> Clear decision — unemployment rate OR consumer income levels will have the greater impact</li>
+    <li><strong>Justification (1 mark):</strong> Comparative reason (with or without context) explaining why the chosen factor outweighs the other</li>
+    <li><strong>Context (1 mark):</strong> Use of specific data or details from the case study to support the comparison</li>
+  </ul>
+</div>
+<div class="marks-section">
+  <h5>Exemplar Response</h5>
+  <p>"Whilst unemployment has fallen, those who have found a job are not all likely to purchase an expensive luxury car (APP). I therefore think that an increase in average consumer income will have the greatest effect (JUDGEMENT) as more high earners will see an increase in their income (JUSTIFICATION)."</p>
+</div>`,
+            modelAnswer: `The change in consumer income levels will have the greatest impact on AM plc (DECISION). Whilst the unemployment rate has fallen from 7.5% to 4%, people who have recently found employment are unlikely to be in a financial position to purchase a luxury Aston Martin sports car immediately (CONTRAST). In contrast, the rise in average consumer income from £30,000 to £32,250 (Bar chart 2) is more likely to benefit AM plc's existing wealthy customer base, increasing their willingness to spend on a luxury vehicle and directly boosting AM plc's sales and revenue (CONTEXT + JUSTIFICATION).`
+        },
+        {
+            num: "Q6 (i)",
+            marks: 6,
+            type: "written",
+            caseStudy: `Elizabeth owns a small business, Luxury Cushions (LC), making and selling quality cushions. She sells these to retail shops and direct to the public over the internet. When she first started, Elizabeth used social media to get herself well known. Her business really became successful when she sent some cushions to celebrities and they posted them on their Instagram accounts. Elizabeth regularly communicates to her 10,000 Instagram followers when she has new designs to sell.<br><br>In 2019 LC earned £150,000 in revenue and had a gross profit of £118,000 and a net profit of £56,800. Elizabeth has provided the following financial information:<br><br><table class="case-table"><caption>Table — Monthly Production Data</caption><tr><th>Cushions made &amp; sold per month</th><th>Fixed costs per month</th><th>Average selling price</th><th>Cost of filling</th><th>Cost of cover</th><th>Wage per cushion</th></tr><tr><td>250</td><td>£7,440</td><td>£50</td><td>£3</td><td>£6</td><td>£10</td></tr></table><br>Elizabeth has the opportunity to expand her business by taking over a competitor and moving into larger premises. One of her customers suggested that she could use crowd funding to raise the £30,000 she needs. However, Elizabeth thinks that she might be better using a bank loan.<br><br>Even though she would need to pay interest on the loan, her stable cash flow forecast shows she should be able to afford it.`,
+            question: "Analyse one advantage and one disadvantage to Elizabeth of using crowd funding to finance the takeover. [6 marks]",
+            hint: "This is two separate 3-mark analyses (advantage + disadvantage). For each one: state the advantage/disadvantage (U), link it to something specific about Elizabeth and LC (APP), then explain the consequence for the business (AN). You MUST show understanding before you can get application or analysis marks.",
+            starter: `<strong>ADVANTAGE</strong><br><strong>U (1 mark):</strong> "An advantage of crowdfunding is that it can provide investment without the need to repay the money..."<br><strong>APP (1 mark):</strong> "As Elizabeth already has 10,000 Instagram followers and celebrity endorsements..."<br><strong>AN (1 mark):</strong> "...she may be able to raise the £30,000 quickly and at low cost, without the financial burden of interest repayments, improving her long-term profitability."<br><br><strong>DISADVANTAGE</strong><br><strong>U (1 mark):</strong> "A disadvantage is that crowdfunding campaigns are not guaranteed to reach their target..."<br><strong>APP (1 mark):</strong> "Elizabeth needs to raise £30,000 to fund the takeover and will need to incentivise investors, perhaps with free or discounted cushions..."<br><strong>AN (1 mark):</strong> "...If she fails to reach the target, the funds are returned and the takeover cannot proceed, meaning LC misses the growth opportunity."`,
+            markScheme: `<div class="marks-section">
+  <h5>Mark Allocation — 6 marks (AO1b ×2, AO2 ×2, AO3a ×2)</h5>
+  <p>Each of the advantage and disadvantage is worth up to 3 marks using the same U → APP → AN structure. No further marks can be gained for either without the understanding mark.</p>
+  <p><strong>Advantages of crowdfunding may include:</strong></p>
+  <ul>
+    <li>Provides cheap investment — no need to pay back the money</li>
+    <li>Social media can be used to reach investors easily</li>
+    <li>Investors may offer skills or experience to the business</li>
+  </ul>
+  <p><strong>Disadvantages of crowdfunding may include:</strong></p>
+  <ul>
+    <li>Not every crowdfunding project reaches its target</li>
+    <li>A great deal of time and effort needed to promote the campaign</li>
+    <li>The business may have to give away too much (products / shares) to get enough funding</li>
+    <li>If target not met, all funds are returned to investors</li>
+  </ul>
+  <p><strong>Application evidence from the text:</strong></p>
+  <ul>
+    <li>10,000 Instagram followers / celebrity influencers</li>
+    <li>Small business / niche market</li>
+    <li>Intends to raise £30,000</li>
+    <li>Stable cash flow forecast</li>
+    <li>Net profit £56,800 in 2019</li>
+  </ul>
+</div>
+<div class="marks-section">
+  <h5>Exemplar Responses</h5>
+  <p><strong>Advantage:</strong> "Crowdfunding can provide cheap investment (U) because Elizabeth already has 10,000 followers on Instagram (APP), so she does not need to spend lots of money to find interested investors (AN)."</p>
+  <p><strong>Disadvantage:</strong> "Crowdfunding may cost Elizabeth a great deal of money (U) because she will need to give incentives to potential investors, such as free cushions (APP), reducing the profitability of the expansion (AN)."</p>
+</div>`,
+            modelAnswer: `<strong>Advantage:</strong> An advantage of crowdfunding is that Elizabeth does not need to repay the money raised, unlike a bank loan where interest is charged (U). Because Elizabeth already has 10,000 Instagram followers and has worked with celebrity influencers, she has an existing audience she can reach quickly and at low cost (APP). This means she could raise the £30,000 needed for the takeover without adding to her existing financial obligations, protecting her profitability in the longer term (AN).<br><br><strong>Disadvantage:</strong> A disadvantage is that not every crowdfunding project reaches its funding target (U). Elizabeth needs to raise exactly £30,000 — if she fails to reach this goal, the money is typically returned to backers and she cannot proceed with the takeover (APP). This would mean losing the opportunity to expand LC and potentially allowing a competitor to take over the business she was targeting instead, limiting LC's future growth (AN).`
+        },
+        {
+            num: "Q6 (ii)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: "Recommend whether Elizabeth should use crowdfunding or a bank loan to finance the takeover. [3 marks]",
+            hint: "Make a clear decision. Then COMPARE both options — explain why your chosen method is better than the alternative. Use specific details from the case study (e.g. Instagram followers, interest on loan, £30,000 needed, stable cash flow) to support your recommendation.",
+            starter: `<strong>Decision (1 mark):</strong> "Elizabeth should use a bank loan / crowdfunding to finance the takeover because..."<br><br><strong>Contrast (1 mark):</strong> "...whereas [the other option] would be less suitable because..."<br><br><strong>Context (1 mark):</strong> "...Given that Elizabeth has a stable cash flow forecast and net profit of £56,800, she can afford the loan interest repayments / Given her 10,000 Instagram followers, she is well placed to run a successful crowdfunding campaign."`,
+            markScheme: `<div class="marks-section">
+  <h5>Mark Allocation — 3 marks (AO3b)</h5>
+  <ul>
+    <li><strong>Judgement (1 mark):</strong> Clear recommendation — crowdfunding OR bank loan</li>
+    <li><strong>Justification (1 mark):</strong> Comparative reason explaining why the chosen option is better than the other</li>
+    <li><strong>Context (1 mark):</strong> Use of specific detail from the case study to support the comparison</li>
+  </ul>
+  <p>Students may also justify a combination of both — this is acceptable if well justified.</p>
+</div>
+<div class="marks-section">
+  <h5>Exemplar Response</h5>
+  <p>"I would tell Elizabeth to use a bank loan (JUDGEMENT) as it is quick and relatively easy to arrange, whereas she might struggle to raise money through crowdfunding as she is selling upmarket, expensive cushions (APP) and people may not like the price/product and therefore not want to invest (CONTRAST)."</p>
+</div>`,
+            modelAnswer: `Elizabeth should use a bank loan to finance the takeover (DECISION). Although she would need to pay interest, her stable cash flow forecast and net profit of £56,800 show she can afford repayments without jeopardising the business (CONTEXT). Crowdfunding, on the other hand, is not guaranteed to reach the £30,000 target — and if it fails, all funds are returned and the expansion opportunity would be lost. A bank loan provides certainty that the full amount will be available when needed (CONTRAST + JUSTIFICATION).`
+        },
+        {
+            num: "Q7 (i)",
+            marks: 2,
+            type: "written",
+            caseStudy: `Tesco plc is one of the largest retailers in the UK. It sells a range of products through its shops and uses e-commerce across the UK. The business procures its supplies from a range of UK and foreign businesses.<br><br>On its website, Tesco plc states its core purpose as 'wanting to be a champion for customers, helping them to enjoy a better quality of life and an easier way of living. Customers want great products at great value which they can buy easily and it's our job to deliver this in the right way for them.'<br><br>In recent years, sales of Tesco plc's products and services have been affected by increasing competition, consumer law and the growth of e-commerce. In addition, sales are impacted by how the UK economy is performing and the level of UK employment.`,
+            question: "Identify two possible impacts on a business of a rise in unemployment. [2 marks]",
+            hint: "Give two separate impacts. Each is worth 1 mark. Keep each point brief and specific — no explanation needed for an 'identify' question.",
+            starter: `<strong>Impact 1 (1 mark):</strong> "A rise in unemployment may lead to..."<br><br><strong>Impact 2 (1 mark):</strong> "Additionally, a rise in unemployment could mean..."`,
+            markScheme: `<div class="marks-section">
+  <h5>Mark Allocation — 2 marks (AO1a × 2)</h5>
+  <p>1 mark for each correct impact identified, up to a maximum of 2 marks.</p>
+  <p><strong>Acceptable answers include:</strong></p>
+  <ul>
+    <li>Less money in the economy / people have less income</li>
+    <li>Less spending on luxury / expensive goods</li>
+    <li>More inferior / cheaper goods purchased</li>
+    <li>Cheaper to employ new workers</li>
+    <li>Less pressure for pay increases</li>
+    <li>More potential workers available to employ</li>
+  </ul>
+</div>`,
+            modelAnswer: `Impact 1: A rise in unemployment means people have less income, so consumer spending falls and businesses may see a reduction in sales and revenue.<br>Impact 2: A rise in unemployment increases the pool of available workers, making it easier and potentially cheaper for businesses to recruit new staff.`
+        },
+        {
+            num: "Q7 (ii)",
+            marks: 7,
+            type: "written",
+            caseStudy: "",
+            question: "Evaluate the impact of a rise in unemployment on any two stakeholders of Tesco plc. [7 marks]",
+            hint: "Choose two different stakeholders (e.g. customers and shareholders). Analyse the impact on each using the case study. Then make a final evaluation comparing which stakeholder is MORE affected — and why. You must discuss BOTH stakeholders to access evaluation marks.",
+            starter: `<strong>Paragraph 1 — Stakeholder 1 — APP &amp; AN:</strong><br>"Customers of Tesco plc would be affected by a rise in unemployment because... [apply: less income to spend → buy cheaper products from Tesco's basics range] → [analyse: this reduces their quality of life / limits their choices]"<br><br><strong>Paragraph 2 — Stakeholder 2 — APP &amp; AN:</strong><br>"Shareholders may also be impacted because a rise in unemployment reduces consumer spending... [apply: lower sales → lower profits for Tesco] → [analyse: this may reduce dividends paid and could cause Tesco's share price to fall]"<br><br><strong>Paragraph 3 — Evaluation (3 points):</strong><br><em>Decision:</em> "Overall, customers are likely to be more affected than shareholders because..."<br><em>Context:</em> "...Tesco sells products across all income levels (from 'basics' to 'finest'), meaning..."<br><em>Impact/Reasoning:</em> "...shareholders may not see a dramatic fall in dividends. However, customers facing unemployment directly lose their income, which has an immediate and significant impact on their day-to-day quality of life."`,
+            markScheme: `<div class="marks-section">
+  <h5>Mark Allocation — 7 marks (AO2 ×2, AO3a ×2, AO3b ×3) — Levels of Response</h5>
+  <p><strong>Level 3 (5–7 marks):</strong> Good application of the impact on both stakeholders using the case study. Good analysis with logical chains of reasoning. Strong evaluation with a fully justified judgement comparing both stakeholders.</p>
+  <p><strong>Level 2 (3–4 marks):</strong> Good application to one or both stakeholders. Limited analysis — some chains of reasoning. Limited evaluation — attempts a conclusion but limited justification.</p>
+  <p><strong>Level 1 (1–2 marks):</strong> Limited application (some use of the scenario). Limited analysis — simple cause and consequence. No evaluation.</p>
+  <p><strong>0 marks:</strong> No response worthy of credit.</p>
+</div>
+<div class="marks-section">
+  <h5>Stakeholder Suggestions</h5>
+  <ul>
+    <li>Shareholders — lower profits → lower dividends → possible fall in share price</li>
+    <li>Customers — less income → switch to cheaper goods → reduced quality of life</li>
+    <li>Employees — risk of redundancy / wage cuts</li>
+    <li>Suppliers — Tesco may order less → supplier revenue falls</li>
+  </ul>
+</div>
+<div class="marks-section">
+  <h5>Exemplar Response Extract</h5>
+  <p>"Tesco is a public limited company which means it has shareholders (AO2). They are likely to be adversely affected because sales and profits will go down as there will be less spending in the economy, which may mean lower dividends and possibly a lower share price (AO3a). Customers may also be adversely affected because they will have less money to spend on their shopping (AO2). This could mean that they have to buy cheaper goods from Tesco, such as the basics range of food (AO2), which may not be as nice to eat and reduce their happiness (AO3a). The customers are likely to face a bigger impact than the shareholders because having to buy lower quality food has a direct impact on daily life. However, because Tesco sells products aimed at every income level (from basic to 'finest'), it is unlikely that sales will reduce by very much, so the share price may not be badly affected (AO3b)."</p>
+</div>`,
+            modelAnswer: `A rise in unemployment would significantly affect Tesco's customers. With more people out of work, consumer incomes would fall and customers would have less money to spend on their weekly shop (APP). As a result, many customers may switch from Tesco's premium ranges to its 'Everyday Value' basics products, reducing the quality of their shopping experience and limiting their choices — which directly impacts their quality of life (AN).<br><br>Shareholders could also be affected by a rise in unemployment. If consumer incomes fall, overall spending at Tesco is likely to decrease, reducing Tesco's revenue and net profit. Lower profits mean the company has less money to distribute as dividends, potentially reducing shareholders' returns and causing Tesco's share price to fall (APP + AN).<br><br>Overall, I believe customers are more directly affected by a rise in unemployment than shareholders (DECISION). This is because Tesco offers products across all price points — from basics to 'finest' — meaning many customers will simply switch range rather than stop shopping at Tesco entirely (CONTEXT). While shareholders may see some reduction in dividends, Tesco's broad product range helps protect overall revenue. In contrast, unemployed customers face an immediate and unavoidable reduction in their income, forcing genuine changes to how they shop and live (REASONING).`
+        },
+        {
+            num: "Q8",
+            marks: 9,
+            type: "written",
+            caseStudy: `NEXT plc is a clothing retailer selling clothing, footwear, accessories and home products through its high street shops and online across the UK. NEXT plc understands the importance of creating good relationships with its customers and constantly tries to improve its levels of customer service. Customer service is important for NEXT plc.<br><br>For NEXT, responsible business behaviour includes addressing key business-related social, ethical and environmental impacts in a way that aims to bring value to all its stakeholders, including its shareholders. NEXT plc sources products from many suppliers across the world. The company takes its environmental and ethical responsibilities very seriously.`,
+            question: "* Evaluate how a fall in consumer income levels might impact on the marketing activities of NEXT plc. [9 marks]",
+            hint: "This is a 9-mark essay. You need Knowledge, Understanding, Application to NEXT, two chains of Analysis, and a fully justified Evaluation with a clear decision. Discuss at least two aspects of the marketing mix (4Ps: Product, Price, Promotion, Place). Make sure your conclusion compares the options and doesn't just repeat what you said earlier.",
+            starter: `<strong>Paragraph 1 — K &amp; U:</strong><br>"A fall in consumer income means customers have less disposable income available to spend on goods and services. This can lead to a fall in demand for non-essential products such as clothing, footwear and accessories..."<br><br><strong>Paragraph 2 — AN &amp; APP (Marketing Impact 1 — Price/Promotion):</strong><br>"For NEXT plc, which sells clothing and accessories through its high street shops and online... a fall in consumer income may force NEXT's marketing team to reconsider its pricing strategy... This may mean adopting penetration pricing or promotional discounts to attract more price-conscious consumers, increasing short-term demand but potentially damaging NEXT's premium brand image..."<br><br><strong>Paragraph 3 — AN &amp; APP (Marketing Impact 2 — Product/Place):</strong><br>"Alternatively, NEXT could reposition its marketing upward — emphasising its ethical sourcing and environmental commitments (from the case study) to attract wealthier customers who are less affected by falling incomes... However, this would require significant investment in new marketing campaigns and could alienate its existing customer base..."<br><br><strong>Paragraph 4 — Evaluation (3 points):</strong><br><em>Decision:</em> "Overall, I believe NEXT should focus on adjusting its pricing and promotional strategy rather than repositioning upmarket..."<br><em>Context:</em> "...because NEXT's customer base includes middle-income shoppers who are most vulnerable to income falls, and who are most likely to switch to cheaper competitors like Primark if prices are not reduced..."<br><em>Impact/Reasoning:</em> "...However, the best strategy depends on the severity and duration of the income fall — if it is temporary, maintaining the premium image may be more beneficial in the long run to protect brand equity."`,
+            markScheme: `<div class="marks-section">
+  <h5>Mark Allocation — 9 marks (AO1a ×1, AO1b ×1, AO2 ×2, AO3a ×2, AO3b ×3) — Levels of Response</h5>
+  <p><strong>Level 3 (7–9 marks):</strong> Good knowledge and understanding of marketing activities and the effects of falling incomes. Good application using NEXT's specific context. Good analysis — logical chains of reasoning. Strong evaluation — a fully justified judgement drawing on underpinning knowledge.</p>
+  <p><strong>Level 2 (4–6 marks):</strong> Good knowledge/understanding and application to NEXT. Limited analysis — some chains of reasoning. Limited evaluation — attempts a conclusion with some recognition of influencing factors.</p>
+  <p><strong>Level 1 (1–3 marks):</strong> Limited knowledge/understanding. Some use of the scenario. Limited analysis — simple cause and consequence. No evaluation.</p>
+  <p><strong>0 marks:</strong> No response worthy of credit.</p>
+</div>
+<div class="marks-section">
+  <h5>Content That May Be Included</h5>
+  <ul>
+    <li>Greater need for market research to understand changing customer needs</li>
+    <li>Change of marketing mix — product, price, promotion, place</li>
+    <li>More promotion / increased advertising</li>
+    <li>Cheaper prices / penetration pricing</li>
+    <li>Change in distribution channel (increase online sales)</li>
+    <li>Change marketing objectives</li>
+    <li>Consider ethical/sustainable credentials as a marketing angle</li>
+    <li>Buy in greater bulk to reduce costs and offer lower prices</li>
+  </ul>
+</div>
+<div class="marks-section">
+  <h5>Examiner's Note</h5>
+  <p>Content from components 01 and 02 is synoptically assessed in this question — students should draw on their wider knowledge of marketing (Section 2) alongside the economic climate (Section 6).</p>
+</div>`,
+            modelAnswer: `A fall in consumer income means customers have less disposable income to spend on goods and services. For a clothing retailer like NEXT plc, this is significant because clothing and accessories are often considered non-essential purchases that consumers will cut back on when money is tight (K/U).<br><br>NEXT's marketing department would likely need to review its pricing strategy. With customers seeking better value, NEXT could introduce more promotional discounts, clearance sales, or value ranges to retain price-sensitive shoppers (APP). If NEXT reduces prices or increases promotions, this should help maintain sales volumes. However, this may reduce profit margins and could damage NEXT's reputation as a premium retailer — potentially making it harder to justify higher prices once incomes recover (AN).<br><br>Alternatively, NEXT's marketing team could focus on product and place strategy. The case study mentions NEXT's strong commitment to ethical and environmental responsibilities. NEXT could use this in its marketing — emphasising sustainable and ethically sourced products to appeal to wealthier consumers who are less affected by the income fall (APP). NEXT could also invest in its online sales platform, as consumers with tighter budgets are more likely to shop online to find deals and compare prices, reducing the cost of physical store visits (AN).<br><br>Overall, I believe NEXT should primarily adjust its pricing and promotional strategy rather than repositioning upmarket (DECISION). The majority of NEXT's customers are middle-income earners who are particularly vulnerable to falls in income and who have easy access to cheaper alternatives like Primark (CONTEXT). If NEXT does not respond with value-focused marketing, it risks losing these customers to competitors — which would cause a more significant and lasting fall in revenue. However, this decision depends on how long the income fall lasts — if it is short-term, protecting NEXT's premium brand image may be the better long-term strategy (REASONING).`
+        },
+        {
+            num: "Q9",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "Falling levels of consumer income have caused a car dealership to experience a significant reduction in retail sales.",
+            question: "Which one of the following actions should the car dealership take to help increase its sales during a period of falling consumer income?",
+            options: [
+                "A — Advertise less",
+                "B — Offer price reductions",
+                "C — Reduce customer engagement",
+                "D — Reduce its costs"
+            ],
+            hint: "Think about what happens when customers have less money. What marketing action directly makes products more affordable and attractive to price-sensitive buyers?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+  <h5>Answer: B — Offer price reductions</h5>
+  <p><strong>Why B is correct:</strong> When consumer incomes fall, customers have less money to spend. Offering price reductions makes the cars more accessible to buyers with reduced budgets, directly addressing the affordability problem and helping to maintain demand.</p>
+  <br>
+  <p><strong>Why the other options are wrong:</strong></p>
+  <ul>
+    <li><strong>A — Advertise less:</strong> Reducing advertising would make the business less visible to potential customers, likely causing sales to fall further — the opposite of what is needed.</li>
+    <li><strong>C — Reduce customer engagement:</strong> Poor customer engagement means fewer interactions with potential buyers, reducing the chance of making a sale. This would worsen the problem.</li>
+    <li><strong>D — Reduce its costs:</strong> While reducing costs is a sensible internal strategy during a downturn, it does not directly increase sales. The question asks what should be done to increase sales, not to manage internal finances.</li>
+  </ul>
+</div>`,
+            modelAnswer: "B — Offer price reductions."
+        },
+        {
+            num: "Textbook Q1 (Knowledge)",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `JC Motors Ltd have been trading for 20 years. They specialise in selling high-end bespoke cars that start from £50,000 and can be as expensive as £300,000. Owing to the recent downturn in the economy that has led to falling consumer incomes and an increase in unemployment from 2 million to 2.2 million people, they have started to diversify and have a small range of second hand cars on sale that start at £15,000 and go up to £80,000.`,
+            question: "Which of the following statements is true?",
+            options: [
+                "A — The sales of a business will always increase when incomes rise",
+                "B — Rising incomes often lead to an increase in the sales of luxury goods",
+                "C — A rise in unemployment will make all consumers worse off",
+                "D — A fall in consumer income will always cause a business to sell less"
+            ],
+            hint: "Watch out for the words 'always' and 'all' — these are clues that a statement is likely to be FALSE. Think about which statement is sometimes true and not an absolute rule.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+  <h5>Answer: B — Rising incomes often lead to an increase in the sales of luxury goods</h5>
+  <p><strong>Why B is correct:</strong> When incomes rise, customers can afford higher-quality and non-essential items. Luxury goods businesses like JC Motors typically benefit from rising incomes, as more customers can consider purchasing high-end products. The word 'often' makes this statement accurate — it is a tendency, not an absolute rule.</p>
+  <br>
+  <p><strong>Why the other options are wrong:</strong></p>
+  <ul>
+    <li><strong>A — "Will always increase":</strong> FALSE. Businesses selling cheap or budget goods may actually see sales FALL when incomes rise, as customers trade up to more expensive alternatives.</li>
+    <li><strong>C — "Will make ALL consumers worse off":</strong> FALSE. Not all consumers are unemployed. Those who keep their jobs may even benefit if lower unemployment causes wages to eventually rise. Budget shoppers may also find it easier to get work.</li>
+    <li><strong>D — "Will always cause a business to sell less":</strong> FALSE. Discount retailers like Aldi can see sales RISE when consumer incomes fall, as customers switch to cheaper options.</li>
+  </ul>
+</div>`,
+            modelAnswer: "B — Rising incomes often lead to an increase in the sales of luxury goods."
+        },
+        {
+            num: "Textbook Q2 (Evaluation)",
+            marks: 9,
+            type: "written",
+            caseStudy: `JC Motors Ltd have been trading for 20 years. They specialise in selling high-end bespoke cars that start from £50,000 and can be as expensive as £300,000. Owing to the recent downturn in the economy that has led to falling consumer incomes and an increase in unemployment from 2 million to 2.2 million people, they have started to diversify and have a small range of second hand cars on sale that start at £15,000 and go up to £80,000.`,
+            question: "Evaluate how a fall in consumer incomes and an increase in unemployment might impact on JC Motors Ltd. [9 marks]",
+            hint: "This is a 9-mark evaluate question. You need to discuss BOTH factors (falling incomes AND rising unemployment) and their specific impact on JC Motors. Apply both to the context of a high-end car business. Include JC Motors' response (diversifying into second-hand cars) and end with a fully justified evaluation.",
+            starter: `<strong>Paragraph 1 — K &amp; U:</strong><br>"A fall in consumer income means customers have less disposable income available to spend... An increase in unemployment from 2 million to 2.2 million means even more people are out of work and earning no income..."<br><br><strong>Paragraph 2 — AN &amp; APP (Impact of falling income on JC Motors):</strong><br>"For JC Motors, which sells high-end bespoke cars starting from £50,000, a fall in consumer income is particularly severe... customers who might have considered a luxury car purchase are likely to delay or cancel the decision, causing sales to fall significantly..."<br><br><strong>Paragraph 3 — AN &amp; APP (Impact of rising unemployment / JC Motors' response):</strong><br>"The increase in unemployment from 2 million to 2.2 million means 200,000 more people are without work and income... However, JC Motors has responded by diversifying into second-hand cars starting from £15,000, which targets a broader range of customers..."<br><br><strong>Paragraph 4 — Evaluation (3 points):</strong><br><em>Decision:</em> "Overall, the fall in consumer income is likely to have the greater impact on JC Motors..."<br><em>Context:</em> "...because even the cheapest new car starts at £50,000 — far beyond the reach of most consumers when incomes are falling..."<br><em>Impact/Reasoning:</em> "...The diversification into second-hand cars is a sensible strategy, but success depends on whether JC Motors can attract enough new customers at the lower price point to replace lost revenue from its flagship bespoke range."`,
+            markScheme: `<div class="marks-section">
+  <h5>Mark Allocation — 9 marks (K ×1, U ×1, APP ×2, AN ×2, EV ×3)</h5>
+  <p><strong>Knowledge (1 mark):</strong> Understanding what a fall in consumer income or a rise in unemployment means.</p>
+  <p><strong>Understanding (1 mark):</strong> Explaining how this affects businesses generally.</p>
+  <p><strong>Application (2 marks):</strong> Linking to JC Motors specifically — using the prices (£50,000–£300,000), the unemployment figures (2m to 2.2m), and the diversification into second-hand cars (£15,000–£80,000).</p>
+  <p><strong>Analysis (2 marks):</strong> Developing the chain of consequences — e.g. falling incomes → fewer luxury car sales → revenue falls → may threaten survival of the business OR diversification → broader customer base → may offset some lost revenue.</p>
+  <p><strong>Evaluation (3 marks):</strong> A justified judgement — which factor has the greater impact? Does the diversification strategy solve the problem? What does success depend on?</p>
+</div>`,
+            modelAnswer: `A fall in consumer income means customers have less money available to spend on non-essential, luxury goods. An increase in unemployment from 2 million to 2.2 million means a further 200,000 people are out of work and have no employment income — reducing aggregate consumer spending in the economy (K/U).<br><br>For JC Motors, which specialises in high-end bespoke cars starting from £50,000 and reaching up to £300,000, a fall in consumer incomes is extremely damaging. Even wealthy consumers who have kept their jobs may choose to delay large discretionary purchases like luxury cars when the economic climate is uncertain. This is likely to cause a significant fall in JC Motors' sales, revenue and profits — and may even put the company's survival at risk if the downturn is prolonged (APP/AN).<br><br>The increase in unemployment adds further pressure. With 200,000 more people out of work, overall consumer confidence and spending fall — meaning even JC Motors' wealthiest customers may feel less confident spending large sums. However, JC Motors has responded strategically by diversifying into second-hand cars starting at £15,000. This targets a new, larger customer base who cannot afford new luxury cars but may still aspire to own a quality vehicle. This response is sensible and mirrors how Carpet Right survived the 2008 recession by adapting its offer (APP/AN).<br><br>Overall, the fall in consumer income is likely to have the greater negative impact on JC Motors (DECISION). With its flagship range starting at £50,000, the core business is very vulnerable to income falls — buyers at this price point are particularly sensitive to economic uncertainty (CONTEXT). The diversification into second-hand cars is a positive strategic response, but whether it fully offsets lost revenue depends on whether JC Motors can successfully attract and retain a new, lower-income customer base — which requires significant changes to its marketing and brand positioning (REASONING).`
+        }
+    ];
+</script>
     <script src="script.js"></script>
 </body>
 
