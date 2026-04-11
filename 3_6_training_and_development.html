@@ -1,1099 +1,1358 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3.6 Training and Development – Interactive Study Guide</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.6 Training and Development – Interactive Study Guide</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-
-<header>
-  <div>
-    <div class="badge">OCR GCSE Business — Component 1 · Section 3</div>
-    <h1>3.6 — Training and Development</h1>
-    <p>Interactive revision guide · All key content + full exam practice</p>
-  </div>
+  <header>
+    <div>
+      <div class="badge">OCR GCSE Business — Component 2</div>
+      <h1>3.6 Training and Development</h1>
+      <p>Interactive revision guide · All key content + full exam practice</p>
+    </div>
     <a href="index.html" class="home-link">← 🏡 Home</a>
+  </header>
 
- </header>
+  <nav class="tab-bar" id="tabBar">
+    <button class="tab-btn active" onclick="switchTab('learn', this)">
+      📚 Key Learning
+    </button>
+    <button class="tab-btn" onclick="switchTab('mcq', this)">
+      ❓ MCQ Quiz
+    </button>
+    <button class="tab-btn" onclick="switchTab('matching', this)">
+      🔗 Matching
+    </button>
+    <button class="tab-btn" onclick="switchTab('fib', this)">
+      ✏️ Fill the Blanks
+    </button>
+    <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+      ⚠️ Misconceptions
+    </button>
+    <button class="tab-btn" onclick="switchTab('examtips', this)">
+      🎯 Exam Tips
+    </button>
+    <button class="tab-btn" onclick="switchTab('flashcards', this)">
+      🃏 Flashcards
+    </button>
+    <button class="tab-btn" onclick="switchTab('truefalse', this)">
+      ✅ True / False
+    </button>
+    <button class="tab-btn" onclick="switchTab('exampractice', this)">
+      📝 Exam Practice
+    </button>
+  </nav>
 
-<nav class="tab-bar" id="tabBar">
-  <button class="tab-btn active" onclick="switchTab('learn',this)">📚 Key Learning</button>
-  <button class="tab-btn" onclick="switchTab('mcq',this)">❓ MCQ Quiz</button>
-  <button class="tab-btn" onclick="switchTab('matching',this)">🔗 Matching</button>
-  <button class="tab-btn" onclick="switchTab('fib',this)">✏️ Fill the Blanks</button>
-  <button class="tab-btn" onclick="switchTab('misconceptions',this)">⚠️ Misconceptions</button>
-  <button class="tab-btn" onclick="switchTab('examtips',this)">🎯 Exam Tips</button>
-  <button class="tab-btn" onclick="switchTab('flashcards',this)">🃏 Flashcards</button>
-  <button class="tab-btn" onclick="switchTab('truefalse',this)">✅ True / False</button>
-  <button class="tab-btn" onclick="switchTab('exampractice',this)">📝 Exam Practice</button>
- 
-</nav>
-
-<main>
-
-<div class="tab-panel active" id="tab-learn">
-  <h2 class="section-title">Key Learning Topics</h2>
-  <p class="section-sub">Double click any card to expand detailed notes.</p>
-  <div class="topic-grid" id="topicGrid"></div>
-</div>
-
-<div class="tab-panel" id="tab-mcq">
-  <h2 class="section-title">Multiple Choice Questions</h2>
-  <p class="section-sub">Select an answer to reveal instant feedback.</p>
-  <div class="score-bar">
-    <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
-    <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
-    <button class="reset-btn" onclick="resetMCQ()">RESET</button>
-  </div>
-  <div class="quiz-wrap" id="mcqWrap"></div>
-</div>
-
-<div class="tab-panel" id="tab-matching">
-  <h2 class="section-title">Matching Activity</h2>
-  <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
-  <div style="margin-bottom:16px;">
-    <div class="score-bar">
-      <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
-      <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
-      <button class="reset-btn" onclick="resetMatch()">RESET</button>
+  <main>
+    <div class="tab-panel active" id="tab-learn">
+      <h2 class="section-title">Key Learning Topics</h2>
+      <p class="section-sub">Click any card to expand detailed notes.</p>
+      <div class="topic-grid" id="topicGrid"></div>
     </div>
-    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;">
-      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#d4edda;border:1.5px solid #2d7a4f;display:inline-block;"></span> First attempt correct</span>
-      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#fff8dc;border:1.5px solid #b8860b;display:inline-block;"></span> Correct after mistake</span>
-      <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-family:'DM Mono',monospace;"><span style="width:14px;height:14px;border-radius:3px;background:#fde8e5;border:1.5px solid #c84b31;display:inline-block;"></span> Wrong — try again</span>
-    </div>
-  </div>
-  <div class="match-grid">
-    <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
-    <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
-  </div>
-</div>
 
-<div class="tab-panel" id="tab-fib">
-  <h2 class="section-title">Fill in the Blanks</h2>
-  <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
-  <div class="score-bar">
-    <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
-    <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
-    <button class="reset-btn" onclick="resetFIB()">RESET</button>
-  </div>
-  <div class="fib-wrap" id="fibWrap"></div>
-</div>
-
-<div class="tab-panel" id="tab-misconceptions">
-  <h2 class="section-title">Common Misconceptions</h2>
-  <p class="section-sub">What students often think — and what examiners actually want.</p>
-  <div class="misc-list" id="miscList"></div>
-</div>
-
-<div class="tab-panel" id="tab-examtips">
-  <h2 class="section-title">Exam Questions &amp; Tips</h2>
-  <p class="section-sub">Most repeated question types and mark-scheme structures from real OCR papers.</p>
-  <div class="tips-grid" id="tipsGrid"></div>
-</div>
-
-<div class="tab-panel" id="tab-flashcards">
-  <h2 class="section-title">Flashcards</h2>
-  <p class="section-sub">Click the card to reveal the definition. Use the arrows to navigate.</p>
-  <div class="fc-container">
-    <div class="fc-progress" id="fcProgress">Card 1 of 1</div>
-    <div class="flashcard" id="flashcard" onclick="flipCard()">
-      <div class="fc-inner">
-        <div class="fc-front"><div class="fc-label">KEY TERM</div><div class="fc-term" id="fcTerm"></div></div>
-        <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
-      </div>
-    </div>
-    <p class="fc-hint">👆 Click card to flip</p>
-    <div class="fc-nav">
-      <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
-      <button class="fc-btn outline" onclick="flipCard()">Flip</button>
-      <button class="fc-btn" onclick="nextCard()">Next →</button>
-    </div>
-  </div>
-</div>
-
-<div class="tab-panel" id="tab-truefalse">
-  <h2 class="section-title">True or False?</h2>
-  <p class="section-sub">Test your knowledge with these statements.</p>
-  <div class="score-bar">
-    <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
-    <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
-    <button class="reset-btn" onclick="resetTF()">RESET</button>
-  </div>
-  <div class="tf-wrap" id="tfWrap"></div>
-</div>
-
-<div class="tab-panel" id="tab-exampractice">
-  <h2 class="section-title">Exam Practice Questions</h2>
-  <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
-  <div class="ep-list" id="epList"></div>
-</div>
-
-</main>
-
-<script>
-// ══════════════════════════════════════
-//  DATA
-// ══════════════════════════════════════
-
-const topics = [
-  {
-    title: "Training vs Development — Key Distinction",
-    tag: "Core Concepts",
-    content: `<p><strong>Training</strong> is short term and job-specific. It is about teaching the knowledge and skills needed to do a particular job or to improve performance in the current role. The trainee is prepared to do a job or to improve how they do it.</p>
-<p><strong>Development</strong> is long term. It is about the overall growth of the worker and teaching knowledge and skills that will be useful to the business and the employee in the future. It is about improving the potential of an employee. Development may involve both practical skills and theoretical understanding that the worker may need in future roles.</p>
-<p>Both training and development can involve on-the-job and off-the-job activities.</p>
-<p><strong>Example:</strong> Starbucks barista training = Training (short term, specific job skills — making coffees). Beaverbrooks jewellers management programme = Development (long term, home study + coaching + accelerated learning → promotion to branch manager).</p>`
-  },
-  {
-    title: "Why Businesses Train Workers",
-    tag: "Reasons for Training",
-    content: `<p>Training is about developing the knowledge, skills and abilities of workers. Different workers need training for different reasons:</p>
-<ul>
-<li><strong>Technical skills</strong> — workers may need to learn to use machinery or upgrade skills for new machinery</li>
-<li><strong>Personal skills</strong> — e.g. developing communication skills</li>
-<li><strong>Health and safety</strong> — reduces risk of injury; protects the business from expensive compensation claims if it can prove proper training was given</li>
-<li><strong>Diversity in the workplace</strong> — training to deal with sensitive issues (racial, gender, disability discrimination)</li>
-<li><strong>Management skills</strong> — learning to manage people, control budgets, solve problems (for those seeking or given promotion)</li>
-<li><strong>New workers</strong> — induction training to introduce them to the organisation</li>
-<li><strong>Group working</strong> — how to work well together and get the best from each other</li>
-<li><strong>Knowledge of new products</strong> — workers trained on new products they must sell</li>
-<li><strong>Flexibility</strong> — providing workers with a range of skills so they can do different jobs</li>
-<li><strong>Retraining</strong> — when a person changes jobs within a company (e.g. because a machine now does their old job)</li>
-<li><strong>Personal development</strong> — developing the person in ways not directly connected to work; raises self-esteem, ambitions and motivation</li>
-</ul>`
-  },
-  {
-    title: "Benefits of Training to Businesses",
-    tag: "Benefits",
-    content: `<p>The table below summarises key benefits of training to businesses:</p>
-<ul>
-<li><strong>Development of the business</strong> — business may be able to develop new products or services to stay ahead of competitors or grow</li>
-<li><strong>Improving productivity</strong> — productivity measures output per worker. Higher productivity = lower costs per unit = ability to lower prices, increase sales and/or profits</li>
-<li><strong>Solving skill shortages</strong> — when skilled workers can't be recruited externally, training existing or new staff can fill the gap</li>
-<li><strong>Improving customer service</strong> — customer care is critical in competitive markets; trained staff increase sales because customers feel welcome and get the information they need</li>
-<li><strong>Improving motivation and retention</strong> — workers who receive training feel valued and see opportunities for progression; this may motivate them and encourage them to stay, reducing recruitment and training costs</li>
-</ul>`
-  },
-  {
-    title: "On-the-Job Training",
-    tag: "Training Methods",
-    content: `<p><strong>On-the-job training</strong> is done while the employee is working at the workplace. The training is given by a more experienced/knowledgeable member of staff.</p>
-<p><strong>Methods of on-the-job training include:</strong> demonstration/instruction, coaching (close working relationship with an experienced employee), job rotation (trainee works in several different jobs/departments in succession), and projects (joining a project team).</p>
-<div class="two-col">
-<div>
-<div class="col-head">✓ Advantages</div>
-<div class="pro-item">Cheaper — no travel or accommodation costs</div>
-<div class="pro-item">Trainee produces goods/services while training — firm earns money</div>
-<div class="pro-item">Individual training tailored to the trainee's needs</div>
-<div class="pro-item">Trainee learns to do the job the way the firm wants it done</div>
-<div class="pro-item">Firm-specific skills can improve worker retention</div>
-</div>
-<div>
-<div class="col-head">✗ Disadvantages</div>
-<div class="con-item">Trainer may need to leave their work — production may fall</div>
-<div class="con-item">Quality of work may be poor if a trainee does it — wasted resources, poor reputation</div>
-<div class="con-item">Quality depends on the trainer's own skills — poor trainer = poor training</div>
-<div class="con-item">Firm-specific skills may restrict the worker's opportunities elsewhere</div>
-<div class="con-item">Trainee does not usually gain a specific qualification</div>
-<div class="con-item">Not suitable for groups — more effective one-on-one</div>
-</div>
-</div>`
-  },
-  {
-    title: "Off-the-Job Training",
-    tag: "Training Methods",
-    content: `<p><strong>Off-the-job training</strong> is when employees are trained or developed away from their normal work. It may take place on the business premises but the worker will not be doing their usual job. It may also take place at a specialist training centre, college or university.</p>
-<p><strong>Methods include:</strong> lectures (good for information, not skills), demonstrations (learn from an expert, must then practise), role play/simulation (experiencing a real work situation safely), team-building, day release, block release, distance learning/evening classes, sandwich courses, sponsored higher education, self-study/online materials.</p>
-<div class="two-col">
-<div>
-<div class="col-head">✓ Advantages</div>
-<div class="pro-item">Experts provide training — often higher quality</div>
-<div class="pro-item">Worker can use specially designed training equipment</div>
-<div class="pro-item">Workers often enjoy the change of environment</div>
-<div class="pro-item">Workers feel valued when the firm pays for their training</div>
-<div class="pro-item">Essential when safety of workers/customers is a risk (e.g. Jet2.com cabin crew — can't practise emergency procedures on a real flight)</div>
-</div>
-<div>
-<div class="col-head">✗ Disadvantages</div>
-<div class="con-item">Usually more expensive — fees, travel, accommodation costs</div>
-<div class="con-item">Worker absent from work — not producing goods or services</div>
-<div class="con-item">Risk that employee may leave the firm once they gain new skills and qualifications</div>
-</div>
-</div>`
-  },
-  {
-    title: "Induction Training",
-    tag: "Training Methods",
-    content: `<p><strong>Induction training</strong> is for employees who are new to a business or place of work. It can be delivered on- or off-the-job. Its purpose is mainly to introduce the worker to their workplace and help them settle in.</p>
-<p><strong>Case study — B&Q:</strong> New employees sent to "B&Q University" (training centre) to learn about business history and aims, company rules, health and safety, pay, promotion opportunities.</p>
-<p><strong>Case study — Christies Care:</strong> All new employees complete a two-week residential training course. Skills taught include moving and handling patients, continence care, emergency first aid, infection control. Employees gain a care certificate before working in a care home.</p>
-<div class="two-col">
-<div>
-<div class="col-head">Benefits to the new worker</div>
-<div class="pro-item">Gets to know colleagues; made to feel welcome</div>
-<div class="pro-item">Learns the workplace layout and facilities</div>
-<div class="pro-item">Learns what is expected of them and the business culture</div>
-<div class="pro-item">May help them work more safely</div>
-</div>
-<div>
-<div class="col-head">Benefits to the business</div>
-<div class="pro-item">Worker settles more quickly; more confident and happier</div>
-<div class="pro-item">Worker becomes productive more quickly — increases output</div>
-<div class="pro-item">Worker values the investment — works hard and conscientiously</div>
-<div class="pro-item">Health and safety risks reduced — fewer compensation claims</div>
-</div>
-</div>
-<p style="margin-top:10px;font-size:13px;color:#5a6e7f;"><strong>Cost of induction:</strong> Wages still need to be paid but the worker is not producing goods/services during induction. Someone must be paid to deliver the training and a training centre may need to be used.</p>`
-  },
-  {
-    title: "Apprenticeships",
-    tag: "Staff Development",
-    content: `<p><strong>Apprenticeships</strong> are long-term, structured development programmes — often completed over 2–4 years — that lead to a formal qualification (usually a vocational qualification such as an NVQ). They involve a mixture of college-based work and training in the workplace. Learning is part on-the-job, part off-the-job, part practical and part theoretical.</p>
-<p>Available at two main levels: intermediate (for those with GCSEs) and advanced (for those with GCSEs and A-levels). Some apprenticeships go to degree level.</p>
-<p><strong>Case study — Royal Opera House:</strong> Hosanna took an apprenticeship to become a theatre technician (lights, sound, scenery). Preferred earning money straight away to going to university.</p>
-<p><strong>Case study — Capgemini:</strong> Offers "advanced apprenticeships" supporting employees to work part-time for a BSc Software Engineering, BSc Business Information Systems or a professional qualification.</p>
-<div class="two-col">
-<div>
-<div class="col-head">✓ Advantages to Business</div>
-<div class="pro-item">Good way of recruiting enthusiastic, ambitious workers</div>
-<div class="pro-item">Can be cheaper than hiring already-skilled workers</div>
-<div class="pro-item">Government may provide a subsidy</div>
-<div class="pro-item">Learning tailored to specific needs of the business</div>
-<div class="pro-item">Helps avoid skills shortages; may improve retention</div>
-<div class="pro-item">Apprentice can do productive work while training</div>
-</div>
-<div>
-<div class="col-head">✗ Disadvantages to Business</div>
-<div class="con-item">If apprentice is not motivated and drops out, money is wasted</div>
-<div class="con-item">Costs the business — course fees and time of experienced workers</div>
-<div class="con-item">Risk of mistakes — quality issues, waste of resources, loss of customers</div>
-</div>
-</div>
-<div class="two-col" style="margin-top:10px;">
-<div>
-<div class="col-head">✓ Advantages to Worker</div>
-<div class="pro-item">Gain qualifications to help career progression</div>
-<div class="pro-item">Earn an income while learning</div>
-<div class="pro-item">Variety of practical and theoretical learning</div>
-</div>
-<div>
-<div class="col-head">✗ Disadvantages to Worker</div>
-<div class="con-item">Pay is usually quite low while learning</div>
-<div class="con-item">Qualifications are job-specific — may limit future options</div>
-<div class="con-item">Evidence shows degree graduates earn more on average long-term</div>
-</div>
-</div>`
-  },
-  {
-    title: "Professional Development Programmes",
-    tag: "Staff Development",
-    content: `<p><strong>Professional development programmes</strong> (vocational and academic) are a type of staff development that is long-term and focused on developing the knowledge, skills and long-term potential of the worker. They may involve academic study at a college or university (or online), as well as practical, hands-on elements. They often lead to qualifications — either vocational (specific to a job, e.g. CIMA Certificate in Business Accounting) or academic (more general, e.g. a degree).</p>
-<p><strong>Vocational qualifications</strong> — specific to a job; gained through a mix of practical hands-on learning and classroom study.</p>
-<p><strong>Academic qualifications</strong> — more general; predominantly theoretical and class-based, though may include practical activities.</p>
-<div class="two-col">
-<div>
-<div class="col-head">✓ Advantages to Business</div>
-<div class="pro-item">Develops long-term potential — improves efficiency</div>
-<div class="pro-item">Helps meet future staffing needs (produces future managers)</div>
-<div class="pro-item">Motivates workers — they appreciate the investment</div>
-<div class="pro-item">Improves motivation, performance and productivity</div>
-<div class="pro-item">Helps retain workers who see career progression</div>
-<div class="pro-item">Helps recruit high-quality, ambitious workers</div>
-</div>
-<div>
-<div class="col-head">✗ Disadvantages to Business</div>
-<div class="con-item">Can be very expensive</div>
-<div class="con-item">Worker may be absent from work — not producing output</div>
-<div class="con-item">May need to pay for staff to cover the absent worker</div>
-<div class="con-item">Worker may leave once better qualified — business doesn't get its reward</div>
-</div>
-</div>
-<div class="two-col" style="margin-top:10px;">
-<div>
-<div class="col-head">✓ Advantages to Worker</div>
-<div class="pro-item">Gain qualifications → career opportunities</div>
-<div class="pro-item">Satisfying; raises self-esteem</div>
-<div class="pro-item">Can increase earnings and lead to promotion</div>
-</div>
-<div>
-<div class="col-head">✗ Disadvantages to Worker</div>
-<div class="con-item">Can be expensive and very hard work</div>
-<div class="con-item">No guarantee it leads to career progression</div>
-</div>
-</div>`
-  }
-];
-
-// ── MCQ DATA ──────────────────────────────────────
-const mcqData = [
-  {
-    q: "Which of the following is a feature of off-the-job training?",
-    opts: [
-      "The worker continues to produce goods or services while training",
-      "It is a cheaper way of training workers than paying for them to go on courses",
-      "This is when workers are trained in a college or training centre away from where they do the work",
-      "It never leads to a qualification for the worker"
-    ],
-    ans: 2,
-    explain: "Off-the-job training takes place away from the worker's normal job — at a college, training centre or elsewhere. Workers do NOT produce goods/services during this time (making it more expensive). It CAN lead to qualifications."
-  },
-  {
-    q: "Which of the following is a feature of professional development?",
-    opts: [
-      "It is a kind of short-term training",
-      "It is designed to realise the potential of a worker in the long-term interests of the business and the worker",
-      "It is designed to improve the skills of the worker to do a specific task",
-      "It usually involves on-the-job training only"
-    ],
-    ans: 1,
-    explain: "Professional development is long-term and designed to develop the overall potential of the worker for the future benefit of both the worker and the business. Short-term task-specific improvement is training, not development."
-  },
-  {
-    q: "Which of the following statements is true?",
-    opts: [
-      "A vocational qualification is specific to a particular type of job",
-      "An academic qualification prepares a worker for work in a specific business",
-      "An apprenticeship is offered to senior managers who want to develop their skills further",
-      "An apprenticeship involves only studying at university"
-    ],
-    ans: 0,
-    explain: "A vocational qualification is specific to a particular type of job (e.g. NVQ in childcare). Academic qualifications are more general. Apprenticeships are for new/junior workers, not senior managers, and involve a mix of workplace training and college — not university study only."
-  },
-  {
-    q: "Starbucks trains new baristas by having an experienced colleague show them how to make each type of coffee while they work. This is an example of:",
-    opts: ["Off-the-job training","Induction training","On-the-job training","Professional development"],
-    ans: 2,
-    explain: "On-the-job training occurs at the place of work while the employee is doing their job. An experienced worker trains the new employee on a one-to-one basis — exactly as described at Starbucks."
-  },
-  {
-    q: "Which of the following is an advantage of on-the-job training for a business?",
-    opts: [
-      "The trainer provides expert knowledge from outside the business",
-      "Workers gain an industry-recognised qualification",
-      "The trainee can produce goods and services while learning",
-      "There is no risk that mistakes will damage product quality"
-    ],
-    ans: 2,
-    explain: "A key advantage of on-the-job training for the business is that the trainee produces goods/services while training — so the firm still earns money. Expert knowledge and qualifications are advantages of off-the-job training. The risk of mistakes is actually a disadvantage of on-the-job training."
-  },
-  {
-    q: "A new employee at B&Q is sent to the company's training centre to learn about the business's history, rules, health and safety procedures and pay. This is an example of:",
-    opts: ["Off-the-job training","Induction training","On-the-job training","An apprenticeship"],
-    ans: 1,
-    explain: "Induction training introduces a new worker to the business, place of work and fellow workers. It is exactly what B&Q does at their training centre for all new employees. (Note: this is also delivered off-the-job, but the specific type is induction training.)"
-  },
-  {
-    q: "Which of the following is a disadvantage of off-the-job training for a business?",
-    opts: [
-      "The quality of training depends on the trainer's own skill level",
-      "The worker is not producing goods or services while training",
-      "The trainee learns to do things in the way the business wants",
-      "Skills gained may be too specific to the firm"
-    ],
-    ans: 1,
-    explain: "A key disadvantage of off-the-job training is that the worker is absent from work — not producing any output. This is also why off-the-job tends to be more expensive. Options A and D are disadvantages of on-the-job training. Option C is actually an advantage of on-the-job training."
-  },
-  {
-    q: "Ryan completed an apprenticeship at The White Horse Inn over two years, gaining Level 2 and Level 3 NVQs. An apprenticeship is best described as:",
-    opts: [
-      "Short-term job-specific training delivered entirely in the workplace",
-      "A long-term development programme combining workplace training and college study, leading to a formal qualification",
-      "Off-the-job training funded by the government",
-      "Professional development available only to senior managers"
-    ],
-    ans: 1,
-    explain: "An apprenticeship is a long-term, structured development programme (usually 2–4 years) combining on-the-job and off-the-job learning, and leading to a formal vocational qualification. It is available at intermediate and advanced levels — not only for senior managers."
-  },
-  {
-    q: "Which of the following is a reason why businesses train their workers?",
-    opts: [
-      "To make machinery run more efficiently",
-      "To reduce the number of employees needed",
-      "To improve the productivity and performance of workers",
-      "To reduce the need for a human resources department"
-    ],
-    ans: 2,
-    explain: "A primary reason businesses train workers is to improve their productivity (output per worker) and overall performance. This leads to lower costs, higher quality output and better customer service. Training doesn't directly affect machinery or reduce headcount."
-  },
-  {
-    q: "Which of the following is a disadvantage of apprenticeships for the worker?",
-    opts: [
-      "The apprentice does not gain any qualification",
-      "The apprentice does not earn any income while learning",
-      "The pay is usually quite low during the apprenticeship",
-      "Apprenticeships are only available to university graduates"
-    ],
-    ans: 2,
-    explain: "A key disadvantage of apprenticeships for the worker is that pay is usually quite low during training, even though the apprentice does earn an income. Apprentices DO gain qualifications, DO earn income, and apprenticeships are open to those with GCSEs — not just university graduates."
-  }
-];
-
-// ── MATCHING DATA ──────────────────────────────────────
-const matchData = [
-  { term: "Training", def: "Short term and job-specific — about teaching knowledge and skills needed to do a particular job or improve current performance" },
-  { term: "Development", def: "Long term — about the overall growth of the worker and improving their potential for future roles" },
-  { term: "On-the-job training", def: "Training done at the workplace while the employee is working, delivered by a more experienced member of staff" },
-  { term: "Off-the-job training", def: "Training done away from the normal job — at a college, training centre or elsewhere" },
-  { term: "Induction training", def: "Training to introduce a new worker to the business, workplace, fellow workers and their job" },
-  { term: "Apprenticeship", def: "A long-term development programme combining workplace training and college study, leading to a vocational qualification" },
-  { term: "Professional development", def: "Long-term development that includes both vocational and academic learning, often leading to qualifications, aimed at realising the worker's potential" },
-  { term: "Productivity", def: "A measure of output per worker — how much each worker produces" }
-];
-
-// ── FILL IN THE BLANKS ──────────────────────────────────────
-const fibData = [
-  {
-    template: "[BLANK1] is short term and is focused on helping a worker do their job well. [BLANK2] is long term and is focused on the worker to help realise their longer-term [BLANK3]. Both can involve on-the-job and [BLANK4] activities.",
-    blanks: [
-      { id: "BLANK1", answer: "Training", options: ["Training","Development","Induction","Apprenticeship"] },
-      { id: "BLANK2", answer: "Development", options: ["Development","Training","Simulation","Retention"] },
-      { id: "BLANK3", answer: "potential", options: ["potential","salary","satisfaction","productivity"] },
-      { id: "BLANK4", answer: "off-the-job", options: ["off-the-job","management","technical","vocational"] }
-    ]
-  },
-  {
-    template: "On-the-job training is [BLANK1] than off-the-job training because there are no travel or accommodation costs. However, the trainee does not usually gain a specific [BLANK2] from on-the-job training. Off-the-job training is often provided by [BLANK3] who may be of higher quality. A disadvantage is that the worker is [BLANK4] from the workplace while training.",
-    blanks: [
-      { id: "BLANK1", answer: "cheaper", options: ["cheaper","more expensive","slower","riskier"] },
-      { id: "BLANK2", answer: "qualification", options: ["qualification","salary","contract","reference"] },
-      { id: "BLANK3", answer: "experts", options: ["experts","apprentices","managers","customers"] },
-      { id: "BLANK4", answer: "absent", options: ["absent","promoted","retired","motivated"] }
-    ]
-  },
-  {
-    template: "An [BLANK1] is a long-term development programme that combines on-the-job training with [BLANK2] study. It usually leads to a [BLANK3] qualification. A key disadvantage for the worker is that [BLANK4] is usually quite low during the programme.",
-    blanks: [
-      { id: "BLANK1", answer: "apprenticeship", options: ["apprenticeship","induction","lecture","simulation"] },
-      { id: "BLANK2", answer: "college", options: ["college","machinery","interview","management"] },
-      { id: "BLANK3", answer: "vocational", options: ["vocational","academic","mathematical","contractual"] },
-      { id: "BLANK4", answer: "pay", options: ["pay","quality","output","motivation"] }
-    ]
-  }
-];
-
-// ── MISCONCEPTIONS ──────────────────────────────────────
-const miscData = [
-  {
-    wrong: "Training and development are the same thing.",
-    correct: "They are different concepts. Training is short term and job-specific — about improving current performance. Development is long term and about growing the worker's overall potential. A barista learning to make coffees is training; a jewellery store manager completing a two-year leadership programme is development."
-  },
-  {
-    wrong: "Off-the-job training always means leaving the workplace.",
-    correct: "Off-the-job training may still take place on the business premises — but the worker will not be doing their normal job while receiving training. The key distinction is that the worker is not performing their usual duties, not necessarily that they have left the building."
-  },
-  {
-    wrong: "On-the-job training is always better because it is cheaper and the worker keeps producing.",
-    correct: "The best training method depends on the needs of the worker and the business. On-the-job training is not suitable for dangerous situations (e.g. training cabin crew safety procedures on a real flight), where customer service standards are high, or where expert knowledge is needed. Off-the-job may be necessary and worth the extra cost."
-  },
-  {
-    wrong: "Induction training and on-the-job training are the same thing.",
-    correct: "Induction training is a specific type of training given to workers who are new to a business. It can be delivered either on-the-job or off-the-job. Its purpose is to introduce the worker to the workplace, colleagues, culture, and health and safety — not primarily to teach job-specific skills."
-  },
-  {
-    wrong: "Apprenticeships are only for young people or school leavers.",
-    correct: "Apprenticeships are available at different levels — intermediate (for those with GCSEs) and advanced (for those with GCSEs and A-levels). Some go up to degree level. They can be taken by people of different ages and backgrounds. Capgemini, for example, offers apprenticeships for employees working part-time for a BSc degree."
-  },
-  {
-    wrong: "Professional development only benefits the worker, not the business.",
-    correct: "Professional development benefits both parties. For the business it develops long-term potential, helps meet future staffing needs, motivates workers, improves productivity and helps retain and recruit high-quality staff. The risk to the business is that a better-qualified worker may leave for a competitor."
-  },
-  {
-    wrong: "When answering a question about off-the-job training, you can just say it motivates workers or improves customer service.",
-    correct: "The OCR mark scheme specifies that you must give a benefit specifically about off-the-job training — not just about training in general. General benefits like 'increases motivation' or 'helps provide better service' could apply to any type of training and won't earn the understanding mark. You must say something like: 'experts provide the training' or 'workers can use specialist equipment safely' or 'the training takes place in a safe environment without risk to customers'."
-  }
-];
-
-// ── EXAM TIPS ──────────────────────────────────────
-const tipsData = [
-  {
-    type: "Question Type",
-    title: "2-mark Explain questions (AO1a + AO1b)",
-    content: `<p>For a 2-mark explain question about induction training, you need:</p>
-<ul>
-<li><strong>1 mark (K)</strong> — Show you know what induction training IS (e.g. "Induction is training to introduce a new worker to a business")</li>
-<li><strong>1 mark (U)</strong> — Give one benefit to the business of providing it (e.g. "The worker will settle more quickly and become productive sooner")</li>
-</ul>
-<div class="mark-breakdown"><span class="mark-pill kn">Knowledge</span><span class="mark-pill un">Understanding</span></div>`,
-  },
-  {
-    type: "Question Type",
-    title: "3-mark Analyse questions (AO1b + AO2 + AO3a)",
-    content: `<p>For analyse questions (e.g. "Analyse one benefit to Jet2.com of using off-the-job training"):</p>
-<ul>
-<li><strong>U mark</strong> — Give a benefit of off-the-job training SPECIFICALLY (not just 'training in general'). E.g. "Training takes place in a safe environment away from customers"</li>
-<li><strong>APP mark</strong> — Apply to the business in the case study. E.g. "Jet2.com cabin crew cannot practise emergency procedures on a real flight as this would put passengers at risk"</li>
-<li><strong>AN mark</strong> — State the business-facing impact. E.g. "This protects Jet2.com's reputation for safety, supporting future ticket sales and revenue"</li>
-</ul>
-<div class="mark-breakdown"><span class="mark-pill un">Understanding</span><span class="mark-pill app">Application</span><span class="mark-pill an">Analysis</span></div>`,
-  },
-  {
-    type: "Question Type",
-    title: "6-mark Analyse questions (U × 2 + APP + AN)",
-    content: `<p>For 6-mark questions (e.g. "Analyse whether it was beneficial for The White Horse Inn to train Ryan as an apprentice"):</p>
-<ul>
-<li>Give 2 advantages OR 2 disadvantages OR 1 of each of the training method</li>
-<li>Apply each to the specific business context (use the case study details)</li>
-<li>Analyse the business-facing impact for each point</li>
-</ul>
-<p>A balanced answer covering both benefits and drawbacks typically scores higher if the question asks you to "analyse whether" something was beneficial.</p>
-<div class="mark-breakdown"><span class="mark-pill un">U × 2</span><span class="mark-pill app">Application</span><span class="mark-pill an">Analysis</span></div>`,
-  },
-  {
-    type: "Common Error",
-    title: "Don't confuse training types in your answers",
-    content: `<p>When asked specifically about off-the-job training benefits, do NOT give generic training benefits. The OCR mark scheme is explicit: "The question is about off-the-job training specifically, not about the benefits of training in general such as increasing motivation or helping employees provide a better service."</p>
-<p>Specific off-the-job training benefits: expert trainers; specialist equipment; safe environment for dangerous skills; workers feel valued; industry-regulated qualifications achieved.</p>`,
-  },
-  {
-    type: "Key Distinction",
-    title: "Training vs Development — Exam Language",
-    content: `<p>If a question asks about training, keep your answer focused on the short-term, job-specific activity. If it asks about development (or professional development), make sure you reference the long-term, potential-building nature of the activity and mention qualifications, career progression, or future staffing needs.</p>
-<p>Apprenticeships and professional development programmes = development. On-the-job coaching, induction = training.</p>`,
-  },
-  {
-    type: "Evaluation Point",
-    title: "Choosing the right training method",
-    content: `<p>When evaluating which training method is best, consider:</p>
-<ul>
-<li><strong>Safety risk</strong> — if the job is dangerous or the customer is at risk, off-the-job (e.g. cabin crew, care workers, surgeons)</li>
-<li><strong>Cost</strong> — on-the-job is cheaper; off-the-job more expensive but may be essential</li>
-<li><strong>Qualifications needed</strong> — off-the-job and apprenticeships lead to formal qualifications; on-the-job usually doesn't</li>
-<li><strong>Speed</strong> — on-the-job tends to be faster to implement</li>
-<li><strong>Long-term development</strong> — apprenticeships and professional development are appropriate when building long-term potential</li>
-</ul>`,
-  }
-];
-
-// ── FLASHCARD DATA ──────────────────────────────────────
-const flashcards = [
-  { term: "Training", def: "Short term and job-specific — about teaching the knowledge and skills needed to do a particular job or improve current performance in that role." },
-  { term: "Development", def: "Long term — about the overall growth of the worker and improving their potential for future roles. May include theoretical as well as practical learning." },
-  { term: "On-the-job training", def: "Training done at the workplace while the employee is working. Delivered by a more experienced member of staff. Cheaper but quality depends on the trainer." },
-  { term: "Off-the-job training", def: "Training done away from the normal job. May be at a college or training centre. Usually higher quality and may lead to qualifications, but more expensive." },
-  { term: "Induction training", def: "Training to introduce a new worker to the business, workplace, fellow workers and their job. Can be on- or off-the-job." },
-  { term: "Apprenticeship", def: "A long-term development programme (usually 2–4 years) combining on-the-job and off-the-job training. Leads to a vocational qualification (e.g. NVQ)." },
-  { term: "Professional development", def: "Long-term learning (vocational or academic) designed to develop the overall potential of the worker. Often leads to qualifications such as degrees or professional certificates." },
-  { term: "Vocational qualification", def: "A qualification specific to a particular type of job, usually gained through a mix of practical and classroom learning (e.g. NVQ in childcare)." },
-  { term: "Academic qualification", def: "A more general qualification that is predominantly theoretical and class-based, such as A-levels or a degree." },
-  { term: "Productivity", def: "Measured by output per worker. Training that improves productivity means workers produce more per hour, reducing costs and potentially increasing profit." },
-  { term: "Skills shortage", def: "When businesses cannot recruit workers with the skills they need. Training existing workers can help address a skills shortage without external recruitment." },
-  { term: "Retention", def: "When workers stay employed by a business rather than leaving to work elsewhere. Training and development can improve retention by motivating workers and offering career progression." },
-  { term: "Coaching", def: "An intensive on-the-job training method involving a close working relationship between an experienced employee and the trainee." },
-  { term: "Job rotation", def: "An on-the-job training method where the trainee works in several different jobs in succession to gain a broad range of experience." },
-  { term: "Day release", def: "An off-the-job training method where the employee takes time off work to attend a local college or training centre on a regular basis." },
-  { term: "Simulation", def: "An off-the-job training method where the worker practises skills in a realistic but safe environment — e.g. Jet2.com cabin crew using a flight simulator." }
-];
-
-// ── TRUE / FALSE DATA ──────────────────────────────────────
-const tfData = [
-  { statement: "On-the-job training is always more expensive than off-the-job training.", answer: false, explanation: "False. On-the-job training is actually CHEAPER than off-the-job training because there are no travel, accommodation or course fees. Off-the-job training tends to be more expensive." },
-  { statement: "A key disadvantage of on-the-job training is that the trainee does not usually gain a specific qualification.", answer: true, explanation: "True. On-the-job training typically teaches workers to do the job in the way the firm wants it done, but does not lead to a formal, industry-recognised qualification." },
-  { statement: "Off-the-job training always takes place away from the business's premises.", answer: false, explanation: "False. Off-the-job training may still take place on the business premises — but the worker is NOT doing their normal job. The key is that they are away from their usual duties, not necessarily away from the building." },
-  { statement: "Induction training is only useful for the worker, not the business.", answer: false, explanation: "False. Induction training benefits the business significantly: the worker settles and becomes productive more quickly; health and safety risks are reduced; and the worker values the investment, working harder as a result." },
-  { statement: "Professional development is designed to realise the long-term potential of a worker, not just improve their current job performance.", answer: true, explanation: "True. This is the key distinction between training (short-term, job-specific) and professional development (long-term, about the overall growth and future potential of the worker)." },
-  { statement: "Apprenticeships are available only to people who have A-level qualifications.", answer: false, explanation: "False. Intermediate apprenticeships are available to people with GCSEs. Advanced apprenticeships are for those with GCSEs and A-levels. Some apprenticeships go to degree level. They are not restricted to A-level holders." },
-  { statement: "A risk of off-the-job training is that the employee may leave the firm once they have gained new skills and qualifications.", answer: true, explanation: "True. This is a recognised disadvantage of off-the-job training. Once a worker has gained transferable qualifications, they may find it easier to get a job elsewhere, meaning the business does not get the full return on its training investment." },
-  { statement: "On-the-job training is suitable for all jobs, including dangerous ones such as surgery or working at heights.", answer: false, explanation: "False. On-the-job training is NOT suitable in dangerous work situations or where the customer demands a high standard of care. In these cases, off-the-job training (often using simulation) is necessary to train workers safely before they work in the real environment." },
-  { statement: "Training can help a business improve its productivity.", answer: true, explanation: "True. Productivity (output per worker) improves when workers are better trained. Higher productivity means lower costs per unit, which can lead to lower prices, higher sales and/or increased profit." },
-  { statement: "An apprenticeship involves only studying at university.", answer: false, explanation: "False. An apprenticeship involves a mixture of on-the-job training at the workplace AND college-based study. It is part practical, part theoretical. University-only study would be an academic programme, not an apprenticeship." }
-];
-
-// ── EXAM PRACTICE DATA ──────────────────────────────────────
-const examQuestions = [
-  {
-    num: "QUESTION 01",
-    marks: 1,
-    type: "mcq",
-    question: "Which of the following is a feature of off-the-job training?",
-    options: [
-      "The worker continues to produce goods or services while training",
-      "It is a cheaper way of training workers than paying for them to go on courses",
-      "This is when workers are trained in a college or training centre away from where they do the work",
-      "It never leads to a qualification for the worker"
-    ],
-    answer: 2,
-    hint: "Think about WHERE off-the-job training takes place and what the worker is doing during it.",
-    starter: "Off-the-job training is when...",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p>Answer: <strong>C</strong> — Off-the-job training takes place away from where the worker does their normal job — at a college or training centre. Workers do NOT continue to produce goods/services (making it more expensive, not cheaper). It CAN lead to qualifications.</p></div>`
-  },
-  {
-    num: "QUESTION 02",
-    marks: 1,
-    type: "mcq",
-    question: "Which of the following is a feature of professional development?",
-    options: [
-      "It is a kind of short-term training",
-      "It is designed to realise the potential of a worker in the long-term interests of the business and the worker",
-      "It is designed to improve the skills of the worker to do a specific task",
-      "It usually involves on-the-job training only"
-    ],
-    answer: 1,
-    hint: "Think about the time horizon and purpose of professional development vs training.",
-    starter: "Professional development is...",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p>Answer: <strong>B</strong> — Professional development is long-term and designed to realise the potential of the worker. Short-term task improvement = training. Specific task improvement = training. Professional development can involve both on- and off-the-job activities.</p></div>`
-  },
-  {
-    num: "QUESTION 03",
-    marks: 1,
-    type: "mcq",
-    question: "Which of the following statements is true?",
-    options: [
-      "A vocational qualification is specific to a particular type of job",
-      "An academic qualification prepares a worker for work in a specific business",
-      "An apprenticeship is offered to senior managers who want to develop their skills further",
-      "An apprenticeship involves only studying at university"
-    ],
-    answer: 0,
-    hint: "Vocational = 'of a vocation / job'. Think about what makes it different from an academic qualification.",
-    starter: "A vocational qualification...",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p>Answer: <strong>A</strong> — A vocational qualification is specific to a particular type of job (e.g. NVQ in childcare or hospitality). Academic qualifications are more general. Apprenticeships are available at intermediate and advanced levels — not just for senior managers. Apprenticeships combine workplace training with college study, not just university.</p></div>`
-  },
-  {
-    num: "QUESTION 04",
-    marks: 1,
-    type: "mcq",
-    question: "Ryan completed an apprenticeship at The White Horse Inn, gaining Level 2 and Level 3 NVQs. Which type of training did Ryan receive during the apprenticeship?",
-    options: [
-      "Induction training only",
-      "Only off-the-job training at college",
-      "A mixture of on-the-job and off-the-job training",
-      "Only on-the-job training at the Inn"
-    ],
-    answer: 2,
-    hint: "Apprenticeships are described in your notes as combining two different types of training.",
-    starter: "An apprenticeship involves...",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme</h5><p>Answer: <strong>C</strong> — Apprenticeships involve a mixture of on-the-job training (working at the Inn with the chef) and off-the-job training (college study for the NVQ). The learning is part practical and part theoretical.</p></div>`
-  },
-  {
-    num: "QUESTION 05",
-    marks: 2,
-    type: "extended",
-    caseStudy: `<strong>Jet2.com</strong> is an airline that sells flights and holidays. The company recruits cabin crew every year. The primary responsibility of cabin crew is the safety of passengers and security during flights. They need to be able to deal with emergencies and offer medical procedures including basic first aid. Cabin crew are also sales assistants selling refreshments and duty-free goods during flights.
-
-Workers must have Cabin Crew Attestation — an industry-regulated qualification — before being allowed to work as cabin crew. Training lasts four weeks at the Jet2.com training centre in Bradford. Here there are classrooms as well as flight simulators which provide trainees with the opportunity to experience working inside an aeroplane cabin.`,
-    question: "Explain one way induction training may help Jet2.com. [2 marks]",
-    hint: "For the knowledge mark, show you know what induction training IS. For the understanding mark, explain one specific way it helps the BUSINESS (not just the worker).",
-    starter: "Induction training is training to introduce a new worker to a business (K).\nThis helps Jet2.com because... (U)",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme (AO1a + AO1b)</h5><ul>
-<li><strong>1 mark (K)</strong> — Identify what induction training is: training to introduce a new worker to a business/workplace/fellow workers</li>
-<li><strong>1 mark (U)</strong> — Explain one benefit to the business, e.g.:
-<ul>
-<li>The worker will understand what the business is trying to achieve</li>
-<li>The worker will settle to work more quickly because they've been shown the workplace and introduced to colleagues</li>
-<li>Health and safety risks are reduced — fewer accidents and compensation claims</li>
-<li>Workers become productive more quickly, increasing output</li>
-</ul></li>
-</ul></div>
-<div class="marks-section"><h5>Example Answer</h5></div>
-<div class="model-answer">"Induction training is training to introduce a new worker to a business (K). This helps Jet2.com because cabin crew will quickly learn the health and safety procedures and emergency protocols, reducing the risk of accidents and protecting Jet2.com's reputation for passenger safety (U)."</div>`
-  },
-  {
-    num: "QUESTION 06",
-    marks: 3,
-    type: "extended",
-    caseStudy: `<strong>Jet2.com</strong> (see full case study above). Training takes place at the Jet2.com training centre in Bradford with classrooms and flight simulators. Workers must achieve Cabin Crew Attestation before starting work. The training focuses on safety, security procedures, serving refreshments and sales.`,
-    question: "Analyse one benefit to Jet2.com of using off-the-job training for cabin crew. [3 marks]",
-    hint: "The understanding mark must be SPECIFIC to off-the-job training — NOT just a general benefit of training. Think: What can off-the-job training achieve that on-the-job can't? Then apply to Jet2.com specifically. Then give the business-facing impact.",
-    starter: "One benefit of off-the-job training for Jet2.com is that... (U)\nThis is particularly important for Jet2.com because... (APP)\nAs a result, Jet2.com could/will... (AN)",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme (AO1b + AO2 + AO3a)</h5><ul>
-<li><strong>1 mark (U)</strong> — Specific benefit of off-the-job training (NOT general training benefits):
-<ul><li>Training is completed in a safe environment / using simulation</li><li>Specialist trainers will be provided</li><li>Trainees can learn from simulation/role-play</li><li>Cabin crew can be trained to meet industry regulations</li></ul></li>
-<li><strong>1 mark (APP)</strong> — Apply to Jet2.com case study:
-<ul><li>Safety training during a real flight would panic passengers</li><li>Passengers cannot be put at any unnecessary risk</li><li>Cabin crew must have Cabin Crew Attestation before working on a Jet2.com flight</li><li>A reputation for safety is critical for an airline</li></ul></li>
-<li><strong>1 mark (AN)</strong> — Business-facing impact:
-<ul><li>The risk of accidents/legal claims is reduced</li><li>Jet2.com avoids penalties for not complying with regulations</li><li>Good reputation for safety supports ticket sales and revenue</li><li>In-flight sales may rise, increasing profits</li></ul></li>
-</ul></div>
-<div class="marks-section"><h5>Example Answer</h5></div>
-<div class="model-answer">"One benefit of off-the-job training is that cabin crew can practise safety and emergency procedures in a safe environment using flight simulators (U). This is essential for Jet2.com because practising emergency procedures on a real flight would put passengers at risk, and cabin crew must achieve Cabin Crew Attestation before being allowed to fly (APP). As a result, Jet2.com avoids regulatory penalties and maintains its reputation for passenger safety, which protects and potentially increases future ticket sales (AN)."</div>`
-  },
-  {
-    num: "QUESTION 07",
-    marks: 1,
-    type: "extended",
-    caseStudy: `<strong>The White Horse Inn</strong> has trained several apprentice chefs in recent years. Ryan Bollard was an apprentice at the Inn. He worked with the chef to learn to produce a range of meals and during this time he gained a Level 2 and Level 3 NVQ. Ryan then studied for a degree in hospitality management. He is now the Operations Manager for the business.`,
-    question: "Identify the type of training Ryan received during his apprenticeship. [1 mark]",
-    hint: "Ryan worked alongside the chef at the Inn AND attended college. What is the name for this combination?",
-    starter: "Ryan received...",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme (AO1a)</h5><p><strong>1 mark</strong> — On-the-job training (working with the chef at the Inn) AND off-the-job training (college study for the NVQ). Accept either "a combination of on-the-job and off-the-job training" or "on-the-job training" or "off-the-job training" for the 1 mark.</p></div>`
-  },
-  {
-    num: "QUESTION 08",
-    marks: 4,
-    type: "extended",
-    caseStudy: `<strong>The White Horse Inn</strong> — Ryan Bollard completed an apprenticeship, gaining NVQs, then studied for a degree in hospitality management. He is now the Operations Manager.`,
-    question: "Explain two features of a professional development programme. [4 marks]",
-    hint: "For each feature: state it clearly (1 mark), then explain/expand on it (1 mark). Think about time, qualifications, purpose and the type of learning involved.",
-    starter: "One feature of a professional development programme is that it is long term...\nAnother feature is that it leads to qualifications...",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme (AO1b × 4 — 2 marks per feature)</h5><p>For each feature: 1 mark for identifying it + 1 mark for explaining it.</p><p>Features may include:</p><ul>
-<li>It is long term (often 2 years or more) — because it aims to develop the worker's potential rather than just improve their performance in a specific job</li>
-<li>It often leads to a qualification — either vocational (e.g. a professional qualification like CIMA) or academic (e.g. a degree) that can help the worker progress their career</li>
-<li>It develops the long-term potential of the worker — not just improving current job performance but preparing them for future roles</li>
-<li>It may involve academic study at a college/university or online alongside practical elements in the workplace</li>
-<li>It applies at all levels — from junior to senior workers; professional development programmes are not restricted by experience</li>
-</ul></div>
-<div class="marks-section"><h5>Example Answer</h5></div>
-<div class="model-answer">"One feature of a professional development programme is that it is long term (1), often lasting two years or more, because its aim is to develop the overall potential of the worker for future roles rather than simply improving their performance in their current job (1).\n\nAnother feature is that it often leads to a formal qualification (1), such as a degree or a professional certificate, which can help the worker gain a promotion or move into more senior roles in the future (1)."</div>`
-  },
-  {
-    num: "QUESTION 09",
-    marks: 3,
-    type: "extended",
-    caseStudy: `<strong>The White Horse Inn</strong> — Ryan completed a multi-year apprenticeship working with the chef and gaining Level 2 and Level 3 NVQs, before going on to become Operations Manager.`,
-    question: "Analyse one benefit to Ryan of partaking in an apprenticeship. [3 marks]",
-    hint: "Think about what Ryan gained personally from the apprenticeship. Then apply it to his specific situation. Then analyse the impact this had for him.",
-    starter: "One benefit to Ryan of the apprenticeship is that... (U)\nThis is relevant to Ryan because... (APP)\nAs a result, Ryan was able to... (AN)",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme (AO1b + AO2 + AO3a)</h5><ul>
-<li><strong>1 mark (U)</strong> — Benefit to the worker of an apprenticeship: gain qualifications; earn income while learning; variety of practical and theoretical learning; experience and career progression</li>
-<li><strong>1 mark (APP)</strong> — Apply to Ryan: he gained Level 2 and Level 3 NVQs; he was working as a chef's apprentice; he went on to study a degree and became Operations Manager</li>
-<li><strong>1 mark (AN)</strong> — Impact on Ryan: the qualifications allowed him to progress to degree level and then into management; his earnings would have increased; he built a career pathway</li>
-</ul></div>
-<div class="marks-section"><h5>Example Answer</h5></div>
-<div class="model-answer">"One benefit to Ryan of the apprenticeship is that he was able to gain formal qualifications while earning an income (U). Specifically, Ryan gained Level 2 and Level 3 NVQs while working as a chef's apprentice at the Inn (APP). This then opened a pathway for Ryan to study for a degree in hospitality management, which ultimately led to him becoming the Operations Manager — a career progression that likely came with a significantly higher salary (AN)."</div>`
-  },
-  {
-    num: "QUESTION 10",
-    marks: 6,
-    type: "extended",
-    caseStudy: `<strong>The White Horse Inn</strong> has trained several apprentice chefs in recent years. Ryan Bollard was an apprentice at the Inn. He worked with the chef to learn to produce a range of meals and during this time he gained a Level 2 and Level 3 NVQ. Ryan went on to study for a degree in hospitality management. Now he is the Operations Manager for the business.`,
-    question: "Analyse whether it was beneficial for The White Horse Inn to train Ryan as an apprentice. [6 marks]",
-    hint: "Give 2 benefits AND 1-2 drawbacks (or the other way round). Apply each point to The White Horse Inn using details from the case study. Analyse the business-facing impact of each. The question asks you to weigh both sides — cover advantages AND disadvantages.",
-    starter: "One benefit to The White Horse Inn of Ryan's apprenticeship is... (U)\nThis is relevant because The White Horse Inn... (APP)\nThis means that The White Horse Inn... (AN)\n\nHowever, one drawback is... (U)\nFor The White Horse Inn, this meant... (APP)\nThis resulted in... (AN)",
-    markScheme: `<div class="marks-section"><h5>Mark Scheme (AO1b × 2 + APP + AN × 2 = 6 marks)</h5><p>2 benefits or drawbacks (U) + Application to The White Horse Inn (APP) + 2 analytical impacts (AN)</p>
-<p><strong>Benefits to the business of the apprenticeship:</strong></p><ul>
-<li>Ryan was able to do productive work as a chef while training — the Inn earned money from his work (U + APP)</li>
-<li>The apprenticeship may have been cheaper than hiring a fully qualified and experienced chef (U + APP)</li>
-<li>Government subsidy may have been available to help with costs (U)</li>
-<li>Ryan's loyalty and career progression (to Operations Manager) shows the apprenticeship supported retention — saving recruitment costs (U + APP)</li>
-<li>The Inn developed a future Operations Manager from within, meeting future staffing needs (U + APP)</li>
-</ul>
-<p><strong>Drawbacks to the business of the apprenticeship:</strong></p><ul>
-<li>Experienced workers (the head chef) had to spend time training Ryan, reducing their own productivity (U + APP)</li>
-<li>Risk that Ryan could have made mistakes with food preparation — quality issues, potential customer complaints (U + APP)</li>
-<li>There was a risk Ryan could have left once qualified — wasting the investment (U)</li>
-<li>The cost of NVQ courses was an additional expense for the Inn (U + APP)</li>
-</ul></div>
-<div class="marks-section"><h5>Model Answer (Strong Response)</h5></div>
-<div class="model-answer">One benefit to The White Horse Inn of training Ryan as an apprentice is that Ryan was able to work productively as a chef while learning (U). Since he was working at the Inn as he trained, The White Horse Inn was earning money from his work during the apprenticeship — unlike if they had sent him on a full-time off-the-job programme (APP). This reduced the overall cost of developing Ryan as a skilled chef (AN).
-
-A further benefit is that the apprenticeship successfully developed a future Operations Manager from within the business (U). Ryan progressed from apprentice chef to Operations Manager, which means The White Horse Inn was able to meet its future management staffing needs without external recruitment (APP). This would have saved significant recruitment costs and brought continuity to the leadership of the business (AN).
-
-However, a drawback of the apprenticeship is that the experienced head chef would have needed to spend time training Ryan (U). This means the head chef was diverted from their own cooking duties during this period (APP), which could have reduced the efficiency of the kitchen and potentially affected the quality and volume of food produced for customers (AN).</div>`
-  }
-];
-
-// ══════════════════════════════════════
-//  TAB SWITCHING
-// ══════════════════════════════════════
-function switchTab(id, btn) {
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
-  btn.classList.add('active');
-}
-
-// ══════════════════════════════════════
-//  BUILD LEARN
-// ══════════════════════════════════════
-function buildLearn() {
-  const grid = document.getElementById('topicGrid');
-  topics.forEach(t => {
-    const card = document.createElement('div');
-    card.className = 'topic-card';
-    card.innerHTML = `<span class="tag">${t.tag}</span><h3>${t.title}</h3><span class="toggle-icon">+</span><div class="topic-content">${t.content}</div>`;
-    card.addEventListener('click', () => card.classList.toggle('open'));
-    grid.appendChild(card);
-  });
-}
-
-// ══════════════════════════════════════
-//  BUILD MCQ
-// ══════════════════════════════════════
-let mcqScore = 0, mcqTotal = 0;
-function buildMCQ() {
-  const wrap = document.getElementById('mcqWrap');
-  mcqData.forEach((q, i) => {
-    const block = document.createElement('div');
-    block.className = 'q-block';
-    block.innerHTML = `<div class="q-num">QUESTION ${String(i+1).padStart(2,'0')}</div>
-    <div class="q-text">${q.q}</div>
-    <div class="options">${q.opts.map((o,oi)=>`<button class="opt-btn" data-i="${i}" data-oi="${oi}">${o}</button>`).join('')}</div>
-    <div class="q-feedback" id="fb-${i}"></div>`;
-    wrap.appendChild(block);
-  });
-  wrap.addEventListener('click', e => {
-    const btn = e.target.closest('.opt-btn'); if (!btn) return;
-    const i = +btn.dataset.i, oi = +btn.dataset.oi;
-    const block = btn.closest('.q-block');
-    if (block.dataset.answered) return;
-    block.dataset.answered = 1;
-    block.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
-    const fb = document.getElementById(`fb-${i}`);
-    if (oi === mcqData[i].ans) {
-      btn.classList.add('correct'); mcqScore++; fb.className = 'q-feedback ok show';
-      fb.textContent = '✓ Correct! ' + mcqData[i].explain;
-    } else {
-      btn.classList.add('wrong');
-      block.querySelectorAll('.opt-btn')[mcqData[i].ans].classList.add('correct');
-      fb.className = 'q-feedback no show'; fb.textContent = '✗ Incorrect. ' + mcqData[i].explain;
-    }
-    mcqTotal++;
-    document.getElementById('mcqScore').textContent = mcqScore;
-    document.getElementById('mcqTotal').textContent = mcqTotal;
-  });
-}
-function resetMCQ() {
-  mcqScore = 0; mcqTotal = 0;
-  document.getElementById('mcqScore').textContent = 0;
-  document.getElementById('mcqTotal').textContent = 0;
-  document.getElementById('mcqWrap').innerHTML = '';
-  buildMCQ();
-}
-
-// ══════════════════════════════════════
-//  BUILD MATCH
-// ══════════════════════════════════════
-let matchScore = 0, selectedTerm = null, hadError = {};
-function buildMatch() {
-  const left = document.getElementById('matchLeft');
-  const right = document.getElementById('matchRight');
-  left.innerHTML = ''; right.innerHTML = '';
-  matchScore = 0; selectedTerm = null; hadError = {};
-  document.getElementById('matchScore').textContent = 0;
-  document.getElementById('matchTotal').textContent = matchData.length;
-  const shuffledDefs = [...matchData].sort(() => Math.random() - 0.5);
-  matchData.forEach(item => {
-    const t = document.createElement('div');
-    t.className = 'match-item'; t.dataset.term = item.term;
-    t.textContent = item.term;
-    t.addEventListener('click', () => handleTermClick(t));
-    left.appendChild(t);
-  });
-  shuffledDefs.forEach(item => {
-    const d = document.createElement('div');
-    d.className = 'match-item'; d.dataset.def = item.term;
-    d.textContent = item.def;
-    d.addEventListener('click', () => handleDefClick(d));
-    right.appendChild(d);
-  });
-}
-function handleTermClick(el) {
-  if (el.classList.contains('matched-ok') || el.classList.contains('matched-eventual')) return;
-  document.querySelectorAll('#matchLeft .match-item').forEach(i => i.classList.remove('selected'));
-  el.classList.add('selected'); selectedTerm = el;
-}
-function handleDefClick(el) {
-  if (!selectedTerm) return;
-  if (el.classList.contains('matched-ok') || el.classList.contains('matched-eventual')) return;
-  const termKey = selectedTerm.dataset.term;
-  const defKey = el.dataset.def;
-  if (termKey === defKey) {
-    const cls = hadError[termKey] ? 'matched-eventual' : 'matched-ok';
-    selectedTerm.classList.remove('selected'); selectedTerm.classList.add(cls);
-    el.classList.add(cls);
-    matchScore++; document.getElementById('matchScore').textContent = matchScore;
-    selectedTerm = null;
-  } else {
-    hadError[termKey] = true;
-    el.classList.add('matched-no');
-    setTimeout(() => el.classList.remove('matched-no'), 400);
-    selectedTerm.classList.remove('selected');
-    selectedTerm.classList.add('matched-no');
-    setTimeout(() => { if(selectedTerm) selectedTerm.classList.remove('matched-no'); }, 400);
-    selectedTerm = null;
-  }
-}
-function resetMatch() { buildMatch(); }
-
-// ══════════════════════════════════════
-//  BUILD FIB
-// ══════════════════════════════════════
-let fibScore = 0, fibTotal = 0;
-function buildFIB() {
-  const wrap = document.getElementById('fibWrap');
-  fibScore = 0; fibTotal = 0;
-  fibData.forEach((sentence, si) => {
-    const div = document.createElement('div');
-    div.className = 'fib-sentence';
-    let html = sentence.template;
-    sentence.blanks.forEach(blank => {
-      fibTotal++;
-      const shuffled = [...blank.options].sort(() => Math.random() - 0.5);
-      const opts = shuffled.map(o => `<option value="${o}">${o}</option>`).join('');
-      html = html.replace(`[${blank.id}]`, `<span class="blank-select" id="bs-${si}-${blank.id}"><select onchange="checkFIB(this,'${blank.answer}','${si}-${blank.id}')"><option value="">— choose —</option>${opts}</select></span>`);
-    });
-    div.innerHTML = html;
-    wrap.appendChild(div);
-  });
-  document.getElementById('fibTotal').textContent = fibTotal;
-}
-function checkFIB(sel, answer, id) {
-  const wrap = document.getElementById('bs-' + id);
-  if (sel.value === answer) {
-    wrap.classList.remove('wrong'); wrap.classList.add('correct');
-    sel.disabled = true; fibScore++;
-    document.getElementById('fibScore').textContent = fibScore;
-  } else {
-    wrap.classList.add('wrong');
-    setTimeout(() => { wrap.classList.remove('wrong'); sel.value = ''; }, 600);
-  }
-}
-function resetFIB() {
-  fibScore = 0; fibTotal = 0;
-  document.getElementById('fibScore').textContent = 0;
-  document.getElementById('fibWrap').innerHTML = '';
-  buildFIB();
-}
-
-// ══════════════════════════════════════
-//  BUILD MISCONCEPTIONS
-// ══════════════════════════════════════
-function buildMisc() {
-  const list = document.getElementById('miscList');
-  miscData.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'misc-card';
-    card.innerHTML = `<div class="wrong-view"><div class="misc-tag">✗ Common Misconception</div><p>${item.wrong}</p></div>
-    <div class="correct-view"><div class="misc-tag">✓ What Examiners Expect</div><p>${item.correct}</p></div>`;
-    list.appendChild(card);
-  });
-}
-
-// ══════════════════════════════════════
-//  BUILD EXAM TIPS
-// ══════════════════════════════════════
-function buildTips() {
-  const grid = document.getElementById('tipsGrid');
-  tipsData.forEach(tip => {
-    const card = document.createElement('div');
-    card.className = 'tip-card';
-    card.innerHTML = `<div class="tip-type">${tip.type}</div><h4>${tip.title}</h4>${tip.content}`;
-    grid.appendChild(card);
-  });
-}
-
-// ══════════════════════════════════════
-//  FLASHCARDS
-// ══════════════════════════════════════
-let fcIndex = 0;
-function renderFC() {
-  document.getElementById('fcTerm').textContent = flashcards[fcIndex].term;
-  document.getElementById('fcDef').textContent = flashcards[fcIndex].def;
-  document.getElementById('fcProgress').textContent = `Card ${fcIndex+1} of ${flashcards.length}`;
-  document.getElementById('flashcard').classList.remove('flipped');
-}
-function flipCard() { document.getElementById('flashcard').classList.toggle('flipped'); }
-function nextCard() { fcIndex = (fcIndex+1) % flashcards.length; renderFC(); }
-function prevCard() { fcIndex = (fcIndex-1+flashcards.length) % flashcards.length; renderFC(); }
-
-// ══════════════════════════════════════
-//  BUILD TRUE / FALSE
-// ══════════════════════════════════════
-let tfScore = 0, tfTotal = 0;
-function buildTF() {
-  const wrap = document.getElementById('tfWrap');
-  tfData.forEach((item, i) => {
-    const card = document.createElement('div'); card.className = 'tf-card';
-    card.innerHTML = `<div><div class="tf-text">${item.statement}</div><div class="tf-explanation" id="tfExp-${i}">${item.explanation}</div></div>
-    <div class="tf-btns"><button class="tf-btn" data-i="${i}" data-val="true">TRUE</button><button class="tf-btn" data-i="${i}" data-val="false">FALSE</button></div>`;
-    wrap.appendChild(card);
-  });
-  wrap.addEventListener('click', e => {
-    const btn = e.target.closest('.tf-btn'); if (!btn) return;
-    const i = +btn.dataset.i; const card = btn.closest('.tf-card');
-    if (card.dataset.answered) return;
-    card.dataset.answered = 1;
-    const val = btn.dataset.val === 'true'; const correct = val === tfData[i].answer; tfTotal++;
-    card.querySelectorAll('.tf-btn').forEach(b => b.disabled = true);
-    if (correct) { btn.classList.add('correct'); tfScore++; }
-    else { btn.classList.add('wrong'); card.querySelectorAll('.tf-btn').forEach(b => { if (b.dataset.val === String(tfData[i].answer)) b.classList.add('correct'); }); }
-    document.getElementById(`tfExp-${i}`).classList.add('show');
-    document.getElementById('tfScore').textContent = tfScore;
-    document.getElementById('tfTotal').textContent = tfTotal;
-  });
-}
-function resetTF() {
-  tfScore = 0; tfTotal = 0;
-  document.getElementById('tfScore').textContent = 0;
-  document.getElementById('tfTotal').textContent = 0;
-  document.getElementById('tfWrap').innerHTML = '';
-  buildTF();
-}
-
-// ══════════════════════════════════════
-//  BUILD EXAM PRACTICE
-// ══════════════════════════════════════
-function buildExamPractice() {
-  const list = document.getElementById('epList');
-  examQuestions.forEach((q, qi) => {
-    const card = document.createElement('div');
-    card.className = 'ep-card';
-    const caseHtml = q.caseStudy ? `<div class="ep-case">${q.caseStudy.replace(/\n/g,'<br>')}</div>` : '';
-    let interactiveHtml = '';
-    if (q.type === 'mcq') {
-      interactiveHtml = `<div class="ep-mcq-opts">${q.options.map((o,oi) =>
-        `<button class="ep-opt" data-qi="${qi}" data-oi="${oi}"><strong>${String.fromCharCode(65+oi)}.</strong> ${o}</button>`
-      ).join('')}</div>`;
-    } else {
-      interactiveHtml = `<textarea class="ep-answer-area" id="epTextarea-${qi}" placeholder="Write your answer here..."></textarea>`;
-    }
-    card.innerHTML = `
-      <div class="ep-header">
+    <div class="tab-panel" id="tab-mcq">
+      <h2 class="section-title">Multiple Choice Questions</h2>
+      <p class="section-sub">Select an answer to reveal instant feedback.</p>
+      <div class="score-bar">
         <div>
-          <div class="ep-num">${q.num}</div>
-          <div class="ep-title">${q.marks} mark${q.marks > 1 ? 's' : ''}</div>
+          <div class="score-num" id="mcqScore">0</div>
+          <div style="font-size: 12px; color: var(--mid)">
+            correct answers
+          </div>
         </div>
-        <div class="ep-marks">[${q.marks} mark${q.marks > 1 ? 's' : ''}]</div>
+        <div style="font-size: 13px; color: var(--mid)">
+          out of <strong id="mcqTotal">0</strong> attempted
+        </div>
+        <button class="reset-btn" onclick="resetMCQ()">RESET</button>
       </div>
-      <div class="ep-body">
-        ${caseHtml}
-        <div class="ep-question">${q.question.replace(/\n/g,'<br>')}</div>
-        ${interactiveHtml}
-        <div class="ep-btn-row">
-          <button class="ep-btn hint-btn" onclick="togglePop(${qi},'hint')">💡 Hint</button>
-          <button class="ep-btn starter-btn" onclick="togglePop(${qi},'starter')">✍️ Sentence Starter</button>
-          ${q.type !== 'mcq' ? `<button class="ep-btn submit-btn" onclick="togglePop(${qi},'marks')">📋 Submit &amp; See Mark Scheme</button>` : ''}
-        </div>
-        <div class="ep-popup hint-pop" id="epHint-${qi}"><strong>💡 Hint:</strong> ${q.hint}</div>
-        <div class="ep-popup starter-pop" id="epStarter-${qi}"><strong>✍️ Sentence Starter:</strong><br>${q.starter.replace(/\n/g,'<br>')}</div>
-        <div class="ep-popup marks-pop" id="epMarks-${qi}">${q.markScheme}</div>
-      </div>`;
-    list.appendChild(card);
-  });
-  document.getElementById('epList').addEventListener('click', e => {
-    const btn = e.target.closest('.ep-opt');
-    if (!btn) return;
-    const qi = +btn.dataset.qi, oi = +btn.dataset.oi;
-    const card = btn.closest('.ep-card');
-    if (card.dataset.epAnswered) return;
-    card.dataset.epAnswered = 1;
-    const allOpts = card.querySelectorAll('.ep-opt');
-    allOpts.forEach(b => b.disabled = true);
-    if (oi === examQuestions[qi].answer) {
-      btn.classList.add('ep-correct');
-    } else {
-      btn.classList.add('ep-wrong');
-      allOpts[examQuestions[qi].answer].classList.add('ep-correct');
-    }
-    document.getElementById(`epMarks-${qi}`).classList.add('show');
-  });
-}
-function togglePop(qi, type) {
-  const hint = document.getElementById(`epHint-${qi}`);
-  const starter = document.getElementById(`epStarter-${qi}`);
-  const marks = document.getElementById(`epMarks-${qi}`);
-  if (type === 'hint') { hint.classList.toggle('show'); starter.classList.remove('show'); }
-  else if (type === 'starter') { starter.classList.toggle('show'); hint.classList.remove('show'); }
-  else if (type === 'marks') { marks.classList.toggle('show'); }
-}
+      <div class="quiz-wrap" id="mcqWrap"></div>
+    </div>
 
-// ══════════════════════════════════════
-//  INIT
-// ══════════════════════════════════════
-buildLearn(); buildMCQ(); buildMatch(); buildFIB(); buildMisc(); buildTips(); renderFC(); buildTF(); buildExamPractice();
-</script>
+    <div class="tab-panel" id="tab-matching">
+      <h2 class="section-title">Matching Activity</h2>
+      <p class="section-sub">
+        Click a term on the left, then click the matching definition on the
+        right.
+      </p>
+      <div style="margin-bottom: 16px">
+        <div class="score-bar">
+          <div>
+            <div class="score-num" id="matchScore">0</div>
+            <div style="font-size: 12px; color: var(--mid)">matched</div>
+          </div>
+          <div style="font-size: 13px; color: var(--mid)">
+            out of <strong id="matchTotal">0</strong>
+          </div>
+          <button class="reset-btn" onclick="resetMatch()">RESET</button>
+        </div>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px">
+          <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #d4edda;
+                  border: 1.5px solid #2d7a4f;
+                  display: inline-block;
+                "></span>
+            First attempt correct</span>
+          <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fff8dc;
+                  border: 1.5px solid #b8860b;
+                  display: inline-block;
+                "></span>
+            Correct after mistake</span>
+          <span style="
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-family: &quot;DM Mono&quot;, monospace;
+              "><span style="
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 3px;
+                  background: #fde8e5;
+                  border: 1.5px solid #c84b31;
+                  display: inline-block;
+                "></span>
+            Wrong — try again</span>
+        </div>
+      </div>
+      <div class="match-grid">
+        <div>
+          <div class="match-label">TERMS</div>
+          <div class="match-col" id="matchLeft"></div>
+        </div>
+        <div>
+          <div class="match-label">DEFINITIONS</div>
+          <div class="match-col" id="matchRight"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-fib">
+      <h2 class="section-title">Fill in the Blanks</h2>
+      <p class="section-sub">
+        Click each dropdown and choose the correct word. Wrong answers reset —
+        try again!
+      </p>
+      <div class="score-bar">
+        <div>
+          <div class="score-num" id="fibScore">0</div>
+          <div style="font-size: 12px; color: var(--mid)">correct</div>
+        </div>
+        <div style="font-size: 13px; color: var(--mid)">
+          of <strong id="fibTotal">0</strong> blanks
+        </div>
+        <button class="reset-btn" onclick="resetFIB()">RESET</button>
+      </div>
+      <div class="fib-wrap" id="fibWrap"></div>
+    </div>
+
+    <div class="tab-panel" id="tab-misconceptions">
+      <h2 class="section-title">Common Misconceptions</h2>
+      <p class="section-sub">
+        What students often think — and what examiners actually want.
+      </p>
+      <div class="misc-list" id="miscList"></div>
+    </div>
+
+    <div class="tab-panel" id="tab-examtips">
+      <h2 class="section-title">Exam Questions &amp; Tips</h2>
+      <p class="section-sub">
+        Most repeated question types and mark-scheme structures from real OCR
+        papers.
+      </p>
+      <div class="tips-grid" id="tipsGrid"></div>
+    </div>
+
+    <div class="tab-panel" id="tab-flashcards">
+      <h2 class="section-title">Flashcards</h2>
+      <p class="section-sub">
+        Test yourself! Flip the card and rate your knowledge. Review your weak
+        areas at the end.
+      </p>
+
+      <div class="fc-container">
+        <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+          <div>
+            <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+            <div style="font-size: 12px; color: var(--mid)">known</div>
+          </div>
+          <div>
+            <div class="score-num" id="fcUnknown" style="color: #c84b31">
+              0
+            </div>
+            <div style="font-size: 12px; color: var(--mid)">learning</div>
+          </div>
+          <div style="font-size: 13px; color: var(--mid)">
+            out of <strong id="fcTotalTrack">0</strong>
+          </div>
+          <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+        </div>
+
+        <div id="fcActiveArea">
+          <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+          <div class="flashcard" id="flashcard" onclick="flipCard()">
+            <div class="fc-inner">
+              <div class="fc-front">
+                <div class="fc-label">KEY TERM</div>
+                <div class="fc-term" id="fcTerm"></div>
+              </div>
+              <div class="fc-back">
+                <div class="fc-def" id="fcDef"></div>
+              </div>
+            </div>
+          </div>
+          <p class="fc-hint">👆 Click card to flip</p>
+
+          <div class="fc-nav" id="fcNavDefault">
+            <button class="fc-btn outline" onclick="prevCard()">
+              ← Prev
+            </button>
+            <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+            <button class="fc-btn" onclick="nextCard()">Next →</button>
+          </div>
+
+          <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+            <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+              onclick="markCard(false)">
+              ❌ Still Learning
+            </button>
+            <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1" onclick="markCard(true)">
+              ✅ Got It
+            </button>
+          </div>
+        </div>
+
+        <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+          <h3>Session Complete! 🎉</h3>
+          <p style="margin: 15px 0">
+            You knew <strong id="fcSummaryKnown">0</strong> out of
+            <strong id="fcSummaryTotal">0</strong> cards.
+          </p>
+          <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+            <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+              style="background: #c84b31; border-color: #c84b31">
+              Review Incorrect
+            </button>
+            <button class="fc-btn outline" onclick="resetFlashcards()">
+              Practice All Again
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-truefalse">
+      <h2 class="section-title">True or False?</h2>
+      <p class="section-sub">Test your knowledge with these statements.</p>
+      <div class="score-bar">
+        <div>
+          <div class="score-num" id="tfScore">0</div>
+          <div style="font-size: 12px; color: var(--mid)">correct</div>
+        </div>
+        <div style="font-size: 13px; color: var(--mid)">
+          of <strong id="tfTotal">0</strong> answered
+        </div>
+        <button class="reset-btn" onclick="resetTF()">RESET</button>
+      </div>
+      <div class="tf-wrap" id="tfWrap"></div>
+    </div>
+
+    <div class="tab-panel" id="tab-exampractice">
+      <h2 class="section-title">Exam Practice Questions</h2>
+      <p class="section-sub">
+        Full exam questions with case studies. Use <strong>Hint</strong>,
+        <strong>Sentence Starter</strong> and
+        <strong>Submit &amp; See Mark Scheme</strong> for each question.
+      </p>
+      <div class="ep-list" id="epList"></div>
+    </div>
+  </main>
+
+
+  <script>
+    // ══════════════════════════════════════
+    //  DATA: 3.6 Training and Development
+    // ══════════════════════════════════════
+
+    // 1. Main Learning Content
+    const topics = [
+      {
+        title: "Key Terms & Official Definitions",
+        tag: "Core Concepts",
+        content: `<p>These are the essential terms you must know for the exam. Learn the distinction between each one carefully — examiners regularly test whether students can tell them apart.</p>
+  <ul>
+    <li><strong>Training:</strong> Short-term learning focused on improving a worker's ability to do a specific job or task.</li>
+    <li><strong>Development:</strong> Long-term learning focused on growing a worker's overall potential for future roles.</li>
+    <li><strong>On-the-job training:</strong> Training that takes place at the workplace while the employee is doing their job.</li>
+    <li><strong>Off-the-job training:</strong> Training that takes place away from the normal job, either on-site or at an external venue.</li>
+    <li><strong>Induction training:</strong> Training to introduce a new employee to the business, workplace, colleagues, and job role.</li>
+    <li><strong>Apprenticeship:</strong> A long-term development programme (typically 2–4 years) combining on-the-job and off-the-job learning, leading to a vocational qualification.</li>
+    <li><strong>Professional development:</strong> Long-term development of a worker through vocational or academic qualifications to realise their future potential.</li>
+    <li><strong>Vocational qualification:</strong> A job-specific qualification gained through a mix of practical and classroom learning (e.g. NVQ, Cambridge Technical).</li>
+    <li><strong>Academic qualification:</strong> A more general, theory-based qualification (e.g. GCSEs, A Levels, degrees).</li>
+    <li><strong>Productivity:</strong> Output per worker — a measure of how efficiently employees produce goods or services.</li>
+    <li><strong>Skills shortage:</strong> A situation where businesses cannot recruit workers with the skills they need.</li>
+    <li><strong>Retention:</strong> Keeping workers employed rather than them leaving to work elsewhere.</li>
+  </ul>`
+      },
+      {
+        title: "Training vs Development — What's the Difference?",
+        tag: "Core Concepts",
+        content: `<p>Students often mix these up. The distinction is subtle but important — examiners test it directly.</p>
+  <div class="two-col">
+    <div>
+      <div class="col-head">📚 Training</div>
+      <div class="pro-item"><strong>Short-term</strong> — focused on improving performance in the current job now.</div>
+      <div class="pro-item"><strong>Job-specific</strong> — teaches knowledge and skills needed to do a particular task.</div>
+      <div class="pro-item"><strong>Practical focus</strong> — learning by doing, often hands-on.</div>
+      <div class="pro-item"><strong>Example:</strong> A Starbucks barista learning to make different coffees from an experienced colleague.</div>
+    </div>
+    <div>
+      <div class="col-head">🎓 Development</div>
+      <div class="con-item"><strong>Long-term</strong> — focused on improving the overall potential of the worker for future roles.</div>
+      <div class="con-item"><strong>Person-centred</strong> — about growing the employee, not just the current job.</div>
+      <div class="con-item"><strong>Theoretical + practical</strong> — includes academic knowledge as well as skills.</div>
+      <div class="con-item"><strong>Example:</strong> Beaverbrooks jewellers offering a management development programme including home study, coaching, and promotion pathways.</div>
+    </div>
+  </div>
+  <p style="margin-top:12px"><strong>Key rule:</strong> Both training and development can involve on- and off-the-job activities — it's the <em>timeframe and purpose</em> that differs.</p>`
+      },
+      {
+        title: "Why Do Businesses Train Their Workers?",
+        tag: "Theory",
+        content: `<p>Businesses invest in training for a wide range of reasons. In the exam, always link the reason to the business impact.</p>
+  <ul>
+    <li><strong>Improve productivity:</strong> Better-trained workers produce more output per hour, reducing unit costs and potentially increasing profit.</li>
+    <li><strong>Improve customer service:</strong> Well-trained staff give customers better advice and experiences, boosting sales and reputation.</li>
+    <li><strong>Solve skill shortages:</strong> If specialist workers can't be recruited externally, training existing staff fills the gap.</li>
+    <li><strong>Improve motivation and retention:</strong> Workers feel valued when a business invests in them, making them less likely to leave and reducing costly recruitment cycles.</li>
+    <li><strong>Support business development:</strong> Training lets the business expand into new products or services.</li>
+    <li><strong>Induction of new workers:</strong> New employees need to understand the workplace, procedures, and culture before they can work effectively.</li>
+    <li><strong>Health and safety:</strong> Reduces accidents, legal claims, and bad publicity.</li>
+    <li><strong>New technology/products:</strong> Workers need updating when the business introduces new machinery, software, or product lines.</li>
+    <li><strong>Retraining:</strong> When technology replaces a job role, employees may be retrained to do a different role instead of being made redundant.</li>
+    <li><strong>Flexibility:</strong> Multiskilled workers can cover different roles, making the business more adaptable.</li>
+  </ul>`
+      },
+      {
+        title: "On-the-Job Training",
+        tag: "Methods",
+        content: `<p>On-the-job training takes place at the workplace while the employee is working. A common example is <strong>shadowing</strong>, where a new worker follows and learns from an experienced colleague.</p>
+  <div class="case-study-box">
+    <h4>Case Study: Starbucks</h4>
+    <p>New baristas at Starbucks receive one-to-one on-the-job training. An experienced barista works alongside the new employee, showing them how to make the different coffees — from flat whites to Americanos. The trainee practises while serving real customers.</p>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="col-head">✓ Advantages</div>
+      <div class="pro-item"><strong>Individual training:</strong> Tailored to meet that specific worker's needs.</div>
+      <div class="pro-item"><strong>Cheaper:</strong> No travel, accommodation, or external course fees.</div>
+      <div class="pro-item"><strong>Productive while training:</strong> The trainee produces goods/services during training, so the firm earns money.</div>
+      <div class="pro-item"><strong>Business-specific:</strong> Trained to do the job the way the firm wants it done.</div>
+      <div class="pro-item"><strong>Retention benefit:</strong> Skills may be specific to that firm, making it harder for the worker to leave — the business gets a return on its investment.</div>
+    </div>
+    <div>
+      <div class="col-head">✗ Disadvantages</div>
+      <div class="con-item"><strong>Trainer distracted:</strong> The trainer must leave their own work to help the trainee, so production may fall.</div>
+      <div class="con-item"><strong>Quality risk:</strong> Work produced by a trainee may be poor, wasting resources or harming the firm's reputation.</div>
+      <div class="con-item"><strong>Trainer quality:</strong> If the trainer has poor communication skills or bad habits, the trainee learns them too.</div>
+      <div class="con-item"><strong>No qualification:</strong> Workers typically don't gain a recognised qualification from on-the-job training.</div>
+      <div class="con-item"><strong>Limits portability:</strong> Firm-specific skills make it harder for the worker to find employment elsewhere if they lose their job.</div>
+      <div class="con-item"><strong>Not suitable for groups:</strong> More effective one-on-one; difficult to scale.</div>
+    </div>
+  </div>`
+      },
+      {
+        title: "Off-the-Job Training",
+        tag: "Methods",
+        content: `<p>Off-the-job training takes place <strong>away from the employee's normal working duties</strong>. It may still be on company premises, but the worker is not doing their usual job. <br> <strong> Activities include:</strong></p>
+  <ul>
+  <li>
+    <p>
+      <strong>Lectures: </strong>
+      These are good for telling people about things and for giving information.
+      They are not good for improving skills.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>Demonstrations: </strong>
+      The trainee watches someone show them how to do a job. These are good
+      because you learn from an expert. It is often necessary to practise the
+      work after the demonstration in order to develop the skills.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>Role play or simulation: </strong>
+      The worker experiences a situation as if it were a real work situation.
+      The trainee practises the skills or practises how they would deal with the
+      situation.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>Team-building: </strong>
+      A group performs tasks together in order to develop. It helps people learn
+      how to work well in teams and to appreciate the different qualities that
+      other people have. The tasks may or may not be connected to work. Non-work
+      connected activities can include outdoor pursuits.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>Reading and reflecting on online materials: </strong>
+      The worker may have access to online training materials. Usually there are
+      tasks or exercises that must be completed to develop understanding of the
+      materials.
+    </p>
+  </li>
+</ul>
+        <div class="case-study-box">
+    <h4>Case Study: Jet2.com</h4>
+    <p>Jet2.com trains its cabin crew entirely off-the-job at a dedicated training centre in Bradford. The centre has classrooms and full flight simulators. Trainees must earn their Cabin Crew Attestation — an industry-regulated qualification — before they are allowed to work on a real flight. Safety training on a live aircraft with passengers would be impossible and dangerous, making off-the-job simulation essential.</p>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="col-head">✓ Advantages</div>
+      <div class="pro-item"><strong>Expert trainers:</strong> Delivered by specialists who may introduce new ideas and best practice.</div>
+      <div class="pro-item"><strong>Specialist equipment:</strong> Trainees can use purpose-built training equipment (e.g. flight simulators).</div>
+      <div class="pro-item"><strong>Safe environment:</strong> Mistakes are made in training, not in the real workplace — critical for safety-critical roles.</div>
+      <div class="pro-item"><strong>Focused learning:</strong> Workers are removed from operational distractions and can concentrate fully.</div>
+      <div class="pro-item"><strong>Workers feel valued:</strong> Sending staff on courses signals the business is investing in them, boosting morale.</div>
+      <div class="pro-item"><strong>Industry qualifications:</strong> Can lead to recognised, portable qualifications.</div>
+    </div>
+    <div>
+      <div class="col-head">✗ Disadvantages</div>
+      <div class="con-item"><strong>Expensive:</strong> Course fees, travel, and accommodation add up significantly.</div>
+      <div class="con-item"><strong>Lost output:</strong> The worker is not producing goods or services while training.</div>
+      <div class="con-item"><strong>Retention risk:</strong> Once qualified, workers may use their new skills to get a better-paid job elsewhere.</div>
+      <div class="con-item"><strong>Not always business-specific:</strong> External trainers may not teach things exactly the way the business wants.</div>
+    </div>
+  </div>`
+      },
+      {
+        title: "Induction Training",
+        tag: "Methods",
+        content: `<p>Induction training is for <strong>new employees only</strong>. Its purpose is NOT to teach job skills — it is to introduce the worker to the business, the workplace, and their colleagues so they can settle in quickly and work safely.</p>
+  <p><strong>⚠️ Common mistake:</strong> Many students describe induction as "teaching new skills." This is wrong. Induction is about settling in, not skill-building. Examiners flagged this as a very common error.</p>
+  <div class="two-col">
+    <div>
+      <div class="col-head">✓ Benefits to the Worker</div>
+      <div class="pro-item">Gets to know colleagues and feels welcome.</div>
+      <div class="pro-item">Learns what is expected of them and the culture of the business.</div>
+      <div class="pro-item">Finds out the layout of the workplace (toilets, canteen, emergency exits).</div>
+      <div class="pro-item">Learns health and safety procedures, helping them work safely.</div>
+      <div class="pro-item">May learn job-specific skills to begin their role.</div>
+    </div>
+    <div>
+      <div class="col-head">✓ Benefits to the Business</div>
+      <div class="con-item">Worker becomes productive more quickly — less time wasted settling in.</div>
+      <div class="con-item">Reduced risk of accidents → fewer compensation claims and less bad publicity.</div>
+      <div class="con-item">Worker feels valued → more likely to work hard and stay with the business.</div>
+      <div class="con-item">Improved communication → worker understands the organisational structure and who to report to.</div>
+    </div>
+  </div>
+  <div class="case-study-box">
+    <h4>Case Study: B&Q</h4>
+    <p>New B&Q employees are sent to the "B&Q University" (a dedicated training centre). They learn about the company's history, aims, health and safety rules, pay structure, and promotion opportunities. This is a formal, off-the-job induction, though smaller businesses may conduct theirs on-site with a tour and introductions.</p>
+  </div>
+
+  <div class="case-study-box">
+    <h4>Case Study: Christies Care</h4>
+    <p>All new employees complete a two-week residential
+training course. Skills taught include moving and handling patients, continence care,
+emergency first aid, infection control. Employees gain a care certificate before
+working in a care home. </p>
+  </div>
+  
+  <p><strong>Cost reminder:</strong> Induction has a cost — wages are paid while the worker is not yet producing output, and someone must provide the training.</p>`
+      },
+      {
+        title: "Staff Development — Apprenticeships",
+        tag: "Staff Development",
+        content: `<p>An <strong>apprenticeship</strong> is a long-term development programme (typically 2–4 years) that combines on-the-job work experience with off-the-job study, leading to a vocational qualification. Apprentices are already employed and paid while they learn.</p>
+  <div class="case-study-box">
+    <h4>Case Study: Redrow Homes</h4>
+    <p>Redrow Homes employs over 2,300 people and has been named a 'Top 100 Apprenticeship Employer' for five consecutive years. At any one time, the company employs at least 130 apprentices in trades such as carpentry, plumbing, and bricklaying. Apprentices follow a clear career path, gaining qualifications alongside work experience and a competitive wage. The company views apprenticeships as an excellent way to find and develop motivated young staff tailored to the construction industry's specific needs.</p>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="col-head">✓ Advantages to the Business</div>
+      <div class="pro-item"><strong>Tailored training:</strong> Learning is tailored to the firm's specific needs — apprentices learn to do the job the business's way.</div>
+      <div class="pro-item"><strong>Cost-effective:</strong> Often cheaper than hiring already-skilled workers. Government subsidies may be available.</div>
+      <div class="pro-item"><strong>Productive while training:</strong> Apprentices contribute work to the business as they learn.</div>
+      <div class="pro-item"><strong>Loyalty and retention:</strong> Apprentices who feel invested in are more likely to stay with the business long-term.</div>
+      <div class="pro-item"><strong>Solves skill shortages:</strong> Builds the specific skills the industry needs from within.</div>
+    </div>
+    <div>
+      <div class="col-head">✗ Disadvantages to the Business</div>
+      <div class="con-item"><strong>Costly to run:</strong> Course fees, time of experienced workers acting as mentors, reduced output while apprentice is off-site studying.</div>
+      <div class="con-item"><strong>Risk of quality issues:</strong> Apprentices not yet fully skilled may make mistakes, wasting resources.</div>
+      <div class="con-item"><strong>Drop-out risk:</strong> If an apprentice does not complete the programme, the investment is wasted.</div>
+    </div>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="col-head">✓ Advantages to the Worker</div>
+      <div class="pro-item">Earn a wage while learning — no need to take on student debt.</div>
+      <div class="pro-item">Gain a recognised vocational qualification to support career progression.</div>
+      <div class="pro-item">Varied learning — mix of practical and theoretical activities.</div>
+    </div>
+    <div>
+      <div class="col-head">✗ Disadvantages to the Worker</div>
+      <div class="con-item">Pay is usually low during the apprenticeship period.</div>
+      <div class="con-item">Qualifications are job-specific — may limit future career breadth compared to a degree.</div>
+      <div class="con-item">Evidence suggests degree-holders earn more on average in the long run.</div>
+    </div>
+  </div>`
+      },
+      {
+        title: "Staff Development — Professional Development Programmes",
+        tag: "Staff Development",
+        content: `<p><strong>Professional development programmes</strong> are long-term development activities (vocational or academic) designed to realise the long-term potential of a worker. They often lead to qualifications such as degrees, professional diplomas, or vocational certificates and are a form of staff development — not short-term training.</p>
+  <div class="case-study-box">
+    <h4>Case Study: Capgemini</h4>
+    <p>Capgemini, a global technology consultancy operating in 40 countries, supports employees to work part-time towards a BSc in Software Engineering or BSc in Business Information Systems. These "advanced apprenticeships" develop the long-term potential of existing staff, helping Capgemini build a highly skilled, loyal workforce for the future.</p>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="col-head">✓ Advantages to the Business</div>
+      <div class="pro-item"><strong>Improves long-term productivity:</strong> Better-qualified workers perform more efficiently, helping the business compete.</div>
+      <div class="pro-item"><strong>Workforce planning:</strong> Develops future managers internally — as senior workers leave, others are ready for promotion.</div>
+      <div class="pro-item"><strong>Motivation and retention:</strong> Workers feel valued, work harder, and are less likely to leave.</div>
+      <div class="pro-item"><strong>Attract high-quality recruits:</strong> Offering development opportunities makes the business more attractive to ambitious candidates.</div>
+    </div>
+    <div>
+      <div class="col-head">✗ Disadvantages to the Business</div>
+      <div class="con-item"><strong>Expensive:</strong> Course fees, lost working time, and cover costs all add up.</div>
+      <div class="con-item"><strong>Retention risk:</strong> Once qualified, workers may find it easier to secure higher-paid jobs at rival firms.</div>
+      <div class="con-item"><strong>No guarantee of return:</strong> The business cannot guarantee the investment will benefit the firm if the worker leaves.</div>
+    </div>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="col-head">✓ Advantages to the Worker</div>
+      <div class="pro-item">Gain qualifications and experience leading to career opportunities.</div>
+      <div class="pro-item">Increased earnings potential and promotion prospects.</div>
+      <div class="pro-item">Improved self-esteem — feels supported and valued by the employer.</div>
+    </div>
+    <div>
+      <div class="col-head">✗ Disadvantages to the Worker</div>
+      <div class="con-item">Can be very demanding and stressful alongside a full-time job.</div>
+      <div class="con-item">No guarantee the qualification will lead to career progression at that business.</div>
+    </div>
+  </div>`
+      },
+      {
+        title: "Evaluation: Which Training Method is Best?",
+        tag: "Analysis",
+        content: `<p>There is no single "best" training method — the right choice depends on the situation. In evaluation questions, always consider the context of the business.</p>
+  <ul>
+    <li><strong>On-the-job</strong> is best when: the work is straightforward, cost is a concern, and mistakes are recoverable. <em>Not suitable</em> when safety is critical or quality standards are very high.</li>
+    <li><strong>Off-the-job</strong> is best when: the work involves safety risks, specialist skills, or industry-regulated qualifications are required. <em>Not suitable</em> when the business cannot afford the cost or the worker's absence.</li>
+    <li><strong>Induction</strong> is always needed for new starters — it reduces settling-in time and health and safety risks regardless of sector.</li>
+    <li><strong>Apprenticeships</strong> suit businesses that need specific, practical skills developed over time and want to build loyal, long-term employees. Best for trades, engineering, and technical roles.</li>
+    <li><strong>Professional development</strong> suits businesses with ambitious employees and a need for future managers or highly qualified specialists. Especially valuable in finance, law, technology, and healthcare.</li>
+  </ul>
+  <p><strong>Evaluation tip:</strong> Consider whether the business can afford the cost, whether the worker will stay after qualifying, and whether the skill needed is short-term or long-term. These are the factors that decide which method is best <em>in context</em>.</p>`
+      }
+    ];
+
+    // 2. Multiple Choice Questions
+    const mcqData = [
+      {
+        q: "What is the main difference between training and development?",
+        opts: [
+          "Training is long-term and development is short-term",
+          "Training is job-specific and short-term; development is about long-term potential",
+          "Development only involves on-the-job activities",
+          "Training always leads to a qualification"
+        ],
+        ans: 1,
+        explain: "Correct: B. Training is short-term and focused on a specific job or task. Development is longer-term and about growing the overall potential of the worker for future roles."
+      },
+      {
+        q: "Which of the following is a feature of off-the-job training?",
+        opts: [
+          "The worker continues to produce goods or services whilst training",
+          "It is a cheaper way of training workers than paying for them to go on courses",
+          "Workers are trained in a college or training centre away from where they do the work",
+          "It never leads to a qualification for the worker"
+        ],
+        ans: 2,
+        explain: "Correct: C. Off-the-job training takes place away from the employee's normal duties — at an external venue such as a college or training centre. A is on-the-job, B is wrong (off-the-job is more expensive), D is false (off-the-job often leads to qualifications)."
+      },
+      {
+        q: "Which of the following is NOT a benefit to a golfing equipment retailer of training its sales assistants?",
+        opts: [
+          "To help staff give advice on which golf clubs to buy",
+          "To increase the sales of golf umbrellas and waterproof clothing",
+          "To motivate staff to assist customers who are trying on golf shoes",
+          "To reduce the time it takes to make golf bags and golf trolleys"
+        ],
+        ans: 3,
+        explain: "Correct: D. A retailer doesn't make golf bags — it sells them. Training sales assistants would not reduce manufacturing time because retail staff don't manufacture products. A, B, and C are all genuine benefits of training retail staff."
+      },
+      {
+        q: "What is induction training?",
+        opts: [
+          "Training to help workers gain a vocational qualification",
+          "Long-term development to realise a worker's potential",
+          "Training to introduce a new worker to the business and workplace",
+          "On-the-job training delivered by an experienced colleague"
+        ],
+        ans: 2,
+        explain: "Correct: C. Induction training is specifically for new employees to help them settle into the workplace — meeting colleagues, learning health and safety rules, and understanding the culture of the business. It is NOT about teaching job skills."
+      },
+      {
+        q: "Which of the following is a disadvantage of using on-the-job training to train new sales assistants at a petrol station?",
+        opts: [
+          "Likely to be more expensive than sending the employees on a training course",
+          "Motorists may experience lower standards of customer service",
+          "No petrol can be sold while the training takes place",
+          "The employees will be trained on different equipment to that at the garage"
+        ],
+        ans: 1,
+        explain: "Correct: B. A trainee serving real customers may make mistakes, leading to lower service quality. A is wrong — on-the-job is cheaper. C is wrong — petrol can still be sold. D is wrong — on-the-job uses the actual workplace equipment."
+      },
+      {
+        q: "Which of the following is NOT a form of staff development?",
+        opts: [
+          "Academic qualifications",
+          "Apprenticeships",
+          "Induction",
+          "Vocational qualifications"
+        ],
+        ans: 2,
+        explain: "Correct: C. Induction is a form of training — it is short-term and designed to introduce a new worker to the business. Staff development (academic qualifications, apprenticeships, vocational qualifications) is long-term and aimed at realising the worker's future potential."
+      },
+      {
+        q: "Which of the following is a feature of professional development?",
+        opts: [
+          "It is a kind of short-term training",
+          "It is designed to realise the potential of a worker in the long-term interests of the business and the worker",
+          "It is designed to improve the skills of the worker to do a specific task",
+          "It usually involves on-the-job training only"
+        ],
+        ans: 1,
+        explain: "Correct: B. Professional development is long-term and is about realising the potential of the worker — it may lead to vocational or academic qualifications. A and C describe training. D is false — professional development often includes off-the-job study at college or university."
+      },
+      {
+        q: "One benefit to Gina, an employee on a dairy farm, of staff development is:",
+        opts: [
+          "Higher profits for the farm",
+          "Increased retention of farm workers",
+          "More opportunities for promotion",
+          "The animals will be better cared for"
+        ],
+        ans: 2,
+        explain: "Correct: C. Staff development benefits the individual worker — gaining qualifications and skills may lead to promotion opportunities. A and B are benefits to the business, not the employee. D relates to animal welfare, not a personal benefit to Gina."
+      },
+      {
+        q: "One benefit to a hospital of encouraging staff development is:",
+        opts: [
+          "Increased skill shortages",
+          "Improved patient care",
+          "Lower morale of doctors and nurses",
+          "More medical staff can be employed"
+        ],
+        ans: 1,
+        explain: "Correct: B. When hospital staff are developed through training and qualifications, their skills improve — leading directly to improved patient care. A is the opposite of a benefit. C is wrong — development improves morale. D is unrelated to development."
+      },
+      {
+        q: "Which of the following statements about apprenticeships is true?",
+        opts: [
+          "A vocational qualification is specific to a particular type of job",
+          "An academic qualification prepares a worker for work in a specific business",
+          "An apprenticeship is offered to senior managers who want to develop their skills further",
+          "An apprenticeship involves only studying at university"
+        ],
+        ans: 0,
+        explain: "Correct: A. Vocational qualifications are job-specific — they relate to a particular occupation. B is wrong — academic qualifications are more general. C is wrong — apprenticeships are aimed at developing workers in a role, not exclusively senior managers. D is wrong — apprenticeships combine workplace training with college study."
+      },
+      {
+        q: "A firm switches from off-the-job training (costing £82,000) to on-the-job training (costing £68,000). What is the approximate percentage change in training costs?",
+        opts: [
+          "–20.6%",
+          "–17.1%",
+          "17.1%",
+          "20.6%"
+        ],
+        ans: 1,
+        explain: "Correct: B. Percentage change = (68,000 − 82,000) / 82,000 × 100 = −14,000 / 82,000 × 100 ≈ −17.1%. The negative sign shows a decrease in cost."
+      },
+      {
+        q: "Which of the following is a benefit to a business of using off-the-job training?",
+        opts: [
+          "Large numbers of employees can be trained at the same time",
+          "Likely to be cheaper than on-the-job training",
+          "The training can take place while the employee is working",
+          "Workers need to be paid for time spent doing off-the-job training"
+        ],
+        ans: 0,
+        explain: "Correct: A. Off-the-job training at a venue can accommodate larger groups simultaneously — a key advantage over one-on-one on-the-job training. B is wrong — off-the-job is more expensive. C describes on-the-job training. D is a disadvantage, not a benefit."
+      }
+    ];
+
+    // 3. Keyword Matching
+    const matchData = [
+      { term: "Training", def: "Short-term, job-specific learning to improve a worker's performance in their current role." },
+      { term: "Development", def: "Long-term learning aimed at growing a worker's overall potential for future roles." },
+      { term: "On-the-job training", def: "Training delivered at the workplace while the employee is performing their normal duties." },
+      { term: "Off-the-job training", def: "Training delivered away from the employee's normal job, often at a college or training centre." },
+      { term: "Induction training", def: "Training to introduce a new employee to the business, workplace, colleagues, and health and safety procedures." },
+      { term: "Apprenticeship", def: "A long-term development programme combining workplace experience and off-the-job study, leading to a vocational qualification." },
+      { term: "Professional development", def: "Long-term programmes (vocational or academic) designed to realise the full potential of a worker." },
+      { term: "Vocational qualification", def: "A job-specific qualification gained through practical and classroom learning, e.g. an NVQ." },
+      { term: "Academic qualification", def: "A general, theory-based qualification such as a GCSE, A Level, or degree." },
+      { term: "Productivity", def: "Output per worker — a measure of how efficiently employees produce goods or services." },
+      { term: "Skills shortage", def: "A situation where businesses cannot recruit workers with the specific skills they require." },
+      { term: "Retention", def: "Successfully keeping workers employed at the business rather than them leaving to work elsewhere." }
+    ];
+
+    // 4. Fill in the Blanks
+    const fibData = [
+      {
+        display: "Training is _____ and job-specific, while development is _____ and focused on the overall growth of the worker.",
+        blanks: { B1: "short-term", B2: "long-term" }
+      },
+      {
+        display: "On-the-job training is _____ than off-the-job training because there are no travel or accommodation costs.",
+        blanks: { B1: "cheaper" }
+      },
+      {
+        display: "Induction training is designed to introduce a new worker to the _____, their colleagues, and the _____ of the business.",
+        blanks: { B1: "workplace", B2: "culture" }
+      },
+      {
+        display: "A disadvantage of on-the-job training is that the _____ may need to leave their own work to help the trainee, causing production to fall.",
+        blanks: { B1: "trainer" }
+      },
+      {
+        display: "Off-the-job training is typically more _____ than on-the-job training due to course fees, travel, and accommodation.",
+        blanks: { B1: "expensive" }
+      },
+      {
+        display: "An apprenticeship is a long-term development programme that leads to a _____ qualification and combines on- and off-the-job learning.",
+        blanks: { B1: "vocational" }
+      },
+      {
+        display: "Professional development programmes are designed to realise the long-term _____ of workers, often leading to vocational or academic qualifications.",
+        blanks: { B1: "potential" }
+      },
+      {
+        display: "A _____ shortage occurs when businesses cannot recruit workers with the skills they need.",
+        blanks: { B1: "skills" }
+      },
+      {
+        display: "Training can improve worker _____ because employees feel valued when the business invests in them, meaning they are less likely to leave.",
+        blanks: { B1: "retention" }
+      },
+      {
+        display: "_____ qualifications are job-specific and gained through practical and classroom learning, whereas _____ qualifications are more general and theory-based.",
+        blanks: { B1: "Vocational", B2: "academic" }
+      },
+      {
+        display: "A key disadvantage of off-the-job training for a business is that the worker is not producing _____ while they are away training.",
+        blanks: { B1: "output" }
+      },
+      {
+        display: "One benefit of off-the-job training is that it can be delivered in a _____ environment, which is essential for safety-critical roles such as cabin crew.",
+        blanks: { B1: "safe" }
+      }
+    ];
+
+    const fibWords = [
+      "short-term", "long-term", "cheaper", "workplace", "culture", "trainer",
+      "expensive", "vocational", "potential", "skills", "retention", "Vocational",
+      "academic", "output", "safe", "productivity", "qualification", "motivation",
+      "induction", "development", "on-the-job", "off-the-job"
+    ];
+
+    // 5. True or False
+    const tfData = [
+      {
+        statement: "Induction training is designed to teach new workers the specific skills they need to do their job.",
+        answer: false,
+        explanation: "FALSE. Induction training is about introducing new employees to the workplace, colleagues, culture, and health and safety procedures — not teaching job-specific skills. Examiners frequently penalise students who confuse induction with skills training."
+      },
+      {
+        statement: "On-the-job training is generally cheaper than off-the-job training for a business.",
+        answer: true,
+        explanation: "TRUE. On-the-job training has no travel, accommodation, or external course fees. The trainee also continues to produce goods or services during training, meaning the business still earns money."
+      },
+      {
+        statement: "Off-the-job training always leads to a qualification for the worker.",
+        answer: false,
+        explanation: "FALSE. Off-the-job training does not always lead to a qualification — it depends on the type of course. However, it is more likely to lead to qualifications than on-the-job training."
+      },
+      {
+        statement: "A disadvantage of professional development for a business is that once workers are better qualified, they may find it easier to secure jobs at other firms.",
+        answer: true,
+        explanation: "TRUE. This is a genuine retention risk for businesses. After investing in development, a more qualified worker may leave for a higher-paying role elsewhere, meaning the business does not get a return on its investment."
+      },
+      {
+        statement: "Apprenticeships are a form of staff development, not just a recruitment method.",
+        answer: true,
+        explanation: "TRUE. On this specification, apprenticeships appear in Section 3.6 as staff development. They involve developing existing employees who are already paid a wage, not just recruiting new ones cheaply."
+      },
+      {
+        statement: "On-the-job training is suitable for all types of jobs, including those with significant safety risks.",
+        answer: false,
+        explanation: "FALSE. On-the-job training is not appropriate for safety-critical roles (e.g. cabin crew, surgeons) because mistakes made during training could endanger lives. Off-the-job simulation is required in these cases."
+      },
+      {
+        statement: "Development is more short-term and practical than training.",
+        answer: false,
+        explanation: "FALSE. It is the other way around. Training is short-term and practical; development is long-term and often includes both theoretical and practical learning to build the worker's overall potential."
+      },
+      {
+        statement: "A benefit of on-the-job training is that the trainee produces goods and services while learning, so the firm earns money during the training process.",
+        answer: true,
+        explanation: "TRUE. Because the trainee is working while learning, the business does not lose all of that worker's productive output — a key financial advantage over off-the-job training where the worker is absent from their role entirely."
+      },
+      {
+        statement: "Academic qualifications are specific to a particular job role.",
+        answer: false,
+        explanation: "FALSE. Vocational qualifications are job-specific. Academic qualifications (e.g. GCSEs, A Levels, degrees) are more general and transferable across many different careers."
+      },
+      {
+        statement: "Businesses may train workers to solve skill shortages if the specialist labour they need cannot be found externally.",
+        answer: true,
+        explanation: "TRUE. If the market doesn't supply enough skilled workers, businesses can train existing employees to fill those gaps internally — for example, training technicians to become fully qualified engineers."
+      },
+      {
+        statement: "The quality of on-the-job training depends on the communication skills and ability of the trainer.",
+        answer: true,
+        explanation: "TRUE. If the trainer has poor communication skills or bad habits, the trainee will learn them too. The quality of the training is only as good as the person delivering it — a key disadvantage of on-the-job training."
+      }
+    ];
+
+    // 6. Common Student Misconceptions
+    const miscData = [
+      {
+        wrong: "Induction training teaches new workers how to do their job.",
+        correct: "Induction training introduces the new worker to the business, workplace, colleagues, and health and safety rules. It is about settling in — not skill-building. Examiners specifically flagged this as a very common error."
+      },
+      {
+        wrong: "Training and development mean the same thing.",
+        correct: "They are different. Training is short-term and job-specific. Development is long-term and about the overall growth of the worker's potential. Always check which one the question is asking about."
+      },
+      {
+        wrong: "Off-the-job training is always better than on-the-job training.",
+        correct: "Neither is universally better — it depends on the situation. On-the-job is cheaper and keeps the worker productive. Off-the-job is higher quality and safer for risky roles. Always evaluate in context."
+      },
+      {
+        wrong: "Apprenticeships are only for school leavers looking for their first job.",
+        correct: "On this specification, apprenticeships are a form of staff development for existing employees. They reduce the time a worker spends on their normal duties while they study — they are not just a cheap way to recruit new workers."
+      },
+      {
+        wrong: "On-the-job training means the same as internal training.",
+        correct: "These are not the same. On-the-job and off-the-job refer to whether training takes place during normal work. Internal vs external refers to who delivers the training. Do not confuse location with method."
+      },
+      {
+        wrong: "For an 'analyse one benefit to employees' question, answers about increased profits or productivity are correct.",
+        correct: "Profits and productivity are benefits to the BUSINESS, not the employee. When the question specifies employees, you must write about personal benefits — higher pay, promotion prospects, improved self-esteem, job satisfaction."
+      },
+      {
+        wrong: "Vocational qualifications are more general than academic qualifications.",
+        correct: "It is the opposite. Vocational qualifications are job-specific (e.g. NVQs). Academic qualifications (e.g. GCSEs, degrees) are more general and can open up a wider range of career paths."
+      },
+      {
+        wrong: "Staff development is just another word for training.",
+        correct: "Staff development is broader and longer-term than training. It includes apprenticeships and professional development programmes that develop the worker's overall potential, not just their ability to do the current job."
+      }
+    ];
+
+    // 7. Examiner Tips
+    const examTips = [
+      {
+        type: "Explain — 2 marks",
+        title: "Training Method Questions: Name It, Then Apply It",
+        content: `
+        <p>When asked to <strong>explain a training method</strong> (e.g. "Explain three methods of training HSBC may use"), each method earns you <strong>2 marks: 1 for naming the method + 1 for applying it to the business</strong>.</p>
+        <p><strong>The Formula:</strong></p>
+        <ul>
+          <li><strong>Name the method</strong> (K): On-the-job training / Off-the-job training / Induction training</li>
+          <li><strong>Apply it to the business</strong> (APP): Link to a detail from the case study</li>
+        </ul>
+        <p><strong>❌ Bad Answer (1 mark only):</strong><br/>
+        <em>"HSBC could use on-the-job training because it will help staff learn."</em><br/>
+        No application — too vague.</p>
+        <p><strong>✅ Good Answer (2 marks):</strong><br/>
+        <em>"HSBC could use on-the-job training (K) to help call centre staff practise opening new bank accounts using HSBC's own IT systems (APP)."</em></p>
+        <p><strong>⚠️ Examiner Warning:</strong> Do NOT write "online training" or "at-home training" as a third method — these are not the correct terms. The three methods are: <strong>on-the-job, off-the-job, and induction</strong>. Induction was the most commonly missed method.</p>
+        <p><strong>🚫 Do NOT accept:</strong> "on-site", "off-site", "internal", or "external" training — these describe location, not the training method itself.</p>
+      `,
+        pills: ["K", "app"]
+      },
+      {
+        type: "Analyse — 3 marks",
+        title: "The Holy Trinity: U → APP → AN",
+        content: `
+        <p>Every 3-mark analyse question needs exactly three things in a chain of reasoning. Miss any one and you cap yourself at 2 marks.</p>
+        <p><strong>Step-by-Step Formula:</strong></p>
+        <ul>
+          <li><strong>1. Understanding (U):</strong> State and explain the benefit or reason.</li>
+          <li><strong>2. Application (APP):</strong> Link directly to the specific business in the case study using a detail from the text.</li>
+          <li><strong>3. Analysis (AN):</strong> State the business-facing (or employee-facing) impact — cost, revenue, profit, reputation, retention, etc.</li>
+        </ul>
+        <p><strong>❌ Bad Answer (1 mark):</strong><br/>
+        <em>"Training improves customer service which increases profits."</em><br/>
+        No application to the specific business — this could be about any firm.</p>
+        <p><strong>✅ Full Mark Answer (3 marks):</strong><br/>
+        <em>"Training will improve the customer service skills of staff (U). This is especially important at Waitrose, which targets customers with higher income levels and a reputation for quality (APP). As a result, customers are more likely to be satisfied and return, boosting sales revenue (AN)."</em></p>
+        <p><strong>⚠️ Critical Examiner Warning — Check Who Benefits:</strong> If the question asks for a benefit to <strong>employees</strong>, your analysis must be <em>employee-facing</em> (e.g. higher pay, promotion, job satisfaction). If the question asks about the <strong>business</strong>, your analysis must be <em>business-facing</em> (e.g. profit, retention, productivity). Writing business benefits when asked about employees scores zero for analysis.</p>
+        <p><strong>Useful sentence starters:</strong></p>
+        <ul>
+          <li><em>U: "Off-the-job training allows workers to be trained by specialists..."</em></li>
+          <li><em>APP: "In the case of [Business], this is important because the text states that..."</em></li>
+          <li><em>AN: "As a result, the business will... / This will lead to... / This means profits will..."</em></li>
+        </ul>
+      `,
+        pills: ["U", "app", "an"]
+      },
+      {
+        type: "Analyse Two Benefits — 6 marks",
+        title: "Two Separate Chains — No Conclusion Needed",
+        content: `
+        <p>A 6-mark "analyse two benefits" question is simply the 3-mark structure done <strong>twice</strong>. Each benefit earns up to 3 marks (U + APP + AN).</p>
+        <p><strong>Key Rules:</strong></p>
+        <ul>
+          <li>Write two fully separate chains of reasoning — do not mix them together.</li>
+          <li>Both benefits must relate to the <strong>method</strong> asked about (e.g. off-the-job training specifically), not to training in general.</li>
+          <li><strong>Do NOT write a conclusion</strong> — there are zero evaluation marks available in a 6-mark question. A conclusion wastes time.</li>
+          <li>Apply each benefit to the case study business using a specific detail from the text.</li>
+        </ul>
+        <p><strong>⚠️ Examiner Warning (BFF question):</strong> Do not write about motivation or productivity as a benefit of off-the-job training — these apply to <em>all</em> types of training. You must identify a feature <em>specific to off-the-job training</em>, such as training by an expert, use of specialist equipment, or a safe environment to practise.</p>
+        <p><strong>Structure:</strong><br/>
+        <em>Benefit 1: [U — specialist feature of off-the-job] → [APP — apply to BFF] → [AN — business impact]</em><br/>
+        <em>Benefit 2: [U — another specific feature] → [APP — apply to BFF] → [AN — business impact]</em></p>
+      `,
+        pills: ["U", "app", "an"]
+      },
+      {
+        type: "Evaluate — 7 marks",
+        title: "Both Sides + A Justified, Contextual Decision",
+        content: `
+        <p>A 7-mark evaluate question is marked independently across three skill areas: <strong>Application (2), Analysis (2), and Evaluation (3)</strong>. No skill is a pre-requisite of another — you can pick up marks in any area independently.</p>
+        <p><strong>The 3-Paragraph Structure:</strong></p>
+        <ol>
+          <li><strong>Paragraph 1 (AN + APP):</strong> Analyse one advantage of the method/strategy using a case study detail.</li>
+          <li><strong>Paragraph 2 (AN + APP):</strong> Analyse one disadvantage of the method/strategy using a case study detail.</li>
+          <li><strong>Paragraph 3 (Evaluation — 3 sentences):</strong>
+            <ul>
+              <li><strong>Decision:</strong> "Overall, Dyson Ltd should/should not continue with apprenticeships because..."</li>
+              <li><strong>Context:</strong> Link your decision to a specific detail from the case study.</li>
+              <li><strong>Impact/Reasoning:</strong> Explain the consequence of that decision for the business.</li>
+            </ul>
+          </li>
+        </ol>
+        <p><strong>Evaluation Marks Breakdown:</strong></p>
+        <ul>
+          <li><strong>1 mark (Limited):</strong> Just a decision — "Dyson should continue with apprenticeships."</li>
+          <li><strong>2 marks (Good):</strong> Decision + non-contextual justification.</li>
+          <li><strong>3 marks (Strong):</strong> Decision + justified using a specific detail from the case study.</li>
+        </ul>
+        <p><strong>✅ Strong Evaluation Example:</strong><br/>
+        <em>"Overall, Dyson Ltd should continue offering apprenticeships (DECISION) as James Dyson personally promotes careers in engineering and the company creates innovative products (CONTEXT). Apprenticeships allow Dyson to develop engineers with the exact skills needed for product innovation, giving the business a long-term competitive advantage (REASONING)."</em></p>
+        <p><strong>⚠️ Examiner Warning (Dyson question):</strong> Many students wrote about the advantages/disadvantages to the apprentice rather than to Dyson. Always re-read: the question asks about the business's perspective. Also, answers about taking on apprentices as cheap new recruits were wrong — the question was about apprenticeships as a method of developing existing staff.</p>
+      `,
+        pills: ["app", "an", "eval"]
+      },
+      {
+        type: "Identify — 1 mark",
+        title: "Staff Development vs Training: Know the Difference",
+        content: `
+        <p>When asked to "identify two other methods of staff development", be careful — many students write training methods instead.</p>
+        <p><strong>Staff Development methods (correct answers):</strong></p>
+        <ul>
+          <li>Academic qualifications (e.g. GCSEs, A Levels, degrees)</li>
+          <li>Vocational qualifications (e.g. NVQs, Cambridge Technicals)</li>
+          <li>Professional development programmes</li>
+          <li>Secondments</li>
+        </ul>
+        <p><strong>🚫 Do NOT write these — they are training methods, not staff development:</strong></p>
+        <ul>
+          <li>On-the-job training</li>
+          <li>Off-the-job training</li>
+          <li>Induction</li>
+          <li>Courses (too vague)</li>
+        </ul>
+        <p>If the question says "other than apprenticeships", do not repeat apprenticeships — write something from the list above.</p>
+      `,
+        pills: ["K"]
+      },
+      {
+        type: "Recommend — 3 marks",
+        title: "Make a Clear Choice and Compare Both Options",
+        content: `
+        <p>A "recommend" question requires you to make a <strong>clear decision</strong> AND justify it by comparing it to the alternative. Simply describing one option without comparing is not enough.</p>
+        <p><strong>Formula:</strong></p>
+        <ul>
+          <li><strong>Judgement (1 mark):</strong> State clearly which option you recommend.</li>
+          <li><strong>Contextual justification (2 marks):</strong> Explain why your choice is better THAN the other, using a detail from the case study.</li>
+        </ul>
+        <p><strong>Example (McDonald's training question):</strong></p>
+        <p><strong>❌ Weak (1 mark):</strong><br/>
+        <em>"McDonald's should use induction training because James is new."</em></p>
+        <p><strong>✅ Strong (3 marks):</strong><br/>
+        <em>"McDonald's should use induction training (JUDGEMENT) because James has never worked for McDonald's before, so he needs to understand the company's procedures, where the fire exits are, and how he will be paid (CONTEXT). Unlike on-the-job training, induction doesn't risk dangerous mistakes while James is still learning the basics (COMPARISON)."</em></p>
+      `,
+        pills: ["U", "app", "an"]
+      }
+    ];
+
+    // 8. Flashcards
+    const flashcards = [
+      { term: "Training", def: "Short-term, job-specific learning to improve a worker's current performance." },
+      { term: "Development", def: "Long-term learning focused on the overall growth and future potential of a worker." },
+      { term: "On-the-job training", def: "Training done at the workplace while the employee is working — e.g. shadowing an experienced colleague." },
+      { term: "Off-the-job training", def: "Training away from normal duties — e.g. at a college, training centre, or via simulations." },
+      { term: "Induction training", def: "Training to introduce new employees to the workplace, colleagues, culture, and health and safety — NOT to teach job skills." },
+      { term: "Apprenticeship", def: "A 2–4 year development programme combining workplace experience and college study, leading to a vocational qualification." },
+      { term: "Professional development", def: "Long-term vocational or academic programmes designed to realise a worker's full potential." },
+      { term: "Vocational qualification", def: "A job-specific qualification (e.g. NVQ) gained through practical and classroom learning." },
+      { term: "Academic qualification", def: "A general theory-based qualification such as a GCSE, A Level, or degree — not job-specific." },
+      { term: "Productivity", def: "Output per worker — how much each employee produces." },
+      { term: "Skills shortage", def: "When businesses cannot recruit enough workers with the skills they need." },
+      { term: "Retention", def: "Keeping workers employed at the business rather than them leaving." },
+      { term: "Why train? — Productivity", def: "Better-trained workers produce more output per hour, reducing unit costs and boosting profit." },
+      { term: "Why train? — Customer service", def: "Well-trained staff give customers better experiences, increasing sales and improving reputation." },
+      { term: "Key disadvantage of off-the-job training", def: "It is expensive (fees, travel, accommodation) and workers are absent from their role, reducing output." },
+      { term: "Key disadvantage of on-the-job training", def: "Quality depends on the trainer's skills; trainees may produce poor-quality work; no qualification gained." }
+    ];
+
+    // 9. Exam-Style Questions
+    const examQuestions = [
+      {
+        num: "Q1",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "What is NOT a benefit to a golfing equipment retailer of training its sales assistants?",
+        options: [
+          "To help staff give advice on which golf clubs to buy",
+          "To increase the sales of golf umbrellas and waterproof clothing",
+          "To motivate staff to assist customers who are trying on golf shoes",
+          "To reduce the time it takes to make golf bags and golf trolleys"
+        ],
+        answer: 3,
+        hint: "Think carefully about what a retailer does vs. what a manufacturer does.",
+        starter: "The answer is D because a retailer sells products — it does not...",
+        markScheme: `<div class="marks-section"><h5>Answer: D</h5><p><strong>Why D is correct:</strong> A retailer sells golf products — it does not manufacture them. Training sales assistants would not reduce manufacturing time because retail staff have no role in production.</p><p><strong>Why the others are wrong:</strong></p><ul><li><strong>A — Wrong:</strong> Helping staff give advice on products IS a genuine benefit of training retail staff — it improves the quality of customer service.</li><li><strong>B — Wrong:</strong> Better-trained staff can upsell related products (umbrellas, clothing), increasing revenue — this IS a benefit.</li><li><strong>C — Wrong:</strong> Training can motivate staff and improve their engagement with customers — this IS a benefit.</li></ul></div>`,
+        modelAnswer: "D — To reduce the time it takes to make golf bags and golf trolleys. A retailer sells products; it does not manufacture them, so training sales assistants has no impact on production time."
+      },
+      {
+        num: "Q2(a)",
+        marks: 6,
+        type: "written",
+        caseStudy: `HSBC offers a range of banking and financial services for personal and business customers. The bank has branches in many cities and towns across the UK.\n\nEmploying the best people is important to HSBC. It uses several methods to select new employees. Once appointed, all employees are offered training and development opportunities that include studying for academic qualifications such as degrees and professional diplomas.\n\nOver 70% of HSBC's call centre employees in the UK have begun working from home permanently. Before this change the employees worked together in a busy call centre. The tasks performed by call centre employees are varied, but include taking telephone calls from customers and completing administrative work, such as opening new bank accounts. Senior managers are now considering whether to introduce working from home for all of its UK call centre employees.`,
+        question: "Explain three methods of training HSBC may use. [6 marks]",
+        hint: "Name each method (1 mark) then apply it specifically to HSBC — use a detail from the case study for each one (1 mark per method).",
+        starter: "Method 1: HSBC could use on-the-job training because...\n\nMethod 2: HSBC could use off-the-job training to allow staff to...\n\nMethod 3: HSBC could use induction training, which would introduce new employees to...",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 6 marks (AO1a: 3 + AO2: 3)</h5><ul><li><strong>1 mark per training method named</strong> (up to 3 methods): on-the-job, off-the-job, induction training.</li><li><strong>1 further mark per method applied to HSBC</strong> (up to 3 application marks) — must use a detail from the case study.</li><li><strong>No further marks without naming the correct method first.</strong></li></ul><p><strong>Do NOT accept:</strong> "online training", "at-home training", "on-site", "off-site", "internal", or "external" — these are not the correct method terms.</p><p><strong>Application examples for HSBC:</strong></p><ul><li>Opening new bank accounts using HSBC's IT systems</li><li>Answering customer phone calls</li><li>Administrative tasks at a call centre</li><li>Working in branches across the UK</li><li>Serving both business and personal customers</li></ul><p><strong>Examiner's Comments:</strong> Most candidates scored at least 2 marks by naming on-the-job and off-the-job training. Induction was the most commonly missed method. Full marks required specific application to HSBC — generic answers capped at 3 marks.</p></div>`,
+        modelAnswer: "Method 1: HSBC could use on-the-job training (K) to help call centre staff learn exactly how to open a new bank account using HSBC's own IT systems, guided by an experienced colleague (APP).\n\nMethod 2: HSBC could use off-the-job training (K) so that staff can practise answering difficult customer phone calls through role-play simulations at a training centre — without the risk of upsetting real HSBC customers (APP).\n\nMethod 3: HSBC could use induction training (K) to introduce new call centre employees to the company's procedures, the different tasks they will perform such as opening bank accounts, and the health and safety requirements of their role (APP)."
+      },
+      {
+        num: "Q2(b)",
+        marks: 3,
+        type: "written",
+        caseStudy: "",
+        question: "Analyse one benefit for HSBC's employees of studying for academic qualifications. [3 marks]",
+        hint: "The question asks about benefits to the EMPLOYEES — not to HSBC. Think about what the individual worker personally gains. Avoid writing about productivity or profit.",
+        starter: "One benefit for HSBC's employees of studying for academic qualifications is that they will... (U)\n\nFor example, at HSBC this could mean that an employee is able to... (APP)\n\nAs a result, the employee will... (AN)",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b: 1 + AO2: 1 + AO3a: 1)</h5><ul><li><strong>Understanding (1 mark):</strong> One benefit to an employee of studying for academic qualifications — e.g. gain new skills/knowledge, improved confidence/self-esteem, motivational, improved promotion prospects, networking opportunities.</li><li><strong>Application (1 mark):</strong> Link to HSBC — e.g. becoming assistant branch manager, serving business customers as well as personal customers, studying for a degree or professional diploma.</li><li><strong>Analysis (1 mark):</strong> Employee-facing impact — e.g. higher salary, greater job satisfaction, better career prospects, improved mental health/wellbeing.</li></ul><p><strong>Critical note:</strong> Analysis must be employee-facing. Business benefits (higher retention, greater productivity, more profit) score ZERO for analysis on this question.</p><p><strong>Examiner's Comments:</strong> Many students suggested benefits that were business-facing — these scored zero. The best answers linked improved chances of promotion to higher pay, or new skills to greater job satisfaction, with specific reference to HSBC's context.</p></div>`,
+        modelAnswer: "One benefit for HSBC's employees is that they can gain new skills and knowledge by studying for an academic qualification (U). For example, an HSBC employee studying for a professional diploma could develop a deeper understanding of banking and financial services, enabling them to serve business customers as well as personal ones (APP). This could lead to a promotion to a higher role such as assistant branch manager, resulting in a significant increase in salary and improved career prospects (AN)."
+      },
+      {
+        num: "Q3(a)",
+        marks: 3,
+        type: "written",
+        caseStudy: `Dyson\n\nDisappointed with the performance of vacuum cleaners on the market, James Dyson thought he could design a better product. He started to create his first vacuum cleaner in the late-1970s. In 1984, after trying thousands of designs over several years, James Dyson launched a bagless vacuum cleaner in partnership with Amway, a US consumer goods manufacturer. This partnership did not work out, so James Dyson formed his own company in 1991.\n\nToday, Dyson Ltd produces a range of home appliances including vacuum cleaners, hand dryers, heaters, hair dryers and lights. Creating new and innovative products continues to be important for the company, as seen by its expanding product range. The company has over 12,000 employees worldwide.\n\nDyson Ltd has a unique organisational structure.\n\nAll new employees of Dyson Ltd go through an induction training programme. In addition, the company encourages employees to progress by offering apprenticeships and other staff development opportunities. James Dyson promotes careers in engineering, both in schools and in universities.`,
+        question: "Analyse one likely reason why Dyson Ltd puts all new employees through an induction training programme. [3 marks]",
+        hint: "Induction is NOT about teaching job skills — it is about introducing workers to the workplace. Think about health and safety, introducing colleagues, explaining the organisational structure. Then link specifically to Dyson.",
+        starter: "One reason why Dyson Ltd puts all new employees through induction training is... (K)\n\nThis is particularly important at Dyson because... (APP)\n\nAs a result, Dyson will benefit from... (AN)",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1a: 1 + AO2: 1 + AO3a: 1)</h5><ul><li><strong>Knowledge (1 mark):</strong> A valid reason for induction — e.g. introduce the culture/aims of the business, show the workplace layout, explain health and safety, explain the organisational structure, introduce to colleagues, make employees feel valued.</li><li><strong>Application (1 mark):</strong> Link to Dyson — e.g. over 12,000 employees worldwide, unique organisational structure, focus on creating innovative products.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact — e.g. improved productivity, reduced accidents, improved retention, better communication.</li></ul><p><strong>Do NOT award:</strong> "learn new skills" or "how to do job role" as these describe on-the-job training, not induction.</p><p><strong>Examiner's Comments:</strong> This was very poorly answered. The majority of candidates wrote about improving job skills — this is incorrect and scored zero for knowledge. Correct responses included health and safety briefings, showing the workplace layout, and meeting colleagues. Many candidates who answered correctly still did not apply to Dyson and therefore capped at 2 marks.</p></div>`,
+        modelAnswer: "One reason why Dyson puts all new employees through induction training is to explain the health and safety procedures of the business (K). With over 12,000 employees worldwide and a unique organisational structure, it is essential that all new staff understand who to report to and what safety rules apply in their specific area (APP). This reduces the risk of workplace accidents, limiting the likelihood of compensation claims and protecting Dyson's reputation as an innovative and responsible employer (AN)."
+      },
+      {
+        num: "Q3(b)(i)",
+        marks: 2,
+        type: "written",
+        caseStudy: "",
+        question: "Dyson Ltd offers apprenticeships as a method of staff development. Identify two other methods of staff development that a business could offer. [2 marks]",
+        hint: "Staff development is LONG-TERM. Do not write on-the-job or off-the-job training — these are training methods, not staff development.",
+        starter: "Method 1: ...\n\nMethod 2: ...",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 2 marks (AO1a: 2)</h5><p>One mark per correct method of staff development, up to two marks.</p><p><strong>Accept:</strong></p><ul><li>Vocational qualifications (e.g. NVQs, Cambridge Technicals)</li><li>Academic qualifications (e.g. GCSEs, A Levels, degrees)</li><li>Professional development programmes</li><li>Secondments</li></ul><p><strong>Do NOT accept:</strong> Apprenticeships (excluded by the question), induction, on-the-job training, off-the-job training, or "courses" (too vague).</p><p><strong>Examiner's Comments:</strong> The most common incorrect responses were on-the-job and off-the-job training. The specification makes a clear distinction: training is short-term and narrow; staff development is long-term and wide-ranging.</p></div>`,
+        modelAnswer: "1. Academic qualifications — such as a degree or A Level, which develop the worker's general knowledge over the long term.\n\n2. Vocational qualifications — such as an NVQ or Cambridge Technical, which are specific to a job role and gained through a mix of practical and classroom learning."
+      },
+      {
+        num: "Q3(b)(ii)",
+        marks: 7,
+        type: "written",
+        caseStudy: "",
+        question: "Evaluate whether or not Dyson Ltd should continue to offer apprenticeship opportunities. [7 marks]",
+        hint: "Write about advantages AND disadvantages of apprenticeships as staff development for Dyson (not for the apprentices personally). Then make a clear, contextual decision.",
+        starter: "Paragraph 1 (AN + APP): One advantage of Dyson continuing to offer apprenticeships is that... This is relevant to Dyson because... meaning that...\n\nParagraph 2 (AN + APP): However, a disadvantage of offering apprenticeships is that... For Dyson, this could mean... resulting in...\n\nParagraph 3 (Evaluation): Overall, Dyson Ltd should/should not continue with apprenticeships because... Given that James Dyson personally promotes careers in engineering and the company has over 12,000 employees worldwide... this means that...",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 7 marks (AO2: 2 + AO3a: 2 + AO3b: 3)</h5><ul><li><strong>Application (up to 2 marks):</strong> Two relevant uses of case study context (over 12,000 employees, employees worldwide, creates innovative products, James Dyson promotes engineering).</li><li><strong>Analysis (up to 2 marks):</strong> Two advantages/disadvantages (or one of each) of offering apprenticeships for staff development analysed to a business-facing impact.</li><li><strong>Evaluation (up to 3 marks):</strong><ul><li>1 mark (Limited): A decision on whether Dyson should continue.</li><li>2 marks (Good): A justified non-contextual decision.</li><li>3 marks (Strong): A justified, contextual decision using a specific detail from the case study.</li></ul></li></ul><p><strong>⚠️ Examiner Warnings:</strong></p><ul><li>Do NOT write about benefits/disadvantages to the apprentice — the question asks about Dyson's perspective.</li><li>Do NOT discuss apprenticeships as a recruitment tool for new cheap workers — the focus is on developing existing staff.</li><li>Answers about "lower wages for apprentices" are wrong in this context — apprentices are already employed by Dyson at their normal wage.</li></ul>`,
+        modelAnswer: "One advantage of Dyson continuing to offer apprenticeships is that apprentices are trained to develop their skills relevant to Dyson's specific needs, improving their performance (U). With over 12,000 employees worldwide and a focus on creating innovative home appliances, Dyson can tailor apprenticeship programmes to build engineering and technical skills that directly support product innovation (APP). This is likely to increase employee productivity and the quality of Dyson's products over time (AN).\n\nHowever, a disadvantage is that apprenticeships are costly for the business to fund (U). Dyson must cover course fees and the time of experienced employees who mentor apprentices on-site, while apprentices spend part of their working time studying rather than contributing to production (APP). This reduces short-term output and increases costs, which could impact profit margins (AN).\n\nOverall, Dyson Ltd should continue to offer apprenticeships (EVAL). James Dyson personally promotes careers in engineering and the company's success depends on continuous innovation (CONTEXT). Apprenticeships allow Dyson to develop a pipeline of skilled engineers who are loyal to the business and trained to its exact standards — making it a worthwhile long-term investment despite the short-term costs (REASONING)."
+      },
+      {
+        num: "Q4",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "The manager of a petrol station uses on-the-job training to train new employees.",
+        question: "Which one of the following is a disadvantage of using on-the-job training to train three new sales assistants?",
+        options: [
+          "Likely to be more expensive than sending the employees on a training course",
+          "Motorists may experience lower standards of customer service",
+          "No petrol can be sold while the training takes place",
+          "The employees will be trained on different equipment to that at the garage"
+        ],
+        answer: 1,
+        hint: "Think about what can go wrong when an untrained person is serving real customers during training.",
+        starter: "The answer is B because when a trainee is serving real customers...",
+        markScheme: `<div class="marks-section"><h5>Answer: B</h5><p><strong>Why B is correct:</strong> A trainee serving real customers may make mistakes or be slow, leading to lower quality customer service — motorists may experience poor service as a result.</p><p><strong>Why the others are wrong:</strong></p><ul><li><strong>A — Wrong:</strong> On-the-job training is generally cheaper than off-the-job (no external course fees or travel costs).</li><li><strong>C — Wrong:</strong> Petrol CAN still be sold during on-the-job training — the trainee is working while learning, meaning the business continues to operate.</li><li><strong>D — Wrong:</strong> On-the-job training takes place at the actual workplace using the actual equipment — so trainees ARE trained on the correct equipment.</li></ul></div>`,
+        modelAnswer: "B — Motorists may experience lower standards of customer service because a trainee who is still learning may make mistakes or be slow when serving real customers at the petrol station."
+      },
+      {
+        num: "Q5",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "Which of the following is NOT a form of staff development?",
+        options: [
+          "Academic qualifications",
+          "Apprenticeships",
+          "Induction",
+          "Vocational qualifications"
+        ],
+        answer: 2,
+        hint: "Staff development is long-term. Which of these options is short-term and about introducing a new worker to the business?",
+        starter: "The answer is C because induction is...",
+        markScheme: `<div class="marks-section"><h5>Answer: C</h5><p><strong>Why C is correct:</strong> Induction is a form of training — it is short-term and designed to introduce a new employee to the business and workplace. It is NOT staff development.</p><p><strong>Why the others are wrong:</strong></p><ul><li><strong>A — Wrong:</strong> Academic qualifications (e.g. degrees) ARE a form of long-term staff development.</li><li><strong>B — Wrong:</strong> Apprenticeships ARE a form of staff development — long-term programmes leading to qualifications.</li><li><strong>D — Wrong:</strong> Vocational qualifications ARE a form of staff development — job-specific long-term learning.</li></ul></div>`,
+        modelAnswer: "C — Induction is NOT a form of staff development. It is a short-term form of training that introduces a new employee to the workplace, colleagues, and health and safety procedures — not a long-term development programme."
+      },
+      {
+        num: "Q6",
+        marks: 3,
+        type: "written",
+        caseStudy: `Waitrose\n\nWaitrose is a supermarket chain with over 300 stores throughout the UK. Waitrose specialises in good quality food, targeted at customers with high levels of income. The company is owned by its employees, who receive a range of benefits including profit sharing.\n\nWaitrose has over 50,000 employees. Many employees are recruited externally. As part of the selection process, potential employees take part in lengthy interviews, group activities and tests. References are requested for all new employees. Once appointed, all employees receive regular training.\n\nThe supermarket industry is very competitive, so new product development is important to Waitrose. Qualitative market research data is collected using methods including focus groups and customer trials. This data then needs to be communicated effectively between employees at Head Office.`,
+        question: "Analyse one likely reason why Waitrose provides its employees with regular training. [3 marks]",
+        hint: "Choose ONE reason and develop it fully using the U → APP → AN structure. Use a specific detail from the Waitrose case study for your application mark.",
+        starter: "One reason why Waitrose provides regular training is to... (K/U)\n\nThis is particularly important at Waitrose because... (APP)\n\nAs a result, Waitrose will... (AN)",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1a: 1 + AO2: 1 + AO3a: 1)</h5><ul><li><strong>Knowledge (1 mark):</strong> A valid reason for training — e.g. improve productivity, improve customer service, increase motivation, improve retention, solve skill shortages, update on new products.</li><li><strong>Application (1 mark):</strong> Link to Waitrose — e.g. competitive supermarket industry, targets high-income customers, over 300 stores, over 50,000 employees, new product development, external recruitment.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact — e.g. higher sales revenue, increased profits, competitive advantage, greater customer satisfaction, improved reputation.</li></ul></div>`,
+        modelAnswer: "One reason why Waitrose provides regular training is to improve the customer service skills of its employees (K). Waitrose targets customers with higher levels of income who expect an especially high standard of service and product knowledge (APP). As a result, customers are more likely to be satisfied and to return, increasing sales revenue and helping Waitrose maintain a competitive advantage in the highly competitive supermarket industry (AN)."
+      },
+      {
+        num: "Q7",
+        marks: 6,
+        type: "written",
+        caseStudy: `Best Foot Forward Ltd (BFF)\n\nBest Foot Forward Ltd (BFF) operates five stores in the north-west of England, selling shoes (such as ballet and tap) for adult dancers. Up until 2017, the business was growing, due to its reputation for quality products.\n\nA new Managing Director, Jessie Thompson, was appointed six months ago to reverse the recent poor performance of the business.\n\nBFF sales revenue and net profit (2017–2019):\n• Sales revenue: £780,000 (2017), £630,000 (2018), £520,000 (2019)\n• Net profit: £250,000 (2017), £200,000 (2018), £175,000 (2019)\n\nBFF has never sold dance shoes for children and Jessie would like to expand into this market. Another business, specialising in selling children's dance shoes, closed down three months ago. Jessie is also concerned by market research which suggests that customer service is poor in BFF's stores. All store managers have been told to attend a five-day off-the-job training course on customer service.\n\nTo support the launch of the children's range, Jessie plans to create a new position of Marketing Manager (Children's Shoes) who will work alongside the Marketing Manager (Adults' Shoes). This employee will be recruited internally, despite many former employees from the children's shoe retailer which closed down still being out of work.\n\nTable 1 — Recruitment costs:\n• Internal recruitment: Cost of recruitment £500, Days to fill job 20 days, Cost of induction £200\n• External recruitment: Cost of recruitment £2,500, Days to fill job 60 days, Cost of induction £1,500`,
+        question: "Analyse two benefits for BFF of using off-the-job training for its store managers. [6 marks]",
+        hint: "Each benefit must be specific to off-the-job training as a METHOD — not a general benefit of training (like motivation). Think: What is unique about training AWAY from the store? Use BFF's context (customer service problems, declining revenue) for application.",
+        starter: "Benefit 1:\nOne benefit of off-the-job training for BFF's store managers is that... (U)\nThis is relevant for BFF because... (APP)\nThis will result in... (AN)\n\nBenefit 2:\nA second benefit is that... (U)\nFor BFF specifically... (APP)\nThis means that BFF will... (AN)",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 6 marks (AO1b: 2 + AO2: 2 + AO3a: 2)</h5><p>For each benefit: 1 mark (U) + 1 mark (APP) + 1 mark (AN)</p><p><strong>Understanding — valid features of off-the-job training:</strong></p><ul><li>Training delivered by a professional/expert trainer</li><li>Store managers fully focused as removed from operational pressures</li><li>Specialist resources available at a dedicated training venue</li><li>Safe environment to practise — mistakes not made in front of real customers</li><li>Can use simulations, role-play, group activities</li></ul><p><strong>Application — BFF context:</strong></p><ul><li>Customer service identified as poor in market research</li><li>Sales revenue/profit declining (2017–2019)</li><li>BFF wants to expand into children's shoes</li><li>Five-day course on customer service</li></ul><p><strong>Do NOT award:</strong></p><ul><li>Motivation, productivity, or other benefits that apply to ALL training types — the benefit must be specific to the method (off-the-job).</li><li>"More skilled workforce" without a specific reason given.</li><li>Saying what off-the-job training is without giving a benefit.</li></ul>`,
+        modelAnswer: "Benefit 1: Off-the-job training means the store managers will be removed from the operational pressures of their stores, allowing them to focus entirely on the training (U). Given that BFF's market research identified poor customer service as a key problem, attending a dedicated five-day course means managers can fully concentrate on improving their skills without being distracted by day-to-day store issues (APP). This increases the quality of learning, making managers more likely to implement better customer service practices in their stores, which could help reverse BFF's declining sales revenue (AN).\n\nBenefit 2: Off-the-job training is delivered by expert trainers with specialist knowledge of customer service (U). For BFF, this is important because in-store managers may not have had specific customer service training before, and learning from an industry specialist is more effective than learning from a colleague who may also have poor habits (APP). As a result, the quality of customer service across all five BFF stores is likely to improve, reducing customer complaints and helping to rebuild BFF's reputation for quality (AN)."
+      },
+      {
+        num: "Q8",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "Gina is an employee on a dairy farm.",
+        question: "One benefit to Gina of staff development is:",
+        options: [
+          "Higher profits",
+          "Increased retention of farm workers",
+          "More opportunities for promotion",
+          "The animals will be better cared for"
+        ],
+        answer: 2,
+        hint: "The question asks about a benefit to GINA — the employee — not to the farm business.",
+        starter: "The answer is C because staff development gives Gina...",
+        markScheme: `<div class="marks-section"><h5>Answer: C</h5><p><strong>Why C is correct:</strong> Staff development helps Gina gain qualifications and skills that could lead to promotion — a direct personal benefit to the employee.</p><p><strong>Why the others are wrong:</strong></p><ul><li><strong>A — Wrong:</strong> Higher profits is a benefit to the dairy farm (the business), not to Gina personally.</li><li><strong>B — Wrong:</strong> Increased retention is a benefit to the business — it means the farm keeps its workers, not something that directly benefits Gina.</li><li><strong>D — Wrong:</strong> Better animal care is an operational outcome for the farm — not a personal benefit to Gina as an individual employee.</li></ul></div>`,
+        modelAnswer: "C — More opportunities for promotion. Staff development helps Gina gain new qualifications and skills, making her more eligible for promotion to a more senior role with higher pay — a direct personal benefit."
+      },
+      {
+        num: "Q9",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "A telesales company has arranged digital communication training for all relevant employees.",
+        question: "What is the most likely reason for this digital communication training?",
+        options: [
+          "The company is trying to reduce employee retention",
+          "The company needs to reduce the productivity of its sales staff",
+          "The company wants workers to enjoy using social media during their breaks",
+          "The company wishes to encourage more of its workforce to work from home"
+        ],
+        answer: 3,
+        hint: "Think about what digital communication enables — remote working requires digital tools to communicate effectively.",
+        starter: "The answer is D because digital communication skills allow employees to...",
+        markScheme: `<div class="marks-section"><h5>Answer: D</h5><p><strong>Why D is correct:</strong> Digital communication tools (video calls, emails, messaging platforms) are essential for remote working. A telesales company training staff in digital communication is most likely preparing them to work effectively from home.</p><p><strong>Why the others are wrong:</strong></p><ul><li><strong>A — Wrong:</strong> Businesses want to increase retention (keep staff), not reduce it.</li><li><strong>B — Wrong:</strong> Businesses train staff to increase productivity, not reduce it.</li><li><strong>C — Wrong:</strong> Social media for personal use during breaks is not a business training priority and would be an unusual reason to arrange formal training.</li></ul></div>`,
+        modelAnswer: "D — The company wishes to encourage more of its workforce to work from home. Digital communication training equips telesales staff with the skills needed to communicate effectively with colleagues and customers remotely."
+      },
+      {
+        num: "Q10",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "A firm has changed the way it trains its employees. Instead of using off-the-job training (£82,000) it now uses on-the-job training (£68,000).",
+        question: "The percentage change in the training costs is approximately equal to:",
+        options: [
+          "–20.6%",
+          "–17.1%",
+          "17.1%",
+          "20.6%"
+        ],
+        answer: 1,
+        hint: "Percentage change = (New − Old) ÷ Old × 100. The original (old) cost is off-the-job: £82,000.",
+        starter: "Percentage change = (68,000 − 82,000) ÷ 82,000 × 100 = ...",
+        markScheme: `<div class="marks-section"><h5>Answer: B — −17.1%</h5><p><strong>Calculation:</strong></p><ul><li>Change = £68,000 − £82,000 = −£14,000</li><li>Percentage change = −14,000 ÷ 82,000 × 100 = −17.07% ≈ −17.1%</li></ul><p><strong>Why the others are wrong:</strong></p><ul><li><strong>A (−20.6%):</strong> This is calculated using the new cost as the denominator (14,000 ÷ 68,000 × 100) — incorrect. Always divide by the original value.</li><li><strong>C (17.1%):</strong> Correct calculation but wrong sign — costs have decreased, not increased.</li><li><strong>D (20.6%):</strong> Wrong calculation and wrong sign.</li></ul></div>`,
+        modelAnswer: "B — −17.1%. Percentage change = (68,000 − 82,000) ÷ 82,000 × 100 = −14,000 ÷ 82,000 × 100 ≈ −17.1%. The negative sign shows costs have decreased."
+      },
+      {
+        num: "Q11",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "Which of the following is a benefit to a business of using off-the-job training?",
+        options: [
+          "Large numbers of employees can be trained at the same time",
+          "Likely to be cheaper than on-the-job training",
+          "The training can take place while the employee is working",
+          "Workers need to be paid for time spent doing off-the-job training"
+        ],
+        answer: 0,
+        hint: "Think about what off-the-job training can do that individual on-the-job training cannot.",
+        starter: "The answer is A because off-the-job training at a venue or training centre can...",
+        markScheme: `<div class="marks-section"><h5>Answer: A</h5><p><strong>Why A is correct:</strong> Off-the-job training at a college or training centre can accommodate multiple employees simultaneously — unlike on-the-job training which is typically one-on-one.</p><p><strong>Why the others are wrong:</strong></p><ul><li><strong>B — Wrong:</strong> Off-the-job training is typically more expensive than on-the-job training due to course fees, travel, and accommodation costs.</li><li><strong>C — Wrong:</strong> This describes on-the-job training, not off-the-job training.</li><li><strong>D — Wrong:</strong> This is a disadvantage of off-the-job training, not a benefit — the business still pays wages while workers are not producing output.</li></ul></div>`,
+        modelAnswer: "A — Large numbers of employees can be trained at the same time. Off-the-job training venues (e.g. colleges, training centres) can train groups of employees simultaneously, which on-the-job training (typically one-on-one) cannot achieve."
+      },
+      {
+        num: "Q12",
+        marks: 3,
+        type: "written",
+        caseStudy: `Redrow Homes\n\nRedrow Homes is one of the UK's leading housebuilders. Housebuilders, such as Redrow Homes, typically use self-employed construction professionals alongside their own employees.\n\nRedrow Homes employs over 2,300 people in a range of jobs including trades such as carpentry, plumbing and bricklaying. They also employ landscape designers, customer service administrators and sales advisors to sell the houses. The company is committed to staff development, with 15% of the workforce undergoing an apprenticeship or other formal training programme.\n\nRedrow Homes has been named one of the 'Top 100 Apprenticeship Employers' for the last five years and was recently named the 'Construction Industry Training Board Apprentice Employer of the Year'. At any one time the company employs at least 130 apprentices, as the company feels that it is an excellent way to find and develop young motivated staff. The company offers apprentices a clear career path whereby they gain qualifications alongside work experience and a good wage.`,
+        question: "Analyse one benefit to Redrow Homes of using apprenticeships as a method of staff development. [3 marks]",
+        hint: "Focus on the BUSINESS benefit — not the apprentice's benefit. Use a detail from Redrow Homes (e.g. trades like carpentry, plumbing, bricklaying; housebuilding context) for your application mark.",
+        starter: "One benefit to Redrow Homes of using apprenticeships is... (U)\n\nThis is particularly relevant to Redrow Homes because... (APP)\n\nAs a result, Redrow Homes will... (AN)",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b: 1 + AO2: 1 + AO3a: 1)</h5><ul><li><strong>Understanding (1 mark):</strong> A valid benefit of apprenticeships for a business — e.g. training tailored to business needs, cost-effective, apprentices work while training, possible government funding, increased loyalty/retention.</li><li><strong>Application (1 mark):</strong> Link to Redrow Homes — e.g. carpentry, plumbing, bricklaying, building houses to specification, construction industry, 130 apprentices at any one time.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact — reference to costs, revenue, profit, quality, retention (not just "money").</li></ul><p><strong>Do NOT award:</strong> "money" alone (too vague) — must reference costs, revenue, profit, or cash flow specifically. Do not award "apprentice" as a contextual reference since it appears in the question.</p><p><strong>Examiner's Comments:</strong> Many candidates wrote about benefits to the apprentice rather than to Redrow Homes. The question clearly asks for "benefit to Redrow Homes." Also, answers treating this as a recruitment question (e.g. "finding new staff cheaply") were wrong — the focus is on apprenticeships as staff development for existing workers.</p></div>`,
+        modelAnswer: "One benefit to Redrow Homes of using apprenticeships is that training can be tailored specifically to the company's needs (U). Redrow can design apprenticeship programmes for trades such as carpentry, plumbing, and bricklaying so that apprentices learn to build houses to the exact specifications and quality standards that Redrow requires (APP). This is likely to improve the quality of the houses built, reducing costly rework and helping Redrow maintain its reputation as a leading housebuilder, which supports long-term profitability (AN)."
+      },
+      {
+        num: "Q13(a)(i)",
+        marks: 3,
+        type: "written",
+        caseStudy: `McDonald's\n\nSix weeks ago James saw an advertisement for a job at McDonald's. He went into the restaurant and was given an application pack, including a job description, a person specification and a link to an online application form.\n\nJames completed the application form and emailed it to the restaurant. A manager then telephoned James and asked him to come for an interview at the restaurant. James had to bring his GCSE certificates to the interview. After the interview, James had to do a group activity where he was asked to complete a task as a member of a team.\n\nJames was very pleased to get a letter two weeks ago offering him a job. Included with the letter was a contract of employment, which he has to sign and bring with him on his first day of work. His starting wage will be £7.00 per hour, with a 10% increase after he has been fully trained.`,
+        question: "Analyse one way in which McDonald's could use induction training for James. [3 marks]",
+        hint: "Remember: induction is about introducing James to the workplace — not teaching him how to cook. Think about his first day: what does he need to know about McDonald's as a company?",
+        starter: "Induction training introduces a new worker to the business... (U)\n\nFor James at McDonald's, this could involve... (APP)\n\nThis would benefit McDonald's because... (AN)",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b: 1 + AO2: 1 + AO3a: 1)</h5><ul><li><strong>Understanding (1 mark):</strong> Correct understanding of induction training — e.g. introducing James to the business, workplace, colleagues, health and safety.</li><li><strong>Application (1 mark):</strong> Application to James/McDonald's — e.g. showing James where fire exits are, explaining the restaurant's procedures, introducing him to the team.</li><li><strong>Analysis (1 mark):</strong> Impact on McDonald's — e.g. James settles in more quickly and becomes productive sooner, reduced risk of accidents.</li></ul></div>`,
+        modelAnswer: `Induction training is telling an employee the basics about a job (1). For example McDonald’s would need to tell James where the fire escapes are (1) so that he is safe to work in the restaurant. (1) <br> <br> Induction training is used to introduce a new employee to the business (U). McDonald's could use induction on James's first day to show him where the fire exits are, explain health and safety procedures in the kitchen, and introduce him to his colleagues and the manager (APP). This means James will be able to work safely and more confidently from the start, reducing the risk of accidents and helping him become productive more quickly (AN).`
+      },
+      {
+        num: "Q13(a)(ii)",
+        marks: 3,
+        type: "written",
+        caseStudy: "",
+        question: "Analyse one way in which McDonald's could use on-the-job training for James. [3 marks]",
+        hint: "On-the-job means James learns while he is working — not at a separate venue. Think about how an experienced McDonald's employee could help him learn.",
+        starter: "On-the-job training takes place at the workplace while the employee is working... (U)\n\nFor James, McDonald's could... (APP)\n\nThis means that McDonald's will benefit because... (AN)",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b: 1 + AO2: 1 + AO3a: 1)</h5><ul><li><strong>Understanding (1 mark):</strong> Correct understanding of on-the-job training — learning while working at the restaurant.</li><li><strong>Application (1 mark):</strong> Applied to James/McDonald's — e.g. shadowing an experienced employee, practising making burgers under supervision.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact — e.g. James becomes productive quickly, customers receive better service, costs of mistakes are reduced.</li></ul></div>`,
+        modelAnswer: "On-the-job training takes place at the workplace while the employee is performing their duties (U). McDonald's could use a more experienced employee to work alongside James in the kitchen, showing him how to prepare and serve menu items to the correct standard while he is actually doing the job (APP). This means James will learn in a real working environment and begin contributing to the restaurant's output sooner, helping McDonald's maintain the speed of service that customers expect (AN)."
+      },
+      {
+        num: "Q13(a)(iii)",
+        marks: 3,
+        type: "written",
+        caseStudy: "",
+        question: "Analyse one way in which McDonald's could use off-the-job training for James. [3 marks]",
+        hint: "Off-the-job means away from James's normal role — perhaps at a training venue or using a simulation. Think about what James could not safely or easily learn on the job.",
+        starter: "Off-the-job training takes place away from the employee's normal work duties... (U)\n\nMcDonald's could send James to... (APP)\n\nThis would benefit McDonald's because... (AN)",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO1b: 1 + AO2: 1 + AO3a: 1)</h5><ul><li><strong>Understanding (1 mark):</strong> Correct understanding of off-the-job training — away from the normal job.</li><li><strong>Application (1 mark):</strong> Applied to James/McDonald's — e.g. food hygiene course, fire safety training video, a training centre session.</li><li><strong>Analysis (1 mark):</strong> Business-facing impact — e.g. legal compliance, reduced risk of food safety incidents, better reputation.</li></ul></div>`,
+        modelAnswer: "Off-the-job training takes place away from the employee's normal duties at a separate location or using a different format (U). McDonald's could show James a training video on food hygiene and fire safety, covering procedures that would be difficult or disruptive to demonstrate in a live restaurant environment (APP). This helps McDonald's ensure James meets legal food safety requirements before he begins handling food, reducing the risk of incidents that could harm customers and damage the McDonald's brand (AN)."
+      },
+      {
+        num: "Q13(b)",
+        marks: 3,
+        type: "written",
+        caseStudy: "",
+        question: "Recommend one type of training McDonald's should use to train James on his first day at work. Give reasons for your answer. [3 marks]",
+        hint: "Make a clear choice first. Then explain WHY that training is the right choice for James's first day specifically — think about what he most needs to know on day one.",
+        starter: "McDonald's should use [type of training] to train James on his first day because... Unlike [the other methods], this will...",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO3b: 3)</h5><ul><li><strong>1 mark (Limited):</strong> A judgement with limited justification showing some appraisal of a relevant training method.</li><li><strong>2 marks (Good):</strong> A judgement with good justification — appraises relevant information and/or issues about the chosen training type.</li><li><strong>3 marks (Strong):</strong> A judgement with strong justification — detailed appraisal of relevant information using context from the case study, showing why the chosen method is most appropriate for James's first day.</li></ul><p>Accept any training method (induction, on-the-job, or off-the-job) with appropriate justification.</p></div>`,
+        modelAnswer: `McDonald’s should use induction training because James will be a new employee who has never worked in a McDonald’s restaurant before, so he will need to know the basics of the business and its operations when he starts so he is clear what to do. This could start off the job, so that James does not make costly or dangerous mistakes whilst learning, then on the job so he can learn more quickly straight from his colleagues. (3 marks) <br> <br> McDonald’s should use on-the-job training because James will need to see other employees doing the job, so that he can learn how to do it well himself and ultimately give customers better service. (2 marks) <br> <br>McDonald’s should use off-the-job training because James could make some mistakes whilst he is training. (1 mark)`
+      },
+      {
+        num: "Q13(c)",
+        marks: 3,
+        type: "written",
+        caseStudy: "",
+        question: "James has been offered a contract of 16 hours per week once he is fully trained. Calculate what James' weekly pay will be once he is fully trained. Show your workings. [3 marks]",
+        hint: "James earns £7.00 per hour. He gets a 10% increase once fully trained. Calculate the new hourly rate first, then multiply by 16 hours.",
+        starter: "Step 1: Calculate 10% of £7.00 = ...\nStep 2: New hourly rate = £7.00 + ... = ...\nStep 3: Weekly pay = new hourly rate × 16 = ...",
+        markScheme: `<div class="marks-section"><h5>Mark Allocation — 3 marks (AO2: 3)</h5><ul><li><strong>1 mark:</strong> Correct calculation of 10% increase in hourly pay: 10% of £7.00 = £0.70</li><li><strong>1 mark:</strong> Correct calculation of new hourly rate: £7.00 + £0.70 = £7.70</li><li><strong>1 mark:</strong> Correct calculation of weekly pay: £7.70 × 16 = £123.20</li></ul><p><strong>3 marks for correct final answer of £123.20 with or without working shown.</strong> Own figure rule (OFR) applies — if a student makes an error in step 1 but correctly applies it through steps 2 and 3, they can still earn marks for the later steps.</p></div>`,
+        modelAnswer: "Step 1: 10% of £7.00 = £0.70\nStep 2: New hourly rate = £7.00 + £0.70 = £7.70\nStep 3: Weekly pay = £7.70 × 16 hours = £123.20\n\nAnswer: £123.20"
+      },
+      {
+        num: "Q14",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "One benefit to a hospital of encouraging staff development is:",
+        options: [
+          "Increased skill shortages",
+          "Improved patient care",
+          "Lower morale of doctors and nurses",
+          "More medical staff can be employed"
+        ],
+        answer: 1,
+        hint: "Think about what happens when hospital staff are better trained and qualified — what does that mean for the people they care for?",
+        starter: "The answer is B because when hospital staff develop their skills...",
+        markScheme: `<div class="marks-section"><h5>Answer: B</h5><p><strong>Why B is correct:</strong> When hospital staff develop their skills through qualifications and professional development, the quality of their work improves — leading directly to better care for patients.</p><p><strong>Why the others are wrong:</strong></p><ul><li><strong>A — Wrong:</strong> Staff development reduces skill shortages (by building skills internally), not increases them.</li><li><strong>C — Wrong:</strong> Development should improve morale (workers feel valued), not lower it.</li><li><strong>D — Wrong:</strong> Staff development is about improving the skills of existing staff, not directly leading to hiring more staff.</li></ul></div>`,
+        modelAnswer: "B — Improved patient care. When hospital staff such as doctors and nurses undertake professional development and gain higher qualifications, their knowledge and clinical skills improve — leading to better treatment outcomes and higher quality care for patients."
+      }
+    ];
+  </script>
+
+  <script src="script.js"></script>
 </body>
+
 </html>

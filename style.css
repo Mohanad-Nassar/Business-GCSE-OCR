@@ -190,12 +190,29 @@
      margin-bottom: 28px;
  }
 
- .topic-grid {
-     display: grid;
-     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-     gap: 20px;
- }
+/* ── TOPIC CARDS GRID ── */
+.topic-grid {
+    display: grid;
+    /* Default to 1 column for mobile screens */
+    grid-template-columns: 1fr;
+    gap: 20px;
+    
+    /* Removed align-items: start; so cards stretch to equal heights again! */
+}
 
+/* Tablet / Small Desktop (2 columns) */
+@media (min-width: 768px) {
+    .topic-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large Desktop (3 columns) */
+@media (min-width: 1200px) {
+    .topic-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
  .topic-card {
      background: var(--card-bg);
      border: 1.5px solid var(--border);
@@ -1434,3 +1451,321 @@
      margin-top: 4px;
      margin-bottom: 4px;
  }
+ /* ══════════════════════════════════════
+   COURSE NAVIGATION SIDEBAR (MOBILE & DESKTOP)
+   ══════════════════════════════════════ */
+ :root {
+     --sidebar-width: 280px;
+ }
+
+ /* ── TOGGLE BUTTON (Now visible on ALL screens) ── */
+ .sidebar-toggle-btn {
+     background: transparent;
+     color: var(--paper);
+     border: 1.5px solid rgba(255, 255, 255, 0.3);
+     padding: 6px 12px;
+     border-radius: 6px;
+     cursor: pointer;
+     font-family: 'DM Mono', monospace;
+     font-size: 16px;
+     margin-right: 15px;
+     transition: background 0.2s, border-color 0.2s;
+     align-self: center;
+     flex-shrink: 0;
+ }
+
+ .sidebar-toggle-btn:hover {
+     background: rgba(255, 255, 255, 0.1);
+     border-color: var(--gold);
+ }
+
+ /* ── MOBILE FIRST: Off-Canvas Sidebar ── */
+ .course-sidebar {
+     position: fixed;
+     top: 0;
+     left: -320px;
+     /* Hidden off-screen to the left by default */
+     width: 280px;
+     height: 100vh;
+     background: var(--ink);
+     border-right: 2px solid var(--accent);
+     overflow-y: auto;
+     overflow-x: hidden;
+     padding: 0 0 20px 0;
+     z-index: 9999;
+     /* Float highly above mobile content */
+     transition: left 0.3s ease;
+     box-shadow: 4px 0 15px rgba(0, 0, 0, 0.5);
+     /* Drop shadow for mobile drawer */
+ }
+
+ /* When the menu is opened on mobile */
+ body.sidebar-mobile-open .course-sidebar {
+     left: 0;
+ }
+
+ /* Sidebar Text & Link Styles */
+/* Sidebar Header (Now Sticky!) */
+/* Sidebar Header (Now Sticky!) */
+.sb-header {
+    position: sticky;
+    top: 0;
+    background: var(--ink);
+    /* Solid background prevents text overlap when scrolling */
+    z-index: 10;
+    /* Keeps it above the scrolling links */
+    padding: 20px 20px 15px;
+    /* We moved the 20px top padding to here */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 15px;
+}
+
+ .sb-header a {
+     color: var(--gold);
+     text-decoration: none;
+     font-weight: 600;
+     font-size: 14px;
+     display: flex;
+     align-items: center;
+     gap: 8px;
+ }
+
+ .sb-section {
+     color: var(--mid);
+     font-family: 'DM Mono', monospace;
+     font-size: 11px;
+     text-transform: uppercase;
+     letter-spacing: 1.5px;
+     padding: 15px 20px 5px;
+     width: 100%;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+ }
+
+ .sb-link {
+     display: block;
+     color: #bbb;
+     text-decoration: none;
+     font-size: 13.5px;
+     padding: 8px 20px;
+     line-height: 1.4;
+     width: 100%;
+     border-left: 3px solid transparent;
+     transition: background 0.15s, color 0.15s;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+ }
+
+ .sb-link:hover {
+     background: rgba(255, 255, 255, 0.05);
+     color: var(--paper);
+ }
+
+ .sb-link.active {
+     background: rgba(255, 255, 255, 0.08);
+     color: var(--paper);
+     border-left-color: var(--gold);
+     font-weight: 500;
+ }
+
+ /* ── DESKTOP ONLY: Grid Integration & Resizing ── */
+ @media (min-width: 900px) {
+     body {
+         display: grid;
+         grid-template-columns: var(--sidebar-width) 1fr;
+         grid-template-rows: auto auto 1fr;
+         grid-template-areas:
+             "header header"
+             "sidebar tabbar"
+             "sidebar main";
+         align-items: start;
+         transition: grid-template-columns 0.3s ease;
+     }
+
+     body.is-resizing {
+         transition: none;
+     }
+
+     body.sidebar-collapsed {
+         grid-template-columns: 0px 1fr;
+     }
+
+     header {
+         grid-area: header;
+         z-index: 10;
+     }
+
+     .tab-bar {
+         grid-area: tabbar;
+         z-index: 9;
+     }
+
+     main {
+         grid-area: main;
+     }
+
+     .course-sidebar {
+         grid-area: sidebar;
+         position: sticky;
+         /* Overrides mobile "fixed" position */
+         left: 0;
+         /* Overrides mobile hiding */
+         width: 100%;
+         /* Follows the grid column width */
+         z-index: 10;
+         box-shadow: none;
+         /* Removes mobile drop shadow */
+         transition: opacity 0.2s, visibility 0.2s;
+     }
+
+     body.sidebar-collapsed .course-sidebar {
+         opacity: 0;
+         visibility: hidden;
+     }
+
+     /* Draggable Resizer Edge */
+     .sidebar-resizer {
+         position: absolute;
+         top: 0;
+         right: 0;
+         width: 6px;
+         height: 100%;
+         cursor: ew-resize;
+         background: transparent;
+         z-index: 100;
+         transition: background 0.2s;
+     }
+
+     .sidebar-resizer:hover,
+     .sidebar-resizer.active {
+         background: var(--gold);
+     }
+ }
+
+/* ══════════════════════════════════════
+   CUSTOM SCROLLBARS
+   ══════════════════════════════════════ */
+
+/* 1. Global Scrollbar (For the main light background) */
+::-webkit-scrollbar {
+    width: 8px;
+    /* Thinner than default */
+    height: 8px;
+    /* For horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    /* Slightly transparent dark grey */
+    border-radius: 10px;
+    /* Fully rounded edges */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+    /* Darkens slightly when hovered */
+}
+
+/* 2. Dark Sidebar Scrollbar (For .course-sidebar and .tab-bar) */
+.course-sidebar::-webkit-scrollbar,
+.tab-bar::-webkit-scrollbar {
+    width: 6px;
+    /* Even thinner for the tight sidebar space */
+}
+
+.course-sidebar::-webkit-scrollbar-track,
+.tab-bar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.course-sidebar::-webkit-scrollbar-thumb,
+.tab-bar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    /* Subtle transparent white */
+    border-radius: 10px;
+}
+
+.course-sidebar::-webkit-scrollbar-thumb:hover,
+.tab-bar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+    /* Brightens when hovered */
+}
+
+ 
+/* ══════════════════════════════════════
+   GRID / LIST VIEW TOGGLE OVERRIDE
+   ══════════════════════════════════════ */
+.topic-grid.list-view,
+.tips-grid.list-view {
+    grid-template-columns: 1fr !important;
+    /* Forces 1 column */
+}
+
+/* Optional Pro-Tip: Add this if you want the cards to stay chunky 
+   and substantial even when EVERY card is completely collapsed */
+.topic-grid.list-view .topic-card,
+.tips-grid.list-view .tip-card {
+    min-height: 140px; 
+}
+/* ══════════════════════════════════════
+   MOBILE SIDEBAR FIXES & OVERLAY
+   ══════════════════════════════════════ */
+/* 1. Force the toggle button to ALWAYS show on mobile */
+.tab-bar .sidebar-toggle-btn {
+    display: inline-block !important;
+    pointer-events: auto !important;
+}
+
+/* 2. Create a dark overlay when the menu is open on mobile */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 25, 35, 0.7);
+    /* Dark semi-transparent */
+    backdrop-filter: blur(3px);
+    z-index: 9998;
+    /* Sits just behind the sidebar */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+/* Show the overlay only when the mobile menu is open */
+body.sidebar-mobile-open .sidebar-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 3. Mobile Close Button (Hidden on Desktop) */
+.mobile-close-btn {
+    display: none;
+    background: transparent;
+    color: var(--mid);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: auto;
+    /* Pushes it to the far right */
+}
+
+.mobile-close-btn:hover {
+    color: var(--paper);
+    border-color: var(--paper);
+}
+
+@media (max-width: 899px) {
+    .mobile-close-btn {
+        display: inline-block;
+    }
+}

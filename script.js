@@ -13,7 +13,104 @@ function switchTab(id, btn) {
     }
 }
 
+// ══════════════════════════════════════
+//  EXPAND ALL BUTTON INJECTOR
+// ══════════════════════════════════════
+// ══════════════════════════════════════
+//  EXPAND ALL BUTTON INJECTOR
+// ══════════════════════════════════════
 
+// ══════════════════════════════════════
+//  HEADER ACTIONS INJECTOR (Expand All & Layout Toggle)
+// ══════════════════════════════════════
+function injectExpandAll(tabId, gridId, cardClass) {
+    const tabPanel = document.getElementById(tabId);
+    const grid = document.getElementById(gridId);
+    if (!tabPanel || !grid) return;
+
+    // Prevent duplicate buttons if the script runs twice
+    if (tabPanel.querySelector('.header-actions-wrap')) return;
+
+    // Grab the existing title and subtitle elements
+    const title = tabPanel.querySelector('.section-title');
+    const subTitle = tabPanel.querySelector('.section-sub');
+
+    // Create a new Flexbox header container
+    const headerWrap = document.createElement('div');
+    headerWrap.className = 'header-actions-wrap';
+    headerWrap.style.cssText = 'display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 28px; gap: 15px;';
+
+    // 1. Group the text items together on the left
+    const textWrap = document.createElement('div');
+    if (title) textWrap.appendChild(title);
+    if (subTitle) {
+        subTitle.style.marginBottom = '0';
+        textWrap.appendChild(subTitle);
+    }
+
+    // 2. Create an Action Wrapper for the right side buttons
+    const actionWrap = document.createElement('div');
+    actionWrap.style.cssText = 'display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 4px;';
+
+    // ─── APPLY DEFAULT STATES IMMEDIATELY ───
+    let isListView = true;
+    let isExpanded = true;
+
+    // Force the grid into list view on load
+    grid.classList.add('list-view');
+
+    // Force all generated cards into the open state on load
+    const initialCards = grid.querySelectorAll('.' + cardClass);
+    initialCards.forEach(card => card.classList.add('open'));
+
+    // 3. Create the Grid/List Toggle Button
+    const layoutBtn = document.createElement('button');
+    layoutBtn.className = 'fc-btn outline';
+    // Since default is List View, the button offers Grid View
+    layoutBtn.innerHTML = '🔠 Grid View';
+
+    layoutBtn.addEventListener('click', () => {
+        isListView = !isListView;
+        layoutBtn.innerHTML = isListView ? '🔠 Grid View' : '🔲 List View';
+
+        if (isListView) {
+            grid.classList.add('list-view');
+        } else {
+            grid.classList.remove('list-view');
+        }
+    });
+
+    // 4. Create the Expand/Collapse All Button
+    const expandBtn = document.createElement('button');
+    expandBtn.className = 'fc-btn outline';
+    // Since default is Expanded, the button offers Collapse All
+    expandBtn.innerHTML = '📂 Collapse All Cards';
+
+    expandBtn.addEventListener('click', () => {
+        isExpanded = !isExpanded;
+        expandBtn.innerHTML = isExpanded ? '📂 Collapse All Cards' : '📂 Expand All Cards';
+
+        const cards = grid.querySelectorAll('.' + cardClass);
+        cards.forEach(card => {
+            if (isExpanded) {
+                card.classList.add('open');
+            } else {
+                card.classList.remove('open');
+            }
+        });
+        window.getSelection().removeAllRanges();
+    });
+
+    // Assemble the pieces
+    actionWrap.appendChild(layoutBtn);
+    actionWrap.appendChild(expandBtn);
+
+    headerWrap.appendChild(textWrap);
+    headerWrap.appendChild(actionWrap);
+
+    // Insert the header right before the grid
+    tabPanel.insertBefore(headerWrap, grid);
+}
 // ══════════════════════════════════════
 //  BUILD LEARN
 // ══════════════════════════════════════
@@ -26,7 +123,6 @@ function buildLearn() {
         card.className = 'topic-card';
         card.innerHTML = `<span class="tag">${t.tag}</span><h3>${t.title}</h3><span class="toggle-icon">+</span><div class="topic-content">${t.content}</div>`;
 
-        // We only listen for the double-click now. No more single-click timers!
         card.addEventListener('dblclick', () => {
             card.classList.toggle('open');
             window.getSelection().removeAllRanges();
@@ -34,6 +130,8 @@ function buildLearn() {
 
         grid.appendChild(card);
     });
+
+    injectExpandAll('tab-learn', 'topicGrid', 'topic-card');
 }
 
 // ══════════════════════════════════════
@@ -216,6 +314,7 @@ function buildTips() {
 
         grid.appendChild(card);
     });
+    injectExpandAll('tab-examtips', 'tipsGrid', 'tip-card');
 }
 
 
@@ -531,9 +630,247 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof tfData !== 'undefined') buildTF();
     if (typeof examQuestions !== 'undefined') buildExamPractice();
     initScrollToTop();
+    initCourseSidebar(); // <--- Add this
     // NEW: Show the hint shortly after the page loads 
     // (Since Key Learning is the default open tab)
+    injectRandomiseButtons(); 
     setTimeout(() => {
         showDoubleClickHint();
     }, 800);
 });
+
+// ══════════════════════════════════════
+//  COURSE SIDEBAR NAV INJECTOR
+// ══════════════════════════════════════
+const courseData = [
+    {
+        title: "1. Business Activity",
+        links: [
+            { url: "1_1_role_of_business_enterprise.html", label: "1.1 Role of Business Enterprise" },
+            { url: "1_2_business_planning.html", label: "1.2 Business Planning" },
+            { url: "1_3_business_ownership.html", label: "1.3 Business Ownership" },
+            { url: "1_4_business_aims_objectives.html", label: "1.4 Aims and Objectives" },
+            { url: "1_5_stakeholders_in_business.html", label: "1.5 Stakeholders in Business" },
+            { url: "1_6_business_growth.html", label: "1.6 Business Growth" }
+        ]
+    },
+    {
+        title: "2. Marketing",
+        links: [
+            { url: "2_1_role_of_marketing.html", label: "2.1 The Role of Marketing" },
+            { url: "2_2_market_research.html", label: "2.2 Market Research" },
+            { url: "2_3_market_segmentation.html", label: "2.3 Market Segmentation" },
+            { url: "2_4_marketing_mix.html", label: "2.4 The Marketing Mix" }
+        ]
+    },
+    {
+        title: "3. People",
+        links: [
+            { url: "3_1_role_of_human_resources.html", label: "3.1 Role of Human Resources" },
+            { url: "3_2_organisational_structures.html", label: "3.2 Organisational Structures" },
+            { url: "3_3_communication_in_business.html", label: "3.3 Communication in Business" },
+            { url: "3_4_recruitment_and_selection.html", label: "3.4 Recruitment and Selection" },
+            { url: "3_5_motivation_and_retention.html", label: "3.5 Motivation and Retention" },
+            { url: "3_6_training_and_development.html", label: "3.6 Training and Development" },
+            { url: "3_7_employment_law.html", label: "3.7 Employment Law" }
+        ]
+    },
+    {
+        title: "4. Operations",
+        links: [
+            { url: "4_1_production_processes.html", label: "4.1 Production Processes" },
+            { url: "4_2_quality_of_goods_services.html", label: "4.2 Quality of Goods & Services" },
+            { url: "4_3_sales_process_customer_service.html", label: "4.3 The Sales Process" },
+            { url: "4_4_consumer_law.html", label: "4.4 Consumer Law" },
+            { url: "4_5_business_location.html", label: "4.5 Business Location" },
+            { url: "4_6_working_with_suppliers.html", label: "4.6 Working with Suppliers" }
+        ]
+    },
+    {
+        title: "5. Finance",
+        links: [
+            { url: "5_1_role_of_finance_function.html", label: "5.1 Role of Finance Function" },
+            { url: "5_2_sources_of_finance.html", label: "5.2 Sources of Finance" },
+            { url: "5_3_revenue_costs_profit_loss.html", label: "5.3 Revenue, Costs, Profit" },
+            { url: "5_4_break_even.html", label: "5.4 Break-even" },
+            { url: "5_5_cash_and_cash_flow.html", label: "5.5 Cash and Cash Flow" }
+        ]
+    },
+    {
+        title: "6. Influences",
+        links: [
+            { url: "6_1_ethical_environmental.html", label: "6.1 Ethical & Environmental" },
+            { url: "6_2_the_economic_climate.html", label: "6.2 The Economic Climate" },
+            { url: "6_3_globalisation.html", label: "6.3 Globalisation" }
+        ]
+    },
+    {
+        title: "7. Final",
+        links: [
+            { url: "7_1_final.html", label: "7.1 Interdependent Nature" }
+        ]
+    }
+];
+
+// ══════════════════════════════════════
+//  COURSE SIDEBAR NAV INJECTOR
+// ══════════════════════════════════════
+function initCourseSidebar() {
+    // Only run if not on the index page and sidebar doesn't exist yet
+    if (window.location.pathname.includes('index.html') || window.location.pathname.endsWith('/')) return;
+    if (document.getElementById('course-sidebar')) return;
+
+    const body = document.body;
+    const navBar = document.querySelector('.tab-bar');
+
+    // 1. Build the Sidebar HTML
+    const sidebar = document.createElement('aside');
+    sidebar.id = 'course-sidebar';
+    sidebar.className = 'course-sidebar';
+
+    // Added the new "✕ Close" button to the header
+    let html = `
+        <div class="sb-header" style="display: flex; align-items: center;">
+            <a href="index.html">← All Lessons</a>
+            <button class="mobile-close-btn" id="mobileCloseBtn">✕ Close</button>
+        </div>
+    `;
+
+    const currentPath = window.location.pathname;
+
+    courseData.forEach(section => {
+        html += `<div class="sb-section">${section.title}</div>`;
+        section.links.forEach(link => {
+            const isActive = currentPath.includes(link.url) ? 'active' : '';
+            html += `<a href="${link.url}" class="sb-link ${isActive}">${link.label}</a>`;
+        });
+    });
+
+    html += `<div class="sidebar-resizer" id="sidebarResizer"></div>`;
+    sidebar.innerHTML = html;
+    body.insertBefore(sidebar, navBar);
+
+    // 2. Inject the Mobile Dark Overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'sidebar-overlay';
+    body.appendChild(overlay);
+
+    // Clicking the dark background closes the mobile menu
+    overlay.addEventListener('click', () => {
+        document.body.classList.remove('sidebar-mobile-open');
+    });
+
+    // Clicking the "Close" button closes the mobile menu
+    const closeBtn = document.getElementById('mobileCloseBtn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            document.body.classList.remove('sidebar-mobile-open');
+        });
+    }
+
+    // 3. Add Hamburger Toggle to Tab Bar
+    if (navBar) {
+        const toggleBtn = document.createElement('button');
+        toggleBtn.className = 'sidebar-toggle-btn';
+        toggleBtn.innerHTML = '☰';
+        toggleBtn.title = 'Toggle Course Menu';
+
+        navBar.insertBefore(toggleBtn, navBar.firstChild);
+
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevents click glitches on mobile
+            if (window.innerWidth >= 900) {
+                document.body.classList.toggle('sidebar-collapsed');
+            } else {
+                document.body.classList.toggle('sidebar-mobile-open');
+            }
+        });
+    }
+
+    // 4. Auto-scroll sidebar to the active link
+    setTimeout(() => {
+        const activeLink = sidebar.querySelector('.active');
+        if (activeLink) {
+            activeLink.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }, 100);
+
+    // 5. DRAG TO RESIZE LOGIC (Desktop Only)
+    const resizer = document.getElementById('sidebarResizer');
+    let isResizing = false;
+
+    if (resizer) {
+        resizer.addEventListener('mousedown', (e) => {
+            isResizing = true;
+            document.body.classList.add('is-resizing');
+            resizer.classList.add('active');
+            document.body.style.cursor = 'ew-resize';
+            document.body.style.userSelect = 'none';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isResizing) return;
+            let newWidth = e.clientX;
+            if (newWidth < 200) newWidth = 200;
+            if (newWidth > 600) newWidth = 600;
+            document.documentElement.style.setProperty('--sidebar-width', `${newWidth}px`);
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (isResizing) {
+                isResizing = false;
+                document.body.classList.remove('is-resizing');
+                resizer.classList.remove('active');
+                document.body.style.cursor = '';
+                document.body.style.userSelect = '';
+            }
+        });
+    }
+}
+
+// ══════════════════════════════════════
+//  RANDOMISE BUTTONS INJECTOR
+// ══════════════════════════════════════
+function injectRandomiseButtons() {
+    // Find all reset buttons on the page
+    const resetBtns = document.querySelectorAll('.reset-btn');
+
+    resetBtns.forEach(resetBtn => {
+        // Prevent duplicate buttons if the script runs twice
+        if (resetBtn.previousElementSibling && resetBtn.previousElementSibling.classList.contains('random-btn')) return;
+
+        // Look at what the Reset button does to figure out which section we are in
+        const onclickText = resetBtn.getAttribute('onclick') || '';
+        let randomizeLogic = null;
+
+        // Map the correct data array and reset function to the button
+        if (onclickText.includes('resetMCQ') && typeof mcqData !== 'undefined') {
+            randomizeLogic = () => { mcqData.sort(() => Math.random() - 0.5); resetMCQ(); };
+        } else if (onclickText.includes('resetMatch') && typeof matchData !== 'undefined') {
+            randomizeLogic = () => { matchData.sort(() => Math.random() - 0.5); resetMatch(); };
+        } else if (onclickText.includes('resetFIB') && typeof fibData !== 'undefined') {
+            randomizeLogic = () => { fibData.sort(() => Math.random() - 0.5); resetFIB(); };
+        } else if (onclickText.includes('resetFlashcards') && typeof flashcards !== 'undefined') {
+            randomizeLogic = () => { flashcards.sort(() => Math.random() - 0.5); resetFlashcards(); };
+        } else if (onclickText.includes('resetTF') && typeof tfData !== 'undefined') {
+            randomizeLogic = () => { tfData.sort(() => Math.random() - 0.5); resetTF(); };
+        }
+
+        // If we found a valid quiz section, inject the new button
+        if (randomizeLogic) {
+            const rndBtn = document.createElement('button');
+            rndBtn.className = 'reset-btn random-btn'; // Reusing your existing reset styling
+            rndBtn.innerHTML = '🔀 RANDOMISE';
+
+            // Adjust the CSS margins so they sit beautifully together on the right
+            rndBtn.style.marginLeft = 'auto';
+            resetBtn.style.marginLeft = '0'; // Let the flexbox gap handle the space
+
+            // Shuffle the data and rebuild the section when clicked
+            rndBtn.addEventListener('click', randomizeLogic);
+
+            // Insert it right before the existing RESET button
+            resetBtn.parentNode.insertBefore(rndBtn, resetBtn);
+        }
+    });
+}
