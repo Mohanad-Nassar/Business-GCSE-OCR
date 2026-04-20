@@ -743,6 +743,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // (Since Key Learning is the default open tab)
     injectRandomiseButtons(); 
     injectFIBAdvancedToggle();
+    initCategorisation();
+    
     setTimeout(() => {
         showDoubleClickHint();
     }, 800);
@@ -982,4 +984,221 @@ function injectRandomiseButtons() {
             resetBtn.parentNode.insertBefore(rndBtn, resetBtn);
         }
     });
+}
+
+// ══════════════════════════════════════
+//  CATEGORISATION INJECTOR & LOGIC
+// ══════════════════════════════════════
+let active = null;
+
+function initCategorisation() {
+    if (typeof categoryData === 'undefined') return;
+
+    const navBar = document.querySelector('.tab-bar');
+    const mainArea = document.querySelector('main');
+    if (!navBar || !mainArea || document.getElementById('tab-categorise')) return;
+
+    const tabBtn = document.createElement('button');
+    tabBtn.className = 'tab-btn';
+    tabBtn.innerHTML = '🗂️ Categorise';
+    tabBtn.onclick = function () { switchTab('categorise', this); };
+    navBar.appendChild(tabBtn);
+
+    const tabPanel = document.createElement('section');
+    tabPanel.id = 'tab-categorise';
+    tabPanel.className = 'tab-panel';
+    tabPanel.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;">
+            <div>
+                <h2 class="section-title">${categoryData.title}</h2>
+                <p class="section-sub" id="catHint">Click an item to select it, then click a box to place it.</p>
+            </div>
+            <button class="reset-btn" onclick="buildCategorisationUI()">↺ RESET</button>
+        </div>
+        <div class="cat-progress" id="catProgress"></div>
+        <div id="catCanvas" class="cat-canvas"></div>
+    `;
+    mainArea.appendChild(tabPanel);
+    buildCategorisationUI();
+}
+
+function catHint(text, highlight) {
+    const el = document.getElementById('catHint');
+    if (!el) return;
+    el.textContent = text;
+    el.classList.toggle('highlight', !!highlight);
+}
+
+function setCatReady(on) {
+    document.querySelectorAll('.cat-zone').forEach(z => z.classList.toggle('ready', on));
+    const pool = document.getElementById('catPool');
+    if (pool) pool.classList.toggle('ready', on);
+}
+
+function catTicker() {
+    const pool = document.getElementById('catPool');
+    const btn = document.getElementById('catCheckBtn');
+    const pt = document.getElementById('catProgress');
+    if (!pool || !btn) return;
+
+    const remaining = pool.querySelectorAll('.cat-item').length;
+    const total = document.querySelectorAll('.cat-item').length;
+
+    if (pt) {
+        pt.textContent = remaining === 0
+            ? 'All placed — check your answers when ready!'
+            : `${remaining} of ${total} items left`;
+    }
+
+    btn.style.display = remaining === 0 ? 'inline-block' : 'none';
+
+    if (remaining > 0) {
+        document.querySelectorAll('.cat-item').forEach(i => i.classList.remove('wrong'));
+    }
+    if (remaining === 0 && !active) {
+        catHint("All placed — hit 'Check answers' when ready.");
+    }
+}
+
+function makeCatItem(item) {
+    const el = document.createElement('div');
+    el.className = 'cat-item';
+    el.textContent = item.text;
+    el.dataset.target = item.target;
+
+    el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (el.classList.contains('correct')) return;
+
+        const wasSelected = el.classList.contains('selected');
+        document.querySelectorAll('.cat-item').forEach(i => i.classList.remove('selected'));
+
+        if (wasSelected) {
+            active = null;
+            setCatReady(false);
+            catHint('Click an item to select it, then click a box to place it.');
+        } else {
+            active = el;
+            el.classList.add('selected');
+            setCatReady(true);
+            catHint('Now click a category box — or click the item again to deselect.', true);
+        }
+    });
+
+    return el;
+}
+
+function placeCatItem(dest) {
+    if (!active) return;
+    active.classList.remove('selected');
+    dest.appendChild(active);
+    active.classList.remove('cat-popin');
+    void active.offsetWidth;
+    active.classList.add('cat-popin');
+    active = null;
+    setCatReady(false);
+    catHint('Nice — keep going! Click another item to sort it.');
+    catTicker();
+}
+
+function buildCategorisationUI() {
+    const canvas = document.getElementById('catCanvas');
+    if (!canvas) return;
+    active = null;
+    canvas.innerHTML = '';
+
+    // Zones
+    const zonesWrap = document.createElement('div');
+    zonesWrap.className = 'cat-zones';
+
+    categoryData.categories.forEach(cat => {
+        const zone = document.createElement('div');
+        zone.className = 'cat-zone';
+        zone.dataset.category = cat;
+
+        const title = document.createElement('div');
+        title.className = 'cat-zone-title';
+        title.textContent = cat;
+
+        const items = document.createElement('div');
+        items.className = 'cat-zone-items';
+
+        zone.appendChild(title);
+        zone.appendChild(items);
+        zone.addEventListener('click', () => placeCatItem(items));
+        zonesWrap.appendChild(zone);
+    });
+
+    canvas.appendChild(zonesWrap);
+
+    // Pool
+    const poolLabel = document.createElement('p');
+    poolLabel.className = 'cat-pool-label';
+    poolLabel.textContent = 'Items to sort';
+    canvas.appendChild(poolLabel);
+
+    const pool = document.createElement('div');
+    pool.className = 'cat-pool';
+    pool.id = 'catPool';
+
+    [...categoryData.items].sort(() => Math.random() - 0.5).forEach(item => {
+        pool.appendChild(makeCatItem(item));
+    });
+
+    pool.addEventListener('click', () => {
+        if (!active) return;
+        pool.appendChild(active);
+        active.classList.remove('selected', 'cat-popin');
+        active = null;
+        setCatReady(false);
+        catHint('Moved back. Click an item to select it, then click a box.');
+        catTicker();
+    });
+
+    canvas.appendChild(pool);
+
+    // Check button
+    const actionWrap = document.createElement('div');
+    actionWrap.className = 'cat-action';
+
+    const btn = document.createElement('button');
+    btn.id = 'catCheckBtn';
+    btn.className = 'fc-btn';
+    btn.style.display = 'none';
+    btn.textContent = '✓ Check answers';
+
+    btn.addEventListener('click', () => {
+        let correct = 0, total = 0;
+
+        document.querySelectorAll('.cat-zone-items .cat-item').forEach(item => {
+            const zone = item.closest('.cat-zone');
+            if (!zone) return;
+            total++;
+            const ok = zone.dataset.category === item.dataset.target;
+            item.classList.toggle('correct', ok);
+            item.classList.toggle('wrong', !ok);
+            if (!ok) {
+                item.classList.remove('shake');
+                void item.offsetWidth;
+                item.classList.add('shake');
+            }
+            if (ok) correct++;
+        });
+
+        if (correct === total) {
+            btn.textContent = 'Perfect score! ✨';
+            btn.disabled = true;
+            catHint('Excellent — all correct!');
+        } else {
+            const w = total - correct;
+            btn.textContent = 'Try again';
+            catHint(`${w} item${w > 1 ? 's are' : ' is'} wrong — move ${w > 1 ? 'them' : 'it'} and try again.`, true);
+        }
+    });
+
+    actionWrap.appendChild(btn);
+    canvas.appendChild(actionWrap);
+
+    catHint('Click an item to select it, then click a box to place it.');
+    catTicker();
 }

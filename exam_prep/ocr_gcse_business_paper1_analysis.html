@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OCR GCSE Business Paper 1 — Full Analysis</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f0e0c;
+  --paper: #f7f4ee;
+  --paper2: #edeae0;
+  --paper3: #e2ddd0;
+  --accent: #d94f3d;
+  --accent2: #2563eb;
+  --accent3: #16a34a;
+  --gold: #b45309;
+  --muted: #6b6760;
+  --border: #d4cfc3;
+  --shadow: rgba(15,14,12,0.08);
+
+  --c-red: #d94f3d;
+  --c-blue: #2563eb;
+  --c-purple: #7c3aed;
+  --c-teal: #0d9488;
+  --c-amber: #b45309;
+  --c-gray: #57534e;
+  --c-green: #16a34a;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Sora', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 2.5rem 2rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 20px,
+    rgba(255,255,255,0.02) 20px,
+    rgba(255,255,255,0.02) 21px
+  );
+}
+.header-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+.header-title {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+.header-title span {
+  color: var(--accent);
+}
+.header-sub {
+  font-size: 13px;
+  color: rgba(247,244,238,0.55);
+  font-family: 'DM Mono', monospace;
+  margin-top: 0.75rem;
+}
+.header-pills {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: 1.25rem;
+}
+.header-pill {
+  font-size: 11px;
+  font-family: 'DM Mono', monospace;
+  padding: 3px 10px;
+  border-radius: 100px;
+  border: 1px solid rgba(247,244,238,0.2);
+  color: rgba(247,244,238,0.7);
+}
+
+/* ── NAV TABS ── */
+.nav-bar {
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 0 2rem;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-bar::-webkit-scrollbar { display: none; }
+.nav-tab {
+  padding: 0.85rem 1.25rem;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: rgba(247,244,238,0.45);
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2.5px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  user-select: none;
+  display: flex; align-items: center; gap: 7px;
+}
+.nav-tab .tab-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  opacity: 0.6;
+}
+.nav-tab:hover { color: rgba(247,244,238,0.8); }
+.nav-tab.active {
+  color: var(--paper);
+  border-bottom-color: var(--accent);
+}
+
+/* ── MAIN LAYOUT ── */
+.main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+.panel { display: none; animation: fadeUp 0.3s ease; }
+.panel.active { display: block; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── SECTION HEADINGS ── */
+.section-heading {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+  margin-top: 2rem;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.section-heading:first-child { margin-top: 0; }
+.section-heading .sh-line {
+  flex: 1; height: 2px; background: var(--border);
+}
+.section-intro {
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 1.75rem;
+  line-height: 1.7;
+}
+
+/* ── CALLOUT BOXES ── */
+.callout {
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  display: flex; gap: 0.75rem; align-items: flex-start;
+}
+.callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.callout-body strong { font-weight: 700; }
+.callout.green  { background: #f0fdf4; border: 1px solid #bbf7d0; color: #14532d; }
+.callout.amber  { background: #fffbeb; border: 1px solid #fde68a; color: #78350f; }
+.callout.red    { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+
+/* ── FREQUENCY TABLE ── */
+.freq-table-wrap {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.freq-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.freq-table thead tr {
+  background: var(--ink);
+  color: var(--paper);
+}
+.freq-table thead th {
+  padding: 10px 12px;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: left;
+}
+.freq-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.freq-table tbody tr:last-child { border-bottom: none; }
+.freq-table tbody tr:hover { background: var(--paper2); }
+.freq-table td {
+  padding: 9px 12px;
+  color: var(--muted);
+  vertical-align: middle;
+}
+.freq-table td:nth-child(1) { color: var(--ink); font-weight: 700; font-size: 12px; font-family: 'DM Mono', monospace; }
+.freq-table td:nth-child(3) { color: var(--ink); font-weight: 600; font-size: 13.5px; }
+.freq-table td:nth-child(4) { font-weight: 700; color: var(--ink); }
+
+/* ── BADGES ── */
+.badge {
+  display: inline-flex; align-items: center;
+  font-size: 11px; font-weight: 700;
+  padding: 2px 8px; border-radius: 5px;
+  white-space: nowrap; font-family: 'DM Mono', monospace;
+  letter-spacing: 0.03em;
+}
+.b-red    { background: #fee2e2; color: var(--c-red); }
+.b-amber  { background: #fef3c7; color: var(--c-amber); }
+.b-green  { background: #dcfce7; color: var(--c-green); }
+.b-blue   { background: #dbeafe; color: var(--c-blue); }
+.b-purple { background: #ede9fe; color: var(--c-purple); }
+.b-teal   { background: #ccfbf1; color: var(--c-teal); }
+.b-gray   { background: #f5f5f4; color: var(--c-gray); }
+
+/* ── MINI BAR ── */
+.mini-bar-wrap { display: flex; align-items: center; gap: 7px; }
+.mini-bar-bg { width: 100px; height: 8px; background: var(--paper3); border-radius: 100px; overflow: hidden; }
+.mini-bar-fill { height: 100%; border-radius: 100px; }
+.mini-bar-val { font-size: 12px; font-weight: 700; font-family: 'DM Mono', monospace; color: var(--ink); min-width: 24px; }
+
+/* ── EVIDENCE TABLE ── */
+.evidence-table-wrap {
+  border-radius: 12px; border: 1px solid var(--border);
+  overflow-x: auto; margin-bottom: 1.5rem;
+}
+.evidence-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.evidence-table thead tr { background: var(--ink); color: var(--paper); }
+.evidence-table thead th { padding: 8px 10px; font-size: 10.5px; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
+.evidence-table tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+.evidence-table tbody tr:last-child { border-bottom: none; }
+.evidence-table tbody tr:hover { background: var(--paper2); }
+.evidence-table td { padding: 7px 10px; color: var(--muted); vertical-align: middle; white-space: nowrap; }
+.evidence-table td:first-child { white-space: normal; min-width: 100px; }
+.note-text { font-family: 'Lora', serif; font-style: italic; font-size: 12px; color: var(--muted); margin-top: 0.5rem; }
+
+/* ── COMMAND WORDS PANEL ── */
+.cmd-section {
+  border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden; margin-bottom: 1rem;
+}
+.cmd-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.9rem 1.1rem;
+  background: var(--paper2);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+  gap: 1rem;
+}
+.cmd-header:hover { background: var(--paper3); }
+.cmd-header-left { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+.cmd-title { font-size: 14px; font-weight: 700; }
+.cmd-pills { display: flex; flex-wrap: wrap; gap: 4px; }
+.cmd-pill {
+  font-size: 10.5px; padding: 2px 7px; border-radius: 4px;
+  background: var(--paper); border: 1px solid var(--border);
+  color: var(--muted); font-family: 'DM Mono', monospace; font-weight: 500;
+}
+.cmd-chevron { font-size: 16px; color: var(--muted); transition: transform 0.25s; flex-shrink: 0; }
+.cmd-section.open .cmd-chevron { transform: rotate(180deg); }
+.cmd-body { display: none; padding: 1rem 1.1rem 1.1rem; border-top: 1px solid var(--border); }
+.cmd-section.open .cmd-body { display: block; }
+.cmd-body p { font-size: 13.5px; line-height: 1.7; color: var(--ink); font-family: 'Lora', serif; }
+.marks-note { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 0.6rem; }
+
+/* ── GAP ANALYSIS ── */
+.gap-table-wrap { border-radius: 12px; border: 1px solid var(--border); overflow-x: auto; margin-bottom: 1.5rem; }
+.gap-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.gap-table thead tr { background: var(--ink); color: var(--paper); }
+.gap-table thead th { padding: 9px 11px; font-size: 10.5px; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
+.gap-table tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+.gap-table tbody tr:last-child { border-bottom: none; }
+.gap-table tbody tr:hover { background: var(--paper2); }
+.gap-table td { padding: 8px 11px; vertical-align: middle; }
+.gap-table td:first-child { white-space: normal; min-width: 160px; }
+
+.year-dot {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; border-radius: 50%;
+  font-size: 10px; font-weight: 700;
+}
+.y-yes { background: #dcfce7; color: #15803d; }
+.y-no  { background: var(--paper3); color: var(--border); }
+.y-star{ background: #fef3c7; color: #92400e; }
+
+/* ── ROTATION TABLES ── */
+.rotation-table-wrap { border-radius: 12px; border: 1px solid var(--border); overflow: hidden; margin-bottom: 1.25rem; }
+.rotation-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.rotation-table thead tr { background: var(--ink); color: var(--paper); }
+.rotation-table thead th { padding: 8px 12px; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+.rotation-table tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+.rotation-table tbody tr:last-child { border-bottom: none; }
+.rotation-table tbody tr:hover { background: var(--paper2); }
+.rotation-table td { padding: 8px 12px; color: var(--muted); vertical-align: middle; }
+.rotation-table td:first-child { font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+
+.sub-section-heading {
+  font-size: 0.9rem; font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  margin: 1.75rem 0 0.75rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.sub-section-heading::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* ── PREDICTION CARDS ── */
+.pred-grid { display: grid; gap: 1rem; margin-bottom: 1rem; }
+.pred-card {
+  border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.25rem 1.25rem 1rem;
+  background: #fff;
+  position: relative; overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pred-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--shadow); }
+.pred-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.pred-card.rank-1::before { background: linear-gradient(90deg, #d94f3d, #f97316); }
+.pred-card.rank-2::before { background: linear-gradient(90deg, #f97316, #eab308); }
+.pred-card.rank-3::before { background: linear-gradient(90deg, #eab308, #84cc16); }
+.pred-card.rank-other::before { background: var(--border); }
+
+.pred-card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.6rem; gap: 0.75rem; }
+.pred-rank-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 28px; font-weight: 700; line-height: 1;
+  color: var(--border); flex-shrink: 0;
+}
+.pred-rank-badge.top { color: var(--accent); }
+.pred-question {
+  font-size: 13.5px; font-weight: 600; color: var(--ink);
+  margin: 0.5rem 0 0.3rem; line-height: 1.5;
+}
+.pred-marks-line {
+  font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+.pred-rationale-toggle {
+  font-size: 12px; font-weight: 600; color: var(--accent2);
+  cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+  user-select: none; padding: 3px 0;
+}
+.pred-rationale-toggle:hover { text-decoration: underline; }
+.pred-rationale { display: none; margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px dashed var(--border); }
+.pred-rationale.open { display: block; }
+.pred-rationale p {
+  font-family: 'Lora', serif; font-size: 13.5px; color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── CONFIDENCE BAR ── */
+.confidence-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
+.conf-label { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted); width: 80px; flex-shrink: 0; }
+.conf-bar-bg { flex: 1; height: 6px; background: var(--paper3); border-radius: 100px; overflow: hidden; }
+.conf-bar-fill { height: 100%; border-radius: 100px; transition: width 0.8s cubic-bezier(0.22,1,0.36,1); }
+.conf-pct { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--ink); font-weight: 700; width: 32px; text-align: right; }
+
+/* ── STICKY PROGRESS BAR ── */
+.progress-bar-wrap {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--paper); border-bottom: 1px solid var(--border);
+  padding: 0.5rem 1.5rem;
+  display: none;
+}
+.progress-inner { display: flex; align-items: center; gap: 0.75rem; }
+.progress-label { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted); flex-shrink: 0; }
+.progress-bg { flex: 1; height: 4px; background: var(--paper3); border-radius: 100px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--accent); border-radius: 100px; width: 0; transition: width 0.3s; }
+.progress-pct { font-size: 11px; font-family: 'DM Mono', monospace; font-weight: 700; width: 32px; text-align: right; }
+
+/* ── FOOTER NOTE ── */
+.footer-note { font-family: 'Lora', serif; font-style: italic; font-size: 12px; color: var(--muted); margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .site-header { padding: 1.5rem 1rem 1.25rem; }
+  .main { padding: 1.5rem 1rem 3rem; }
+  .nav-bar { padding: 0 1rem; }
+  .freq-table thead th:nth-child(5),
+  .freq-table tbody td:nth-child(5) { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-eyebrow">OCR GCSE Business Studies</div>
+  <h1 class="header-title">Paper 1 — <span>Full Analysis</span></h1>
+  <p class="header-sub">Sample · 2019 · 2020 · 2021 · 2022 · 2023 · 2024 · 2025 &nbsp;|&nbsp; Q16, Q17 &amp; Q18 &nbsp;|&nbsp; All topic codes</p>
+  <div class="header-pills">
+    <span class="header-pill">8 paper series</span>
+    <span class="header-pill">17 topic codes</span>
+    <span class="header-pill">2026 predictions</span>
+    <span class="header-pill">9★ rotation</span>
+    
+  </div>
+  
+</header>
+
+<nav class="nav-bar">
+  <div class="nav-tab active" onclick="showTab('freq', this)"><span class="tab-num">01</span> Frequency</div>
+  <div class="nav-tab" onclick="showTab('cmd', this)"><span class="tab-num">02</span> Command Words</div>
+  <div class="nav-tab" onclick="showTab('gap', this)"><span class="tab-num">03</span> Gap Analysis</div>
+  <div class="nav-tab" onclick="showTab('pred', this)"><span class="tab-num">04</span> 2026 Predictions</div>
+    <a href="../index.html" class="home-link">← 🏡 Home</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════
+     PANEL 1 — FREQUENCY
+═══════════════════════════════════════════════ -->
+<main class="main">
+
+<div class="panel active" id="freq">
+
+  <h2 class="section-heading">Frequency ranking <span class="sh-line"></span></h2>
+  <p class="section-intro">Each row counts every individually tagged sub-question appearance across all eight official paper series. Where a topic appears in multiple sub-questions within the same question (e.g. d.i and d.ii both tagged 2.4), each sub-question is counted separately.</p>
+
+  <div class="freq-table-wrap">
+    <table class="freq-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Code</th>
+          <th>Topic</th>
+          <th>Appearances</th>
+          <th>Coverage</th>
+          <th>Visual</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><span class="badge b-red">2.4</span></td>
+          <td>The Marketing Mix</td>
+          <td><strong>22</strong></td>
+          <td>All 8 years</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:100%;background:#d94f3d"></div></div><span class="mini-bar-val">22</span></div></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><span class="badge b-purple">3.4</span></td>
+          <td>Recruitment &amp; Selection</td>
+          <td><strong>14</strong></td>
+          <td>7 of 8 years</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:64%;background:#7c3aed"></div></div><span class="mini-bar-val">14</span></div></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><span class="badge b-purple">3.6</span></td>
+          <td>Training &amp; Development</td>
+          <td><strong>13</strong></td>
+          <td>7 of 8 years</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:59%;background:#7c3aed"></div></div><span class="mini-bar-val">13</span></div></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><span class="badge b-purple">3.5</span></td>
+          <td>Motivation &amp; Retention</td>
+          <td><strong>12</strong></td>
+          <td>7 of 8 years</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:55%;background:#7c3aed"></div></div><span class="mini-bar-val">12</span></div></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><span class="badge b-purple">3.2</span></td>
+          <td>Org Structures &amp; Ways of Working</td>
+          <td><strong>12</strong></td>
+          <td>6 of 8 years</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:55%;background:#7c3aed"></div></div><span class="mini-bar-val">12</span></div></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><span class="badge b-blue">2.2</span></td>
+          <td>Market Research</td>
+          <td><strong>11</strong></td>
+          <td>All 8 years</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:50%;background:#2563eb"></div></div><span class="mini-bar-val">11</span></div></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><span class="badge b-teal">1.6</span></td>
+          <td>Business Growth</td>
+          <td><strong>9</strong></td>
+          <td>6 of 8 years</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:41%;background:#0d9488"></div></div><span class="mini-bar-val">9</span></div></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><span class="badge b-teal">1.5</span></td>
+          <td>Stakeholders in Business</td>
+          <td><strong>7</strong></td>
+          <td>6 of 8 years</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:32%;background:#0d9488"></div></div><span class="mini-bar-val">7</span></div></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><span class="badge b-purple">3.3</span></td>
+          <td>Communication in Business</td>
+          <td><strong>7</strong></td>
+          <td>5 of 8 years</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:32%;background:#7c3aed"></div></div><span class="mini-bar-val">7</span></div></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><span class="badge b-teal">1.2</span></td>
+          <td>Business Planning</td>
+          <td><strong>6</strong></td>
+          <td>6 of 8 years</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:27%;background:#0d9488"></div></div><span class="mini-bar-val">6</span></div></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><span class="badge b-teal">1.3</span></td>
+          <td>Business Ownership</td>
+          <td><strong>6</strong></td>
+          <td>6 of 8 years</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:27%;background:#0d9488"></div></div><span class="mini-bar-val">6</span></div></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><span class="badge b-blue">2.3</span></td>
+          <td>Market Segmentation</td>
+          <td><strong>6</strong></td>
+          <td>6 of 8 years</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:27%;background:#2563eb"></div></div><span class="mini-bar-val">6</span></div></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><span class="badge b-teal">1.4</span></td>
+          <td>Business Aims &amp; Objectives</td>
+          <td><strong>6</strong></td>
+          <td>3 of 8 years</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:27%;background:#0d9488"></div></div><span class="mini-bar-val">6</span></div></td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td><span class="badge b-gray">1.1</span></td>
+          <td>Business Enterprise &amp; Entrepreneurship</td>
+          <td><strong>4</strong></td>
+          <td>4 of 8 years</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:18%;background:#57534e"></div></div><span class="mini-bar-val">4</span></div></td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td><span class="badge b-gray">3.7</span></td>
+          <td>Employment Law</td>
+          <td><strong>4</strong></td>
+          <td>4 of 8 years</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:18%;background:#57534e"></div></div><span class="mini-bar-val">4</span></div></td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td><span class="badge b-gray">2.1</span></td>
+          <td>Role of Marketing</td>
+          <td><strong>1</strong></td>
+          <td>1 of 8 years</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:5%;background:#57534e"></div></div><span class="mini-bar-val">1</span></div></td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td><span class="badge b-gray">3.1</span></td>
+          <td>Role of Human Resources</td>
+          <td><strong>0</strong></td>
+          <td>Never examined</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:0%;background:#57534e"></div></div><span class="mini-bar-val">0</span></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="note-text">Note: 1.4 (Aims &amp; Objectives) has 6 sub-question appearances concentrated in only 3 years — it clusters heavily when it does appear, rather than appearing broadly across years.</p>
+
+  <div class="sub-section-heading">Evidence table — every tagged appearance by year</div>
+
+  <div class="evidence-table-wrap">
+    <table class="evidence-table">
+      <thead>
+        <tr><th>Code</th><th>Sam</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="badge b-red">2.4</span></td><td>Q16(e,f)</td><td>Q16(e,f)</td><td>Q16(f),Q17(d),Q18(c)</td><td>Q17(e)</td><td>Q17(c,d),Q18(c)</td><td>Q18(a,c,d★)</td><td>Q16(b),Q18(b)</td><td>Q17(c)</td></tr>
+        <tr><td><span class="badge b-purple">3.4</span></td><td>Q17(a,b)</td><td>Q17(d,e)</td><td>Q18(d★)</td><td>Q16(d)</td><td>—</td><td>Q17(a)</td><td>Q17(d)</td><td>Q17(a)</td></tr>
+        <tr><td><span class="badge b-purple">3.6</span></td><td>Q17(d,e)</td><td>Q17(f)</td><td>Q18(a)</td><td>Q16(e)</td><td>Q16(c,d★)</td><td>Q17(b,c)</td><td>—</td><td>Q17(b)</td></tr>
+        <tr><td><span class="badge b-purple">3.5</span></td><td>Q17(f)</td><td>Q17(b,c)</td><td>Q16(d)</td><td>Q16(f★)</td><td>Q17(b)</td><td>—</td><td>Q17(c)</td><td>Q16(d★),Q18(b)</td></tr>
+        <tr><td><span class="badge b-purple">3.2</span></td><td>—</td><td>Q18(d★)</td><td>Q17(f)</td><td>Q17(d),Q18(c)</td><td>Q16(a)</td><td>Q17(d)</td><td>—</td><td>Q18(c)</td></tr>
+        <tr><td><span class="badge b-blue">2.2</span></td><td>Q18(c)</td><td>Q16(a)</td><td>Q17(e)</td><td>Q16(a,b)</td><td>Q17(a)</td><td>Q18(b)</td><td>Q16(d),Q17(b)</td><td>Q18(d★)</td></tr>
+        <tr><td><span class="badge b-teal">1.6</span></td><td>Q16(b)</td><td>Q18(a,b)</td><td>—</td><td>Q17(f)</td><td>Q18(d★)</td><td>Q16(d★)</td><td>—</td><td>Q16(c)</td></tr>
+        <tr><td><span class="badge b-teal">1.5</span></td><td>Q18(d)</td><td>Q18(c)</td><td>Q17(a,b)</td><td>Q17(b)</td><td>Q18(a)</td><td>Q16(b)</td><td>—</td><td>—</td></tr>
+        <tr><td><span class="badge b-purple">3.3</span></td><td>—</td><td>Q17(a)</td><td>—</td><td>Q16(c)</td><td>—</td><td>Q16(c)</td><td>Q18(c)</td><td>Q18(a)</td></tr>
+        <tr><td><span class="badge b-teal">1.2</span></td><td>Q18(b★)</td><td>Q16(c)</td><td>Q16(a)</td><td>Q17(c)</td><td>—</td><td>—</td><td>Q18(d★)</td><td>Q16(a)</td></tr>
+        <tr><td><span class="badge b-teal">1.3</span></td><td>Q18(a)</td><td>—</td><td>Q16(b)</td><td>Q18(d★)</td><td>Q18(b)</td><td>—</td><td>Q16(a)</td><td>Q16(b)</td></tr>
+        <tr><td><span class="badge b-blue">2.3</span></td><td>Q16(c)</td><td>Q16(d)</td><td>Q18(b)</td><td>Q18(b)</td><td>—</td><td>Q16(a)</td><td>Q16(c)</td><td>—</td></tr>
+        <tr><td><span class="badge b-teal">1.4</span></td><td>Q16(d)</td><td>—</td><td>Q16(e),Q17(c)</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Q17(d)</td></tr>
+        <tr><td><span class="badge b-gray">1.1</span></td><td>Q16(a)</td><td>—</td><td>—</td><td>Q18(a)</td><td>Q16(b)</td><td>—</td><td>Q18(a)</td><td>—</td></tr>
+        <tr><td><span class="badge b-gray">3.7</span></td><td>Q17(c)</td><td>—</td><td>Q16(c)</td><td>Q17(a)</td><td>—</td><td>—</td><td>Q17(a)</td><td>—</td></tr>
+        <tr><td><span class="badge b-gray">2.1</span></td><td>—</td><td>Q16(b)</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td><span class="badge b-gray">3.1</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note-text">★ = highest-tariff question that year (7-mark Evaluate in Q16, or 9-mark starred in Q18)</p>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PANEL 2 — COMMAND WORDS
+═══════════════════════════════════════════════ -->
+<div class="panel" id="cmd">
+
+  <h2 class="section-heading">Command word &amp; question-type patterns <span class="sh-line"></span></h2>
+  <p class="section-intro">Click any topic below to expand its full command word breakdown and examiner patterns. Understanding which command words appear with each topic is essential for targeted exam preparation.</p>
+
+  <!-- 2.4 -->
+  <div class="cmd-section open">
+    <div class="cmd-header" onclick="toggleCmd(this)">
+      <div class="cmd-header-left">
+        <span class="badge b-red">2.4</span>
+        <span class="cmd-title">The Marketing Mix</span>
+        <div class="cmd-pills">
+          <span class="cmd-pill">State</span><span class="cmd-pill">Identify</span><span class="cmd-pill">Analyse</span><span class="cmd-pill">Evaluate</span><span class="cmd-pill">Recommend</span>
+        </div>
+      </div>
+      <span class="cmd-chevron">▾</span>
+    </div>
+    <div class="cmd-body">
+      <p class="marks-note">Marks: 1, 2, 3, 6, 7★, 9★</p>
+      <p>The most-examined topic by a wide margin. Appears in every paper. Typically anchors Q16(f) or Q18(c) as the high-tariff evaluate question. Common angles: pricing methods (cost-plus, skimming, competitor), product (lifecycle, new product development), promotion (social media, TV, radio, newspaper, website), and place (distribution channels, store investment). The 7-mark Q16 evaluate has focused on marketing mix decisions in six of eight years (Sample, 2019, 2020 all had 7-mark 2.4 evaluates). In 2023 the 9★ Q18 also examined 2.4. The Recommend question in Q17 and Q18 part (c)(ii) almost always involves two promotional or pricing methods side by side.</p>
+    </div>
+  </div>
+
+  <!-- 3.4 -->
+  <div class="cmd-section">
+    <div class="cmd-header" onclick="toggleCmd(this)">
+      <div class="cmd-header-left">
+        <span class="badge b-purple">3.4</span>
+        <span class="cmd-title">Recruitment &amp; Selection</span>
+        <div class="cmd-pills">
+          <span class="cmd-pill">State</span><span class="cmd-pill">Identify</span><span class="cmd-pill">Explain</span><span class="cmd-pill">Analyse</span><span class="cmd-pill">Recommend</span>
+        </div>
+      </div>
+      <span class="cmd-chevron">▾</span>
+    </div>
+    <div class="cmd-body">
+      <p class="marks-note">Marks: 1, 2, 3, 6, 9★</p>
+      <p>Always appears as a multi-part question covering selection methods (interviews, references, group activities) alongside a Recommend sub-part. The 9-mark starred Q18 focused on recruitment in 2020. In shorter Q16/Q17 slots it typically earns 2 or 3 marks (State two methods, Explain one advantage of external recruitment). Job descriptions and person specifications featured in the Sample paper only.</p>
+    </div>
+  </div>
+
+  <!-- 3.6 -->
+  <div class="cmd-section">
+    <div class="cmd-header" onclick="toggleCmd(this)">
+      <div class="cmd-header-left">
+        <span class="badge b-purple">3.6</span>
+        <span class="cmd-title">Training &amp; Development</span>
+        <div class="cmd-pills">
+          <span class="cmd-pill">Identify</span><span class="cmd-pill">Analyse</span><span class="cmd-pill">Explain</span><span class="cmd-pill">Evaluate</span>
+        </div>
+      </div>
+      <span class="cmd-chevron">▾</span>
+    </div>
+    <div class="cmd-body">
+      <p class="marks-note">Marks: 2, 3, 6, 7★</p>
+      <p>Common in both short-answer (Analyse one reason / Identify two other methods) and as the 7-mark evaluate (2022 Q16: evaluate apprenticeships). Training types examined include induction, on-the-job, off-the-job, apprenticeships, and academic qualifications. Almost always linked to a case study business with specific operational context (e.g. customer service training, staff development programme).</p>
+    </div>
+  </div>
+
+  <!-- 3.5 -->
+  <div class="cmd-section">
+    <div class="cmd-header" onclick="toggleCmd(this)">
+      <div class="cmd-header-left">
+        <span class="badge b-purple">3.5</span>
+        <span class="cmd-title">Motivation &amp; Retention</span>
+        <div class="cmd-pills">
+          <span class="cmd-pill">State</span><span class="cmd-pill">Identify</span><span class="cmd-pill">Explain</span><span class="cmd-pill">Analyse</span><span class="cmd-pill">Evaluate</span>
+        </div>
+      </div>
+      <span class="cmd-chevron">▾</span>
+    </div>
+    <div class="cmd-body">
+      <p class="marks-note">Marks: 1, 2, 3, 6, 7★</p>
+      <p>Has been the 7-mark Q16 Evaluate topic twice (2021: profit sharing; 2025: higher wage rate). Also appears frequently as Explain three reasons why employee motivation is important [6 marks]. Both financial (pay, profit sharing, bonuses) and non-financial (praise, autonomy) methods are regularly examined. Employee retention is a distinct sub-topic appearing in 2020, 2024, and 2025.</p>
+    </div>
+  </div>
+
+  <!-- 3.2 -->
+  <div class="cmd-section">
+    <div class="cmd-header" onclick="toggleCmd(this)">
+      <div class="cmd-header-left">
+        <span class="badge b-purple">3.2</span>
+        <span class="cmd-title">Organisational Structures &amp; Ways of Working</span>
+        <div class="cmd-pills">
+          <span class="cmd-pill">State</span><span class="cmd-pill">Explain</span><span class="cmd-pill">Analyse</span><span class="cmd-pill">Recommend</span><span class="cmd-pill">Discuss</span>
+        </div>
+      </div>
+      <span class="cmd-chevron">▾</span>
+    </div>
+    <div class="cmd-body">
+      <p class="marks-note">Marks: 2, 3, 6, 9★</p>
+      <p>Consistently examined through the structured Analyse one advantage of each option + Recommend format (e.g. tall vs flat, full-time vs part-time, work from home vs office). The 9-mark starred Q18 examined organisational structure in 2019. Ways of working (part-time, freelance, zero-hours) appear as State-type questions. The Q18 format of analysing two contrasting structures has appeared in 2021 (tall/flat), 2023 (working from home), and 2025 (full-time/part-time).</p>
+    </div>
+  </div>
+
+  <!-- 2.2 -->
+  <div class="cmd-section">
+    <div class="cmd-header" onclick="toggleCmd(this)">
+      <div class="cmd-header-left">
+        <span class="badge b-blue">2.2</span>
+        <span class="cmd-title">Market Research</span>
+        <div class="cmd-pills">
+          <span class="cmd-pill">State</span><span class="cmd-pill">Identify</span><span class="cmd-pill">Explain</span><span class="cmd-pill">Analyse</span><span class="cmd-pill">Evaluate</span>
+        </div>
+      </div>
+      <span class="cmd-chevron">▾</span>
+    </div>
+    <div class="cmd-body">
+      <p class="marks-note">Marks: 1, 2, 3, 6, 7★, 9★</p>
+      <p>Appears in every single year and has been both the 7-mark Q16 evaluate (2024: primary vs secondary) and the 9-mark Q18 starred question (2025: whether to use market research). Focus groups and questionnaires are the most commonly examined primary methods. Quantitative vs qualitative data distinction has appeared in 2024. Secondary sources (e.g. internet, government statistics) first appeared in 2019.</p>
+    </div>
+  </div>
+
+  <!-- 1.6 -->
+  <div class="cmd-section">
+    <div class="cmd-header" onclick="toggleCmd(this)">
+      <div class="cmd-header-left">
+        <span class="badge b-teal">1.6</span>
+        <span class="cmd-title">Business Growth</span>
+        <div class="cmd-pills">
+          <span class="cmd-pill">Identify</span><span class="cmd-pill">Explain</span><span class="cmd-pill">Analyse</span><span class="cmd-pill">Evaluate</span><span class="cmd-pill">Recommend</span>
+        </div>
+      </div>
+      <span class="cmd-chevron">▾</span>
+    </div>
+    <div class="cmd-body">
+      <p class="marks-note">Marks: 1, 2, 3, 6, 7★, 9★</p>
+      <p>Has been the 7-mark evaluate in 2023 (organic growth) and the 9-mark starred in 2022 (merger decision). Organic vs external growth is the most consistent framing. Methods of external growth (merger, takeover, franchise) appear as Identify or Analyse questions. Absent in 2020 and 2024.</p>
+    </div>
+  </div>
+
+  <!-- 1.5 -->
+  <div class="cmd-section">
+    <div class="cmd-header" onclick="toggleCmd(this)">
+      <div class="cmd-header-left">
+        <span class="badge b-teal">1.5</span>
+        <span class="cmd-title">Stakeholders</span>
+        <div class="cmd-pills">
+          <span class="cmd-pill">Identify</span><span class="cmd-pill">Explain</span><span class="cmd-pill">Analyse</span><span class="cmd-pill">Recommend</span>
+        </div>
+      </div>
+      <span class="cmd-chevron">▾</span>
+    </div>
+    <div class="cmd-body">
+      <p class="marks-note">Marks: 1, 2, 3, 6</p>
+      <p>Has never been the highest-tariff question on its own. Appears as shorter questions (Identify one likely objective of an employee; Explain how three external stakeholder groups can be satisfied). Often combined with another topic in Q18 (e.g. stakeholder impact of a merger). Absent in both 2024 and 2025 — a significant two-year gap.</p>
+    </div>
+  </div>
+
+  <!-- 1.2 -->
+  <div class="cmd-section">
+    <div class="cmd-header" onclick="toggleCmd(this)">
+      <div class="cmd-header-left">
+        <span class="badge b-teal">1.2</span>
+        <span class="cmd-title">Business Planning</span>
+        <div class="cmd-pills">
+          <span class="cmd-pill">Explain</span><span class="cmd-pill">Evaluate</span>
+        </div>
+      </div>
+      <span class="cmd-chevron">▾</span>
+    </div>
+    <div class="cmd-body">
+      <p class="marks-note">Marks: 2, 9★</p>
+      <p>Either a short 2-mark Explain question or the full 9-mark starred Q18 evaluation (Sample 2018 and 2024). Never appeared as the 7-mark Q16 evaluate. Often framed around purpose/benefits of a business plan, or evaluating whether an existing or new plan is needed.</p>
+    </div>
+  </div>
+
+  <!-- 1.3 -->
+  <div class="cmd-section">
+    <div class="cmd-header" onclick="toggleCmd(this)">
+      <div class="cmd-header-left">
+        <span class="badge b-teal">1.3</span>
+        <span class="cmd-title">Business Ownership</span>
+        <div class="cmd-pills">
+          <span class="cmd-pill">Explain</span><span class="cmd-pill">Analyse</span><span class="cmd-pill">Evaluate</span>
+        </div>
+      </div>
+      <span class="cmd-chevron">▾</span>
+    </div>
+    <div class="cmd-body">
+      <p class="marks-note">Marks: 2, 6, 9★</p>
+      <p>Always involves private limited companies (Ltd) or sole traders — no plc-specific questions have used 1.3 as a primary tag despite the Sainsbury's context in 2024. The 9-mark starred Q18 examined sole trader vs alternative in 2021. Appeared in 2024 and 2025 consecutively.</p>
+    </div>
+  </div>
+
+  <!-- 2.3 -->
+  <div class="cmd-section">
+    <div class="cmd-header" onclick="toggleCmd(this)">
+      <div class="cmd-header-left">
+        <span class="badge b-blue">2.3</span>
+        <span class="cmd-title">Market Segmentation</span>
+        <div class="cmd-pills">
+          <span class="cmd-pill">State</span><span class="cmd-pill">Explain</span><span class="cmd-pill">Analyse</span>
+        </div>
+      </div>
+      <span class="cmd-chevron">▾</span>
+    </div>
+    <div class="cmd-body">
+      <p class="marks-note">Marks: 1, 2, 3, 6</p>
+      <p>Never appeared as a high-tariff evaluate or starred question. Always examined at the short-answer or analysis level (Explain one advantage / Analyse two benefits). Consistently links to demographic or geographic segmentation in case study context. Absent in 2022 and 2025.</p>
+    </div>
+  </div>
+
+  <!-- 3.3 -->
+  <div class="cmd-section">
+    <div class="cmd-header" onclick="toggleCmd(this)">
+      <div class="cmd-header-left">
+        <span class="badge b-purple">3.3</span>
+        <span class="cmd-title">Communication</span>
+        <div class="cmd-pills">
+          <span class="cmd-pill">Identify</span><span class="cmd-pill">Explain</span><span class="cmd-pill">Analyse</span><span class="cmd-pill">Recommend</span>
+        </div>
+      </div>
+      <span class="cmd-chevron">▾</span>
+    </div>
+    <div class="cmd-body">
+      <p class="marks-note">Marks: 1, 2, 3, 6</p>
+      <p>Has grown in prominence — appeared in 2019, 2021, 2023, 2024, 2025. In 2024 Q18 it featured as a structured Analyse-two-methods + Recommend format worth 9 marks in total. Methods examined include meetings, emails, and written communications. Appeared in Q18 in 2024 and 2025.</p>
+    </div>
+  </div>
+
+  <!-- 3.7 -->
+  <div class="cmd-section">
+    <div class="cmd-header" onclick="toggleCmd(this)">
+      <div class="cmd-header-left">
+        <span class="badge b-gray">3.7</span>
+        <span class="cmd-title">Employment Law</span>
+        <div class="cmd-pills">
+          <span class="cmd-pill">State</span><span class="cmd-pill">Explain</span><span class="cmd-pill">Analyse</span>
+        </div>
+      </div>
+      <span class="cmd-chevron">▾</span>
+    </div>
+    <div class="cmd-body">
+      <p class="marks-note">Marks: 1, 2, 3</p>
+      <p>Always a short-answer question — never examined at 6+ marks as a standalone topic. Anti-discrimination law (Equality Act context) and minimum wage are common angles. Appeared in Sample, 2020, 2021, and 2024 — skipped 2019, 2022, 2023, 2025.</p>
+    </div>
+  </div>
+
+  <!-- 1.1 + 1.4 -->
+  <div class="cmd-section">
+    <div class="cmd-header" onclick="toggleCmd(this)">
+      <div class="cmd-header-left">
+        <span class="badge b-gray">1.1</span>
+        <span class="badge b-teal">1.4</span>
+        <span class="cmd-title">Entrepreneurship &amp; Aims/Objectives</span>
+        <div class="cmd-pills">
+          <span class="cmd-pill">State</span><span class="cmd-pill">Identify</span><span class="cmd-pill">Explain</span><span class="cmd-pill">Analyse</span>
+        </div>
+      </div>
+      <span class="cmd-chevron">▾</span>
+    </div>
+    <div class="cmd-body">
+      <p class="marks-note">Marks: 1, 2, 3, 6</p>
+      <p>1.1 appears only as a short Identify/State/Explain question (characteristics of an entrepreneur) in Q16 or Q18. 1.4 clusters — when it appears it often generates multiple sub-questions (2025 Q17 had three parts all on 1.4: shareholder objectives vs customer objectives). Neither has ever been the 7-mark or 9-mark evaluate on its own.</p>
+    </div>
+  </div>
+
+  <!-- 2.1 + 3.1 -->
+  <div class="cmd-section">
+    <div class="cmd-header" onclick="toggleCmd(this)">
+      <div class="cmd-header-left">
+        <span class="badge b-gray">2.1</span>
+        <span class="badge b-gray">3.1</span>
+        <span class="cmd-title">Role of Marketing &amp; Role of HR</span>
+      </div>
+      <span class="cmd-chevron">▾</span>
+    </div>
+    <div class="cmd-body">
+      <p>2.1 appeared once (2019) as a 2-mark Explain question on the purpose of marketing. 3.1 has never been explicitly examined as a primary tag, though its content underpins many questions tagged to 3.2–3.7. Both should be treated as very low probability for a primary question.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PANEL 3 — GAP ANALYSIS
+═══════════════════════════════════════════════ -->
+<div class="panel" id="gap">
+
+  <h2 class="section-heading">Gap &amp; rotation analysis <span class="sh-line"></span></h2>
+  <p class="section-intro">Use this to identify which topics are overdue and which have just been examined. The pattern of gaps is one of the strongest predictive signals for any given year.</p>
+
+  <div class="callout green">
+    <span class="callout-icon">✅</span>
+    <div class="callout-body"><strong>Core topics (every year, no exceptions):</strong> 2.4 Marketing Mix and 2.2 Market Research have appeared in all eight official papers. Treat both as certainties for 2026.</div>
+  </div>
+
+  <div class="sub-section-heading">High-frequency core — appears most years</div>
+
+  <div class="gap-table-wrap">
+    <table class="gap-table">
+      <thead>
+        <tr><th>Topic</th><th>Sam</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th><th>24</th><th>25</th><th>Verdict</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge b-red">2.4</span> Marketing Mix</td>
+          <td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td>
+          <td><span class="badge b-green">Every year — certain</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge b-blue">2.2</span> Market Research</td>
+          <td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td>
+          <td><span class="badge b-green">Every year — certain</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge b-purple">3.4</span> Recruitment</td>
+          <td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td>
+          <td><span class="badge b-green">7/8 years — very likely</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge b-purple">3.6</span> Training</td>
+          <td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-yes">✓</span></td>
+          <td><span class="badge b-green">7/8 years — very likely</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge b-purple">3.5</span> Motivation</td>
+          <td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td>
+          <td><span class="badge b-blue">7/8 years — likely</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub-section-heading">Rotating topics — 2–3 year cycles</div>
+
+  <div class="gap-table-wrap">
+    <table class="gap-table">
+      <thead>
+        <tr><th>Topic</th><th>Sam</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th><th>24</th><th>25</th><th>Last seen</th><th>Gap verdict</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge b-teal">1.5</span> Stakeholders</td>
+          <td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-no">—</span></td>
+          <td>2023</td><td><span class="badge b-red">2-year gap — high priority</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge b-gray">3.7</span> Employment Law</td>
+          <td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td>
+          <td>2024</td><td><span class="badge b-amber">1-year gap — moderate</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge b-blue">2.3</span> Market Segmentation</td>
+          <td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td>
+          <td>2024</td><td><span class="badge b-amber">1-year gap — moderate</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge b-teal">1.6</span> Business Growth</td>
+          <td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-yes">✓</span></td>
+          <td>2025</td><td><span class="badge b-gray">Just appeared — lower priority</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge b-teal">1.2</span> Business Planning</td>
+          <td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td>
+          <td>2025</td><td><span class="badge b-gray">Just appeared — lower priority</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge b-teal">1.3</span> Business Ownership</td>
+          <td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td>
+          <td>2025</td><td><span class="badge b-gray">Just appeared — lower priority</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge b-purple">3.2</span> Org Structures</td>
+          <td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-yes">✓</span></td>
+          <td>2025</td><td><span class="badge b-gray">Just appeared — lower priority</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge b-gray">1.1</span> Entrepreneurship</td>
+          <td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td>
+          <td>2024</td><td><span class="badge b-amber">1-year gap — moderate</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge b-teal">1.4</span> Aims &amp; Objectives</td>
+          <td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-yes">✓</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-no">—</span></td><td><span class="year-dot y-yes">✓</span></td>
+          <td>2025</td><td><span class="badge b-gray">Just appeared — lower priority</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub-section-heading">9-mark starred Q18 rotation analysis</div>
+
+  <div class="rotation-table-wrap">
+    <table class="rotation-table">
+      <thead><tr><th>Year</th><th>Topic</th><th>Question focus</th></tr></thead>
+      <tbody>
+        <tr><td>Sample</td><td><span class="badge b-teal">1.2</span></td><td>Evaluate the effectiveness of the business plan</td></tr>
+        <tr><td>2019</td><td><span class="badge b-purple">3.2</span></td><td>Discuss whether to change organisational structure</td></tr>
+        <tr><td>2020</td><td><span class="badge b-purple">3.4</span></td><td>Evaluate whether internal recruitment is the best method</td></tr>
+        <tr><td>2021</td><td><span class="badge b-teal">1.3</span></td><td>Evaluate whether sole trader is best ownership type</td></tr>
+        <tr><td>2022</td><td><span class="badge b-teal">1.6</span></td><td>Evaluate whether to merge with a competitor</td></tr>
+        <tr><td>2023</td><td><span class="badge b-red">2.4</span></td><td>Evaluate whether to introduce healthier products</td></tr>
+        <tr><td>2024</td><td><span class="badge b-teal">1.2</span></td><td>Evaluate whether Sam should write a new business plan</td></tr>
+        <tr><td>2025</td><td><span class="badge b-blue">2.2</span></td><td>Evaluate whether to use market research to plan for the future</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13.5px;color:var(--ink);line-height:1.7;margin-bottom:1.25rem;font-family:'Lora',serif;">Topics not yet used as a 9★ Q18 subject: <strong>1.1, 1.4, 1.5, 2.1, 2.3, 3.1, 3.3, 3.5, 3.6, 3.7</strong>. The strongest candidates for 2026 Q18★ are <strong>1.5 (Stakeholders)</strong> and <strong>3.5 (Motivation/Retention)</strong>, which are high-frequency topics with a recent gap and have never been the 9-mark starred question.</p>
+
+  <div class="sub-section-heading">7-mark Q16 Evaluate rotation</div>
+
+  <div class="rotation-table-wrap">
+    <table class="rotation-table">
+      <thead><tr><th>Year</th><th>Topic</th><th>Question focus</th></tr></thead>
+      <tbody>
+        <tr><td>Sample</td><td><span class="badge b-red">2.4</span></td><td>Evaluate whether to continue using social media for promotion</td></tr>
+        <tr><td>2019</td><td><span class="badge b-red">2.4</span></td><td>Evaluate whether to continue using the product lifecycle</td></tr>
+        <tr><td>2020</td><td><span class="badge b-red">2.4</span></td><td>Evaluate whether to continue the store re-fit programme</td></tr>
+        <tr><td>2021</td><td><span class="badge b-purple">3.5</span></td><td>Evaluate whether to continue offering profit sharing</td></tr>
+        <tr><td>2022</td><td><span class="badge b-purple">3.6</span></td><td>Evaluate whether to continue offering apprenticeships</td></tr>
+        <tr><td>2023</td><td><span class="badge b-teal">1.6</span></td><td>Evaluate whether to continue growing organically</td></tr>
+        <tr><td>2024</td><td><span class="badge b-blue">2.2</span></td><td>Evaluate whether to use primary or secondary market research</td></tr>
+        <tr><td>2025</td><td><span class="badge b-purple">3.5</span></td><td>Evaluate whether to continue paying a higher wage rate</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13.5px;color:var(--ink);line-height:1.7;margin-bottom:1.25rem;font-family:'Lora',serif;">The 7-mark evaluate moved away from 2.4 dominance after 2020 and is now rotating more broadly. For 2026 it has not been: <strong>1.3, 1.5, 2.3, 3.2, 3.3, 3.4, 3.7</strong>. Based on gap analysis, <strong>1.5 (Stakeholders)</strong> or <strong>3.4 (Recruitment)</strong> are the most overdue.</p>
+
+  <div class="callout amber">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-body"><strong>Priority gaps for 2026:</strong> <strong>1.5 Stakeholders</strong> (2-year absence, never been high-tariff starred question, highly overdue) and <strong>3.7 Employment Law</strong> (skipped 2022, 2023, 2025 — every-other-year pattern suggests 2026 is due).</div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PANEL 4 — PREDICTIONS
+═══════════════════════════════════════════════ -->
+<div class="panel" id="pred">
+
+  <h2 class="section-heading">Predicted questions for 2026 <span class="sh-line"></span></h2>
+  <p class="section-intro">Ranked from highest to lowest confidence. All predictions are grounded in the frequency, command word, and gap data above. Click <em>"Why this topic?"</em> on any card to reveal the full reasoning.</p>
+
+  <div class="pred-grid">
+
+    <!-- #1 -->
+    <div class="pred-card rank-1">
+      <div class="pred-card-top">
+        <span class="badge b-red">2.4 — Marketing Mix</span>
+        <span class="pred-rank-badge top">1</span>
+      </div>
+      <div class="pred-question">Analyse one advantage for [Business X] of using [pricing/promotion method A]. Analyse one advantage for [Business X] of using [pricing/promotion method B]. Recommend which method [Business X] should use. Give a reason for your answer.</div>
+      <div class="pred-marks-line">6 + 3 marks &nbsp;|&nbsp; Command words: Analyse × 2, Recommend</div>
+      <div class="confidence-row">
+        <span class="conf-label">Confidence</span>
+        <div class="conf-bar-bg"><div class="conf-bar-fill" style="width:98%;background:#d94f3d"></div></div>
+        <span class="conf-pct">98%</span>
+      </div>
+      <span class="pred-rationale-toggle" onclick="toggleRationale(this)">▸ Why this topic?</span>
+      <div class="pred-rationale">
+        <p>2.4 has appeared in every one of the eight papers without exception, making it a near-certainty. The structured compare-two-methods + Recommend format has featured in Q17 or Q18 in 2020, 2021, 2022, 2023, 2024, and 2025. Given that 2.4 was not the 7-mark or 9-mark evaluate in 2025 (it was the Q17(c) 3-mark Analyse), there is a plausible case it returns as a higher-tariff question in 2026. Pricing and promotion are the most recurring sub-topics.</p>
+      </div>
+    </div>
+
+    <!-- #2 -->
+    <div class="pred-card rank-2">
+      <div class="pred-card-top">
+        <span class="badge b-teal">1.5 — Stakeholders</span>
+        <span class="pred-rank-badge top">2</span>
+      </div>
+      <div class="pred-question">Explain how the objectives of three stakeholder groups can be satisfied by [Business X]. [6] — or — Evaluate whether [Business X] should prioritise the needs of shareholders over other stakeholder groups. [7★ or 9★]</div>
+      <div class="pred-marks-line">6 marks (Explain) or 7★/9★ (Evaluate) &nbsp;|&nbsp; Command words: Explain, Evaluate</div>
+      <div class="confidence-row">
+        <span class="conf-label">Confidence</span>
+        <div class="conf-bar-bg"><div class="conf-bar-fill" style="width:90%;background:#f97316"></div></div>
+        <span class="conf-pct">90%</span>
+      </div>
+      <span class="pred-rationale-toggle" onclick="toggleRationale(this)">▸ Why this topic?</span>
+      <div class="pred-rationale">
+        <p>1.5 appeared in six consecutive papers (Sample–2023) before going absent in both 2024 and 2025 — the longest gap in its history. It has never been the 9-mark starred question, making the combination of a long absence and an untested high-tariff format especially significant. The 2025 Q17(d) question on shareholder vs customer objectives (tagged 1.4) shows the examiner is interested in stakeholder tensions, reinforcing the likelihood that 1.5 returns in a more prominent role in 2026.</p>
+      </div>
+    </div>
+
+    <!-- #3 -->
+    <div class="pred-card rank-3">
+      <div class="pred-card-top">
+        <span class="badge b-purple">3.4 — Recruitment &amp; Selection</span>
+        <span class="pred-rank-badge top">3</span>
+      </div>
+      <div class="pred-question">State two methods of selecting new employees. [2] — and/or — Analyse one advantage for [Business X] of using [method A] to select new employees. Analyse one advantage of using [method B]. Recommend which method is more effective. Give a reason for your answer. [9 marks total]</div>
+      <div class="pred-marks-line">2 + 3 + 3 + 3 marks &nbsp;|&nbsp; Command words: State, Analyse, Recommend</div>
+      <div class="confidence-row">
+        <span class="conf-label">Confidence</span>
+        <div class="conf-bar-bg"><div class="conf-bar-fill" style="width:85%;background:#eab308"></div></div>
+        <span class="conf-pct">85%</span>
+      </div>
+      <span class="pred-rationale-toggle" onclick="toggleRationale(this)">▸ Why this topic?</span>
+      <div class="pred-rationale">
+        <p>3.4 has appeared in 7 of 8 papers (missing only 2022) and featured in both 2024 and 2025, confirming it as a near-annual topic. The structured analyse-two-methods + recommend format for selection methods is one of the most recognisable patterns in the paper, used in 2019, 2024, and 2025. It has also been the 9★ Q18 topic (2020), making it a plausible candidate at any mark allocation.</p>
+      </div>
+    </div>
+
+    <!-- #4 -->
+    <div class="pred-card rank-other">
+      <div class="pred-card-top">
+        <span class="badge b-blue">2.2 — Market Research</span>
+        <span class="pred-rank-badge">4</span>
+      </div>
+      <div class="pred-question">State two purposes of market research. [2] — or — Analyse one benefit to [Business X] of using [primary research method A]. Analyse one benefit of using [method B]. Recommend which method [Business X] should use. [9 marks total]</div>
+      <div class="pred-marks-line">2 marks (State) or 3 + 3 + 3 (Analyse + Recommend) &nbsp;|&nbsp; Command words: State, Analyse, Recommend</div>
+      <div class="confidence-row">
+        <span class="conf-label">Confidence</span>
+        <div class="conf-bar-bg"><div class="conf-bar-fill" style="width:88%;background:#7c3aed"></div></div>
+        <span class="conf-pct">88%</span>
+      </div>
+      <span class="pred-rationale-toggle" onclick="toggleRationale(this)">▸ Why this topic?</span>
+      <div class="pred-rationale">
+        <p>2.2 has appeared in every paper. In 2024 it was the 7-mark Q16 Evaluate and in 2025 the 9-mark Q18 starred question — it therefore carried heavy tariff in two consecutive years. For 2026 it is likely to appear at a lower mark allocation (2-mark State or 3-mark Analyse), which still makes it a near-certainty but perhaps not the headline question. The quantitative vs qualitative data distinction (examined in 2024) is a likely re-examination angle.</p>
+      </div>
+    </div>
+
+    <!-- #5 -->
+    <div class="pred-card rank-other">
+      <div class="pred-card-top">
+        <span class="badge b-purple">3.6 — Training &amp; Development</span>
+        <span class="pred-rank-badge">5</span>
+      </div>
+      <div class="pred-question">Explain three reasons why [Business X] trains its employees. [6] — or — Analyse one likely reason why [Business X] puts all new employees through an induction training programme. [3]</div>
+      <div class="pred-marks-line">3 or 6 marks &nbsp;|&nbsp; Command words: Explain, Analyse</div>
+      <div class="confidence-row">
+        <span class="conf-label">Confidence</span>
+        <div class="conf-bar-bg"><div class="conf-bar-fill" style="width:80%;background:#0d9488"></div></div>
+        <span class="conf-pct">80%</span>
+      </div>
+      <span class="pred-rationale-toggle" onclick="toggleRationale(this)">▸ Why this topic?</span>
+      <div class="pred-rationale">
+        <p>3.6 has appeared in 7 of 8 papers (missing only 2024) and returned in 2025, confirming its regularity. The Explain three reasons [6 marks] format has been used in 2023 and 2025, and is extremely likely to recur. It was the 7-mark evaluate in 2022 (apprenticeships), so if it returns as a higher-tariff question in 2026, an evaluate on on-the-job vs off-the-job training or a training investment decision is the most probable framing.</p>
+      </div>
+    </div>
+
+    <!-- #6 -->
+    <div class="pred-card rank-other">
+      <div class="pred-card-top">
+        <span class="badge b-gray">3.7 — Employment Law</span>
+        <span class="pred-rank-badge">6</span>
+      </div>
+      <div class="pred-question">State two aspects of employment law that may affect a business. [2] — or — Explain one way that employment law may affect [Business X]'s employment of workers. [2]</div>
+      <div class="pred-marks-line">1–3 marks &nbsp;|&nbsp; Command words: State, Explain, Analyse</div>
+      <div class="confidence-row">
+        <span class="conf-label">Confidence</span>
+        <div class="conf-bar-bg"><div class="conf-bar-fill" style="width:65%;background:#57534e"></div></div>
+        <span class="conf-pct">65%</span>
+      </div>
+      <span class="pred-rationale-toggle" onclick="toggleRationale(this)">▸ Why this topic?</span>
+      <div class="pred-rationale">
+        <p>3.7 follows a rough alternating pattern (appeared Sample, 2020, 2021, 2024 — skipped 2019, 2022, 2023, 2025). With a one-year gap after 2024 and a three-year gap before that, the odds favour a 2026 appearance. It has only ever appeared as a short-answer question (1–3 marks), so it would likely be Q17(a) as a 1 or 2-mark opener, consistent with its historical slot.</p>
+      </div>
+    </div>
+
+    <!-- #7 -->
+    <div class="pred-card rank-other">
+      <div class="pred-card-top">
+        <span class="badge b-purple">3.5 — Motivation &amp; Retention</span>
+        <span class="pred-rank-badge">7</span>
+      </div>
+      <div class="pred-question">Explain three reasons why employee motivation is important for [Business X]. [6] — or — Analyse two advantages for [Business X] of employee retention. [6]</div>
+      <div class="pred-marks-line">6 marks &nbsp;|&nbsp; Command words: Explain, Analyse</div>
+      <div class="confidence-row">
+        <span class="conf-label">Confidence</span>
+        <div class="conf-bar-bg"><div class="conf-bar-fill" style="width:75%;background:#7c3aed"></div></div>
+        <span class="conf-pct">75%</span>
+      </div>
+      <span class="pred-rationale-toggle" onclick="toggleRationale(this)">▸ Why this topic?</span>
+      <div class="pred-rationale">
+        <p>3.5 appeared heavily in 2025 (both the 7-mark Q16 evaluate and Q18(b) on retention), making it less likely to carry a high-tariff question again immediately. However, it is a 7-of-8-years topic and will almost certainly appear at the 2–6-mark level. The Explain three reasons why motivation is important [6] format (used in 2022) or the Analyse two advantages of retention (used in 2025) are the most likely framings at lower tariff.</p>
+      </div>
+    </div>
+
+    <!-- #8 -->
+    <div class="pred-card rank-other">
+      <div class="pred-card-top">
+        <span class="badge b-purple">3.2 — Org Structures &amp; Ways of Working</span>
+        <span class="pred-rank-badge">8</span>
+      </div>
+      <div class="pred-question">Analyse one advantage for [Business X] of each of the following ways of working: [option A] / [option B]. Recommend which [Business X] should use. Give a reason for your answer. [6 + 3 marks]</div>
+      <div class="pred-marks-line">6 + 3 marks &nbsp;|&nbsp; Command words: Analyse, Recommend</div>
+      <div class="confidence-row">
+        <span class="conf-label">Confidence</span>
+        <div class="conf-bar-bg"><div class="conf-bar-fill" style="width:60%;background:#7c3aed"></div></div>
+        <span class="conf-pct">60%</span>
+      </div>
+      <span class="pred-rationale-toggle" onclick="toggleRationale(this)">▸ Why this topic?</span>
+      <div class="pred-rationale">
+        <p>3.2 appeared in 2025 Q18 (full-time vs part-time employees), making a repeat in the same prominent Q18 slot less likely for 2026. However, it has only missed two papers in eight years (Sample and 2024) and its structured compare-two-structures format is very familiar. A shorter appearance in Q16 or Q17 (e.g. Explain one reason why businesses have different organisational structures [2 marks], as in 2022) is plausible as a lower-tariff question.</p>
+      </div>
+    </div>
+
+    <!-- #9 -->
+    <div class="pred-card rank-other">
+      <div class="pred-card-top">
+        <span class="badge b-blue">2.3 — Market Segmentation</span>
+        <span class="pred-rank-badge">9</span>
+      </div>
+      <div class="pred-question">Explain one way that a business can segment its market. [2] — or — Analyse one likely reason why [Business X] uses market segmentation when developing new products. [3]</div>
+      <div class="pred-marks-line">2–3 marks &nbsp;|&nbsp; Command words: Explain, Analyse</div>
+      <div class="confidence-row">
+        <span class="conf-label">Confidence</span>
+        <div class="conf-bar-bg"><div class="conf-bar-fill" style="width:62%;background:#2563eb"></div></div>
+        <span class="conf-pct">62%</span>
+      </div>
+      <span class="pred-rationale-toggle" onclick="toggleRationale(this)">▸ Why this topic?</span>
+      <div class="pred-rationale">
+        <p>2.3 appeared in 2024 but not 2025, sustaining its established two-years-on/one-year-off pattern. It has never been examined above 3 marks in a standalone question, so a short Explain [2] or Analyse [3] question in Q16 is most probable. The context of a business with distinct customer groups (e.g. age-based or income-based segments) is the typical case study trigger.</p>
+      </div>
+    </div>
+
+    <!-- #10 -->
+    <div class="pred-card rank-other">
+      <div class="pred-card-top">
+        <span class="badge b-gray">1.1 — Entrepreneurship</span>
+        <span class="pred-rank-badge">10</span>
+      </div>
+      <div class="pred-question">State one characteristic of an entrepreneur. [1] — or — Identify one other characteristic of an entrepreneur. [1]</div>
+      <div class="pred-marks-line">1 mark &nbsp;|&nbsp; Command word: State / Identify</div>
+      <div class="confidence-row">
+        <span class="conf-label">Confidence</span>
+        <div class="conf-bar-bg"><div class="conf-bar-fill" style="width:55%;background:#57534e"></div></div>
+        <span class="conf-pct">55%</span>
+      </div>
+      <span class="pred-rationale-toggle" onclick="toggleRationale(this)">▸ Why this topic?</span>
+      <div class="pred-rationale">
+        <p>1.1 appeared in 2024 but not 2025, maintaining its alternating pattern (2021, 2022, 2024 — missing 2019, 2020, 2023, 2025). The question is almost always a 1-mark opener in Q18(a) and is trivially short. The entrepreneur-led small business case study context in Q18 naturally prompts this question. If the 2026 Q18 case study involves a startup or new business venture, this is a near-certain 1-mark opener.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="footer-note">All predictions are based solely on evidence in the provided past papers. Topics not predicted to appear prominently in 2026: 1.2 (appeared 2024 + 2025), 1.3 (appeared 2024 + 2025), 1.6 (appeared 2025), 1.4 (appeared 2025), 2.1 (only 1 historical appearance), 3.1 (never examined).</p>
+
+</div>
+
+</main>
+
+<script>
+function showTab(id, el) {
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleCmd(headerEl) {
+  const section = headerEl.closest('.cmd-section');
+  section.classList.toggle('open');
+}
+
+function toggleRationale(toggleEl) {
+  const rationale = toggleEl.nextElementSibling;
+  const isOpen = rationale.classList.toggle('open');
+  toggleEl.textContent = isOpen ? '▾ Why this topic?' : '▸ Why this topic?';
+}
+
+// Animate bars on load
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.mini-bar-fill').forEach(bar => {
+    const w = bar.style.width;
+    bar.style.width = '0';
+    setTimeout(() => { bar.style.width = w; bar.style.transition = 'width 0.9s cubic-bezier(0.22,1,0.36,1)'; }, 200);
+  });
+  document.querySelectorAll('.conf-bar-fill').forEach(bar => {
+    const w = bar.style.width;
+    bar.style.width = '0';
+    setTimeout(() => { bar.style.width = w; bar.style.transition = 'width 0.9s cubic-bezier(0.22,1,0.36,1)'; }, 400);
+  });
+});
+</script>
+</body>
+</html>

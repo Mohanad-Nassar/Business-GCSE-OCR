@@ -1831,3 +1831,138 @@ body.sidebar-mobile-open .sidebar-overlay {
     color: var(--success);
     cursor: default;
 }
+/* ══════════════════════════════════════
+   CATEGORISATION ACTIVITY
+   ══════════════════════════════════════ */
+
+.section-sub.highlight { color: var(--gold); font-weight: 500; }
+
+.cat-progress {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: right;
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+}
+
+.cat-canvas { display: flex; flex-direction: column; gap: 14px; }
+
+/* ── Zones: fixed 2-column grid, never resizes horizontally ── */
+.cat-zones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.cat-zone {
+    background: var(--card-bg);
+    border: 1.5px solid var(--accent);
+    border-radius: 10px;
+    padding: 14px;
+    min-height: 170px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    cursor: default;
+    overflow: hidden;
+    /* Only background changes — no border or shadow shifts that cause layout jump */
+    transition: background 0.25s ease;
+}
+.cat-zone.ready { background: #fdf8ec; cursor: pointer; }
+
+.cat-zone-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+    color: var(--ink);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1.5px solid var(--border);
+    pointer-events: none;
+    flex-shrink: 0;
+}
+
+/* pointer-events: none so clicks bubble through to the zone */
+.cat-zone-items {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    pointer-events: none;
+}
+
+/* ── Pool ── */
+.cat-pool-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-bottom: 7px;
+}
+
+.cat-pool {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1.5px dashed var(--border);
+    border-radius: 10px;
+    min-height: 70px;
+    transition: background 0.25s ease;
+}
+.cat-pool.ready { background: #fdf8ec; cursor: pointer; }
+
+/* ── Items ── */
+.cat-item {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 9px 12px;
+    border-radius: 7px;
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+    pointer-events: auto;
+    width: 100%; /* full width inside zones (flex-column) */
+    transition: transform 0.18s ease, opacity 0.18s ease,
+                background 0.18s ease, box-shadow 0.18s ease;
+}
+
+/* Pool items shrink to fit their text */
+.cat-pool .cat-item { width: auto; }
+
+.cat-item:hover:not(.correct):not(.selected) {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.14);
+}
+
+.cat-item.selected {
+    background: var(--gold);
+    color: var(--ink);
+    font-weight: 600;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
+}
+
+.cat-item.correct { background: var(--success); color: white; pointer-events: none; cursor: default; }
+.cat-item.wrong   { background: var(--wrong);   color: white; }
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0);  }
+    20%       { transform: translateX(-6px); }
+    40%       { transform: translateX(6px);  }
+    60%       { transform: translateX(-4px); }
+    80%       { transform: translateX(3px);  }
+}
+.cat-item.shake { animation: shake 0.38s ease; }
+
+@keyframes cat-popin {
+    0%   { transform: scale(0.94); opacity: 0.7; }
+    60%  { transform: scale(1.02); }
+    100% { transform: scale(1);    opacity: 1;   }
+}
+.cat-item.cat-popin { animation: cat-popin 0.22s ease forwards; }
+
+.cat-action { text-align: center; padding: 8px 0 16px; }
