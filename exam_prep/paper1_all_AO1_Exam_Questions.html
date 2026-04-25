@@ -1,0 +1,2311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Business Studies — Paper 1 AO1 Practice</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f7f5f0;
+            --surface: #ffffff;
+            --surface2: #f2efe8;
+            --border: #e0dbd0;
+            --border2: #cdc8b8;
+            --text: #1a1814;
+            --text2: #5a5548;
+            --text3: #8a8478;
+            --accent: #2d5a3d;
+            --accent-light: #e8f2ec;
+            --accent2: #8b4513;
+            --accent2-light: #fdf2ea;
+            --blue: #1d3d6b;
+            --blue-light: #e8eef7;
+            --red: #7a1f1f;
+            --red-light: #fdeaea;
+            --gold: #b8860b;
+            --gold-light: #fdf8e8;
+            --radius: 12px;
+            --radius-sm: 8px;
+            --shadow: 0 2px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.10), 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* ── HEADER ── */
+        header {
+            background: var(--accent);
+            color: white;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .header-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 20px;
+            letter-spacing: -0.3px;
+        }
+
+        .header-sub {
+            font-size: 12px;
+            opacity: 0.75;
+            font-weight: 300;
+            margin-top: 1px;
+        }
+
+        .progress-bar-wrap {
+            flex: 1;
+            min-width: 160px;
+            max-width: 280px;
+        }
+
+        .progress-label {
+            font-size: 11px;
+            opacity: 0.8;
+            margin-bottom: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #7ecb9c;
+            border-radius: 99px;
+            transition: width 0.4s ease;
+            width: 0%;
+        }
+
+        .header-stats {
+            display: flex;
+            gap: 16px;
+            font-size: 12px;
+            opacity: 0.85;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        /* ── CONTROLS ── */
+        .controls {
+            max-width: 1100px;
+            margin: 24px auto 0;
+            padding: 0 24px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .controls input,
+        .controls select {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            padding: 8px 12px;
+            border: 1px solid var(--border2);
+            border-radius: var(--radius-sm);
+            background: var(--surface);
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .controls input {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .controls select {
+            min-width: 160px;
+        }
+
+        .controls input:focus,
+        .controls select:focus {
+            border-color: var(--accent);
+        }
+
+        .q-count {
+            font-size: 13px;
+            color: var(--text3);
+            padding: 8px 4px;
+            white-space: nowrap;
+        }
+
+        /* ── MAIN ── */
+        main {
+            max-width: 1100px;
+            margin: 20px auto 60px;
+            padding: 0 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* ── QUESTION CARD ── */
+        .q-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+
+        .q-card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .q-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 18px 20px 14px;
+            border-bottom: 1px solid var(--border);
+            background: var(--surface2);
+        }
+
+        .q-number {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            background: var(--accent);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 6px;
+            white-space: nowrap;
+            margin-top: 2px;
+        }
+
+        .q-meta {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-left: auto;
+            align-items: center;
+        }
+
+        .badge {
+            font-size: 11px;
+            font-weight: 500;
+            padding: 3px 8px;
+            border-radius: 99px;
+            white-space: nowrap;
+        }
+
+        .badge-year {
+            background: var(--gold-light);
+            color: var(--gold);
+            border: 1px solid #e8d88a;
+        }
+
+        .badge-topic {
+            background: var(--blue-light);
+            color: var(--blue);
+            border: 1px solid #b8c8e0;
+        }
+
+        .badge-marks {
+            background: var(--accent-light);
+            color: var(--accent);
+            border: 1px solid #b0d4be;
+        }
+
+        .badge-mcq {
+            background: #e8f4fd;
+            color: #1565a0;
+            border: 1px solid #b3d4f0;
+        }
+
+        .badge-qer {
+            background: var(--accent2-light);
+            color: var(--accent2);
+            border: 1px solid #e0c8b0;
+        }
+
+        .q-text {
+            padding: 18px 20px 0;
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.55;
+            color: var(--text);
+        }
+
+        .q-stem {
+            background: var(--accent-light);
+            border-left: 3px solid var(--accent);
+            padding: 10px 14px;
+            border-radius: 0 6px 6px 0;
+            margin: 12px 20px;
+            font-size: 13px;
+            color: var(--text2);
+            font-style: italic;
+        }
+
+        /* ── MCQ OPTIONS ── */
+        .mcq-options {
+            padding: 12px 20px 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mcq-opt {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.15s;
+            user-select: none;
+            background: var(--surface);
+        }
+
+        .mcq-opt:hover {
+            border-color: var(--accent);
+            background: var(--accent-light);
+        }
+
+        .mcq-opt.selected {
+            border-color: var(--blue);
+            background: var(--blue-light);
+        }
+
+        .mcq-opt.correct {
+            border-color: #2d7a4f;
+            background: #e8f5ee;
+        }
+
+        .mcq-opt.wrong {
+            border-color: var(--red);
+            background: var(--red-light);
+        }
+
+        .mcq-opt.show-correct {
+            border-color: #2d7a4f;
+            background: #e8f5ee;
+        }
+
+        .opt-letter {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            font-weight: 500;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--surface2);
+            border: 1px solid var(--border2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+            transition: all 0.15s;
+        }
+
+        .mcq-opt.correct .opt-letter {
+            background: #2d7a4f;
+            color: white;
+            border-color: #2d7a4f;
+        }
+
+        .mcq-opt.wrong .opt-letter {
+            background: var(--red);
+            color: white;
+            border-color: var(--red);
+        }
+
+        .mcq-opt.show-correct .opt-letter {
+            background: #2d7a4f;
+            color: white;
+            border-color: #2d7a4f;
+        }
+
+        .opt-text {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* ── QER ANSWER ── */
+        .qer-area {
+            padding: 12px 20px 4px;
+        }
+
+        .qer-area textarea {
+            width: 100%;
+            min-height: 100px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            padding: 12px 14px;
+            border: 1.5px solid var(--border2);
+            border-radius: var(--radius-sm);
+            background: var(--surface);
+            color: var(--text);
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .qer-area textarea:focus {
+            border-color: var(--accent);
+        }
+
+        .qer-area textarea::placeholder {
+            color: var(--text3);
+        }
+
+        .qer-hint {
+            font-size: 12px;
+            color: var(--text3);
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* ── ACTIONS ── */
+        .q-actions {
+            padding: 14px 20px 18px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            border: 1.5px solid transparent;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: #224830;
+            border-color: #224830;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border-color: var(--border2);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-light);
+            border-color: var(--accent);
+        }
+
+        .btn-reset {
+            background: transparent;
+            color: var(--text3);
+            border-color: var(--border);
+            font-size: 12px;
+            padding: 6px 12px;
+            margin-left: auto;
+        }
+
+        .btn-reset:hover {
+            color: var(--red);
+            border-color: var(--red);
+            background: var(--red-light);
+        }
+
+        .btn:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+        }
+
+        /* ── RESULT FEEDBACK ── */
+        .result-inline {
+            margin: 0 20px 4px;
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .result-correct {
+            background: #e8f5ee;
+            color: #1a5c35;
+            border: 1px solid #b0d8c0;
+        }
+
+        .result-wrong {
+            background: var(--red-light);
+            color: var(--red);
+            border: 1px solid #e8b0b0;
+        }
+
+        /* ── MARKING SCHEME ── */
+        .marking-scheme {
+            margin: 0 20px 18px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            display: none;
+        }
+
+        .marking-scheme.visible {
+            display: block;
+        }
+
+        .ms-header {
+            background: var(--gold-light);
+            border-bottom: 1px solid #e0d090;
+            padding: 10px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .ms-body {
+            padding: 16px;
+            background: #fefdf8;
+            font-size: 13.5px;
+            line-height: 1.75;
+            color: var(--text);
+        }
+
+        .ms-body h4 {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text3);
+            margin: 14px 0 8px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .ms-body h4:first-child {
+            margin-top: 0;
+        }
+
+        .ms-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 8px;
+        }
+
+        .ms-body ul li {
+            padding: 3px 0 3px 20px;
+            position: relative;
+            color: var(--text2);
+        }
+
+        .ms-body ul li::before {
+            content: '•';
+            position: absolute;
+            left: 6px;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .ms-body .exemplar {
+            background: var(--accent-light);
+            border-left: 3px solid var(--accent);
+            padding: 10px 14px;
+            border-radius: 0 6px 6px 0;
+            margin: 8px 0;
+            font-style: italic;
+            color: var(--text2);
+            font-size: 13px;
+        }
+
+        .ms-body .exemplar strong {
+            font-style: normal;
+            color: var(--accent);
+            font-size: 11px;
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .ms-body .examiner-comment {
+            background: var(--blue-light);
+            border-left: 3px solid var(--blue);
+            padding: 10px 14px;
+            border-radius: 0 6px 6px 0;
+            margin: 8px 0;
+            color: var(--text2);
+            font-size: 13px;
+        }
+
+        .ms-body .examiner-comment strong {
+            color: var(--blue);
+            font-size: 11px;
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .ms-body .correct-answer {
+            background: #e8f5ee;
+            border: 1px solid #b0d8c0;
+            border-radius: var(--radius-sm);
+            padding: 8px 14px;
+            font-weight: 600;
+            color: #1a5c35;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .ms-body .note {
+            background: var(--gold-light);
+            border-left: 3px solid var(--gold);
+            padding: 8px 14px;
+            border-radius: 0 6px 6px 0;
+            margin: 8px 0;
+            color: #7a6000;
+            font-size: 12.5px;
+        }
+
+        /* ── EMPTY STATE ── */
+        .empty-state {
+            text-align: center;
+            padding: 60px 24px;
+            color: var(--text3);
+        }
+
+        .empty-state svg {
+            opacity: 0.3;
+            margin-bottom: 12px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 600px) {
+            .header-inner {
+                padding: 12px 16px;
+            }
+
+            .controls {
+                padding: 0 16px;
+            }
+
+            main {
+                padding: 0 16px;
+                margin-bottom: 40px;
+            }
+
+            .q-header {
+                flex-wrap: wrap;
+            }
+
+            .q-meta {
+                margin-left: 0;
+            }
+
+            .header-stats {
+                display: none;
+            }
+        }
+
+        /* ── ANSWERED STATE ── */
+        .q-card.answered .q-header {
+            background: var(--accent-light);
+            border-bottom-color: #b0d8c0;
+        }
+
+        .q-card.answered-wrong .q-header {
+            background: var(--red-light);
+            border-bottom-color: #e8b0b0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div>
+                <div class="header-title">OCR Business Studies</div>
+                <div class="header-sub">Paper 1 · AO1 Practice Questions</div>
+            </div>
+            <div class="progress-bar-wrap">
+                <div class="progress-label">
+                    <span>Progress</span>
+                    <span id="prog-label">0 / 0 answered</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+            <div class="header-stats">
+                <a href="../index.html" class="home-link">← 🏡 Home</a>
+
+                <div class="stat"><strong id="stat-correct">0</strong><span>Correct</span></div>
+                <div class="stat"><strong id="stat-attempted">0</strong><span>Attempted</span></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="controls">
+        <input type="text" id="search" placeholder="Search questions…" />
+        <select id="yrFilter">
+            <option value="">All years</option>
+        </select>
+        <select id="topicFilter">
+            <option value="">All topics</option>
+        </select>
+        <select id="typeFilter">
+            <option value="">MCQ &amp; QER</option>
+            <option value="MCQ">MCQ only</option>
+            <option value="QER">QER only</option>
+        </select>
+        <select id="markFilter">
+            <option value="">All marks</option>
+        </select>
+        <span class="q-count" id="q-count"></span>
+    </div>
+
+    <main id="main"></main>
+
+    <script>
+        const questions = [
+            {
+                id: "q1", num: "1", yr: "2025", tp: "1.4 Business Aims and Objectives", mk: 1, type: "MCQ",
+                q: "A business whose main objective is 'growth' is likely to be:",
+                opts: ["A — considering reducing the size of its workforce", "B — having difficulty keeping up with demand", "C — struggling to stay in existence", "D — trying to gain new customers"],
+                answer: "D",
+                ms: {
+                    correct: "D — trying to gain new customers",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q2", num: "2", yr: "2025", tp: "1.4 Business Aims and Objectives", mk: 1, type: "MCQ",
+                q: "An 'established business' is a business that:",
+                opts: ["A — has a good reputation", "B — has been operating for a long time", "C — is enterprising and creative", "D — is owned by more than one person"],
+                answer: "B",
+                ms: {
+                    correct: "B — has been operating for a long time",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q3", num: "3", yr: "2025", tp: "3.4 Recruitment and Selection", mk: 2, type: "QER",
+                q: "State two methods of selecting new employees.",
+                stem: "Context: Denby Pottery Company (2025 Text 2)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "CV / curriculum vitae / resumé",
+                        "Application form",
+                        "Letter of application",
+                        "Interview",
+                        "Group activity / group task",
+                        "Test / exam / simulation / role-play / presentation",
+                        "Work trial",
+                        "Reference",
+                        "Referral"
+                    ],
+                    marking: "One mark for each of two methods of selecting new employees. Answers do not need to relate to Denby.",
+                    note: "NB: 'Trial' / 'Trialling' scores zero — trialling is a primary market research method, not a selection method.",
+                    exemplar: [],
+                    examiner: "This question was well answered with most candidates gaining full marks. Of those who did less well, answers appeared to relate to recruitment but not selection, e.g. apprenticeships, job advertisements, job centres; or were too vague, e.g. 'applications', 'letters', 'asking for a job'."
+                }
+            },
+            {
+                id: "q4", num: "4", yr: "2025", tp: "3.3 Communication in Business", mk: 1, type: "QER",
+                q: "Identify one way of communicating in a business.",
+                stem: "Context: Shropshire Fruit Farm (2025 Text 3)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Email",
+                        "Face-to-face / in person",
+                        "Letter",
+                        "Meeting (e.g. staff meeting, online meeting, Teams meeting)",
+                        "Memo",
+                        "Noticeboard / bulletin board",
+                        "Phone",
+                        "Presentation",
+                        "Report",
+                        "Social media",
+                        "Messaging app",
+                        "Text",
+                        "Walkie-talkies / two-way radio",
+                        "Website"
+                    ],
+                    marking: "One mark for a way of communicating in a business. Answers do not need to relate to SFF.",
+                    note: "Do NOT credit responses that only state brand names e.g. 'use Teams', 'use Zoom' (brand name alone = 0). However 'Teams meeting' scores 1 mark as the mark is awarded for 'meeting'.",
+                    exemplar: [],
+                    examiner: "Most candidates gained the mark for this question. By far the most common answers were 'email' and 'meetings'."
+                }
+            },
+            {
+                id: "q5", num: "5", yr: "2025", tp: "2.2 Market Research", mk: 1, type: "MCQ",
+                q: "Which option contains two secondary sources of market research?",
+                opts: ["A — Focus groups and websites", "B — Internal data and newspapers", "C — Magazines and questionnaires", "D — Place and product"],
+                answer: "B",
+                ms: {
+                    correct: "B — Internal data and newspapers",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q6", num: "6", yr: "2025", tp: "3.1 The Role of Human Resources", mk: 1, type: "MCQ",
+                q: "What is NOT a likely advantage of improving the human resources function in a business?",
+                opts: ["A — Better training opportunities", "B — Greater use of trialling", "C — Higher levels of employee motivation", "D — More staff development"],
+                answer: "B",
+                ms: {
+                    correct: "B — Greater use of trialling",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q7", num: "7", yr: "2025", tp: "3.6 Training and Development", mk: 1, type: "MCQ",
+                q: "What is a form of staff development?",
+                opts: ["A — A job description", "B — A person specification", "C — An apprenticeship", "D — An award scheme"],
+                answer: "C",
+                ms: {
+                    correct: "C — An apprenticeship",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q8", num: "8", yr: "2025", tp: "3.2 Organisational Structures and Different Ways of Working", mk: 1, type: "MCQ",
+                q: "A business with a tall organisational structure will have:",
+                opts: ["A — a high market share", "B — lots of distribution channels", "C — multiple layers of authority", "D — short chains of command"],
+                answer: "C",
+                ms: {
+                    correct: "C — multiple layers of authority",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q9", num: "9", yr: "2024", tp: "1.3 Business Ownership", mk: 2, type: "QER",
+                q: "Explain one way that limited liability affects the owners of a company.",
+                stem: "Context: J Sainsbury plc (2024 Text 1)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Owners/shareholders can only lose up to the amount originally invested",
+                        "Shareholders are not required to repay / not personally liable for the company's debts",
+                        "The owner's personal assets are protected / not at risk / cannot be taken from them",
+                        "Due to separate legal identity / incorporation",
+                        "Less stress / worry / concern / risk / more financial security for shareholders",
+                        "Shareholders may be willing to take more risks",
+                        "May encourage shareholders to invest more"
+                    ],
+                    marking: "One mark for knowledge of limited liability (K) + one further mark for explanation (U). Answers do not need to relate to Sainsbury's.",
+                    exemplar: [
+                        "Owners cannot lose more than the amount originally invested (1 mark) so their personal belongings cannot be taken to repay debts (+1 mark).",
+                        "A shareholder's liability for debts is limited (1 mark) which means that they might be willing to take more risks (+1 mark)."
+                    ],
+                    examiner: "Many candidates gained at least one mark. The most common correct responses related to the protection of personal assets and only being able to lose the amount originally invested. Those who developed their response through to explanation received full marks.\n\nThe most common error was confusing limited liability with unlimited liability — giving responses about owners having their cars, houses etc. taken from them.\n\nNote: This question began with 'explain' rather than 'identify' — some development is needed to gain full marks."
+                }
+            },
+            {
+                id: "q10", num: "10", yr: "2024", tp: "3.7 Employment Law", mk: 2, type: "QER",
+                q: "State two aspects of employment law that may affect a business.",
+                stem: "Context: C & J Clark International Ltd / Clarks (2024 Text 2)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Discrimination / equality (e.g. equal pay, disabilities, sexism, racism, ageism)",
+                        "Contract of employment",
+                        "Holidays",
+                        "Maternity pay / paternity pay",
+                        "Antenatal care",
+                        "Sick pay",
+                        "Working hours / days",
+                        "Breaks",
+                        "Minimum / living wage",
+                        "Health & safety",
+                        "Working environment",
+                        "Redundancy / dismissal (e.g. severance pay and notice)"
+                    ],
+                    marking: "One mark for each of two aspects of employment law. Answers do not need to relate to Clarks.",
+                    note: "Do NOT reward answers relating to fairness e.g. 'fair pay', 'treated fairly' — these are ethical rather than legal requirements. Vague answers such as 'employment rights' or 'pay / how much they are paid' also score zero.",
+                    exemplar: [],
+                    examiner: "This question divided candidates. Those who knew employment law could suggest two aspects and gained full marks. Others appeared to have no knowledge and left the response blank.\n\nThe most common correct responses were 'discrimination', 'limits on working hours' and 'minimum wage'.\n\nOf candidates who scored only one mark, the most likely reason was giving two responses both about discrimination e.g. racism and ageism — these were deemed repeats of the same aspect."
+                }
+            },
+            {
+                id: "q11", num: "11", yr: "2024", tp: "1.1 The Role of Business Enterprise and Entrepreneurship", mk: 1, type: "QER",
+                q: "Creativity is one characteristic of an entrepreneur. Identify one OTHER characteristic of an entrepreneur.",
+                stem: "Context: SJ Salon (2024 Text 3)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Risk taking",
+                        "Determination (accept synonyms e.g. 'perseverance')",
+                        "Confidence (accept synonyms e.g. 'self-assured')"
+                    ],
+                    marking: "One mark for a characteristic of an entrepreneur. Answers do not need to relate to SJ Salon.",
+                    note: "Do NOT accept 'creativity' or synonyms of creativity — excluded by the question stem. Also do NOT accept other character traits such as 'motivated', 'well organised', 'resilient', 'teamwork', 'hardworking', 'leadership'.",
+                    exemplar: [],
+                    examiner: "Most candidates gained the mark. By far the most common response was 'a risk taker'. Some candidates repeated the characteristic 'creativity' which was excluded by the stem of the question."
+                }
+            },
+            {
+                id: "q12", num: "12", yr: "2024", tp: "1.3 Business Ownership", mk: 1, type: "MCQ",
+                q: "What is a disadvantage of being a sole trader?",
+                opts: ["A — Can only have one employee", "B — Cannot share business ownership", "C — Legally required to produce a business plan", "D — Must pay corporation tax"],
+                answer: "B",
+                ms: {
+                    correct: "B — Cannot share business ownership",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q13", num: "13", yr: "2024", tp: "2.4 The Marketing Mix", mk: 1, type: "MCQ",
+                q: "What is one of the 'four Ps' of the marketing mix?",
+                opts: ["A — Penetration", "B — Place", "C — Planning", "D — Profit"],
+                answer: "B",
+                ms: {
+                    correct: "B — Place",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q14", num: "14", yr: "2024", tp: "1.4 Business Aims and Objectives", mk: 1, type: "MCQ",
+                q: "A business has recently changed its main objective from 'survival' to 'growth'. What would most likely explain this change of objective?",
+                opts: ["A — The business has become too big", "B — The business has reduced its productivity", "C — The business is experiencing high demand", "D — The business needs to lower its costs"],
+                answer: "C",
+                ms: {
+                    correct: "C — The business is experiencing high demand",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q15", num: "15", yr: "2024", tp: "1.5 Stakeholders in Business", mk: 1, type: "MCQ",
+                q: "What impacts are a customer boycott most likely to have on a business?",
+                opts: ["A — External growth, reduced profit, increased dividends", "B — Fewer customers, reduced profit, increased market share", "C — Improved brand image, more customers, increased profit", "D — Worsened reputation, lower sales, reduced profit"],
+                answer: "D",
+                ms: {
+                    correct: "D — Worsened reputation, lower sales, reduced profit",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q16", num: "16", yr: "2024", tp: "1.3 Business Ownership", mk: 1, type: "MCQ",
+                q: "Limited liability protects:",
+                opts: ["A — business owners", "B — customers", "C — suppliers", "D — the local community"],
+                answer: "A",
+                ms: {
+                    correct: "A — business owners",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q17", num: "17", yr: "2024", tp: "3.5 Motivation and Retention", mk: 1, type: "MCQ",
+                q: "Employee retention:",
+                opts: ["A — extends the working hours of employees", "B — leads to higher recruitment costs", "C — minimises time spent selecting new workers", "D — reduces discrimination in the workplace"],
+                answer: "C",
+                ms: {
+                    correct: "C — minimises time spent selecting new workers",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "This question tested understanding of the HR term 'employee retention'. Some candidates got this wrong with responses evenly split across the three distractors — suggesting a lack of robust understanding of this business-specific term.\n\nCentres are advised to ensure candidates have a robust understanding of all business-specific terms in the specification, e.g. using definition cards matching terms to their meanings."
+                }
+            },
+            {
+                id: "q18", num: "18", yr: "2024", tp: "2.2 Market Research", mk: 1, type: "MCQ",
+                q: "What is NOT a secondary source of market research?",
+                opts: ["A — Focus groups", "B — Internal business data", "C — Newspapers", "D — Websites"],
+                answer: "A",
+                ms: {
+                    correct: "A — Focus groups",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q19", num: "19", yr: "2024", tp: "1.3 Business Ownership", mk: 1, type: "MCQ",
+                q: "Which type of ownership is most suitable for an entrepreneur who wishes to start up their own business quickly and with as little paperwork as possible?",
+                opts: ["A — Partnership", "B — Private limited company", "C — Public limited company", "D — Sole trader"],
+                answer: "D",
+                ms: {
+                    correct: "D — Sole trader",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "This question tested understanding of legal types of business ownership. Incorrect answers were fairly evenly split across the three distractors — indicating a lack of robust understanding of this area across the entire ability range."
+                }
+            },
+            {
+                id: "q20", num: "20", yr: "2024", tp: "1.4 Business Aims and Objectives", mk: 1, type: "MCQ",
+                q: "Firms A and B both operate in the same industry. Firm A's objective is to make a profit. Firm B's objective is survival. What would explain this difference in objectives?",
+                opts: ["A — Firm A has a low market share and Firm B has a high market share", "B — Firm B is a start-up business and Firm A is an established business", "C — The owners of Firm A have less determination than the owners of Firm B", "D — The owners of Firm B are more confident than the owners of Firm A"],
+                answer: "B",
+                ms: {
+                    correct: "B — Firm B is a start-up business and Firm A is an established business",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q21", num: "21", yr: "2023", tp: "2.3 Market Segmentation", mk: 2, type: "QER",
+                q: "Explain one way that a business can segment its market.",
+                stem: "Context: Nina's Knitting Supplies (2023 Text 1)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Age — e.g. target young / old / babies / children / teenagers / over 50s",
+                        "Gender / sex — e.g. target male / female / men / women / non-binary",
+                        "Income — e.g. target well paid / low paid / affluent / rich / poor / high earners",
+                        "Location — e.g. target locals, specific region, nations",
+                        "Lifestyle — e.g. healthy, sports, outdoor pursuits, hobbies"
+                    ],
+                    marking: "One mark for knowledge of a method of segmentation (K) + one further mark for showing understanding of how the method can be used (U). Answers do not need to relate to Nina's Knitting Supplies.",
+                    note: "Accept 'boys' for age or gender. Accept 'girls' for age or gender. 'Boys and girls' = age only.",
+                    exemplar: [
+                        "One way a business could segment its market is by age (K), for example aiming to sell to elderly people (U).",
+                        "By gender (K) by targeting your marketing particularly at women (U)."
+                    ],
+                    examiner: "The majority of candidates were able to suggest a 'way', gaining at least 1 of the 2 marks. By far the most common correct 'ways' were 'by age' and 'by gender'.\n\nThose who developed their answer through to explanation — e.g. stating 'by age' might mean targeting the elderly, or 'by gender' might mean advertising specifically to women — were given full marks.\n\nNote: This question began with 'explain' rather than 'identify' — some development is needed to gain full marks."
+                }
+            },
+            {
+                id: "q22", num: "22", yr: "2023", tp: "3.4 Recruitment and Selection", mk: 2, type: "QER",
+                q: "State two methods that a business can use to select new employees.",
+                stem: "Context: HSBC (2023 Text 2)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "CV",
+                        "Application form",
+                        "Letters of application",
+                        "Interviews",
+                        "Tests",
+                        "Individual tasks",
+                        "Group / team activities",
+                        "References",
+                        "Presentations",
+                        "Shortlisting"
+                    ],
+                    marking: "One mark for each of two methods of selecting new employees. Answers do not need to relate to HSBC.",
+                    note: "'Application' alone is too vague (TV). Do NOT accept 'qualifications', 'apprenticeships', 'work experience' — these are selection criteria not selection methods.",
+                    exemplar: [],
+                    examiner: "Approximately two-thirds of candidates achieved at least 1 mark. The most common correct answers were 'interview', 'application form' and 'CV'.\n\nA significant proportion of weaker candidates suggested 'focus groups' and 'questionnaires' — showing confusion with market research methods. Others confused selection methods with recruitment methods, suggesting 'job advertisements' or 'external recruitment'."
+                }
+            },
+            {
+                id: "q23", num: "23", yr: "2023", tp: "2.4 The Marketing Mix", mk: 1, type: "QER",
+                q: "Identify one stage of the product life cycle.",
+                stem: "Context: Walkers Snack Foods Ltd (2023 Text 3)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Introduction",
+                        "Growth",
+                        "Maturity",
+                        "Decline",
+                        "Development",
+                        "Saturation"
+                    ],
+                    marking: "One mark for a correct stage of the product life cycle. Answers do not need to relate to Walkers.",
+                    note: "",
+                    exemplar: [],
+                    examiner: "Three-quarters of candidates gained the mark, with answers fairly evenly split. Those who did not achieve the mark appeared to have no knowledge of the product life cycle."
+                }
+            },
+            {
+                id: "q24", num: "24", yr: "2023", tp: "1.5 Stakeholders in Business", mk: 1, type: "QER",
+                q: "Identify one likely objective of an employee.",
+                stem: "Context: Shinz Ltd (2022 Text 3)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Promotion / progression",
+                        "Payment / wages / earn money / income / earn a living",
+                        "To receive recognition / to be praised",
+                        "Job security",
+                        "Job satisfaction / interesting job / motivation",
+                        "Work with friendly colleagues / good morale",
+                        "To gain work experience",
+                        "Safe working conditions"
+                    ],
+                    marking: "One mark for an employee objective. Read whole answer and award any correct answer. Objectives must relate to personal needs and wants.",
+                    note: "Do NOT award answers relating to customer service / satisfaction, sales, output, quality, training, profit or revenue. 'Receive reward' and 'Earn' alone are too vague (TV).",
+                    exemplar: [
+                        "Example of reading the whole answer: 'To do my job well (0) and be paid for it (1)' — scores 1 mark for the pay element."
+                    ],
+                    examiner: "Generally well answered. The most common correct responses were 'promotion', 'wages' and 'job security'.\n\nCandidates who did not gain marks invariably suggested an objective for the business itself, e.g. profit or greater output."
+                }
+            },
+            {
+                id: "q25", num: "25", yr: "2023", tp: "3.7 Employment Law", mk: 1, type: "MCQ",
+                q: "A contract of employment is:",
+                opts: ["A — a diagram showing the formal lines of authority in a business", "B — a formal document outlining the objectives of a business", "C — a law that makes discrimination in the workplace illegal", "D — a legal agreement between an employer and an employee"],
+                answer: "D",
+                ms: {
+                    correct: "D — a legal agreement between an employer and an employee",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q26", num: "26", yr: "2023", tp: "3.3 Communication in Business", mk: 1, type: "MCQ",
+                q: "What is a disadvantage for a business of using digital communication?",
+                opts: ["A — It is a slow method of communication", "B — Pictures and videos cannot be shared", "C — The technology on which it relies can fail", "D — Worldwide communication is not possible"],
+                answer: "C",
+                ms: {
+                    correct: "C — The technology on which it relies can fail",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q27", num: "27", yr: "2023", tp: "3.4 Recruitment and Selection", mk: 1, type: "MCQ",
+                q: "A business requires job applicants to submit a CV rather than an application form. Which of the following is an advantage for the business of requiring a CV?",
+                opts: ["A — Applicants are less likely to leave out essential information", "B — Applicants can explain why they are suitable for the job", "C — It requires the applicant to provide the names of two referees", "D — It shows an applicant's ability to organise relevant information"],
+                answer: "D",
+                ms: {
+                    correct: "D — It shows an applicant's ability to organise relevant information",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "The correct response is D. The most common incorrect answer was A.\n\nMisconception: A CV does give applicants the opportunity to provide greater detail than a standard application form. However, this does not necessarily mean the applicant will include all essential information. In fact, the prompts on an application form may make including all essential information more likely than on a CV."
+                }
+            },
+            {
+                id: "q28", num: "28", yr: "2023", tp: "3.4 Recruitment and Selection", mk: 1, type: "MCQ",
+                q: "An interview is an example of:",
+                opts: ["A — a primary market research method", "B — a recruitment method", "C — a training method", "D — an informal communication method"],
+                answer: "A",
+                ms: {
+                    correct: "A — a primary market research method",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "This question had the greatest proportion of incorrect responses of all the MCQs. The specification lists four primary market research methods — questionnaires, trialling, focus groups, and interviews.\n\nThe most common incorrect response was B. This suggests confusion between 'selection' and 'recruitment'. While interviews are used as methods of selection, they are not methods of recruitment. Interviews are listed in the specification as a primary market research method."
+                }
+            },
+            {
+                id: "q29", num: "29", yr: "2023", tp: "3.5 Motivation and Retention", mk: 1, type: "MCQ",
+                q: "A business has introduced a bonus scheme, based on production targets, to help motivate its staff. Which of the following statements would NOT be true?",
+                opts: ["A — The bonus scheme is a form of performance-related pay", "B — The bonus scheme will increase business costs", "C — Unrealistic targets may lead to lower levels of motivation", "D — Workers who do not reach the target will have their basic pay reduced"],
+                answer: "D",
+                ms: {
+                    correct: "D — Workers who do not reach the target will have their basic pay reduced",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q30", num: "30", yr: "2022", tp: "3.2 Organisational Structures and Different Ways of Working", mk: 2, type: "QER",
+                q: "Explain one reason why businesses have different organisational structures.",
+                stem: "Context: Dyson Ltd (2022 Text 1)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Size of the business (e.g. large / small, number of employees)",
+                        "Nature of the industry / business / product or service (e.g. creative industries)",
+                        "Business objectives",
+                        "Style of management",
+                        "Skills / expertise of employees",
+                        "Different ways of working (e.g. working from home)",
+                        "Need for flexibility (e.g. need to respond to market changes)",
+                        "Growth"
+                    ],
+                    marking: "One mark for a reason why organisational structures may differ (K) + one further mark for explaining how this relates to the organisational structure (U). Answers do not need to relate to Dyson.",
+                    note: "The reason for a difference must be identified before the further mark can be awarded. Do NOT award incorrect use of terminology e.g. 'short span of control' or 'wide chain of command'.",
+                    exemplar: [
+                        "A creative business (K) would prefer a flat structure (U).",
+                        "As an organisation grows in size (K) it may choose to appoint managers, adding more layers to the structure (U)."
+                    ],
+                    examiner: "The most common correct response related to the size of the business / number of employees. Other common responses included the need for creativity and a business's aims and objectives.\n\nAnswers such as 'large businesses tend to have many layers' or 'creative businesses tend to have flat organisational structures' scored full marks.\n\nThose who scored less well tended to talk about different organisational structures (e.g. tall / flat) without giving the reason for the difference."
+                }
+            },
+            {
+                id: "q31", num: "31", yr: "2022", tp: "2.2 Market Research", mk: 2, type: "QER",
+                q: "State two purposes of market research.",
+                stem: "Context: Heinz (2022 Text 2)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "To identify / understand customer wants / needs",
+                        "To find out whether there is demand",
+                        "To identify customer trends",
+                        "To identify target market",
+                        "To gain customer feedback",
+                        "To identify gaps in the market",
+                        "To understand competitors"
+                    ],
+                    marking: "One mark for a purpose of market research, up to a maximum of two marks.",
+                    note: "Do NOT award further uses of market research data e.g. 'to segment the market', 'to decide how to advertise'. 'To plan for the future' is too vague (TV).",
+                    exemplar: [],
+                    examiner: "Generally well answered. Many candidates achieved full marks. The most common correct responses were to identify gaps in the market, identify customer needs, and understand the competition.\n\nWeaker candidates strayed into what the market research data might be used for once collected — these could not be awarded."
+                }
+            },
+            {
+                id: "q32", num: "32", yr: "2022", tp: "3.2 Organisational Structures and Different Ways of Working", mk: 2, type: "QER",
+                q: "Part-time is one way of working. State two OTHER ways of working.",
+                stem: "Context: Greggs (2021 Text 2)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Full-time",
+                        "Temporary / fixed term contract / short term contract",
+                        "Permanent",
+                        "Flexible working / flexitime",
+                        "Zero hours",
+                        "Shift work",
+                        "Working from home",
+                        "Working whilst mobile",
+                        "Self-employed / freelance"
+                    ],
+                    marking: "One mark for knowledge of a way of working, to a maximum of two.",
+                    note: "Do NOT award 'part-time' — excluded by the question.",
+                    exemplar: [],
+                    examiner: ""
+                }
+            },
+            {
+                id: "q33", num: "33", yr: "2022", tp: "1.1 The Role of Business Enterprise and Entrepreneurship", mk: 1, type: "QER",
+                q: "State one characteristic of an entrepreneur.",
+                stem: "Context: Miles Ahead (2021 Text 3)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Creativity / imaginative",
+                        "Inventive / innovative",
+                        "Risk taking",
+                        "Determination",
+                        "Confidence"
+                    ],
+                    marking: "One mark for knowledge of a characteristic of an entrepreneur.",
+                    note: "Do NOT award 'leadership'.",
+                    exemplar: [],
+                    examiner: ""
+                }
+            },
+            {
+                id: "q34", num: "34", yr: "2022", tp: "1.4 Business Aims and Objectives", mk: 1, type: "MCQ",
+                q: "Satisfying the needs of customers is:",
+                opts: ["A — a legal requirement", "B — a market research task", "C — a purpose of business activity", "D — the role of the human resources function"],
+                answer: "C",
+                ms: {
+                    correct: "C — a purpose of business activity",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q35", num: "35", yr: "2022", tp: "2.4 The Marketing Mix", mk: 1, type: "MCQ",
+                q: "A producer chooses to sell its goods to a wholesaler rather than to a retailer. Which of the following is an advantage to the producer of including a wholesaler in its distribution channel?",
+                opts: ["A — The producer is likely to be able to charge higher prices", "B — The producer will have a wider span of control", "C — The producer will have less competition", "D — The producer's storage costs are likely to be lower"],
+                answer: "D",
+                ms: {
+                    correct: "D — The producer's storage costs are likely to be lower",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q36", num: "36", yr: "2022", tp: "3.6 Training and Development", mk: 1, type: "MCQ",
+                q: "Which of the following is NOT a form of staff development?",
+                opts: ["A — Academic qualifications", "B — Apprenticeships", "C — Induction", "D — Vocational qualifications"],
+                answer: "C",
+                ms: {
+                    correct: "C — Induction",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q37", num: "37", yr: "2022", tp: "1.4 Business Aims and Objectives", mk: 1, type: "MCQ",
+                q: "A business whose main objective is to survive is likely to be:",
+                opts: ["A — experiencing growth in its market share", "B — making a large profit", "C — well established and successful", "D — working hard to stay in existence"],
+                answer: "D",
+                ms: {
+                    correct: "D — working hard to stay in existence",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q38", num: "38", yr: "2021", tp: "2.2 Market Research", mk: 2, type: "QER",
+                q: "Explain what is meant by a focus group.",
+                stem: "Context: Waitrose (2021 Text 1)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Primary research method",
+                        "Small / selected / representative group of people",
+                        "Asked questions / give views / voice opinions about a firm's ideas / products / services"
+                    ],
+                    marking: "One mark for knowledge relating to a focus group (K) + one further mark for explanation relating to a focus group (U).",
+                    exemplar: [
+                        "It is a small group of people (K) who are asked to give their views about a product being developed (U)."
+                    ],
+                    examiner: ""
+                }
+            },
+            {
+                id: "q39", num: "39", yr: "2021", tp: "1.1 The Role of Business Enterprise and Entrepreneurship", mk: 1, type: "MCQ",
+                q: "Which of the following is a financial reward for enterprise?",
+                opts: ["A — Authority", "B — Profit", "C — Success", "D — Wages"],
+                answer: "B",
+                ms: {
+                    correct: "B — Profit",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q40", num: "40", yr: "2021", tp: "1.3 Business Ownership", mk: 2, type: "QER",
+                q: "Explain the concept of limited liability.",
+                stem: "Context: Superdry plc (2020 Text 1)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Owners' / shareholders' responsibility for the debts of the business is limited to the amount they originally invested",
+                        "Business is responsible for paying its own debts",
+                        "Owners cannot lose any more money / personal possessions",
+                        "Derived from the business being a separate legal entity from its owners",
+                        "Applies to the owners of incorporated businesses e.g. shareholders of limited companies (and limited liability partnerships)"
+                    ],
+                    marking: "One mark for knowledge of limited liability (K) + one further mark for understanding of limited liability (U). No context required.",
+                    exemplar: [
+                        "Limited liability is a legal protection for the owners / shareholders of a company (K). It means they cannot lose more money than they originally invested in the company (U)."
+                    ],
+                    examiner: ""
+                }
+            },
+            {
+                id: "q41", num: "41", yr: "2021", tp: "2.4 The Marketing Mix", mk: 2, type: "QER",
+                q: "State two pricing methods that a business could use.",
+                stem: "Context: EDF (2020 Text 2)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Cost-plus / adding a percentage to cost",
+                        "Skimming / creaming",
+                        "Penetration",
+                        "Competitor / competitive pricing",
+                        "Promotional / discounting",
+                        "Price matching"
+                    ],
+                    marking: "One mark for the identification of a pricing method, up to a maximum of two marks.",
+                    note: "Do NOT accept reference to contracts.",
+                    exemplar: [],
+                    examiner: ""
+                }
+            },
+            {
+                id: "q42", num: "42", yr: "2021", tp: "2.2 Market Research", mk: 1, type: "MCQ",
+                q: "Understanding customer needs is the main purpose of:",
+                opts: ["A — employee retention", "B — innovation", "C — market research", "D — the product lifecycle"],
+                answer: "C",
+                ms: {
+                    correct: "C — market research",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q43", num: "43", yr: "2021", tp: "3.2 Organisational Structures and Different Ways of Working", mk: 1, type: "MCQ",
+                q: "A business may choose to have a flat organisational structure because it:",
+                opts: ["A — gives employees more opportunities for promotion", "B — lengthens the organisation's chain of command", "C — reduces the likelihood of mistakes in vertical communication", "D — slows down the organisation's response to changes in the market"],
+                answer: "C",
+                ms: {
+                    correct: "C — reduces the likelihood of mistakes in vertical communication",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q44", num: "44", yr: "2021", tp: "1.3 Business Ownership", mk: 1, type: "MCQ",
+                q: "Which of the following types of ownership is most suitable for an established business that needs to raise a large amount of capital to expand overseas?",
+                opts: ["A — Partnership", "B — Private limited company", "C — Public limited company", "D — Sole trader"],
+                answer: "C",
+                ms: {
+                    correct: "C — Public limited company",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q45", num: "45", yr: "2021", tp: "1.1 The Role of Business Enterprise and Entrepreneurship", mk: 1, type: "MCQ",
+                q: "A wine enthusiast has spotted an opportunity to turn their interest into a business by becoming a blogger. This is called:",
+                opts: ["A — delegation", "B — enterprise", "C — market research", "D — productivity"],
+                answer: "B",
+                ms: {
+                    correct: "B — enterprise",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q46", num: "46", yr: "2021", tp: "3.3 Communication in Business", mk: 1, type: "MCQ",
+                q: "Which one of the following is NOT a potential benefit of improving communication between a business and its customers?",
+                opts: ["A — Better customer service", "B — Greater market share", "C — Higher chances of survival", "D — Increased risk"],
+                answer: "D",
+                ms: {
+                    correct: "D — Increased risk",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q47", num: "47", yr: "2021", tp: "2.4 The Marketing Mix", mk: 1, type: "MCQ",
+                q: "A publishing company's marketing mix identifies:",
+                opts: ["A — appropriate sources of market research", "B — digital distribution channels for its books", "C — how many short-story authors to interview", "D — which of its editors have training needs"],
+                answer: "B",
+                ms: {
+                    correct: "B — digital distribution channels for its books",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q48", num: "48", yr: "2021", tp: "1.6 Business Growth", mk: 1, type: "MCQ",
+                q: "A business has gained more customers by improving the way it markets its products. Which one of the following statements MUST be true for this business?",
+                opts: ["A — The business has developed a new product", "B — The business has grown organically", "C — The business has increased its market share", "D — The business has made a profit"],
+                answer: "C",
+                ms: {
+                    correct: "C — The business has increased its market share",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q49", num: "49", yr: "2021", tp: "3.1 The Role of Human Resources", mk: 1, type: "MCQ",
+                q: "Which one of the following is NOT a role of human resources within a business?",
+                opts: ["A — Gaining new customers", "B — Improving employee retention", "C — Processing job application forms", "D — Reducing skills shortages"],
+                answer: "A",
+                ms: {
+                    correct: "A — Gaining new customers",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q50", num: "50", yr: "2021", tp: "1.1 The Role of Business Enterprise and Entrepreneurship", mk: 1, type: "MCQ",
+                q: "Raj has developed an idea for a new business. This is an example of:",
+                opts: ["A — discrimination", "B — enterprise", "C — flexible working", "D — productivity"],
+                answer: "B",
+                ms: {
+                    correct: "B — enterprise",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q51", num: "51", yr: "2021", tp: "1.3 Business Ownership", mk: 1, type: "MCQ",
+                q: "Which stakeholder does limited liability protect?",
+                opts: ["A — Customers", "B — Employees", "C — Shareholders", "D — Suppliers"],
+                answer: "C",
+                ms: {
+                    correct: "C — Shareholders",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q52", num: "52", yr: "2021", tp: "2.4 The Marketing Mix", mk: 1, type: "MCQ",
+                q: "A toiletries manufacturer sells its products to a wholesaler. Which one of the following correctly shows the distribution channel of the products?",
+                opts: ["A — Producer → Retailer → Customer", "B — Producer → Wholesaler → Retailer → Customer", "C — Retailer → Producer → Wholesaler → Customer", "D — Retailer → Wholesaler → Customer"],
+                answer: "B",
+                ms: {
+                    correct: "B — Producer → Wholesaler → Retailer → Customer",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q53", num: "53", yr: "2020", tp: "1.1 The Role of Business Enterprise and Entrepreneurship", mk: 1, type: "QER",
+                q: "State one risk for an entrepreneur when starting a new business.",
+                stem: "Context: The Works / Saranne (Practice 1 Text 2)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Financial loss / loss of money",
+                        "Health of the entrepreneur from stress involved with starting a new business",
+                        "Nobody may be interested in the business idea",
+                        "Additional competition",
+                        "Business may fail"
+                    ],
+                    marking: "One mark for the identification of an appropriate risk for an entrepreneur.",
+                    note: "",
+                    exemplar: [],
+                    examiner: ""
+                }
+            },
+            {
+                id: "q54", num: "54", yr: "2020", tp: "3.2 Organisational Structures and Different Ways of Working", mk: 1, type: "MCQ",
+                q: "A flat organisational structure has:",
+                opts: ["A — a long chain of command", "B — few levels of authority", "C — narrow spans of control", "D — no specific person in overall charge"],
+                answer: "B",
+                ms: {
+                    correct: "B — few levels of authority",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q55", num: "55", yr: "2020", tp: "2.2 Market Research", mk: 1, type: "MCQ",
+                q: "A focus group is an example of:",
+                opts: ["A — a digital distribution channel", "B — a primary market research method", "C — market segmentation", "D — point of sale promotion"],
+                answer: "B",
+                ms: {
+                    correct: "B — a primary market research method",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q56", num: "56", yr: "2020", tp: "1.3 Business Ownership", mk: 1, type: "MCQ",
+                q: "Which one of the following is a disadvantage of being a sole trader?",
+                opts: ["A — May need to work long hours", "B — Not being allowed to employ staff", "C — Profits must be shared with others", "D — Shares must be sold on the stock exchange"],
+                answer: "A",
+                ms: {
+                    correct: "A — May need to work long hours",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q57", num: "57", yr: "2020", tp: "2.4 The Marketing Mix", mk: 1, type: "MCQ",
+                q: "Which one of the following is NOT a benefit to a business of using television advertising to promote its products?",
+                opts: ["A — Celebrity endorsements can be used", "B — Financial risks are large", "C — Millions of potential customers can be reached", "D — Sound and moving images are very effective"],
+                answer: "B",
+                ms: {
+                    correct: "B — Financial risks are large",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q58", num: "58", yr: "2020", tp: "1.1 The Role of Business Enterprise and Entrepreneurship", mk: 1, type: "MCQ",
+                q: "Which one of the following is UNLIKELY to be a characteristic of a successful entrepreneur?",
+                opts: ["A — Being able to create opportunities", "B — Being confident in new situations", "C — Being determined to work through problems", "D — Being uncomfortable with taking risks"],
+                answer: "D",
+                ms: {
+                    correct: "D — Being uncomfortable with taking risks",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q59", num: "59", yr: "2020", tp: "2.4 The Marketing Mix", mk: 1, type: "MCQ",
+                q: "Which of the following is a benefit to a business of advertising on local radio?",
+                opts: ["A — Can target a specific geographical area", "B — Detailed financial information can be included", "C — Free samples can be given out with the advertisement", "D — The product can be seen and demonstrated"],
+                answer: "A",
+                ms: {
+                    correct: "A — Can target a specific geographical area",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q60", num: "60", yr: "2020", tp: "1.3 Business Ownership", mk: 1, type: "MCQ",
+                q: "Which of the following is a benefit to an entrepreneur of having limited liability?",
+                opts: ["A — All profits are tax free", "B — Own possessions are not at risk", "C — Productivity will fall", "D — Suppliers are more willing to supply"],
+                answer: "B",
+                ms: {
+                    correct: "B — Own possessions are not at risk",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q61", num: "61", yr: "2020", tp: "1.4 Business Aims and Objectives", mk: 1, type: "MCQ",
+                q: "The 'objectives of a business' are:",
+                opts: ["A — negative comments from the local community", "B — the buildings and equipment the business owns", "C — the items the business makes and sells", "D — what the business intends to achieve"],
+                answer: "D",
+                ms: {
+                    correct: "D — what the business intends to achieve",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q62", num: "62", yr: "2020", tp: "2.2 Market Research", mk: 1, type: "MCQ",
+                q: "A national retailer intends to trial a new product in some of its stores. Which of the following is NOT a benefit of trialling the product?",
+                opts: ["A — It avoids wasting money on an unsuccessful national launch", "B — It helps identify the target market", "C — It requires a lot of national advertising and promotion", "D — It shows whether there is sufficient demand for the product"],
+                answer: "C",
+                ms: {
+                    correct: "C — It requires a lot of national advertising and promotion",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q63", num: "63", yr: "2020", tp: "3.7 Employment Law", mk: 1, type: "MCQ",
+                q: "Which one of the following is required by law?",
+                opts: ["A — All employees must be given a voucher for a free eyesight test each year", "B — Employees who work from home must work a maximum of 16 hours a week", "C — Everyone who is self-employed must have private medical insurance", "D — Full-time employees must be given at least 5.6 weeks paid holiday per year"],
+                answer: "D",
+                ms: {
+                    correct: "D — Full-time employees must be given at least 5.6 weeks paid holiday per year",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q64", num: "64", yr: "2020", tp: "3.6 Training and Development", mk: 1, type: "MCQ",
+                q: "Which of the following is a benefit to a business of using off-the-job training?",
+                opts: ["A — Large numbers of employees can be trained at the same time", "B — Likely to be cheaper than on-the-job training", "C — The training can take place while the employee is working", "D — Workers need to be paid for time spent doing off-the-job training"],
+                answer: "A",
+                ms: {
+                    correct: "A — Large numbers of employees can be trained at the same time",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q65a", num: "65a", yr: "Sample", tp: "2.2 Market Research", mk: 2, type: "QER",
+                q: "State two secondary market research sources which Ford Motors could use.",
+                stem: "Context: The Ford Motor Company Ltd (2019 Text 1 / Sample)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Newspapers",
+                        "Magazines",
+                        "Trade journals",
+                        "Census",
+                        "Internet (e.g. websites / online / social media)",
+                        "Library",
+                        "Government publications / data",
+                        "Competitor / other business data",
+                        "Internal business data",
+                        "Books"
+                    ],
+                    marking: "One mark for identification of a relevant source, up to a maximum of two sources. Award marks for 'sources' of data — not the type of data collected.",
+                    note: "Do NOT allow vague answers e.g. 'old graphs', 'reports', 'articles'. Do NOT award 'questionnaire', 'survey', 'forum', 'customer survey/reviews' — these are primary sources or types of data.",
+                    exemplar: [],
+                    examiner: "A well-answered question. The most common correct answers referred to 'magazines', 'the government' and 'the internet'. Very few candidates confused primary and secondary market research methods.\n\nOf those who did not achieve a mark, the error was almost invariably to give a type of data rather than the source of the information — the question required the source."
+                }
+            },
+            {
+                id: "q65b", num: "65b", yr: "Sample", tp: "2.1 The Role of Marketing", mk: 2, type: "QER",
+                q: "Explain the purpose of marketing within Ford Motors.",
+                stem: "Context: The Ford Motor Company Ltd (2019 Text 1 / Sample)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Increase sales / sell more",
+                        "Inform customers",
+                        "Improve corporate / brand image / reputation",
+                        "Raise awareness / advertise / promote",
+                        "Attract customers",
+                        "Gain / increase brand loyalty",
+                        "To identify gaps in the market",
+                        "Identify / understand / meet customer needs"
+                    ],
+                    marking: "One mark for the identification of a purpose of marketing (K) + one mark for application to Ford Motors (U). Accept purposes of market research.",
+                    note: "'Sales', 'sell', 'make sales' alone are too vague — if referring to sales, the answer must refer to more/increase/extra/additional. Do NOT accept 'model' alone. Application is likely to include reference to: cars, vans, trucks, buses, names of models, vehicles, petrol, mpg, acceleration, eco-friendly models, driver.",
+                    exemplar: [
+                        "One purpose of marketing at Ford is to tell customers about the availability of a new model of car. [K + application to Ford = 2 marks]",
+                        "The purpose of marketing within Ford is to increase the number of car sales. [K + application to Ford = 2 marks]",
+                        "'To get your product well known and to get your products sold and get profit.' [Generic = 1 mark only — no application to Ford]"
+                    ],
+                    examiner: "A wide array of answers were given. To achieve full marks, the answer needed to show evidence of applied understanding. The vast majority of candidates gave applied answers and achieved full marks.\n\nCentres should encourage candidates to always give an applied answer to any question that includes the name of a business."
+                }
+            },
+            {
+                id: "q66ai", num: "66ai", yr: "2019", tp: "3.5 Motivation and Retention", mk: 1, type: "QER",
+                q: "State one example of a financial method to motivate employees.",
+                stem: "Context: Redrow Homes (2019 Text 2)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Pay rise / increased rate of pay",
+                        "Bonus",
+                        "Profit sharing",
+                        "Fringe benefits (e.g. car allowance, childcare vouchers, private medical insurance, subsidised canteen meals)",
+                        "Performance related pay"
+                    ],
+                    marking: "One mark for the identification of a financial method of motivation.",
+                    note: "Do NOT award 'gift vouchers'.",
+                    exemplar: [],
+                    examiner: "The majority of candidates gave a correct answer. The three most common answers were 'a pay rise', 'a bonus' and 'profit-sharing'."
+                }
+            },
+            {
+                id: "q66aii", num: "66aii", yr: "2019", tp: "3.5 Motivation and Retention", mk: 1, type: "QER",
+                q: "State one example of a non-financial method to motivate employees.",
+                stem: "Context: Redrow Homes (2019 Text 2)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Praise",
+                        "Promotion",
+                        "Improved working environment (e.g. redecoration, new furniture)",
+                        "Award schemes (e.g. employee of the week)",
+                        "Extra holidays",
+                        "Job enrichment / rotation / enlargement",
+                        "Consulting with workers",
+                        "Employee participation schemes",
+                        "Certificates",
+                        "Gift vouchers",
+                        "Team bonding sessions"
+                    ],
+                    marking: "One mark for the identification of a non-financial method of motivation.",
+                    note: "",
+                    exemplar: [],
+                    examiner: "The three most common answers for non-financial were 'praise', 'award schemes' and 'extra holidays'."
+                }
+            },
+            {
+                id: "q66b", num: "66b", yr: "2019", tp: "3.4 Recruitment and Selection", mk: 1, type: "QER",
+                q: "State one reason why a business may need to recruit new employees.",
+                stem: "Context: Redrow Homes (2019 Text 2)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Existing staff leave",
+                        "To ensure sufficient staff are available",
+                        "Maternity cover",
+                        "Cover for long-term absences",
+                        "To fill a skill shortage or gap",
+                        "To cope with increased workload / business expansion",
+                        "Higher demand / more customers",
+                        "To gain new / additional skills / perspectives / ideas"
+                    ],
+                    marking: "One mark for the identification of a reason for recruiting new employees.",
+                    note: "",
+                    exemplar: [],
+                    examiner: "A wide variety of answers were given — from business expansion to current employees leaving. The vast majority of candidates gained a mark."
+                }
+            },
+            {
+                id: "q67", num: "67", yr: "2019", tp: "3.1 The Role of Human Resources", mk: 1, type: "MCQ",
+                q: "Which one of the following is a role of human resources in business?",
+                opts: ["A — Developing new products", "B — Increasing employee retention", "C — Maximising revenue", "D — Offering price reductions"],
+                answer: "B",
+                ms: {
+                    correct: "B — Increasing employee retention",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q68ai", num: "68ai", yr: "Sample", tp: "3.4 Recruitment and Selection", mk: 1, type: "QER",
+                q: "Identify one item of content in a job description.",
+                stem: "Context: McDonald's (Sample Text 2)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Tasks / duties",
+                        "Functions / responsibilities",
+                        "Job title",
+                        "Reporting structure",
+                        "Location / hours of work",
+                        "Salary / wage details"
+                    ],
+                    marking: "One mark for identification of an item in a job description.",
+                    note: "Accept specific examples of tasks, functions, or responsibilities.",
+                    exemplar: [],
+                    examiner: ""
+                }
+            },
+            {
+                id: "q68aii", num: "68aii", yr: "Sample", tp: "3.4 Recruitment and Selection", mk: 1, type: "QER",
+                q: "Identify one item of content in a person specification.",
+                stem: "Context: McDonald's (Sample Text 2)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Qualifications required",
+                        "Skills required",
+                        "Experience required",
+                        "Personal attributes / qualities of a person suitable for the job",
+                        "Physical characteristics"
+                    ],
+                    marking: "One mark for identification of an item in a person specification.",
+                    note: "Accept specific examples of qualifications, skills, or attributes.",
+                    exemplar: [],
+                    examiner: ""
+                }
+            },
+            {
+                id: "q68b", num: "68b", yr: "Sample", tp: "3.7 Employment Law", mk: 1, type: "QER",
+                q: "State one way in which the law affects business recruitment.",
+                stem: "Context: McDonald's (Sample Text 2)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Anti-discrimination laws must be followed (e.g. cannot discriminate on age, gender, race, disability)",
+                        "Right to a contract of employment",
+                        "Statutory holiday entitlement must be offered",
+                        "Hours of work must comply with Working Time Regulations",
+                        "Must pay at least the national minimum / living wage"
+                    ],
+                    marking: "One mark for a correct identification of a way the law affects business recruitment.",
+                    note: "",
+                    exemplar: [],
+                    examiner: ""
+                }
+            },
+            {
+                id: "q69", num: "69", yr: "2019", tp: "3.3 Communication in Business", mk: 1, type: "MCQ",
+                q: "Which of these is an example of digital communication?",
+                opts: ["A — A face-to-face interview", "B — A letter", "C — A magazine", "D — A website"],
+                answer: "D",
+                ms: {
+                    correct: "D — A website",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q70", num: "70", yr: "2019", tp: "2.4 The Marketing Mix", mk: 1, type: "MCQ",
+                q: "What is the final stage of the product life cycle?",
+                opts: ["A — Decline", "B — Delegation", "C — Distribution", "D — Diversification"],
+                answer: "A",
+                ms: {
+                    correct: "A — Decline",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q71", num: "71", yr: "2019", tp: "1.5 Stakeholders in Business", mk: 1, type: "MCQ",
+                q: "Which of the following is an internal stakeholder of a business that trades as a partnership?",
+                opts: ["A — A customer", "B — A shareholder", "C — A supplier", "D — An employee"],
+                answer: "D",
+                ms: {
+                    correct: "D — An employee",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q72", num: "72", yr: "2019", tp: "1.5 Stakeholders in Business", mk: 1, type: "MCQ",
+                q: "Which of the following are the customers of a business most likely to be interested in?",
+                opts: ["A — Employee wages", "B — Job security", "C — Product range", "D — Share dividends"],
+                answer: "C",
+                ms: {
+                    correct: "C — Product range",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q73", num: "73", yr: "2019", tp: "1.1 The Role of Business Enterprise and Entrepreneurship", mk: 1, type: "MCQ",
+                q: "Invention involves:",
+                opts: ["A — behaving dishonestly", "B — creating new products", "C — developing existing products", "D — discrimination in the workplace"],
+                answer: "B",
+                ms: {
+                    correct: "B — creating new products",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q74", num: "74", yr: "2019", tp: "3.5 Motivation and Retention", mk: 1, type: "MCQ",
+                q: "Which one of the following is NOT a benefit to a business of improving employee retention?",
+                opts: ["A — Cost saving", "B — Less time spent on recruitment", "C — Lower selling price", "D — Reduced need for training"],
+                answer: "C",
+                ms: {
+                    correct: "C — Lower selling price",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q75", num: "75", yr: "2019", tp: "3.2 Organisational Structures and Different Ways of Working", mk: 1, type: "MCQ",
+                q: "Who is a director's subordinate?",
+                opts: ["A — A customer", "B — A manager", "C — A shareholder", "D — A supplier"],
+                answer: "B",
+                ms: {
+                    correct: "B — A manager",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q76", num: "76", yr: "2019", tp: "1.3 Business Ownership", mk: 1, type: "MCQ",
+                q: "Which one of the following is NOT a benefit of being a sole trader?",
+                opts: ["A — Keep all profits", "B — Own boss", "C — Pursue personal goals", "D — Shared responsibility"],
+                answer: "D",
+                ms: {
+                    correct: "D — Shared responsibility",
+                    indicative: [],
+                    exemplar: [],
+                    examiner: "",
+                    note: ""
+                }
+            },
+            {
+                id: "q77", num: "77", yr: "Practice 1", tp: "1.1 The Role of Business Enterprise and Entrepreneurship", mk: 2, type: "QER",
+                q: "State two characteristics of an entrepreneur.",
+                stem: "Context: Boohoo.com (Sample Text 1)",
+                ms: {
+                    correct: "",
+                    indicative: [
+                        "Willing to take risks",
+                        "Determination",
+                        "Confidence",
+                        "Creativity / imaginative",
+                        "Passionate",
+                        "Hard working",
+                        "Motivated",
+                        "Disciplined",
+                        "Adaptable / flexible",
+                        "Knowledgeable",
+                        "People person / good with people"
+                    ],
+                    marking: "One mark for each correct identification of a characteristic, up to a maximum of two marks.",
+                    note: "",
+                    exemplar: [],
+                    examiner: ""
+                }
+            }
+        ];
+
+        // ── STATE ──
+        const state = {};
+        let statsCorrect = 0, statsAttempted = 0;
+
+        // ── FILTERS ──
+        const yearOrder = ["2025", "2024", "2023", "2022", "2021", "2020", "Sample", "2019", "Practice 1"];
+        const years = [...new Set(questions.map(q => q.yr))].sort((a, b) => yearOrder.indexOf(a) - yearOrder.indexOf(b));
+        const topics = [...new Set(questions.map(q => q.tp))].sort();
+        const marks = [...new Set(questions.map(q => q.mk))].sort((a, b) => a - b);
+
+        const yrSel = document.getElementById('yrFilter');
+        const tpSel = document.getElementById('topicFilter');
+        const mkSel = document.getElementById('markFilter');
+
+        years.forEach(y => { const o = document.createElement('option'); o.value = y; o.textContent = y; yrSel.appendChild(o) });
+        topics.forEach(t => { const o = document.createElement('option'); o.value = t; o.textContent = t; tpSel.appendChild(o) });
+        marks.forEach(m => { const o = document.createElement('option'); o.value = m; o.textContent = m + ' mark' + (m > 1 ? 's' : ''); mkSel.appendChild(o) });
+
+        ['search', 'yrFilter', 'topicFilter', 'typeFilter', 'markFilter'].forEach(id => {
+            document.getElementById(id).addEventListener('input', render);
+            document.getElementById(id).addEventListener('change', render);
+        });
+
+        // ── BUILD MARKING SCHEME HTML ──
+        function buildMS(q) {
+            let html = '';
+            const ms = q.ms;
+
+            if (q.type === 'MCQ') {
+                html += `<div class="correct-answer">✓ Correct answer: ${ms.correct}</div>`;
+                if (ms.examiner) {
+                    html += `<div class="examiner-comment"><strong>📋 Examiner's Comments</strong>${ms.examiner.replace(/\n/g, '<br><br>')}</div>`;
+                }
+                return html;
+            }
+
+            // QER
+            if (ms.marking) {
+                html += `<h4>How to award marks</h4><p style="color:var(--text2);margin-bottom:8px;">${ms.marking}</p>`;
+            }
+
+            if (ms.indicative && ms.indicative.length) {
+                html += `<h4>Indicative content — accept any of the following</h4><ul>`;
+                ms.indicative.forEach(i => { html += `<li>${i}</li>`; });
+                html += `</ul>`;
+            }
+
+            if (ms.note) {
+                html += `<div class="note">⚠️ <strong>Examiner's note:</strong> ${ms.note}</div>`;
+            }
+
+            if (ms.exemplar && ms.exemplar.length) {
+                ms.exemplar.forEach(ex => {
+                    html += `<div class="exemplar"><strong>✏️ Exemplar response</strong>${ex}</div>`;
+                });
+            }
+
+            if (ms.examiner) {
+                html += `<div class="examiner-comment"><strong>📋 Examiner's Comments</strong>${ms.examiner.replace(/\n/g, '<br><br>')}</div>`;
+            }
+
+            return html;
+        }
+
+        // ── BUILD CARD ──
+        function buildCard(q) {
+            const div = document.createElement('div');
+            div.className = 'q-card';
+            div.id = 'card-' + q.id;
+
+            const typeBadge = q.type === 'MCQ'
+                ? '<span class="badge badge-mcq">MCQ</span>'
+                : '<span class="badge badge-qer">QER</span>';
+
+            let body = '';
+
+            if (q.type === 'MCQ') {
+                const opts = q.opts.map((o, i) => {
+                    const letter = String.fromCharCode(65 + i);
+                    return `<div class="mcq-opt" id="opt-${q.id}-${letter}" onclick="selectOpt('${q.id}','${letter}')">
+        <span class="opt-letter">${letter}</span>
+        <span class="opt-text">${o.replace(/^[A-D] — /, '')}</span>
+      </div>`;
+                }).join('');
+                body = `<div class="mcq-options">${opts}</div>`;
+            } else {
+                body = `<div class="qer-area">
+      <textarea id="ta-${q.id}" placeholder="Write your answer here… (${q.mk} mark${q.mk > 1 ? 's' : ''} available)"></textarea>
+      <div class="qer-hint">💡 Aim for ${q.mk} clear point${q.mk > 1 ? 's' : ''} — one per mark</div>
+    </div>`;
+            }
+
+            const stem = q.stem ? `<div class="q-stem">📄 ${q.stem}</div>` : '';
+
+            div.innerHTML = `
+    <div class="q-header">
+      <span class="q-number">Q${q.num}</span>
+      <span style="font-weight:500;font-size:14px;flex:1;">${q.q}</span>
+      <div class="q-meta">
+        <span class="badge badge-year">${q.yr}</span>
+        <span class="badge badge-marks">${q.mk} mark${q.mk > 1 ? 's' : ''}</span>
+        ${typeBadge}
+        <span class="badge badge-topic">${q.tp}</span>
+      </div>
+    </div>
+    <div class="q-text" id="qtext-${q.id}" style="display:none">${q.q}</div>
+    ${stem}
+    ${body}
+    <div id="result-${q.id}"></div>
+    <div class="q-actions">
+      ${q.type === 'MCQ'
+                    ? `<button class="btn btn-primary" onclick="submitMCQ('${q.id}')" id="btn-submit-${q.id}">Submit answer</button>`
+                    : `<button class="btn btn-primary" onclick="submitQER('${q.id}')" id="btn-submit-${q.id}">Submit &amp; view marking scheme</button>`
+                }
+      <button class="btn btn-secondary" onclick="toggleMS('${q.id}')" id="btn-ms-${q.id}">View marking scheme</button>
+      <button class="btn btn-reset" onclick="resetQ('${q.id}')">↺ Reset</button>
+    </div>
+    <div class="marking-scheme" id="ms-${q.id}">
+      <div class="ms-header">📝 Official Marking Scheme</div>
+      <div class="ms-body">${buildMS(q)}</div>
+    </div>
+  `;
+            return div;
+        }
+
+        // ── INTERACTIONS ──
+        function selectOpt(qid, letter) {
+            const q = questions.find(x => x.id === qid);
+            if (state[qid] && state[qid].submitted) return;
+            if (!state[qid]) state[qid] = {};
+            state[qid].selected = letter;
+            q.opts.forEach((_, i) => {
+                const l = String.fromCharCode(65 + i);
+                const el = document.getElementById('opt-' + qid + '-' + l);
+                el.className = 'mcq-opt' + (l === letter ? ' selected' : '');
+            });
+            document.getElementById('btn-submit-' + qid).disabled = false;
+        }
+
+        function submitMCQ(qid) {
+            const q = questions.find(x => x.id === qid);
+            const s = state[qid];
+            if (!s || !s.selected) { alert('Please select an answer first.'); return; }
+            if (s.submitted) return;
+            s.submitted = true;
+            const correct = s.selected === q.answer;
+            q.opts.forEach((_, i) => {
+                const l = String.fromCharCode(65 + i);
+                const el = document.getElementById('opt-' + qid + '-' + l);
+                if (l === q.answer) el.className = 'mcq-opt show-correct';
+                else if (l === s.selected && !correct) el.className = 'mcq-opt wrong';
+                else el.className = 'mcq-opt';
+            });
+            const res = document.getElementById('result-' + qid);
+            if (correct) {
+                res.innerHTML = '<div class="result-inline result-correct">✓ Correct! Well done.</div>';
+                document.getElementById('card-' + qid).classList.add('answered');
+                statsCorrect++;
+            } else {
+                res.innerHTML = `<div class="result-inline result-wrong">✗ Incorrect. The correct answer is <strong>${q.answer}</strong>.</div>`;
+                document.getElementById('card-' + qid).classList.add('answered-wrong');
+            }
+            statsAttempted++;
+            updateStats();
+            document.getElementById('btn-submit-' + qid).disabled = true;
+            // auto show MS
+            const ms = document.getElementById('ms-' + qid);
+            ms.classList.add('visible');
+            document.getElementById('btn-ms-' + qid).textContent = 'Hide marking scheme';
+        }
+
+        function submitQER(qid) {
+            const s = state[qid] || {};
+            if (s.submitted) return;
+            s.submitted = true;
+            state[qid] = s;
+            statsAttempted++;
+            document.getElementById('card-' + qid).classList.add('answered');
+            document.getElementById('btn-submit-' + qid).disabled = true;
+            document.getElementById('ta-' + qid).disabled = true;
+            updateStats();
+            const ms = document.getElementById('ms-' + qid);
+            ms.classList.add('visible');
+            document.getElementById('btn-ms-' + qid).textContent = 'Hide marking scheme';
+        }
+
+        function toggleMS(qid) {
+            const ms = document.getElementById('ms-' + qid);
+            const btn = document.getElementById('btn-ms-' + qid);
+            if (ms.classList.contains('visible')) {
+                ms.classList.remove('visible');
+                btn.textContent = 'View marking scheme';
+            } else {
+                ms.classList.add('visible');
+                btn.textContent = 'Hide marking scheme';
+            }
+        }
+
+        function resetQ(qid) {
+            const q = questions.find(x => x.id === qid);
+            const wasSubmitted = state[qid] && state[qid].submitted;
+            const wasCorrect = state[qid] && state[qid].correct;
+            if (wasSubmitted) {
+                statsAttempted = Math.max(0, statsAttempted - 1);
+                if (wasCorrect) statsCorrect = Math.max(0, statsCorrect - 1);
+            }
+            delete state[qid];
+            if (q.type === 'MCQ') {
+                q.opts.forEach((_, i) => {
+                    const l = String.fromCharCode(65 + i);
+                    document.getElementById('opt-' + qid + '-' + l).className = 'mcq-opt';
+                });
+            } else {
+                const ta = document.getElementById('ta-' + qid);
+                if (ta) { ta.value = ''; ta.disabled = false; }
+            }
+            document.getElementById('result-' + qid).innerHTML = '';
+            document.getElementById('ms-' + qid).classList.remove('visible');
+            document.getElementById('btn-ms-' + qid).textContent = 'View marking scheme';
+            document.getElementById('btn-submit-' + qid).disabled = false;
+            const card = document.getElementById('card-' + qid);
+            card.classList.remove('answered', 'answered-wrong');
+            updateStats();
+        }
+
+        function updateStats() {
+            document.getElementById('stat-correct').textContent = statsCorrect;
+            document.getElementById('stat-attempted').textContent = statsAttempted;
+            const total = questions.length;
+            const pct = Math.round((statsAttempted / total) * 100);
+            document.getElementById('progress-fill').style.width = pct + '%';
+            document.getElementById('prog-label').textContent = statsAttempted + ' / ' + total + ' answered';
+        }
+
+        // ── RENDER ──
+        function render() {
+            const search = document.getElementById('search').value.toLowerCase();
+            const yr = document.getElementById('yrFilter').value;
+            const tp = document.getElementById('topicFilter').value;
+            const type = document.getElementById('typeFilter').value;
+            const mk = document.getElementById('markFilter').value;
+
+            const filtered = questions.filter(q => {
+                if (yr && q.yr !== yr) return false;
+                if (tp && q.tp !== tp) return false;
+                if (type && q.type !== type) return false;
+                if (mk && String(q.mk) !== mk) return false;
+                if (search && !q.q.toLowerCase().includes(search) && !q.tp.toLowerCase().includes(search) && !q.num.includes(search)) return false;
+                return true;
+            });
+
+            document.getElementById('q-count').textContent = filtered.length + ' question' + (filtered.length !== 1 ? 's' : '');
+            const main = document.getElementById('main');
+            main.innerHTML = '';
+
+            if (filtered.length === 0) {
+                main.innerHTML = '<div class="empty-state"><svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><p>No questions match your filters.</p></div>';
+                return;
+            }
+
+            filtered.forEach(q => {
+                main.appendChild(buildCard(q));
+                // restore state if card was previously answered
+                if (state[q.id] && state[q.id].submitted) {
+                    // re-apply visual state silently
+                }
+            });
+        }
+
+        render();
+        updateStats();
+    </script>
+</body>
+
+</html>
