@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Business (J204) - Finance Calculations</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* INJECTED CSS FROM USER */
+        :root {
+            --ink: #0f1923;
+            --paper: #f5f0e8;
+            --cream: #ede7d9;
+            --accent: #7a5c9e;
+            --gold: #d4a843;
+            --teal: #1a6b6b;
+            --mid: #5a6e7f;
+            --border: #c9bfaa;
+            --success: #2d7a4f;
+            --wrong: #c84b31;
+            --card-bg: #fffcf6;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            min-height: 100vh;
+        }
+
+        header {
+            background: var(--ink);
+            color: var(--paper);
+            padding: 28px 40px 24px;
+            display: flex;
+            align-items: flex-end;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: .18;
+        }
+
+        header .badge {
+            background: var(--accent);
+            color: #fff;
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            padding: 4px 10px;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(20px, 3.5vw, 38px);
+            line-height: 1.1;
+        }
+
+        header p {
+            font-size: 13px;
+            color: #aaa;
+            margin-top: 6px;
+        }
+
+        main {
+            padding: 32px 40px 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--ink);
+            margin-bottom: 6px;
+        }
+
+        .section-sub {
+            font-size: 13px;
+            color: var(--mid);
+            margin-bottom: 28px;
+        }
+
+        .formula-box {
+            background: var(--card-bg);
+            border: 2px dashed var(--teal);
+            padding: 20px;
+            margin: 24px 0;
+            text-align: center;
+            font-family: 'DM Mono', monospace;
+            font-size: 1.1rem;
+            color: var(--ink);
+            border-radius: 8px;
+            box-shadow: inset 0 0 10px rgba(26, 107, 107, 0.05);
+        }
+
+        .ep-list {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-bottom: 50px;
+        }
+
+        .ep-card {
+            background: var(--card-bg);
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .ep-header {
+            background: var(--ink);
+            color: var(--paper);
+            padding: 16px 22px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .ep-num {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: var(--gold);
+        }
+
+        .ep-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+        }
+
+        .ep-body {
+            padding: 20px 22px;
+        }
+
+        .ep-question {
+            font-size: 14.5px;
+            font-weight: 600;
+            line-height: 1.55;
+            margin-bottom: 14px;
+            color: var(--ink);
+        }
+
+        .ep-btn-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .ep-btn {
+            border: 1.5px solid var(--border);
+            background: var(--cream);
+            border-radius: 7px;
+            padding: 9px 18px;
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background .15s, border-color .15s;
+            font-weight: 600;
+        }
+
+        .ep-btn:hover {
+            background: var(--ink);
+            color: var(--paper);
+            border-color: var(--ink);
+        }
+
+        .ep-btn.submit-btn {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .ep-btn.submit-btn:hover {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        .model-answer {
+            display: none;
+            background: #e8f4e8;
+            border-left: 4px solid var(--success);
+            padding: 10px 14px;
+            border-radius: 0 6px 6px 0;
+            font-size: 13px;
+            line-height: 1.75;
+            color: #1a3a1a;
+            margin-top: 15px;
+        }
+
+        .model-answer.show {
+            display: block;
+        }
+
+        @media(max-width:640px) {
+            main {
+                padding: 20px 16px 50px;
+            }
+
+            header {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div>
+        <span class="badge">OCR J204</span>
+        <h1>GCSE Business Finance: Part 1</h1>
+        <p>Interactive Revision: Revenue, Costs, and Cash Flow</p>
+        <a href="../../index.html" class="home-link"
+            style="display: inline-block; margin-top: 18px; padding: 8px 16px; background-color: rgba(255, 255, 255, 0.1); color: var(--paper); text-decoration: none; border-radius: 6px; font-size: 13px; font-weight: 600; border: 1px solid rgba(255, 255, 255, 0.2);">←
+            🏡 Home</a>
+    </div>
+</header>
+
+    <main>
+        <h2 class="section-title">1. Sales Revenue</h2>
+        <p class="section-sub">The total amount of money coming into the business from the sale of goods or services.
+        </p>
+        <div class="formula-box">
+            Formula: Total Sales Revenue = Selling Price × Quantity Sold
+        </div>
+
+        <div class="ep-list" id="revenue-questions">
+        </div>
+
+        <h2 class="section-title">2. Total Variable Costs</h2>
+        <p class="section-sub">Costs that change directly with the level of output or sales.</p>
+        <div class="formula-box">
+            Formula: Total Variable Costs = Variable Cost (per unit) × Quantity
+        </div>
+
+        <div class="ep-list" id="vc-questions"></div>
+
+        <h2 class="section-title">3. Total Costs</h2>
+        <p class="section-sub">The entire cost of running the business, combining fixed costs (which do not change with
+            output) and total variable costs.</p>
+        <div class="formula-box">
+            Formula: Total Costs = Total Variable Costs + Total Fixed Costs
+        </div>
+
+        <div class="ep-list" id="tc-questions"></div>
+
+        <h2 class="section-title">4. Cash Flow</h2>
+        <p class="section-sub">The flow of money into and out of the business over a period of time.</p>
+        <div class="formula-box">
+            Net Cash Flow = Total Inflow - Total Outflow<br>
+            Closing Balance = Net Cash Flow + Opening Balance
+        </div>
+
+        <div class="ep-list" id="cashflow-questions"></div>
+        <h2 class="section-title">5. Gross Profit</h2>
+        <p class="section-sub">The profit made after subtracting the direct costs of making the product (Cost of Sales)
+            from the
+            Sales Revenue.</p>
+        <div class="formula-box">
+            Formula: Gross Profit = Sales Revenue - Cost of Sales
+        </div>
+        <div class="ep-list" id="gp-questions"></div>
+
+        <h2 class="section-title">6. Gross Profit Margin</h2>
+        <p class="section-sub">This shows the percentage of sales revenue that is kept as gross profit. A higher
+            percentage is
+            better.</p>
+        <div class="formula-box">
+            Formula: Gross Profit Margin = (Gross Profit ÷ Sales Revenue) × 100
+        </div>
+        <div class="ep-list" id="gpm-questions"></div>
+
+        <h2 class="section-title">7. Net Profit</h2>
+        <p class="section-sub">The final profit made after ALL expenses (like rent, salaries, and marketing) have been
+            deducted
+            from the Gross Profit.</p>
+        <div class="formula-box">
+            Formula: Net Profit = Gross Profit - Expenses<br>
+            (OR Net Profit = Total Revenue - Total Costs)
+        </div>
+        <div class="ep-list" id="np-questions"></div>
+
+        <h2 class="section-title">8. Net Profit Margin</h2>
+        <p class="section-sub">This shows the final percentage of revenue that is actual profit after everything is paid
+            for. It
+            is the best measure of overall efficiency.</p>
+        <div class="formula-box">
+            Formula: Net Profit Margin = (Net Profit ÷ Sales Revenue) × 100
+        </div>
+        <div class="ep-list" id="npm-questions"></div>
+
+        <h2 class="section-title">9. Break-Even Quantity</h2>
+        <p class="section-sub">The point where a business makes neither a profit nor a loss (Total Revenue = Total
+            Costs). First
+            find the contribution per unit, then divide fixed costs by that contribution.</p>
+        <div class="formula-box">
+            Formula: Fixed Costs ÷ (Selling Price - Variable Cost per unit)
+        </div>
+        <div class="ep-list" id="breakeven-questions"></div>
+
+        <h2 class="section-title">10. Average Rate of Return (ARR)</h2>
+        <p class="section-sub">A method used to compare the profitability of different investments over their lifetime.
+        </p>
+
+        <div class="formula-box" style="text-align: left; font-size: 0.95rem;">
+            <p style="margin-bottom: 12px;">Unless the average return for the investment is already known, the following
+                three
+                stepped approach is needed to calculate the ARR:</p>
+            <ol style="padding-left: 20px; line-height: 1.7;">
+                <li><strong>Calculate the total profit from an investment over its lifetime.</strong><br>
+                    <em>Formula: Total income received from an investment over a given period of time - cost of the
+                        investment</em>
+                </li>
+
+                <li style="margin-top: 12px;"><strong>Calculate the average profit from an investment per
+                        year.</strong><br>
+                    <em>Formula: Total profit from the investment ÷ Number of years</em>
+                </li>
+
+                <li style="margin-top: 12px;"><strong>Calculate the average rate of return from an
+                        investment.</strong><br>
+                    <em>Formula: (Average profit from the investment ÷ Cost of the investment) × 100</em>
+                </li>
+            </ol>
+        </div>
+
+        <div class="ep-list" id="arr-questions"></div>
+
+    </main>
+
+    <script>
+        const part1Data = {
+            revenue: [
+                { source: "Exam Ref: 5.3 Q1", q: "In 2023 a business sold 22 million items at an average price of £0.75 per item. Calculate the business's total sales revenue.", a: "Total Revenue = 22,000,000 items × £0.75<br><strong>Total Revenue = £16.5 million (£16,500,000)</strong>" },
+                { source: "Exam Ref: 5.3 Q38", q: "A market stall sells bread for £1 a loaf and cookies for 60p each. Yesterday 1,000 loaves of bread and 2,000 cookies were sold. What was the market stall's revenue?", a: "Revenue from bread = 1,000 × £1.00 = £1,000<br>Revenue from cookies = 2,000 × £0.60 = £1,200<br><strong>Total Revenue = £1,000 + £1,200 = £2,200</strong>" },
+                { source: "Practice: Sea View Hotel", q: "The Sea View Hotel has 25 rooms. If they sell all rooms for a day at their standard price of £100 each, what is the daily revenue?", a: "Total Revenue = 25 rooms × £100<br><strong>Total Revenue = £2,500</strong>" },
+                { source: "Practice: RCP", q: "Ricardo Costumes and Props sells 5,000 props in a year at an average price of £400 each. What is the total sales revenue?", a: "Total Revenue = 5,000 props × £400<br><strong>Total Revenue = £2,000,000</strong>" },
+                { source: "Practice: Luxury Cushions", q: "Elizabeth sells 250 luxury cushions in a month at an average price of £50 each. Calculate the total monthly revenue.", a: "Total Revenue = 250 cushions × £50<br><strong>Total Revenue = £12,500</strong>" }
+            ],
+            vc: [
+                { source: "Exam Ref: 5.3 Q22", q: "A drum kit manufacturer plans to make 500 drum kits this year. The raw materials cost £40 per drum kit. What are the total variable costs for the raw materials?", a: "Total Variable Costs = 500 drum kits × £40<br><strong>Total Variable Costs = £20,000</strong>" },
+                { source: "Exam Ref: 5.3 Q33", q: "Andrea paints 50 portraits a year. Variable costs for labour are £52 per portrait and materials are £23 per portrait. What are her total variable costs?", a: "Variable cost per portrait = £52 (labour) + £23 (materials) = £75<br>Total Variable Costs = 50 portraits × £75<br><strong>Total Variable Costs = £3,750</strong>" },
+                { source: "Exam Ref: 5.4 Q10", q: "MD Sports Clinic runs 240 sessions in its first month. The variable cost per session is £5. What are the total variable costs for the month?", a: "Total Variable Costs = 240 sessions × £5<br><strong>Total Variable Costs = £1,200</strong>" },
+                { source: "Exam Ref: 5.4 Q6", q: "Elizabeth makes 250 cushions. For each cushion, the filling costs £3, the cover costs £6, and the wage paid per cushion is £10. Calculate the total variable costs.", a: "Variable cost per cushion = £3 + £6 + £10 = £19<br>Total Variable Costs = 250 cushions × £19<br><strong>Total Variable Costs = £4,750</strong>" },
+                { source: "Practice: Glorious Kitchens", q: "Glorious Kitchens sells 29 Deluxe kitchens in a year. The variable costs for the Deluxe kitchen are £6,380 each. What is the total variable cost?", a: "Total Variable Costs = 29 kitchens × £6,380<br><strong>Total Variable Costs = £185,020</strong>" }
+            ],
+            tc: [
+                { source: "Exam Ref: 5.3 Q22", q: "A manufacturer makes 500 drum kits. Raw materials cost £40/kit. Fixed costs include: rent £600/month, heating/lighting £900/quarter, and other expenses £56,000/annum. Calculate the estimated total cost for the year.", a: "Total Variable Cost = 500 × £40 = £20,000<br>Annual Rent = £600 × 12 = £7,200<br>Annual Heating = £900 × 4 = £3,600<br>Total Fixed Costs = £7,200 + £3,600 + £56,000 = £66,800<br><strong>Total Costs = £20,000 + £66,800 = £86,800</strong>" },
+                { source: "Exam Ref: 5.3 Q33", q: "Andrea paints 50 portraits a year. Variable costs: labour £52/portrait, materials £23/portrait. Her fixed costs are £1,000/month. Calculate her total costs for the year.", a: "Total Variable Cost = 50 × (£52 + £23) = £3,750<br>Annual Fixed Costs = £1,000 × 12 months = £12,000<br><strong>Total Costs = £3,750 + £12,000 = £15,750</strong>" },
+                { source: "Exam Ref: 5.4 Q2", q: "The Sea View Hotel has fixed costs of £6,300 per week. Variable costs are £40 a day per room. If they sell 105 rooms in a week, what are the total costs for that week?", a: "Total Variable Cost = 105 rooms × £40 = £4,200<br>Fixed Costs = £6,300<br><strong>Total Costs = £4,200 + £6,300 = £10,500</strong>" },
+                { source: "Exam Ref: 5.4 Q5", q: "Kim, a driving instructor, has fixed costs of £14,000 per annum. The variable cost is £6 per lesson. If she gives 500 lessons in a year, what are her total costs?", a: "Total Variable Cost = 500 lessons × £6 = £3,000<br>Fixed Costs = £14,000<br><strong>Total Costs = £3,000 + £14,000 = £17,000</strong>" },
+                { source: "Practice: Amaya", q: "Amaya is a gardener. Her fixed costs are £18,000 per annum. Her variable costs are £2 per hour. If she works 1,500 hours in a year, what are her total costs?", a: "Total Variable Cost = 1,500 hours × £2 = £3,000<br>Fixed Costs = £18,000<br><strong>Total Costs = £3,000 + £18,000 = £21,000</strong>" }
+            ],
+            cashflow: [
+                { source: "Exam Ref: 5.5 Q4", q: "An extract from Yoshi's Sweet Shop's cash flow forecast for November shows: Total inflow £28,000, Total outflow £18,500. The opening balance was -£4,700. Calculate the closing balance for November.", a: "Net Cash Flow = £28,000 - £18,500 = £9,500<br>Closing Balance = Net Cash Flow + Opening Balance<br>Closing Balance = £9,500 + (-£4,700)<br><strong>Closing Balance = £4,800</strong>" },
+                { source: "Exam Ref: 5.5 Q15", q: "CFM has a total cash inflow of £23,000 and a total cash outflow of £25,000 for the month. Calculate the net cash flow.", a: "Net Cash Flow = Total Inflow - Total Outflow<br>Net Cash Flow = £23,000 - £25,000<br><strong>Net Cash Flow = -£2,000</strong>" },
+                { source: "Exam Ref: 5.5 Q17", q: "Millican Garage's cash flow for September shows an opening balance of £1,225. Total inflow is £12,945 and total outflow is £13,850. What is the closing balance?", a: "Net Cash Flow = £12,945 - £13,850 = -£905<br>Closing Balance = -£905 + £1,225<br><strong>Closing Balance = £320</strong>" },
+                { source: "Exam Ref: 5.5 Q10", q: "Pia's Diner has an opening balance of -£2,300, total outflows of £13,500, and a closing balance of -£4,200. What is the net cash flow, and what was the total inflow?", a: "<em>Step 1: Find Net Cash Flow</em><br>Closing Balance = Opening Balance + Net Cash Flow<br>-£4,200 = -£2,300 + Net Cash Flow -> <strong>Net Cash Flow = -£1,900</strong><br><br><em>Step 2: Find Total Inflow</em><br>Net Cash Flow = Total Inflow - Total Outflow<br>-£1,900 = Total Inflow - £13,500 -> <strong>Total Inflow = £11,600</strong>" },
+                { source: "Exam Ref: 5.5 Q8", q: "Marble & Sons has a net cash flow for September of £2,600 and a closing balance of -£7,300. What was the opening balance?", a: "Closing Balance = Net Cash Flow + Opening Balance<br>-£7,300 = £2,600 + Opening Balance<br>Opening Balance = -£7,300 - £2,600<br><strong>Opening Balance = -£9,900</strong>" }
+            ]
+        };
+
+        function renderQuestions(containerId, sectionData, titlePrefix) {
+            const container = document.getElementById(containerId);
+            sectionData.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'ep-card';
+
+                card.innerHTML = `
+                    <div class="ep-header">
+                        <span class="ep-num">Q${index + 1}</span>
+                        <span class="ep-title">${titlePrefix} Example</span>
+                        <span class="ep-num" style="margin-left: auto;">${item.source}</span>
+                    </div>
+                    <div class="ep-body">
+                        <div class="ep-question">${item.q}</div>
+                        <div class="ep-btn-row">
+                            <button class="ep-btn submit-btn" onclick="toggleAnswer(this)">Show Working & Answer</button>
+                        </div>
+                        <div class="model-answer">${item.a}</div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function toggleAnswer(btn) {
+            const answerDiv = btn.parentElement.nextElementSibling;
+            if (answerDiv.classList.contains('show')) {
+                answerDiv.classList.remove('show');
+                btn.textContent = 'Show Working & Answer';
+            } else {
+                answerDiv.classList.add('show');
+                btn.textContent = 'Hide Answer';
+            }
+        }
+
+        // Render all sections
+        renderQuestions('revenue-questions', part1Data.revenue, 'Sales Revenue');
+        renderQuestions('vc-questions', part1Data.vc, 'Variable Cost');
+        renderQuestions('tc-questions', part1Data.tc, 'Total Cost');
+        renderQuestions('cashflow-questions', part1Data.cashflow, 'Cash Flow');
+
+        const part2Data = {
+            gp: [
+                { source: "Exam Ref: 5.3 Q26", q: "Ricardo Costumes and Props (RCP) had a revenue of £2,000,000 in 2020. Their Cost of Sales was £500,000. Calculate their Gross Profit.", a: "Gross Profit = Revenue - Cost of Sales<br>Gross Profit = £2,000,000 - £500,000<br><strong>Gross Profit = £1,500,000</strong>" },
+                { source: "Exam Ref: 5.3 Q5", q: "A market trader paid £4,600 for goods which they sold for £12,500. What was their Gross Profit?", a: "Gross Profit = Sales Revenue - Cost of Sales<br>Gross Profit = £12,500 - £4,600<br><strong>Gross Profit = £7,900</strong>" },
+                { source: "Exam Ref: 5.3 Q12", q: "Financial data for Pilti plc in 2022 shows: Revenue £44 million, Expenses £12 million, Net profit £14 million. Using the formula (Gross Profit = Net Profit + Expenses), calculate the Gross Profit.", a: "Gross Profit = Net Profit + Expenses<br>Gross Profit = £14 million + £12 million<br><strong>Gross Profit = £26 million</strong>" },
+                { source: "Practice: Luxury Cushions", q: "Elizabeth's business, Luxury Cushions, had a revenue of £150,000 in 2019. Her Cost of Sales was £32,000. Calculate the Gross Profit.", a: "Gross Profit = Revenue - Cost of Sales<br>Gross Profit = £150,000 - £32,000<br><strong>Gross Profit = £118,000</strong>" },
+                { source: "Exam Ref: 5.3 Q24", q: "Tictal Ltd had a revenue of £180,000 and a Cost of Sales of £45,000. What was their Gross Profit?", a: "Gross Profit = Revenue - Cost of Sales<br>Gross Profit = £180,000 - £45,000<br><strong>Gross Profit = £135,000</strong>" }
+            ],
+            gpm: [
+                { source: "Exam Ref: 5.3 Q45", q: "Exobike made a gross profit of £9,996 from selling 42 exercise bikes at £350 each. First, calculate total revenue, then calculate the Gross Profit Margin.", a: "<em>Step 1: Calculate Revenue</em><br>Revenue = 42 bikes × £350 = £14,700<br><br><em>Step 2: Calculate GPM</em><br>GPM = (Gross Profit ÷ Revenue) × 100<br>GPM = (£9,996 ÷ £14,700) × 100<br><strong>Gross Profit Margin = 68%</strong>" },
+                { source: "Exam Ref: 5.5 Q11", q: "In 2019, Luxury Cushions earned £150,000 in revenue and had a gross profit of £118,000. Calculate the Gross Profit Margin.", a: "GPM = (Gross Profit ÷ Revenue) × 100<br>GPM = (£118,000 ÷ £150,000) × 100<br><strong>Gross Profit Margin = 78.7%</strong> (accept 78.6% or 79%)" },
+                { source: "Exam Ref: 5.3 Q17", q: "In 2021, AstraZeneca's sales revenue was £37,417m, from which it made £24,980m gross profit. Calculate the Gross Profit Margin.", a: "GPM = (Gross Profit ÷ Revenue) × 100<br>GPM = (£24,980m ÷ £37,417m) × 100<br><strong>Gross Profit Margin = 66.8%</strong> (accept 66.7% or 67%)" },
+                { source: "Exam Ref: 5.3 Q5", q: "A market trader paid £4,600 for goods and sold them for £12,500. Calculate the Gross Profit Margin.", a: "<em>Step 1: Calculate Gross Profit</em><br>Gross Profit = £12,500 - £4,600 = £7,900<br><br><em>Step 2: Calculate GPM</em><br>GPM = (£7,900 ÷ £12,500) × 100<br><strong>Gross Profit Margin = 63.2%</strong> (accept 63%)" },
+                { source: "Exam Ref: 5.3 Q24", q: "Tictal Ltd had a revenue of £180,000 and a Cost of Sales of £45,000. Calculate their Gross Profit Margin.", a: "<em>Step 1: Calculate Gross Profit</em><br>Gross Profit = £180,000 - £45,000 = £135,000<br><br><em>Step 2: Calculate GPM</em><br>GPM = (£135,000 ÷ £180,000) × 100<br><strong>Gross Profit Margin = 75%</strong>" }
+            ],
+            np: [
+                { source: "Exam Ref: 5.3 Q26", q: "RCP made a Gross Profit of £1,500,000. Their expenses were: Salaries £1,300,000, Rent £100,000, and Other expenses £50,000. Calculate their Net Profit.", a: "<em>Step 1: Calculate Total Expenses</em><br>Total Expenses = £1,300,000 + £100,000 + £50,000 = £1,450,000<br><br><em>Step 2: Calculate Net Profit</em><br>Net Profit = Gross Profit - Expenses<br>Net Profit = £1,500,000 - £1,450,000<br><strong>Net Profit = £50,000</strong>" },
+                { source: "Exam Ref: 5.3 Q1", q: "In 2023, a business sold 22 million items at an average price of £0.75 per item. Its total costs for the year were £13.5 million. Calculate the Net Profit.", a: "<em>Step 1: Calculate Total Revenue</em><br>Revenue = 22,000,000 × £0.75 = £16.5 million<br><br><em>Step 2: Calculate Net Profit</em><br>Net Profit = Total Revenue - Total Costs<br>Net Profit = £16.5 million - £13.5 million<br><strong>Net Profit = £3 million</strong>" },
+                { source: "Exam Ref: 5.3 Q43", q: "Pluck and Grow Ltd had a Total Revenue of £68,000. Their costs were: Labour £26,000, Materials £16,000, and Other costs £10,000. Calculate their Net Profit.", a: "<em>Step 1: Calculate Total Costs</em><br>Total Costs = £26,000 + £16,000 + £10,000 = £52,000<br><br><em>Step 2: Calculate Net Profit</em><br>Net Profit = £68,000 - £52,000<br><strong>Net Profit = £16,000</strong>" },
+                { source: "Exam Ref: 5.3 Q32", q: "Café Freshly Made (CFM) made £200,000 total revenue in Year 2. Their Net Profit Margin is 25%. Calculate CFM's Net Profit.", a: "Net Profit = (Net Profit Margin ÷ 100) × Revenue<br>Net Profit = (25 ÷ 100) × £200,000<br><strong>Net Profit = £50,000</strong>" },
+                { source: "Exam Ref: 5.3 Q20", q: "Pallin Ltd had the following profits/losses over the last 5 years: £15,000, £0, -£9,000, £17,000, -£3,000. What is their average net profit per year?", a: "<em>Step 1: Calculate Total Profit</em><br>Total = 15,000 + 0 - 9,000 + 17,000 - 3,000 = £20,000<br><br><em>Step 2: Calculate Average</em><br>Average = £20,000 ÷ 5 years<br><strong>Average Net Profit = £4,000 per year</strong>" }
+            ],
+            npm: [
+                { source: "Exam Ref: 5.5 Q11", q: "In 2019, Luxury Cushions earned £150,000 in revenue and had a net profit of £56,800. Calculate the Net Profit Margin.", a: "NPM = (Net Profit ÷ Revenue) × 100<br>NPM = (£56,800 ÷ £150,000) × 100<br><strong>Net Profit Margin = 37.9%</strong> (accept 37.8% or 38%)" },
+                { source: "Exam Ref: 5.3 Q26", q: "Ricardo Costumes and Props (RCP) generated £2,000,000 in revenue. After all costs were deducted, their Net Profit was £50,000. Calculate the Net Profit Margin.", a: "NPM = (Net Profit ÷ Revenue) × 100<br>NPM = (£50,000 ÷ £2,000,000) × 100<br><strong>Net Profit Margin = 2.5%</strong>" },
+                { source: "Exam Ref: 5.3 Q24", q: "Tictal Ltd had a revenue of £180,000. Their Gross Profit was £135,000 and their Expenses were £36,000. Calculate their Net Profit Margin.", a: "<em>Step 1: Calculate Net Profit</em><br>Net Profit = Gross Profit - Expenses = £135,000 - £36,000 = £99,000<br><br><em>Step 2: Calculate NPM</em><br>NPM = (£99,000 ÷ £180,000) × 100<br><strong>Net Profit Margin = 55%</strong>" },
+                { source: "Exam Ref: 5.3 Q12", q: "Financial data for Pilti plc shows a Revenue of £44 million and a Net Profit of £14 million. Calculate the Net Profit Margin.", a: "NPM = (Net Profit ÷ Revenue) × 100<br>NPM = (£14m ÷ £44m) × 100<br><strong>Net Profit Margin = 31.8%</strong>" },
+                { source: "Exam Ref: 5.3 Q3", q: "A company has recently experienced a fall in its net profit margin from 4.2% to 2.9%. Explain what this means for every £100 of sales they make.", a: "A drop from 4.2% to 2.9% is a difference of 1.3%.<br>This means that <strong>for every £100 of sales, the company earns £1.30 less net profit than it used to.</strong>" }
+            ]
+        };
+
+        const part3Data = {
+            breakeven: [
+                { source: "Exam Ref: 5.4 Q2", q: "The Sea View Hotel proposes a new 25-room hotel. The selling price is £100 a day per room. Variable costs are £40 a day per room. Fixed costs are £6,300 per week. Calculate the daily break-even quantity.", a: "<em>Step 1: Calculate Contribution per room</em><br>Contribution = Selling Price - Variable Cost<br>Contribution = £100 - £40 = £60<br><br><em>Step 2: Calculate Daily Fixed Costs</em><br>Daily Fixed Costs = £6,300 ÷ 7 days = £900<br><br><em>Step 3: Calculate Break-Even</em><br>Break-Even = Daily Fixed Costs ÷ Contribution<br>Break-Even = £900 ÷ £60<br><strong>Daily Break-Even = 15 rooms</strong>" },
+                { source: "Exam Ref: 5.4 Q6", q: "Luxury Cushions makes and sells quality cushions. Average selling price is £50. Variable costs per cushion are: £3 filling + £6 cover + £10 wage. Fixed costs are £7,440 per month. Calculate the monthly break-even point.", a: "<em>Step 1: Calculate Total Variable Cost per unit</em><br>VC = £3 + £6 + £10 = £19<br><br><em>Step 2: Calculate Contribution per unit</em><br>Contribution = £50 - £19 = £31<br><br><em>Step 3: Calculate Break-Even</em><br>Break-Even = Fixed Costs ÷ Contribution<br>Break-Even = £7,440 ÷ £31<br><strong>Break-Even = 240 cushions</strong>" },
+                { source: "Exam Ref: 5.4 Q10", q: "MD Sports Clinic estimates fixed costs of £6,000 for its first month. Variable costs are £5 per session and revenue is £30 per session. Calculate the number of sessions needed to break even.", a: "<em>Step 1: Calculate Contribution per session</em><br>Contribution = £30 - £5 = £25<br><br><em>Step 2: Calculate Break-Even</em><br>Break-Even = Fixed Costs ÷ Contribution<br>Break-Even = £6,000 ÷ £25<br><strong>Break-Even = 240 sessions</strong>" },
+                { source: "Exam Ref: 5.4 Q3", q: "Glorious Kitchens calculates its fixed costs for the year to be £250,000. The average price of a Deluxe kitchen is £15,000 and variable costs are £6,380. Calculate the break-even output.", a: "<em>Step 1: Calculate Contribution</em><br>Contribution = £15,000 - £6,380 = £8,620<br><br><em>Step 2: Calculate Break-Even</em><br>Break-Even = £250,000 ÷ £8,620<br>Break-Even = 29.002<br><strong>Break-Even = 29 kitchens</strong>" },
+                { source: "Exam Ref: 5.4 Q5", q: "Kim is a driving instructor charging £30 for a one-hour lesson. Her fixed costs are £14,000 per annum. The variable cost for a lesson is £6. How many lessons will she need to give before making a profit?", a: "<em>Step 1: Calculate Contribution per lesson</em><br>Contribution = £30 - £6 = £24<br><br><em>Step 2: Calculate Break-Even</em><br>Break-Even = £14,000 ÷ £24<br>Break-Even = 583.33<br><strong>Break-Even = 584 lessons</strong> (You cannot give 0.33 of a lesson, so you must round up to ensure all costs are covered)." }
+            ],
+            arr: [
+                { source: "Exam Ref: 5.3 Q19", q: "Quality Textiles (QT) wants to buy a Standard Van for £40,000. The total net profit for the life of the van (3 years) is £60,000. Calculate the Average Rate of Return (ARR).", a: "<em>Step 1: Calculate total profit</em><br>Total profit is already given as £60,000.<br><br><em>Step 2: Calculate average profit per year</em><br>Average profit = £60,000 ÷ 3 years = £20,000<br><br><em>Step 3: Calculate ARR</em><br>ARR = (£20,000 ÷ £40,000) × 100<br><strong>ARR = 50%</strong>" },
+
+                { source: "Exam Ref: 5.3 Q46", q: "SP Dry Cleaners want to buy HD Sewing for £80,000. HD Sewing makes an income of £25,000 per year. Pippa wants to see her investment returned within 5 years. Calculate the ARR over this 5-year period.", a: "<em>Step 1: Calculate total profit</em><br>Total income (5 years) = £25,000 × 5 = £125,000<br>Total Profit = £125,000 - £80,000 (cost) = £45,000<br><br><em>Step 2: Calculate average profit per year</em><br>Average profit = £45,000 ÷ 5 years = £9,000<br><br><em>Step 3: Calculate ARR</em><br>ARR = (£9,000 ÷ £80,000) × 100<br><strong>ARR = 11.25%</strong>" },
+
+                { source: "Exam Ref: 5.3 Q10", q: "Four years ago an entrepreneur invested £200,000 to start up their own business. The business is making an average profit of £53,000 per year. Calculate the ARR.", a: "<em>Steps 1 & 2:</em><br>The average return is already known (£53,000 per year), so we skip straight to step 3.<br><br><em>Step 3: Calculate ARR</em><br>ARR = (£53,000 ÷ £200,000) × 100<br><strong>ARR = 26.5%</strong>" },
+
+                { source: "Exam Ref: 5.3 Q31", q: "A furniture maker buys a wood cutting machine for £6,000. It will generate an income of £3,000 in Year 1, £3,000 in Year 2, and £3,000 in Year 3. Calculate the ARR.", a: "<em>Step 1: Calculate total profit</em><br>Total income = £3,000 + £3,000 + £3,000 = £9,000<br>Total profit = £9,000 - £6,000 (cost) = £3,000<br><br><em>Step 2: Calculate average profit per year</em><br>Average profit = £3,000 ÷ 3 years = £1,000<br><br><em>Step 3: Calculate ARR</em><br>ARR = (£1,000 ÷ £6,000) × 100<br><strong>ARR = 16.67%</strong>" },
+
+                { source: "Exam Ref: 5.3 Q25", q: "An advertising agency wishes to upgrade its design software at a cost of £60,000. The net cash flow generated by the software for each of the next two years is forecast to be £60,000. Calculate the ARR.", a: "<em>Step 1: Calculate total profit</em><br>Total income (2 years) = £60,000 + £60,000 = £120,000<br>Total profit = £120,000 - £60,000 (cost) = £60,000<br><br><em>Step 2: Calculate average profit per year</em><br>Average profit = £60,000 ÷ 2 years = £30,000<br><br><em>Step 3: Calculate ARR</em><br>ARR = (£30,000 ÷ £60,000) × 100<br><strong>ARR = 50%</strong>" }
+            ]
+        };
+
+        // Render the final sections
+        renderQuestions('breakeven-questions', part3Data.breakeven, 'Break-Even');
+        renderQuestions('arr-questions', part3Data.arr, 'ARR');
+
+        // Render the new sections
+        renderQuestions('gp-questions', part2Data.gp, 'Gross Profit');
+        renderQuestions('gpm-questions', part2Data.gpm, 'Gross Profit Margin');
+        renderQuestions('np-questions', part2Data.np, 'Net Profit');
+        renderQuestions('npm-questions', part2Data.npm, 'Net Profit Margin');
+
+        // ==========================================
+        // --- DYNAMIC NAVIGATION SCRIPT ADDED HERE ---
+        // ==========================================
+        function buildNavigation() {
+            const main = document.querySelector('main');
+            const headings = document.querySelectorAll('h2.section-title');
+
+            const nav = document.createElement('nav');
+            nav.id = 'dynamic-nav';
+
+            const navTitle = document.createElement('div');
+            navTitle.className = 'nav-title';
+            navTitle.innerText = 'Table of Contents';
+            nav.appendChild(navTitle);
+
+            const ul = document.createElement('ul');
+
+            headings.forEach((heading, index) => {
+                const id = 'section-' + (index + 1);
+                heading.id = id; // Add ID to heading for linking
+
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '#' + id;
+                a.innerText = heading.innerText;
+
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
+
+            nav.appendChild(ul);
+
+            // Insert nav at the beginning of the main section
+            main.insertBefore(nav, main.firstChild);
+
+            // Inject styles for the navigation
+            const style = document.createElement('style');
+            style.innerHTML = `
+                    #dynamic-nav {
+                        background: var(--card-bg);
+                        border: 1.5px solid var(--border);
+                        border-radius: 12px;
+                        padding: 24px;
+                        margin-bottom: 40px;
+                        box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+                    }
+                    #dynamic-nav .nav-title {
+                        font-family: 'Playfair Display', serif;
+                        font-size: 20px;
+                        color: var(--ink);
+                        margin-bottom: 16px;
+                        border-bottom: 1.5px solid var(--cream);
+                        padding-bottom: 10px;
+                    }
+                    #dynamic-nav ul {
+                        list-style: none;
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                        gap: 8px;
+                    }
+                    #dynamic-nav a {
+                        text-decoration: none;
+                        color: var(--mid);
+                        font-size: 13.5px;
+                        font-weight: 500;
+                        display: block;
+                        padding: 8px 12px;
+                        border-radius: 6px;
+                        transition: all 0.2s;
+                        border: 1px solid transparent;
+                    }
+                    #dynamic-nav a:hover {
+                        color: var(--accent);
+                        background: var(--cream);
+                        border-color: var(--border);
+                    }
+                    html {
+                        scroll-behavior: smooth;
+                    }
+                    h2.section-title {
+                        scroll-margin-top: 30px; /* Prevents headings from touching the very top of screen */
+                    }
+                `;
+            document.head.appendChild(style);
+        }
+
+        // Call the function to generate navigation
+        buildNavigation();
+
+        // ==========================================
+            // --- BACK TO TOP BUTTON SCRIPT ---
+            // ==========================================
+            function buildBackToTop() {
+                // 1. Create the button
+                const btn = document.createElement('button');
+                btn.innerHTML = '↑ Top';
+                btn.id = 'back-to-top';
+
+                // 2. Inject styles for the button
+                const style = document.createElement('style');
+                style.innerHTML = `
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            font-family: 'DM Mono', monospace;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(122, 92, 158, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
+            z-index: 1000;
+        }
+        #back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        #back-to-top:hover {
+            transform: translateY(-3px);
+            background: var(--ink);
+        }
+    `;
+                document.head.appendChild(style);
+                document.body.appendChild(btn);
+
+                // 3. Show/hide button based on scroll position
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 400) {
+                        btn.classList.add('show');
+                    } else {
+                        btn.classList.remove('show');
+                    }
+                });
+
+                // 4. Scroll to top when clicked
+                btn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Initialize the button
+            buildBackToTop();
+
+    </script>
+</body>
+
+</html>
