@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OCR Business Studies — Paper 1 Practice</title>
+    <title>OCR Business Studies — Paper 2 Practice</title>
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet">
@@ -20,8 +20,6 @@
             --text3: #8a8478;
             --accent: #2d5a3d;
             --accent-light: #e8f2ec;
-            --accent2: #8b4513;
-            --accent2-light: #fdf2ea;
             --blue: #1d3d6b;
             --blue-light: #e8eef7;
             --red: #7a1f1f;
@@ -53,7 +51,6 @@
         header {
             background: var(--accent);
             color: white;
-            padding: 0;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -118,6 +115,7 @@
             gap: 16px;
             font-size: 12px;
             opacity: 0.85;
+            align-items: center;
         }
 
         .stat {
@@ -131,49 +129,333 @@
             line-height: 1;
         }
 
-        /* ── CONTROLS ── */
-        .controls {
+        /* ── SEARCH BAR ── */
+        .search-wrap {
             max-width: 1100px;
             margin: 24px auto 0;
             padding: 0 24px;
             display: flex;
             gap: 10px;
-            flex-wrap: wrap;
             align-items: center;
         }
 
-        .controls input,
-        .controls select {
+        .search-wrap input {
             font-family: 'DM Sans', sans-serif;
-            font-size: 13px;
-            padding: 8px 12px;
-            border: 1px solid var(--border2);
+            font-size: 14px;
+            padding: 10px 14px 10px 38px;
+            border: 1.5px solid var(--border2);
             border-radius: var(--radius-sm);
             background: var(--surface);
             color: var(--text);
             outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .controls input {
+            transition: border-color 0.2s, box-shadow 0.2s;
             flex: 1;
             min-width: 200px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%238a8478' stroke-width='1.8' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: 12px center;
         }
 
-        .controls select {
-            min-width: 120px;
-        }
-
-        .controls input:focus,
-        .controls select:focus {
+        .search-wrap input:focus {
             border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.10);
         }
 
         .q-count {
             font-size: 13px;
             color: var(--text3);
-            padding: 8px 4px;
             white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ── FILTER CARD ── */
+        .filter-wrap {
+            max-width: 1100px;
+            margin: 10px auto 0;
+            padding: 0 24px;
+        }
+
+        .filter-card {
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            padding: 14px 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+            align-items: stretch;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 2px 18px 2px 0;
+            flex: 0 0 auto;
+        }
+
+        .filter-group:not(:last-child) {
+            border-right: 1.5px solid var(--border);
+            margin-right: 18px;
+        }
+
+        .filter-group-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text3);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .chips-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            align-items: center;
+        }
+
+        /* ── CHIPS ── */
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 4px 11px;
+            border: 1.5px solid var(--border2);
+            border-radius: 99px;
+            cursor: pointer;
+            user-select: none;
+            background: var(--surface);
+            color: var(--text2);
+            transition: all 0.15s;
+            white-space: nowrap;
+            line-height: 1.4;
+        }
+
+        .chip:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-light);
+        }
+
+        .chip input[type="checkbox"] {
+            display: none;
+        }
+
+        .chip.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .chip-check {
+            width: 13px;
+            height: 13px;
+            border: 1.5px solid currentColor;
+            border-radius: 3px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.15s;
+            font-size: 9px;
+        }
+
+        .chip.active .chip-check {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ── TOPIC DROPDOWN ── */
+        .topic-dropdown-wrap {
+            position: relative;
+        }
+
+        .topic-btn {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 4px 11px;
+            border: 1.5px solid var(--border2);
+            border-radius: 99px;
+            cursor: pointer;
+            background: var(--surface);
+            color: var(--text2);
+            transition: all 0.15s;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .topic-btn:hover,
+        .topic-btn.open {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-light);
+        }
+
+        .topic-btn.has-selection {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .topic-btn .arrow {
+            font-size: 10px;
+            transition: transform 0.2s;
+            opacity: 0.7;
+        }
+
+        .topic-btn.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        .topic-count-badge {
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 99px;
+            padding: 0px 5px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .topic-panel {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            z-index: 500;
+            background: var(--surface);
+            border: 1.5px solid var(--border2);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-lg);
+            min-width: 270px;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+            flex-direction: column;
+        }
+
+        .topic-panel.open {
+            display: flex;
+        }
+
+        .topic-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 12px 6px;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: var(--surface2);
+            z-index: 1;
+        }
+
+        .topic-panel-title {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text3);
+        }
+
+        .topic-panel-clear {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--accent);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: opacity 0.15s;
+        }
+
+        .topic-panel-clear:hover {
+            opacity: 0.7;
+        }
+
+        .topic-panel-items {
+            padding: 4px 0;
+        }
+
+        .topic-panel-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 12px;
+            font-size: 12.5px;
+            cursor: pointer;
+            color: var(--text2);
+            transition: background 0.1s;
+            user-select: none;
+        }
+
+        .topic-panel-item:hover {
+            background: var(--surface2);
+        }
+
+        .topic-panel-item.checked {
+            background: var(--accent-light);
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .topic-panel-item input[type="checkbox"] {
+            accent-color: var(--accent);
+            width: 14px;
+            height: 14px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        /* ── ACTIVE FILTER PILLS (summary row) ── */
+        .active-filters {
+            max-width: 1100px;
+            margin: 8px auto 0;
+            padding: 0 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            align-items: center;
+            min-height: 0;
+        }
+
+        .active-filter-label {
+            font-size: 11px;
+            color: var(--text3);
+            font-weight: 500;
+        }
+
+        .filter-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 2px 8px;
+            background: var(--gold-light);
+            color: var(--gold);
+            border: 1px solid #e8d88a;
+            border-radius: 99px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .filter-pill:hover {
+            background: #f5edd0;
+        }
+
+        .filter-pill .pill-x {
+            font-size: 12px;
+            line-height: 1;
+            opacity: 0.7;
         }
 
         /* ── MAIN ── */
@@ -219,6 +501,7 @@
             border-radius: 6px;
             white-space: nowrap;
             margin-top: 2px;
+            flex-shrink: 0;
         }
 
         .q-meta {
@@ -227,6 +510,7 @@
             flex-wrap: wrap;
             margin-left: auto;
             align-items: center;
+            flex-shrink: 0;
         }
 
         .badge {
@@ -259,26 +543,6 @@
             background: var(--accent-light);
             color: var(--accent);
             border: 1px solid #b0d4be;
-        }
-
-        .badge-mcq {
-            background: #e8f4fd;
-            color: #1565a0;
-            border: 1px solid #b3d4f0;
-        }
-
-        .badge-qer {
-            background: var(--accent2-light);
-            color: var(--accent2);
-            border: 1px solid #e0c8b0;
-        }
-
-        .q-text {
-            padding: 18px 20px 0;
-            font-size: 15px;
-            font-weight: 500;
-            line-height: 1.55;
-            color: var(--text);
         }
 
         .q-stem {
@@ -323,7 +587,7 @@
             background: var(--blue-light);
         }
 
-        .mcq-opt.correct {
+        .mcq-opt.show-correct {
             border-color: #2d7a4f;
             background: #e8f5ee;
         }
@@ -333,9 +597,23 @@
             background: var(--red-light);
         }
 
-        .mcq-opt.show-correct {
+        .mcq-opt.submitted {
+            cursor: default;
+        }
+
+        .mcq-opt.submitted:hover {
+            border-color: var(--border);
+            background: var(--surface);
+        }
+
+        .mcq-opt.submitted.show-correct:hover {
             border-color: #2d7a4f;
             background: #e8f5ee;
+        }
+
+        .mcq-opt.submitted.wrong:hover {
+            border-color: var(--red);
+            background: var(--red-light);
         }
 
         .opt-letter {
@@ -355,7 +633,7 @@
             transition: all 0.15s;
         }
 
-        .mcq-opt.correct .opt-letter {
+        .mcq-opt.show-correct .opt-letter {
             background: #2d7a4f;
             color: white;
             border-color: #2d7a4f;
@@ -367,53 +645,9 @@
             border-color: var(--red);
         }
 
-        .mcq-opt.show-correct .opt-letter {
-            background: #2d7a4f;
-            color: white;
-            border-color: #2d7a4f;
-        }
-
         .opt-text {
             font-size: 14px;
             line-height: 1.5;
-        }
-
-        /* ── QER ANSWER ── */
-        .qer-area {
-            padding: 12px 20px 4px;
-        }
-
-        .qer-area textarea {
-            width: 100%;
-            min-height: 100px;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 14px;
-            line-height: 1.6;
-            padding: 12px 14px;
-            border: 1.5px solid var(--border2);
-            border-radius: var(--radius-sm);
-            background: var(--surface);
-            color: var(--text);
-            resize: vertical;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .qer-area textarea:focus {
-            border-color: var(--accent);
-        }
-
-        .qer-area textarea::placeholder {
-            color: var(--text3);
-        }
-
-        .qer-hint {
-            font-size: 12px;
-            color: var(--text3);
-            margin-top: 6px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
         }
 
         /* ── ACTIONS ── */
@@ -450,34 +684,8 @@
             border-color: #224830;
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: var(--accent);
-            border-color: var(--border2);
-        }
-
-        .btn-secondary:hover {
-            background: var(--accent-light);
-            border-color: var(--accent);
-        }
-
-        .btn-reset {
-            background: transparent;
-            color: var(--text3);
-            border-color: var(--border);
-            font-size: 12px;
-            padding: 6px 12px;
-            margin-left: auto;
-        }
-
-        .btn-reset:hover {
-            color: var(--red);
-            border-color: var(--red);
-            background: var(--red-light);
-        }
-
         .btn:disabled {
-            opacity: 0.45;
+            opacity: 0.4;
             cursor: not-allowed;
         }
 
@@ -540,63 +748,6 @@
             color: var(--text);
         }
 
-        .ms-body h4 {
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text3);
-            margin: 14px 0 8px;
-            padding-bottom: 4px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .ms-body h4:first-child {
-            margin-top: 0;
-        }
-
-        .ms-body ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 8px;
-        }
-
-        .ms-body ul li {
-            padding: 3px 0 3px 20px;
-            position: relative;
-            color: var(--text2);
-        }
-
-        .ms-body ul li::before {
-            content: '•';
-            position: absolute;
-            left: 6px;
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        .ms-body .exemplar {
-            background: var(--accent-light);
-            border-left: 3px solid var(--accent);
-            padding: 10px 14px;
-            border-radius: 0 6px 6px 0;
-            margin: 8px 0;
-            font-style: italic;
-            color: var(--text2);
-            font-size: 13px;
-        }
-
-        .ms-body .exemplar strong {
-            font-style: normal;
-            color: var(--accent);
-            font-size: 11px;
-            display: block;
-            margin-bottom: 4px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
         .ms-body .examiner-comment {
             background: var(--blue-light);
             border-left: 3px solid var(--blue);
@@ -653,18 +804,35 @@
             margin-bottom: 12px;
         }
 
+        .empty-state p {
+            font-size: 15px;
+        }
+
+        /* ── ANSWERED STATE ── */
+        .q-card.answered .q-header {
+            background: var(--accent-light);
+            border-bottom-color: #b0d8c0;
+        }
+
+        .q-card.answered-wrong .q-header {
+            background: var(--red-light);
+            border-bottom-color: #e8b0b0;
+        }
+
         /* ── RESPONSIVE ── */
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
             .header-inner {
                 padding: 12px 16px;
             }
 
-            .controls {
+            .search-wrap,
+            .filter-wrap,
+            .active-filters,
+            main {
                 padding: 0 16px;
             }
 
             main {
-                padding: 0 16px;
                 margin-bottom: 40px;
             }
 
@@ -679,17 +847,26 @@
             .header-stats {
                 display: none;
             }
-        }
 
-        /* ── ANSWERED STATE ── */
-        .q-card.answered .q-header {
-            background: var(--accent-light);
-            border-bottom-color: #b0d8c0;
-        }
+            .filter-card {
+                flex-direction: column;
+                gap: 12px;
+            }
 
-        .q-card.answered-wrong .q-header {
-            background: var(--red-light);
-            border-bottom-color: #e8b0b0;
+            .filter-group:not(:last-child) {
+                border-right: none;
+                border-bottom: 1.5px solid var(--border);
+                padding-right: 0;
+                padding-bottom: 12px;
+                margin-right: 0;
+                margin-bottom: 0;
+            }
+
+            .topic-panel {
+                left: auto;
+                right: 0;
+                min-width: 240px;
+            }
         }
     </style>
 </head>
@@ -700,7 +877,7 @@
         <div class="header-inner">
             <div>
                 <div class="header-title">OCR Business Studies</div>
-                <div class="header-sub">Paper 1 · MCQ Exam Questions (AO1 & AO2)</div>
+                <div class="header-sub">Paper 1 · MCQ Exam Questions (AO1 &amp; AO2)</div>
             </div>
             <div class="progress-bar-wrap">
                 <div class="progress-label">
@@ -712,46 +889,71 @@
                 </div>
             </div>
             <div class="header-stats">
-                <a href="../index.html" class="home-link" style="color:white; text-decoration:none;">← 🏡 Home</a>
+                <a href="../index.html" style="color:white;text-decoration:none;font-size:13px;">← 🏡 Home</a>
                 <div class="stat"><strong id="stat-correct">0</strong><span>Correct</span></div>
                 <div class="stat"><strong id="stat-attempted">0</strong><span>Attempted</span></div>
             </div>
         </div>
     </header>
 
-    <div class="controls">
-        <input type="text" id="search" placeholder="Search questions…" />
-
-        <select id="aoFilter">
-            <option value="">All AOs</option>
-            <option value="AO1">AO1</option>
-            <option value="AO2">AO2</option>
-        </select>
-
-        <select id="yrFilter">
-            <option value="">All years</option>
-        </select>
-
-        <select id="topicFilter">
-            <option value="">All topics</option>
-        </select>
-
-        <select id="typeFilter">
-            <option value="">MCQ &amp; QER</option>
-            <option value="MCQ">MCQ only</option>
-            <option value="QER">QER only</option>
-        </select>
-
-        <select id="markFilter">
-            <option value="">All marks</option>
-        </select>
-
+    <!-- Search -->
+    <div class="search-wrap">
+        <input type="text" id="search" placeholder="Search questions, topics…" autocomplete="off" />
         <span class="q-count" id="q-count"></span>
     </div>
+
+    <!-- Filter card -->
+    <div class="filter-wrap">
+        <div class="filter-card">
+
+            <!-- Year checkboxes -->
+            <div class="filter-group">
+                <div class="filter-group-label">📅 Year</div>
+                <div class="chips-wrap" id="yearChips"></div>
+            </div>
+
+            <!-- AO checkboxes -->
+            <div class="filter-group">
+                <div class="filter-group-label">🎯 Assessment Objective</div>
+                <div class="chips-wrap" id="aoChips">
+                    <label class="chip" id="chip-ao1">
+                        <input type="checkbox" class="ao-check" value="AO1">
+                        <span class="chip-check">✓</span> AO1
+                    </label>
+                    <label class="chip" id="chip-ao2">
+                        <input type="checkbox" class="ao-check" value="AO2">
+                        <span class="chip-check">✓</span> AO2
+                    </label>
+                </div>
+            </div>
+
+            <!-- Topic multi-select dropdown -->
+            <div class="filter-group">
+                <div class="filter-group-label">📚 Topic</div>
+                <div class="topic-dropdown-wrap">
+                    <button class="topic-btn" id="topicBtn" type="button">
+                        All topics <span class="arrow">▾</span>
+                    </button>
+                    <div class="topic-panel" id="topicPanel">
+                        <div class="topic-panel-header">
+                            <span class="topic-panel-title">Select topics</span>
+                            <button class="topic-panel-clear" id="clearTopics" type="button">Clear all</button>
+                        </div>
+                        <div class="topic-panel-items" id="topicItems"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Active filter summary pills -->
+    <div class="active-filters" id="activeFilters"></div>
 
     <main id="main"></main>
 
     <script>
+
 
         const questions = [
             {
@@ -4814,139 +5016,282 @@ According to the table, which one of the following statements is true?`,
             }
         ];
 
-        // ── STATE ──
-        const state = {};
-        let statsCorrect = 0, statsAttempted = 0;
+        // ─────────────────────────────────────────────
+        //  STATE
+        // ─────────────────────────────────────────────
+        const state = {};           // keyed by question id
+        let statsCorrect = 0;
+        let statsAttempted = 0;
 
-        // ── FILTERS ──
+        // ─────────────────────────────────────────────
+        //  BUILD YEAR CHIPS
+        // ─────────────────────────────────────────────
         const yearOrder = ["2025", "2024", "2023", "2022", "2021", "2020", "Sample", "2019", "Practice 1"];
-        const years = [...new Set(questions.map(q => q.yr))].sort((a, b) => yearOrder.indexOf(a) - yearOrder.indexOf(b));
-        const topics = [...new Set(questions.map(q => q.tp))].sort();
-        const marks = [...new Set(questions.map(q => q.mk))].sort((a, b) => a - b);
+        const years = [...new Set(questions.map(q => q.yr))]
+            .sort((a, b) => {
+                const ai = yearOrder.indexOf(a), bi = yearOrder.indexOf(b);
+                return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+            });
 
-        const yrSel = document.getElementById('yrFilter');
-        const tpSel = document.getElementById('topicFilter');
-        const mkSel = document.getElementById('markFilter');
-
-        years.forEach(y => { const o = document.createElement('option'); o.value = y; o.textContent = y; yrSel.appendChild(o) });
-        topics.forEach(t => { const o = document.createElement('option'); o.value = t; o.textContent = t; tpSel.appendChild(o) });
-        marks.forEach(m => { const o = document.createElement('option'); o.value = m; o.textContent = m + ' mark' + (m > 1 ? 's' : ''); mkSel.appendChild(o) });
-
-        ['search', 'yrFilter', 'topicFilter', 'typeFilter', 'markFilter', 'aoFilter'].forEach(id => {
-            document.getElementById(id).addEventListener('input', render);
-            document.getElementById(id).addEventListener('change', render);
+        const yearChipsWrap = document.getElementById('yearChips');
+        years.forEach(y => {
+            const lbl = document.createElement('label');
+            lbl.className = 'chip';
+            lbl.innerHTML = `<input type="checkbox" class="yr-check" value="${y}"><span class="chip-check">✓</span> ${y}`;
+            const cb = lbl.querySelector('input');
+            cb.addEventListener('change', () => {
+                lbl.classList.toggle('active', cb.checked);
+                render();
+            });
+            yearChipsWrap.appendChild(lbl);
         });
 
-        // ── BUILD MARKING SCHEME HTML ──
-        function buildMS(q) {
-            let html = '';
-            const ms = q.ms;
+        // ─────────────────────────────────────────────
+        //  AO CHIPS
+        // ─────────────────────────────────────────────
+        document.querySelectorAll('.ao-check').forEach(cb => {
+            cb.addEventListener('change', () => {
+                cb.closest('.chip').classList.toggle('active', cb.checked);
+                render();
+            });
+        });
 
-            if (q.type === 'MCQ') {
-                html += `<div class="correct-answer">✓ Correct answer: ${ms.correct}</div>`;
-                if (ms.examiner) {
-                    html += `<div class="examiner-comment"><strong>📋 Examiner's Comments</strong>${ms.examiner.replace(/\n/g, '<br><br>')}</div>`;
+        // ─────────────────────────────────────────────
+        //  BUILD TOPIC PANEL
+        // ─────────────────────────────────────────────
+        const topics = [...new Set(questions.map(q => q.tp))].sort();
+        const topicItemsEl = document.getElementById('topicItems');
+        const topicPanel = document.getElementById('topicPanel');
+        const topicBtn = document.getElementById('topicBtn');
 
-                }
-                if (ms.note) {
-                    html += `<div class="note"> 📝 <strong>Note:</strong> ${ms.note}</div>`;
-                }
-                return html;
+        topics.forEach(t => {
+            const lbl = document.createElement('label');
+            lbl.className = 'topic-panel-item';
+            lbl.innerHTML = `<input type="checkbox" class="tp-check" value="${t}"> ${t}`;
+            const cb = lbl.querySelector('input');
+            cb.addEventListener('change', () => {
+                lbl.classList.toggle('checked', cb.checked);
+                updateTopicBtn();
+                render();
+            });
+            topicItemsEl.appendChild(lbl);
+        });
+
+        document.getElementById('clearTopics').addEventListener('click', e => {
+            e.stopPropagation();
+            document.querySelectorAll('.tp-check').forEach(cb => {
+                cb.checked = false;
+                cb.closest('.topic-panel-item').classList.remove('checked');
+            });
+            updateTopicBtn();
+            render();
+        });
+
+        function updateTopicBtn() {
+            const sel = [...document.querySelectorAll('.tp-check:checked')];
+            const arrow = '<span class="arrow">▾</span>';
+            if (sel.length === 0) {
+                topicBtn.innerHTML = `All topics ${arrow}`;
+                topicBtn.classList.remove('has-selection');
+            } else if (sel.length === 1) {
+                topicBtn.innerHTML = `${sel[0].value} ${arrow}`;
+                topicBtn.classList.add('has-selection');
+            } else {
+                topicBtn.innerHTML = `${sel.length} topics <span class="topic-count-badge">${sel.length}</span> ${arrow}`;
+                topicBtn.classList.add('has-selection');
             }
+        }
 
-            // QER
-            if (ms.marking) {
-                html += `<h4>How to award marks</h4><p style="color:var(--text2);margin-bottom:8px;">${ms.marking}</p>`;
+        // Toggle topic dropdown
+        topicBtn.addEventListener('click', e => {
+            e.stopPropagation();
+            const open = topicPanel.classList.toggle('open');
+            topicBtn.classList.toggle('open', open);
+        });
+        document.addEventListener('click', e => {
+            if (!topicPanel.contains(e.target) && e.target !== topicBtn) {
+                topicPanel.classList.remove('open');
+                topicBtn.classList.remove('open');
             }
+        });
 
-            if (ms.indicative && ms.indicative.length) {
-                html += `<h4>Indicative content — accept any of the following</h4><ul>`;
-                ms.indicative.forEach(i => { html += `<li>${i}</li>`; });
-                html += `</ul>`;
-            }
+        // Search
+        document.getElementById('search').addEventListener('input', render);
 
-            if (ms.note) {
-                html += `<div class="note">⚠️ <strong>Examiner's note:</strong> ${ms.note}</div>`;
-            }
+        // ─────────────────────────────────────────────
+        //  ACTIVE FILTERS SUMMARY ROW
+        // ─────────────────────────────────────────────
+        function updateActiveFilters(selYears, selAOs, selTopics) {
+            const wrap = document.getElementById('activeFilters');
+            wrap.innerHTML = '';
+            const total = selYears.length + selAOs.length + selTopics.length;
+            if (total === 0) return;
 
-            if (ms.exemplar && ms.exemplar.length) {
-                ms.exemplar.forEach(ex => {
-                    html += `<div class="exemplar"><strong>✏️ Exemplar response</strong>${ex}</div>`;
+            const lbl = document.createElement('span');
+            lbl.className = 'active-filter-label';
+            lbl.textContent = 'Filtering by:';
+            wrap.appendChild(lbl);
+
+            const makePill = (text, clearFn) => {
+                const p = document.createElement('span');
+                p.className = 'filter-pill';
+                p.innerHTML = `${text} <span class="pill-x">×</span>`;
+                p.addEventListener('click', clearFn);
+                wrap.appendChild(p);
+            };
+
+            selYears.forEach(y => {
+                makePill(y, () => {
+                    const cb = document.querySelector(`.yr-check[value="${y}"]`);
+                    if (cb) { cb.checked = false; cb.closest('.chip').classList.remove('active'); }
+                    render();
                 });
-            }
+            });
+            selAOs.forEach(ao => {
+                makePill(ao, () => {
+                    const cb = document.querySelector(`.ao-check[value="${ao}"]`);
+                    if (cb) { cb.checked = false; cb.closest('.chip').classList.remove('active'); }
+                    render();
+                });
+            });
+            selTopics.forEach(tp => {
+                makePill(tp, () => {
+                    const cb = document.querySelector(`.tp-check[value="${CSS.escape(tp)}"]`) ||
+                        [...document.querySelectorAll('.tp-check')].find(c => c.value === tp);
+                    if (cb) { cb.checked = false; cb.closest('.topic-panel-item').classList.remove('checked'); }
+                    updateTopicBtn();
+                    render();
+                });
+            });
+        }
 
+        // ─────────────────────────────────────────────
+        //  MARKING SCHEME HTML
+        // ─────────────────────────────────────────────
+        function buildMS(q) {
+            const ms = q.ms;
+            let html = `<div class="correct-answer">✓ Correct answer: ${ms.correct}</div>`;
             if (ms.examiner) {
                 html += `<div class="examiner-comment"><strong>📋 Examiner's Comments</strong>${ms.examiner.replace(/\n/g, '<br><br>')}</div>`;
             }
-
+            if (ms.note) {
+                html += `<div class="note">📝 <strong>Note:</strong> ${ms.note}</div>`;
+            }
             return html;
         }
 
-       function buildCard(q, displayNum) {
+        // ─────────────────────────────────────────────
+        //  BUILD QUESTION CARD (fresh, unanswered state)
+        // ─────────────────────────────────────────────
+        function buildCard(q, displayNum) {
             const div = document.createElement('div');
             div.className = 'q-card';
             div.id = 'card-' + q.id;
 
-            const typeBadge = q.type === 'MCQ'
-                ? '<span class="badge badge-mcq">MCQ</span>'
-                : '<span class="badge badge-qer">QER</span>';
-
-            let body = '';
-
-            if (q.type === 'MCQ') {
-                const opts = q.opts.map((o, i) => {
-                    const letter = String.fromCharCode(65 + i);
-                    return `<div class="mcq-opt" id="opt-${q.id}-${letter}" onclick="selectOpt('${q.id}','${letter}')">
-        <span class="opt-letter">${letter}</span>
-        <span class="opt-text">${o.replace(/^[A-D] — /, '')}</span>
-      </div>`;
-                }).join('');
-                body = `<div class="mcq-options">${opts}</div>`;
-            } else {
-                body = `<div class="qer-area">
-      <textarea id="ta-${q.id}" placeholder="Write your answer here… (${q.mk} mark${q.mk > 1 ? 's' : ''} available)"></textarea>
-      <div class="qer-hint">💡 Aim for ${q.mk} clear point${q.mk > 1 ? 's' : ''} — one per mark</div>
-    </div>`;
-            }
+            const opts = q.opts.map((o, i) => {
+                const letter = String.fromCharCode(65 + i);
+                return `
+          <div class="mcq-opt" id="opt-${q.id}-${letter}" onclick="selectOpt('${q.id}','${letter}')">
+            <span class="opt-letter">${letter}</span>
+            <span class="opt-text">${o.replace(/^[A-D]\s*[—-]\s*/, '')}</span>
+          </div>`;
+            }).join('');
 
             const stem = q.stem ? `<div class="q-stem">📄 ${q.stem}</div>` : '';
             const aoBadge = q.ao ? `<span class="badge badge-ao">${q.ao}</span>` : '';
 
-            // Notice we swapped Q${q.num} with Q${displayNum} below
             div.innerHTML = `
-    <div class="q-header">
-      <span class="q-number">Q${displayNum}</span> 
-      <span style="font-weight:500;font-size:14px;flex:1;">${q.q}</span>
-      <div class="q-meta">
-        <span class="badge badge-year">${q.yr}</span>
-        ${aoBadge}
-        <span class="badge badge-marks">${q.mk} mark${q.mk > 1 ? 's' : ''}</span>
-        ${typeBadge}
-        <span class="badge badge-topic">${q.tp}</span>
-      </div>
-    </div>
-    <div class="q-text" id="qtext-${q.id}" style="display:none">${q.q}</div>
-    ${stem}
-    ${body}
-    <div id="result-${q.id}"></div>
-    <div class="q-actions">
-      ${q.type === 'MCQ'
-                    ? `<button class="btn btn-primary" onclick="submitMCQ('${q.id}')" id="btn-submit-${q.id}">Submit answer</button>`
-                    : `<button class="btn btn-primary" onclick="submitQER('${q.id}')" id="btn-submit-${q.id}">Submit answer</button>`}
-    </div>
-    <div class="marking-scheme" id="ms-${q.id}">
-      <div class="ms-header">📝 Official Marking Scheme</div>
-      <div class="ms-body">${buildMS(q)}</div>
-    </div>
-  `;
+        <div class="q-header">
+          <span class="q-number">Q${displayNum}</span>
+          <span style="font-weight:500;font-size:14px;flex:1;line-height:1.55">${q.q}</span>
+          <div class="q-meta">
+            <span class="badge badge-year">${q.yr}</span>
+            ${aoBadge}
+            <span class="badge badge-marks">${q.mk} mark${q.mk > 1 ? 's' : ''}</span>
+            <span class="badge badge-topic">${q.tp}</span>
+          </div>
+        </div>
+        ${stem}
+        <div class="mcq-options">${opts}</div>
+        <div id="result-${q.id}"></div>
+        <div class="q-actions">
+          <button class="btn btn-primary" onclick="submitMCQ('${q.id}')" id="btn-submit-${q.id}" disabled>
+            Submit answer
+          </button>
+        </div>
+        <div class="marking-scheme" id="ms-${q.id}">
+          <div class="ms-header">📝 Official Marking Scheme</div>
+          <div class="ms-body">${buildMS(q)}</div>
+        </div>
+      `;
             return div;
         }
-        // ── INTERACTIONS ──
+
+        // ─────────────────────────────────────────────
+        //  RESTORE ANSWERED STATE after re-render
+        //  (fixes the filter bug — state is preserved
+        //   across renders; DOM just gets rebuilt)
+        // ─────────────────────────────────────────────
+        function restoreState(q) {
+            const s = state[q.id];
+            if (!s || !s.selected) return;
+
+            const qid = q.id;
+
+            // Re-highlight option(s)
+            q.opts.forEach((_, i) => {
+                const l = String.fromCharCode(65 + i);
+                const el = document.getElementById('opt-' + qid + '-' + l);
+                if (!el) return;
+
+                if (s.submitted) {
+                    // Lock all options so hover doesn't flicker
+                    el.classList.add('submitted');
+                    if (l === q.answer) el.classList.add('show-correct');
+                    else if (l === s.selected && !s.correct) el.classList.add('wrong');
+                } else {
+                    // Selected but not yet submitted
+                    if (l === s.selected) el.classList.add('selected');
+                }
+            });
+
+            if (!s.submitted) {
+                // Re-enable submit button if they had selected but not submitted
+                const btn = document.getElementById('btn-submit-' + qid);
+                if (btn) btn.disabled = false;
+                return;
+            }
+
+            // Restore result banner
+            const res = document.getElementById('result-' + qid);
+            if (res) {
+                if (s.correct) {
+                    res.innerHTML = '<div class="result-inline result-correct">✓ Correct! Well done.</div>';
+                    document.getElementById('card-' + qid).classList.add('answered');
+                } else {
+                    res.innerHTML = `<div class="result-inline result-wrong">✗ Incorrect. The correct answer is <strong>${q.answer}</strong>.</div>`;
+                    document.getElementById('card-' + qid).classList.add('answered-wrong');
+                }
+            }
+
+            // Keep submit disabled
+            const btn = document.getElementById('btn-submit-' + qid);
+            if (btn) btn.disabled = true;
+
+            // Show marking scheme
+            const ms = document.getElementById('ms-' + qid);
+            if (ms) ms.classList.add('visible');
+        }
+
+        // ─────────────────────────────────────────────
+        //  SELECT OPTION
+        // ─────────────────────────────────────────────
         function selectOpt(qid, letter) {
-            const q = questions.find(x => x.id === qid);
             if (state[qid] && state[qid].submitted) return;
             if (!state[qid]) state[qid] = {};
             state[qid].selected = letter;
+
+            const q = questions.find(x => x.id === qid);
             q.opts.forEach((_, i) => {
                 const l = String.fromCharCode(65 + i);
                 const el = document.getElementById('opt-' + qid + '-' + l);
@@ -4955,20 +5300,27 @@ According to the table, which one of the following statements is true?`,
             document.getElementById('btn-submit-' + qid).disabled = false;
         }
 
+        // ─────────────────────────────────────────────
+        //  SUBMIT MCQ
+        // ─────────────────────────────────────────────
         function submitMCQ(qid) {
             const q = questions.find(x => x.id === qid);
             const s = state[qid];
             if (!s || !s.selected) { alert('Please select an answer first.'); return; }
             if (s.submitted) return;
             s.submitted = true;
+
             const correct = s.selected === q.answer;
+            s.correct = correct;
+
             q.opts.forEach((_, i) => {
                 const l = String.fromCharCode(65 + i);
                 const el = document.getElementById('opt-' + qid + '-' + l);
-                if (l === q.answer) el.className = 'mcq-opt show-correct';
-                else if (l === s.selected && !correct) el.className = 'mcq-opt wrong';
-                else el.className = 'mcq-opt';
+                el.classList.add('submitted');
+                if (l === q.answer) el.classList.add('show-correct');
+                else if (l === s.selected && !correct) el.classList.add('wrong');
             });
+
             const res = document.getElementById('result-' + qid);
             if (correct) {
                 res.innerHTML = '<div class="result-inline result-correct">✓ Correct! Well done.</div>';
@@ -4978,117 +5330,74 @@ According to the table, which one of the following statements is true?`,
                 res.innerHTML = `<div class="result-inline result-wrong">✗ Incorrect. The correct answer is <strong>${q.answer}</strong>.</div>`;
                 document.getElementById('card-' + qid).classList.add('answered-wrong');
             }
+
             statsAttempted++;
             updateStats();
             document.getElementById('btn-submit-' + qid).disabled = true;
-            // auto show MS
-            const ms = document.getElementById('ms-' + qid);
-            ms.classList.add('visible');
-            const btnMs = document.getElementById('btn-ms-' + qid);
-            if (btnMs) btnMs.textContent = 'Hide marking scheme';
+            document.getElementById('ms-' + qid).classList.add('visible');
         }
 
-        function submitQER(qid) {
-            const s = state[qid] || {};
-            if (s.submitted) return;
-            s.submitted = true;
-            state[qid] = s;
-            statsAttempted++;
-            document.getElementById('card-' + qid).classList.add('answered');
-            document.getElementById('btn-submit-' + qid).disabled = true;
-            document.getElementById('ta-' + qid).disabled = true;
-            updateStats();
-            const ms = document.getElementById('ms-' + qid);
-            ms.classList.add('visible');
-            const btnMs = document.getElementById('btn-ms-' + qid);
-            if (btnMs) btnMs.textContent = 'Hide marking scheme';
-        }
-
-        function toggleMS(qid) {
-            const ms = document.getElementById('ms-' + qid);
-            const btn = document.getElementById('btn-ms-' + qid);
-            if (ms.classList.contains('visible')) {
-                ms.classList.remove('visible');
-            } else {
-                ms.classList.add('visible');
-                if (btn) btn.textContent = 'Hide marking scheme';
-            }
-        }
-
-        function resetQ(qid) {
-            const q = questions.find(x => x.id === qid);
-            const wasSubmitted = state[qid] && state[qid].submitted;
-            const wasCorrect = state[qid] && state[qid].correct;
-            if (wasSubmitted) {
-                statsAttempted = Math.max(0, statsAttempted - 1);
-                if (wasCorrect) statsCorrect = Math.max(0, statsCorrect - 1);
-            }
-            delete state[qid];
-            if (q.type === 'MCQ') {
-                q.opts.forEach((_, i) => {
-                    const l = String.fromCharCode(65 + i);
-                    document.getElementById('opt-' + qid + '-' + l).className = 'mcq-opt';
-                });
-            } else {
-                const ta = document.getElementById('ta-' + qid);
-                if (ta) { ta.value = ''; ta.disabled = false; }
-            }
-            document.getElementById('result-' + qid).innerHTML = '';
-            document.getElementById('ms-' + qid).classList.remove('visible');
-            document.getElementById('btn-submit-' + qid).disabled = false;
-            const card = document.getElementById('card-' + qid);
-            card.classList.remove('answered', 'answered-wrong');
-            updateStats();
-        }
-
+        // ─────────────────────────────────────────────
+        //  UPDATE HEADER STATS
+        // ─────────────────────────────────────────────
         function updateStats() {
             document.getElementById('stat-correct').textContent = statsCorrect;
             document.getElementById('stat-attempted').textContent = statsAttempted;
             const total = questions.length;
-            const pct = Math.round((statsAttempted / total) * 100);
+            const pct = total > 0 ? Math.round((statsAttempted / total) * 100) : 0;
             document.getElementById('progress-fill').style.width = pct + '%';
             document.getElementById('prog-label').textContent = statsAttempted + ' / ' + total + ' answered';
         }
 
-     // ── RENDER ──
+        // ─────────────────────────────────────────────
+        //  RENDER
+        // ─────────────────────────────────────────────
         function render() {
             const search = document.getElementById('search').value.toLowerCase();
-            const yr = document.getElementById('yrFilter').value;
-            const tp = document.getElementById('topicFilter').value;
-            const type = document.getElementById('typeFilter').value;
-            const mk = document.getElementById('markFilter').value;
-            const ao = document.getElementById('aoFilter').value;
+            const selYears = [...document.querySelectorAll('.yr-check:checked')].map(i => i.value);
+            const selAOs = [...document.querySelectorAll('.ao-check:checked')].map(i => i.value);
+            const selTopics = [...document.querySelectorAll('.tp-check:checked')].map(i => i.value);
 
             const filtered = questions.filter(q => {
-                if (yr && q.yr !== yr) return false;
-                if (tp && q.tp !== tp) return false;
-                if (type && q.type !== type) return false;
-                if (mk && String(q.mk) !== mk) return false;
-                if (ao && q.ao !== ao) return false;
-
-                // Allow searching by original question number just in case
-                if (search && !q.q.toLowerCase().includes(search) && !q.tp.toLowerCase().includes(search) && !q.num.includes(search)) return false;
+                if (selYears.length > 0 && !selYears.includes(q.yr)) return false;
+                if (selAOs.length > 0 && !selAOs.includes(q.ao)) return false;
+                if (selTopics.length > 0 && !selTopics.includes(q.tp)) return false;
+                if (search && !q.q.toLowerCase().includes(search) &&
+                    !q.tp.toLowerCase().includes(search) &&
+                    !String(q.num).includes(search)) return false;
                 return true;
             });
 
-            document.getElementById('q-count').textContent = filtered.length + ' question' + (filtered.length !== 1 ? 's' : '');
-            const main = document.getElementById('main');
-            main.innerHTML = '';
+            document.getElementById('q-count').textContent =
+                filtered.length + ' question' + (filtered.length !== 1 ? 's' : '');
+
+            updateActiveFilters(selYears, selAOs, selTopics);
+
+            const mainEl = document.getElementById('main');
+            mainEl.innerHTML = '';
 
             if (filtered.length === 0) {
-                main.innerHTML = '<div class="empty-state"><svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><p>No questions match your filters.</p></div>';
+                mainEl.innerHTML = `
+          <div class="empty-state">
+            <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <p>No questions match your filters.</p>
+          </div>`;
                 return;
             }
 
-            // We added the 'index' here to dynamically number the questions
             filtered.forEach((q, index) => {
-                main.appendChild(buildCard(q, index + 1));
-                // restore state if card was previously answered
-                if (state[q.id] && state[q.id].submitted) {
-                    // re-apply visual state silently
-                }
+                const card = buildCard(q, index + 1);
+                mainEl.appendChild(card);
+                // ↓ key fix: restore any previously answered / selected state
+                restoreState(q);
             });
         }
+
+        // ─────────────────────────────────────────────
+        //  INIT
+        // ─────────────────────────────────────────────
         render();
         updateStats();
     </script>
