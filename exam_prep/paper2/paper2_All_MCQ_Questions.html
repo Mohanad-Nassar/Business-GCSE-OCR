@@ -868,6 +868,43 @@
                 min-width: 240px;
             }
         }
+
+        /* ── SCROLL TO TOP BUTTON ── */
+#scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    background-color: var(--accent);
+    color: white;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: var(--shadow-lg);
+    transition: background-color 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#scrollTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+}
+
+#scrollTopBtn:hover {
+    background-color: #224830;
+    transform: translateY(-3px);
+}
     </style>
 </head>
 
@@ -951,6 +988,8 @@
     <div class="active-filters" id="activeFilters"></div>
 
     <main id="main"></main>
+
+    <button id="scrollTopBtn" title="Scroll to top">↑</button>
 
     <script>
      
@@ -5200,6 +5239,28 @@ Pasha's Carpets' net cash flow for August 2019 is expected to be:`,
         // ─────────────────────────────────────────────
         render();
         updateStats();
+
+        // ─────────────────────────────────────────────
+            //  SCROLL TO TOP BUTTON
+            // ─────────────────────────────────────────────
+            const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+            window.addEventListener("scroll", () => {
+                // Show the button when scrolled down 300px
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    scrollTopBtn.classList.add("show");
+                } else {
+                    scrollTopBtn.classList.remove("show");
+                }
+            });
+
+            scrollTopBtn.addEventListener("click", () => {
+                // Smooth scroll to top
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
     </script>
 </body>
 
