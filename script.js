@@ -1,153 +1,114 @@
-// ══════════════════════════════════════
-//  TAB SWITCHING
-// ══════════════════════════════════════
+// ── TAB SWITCHING ──
 function switchTab(id, btn) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('tab-' + id).classList.add('active');
     btn.classList.add('active');
-
-    // NEW: Show the hint if they switch to Key Learning or Exam Tips
-    if (id === 'learn' || id === 'examtips') {
-        showDoubleClickHint();
-    }
+    if (id === 'learn' || id === 'examtips') showDoubleClickHint();
+    // Hide all floating progress bars; the IntersectionObserver on the new
+    // tab will re-show the right one if the user has scrolled past it
+    document.querySelectorAll('.prog-float').forEach(f => f.classList.remove('visible'));
 }
 
-// ══════════════════════════════════════
-//  EXPAND ALL BUTTON INJECTOR
-// ══════════════════════════════════════
-// ══════════════════════════════════════
-//  EXPAND ALL BUTTON INJECTOR
-// ══════════════════════════════════════
-
-// ══════════════════════════════════════
-//  HEADER ACTIONS INJECTOR (Expand All & Layout Toggle)
-// ══════════════════════════════════════
+// ── HEADER ACTIONS (Expand All + Grid/List toggle) ──
 function injectExpandAll(tabId, gridId, cardClass) {
     const tabPanel = document.getElementById(tabId);
     const grid = document.getElementById(gridId);
     if (!tabPanel || !grid) return;
-
-    // Prevent duplicate buttons if the script runs twice
     if (tabPanel.querySelector('.header-actions-wrap')) return;
 
-    // Grab the existing title and subtitle elements
     const title = tabPanel.querySelector('.section-title');
     const subTitle = tabPanel.querySelector('.section-sub');
 
-    // Create a new Flexbox header container
     const headerWrap = document.createElement('div');
     headerWrap.className = 'header-actions-wrap';
-    headerWrap.style.cssText = 'display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 28px; gap: 15px;';
 
-    // 1. Group the text items together on the left
     const textWrap = document.createElement('div');
     if (title) textWrap.appendChild(title);
-    if (subTitle) {
-        subTitle.style.marginBottom = '0';
-        textWrap.appendChild(subTitle);
-    }
+    if (subTitle) { subTitle.style.marginBottom = '0'; textWrap.appendChild(subTitle); }
 
-    // 2. Create an Action Wrapper for the right side buttons
     const actionWrap = document.createElement('div');
-    actionWrap.style.cssText = 'display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 4px;';
+    actionWrap.style.cssText = 'display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:4px;';
 
-    // ─── APPLY DEFAULT STATES IMMEDIATELY ───
-    let isListView = true;
-    let isExpanded = true;
-
-    // Force the grid into list view on load
+    let isListView = true, isExpanded = true;
     grid.classList.add('list-view');
+    grid.querySelectorAll('.' + cardClass).forEach(c => c.classList.add('open'));
 
-    // Force all generated cards into the open state on load
-    const initialCards = grid.querySelectorAll('.' + cardClass);
-    initialCards.forEach(card => card.classList.add('open'));
-
-    // 3. Create the Grid/List Toggle Button
     const layoutBtn = document.createElement('button');
     layoutBtn.className = 'fc-btn outline';
-    // Since default is List View, the button offers Grid View
     layoutBtn.innerHTML = '🔠 Grid View';
-
     layoutBtn.addEventListener('click', () => {
         isListView = !isListView;
         layoutBtn.innerHTML = isListView ? '🔠 Grid View' : '🔲 List View';
-
-        if (isListView) {
-            grid.classList.add('list-view');
-        } else {
-            grid.classList.remove('list-view');
-        }
+        grid.classList.toggle('list-view', isListView);
     });
 
-    // 4. Create the Expand/Collapse All Button
     const expandBtn = document.createElement('button');
     expandBtn.className = 'fc-btn outline';
-    // Since default is Expanded, the button offers Collapse All
     expandBtn.innerHTML = '📂 Collapse All Cards';
-
     expandBtn.addEventListener('click', () => {
         isExpanded = !isExpanded;
         expandBtn.innerHTML = isExpanded ? '📂 Collapse All Cards' : '📂 Expand All Cards';
-
-        const cards = grid.querySelectorAll('.' + cardClass);
-        cards.forEach(card => {
-            if (isExpanded) {
-                card.classList.add('open');
-            } else {
-                card.classList.remove('open');
-            }
-        });
+        grid.querySelectorAll('.' + cardClass).forEach(c => c.classList.toggle('open', isExpanded));
         window.getSelection().removeAllRanges();
     });
 
-    // Assemble the pieces
     actionWrap.appendChild(layoutBtn);
     actionWrap.appendChild(expandBtn);
-
     headerWrap.appendChild(textWrap);
     headerWrap.appendChild(actionWrap);
-
-    // Insert the header right before the grid
     tabPanel.insertBefore(headerWrap, grid);
 }
-// ══════════════════════════════════════
-//  BUILD LEARN
-// ══════════════════════════════════════
+
+// ── BUILD LEARN ──
 function buildLearn() {
     const grid = document.getElementById('topicGrid');
     if (!grid) return;
-
     topics.forEach(t => {
         const card = document.createElement('div');
         card.className = 'topic-card';
         card.innerHTML = `<span class="tag">${t.tag}</span><h3>${t.title}</h3><span class="toggle-icon">+</span><div class="topic-content">${t.content}</div>`;
-
-        card.addEventListener('dblclick', () => {
-            card.classList.toggle('open');
-            window.getSelection().removeAllRanges();
-        });
-
+        card.addEventListener('dblclick', () => { card.classList.toggle('open'); window.getSelection().removeAllRanges(); });
         grid.appendChild(card);
     });
-
     injectExpandAll('tab-learn', 'topicGrid', 'topic-card');
 }
 
-// ══════════════════════════════════════
-//  BUILD MCQ
-// ══════════════════════════════════════
+// ── BUILD MCQ ──
 let mcqScore = 0, mcqTotal = 0;
+
+function injectMCQProgressBar() {
+    if (document.getElementById('mcqBarWrap')) return;
+    const wrap = document.getElementById('mcqWrap');
+    if (!wrap) return;
+    const bar = createProgressBar('mcq', '❓ Multiple Choice — Progress ');
+    wrap.parentElement.insertBefore(bar, wrap);
+}
+
+function updateMCQProgress() {
+    updateProgressBar('mcq', mcqTotal, mcqData.length);
+    if (mcqTotal > 0 && mcqTotal >= mcqData.length) {
+        const perfect = mcqScore === mcqData.length;
+        setTimeout(() => showCelebration({
+            title: perfect ? 'Full Marks!' : 'Quiz Complete!',
+            subtitle: perfect
+                ? 'Every answer correct — excellent work! 🌟'
+                : `You scored ${mcqScore} out of ${mcqData.length}`,
+            extra: `${mcqData.length} question${mcqData.length !== 1 ? 's' : ''} answered`,
+            onReset: resetMCQ
+        }), 400);
+    }
+}
+
 function buildMCQ() {
     const wrap = document.getElementById('mcqWrap');
-    if (!wrap) return; // 🛡️ Safety check
+    if (!wrap) return;
     mcqData.forEach((q, qi) => {
         const block = document.createElement('div');
         block.className = 'q-block';
-        block.innerHTML = `<div class="q-num">QUESTION ${qi + 1}</div>
-      <div class="q-text">${q.q}</div>
-      <div class="options">${q.opts.map((o, oi) => `<button class="opt-btn" data-qi="${qi}" data-oi="${oi}">${o}</button>`).join('')}</div>
-      <div class="q-feedback" id="qfb-${qi}"></div>`;
+        block.innerHTML = `<div class="q-num">QUESTION ${qi + 1}</div><div class="q-text">${q.q}</div>
+<div class="options">${q.opts.map((o, oi) => `<button class="opt-btn" data-qi="${qi}" data-oi="${oi}">${o}</button>`).join('')}</div>
+<div class="q-feedback" id="qfb-${qi}"></div>`;
         wrap.appendChild(block);
     });
     wrap.addEventListener('click', e => {
@@ -170,172 +131,477 @@ function buildMCQ() {
         }
         document.getElementById('mcqScore').textContent = mcqScore;
         document.getElementById('mcqTotal').textContent = mcqTotal;
+        updateMCQProgress();
     });
+    injectMCQProgressBar();
+    updateProgressBar('mcq', 0, mcqData.length);
 }
 function resetMCQ() {
     mcqScore = 0; mcqTotal = 0;
-    const scoreEl = document.getElementById('mcqScore');
-    if (!scoreEl) return;
-    scoreEl.textContent = 0;
+    document.getElementById('mcqScore').textContent = 0;
     document.getElementById('mcqTotal').textContent = 0;
     document.getElementById('mcqWrap').innerHTML = '';
+    destroyProgressBar('mcq');
+    const old = document.getElementById('mcqBarWrap');
+    if (old) old.remove();
     buildMCQ();
 }
 
-// ══════════════════════════════════════
-//  BUILD MATCHING
-// ══════════════════════════════════════
+// ── BUILD MATCHING ──
 let matchSelected = null, matchScore = 0, matchTotal = 0;
 const matchMistakes = new Set();
 let matchLocked = false;
-function buildMatch() {
+let matchRound = 1;
+let matchRoundScores = [0, 0];
+let matchRoundSize = 0; // 0 = auto (split in half)
+
+function getMatchRoundSize() {
+    // If a custom size is set, use it; otherwise half the deck (rounded up)
+    return matchRoundSize > 0 ? matchRoundSize : Math.ceil(matchData.length / 2);
+}
+
+function getMatchRoundData(round) {
+    const size = getMatchRoundSize();
+    return round === 1 ? matchData.slice(0, size) : matchData.slice(size);
+}
+
+// ── Find the score bar that contains matchScore — works regardless of tab ID
+function getMatchScoreBar() {
+    const el = document.getElementById('matchScore');
+    return el ? el.closest('.score-bar') : null;
+}
+
+// ── Inject the round-size picker into the score bar (beside Randomise / Reset)
+function injectMatchSizePicker() {
+    if (document.getElementById('matchSizePicker')) return;
+    const scoreBar = getMatchScoreBar();
+    if (!scoreBar) return;
+
+    const wrapper = document.createElement('div');
+    wrapper.style.cssText = 'display:flex;align-items:center;gap:6px;';
+
+    const lbl = document.createElement('label');
+    lbl.htmlFor = 'matchSizePicker';
+    lbl.style.cssText = "font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;";
+    lbl.textContent = 'Per round:';
+
+    const sel = document.createElement('select');
+    sel.id = 'matchSizePicker';
+    sel.style.cssText = `
+        appearance:none; -webkit-appearance:none;
+        background:var(--surface2); border:1.5px solid var(--border);
+        border-radius:6px; padding:5px 10px;
+        font-family:'DM Mono',monospace; font-size:11px; font-weight:600;
+        color:var(--accent2); cursor:pointer; outline:none;
+        transition:border-color .15s;
+    `;
+    sel.addEventListener('focus', () => sel.style.borderColor = 'var(--accent2)');
+    sel.addEventListener('blur', () => sel.style.borderColor = 'var(--border)');
+
+    // Build options: Auto, then 4 up to matchData.length-1 (always leave at least 1 in round 2)
+    const autoOpt = document.createElement('option');
+    autoOpt.value = '0';
+    autoOpt.textContent = 'Auto';
+    sel.appendChild(autoOpt);
+
+    const max = matchData.length - 1; // at least 1 item must go to round 2
+    for (let i = 4; i <= max; i++) {
+        const opt = document.createElement('option');
+        opt.value = String(i);
+        opt.textContent = String(i);
+        sel.appendChild(opt);
+    }
+    sel.value = '0';
+
+    sel.addEventListener('change', () => {
+        matchRoundSize = parseInt(sel.value, 10);
+        rebuildMatchHeader(); // update bars to reflect new sizes
+        resetMatch();
+    });
+
+    wrapper.appendChild(lbl);
+    wrapper.appendChild(sel);
+
+    // Put it before the first .reset-btn in the score bar
+    const resetBtn = scoreBar.querySelector('.reset-btn');
+    if (resetBtn) { scoreBar.insertBefore(wrapper, resetBtn); }
+    else scoreBar.appendChild(wrapper);
+}
+
+// ── Rebuild header (on size change)
+function rebuildMatchHeader() {
+    const old = document.getElementById('matchRoundHeader');
+    if (old) old.remove();
+    injectMatchHeader();
+}
+
+// ── Inject the round header: overall bar + per-round bars
+// Called AFTER buildMatchRound so matchLeft exists in the DOM
+function injectMatchHeader() {
+    if (document.getElementById('matchRoundHeader')) return;
+
+    const r1count = getMatchRoundData(1).length;
+    const r2count = getMatchRoundData(2).length;
+    const total = r1count + r2count;
+
+    const header = document.createElement('div');
+    header.id = 'matchRoundHeader';
+    header.style.cssText = `
+        background:var(--surface2);
+        border:1px solid var(--border);
+        border-radius:10px;
+        padding:16px 20px;
+        margin-bottom:16px;
+        display:flex;
+        flex-direction:column;
+        gap:14px;
+    `;
+    header.innerHTML = `
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+            <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--accent2);letter-spacing:.12em;text-transform:uppercase;">🃏 Matching — 2 Rounds</span>
+            <span id="matchRoundLabel" style="font-family:'DM Mono',monospace;font-size:11px;color:var(--mid);letter-spacing:.08em;">Currently on Round 1 of 2</span>
+        </div>
+        <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
+                <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);letter-spacing:.06em;text-transform:uppercase;">Overall Progress</span>
+                <span id="matchOverallLabel" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);">0 / ${total}</span>
+            </div>
+            <div style="background:var(--border);border-radius:99px;height:10px;overflow:hidden;">
+                <div id="matchBarOverall" style="height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--gold));border-radius:99px;transition:width .4s ease;"></div>
+            </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);width:60px;flex-shrink:0;">Round 1</span>
+                <div style="flex:1;background:var(--border);border-radius:99px;height:7px;overflow:hidden;">
+                    <div id="matchBar1" style="height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:99px;transition:width .4s ease;"></div>
+                </div>
+                <span id="matchBarLabel1" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);width:40px;text-align:right;">0/${r1count}</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);width:60px;flex-shrink:0;">Round 2</span>
+                <div style="flex:1;background:var(--border);border-radius:99px;height:7px;overflow:hidden;">
+                    <div id="matchBar2" style="height:100%;width:0%;background:linear-gradient(90deg,var(--teal),var(--accent2));border-radius:99px;transition:width .4s ease;opacity:.35;"></div>
+                </div>
+                <span id="matchBarLabel2" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);width:40px;text-align:right;">0/${r2count}</span>
+            </div>
+        </div>
+    `;
+
+    // Insert directly before the match grid wrapper
+    const matchLeft = document.getElementById('matchLeft');
+    const matchGrid = matchLeft ? (matchLeft.closest('.match-grid') || matchLeft.parentElement) : null;
+    if (matchGrid) {
+        matchGrid.parentElement.insertBefore(header, matchGrid);
+    } else {
+        const scoreBar = getMatchScoreBar();
+        if (scoreBar) scoreBar.after(header);
+    }
+}
+
+// ── Update per-round bar + overall bar
+function updateMatchProgress(round) {
+    const r1data = getMatchRoundData(1);
+    const r2data = getMatchRoundData(2);
+    const data = round === 1 ? r1data : r2data;
+    const total = data.length;
+    const left = document.getElementById('matchLeft');
+    if (!left) return;
+
+    const done = round === matchRound
+        ? left.querySelectorAll('.matched-ok, .matched-eventual').length
+        : (round < matchRound ? total : 0);
+    const pct = total ? (done / total) * 100 : 0;
+
+    const bar = document.getElementById(`matchBar${round}`);
+    const lbl = document.getElementById(`matchBarLabel${round}`);
+    if (bar) bar.style.width = pct + '%';
+    if (lbl) lbl.textContent = `${done}/${total}`;
+
+    // Overall bar
+    const r1done = matchRound > 1 ? r1data.length : (round === 1 ? done : 0);
+    const r2done = matchRound > 1 && round === 2 ? done : 0;
+    const grandTotal = r1data.length + r2data.length;
+    const grandDone = r1done + r2done;
+    const overallPct = grandTotal ? (grandDone / grandTotal) * 100 : 0;
+    const overallBar = document.getElementById('matchBarOverall');
+    const overallLbl = document.getElementById('matchOverallLabel');
+    if (overallBar) overallBar.style.width = overallPct + '%';
+    if (overallLbl) overallLbl.textContent = `${grandDone} / ${grandTotal}`;
+}
+
+// ── Celebration overlay
+function showMatchCelebration() {
+    if (!document.getElementById('matchCelebStyles')) {
+        const s = document.createElement('style');
+        s.id = 'matchCelebStyles';
+        s.textContent = `
+            @keyframes celebBounceIn {
+                0%   { opacity:0; transform:translate(-50%,-50%) scale(.5) rotate(-4deg); }
+                60%  { opacity:1; transform:translate(-50%,-50%) scale(1.08) rotate(2deg); }
+                80%  { transform:translate(-50%,-50%) scale(.97) rotate(-1deg); }
+                100% { transform:translate(-50%,-50%) scale(1) rotate(0deg); }
+            }
+            @keyframes celebBounceOut {
+                0%   { opacity:1; transform:translate(-50%,-50%) scale(1); }
+                100% { opacity:0; transform:translate(-50%,-50%) scale(.8); }
+            }
+            @keyframes celebFloat {
+                0%,100% { transform:translateY(0); }
+                50%     { transform:translateY(-8px); }
+            }
+            @keyframes confettiFall {
+                0%   { transform:translateY(-20px) rotate(0deg); opacity:1; }
+                100% { transform:translateY(100vh) rotate(720deg); opacity:0; }
+            }
+        `;
+        document.head.appendChild(s);
+    }
+
+    const colours = ['#52b788', '#e9c46a', '#0077b6', '#e76f51', '#d8ede5'];
+    for (let i = 0; i < 65; i++) {
+        const piece = document.createElement('div');
+        piece.style.cssText = `
+            position:fixed; top:0;
+            left:${Math.random() * 100}vw;
+            width:${6 + Math.random() * 8}px; height:${6 + Math.random() * 8}px;
+            background:${colours[Math.floor(Math.random() * colours.length)]};
+            border-radius:${Math.random() > .5 ? '50%' : '2px'};
+            z-index:10001; pointer-events:none;
+            animation:confettiFall ${1.5 + Math.random() * 2}s ${Math.random() * .8}s ease-in forwards;
+        `;
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 4000);
+    }
+
+    const overlay = document.createElement('div');
+    overlay.id = 'matchCelebOverlay';
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:10000;backdrop-filter:blur(3px);';
+
+    const card = document.createElement('div');
+    card.style.cssText = `
+        position:fixed; top:50%; left:50%;
+        transform:translate(-50%,-50%);
+        background:var(--surface2); border:2px solid var(--accent2);
+        border-radius:16px; padding:36px 40px; text-align:center;
+        z-index:10002; min-width:280px; max-width:90vw;
+        box-shadow:0 24px 60px rgba(0,0,0,.6), 0 0 0 1px rgba(82,183,136,.2);
+        animation:celebBounceIn .55s cubic-bezier(.34,1.56,.64,1) forwards;
+    `;
+
+    const perfect = matchMistakes.size === 0;
+    const r1 = getMatchRoundData(1).length;
+    const r2 = getMatchRoundData(2).length;
+    card.innerHTML = `
+        <div style="font-size:52px;margin-bottom:12px;animation:celebFloat 1.8s ease-in-out infinite;">🎉</div>
+        <div style="font-family:'Merriweather',serif;font-size:22px;font-weight:700;color:var(--accent2);margin-bottom:8px;">
+            ${perfect ? 'Perfect Score!' : 'All Matched!'}
+        </div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text-dim);margin-bottom:6px;line-height:1.6;">
+            ${perfect
+            ? 'You matched every pair first time — amazing work! 🌟'
+            : `You got there! ${matchMistakes.size} pair${matchMistakes.size > 1 ? 's' : ''} needed a second try.`}
+        </div>
+        <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--mid);margin-bottom:22px;">
+            ${r1} pairs · Round 1 &nbsp;+&nbsp; ${r2} pairs · Round 2
+        </div>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+            <button id="celebDismiss" style="background:var(--accent);color:var(--text);border:none;border-radius:8px;padding:10px 22px;font-family:'DM Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.06em;">✓ Done</button>
+            <button id="celebReset" style="background:transparent;color:var(--text-dim);border:1.5px solid var(--border);border-radius:8px;padding:10px 22px;font-family:'DM Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.06em;">🔄 Play Again</button>
+        </div>
+    `;
+
+    document.body.appendChild(overlay);
+    document.body.appendChild(card);
+
+    const dismiss = () => {
+        card.style.animation = 'celebBounceOut .3s ease forwards';
+        overlay.style.transition = 'opacity .3s'; overlay.style.opacity = '0';
+        setTimeout(() => { card.remove(); overlay.remove(); }, 320);
+    };
+    document.getElementById('celebDismiss').addEventListener('click', dismiss);
+    document.getElementById('celebReset').addEventListener('click', () => { dismiss(); setTimeout(resetMatch, 340); });
+    overlay.addEventListener('click', dismiss);
+}
+
+function buildMatchRound(round) {
     const left = document.getElementById('matchLeft');
     const right = document.getElementById('matchRight');
-    if (!left || !right) return; // 🛡️ Safety check
+    if (!left || !right) return;
+
+    matchSelected = null; matchLocked = false;
+    left.innerHTML = ''; right.innerHTML = '';
+
+    const old = document.getElementById('matchNextRoundBtn');
+    if (old) old.remove();
+
+    const data = getMatchRoundData(round);
+    const shuffled = [...data].sort(() => Math.random() - .5);
+
+    const label = document.getElementById('matchRoundLabel');
+    if (label) label.textContent = `Currently on Round ${round} of 2`;
+
+    if (round === 2) {
+        const bar2 = document.getElementById('matchBar2');
+        if (bar2) bar2.style.opacity = '1';
+    }
+
+    updateMatchProgress(1);
+    updateMatchProgress(2);
 
     matchTotal = matchData.length;
     document.getElementById('matchTotal').textContent = matchTotal;
-    const shuffled = [...matchData].sort(() => Math.random() - .5);
-    matchData.forEach(m => { const el = document.createElement('div'); el.className = 'match-item'; el.textContent = m.term; el.dataset.key = m.term; el.dataset.side = 'left'; left.appendChild(el); });
-    shuffled.forEach(m => { const el = document.createElement('div'); el.className = 'match-item'; el.textContent = m.def; el.dataset.key = m.term; el.dataset.side = 'right'; right.appendChild(el); });
+
+    data.forEach(m => {
+        const el = document.createElement('div');
+        el.className = 'match-item'; el.textContent = m.term;
+        el.dataset.key = m.term; el.dataset.side = 'left';
+        left.appendChild(el);
+    });
+    shuffled.forEach(m => {
+        const el = document.createElement('div');
+        el.className = 'match-item'; el.textContent = m.def;
+        el.dataset.key = m.term; el.dataset.side = 'right';
+        right.appendChild(el);
+    });
+
     left.addEventListener('click', handleMatch);
     right.addEventListener('click', handleMatch);
 }
+
+function buildMatch() {
+    matchScore = 0; matchRound = 1; matchRoundScores = [0, 0];
+    document.getElementById('matchScore').textContent = 0;
+    buildMatchRound(1);      // build grid FIRST so matchLeft exists in DOM
+    injectMatchSizePicker(); // then inject picker into score bar
+    injectMatchHeader();     // then inject header above the grid
+}
+
 function handleMatch(e) {
     if (matchLocked) return;
-    const item = e.target.closest('.match-item'); if (!item || item.classList.contains('matched-ok') || item.classList.contains('matched-eventual')) return;
-    if (!matchSelected) { document.querySelectorAll('.match-item.selected').forEach(x => x.classList.remove('selected')); item.classList.add('selected'); matchSelected = item; }
-    else {
+    const item = e.target.closest('.match-item');
+    if (!item || item.classList.contains('matched-ok') || item.classList.contains('matched-eventual')) return;
+    if (!matchSelected) {
+        document.querySelectorAll('.match-item.selected').forEach(x => x.classList.remove('selected'));
+        item.classList.add('selected'); matchSelected = item;
+    } else {
         if (matchSelected === item) { item.classList.remove('selected'); matchSelected = null; return; }
-        if (matchSelected.dataset.side === item.dataset.side) { matchSelected.classList.remove('selected'); matchSelected = item; item.classList.add('selected'); return; }
-        const a = matchSelected, b = item; a.classList.remove('selected'); b.classList.remove('selected'); matchSelected = null;
+        if (matchSelected.dataset.side === item.dataset.side) {
+            matchSelected.classList.remove('selected'); matchSelected = item; item.classList.add('selected'); return;
+        }
+        const a = matchSelected, b = item;
+        a.classList.remove('selected'); b.classList.remove('selected'); matchSelected = null;
         if (a.dataset.key === b.dataset.key) {
             const cls = matchMistakes.has(a.dataset.key) ? 'matched-eventual' : 'matched-ok';
-            a.classList.add(cls); b.classList.add(cls); matchScore++; document.getElementById('matchScore').textContent = matchScore;
+            a.classList.add(cls); b.classList.add(cls);
+            matchScore++; matchRoundScores[matchRound - 1]++;
+            document.getElementById('matchScore').textContent = matchScore;
+            updateMatchProgress(matchRound);
+            const left = document.getElementById('matchLeft');
+            const total = left.querySelectorAll('.match-item').length;
+            const done = left.querySelectorAll('.matched-ok, .matched-eventual').length;
+            if (done === total) onRoundComplete();
         } else {
-            matchLocked = true; matchMistakes.add(a.dataset.key); matchMistakes.add(b.dataset.key);
+            matchLocked = true;
+            matchMistakes.add(a.dataset.key); matchMistakes.add(b.dataset.key);
             a.classList.add('matched-no'); b.classList.add('matched-no');
             setTimeout(() => { a.classList.remove('matched-no'); b.classList.remove('matched-no'); matchLocked = false; }, 700);
         }
     }
 }
-function resetMatch() {
-    matchScore = 0; matchSelected = null; matchLocked = false; matchMistakes.clear();
-    const scoreEl = document.getElementById('matchScore');
-    if (!scoreEl) return;
-    scoreEl.textContent = 0;
-    document.getElementById('matchLeft').innerHTML = '';
-    document.getElementById('matchRight').innerHTML = '';
-    buildMatch();
+
+function onRoundComplete() {
+    if (matchRound === 1) {
+        updateMatchProgress(1);
+        const left = document.getElementById('matchLeft');
+        const grid = left.closest('.match-grid') || left.parentElement;
+        const btn = document.createElement('button');
+        btn.id = 'matchNextRoundBtn';
+        btn.className = 'fc-btn';
+        btn.style.cssText = 'margin-top:16px;width:100%;font-size:14px;padding:14px;';
+        btn.innerHTML = '✅ Round 1 complete — Start Round 2 →';
+        btn.addEventListener('click', () => {
+            matchRound = 2;
+            matchMistakes.clear();
+            buildMatchRound(2);
+        });
+        grid.parentElement.insertBefore(btn, grid.nextSibling);
+    } else {
+        updateMatchProgress(2);
+        setTimeout(showMatchCelebration, 400);
+    }
 }
 
-// ══════════════════════════════════════
-//  BUILD FIB (ADVANCED TYPING + DROPDOWNS)
-// ══════════════════════════════════════
-let fibScore = 0, fibCorrectTotal = 0;
-let isAdvancedFIB = false; // Tracks which mode the student is in
-
-// Forgiving answer checker
-function isAnswerAcceptable(userInput, actualAnswer) {
-    let u = userInput.trim().toLowerCase();
-    let a = actualAnswer.trim().toLowerCase();
-
-    if (u === a) return true; // Exact match
-    if (u + 's' === a || u === a + 's') return true; // Allows singular/plural leniency
-    return false;
+function resetMatch() {
+    matchScore = 0; matchSelected = null; matchLocked = false;
+    matchRound = 1; matchRoundScores = [0, 0];
+    matchMistakes.clear();
+    document.getElementById('matchScore').textContent = 0;
+    document.getElementById('matchLeft').innerHTML = '';
+    document.getElementById('matchRight').innerHTML = '';
+    const old = document.getElementById('matchNextRoundBtn');
+    if (old) old.remove();
+    buildMatchRound(1);
+    rebuildMatchHeader();
 }
 
 function buildFIB() {
     const wrap = document.getElementById('fibWrap');
     if (!wrap) return;
-
-    fibCorrectTotal = fibData.reduce((a, f) => a + Object.keys(f.blanks).length, 0);
+    fibCorrectTotal = fibData.reduce((a, f) => a + Object.keys(f.blanks).filter(k => f.blanks[k] !== '').length, 0);
     document.getElementById('fibTotal').textContent = fibCorrectTotal;
-
     fibData.forEach((f, fi) => {
         const div = document.createElement('div');
         div.className = 'fib-sentence';
-
-        let html = f.display;
-        let bi = 0;
-
-        // ── MODE: STANDARD DROPDOWNS ──
+        let html = f.display, bi = 0;
         if (!isAdvancedFIB) {
-            const correctAnswers = Object.values(f.blanks);
+            const correctAnswers = Object.values(f.blanks).filter(v => v !== '');
             const distractors = fibWords.filter(w => !correctAnswers.includes(w)).sort(() => Math.random() - .5).slice(0, 4);
-
             html = html.replace(/_____/g, () => {
                 const key = Object.keys(f.blanks)[bi];
-                const ans = f.blanks[key];
-                bi++;
+                const ans = f.blanks[key]; bi++;
+                if (!ans) return `<em>(see above)</em>`;
                 const opts = [ans, ...distractors.filter(d => d !== ans).slice(0, 3)].sort(() => Math.random() - .5);
                 const optHTML = ['— choose —', ...opts].map(o => `<option value="${o === '— choose —' ? '' : o}">${o}</option>`).join('');
                 return `<span class="blank-select" data-fi="${fi}" data-key="${key}" data-ans="${ans}"><select>${optHTML}</select></span>`;
             });
             div.innerHTML = html;
-            wrap.appendChild(div);
-        }
-        // ── MODE: ADVANCED TYPING ──
-        else {
+        } else {
             html = html.replace(/_____/g, () => {
                 const key = Object.keys(f.blanks)[bi];
-                const ans = f.blanks[key];
-                bi++;
+                const ans = f.blanks[key]; bi++;
+                if (!ans) return `<em>(see above)</em>`;
                 return `<input type="text" class="fib-input" data-fi="${fi}" data-key="${key}" data-ans="${ans}" placeholder="type here...">`;
             });
-
             div.innerHTML = html;
-
-            // Add the "Check Answers" button for this specific section
             const checkBtn = document.createElement('button');
-            checkBtn.className = 'fib-check-btn';
-            checkBtn.innerHTML = '✓ Check Answers';
-
+            checkBtn.className = 'fib-check-btn'; checkBtn.innerHTML = '✓ Check Answers';
             checkBtn.addEventListener('click', () => {
                 const inputs = div.querySelectorAll('.fib-input');
-                let allSectionCorrect = true;
-
+                let allOk = true;
                 inputs.forEach(input => {
-                    if (input.disabled) return; // Skip ones they already got right
-
+                    if (input.disabled) return;
                     if (isAnswerAcceptable(input.value, input.dataset.ans)) {
-                        input.classList.remove('wrong');
-                        input.classList.add('correct');
-                        input.disabled = true; // Lock it in
-                        fibScore++;
-                    } else {
-                        input.classList.remove('correct');
-                        input.classList.add('wrong'); // Turns red, but keeps their text!
-                        allSectionCorrect = false;
-                    }
+                        input.classList.remove('wrong'); input.classList.add('correct');
+                        input.disabled = true; fibScore++;
+                    } else { input.classList.remove('correct'); input.classList.add('wrong'); allOk = false; }
                 });
-
                 document.getElementById('fibScore').textContent = fibScore;
-
-                if (allSectionCorrect) {
-                    checkBtn.innerHTML = 'Perfect! ✨';
-                    checkBtn.disabled = true;
-                }
+                if (allOk) { checkBtn.innerHTML = 'Perfect! ✨'; checkBtn.disabled = true; }
             });
-
             div.appendChild(document.createElement('br'));
             div.appendChild(checkBtn);
-            wrap.appendChild(div);
         }
+        wrap.appendChild(div);
     });
-
-    // Attach Dropdown Listener safely (only once, and only for standard mode)
     if (!isAdvancedFIB && !wrap.dataset.listenerAttached) {
         wrap.addEventListener('change', e => {
             const sel = e.target; if (sel.tagName !== 'SELECT') return;
             const wrapper = sel.closest('.blank-select'); if (!wrapper || wrapper.dataset.answered === 'correct') return;
             const chosen = sel.value, ans = wrapper.dataset.ans; if (!chosen) return;
-
             if (chosen === ans) {
-                wrapper.dataset.answered = 'correct';
-                wrapper.classList.remove('wrong'); wrapper.classList.add('correct');
-                sel.disabled = true; fibScore++;
-                document.getElementById('fibScore').textContent = fibScore;
+                wrapper.dataset.answered = 'correct'; wrapper.classList.remove('wrong'); wrapper.classList.add('correct');
+                sel.disabled = true; fibScore++; document.getElementById('fibScore').textContent = fibScore;
             } else {
                 wrapper.classList.remove('correct'); wrapper.classList.add('wrong');
                 setTimeout(() => { wrapper.classList.remove('wrong'); sel.value = ''; }, 700);
@@ -344,182 +610,455 @@ function buildFIB() {
         wrap.dataset.listenerAttached = 'true';
     }
 }
-
 function resetFIB() {
     fibScore = 0;
-    const scoreEl = document.getElementById('fibScore');
-    if (!scoreEl) return;
-    scoreEl.textContent = 0;
+    document.getElementById('fibScore').textContent = 0;
     document.getElementById('fibWrap').innerHTML = '';
     buildFIB();
 }
-
-// ── INJECT THE TOGGLE BUTTON ──
 function injectFIBAdvancedToggle() {
     const fibTab = document.getElementById('tab-fib');
     if (!fibTab || fibTab.querySelector('.fib-mode-toggle')) return;
-
     const scoreBar = fibTab.querySelector('.score-bar');
     if (!scoreBar) return;
-
     const btn = document.createElement('button');
     btn.className = 'fc-btn outline fib-mode-toggle';
     btn.innerHTML = '🔥 Advanced Mode: Typing';
     btn.style.marginBottom = '20px';
-
     btn.addEventListener('click', () => {
         isAdvancedFIB = !isAdvancedFIB;
         btn.innerHTML = isAdvancedFIB ? '🔽 Standard Mode: Dropdowns' : '🔥 Advanced Mode: Typing';
-        resetFIB(); // Rebuilds the whole section in the new mode
+        resetFIB();
     });
-
-    // Insert right above the score bar
     fibTab.insertBefore(btn, scoreBar);
 }
 
 // ══════════════════════════════════════
-//  BUILD MISCONCEPTIONS
+// SHARED CELEBRATION (used by FIB, FC, TF, EP)
 // ══════════════════════════════════════
-function buildMisc() {
-    const list = document.getElementById('miscList');
-    if (!list) return; // 🛡️ Safety check
-    miscData.forEach(m => {
-        const card = document.createElement('div'); card.className = 'misc-card';
-        card.innerHTML = `<div class="wrong-view"><div class="misc-tag">✗ Common Student View</div><p>${m.wrong}</p></div><div class="correct-view"><div class="misc-tag">✓ Examiner's Correct View</div><p>${m.correct}</p></div>`;
-        list.appendChild(card);
-    });
+function injectCelebStyles() {
+    if (document.getElementById('sharedCelebStyles')) return;
+    const s = document.createElement('style');
+    s.id = 'sharedCelebStyles';
+    s.textContent = `
+        @keyframes celebBounceIn  { 0%{opacity:0;transform:translate(-50%,-50%) scale(.5) rotate(-4deg)} 60%{opacity:1;transform:translate(-50%,-50%) scale(1.08) rotate(2deg)} 80%{transform:translate(-50%,-50%) scale(.97) rotate(-1deg)} 100%{transform:translate(-50%,-50%) scale(1) rotate(0)} }
+        @keyframes celebBounceOut { 0%{opacity:1;transform:translate(-50%,-50%) scale(1)} 100%{opacity:0;transform:translate(-50%,-50%) scale(.8)} }
+        @keyframes celebFloat     { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+        @keyframes confettiFall   { 0%{transform:translateY(-20px) rotate(0deg);opacity:1} 100%{transform:translateY(100vh) rotate(720deg);opacity:0} }
+    `;
+    document.head.appendChild(s);
+}
+
+function showCelebration({ title, subtitle, extra = '', onReset }) {
+    injectCelebStyles();
+    const colours = ['#52b788', '#e9c46a', '#0077b6', '#e76f51', '#d8ede5'];
+    for (let i = 0; i < 65; i++) {
+        const p = document.createElement('div');
+        p.style.cssText = `position:fixed;top:0;left:${Math.random() * 100}vw;width:${6 + Math.random() * 8}px;height:${6 + Math.random() * 8}px;background:${colours[Math.floor(Math.random() * colours.length)]};border-radius:${Math.random() > .5 ? '50%' : '2px'};z-index:10001;pointer-events:none;animation:confettiFall ${1.5 + Math.random() * 2}s ${Math.random() * .8}s ease-in forwards;`;
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 4000);
+    }
+    const overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:10000;backdrop-filter:blur(3px);';
+    const card = document.createElement('div');
+    card.style.cssText = `position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--surface2);border:2px solid var(--accent2);border-radius:16px;padding:36px 40px;text-align:center;z-index:10002;min-width:280px;max-width:90vw;box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 0 1px rgba(82,183,136,.2);animation:celebBounceIn .55s cubic-bezier(.34,1.56,.64,1) forwards;`;
+    card.innerHTML = `
+        <div style="font-size:52px;margin-bottom:12px;animation:celebFloat 1.8s ease-in-out infinite;">🎉</div>
+        <div style="font-family:'Merriweather',serif;font-size:22px;font-weight:700;color:var(--accent2);margin-bottom:8px;">${title}</div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text-dim);margin-bottom:${extra ? '6px' : '22px'};line-height:1.6;">${subtitle}</div>
+        ${extra ? `<div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--mid);margin-bottom:22px;">${extra}</div>` : ''}
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+            <button id="sharedCelebDismiss" style="background:var(--accent);color:var(--text);border:none;border-radius:8px;padding:10px 22px;font-family:'DM Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.06em;">✓ Done</button>
+            <button id="sharedCelebReset" style="background:transparent;color:var(--text-dim);border:1.5px solid var(--border);border-radius:8px;padding:10px 22px;font-family:'DM Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.06em;">🔄 Try Again</button>
+        </div>`;
+    document.body.appendChild(overlay);
+    document.body.appendChild(card);
+    const dismiss = () => {
+        card.style.animation = 'celebBounceOut .3s ease forwards';
+        overlay.style.transition = 'opacity .3s'; overlay.style.opacity = '0';
+        setTimeout(() => { card.remove(); overlay.remove(); }, 320);
+    };
+    document.getElementById('sharedCelebDismiss').addEventListener('click', dismiss);
+    document.getElementById('sharedCelebReset').addEventListener('click', () => { dismiss(); if (onReset) setTimeout(onReset, 340); });
+    overlay.addEventListener('click', dismiss);
 }
 
 // ══════════════════════════════════════
-//  BUILD EXAM TIPS
+// SHARED PROGRESS BAR HELPERS
 // ══════════════════════════════════════
-function buildTips() {
-    const grid = document.getElementById('tipsGrid');
-    if (!grid) return;
+// ── Progress bar styles (injected once)
+function injectProgressStyles() {
+    if (document.getElementById('progressBarStyles')) return;
+    const s = document.createElement('style');
+    s.id = 'progressBarStyles';
+    s.textContent = `
+        .prog-inline {
+            background: var(--card-bg);
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 20px;
+            margin-bottom: 16px;
+        }
+        .prog-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+        .prog-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            color: var(--mid);
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+        .prog-count {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            color: var(--mid);
+        }
+        .prog-track {
+            background: var(--border);
+            border-radius: 99px;
+            height: 10px;
+            overflow: hidden;
+        }
+        .prog-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent), var(--teal), var(--gold));
+            border-radius: 99px;
+            transition: width .45s cubic-bezier(.4,0,.2,1);
+        }
+        .prog-float {
+            position: fixed;
+            top: 52px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-12px);
+            z-index: 200;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s ease, transform .3s cubic-bezier(.34,1.3,.64,1);
+            background: var(--cream);
+            border: 1px solid var(--border);
+            border-bottom: 2px solid var(--teal);
+            border-radius: 0 0 12px 12px;
+            padding: 7px 18px 9px;
+            min-width: 200px;
+            max-width: min(440px, 88vw);
+            width: max-content;
+            box-shadow: 0 6px 24px rgba(0,0,0,.2);
+            backdrop-filter: blur(6px);
+        }
+        .prog-float.visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: auto;
+        }
+        .prog-float .prog-row { margin-bottom: 4px; }
+        .prog-float .prog-label { font-size: 9px; }
+        .prog-float .prog-count { font-size: 9px; }
+        .prog-float .prog-track { height: 5px; }
+        @keyframes progPulse {
+            0%   { box-shadow: 0 6px 24px rgba(0,0,0,.45), 0 0 0 0 rgba(82,183,136,.5); }
+            70%  { box-shadow: 0 6px 24px rgba(0,0,0,.45), 0 0 0 7px rgba(82,183,136,0); }
+            100% { box-shadow: 0 6px 24px rgba(0,0,0,.45), 0 0 0 0 rgba(82,183,136,0); }
+        }
+        .prog-float.pulse { animation: progPulse .5s ease; }
+    `;
+    document.head.appendChild(s);
+}
 
-    examTips.forEach(t => {
-        const card = document.createElement('div');
-        card.className = 'tip-card';
-        card.style.cursor = 'pointer';
+// Registry of all active progress bar IDs — used by the scroll handler
+const _progIds = [];
 
-        const pills = t.pills.map(p => `<span class="mark-pill ${p}">${p.toUpperCase()}</span>`).join('');
+function createProgressBar(id, label) {
+    injectProgressStyles();
 
-        card.innerHTML = `
-            <span class="toggle-icon" style="position:absolute; right:20px; top:20px; color:#5a6e7f; font-size:18px; transition:transform 0.3s;">+</span>
-            <div class="tip-type">${t.type}</div>
-            <h4>${t.title}</h4>
-            <div class="tip-content">
-                ${t.content}
-                ${t.pills.length ? `<div class="mark-breakdown">${pills}</div>` : ''}
-            </div>
-        `;
+    // Inline bar
+    const wrap = document.createElement('div');
+    wrap.id = id + 'BarWrap';
+    wrap.className = 'prog-inline';
+    wrap.innerHTML = `
+        <div class="prog-row">
+            <span class="prog-label">${label}</span>
+            <span class="prog-count" id="${id}BarLabel">0 / 0</span>
+        </div>
+        <div class="prog-track">
+            <div class="prog-fill" id="${id}Bar"></div>
+        </div>`;
 
-        // Just the double-click logic remains
-        card.addEventListener('dblclick', () => {
-            card.classList.toggle('open');
-            window.getSelection().removeAllRanges();
+    // Floating twin
+    const floater = document.createElement('div');
+    floater.id = id + 'BarFloat';
+    floater.className = 'prog-float';
+    floater.innerHTML = `
+        <div class="prog-row">
+            <span class="prog-label">${label}</span>
+            <span class="prog-count" id="${id}BarLabelFloat">0 / 0</span>
+        </div>
+        <div class="prog-track">
+            <div class="prog-fill" id="${id}BarFloatFill"></div>
+        </div>`;
+    document.body.appendChild(floater);
+
+    if (!_progIds.includes(id)) _progIds.push(id);
+    return wrap;
+}
+
+// Single scroll listener — checks every registered bar on scroll
+function _onProgScroll() {
+    _progIds.forEach(id => {
+        const inlineEl = document.getElementById(id + 'BarWrap');
+        const floatEl = document.getElementById(id + 'BarFloat');
+        if (!inlineEl || !floatEl) return;
+
+        // Only show if the tab containing this bar is currently active
+        const tabPanel = inlineEl.closest('.tab-panel');
+        const tabActive = tabPanel && tabPanel.classList.contains('active');
+        if (!tabActive) {
+            floatEl.classList.remove('visible');
+            return;
+        }
+
+        const rect = inlineEl.getBoundingClientRect();
+        // Show when the bottom of the inline bar has scrolled above the tab bar (~52px)
+        floatEl.classList.toggle('visible', rect.bottom < 56);
+    });
+}
+window.addEventListener('scroll', _onProgScroll, { passive: true });
+
+function updateProgressBar(id, done, total) {
+    const pct = total ? (done / total * 100) + '%' : '0%';
+
+    // Update inline
+    const bar = document.getElementById(id + 'Bar');
+    const lbl = document.getElementById(id + 'BarLabel');
+    if (bar) bar.style.width = pct;
+    if (lbl) lbl.textContent = `${done} / ${total}`;
+
+    // Update float
+    const barF = document.getElementById(id + 'BarFloatFill');
+    const lblF = document.getElementById(id + 'BarLabelFloat');
+    if (barF) barF.style.width = pct;
+    if (lblF) lblF.textContent = `${done} / ${total}`;
+
+    // Pulse the floater when an answer is given and it's visible
+    const floatEl = document.getElementById(id + 'BarFloat');
+    if (floatEl && done > 0 && floatEl.classList.contains('visible')) {
+        floatEl.classList.remove('pulse');
+        void floatEl.offsetWidth;
+        floatEl.classList.add('pulse');
+    }
+
+    // Re-evaluate visibility immediately after an answer (no need to scroll)
+    _onProgScroll();
+}
+
+function destroyProgressBar(id) {
+    const floatEl = document.getElementById(id + 'BarFloat');
+    if (floatEl) floatEl.remove();
+    const i = _progIds.indexOf(id);
+    if (i > -1) _progIds.splice(i, 1);
+}
+
+
+// ══════════════════════════════════════
+// FILL IN THE BLANKS
+// ══════════════════════════════════════
+let fibScore = 0, fibCorrectTotal = 0;
+let isAdvancedFIB = false;
+function isAnswerAcceptable(u, a) {
+    u = u.trim().toLowerCase(); a = a.trim().toLowerCase();
+    return u === a || u + 's' === a || u === a + 's';
+}
+
+function injectFIBProgressBar() {
+    if (document.getElementById('fibBarWrap')) return;
+    const wrap = document.getElementById('fibWrap');
+    if (!wrap) return;
+    const bar = createProgressBar('fib', '✏️ Fill in the Blanks — Progress ');
+    wrap.parentElement.insertBefore(bar, wrap);
+}
+
+function updateFIBProgress() {
+    updateProgressBar('fib', fibScore, fibCorrectTotal);
+    if (fibScore > 0 && fibScore >= fibCorrectTotal) {
+        setTimeout(() => showCelebration({
+            title: 'All Blanks Filled!',
+            subtitle: 'You completed every gap — great recall! 📝',
+            extra: `${fibCorrectTotal} blank${fibCorrectTotal !== 1 ? 's' : ''} answered correctly`,
+            onReset: resetFIB
+        }), 400);
+    }
+}
+
+function buildFIB() {
+    const wrap = document.getElementById('fibWrap');
+    if (!wrap) return;
+    fibCorrectTotal = fibData.reduce((a, f) => a + Object.keys(f.blanks).filter(k => f.blanks[k] !== '').length, 0);
+    document.getElementById('fibTotal').textContent = fibCorrectTotal;
+    fibData.forEach((f, fi) => {
+        const div = document.createElement('div');
+        div.className = 'fib-sentence';
+        let html = f.display, bi = 0;
+        if (!isAdvancedFIB) {
+            const correctAnswers = Object.values(f.blanks).filter(v => v !== '');
+            const distractors = fibWords.filter(w => !correctAnswers.includes(w)).sort(() => Math.random() - .5).slice(0, 4);
+            html = html.replace(/_____/g, () => {
+                const key = Object.keys(f.blanks)[bi];
+                const ans = f.blanks[key]; bi++;
+                if (!ans) return `<em>(see above)</em>`;
+                const opts = [ans, ...distractors.filter(d => d !== ans).slice(0, 3)].sort(() => Math.random() - .5);
+                const optHTML = ['— choose —', ...opts].map(o => `<option value="${o === '— choose —' ? '' : o}">${o}</option>`).join('');
+                return `<span class="blank-select" data-fi="${fi}" data-key="${key}" data-ans="${ans}"><select>${optHTML}</select></span>`;
+            });
+            div.innerHTML = html;
+        } else {
+            html = html.replace(/_____/g, () => {
+                const key = Object.keys(f.blanks)[bi];
+                const ans = f.blanks[key]; bi++;
+                if (!ans) return `<em>(see above)</em>`;
+                return `<input type="text" class="fib-input" data-fi="${fi}" data-key="${key}" data-ans="${ans}" placeholder="type here...">`;
+            });
+            div.innerHTML = html;
+            const checkBtn = document.createElement('button');
+            checkBtn.className = 'fib-check-btn'; checkBtn.innerHTML = '✓ Check Answers';
+            checkBtn.addEventListener('click', () => {
+                const inputs = div.querySelectorAll('.fib-input');
+                let allOk = true;
+                inputs.forEach(input => {
+                    if (input.disabled) return;
+                    if (isAnswerAcceptable(input.value, input.dataset.ans)) {
+                        input.classList.remove('wrong'); input.classList.add('correct');
+                        input.disabled = true; fibScore++;
+                    } else { input.classList.remove('correct'); input.classList.add('wrong'); allOk = false; }
+                });
+                document.getElementById('fibScore').textContent = fibScore;
+                if (allOk) { checkBtn.innerHTML = 'Perfect! ✨'; checkBtn.disabled = true; }
+                updateFIBProgress();
+            });
+            div.appendChild(document.createElement('br'));
+            div.appendChild(checkBtn);
+        }
+        wrap.appendChild(div);
+    });
+    if (!isAdvancedFIB && !wrap.dataset.listenerAttached) {
+        wrap.addEventListener('change', e => {
+            const sel = e.target; if (sel.tagName !== 'SELECT') return;
+            const wrapper = sel.closest('.blank-select'); if (!wrapper || wrapper.dataset.answered === 'correct') return;
+            const chosen = sel.value, ans = wrapper.dataset.ans; if (!chosen) return;
+            if (chosen === ans) {
+                wrapper.dataset.answered = 'correct'; wrapper.classList.remove('wrong'); wrapper.classList.add('correct');
+                sel.disabled = true; fibScore++;
+                document.getElementById('fibScore').textContent = fibScore;
+                updateFIBProgress();
+            } else {
+                wrapper.classList.remove('correct'); wrapper.classList.add('wrong');
+                setTimeout(() => { wrapper.classList.remove('wrong'); sel.value = ''; }, 700);
+            }
         });
-
-        grid.appendChild(card);
+        wrap.dataset.listenerAttached = 'true';
+    }
+    injectFIBProgressBar();
+    updateProgressBar('fib', 0, fibCorrectTotal);
+}
+function resetFIB() {
+    fibScore = 0;
+    document.getElementById('fibScore').textContent = 0;
+    document.getElementById('fibWrap').innerHTML = '';
+    destroyProgressBar('fib');
+    const old = document.getElementById('fibBarWrap');
+    if (old) old.remove();
+    buildFIB();
+}
+function injectFIBAdvancedToggle() {
+    const fibScoreEl = document.getElementById('fibScore');
+    const scoreBar = fibScoreEl ? fibScoreEl.closest('.score-bar') : null;
+    if (!scoreBar || scoreBar.querySelector('.fib-mode-toggle')) return;
+    const btn = document.createElement('button');
+    btn.className = 'fc-btn outline fib-mode-toggle';
+    btn.innerHTML = '🔥 Advanced Mode: Typing';
+    btn.addEventListener('click', () => {
+        isAdvancedFIB = !isAdvancedFIB;
+        btn.innerHTML = isAdvancedFIB ? '🔽 Standard Mode: Dropdowns' : '🔥 Advanced Mode: Typing';
+        resetFIB();
     });
-    injectExpandAll('tab-examtips', 'tipsGrid', 'tip-card');
+    scoreBar.appendChild(btn);
 }
 
+// ══════════════════════════════════════
+// FLASHCARDS
+// ══════════════════════════════════════
+let activeDeck = [], fcIndex = 0, knownCards = [], unknownCards = [];
 
-// ══════════════════════════════════════
-//  FLASHCARDS
-// ══════════════════════════════════════
-let activeDeck = [];
-let fcIndex = 0;
-let knownCards = [];
-let unknownCards = [];
+function injectFCProgressBar() {
+    if (document.getElementById('fcBarWrap')) return;
+    const scoreBar = document.getElementById('fcScoreBar');
+    if (!scoreBar) return;
+    const bar = createProgressBar('fc', '🃏 Flashcards — Progress ');
+    scoreBar.after(bar);
+}
+
+function updateFCProgress() {
+    const done = knownCards.length + unknownCards.length;
+    updateProgressBar('fc', done, activeDeck.length + done);
+}
 
 function initFlashcards() {
-    const termEl = document.getElementById('fcTerm');
-    if (!termEl || typeof flashcards === 'undefined') return;
-
-    // Start with all flashcards
+    if (!document.getElementById('fcTerm') || typeof flashcards === 'undefined') return;
     activeDeck = [...flashcards];
+    injectFCProgressBar();
     resetFlashcardsState();
 }
-
 function resetFlashcardsState() {
-    fcIndex = 0;
-    knownCards = [];
-    unknownCards = [];
-
+    fcIndex = 0; knownCards = []; unknownCards = [];
     document.getElementById('fcSummaryArea').style.display = 'none';
     document.getElementById('fcActiveArea').style.display = 'block';
     document.getElementById('fcScoreBar').style.display = 'flex';
-
-    renderFC();
-    updateFCScore();
+    updateProgressBar('fc', 0, activeDeck.length);
+    renderFC(); updateFCScore();
 }
-
-function resetFlashcards() {
-    activeDeck = [...flashcards];
-    resetFlashcardsState();
-}
-
-function reviewWrong() {
-    if (unknownCards.length === 0) return;
-    activeDeck = [...unknownCards]; // Load only the wrong cards
-    resetFlashcardsState();
-}
-
+function resetFlashcards() { activeDeck = [...flashcards]; updateProgressBar("fc", 0, activeDeck.length); resetFlashcardsState(); }
+function reviewWrong() { if (unknownCards.length === 0) return; activeDeck = [...unknownCards]; resetFlashcardsState(); }
 function renderFC() {
     const termEl = document.getElementById('fcTerm');
     if (!termEl || activeDeck.length === 0) return;
-
     const fc = activeDeck[fcIndex];
     termEl.textContent = fc.term;
     document.getElementById('fcDef').textContent = fc.def;
     document.getElementById('fcProgress').textContent = `Card ${fcIndex + 1} of ${activeDeck.length}`;
-
     document.getElementById('flashcard').classList.remove('flipped');
-
-    // Reset to default nav buttons before flipping
     document.getElementById('fcNavDefault').style.display = 'flex';
     document.getElementById('fcNavAssess').style.display = 'none';
 }
-
 function flipCard() {
     const cardEl = document.getElementById('flashcard');
     if (!cardEl) return;
-
     cardEl.classList.toggle('flipped');
-
-    // Show assess buttons only when flipped to the back
     const isFlipped = cardEl.classList.contains('flipped');
-    if (isFlipped) {
-        document.getElementById('fcNavDefault').style.display = 'none';
-        document.getElementById('fcNavAssess').style.display = 'flex';
-    } else {
-        document.getElementById('fcNavDefault').style.display = 'flex';
-        document.getElementById('fcNavAssess').style.display = 'none';
-    }
+    document.getElementById('fcNavDefault').style.display = isFlipped ? 'none' : 'flex';
+    document.getElementById('fcNavAssess').style.display = isFlipped ? 'flex' : 'none';
 }
-
 function markCard(isKnown) {
-    const currentCard = activeDeck[fcIndex];
-
-    if (isKnown) {
-        knownCards.push(currentCard);
-    } else {
-        unknownCards.push(currentCard);
-    }
-
+    if (isKnown) knownCards.push(activeDeck[fcIndex]); else unknownCards.push(activeDeck[fcIndex]);
     updateFCScore();
-
-    // Move to next card or show summary if at the end
+    updateFCProgress();
     if (fcIndex < activeDeck.length - 1) {
-        fcIndex++;
-        renderFC();
+        fcIndex++; renderFC();
     } else {
         showFCSummary();
+        const perfect = unknownCards.length === 0;
+        setTimeout(() => showCelebration({
+            title: perfect ? 'Perfect Deck!' : 'Deck Complete!',
+            subtitle: perfect
+                ? 'You knew every card — outstanding! 🌟'
+                : `${knownCards.length} known, ${unknownCards.length} to review`,
+            extra: `${activeDeck.length} card${activeDeck.length !== 1 ? 's' : ''} completed`,
+            onReset: resetFlashcards
+        }), 400);
     }
 }
-
 function updateFCScore() {
     const knownEl = document.getElementById('fcKnown');
     if (!knownEl) return;
@@ -527,48 +1066,51 @@ function updateFCScore() {
     document.getElementById('fcUnknown').textContent = unknownCards.length;
     document.getElementById('fcTotalTrack').textContent = activeDeck.length;
 }
-
 function showFCSummary() {
     document.getElementById('fcActiveArea').style.display = 'none';
     document.getElementById('fcSummaryArea').style.display = 'block';
-
     document.getElementById('fcSummaryKnown').textContent = knownCards.length;
     document.getElementById('fcSummaryTotal').textContent = activeDeck.length;
+    document.getElementById('btnReviewWrong').style.display = unknownCards.length > 0 ? 'inline-block' : 'none';
+}
+function nextCard() { if (!activeDeck.length) return; fcIndex = (fcIndex + 1) % activeDeck.length; renderFC(); }
+function prevCard() { if (!activeDeck.length) return; fcIndex = (fcIndex - 1 + activeDeck.length) % activeDeck.length; renderFC(); }
 
-    // Hide "Review Incorrect" button if they got 100% right
-    const btnReviewWrong = document.getElementById('btnReviewWrong');
-    if (unknownCards.length > 0) {
-        btnReviewWrong.style.display = 'inline-block';
-    } else {
-        btnReviewWrong.style.display = 'none';
+// ══════════════════════════════════════
+// TRUE / FALSE
+// ══════════════════════════════════════
+let tfScore = 0, tfTotal = 0;
+
+function injectTFProgressBar() {
+    if (document.getElementById('tfBarWrap')) return;
+    const wrap = document.getElementById('tfWrap');
+    if (!wrap) return;
+    const bar = createProgressBar('tf', '✅ True / False — Progress ');
+    wrap.parentElement.insertBefore(bar, wrap);
+}
+
+function updateTFProgress() {
+    updateProgressBar('tf', tfTotal, tfData.length);
+    if (tfTotal > 0 && tfTotal >= tfData.length) {
+        const perfect = tfScore === tfData.length;
+        setTimeout(() => showCelebration({
+            title: perfect ? 'Full Marks!' : 'All Done!',
+            subtitle: perfect
+                ? 'Every statement answered correctly — brilliant! 🎯'
+                : `You scored ${tfScore} out of ${tfData.length}`,
+            extra: `${tfData.length} statement${tfData.length !== 1 ? 's' : ''} completed`,
+            onReset: resetTF
+        }), 400);
     }
 }
 
-// Manual navigation functions (for when they are just browsing without assessing)
-function nextCard() {
-    if (activeDeck.length === 0) return;
-    fcIndex = (fcIndex + 1) % activeDeck.length;
-    renderFC();
-}
-
-function prevCard() {
-    if (activeDeck.length === 0) return;
-    fcIndex = (fcIndex - 1 + activeDeck.length) % activeDeck.length;
-    renderFC();
-}
-
-
-// ══════════════════════════════════════
-//  BUILD TRUE / FALSE
-// ══════════════════════════════════════
-let tfScore = 0, tfTotal = 0;
 function buildTF() {
     const wrap = document.getElementById('tfWrap');
-    if (!wrap) return; // 🛡️ Safety check
+    if (!wrap) return;
     tfData.forEach((item, i) => {
         const card = document.createElement('div'); card.className = 'tf-card';
         card.innerHTML = `<div><div class="tf-text">${item.statement}</div><div class="tf-explanation" id="tfExp-${i}">${item.explanation}</div></div>
-    <div class="tf-btns"><button class="tf-btn" data-i="${i}" data-val="true">TRUE</button><button class="tf-btn" data-i="${i}" data-val="false">FALSE</button></div>`;
+<div class="tf-btns"><button class="tf-btn" data-i="${i}" data-val="true">TRUE</button><button class="tf-btn" data-i="${i}" data-val="false">FALSE</button></div>`;
         wrap.appendChild(card);
     });
     wrap.addEventListener('click', e => {
@@ -583,172 +1125,243 @@ function buildTF() {
         document.getElementById(`tfExp-${i}`).classList.add('show');
         document.getElementById('tfScore').textContent = tfScore;
         document.getElementById('tfTotal').textContent = tfTotal;
+        updateTFProgress();
     });
+    injectTFProgressBar();
+    updateProgressBar('tf ', 0, tfData.length);
 }
 function resetTF() {
     tfScore = 0; tfTotal = 0;
-    const scoreEl = document.getElementById('tfScore');
-    if (!scoreEl) return;
-    scoreEl.textContent = 0;
+    document.getElementById('tfScore').textContent = 0;
     document.getElementById('tfTotal').textContent = 0;
     document.getElementById('tfWrap').innerHTML = '';
+    destroyProgressBar('tf');
+    const old = document.getElementById('tfBarWrap');
+    if (old) old.remove();
     buildTF();
 }
 
 // ══════════════════════════════════════
-//  BUILD EXAM PRACTICE
+// EXAM PRACTICE
 // ══════════════════════════════════════
+let epRevealed = 0;
+
+function injectEPProgressBar() {
+    if (document.getElementById('epBarWrap')) return;
+    const list = document.getElementById('epList');
+    if (!list) return;
+    const bar = createProgressBar('ep', '📝 Exam Practice — Questions Attempted');
+    list.parentElement.insertBefore(bar, list);
+}
+
+function updateEPProgress() {
+    updateProgressBar('ep', epRevealed, examQuestions.length);
+    if (epRevealed > 0 && epRevealed >= examQuestions.length) {
+        setTimeout(() => showCelebration({
+            title: 'Practice Complete!',
+            subtitle: 'You worked through every exam question — well done! 📋',
+            extra: `${examQuestions.length} question${examQuestions.length !== 1 ? 's' : ''} attempted`,
+            onReset: () => {
+                epRevealed = 0;
+                document.getElementById('epList').innerHTML = '';
+                destroyProgressBar('ep');
+                const old = document.getElementById('epBarWrap');
+                if (old) old.remove();
+                buildExamPractice();
+            }
+        }), 400);
+    }
+}
+function buildMisc() {
+    const list = document.getElementById('miscList');
+    if (!list) return;
+    miscData.forEach(m => {
+        const card = document.createElement('div'); card.className = 'misc-card';
+        card.innerHTML = `<div class="wrong-view"><div class="misc-tag">✗ Common Student View</div><p>${m.wrong}</p></div><div class="correct-view"><div class="misc-tag">✓ Examiner's Correct View</div><p>${m.correct}</p></div>`;
+        list.appendChild(card);
+    });
+}
+
+// ── BUILD EXAM TIPS ──
+function buildTips() {
+    const grid = document.getElementById('tipsGrid');
+    if (!grid) return;
+
+    examTips.forEach(t => {
+        const card = document.createElement('div');
+        card.className = 'tip-card';
+        card.style.cursor = 'pointer';
+
+        // Use a fallback empty array if t.pills is undefined
+        const safePills = t.pills || [];
+        const pillsHTML = safePills.map(p => `<span class="mark-pill ${p}">${p}</span>`).join('');
+
+        card.innerHTML = `
+            <span class="toggle-icon" style="position:absolute;right:20px;top:20px;color:#5a6e7f;font-size:18px;transition:transform 0.3s;">+</span>
+            <div class="tip-type">${t.type}</div>
+            <h4>${t.title}</h4>
+            <div class="tip-content">
+                ${t.content}
+                ${safePills.length ? `<div class="mark-breakdown">${pillsHTML}</div>` : ''}
+            </div>
+        `;
+
+        card.addEventListener('dblclick', () => {
+            card.classList.toggle('open');
+            window.getSelection().removeAllRanges();
+        });
+
+        grid.appendChild(card);
+    });
+
+    injectExpandAll('tab-examtips', 'tipsGrid', 'tip-card');
+}
+
+
+// ── BUILD EXAM PRACTICE ──
 function buildExamPractice() {
     const list = document.getElementById('epList');
-    if (!list) return; // 🛡️ Safety check
-
+    if (!list) return;
     examQuestions.forEach((q, qi) => {
-        const card = document.createElement('div');
-        card.className = 'ep-card';
+        const card = document.createElement('div'); card.className = 'ep-card';
         const caseHtml = q.caseStudy ? `<div class="ep-case">${q.caseStudy.replace(/\n/g, '<br>')}</div>` : '';
         let interactiveHtml = '';
         if (q.type === 'mcq') {
-            interactiveHtml = `<div class="ep-mcq-opts">${q.options.map((o, oi) =>
-                `<button class="ep-opt" data-qi="${qi}" data-oi="${oi}"><strong>${String.fromCharCode(65 + oi)}.</strong> ${o}</button>`
-            ).join('')}</div>`;
+            interactiveHtml = `<div class="ep-mcq-opts">${q.options.map((o, oi) => `<button class="ep-opt" data-qi="${qi}" data-oi="${oi}"><strong>${String.fromCharCode(65 + oi)}.</strong> ${o}</button>`).join('')}</div>`;
         } else {
             interactiveHtml = `<textarea class="ep-answer-area" id="epTextarea-${qi}" placeholder="Write your answer here..."></textarea>`;
         }
-        card.innerHTML = `
-      <div class="ep-header">
-        <div>
-          <div class="ep-num">${q.num}</div>
-          <div class="ep-title">${q.marks} mark${q.marks > 1 ? 's' : ''}</div>
-        </div>
-        <div class="ep-marks">[${q.marks} mark${q.marks > 1 ? 's' : ''}]</div>
-      </div>
-      <div class="ep-body">
-        ${caseHtml}
-        <div class="ep-question">${q.question.replace(/\n/g, '<br>')}</div>
-        ${interactiveHtml}
-        <div class="ep-btn-row">
-          <button class="ep-btn hint-btn" onclick="togglePop(${qi},'hint')">💡 Hint</button>
-          <button class="ep-btn starter-btn" onclick="togglePop(${qi},'starter')">✍️ Sentence Starter</button>
-          ${q.type !== 'mcq' ? `<button class="ep-btn submit-btn" onclick="togglePop(${qi},'marks')">📋 Submit &amp; See Mark Scheme</button>` : ''}
-        </div>
-        <div class="ep-popup hint-pop" id="epHint-${qi}"><strong>💡 Hint:</strong> ${q.hint}</div>
-        <div class="ep-popup starter-pop" id="epStarter-${qi}"><strong>✍️ Sentence Starter:</strong><br>${q.starter.replace(/\n/g, '<br>')}</div>
-        <div class="ep-popup marks-pop" id="epMarks-${qi}">
-          ${q.markScheme}
-          ${q.modelAnswer ? `<div class="marks-section"><h5>✓ Model Answer</h5><div class="model-answer">${q.modelAnswer}</div></div>` : ''}
-        </div>
-      </div>`;
+        card.innerHTML = `<div class="ep-header">
+<div><div class="ep-num">${q.num}</div><div class="ep-title">${q.marks} mark${q.marks > 1 ? 's' : ''}</div></div>
+<div class="ep-marks">[${q.marks} mark${q.marks > 1 ? 's' : ''}]</div>
+</div>
+<div class="ep-body">
+${caseHtml}
+<div class="ep-question">${q.question.replace(/\n/g, '<br>')}</div>
+${interactiveHtml}
+<div class="ep-btn-row">
+<button class="ep-btn hint-btn" onclick="togglePop(${qi},'hint')">💡 Hint</button>
+<button class="ep-btn starter-btn" onclick="togglePop(${qi},'starter')">✍️ Sentence Starter</button>
+${q.type !== 'mcq' ? `<button class="ep-btn submit-btn" onclick="togglePop(${qi},'marks')">📋 Submit &amp; See Mark Scheme</button>` : ''}
+</div>
+<div class="ep-popup hint-pop" id="epHint-${qi}"><strong>💡 Hint:</strong> ${q.hint}</div>
+<div class="ep-popup starter-pop" id="epStarter-${qi}"><strong>✍️ Sentence Starter:</strong><br>${q.starter.replace(/\n/g, '<br>')}</div>
+<div class="ep-popup marks-pop" id="epMarks-${qi}">
+${q.markScheme}
+${q.modelAnswer ? `<div class="marks-section"><h5>✓ Model Answer</h5><div class="model-answer">${q.modelAnswer.replace(/\n/g, '<br>')}</div></div>` : ''}
+</div>
+</div>`;
         list.appendChild(card);
     });
-
+    // MCQ auto-reveal on click
     list.addEventListener('click', e => {
-        const btn = e.target.closest('.ep-opt');
-        if (!btn) return;
+        const btn = e.target.closest('.ep-opt'); if (!btn) return;
         const qi = +btn.dataset.qi, oi = +btn.dataset.oi;
         const card = btn.closest('.ep-card');
         if (card.dataset.epAnswered) return;
         card.dataset.epAnswered = 1;
         const allOpts = card.querySelectorAll('.ep-opt');
         allOpts.forEach(b => b.disabled = true);
-        if (oi === examQuestions[qi].answer) {
-            btn.classList.add('ep-correct');
-        } else {
-            btn.classList.add('ep-wrong');
-            allOpts[examQuestions[qi].answer].classList.add('ep-correct');
-        }
+        btn.classList.add(oi === examQuestions[qi].answer ? 'ep-correct' : 'ep-wrong');
+        if (oi !== examQuestions[qi].answer) allOpts[examQuestions[qi].answer].classList.add('ep-correct');
         document.getElementById(`epMarks-${qi}`).classList.add('show');
+        epRevealed++; updateEPProgress();
     });
+    injectEPProgressBar();
+    updateProgressBar('ep', 0, examQuestions.length);
 }
-
 function togglePop(qi, type) {
     const hint = document.getElementById(`epHint-${qi}`);
     const starter = document.getElementById(`epStarter-${qi}`);
     const marks = document.getElementById(`epMarks-${qi}`);
     if (type === 'hint') { hint.classList.toggle('show'); starter.classList.remove('show'); }
     else if (type === 'starter') { starter.classList.toggle('show'); hint.classList.remove('show'); }
-    else if (type === 'marks') { marks.classList.toggle('show'); }
-}
-
-// ══════════════════════════════════════
-//  SCROLL TO TOP BUTTON
-// ══════════════════════════════════════
-function initScrollToTop() {
-    // 1. Create the button element
-    const scrollBtn = document.createElement('button');
-    scrollBtn.innerHTML = '↑ Top';
-    scrollBtn.className = 'scroll-to-top';
-    document.body.appendChild(scrollBtn);
-
-    // 2. Show/hide the button based on how far the user scrolls
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            scrollBtn.classList.add('visible');
-        } else {
-            scrollBtn.classList.remove('visible');
+    else if (type === 'marks') {
+        const wasHidden = !marks.classList.contains('show');
+        marks.classList.toggle('show');
+        // Count as attempted the first time the mark scheme is revealed
+        const card = marks.closest('.ep-card');
+        if (wasHidden && !card.dataset.epRevealed) {
+            card.dataset.epRevealed = 1;
+            epRevealed++; updateEPProgress();
         }
-    });
-
-    // 3. Smoothly scroll to top when clicked
-    scrollBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
+    }
 }
-// ══════════════════════════════════════
-//  TOAST NOTIFICATION LOGIC
-// ══════════════════════════════════════
-let toastEl = null;
-let toastTimeout = null;
 
+// ── SCROLL TO TOP ──
+function initScrollToTop() {
+    const btn = document.createElement('button');
+    btn.innerHTML = '↑ Top'; btn.className = 'scroll-to-top';
+    document.body.appendChild(btn);
+    window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 300));
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+
+// ── TOAST ──
+let toastEl = null, toastTimeout = null;
 function showDoubleClickHint() {
-    // Create the notification element if it doesn't exist
     if (!toastEl) {
         toastEl = document.createElement('div');
         toastEl.className = 'toast-hint';
         toastEl.innerHTML = `💡 <strong>Hint:</strong> Double-tap to open or close details.`;
         document.body.appendChild(toastEl);
     }
-
-    // Show it
     toastEl.classList.add('show');
-
-    // Reset the timer so it doesn't hide early if they keep clicking
     if (toastTimeout) clearTimeout(toastTimeout);
-
-    // Hide it automatically after 3 seconds
-    toastTimeout = setTimeout(() => {
-        toastEl.classList.remove('show');
-    }, 3000);
+    toastTimeout = setTimeout(() => toastEl.classList.remove('show'), 3000);
 }
 
-// ══════════════════════════════════════
-//  SAFE INITIALIZATION
-// ══════════════════════════════════════
-document.addEventListener("DOMContentLoaded", () => {
-    // Only builds the section IF the specific data array exists on this particular page
-    if (typeof topics !== 'undefined') buildLearn();
-    if (typeof mcqData !== 'undefined') buildMCQ();
-    if (typeof matchData !== 'undefined') buildMatch();
-    if (typeof fibData !== 'undefined' && typeof fibWords !== 'undefined') buildFIB();
-    if (typeof miscData !== 'undefined') buildMisc();
-    if (typeof examTips !== 'undefined') buildTips();
-    if (typeof flashcards !== 'undefined') initFlashcards();
-    if (typeof tfData !== 'undefined') buildTF();
-    if (typeof examQuestions !== 'undefined') buildExamPractice();
+// ── RANDOMISE BUTTONS ──
+function injectRandomiseButtons() {
+    document.querySelectorAll('.reset-btn').forEach(resetBtn => {
+        if (resetBtn.previousElementSibling && resetBtn.previousElementSibling.classList.contains('random-btn')) return;
+        const oc = resetBtn.getAttribute('onclick') || '';
+        let logic = null;
+        if (oc.includes('resetMCQ')) logic = () => { mcqData.sort(() => Math.random() - .5); resetMCQ(); };
+        else if (oc.includes('resetMatch')) logic = () => { matchData.sort(() => Math.random() - .5); resetMatch(); };
+        else if (oc.includes('resetFIB')) logic = () => { fibData.sort(() => Math.random() - .5); resetFIB(); };
+        else if (oc.includes('resetFlash')) logic = () => { flashcards.sort(() => Math.random() - .5); resetFlashcards(); };
+        else if (oc.includes('resetTF')) logic = () => { tfData.sort(() => Math.random() - .5); resetTF(); };
+        if (logic) {
+            const rndBtn = document.createElement('button');
+            rndBtn.className = 'reset-btn random-btn'; rndBtn.innerHTML = '🔀 RANDOMISE';
+            rndBtn.style.marginLeft = 'auto'; resetBtn.style.marginLeft = '0';
+            rndBtn.addEventListener('click', logic);
+            resetBtn.parentNode.insertBefore(rndBtn, resetBtn);
+        }
+    });
+}
+
+// ── INIT ──
+document.addEventListener('DOMContentLoaded', () => {
+    buildLearn();
+    buildMCQ();
+    buildMatch();
+    buildFIB();
+    buildMisc();
+    buildTips();
+    initFlashcards();
+    buildTF();
+    buildExamPractice();
     initScrollToTop();
-    initCourseSidebar(); // <--- Add this
-    // NEW: Show the hint shortly after the page loads 
-    // (Since Key Learning is the default open tab)
-    injectRandomiseButtons(); 
+    injectRandomiseButtons();
     injectFIBAdvancedToggle();
-    initCategorisation();
-    
-    setTimeout(() => {
-        showDoubleClickHint();
-    }, 800);
+    setTimeout(showDoubleClickHint, 800);
+    initCourseSidebar(); // <--- Add this
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const badgeEl = document.querySelector('.badge');
+    const h1El = document.querySelector('header h1');
+    const subEl = document.querySelector('header p');
+    const titleEl = document.querySelector('title');
+
+    if (badgeEl) badgeEl.innerHTML = pageMeta.badge;
+    if (h1El) h1El.textContent = pageMeta.title;
+    if (subEl) subEl.textContent = pageMeta.subtitle;
+    if (titleEl) titleEl.textContent = pageMeta.title.replace(/&amp;/g, '&');
+});
+
 
 // ══════════════════════════════════════
 //  COURSE SIDEBAR NAV INJECTOR
@@ -937,268 +1550,4 @@ function initCourseSidebar() {
             }
         });
     }
-}
-
-// ══════════════════════════════════════
-//  RANDOMISE BUTTONS INJECTOR
-// ══════════════════════════════════════
-function injectRandomiseButtons() {
-    // Find all reset buttons on the page
-    const resetBtns = document.querySelectorAll('.reset-btn');
-
-    resetBtns.forEach(resetBtn => {
-        // Prevent duplicate buttons if the script runs twice
-        if (resetBtn.previousElementSibling && resetBtn.previousElementSibling.classList.contains('random-btn')) return;
-
-        // Look at what the Reset button does to figure out which section we are in
-        const onclickText = resetBtn.getAttribute('onclick') || '';
-        let randomizeLogic = null;
-
-        // Map the correct data array and reset function to the button
-        if (onclickText.includes('resetMCQ') && typeof mcqData !== 'undefined') {
-            randomizeLogic = () => { mcqData.sort(() => Math.random() - 0.5); resetMCQ(); };
-        } else if (onclickText.includes('resetMatch') && typeof matchData !== 'undefined') {
-            randomizeLogic = () => { matchData.sort(() => Math.random() - 0.5); resetMatch(); };
-        } else if (onclickText.includes('resetFIB') && typeof fibData !== 'undefined') {
-            randomizeLogic = () => { fibData.sort(() => Math.random() - 0.5); resetFIB(); };
-        } else if (onclickText.includes('resetFlashcards') && typeof flashcards !== 'undefined') {
-            randomizeLogic = () => { flashcards.sort(() => Math.random() - 0.5); resetFlashcards(); };
-        } else if (onclickText.includes('resetTF') && typeof tfData !== 'undefined') {
-            randomizeLogic = () => { tfData.sort(() => Math.random() - 0.5); resetTF(); };
-        }
-
-        // If we found a valid quiz section, inject the new button
-        if (randomizeLogic) {
-            const rndBtn = document.createElement('button');
-            rndBtn.className = 'reset-btn random-btn'; // Reusing your existing reset styling
-            rndBtn.innerHTML = '🔀 RANDOMISE';
-
-            // Adjust the CSS margins so they sit beautifully together on the right
-            rndBtn.style.marginLeft = 'auto';
-            resetBtn.style.marginLeft = '0'; // Let the flexbox gap handle the space
-
-            // Shuffle the data and rebuild the section when clicked
-            rndBtn.addEventListener('click', randomizeLogic);
-
-            // Insert it right before the existing RESET button
-            resetBtn.parentNode.insertBefore(rndBtn, resetBtn);
-        }
-    });
-}
-
-// ══════════════════════════════════════
-//  CATEGORISATION INJECTOR & LOGIC
-// ══════════════════════════════════════
-let active = null;
-
-function initCategorisation() {
-    if (typeof categoryData === 'undefined') return;
-
-    const navBar = document.querySelector('.tab-bar');
-    const mainArea = document.querySelector('main');
-    if (!navBar || !mainArea || document.getElementById('tab-categorise')) return;
-
-    const tabBtn = document.createElement('button');
-    tabBtn.className = 'tab-btn';
-    tabBtn.innerHTML = '🗂️ Categorise';
-    tabBtn.onclick = function () { switchTab('categorise', this); };
-    navBar.appendChild(tabBtn);
-
-    const tabPanel = document.createElement('section');
-    tabPanel.id = 'tab-categorise';
-    tabPanel.className = 'tab-panel';
-    tabPanel.innerHTML = `
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;">
-            <div>
-                <h2 class="section-title">${categoryData.title}</h2>
-                <p class="section-sub" id="catHint">Click an item to select it, then click a box to place it.</p>
-            </div>
-            <button class="reset-btn" onclick="buildCategorisationUI()">↺ RESET</button>
-        </div>
-        <div class="cat-progress" id="catProgress"></div>
-        <div id="catCanvas" class="cat-canvas"></div>
-    `;
-    mainArea.appendChild(tabPanel);
-    buildCategorisationUI();
-}
-
-function catHint(text, highlight) {
-    const el = document.getElementById('catHint');
-    if (!el) return;
-    el.textContent = text;
-    el.classList.toggle('highlight', !!highlight);
-}
-
-function setCatReady(on) {
-    document.querySelectorAll('.cat-zone').forEach(z => z.classList.toggle('ready', on));
-    const pool = document.getElementById('catPool');
-    if (pool) pool.classList.toggle('ready', on);
-}
-
-function catTicker() {
-    const pool = document.getElementById('catPool');
-    const btn = document.getElementById('catCheckBtn');
-    const pt = document.getElementById('catProgress');
-    if (!pool || !btn) return;
-
-    const remaining = pool.querySelectorAll('.cat-item').length;
-    const total = document.querySelectorAll('.cat-item').length;
-
-    if (pt) {
-        pt.textContent = remaining === 0
-            ? 'All placed — check your answers when ready!'
-            : `${remaining} of ${total} items left`;
-    }
-
-    btn.style.display = remaining === 0 ? 'inline-block' : 'none';
-
-    if (remaining > 0) {
-        document.querySelectorAll('.cat-item').forEach(i => i.classList.remove('wrong'));
-    }
-    if (remaining === 0 && !active) {
-        catHint("All placed — hit 'Check answers' when ready.");
-    }
-}
-
-function makeCatItem(item) {
-    const el = document.createElement('div');
-    el.className = 'cat-item';
-    el.textContent = item.text;
-    el.dataset.target = item.target;
-
-    el.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (el.classList.contains('correct')) return;
-
-        const wasSelected = el.classList.contains('selected');
-        document.querySelectorAll('.cat-item').forEach(i => i.classList.remove('selected'));
-
-        if (wasSelected) {
-            active = null;
-            setCatReady(false);
-            catHint('Click an item to select it, then click a box to place it.');
-        } else {
-            active = el;
-            el.classList.add('selected');
-            setCatReady(true);
-            catHint('Now click a category box — or click the item again to deselect.', true);
-        }
-    });
-
-    return el;
-}
-
-function placeCatItem(dest) {
-    if (!active) return;
-    active.classList.remove('selected');
-    dest.appendChild(active);
-    active.classList.remove('cat-popin');
-    void active.offsetWidth;
-    active.classList.add('cat-popin');
-    active = null;
-    setCatReady(false);
-    catHint('Nice — keep going! Click another item to sort it.');
-    catTicker();
-}
-
-function buildCategorisationUI() {
-    const canvas = document.getElementById('catCanvas');
-    if (!canvas) return;
-    active = null;
-    canvas.innerHTML = '';
-
-    // Zones
-    const zonesWrap = document.createElement('div');
-    zonesWrap.className = 'cat-zones';
-
-    categoryData.categories.forEach(cat => {
-        const zone = document.createElement('div');
-        zone.className = 'cat-zone';
-        zone.dataset.category = cat;
-
-        const title = document.createElement('div');
-        title.className = 'cat-zone-title';
-        title.textContent = cat;
-
-        const items = document.createElement('div');
-        items.className = 'cat-zone-items';
-
-        zone.appendChild(title);
-        zone.appendChild(items);
-        zone.addEventListener('click', () => placeCatItem(items));
-        zonesWrap.appendChild(zone);
-    });
-
-    canvas.appendChild(zonesWrap);
-
-    // Pool
-    const poolLabel = document.createElement('p');
-    poolLabel.className = 'cat-pool-label';
-    poolLabel.textContent = 'Items to sort';
-    canvas.appendChild(poolLabel);
-
-    const pool = document.createElement('div');
-    pool.className = 'cat-pool';
-    pool.id = 'catPool';
-
-    [...categoryData.items].sort(() => Math.random() - 0.5).forEach(item => {
-        pool.appendChild(makeCatItem(item));
-    });
-
-    pool.addEventListener('click', () => {
-        if (!active) return;
-        pool.appendChild(active);
-        active.classList.remove('selected', 'cat-popin');
-        active = null;
-        setCatReady(false);
-        catHint('Moved back. Click an item to select it, then click a box.');
-        catTicker();
-    });
-
-    canvas.appendChild(pool);
-
-    // Check button
-    const actionWrap = document.createElement('div');
-    actionWrap.className = 'cat-action';
-
-    const btn = document.createElement('button');
-    btn.id = 'catCheckBtn';
-    btn.className = 'fc-btn';
-    btn.style.display = 'none';
-    btn.textContent = '✓ Check answers';
-
-    btn.addEventListener('click', () => {
-        let correct = 0, total = 0;
-
-        document.querySelectorAll('.cat-zone-items .cat-item').forEach(item => {
-            const zone = item.closest('.cat-zone');
-            if (!zone) return;
-            total++;
-            const ok = zone.dataset.category === item.dataset.target;
-            item.classList.toggle('correct', ok);
-            item.classList.toggle('wrong', !ok);
-            if (!ok) {
-                item.classList.remove('shake');
-                void item.offsetWidth;
-                item.classList.add('shake');
-            }
-            if (ok) correct++;
-        });
-
-        if (correct === total) {
-            btn.textContent = 'Perfect score! ✨';
-            btn.disabled = true;
-            catHint('Excellent — all correct!');
-        } else {
-            const w = total - correct;
-            btn.textContent = 'Try again';
-            catHint(`${w} item${w > 1 ? 's are' : ' is'} wrong — move ${w > 1 ? 'them' : 'it'} and try again.`, true);
-        }
-    });
-
-    actionWrap.appendChild(btn);
-    canvas.appendChild(actionWrap);
-
-    catHint('Click an item to select it, then click a box to place it.');
-    catTicker();
 }

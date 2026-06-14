@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1.1 The Challenge of Natural Hazards – Interactive Study Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <div class="badge">AQA GCSE Geography — Paper 1: Living with the Physical Environment</div>
+      <h1>1.1 The Challenge of Natural Hazards</h1>
+      <p>Interactive revision guide · Tectonic hazards, tropical storms, climate change &amp; full exam practice</p>
+    </div>
+    <a href="index.html" class="home-link">← 🏡 Home</a>
+  </header>
+
+  <nav class="tab-bar" id="tabBar">
+    <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+    <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+    <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+    <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+    <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+    <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+    <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+    <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+    <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
+  </nav>
+
+  <main>
+    <div class="tab-panel active" id="tab-learn">
+      <h2 class="section-title">Key Learning Topics</h2>
+      <p class="section-sub">Click any card to expand detailed notes.</p>
+      <div class="topic-grid" id="topicGrid"></div>
+    </div>
+    <div class="tab-panel" id="tab-mcq">
+      <h2 class="section-title">Multiple Choice Questions</h2>
+      <p class="section-sub">Select an answer to reveal instant feedback.</p>
+      <div class="score-bar">
+        <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+        <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+        <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+      </div>
+      <div class="quiz-wrap" id="mcqWrap"></div>
+    </div>
+    <div class="tab-panel" id="tab-matching">
+      <h2 class="section-title">Matching Activity</h2>
+      <p class="section-sub">Click a term on the left, then click the matching definition on the right.</p>
+      <div style="margin-bottom:16px">
+        <div class="score-bar">
+          <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+          <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+          <button class="reset-btn" onclick="resetMatch()">RESET</button>
+        </div>
+      </div>
+      <div class="match-grid">
+        <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+        <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-fib">
+      <h2 class="section-title">Fill in the Blanks</h2>
+      <p class="section-sub">Click each dropdown and choose the correct word. Wrong answers reset — try again!</p>
+      <div class="score-bar">
+        <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+        <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+        <button class="reset-btn" onclick="resetFIB()">RESET</button>
+      </div>
+      <div class="fib-wrap" id="fibWrap"></div>
+    </div>
+    <div class="tab-panel" id="tab-misconceptions">
+      <h2 class="section-title">Common Misconceptions</h2>
+      <p class="section-sub">What students often think — and what examiners actually want.</p>
+      <div class="misc-list" id="miscList"></div>
+    </div>
+    <div class="tab-panel" id="tab-examtips">
+      <h2 class="section-title">Exam Questions &amp; Tips</h2>
+      <p class="section-sub">Most repeated question types and mark-scheme structures from real papers.</p>
+      <div class="tips-grid" id="tipsGrid"></div>
+    </div>
+    <div class="tab-panel" id="tab-flashcards">
+      <h2 class="section-title">Flashcards</h2>
+      <p class="section-sub">Test yourself! Flip the card and rate your knowledge. Review your weak areas at the end.</p>
+      <div class="fc-container">
+        <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+          <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+          <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+          <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
+          <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+        </div>
+        <div id="fcActiveArea">
+          <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+          <div class="flashcard" id="flashcard" onclick="flipCard()">
+            <div class="fc-inner">
+              <div class="fc-front"><div class="fc-label">KEY TERM</div><div class="fc-term" id="fcTerm"></div></div>
+              <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
+            </div>
+          </div>
+          <p class="fc-hint">👆 Click card to flip</p>
+          <div class="fc-nav" id="fcNavDefault">
+            <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+            <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+            <button class="fc-btn" onclick="nextCard()">Next →</button>
+          </div>
+          <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+            <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+            <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
+          </div>
+        </div>
+        <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
+          <h3>Session Complete! 🎉</h3>
+          <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+          <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+            <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+            <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-truefalse">
+      <h2 class="section-title">True or False?</h2>
+      <p class="section-sub">Test your knowledge with these statements.</p>
+      <div class="score-bar">
+        <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+        <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+        <button class="reset-btn" onclick="resetTF()">RESET</button>
+      </div>
+      <div class="tf-wrap" id="tfWrap"></div>
+    </div>
+    <div class="tab-panel" id="tab-exampractice">
+      <h2 class="section-title">Exam Practice Questions</h2>
+      <p class="section-sub">Full exam questions with case studies. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong> for each question.</p>
+      <div class="ep-list" id="epList"></div>
+    </div>
+  </main>
+
+<script>
+const topics = [
+  {
+    title: "What are Natural Hazards?",
+    tag: "Core Concept",
+    content: `<p>A <strong>natural hazard</strong> is a physical event (such as an earthquake, volcano or tropical storm) that has the <strong>potential to cause loss of life, injury or damage to property and the environment</strong>.</p>
+<p>Not all natural events are hazards — a volcanic eruption in an uninhabited area is a natural event, not a hazard. It only becomes a hazard when it threatens people.</p>
+<ul>
+  <li><strong>Tectonic hazards:</strong> earthquakes and volcanoes caused by plate movement.</li>
+  <li><strong>Atmospheric hazards:</strong> tropical storms, droughts, extreme weather.</li>
+  <li><strong>Geomorphological hazards:</strong> flooding, landslides.</li>
+</ul>
+<p><strong>Factors increasing hazard risk:</strong></p>
+<ul>
+  <li><strong>Population growth</strong> — more people living in hazard-prone areas.</li>
+  <li><strong>Climate change</strong> — intensifying storms and flooding.</li>
+  <li><strong>Deforestation</strong> — increases flood and landslide risk.</li>
+  <li><strong>Poverty</strong> — LICs cannot afford protection or preparation.</li>
+</ul>`
+  },
+  {
+    title: "Structure of the Earth &amp; Plate Tectonics",
+    tag: "Core Concept",
+    content: `<p>The Earth has four layers:</p>
+<ul>
+  <li><strong>Inner core</strong> — solid iron and nickel, extremely hot (~5000°C).</li>
+  <li><strong>Outer core</strong> — liquid iron and nickel.</li>
+  <li><strong>Mantle</strong> — semi-molten rock (magma); convection currents move here.</li>
+  <li><strong>Crust</strong> — thin, solid outer layer split into tectonic plates.</li>
+</ul>
+<p><strong>Two types of crust:</strong></p>
+<ul>
+  <li><strong>Oceanic:</strong> thin (~7 km), younger, denser (basalt).</li>
+  <li><strong>Continental:</strong> thick (~35 km), older, less dense (granite).</li>
+</ul>
+<p><strong>Why do plates move?</strong></p>
+<ul>
+  <li><strong>Convection currents</strong> in the mantle — hot magma rises, spreads, cools, sinks, creating circular movement.</li>
+  <li><strong>Ridge push</strong> — new rock at mid-ocean ridges pushes plates apart.</li>
+  <li><strong>Slab pull</strong> — dense oceanic crust sinks at subduction zones, pulling the plate behind it.</li>
+</ul>
+<div class="formula-box">
+  Plates move at approximately 2.5 cm per year — about the same rate as fingernails grow.
+</div>`
+  },
+  {
+    title: "Plate Margins &amp; Tectonic Hazards",
+    tag: "Key Theory",
+    content: `<p>Tectonic hazards occur where plates meet. There are three types of plate margin:</p>
+<div class="two-col">
+  <div>
+    <div class="col-head">CONSTRUCTIVE MARGIN</div>
+    <div class="pro-item">Plates move <strong>apart</strong>. Magma rises to fill the gap, forming new crust.</div>
+    <div class="pro-item">Shield volcanoes form — runny lava, gentle eruptions (e.g. Iceland, Mid-Atlantic Ridge).</div>
+    <div class="pro-item">Earthquakes tend to be small magnitude.</div>
+  </div>
+  <div>
+    <div class="col-head">DESTRUCTIVE MARGIN</div>
+    <div class="con-item">Plates move <strong>together</strong>. Dense oceanic plate subducts under continental plate.</div>
+    <div class="con-item">Composite volcanoes form — thick silica-rich magma, explosive eruptions (e.g. Pacific Ring of Fire).</div>
+    <div class="con-item">Violent earthquakes as pressure builds and releases.</div>
+  </div>
+</div>
+<p><strong>Conservative margin:</strong> Plates slide <strong>past</strong> each other. No magma — no volcanoes. But friction causes earthquakes (e.g. San Andreas Fault, California).</p>
+<div class="case-study-box">
+  <h4>Example: Ring of Fire</h4>
+  <p>A belt of destructive margins around the Pacific Ocean where ~90% of the world's earthquakes occur and many composite volcanoes are found (e.g. Mt St Helens, USA; Pinatubo, Philippines).</p>
+</div>`
+  },
+  {
+    title: "Earthquake Case Studies: Nepal vs Japan",
+    tag: "Case Study",
+    content: `<p>Comparing a <strong>LIC (Nepal)</strong> and a <strong>HIC (Japan)</strong> earthquake illustrates why wealth affects impact and response.</p>
+<div class="case-study-box">
+  <h4>Nepal Earthquake — April 2015 (Magnitude 7.8)</h4>
+  <p><strong>Primary effects:</strong> 9,000 deaths; 23,000 injured; 500,000+ homes destroyed; Dharahara Tower collapsed; 26 hospitals and 50% of schools destroyed.</p>
+  <p><strong>Secondary effects:</strong> Avalanche on Everest (19 deaths); loss of tourism income (8.9% of GDP); food shortages as rice seed stores collapsed.</p>
+  <p><strong>Immediate responses:</strong> International aid requested; UK DEC raised $126 million; Red Cross provided tents for 225,000 people; UN/WHO distributed medical supplies.</p>
+  <p><strong>Long-term responses:</strong> Rebuilding; World Heritage Sites reopened June 2015; longer climbing season introduced.</p>
+</div>
+<div class="case-study-box">
+  <h4>Kamaishi, Japan — December 2012 (Magnitude 7.3)</h4>
+  <p><strong>Primary effects:</strong> Only 2 deaths; 14 injured; minor pipework and roof damage.</p>
+  <p><strong>Secondary effects:</strong> Small 1-metre tsunami; sandbags knocked over; one elderly man sailed out to sea and died.</p>
+  <p><strong>Immediate responses:</strong> Plumber and carpenter called locally; search party for missing man.</p>
+</div>
+<p><strong>Key conclusion:</strong> LICs suffer more deaths and damage because they lack earthquake-resistant buildings, emergency services, and resources to respond effectively.</p>`
+  },
+  {
+    title: "Managing Tectonic Hazards",
+    tag: "Key Theory",
+    content: `<p>Responses to tectonic hazards can be divided into <strong>monitoring, prediction, protection</strong> and <strong>planning</strong>, as well as <strong>immediate</strong> and <strong>long-term</strong> responses.</p>
+<div class="two-col">
+  <div>
+    <div class="col-head">MONITORING &amp; PREDICTION</div>
+    <div class="pro-item"><strong>Seismometers</strong> detect earth movement and can warn of earthquakes.</div>
+    <div class="pro-item"><strong>Volcanic gases</strong> (e.g. sulphur dioxide) increase before eruptions, allowing evacuation.</div>
+    <div class="pro-item">GPS sensors track ground deformation before eruptions.</div>
+  </div>
+  <div>
+    <div class="col-head">PROTECTION &amp; PLANNING</div>
+    <div class="pro-item"><strong>Earthquake-resistant buildings</strong> — cross-bracing, deep foundations that absorb movement.</div>
+    <div class="pro-item"><strong>Automatic shut-offs</strong> for gas and electricity reduce fire risk.</div>
+    <div class="pro-item"><strong>Evacuation drills</strong> and planned routes save lives.</div>
+    <div class="pro-item">Avoid building in high-risk areas (land-use zoning).</div>
+  </div>
+</div>
+<div class="two-col">
+  <div>
+    <div class="col-head">IMMEDIATE RESPONSES</div>
+    <div class="pro-item">Issue warnings; search and rescue; treat injured; provide food/water/shelter; recover bodies; extinguish fires.</div>
+  </div>
+  <div>
+    <div class="col-head">LONG-TERM RESPONSES</div>
+    <div class="pro-item">Rebuild infrastructure; improve building regulations; restore utilities; resettle locals; develop economy; install monitoring technology.</div>
+  </div>
+</div>`
+  },
+  {
+    title: "Tropical Storms — Formation &amp; Distribution",
+    tag: "Core Concept",
+    content: `<p>Tropical storms (called <strong>hurricanes, typhoons</strong> or <strong>cyclones</strong> depending on location) are intense low-pressure weather systems with strong winds and heavy rain.</p>
+<p><strong>Conditions needed for formation:</strong></p>
+<ul>
+  <li>Ocean temperature above <strong>27°C</strong> to provide heat and moisture.</li>
+  <li>Located between <strong>5° and 30° north and south of the equator</strong>.</li>
+  <li>Occur in <strong>late summer/autumn</strong> when sea temperatures are highest.</li>
+</ul>
+<p><strong>Sequence of formation:</strong></p>
+<ol>
+  <li>Air heated above warm tropical oceans rises under low pressure.</li>
+  <li>Strong winds form as rising air draws in more air and moisture.</li>
+  <li>Air spins due to the <strong>Coriolis effect</strong> (Earth's rotation).</li>
+  <li>A calm <strong>eye</strong> forms at the centre — cold air sinks here, so it is clear and dry.</li>
+  <li>Heat released as air cools powers the storm — a positive feedback loop.</li>
+  <li>Storm loses energy when it reaches land — loses heat and moisture source.</li>
+</ol>
+<div class="case-study-box">
+  <h4>Global Distribution</h4>
+  <p>Tropical storms occur in the Caribbean (hurricanes), Western Pacific (typhoons), Bay of Bengal and Indian Ocean (cyclones). They track westward initially, curving poleward due to the Coriolis effect.</p>
+</div>`
+  },
+  {
+    title: "Typhoon Haiyan — Philippines, November 2013",
+    tag: "Case Study",
+    content: `<div class="case-study-box">
+  <h4>Case Study: Typhoon Haiyan, Philippines, 2013</h4>
+  <p><strong>Wind speed:</strong> up to 314 km/hr (record at landfall). <strong>Storm surge:</strong> 5 metres.</p>
+</div>
+<div class="two-col">
+  <div>
+    <div class="col-head">PRIMARY EFFECTS</div>
+    <div class="con-item">At least 6,340 people killed.</div>
+    <div class="con-item">90% of buildings in Tacloban destroyed.</div>
+    <div class="con-item">Habitats and crops destroyed.</div>
+    <div class="con-item">Airports and roads unusable.</div>
+  </div>
+  <div>
+    <div class="col-head">SECONDARY EFFECTS</div>
+    <div class="con-item">Over $8 billion of damage; 1.9 million homeless, 6 million displaced.</div>
+    <div class="con-item">Water supplies polluted — disease risk.</div>
+    <div class="con-item">Looting and breakdown of public order.</div>
+    <div class="con-item">1.1 million tonnes of crops destroyed — 2.5 million needing food aid.</div>
+  </div>
+</div>
+<div class="two-col">
+  <div>
+    <div class="col-head">IMMEDIATE RESPONSES</div>
+    <div class="pro-item">Slow government response initially; military evacuated some people; armed police guarded supplies from looting; UK and US sent navy ships; charities provided shelter and medical aid.</div>
+  </div>
+  <div>
+    <div class="col-head">LONG-TERM RESPONSES</div>
+    <div class="pro-item">UN appeal raised $788 million; grants for new fishing boats; 'Cash for Work' schemes by charities; no-build zones established; improved warning systems installed.</div>
+  </div>
+</div>`
+  },
+  {
+    title: "Extreme Weather in the UK — Storm Desmond 2015",
+    tag: "Case Study",
+    content: `<p>The UK experiences a range of extreme weather: flooding, drought, heat waves, snow and ice, hail, wind and thunderstorms. <strong>Climate change is making UK weather more extreme</strong> — since 1980 average temperature has risen by 1°C and winter rainfall has increased.</p>
+<div class="case-study-box">
+  <h4>Case Study: Storm Desmond, 4–5 December 2015</h4>
+  <p>The 4th named storm of winter 2015–16. Particularly affected <strong>Cumbria</strong>. A record <strong>341.4 mm of rainfall in 24 hours</strong> was recorded.</p>
+  <p><strong>Social effects:</strong> 3 deaths; 19,000 homes flooded across Northern England; 100,000 homes affected by power cuts; 40+ schools in Cumbria closed; hospital appointments cancelled.</p>
+  <p><strong>Economic effects:</strong> Combined damage from Storms Desmond, Eva and Frank = £3 billion; roads and bridges damaged; rail route between England and Scotland closed.</p>
+  <p><strong>Environmental effects:</strong> Waterfall at Malham Cove (UK's tallest) flowed for the first time in living memory; millions of tonnes of silt transported and deposited on floodplains.</p>
+  <p><strong>Management:</strong> Met Office and Environment Agency issued warnings; soldiers took supplies to remote areas; government gave £50 million for repairs; Cumbria Flood Recovery Fund helped uninsured families.</p>
+</div>`
+  },
+  {
+    title: "Climate Change — Evidence &amp; Causes",
+    tag: "Core Concept",
+    content: `<p>Global temperatures have been rising since industrialisation, but climate has always changed naturally. The <strong>rate of change since the 1970s is unprecedented</strong> and linked to human activity.</p>
+<p><strong>Evidence for climate change:</strong></p>
+<ul>
+  <li><strong>Ice cores</strong> — Antarctic ice cores show CO₂ and temperature changes over 400,000 years.</li>
+  <li><strong>Tree rings</strong> — wider rings in warm, wet years; reliable evidence for 10,000 years.</li>
+  <li><strong>Pollen analysis</strong> — preserved pollen reveals past vegetation and climate conditions.</li>
+  <li><strong>Temperature records</strong> — Met Office records since 1914; historical records (harvests, weather reports) from 1850s.</li>
+  <li><strong>Ocean sediment cores</strong> — organism remains traceable back 5 million years.</li>
+</ul>
+<div class="two-col">
+  <div>
+    <div class="col-head">NATURAL CAUSES</div>
+    <div class="pro-item"><strong>Orbital changes</strong> — Earth's elliptical orbit changes solar energy received.</div>
+    <div class="pro-item"><strong>Solar output</strong> — sunspot cycles every 11 years.</div>
+    <div class="pro-item"><strong>Volcanic activity</strong> — aerosols reflect sunlight, temporarily reducing temperatures.</div>
+  </div>
+  <div>
+    <div class="col-head">HUMAN CAUSES</div>
+    <div class="con-item"><strong>Fossil fuels</strong> — burning releases CO₂ (50% of greenhouse gases).</div>
+    <div class="con-item"><strong>Agriculture</strong> — cattle and rice farming produce methane (~20% of GHGs); fertilisers release nitrous oxide.</div>
+    <div class="con-item"><strong>Deforestation</strong> — releases stored CO₂ and reduces photosynthesis.</div>
+  </div>
+</div>`
+  },
+  {
+    title: "Managing Climate Change — Mitigation &amp; Adaptation",
+    tag: "Key Theory",
+    content: `<p>Responses to climate change fall into two categories:</p>
+<ul>
+  <li><strong>Mitigation</strong> — reducing the causes (e.g. cutting emissions).</li>
+  <li><strong>Adaptation</strong> — adjusting to the effects already happening.</li>
+</ul>
+<div class="two-col">
+  <div>
+    <div class="col-head">MITIGATION STRATEGIES</div>
+    <div class="pro-item"><strong>Alternative/renewable energy</strong> — wind, solar, HEP. Lasts longer but expensive and less reliable than fossil fuels.</div>
+    <div class="pro-item"><strong>Planting trees</strong> — absorbs CO₂; could increase carbon storage by 28%. Land may be limited.</div>
+    <div class="pro-item"><strong>Carbon capture</strong> — takes CO₂ from emissions and stores it underground under cap rock. Can capture up to 90% of CO₂ but very expensive; unclear if carbon stays permanently.</div>
+    <div class="pro-item"><strong>International agreements</strong> — Paris Agreement (2015): legally binding targets. LICs argue they need to industrialise first.</div>
+  </div>
+  <div>
+    <div class="col-head">ADAPTATION STRATEGIES</div>
+    <div class="pro-item"><strong>Agricultural changes</strong> — new crop varieties suited to changed rainfall and temperature patterns. Hard for poor farmers.</div>
+    <div class="pro-item"><strong>Water management</strong> — efficient devices, desalination plants. Increasing risk of political instability over water.</div>
+    <div class="pro-item"><strong>Reducing risk from sea level rise</strong> — flood barriers (Thames Barrier), mangrove restoration, raising buildings on stilts. Expensive; possibly only short-term.</div>
+  </div>
+</div>`
+  }
+];
+
+const mcqData = [
+  {
+    q: "Which type of plate margin produces composite volcanoes with explosive eruptions?",
+    opts: ["Constructive margin", "Conservative margin", "Destructive margin", "Collision margin"],
+    ans: 2,
+    explain: "Correct: C. At destructive margins, the oceanic plate subducts under the continental plate. The resulting friction and heat create thick, silica-rich magma that erupts explosively, forming composite (or stratovolcano) volcanoes. A is wrong — constructive margins form shield volcanoes with runny lava. B is wrong — conservative margins produce no volcanoes. D is a distractor — this refers to two continental plates colliding, which forms mountains, not volcanoes."
+  },
+  {
+    q: "The Nepal earthquake (April 2015) had a magnitude of 7.8 and killed approximately how many people?",
+    opts: ["2,000", "9,000", "25,000", "50,000"],
+    ans: 1,
+    explain: "Correct: B. The Nepal earthquake killed approximately 9,000 people. A (2,000) is far too low. C (25,000) and D (50,000) are too high. The death toll was devastating partly because Nepal is an LIC with poor building standards and limited emergency response capacity."
+  },
+  {
+    q: "At which type of plate margin do plates move past each other, causing earthquakes but no volcanic activity?",
+    opts: ["Destructive margin", "Constructive margin", "Conservative margin", "Subduction zone"],
+    ans: 2,
+    explain: "Correct: C. Conservative margins are where plates slide horizontally past each other. There is no subduction and no magma, so no volcanoes form. However, friction causes plates to lock and then release suddenly, producing earthquakes. A (destructive) and D (subduction zone) both produce volcanoes. B (constructive) produces shield volcanoes."
+  },
+  {
+    q: "What minimum ocean surface temperature is needed for a tropical storm to form?",
+    opts: ["20°C", "25°C", "27°C", "30°C"],
+    ans: 2,
+    explain: "Correct: C. An ocean surface temperature of at least 27°C is required. This is warm enough to evaporate large amounts of water vapour, which rises and powers the storm. A (20°C) and B (25°C) are too cool. D (30°C) is warm enough but not the threshold minimum."
+  },
+  {
+    q: "Storm Desmond (December 2015) particularly affected which region of England?",
+    opts: ["Yorkshire", "Cornwall", "Cumbria", "Kent"],
+    ans: 2,
+    explain: "Correct: C. Storm Desmond most severely affected Cumbria in northwest England, where 341.4 mm of rainfall was recorded in just 24 hours. Yorkshire (A) experienced some effects but was not the primary area. Cornwall (B) and Kent (D) were not significantly affected by this storm."
+  },
+  {
+    q: "Which human activity accounts for approximately 50% of greenhouse gas emissions?",
+    opts: ["Agriculture", "Deforestation", "Burning fossil fuels", "Cement production"],
+    ans: 2,
+    explain: "Correct: C. Burning fossil fuels (coal, oil, gas) releases carbon dioxide and accounts for around 50% of greenhouse gas emissions. Agriculture (A) contributes about 20%, largely through methane from livestock and rice farming. Deforestation (B) is significant but contributes less. Cement production (D) is a contributor but much smaller than fossil fuels."
+  },
+  {
+    q: "Which evidence method uses gases trapped in ancient layers of compressed snow to reveal past climate?",
+    opts: ["Tree rings", "Pollen analysis", "Ice cores", "Temperature records"],
+    ans: 2,
+    explain: "Correct: C. Ice cores are drilled from ice sheets (e.g. Antarctica), where each annual layer traps gases from the atmosphere at that time. Antarctic cores provide climate data going back 400,000 years. Tree rings (A) show temperature and rainfall but only for 10,000 years. Pollen analysis (B) shows vegetation changes. Temperature records (D) only date back to around the 1850s."
+  },
+  {
+    q: "Typhoon Haiyan (November 2013) made landfall in which country?",
+    opts: ["Japan", "Indonesia", "Philippines", "Vietnam"],
+    ans: 2,
+    explain: "Correct: C. Typhoon Haiyan hit the Philippines in November 2013 with wind speeds of up to 314 km/hr. It devastated Tacloban city. Japan (A) is frequently affected by typhoons but this was not Haiyan's landfall. Indonesia (B) and Vietnam (D) were not Haiyan's primary impact zone, though Vietnam was affected after the Philippines."
+  },
+  {
+    q: "Carbon capture technology can reduce the capture of carbon dioxide from emission sources by up to what percentage?",
+    opts: ["50%", "70%", "80%", "90%"],
+    ans: 3,
+    explain: "Correct: D. Carbon capture and storage (CCS) technology can potentially capture up to 90% of CO₂ from emission sources, storing it underground under cap rock. However, it is very expensive and it is unclear whether the captured carbon would remain stored in the long term. A (50%), B (70%), and C (80%) are all too low."
+  },
+  {
+    q: "Which of the following is a PRIMARY effect of an earthquake?",
+    opts: ["Broken gas pipes causing fire", "Blocked roads hindering emergency services", "Buildings and property destroyed", "Business reduced due to repair costs"],
+    ans: 2,
+    explain: "Correct: C. Primary effects happen immediately as a direct result of the earthquake — buildings collapsing is a direct primary effect. A (fires from broken gas pipes) and B (blocked roads hindering emergency services) are secondary effects that happen as a consequence of the primary damage. D (economic slowdown) is also a secondary effect."
+  },
+  {
+    q: "The Kamaishi earthquake in Japan (December 2012, magnitude 7.3) resulted in how many deaths?",
+    opts: ["0", "2", "14", "26"],
+    ans: 1,
+    explain: "Correct: B. Only 2 people died in the Kamaishi earthquake, compared to 9,000 in the Nepal earthquake of similar magnitude. This shows how HICs like Japan, with earthquake-resistant buildings, trained emergency services and effective warning systems, can minimise deaths. 14 (C) was the number injured, not killed. 26 (D) was the number of hospitals damaged in Nepal."
+  },
+  {
+    q: "Which of the following is an adaptation strategy for climate change (rather than mitigation)?",
+    opts: ["Building wind farms to generate electricity", "Planting forests to absorb carbon dioxide", "Constructing the Thames Flood Barrier to protect against sea level rise", "Signing international agreements to reduce emissions"],
+    ans: 2,
+    explain: "Correct: C. Adaptation means adjusting to the effects of climate change that are already happening or unavoidable. The Thames Flood Barrier protects London from flooding linked to sea level rise — it does not reduce emissions. A (wind farms) and D (international agreements) are mitigation strategies — they reduce the causes of climate change. B (planting trees) is also mitigation — it removes CO₂."
+  }
+];
+
+const matchData = [
+  { term: "Constructive margin", def: "Plate boundary where two plates move apart; magma rises to form new crust and shield volcanoes." },
+  { term: "Destructive margin", def: "Plate boundary where oceanic plate subducts under continental plate, forming composite volcanoes and violent earthquakes." },
+  { term: "Conservative margin", def: "Plate boundary where plates slide past each other; causes earthquakes but no volcanic activity." },
+  { term: "Composite volcano", def: "Steep-sided volcano with alternating layers of ash and lava; formed at destructive margins; erupts explosively." },
+  { term: "Shield volcano", def: "Gently sloping, wide volcano formed from runny low-silica lava at constructive margins." },
+  { term: "Primary effects", def: "Impacts that happen immediately and directly as a result of a natural hazard (e.g. buildings collapsing)." },
+  { term: "Secondary effects", def: "Impacts that occur as a consequence of primary effects, often slightly later (e.g. fires from broken gas pipes)." },
+  { term: "Coriolis effect", def: "The deflection of moving air caused by Earth's rotation, which makes tropical storms spin." },
+  { term: "Mitigation", def: "Strategies that aim to reduce the causes of climate change, such as using renewable energy or planting trees." },
+  { term: "Adaptation", def: "Strategies that adjust to the effects of climate change that are already happening (e.g. building flood defences)." },
+  { term: "Carbon capture", def: "Technology that removes CO₂ from emission sources and stores it underground under cap rock." },
+  { term: "Storm surge", def: "An abnormal rise in sea level caused by the low pressure and strong winds of a tropical storm pushing water onshore." }
+];
+
+const fibData = [
+  { display: "Tectonic plates move because of _____ currents in the mantle, and also due to ridge push and _____ pull.", blanks: { B1: "convection", B2: "slab" } },
+  { display: "Oceanic crust is _____ and denser than continental crust, which means it _____ at destructive margins.", blanks: { B1: "thinner", B2: "subducts" } },
+  { display: "The Nepal earthquake of April 2015 had a magnitude of _____ and killed approximately _____ people.", blanks: { B1: "7.8", B2: "9,000" } },
+  { display: "Tropical storms form over oceans with a surface temperature above _____ degrees Celsius and occur between _____ and 30 degrees of latitude.", blanks: { B1: "27", B2: "5" } },
+  { display: "In Typhoon Haiyan, wind speeds reached _____ km/hr and the storm surge was _____ metres high.", blanks: { B1: "314", B2: "5" } },
+  { display: "Storm Desmond (2015) dropped _____ mm of rainfall in 24 hours, mainly affecting _____.", blanks: { B1: "341.4", B2: "Cumbria" } },
+  { display: "Burning _____ fuels releases CO₂ which accounts for around _____ % of greenhouse gases.", blanks: { B1: "fossil", B2: "50" } },
+  { display: "_____ cores from Antarctica provide climate data stretching back 400,000 years, while _____ rings give evidence for the last 10,000 years.", blanks: { B1: "Ice", B2: "tree" } },
+  { display: "Carbon capture technology can reduce CO₂ emissions from a source by up to _____%, storing the gas underground under _____ rock.", blanks: { B1: "90", B2: "cap" } },
+  { display: "_____ is the process of reducing the causes of climate change, while _____ involves adjusting to its effects.", blanks: { B1: "Mitigation", B2: "adaptation" } },
+  { display: "At a conservative margin, plates move _____ each other; this creates earthquakes but no _____ activity.", blanks: { B1: "past", B2: "volcanic" } }
+];
+
+const fibWords = [
+  "convection", "slab", "thinner", "subducts", "7.8", "9,000",
+  "27", "5", "314", "5", "341.4", "Cumbria", "fossil", "50",
+  "Ice", "tree", "90", "cap", "Mitigation", "adaptation", "past", "volcanic",
+  "conduction", "ridge", "thicker", "melts", "8.2", "6,000",
+  "25", "10", "250", "3", "200", "Yorkshire", "renewable", "20",
+  "Sediment", "pollen", "80", "permeable", "Adaptation", "mitigation", "against", "seismic"
+];
+
+const tfData = [
+  {
+    statement: "Oceanic crust is older and thicker than continental crust.",
+    answer: false,
+    explanation: "FALSE. Oceanic crust is actually younger and thinner (around 7 km) than continental crust. However, it is denser than continental crust (made of basalt), which is why it sinks (subducts) under continental crust at destructive margins. Continental crust is older and thicker (around 35 km) but less dense."
+  },
+  {
+    statement: "Conservative plate margins produce earthquakes but no volcanic activity.",
+    answer: true,
+    explanation: "TRUE. At conservative margins, plates slide horizontally past each other. There is no subduction and no melting of rock, so no magma forms and no volcanoes develop. However, the friction between plates locks them together until pressure is suddenly released, causing earthquakes. The San Andreas Fault in California is a famous example."
+  },
+  {
+    statement: "The 2015 Nepal earthquake caused more deaths than the 2012 Japan earthquake because it had a higher magnitude.",
+    answer: false,
+    explanation: "FALSE. Although Nepal's earthquake (magnitude 7.8) was stronger than Japan's (magnitude 7.3), the key reason for the enormous difference in deaths (9,000 vs 2) is the difference in wealth and preparedness. Japan is an HIC with earthquake-resistant buildings, trained emergency services and effective early warning systems. Nepal is an LIC lacking these resources."
+  },
+  {
+    statement: "Tropical storms lose strength when they move over land.",
+    answer: true,
+    explanation: "TRUE. Tropical storms are powered by heat and moisture from warm ocean water. When they reach land, they lose their energy source — there is no more warm water to evaporate. They therefore weaken rapidly after landfall, with wind speeds decreasing and rainfall reducing over time."
+  },
+  {
+    statement: "Burning fossil fuels is responsible for approximately 20% of global greenhouse gas emissions.",
+    answer: false,
+    explanation: "FALSE. Burning fossil fuels accounts for approximately 50% of global greenhouse gas emissions — it is by far the largest contributor. Agriculture accounts for around 20% (through methane from livestock and rice farming, and nitrous oxide from fertilisers). Deforestation is also a significant contributor."
+  },
+  {
+    statement: "Ice cores from Antarctica can provide climate data stretching back approximately 400,000 years.",
+    answer: true,
+    explanation: "TRUE. Antarctic ice sheets contain annual layers of compressed snow. Gases trapped in these layers tell scientists about past atmospheric composition and temperature. Ice cores have revealed climate changes over approximately 400,000 years, including multiple ice ages and warm periods."
+  },
+  {
+    statement: "Carbon capture and storage technology can eliminate 100% of CO₂ emissions from a power station.",
+    answer: false,
+    explanation: "FALSE. Carbon capture and storage (CCS) can capture up to 90% of CO₂ from emission sources — but not 100%. It is also very expensive, and there are long-term uncertainties about whether the stored carbon will remain underground permanently. It may also discourage investment in renewable energy."
+  },
+  {
+    statement: "The Coriolis effect is responsible for the spinning motion of tropical storms.",
+    answer: true,
+    explanation: "TRUE. The Coriolis effect is the deflection of moving air caused by the Earth's rotation. As air rushes into the low-pressure centre of a tropical storm, the Coriolis effect causes it to spiral (anticlockwise in the Northern Hemisphere, clockwise in the Southern Hemisphere). This creates the characteristic rotating structure of a tropical storm."
+  },
+  {
+    statement: "Mitigation strategies aim to reduce the effects of climate change that are already happening.",
+    answer: false,
+    explanation: "FALSE. This describes adaptation, not mitigation. Mitigation aims to reduce the CAUSES of climate change — for example, switching to renewable energy, planting trees, or signing international emissions agreements. Adaptation means adjusting to the effects of climate change that are already occurring or unavoidable, such as building flood defences or developing drought-resistant crops."
+  },
+  {
+    statement: "Storm Desmond (2015) was the most damaging storm to affect England in 2015-16, with combined damage from Desmond, Eva and Frank totalling £3 billion.",
+    answer: true,
+    explanation: "TRUE. The combined damage from Storms Desmond, Eva and Frank in the winter of 2015-16 was estimated at £3 billion. Storm Desmond alone flooded 19,000 homes across Northern England and cut power to 100,000 homes. The government allocated £50 million for repairs in Cumbria and Lancashire."
+  }
+];
+
+const miscData = [
+  {
+    wrong: "All natural events are natural hazards.",
+    correct: "A natural event only becomes a hazard when it threatens people, property or the environment. A volcanic eruption in an uninhabited area is a natural event, not a hazard. The key word is 'potential to cause damage' — if no people are affected, it is not classified as a hazard. Always link natural events to human impact in exam answers."
+  },
+  {
+    wrong: "Primary effects happen straight after an earthquake and secondary effects happen much later.",
+    correct: "Primary effects are the immediate, direct consequences (e.g. buildings collapsing, people killed). Secondary effects arise as a result of primary effects and can happen hours, days or even weeks later — but the key distinction is that they are caused BY the primary effects, not by the earthquake directly. For example, fires caused by broken gas pipes are secondary."
+  },
+  {
+    wrong: "LICs suffer more from natural hazards simply because they are unlucky and get more earthquakes.",
+    correct: "LICs do not necessarily experience more earthquakes — the distribution of tectonic hazards is the same regardless of wealth. LICs suffer more deaths and damage because they lack earthquake-resistant buildings, trained emergency services, monitoring technology, evacuation plans, and the financial resources to respond and rebuild. This is the 'development gap' in hazard response."
+  },
+  {
+    wrong: "Tropical storms get stronger and stronger once they form.",
+    correct: "Tropical storms can intensify over warm water but they LOSE energy when they move over land or cooler ocean water. When they reach land, they lose their heat and moisture source (warm ocean water), and friction with the land surface causes wind speeds to fall. The intensity of a storm varies throughout its lifecycle."
+  },
+  {
+    wrong: "Mitigation and adaptation mean the same thing in climate change.",
+    correct: "These are very different approaches. Mitigation = reducing the CAUSES of climate change (cutting emissions, planting trees, renewable energy). Adaptation = adjusting to the EFFECTS that are already happening or inevitable (flood defences, drought-resistant crops). Examiners will penalise answers that confuse or conflate these terms."
+  },
+  {
+    wrong: "In a 9-mark 'assess the extent' question, just describing the effects will get full marks.",
+    correct: "A 9-mark 'assess the extent' question requires you to EVALUATE — not just describe. You must consider the relative importance or magnitude of different effects, compare them (e.g. effects on people vs. effects on the environment), and reach a clear overall judgement. Without evaluation and a conclusion, you will be capped at Level 2 (maximum 6 marks)."
+  },
+  {
+    wrong: "Climate change is entirely caused by human activity.",
+    correct: "Climate has always changed naturally due to orbital changes, variations in solar output, and volcanic activity. However, the rate of change since the 1970s is unprecedented and cannot be explained by natural causes alone. The scientific consensus is that human activities (especially burning fossil fuels) are the dominant driver of RECENT climate change. In exam answers, acknowledge both natural and human causes."
+  }
+];
+
+const examTips = [
+  {
+    type: "State / Identify — 1 mark",
+    title: "Give ONE accurate point — no explanation needed",
+    content: `<p>These questions test pure recall. You must give a precise factual point. One word or a short phrase is often enough.</p>
+<p><strong>The Formula:</strong></p>
+<ul>
+  <li><strong>Step 1:</strong> Read the question carefully — it will say "state", "give", "identify" or "name".</li>
+  <li><strong>Step 2:</strong> Give one specific, accurate answer. Do NOT explain — you waste time and get no extra marks.</li>
+</ul>
+<p><strong>❌ Weak Answer:</strong> "Climate change is when the weather gets worse because of humans."</p>
+<p><strong>✅ Strong Answer:</strong> "Solar output variations." (for a natural cause of climate change)</p>
+<p><strong>Sentence Starter:</strong> "One [cause / effect / example] is ..."</p>`,
+    pills: ["K"]
+  },
+  {
+    type: "Explain — 4 marks",
+    title: "Make a point, explain it, develop it — twice",
+    content: `<p>4-mark explain questions require TWO developed points. Each point must have an explanation (a 'because' or 'which means that' link).</p>
+<p><strong>The Formula:</strong></p>
+<ul>
+  <li><strong>Point:</strong> State a relevant fact or cause/effect.</li>
+  <li><strong>Explain:</strong> Link it with 'because', 'which means', 'therefore' or 'as a result'.</li>
+  <li><strong>Develop:</strong> Add a further detail, example or consequence.</li>
+  <li>Repeat for a second point.</li>
+</ul>
+<p><strong>❌ Weak Answer:</strong> "Fossil fuels release CO₂. Agriculture also causes climate change."</p>
+<p><strong>✅ Strong Answer:</strong> "Burning fossil fuels releases carbon dioxide, which is a greenhouse gas that traps solar radiation in the atmosphere, leading to rising global temperatures. In addition, modern farming practices such as raising cattle and growing rice produce methane — a more powerful greenhouse gas than CO₂ — further amplifying the warming effect."</p>
+<p><strong>Sentence Starter:</strong> "[Factor] causes [effect] because ... This means that ..."</p>`,
+    pills: ["K", "app"]
+  },
+  {
+    type: "Assess the extent — 9 marks (+3 SPaG)",
+    title: "Must evaluate AND reach a clear judgement",
+    content: `<p>This is the highest-tariff question on the paper. It rewards Knowledge (AO1), Understanding (AO2), and Evaluation (AO3). SPaG marks are also awarded.</p>
+<p><strong>The Formula:</strong></p>
+<ul>
+  <li><strong>Paragraph 1:</strong> First aspect (e.g. effects on people) — use your case study with specific details.</li>
+  <li><strong>Paragraph 2:</strong> Second aspect (e.g. effects on the environment) — use Figure and/or case study.</li>
+  <li><strong>Paragraph 3:</strong> Further development or contrast — compare LIC vs HIC, primary vs secondary, etc.</li>
+  <li><strong>Conclusion:</strong> State your "overall assessment" — who/what is most affected and why. Use the words "assessment" and "extent".</li>
+</ul>
+<p><strong>Key rules:</strong></p>
+<ul>
+  <li>Always reference the Figure — say "Figure X shows..."</li>
+  <li>Always name a specific case study with data (e.g. "Typhoon Haiyan, Philippines, 2013...").</li>
+  <li>Without a named case study, you cannot access Level 3.</li>
+  <li>Without evaluation, you are capped at Level 2.</li>
+</ul>
+<p><strong>Sentence Starter:</strong> "Overall, it is my assessment that ... to a great/limited extent because ..."</p>`,
+    pills: ["K", "app", "an", "eval"]
+  },
+  {
+    type: "Suggest — 6 marks",
+    title: "Use the Figure AND your own knowledge together",
+    content: `<p>"Suggest" questions ask you to apply geographical understanding to a source (map, photo, graph). You must link what you can see in the figure to geographical processes you have learned.</p>
+<p><strong>The Formula:</strong></p>
+<ul>
+  <li><strong>Step 1:</strong> Identify something specific from the Figure — quote it or describe it precisely.</li>
+  <li><strong>Step 2:</strong> Apply your geographical knowledge to explain what this shows or why it happens.</li>
+  <li><strong>Step 3:</strong> Develop with a further point from own knowledge or another observation from the Figure.</li>
+</ul>
+<p><strong>❌ Weak Answer:</strong> "Iceland has volcanoes because it is on a plate margin." (no Figure reference, too vague)</p>
+<p><strong>✅ Strong Answer:</strong> "Figure 2 shows Iceland sitting directly on the mid-Atlantic ridge, where two plates are separating. As plates pull apart at 2.5 cm per year, magma rises from the mantle to fill the gap, forming shield volcanoes. The friction as plates drift apart also causes earthquakes, which Iceland records in the hundreds annually."</p>
+<p><strong>Sentence Starter:</strong> "Figure X shows/suggests that ... This occurs because ..."</p>`,
+    pills: ["K", "app", "an"]
+  }
+];
+
+const flashcards = [
+  { term: "Natural hazard", def: "A physical event (e.g. earthquake, volcano, tropical storm) that has the potential to cause loss of life, injury or damage to property and the environment." },
+  { term: "Constructive plate margin", def: "Where two plates move apart. Magma rises to fill the gap, forming new oceanic crust and shield volcanoes with runny lava (e.g. Iceland, Mid-Atlantic Ridge)." },
+  { term: "Destructive plate margin", def: "Where oceanic crust subducts under continental crust. Creates composite volcanoes (explosive) and violent earthquakes (e.g. Pacific Ring of Fire)." },
+  { term: "Conservative plate margin", def: "Where two plates slide past each other horizontally. No subduction, no volcanoes. Causes earthquakes due to friction (e.g. San Andreas Fault, California)." },
+  { term: "Primary vs Secondary effects", def: "Primary effects happen immediately as a direct result (e.g. buildings collapse). Secondary effects happen as a consequence of primary effects (e.g. fires from broken gas pipes, disease from contaminated water)." },
+  { term: "Why did the Nepal earthquake (2015) cause more deaths than Japan (2012)?", def: "Nepal is an LIC — poor-quality buildings, limited emergency services, no earthquake-resistant construction, less monitoring technology, and fewer resources to respond. Japan is an HIC with earthquake-resistant buildings, trained services and warning systems." },
+  { term: "Conditions for tropical storm formation", def: "Ocean temperature above 27°C; latitude 5°–30° north or south of equator; late summer/autumn timing when sea temperatures are at their peak." },
+  { term: "The eye of a tropical storm", def: "The calm centre of the storm. Cold air sinks here, so conditions are clear, dry and relatively calm. It is surrounded by the eyewall where the most intense winds and rainfall occur." },
+  { term: "Typhoon Haiyan — key facts", def: "November 2013, Philippines. Wind speeds up to 314 km/hr. Storm surge 5 m. 6,340+ killed. 90% of Tacloban destroyed. $8bn damage. 1.9 million homeless." },
+  { term: "Mitigation vs Adaptation (climate change)", def: "Mitigation = reducing the CAUSES of climate change (e.g. renewable energy, tree planting, international agreements). Adaptation = adjusting to the EFFECTS already happening (e.g. flood barriers, drought-resistant crops, raised buildings)." },
+  { term: "Carbon capture and storage (CCS)", def: "Technology that captures CO₂ from emission sources and stores it underground under cap rock. Can capture up to 90% of CO₂. Very expensive; uncertain long-term effectiveness; may discourage renewable energy development." },
+  { term: "Three methods used to study past climate change", def: "Ice cores (gases trapped in annual ice layers — up to 400,000 years); tree rings (width shows warm/cold, wet/dry years — up to 10,000 years); pollen analysis (preserved pollen reveals past vegetation and climate conditions)." },
+  { term: "Why are LICs more vulnerable to natural hazards?", def: "LICs lack money for earthquake-resistant buildings, monitoring technology, trained emergency services, evacuation planning, warning systems, and resources to rebuild after disaster. They may also rely on subsistence farming, so crop loss has an immediate food security impact." },
+  { term: "Storm Desmond (2015) — key facts", def: "4–5 December 2015. 341.4 mm rainfall in 24 hours. Mainly affected Cumbria. 3 deaths. 19,000 homes flooded. 100,000 homes lost power. Combined damage with Eva and Frank: £3 billion." }
+];
+
+const examQuestions = [
+  {
+    num: "Q1",
+    marks: 1,
+    type: "mcq",
+    caseStudy: "",
+    question: "Which of the following is a SECONDARY effect of a volcanic eruption? [1 mark]",
+    options: [
+      "Lava flows destroying farm land",
+      "People and animals killed by pyroclastic flows",
+      "Volcanic ash disrupting air travel",
+      "Ash breaking down over time to create fertile farmland"
+    ],
+    answer: 3,
+    hint: "Think about which effect happens AFTER the eruption, as a consequence of it — not immediately during it.",
+    starter: "The correct answer is D because...",
+    markScheme: `<div class="marks-section">
+<h5>Answer: D — 1 mark (AO1)</h5>
+<p><strong>D: Ash breaking down over time to create fertile farmland.</strong> This is a secondary effect because it happens long after the eruption, as a consequence of the volcanic material deposited.</p>
+<ul>
+  <li><strong>Why A is wrong:</strong> Lava destroying farmland is a primary effect — it happens immediately during the eruption.</li>
+  <li><strong>Why B is wrong:</strong> Deaths from pyroclastic flows are a primary effect — they happen immediately.</li>
+  <li><strong>Why C is wrong:</strong> Ash disrupting air travel happens very quickly after eruption and is typically classified as a primary effect on infrastructure.</li>
+</ul>
+</div>`,
+    modelAnswer: ""
+  },
+  {
+    num: "Q2",
+    marks: 2,
+    type: "written",
+    caseStudy: "",
+    question: "Give two reasons why LIC countries suffer more deaths from natural hazards than HIC countries. [2 marks]",
+    hint: "Think about the differences in buildings, emergency services, technology and money between wealthy and less wealthy countries.",
+    starter: "One reason is that LIC countries often have... A second reason is...",
+    markScheme: `<div class="marks-section">
+<h5>Mark Allocation — 2 marks (AO1)</h5>
+<p>Award 1 mark for each valid reason. No development required.</p>
+<p><strong>Acceptable answers include:</strong></p>
+<ul>
+  <li>Buildings in LICs are not earthquake/storm resistant so collapse more easily, killing more people.</li>
+  <li>LICs lack money to prepare (e.g. no early warning systems, no evacuation plans).</li>
+  <li>Emergency services in LICs are less trained and less well equipped.</li>
+  <li>LICs cannot afford monitoring technology to predict or track hazards.</li>
+  <li>Higher population density in some LIC hazard zones means more people are exposed.</li>
+  <li>LICs may be less able to afford international aid quickly.</li>
+</ul>
+<p><strong>Do NOT award:</strong> Vague statements such as "LICs are poorer" without linking to why this increases deaths.</p>
+</div>`,
+    modelAnswer: "One reason is that buildings in LIC countries are often not constructed to withstand earthquakes or storms, so they collapse more easily, causing deaths. A second reason is that LIC countries often lack effective early warning systems, trained emergency services and evacuation plans, meaning people are unable to escape in time."
+  },
+  {
+    num: "Q3",
+    marks: 4,
+    type: "written",
+    caseStudy: `Fossil fuels currently supply around 80% of the world's energy. Global energy consumption has risen by over 50% since 1990. In 2015, the Paris Agreement committed countries to limiting global warming to 1.5°C above pre-industrial levels — but greenhouse gas concentrations continue to rise.`,
+    question: "Using the information above and your own knowledge, explain how the increasing use of fossil fuels and changes in agriculture may have contributed to global changes in temperature. [4 marks]",
+    hint: "You need to cover BOTH fossil fuels AND agriculture. For each one, explain the link to greenhouse gases and then to temperature rise.",
+    starter: "The burning of fossil fuels contributes to rising temperatures because... In addition, changes in agriculture such as...",
+    markScheme: `<div class="marks-section">
+<h5>Mark Allocation — 4 marks (AO1 x2, AO2 x2) — Level of Response</h5>
+<p><strong>Level 2 (3–4 marks):</strong> Clear explanation(s) with developed links between burning fossil fuels / agricultural changes and greenhouse gas emissions / temperature rise. Some accurate use of geographical terms. Both factors should be addressed for top of Level 2.</p>
+<p><strong>Level 1 (1–2 marks):</strong> Simple statements. Limited subject vocabulary. May only address one factor.</p>
+<p><strong>Acceptable answers include:</strong></p>
+<ul>
+  <li>Burning fossil fuels releases carbon dioxide, a greenhouse gas that traps solar radiation in the atmosphere, causing temperatures to rise.</li>
+  <li>As shown in the source, energy use has risen by 50% since 1990, meaning more CO₂ is being emitted.</li>
+  <li>Agriculture contributes through cattle farming and rice growing, which produce methane — a greenhouse gas more powerful than CO₂.</li>
+  <li>Fertiliser production releases nitrous oxide, another potent greenhouse gas.</li>
+  <li>Deforestation to clear land for farming increases CO₂ levels by releasing stored carbon and reducing photosynthesis.</li>
+</ul>
+<p><strong>Examiner's Comment:</strong> Many students address fossil fuels well but provide only vague statements for agriculture (e.g. "farming causes climate change"). Specific references to methane from cattle/rice, nitrous oxide from fertilisers, or the link between deforestation and farming earn the higher-level marks.</p>
+</div>`,
+    modelAnswer: "When fossil fuels are burned, they release carbon dioxide into the atmosphere. CO₂ is a greenhouse gas, which means it traps solar radiation that would otherwise escape into space, leading to an increase in global temperatures. As the source states, energy use has risen by over 50% since 1990, meaning emissions have increased significantly.\n\nChanges in agriculture also contribute. Modern farming methods, particularly raising cattle and growing rice, produce large amounts of methane — a greenhouse gas approximately 25 times more powerful than CO₂. In addition, the use of fertilisers releases nitrous oxide, which is an even more powerful greenhouse gas. Deforestation to clear land for farming further increases atmospheric CO₂, as stored carbon is released and the capacity for photosynthesis is reduced."
+  },
+  {
+    num: "Q4",
+    marks: 6,
+    type: "written",
+    caseStudy: `Iceland sits on the mid-Atlantic ridge, a constructive plate boundary. The two plates are moving apart at approximately 2.5 cm per year. Iceland has over 30 active volcanic systems and records several hundred earthquakes annually, some exceeding magnitude 6. Much of Iceland is covered by large glaciers (ice sheets). In 2010, the eruption of the Eyjafjallajökull volcano disrupted air travel across much of Europe for several weeks.`,
+    question: "Using the information above and your own understanding, suggest how plate movements cause tectonic hazards in Iceland. [6 marks]",
+    hint: "Think about what happens at a constructive margin (magma, volcanoes, earthquakes) AND consider what makes Iceland's hazards even more severe (glaciers on top of volcanoes). Use details from the source.",
+    starter: "Iceland is located on a constructive plate boundary where... As the plates move apart... This creates hazards such as... Iceland's hazards are made more severe because...",
+    markScheme: `<div class="marks-section">
+<h5>Mark Allocation — 6 marks (AO2 x3, AO3 x3) — Level of Response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> Developed, detailed responses showing thorough understanding of processes causing tectonic hazards. Coherent application of knowledge to Iceland, with reference to the source. Some geographical terminology used. Must reference Figure/source to access Level 3.</p>
+<p><strong>Level 2 (3–4 marks):</strong> Linked or elaborated statements. Some use of geographical terms. May only address one type of hazard (max top Level 2). Some reference to source.</p>
+<p><strong>Level 1 (1–2 marks):</strong> Simple statements; limited vocabulary; may be partially inaccurate.</p>
+<p><strong>Acceptable content includes:</strong></p>
+<ul>
+  <li>As the two plates pull apart (ridge push / convection currents), magma rises from the mantle to fill the gap, reaching the surface as lava to form volcanoes.</li>
+  <li>As stated in the source, Iceland has over 30 active volcanoes and plates move at 2.5 cm/year.</li>
+  <li>Plates do not move smoothly — friction causes them to lock; strain builds and is suddenly released as earthquakes.</li>
+  <li>Iceland sits directly on the ridge, so all volcanic and seismic activity is concentrated there.</li>
+  <li>Some Icelandic volcanoes sit beneath glaciers. Meltwater from the ice meets hot magma, causing explosive steam-driven eruptions (phreatomagmatic eruptions).</li>
+  <li>Eyjafjallajökull (2010) produced a vast ash cloud that shut down European air travel.</li>
+  <li>Meltwater can be trapped and suddenly released as jökulhlaups (glacial outburst floods), another significant hazard.</li>
+</ul>
+<p><strong>Do NOT award max:</strong> Answers that explain destructive or conservative margins only (max Level 1).</p>
+</div>`,
+    modelAnswer: "Iceland is situated directly on the mid-Atlantic ridge, a constructive plate boundary, as shown in the source. At this margin, convection currents in the mantle pull the North American and Eurasian plates apart at around 2.5 cm per year. As the plates separate, pressure drops and magma from the mantle rises to fill the gap, erupting at the surface to form volcanoes. Because the magma has low silica content, it is runny and forms shield volcanoes which tend not to erupt explosively under normal conditions.\n\nHowever, the source tells us Iceland has over 30 active volcanic systems, and some sit beneath large glaciers. When eruptions occur under ice, the heat melts the glacier rapidly; meltwater meets the hot magma, producing enormous steam explosions and vast ash clouds. This happened with Eyjafjallajökull in 2010, when the ash cloud shut down air travel across Europe for several weeks. Trapped meltwater can also be suddenly released as devastating glacial floods called jökulhlaups.\n\nEarthquakes are also a significant hazard. As the plates drift apart, friction sometimes locks them in position. Strain builds in the rocks until it is overcome, causing sudden movement and an earthquake. Iceland records several hundred earthquakes each year, with some exceeding magnitude 6 — sufficient to damage buildings and infrastructure, as noted in the source. Therefore, plate movements at this constructive margin create multiple overlapping tectonic hazards in Iceland."
+  },
+  {
+    num: "Q5",
+    marks: 9,
+    type: "written",
+    caseStudy: `[Figure 5 describes a photograph showing the port town of Barbuda after Hurricane Irma (September 2017). The image shows: multiple buildings with roofs completely removed or walls collapsed; flooded streets with vehicles submerged; shipping containers thrown and crushed; hillsides above the port stripped of vegetation; some buildings entirely demolished. A newspaper headline states: '95% of the island destroyed — 8 deaths confirmed, but tens of thousands homeless.' Irma was a Category 5 hurricane with wind speeds of 295 km/hr.]`,
+    question: "Assess the extent to which tropical storms have effects on people and the environment. Use Figure 5 and an example you have studied. [9 marks + 3 SPaG marks]",
+    hint: "Structure your answer: paragraph on effects on people (use Figure AND Haiyan), paragraph on effects on environment (use Figure AND Haiyan), then evaluate which is greater. End with a clear overall judgement using the words 'assessment' and 'extent'.",
+    starter: "Tropical storms have significant effects on both people and the environment. Figure 5 shows... In addition, Typhoon Haiyan (Philippines, 2013)... However, the effects on the environment... Overall, it is my assessment that...",
+    markScheme: `<div class="marks-section">
+<h5>Mark Allocation — 9 marks (AO1 x3, AO2 x3, AO3 x3) + 3 SPaG</h5>
+<p><strong>Level 3 (7–9 marks):</strong> Detailed knowledge of impacts on people AND the environment with good exemplification. Thorough understanding of geographical processes. Reasoned evaluation of the extent of impacts using both the source and a named example. Clear overall judgement.</p>
+<p><strong>Level 2 (4–6 marks):</strong> Clear knowledge with some exemplification. Some understanding. Reasonable evaluation. May lack balance between people and environment, or may lack evaluation of extent.</p>
+<p><strong>Level 1 (1–3 marks):</strong> Limited knowledge; little exemplification; limited evaluation.</p>
+<p><strong>To access Level 3, answers MUST:</strong></p>
+<ul>
+  <li>Reference Figure 5 (direct or inferred)</li>
+  <li>Use a named case study (e.g. Typhoon Haiyan) with specific facts</li>
+  <li>Address BOTH people and environment</li>
+  <li>Include an evaluative conclusion about the 'extent'</li>
+</ul>
+<p><strong>SPaG:</strong> High (3 marks) = consistent spelling/punctuation, effective grammar, wide range of specialist terms. Intermediate (2) = considerable accuracy, general control. Threshold (1) = reasonable accuracy, some specialist terms.</p>
+<p><strong>Examiner's Comment:</strong> The most common reason for missing Level 3 is failing to evaluate. Students must not just describe effects — they must weigh them against each other and reach a judgement. Also, many students forget to use the Figure explicitly.</p>
+</div>`,
+    modelAnswer: "Tropical storms have major effects on both people and the environment, though the scale of impact varies considerably.\n\nThe effects on people can be devastating. Figure 5 shows the port of Barbuda after Hurricane Irma, with 95% of the island destroyed, 8 deaths confirmed and tens of thousands left homeless. Buildings have lost roofs and walls, streets are flooded, and vehicles have been destroyed — demonstrating both immediate loss of shelter and serious long-term economic damage. Typhoon Haiyan, which struck the Philippines in November 2013, provides further evidence: at least 6,340 people were killed, 1.9 million were made homeless and 6 million displaced. Wind speeds of 314 km/hr and a 5-metre storm surge destroyed 90% of buildings in Tacloban. Water supplies were polluted, creating disease risk, and looting disrupted public order. Economic damage exceeded $8 billion, with 1.1 million tonnes of crops destroyed, leaving 2.5 million people needing food aid.\n\nTropical storms also affect the environment, though to a lesser extent. Figure 5 shows vegetation stripped from hillsides above the port, likely due to wind damage and landslides triggered by heavy rainfall. Storm surges flood saltwater onto land, damaging freshwater ecosystems. During Typhoon Haiyan, a tanker was damaged, leaking 800,000 litres of oil which damaged marine environments, and coral reefs were broken by large waves. However, it is worth noting that many natural environments in tropical storm zones are adapted to periodic storm damage, and vegetation typically recovers over time.\n\nOverall, it is my assessment that tropical storms harm people to a greater extent than the environment. People, particularly in LICs like the Philippines, suffer severe loss of life, displacement and long-term economic hardship that can last years. The natural environment, while damaged, generally recovers more readily. However, if climate change makes storms more intense, environmental damage may become more permanent in the future, so the extent of environmental impact may increase."
+  }
+];
+</script>
+<script src="script.js"></script>
+</body>
+</html>
