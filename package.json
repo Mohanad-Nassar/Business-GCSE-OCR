@@ -1,0 +1,12 @@
+{
+  "name": "business-gcse-ocr",
+  "private": true,
+  "version": "1.0.0",
+  "description": "OCR GCSE Business Studies revision site with Netlify Functions for the Supabase-backed teacher/student backend.",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4"
+  },
+  "devDependencies": {
+    "netlify-cli": "^26.1.0"
+  }
+}

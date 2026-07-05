@@ -305,6 +305,13 @@
   //  DATA TEMPLATE: 3.5 Motivation and Retention
   // ══════════════════════════════════════
 
+  const pageMeta = {
+      id: '3-5-motivation-and-retention',
+      badge: 'OCR GCSE Business — Component 1',
+      title: '3.5 Motivation and Retention',
+      subtitle: 'Interactive revision guide',
+      subject: 'business',
+    };
   // 1. Main Learning Content
   const topics = [
     {
@@ -325,7 +332,18 @@
   <li><strong>Praise:</strong> A non-financial method of motivating a worker by complimenting their work, making their effort feel recognised and valued.</li>
   <li><strong>Award Scheme:</strong> A presentation of some kind (certificate, badge, voucher) to recognise somebody's effort.</li>
   <li><strong>Working Environment:</strong> The quality of the physical workplace and its social climate — includes how workers are treated and whether they feel valued.</li>
-</ul>`
+</ul>`,
+      readCheck: {
+        q: "What is the difference between a bonus and profit sharing?",
+        opts: [
+          "A bonus pays for hitting a target; profit sharing gives a share of profits made",
+          "They are exactly the same thing",
+          "A bonus is only for managers; profit sharing is only for shop floor workers",
+          "Profit sharing is paid weekly, a bonus is paid annually"
+        ],
+        ans: 0,
+        explain: "A bonus rewards hitting a specific target (e.g. sales figures), while profit sharing distributes a portion of the company's overall profit among workers — the bigger the profit, the bigger the share."
+      }
     },
     {
       title: "Why Motivation Matters: Benefits to Business",
@@ -345,7 +363,18 @@
   <h4>Case Study: Gravity Payments</h4>
   <p>In 2015, Dan Price, CEO of Gravity Payments in Seattle, raised the minimum pay for all 120 workers to $70,000 per year. For one worker, Valerie, this meant a rise from $40,000 — meaning she no longer needed a second job. Five years later, in 2020, the number of customers had doubled and the company's turnover rose from $3.8bn to $10bn.</p>
   <p><strong>Takeaway:</strong> Higher pay directly motivated workers, reduced turnover, and drove significant business growth — the cost of higher wages was outweighed by the huge increase in revenue and customers.</p>
-</div>`
+</div>`,
+      readCheck: {
+        q: "In the Gravity Payments case study, what happened after Dan Price raised the minimum pay to $70,000?",
+        opts: [
+          "Customer numbers doubled and turnover rose to $10bn",
+          "The company went bankrupt within a year",
+          "Customer numbers fell because prices had to rise",
+          "Nothing changed for the business"
+        ],
+        ans: 0,
+        explain: "Despite the higher wage cost, Gravity Payments saw customer numbers double and turnover rise dramatically over five years — showing the pay rise more than paid for itself through improved motivation and performance."
+      }
     },
     {
       title: "Why Retention Matters",
@@ -363,7 +392,18 @@
   <p>United Utilities supplies water and sewage services to around 5,000 employees across North West England — engineers, construction workers, clerical staff, financial managers and surveyors. Some work in offices in Warrington; others work on sites digging up roads to repair pipes under tight deadlines. Late work can trigger penalty payments to local councils.</p>
   <p>United Utilities focuses on attracting and retaining staff through recognition, training and apprenticeships. In 2021, it employed 40 apprentices. It also uses a bonus scheme to reward maintenance teams for meeting deadlines.</p>
   <p><strong>Takeaway:</strong> Retaining experienced engineers who know the pipework network and can meet tight deadlines is critical — losing them would mean high retraining costs, missed deadlines, and costly council penalties.</p>
-</div>`
+</div>`,
+      readCheck: {
+        q: "Roughly how much can it cost a business to replace a worker, according to research mentioned in this topic?",
+        opts: [
+          "1–2% of their annual salary",
+          "50–60% of their annual salary",
+          "Exactly £1,000 regardless of salary",
+          "It costs nothing to replace a worker"
+        ],
+        ans: 1,
+        explain: "Research suggests replacing a worker can cost 50–60% of their annual salary — for someone earning £40,000, that's potentially £20,000–£24,000, which is why good retention saves businesses significant money."
+      }
     },
     {
       title: "Financial Methods of Motivation",
@@ -395,7 +435,18 @@
   <h4>Case Study: Travis Perkins — Fringe Benefits</h4>
   <p>Travis Perkins (a timber and building merchant) offers: generous pension contributions, private medical insurance, discounted gym membership, share 'buy-as-you-earn' schemes, a company car scheme, a subsidised bike-buying scheme, childcare vouchers, and an enhanced maternity scheme.</p>
   <p><strong>Takeaway:</strong> A wide package of fringe benefits helps attract and retain employees by offering perks they may not be able to afford personally, boosting loyalty and reducing turnover.</p>
-</div>`
+</div>`,
+      readCheck: {
+        q: "What is the key difference between a salary and a wage?",
+        opts: [
+          "A salary is fixed monthly; a wage is hourly",
+          "A salary is always lower than a wage",
+          "Wages are only paid to managers",
+          "There is no real difference between them"
+        ],
+        ans: 0,
+        explain: "A salary is a set amount for the year, split into equal monthly payments, while a wage is typically a weekly payment calculated using a time-rate system (hours worked × hourly rate)."
+      }
     },
     {
       title: "Financial Methods — Advantages & Disadvantages",
@@ -418,7 +469,18 @@
     <div class="con-item"><strong>Profit sharing may upset shareholders:</strong> Money shared with workers reduces dividends — though if the scheme boosts profits enough, overall returns may still rise.</div>
     <div class="con-item"><strong>Fringe benefits may not suit everyone:</strong> A company car is useless to a worker who doesn't drive; childcare vouchers mean nothing to an employee without children.</div>
   </div>
-</div>`
+</div>`,
+      readCheck: {
+        q: "Why might unrealistic bonus targets actually demotivate workers rather than motivate them?",
+        opts: [
+          "Bonuses always demotivate workers regardless of targets",
+          "If workers see the target as unachievable, they give up",
+          "Bonuses are illegal if targets are too high",
+          "Workers always prefer a fixed salary over any bonus"
+        ],
+        ans: 1,
+        explain: "If a bonus target feels impossible to reach, workers lose the incentive to try — the bonus scheme backfires and produces the opposite of its intended motivational effect."
+      }
     },
     {
       title: "Non-Financial Methods of Motivation",
@@ -443,7 +505,18 @@
   <h4>Case Study: Praise in Football</h4>
   <p>Football managers frequently shake hands, hug, or pat players on the back after substitutions or at the end of matches. This demonstrates that praise is important even for highly paid professionals — it makes workers feel valued and appreciated.</p>
   <p><strong>Takeaway:</strong> A simple, genuine word of recognition from a manager can have a significant motivational effect regardless of how much the worker already earns.</p>
-</div>`
+</div>`,
+      readCheck: {
+        q: "According to the Google case study, what was the measured effect of a supportive working environment?",
+        opts: [
+          "A 12% increase in productivity",
+          "A 50% reduction in staff",
+          "No measurable change at all",
+          "A decrease in customer satisfaction"
+        ],
+        ans: 0,
+        explain: "Research by Warwick University found that the supportive environment at Google — free meals, laundry, childcare — resulted in a 12% increase in productivity, even without raising salaries."
+      }
     },
     {
       title: "Non-Financial Methods — Advantages & Disadvantages",
@@ -466,7 +539,18 @@
     <div class="con-item"><strong>Lost production during activities:</strong> If workers attend bonding activities or ceremonies during working hours, output may temporarily fall.</div>
     <div class="con-item"><strong>Not universally effective:</strong> Different workers are motivated differently. What energises one person may mean little to another.</div>
   </div>
-</div>`
+</div>`,
+      readCheck: {
+        q: "Why can award schemes like 'Employee of the Month' sometimes cause problems?",
+        opts: [
+          "They are too expensive for most businesses to afford",
+          "Workers who lose out may feel overlooked or unfair",
+          "They are illegal in most countries",
+          "They only work for part-time staff"
+        ],
+        ans: 1,
+        explain: "While award schemes can boost the winner's motivation, workers who consistently miss out may become demotivated or feel the process is unfair — a real disadvantage of this non-financial method."
+      }
     },
     {
       title: "Pay Calculations",
@@ -507,7 +591,18 @@ Profit share: 2% × £2,000,000 = £40,000<br>
 <p><strong>Worked Example 4 — Salary + Bonus (Wasim Ikram):</strong><br>
 Salary: £30,000<br>
 Bonus: 15% × £30,000 = £4,500<br>
-<strong>Total = £34,500</strong></p>`
+<strong>Total = £34,500</strong></p>`,
+      readCheck: {
+        q: "A worker earns £8 per hour and works 30 hours in a week, plus 5 hours of overtime at time-and-a-half. What is their total pay for the week?",
+        opts: [
+          "£240",
+          "£300",
+          "£280",
+          "£320"
+        ],
+        ans: 1,
+        explain: "Basic pay: 30 × £8 = £240. Overtime: 5 × (£8 × 1.5) = 5 × £12 = £60. Total = £240 + £60 = £300."
+      }
     },
     {
       title: "Evaluating Motivation: Are the Costs Worth It?",
@@ -526,7 +621,18 @@ Bonus: 15% × £30,000 = £4,500<br>
   <li>Better quality &rarr; fewer complaints &rarr; more repeat customers &rarr; higher revenue</li>
 </ul>
 <p><strong>Key evaluation phrase:</strong> <em>"It depends on whether the increase in productivity and reduction in costs outweighs the cost of the motivational method used."</em></p>
-<p><strong>Also consider:</strong> A modest level of staff turnover can actually be beneficial — new workers bring fresh ideas, perspectives and energy. Good retention is important, but a business that <em>never</em> loses any staff may miss out on innovation.</p>`
+<p><strong>Also consider:</strong> A modest level of staff turnover can actually be beneficial — new workers bring fresh ideas, perspectives and energy. Good retention is important, but a business that <em>never</em> loses any staff may miss out on innovation.</p>`,
+      readCheck: {
+        q: "Why might a small amount of staff turnover actually be good for a business, according to this topic?",
+        opts: [
+          "It saves money on holiday pay",
+          "New workers bring fresh ideas, perspectives and energy",
+          "It means the business doesn't need a HR department",
+          "Turnover always improves productivity regardless of cause"
+        ],
+        ans: 1,
+        explain: "While high retention is generally beneficial, a business that never loses any staff may stagnate. A modest level of turnover brings in new ideas and skills, which is why 'optimal retention' rather than 'zero turnover' is the goal."
+      }
     }
   ];
 
@@ -750,43 +856,103 @@ Bonus: 15% × £30,000 = £4,500<br>
   const miscData = [
     {
       wrong: "Only financial methods can motivate workers.",
-      correct: "Non-financial methods — praise, award schemes, and a positive working environment — can be equally or more effective. Research consistently shows that recognition from a manager can be the highest-ranked motivator. Non-financial methods also tend to produce longer-term benefits and cost the business far less."
+      correct: "Non-financial methods — praise, award schemes, and a positive working environment — can be equally or more effective. Research consistently shows that recognition from a manager can be the highest-ranked motivator. Non-financial methods also tend to produce longer-term benefits and cost the business far less.",
+      readCheck: {
+        q: "Can non-financial methods like praise be as effective as financial rewards for motivating workers?",
+        opts: ["No — only money motivates workers", "Yes — praise can be a top motivator", "Only for senior managers", "Only in small businesses"],
+        ans: 1,
+        explain: "Non-financial methods such as praise and recognition are consistently shown to be highly effective motivators, often producing longer-term benefits than one-off financial rewards, and at a much lower cost to the business."
+      }
     },
     {
       wrong: "All workers are motivated by the same things.",
-      correct: "Different workers respond to different motivators based on their personality, life stage, and role. A one-size-fits-all approach is ineffective. Businesses should use a range of financial and non-financial methods to suit all employees."
+      correct: "Different workers respond to different motivators based on their personality, life stage, and role. A one-size-fits-all approach is ineffective. Businesses should use a range of financial and non-financial methods to suit all employees.",
+      readCheck: {
+        q: "Why is a 'one-size-fits-all' approach to motivation often ineffective?",
+        opts: ["It is too expensive to implement", "Workers respond to different things", "It is illegal under employment law", "It only works for full-time staff"],
+        ans: 1,
+        explain: "Workers are individuals with different needs and priorities — a company car might motivate one worker but mean nothing to another who doesn't drive. Businesses need a range of methods to motivate everyone effectively."
+      }
     },
     {
       wrong: "High retention is always better for a business.",
-      correct: "While high retention reduces costs and maintains experience, a modest level of turnover can be advantageous — new staff bring fresh ideas, skills and perspectives. The goal is optimal retention, not zero turnover."
+      correct: "While high retention reduces costs and maintains experience, a modest level of turnover can be advantageous — new staff bring fresh ideas, skills and perspectives. The goal is optimal retention, not zero turnover.",
+      readCheck: {
+        q: "Is the goal of a business to achieve zero staff turnover?",
+        opts: ["Yes, zero turnover is always the ideal outcome", "No — optimal retention is the goal, not zero turnover", "Yes, but only for management positions", "No, businesses should aim for maximum turnover instead"],
+          ans: 1,
+        explain: "While high retention has clear benefits, a small amount of turnover is healthy — new staff bring fresh perspectives and skills that an unchanging workforce might lack."
+      }
     },
     {
       wrong: "A bonus scheme will always motivate workers to work harder.",
-      correct: "Bonuses only motivate if the targets are realistic. If targets are seen as unachievable, workers will give up rather than try harder — the bonus actually demotivates. Targets must be challenging but attainable."
+      correct: "Bonuses only motivate if the targets are realistic. If targets are seen as unachievable, workers will give up rather than try harder — the bonus actually demotivates. Targets must be challenging but attainable.",
+      readCheck: {
+        q: "What happens if bonus targets are seen by workers as unachievable?",
+        opts: ["Workers always try even harder to reach them", "Workers give up trying, so the bonus demotivates", "The business must pay the bonus anyway", "Nothing changes in worker behaviour"],
+        ans: 1,
+        explain: "If targets feel impossible, workers lose the incentive to push for them — meaning an unrealistic bonus scheme can actually demotivate staff rather than encourage harder work."
+      }
     },
     {
       wrong: "Motivation only affects how happy workers feel — it doesn't impact business profits.",
-      correct: "Motivation has direct financial consequences: lower absenteeism reduces costs, higher productivity increases output, better quality reduces waste, and improved service grows customer loyalty — all of which improve profitability."
+      correct: "Motivation has direct financial consequences: lower absenteeism reduces costs, higher productivity increases output, better quality reduces waste, and improved service grows customer loyalty — all of which improve profitability.",
+      readCheck: {
+        q: "How does worker motivation actually affect business profits?",
+        opts: ["It doesn't — motivation only affects employee happiness", "Through less absenteeism and higher output overall", "Only through reduced wage costs", "Motivation has no measurable business impact"],
+        ans: 1,
+        explain: "Motivation has real financial consequences — it reduces costs (absenteeism, waste) and increases revenue (productivity, customer loyalty), directly affecting the bottom line, not just how workers feel."
+      }
     },
     {
       wrong: "Profit sharing reduces profits because money is given to workers.",
-      correct: "Profit sharing can actually increase overall profits if it motivates workers to be more efficient and productive. Shareholders may benefit from a larger profit pot even after the workers' share has been distributed."
+      correct: "Profit sharing can actually increase overall profits if it motivates workers to be more efficient and productive. Shareholders may benefit from a larger profit pot even after the workers' share has been distributed.",
+      readCheck: {
+        q: "Can profit sharing actually increase a business's overall profits?",
+        opts: ["No — sharing profits always reduces total profit", "Yes — efficiency gains can grow the total profit", "Only if the business has fewer than 10 employees", "Profit sharing has no effect on motivation at all"],
+        ans: 1,
+        explain: "If profit sharing motivates workers to be more productive and efficient, the total profit generated can grow — meaning shareholders may end up with a larger amount even after the workers' share is paid out, as seen in the Delta Airlines example."
+      }
     },
     {
       wrong: "Employee retention is important just because it makes workers feel good.",
-      correct: "Examiners want business-focused reasons. Retention reduces recruitment and training costs (which can be 50–60% of annual salary), maintains expertise and customer relationships, supports morale, and makes the business more attractive to future recruits."
+      correct: "Examiners want business-focused reasons. Retention reduces recruitment and training costs (which can be 50–60% of annual salary), maintains expertise and customer relationships, supports morale, and makes the business more attractive to future recruits.",
+      readCheck: {
+        q: "When explaining why retention matters in an exam answer, what should you focus on?",
+        opts: ["How happy it makes the workers feel", "Business reasons, like lower recruitment costs", "Only the legal requirements around retention", "The personal opinions of the business owner"],
+        ans: 1,
+        explain: "Examiners want business-level reasoning — cost savings on recruitment and training, retained expertise, and improved ability to attract future staff — not just statements about employee happiness."
+      }
     },
     {
       wrong: "Fringe benefits motivate all workers equally.",
-      correct: "Fringe benefits are not universally valued. A company car is useless to someone who doesn't drive; childcare vouchers don't benefit workers without children. The right fringe benefit depends on the individual worker's needs and life circumstances."
+      correct: "Fringe benefits are not universally valued. A company car is useless to someone who doesn't drive; childcare vouchers don't benefit workers without children. The right fringe benefit depends on the individual worker's needs and life circumstances.",
+      readCheck: {
+        q: "Why might a company car fail to motivate a particular worker?",
+        opts: ["Company cars are always too expensive for businesses to offer", "If the worker doesn't drive, the benefit is irrelevant to them", "Company cars are illegal as a fringe benefit", "All workers value a company car equally"],
+        ans: 1,
+        explain: "Fringe benefits only motivate when they match a worker's actual needs and circumstances — a company car means nothing to someone who doesn't drive, just as childcare vouchers mean nothing to a worker without children."
+      }
     },
     {
       wrong: "Salary is better than wages for motivating workers.",
-      correct: "Neither is automatically better. Salary provides stability and can motivate through promotion prospects. Wages with time-rate pay are simple but don't directly reward high performance. The best system depends on the type of job and what the business wants to incentivise."
+      correct: "Neither is automatically better. Salary provides stability and can motivate through promotion prospects. Wages with time-rate pay are simple but don't directly reward high performance. The best system depends on the type of job and what the business wants to incentivise.",
+      readCheck: {
+        q: "Is a salary always a better motivator than a wage?",
+        opts: ["Yes, salary is always more motivating", "No, the better choice depends on the job itself", "No, wages are always more motivating", "Salary and wages are identical in every way"],
+        ans: 1,
+        explain: "Neither system is universally superior. Salary offers stability, while time-rate wages are simple to calculate but don't reward performance directly — the right choice depends on the role and business goals."
+      }
     },
     {
       wrong: "Praise is only effective for low-paid workers who don't earn much money.",
-      correct: "Praise is important at all levels — even highly paid professional footballers visibly respond to recognition from their managers. The desire to feel valued and appreciated is a universal human need, not limited by income level."
+      correct: "Praise is important at all levels — even highly paid professional footballers visibly respond to recognition from their managers. The desire to feel valued and appreciated is a universal human need, not limited by income level.",
+      readCheck: {
+        q: "According to the football case study, does praise only matter to low-paid workers?",
+        opts: ["Yes — high earners don't need recognition", "No — even top footballers respond to praise", "Praise only matters to part-time workers", "Praise has no effect on professional athletes"],
+        ans: 1,
+        explain: "The football example shows that even very highly paid professionals respond to genuine praise and recognition — the need to feel valued is universal and not limited to lower-income workers."
+      }
     }
   ];
 
@@ -811,7 +977,18 @@ Bonus: 15% × £30,000 = £4,500<br>
       <p><strong>⚠️ Examiner Warning:</strong> On the Redrow Homes question, many students wrote "workers feel happier" — this received no marks because it describes a personal benefit to the worker, not an importance to the business. Always write from the <strong>business's perspective</strong>.</p>
       <p><strong>🚫 Knowledge Dumping Alert:</strong> Do NOT write a definition of the term when asked to identify something. If asked "identify a financial method of motivation," write "profit sharing" — not "financial methods are those involving money."</p>
     `,
-      pills: ["K"]
+      pills: ["K"],
+      readCheck: {
+        q: "Why did the answer 'workers feel happier' score zero marks on the Redrow Homes question about why retention is important to a business?",
+        opts: [
+          "A worker feeling, not a business reason",
+          "It was spelled incorrectly",
+          "It was too long an answer",
+          "Redrow Homes does not employ any workers"
+        ],
+        ans: 0,
+        explain: "The question asks for the importance to the business, so an answer focused on worker feelings doesn't answer the question — always write from the business's perspective for these marks."
+      }
     },
     {
       type: "Explain — 2 marks",
@@ -833,7 +1010,18 @@ Bonus: 15% × £30,000 = £4,500<br>
       "This is particularly important for [Business] because..."<br/>
       "In the case of [Business], this means that..."</p>
     `,
-      pills: ["U", "app"]
+      pills: ["U", "app"],
+      readCheck: {
+        q: "What is missing from the answer: 'Retention is important because it reduces recruitment costs'?",
+        opts: [
+          "Nothing — it scores full marks",
+          "A link to the named business",
+          "A definition of recruitment",
+          "A calculation"
+        ],
+        ans: 1,
+        explain: "This answer gives the understanding point (U) but stops there — without applying it specifically to the business in the case study, it can only score 1 of the 2 marks available."
+      }
     },
     {
       type: "Analyse — 3 marks",
@@ -858,7 +1046,18 @@ Bonus: 15% × £30,000 = £4,500<br>
 
       <p><strong>The "So What?" Rule:</strong> After each point, ask yourself "So what does this mean for the business?" Keep pushing until you hit a bottom-line impact: costs, revenue, profit, reputation, or customer numbers.</p>
     `,
-      pills: ["U", "app", "an"]
+      pills: ["U", "app", "an"],
+      readCheck: {
+        q: "Can you score the analysis (AN) mark on a 3-mark question if you don't apply your point to the case study business?",
+        opts: [
+          "Yes, knowledge alone is enough for all 3 marks",
+          "No — zero marks without application to it",
+          "Yes, but only for calculation questions",
+          "It depends on how long the answer is"
+        ],
+        ans: 1,
+        explain: "Without application to the specific business in the case study, you cannot score the analysis mark — even with perfect business knowledge. The chain must be U → APP → AN in that order."
+      }
     },
     {
       type: "Recommend — 3 marks",
@@ -879,7 +1078,18 @@ Bonus: 15% × £30,000 = £4,500<br>
       <p><strong>✅ Good Answer (3 marks):</strong><br/>
       <em>"Walkers Ltd should use an award scheme (JUDGEMENT). The survey shows workers feel unvalued, so public recognition would directly address this issue. Unlike a wage increase — which workers may take for granted once it becomes the norm — an award scheme offers visible, ongoing recognition that continuously motivates workers (COMPARISON + CONTEXT)."</em></p>
     `,
-      pills: ["U", "app", "an"]
+      pills: ["U", "app", "an"],
+      readCheck: {
+        q: "What is the critical rule for scoring full marks on a 'Recommend' question?",
+        opts: [
+          "Only explain why your chosen method is good",
+          "You must compare both options, not just one",
+          "Write as many recommendations as possible",
+          "Avoid using the case study"
+        ],
+        ans: 1,
+        explain: "Full marks require a genuine comparison — you must justify your chosen method while also explaining why the alternative is less suitable, both grounded in the case study context."
+      }
     },
     {
       type: "Evaluate — 7 marks",
@@ -905,7 +1115,18 @@ Bonus: 15% × £30,000 = £4,500<br>
       "Ultimately, [Option X] is more suitable for [Business] because, given that [context]..."</p>
       <p><strong>⚠️ Examiner Warning — Waitrose Question:</strong> Many students wrote about profit sharing in general without applying it to Waitrose's 50,000 employees or its high-income customer base. The evaluation mark requires a contextual judgement — mentioning Waitrose specifically.</p>
     `,
-      pills: ["app", "an", "eval"]
+      pills: ["app", "an", "eval"],
+      readCheck: {
+        q: "What is required to score the evaluation marks at the end of a 7-mark question?",
+        opts: [
+          "Simply repeating your earlier points in different words",
+          "A decision, case-study context, and its business impact",
+          "Listing as many advantages as possible",
+          "A definition of the key term"
+        ],
+        ans: 1,
+        explain: "A strong conclusion needs three things: a clear decision, a specific detail from the case study, and the reasoning behind why that decision matters for that particular business — simply repeating earlier points scores zero."
+      }
     },
     {
       type: "Evaluate — 9 marks",
@@ -933,7 +1154,18 @@ Bonus: 15% × £30,000 = £4,500<br>
       "Overall, ethical treatment will have a [positive/negative] impact on M&S (DECISION), particularly because M&S employs over 50,000 people and targets high-income customers who expect good quality service (CONTEXT). This means the long-term impact on retention is likely to be greater than the short-term cost of implementing ethical practices (IMPACT)."</p>
       <p><strong>⚠️ Examiner Warning — M&S Question:</strong> Most candidates could apply ethical treatment to motivation but fewer could link it to retention AND analyse both impacts on the business. Many candidates also failed to score the knowledge mark by not defining ethics clearly at the start.</p>
     `,
-      pills: ["K", "U", "app", "an", "eval"]
+      pills: ["K", "U", "app", "an", "eval"],
+      readCheck: {
+        q: "How many separate assessment objectives must a 9-mark answer demonstrate?",
+        opts: [
+          "Just one — knowledge",
+          "All five: K, U, APP, AN, EVAL",
+          "Only Analysis and Evaluation",
+          "Two — Application and Evaluation"
+        ],
+        ans: 1,
+        explain: "A 9-mark question tests all five assessment objectives (K, U, APP, AN, EVAL). Every skill must be explicitly shown in the answer — examiners cannot award marks for skills that are only implied."
+      }
     },
     {
       type: "Calculation — 3 marks",
@@ -958,7 +1190,18 @@ Bonus: 15% × £30,000 = £4,500<br>
       Step 3: £12,000 + £250 = £12,250 ✅</p>
       <p><strong>⚠️ OFR (Own Figure Rule):</strong> If you make an error in step 1 but correctly complete steps 2 and 3 using your wrong figure, you can still earn the marks for those later steps. This is why showing working is essential.</p>
     `,
-      pills: ["app"]
+      pills: ["app"],
+      readCheck: {
+        q: "If you make a mistake on step 1 of a calculation but correctly complete steps 2 and 3 using your (wrong) figure, what happens under the Own Figure Rule (OFR)?",
+        opts: [
+          "You score 0 marks for the whole question",
+          "You still earn marks for steps 2 and 3 despite the error",
+          "You must restart the calculation from scratch",
+          "Only the final answer is marked, regardless of working shown"
+        ],
+        ans: 1,
+        explain: "The Own Figure Rule means examiners credit each correct step of working even if an earlier step contained an error — which is exactly why showing all your working is essential, not optional."
+      }
     }
   ];
 
@@ -1564,6 +1807,11 @@ Bonus: 15% × £30,000 = £4,500<br>
   ];
 </script>
   <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

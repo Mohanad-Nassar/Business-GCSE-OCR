@@ -180,6 +180,13 @@
 // ══════════════════════════════════════
 //  DATA
 // ══════════════════════════════════════
+  const pageMeta = {
+    id: '3-3-communication-in-business',
+    badge: 'OCR GCSE Business — Component 1',
+    title: '3.3 Communication in Business',
+    subtitle: 'Interactive revision guide',
+    subject: 'business',
+  };
 
 const topics = [
   {
@@ -197,7 +204,13 @@ const topics = [
 <li><strong>Informal communication</strong> — communication outside official channels (e.g. conversations in a break)</li>
 <li><strong>Social media</strong> — online applications that allow people to create and share content to participate in social networking</li>
 <li><strong>Website</strong> — an online location with several pages that can be contacted by internet users through its address</li>
-</ul>`
+</ul>`,
+    readCheck: {
+        q: "Which term describes communication between people employed in the same organisation?",
+        opts: ["Internal communication", "External communication", "Formal communication", "Feedback"],
+        ans: 0,
+        explain: "Internal communication is defined as communication between people employed in the same organisation, unlike external communication which involves people outside it."
+    }
   },
   {
     title: "One-way, Two-way & Direction of Communication",
@@ -210,7 +223,13 @@ const topics = [
 </ul>
 <p><strong>Vertical communication:</strong> between people on different layers of the hierarchy — either downward (manager to worker) or upward (worker to manager).</p>
 <p><strong>Horizontal communication:</strong> between people at the same level within the organisation structure (e.g. two managers in different departments).</p>
-<p><strong>Internal vs External:</strong> Internal = within the organisation. External = between someone inside the organisation and someone outside it (e.g. a supplier, customer, or government body).</p>`
+<p><strong>Internal vs External:</strong> Internal = within the organisation. External = between someone inside the organisation and someone outside it (e.g. a supplier, customer, or government body).</p>`,
+    readCheck: {
+        q: "Communication between two managers who work at the same level in different departments is an example of which type of communication?",
+        opts: ["Horizontal communication", "Vertical communication", "One-way communication", "External communication"],
+        ans: 0,
+        explain: "Horizontal communication takes place between people at the same level within the organisation structure, whereas vertical communication moves up or down the hierarchy."
+    }
   },
   {
     title: "Verbal Communication — Methods, Advantages & Disadvantages",
@@ -233,7 +252,13 @@ const topics = [
 </div>
 </div>
 <p style="margin-top:10px;"><strong>Meetings</strong> can be formal (with an agenda and chairperson) or informal (impromptu, no agenda). Online meetings via Teams or Zoom save travel costs.</p>
-<p><strong>Presentations</strong> may use PowerPoint to support visual explanation; the speaker can respond to questions.</p>`
+<p><strong>Presentations</strong> may use PowerPoint to support visual explanation; the speaker can respond to questions.</p>`,
+    readCheck: {
+        q: "What is a key disadvantage of verbal communication such as a phone call or meeting?",
+        opts: ["There is usually no permanent record unless minutes are taken", "It cannot use tone of voice to emphasise key points", "Feedback cannot be given immediately", "It is never a suitable method for solving business problems"],
+        ans: 0,
+        explain: "The card lists the lack of a permanent record (unless minutes are taken or a recording made) as a disadvantage of verbal communication."
+    }
   },
   {
     title: "Written Communication — Letters, Emails, Texts",
@@ -257,7 +282,13 @@ const topics = [
 <div class="con-item">Emails can get lost in spam</div>
 <div class="con-item">Some people get overwhelmed by volume of emails</div>
 </div>
-</div>`
+</div>`,
+    readCheck: {
+        q: "Which of these is a specific advantage of written communication compared with verbal communication?",
+        opts: ["It leaves a permanent record the receiver can re-read", "It allows the sender to check understanding immediately", "Tone of voice can be used to emphasise key points", "It is always cheaper than any other method"],
+        ans: 0,
+        explain: "The card states that written communication leaves a record of the message and lets the receiver read and re-read it to check understanding, unlike verbal communication."
+    }
   },
   {
     title: "Social Media & Websites",
@@ -280,7 +311,13 @@ const topics = [
 </div>
 </div>
 <p style="margin-top:8px;"><strong>Websites:</strong> operate 24/7; can take online orders; detailed product information; customers use search engines to find them; can be built and maintained cheaply. Risks: website crashing, spam, needs regular updating.</p>
-<p><strong>Targeting note:</strong> 90% of Instagram users are under 35 — good for reaching young audiences. Pinterest is popular with women and used for DIY, fashion, food.</p>`
+<p><strong>Targeting note:</strong> 90% of Instagram users are under 35 — good for reaching young audiences. Pinterest is popular with women and used for DIY, fashion, food.</p>`,
+    readCheck: {
+        q: "Which of the following is a genuine disadvantage of using social media for business communication?",
+        opts: ["It is difficult to measure the effectiveness of campaigns", "It cannot be updated regularly", "It cannot be used for internal staff communication", "It has a very limited reach compared with traditional media"],
+        ans: 0,
+        explain: "The card lists difficulty measuring the effectiveness of campaigns as a disadvantage, while its advantages include huge reach, regular updating and internal staff use."
+    }
   },
   {
     title: "Importance of Communication in Each Functional Area",
@@ -290,7 +327,13 @@ const topics = [
 <p><strong>Human Resources:</strong> external and internal communication for recruitment and selection; internal communication to resolve workplace problems, motivate workers, appraise performance</p>
 <p><strong>Operations / Production:</strong> internal communication about quality to reduce waste; marketing informs production about orders placed; external communication to enquire about raw material deliveries</p>
 <p><strong>Government and Trade:</strong> external communication to understand regulations; to apply for government grants</p>
-<p><strong>Choosing the right method:</strong> consider WHO you are communicating with, the PURPOSE of the communication, and what methods are AVAILABLE and AFFORDABLE. Internal vs external, size of audience, urgency, and sensitivity all affect the choice.</p>`
+<p><strong>Choosing the right method:</strong> consider WHO you are communicating with, the PURPOSE of the communication, and what methods are AVAILABLE and AFFORDABLE. Internal vs external, size of audience, urgency, and sensitivity all affect the choice.</p>`,
+    readCheck: {
+        q: "According to the card, alongside who you are communicating with and what methods are available and affordable, what else should a business consider when choosing a communication method?",
+        opts: ["The purpose of the communication", "The age of the business", "The colour scheme of the company logo", "The total number of shareholders"],
+        ans: 0,
+        explain: "The card states that a business should consider WHO it is communicating with, the PURPOSE of the communication, and what methods are AVAILABLE and AFFORDABLE."
+    }
   },
   {
     title: "How Digital Communication Influences Business Activity",
@@ -299,7 +342,13 @@ const topics = [
 <p><strong>Finance:</strong> invoices and payments sent more quickly; accounting information stored and processed digitally; financial reports prepared faster (Chatsworth Estate case study — one accountant handled 20× the business)</p>
 <p><strong>HR:</strong> jobs advertised on websites; applications and invitations by email; interviews by video-conferencing (Zoom/Teams); more staff working from home or while mobile; some jobs lost as productivity increased; workers required to retrain</p>
 <p><strong>Operations:</strong> production highly automated via robots; quality control improved (machines inspect and relay data); production is leaner — can be reprogrammed quickly in response to demand changes; GPS tracking of delivery drivers; staff monitoring via keyloggers, Microsoft Teams log-on records</p>
-<p><strong>Overall:</strong> digital communication has increased competition, enabled globalisation, reduced costs, and created new business opportunities (hardware makers, programmers, ICT trainers). Not all businesses have survived — some slow to adapt have closed (e.g. Blockbuster).</p>`
+<p><strong>Overall:</strong> digital communication has increased competition, enabled globalisation, reduced costs, and created new business opportunities (hardware makers, programmers, ICT trainers). Not all businesses have survived — some slow to adapt have closed (e.g. Blockbuster).</p>`,
+    readCheck: {
+        q: "What does the closure of businesses such as Blockbuster during the rise of digital communication demonstrate?",
+        opts: ["Some businesses fail if they are too slow to adapt to digital change", "Digital communication has no effect on business survival", "Only marketing departments are affected by digital communication", "All traditional retailers are guaranteed to close eventually"],
+        ans: 0,
+        explain: "The card notes that not all businesses have survived the digital communication revolution — some, like Blockbuster, were too slow to adapt and closed."
+    }
   }
 ];
 
@@ -408,27 +457,63 @@ const fibWords = ["transmission","two-way","electronically","competition","produ
 const miscData = [
   {
     wrong: "Digital communication is always better than non-digital communication.",
-    correct: "Digital communication is NOT always better. Face-to-face meetings allow immediate feedback, body language, and real-time discussion. They are better for sensitive issues (e.g. disciplinary matters, appraisals) and for building relationships. The OCR examiner regularly flags this as a FALSE statement in multiple-choice questions."
+    correct: "Digital communication is NOT always better. Face-to-face meetings allow immediate feedback, body language, and real-time discussion. They are better for sensitive issues (e.g. disciplinary matters, appraisals) and for building relationships. The OCR examiner regularly flags this as a FALSE statement in multiple-choice questions.",
+    readCheck: {
+        q: "Why might a face-to-face meeting be a better method than digital communication for a sensitive disciplinary matter?",
+        opts: ["It gives immediate feedback and allows body language to be used", "Digital communication is always better regardless of the situation", "Meetings automatically create a permanent written record", "Meetings are always the cheapest communication method"],
+        ans: 0,
+        explain: "The correct concept is that digital communication is not always better — meetings allow immediate feedback and body language, making them more suitable for sensitive issues."
+    }
   },
   {
     wrong: "All workers have benefited from the development of digital communication.",
-    correct: "Digital communication has NOT benefited ALL workers. While many gained new opportunities, flexibility, and higher productivity, others lost their jobs as automation replaced them (e.g. shelf-label workers at Leclerc, DVD rental staff at Blockbuster). Some have had to undergo retraining to stay employed. Examiners specifically test this."
+    correct: "Digital communication has NOT benefited ALL workers. While many gained new opportunities, flexibility, and higher productivity, others lost their jobs as automation replaced them (e.g. shelf-label workers at Leclerc, DVD rental staff at Blockbuster). Some have had to undergo retraining to stay employed. Examiners specifically test this.",
+    readCheck: {
+        q: "Which statement correctly describes the overall impact of digital communication on workers?",
+        opts: ["Some workers gained flexibility, others lost jobs to automation", "All workers have benefited with no negative effects at all", "Digital communication has had no effect on employment", "Only office-based workers have been affected by digital change"],
+        ans: 0,
+        explain: "The correct concept is that digital communication has NOT benefited all workers — some gained flexibility while others lost jobs to automation and had to retrain."
+    }
   },
   {
     wrong: "Internal communication only goes downward — from managers to workers.",
-    correct: "Internal communication can be VERTICAL (both upward AND downward) or HORIZONTAL. Upward communication goes from worker to manager. Horizontal communication goes between people at the same level (e.g. two department managers). Only treating communication as one-directional will cost marks."
+    correct: "Internal communication can be VERTICAL (both upward AND downward) or HORIZONTAL. Upward communication goes from worker to manager. Horizontal communication goes between people at the same level (e.g. two department managers). Only treating communication as one-directional will cost marks.",
+    readCheck: {
+        q: "In which directions can internal communication travel within a business?",
+        opts: ["Vertically (upward and downward) and horizontally", "Only downward, from managers to workers", "Only upward, from workers to managers", "Only horizontally, between people at the same level"],
+        ans: 0,
+        explain: "Internal communication can be vertical (upward or downward) or horizontal (between people at the same level), not just one-directional."
+    }
   },
   {
     wrong: "Email is always the best method of communication for businesses.",
-    correct: "The best method depends on the situation: who is being communicated with, the purpose, and what is available. For urgent issues needing immediate two-way discussion, a phone call may be better. For sensitive HR issues, face-to-face is preferred. For reaching thousands of customers, social media or a website may be best."
+    correct: "The best method depends on the situation: who is being communicated with, the purpose, and what is available. For urgent issues needing immediate two-way discussion, a phone call may be better. For sensitive HR issues, face-to-face is preferred. For reaching thousands of customers, social media or a website may be best.",
+    readCheck: {
+        q: "What determines the best method of communication for a business to use in a given situation?",
+        opts: ["Who is being communicated with, the purpose, and what is available", "Email should always be used because it is the fastest method", "The cheapest method should always be chosen regardless of purpose", "Whichever method the sender personally prefers"],
+        ans: 0,
+        explain: "The correct concept is that the best method depends on the situation — who is being contacted, the purpose, and what is available — not that one method (like email) is always best."
+    }
   },
   {
     wrong: "Social media is only useful for communicating with customers externally.",
-    correct: "Social media can also be used for INTERNAL communications. Groups of workers can be linked through social media platforms to message each other, arrange meetings, share ideas, and receive instructions — especially useful for staff spread across multiple locations or working remotely."
+    correct: "Social media can also be used for INTERNAL communications. Groups of workers can be linked through social media platforms to message each other, arrange meetings, share ideas, and receive instructions — especially useful for staff spread across multiple locations or working remotely.",
+    readCheck: {
+        q: "Besides communicating with customers, how else can a business use social media?",
+        opts: ["As a tool for internal communication between workers across locations", "It cannot be used for any purpose other than customer communication", "Only for one-way announcements with no internal use", "It can only be used by businesses with a single location"],
+        ans: 0,
+        explain: "The correct concept is that social media can also be used for internal communication, linking workers across multiple locations or remote working."
+    }
   },
   {
     wrong: "A meeting is always a disadvantage because it takes time and costs money.",
-    correct: "Meetings have both advantages AND disadvantages. Advantages include immediate feedback, the ability to check understanding, discussion and idea generation, and the use of body language. Minutes provide a formal record. Online meetings (Teams, Zoom) reduce travel costs. Never say any method is purely good or bad — evaluation is always expected."
+    correct: "Meetings have both advantages AND disadvantages. Advantages include immediate feedback, the ability to check understanding, discussion and idea generation, and the use of body language. Minutes provide a formal record. Online meetings (Teams, Zoom) reduce travel costs. Never say any method is purely good or bad — evaluation is always expected.",
+    readCheck: {
+        q: "What is the correct evaluative view of meetings as a communication method?",
+        opts: ["Meetings have both advantages, like feedback, and disadvantages, like cost", "Meetings are always a disadvantage because they take time and cost money", "Meetings have no disadvantages when held online", "Meetings should never be used to generate ideas or solve problems"],
+        ans: 0,
+        explain: "The card stresses that meetings have both advantages (immediate feedback, discussion, minutes as a record) and disadvantages (time, cost) — no method should be judged as purely good or bad."
+    }
   }
 ];
 
@@ -437,49 +522,97 @@ const examTips = [
     type: "Most Repeated Question Type",
     title: "Analyse one advantage of a specific communication method (3 marks)",
     content: "Structure: (U) Identify a specific advantage of the METHOD — e.g. 'emails can be referred back to.' (APP) Link to the specific business in the case study. (AN) Show the business-facing impact — e.g. 'this could improve customer service and reduce the risk of losing sales to competitors.' CRITICAL: do NOT just describe what the method does — state the ADVANTAGE FOR THE BUSINESS.",
-    pills: ["un","app","an"]
+    pills: ["un","app","an"],
+    readCheck: {
+        q: "In a 3-mark 'analyse one advantage of a communication method' question, what is the critical error to avoid?",
+        opts: ["Describing the method instead of stating its advantage", "Naming the specific method being used", "Linking the answer to the case study business", "Explaining the business-facing impact of the advantage"],
+        ans: 0,
+        explain: "The card warns that students must NOT just describe what the method does — they must state the actual advantage FOR THE BUSINESS to score analysis marks."
+    }
   },
   {
     type: "Most Repeated Question Type",
     title: "Recommend which method of communication to use (3 marks)",
     content: "Structure: (1 mark) Make a clear recommendation — 'SJ Salon should use a weekly email.' (2 marks) Justify by comparing the two methods — your reason must explain why the chosen method is BETTER THAN the other. The justification must cover BOTH methods and be contextual (use case study detail). E.g. 'Three employees work part-time so finding a time when everyone can attend a meeting will be difficult — an email can be read at any time.'",
-    pills: ["eval"]
+    pills: ["eval"],
+    readCheck: {
+        q: "In a 3-mark 'recommend which method of communication to use' question, what must the justification for the remaining 2 marks include?",
+        opts: ["A contextual comparison of why the chosen method is better", "Just a restatement of the method that was chosen", "A list of every possible communication method available", "A generic advantage with no reference to the case study"],
+        ans: 0,
+        explain: "The card requires the justification to compare BOTH methods, explaining why the chosen one is better than the other, using case study detail."
+    }
   },
   {
     type: "Most Repeated Question Type",
     title: "Analyse how digital communication has affected workers (6 marks)",
     content: "Two separate U→APP→AN chains, each worth 3 marks. Effect 1 (positive): e.g. working from home → more flexibility → better work-life balance → lower absenteeism. Effect 2 (negative): e.g. digital automation replaces jobs → workers made redundant → increased unemployment. Always show both sides for balance — the examiner rewards nuance.",
-    pills: ["un","app","an"]
+    pills: ["un","app","an"],
+    readCheck: {
+        q: "For a 6-mark 'analyse how digital communication has affected workers' question, what structure is expected?",
+        opts: ["Two chains of impact, one positive and one negative", "One long chain covering six unrelated points", "Six short one-sentence points with no development", "A single paragraph focused only on positive effects"],
+        ans: 0,
+        explain: "The card explains the answer should have two separate U→APP→AN chains, each worth 3 marks, showing both a positive and a negative effect for balance."
+    }
   },
   {
     type: "Calculation Warning",
     title: "Percentage change calculations",
     content: "Formula: (New Value − Original Value) ÷ Original Value × 100. Example: £250,000 to £525,000 = (£525,000 − £250,000) ÷ £250,000 × 100 = 110%. The most common mistake is dividing by the NEW value instead of the ORIGINAL. If the value more than doubles, the answer MUST be over 100%.",
-    pills: []
+    pills: [],
+    readCheck: {
+        q: "When calculating percentage change, what is the most common mistake students make according to this tip?",
+        opts: ["Dividing by the new value instead of the original value", "Adding the two values together instead of subtracting them", "Forgetting to multiply the result by 100", "Rounding the original value before subtracting"],
+        ans: 0,
+        explain: "The card warns that the formula requires dividing by the ORIGINAL value, and the most common mistake is dividing by the NEW value instead."
+    }
   },
   {
     type: "Explain Question (2 marks)",
     title: "Explain one reason why communication is important for a business",
     content: "Structure: (K) Give a reason — e.g. 'Communication is important for marketing.' (U) Explain why — e.g. 'so that customers know about what the business sells and can be persuaded to buy.' The question does NOT require application to a specific business unless it says 'explain why THIS business...' — read carefully.",
-    pills: ["kn","un"]
+    pills: ["kn","un"],
+    readCheck: {
+        q: "For a 2-mark 'explain one reason why communication is important' question, what does the mark scheme require?",
+        opts: ["A reason (K) followed by an explanation of why it matters (U)", "A reason plus application to a named business in every case", "Three separate developed points with case study detail", "Only a definition of the word 'communication'"],
+        ans: 0,
+        explain: "The card gives the structure as (K) a reason followed by (U) an explanation of why, and notes application is only needed if the question specifically asks about a named business."
+    }
   },
   {
     type: "Examiner Warning",
     title: "Always name the specific advantage — not just the method",
     content: "A very common error: writing 'email is a good method' or 'meetings allow communication' without stating WHAT the advantage is or WHY it helps the business. Examiners explicitly penalise vague responses. 'Quick and easy' alone scores zero. State the specific feature: 'can be sent to multiple recipients at once' or 'can be referred back to for clarification.'",
-    pills: ["un"]
+    pills: ["un"],
+    readCheck: {
+        q: "Why would the answer 'email is a good method because it's quick and easy' score zero marks?",
+        opts: ["It fails to state a specific advantage or explain how it helps", "Email is not accepted as a valid communication method by examiners", "It does not mention a named business from the case study", "The sentence is grammatically incorrect"],
+        ans: 0,
+        explain: "The card explains that vague responses like 'quick and easy' are penalised because they do not state the specific feature or advantage for the business."
+    }
   },
   {
     type: "Key Examiner Warning",
     title: "Analysis must be business-facing",
     content: "Analysis marks are only awarded for impacts on the BUSINESS — such as effects on revenue, profit, market share, costs, customer service, employee retention, reputation, or productivity. Writing 'employees will feel more motivated' scores as analysis. Writing 'better communication' does NOT — it just restates the question. Always push to the business consequence.",
-    pills: ["an"]
+    pills: ["an"],
+    readCheck: {
+        q: "According to the mark scheme, which type of statement counts as valid analysis in a communication question?",
+        opts: ["A statement showing a business-facing impact, e.g. motivation", "A statement that just restates 'communication has improved'", "A statement describing how the method technically works", "A statement about a competitor's pricing strategy"],
+        ans: 0,
+        explain: "The card states analysis marks require a business-facing impact — 'employees will feel more motivated' scores as analysis, whereas 'better communication' just restates the question and does not."
+    }
   },
   {
     type: "Evaluation Tip",
     title: "Evaluating the influence of digital communication",
     content: "For evaluate questions on digital communication, present BOTH benefits (lower costs, wider reach, globalisation, new products like Netflix) AND drawbacks (job losses, businesses that failed to adapt, workers needing retraining, increased competition). Conclude with a justified judgement — e.g. 'on balance, digital communication has been positive for most businesses because the cost savings and market reach outweigh the disruption.'",
-    pills: ["eval"]
+    pills: ["eval"],
+    readCheck: {
+        q: "What must a strong evaluation answer on the influence of digital communication include?",
+        opts: ["Both benefits and drawbacks, ending with a justified judgement", "Only the benefits, since digital communication is generally positive", "A list of communication methods with no conclusion", "A conclusion stating an opinion with no supporting reasons"],
+        ans: 0,
+        explain: "The card requires presenting BOTH benefits and drawbacks of digital communication, then concluding with a justified judgement, not a one-sided answer."
+    }
   }
 ];
 
@@ -620,5 +753,10 @@ const examQuestions = [
 
 </script>
 <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 </html>

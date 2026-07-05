@@ -305,6 +305,13 @@
     // ══════════════════════════════════════
     //  DATA TEMPLATE: 4.2 Quality of Goods and Services
     // ══════════════════════════════════════
+    const pageMeta = {
+            id: '4-2-quality-of-goods-services',
+            badge: 'OCR GCSE Business — Component 1',
+            title: '4.2 Quality of Goods & Services',
+            subtitle: 'Interactive revision guide',
+            subject: 'business',
+        };
 
     // 1. Main Learning Content
     const topics = [
@@ -320,7 +327,13 @@
   <li><strong>Recalls:</strong> When a fault occurs with a product and the business asks for the product to be brought back so it can be repaired or replaced (e.g. Whirlpool washing machines in 2019).</li>
   <li><strong>Mystery Shopper:</strong> A person who pretends to be a normal customer but secretly evaluates whether the service provided meets the required standard.</li>
   <li><strong>Fit for Purpose:</strong> A product or service that fulfils its intended function and meets the reasonable expectations of the customer at the price they paid.</li>
-</ul>`
+</ul>`,
+            readCheck: {
+                q: "According to the official definition, quality assurance is best described as...?",
+                opts: ["Every employee preventing quality problems at every stage", "Specialist inspectors checking finished goods at the end", "A promise that a product is the most expensive", "A process only used to identify recalls after sale"],
+                ans: 0,
+                explain: "Quality assurance is a whole-business approach where every employee is responsible for quality at every stage, aiming to prevent problems rather than just catch them."
+            }
         },
         {
             title: "The Concept of Quality",
@@ -336,7 +349,13 @@
 <div class="case-study-box">
   <h4>Case Study: The Holiday Park (Tripadvisor)</h4>
   <p>Online review platforms like Tripadvisor allow customers to share experiences publicly. A negative review describing a dirty caravan, broken TV, and rude staff can be read by thousands of potential customers — devastating a business's bookings overnight. This illustrates how a failure to meet customer quality expectations directly translates into lost revenue and lasting reputational damage.</p>
-</div>`
+</div>`,
+            readCheck: {
+                q: "Which of these best illustrates the key examiner insight about quality described in this card?",
+                opts: ["A budget tin of beans that tastes acceptable and seals correctly for its price", "Only premium products that are bought by customers at a high price", "A product that costs the business the most money to manufacture", "A product that is manufactured using the most advanced automated machinery"],
+                ans: 0,
+                explain: "The card stresses that quality is about meeting expectations at the price paid, not about luxury — a cheap product can be quality, and an expensive one can fail to be."
+            }
         },
         {
             title: "The Importance of Quality",
@@ -355,7 +374,13 @@
 <div class="case-study-box">
   <h4>Case Study: Customer Service Research (Opinium, 2020)</h4>
   <p>A survey of 2,000 UK consumers found 79% had experienced bad customer service. Of these, 54% said they would not return to a business after poor service — costing the UK economy an estimated £2.5 billion in lost sales annually. The top-rated businesses during the pandemic were Tesco, Asda, and M&S — all of which adapted quickly to meet changed customer needs.</p>
-</div>`
+</div>`,
+            readCheck: {
+                q: "How many Indesit and Hotpoint washing machines did Whirlpool identify as at risk of fire in its 2019 recall?",
+                opts: ["519,000", "55,000", "5 million", "2,000"],
+                ans: 0,
+                explain: "The case study states Whirlpool identified 519,000 washing machines made 2014–2018 as at risk of fire due to a door lock fault."
+            }
         },
         {
             title: "Quality Control — How It Works",
@@ -371,7 +396,13 @@
 <div class="case-study-box">
   <h4>Case Study: Heinz Beanz — Automated Quality Control</h4>
   <p>The Heinz Beanz factory in Wigan produces approximately 3 million cans every day using a highly automated process. Machinery is programmed to detect faults in cans or labels. If a can is the wrong weight or has not been properly sealed, it is automatically ejected from the production line before it can be sold to customers. This is a textbook example of quality control using technology — faults are caught at the end of production rather than prevented at source.</p>
-</div>`
+</div>`,
+            readCheck: {
+                q: "In the Heinz Beanz case study, approximately how many cans does the Wigan factory produce each day?",
+                opts: ["3 million", "500,000", "50,000", "10 million"],
+                ans: 0,
+                explain: "The Heinz Beanz factory in Wigan produces approximately 3 million cans every day using a highly automated quality control process."
+            }
         },
         {
             title: "Quality Control — Advantages & Disadvantages",
@@ -392,7 +423,13 @@
     <div class="con-item"><strong>Workers not responsible for quality:</strong> Because inspectors do the checking, ordinary workers have no personal ownership of quality standards — this can reduce care and vigilance on the production line.</div>
     <div class="con-item"><strong>May miss faults:</strong> If only a sample of products are inspected, some faulty items may pass through undetected and reach customers.</div>
   </div>
-</div>`
+</div>`,
+            readCheck: {
+                q: "Which of these is listed as a disadvantage of quality control?",
+                opts: ["Workers have less personal responsibility for quality", "Production stops while workers check their own work", "It needs extensive training for every employee", "It builds a culture of continuous improvement"],
+                ans: 0,
+                explain: "Because inspectors do the checking under quality control, ordinary workers have no personal ownership of quality standards, which can reduce care and vigilance."
+            }
         },
         {
             title: "Quality Assurance — How It Works",
@@ -413,7 +450,13 @@
 <div class="case-study-box">
   <h4>Case Study: Disney World, Florida — Quality Assurance in Services</h4>
   <p>Disney World applies quality assurance to a service business. All employees — from actors in parades to street cleaners — are called 'cast members'. The entire visitor experience is treated as a 'show' that every worker contributes to. Each cast member is personally responsible for delivering high-quality service at all times, ensuring every customer has a great experience. This shows that quality assurance is just as relevant to service industries as it is to manufacturing.</p>
-</div>`
+</div>`,
+            readCheck: {
+                q: "What are Toyota's two core principles, according to the case study in this card?",
+                opts: ["Customer first and respect for people", "Speed and efficiency", "Cost reduction and automation", "Innovation and profit maximisation"],
+                ans: 0,
+                explain: "The case study states Toyota's two core principles are 'customer first' and 'respect for people', which underpin its continuous-improvement ('kaizen') approach to quality assurance."
+            }
         },
         {
             title: "Quality Assurance — Advantages & Disadvantages",
@@ -434,7 +477,13 @@
     <div class="con-item"><strong>Worker resistance:</strong> Some employees may be uncomfortable with the added pressure of responsibility for quality and may resist the introduction of QA methods — potentially causing conflict or lower morale.</div>
     <div class="con-item"><strong>Not suitable for all products:</strong> Highly technical products such as pharmaceutical drugs still require specialist laboratory testing that ordinary production workers cannot perform, regardless of QA procedures.</div>
   </div>
-</div>`
+</div>`,
+            readCheck: {
+                q: "According to this card, which type of product still requires specialist laboratory testing even under quality assurance?",
+                opts: ["Pharmaceutical drugs", "Own-brand tinned beans", "Bicycles", "Washing machines"],
+                ans: 0,
+                explain: "The card notes that highly technical products such as pharmaceutical drugs still require specialist laboratory testing that ordinary production workers cannot perform, regardless of QA procedures."
+            }
         },
         {
             title: "Quality Control vs Quality Assurance — Evaluation",
@@ -455,7 +504,13 @@
   </div>
 </div>
 <p><strong>Key evaluation point for high-mark answers:</strong> Building a reputation for quality takes a <em>long time</em>. Losing it can happen <em>very quickly</em>. A business that invests in either quality method protects itself from the costs of waste, returns, recalls, and customer loss. However, the method must match the business context — there is no single 'right' answer.</p>
-<p><strong>The 'It depends on...' rule:</strong> In a 6–9 mark evaluation, always qualify your recommendation. For example: "Quality assurance would be more beneficial for ABC Bicycles because it reduces waste, but this depends on whether the business can afford the significant training costs involved."</p>`
+<p><strong>The 'It depends on...' rule:</strong> In a 6–9 mark evaluation, always qualify your recommendation. For example: "Quality assurance would be more beneficial for ABC Bicycles because it reduces waste, but this depends on whether the business can afford the significant training costs involved."</p>`,
+            readCheck: {
+                q: "According to this evaluation card, when should a business use quality assurance rather than quality control?",
+                opts: ["When the workforce is skilled enough to take responsibility for quality", "When the product requires specialist lab testing, such as drugs or chemicals", "When production must run continuously without any interruption at all", "When automated machinery can perform checks at high speed and scale"],
+                ans: 0,
+                explain: "The card states quality assurance suits businesses where the workforce is skilled enough to judge and take responsibility for their own work, using Toyota as the example."
+            }
         }
     ];
 
@@ -739,35 +794,83 @@
     const miscData = [
         {
             wrong: "Quality means a product is expensive, luxurious, or the best on the market.",
-            correct: "Quality means a product or service is fit for purpose and meets customer expectations at the price paid. A cheap product can be 'quality' if it does what the customer expected. An expensive product that fails is not quality."
+            correct: "Quality means a product or service is fit for purpose and meets customer expectations at the price paid. A cheap product can be 'quality' if it does what the customer expected. An expensive product that fails is not quality.",
+            readCheck: {
+                q: "What does 'quality' actually mean in this topic, according to the correct explanation?",
+                opts: ["Fit for purpose, meeting customer expectations at the price paid", "Priced higher than every rival product currently on the market", "Packaged in the most luxurious box available on the market", "Manufactured and sold under a well-known, trusted brand name"],
+                ans: 0,
+                explain: "The card corrects the misconception that quality means expensive or luxurious — quality actually means fit for purpose and meeting customer expectations at the price paid."
+            }
         },
         {
             wrong: "Quality control and quality assurance are the same thing — both involve checking goods.",
-            correct: "They are fundamentally different. Quality CONTROL uses specialist inspectors to check products, usually at the end of production. Quality ASSURANCE involves ALL workers being responsible for quality throughout the entire production process, aiming to PREVENT faults rather than just catch them."
+            correct: "They are fundamentally different. Quality CONTROL uses specialist inspectors to check products, usually at the end of production. Quality ASSURANCE involves ALL workers being responsible for quality throughout the entire production process, aiming to PREVENT faults rather than just catch them.",
+            readCheck: {
+                q: "What is the key difference between quality control and quality assurance, according to this card?",
+                opts: ["Quality control uses inspectors to check goods, while quality assurance involves all workers", "Quality control and quality assurance are simply two different names for the same process", "Quality assurance only checks finished goods once, right at the very end of production", "Quality control involves every single worker checking their own work at every stage"],
+                ans: 0,
+                explain: "Quality control relies on specialist inspectors checking products, usually at the end of production, while quality assurance makes all workers responsible for preventing faults throughout production."
+            }
         },
         {
             wrong: "Quality assurance does not disrupt production because quality is only checked once production is finished.",
-            correct: "The opposite is true. Quality ASSURANCE can disrupt production because workers stop to check their own work at each stage. It is quality CONTROL that does NOT disrupt production, because workers continue producing while inspectors check."
+            correct: "The opposite is true. Quality ASSURANCE can disrupt production because workers stop to check their own work at each stage. It is quality CONTROL that does NOT disrupt production, because workers continue producing while inspectors check.",
+            readCheck: {
+                q: "Which quality method actually disrupts production, according to this card?",
+                opts: ["Quality assurance, since workers pause to check their own work", "Quality control, because inspectors slow down the entire production line", "Neither method causes any real disruption to production at all", "Both methods disrupt production by roughly the same amount"],
+                ans: 0,
+                explain: "It is quality assurance that can disrupt production, since workers stop to check their own work at each stage — quality control does not disrupt production because inspectors check while workers keep producing."
+            }
         },
         {
             wrong: "Quality control prevents waste because it catches faulty goods.",
-            correct: "Quality control does NOT prevent waste — the materials and labour to make a faulty product have already been used up before the inspector finds the fault. Quality ASSURANCE reduces waste because faults are caught early, before more resources are spent on a defective item."
+            correct: "Quality control does NOT prevent waste — the materials and labour to make a faulty product have already been used up before the inspector finds the fault. Quality ASSURANCE reduces waste because faults are caught early, before more resources are spent on a defective item.",
+            readCheck: {
+                q: "Why does quality control NOT prevent waste, according to this card?",
+                opts: ["Because materials and labour are already used up before a fault is found", "Because inspectors are simply too slow to catch every single fault", "Because quality control is only ever used within service industries", "Because quality control checks products only before they are manufactured"],
+                ans: 0,
+                explain: "Quality control only catches faults after production, so the materials and labour used to make a faulty product have already been wasted by the time an inspector finds the fault."
+            }
         },
         {
             wrong: "For a 1-mark 'identify' question about quality, writing 'suppliers' is enough for a mark.",
-            correct: "Examiners require a specific, precise answer. 'Suppliers' alone is too vague. The correct answer would be 'the quality of raw materials / supplies used.' Always be specific about WHAT about suppliers affects quality."
+            correct: "Examiners require a specific, precise answer. 'Suppliers' alone is too vague. The correct answer would be 'the quality of raw materials / supplies used.' Always be specific about WHAT about suppliers affects quality.",
+            readCheck: {
+                q: "For a 1-mark identify question on factors affecting quality, why would writing just 'suppliers' score 0 marks?",
+                opts: ["It is too vague — it doesn't state what about suppliers affects quality", "Suppliers are never considered a relevant factor affecting product quality", "The examiner only accepts answers that mention staff training", "It should have been written out as a full paragraph instead"],
+                ans: 0,
+                explain: "Examiners require a specific, precise answer such as 'the quality of raw materials/supplies used' — simply writing 'suppliers' is too vague to earn the mark."
+            }
         },
         {
             wrong: "For a 3-mark analyse question, writing everything you know about quality control will get full marks.",
-            correct: "This is 'knowledge dumping' and will score 0 for analysis. You MUST follow the U → APP → AN structure: explain the concept (U), link it specifically to the business in the case study (APP), then explain the financial or operational impact on that business (AN)."
+            correct: "This is 'knowledge dumping' and will score 0 for analysis. You MUST follow the U → APP → AN structure: explain the concept (U), link it specifically to the business in the case study (APP), then explain the financial or operational impact on that business (AN).",
+            readCheck: {
+                q: "Why would 'writing everything you know about quality control' fail to score marks on a 3-mark analyse question?",
+                opts: ["Because it is knowledge dumping, which scores 0 for analysis marks", "Because analyse questions are marked purely on handwriting neatness", "Because 3-mark questions only ever accept bullet-point style answers", "Because analyse questions never actually require any real understanding"],
+                ans: 0,
+                explain: "Knowledge dumping without following the U → APP → AN structure (explain, apply to the case study business, then analyse impact) scores 0 for analysis."
+            }
         },
         {
             wrong: "A product recall is the same as a product return.",
-            correct: "These are different. A RETURN is when an individual customer brings back a faulty product to the shop. A RECALL is when the business itself identifies a serious fault and proactively contacts all affected customers to return the product for repair or replacement."
+            correct: "These are different. A RETURN is when an individual customer brings back a faulty product to the shop. A RECALL is when the business itself identifies a serious fault and proactively contacts all affected customers to return the product for repair or replacement.",
+            readCheck: {
+                q: "What is the difference between a 'return' and a 'recall', according to this card?",
+                opts: ["A return is customer-led; a recall is business-led", "A recall only ever happens to service businesses", "A return and a recall are the same process", "A recall always costs less than a return"],
+                ans: 0,
+                explain: "A return is when an individual customer brings a faulty product back; a recall is when the business itself identifies a fault and proactively contacts affected customers."
+            }
         },
         {
             wrong: "Quality assurance only applies to manufacturing businesses.",
-            correct: "Quality assurance applies equally to service businesses. Disney World is a classic example — all 'cast members' (staff) take personal responsibility for delivering a high-quality customer experience, which is quality assurance applied to a service."
+            correct: "Quality assurance applies equally to service businesses. Disney World is a classic example — all 'cast members' (staff) take personal responsibility for delivering a high-quality customer experience, which is quality assurance applied to a service.",
+            readCheck: {
+                q: "Which case study is used to show that quality assurance applies to service businesses too?",
+                opts: ["Disney World, where 'cast members' take responsibility for customer experience", "Heinz Beanz, where automated machines eject cans that fail inspection", "ABC Bicycles, where specialist inspectors check the quality of each bike", "Whirlpool, where faulty washing machines were recalled from customers' homes"],
+                ans: 0,
+                explain: "Disney World is used as the example of quality assurance in a service business, where all 'cast members' take personal responsibility for delivering high-quality customer experience."
+            }
         }
     ];
 
@@ -797,7 +900,13 @@
 
       <p><strong>🚫 Knowledge Dumping Alert:</strong> Do NOT write a definition of quality (e.g. "fit for purpose") when asked for a <em>factor that affects</em> quality. These are different things — read the question carefully.</p>
     `,
-            pills: ["K"]
+            pills: ["K"],
+            readCheck: {
+                q: "What is the key lesson from the 'Bad Answer' example, writing just 'Suppliers'?",
+                opts: ["It doesn't say WHAT about suppliers affects quality", "It is far too long for a 1-mark question answer", "It claims suppliers are never a valid factor", "It fails to mention Heinz Beanz by name"],
+                ans: 0,
+                explain: "The card explains that 'Suppliers' alone is too vague — a 1-mark answer must be specific, such as 'the quality of raw materials/supplies used.'"
+            }
         },
         {
             type: "Explain — 2 marks",
@@ -820,7 +929,13 @@
 
       <p><strong>⚠️ Examiner Warning:</strong> Many candidates explained the right concept but named it incorrectly (e.g. describing quality control but calling it quality assurance). You must name AND correctly explain the same method. Less than half of candidates gained both marks on this type of question in recent papers.</p>
     `,
-            pills: ["K", "U"]
+            pills: ["K", "U"],
+            readCheck: {
+                q: "According to this card, what is the most common reason candidates lost marks on 2-mark explain questions?",
+                opts: ["They explained the right concept but gave it the wrong name", "They included far too many examples instead of one clear explanation", "They explained the concept but never linked it to a case study", "They only wrote a single vague sentence with no real detail"],
+                ans: 0,
+                explain: "The examiner warning notes that many candidates explained the right concept but named it incorrectly, mixing up quality control and quality assurance."
+            }
         },
         {
             type: "Analyse — 3 marks",
@@ -849,7 +964,13 @@
         <li>"This increases repeat sales and reduces the marketing cost of acquiring new customers" ✅ NOW that's analysis.</li>
       </ul>
     `,
-            pills: ["U", "app", "an"]
+            pills: ["U", "app", "an"],
+            readCheck: {
+                q: "In the 3-mark 'Analyse' formula, what happens if a candidate does not link their answer to the specific business in the case study?",
+                opts: ["They score ZERO for analysis", "They still get full marks if the understanding is strong", "They lose only the application mark but keep the analysis mark", "They automatically get 2 out of 3 marks"],
+                ans: 0,
+                explain: "The card states you will score ZERO for analysis if you do not link to the specific business in the case study, since analysis must build on application."
+            }
         },
         {
             type: "Analyse Two Benefits/Impacts — 6 marks",
@@ -875,7 +996,13 @@
 
       <p><strong>🚫 Do NOT write a conclusion.</strong> A 6-mark question does not reward evaluation — save the "it depends on..." language for 7–9 mark questions only.</p>
     `,
-            pills: ["U", "app", "an"]
+            pills: ["U", "app", "an"],
+            readCheck: {
+                q: "According to this card, should a 6-mark 'analyse two benefits' answer include a conclusion?",
+                opts: ["No — there are zero marks available for evaluation on this question type", "Yes — a conclusion is worth 2 of the 6 marks", "Yes, but only if both points are about the same benefit", "No — because conclusions are banned across every GCSE Business question"],
+                ans: 0,
+                explain: "The card explicitly says not to waste time writing a conclusion, as a 6-mark question does not reward evaluation — that language is saved for 7–9 mark questions."
+            }
         },
         {
             type: "Explain Two Reasons — 4 marks",
@@ -897,7 +1024,13 @@
 
       <p><strong>⚠️ Examiner Warning:</strong> Do not just list reasons without linking them to JLR. The application mark requires you to use a specific detail from the case study — mention the luxury segment, the competitors, the international markets, or the car manufacturing context.</p>
     `,
-            pills: ["U", "app"]
+            pills: ["U", "app"],
+            readCheck: {
+                q: "In the JLR example, what does the application mark require for each reason?",
+                opts: ["A specific detail from the case study, such as the luxury car segment", "A general dictionary-style definition of what quality assurance actually means", "A comparison between JLR's methods and Toyota's kaizen system", "A statistic taken from a UK customer service satisfaction survey"],
+                ans: 0,
+                explain: "The examiner warning states the application mark requires a specific detail from the case study, such as the luxury segment, competitors, international markets, or manufacturing context."
+            }
         },
         {
             type: "Quality Control vs Quality Assurance — Distinguish",
@@ -925,7 +1058,13 @@
 
       <p><strong>⚠️ AfL Note from Examiners:</strong> Creating key term lists, flashcards and mini tests is the most effective way to prevent this mix-up before an exam.</p>
     `,
-            pills: ["K", "U"]
+            pills: ["K", "U"],
+            readCheck: {
+                q: "According to the 'Real-World Memory Aid', which example represents quality assurance?",
+                opts: ["Toyota workers suggesting quality improvements in meetings", "Heinz Beanz machines automatically ejecting faulty cans", "ABC Bicycles employees wearing white inspection gloves", "Whirlpool recalling faulty washing machines from customers"],
+                ans: 0,
+                explain: "The card's memory aid pairs quality control with the Heinz Beanz machine ejecting faulty cans, and quality assurance with Toyota workers suggesting improvements in team meetings."
+            }
         }
     ];
 
@@ -1284,6 +1423,11 @@
     ];
 </script>
     <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

@@ -305,6 +305,13 @@
 // ══════════════════════════════════════
 //  DATA TEMPLATE: 1.4 Business Aims and Objectives
 // ══════════════════════════════════════
+  const pageMeta = {
+    id: '1-4-business-aims-objectives',
+    badge: 'OCR GCSE Business — Component 1',
+    title: '1.4 Aims and Objectives',
+    subtitle: 'Interactive revision guide',
+    subject: 'business',
+  };
 
 // 1. Main Learning Content
 const topics = [
@@ -321,7 +328,13 @@ const topics = [
   <li><strong>Survival:</strong> When a business manages to keep trading, often during its early months or in times of difficulty.</li>
   <li><strong>Providing a Service:</strong> Ensuring the needs of the customer are met, often prioritised over maximising profit.</li>
   <li><strong>Evolving:</strong> The way a business develops and changes over time — becoming bigger or smaller, selling different goods, or operating in different ways.</li>
-</ul>`
+</ul>`,
+    readCheck: {
+        q: "What is 'satisficing'?",
+        opts: ["Making the maximum possible profit for shareholders", "Making just enough profit for a decent standard of living", "Keeping the business trading during a difficult period", "Gaining the largest possible share of the market"],
+        ans: 1,
+        explain: "The card defines satisficing as making just enough profit for a decent standard of living, which is more common in smaller businesses such as sole traders."
+    }
   },
   {
     title: "The Five Main Business Objectives",
@@ -336,7 +349,13 @@ const topics = [
 </ul>
 <div class="formula-box">
   <strong>Market Share (%) =</strong> (Sales of the business ÷ Total sales in the market) &times; 100
-</div>`
+</div>`,
+    readCheck: {
+        q: "A business sells 100 out of 1,000 tables sold nationally. What is its market share?",
+        opts: ["1%", "100%", "10%", "90%"],
+        ans: 2,
+        explain: "Using the card's example and the formula (business sales ÷ total market sales) × 100, 100 ÷ 1,000 × 100 = 10%."
+    }
   },
   {
     title: "Advantages & Disadvantages of Each Objective",
@@ -373,7 +392,13 @@ const topics = [
     <div class="con-item"><strong>Lower profit margins:</strong> Investing heavily in service quality can increase costs, reducing overall profitability.</div>
     <div class="con-item"><strong>Hard to measure:</strong> Unlike profit or market share, the success of a service objective is difficult to quantify precisely.</div>
   </div>
-</div>`
+</div>`,
+    readCheck: {
+        q: "According to this card, what is a key disadvantage of profit maximisation as an objective?",
+        opts: ["It makes market share impossible to calculate", "It guarantees the business will lose customers immediately", "It prevents the business from ever reinvesting in growth", "It can damage reputation if seen as purely profit-driven"],
+        ans: 3,
+        explain: "The card states that customers and the public may react negatively if a business is seen as purely profit-driven, reducing sales in the long run."
+    }
   },
   {
     title: "How & Why Objectives Change as Businesses Evolve",
@@ -402,7 +427,13 @@ const topics = [
   <li>Falling profits or losses make profit maximisation an unrealistic objective — <strong>survival</strong> takes priority.</li>
   <li>Expansion plans are postponed or cancelled entirely.</li>
   <li>In extreme cases, businesses must close down parts of their operations to reduce losses.</li>
-</ul>`
+</ul>`,
+    readCheck: {
+        q: "When a business is in financial difficulty, what typically happens to its objectives according to this card?",
+        opts: ["The business immediately converts to a PLC to raise more capital", "Expansion plans are cancelled as the focus shifts to survival", "Profit maximisation becomes easier to achieve than before", "Market share automatically increases as competitors struggle too"],
+        ans: 1,
+        explain: "The card states that falling profits make profit maximisation unrealistic, survival takes priority, and expansion plans are postponed or cancelled."
+    }
   },
   {
     title: "Why Different Businesses Have Different Objectives",
@@ -419,7 +450,13 @@ const topics = [
 <div class="case-study-box">
   <h4>Case Study: Aldi & Tesco</h4>
   <p>Tesco — a large established PLC — prioritises profit and market share, driven by shareholder expectations. Aldi, entering the UK market as a challenger, focused on growth by offering lower prices than rivals. Meanwhile, a small independent butcher may focus on providing excellent service to the local community, with satisficing profit as the main goal. Three businesses, three very different objectives — all shaped by their size, ownership, and market context.</p>
-</div>`
+</div>`,
+    readCheck: {
+        q: "In the Aldi & Tesco case study, why does Tesco prioritise profit and market share while a small independent butcher might satisfice instead?",
+        opts: ["Tesco sells fewer products than the butcher, so it must charge higher prices", "Butchers are legally required to prioritise service over profit", "Tesco is a large PLC answerable to shareholders; the butcher is not", "Tesco has no competitors, so it does not need to focus on market share"],
+        ans: 2,
+        explain: "The case study shows objectives are shaped by size, ownership, and market context — Tesco's PLC status means shareholder expectations drive profit and market share, while a small independent butcher can focus on service and satisficing."
+    }
   },
   {
     title: "Objectives Linked to Business Ownership",
@@ -444,7 +481,13 @@ const topics = [
     <div class="con-item"><strong>Inflexibility:</strong> Sticking rigidly to an objective when circumstances change can harm the business.</div>
     <div class="con-item"><strong>Unrealistic targets:</strong> Setting objectives that are too ambitious can demoralise staff and lead to poor decisions.</div>
   </div>
-</div>`
+</div>`,
+    readCheck: {
+        q: "Why is a PLC's objective-setting most constrained by shareholders, compared to a sole trader?",
+        opts: ["PLCs are legally banned from setting a survival objective", "Sole traders must always seek shareholder approval before setting objectives", "PLCs cannot change their objectives once the business is formed", "PLC shareholders demand high dividends, requiring profit and growth"],
+        ans: 3,
+        explain: "The card explains that PLC shareholders demand high dividends, meaning objectives are largely driven by financial performance, unlike a sole trader whose objectives are personal."
+    }
   }
 ];
 
@@ -726,35 +769,83 @@ const tfData = [
 const miscData = [
   {
     wrong: "All businesses have profit as their main objective.",
-    correct: "This is one of the most common misconceptions in GCSE Business. Many businesses — especially new ones — focus on survival. Public sector organisations, charities, and community businesses often prioritise service over profit. Always read the case study to identify the actual objective."
+    correct: "This is one of the most common misconceptions in GCSE Business. Many businesses — especially new ones — focus on survival. Public sector organisations, charities, and community businesses often prioritise service over profit. Always read the case study to identify the actual objective.",
+    readCheck: {
+        q: "Why is it wrong to assume all businesses have profit as their main objective?",
+        opts: ["New or community businesses often prefer survival or service", "Only sole traders are legally allowed to aim for profit", "Profit is only relevant to businesses in the public sector", "All businesses actually aim for market share, not profit"],
+        ans: 0,
+        explain: "The card explains that new businesses often focus on survival while public sector, charity, and community businesses often prioritise service over profit — always check the case study for the actual objective."
+    }
   },
   {
     wrong: "Growth always leads to more profit.",
-    correct: "Growth can increase revenue but does not guarantee more profit. If a business lowers prices to attract more customers, profit per unit may fall. Rapid growth also increases costs. The mark scheme specifically states that growth does NOT guarantee profit."
+    correct: "Growth can increase revenue but does not guarantee more profit. If a business lowers prices to attract more customers, profit per unit may fall. Rapid growth also increases costs. The mark scheme specifically states that growth does NOT guarantee profit.",
+    readCheck: {
+        q: "Why does growth not always guarantee more profit?",
+        opts: ["Growth is defined as an increase in profit, so the two always rise together", "Cutting prices to attract customers and rising expansion costs reduce profit", "Growth only affects market share, never revenue or costs", "The mark scheme treats growth and profit as identical terms"],
+        ans: 1,
+        explain: "The card explains that lowering prices to attract customers can reduce profit per unit, and rapid growth increases costs, so the mark scheme states growth does NOT guarantee profit."
+    }
   },
   {
     wrong: "A business only ever has one objective at a time.",
-    correct: "Businesses often pursue multiple objectives simultaneously. A business might aim for growth AND profit AND providing good service at the same time. The objectives are also often linked — good service leads to more customers, which leads to higher sales, which improves profit."
+    correct: "Businesses often pursue multiple objectives simultaneously. A business might aim for growth AND profit AND providing good service at the same time. The objectives are also often linked — good service leads to more customers, which leads to higher sales, which improves profit.",
+    readCheck: {
+        q: "Can a business pursue more than one objective at the same time?",
+        opts: ["No, a business must choose exactly one objective and stick to it permanently", "No, objectives are mutually exclusive by definition in business theory", "Yes, businesses often pursue linked objectives together, e.g. growth and profit", "Yes, but only PLCs are allowed to have more than one objective"],
+        ans: 2,
+        explain: "The card corrects the misconception by explaining businesses often pursue multiple objectives simultaneously, and that objectives such as service, sales and profit are often linked."
+    }
   },
   {
     wrong: "Once a business sets its objectives, they stay the same forever.",
-    correct: "Business objectives evolve constantly. Changes in competition, economic conditions, the owner's ambitions, or the business's financial position can all trigger a shift in objectives. Examiners expect students to recognise that objectives are dynamic, not fixed."
+    correct: "Business objectives evolve constantly. Changes in competition, economic conditions, the owner's ambitions, or the business's financial position can all trigger a shift in objectives. Examiners expect students to recognise that objectives are dynamic, not fixed.",
+    readCheck: {
+        q: "What do examiners expect students to recognise about business objectives?",
+        opts: ["That objectives are fixed permanently once a business is registered", "That only PLCs are able to change their objectives over time", "That objectives can only change if the owner retires", "That objectives are dynamic, shifting with competition or ambition"],
+        ans: 3,
+        explain: "The card states that changes in competition, economic conditions, owner ambitions, or financial position can all trigger a shift, and examiners expect students to recognise objectives are dynamic, not fixed."
+    }
   },
   {
     wrong: "Survival means the business is failing.",
-    correct: "Survival is a legitimate and rational business objective — especially for new businesses or those facing temporary difficulty. Having survival as an objective shows the business is realistic about its situation. It is not a sign of failure; it is often a sensible short-term strategy."
+    correct: "Survival is a legitimate and rational business objective — especially for new businesses or those facing temporary difficulty. Having survival as an objective shows the business is realistic about its situation. It is not a sign of failure; it is often a sensible short-term strategy.",
+    readCheck: {
+        q: "Does having survival as an objective mean a business is failing?",
+        opts: ["No, it is a legitimate strategy showing the business is realistic", "Yes, survival is always a sign of business failure", "Yes, only businesses about to close ever set survival as an objective", "No, but it can only be chosen by public limited companies"],
+        ans: 0,
+        explain: "The card corrects the misconception that survival equals failure, stating it is a legitimate, rational, and often sensible short-term strategy, especially for new or struggling businesses."
+    }
   },
   {
     wrong: "Market share and profit are the same thing.",
-    correct: "Market share is the percentage of total market sales held by a business. A business can have a high market share but low profit (e.g., if it has cut prices to gain customers). They are related but different concepts with different formulas."
+    correct: "Market share is the percentage of total market sales held by a business. A business can have a high market share but low profit (e.g., if it has cut prices to gain customers). They are related but different concepts with different formulas.",
+    readCheck: {
+        q: "Why are market share and profit not the same thing?",
+        opts: ["Market share is only measured in businesses that make no profit at all", "A business can have a high market share but low profit if it cut prices", "Profit and market share always rise and fall together by definition", "Market share is a measure of costs, while profit measures revenue only"],
+        ans: 1,
+        explain: "The card explains they are related but different concepts with different formulas, giving the example of a business with high market share but low profit due to price cuts."
+    }
   },
   {
     wrong: "All large businesses want to grow.",
-    correct: "Not all large businesses are pursuing growth. Some may have reached a size at which further growth would reduce control or quality. A business might shift its objective to maintaining current profit levels rather than expanding further."
+    correct: "Not all large businesses are pursuing growth. Some may have reached a size at which further growth would reduce control or quality. A business might shift its objective to maintaining current profit levels rather than expanding further.",
+    readCheck: {
+        q: "Why might a large business choose NOT to pursue further growth?",
+        opts: ["Large businesses are legally prevented from growing beyond a certain size", "Growth objectives are only available to sole traders and partnerships", "Further growth could reduce control or quality, so profit is safer", "Large businesses never have enough profit to fund further growth"],
+        ans: 2,
+        explain: "The card explains some large businesses may have reached a size where further growth reduces control or quality, so they shift focus to maintaining current profit rather than expanding."
+    }
   },
   {
     wrong: "Satisficing is a strategy used by lazy business owners.",
-    correct: "Satisficing is a perfectly rational and deliberate business strategy. Many sole traders choose to earn a comfortable income without the stress and risk of expansion. It reflects the personal priorities of the owner, not a lack of ambition or effort."
+    correct: "Satisficing is a perfectly rational and deliberate business strategy. Many sole traders choose to earn a comfortable income without the stress and risk of expansion. It reflects the personal priorities of the owner, not a lack of ambition or effort.",
+    readCheck: {
+        q: "What does satisficing actually reflect about a business owner, according to this card?",
+        opts: ["A lack of effort and ambition on the part of the owner", "A legal requirement placed on all sole traders", "An inability to calculate the business's true profit figures", "The owner's personal priorities, not laziness or ambition"],
+        ans: 3,
+        explain: "The card corrects the misconception that satisficing shows laziness, explaining it is a rational, deliberate strategy reflecting the owner's personal priorities rather than a lack of ambition."
+    }
   }
 ];
 
@@ -778,7 +869,13 @@ const examTips = [
       Specific, uses the correct business terminology.</p>
       <p><strong>⚠️ For 2-mark 'State two' questions:</strong> Write two separate points clearly numbered. Do NOT write one long sentence — examiners award one mark per identified objective.</p>
     `,
-    pills: ["K"]
+    pills: ["K"],
+    readCheck: {
+        q: "For a 'State' or 'Identify' question, how should marks be earned?",
+        opts: ["One clear, specific point per mark, with no explanation needed", "A full paragraph explaining the reasoning behind each point", "One long combined sentence covering all required points", "A judgement followed by a justification using case study detail"],
+        ans: 0,
+        explain: "The card's formula states one clear, specific point equals 1 mark, while a vague or generic answer earns 0 marks — no explanation is needed for 'State' or 'Identify' questions."
+    }
   },
   {
     type: "Explain — 2 marks",
@@ -793,7 +890,13 @@ const examTips = [
       <em>"The Works is a large established retailer (APP) so it can pursue growth or profit, whereas Saranne is starting a new business and must focus on survival to get through the first few months (APP)."</em></p>
       <p><strong>⚠️ Examiner Warning:</strong> Both marks require context. Generic answers about "bigger businesses want more profit" without linking to the case study will only score 1 mark at best.</p>
     `,
-    pills: ["K", "U", "app"]
+    pills: ["K", "U", "app"],
+    readCheck: {
+        q: "What must a 2-mark 'Explain' answer include to score full marks?",
+        opts: ["Only the correct keyword, with no further detail required", "A point plus a reason, explained using the business context", "A judgement followed by two pieces of case study evidence", "Three separate steps: understanding, application, and analysis"],
+        ans: 1,
+        explain: "The card's formula for 'Explain' questions is: make a point (K) then briefly explain why using the business context (APP) — a generic answer without context scores only 1 mark at best."
+    }
   },
   {
     type: "Analyse — 3 marks",
@@ -817,7 +920,13 @@ const examTips = [
       "In the case of [Business Name], which... (APP)"<br/>
       "This means that... / As a result, the business will... (AN)"</p>
     `,
-    pills: ["U", "app", "an"]
+    pills: ["U", "app", "an"],
+    readCheck: {
+        q: "What are the three required steps for a 3-mark 'Analyse' question, according to this card?",
+        opts: ["Knowledge, Judgement, Justification", "Definition, Example, Conclusion", "Understanding, Application, Analysis", "State, Explain, Evaluate fully"],
+        ans: 2,
+        explain: "The card calls this 'the Holy Trinity': Understanding (state the theory), Application (reference the case study), and Analysis (explain the impact) — missing any one loses a mark."
+    }
   },
   {
     type: "Evaluate — 3 marks (Judgement + Justification)",
@@ -840,7 +949,13 @@ const examTips = [
       "The evidence from the case study shows that... (Justification)"<br/>
       "Without [factor], Samsung would not be able to... (Justification)"</p>
     `,
-    pills: ["app", "an", "eval"]
+    pills: ["app", "an", "eval"],
+    readCheck: {
+        q: "In this 3-mark 'Judgement + Justification' evaluate question, how are the marks split?",
+        opts: ["3 marks are given only for restating the case study in full", "1 mark for the judgement and 2 marks for a second, opposing judgement", "All 3 marks are awarded solely for using the word 'because'", "1 mark for a judgement, 2 marks for a contextual justification"],
+        ans: 3,
+        explain: "The card states this question type awards 1 mark for a clear judgement and 2 marks for a justification that uses specific case study detail, not simply repeats it."
+    }
   },
   {
     type: "Evaluate — 7 marks",
@@ -863,7 +978,13 @@ const examTips = [
       <p><strong>🚫 Common Mistake:</strong> Students write a conclusion that just repeats their earlier points. A conclusion that adds no new reasoning scores zero evaluation marks. Use the "It depends on..." or "However, this is only true if..." formula to add depth.</p>
       <p><strong>⚠️ Do NOT write a conclusion for 3-mark or 6-mark questions</strong> — there are zero evaluation marks available for those.</p>
     `,
-    pills: ["K", "U", "app", "an", "eval"]
+    pills: ["K", "U", "app", "an", "eval"],
+    readCheck: {
+        q: "What must a strong conclusion in a 7-mark evaluate answer do, according to this card?",
+        opts: ["Add new reasoning: a decision, context, and impact — not repeats", "Simply restate the strongest point made in paragraph one", "Avoid making a decision so as not to seem biased", "List every objective covered in the topic, regardless of relevance"],
+        ans: 0,
+        explain: "The card warns that a conclusion which just repeats earlier points scores zero evaluation marks; it must include a decision, context, and impact/reasoning to add new depth."
+    }
   },
   {
     type: "Common Trap — Application",
@@ -882,7 +1003,13 @@ const examTips = [
       "As the text states, [Business] operates in..."<br/>
       "Because [Business] has [specific detail from case study]..."</p>
     `,
-    pills: ["app", "an"]
+    pills: ["app", "an"],
+    readCheck: {
+        q: "According to this card, what happens if an analysis point does not reference the case study business?",
+        opts: ["The examiner still awards full marks if the knowledge point is correct", "The examiner awards zero application and analysis marks", "Only the analysis mark is lost, but application is still awarded", "It only affects marks on 7-mark evaluate questions, not shorter ones"],
+        ans: 1,
+        explain: "The card states you cannot score application or analysis marks without directly referencing the case study business — a generic point 'could describe any business' and earns zero application marks."
+    }
   }
 ];
 
@@ -1156,6 +1283,11 @@ const examQuestions = [
 ];
 </script>
     <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

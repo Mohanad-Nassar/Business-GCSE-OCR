@@ -305,6 +305,13 @@
 // ══════════════════════════════════════
 //  DATA TEMPLATE: 1.5 Stakeholders in Business
 // ══════════════════════════════════════
+  const pageMeta = {
+    id: '1-5-stakeholders-in-business',
+    badge: 'OCR GCSE Business — Component 1',
+    title: '1.5 Stakeholders in Business',
+    subtitle: 'Interactive revision guide',
+    subject: 'business',
+  };
 
 // 1. Main Learning Content
 const topics = [
@@ -322,7 +329,18 @@ const topics = [
   <li><strong>Conflicting objectives:</strong> When two or more stakeholder groups want different things from the same business, creating tension or disagreement.</li>
   <li><strong>Stakeholder influence:</strong> The power a stakeholder group has to change or shape how a business operates.</li>
 </ul>
-<p><strong>⚠️ Common Misconception:</strong> Do NOT confuse <strong>stakeholders</strong> and <strong>shareholders</strong>. A shareholder is one type of stakeholder (an owner of shares). A sole trader has no shareholders — but they are still a stakeholder (as the owner). Getting this wrong in an exam can cost you several marks.</p>`
+<p><strong>⚠️ Common Misconception:</strong> Do NOT confuse <strong>stakeholders</strong> and <strong>shareholders</strong>. A shareholder is one type of stakeholder (an owner of shares). A sole trader has no shareholders — but they are still a stakeholder (as the owner). Getting this wrong in an exam can cost you several marks.</p>`,
+    readCheck: {
+      q: "A sole trader has no shareholders. According to the key terms studied in this topic, does the sole trader still count as having stakeholders?",
+      opts: [
+        "No, because only limited companies can have stakeholders",
+        "Yes, but only if the sole trader also owns shares in their own business",
+        "Yes, stakeholders include anyone with an interest, not just shareholders",
+        "No, because a sole trader has no shareholders and therefore no stakeholders"
+      ],
+      ans: 2,
+      explain: "The card states a sole trader has no shareholders but is still a stakeholder as the owner — all shareholders are stakeholders, but not all stakeholders are shareholders."
+    }
   },
   {
     title: "Internal vs External Stakeholders",
@@ -342,7 +360,18 @@ const topics = [
 <div class="con-item"><strong>Local Community:</strong> Wants businesses to provide jobs, avoid pollution/noise, and contribute to local prosperity.</div>
 </div>
 </div>
-<p>There may be other stakeholders depending on the business — for example, a bank (lender) or a charity partner. The key is always to think about <strong>who has an interest in that specific business</strong>.</p>`
+<p>There may be other stakeholders depending on the business — for example, a bank (lender) or a charity partner. The key is always to think about <strong>who has an interest in that specific business</strong>.</p>`,
+    readCheck: {
+      q: "Which of the following is classified as an EXTERNAL stakeholder?",
+      opts: [
+        "An employee working on the shop floor",
+        "A supplier providing raw materials",
+        "A shareholder who works as a company director",
+        "A partner who co-owns the business"
+      ],
+      ans: 1,
+      explain: "Suppliers exist outside the business, making them external stakeholders, whereas employees, director-shareholders and owning partners are all internal stakeholders because they are part of the business itself."
+    }
   },
   {
     title: "Objectives of Each Stakeholder Group",
@@ -359,7 +388,18 @@ const topics = [
 <div class="case-study-box">
   <h4>Case Study: Barratt Developments plc</h4>
   <p>Barratt is a leading UK house builder. Its shareholders want higher profits and dividends. Its employees want secure, well-paid jobs. Local communities want — or sometimes oppose — new housing developments. The government wants tax revenue and more homes to tackle the housing crisis. Suppliers of bricks, timber and cement want large, reliable orders. Every decision Barratt makes will affect <em>all</em> of these groups differently.</p>
-</div>`
+</div>`,
+    readCheck: {
+      q: "What is a supplier's main objective when dealing with a business, according to this topic?",
+      opts: [
+        "To receive large, frequent orders paid on time",
+        "To receive dividends from the company's profits",
+        "To secure job security and fair wages",
+        "To ensure the business follows environmental law"
+      ],
+      ans: 0,
+      explain: "The card states suppliers want large, frequent orders and to be paid on time — dividends relate to owners, job security to employees, and legal compliance to government."
+    }
   },
   {
     title: "Conflicting Objectives Between Stakeholders",
@@ -380,7 +420,18 @@ const topics = [
 <div class="col-head">✗ When Interests Conflict</div>
 <div class="con-item">Cutting the workforce to save costs helps owners (higher profit margin) but harms employees (job losses), local community (unemployment rises) and potentially customers (reduced service).</div>
 </div>
-</div>`
+</div>`,
+    readCheck: {
+      q: "Why do owners and employees often have conflicting objectives, according to this topic?",
+      opts: [
+        "Owners want more competitors in the market while employees want fewer",
+        "Owners want low wage costs for profit; employees want higher pay",
+        "Owners and employees actually always want exactly the same outcome",
+        "Owners want to raise prices while employees want prices lowered"
+      ],
+      ans: 1,
+      explain: "The card explains that owners want to minimise costs (keeping wages low) to maximise profit, while employees want higher wages and better conditions — a conflict that can lead to strikes."
+    }
   },
   {
     title: "The Effect Business Activity Has on Stakeholders",
@@ -405,7 +456,18 @@ const topics = [
 <div class="case-study-box">
   <h4>Case Study: Heathrow Third Runway</h4>
   <p>The proposed expansion of Heathrow Airport illustrates perfectly how the same business activity can affect stakeholders in opposite ways. A third runway would create thousands of jobs (positive for employees and local community), boost import/export opportunities (positive for businesses and government tax), yet also cause significant noise pollution, increased traffic, and environmental damage to local areas (negative for local residents). This is why stakeholder conflicts arise around major developments.</p>
-</div>`
+</div>`,
+    readCheck: {
+      q: "When a business shrinks or closes, what is the most likely effect on the government as a stakeholder?",
+      opts: [
+        "Higher tax receipts from redundancy payments",
+        "No effect, since government revenue depends only on VAT",
+        "Reduced need to spend money on public services",
+        "Lower tax receipts and higher unemployment benefit payments"
+      ],
+      ans: 3,
+      explain: "The card states that when a business shrinks or closes, the government sees fewer tax receipts and must pay more in unemployment benefits."
+    }
   },
   {
     title: "The Effect Stakeholders Have on Business",
@@ -425,7 +487,18 @@ const topics = [
     </ul>
   </li>
   <li><strong>Local Community:</strong> Can <strong>protest or campaign</strong> against business developments they oppose. Sufficient community opposition can force businesses to alter or abandon their plans entirely.</li>
-</ul>`
+</ul>`,
+    readCheck: {
+      q: "How can customers most directly influence a business, according to this topic?",
+      opts: [
+        "By setting the level of corporation tax",
+        "By offering grants to help the business grow",
+        "By boycotting the business over price or quality",
+        "By changing employment law"
+      ],
+      ans: 2,
+      explain: "The card explains that customers can boycott a business, leading to lower sales, damaged reputation and reduced profit — tax, grants and law changes are actions taken by government."
+    }
   },
   {
     title: "How Government Affects Business — Four Key Methods",
@@ -446,7 +519,18 @@ const topics = [
 <div class="pro-item">Spending on <strong>defence, roads and railways</strong> directly increases business activity and creates opportunities for suppliers and contractors.</div>
 </div>
 </div>
-<p><strong>Exam tip:</strong> When a question asks how government affects business, use one of these four methods — don't just say "the government can tax businesses." Say <em>which</em> tax and <em>what effect</em> it has on the specific business in the case study.</p>`
+<p><strong>Exam tip:</strong> When a question asks how government affects business, use one of these four methods — don't just say "the government can tax businesses." Say <em>which</em> tax and <em>what effect</em> it has on the specific business in the case study.</p>`,
+    readCheck: {
+      q: "Which of these is one of the four key methods by which government affects business, according to this topic?",
+      opts: [
+        "Deciding a business's individual product prices",
+        "Choosing which suppliers a business must use",
+        "Setting a business's marketing strategy",
+        "Changing tax rates, such as corporation tax"
+      ],
+      ans: 3,
+      explain: "The four methods listed are taxation, grants, laws & regulations, and government spending — government does not set individual prices, marketing strategy or supplier choices for a business."
+    }
   },
   {
     title: "Real-World Application: Stakeholders at Lineside Repairs",
@@ -466,7 +550,18 @@ const topics = [
   <li><strong>Understanding:</strong> The government changes regulations on MOT testing requirements.</li>
   <li><strong>Application:</strong> Lineside Repairs must keep up to date with government regulations and buy the correct equipment to carry out MOT tests.</li>
   <li><strong>Analysis:</strong> If new MOT regulations are introduced, Steve may need to invest in expensive new equipment. This increases costs significantly and reduces the profit available for the business.</li>
-</ul>`
+</ul>`,
+    readCheck: {
+      q: "In the Lineside Repairs case study, after noting that new MOT regulations require expensive new equipment, what should the 'Analysis' step conclude?",
+      opts: [
+        "A general definition of what an MOT test involves",
+        "The bottom-line impact — higher costs, less profit",
+        "A restatement of the government's role in setting regulations",
+        "A description of an unrelated stakeholder's objective"
+      ],
+      ans: 1,
+      explain: "The case study analysis shows new MOT regulations force Steve to invest in expensive equipment, increasing costs and reducing the profit available to the business — the analysis step must land on this concrete business impact."
+    }
   }
 ];
 
@@ -753,35 +848,123 @@ const tfData = [
 const miscData = [
   {
     wrong: "Stakeholders and shareholders are the same thing.",
-    correct: "Shareholders are just one type of stakeholder — they are owners of shares in a limited company. Stakeholders is a much broader group that includes customers, employees, suppliers, government and the local community. A sole trader has no shareholders but still has many stakeholders. Confusing these two terms in an exam will cost you marks."
+    correct: "Shareholders are just one type of stakeholder — they are owners of shares in a limited company. Stakeholders is a much broader group that includes customers, employees, suppliers, government and the local community. A sole trader has no shareholders but still has many stakeholders. Confusing these two terms in an exam will cost you marks.",
+    readCheck: {
+      q: "Which statement correctly distinguishes stakeholders from shareholders?",
+      opts: [
+        "Stakeholders and shareholders are two words for the same group of people",
+        "Only shareholders can be affected by what a business does",
+        "Shareholders are one type of stakeholder; not all own shares",
+        "A sole trader cannot have stakeholders because it has no shareholders"
+      ],
+      ans: 2,
+      explain: "The card corrects the misconception: shareholders are one type of stakeholder (owners of shares in a limited company), while stakeholders is a much broader group that also includes customers, employees, suppliers, government and the local community."
+    }
   },
   {
     wrong: "The local community only cares about getting jobs from a nearby business.",
-    correct: "The local community has a range of concerns — both positive (employment, local prosperity, community donations) and negative (noise, pollution, traffic congestion, environmental damage). In the exam, you must consider both sides. Do not write that the local community is only interested in charity work."
+    correct: "The local community has a range of concerns — both positive (employment, local prosperity, community donations) and negative (noise, pollution, traffic congestion, environmental damage). In the exam, you must consider both sides. Do not write that the local community is only interested in charity work.",
+    readCheck: {
+      q: "According to this card, what should students remember about the local community as a stakeholder?",
+      opts: [
+        "They are only interested in a business's charity work",
+        "They have no real influence over business decisions",
+        "They are only concerned with gaining new jobs",
+        "They have both positives (jobs) and negatives (noise)"
+      ],
+      ans: 3,
+      explain: "The card corrects the misconception that the community 'only cares about jobs' — in reality they weigh both positives (employment, prosperity) and negatives (noise, pollution, traffic congestion)."
+    }
   },
   {
     wrong: "All stakeholders want the business to make as much profit as possible.",
-    correct: "Only owners and shareholders have profit as a primary objective. Employees want fair wages and job security; customers want low prices and quality; suppliers want reliable, well-paid orders; the local community wants minimal disruption; the government wants tax revenue and legal compliance. Many of these objectives actually conflict with maximising profit."
+    correct: "Only owners and shareholders have profit as a primary objective. Employees want fair wages and job security; customers want low prices and quality; suppliers want reliable, well-paid orders; the local community wants minimal disruption; the government wants tax revenue and legal compliance. Many of these objectives actually conflict with maximising profit.",
+    readCheck: {
+      q: "Which stakeholder group has profit as its PRIMARY objective, according to this card?",
+      opts: [
+        "Suppliers",
+        "Owners and shareholders",
+        "Employees",
+        "The local community"
+      ],
+      ans: 1,
+      explain: "The card explains that only owners/shareholders have profit as a primary objective; other groups such as employees, suppliers, the community and government have different priorities that can actually conflict with maximising profit."
+    }
   },
   {
     wrong: "If a question asks about the impact on employees, you should discuss the impact on the business.",
-    correct: "The impact must be stakeholder-facing, not business-facing. If asked about the impact on employees, write about wages, job security, working conditions or redundancy — not about business costs or profit. Examiners specifically note this as a common reason for losing marks on 6-mark questions."
+    correct: "The impact must be stakeholder-facing, not business-facing. If asked about the impact on employees, write about wages, job security, working conditions or redundancy — not about business costs or profit. Examiners specifically note this as a common reason for losing marks on 6-mark questions.",
+    readCheck: {
+      q: "If an exam question asks for the impact on employees, what must the answer focus on?",
+      opts: [
+        "A general description of what the business does",
+        "Effects on employees, such as wages or job security",
+        "The impact on customers instead of employees",
+        "The impact on the business's costs and profit only"
+      ],
+      ans: 1,
+      explain: "The card warns that the impact must be stakeholder-facing, not business-facing — examiners note this is a common reason students lose marks on 6-mark questions."
+    }
   },
   {
     wrong: "When a business makes workers redundant, all stakeholders are negatively affected.",
-    correct: "This is a classic conflicting objectives scenario. Owners/shareholders actually benefit from redundancies because lower wage costs mean higher profit margins and potentially bigger dividends. The negative effects fall on employees (job losses), the local community (unemployment) and government (less tax, more benefits to pay)."
+    correct: "This is a classic conflicting objectives scenario. Owners/shareholders actually benefit from redundancies because lower wage costs mean higher profit margins and potentially bigger dividends. The negative effects fall on employees (job losses), the local community (unemployment) and government (less tax, more benefits to pay).",
+    readCheck: {
+      q: "When a business makes workers redundant, which stakeholder group is most likely to actually BENEFIT?",
+      opts: [
+        "Owners, through lower wage costs and higher profit",
+        "Employees, through reduced workloads",
+        "The local community, through lower unemployment",
+        "The government, through reduced benefit payments"
+      ],
+      ans: 0,
+      explain: "The card corrects the misconception that redundancies harm everyone — owners/shareholders can benefit from lower wage costs and higher profit margins, while employees, the community and government are negatively affected."
+    }
   },
   {
     wrong: "Customers only care about getting the cheapest price.",
-    correct: "Customers care about the overall value they receive — which includes price, product quality, customer service, availability, product range and convenience. In specific contexts, some customers prioritise quality or ethics over price (e.g. choosing ethically-sourced products). Always link customer objectives to the specific business context in the case study."
+    correct: "Customers care about the overall value they receive — which includes price, product quality, customer service, availability, product range and convenience. In specific contexts, some customers prioritise quality or ethics over price (e.g. choosing ethically-sourced products). Always link customer objectives to the specific business context in the case study.",
+    readCheck: {
+      q: "According to this card, what do customers actually care about, beyond just getting the cheapest price?",
+      opts: [
+        "Nothing else — price is genuinely their only concern",
+        "Only the ethics of a business, never its prices",
+        "Overall value — quality, service, availability, range",
+        "Only the geographic location of a business's shops"
+      ],
+      ans: 2,
+      explain: "The card corrects the misconception that customers only want the cheapest price — they care about overall value, and some prioritise quality or ethics depending on the context."
+    }
   },
   {
     wrong: "External stakeholders are less important than internal stakeholders.",
-    correct: "There is no hierarchy of importance — it depends entirely on the business and the situation. In many cases, external stakeholders like customers or the government can have a much greater impact on a business than internal stakeholders. For example, new government regulation on MOT tests fundamentally changes what a garage like Lineside Repairs must do."
+    correct: "There is no hierarchy of importance — it depends entirely on the business and the situation. In many cases, external stakeholders like customers or the government can have a much greater impact on a business than internal stakeholders. For example, new government regulation on MOT tests fundamentally changes what a garage like Lineside Repairs must do.",
+    readCheck: {
+      q: "According to this card, are external stakeholders always less important than internal stakeholders?",
+      opts: [
+        "Yes — internal stakeholders always have the most influence",
+        "Yes — external stakeholders have no real power over a business",
+        "No — external stakeholders are always more important than internal ones",
+        "No — there is no fixed hierarchy; it depends on the situation"
+      ],
+      ans: 3,
+      explain: "The card states there is no hierarchy of importance; external stakeholders like government regulation can sometimes have a far greater impact than internal stakeholders, as shown by the Lineside Repairs MOT example."
+    }
   },
   {
     wrong: "Suppliers are only affected if the business fails completely.",
-    correct: "Suppliers are affected by any significant change in a business's orders or financial health. If a business reduces production, the supplier receives smaller orders. If the business faces cash flow problems, the supplier may not be paid on time. Suppliers may even stop supplying goods to a struggling business to protect themselves from losses."
+    correct: "Suppliers are affected by any significant change in a business's orders or financial health. If a business reduces production, the supplier receives smaller orders. If the business faces cash flow problems, the supplier may not be paid on time. Suppliers may even stop supplying goods to a struggling business to protect themselves from losses.",
+    readCheck: {
+      q: "According to this card, when are suppliers actually affected by a business's problems?",
+      opts: [
+        "Suppliers are never affected by a business's financial problems",
+        "Whenever there is a significant change in orders or finances",
+        "Only if the supplier is also a shareholder in the business",
+        "Only if the business closes down entirely"
+      ],
+      ans: 1,
+      explain: "The card explains suppliers are affected by any significant change — smaller orders, late payments — not only if the business fails completely."
+    }
   }
 ];
 
@@ -805,7 +988,18 @@ const examTips = [
       This is specific, personal and directly answers the question.</p>
       <p><strong>⚠️ Examiner Warning:</strong> The most common mistake on 1-mark employee objective questions is writing about profit, greater output or customer service. These relate to business goals, not personal employee objectives.</p>
     `,
-    pills: ["K"]
+    pills: ["K"],
+    readCheck: {
+      q: "What is required to get full marks on a 1-mark 'Identify' or 'State' question?",
+      opts: [
+        "One specific, accurate point with no explanation needed",
+        "A full sentence including a definition and an example",
+        "Two separate points, in case one is wrong",
+        "A detailed paragraph linking the point to the case study"
+      ],
+      ans: 0,
+      explain: "The card's formula is: one specific, accurate point = 1 mark — no definitions, examples or extra explanation are needed or rewarded."
+    }
   },
   {
     type: "Explain — 2 marks",
@@ -824,7 +1018,18 @@ const examTips = [
       <em>"Customers influence Greggs' product range (K), which led to Greggs launching vegan sausage rolls in 2019 due to the growing number of vegans in the UK (APP)."</em></p>
       <p><strong>⚠️ Key Rule:</strong> The application mark requires you to use a specific detail from the case study — a number, a product, a location, a person's name. Vague references like "the business" will NOT earn the application mark.</p>
     `,
-    pills: ["K", "app"]
+    pills: ["K", "app"],
+    readCheck: {
+      q: "What does a 2-mark 'Explain' question require, according to the K+APP formula in this card?",
+      opts: [
+        "Two completely separate points, each unrelated to the case study",
+        "A point (K) plus a specific case study link (APP)",
+        "A judgement plus a justification",
+        "Three stakeholder groups each explained briefly"
+      ],
+      ans: 1,
+      explain: "The card's formula for 2-mark 'Explain' questions is Knowledge (the point) plus Application (linking it to a specific detail in the case study, e.g. Greggs launching vegan sausage rolls)."
+    }
   },
   {
     type: "Analyse — 3 marks",
@@ -840,7 +1045,18 @@ const examTips = [
       <p><strong>🚫 The #1 Reason Students Score 0 for Analysis:</strong> Writing a brilliant general point about the stakeholder but failing to link it back to the specific business. You CANNOT score the analysis mark without first scoring the application mark. No APP = No AN.</p>
       <p><strong>The "So What?" Test:</strong> After every sentence, ask yourself <em>"So what does this mean for the business?"</em> Keep asking until you reach a concrete business impact (profit, costs, sales, reputation, closure).</p>
     `,
-    pills: ["U", "app", "an"]
+    pills: ["U", "app", "an"],
+    readCheck: {
+      q: "In a 3-mark 'Analyse' answer, what happens if a student skips the Application (APP) step?",
+      opts: [
+        "They can still be awarded the Analysis (AN) mark separately",
+        "They automatically fail the whole question",
+        "They are capped at 2 marks, since AN cannot come without APP",
+        "They lose only the Understanding (U) mark"
+      ],
+      ans: 2,
+      explain: "The card states you cannot score the Analysis mark without first scoring the Application mark — 'No APP = No AN' — so missing APP caps the answer at 2 marks."
+    }
   },
   {
     type: "Analyse 2 Impacts — 6 marks",
@@ -858,7 +1074,18 @@ const examTips = [
       <p><strong>✅ Correct (stakeholder-facing):</strong> "Employees at Beautiful Buds may face redundancy as the merger creates overlapping roles, meaning they could lose their income and job security."</p>
       <p><strong>🚫 Do NOT write a conclusion</strong> on a 6-mark question. There are zero marks available for evaluation at this level. Save your time for the analysis marks.</p>
     `,
-    pills: ["U", "app", "an"]
+    pills: ["U", "app", "an"],
+    readCheck: {
+      q: "What is a key rule for 6-mark 'Analyse 2 Impacts' questions, according to this card?",
+      opts: [
+        "Write one detailed paragraph, then a short conclusion",
+        "Combine both stakeholder groups into a single paragraph",
+        "End with an overall judgement about which stakeholder matters most",
+        "Write two separate U-APP-AN paragraphs with no conclusion"
+      ],
+      ans: 3,
+      explain: "The card states a 6-mark question is a 3-mark question done twice — two separate U → APP → AN paragraphs — and warns that no conclusion should be written since there are no evaluation marks available."
+    }
   },
   {
     type: "Recommend / Evaluate — 3 marks",
@@ -883,7 +1110,18 @@ const examTips = [
         <li>"This depends on the situation, however overall [X] has more impact because..."</li>
       </ul>
     `,
-    pills: ["U", "app", "an", "eval"]
+    pills: ["U", "app", "an", "eval"],
+    readCheck: {
+      q: "Why does the answer 'Both the government and the local community affect the business in different ways' score 0 marks on a 3-mark recommend/evaluate question?",
+      opts: [
+        "It never makes a clear judgement or firm decision",
+        "It uses too much case study detail",
+        "It only discusses one stakeholder instead of two",
+        "It does not mention profit"
+      ],
+      ans: 0,
+      explain: "The card explains that 'sitting on the fence' by not choosing a side means the judgement mark cannot be awarded, resulting in 0 marks even if the content is accurate."
+    }
   },
   {
     type: "Explain Objectives — 6 marks",
@@ -903,7 +1141,18 @@ const examTips = [
       <em>"Suppliers want to receive regular, large orders (U). Since Nina's Knitting Supplies has 10 shops and a website, her orders for knitting wool are likely to be relatively large, giving suppliers the volume they need (APP)."</em></p>
       <p><strong>⚠️ Examiner's Warning:</strong> Do not confuse local community objectives with charity work. The local community wants employment opportunities, reduced noise/pollution, and local prosperity — not charity donations.</p>
     `,
-    pills: ["U", "app"]
+    pills: ["U", "app"],
+    readCheck: {
+      q: "According to this card, how many marks can a student earn for simply naming a stakeholder group without explaining or applying its objective?",
+      opts: [
+        "3 marks, one for identifying each group correctly",
+        "1 mark per correctly named group",
+        "0 marks — naming the group alone earns nothing",
+        "2 marks, if three groups are named"
+      ],
+      ans: 2,
+      explain: "The card states there are 'no marks for simply naming the stakeholder group' — marks are only earned for explaining the objective (Understanding) and applying it to the business (Application)."
+    }
   }
 ];
 
@@ -1202,6 +1451,11 @@ const examQuestions = [
 ];
 </script>
     <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

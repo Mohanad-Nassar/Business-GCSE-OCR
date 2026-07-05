@@ -306,6 +306,13 @@
         //  DATA: 5.3 Revenue, Costs, Profit and Loss
         // ══════════════════════════════════════
 
+        const pageMeta = {
+                id: '5-3-revenue-costs-profit-loss',
+                badge: 'OCR GCSE Business — Component 2',
+                title: '5.3 Revenue, Costs, Profit & Loss',
+                subtitle: 'Interactive revision guide',
+                subject: 'business',
+            };
         // 1. Main Learning Content
         const topics = [
             {
@@ -326,7 +333,13 @@
     <li><strong>Net Profit Margin (NPM):</strong> (Net Profit ÷ Revenue) × 100. Expressed as a percentage.</li>
     <li><strong>Profitability Ratios:</strong> Calculations (GPM and NPM) used to measure how efficiently a business generates profit from its revenue.</li>
     <li><strong>Average Rate of Return (ARR):</strong> A method of calculating the average annual return on an investment as a percentage of its cost.</li>
-    </ul>`
+    </ul>`,
+                readCheck: {
+                    q: "According to the key definitions, how is net profit calculated?",
+                    opts: ["Gross profit minus expenses", "Revenue minus cost of sales", "Total fixed costs plus total variable costs", "Gross profit margin multiplied by revenue"],
+                    ans: 0,
+                    explain: "The card defines Net Profit = Gross Profit − Expenses, distinguishing it from gross profit (Revenue − Cost of Sales) and total costs (TFC + TVC)."
+                }
             },
             {
                 title: "Revenue — Formula & Decision Making",
@@ -357,7 +370,13 @@
     <div class="con-item"><strong>Competitor price cuts:</strong> You may need to match them or lose customers.</div>
     <div class="con-item"><strong>Premium-priced products:</strong> Any further price rise may significantly reduce demand.</div>
     </div>
-    </div>`
+    </div>`,
+                readCheck: {
+                    q: "According to this card, what must a business do before assuming a price cut will raise revenue?",
+                    opts: ["Automatically raise prices to match its main competitors", "Calculate total revenue at each price point rather than assuming", "Reduce its total fixed costs before changing any prices", "Wait until its net profit margin has doubled compared with last year"],
+                    ans: 1,
+                    explain: "The card warns that cutting price does not guarantee higher revenue — a business must calculate total revenue at each price point before deciding."
+                }
             },
             {
                 title: "Fixed Costs vs Variable Costs",
@@ -382,7 +401,13 @@
       <strong>Total Costs (TC) = Total Fixed Costs (TFC) + Total Variable Costs (TVC)</strong>
     </div>
     <p><strong>Worked Example:</strong> Fixed costs = £18,000/month. Variable cost per unit = £2.75. Units sold = 5,450.<br>
-    TVC = 5,450 × £2.75 = £14,987.50 &nbsp; TC = £18,000 + £14,987.50 = <strong>£32,987.50</strong></p>`
+    TVC = 5,450 × £2.75 = £14,987.50 &nbsp; TC = £18,000 + £14,987.50 = <strong>£32,987.50</strong></p>`,
+                readCheck: {
+                    q: "According to this card, how are salaries and hourly wages classified?",
+                    opts: ["Salaries are a variable cost, while hourly wages are a fixed cost", "Both salaries and hourly wages are always classed as variable costs", "Salaries are a fixed cost, while hourly wages are a variable cost", "Both salaries and hourly wages are always classed as fixed costs"],
+                    ans: 2,
+                    explain: "The card explains salaries (fixed annual pay) are a fixed cost, while hourly wages (paid per hour worked) are a variable cost — a key exam distinction."
+                }
             },
             {
                 title: "Gross Profit and Net Profit",
@@ -416,7 +441,13 @@
     <div class="con-item">Dividends reduced or cancelled</div>
     <div class="con-item">Cannot invest in new products — loses customers to rivals</div>
     </div>
-    </div>`
+    </div>`,
+                readCheck: {
+                    q: "What happens to a business's spending options when it makes a loss, according to this card?",
+                    opts: ["The business can automatically raise its dividends paid to shareholders", "The business is guaranteed to be taken over by a competitor firm", "The business must immediately increase its net profit margin", "Investment decisions may be postponed and dividends reduced or cancelled"],
+                    ans: 3,
+                    explain: "The card lists postponed investment and reduced or cancelled dividends as consequences of a loss — the opposite of what happens when profit rises."
+                }
             },
             {
                 title: "Profitability Ratios — GPM & NPM",
@@ -436,7 +467,13 @@
     <p>Year 1 GPM = (70,000 ÷ 150,000) × 100 = <strong>46.7%</strong> &nbsp; Year 2 GPM = (85,000 ÷ 225,000) × 100 = <strong>37.8%</strong></p>
     <p>Year 1 NPM = (30,000 ÷ 150,000) × 100 = <strong>20%</strong> &nbsp; Year 2 NPM = (30,000 ÷ 225,000) × 100 = <strong>13.3%</strong></p>
     <p>Although net profit stayed the same in pounds, <strong>both margins fell</strong> — the business is becoming less efficient at converting revenue into profit. Action should be taken.</p>
-    <p>⚠️ <strong>Net profit margin is considered the more accurate profitability measure</strong> because it accounts for ALL costs, not just cost of sales.</p>`
+    <p>⚠️ <strong>Net profit margin is considered the more accurate profitability measure</strong> because it accounts for ALL costs, not just cost of sales.</p>`,
+                readCheck: {
+                    q: "In the Jacquelyn Williams example, what happened to profitability even though net profit in pounds stayed the same?",
+                    opts: ["Both the gross and net profit margins fell as revenue rose faster than profit", "Both the gross and net profit margins rose as revenue fell faster than profit", "The gross profit margin rose while the net profit margin stayed the same", "Both margins stayed exactly the same because profit in pounds was unchanged"],
+                    ans: 0,
+                    explain: "The card shows that although net profit stayed at £30,000, both GPM and NPM fell because revenue rose faster than profit — profitability, not just profit, must be tracked."
+                }
             },
             {
                 title: "Interpreting Profitability Ratios",
@@ -465,7 +502,13 @@
     </div>
     </div>
     <p><strong>How to improve GPM:</strong> Increase revenue (adjust pricing, increase advertising, enter new markets) OR reduce cost of sales (negotiate lower supplier prices, find cheaper suppliers).</p>
-    <p><strong>How to improve NPM:</strong> All GPM strategies PLUS reduce expenses — cut the wage bill, save on energy, reduce rent.</p>`
+    <p><strong>How to improve NPM:</strong> All GPM strategies PLUS reduce expenses — cut the wage bill, save on energy, reduce rent.</p>`,
+                readCheck: {
+                    q: "According to this card, when does gross profit margin improve?",
+                    opts: ["When cost of sales rises faster than revenue increases each year", "When revenue rises faster than cost of sales, or cost of sales falls", "When net profit falls but expenses rise even further than that", "When fixed costs increase while variable costs stay exactly the same"],
+                    ans: 1,
+                    explain: "The card lists revenue rising faster than cost of sales (or cost of sales falling) as ways GPM improves — expenses and fixed/variable cost changes affect NPM, not GPM directly."
+                }
             },
             {
                 title: "Average Rate of Return (ARR)",
@@ -496,7 +539,13 @@
     <div class="con-item">Ignores the time value of money</div>
     </div>
     </div>
-    <p><strong>How ARR is used:</strong> Compare two investments and choose the one with the higher ARR. Compare ARR against a bank interest rate — if ARR is only slightly higher than a risk-free savings rate, the investment may not be worth the risk.</p>`
+    <p><strong>How ARR is used:</strong> Compare two investments and choose the one with the higher ARR. Compare ARR against a bank interest rate — if ARR is only slightly higher than a risk-free savings rate, the investment may not be worth the risk.</p>`,
+                readCheck: {
+                    q: "What is Step 1 of the ARR calculation, according to this card?",
+                    opts: ["Divide total income directly by the cost of investment straight away", "Multiply the cost of investment by the number of years invested", "Subtract the cost of investment from total income to find total profit", "Divide the cost of investment by the total annual profit figure"],
+                    ans: 2,
+                    explain: "The card sets out Step 1 as Total Profit = Total Income − Cost of Investment, before dividing by years (Step 2) and then by cost of investment (Step 3)."
+                }
             },
             {
                 title: "Revenue, Costs & Profit in Decision Making",
@@ -508,7 +557,13 @@
     <div class="case-study-box">
       <h4>Case Study: Zara (Global Fashion)</h4>
       <p>Zara keeps its variable costs low by buying fabric in large quantities from European suppliers. This lowers cost of sales and improves gross profit margin. With better margins, Zara's owners receive more profit. When COVID-19 struck in 2020, Zara's revenue fell 29% from €19,954m to €14,129m. Its ability to control costs helped it survive the fall. This shows that profitability ratios — not just revenue — are the true test of financial health.</p>
-    </div>`
+    </div>`,
+                readCheck: {
+                    q: "According to the Zara case study, what helped the business survive its 2020 revenue fall?",
+                    opts: ["Raising its selling prices sharply across every single global market it serves", "Borrowing heavily from banks to cover its day-to-day running costs", "Closing its stores permanently in every country it traded in", "Controlling costs, which protected its profitability despite falling revenue"],
+                    ans: 3,
+                    explain: "The card explains Zara's low variable costs and controlled cost of sales protected its profit margins when revenue fell 29% in 2020 — showing profitability ratios matter more than revenue alone."
+                }
             },
             {
                 title: "How to Increase Revenue & Reduce Costs",
@@ -531,7 +586,13 @@
     <div class="con-item"><strong>Reduce the wage bill:</strong> Cut hours, reduce pay, or replace labour with machines</div>
     <div class="con-item"><strong>Save on energy:</strong> More efficient equipment, better insulation</div>
     </div>
-    </div>`
+    </div>`,
+                readCheck: {
+                    q: "Which of these is listed as a strategy to reduce costs in this card?",
+                    opts: ["Using technology to automate production and reduce labour costs", "Raising the selling price charged to existing loyal customers", "Expanding the product range to appeal to new customer segments", "Opening new markets by selling products online internationally"],
+                    ans: 0,
+                    explain: "The card lists automating production with technology as a cost-reduction strategy; raising prices, expanding range and opening new markets are all revenue-increasing strategies instead."
+                }
             },
             {
                 title: "Real-World Examples",
@@ -544,7 +605,13 @@
     <div class="case-study-box">
       <h4>Case Study: Unilever plc</h4>
       <p>Unilever sells products including Lynx, Dove, Hellmann's and Persil across 190 countries. Its worldwide revenue grew from €50,900m (2018) to €60,000m (2022) — but dipped to €50,700m in 2020. Despite revenue growth, Unilever must manage both variable costs (raw materials per product) and fixed costs (factory rent, salaries) to protect its profit margins. This illustrates that revenue trends alone do not tell the full financial story.</p>
-    </div>`
+    </div>`,
+                readCheck: {
+                    q: "What is the key takeaway from the Alan Cropley Guitars (ACG) case study?",
+                    opts: ["Revenue growth always guarantees that profitability will also rise too", "Revenue growth does not automatically guarantee that profitability also rises", "Net profit margin is irrelevant whenever a business's revenue is increasing", "Guitar factories never need to consider fixed costs when they invest"],
+                    ans: 1,
+                    explain: "The card's takeaway is that revenue growth does not automatically mean rising profitability — tracking profit margins over time reveals whether costs are outpacing revenue."
+                }
             }
         ];
 
@@ -791,35 +858,83 @@
         const miscData = [
             {
                 wrong: "Revenue is the same as profit.",
-                correct: "Revenue is the total income from sales (quantity × price). Profit is what remains AFTER costs are deducted. A business can have high revenue but still make a loss if costs are even higher."
+                correct: "Revenue is the total income from sales (quantity × price). Profit is what remains AFTER costs are deducted. A business can have high revenue but still make a loss if costs are even higher.",
+                readCheck: {
+                    q: "What is the correct relationship between revenue and profit?",
+                    opts: ["Revenue and profit are simply two different names for the same figure", "Profit is calculated by adding all of a business's costs to revenue", "Profit is what remains after all costs are deducted from revenue", "Revenue is always exactly equal to a business's net profit figure"],
+                    ans: 2,
+                    explain: "The card explains revenue is total income from sales, while profit is what remains after costs are deducted — a business can have high revenue but still make a loss."
+                }
             },
             {
                 wrong: "If net profit in pounds increases, the net profit margin must also increase.",
-                correct: "Not necessarily. If revenue grows faster than net profit, the margin actually falls. For example: net profit stays at £30,000 but revenue doubles from £150,000 to £300,000 — the NPM halves from 20% to 10%."
+                correct: "Not necessarily. If revenue grows faster than net profit, the margin actually falls. For example: net profit stays at £30,000 but revenue doubles from £150,000 to £300,000 — the NPM halves from 20% to 10%.",
+                readCheck: {
+                    q: "Why can net profit margin fall even though net profit in pounds stays the same?",
+                    opts: ["Net profit margin always rises whenever net profit in pounds is unchanged", "Net profit margin depends only on cost of sales, not on revenue at all", "Net profit margin cannot change unless net profit in pounds also changes", "If revenue grows faster than net profit, the margin actually falls"],
+                    ans: 3,
+                    explain: "The card's example shows net profit staying at £30,000 while revenue doubles, causing NPM to halve from 20% to 10% — margin depends on the relationship between profit and revenue."
+                }
             },
             {
                 wrong: "All wages are variable costs.",
-                correct: "It depends on how workers are paid. Hourly wages that vary with output are variable. Annual salaries (a fixed payment) are a fixed cost. Examiners specifically do NOT accept 'salaries' as a variable cost."
+                correct: "It depends on how workers are paid. Hourly wages that vary with output are variable. Annual salaries (a fixed payment) are a fixed cost. Examiners specifically do NOT accept 'salaries' as a variable cost.",
+                readCheck: {
+                    q: "Which statement about wages and salaries does this card confirm is correct?",
+                    opts: ["Hourly wages that vary with output are variable costs, but salaries are fixed", "All forms of staff pay, including salaries, count as variable costs", "All forms of staff pay, including hourly wages, always count as fixed costs", "Wages and salaries are both always classed as cost of sales figures"],
+                    ans: 0,
+                    explain: "The card confirms hourly wages that vary with output are variable costs, while salaries (a fixed payment) are fixed costs — examiners do not accept salaries as variable."
+                }
             },
             {
                 wrong: "In ARR, you divide total income by the cost of investment.",
-                correct: "You must first subtract the investment cost from total income to get total PROFIT, then divide by years for average annual profit, THEN divide by cost of investment × 100. Skipping step 1 is one of the most common exam errors."
+                correct: "You must first subtract the investment cost from total income to get total PROFIT, then divide by years for average annual profit, THEN divide by cost of investment × 100. Skipping step 1 is one of the most common exam errors.",
+                readCheck: {
+                    q: "What must be done before dividing by the cost of investment in an ARR calculation?",
+                    opts: ["Multiply total income by the cost of investment directly and immediately", "Subtract the investment cost from total income to find total profit first", "Add the cost of investment straight onto the total income figure", "Divide total income by the number of years invested immediately"],
+                    ans: 1,
+                    explain: "The card explains you must first subtract investment cost from income to get total profit, then divide by years, THEN divide by cost of investment — skipping step one is a common error."
+                }
             },
             {
                 wrong: "Gross profit margin and net profit margin measure the same thing.",
-                correct: "GPM = (Gross Profit ÷ Revenue) × 100 — only deducts cost of sales. NPM = (Net Profit ÷ Revenue) × 100 — deducts ALL expenses too. NPM is always lower and is the more accurate measure."
+                correct: "GPM = (Gross Profit ÷ Revenue) × 100 — only deducts cost of sales. NPM = (Net Profit ÷ Revenue) × 100 — deducts ALL expenses too. NPM is always lower and is the more accurate measure.",
+                readCheck: {
+                    q: "What is the key difference between gross profit margin and net profit margin?",
+                    opts: ["GPM and net profit margin are calculated using exactly the same formula", "GPM deducts all expenses, while NPM only deducts cost of sales figures", "NPM deducts all expenses too, while GPM only deducts cost of sales", "NPM is always higher than GPM because it excludes cost of sales entirely"],
+                    ans: 2,
+                    explain: "The card explains GPM only deducts cost of sales, while NPM deducts all expenses too, making NPM always lower and the more accurate overall measure."
+                }
             },
             {
                 wrong: "If costs increase, the business must be performing worse.",
-                correct: "Not necessarily. If revenue increases by MORE than the cost increase, profitability can actually improve. The key is the relationship between revenue and costs — measured by profit margins."
+                correct: "Not necessarily. If revenue increases by MORE than the cost increase, profitability can actually improve. The key is the relationship between revenue and costs — measured by profit margins.",
+                readCheck: {
+                    q: "Why might a business still improve its profitability even if its costs increase?",
+                    opts: ["Costs increasing always means a business is definitely performing worse", "Profitability can only ever improve when a business's total costs actually fall", "Rising costs always cause both gross and net profit margins to rise too", "If revenue increases by more than the cost increase, profitability can improve"],
+                    ans: 3,
+                    explain: "The card explains that if revenue rises by more than costs increase, profitability can still improve — the key is the relationship between revenue and costs, shown by profit margins."
+                }
             },
             {
                 wrong: "Revenue and profit are interchangeable terms for 'money the business makes'.",
-                correct: "They are completely different. Revenue is total income from sales. Profit is what is left after ALL costs are paid. In an exam, mixing these up will cost you marks on every finance question."
+                correct: "They are completely different. Revenue is total income from sales. Profit is what is left after ALL costs are paid. In an exam, mixing these up will cost you marks on every finance question.",
+                readCheck: {
+                    q: "Why are 'revenue' and 'profit' not interchangeable terms in a business context?",
+                    opts: ["Revenue is total income from sales, while profit is what remains after costs", "They both mean exactly the same thing — the total money a business makes", "Revenue is calculated after costs, while profit is calculated before costs", "Profit always refers to a much bigger number than revenue in any business"],
+                    ans: 0,
+                    explain: "The card stresses revenue is total income from sales, while profit is what remains after ALL costs are paid — mixing these up costs marks on finance questions."
+                }
             },
             {
                 wrong: "A business that is 'profitable' always has a positive cash flow.",
-                correct: "Profit and cash flow are different. A business can be profitable on paper but still run out of cash (e.g. if customers owe money that hasn't been paid yet). This is a common real-world business failure."
+                correct: "Profit and cash flow are different. A business can be profitable on paper but still run out of cash (e.g. if customers owe money that hasn't been paid yet). This is a common real-world business failure.",
+                readCheck: {
+                    q: "Why can a profitable business still fail due to cash flow problems?",
+                    opts: ["Profit and cash flow always rise and fall together at precisely the same rate", "A business can be profitable on paper but still run out of cash owed by customers", "A profitable business is legally guaranteed to always have enough cash", "Cash flow problems can only ever affect businesses that are making a loss"],
+                    ans: 1,
+                    explain: "The card explains profit and cash flow are different — a business can be profitable on paper yet run out of cash if customers haven't paid what they owe."
+                }
             }
         ];
 
@@ -836,7 +951,13 @@
     <li><strong>❌ Bad (0 marks):</strong> <em>"Salaries"</em> — in response to 'identify a variable cost'. Examiners specifically do NOT accept salaries as a variable cost.</li>
     </ul>
     <p><strong>⚠️ Examiner Warning:</strong> The word 'vary' or 'variable' cannot be used to define 'variable costs'. A derivative of the keyword appearing in the question gains no marks. Say what they ARE (costs that change with output), not what they're called.</p>`,
-                pills: ["K"]
+                pills: ["K"],
+                readCheck: {
+                    q: "Which answer would NOT be accepted if asked to 'identify a variable cost'?",
+                    opts: ["Wages, since hourly pay changes directly with the level of output produced", "Raw materials, since usage increases as more units are made", "Salaries, since examiners specifically do not accept this as a variable cost", "Packaging, since more units produced requires more packaging used"],
+                    ans: 2,
+                    explain: "The card states examiners specifically do NOT accept salaries as a variable cost, since a salary is a fixed annual payment rather than one that changes with output."
+                }
             },
             {
                 type: "Explain — 2 marks",
@@ -850,7 +971,13 @@
     <p>For 'Explain why profit is important': identify a benefit (K) + explain how that benefit actually works for a business (U).</p>
     <p><strong>✅ Example:</strong> <em>"Profit can be reinvested in the business (K) to buy new equipment that increases production capacity and reduces costs in the long run (U)."</em></p>
     <p><strong>⚠️ Warning:</strong> Do NOT just write a definition when asked to 'explain why'. Definitions score only 1 mark. Always ask yourself: <em>so what? why does it matter?</em></p>`,
-                pills: ["K", "U"]
+                pills: ["K", "U"],
+                readCheck: {
+                    q: "What must a 2-mark 'Explain' answer include, beyond a simple definition?",
+                    opts: ["A second, completely unrelated definition of a totally different key term", "A restatement of the original question using slightly different wording", "A full list of every possible cost a business could ever incur at all", "A development step showing 'so what' or 'why it matters' for the business"],
+                    ans: 3,
+                    explain: "The card's formula is Point (K) then Development (U) — a bare definition scores only 1 mark, so the answer must go on to explain 'so what' or 'why it matters'."
+                }
             },
             {
                 type: "Analyse — 3 marks",
@@ -862,7 +989,13 @@
     <p><strong>❌ Bad answer (1 mark):</strong> <em>"Calculating the net profit margin is useful because it shows how profitable a business is."</em></p>
     <p><strong>✅ Good answer (3 marks):</strong> <em>"Net profit margin shows the percentage of revenue kept as net profit (U). For ACG, with net profit of £210,000 from £860,000 revenue (APP), this is 24.4%, allowing ACG to compare this year's efficiency against previous years (AN), alerting them if the margin is falling even as profit in pounds appears to rise."</em></p>
     <p><strong>🚫 No case study reference = maximum 2 marks.</strong> Always name the business and use its specific data.</p>`,
-                pills: ["U", "app", "an"]
+                pills: ["U", "app", "an"],
+                readCheck: {
+                    q: "What is the maximum mark available if an analyse answer does not reference the case study?",
+                    opts: ["2 marks, since application requires naming the business and its data", "3 marks, since analysis can still be scored without any application", "0 marks, since absolutely no marks can be given without application", "1 mark, since understanding alone is always enough for full credit"],
+                    ans: 0,
+                    explain: "The card states no case study reference caps the answer at 2 marks maximum — you must name the business and use its specific data to access the application mark."
+                }
             },
             {
                 type: "Calculation — 2-3 marks",
@@ -884,7 +1017,13 @@
     </ul>
     <p><strong>Percentage Change Formula: (Change ÷ Original Value) × 100</strong></p>
     <p>⚠️ If an answer seems unrealistically large (e.g. £1600m), always re-check whether you accidentally multiplied instead of divided.</p>`,
-                pills: ["app"]
+                pills: ["app"],
+                readCheck: {
+                    q: "According to this card, what is a common mistake when calculating GPM or NPM?",
+                    opts: ["Writing out the formula before substituting in the actual numbers", "Using the wrong denominator instead of always dividing by revenue", "Including a percentage sign at the very end of the final answer", "Showing each step of the calculation instead of just the final answer"],
+                    ans: 1,
+                    explain: "The card lists using the wrong denominator as a common mistake — GPM and NPM must always be divided by revenue, not by cost of sales or gross profit."
+                }
             },
             {
                 type: "Recommend / Evaluate — 3 marks",
@@ -899,7 +1038,13 @@
     <p><strong>✅ Model Response:</strong><br>
     <em>"SP should buy Fast Stitch (JUDGEMENT) because Pippa stated she wants to see her investment returned within five years (CONTEXT), and Fast Stitch has a higher ARR of 13.8% compared to HD Sewing's 11.25% (DATA), meaning it offers a better return on investment and is more likely to achieve Pippa's goal (JUSTIFICATION)."</em></p>
     <p><strong>⚠️ Examiner Warning:</strong> "It could go either way" or "both have advantages" without a final decision = 0 marks for evaluation. You MUST commit. You can briefly acknowledge the other side, but always return to your chosen recommendation.</p>`,
-                pills: ["an", "eval"]
+                pills: ["an", "eval"],
+                readCheck: {
+                    q: "What score does an answer get for evaluation if it doesn't commit to a decision?",
+                    opts: ["Full marks, since discussing both sides shows a genuinely balanced judgement", "Half marks, as long as the overall answer is a reasonable length", "Zero evaluation marks, even if both sides are discussed in real detail", "One mark, provided that some numerical data is mentioned somewhere"],
+                    ans: 2,
+                    explain: "The card warns that saying 'it could go either way' without a final decision scores zero evaluation marks — a clear, committed judgement is required."
+                }
             },
             {
                 type: "Profitability Interpretation — 3 marks",
@@ -914,7 +1059,13 @@
     </ul>
     <p><strong>❌ Common mistake:</strong> Saying <em>"the business's profit will increase"</em> when asked about profitability. Always discuss the RATIO and what it means for efficiency, not just the pound figure.</p>
     <p><strong>Sentence starters for AN marks:</strong> <em>"This means the business is becoming more/less efficient at..."</em> / <em>"As a result, the business generates more/less profit per pound of revenue..."</em></p>`,
-                pills: ["U", "app", "an"]
+                pills: ["U", "app", "an"],
+                readCheck: {
+                    q: "What mistake do many students make when asked about a change in profitability?",
+                    opts: ["They discuss the ratio rather than the pound figure for profit itself", "They correctly discuss both the ratio and the pound figure together", "They avoid mentioning either profit or profitability in their answer", "They discuss the change in profit rather than the change in the ratio"],
+                    ans: 3,
+                    explain: "The card warns students often say 'profit will increase' when asked about profitability — the answer must discuss the ratio and what it means for efficiency, not the pound figure."
+                }
             }
         ];
 
@@ -1571,6 +1722,11 @@
         </script>
 
     <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

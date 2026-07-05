@@ -306,6 +306,14 @@
     //  DATA: 3.6 Training and Development
     // ══════════════════════════════════════
 
+    const pageMeta = {
+      id: '3-6-training-and-development',
+      badge: 'OCR GCSE Business — Component 1',
+      title: '3.6 Training and Development',
+      subtitle: 'Interactive revision guide',
+      subject: 'business',
+    };
+
     // 1. Main Learning Content
     const topics = [
       {
@@ -325,7 +333,18 @@
     <li><strong>Productivity:</strong> Output per worker — a measure of how efficiently employees produce goods or services.</li>
     <li><strong>Skills shortage:</strong> A situation where businesses cannot recruit workers with the skills they need.</li>
     <li><strong>Retention:</strong> Keeping workers employed rather than them leaving to work elsewhere.</li>
-  </ul>`
+  </ul>`,
+        readCheck: {
+          q: "What is the key difference between training and development?",
+          opts: [
+            "Training is job-specific and short-term; development is long-term and broader",
+            "They are exactly the same thing",
+            "Training only happens off-the-job; development only happens on-the-job",
+            "Development is for new employees only; training is for experienced staff only"
+          ],
+          ans: 0,
+          explain: "Training focuses on improving performance in the current job, in the short term. Development is broader and longer-term, focused on growing a worker's overall future potential."
+        }
       },
       {
         title: "Training vs Development — What's the Difference?",
@@ -347,7 +366,18 @@
       <div class="con-item"><strong>Example:</strong> Beaverbrooks jewellers offering a management development programme including home study, coaching, and promotion pathways.</div>
     </div>
   </div>
-  <p style="margin-top:12px"><strong>Key rule:</strong> Both training and development can involve on- and off-the-job activities — it's the <em>timeframe and purpose</em> that differs.</p>`
+  <p style="margin-top:12px"><strong>Key rule:</strong> Both training and development can involve on- and off-the-job activities — it's the <em>timeframe and purpose</em> that differs.</p>`,
+        readCheck: {
+          q: "A Starbucks barista learns to make different coffees from an experienced colleague. Is this training or development?",
+          opts: [
+            "Training — it's short-term and job-specific",
+            "Development — it's about long-term growth",
+            "Neither — it doesn't count as either",
+            "Both equally, with no real distinction"
+          ],
+          ans: 0,
+          explain: "This is training: it's focused on the current job, is short-term, and teaches a specific practical skill needed right now — not the worker's long-term potential."
+        }
       },
       {
         title: "Why Do Businesses Train Their Workers?",
@@ -364,7 +394,18 @@
     <li><strong>New technology/products:</strong> Workers need updating when the business introduces new machinery, software, or product lines.</li>
     <li><strong>Retraining:</strong> When technology replaces a job role, employees may be retrained to do a different role instead of being made redundant.</li>
     <li><strong>Flexibility:</strong> Multiskilled workers can cover different roles, making the business more adaptable.</li>
-  </ul>`
+  </ul>`,
+        readCheck: {
+          q: "Why might a business retrain a worker instead of making them redundant when new technology is introduced?",
+          opts: [
+            "It is required by law in all cases",
+            "It keeps an experienced worker in the business by moving them into a new role",
+            "Retraining is always cheaper than hiring new staff regardless of circumstances",
+            "It has no real benefit to the business"
+          ],
+          ans: 1,
+          explain: "When technology replaces a job role, retraining lets a business keep an experienced, loyal worker in a new position rather than losing them through redundancy — preserving knowledge and avoiding recruitment costs."
+        }
       },
       {
         title: "On-the-Job Training",
@@ -392,7 +433,18 @@
       <div class="con-item"><strong>Limits portability:</strong> Firm-specific skills make it harder for the worker to find employment elsewhere if they lose their job.</div>
       <div class="con-item"><strong>Not suitable for groups:</strong> More effective one-on-one; difficult to scale.</div>
     </div>
-  </div>`
+  </div>`,
+        readCheck: {
+          q: "Why is on-the-job training often cheaper than off-the-job training?",
+          opts: [
+            "It avoids travel, accommodation, and course fees",
+            "On-the-job training is always shorter in duration",
+            "On-the-job trainers do not need to be paid",
+            "It avoids the need for any equipment at all"
+          ],
+          ans: 0,
+          explain: "On-the-job training avoids external course fees, travel, and accommodation costs. The trainee can also produce goods or services while learning, meaning the business earns money during the training period — unlike off-the-job training."
+        }
       },
       {
         title: "Off-the-Job Training",
@@ -465,7 +517,18 @@
       <div class="con-item"><strong>Retention risk:</strong> Once qualified, workers may use their new skills to get a better-paid job elsewhere.</div>
       <div class="con-item"><strong>Not always business-specific:</strong> External trainers may not teach things exactly the way the business wants.</div>
     </div>
-  </div>`
+  </div>`,
+        readCheck: {
+          q: "Why does Jet2.com train its cabin crew entirely off-the-job using flight simulators?",
+          opts: [
+            "It is cheaper than on-the-job training",
+            "A real flight is too dangerous for safety training",
+            "Off-the-job training is required by law for all jobs",
+            "Cabin crew prefer not to train at the airport"
+          ],
+          ans: 1,
+          explain: "Off-the-job training is essential here because mistakes can be made safely in a simulator rather than on a real flight with passengers — exactly the kind of safety-critical situation where off-the-job training is the right choice."
+        }
       },
       {
         title: "Induction Training",
@@ -502,7 +565,18 @@ emergency first aid, infection control. Employees gain a care certificate before
 working in a care home. </p>
   </div>
   
-  <p><strong>Cost reminder:</strong> Induction has a cost — wages are paid while the worker is not yet producing output, and someone must provide the training.</p>`
+  <p><strong>Cost reminder:</strong> Induction has a cost — wages are paid while the worker is not yet producing output, and someone must provide the training.</p>`,
+        readCheck: {
+          q: "What is the main PURPOSE of induction training?",
+          opts: [
+            "To teach the new worker advanced job-specific skills",
+            "To help the new worker settle into the business quickly",
+            "To replace the need for any other type of training",
+            "To assess whether the worker should be promoted"
+          ],
+          ans: 1,
+          explain: "Induction is about settling a new worker in — introducing them to the business, the workplace layout, colleagues, and health & safety procedures. It is NOT primarily about teaching job skills, which is a very common student error."
+        }
       },
       {
         title: "Staff Development — Apprenticeships",
@@ -541,7 +615,18 @@ working in a care home. </p>
       <div class="con-item">Qualifications are job-specific — may limit future career breadth compared to a degree.</div>
       <div class="con-item">Evidence suggests degree-holders earn more on average in the long run.</div>
     </div>
-  </div>`
+  </div>`,
+        readCheck: {
+          q: "Why does Redrow Homes view apprenticeships as valuable, according to the case study?",
+          opts: [
+            "They help find and develop motivated staff suited to construction",
+            "Apprentices are not required to be paid",
+            "Apprenticeships replace the need for any qualified tradespeople",
+            "Apprentices only work part-time"
+          ],
+          ans: 0,
+          explain: "Redrow Homes uses apprenticeships to build a pipeline of skilled, loyal workers specifically suited to the construction trade — carpentry, plumbing, bricklaying — developed from within rather than recruited externally."
+        }
       },
       {
         title: "Staff Development — Professional Development Programmes",
@@ -578,7 +663,18 @@ working in a care home. </p>
       <div class="con-item">Can be very demanding and stressful alongside a full-time job.</div>
       <div class="con-item">No guarantee the qualification will lead to career progression at that business.</div>
     </div>
-  </div>`
+  </div>`,
+        readCheck: {
+          q: "What is a key business risk of investing in professional development programmes for staff?",
+          opts: [
+            "Once qualified, workers may find better-paid jobs at rival firms",
+            "Professional development always reduces staff motivation",
+            "There is no risk at all — it is always a safe investment",
+            "Workers are legally required to stay with the business for life"
+          ],
+          ans: 0,
+          explain: "A major risk is retention — after gaining a valuable qualification, a worker becomes more attractive to other employers and may leave, meaning the business does not always get a return on its investment."
+        }
       },
       {
         title: "Evaluation: Which Training Method is Best?",
@@ -591,7 +687,18 @@ working in a care home. </p>
     <li><strong>Apprenticeships</strong> suit businesses that need specific, practical skills developed over time and want to build loyal, long-term employees. Best for trades, engineering, and technical roles.</li>
     <li><strong>Professional development</strong> suits businesses with ambitious employees and a need for future managers or highly qualified specialists. Especially valuable in finance, law, technology, and healthcare.</li>
   </ul>
-  <p><strong>Evaluation tip:</strong> Consider whether the business can afford the cost, whether the worker will stay after qualifying, and whether the skill needed is short-term or long-term. These are the factors that decide which method is best <em>in context</em>.</p>`
+  <p><strong>Evaluation tip:</strong> Consider whether the business can afford the cost, whether the worker will stay after qualifying, and whether the skill needed is short-term or long-term. These are the factors that decide which method is best <em>in context</em>.</p>`,
+        readCheck: {
+          q: "When is off-the-job training NOT suitable for a business, according to this topic?",
+          opts: [
+            "When safety is critical or industry-regulated qualifications are required",
+            "When the business cannot afford the cost or manage the worker's absence",
+            "Off-the-job training is always suitable in every situation",
+            "When the worker has been employed for less than a year"
+          ],
+          ans: 1,
+          explain: "Off-the-job training is ideal for safety-critical or specialist roles, but it isn't suitable when a business can't afford the cost or the disruption of having the worker absent — the right method always depends on context."
+        }
       }
     ];
 
@@ -869,35 +976,83 @@ working in a care home. </p>
     const miscData = [
       {
         wrong: "Induction training teaches new workers how to do their job.",
-        correct: "Induction training introduces the new worker to the business, workplace, colleagues, and health and safety rules. It is about settling in — not skill-building. Examiners specifically flagged this as a very common error."
+        correct: "Induction training introduces the new worker to the business, workplace, colleagues, and health and safety rules. It is about settling in — not skill-building. Examiners specifically flagged this as a very common error.",
+        readCheck: {
+          q: "Does induction training primarily teach a new worker job-specific skills?",
+          opts: ["Yes, that is its main purpose", "No — it's about settling in, not job skills", "Yes, but only for management roles", "No, induction is only for experienced workers"],
+          ans: 1,
+          explain: "Induction is about helping a new worker settle in to the business — its purpose is not to teach job skills, which is a very commonly tested misconception."
+        }
       },
       {
         wrong: "Training and development mean the same thing.",
-        correct: "They are different. Training is short-term and job-specific. Development is long-term and about the overall growth of the worker's potential. Always check which one the question is asking about."
+        correct: "They are different. Training is short-term and job-specific. Development is long-term and about the overall growth of the worker's potential. Always check which one the question is asking about.",
+        readCheck: {
+          q: "If an exam question specifically asks about 'development', should you write about short-term, job-specific skills?",
+          opts: ["Yes, training and development are interchangeable", "No — development means long-term growth, not skills", "Yes, as long as you mention training", "It doesn't matter which term the question uses"],
+          ans: 1,
+          explain: "Training and development are distinct terms tested separately by examiners. Development questions need long-term, potential-focused answers — not short-term job-specific training answers."
+        }
       },
       {
         wrong: "Off-the-job training is always better than on-the-job training.",
-        correct: "Neither is universally better — it depends on the situation. On-the-job is cheaper and keeps the worker productive. Off-the-job is higher quality and safer for risky roles. Always evaluate in context."
+        correct: "Neither is universally better — it depends on the situation. On-the-job is cheaper and keeps the worker productive. Off-the-job is higher quality and safer for risky roles. Always evaluate in context.",
+        readCheck: {
+          q: "Is off-the-job training always the best choice for a business?",
+          opts: ["Yes, it is always superior to on-the-job training", "No — it depends entirely on the business situation", "No, on-the-job training is always better", "Neither method is ever appropriate"],
+          ans: 1,
+          explain: "Neither method is universally better. The right choice depends on context — cost, safety requirements, and the nature of the skill being taught all matter."
+        }
       },
       {
         wrong: "Apprenticeships are only for school leavers looking for their first job.",
-        correct: "On this specification, apprenticeships are a form of staff development for existing employees. They reduce the time a worker spends on their normal duties while they study — they are not just a cheap way to recruit new workers."
+        correct: "On this specification, apprenticeships are a form of staff development for existing employees. They reduce the time a worker spends on their normal duties while they study — they are not just a cheap way to recruit new workers.",
+        readCheck: {
+          q: "According to this specification, are apprenticeships only for school leavers seeking their first job?",
+          opts: ["Yes, that is their only purpose", "No, they also develop existing employees at the firm", "Apprenticeships do not exist on this specification", "Apprenticeships are only for graduates"],
+          ans: 1,
+          explain: "Apprenticeships are presented as a staff development method that can apply to existing employees being developed within the business, not solely as a route into a first job."
+        }
       },
       {
         wrong: "On-the-job training means the same as internal training.",
-        correct: "These are not the same. On-the-job and off-the-job refer to whether training takes place during normal work. Internal vs external refers to who delivers the training. Do not confuse location with method."
+        correct: "These are not the same. On-the-job and off-the-job refer to whether training takes place during normal work. Internal vs external refers to who delivers the training. Do not confuse location with method.",
+        readCheck: {
+          q: "What is the difference between 'on-the-job vs off-the-job' and 'internal vs external' training?",
+          opts: ["They are the same distinction described two ways", "One is about when; the other is who delivers it", "Internal training is always on-the-job", "External training is always off-the-job"],
+          ans: 1,
+          explain: "These describe two completely different things: on/off-the-job is about whether training happens during normal duties, while internal/external is about who provides the training — they should not be confused."
+        }
       },
       {
         wrong: "For an 'analyse one benefit to employees' question, answers about increased profits or productivity are correct.",
-        correct: "Profits and productivity are benefits to the BUSINESS, not the employee. When the question specifies employees, you must write about personal benefits — higher pay, promotion prospects, improved self-esteem, job satisfaction."
+        correct: "Profits and productivity are benefits to the BUSINESS, not the employee. When the question specifies employees, you must write about personal benefits — higher pay, promotion prospects, improved self-esteem, job satisfaction.",
+        readCheck: {
+          q: "If a question asks for a benefit to EMPLOYEES specifically, is 'increased profits' a valid answer?",
+          opts: ["Yes, profit is always a good answer", "No, profit benefits the business, not the employee", "Yes, as long as profit is mentioned somewhere", "No, because profit never increases from training"],
+          ans: 1,
+          explain: "Always check who the question is asking about. Profit and productivity are business-facing benefits — when the question specifies employees, you need employee-facing benefits like pay, promotion, or job satisfaction."
+        }
       },
       {
         wrong: "Vocational qualifications are more general than academic qualifications.",
-        correct: "It is the opposite. Vocational qualifications are job-specific (e.g. NVQs). Academic qualifications (e.g. GCSEs, degrees) are more general and can open up a wider range of career paths."
+        correct: "It is the opposite. Vocational qualifications are job-specific (e.g. NVQs). Academic qualifications (e.g. GCSEs, degrees) are more general and can open up a wider range of career paths.",
+        readCheck: {
+          q: "Which type of qualification is more job-specific: vocational or academic?",
+          opts: ["Academic qualifications are more job-specific", "Vocational qualifications are more job-specific", "They are equally general", "Neither type is job-specific"],
+          ans: 1,
+          explain: "Vocational qualifications (like NVQs) are tied to a specific job or trade, while academic qualifications (like GCSEs or degrees) are broader and can lead to a wider range of career paths."
+        }
       },
       {
         wrong: "Staff development is just another word for training.",
-        correct: "Staff development is broader and longer-term than training. It includes apprenticeships and professional development programmes that develop the worker's overall potential, not just their ability to do the current job."
+        correct: "Staff development is broader and longer-term than training. It includes apprenticeships and professional development programmes that develop the worker's overall potential, not just their ability to do the current job.",
+        readCheck: {
+          q: "Is staff development simply another term for training?",
+          opts: ["Yes, they mean exactly the same thing", "No, it's a broader, longer-term idea than training", "Yes, but only for senior staff", "No, staff development only applies to new employees"],
+          ans: 1,
+          explain: "Staff development is a wider, longer-term concept than training — it includes things like apprenticeships and professional qualifications aimed at growing a worker's overall potential, not just their current job performance."
+        }
       }
     ];
 
@@ -921,7 +1076,18 @@ working in a care home. </p>
         <p><strong>⚠️ Examiner Warning:</strong> Do NOT write "online training" or "at-home training" as a third method — these are not the correct terms. The three methods are: <strong>on-the-job, off-the-job, and induction</strong>. Induction was the most commonly missed method.</p>
         <p><strong>🚫 Do NOT accept:</strong> "on-site", "off-site", "internal", or "external" training — these describe location, not the training method itself.</p>
       `,
-        pills: ["K", "app"]
+        pills: ["K", "app"],
+        readCheck: {
+          q: "Which three training methods are the correct answers when asked to name training methods a business could use?",
+          opts: [
+            "On-site, off-site, and internal training",
+            "On-the-job, off-the-job, and induction",
+            "Internal, external, and online",
+            "Apprenticeship, degree, and NVQ"
+          ],
+          ans: 1,
+          explain: "The three correct training methods on this specification are on-the-job, off-the-job, and induction. Induction is the one most commonly missed by students — terms like 'internal' or 'on-site' describe location, not the method itself."
+        }
       },
       {
         type: "Analyse — 3 marks",
@@ -947,7 +1113,18 @@ working in a care home. </p>
           <li><em>AN: "As a result, the business will... / This will lead to... / This means profits will..."</em></li>
         </ul>
       `,
-        pills: ["U", "app", "an"]
+        pills: ["U", "app", "an"],
+        readCheck: {
+          q: "Why does the answer 'Training improves customer service which increases profits' score only 1 mark on a 3-mark analyse question?",
+          opts: [
+            "It is too long",
+            "It has no application to the specific business",
+            "It mentions profit, which is not relevant",
+            "Customer service is not connected to training"
+          ],
+          ans: 1,
+          explain: "Without applying the point to the named business using a specific case study detail, you cannot score the APP or AN marks — the chain breaks before it reaches analysis."
+        }
       },
       {
         type: "Analyse Two Benefits — 6 marks",
@@ -966,7 +1143,18 @@ working in a care home. </p>
         <em>Benefit 1: [U — specialist feature of off-the-job] → [APP — apply to BFF] → [AN — business impact]</em><br/>
         <em>Benefit 2: [U — another specific feature] → [APP — apply to BFF] → [AN — business impact]</em></p>
       `,
-        pills: ["U", "app", "an"]
+        pills: ["U", "app", "an"],
+        readCheck: {
+          q: "On a 6-mark 'analyse two benefits of off-the-job training' question, why would writing about 'improved motivation' score zero for the second benefit?",
+          opts: [
+            "Motivation is not relevant to any type of training",
+            "Motivation isn't a feature unique to off-the-job training",
+            "Six-mark questions do not award marks for motivation points",
+            "You can only write one benefit, not two"
+          ],
+          ans: 1,
+          explain: "The question asks specifically about off-the-job training — so your benefits must be features unique to it (expert trainers, specialist equipment, safe environment). Generic training benefits like motivation could apply to any method and will not score."
+        }
       },
       {
         type: "Evaluate — 7 marks",
@@ -995,7 +1183,18 @@ working in a care home. </p>
         <em>"Overall, Dyson Ltd should continue offering apprenticeships (DECISION) as James Dyson personally promotes careers in engineering and the company creates innovative products (CONTEXT). Apprenticeships allow Dyson to develop engineers with the exact skills needed for product innovation, giving the business a long-term competitive advantage (REASONING)."</em></p>
         <p><strong>⚠️ Examiner Warning (Dyson question):</strong> Many students wrote about the advantages/disadvantages to the apprentice rather than to Dyson. Always re-read: the question asks about the business's perspective. Also, answers about taking on apprentices as cheap new recruits were wrong — the question was about apprenticeships as a method of developing existing staff.</p>
       `,
-        pills: ["app", "an", "eval"]
+        pills: ["app", "an", "eval"],
+        readCheck: {
+          q: "How many marks is a strong evaluation conclusion worth in a 7-mark question, and what three things must it include?",
+          opts: [
+            "1 mark — just a decision",
+            "3 marks — decision, detail, reasoning",
+            "2 marks — two advantages",
+            "3 marks — three separate advantages"
+          ],
+          ans: 1,
+          explain: "The evaluation element is worth up to 3 marks. A strong conclusion (3 marks) must include: a clear decision, a specific detail from the case study, and reasoning explaining the consequence for that particular business."
+        }
       },
       {
         type: "Identify — 1 mark",
@@ -1018,7 +1217,18 @@ working in a care home. </p>
         </ul>
         <p>If the question says "other than apprenticeships", do not repeat apprenticeships — write something from the list above.</p>
       `,
-        pills: ["K"]
+        pills: ["K"],
+        readCheck: {
+          q: "If asked to 'identify two methods of staff development other than apprenticeships', which of the following is a correct answer?",
+          opts: [
+            "On-the-job skills training",
+            "Induction training",
+            "Vocational qualifications",
+            "Off-the-job training"
+          ],
+          ans: 2,
+          explain: "On-the-job training, induction, and off-the-job training are all training methods — not staff development. Correct staff development methods include vocational qualifications, academic qualifications, professional development programmes, and secondments."
+        }
       },
       {
         type: "Recommend — 3 marks",
@@ -1036,7 +1246,18 @@ working in a care home. </p>
         <p><strong>✅ Strong (3 marks):</strong><br/>
         <em>"McDonald's should use induction training (JUDGEMENT) because James has never worked for McDonald's before, so he needs to understand the company's procedures, where the fire exits are, and how he will be paid (CONTEXT). Unlike on-the-job training, induction doesn't risk dangerous mistakes while James is still learning the basics (COMPARISON)."</em></p>
       `,
-        pills: ["U", "app", "an"]
+        pills: ["U", "app", "an"],
+        readCheck: {
+          q: "What is missing from this Recommend answer: 'McDonald's should use induction training because James is new'?",
+          opts: [
+            "Nothing — it scores all 3 marks",
+            "A comparison to the alternative method",
+            "A definition of induction training",
+            "A calculation"
+          ],
+          ans: 1,
+          explain: "This answer gives a basic judgement (1 mark) but needs a contextual justification using case study detail AND a comparison with the alternative method to reach full marks — simply saying James is new is not enough."
+        }
       }
     ];
 
@@ -1353,6 +1574,11 @@ working in a care home. </p>
   </script>
 
   <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

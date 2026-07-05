@@ -305,6 +305,13 @@
 // ══════════════════════════════════════
 //  DATA TEMPLATE: 4.6 Working With Suppliers
 // ══════════════════════════════════════
+  const pageMeta = {
+    id: '4-6-working-with-suppliers',
+    badge: 'OCR GCSE Business — Component 1',
+    title: '4.6 Working with Suppliers',
+    subtitle: 'Interactive revision guide',
+    subject: 'business',
+  };
 
 // 1. Main Learning Content
 const topics = [
@@ -319,7 +326,13 @@ const topics = [
   <li><strong>Supplier:</strong> A party (business or individual) that supplies goods and/or services to another business.</li>
   <li><strong>Just-In-Time (JIT):</strong> A system where parts or materials are delivered exactly when they are needed for production, minimising storage costs.</li>
   <li><strong>Ethical Sourcing:</strong> Choosing suppliers who operate responsibly — paying fair wages, protecting workers, and using sustainable materials.</li>
-</ul>`
+</ul>`,
+    readCheck: {
+      q: "Which statement correctly describes a Just-In-Time (JIT) system?",
+      opts: ["Parts are delivered exactly when needed, keeping storage costs low", "Stock is reordered automatically once levels start running low", "Large buffer stocks are kept in the warehouse just in case", "Suppliers are chosen only because they charge the lowest price"],
+      ans: 0,
+      explain: "JIT means materials arrive exactly when needed on the production line, which cuts storage costs but relies on very reliable suppliers."
+    }
   },
   {
     title: "The Procurement Process — 4 Stages",
@@ -334,7 +347,13 @@ const topics = [
 <div class="case-study-box">
   <h4>Case Study: Tesco plc</h4>
   <p>Tesco is one of the UK's largest retailers, selling thousands of product lines through its stores and online. Its procurement department manages relationships with hundreds of suppliers across the UK and abroad. If a supplier fails to deliver — say, during a factory flood like the Crawford's Biscuits incident in 2016 — Tesco suffers immediately: empty shelves, lost sales, and damage to its reputation. This shows why all four stages of procurement must be managed carefully and continuously.</p>
-</div>`
+</div>`,
+    readCheck: {
+      q: "Deciding what to buy based on the time of year, fashion or technology belongs to which stage of procurement?",
+      opts: ["Stage 1 – identifying what to buy", "Stage 2 – choosing suppliers", "Stage 3 – ordering the goods", "Stage 4 – receiving deliveries"],
+      ans: 0,
+      explain: "Identifying what to buy (influenced by season, fashion and technology) is Stage 1; choosing suppliers, ordering and receiving are the later stages."
+    }
   },
   {
     title: "Factors Affecting What to Buy",
@@ -344,7 +363,13 @@ const topics = [
   <li><strong>Time of year:</strong> Demand for many products is seasonal. A garden centre must stock barbeques and plants in spring/summer and pivot to Christmas items in winter. Ordering too early or too late leads to either stockouts or unsold goods sold at a loss.</li>
   <li><strong>Changes in technology:</strong> Technology evolves rapidly. A business must avoid buying too much of a product that is about to be replaced by a newer model — for example, buying large quantities of a laptop that will be superseded in two months.</li>
   <li><strong>Changes in fashion and lifestyle:</strong> Consumer tastes shift constantly. The rise of veganism and gluten-free diets has forced supermarkets to dramatically increase the range of plant-based and free-from products they procure. Failing to anticipate trends means missing sales opportunities.</li>
-</ul>`
+</ul>`,
+    readCheck: {
+      q: "Why should a business consider changes in technology when deciding what to buy?",
+      opts: ["To avoid overbuying stock soon to be replaced by a newer model", "Because newer technology is always cheaper to buy in bulk", "Because customers always prefer the oldest available models", "Because changing technology has no effect on demand at all"],
+      ans: 0,
+      explain: "Fast-changing technology risks a business being left with large stocks of a product about to be superseded, causing waste and lost value."
+    }
   },
   {
     title: "Choosing the Right Supplier",
@@ -360,7 +385,13 @@ const topics = [
 <div class="case-study-box">
   <h4>Case Study: Zara (Fast Fashion)</h4>
   <p>Zara is a global fashion retailer based in Spain with 2,270 stores worldwide. Its entire business model is built on speed — getting new designs from concept to shelf in just 15 days. To achieve this, Zara buys large quantities of fabric from European suppliers, which guarantees fast delivery to its factories in Spain. If its suppliers were unreliable, Zara could not change its clothing designs every two weeks (while competitors take two to three months). Reliable, quality suppliers are therefore central to Zara's competitive advantage and its USP.</p>
-</div>`
+</div>`,
+    readCheck: {
+      q: "Why does a supplier's reputation matter to the business that buys from it?",
+      opts: ["A supplier's unethical practices can damage the buyer's reputation too", "A supplier's reputation sets the tax rate the buying business pays", "A good reputation always means the supplier is the cheapest option", "A supplier's reputation only ever affects the supplier, not the buyer"],
+      ans: 0,
+      explain: "Even if the buyer had no direct involvement, a supplier exposed for unethical practices damages the buyer's reputation too."
+    }
   },
   {
     title: "Logistical Decisions — Time, Reliability, Supply Chain Length, Costs & Customer Service",
@@ -372,7 +403,13 @@ const topics = [
   <li><strong>Length of the supply chain:</strong> The more businesses involved in getting a product from raw material to consumer, the higher the risk of disruption. A car maker relying on brake components from a specialist who relies on steel from a mine in another country has a very long and complex supply chain — one failure anywhere in that chain affects everyone downstream.</li>
   <li><strong>Costs:</strong> Lower supply costs improve profit margins, but not at the expense of quality or reliability. Paying slightly more for a reliable, high-quality supplier often works out cheaper in the long run than constantly dealing with problems caused by a cheaper but unreliable one.</li>
   <li><strong>Customer service from suppliers:</strong> Businesses are themselves customers of their suppliers. If a supplier fails to deliver or delivers faulty goods, how quickly do they resolve the problem? A supplier with poor customer service creates knock-on problems that damage the buying business's own service to its customers.</li>
-</ul>`
+</ul>`,
+    readCheck: {
+      q: "Why can paying slightly more for a reliable supplier work out cheaper overall?",
+      opts: ["It avoids the repeated costs caused by an unreliable, cheaper supplier", "Reliable suppliers always charge less money than unreliable ones do", "A higher price always guarantees that goods will never be faulty", "Expensive suppliers always have much shorter supply chains overall"],
+      ans: 0,
+      explain: "A cheaper but unreliable supplier causes disruption and knock-on costs, so a dearer reliable one can be cheaper in the long run."
+    }
   },
   {
     title: "Advantages & Disadvantages of Long vs Short Supply Chains",
@@ -393,7 +430,13 @@ const topics = [
     <div class="con-item"><strong>Quality control difficulties:</strong> Monitoring the quality and ethical standards of many suppliers across the world is extremely challenging.</div>
     <div class="con-item"><strong>Reputational risk:</strong> If one supplier in a long chain behaves unethically, the final seller bears much of the public criticism.</div>
   </div>
-</div>`
+</div>`,
+    readCheck: {
+      q: "Which of these is an advantage of a short supply chain?",
+      opts: ["Fewer links in the chain mean fewer points where failure can occur", "It spreads the reputational risk across many more businesses involved", "It allows the business to monitor many more suppliers worldwide", "It increases the number of countries the goods must travel through"],
+      ans: 0,
+      explain: "A shorter chain has fewer links to break, making it more reliable, easier to communicate along and cheaper to transport."
+    }
   },
   {
     title: "Key Issues in Supply Chain Management",
@@ -409,7 +452,13 @@ const topics = [
 <div class="case-study-box">
   <h4>Case Study: Crawford's Biscuits & Tesco (2016)</h4>
   <p>In 2016, Crawford's Biscuits factory in Carlisle was badly damaged during winter floods, halting production of custard creams. Tesco could not get enough biscuits to meet customer demand. When production eventually restarted, rising UK fuel prices pushed up transport costs, threatening Tesco's ability to keep prices competitive. This real-world example shows how natural disasters, supply chain disruptions, and rising costs can combine to damage a retailer's sales and profitability — even when the problem originates with a supplier, not the retailer itself.</p>
-</div>`
+</div>`,
+    readCheck: {
+      q: "What is the likely consequence for a business if a supplier repeatedly fails to deliver on time?",
+      opts: ["Production may halt, leading to lost sales and revenue", "The business's supply chain automatically becomes shorter", "The supplier's customer service costs fall", "The business gains an advantage over rivals"],
+      ans: 0,
+      explain: "Late supply can halt production, so the business loses sales and revenue even though the fault lies with the supplier."
+    }
   },
   {
     title: "Ethical Sourcing & Sustainable Supply Chains",
@@ -434,7 +483,13 @@ const topics = [
     <div class="con-item"><strong>Fewer options:</strong> Limiting suppliers to those with ethical certification reduces choice and negotiating power.</div>
     <div class="con-item"><strong>Monitoring difficulty:</strong> Verifying ethical standards throughout a global supply chain is complex and expensive.</div>
   </div>
-</div>`
+</div>`,
+    readCheck: {
+      q: "Which of the following is a drawback of ethical sourcing for a business?",
+      opts: ["Certified, ethically sourced materials often cost more to buy", "It always reduces brand loyalty among younger, ethical consumers", "It removes any need to monitor the global supply chain at all", "It guarantees that the business breaks consumer protection law"],
+      ans: 0,
+      explain: "Ethical and certified suppliers tend to cost more and offer fewer options, and standards are hard to monitor across a global chain."
+    }
   }
 ];
 
@@ -724,35 +779,83 @@ const tfData = [
 const miscData = [
   {
     wrong: "Procurement and logistics mean the same thing.",
-    correct: "They are two distinct concepts. Procurement is about managing the buying/purchasing of goods. Logistics is about managing the transportation and storage of goods. Many students swap these definitions and lose marks."
+    correct: "They are two distinct concepts. Procurement is about managing the buying/purchasing of goods. Logistics is about managing the transportation and storage of goods. Many students swap these definitions and lose marks.",
+    readCheck: {
+      q: "Which statement correctly distinguishes procurement from logistics?",
+      opts: ["Procurement handles buying goods; logistics handles transport", "Procurement handles transporting goods; logistics handles the buying", "Both terms simply describe managing the storage space for goods", "Both terms simply mean choosing which products a shop will sell"],
+      ans: 0,
+      explain: "Procurement is the buying/purchasing function; logistics is the transport and storage of goods — swapping them loses marks."
+    }
   },
   {
     wrong: "The supply chain only includes the final manufacturer and the customer.",
-    correct: "The supply chain includes ALL businesses involved from raw material to the end user. A car's supply chain might include mines, steel producers, component manufacturers, the car assembler, and the dealer — all are part of the chain."
+    correct: "The supply chain includes ALL businesses involved from raw material to the end user. A car's supply chain might include mines, steel producers, component manufacturers, the car assembler, and the dealer — all are part of the chain.",
+    readCheck: {
+      q: "Which businesses does a product's supply chain include?",
+      opts: ["All businesses involved from the raw material stage to the end user", "Only the final manufacturer and the customer who buys the product", "Only the shop that sells the product and the customer who buys it", "Only businesses based within the same country as the retailer"],
+      ans: 0,
+      explain: "The supply chain covers every business from raw material to end user — for a car that includes mines, steel producers, component makers, assembler and dealer."
+    }
   },
   {
     wrong: "A longer supply chain means lower costs because more suppliers are competing.",
-    correct: "A longer supply chain actually tends to increase costs and risk. More businesses means more transport, more handling, more coordination, and more potential points of failure. Costs are generally higher and reliability is lower in a long supply chain."
+    correct: "A longer supply chain actually tends to increase costs and risk. More businesses means more transport, more handling, more coordination, and more potential points of failure. Costs are generally higher and reliability is lower in a long supply chain.",
+    readCheck: {
+      q: "What is the general effect of a longer supply chain on costs and risk?",
+      opts: ["It tends to increase both overall costs and the risk of disruption", "It lowers costs because so many more suppliers are competing", "It lowers risk because responsibility is shared between more firms", "It has no real effect on either costs or the risk involved"],
+      ans: 0,
+      explain: "More businesses in the chain means more transport, handling and coordination, so costs and the risk of disruption both tend to rise."
+    }
   },
   {
     wrong: "Low-cost suppliers will allow a business to raise its prices and make more profit.",
-    correct: "Low-cost suppliers allow a business to either keep prices competitive (lower than rivals) OR increase profit margins by keeping selling prices the same while paying less for inputs. They do not justify price increases — Primark, for example, uses low-cost suppliers specifically to undercut rivals on price."
+    correct: "Low-cost suppliers allow a business to either keep prices competitive (lower than rivals) OR increase profit margins by keeping selling prices the same while paying less for inputs. They do not justify price increases — Primark, for example, uses low-cost suppliers specifically to undercut rivals on price.",
+    readCheck: {
+      q: "What does using low-cost suppliers actually allow a business to do?",
+      opts: ["Keep prices lower than rivals or raise its profit margins", "Justify raising its selling prices well above those of rivals", "Automatically improve the quality of every product it sells", "Ignore how reliable its suppliers are when placing orders"],
+      ans: 0,
+      explain: "Lower input costs let a business undercut rivals on price or widen its margins — they do not justify raising prices."
+    }
   },
   {
     wrong: "Procurement only covers the goods a business sells to customers.",
-    correct: "Procurement covers ALL goods and services a business needs to operate — including office stationery, cleaning services, IT equipment, and staff uniforms — as well as stock. David the biscuit factory procurement officer orders sugar AND printer paper."
+    correct: "Procurement covers ALL goods and services a business needs to operate — including office stationery, cleaning services, IT equipment, and staff uniforms — as well as stock. David the biscuit factory procurement officer orders sugar AND printer paper.",
+    readCheck: {
+      q: "What does the procurement function actually cover?",
+      opts: ["Everything the business needs to run, including stock and supplies", "Only the finished products the business sells to its customers", "Only the transportation of the business's finished goods", "Only office supplies such as stationery and printer paper"],
+      ans: 0,
+      explain: "Procurement covers all goods and services a business needs — stock plus stationery, cleaning, IT and uniforms — not just what it sells."
+    }
   },
   {
     wrong: "If a business has a reliable supplier, cost is irrelevant.",
-    correct: "Both reliability AND cost must be considered together. A very reliable but extremely expensive supplier may make the business unprofitable. The examiner expects students to evaluate both factors, not treat one as automatically more important."
+    correct: "Both reliability AND cost must be considered together. A very reliable but extremely expensive supplier may make the business unprofitable. The examiner expects students to evaluate both factors, not treat one as automatically more important.",
+    readCheck: {
+      q: "Once a business has found a reliable supplier, how important is cost?",
+      opts: ["Cost still matters — a very reliable supplier can still be too costly", "Cost becomes completely irrelevant once reliability is guaranteed", "Cost then becomes the only factor that really matters at all", "Cost only ever matters when a supplier proves to be unreliable"],
+      ans: 0,
+      explain: "The examiner expects both reliability and cost to be weighed together; a reliable but too-expensive supplier can still make the business unprofitable."
+    }
   },
   {
     wrong: "Just-in-time means the business orders goods just before they run out.",
-    correct: "Just-in-time (JIT) is a precise system where materials arrive exactly when needed on the production line — not simply 'ordering when stock is low'. It requires highly reliable suppliers and sophisticated coordination between buyer and supplier."
+    correct: "Just-in-time (JIT) is a precise system where materials arrive exactly when needed on the production line — not simply 'ordering when stock is low'. It requires highly reliable suppliers and sophisticated coordination between buyer and supplier.",
+    readCheck: {
+      q: "What does Just-In-Time (JIT) precisely involve?",
+      opts: ["Materials arrive exactly when needed by reliable suppliers", "Ordering goods just before the existing stock finally runs out", "Holding large safety stocks just in case deliveries are delayed", "Buying materials only from whichever supplier is cheapest"],
+      ans: 0,
+      explain: "JIT is a precise system where materials arrive exactly when needed on the line — not simply reordering when stock is low."
+    }
   },
   {
     wrong: "A business that uses ethical suppliers will always have higher costs.",
-    correct: "While ethical suppliers can be more expensive, this is not always the case. Ethical sourcing can also bring long-term savings through reduced reputational risk, better supplier relationships, and more sustainable supply of materials. The examiner expects a balanced answer."
+    correct: "While ethical suppliers can be more expensive, this is not always the case. Ethical sourcing can also bring long-term savings through reduced reputational risk, better supplier relationships, and more sustainable supply of materials. The examiner expects a balanced answer.",
+    readCheck: {
+      q: "Is it true that using ethical suppliers always means higher costs?",
+      opts: ["No — it can bring long-term savings via lower reputational risk", "Yes — ethical suppliers are always the most expensive option", "Yes — because ethical suppliers never offer discounts", "No — ethical sourcing has no effect on costs at all"],
+      ans: 0,
+      explain: "Ethical suppliers can cost more, but the examiner expects a balanced answer: they can also save money through lower reputational risk and better relationships."
+    }
   }
 ];
 
@@ -776,7 +879,13 @@ const examTips = [
       Short, specific, and directly answers the question.</p>
       <p><strong>⚠️ Examiner Warning:</strong> The examiner's report noted that more than half of candidates did not know what the 'procurement function' meant — many linked it to finance or marketing. Know your key terms cold.</p>
     `,
-    pills: ["K"]
+    pills: ["K"],
+    readCheck: {
+      q: "What does a 1-mark 'State' or 'Identify' question require?",
+      opts: ["One clear, specific point with no explanation needed", "A point plus a full explanation of why it matters", "A judgement supported by case study context", "Two connected points linked to the business"],
+      ans: 0,
+      explain: "A 1-mark State/Identify answer needs exactly one specific point — a vague answer scores zero and no explanation is required."
+    }
   },
   {
     type: "Explain — 2 marks",
@@ -794,7 +903,13 @@ const examTips = [
       <p><strong>✅ Good Answer (2 marks):</strong><br/>
       <em>"One role of procurement is choosing which suppliers to use (K) — for example, JLP takes time evaluating high quality suppliers for its wide range of products including clothing and electronics (APP)."</em></p>
     `,
-    pills: ["K", "U", "app"]
+    pills: ["K", "U", "app"],
+    readCheck: {
+      q: "What two steps earn full marks on a 2-mark 'Explain' question?",
+      opts: ["State a relevant point, then briefly link to the business", "State two separate points but never apply either one", "Give a judgement, then justify that judgement fully enough", "Write a full four-paragraph evaluation of the topic"],
+      ans: 0,
+      explain: "Point + Link: state the knowledge (K) then apply it to the business in the question (APP) — a point with no application caps you at one mark."
+    }
   },
   {
     type: "Analyse — 3 marks",
@@ -811,7 +926,13 @@ const examTips = [
       <p><strong>💡 The "So What?" Rule:</strong> After each sentence, ask yourself "So what?" until you reach a bottom-line business impact (profit, sales, reputation, market share, costs).</p>
       <p><em>"Low-cost suppliers keep costs down." → So what? → "This improves profit margins." → So what? → "This allows Primark to survive and grow in a competitive retail market."</em> ✅</p>
     `,
-    pills: ["U", "app", "an"]
+    pills: ["U", "app", "an"],
+    readCheck: {
+      q: "In a 3-mark Analyse answer, what happens if you leave out application?",
+      opts: ["You cannot gain the analysis mark either", "You still earn full marks if the analysis is strong", "You lose only the application mark", "You gain an extra mark for a conclusion"],
+      ans: 0,
+      explain: "The chain is U → APP → AN; without application you forfeit the analysis mark too, so the case study must be used."
+    }
   },
   {
     type: "Analyse Two Impacts — 6 marks",
@@ -828,7 +949,13 @@ const examTips = [
       <p><em>Impact 1 — Supply Chain Length: "A long supply chain involves many businesses (U). Pukka Pies sources ingredients from across the UK and overseas (APP). This makes it harder to coordinate deliveries, increasing the risk that ingredients do not arrive on time and production is disrupted (AN)."</em></p>
       <p><em>Impact 2 — Time-Critical Logistics: "Timing is vital for delivering fresh ingredients to ensure production is not delayed (U). Pukka Pies makes high-quality savoury pies that need fresh ingredients and has food safety as a key value (APP). If deliveries are late, the business may need to recall products or halt production, increasing costs and damaging its reputation (AN)."</em></p>
     `,
-    pills: ["U", "app", "an"]
+    pills: ["U", "app", "an"],
+    readCheck: {
+      q: "Should you write a conclusion in a 6-mark 'Analyse two impacts' question?",
+      opts: ["No — there are no evaluation marks, so focus fully on both impacts", "Yes — a strong conclusion earns the final two marks available", "Yes — the conclusion is where application marks are always awarded", "No — a 6-mark question actually only needs one full impact"],
+      ans: 0,
+      explain: "A 6-mark question is two 3-mark U→APP→AN chains with no evaluation marks, so a conclusion wastes time better spent analysing."
+    }
   },
   {
     type: "Evaluate — 7 marks",
@@ -852,7 +979,13 @@ const examTips = [
       <em>"In conclusion, reliable suppliers are important for Zara."</em><br/>
       This just repeats what was already said. A good evaluation adds NEW reasoning, a condition, or a comparison.</p>
     `,
-    pills: ["U", "app", "an", "eval"]
+    pills: ["U", "app", "an", "eval"],
+    readCheck: {
+      q: "What makes a conclusion score evaluation marks in a 7-mark question?",
+      opts: ["It adds new reasoning, a condition, or a comparison", "It restates the strongest point already made before", "It lists every fact known about the topic", "It avoids mentioning the case study business"],
+      ans: 0,
+      explain: "Evaluation marks reward a justified judgement that adds something new — a condition ('it depends on...') or comparison — not a repeat of earlier points."
+    }
   },
   {
     type: "Evaluate (Recommend) — 3 marks",
@@ -867,7 +1000,13 @@ const examTips = [
       </ul>
       <p><strong>⚠️ Critical Rule:</strong> Your justification MUST compare both options (cost vs reliability, meeting vs email, etc.). Simply saying why Option A is good, without comparing it to Option B, will not earn the full justification mark.</p>
     `,
-    pills: ["app", "eval"]
+    pills: ["app", "eval"],
+    readCheck: {
+      q: "What must the justification do in a 3-mark 'recommend' question?",
+      opts: ["Compare both options rather than just explain why one is good", "Simply repeat the judgement again but using different words", "Describe only the chosen option in a lot of detail", "Avoid using any specific detail from the case study"],
+      ans: 0,
+      explain: "A recommend answer needs judgement + justification + context, and the justification must compare both options to earn its mark."
+    }
   }
 ];
 
@@ -1236,6 +1375,11 @@ const examQuestions = [
 ];
 </script>
     <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

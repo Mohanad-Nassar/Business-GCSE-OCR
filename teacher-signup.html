@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Teacher Sign Up — GCSE Business Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink:#0f1923; --paper:#f5f0e8; --cream:#ede7d9; --accent:#4a6fa5;
+    --gold:#d4a843; --mid:#5a6e7f; --border:#c9bfaa; --card-bg:#fffcf6; --wrong:#c84b31;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:24px;}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px;}
+
+  .card{width:100%;max-width:420px;background:var(--card-bg);border:1px solid var(--border);
+    border-radius:12px;padding:36px 32px;box-shadow:0 12px 32px rgba(15,25,35,.08);}
+  .badge{display:inline-block;background:var(--accent);color:#fff;font-family:'DM Mono',monospace;
+    font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:3px;margin-bottom:14px;}
+  h1{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:6px;}
+  .sub{font-size:13px;color:var(--mid);margin-bottom:24px;}
+
+  form{display:flex;flex-direction:column;gap:14px;}
+  label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--mid);display:block;margin-bottom:6px;}
+  input{width:100%;padding:11px 13px;border:1px solid var(--border);border-radius:7px;
+    font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:var(--ink);}
+  input:focus{border-color:var(--accent);}
+  .hint{font-size:11.5px;color:var(--mid);margin-top:4px;}
+  button[type=submit]{margin-top:6px;background:var(--ink);color:var(--paper);border:none;
+    padding:12px;border-radius:7px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;
+    cursor:pointer;transition:background .15s;}
+  button[type=submit]:hover{background:#1c2c3d;}
+  button[type=submit]:disabled{opacity:.6;cursor:default;}
+
+  .msg{font-size:12.5px;padding:10px 12px;border-radius:6px;display:none;}
+  .msg.show{display:block;}
+  .msg.error{background:rgba(200,75,49,.1);color:var(--wrong);border:1px solid rgba(200,75,49,.25);}
+  .msg.ok{background:rgba(45,122,79,.1);color:#2d7a4f;border:1px solid rgba(45,122,79,.25);}
+
+  .foot-link{margin-top:18px;text-align:center;font-size:12.5px;color:var(--mid);}
+  .foot-link a{color:var(--accent);text-decoration:none;font-weight:500;}
+  .foot-link a:hover{text-decoration:underline;}
+
+  .pw-wrap{position:relative;}
+  .pw-wrap input{padding-right:64px;}
+  .pw-toggle{position:absolute;right:6px;top:50%;transform:translateY(-50%);
+    background:none;border:none;color:var(--mid);cursor:pointer;
+    font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.05em;
+    text-transform:uppercase;padding:6px 8px;border-radius:5px;}
+  .pw-toggle:hover{color:var(--ink);background:var(--cream);}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <span class="badge">OCR GCSE Business Studies · J204</span>
+  <h1>Teacher sign up</h1>
+  <p class="sub">You'll need the staff invite code to create a teacher account.</p>
+
+  <form id="signupForm">
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" autocomplete="username" required/>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <div class="pw-wrap">
+        <input type="password" id="password" autocomplete="new-password" minlength="8" required/>
+        <button type="button" class="pw-toggle" id="pwToggle" aria-label="Show password">Show</button>
+      </div>
+      <div class="hint">At least 8 characters.</div>
+    </div>
+    <div>
+      <label for="inviteCode">Invite code</label>
+      <input type="text" id="inviteCode" autocomplete="off" required/>
+      <div class="hint">Ask the colleague who runs this site for the staff invite code.</div>
+    </div>
+    <div class="msg" id="msg"></div>
+    <button type="submit" id="submitBtn">Create account</button>
+  </form>
+
+  <div class="foot-link">Already have an account? <a href="login.html">Log in</a></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+  // Keep these in sync with the constants at the top of script.js.
+ const SUPABASE_URL = 'https://eaohjlyiotyqhvsizcpw.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhb2hqbHlpb3R5cWh2c2l6Y3B3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNzUzMDksImV4cCI6MjA5ODc1MTMwOX0.lHF4OUiTT3G_fzlXvXI_4QMu48o6eEnq0hWw6K1uBAk';
+  const GCSE_SESSION_KEY = 'gcse_session_v1';
+
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const form = document.getElementById('signupForm');
+  const msg = document.getElementById('msg');
+  const submitBtn = document.getElementById('submitBtn');
+
+  function showMsg(text, ok) {
+    msg.textContent = text;
+    msg.className = 'msg show ' + (ok ? 'ok' : 'error');
+  }
+
+  document.getElementById('pwToggle').addEventListener('click', () => {
+    const input = document.getElementById('password');
+    const btn = document.getElementById('pwToggle');
+    const show = input.type === 'password';
+    input.type = show ? 'text' : 'password';
+    btn.textContent = show ? 'Hide' : 'Show';
+    btn.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+    input.focus();
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const invite_code = document.getElementById('inviteCode').value.trim();
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Creating account…';
+    msg.className = 'msg';
+    try {
+      const res = await fetch('/.netlify/functions/teacher-signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password, invite_code }),
+      });
+      const body = await res.json();
+      if (!res.ok) {
+        showMsg(body.error || 'Sign up failed — double-check the invite code.', false);
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Create account';
+        return;
+      }
+
+      // Account created — log them straight in.
+      const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+      if (error || !data.session) {
+        showMsg('Account created — please log in.', true);
+        setTimeout(() => location.replace('login.html'), 1200);
+        return;
+      }
+      localStorage.setItem(GCSE_SESSION_KEY, JSON.stringify({
+        access_token: data.session.access_token,
+        refresh_token: data.session.refresh_token,
+        expires_at: data.session.expires_at,
+        role: 'teacher', username: email,
+      }));
+      location.replace('teacher-dashboard.html');
+    } catch (err) {
+      showMsg('Network error — please try again.', false);
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Create account';
+    }
+  });
+</script>
+<script src="footer-legal.js"></script>
+</body>
+</html>

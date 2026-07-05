@@ -306,6 +306,14 @@
     //  DATA TEMPLATE: 5.5 Cash and Cash Flow
     // ══════════════════════════════════════
 
+    const pageMeta = {
+        id: '5-5-cash-and-cash-flow',
+        badge: 'OCR GCSE Business — Component 2',
+        title: '5.5 Cash and Cash Flow',
+        subtitle: 'Interactive revision guide',
+        subject: 'business',
+    };
+
     // 1. Main Learning Content
     const topics = [
         {
@@ -327,7 +335,13 @@
 <li><strong>Income / Revenue:</strong> Money that the business receives.</li>
 <li><strong>Expenditure:</strong> Money that the business pays out.</li>
 <li><strong>Short-term debts / expenses:</strong> Bills that a business has to pay in the near future, such as electricity, wages, or rent.</li>
-</ul>`
+</ul>`,
+            readCheck: {
+                q: "According to the key definitions, what is the 'opening balance' for a month?",
+                opts: ["The closing balance carried over from the previous month", "The total inflow received during the current month alone", "The total outflow paid out during the current month", "The net cash flow calculated for the current month"],
+                ans: 0,
+                explain: "The card defines the opening balance as always being the closing balance from the previous month — it carries straight over rather than being freshly calculated."
+            }
         },
         {
             title: "The Importance of Cash to a Business",
@@ -348,7 +362,13 @@
 <p>Broder Metals Group supplies high-quality alloys to power stations, aircraft manufacturers, Formula 1 teams and oil exploration companies. They must order stock up to 12 months in advance. When events like the 2015 oil-price collapse reduced demand, Broder still had to pay wages, rent and suppliers — even though revenue had dropped significantly.</p>
 <p>To stay on top of this, Broder prepares annual budgets and monitors actual cash against the forecast every month. If a shortfall looks likely, they take action early: reducing prices to boost sales, or contacting the bank about available facilities. As their Finance Director states: "Cash flow is fundamental — get it wrong and the company will fail."</p>
 <p><strong>Takeaway:</strong> Even a business selling to major industries can face a cash crisis if it fails to plan. Monitoring cash flow is not optional — it is fundamental to survival.</p>
-</div>`
+</div>`,
+            readCheck: {
+                q: "According to this card, what is 'liquidity'?",
+                opts: ["The total profit a business has made over its last full financial year", "The ability of a business to turn assets into cash to pay short-term debts", "The total revenue a business receives from selling its products", "The amount of stock a business currently holds in its warehouse"],
+                ans: 1,
+                explain: "The card defines liquidity as a business's ability to turn assets into cash quickly enough to pay short-term debts — poor liquidity can force even profitable businesses to close."
+            }
         },
         {
             title: "Cash vs Profit: A Critical Distinction",
@@ -372,7 +392,13 @@
 </div>
 <p><strong>Key insight:</strong> A business can be profitable but still run out of cash. For example, if a large customer owes the business £50,000 but hasn't paid yet, the business has high revenue on paper but no cash to pay wages this week. This is sometimes called being "cash poor but profit rich."</p>
 <p>Equally, a business can have lots of cash (e.g. from a bank loan) but still be making a loss.</p>
-<p><strong>Examiner warning:</strong> "A business needs cash to survive" is NOT the same as "cash = profit." Never write that a cash flow forecast shows profit — it does not. The forecast only shows cash movements.</p>`
+<p><strong>Examiner warning:</strong> "A business needs cash to survive" is NOT the same as "cash = profit." Never write that a cash flow forecast shows profit — it does not. The forecast only shows cash movements.</p>`,
+            readCheck: {
+                q: "According to this card, what is the key insight about cash and profit?",
+                opts: ["A business can never be profitable if it also has plenty of cash", "Cash and profit are always exactly equal at the end of a trading period", "A business can be profitable on paper but still run out of cash", "A cash flow forecast shows the same information as a profit calculation"],
+                ans: 2,
+                explain: "The card's key insight is that a business can be 'cash poor but profit rich' — profitable on paper but unable to pay bills if customers haven't paid yet."
+            }
         },
         {
             title: "How to Read and Complete a Cash Flow Forecast",
@@ -386,7 +412,13 @@
 <p>A worked example for HMJA Fashion (a business selling teenage clothes):</p>
 <table class="case-table"><caption>Table 1 — HMJA Fashion Cash Flow Forecast</caption><tr><th></th><th>October £</th><th>November £</th><th>December £</th></tr><tr><td>Revenue (Total Inflow)</td><td>30,000</td><td>40,000</td><td>55,000</td></tr><tr><td>Wages</td><td>6,000</td><td>7,500</td><td>10,000</td></tr><tr><td>Overheads</td><td>3,500</td><td>3,500</td><td>4,000</td></tr><tr><td>Stock</td><td>35,000</td><td>15,000</td><td>10,000</td></tr><tr><td><strong>Total Outflow</strong></td><td><strong>44,500</strong></td><td><strong>26,000</strong></td><td><strong>24,000</strong></td></tr><tr><td><strong>Net Cash Flow</strong></td><td><strong>−14,500</strong></td><td><strong>14,000</strong></td><td><strong>31,000</strong></td></tr><tr><td>Opening Balance</td><td>1,000</td><td>−13,500</td><td>500</td></tr><tr><td><strong>Closing Balance</strong></td><td><strong>−13,500</strong></td><td><strong>500</strong></td><td><strong>31,500</strong></td></tr></table>
 <p><strong>October step-by-step:</strong> Net Cash Flow = £30,000 − £44,500 = <strong>−£14,500</strong>. Closing Balance = £1,000 + (−£14,500) = <strong>−£13,500</strong>. This negative closing balance carries forward as November's opening balance.</p>
-<p>Notice: the negative October was planned — the business bought Christmas stock early. By December, cash has recovered strongly. A single negative month is not automatically a crisis.</p>`
+<p>Notice: the negative October was planned — the business bought Christmas stock early. By December, cash has recovered strongly. A single negative month is not automatically a crisis.</p>`,
+            readCheck: {
+                q: "According to this card, why was HMJA Fashion's negative October balance not automatically a crisis?",
+                opts: ["The business had already closed down permanently by the end of October", "HMJA Fashion had no outflows at all recorded during that particular month of trading", "The negative balance was a permanent feature of every month of the year", "It was a planned outflow for buying Christmas stock early, and cash recovered later"],
+                ans: 3,
+                explain: "The card explains the negative October balance was planned (buying Christmas stock early), and cash recovered strongly by December — a single negative month is not automatically a crisis."
+            }
         },
         {
             title: "The Usefulness of Cash Flow Forecasting",
@@ -407,7 +439,13 @@
 <div class="con-item"><strong>External shocks:</strong> A pandemic, new competitor, or economic recession can make even well-researched forecasts unreliable very quickly.</div>
 <div class="con-item"><strong>Short-term reliability only:</strong> Short-term forecasts (weeks/months ahead) are far more reliable than long-term ones (1+ years ahead).</div>
 </div>
-</div>`
+</div>`,
+            readCheck: {
+                q: "According to this card, why are short-term cash flow forecasts more reliable than long-term ones?",
+                opts: ["Circumstances are less likely to change unexpectedly over a shorter period", "Short-term forecasts do not need to include any outflow figures at all", "Long-term forecasts are not allowed to be shown to a bank manager", "Short-term forecasts always show a bigger cash surplus than long-term ones"],
+                ans: 0,
+                explain: "The card lists short-term reliability as a limitation of forecasting in general — short-term forecasts (weeks/months) are far more reliable than long-term ones (1+ years) since less can change unexpectedly."
+            }
         },
         {
             title: "Solving a Cash Flow Problem",
@@ -427,7 +465,13 @@
 <h4>Case Study: The Deltic Group (2021)</h4>
 <p>The Deltic Group owned 53 nightclubs in the UK, valued at £80 million. During the Covid-19 pandemic, nightclubs were forced to close. With almost no revenue (only £80,000/month from a few bars), Deltic still faced £1 million per month in rent alone — plus utility bills, wages, and over £17 million in accumulated debt. Despite some government support, the cash flow problem became unsolvable. Unable to keep up with debts and with no certainty of when clubs could reopen, the owners were forced to sell the entire business to a Scandinavian company for just £10 million.</p>
 <p><strong>Takeaway:</strong> Even a large, established, and previously profitable business can be destroyed by a sustained cash flow problem. The business was not unprofitable by nature — it ran out of cash. This is why monitoring and planning cash flow is fundamental to business survival.</p>
-</div>`
+</div>`,
+            readCheck: {
+                q: "According to the Deltic Group case study, what ultimately happened to the business?",
+                opts: ["It successfully expanded into new nightclub locations across the entire country", "It was forced to sell the entire business due to an unsolvable cash flow problem", "It received enough government support to fully cover all of its debts", "It made significant profits throughout the entire Covid-19 pandemic period"],
+                ans: 1,
+                explain: "The card explains Deltic's cash flow problem became unsolvable during the pandemic, forcing owners to sell the business for far less than its previous value."
+            }
         }
     ];
 
@@ -712,27 +756,63 @@
     const miscData = [
         {
             wrong: "A cash flow forecast shows whether the business is making a profit or a loss.",
-            correct: "A cash flow forecast only shows cash movements — money in and money out. It says nothing about profit. Profit is calculated on the income statement (revenue minus total costs). Examiners consistently note this is the most common error in this topic."
+            correct: "A cash flow forecast only shows cash movements — money in and money out. It says nothing about profit. Profit is calculated on the income statement (revenue minus total costs). Examiners consistently note this is the most common error in this topic.",
+            readCheck: {
+                q: "What does a cash flow forecast actually show, according to this card?",
+                opts: ["Whether the business is making a profit or a loss overall", "The total revenue and total costs for the entire trading year", "Only cash movements — money in and money out — not profit", "The break-even output the business needs to achieve each month"],
+                ans: 2,
+                explain: "The card explains a cash flow forecast only shows cash movements — profit is calculated separately on the income statement, not shown in a cash flow forecast."
+            }
         },
         {
             wrong: "If a business has a negative net cash flow in one month, it is definitely losing money and in serious trouble.",
-            correct: "A negative net cash flow simply means more cash went out than came in that month — it could be planned and temporary, such as buying stock ahead of a busy season. Only sustained negative cash flow over many months becomes a serious problem."
+            correct: "A negative net cash flow simply means more cash went out than came in that month — it could be planned and temporary, such as buying stock ahead of a busy season. Only sustained negative cash flow over many months becomes a serious problem.",
+            readCheck: {
+                q: "What does a single month of negative net cash flow necessarily mean?",
+                opts: ["The business is definitely losing money and in serious financial trouble", "The business has permanently run out of cash and must close immediately", "The business has made an accounting error somewhere in its financial records", "More cash went out than came in that month — it may be planned and temporary"],
+                ans: 3,
+                explain: "The card explains negative net cash flow in one month can be planned and temporary, such as buying stock ahead of a busy season — only sustained negative flow is a serious problem."
+            }
         },
         {
             wrong: "Cash is important to a business because it allows the business to expand and invest.",
-            correct: "Cash is specifically important for paying SHORT-TERM debts and expenses — wages, rent, suppliers, utilities. Examiners do not award marks for answers linking cash to expansion or long-term investment, as that is the role of long-term finance."
+            correct: "Cash is specifically important for paying SHORT-TERM debts and expenses — wages, rent, suppliers, utilities. Examiners do not award marks for answers linking cash to expansion or long-term investment, as that is the role of long-term finance.",
+            readCheck: {
+                q: "According to this card, what is cash specifically important for paying?",
+                opts: ["Short-term debts and expenses such as wages, rent and suppliers", "Long-term investments such as buying new factories or premises", "Dividends paid out to shareholders at the end of the financial year", "The cost of a long-term expansion into new international markets"],
+                ans: 0,
+                explain: "The card explains cash is specifically needed for short-term debts and expenses — examiners do not credit answers linking cash to expansion, which is the role of long-term finance."
+            }
         },
         {
             wrong: "The opening balance for a month is calculated by adding up all the inflows.",
-            correct: "The opening balance is simply the CLOSING BALANCE from the previous month — it carries straight over. It has nothing to do with inflows. Many students lose marks in calculation questions by trying to recalculate it."
+            correct: "The opening balance is simply the CLOSING BALANCE from the previous month — it carries straight over. It has nothing to do with inflows. Many students lose marks in calculation questions by trying to recalculate it.",
+            readCheck: {
+                q: "How is the opening balance for a month actually calculated?",
+                opts: ["It is calculated by adding up all of that month's cash inflows", "It carries over directly from the previous month's closing balance", "It is calculated by adding up all of that month's cash outflows", "It is calculated by subtracting outflows from that month's inflows"],
+                ans: 1,
+                explain: "The card explains the opening balance simply carries over from the previous month's closing balance — it has nothing to do with that month's own inflows."
+            }
         },
         {
             wrong: "A business with high revenue must have plenty of cash.",
-            correct: "Revenue and cash are not the same. A business could have high revenue on paper but very little cash if customers are buying on credit and haven't paid yet. This is why businesses with large order books can still face a cash crisis."
+            correct: "Revenue and cash are not the same. A business could have high revenue on paper but very little cash if customers are buying on credit and haven't paid yet. This is why businesses with large order books can still face a cash crisis.",
+            readCheck: {
+                q: "Why might a business with high revenue still have very little cash?",
+                opts: ["High revenue always converts into cash immediately upon every single sale", "Revenue and cash are simply two different names for exactly the same figure", "Customers may be buying on credit and have not yet paid for their purchases", "A business with high revenue is legally required to hold zero cash reserves"],
+                ans: 2,
+                explain: "The card explains revenue and cash are not the same — a business can have high revenue on paper but little cash if customers are buying on credit and haven't paid yet."
+            }
         },
         {
             wrong: "Net cash flow = closing balance − opening balance.",
-            correct: "Net Cash Flow = Total Inflow − Total Outflow. While the numerical result may sometimes appear similar, the correct formula is always inflow minus outflow. Using the wrong formula will lead to errors on calculation questions."
+            correct: "Net Cash Flow = Total Inflow − Total Outflow. While the numerical result may sometimes appear similar, the correct formula is always inflow minus outflow. Using the wrong formula will lead to errors on calculation questions.",
+            readCheck: {
+                q: "What is the correct formula for net cash flow?",
+                opts: ["Closing Balance minus Opening Balance", "Opening Balance minus Closing Balance", "Total Outflow minus Total Inflow", "Total Inflow minus Total Outflow"],
+                ans: 3,
+                explain: "The card confirms Net Cash Flow = Total Inflow − Total Outflow; although the result can numerically resemble closing minus opening, the correct formula is always inflow minus outflow."
+            }
         }
     ];
 
@@ -746,7 +826,13 @@
 <p><strong>❌ Wrong (0 marks):</strong><br><em>"Cash is important so the business can make a profit."</em><br><em>"The cash flow forecast helps calculate profit."</em></p>
 <p><strong>✅ Correct (1 mark):</strong><br><em>"Cash is important to pay short-term debts such as wages and rent."</em><br><em>"A cash flow forecast anticipates periods when cash may run short so the business can arrange an overdraft in advance."</em></p>
 <p>For "identify" questions, one clear, specific point is all you need. Do not write a paragraph.</p>`,
-            pills: ["K"]
+            pills: ["K"],
+            readCheck: {
+                q: "According to this card, what is the most common wrong answer to 'why is cash important'?",
+                opts: ["Answers about calculating profit and loss, or break-even, instead of cash", "Answers that are far too short to contain any specific detail at all", "Answers that correctly reference a specific business named in the case study", "Answers that mention paying short-term debts such as wages or rent"],
+                ans: 0,
+                explain: "The card cites an examiner's report stating nearly half of candidates scored zero by writing about profit and loss or break-even instead of answering about cash."
+            }
         },
         {
             type: "Calculate — 1–4 marks",
@@ -761,7 +847,13 @@
 </ul>
 <p><strong>⚠️ Watch out for negative numbers!</strong> If the opening balance is −£4,700 and net cash flow is £9,500: Closing = −£4,700 + £9,500 = +£4,800. Many students accidentally add the negative sign in or drop it and get the wrong answer.</p>
 <p><strong>❌ Common Error:</strong> Working out an "opening balance" by adding up inflows — the opening balance just CARRIES OVER from the previous month's closing balance.</p>`,
-            pills: ["K", "U"]
+            pills: ["K", "U"],
+            readCheck: {
+                q: "According to this card, what is a common error when calculating the opening balance?",
+                opts: ["Forgetting to include the word 'balance' anywhere in the final written answer", "Working it out by adding up inflows instead of carrying it over from last month", "Rounding the final opening balance figure to the nearest whole pound amount", "Writing the opening balance in units instead of writing it in pounds sterling"],
+                ans: 1,
+                explain: "The card warns students often try to recalculate the opening balance by adding inflows, when it should simply carry over from the previous month's closing balance."
+            }
         },
         {
             type: "Analyse — 3 marks",
@@ -772,7 +864,13 @@
 <p><strong>Step 3 — Analysis (AN):</strong> State the consequence or impact on the business. It must be business-facing (e.g. affects profit, affects ability to expand, risks closure). "Costs will increase" alone scores 0 for analysis — you must explain WHAT THAT MEANS for the business.</p>
 <p><strong>✅ Full-mark example (3 marks):</strong><br><em>"Cash is the money QT has in its bank account available to spend (U). QT's closing balance has fallen from £500 to £0 over five months (APP). This means the bank may refuse to lend QT money to fund its van purchase, preventing its planned expansion (AN)."</em></p>
 <p><strong>❌ 1-mark example:</strong><br><em>"Cash is important. QT needs cash. If it doesn't have cash it will struggle."</em> — vague, no real U, no real APP, no real AN.</p>`,
-            pills: ["U", "app", "an"]
+            pills: ["U", "app", "an"],
+            readCheck: {
+                q: "According to this card, why does saying 'the business' without detail score 0 for Application?",
+                opts: ["Application marks are never available at all in a 3-mark analyse question", "The word 'business' is banned from ever appearing anywhere in the answer", "Application requires referencing specific data, names or details from the case study", "Application can only ever be scored after the Analysis mark has already been awarded"],
+                ans: 2,
+                explain: "The card explains Application requires specific data or details from the case study — saying 'the business' without referencing the actual context earns zero for APP."
+            }
         },
         {
             type: "Explain — 2 marks",
@@ -782,7 +880,13 @@
 <p><strong>✅ Good answer (2 marks):</strong><br><em>"A cash flow forecast can be used as a planning tool (1). It can be shown to a bank, helping the business to secure a loan or overdraft if a cash shortage is anticipated (1)."</em></p>
 <p><strong>❌ Bad answer (1 mark maximum):</strong><br><em>"A cash flow forecast is useful for planning."</em> — states the point but does not explain what the planning involves or why it helps the business.</p>
 <p><strong>⚠️ Examiner note:</strong> Many students correctly identified a use of a cash flow forecast but then failed to explain it — earning only 1 out of 2. Always ask yourself: "Have I explained WHY or HOW, or have I just repeated the same point in different words?"</p>`,
-            pills: ["K", "U"]
+            pills: ["K", "U"],
+            readCheck: {
+                q: "Why does 'a cash flow forecast is useful for planning' score only 1 mark out of 2?",
+                opts: ["It is factually incorrect, since forecasts are never used for planning purposes", "It is too long and includes far more detail than the question actually requires", "It fails to mention a specific business named anywhere in the case study text given", "It states the point but does not explain what the planning involves or why it helps"],
+                ans: 3,
+                explain: "The card explains this answer identifies a use but doesn't explain the mechanism — full marks require explaining HOW or WHY, not just repeating the same point."
+            }
         },
         {
             type: "Evaluate — 7 marks",
@@ -793,7 +897,13 @@
 <p><strong>Paragraph 3 — AN &amp; APP (Second Point with Analysis):</strong><br>Make a second, different point. Do not repeat paragraph 2 — explore a different aspect or argue a counterpoint.<br><em>Starter: "Furthermore / However, another [benefit/limitation] is... In [Name]'s case, [case study detail]... As a result..."</em></p>
 <p><strong>Paragraph 4 — Evaluation (Justified Judgement):</strong><br>Make a clear decision, justify it with case study context, and explain why — ideally using an "it depends on..." condition to show sophisticated thinking.<br><em>Starter: "Overall, I believe [the cash flow forecast is very/fairly/limited in its] usefulness to [Name] because... This is particularly important given that [specific case study detail]... However, this depends on..."</em></p>
 <p><strong>⚠️ Warning:</strong> A conclusion that simply repeats what you said in paragraphs 2 and 3 earns ZERO evaluation marks. The judgement must go beyond the analysis — it must make a decision and justify it using context.</p>`,
-            pills: ["K", "U", "app", "an", "eval"]
+            pills: ["K", "U", "app", "an", "eval"],
+            readCheck: {
+                q: "According to this card, what happens if the final evaluation paragraph just repeats paragraphs 2 and 3?",
+                opts: ["It earns zero evaluation marks, since the judgement must go beyond the analysis", "It still earns full evaluation marks, since the content itself remains accurate", "It earns half of the available evaluation marks as a form of partial credit", "It earns full marks provided that the paragraph is a reasonable length overall"],
+                ans: 0,
+                explain: "The card warns a conclusion that simply repeats paragraphs 2 and 3 earns ZERO evaluation marks — the judgement must go beyond the analysis and be justified with context."
+            }
         },
         {
             type: "Recommend — 3 marks",
@@ -804,7 +914,13 @@
 <p><strong>Mark 3 — Analysis (the consequence):</strong> Explain what this means for the business going forward — link it back to the question's focus (e.g. expansion plans).</p>
 <p><strong>✅ Full-mark example:</strong><br><em>"QT's cash position will have the biggest impact on its expansion (1). Its closing balance has already fallen to £0 over five months (APP), meaning the bank may refuse to lend it the £40,000 needed for the van (1). Without the loan, the expansion cannot proceed at all (1)."</em></p>
 <p><strong>❌ Common error:</strong> Writing a general discussion of both cash and profit without making a clear decision. Examiners report that some candidates "could not reach a decision, even in the light of being led to this question." A judgement without a clear recommendation earns 0.</p>`,
-            pills: ["app", "an", "eval"]
+            pills: ["app", "an", "eval"],
+            readCheck: {
+                q: "According to this card, what happens if an answer discusses both options without a clear decision?",
+                opts: ["It scores full marks, since discussing both options shows genuinely balanced thinking", "It scores zero, since a judgement without a clear recommendation earns no marks", "It scores 2 out of 3 marks, since application and analysis are both still present", "It scores full marks provided that both options are given exactly equal space"],
+                ans: 1,
+                explain: "The card explains examiners report candidates who fail to reach a decision score zero — a general discussion of both options without a clear recommendation is not enough."
+            }
         }
     ];
 
@@ -1319,6 +1435,11 @@ Overall, the most significant factor was the combination of mounting debt and th
     ];
 </script>
     <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

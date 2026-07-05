@@ -39,12 +39,89 @@
  header {
      background: var(--ink);
      color: var(--paper);
-     padding: 28px 40px 24px;
+     padding: 20px 40px 24px;
      display: flex;
      align-items: flex-end;
      gap: 20px;
+     row-gap: 16px;
+     flex-wrap: wrap;
      position: relative;
      overflow: hidden;
+ }
+
+ /* ── SITE NAV (injected by script.js — one predictable cluster for
+    Home / My Progress / sound / account on every topic page) ── */
+ .site-nav {
+     flex-basis: 100%;
+     order: -1;
+     display: flex;
+     align-items: center;
+     justify-content: flex-end;
+     gap: 8px;
+     flex-wrap: wrap;
+     position: relative;
+     z-index: 10;
+ }
+
+ .site-nav .sn-brand {
+     margin-right: auto;
+     display: inline-flex;
+     align-items: center;
+     gap: 8px;
+     color: var(--paper);
+     text-decoration: none;
+     font-family: 'DM Mono', monospace;
+     font-size: 12.5px;
+     letter-spacing: .08em;
+     padding: 7px 0;
+ }
+
+ .site-nav .sn-brand:hover {
+     color: var(--gold);
+ }
+
+ .site-nav .sn-link,
+ .site-nav .sn-btn {
+     display: inline-flex;
+     align-items: center;
+     gap: 6px;
+     background: rgba(255, 255, 255, .08);
+     border: 1px solid rgba(255, 255, 255, .22);
+     color: var(--paper);
+     font-family: 'DM Mono', monospace;
+     font-size: 11.5px;
+     padding: 7px 13px;
+     border-radius: 99px;
+     text-decoration: none;
+     cursor: pointer;
+     white-space: nowrap;
+     transition: background .15s, border-color .15s;
+ }
+
+ .site-nav .sn-link:hover,
+ .site-nav .sn-btn:hover {
+     background: rgba(255, 255, 255, .16);
+     border-color: var(--gold);
+ }
+
+ .site-nav .sn-user {
+     font-family: 'DM Mono', monospace;
+     font-size: 11px;
+     color: rgba(245, 240, 232, .7);
+     white-space: nowrap;
+     margin-left: 4px;
+ }
+
+ @media (max-width: 700px) {
+     .site-nav .sn-label {
+         display: none;
+     }
+ }
+
+ /* The old standalone home link is superseded by the site nav (script.js
+    adds this body class only after the nav is successfully injected). */
+ body.has-site-nav header > .home-link {
+     display: none;
  }
 
  header::before {
@@ -1306,22 +1383,28 @@
  }
 
 
- /* Scroll to Top Button */
+ /* Scroll to Top Button — circular, sits at the bottom of the
+    bottom-right utility stack (progress button above it) */
  .scroll-to-top {
      position: fixed;
-     bottom: 30px;
-     right: 30px;
+     bottom: 24px;
+     right: 24px;
+     width: 48px;
+     height: 48px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
      background: var(--ink);
      color: var(--paper);
      border: none;
-     border-radius: 50px;
-     padding: 12px 20px;
+     border-radius: 50%;
+     padding: 0;
      font-family: 'DM Mono', monospace;
-     font-size: 13px;
+     font-size: 19px;
      font-weight: 600;
      cursor: pointer;
-     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-     z-index: 9999;
+     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+     z-index: 300;
 
      /* Hidden state */
      opacity: 0;
@@ -1341,13 +1424,14 @@
      background: var(--accent);
  }
 
- /* Make it slightly smaller on mobile */
+ /* Make the utility stack slightly tighter on mobile */
  @media(max-width: 640px) {
      .scroll-to-top {
-         bottom: 20px;
-         right: 20px;
-         padding: 10px 16px;
-         font-size: 12px;
+         bottom: 16px;
+         right: 16px;
+         width: 44px;
+         height: 44px;
+         font-size: 17px;
      }
  }
 

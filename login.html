@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Log In — GCSE Business Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink:#0f1923; --paper:#f5f0e8; --cream:#ede7d9; --accent:#4a6fa5;
+    --gold:#d4a843; --mid:#5a6e7f; --border:#c9bfaa; --card-bg:#fffcf6; --wrong:#c84b31;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:24px;}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px;}
+
+  .card{width:100%;max-width:420px;background:var(--card-bg);border:1px solid var(--border);
+    border-radius:12px;padding:36px 32px;box-shadow:0 12px 32px rgba(15,25,35,.08);}
+  .badge{display:inline-block;background:var(--accent);color:#fff;font-family:'DM Mono',monospace;
+    font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:3px;margin-bottom:14px;}
+  h1{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:6px;}
+  .sub{font-size:13px;color:var(--mid);margin-bottom:24px;}
+
+  .tabs{display:flex;gap:6px;margin-bottom:22px;border-bottom:1px solid var(--border);}
+  .tab-btn{flex:1;background:none;border:none;padding:10px 4px 12px;font-family:'DM Mono',monospace;
+    font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);cursor:pointer;
+    border-bottom:2px solid transparent;margin-bottom:-1px;}
+  .tab-btn.active{color:var(--accent);border-bottom-color:var(--accent);}
+
+  form{display:none;flex-direction:column;gap:14px;}
+  form.active{display:flex;}
+  label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--mid);display:block;margin-bottom:6px;}
+  input{width:100%;padding:11px 13px;border:1px solid var(--border);border-radius:7px;
+    font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:var(--ink);}
+  input:focus{border-color:var(--accent);}
+  button[type=submit]{margin-top:6px;background:var(--ink);color:var(--paper);border:none;
+    padding:12px;border-radius:7px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;
+    cursor:pointer;transition:background .15s;}
+  button[type=submit]:hover{background:#1c2c3d;}
+  button[type=submit]:disabled{opacity:.6;cursor:default;}
+
+  .msg{font-size:12.5px;padding:10px 12px;border-radius:6px;display:none;}
+  .msg.show{display:block;}
+  .msg.error{background:rgba(200,75,49,.1);color:var(--wrong);border:1px solid rgba(200,75,49,.25);}
+  .msg.ok{background:rgba(45,122,79,.1);color:#2d7a4f;border:1px solid rgba(45,122,79,.25);}
+
+  .foot-link{margin-top:18px;text-align:center;font-size:12.5px;color:var(--mid);}
+  .foot-link a{color:var(--accent);text-decoration:none;font-weight:500;}
+  .foot-link a:hover{text-decoration:underline;}
+
+  .pw-wrap{position:relative;}
+  .pw-wrap input{padding-right:64px;}
+  .pw-toggle{position:absolute;right:6px;top:50%;transform:translateY(-50%);
+    background:none;border:none;color:var(--mid);cursor:pointer;
+    font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.05em;
+    text-transform:uppercase;padding:6px 8px;border-radius:5px;}
+  .pw-toggle:hover{color:var(--ink);background:var(--cream);}
+  .hint{font-size:11.5px;color:var(--mid);line-height:1.5;background:var(--cream);
+    border:1px solid var(--border);border-radius:7px;padding:9px 12px;}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <span class="badge">OCR GCSE Business Studies · J204</span>
+  <h1>Welcome back</h1>
+  <p class="sub">Log in to track your revision progress.</p>
+
+  <div class="tabs" role="tablist">
+    <button type="button" class="tab-btn active" id="tabStudentBtn" role="tab" aria-selected="true">Student</button>
+    <button type="button" class="tab-btn" id="tabTeacherBtn" role="tab" aria-selected="false">Teacher</button>
+  </div>
+
+  <form id="studentForm" class="active">
+    <div class="hint">🎒 Use the username and password <strong>your teacher gave you</strong> — type them exactly as written.</div>
+    <div>
+      <label for="studentUsername">Username</label>
+      <input type="text" id="studentUsername" autocomplete="username" required autocapitalize="none" spellcheck="false" placeholder="e.g. swift-fox-42"/>
+    </div>
+    <div>
+      <label for="studentPassword">Password</label>
+      <div class="pw-wrap">
+        <input type="password" id="studentPassword" autocomplete="current-password" required/>
+        <button type="button" class="pw-toggle" data-for="studentPassword" aria-label="Show password">Show</button>
+      </div>
+    </div>
+    <div class="msg" id="studentMsg"></div>
+    <button type="submit" id="studentSubmit">Log In</button>
+  </form>
+
+  <form id="teacherForm">
+    <div>
+      <label for="teacherEmail">Email</label>
+      <input type="email" id="teacherEmail" autocomplete="username" required/>
+    </div>
+    <div>
+      <label for="teacherPassword">Password</label>
+      <div class="pw-wrap">
+        <input type="password" id="teacherPassword" autocomplete="current-password" required/>
+        <button type="button" class="pw-toggle" data-for="teacherPassword" aria-label="Show password">Show</button>
+      </div>
+    </div>
+    <div class="msg" id="teacherMsg"></div>
+    <button type="submit" id="teacherSubmit">Log In</button>
+    <div class="foot-link">New teacher? <a href="teacher-signup.html">Sign up with your invite code</a></div>
+  </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+  // Keep these in sync with the constants at the top of script.js.
+  const SUPABASE_URL = 'https://eaohjlyiotyqhvsizcpw.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhb2hqbHlpb3R5cWh2c2l6Y3B3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNzUzMDksImV4cCI6MjA5ODc1MTMwOX0.lHF4OUiTT3G_fzlXvXI_4QMu48o6eEnq0hWw6K1uBAk';
+  const STUDENT_EMAIL_DOMAIN = 'students.local';
+  const GCSE_SESSION_KEY = 'gcse_session_v1';
+
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  const tabStudentBtn = document.getElementById('tabStudentBtn');
+  const tabTeacherBtn = document.getElementById('tabTeacherBtn');
+  const studentForm = document.getElementById('studentForm');
+  const teacherForm = document.getElementById('teacherForm');
+
+  tabStudentBtn.addEventListener('click', () => switchTab('student'));
+  tabTeacherBtn.addEventListener('click', () => switchTab('teacher'));
+
+  function switchTab(which) {
+    const isStudent = which === 'student';
+    tabStudentBtn.classList.toggle('active', isStudent);
+    tabTeacherBtn.classList.toggle('active', !isStudent);
+    tabStudentBtn.setAttribute('aria-selected', String(isStudent));
+    tabTeacherBtn.setAttribute('aria-selected', String(!isStudent));
+    studentForm.classList.toggle('active', isStudent);
+    teacherForm.classList.toggle('active', !isStudent);
+  }
+
+  function showMsg(el, text, ok) {
+    el.textContent = text;
+    el.className = 'msg show ' + (ok ? 'ok' : 'error');
+  }
+
+  // Show/hide password (generated passwords are easy to mistype)
+  document.querySelectorAll('.pw-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const input = document.getElementById(btn.dataset.for);
+      const show = input.type === 'password';
+      input.type = show ? 'text' : 'password';
+      btn.textContent = show ? 'Hide' : 'Show';
+      btn.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+      input.focus();
+    });
+  });
+
+  function redirectAfterLogin() {
+    const params = new URLSearchParams(location.search);
+    const target = params.get('redirect');
+    location.replace(target && target.startsWith('/') === false && !target.includes('://') ? target : 'index.html');
+  }
+
+  async function completeLogin(session, role, username) {
+    localStorage.setItem(GCSE_SESSION_KEY, JSON.stringify({
+      access_token: session.access_token,
+      refresh_token: session.refresh_token,
+      expires_at: session.expires_at,
+      role, username,
+    }));
+    redirectAfterLogin();
+  }
+
+  studentForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const msg = document.getElementById('studentMsg');
+    const submitBtn = document.getElementById('studentSubmit');
+    const username = document.getElementById('studentUsername').value.trim().toLowerCase();
+    const password = document.getElementById('studentPassword').value;
+    if (!username || !password) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Logging in…';
+    msg.className = 'msg';
+    const email = `${username}@${STUDENT_EMAIL_DOMAIN}`;
+    const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Log In';
+
+    if (error || !data.session) {
+      showMsg(msg, "That username or password doesn't match. Check for typos (use Show on the password) — or ask your teacher to reset your password.", false);
+      return;
+    }
+    await completeLogin(data.session, 'student', username);
+  });
+
+  teacherForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const msg = document.getElementById('teacherMsg');
+    const submitBtn = document.getElementById('teacherSubmit');
+    const email = document.getElementById('teacherEmail').value.trim();
+    const password = document.getElementById('teacherPassword').value;
+    if (!email || !password) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Logging in…';
+    msg.className = 'msg';
+    const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+    if (error || !data.session) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Log In';
+      showMsg(msg, 'Incorrect email or password.', false);
+      return;
+    }
+
+    const { data: profile, error: profileError } = await supabaseClient
+      .from('profiles').select('role, username').eq('id', data.session.user.id).single();
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Log In';
+
+    if (profileError || !profile || profile.role !== 'teacher') {
+      await supabaseClient.auth.signOut();
+      showMsg(msg, 'This account is not set up as a teacher.', false);
+      return;
+    }
+    await completeLogin(data.session, 'teacher', profile.username || email);
+  });
+
+  // If we already hold a cached session, skip straight through.
+  if (localStorage.getItem(GCSE_SESSION_KEY)) redirectAfterLogin();
+</script>
+<script src="footer-legal.js"></script>
+</body>
+</html>

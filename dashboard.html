@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Progress Dashboard — GCSE Business Studies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="business-style.css"/>
+  <style>
+    /* Dashboard-specific overrides */
+    /* Hard reset: business-style.css applies a sidebar grid layout to
+       <body> on desktop for topic pages. This dashboard has no sidebar,
+       so explicitly force normal block layout regardless of :has()
+       support or selector specificity from the linked stylesheet. */
+    html, body {
+      display: block !important;
+      grid-template-columns: none !important;
+      grid-template-rows: none !important;
+      grid-template-areas: none !important;
+    }
+    header, .summary-strip, main {
+      grid-area: unset !important;
+    }
+    body { background: var(--paper); color: var(--ink); }
+
+    .skip-link {
+      position:absolute; left:12px; top:-60px; z-index:100;
+      background:var(--ink); color:var(--paper); padding:10px 18px;
+      border-radius:0 0 8px 8px; font-weight:600; font-size:14px;
+      text-decoration:none; transition:top .15s;
+    }
+    .skip-link:focus { top:0; }
+
+    :focus-visible {
+      outline:3px solid var(--accent);
+      outline-offset:2px;
+      border-radius:4px;
+    }
+    header :focus-visible { outline-color:var(--gold); }
+
+    .sr-only {
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation:none !important; transition:none !important; }
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--ink);
+      border-bottom: 3px solid var(--accent);
+      padding: 28px 40px 24px;
+      position: relative; overflow: hidden;
+    }
+    header::before {
+      content:''; position:absolute; top:-50px; right:-50px;
+      width:220px; height:220px; border-radius:50%;
+      background:var(--accent); opacity:.14; pointer-events:none;
+    }
+    header::after {
+      content:''; position:absolute; bottom:-30px; left:20px;
+      width:120px; height:120px; border-radius:50%;
+      background:var(--gold); opacity:.07; pointer-events:none;
+    }
+    .header-inner {
+      position:relative; z-index:1;
+      display:flex; align-items:flex-start;
+      justify-content:space-between; flex-wrap:wrap; gap:16px;
+    }
+    .header-badge {
+      display:inline-block; background:var(--accent); color:#fff;
+      font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em;
+      text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:12px;
+    }
+    header h1 {
+      font-family:'Playfair Display',serif; font-size:clamp(22px,3.5vw,34px);
+      font-weight:700; color:var(--paper); line-height:1.15; margin-bottom:5px;
+    }
+    header p { font-size:13px; color:rgba(245,240,232,.6); }
+    .header-links { display:flex; gap:10px; flex-wrap:wrap; align-items:flex-start; }
+    .nav-link {
+      background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
+      color:var(--paper); font-family:'DM Mono',monospace; font-size:11px;
+      letter-spacing:.06em; padding:8px 16px; border-radius:6px;
+      text-decoration:none; white-space:nowrap; transition:background .15s,border-color .15s;
+    }
+    .nav-link:hover { background:rgba(255,255,255,.18); border-color:var(--gold); }
+
+    .gcse-account-bar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-family:'DM Mono',monospace; font-size:11px; color:rgba(245,240,232,.75); }
+    .gcse-account-bar button.nav-link { cursor:pointer; }
+
+    /* ── SUMMARY STRIP ── */
+    .summary-strip {
+      background:var(--cream); border-bottom:1px solid var(--border);
+      padding:16px 40px; display:flex; gap:28px; flex-wrap:wrap; align-items:center;
+    }
+    .summary-stat { display:flex; flex-direction:column; gap:2px; }
+    .summary-stat .val {
+      font-family:'Playfair Display',serif; font-size:26px;
+      color:var(--accent); line-height:1; font-weight:700;
+    }
+    .summary-stat .lbl {
+      font-family:'DM Mono',monospace; font-size:10px; color:var(--mid);
+      letter-spacing:.1em; text-transform:uppercase;
+    }
+    .summary-div { width:1px; height:36px; background:var(--border); flex-shrink:0; }
+    .overall-bar-wrap { flex:1; min-width:200px; }
+    .overall-bar-lbl { font-family:'DM Mono',monospace; font-size:10px; color:var(--mid); margin-bottom:6px; }
+    .overall-bar-track { background:var(--border); border-radius:99px; height:9px; overflow:hidden; }
+    .overall-bar-fill {
+      height:100%; width:0%;
+      background:linear-gradient(90deg,var(--accent),var(--teal),var(--gold));
+      border-radius:99px; transition:width .7s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* ── GAMIFICATION BAR ── */
+    .gam-bar { background:var(--card-bg); border-bottom:1px solid var(--border); padding:12px 40px; display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+    .gam-level { display:flex; flex-direction:column; align-items:center; justify-content:center; width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,#7a5c9e,#4a6fa5); color:#fff; flex-shrink:0; }
+    .gam-level-num { font-family:'Playfair Display',serif; font-weight:700; font-size:17px; line-height:1; }
+    .gam-level-lbl { font-family:'DM Mono',monospace; font-size:7px; letter-spacing:.08em; text-transform:uppercase; opacity:.85; }
+    .gam-xp-wrap { flex:1; min-width:160px; }
+    .gam-xp-lbl { font-family:'DM Mono',monospace; font-size:10px; color:var(--mid); margin-bottom:5px; }
+    .gam-xp-track { background:var(--border); border-radius:99px; height:8px; overflow:hidden; }
+    .gam-xp-fill { height:100%; width:0%; background:linear-gradient(90deg,#7a5c9e,#4a6fa5); border-radius:99px; transition:width .5s ease; }
+    .gam-streak { font-family:'DM Mono',monospace; font-size:14px; font-weight:600; color:#8f6d19; white-space:nowrap; }
+    .gam-sound-toggle { background:transparent; border:1px solid var(--border); border-radius:8px; padding:6px 10px; cursor:pointer; font-size:14px; }
+    .gam-sound-toggle:hover { border-color:var(--accent); }
+    .gam-badges { display:flex; gap:8px; flex-wrap:wrap; padding:10px 40px; background:var(--card-bg); border-bottom:1px solid var(--border); }
+    .gam-badge { display:flex; align-items:center; gap:5px; font-family:'DM Mono',monospace; font-size:10.5px; padding:4px 10px; border-radius:99px; background:rgba(212,168,67,.12); border:1px solid rgba(212,168,67,.4); color:#8f6d19; cursor:help; }
+    .gam-badge.locked { background:rgba(90,110,127,.08); border-color:rgba(90,110,127,.2); color:var(--mid); opacity:.55; filter:grayscale(1); }
+
+    /* ── MAIN ── */
+    main { padding:32px 40px 60px; }
+    .section-label {
+      margin:0; font-weight:500;
+      font-family:'DM Mono',monospace; font-size:11px; color:var(--accent);
+      letter-spacing:.14em; text-transform:uppercase;
+      display:flex; align-items:center; gap:10px; margin-bottom:24px;
+    }
+    .section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+    .legend { display:flex; gap:20px; flex-wrap:wrap; margin-bottom:28px; }
+    .legend-item { display:flex; align-items:center; gap:7px; font-family:'DM Mono',monospace; font-size:10px; color:var(--mid); }
+    .legend-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+
+    /* ── GROUPS ── */
+    .topic-group { margin-bottom:32px; }
+    .group-header {
+      display:flex; align-items:center; gap:14px; padding:14px 20px;
+      width:100%; text-align:left;
+      font-family:inherit; font-size:inherit; color:inherit;
+      background:var(--card-bg); border:1px solid var(--border);
+      border-left:4px solid var(--accent);
+      border-radius:8px 8px 0 0; cursor:pointer; user-select:none;
+      transition:background .15s;
+    }
+    .group-header:focus-visible {
+      outline:3px solid var(--accent);
+      outline-offset:2px;
+      position:relative; z-index:1;
+    }
+    .group-header:hover { background:var(--cream); }
+    .group-header-text { flex:1; }
+    .group-title { font-family:'Playfair Display',serif; font-size:15px; font-weight:700; color:var(--ink); margin:0 0 2px; }
+    .group-sub { font-family:'DM Mono',monospace; font-size:10px; color:var(--mid); letter-spacing:.06em; }
+    .group-ring-wrap { display:flex; align-items:center; gap:10px; flex-shrink:0; }
+    .group-pct { font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); white-space:nowrap; }
+    .group-chevron { font-size:12px; color:var(--mid); transition:transform .25s ease; flex-shrink:0; }
+    .group-header.collapsed .group-chevron { transform:rotate(-90deg); }
+
+    /* ── TABLE ── */
+    .dash-table-wrap {
+      overflow-x:auto; border:1px solid var(--border); border-top:none;
+      border-radius:0 0 8px 8px; background:var(--card-bg);
+    }
+    .dash-table-wrap.collapsed { display:none; }
+    table { width:100%; border-collapse:collapse; min-width:700px; }
+    thead tr { background:var(--cream); border-bottom:2px solid var(--border); }
+    th {
+      font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.1em;
+      text-transform:uppercase; color:var(--mid); padding:10px 12px; text-align:center; white-space:nowrap;
+    }
+    th.col-page { text-align:left; padding-left:20px; min-width:180px; }
+    tbody tr { border-bottom:1px solid var(--border); transition:background .12s; }
+    tbody tr:last-child { border-bottom:none; }
+    tbody tr:hover { background:rgba(122,92,158,.04); }
+    tbody tr.subpage-row { background:rgba(122,92,158,.025); }
+    tbody tr.subpage-row:hover { background:rgba(122,92,158,.06); }
+    td { padding:12px 12px; text-align:center; vertical-align:middle; }
+    td.col-page { text-align:left; padding-left:20px; }
+    td.col-page.indent { padding-left:36px; }
+    .page-link { text-decoration:none; display:flex; flex-direction:column; gap:2px; }
+    .page-link:hover .page-name { color:var(--accent); }
+    .page-name { font-weight:600; font-size:13px; color:var(--ink); }
+    .page-name.sub { font-size:12px; font-weight:500; color:#555; }
+    .page-sub { font-family:'DM Mono',monospace; font-size:9px; color:var(--mid); }
+    .locked-row { opacity:.6; }
+    .lock-badge { display:inline-block; margin-top:3px; font-family:'DM Mono',monospace; font-size:9.5px; padding:2px 8px; border-radius:99px; background:rgba(90,110,127,.12); color:#5a6e7f; border:1px solid rgba(90,110,127,.3); width:fit-content; }
+    .ring-cell { display:inline-flex; align-items:center; justify-content:center; }
+    .row-total { display:flex; flex-direction:column; align-items:center; gap:3px; }
+    .row-pct { font-family:'DM Mono',monospace; font-size:9px; color:var(--mid); }
+    .reset-page-btn {
+      background:transparent; border:1px solid var(--border); border-radius:4px;
+      color:var(--mid); font-family:'DM Mono',monospace; font-size:11px;
+      padding:8px 12px; cursor:pointer; transition:border-color .15s,color .15s;
+    }
+    .reset-page-btn:hover { border-color:var(--wrong); color:var(--wrong); }
+    .empty-row td { padding:36px 20px; text-align:center; color:var(--mid); font-size:13px; font-style:italic; }
+
+    /* ── MY TASKS & NOTIFICATIONS ── */
+    .tasks-panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:18px 20px; margin-bottom:30px; }
+    .note-row { display:flex; align-items:flex-start; gap:10px; padding:9px 12px; border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:8px; margin-bottom:8px; font-size:13px; background:#fff; }
+    .note-row .note-text { flex:1; line-height:1.5; }
+    .note-dismiss { background:transparent; border:none; color:var(--mid); cursor:pointer; font-size:14px; padding:2px 6px; border-radius:4px; }
+    .note-dismiss:hover { color:var(--wrong); background:rgba(200,75,49,.08); }
+    .task-chip { display:inline-block; font-family:'DM Mono',monospace; font-size:10px; padding:3px 10px; border-radius:99px; white-space:nowrap; }
+    .task-chip.ontime, .task-chip.submitted { background:rgba(45,122,79,.1); color:#2d7a4f; border:1px solid rgba(45,122,79,.3); }
+    .task-chip.late, .task-chip.overdue { background:rgba(212,168,67,.15); color:#8f6d19; border:1px solid rgba(212,168,67,.4); }
+    .task-chip.locked { background:rgba(200,75,49,.1); color:var(--wrong); border:1px solid rgba(200,75,49,.3); }
+    .task-chip.in_progress, .task-chip.pending { background:rgba(122,92,158,.1); color:#6a4f8c; border:1px solid rgba(122,92,158,.3); }
+    .task-chip.not_started { background:rgba(90,110,127,.1); color:#5a6e7f; border:1px solid rgba(90,110,127,.3); }
+
+    /* ── SCORE HISTORY & WEAK TOPICS ── */
+    .score-row { display:flex; align-items:center; gap:10px; font-size:12.5px; margin-bottom:7px; }
+    .score-row .title { flex:0 0 220px; max-width:220px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .score-row .bar-wrap { flex:1; height:14px; background:var(--cream); border-radius:3px; overflow:hidden; }
+    .score-row .bar-fill { display:block; height:100%; background:var(--accent); border-radius:3px; }
+    .score-row .pct { flex:0 0 60px; text-align:right; font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); }
+    .weak-row { display:flex; align-items:center; gap:10px; font-size:12.5px; margin-bottom:7px; }
+    a.weak-row:hover .title { text-decoration:underline; }
+    .weak-row .title { flex:1; }
+    .weak-row .band { flex:0 0 90px; text-align:right; font-family:'DM Mono',monospace; font-size:11px; padding:2px 8px; border-radius:99px; }
+    .weak-row .band.strong { background:rgba(45,122,79,.1); color:#2d7a4f; }
+    .weak-row .band.borderline { background:rgba(212,168,67,.15); color:#8f6d19; }
+    .weak-row .band.weak { background:rgba(200,75,49,.1); color:var(--wrong); }
+    .task-open-btn { background:var(--accent); color:#fff; border:none; padding:7px 14px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:12px; cursor:pointer; text-decoration:none; display:inline-block; }
+    .task-open-btn:hover { background:#3d5d8f; }
+    .task-open-btn.secondary { background:transparent; border:1px solid var(--border); color:var(--ink); }
+    #tasksTableWrap table { min-width:640px; }
+
+    @media(max-width:700px) {
+      header { padding:20px 16px; }
+      .summary-strip { padding:12px 16px; gap:16px; }
+      .summary-div { display:none; }
+      main { padding:20px 16px 48px; }
+    }
+    ::-webkit-scrollbar { width:8px; height:8px; }
+    ::-webkit-scrollbar-thumb { background:rgba(0,0,0,.15); border-radius:10px; }
+    ::-webkit-scrollbar-thumb:hover { background:rgba(0,0,0,.3); }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#dashContent">Skip to progress tables</a>
+
+<header>
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="header-badge">OCR GCSE Business Studies · J204</div>
+      <h1><span aria-hidden="true">📊</span> Progress Dashboard</h1>
+      <p>Track your revision progress across every topic and activity</p>
+    </div>
+    <div class="header-links">
+      <a class="nav-link" href="index.html">← Home</a>
+    </div>
+  </div>
+  <div class="gcse-account-bar" id="accountBar" style="padding:0 40px 4px;"></div>
+</header>
+
+<div class="summary-strip">
+  <div class="summary-stat"><span class="val" id="summaryPct">0%</span><span class="lbl">Overall</span></div>
+  <div class="summary-div"></div>
+  <div class="summary-stat"><span class="val" id="summaryDone">0</span><span class="lbl">Answered</span></div>
+  <div class="summary-div"></div>
+  <div class="summary-stat"><span class="val" id="summaryTotal">0</span><span class="lbl">Available</span></div>
+  <div class="summary-div"></div>
+  <div class="summary-stat"><span class="val" id="summaryPages">0</span><span class="lbl">Pages Started</span></div>
+  <div class="summary-div"></div>
+  <div class="overall-bar-wrap">
+    <div class="overall-bar-lbl">Progress across all pages &amp; activities</div>
+    <div class="overall-bar-track" id="overallBarTrack" role="progressbar" aria-label="Overall progress"
+      aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="overall-bar-fill" id="overallBarFill"></div></div>
+  </div>
+</div>
+
+<div class="gam-bar">
+  <div class="gam-level">
+    <div class="gam-level-num" id="gamLevelNum">1</div>
+    <div class="gam-level-lbl">Level</div>
+  </div>
+  <div class="gam-xp-wrap">
+    <div class="gam-xp-lbl" id="gamXpLbl">0 XP</div>
+    <div class="gam-xp-track"><div class="gam-xp-fill" id="gamXpFill" style="width:0%"></div></div>
+  </div>
+  <div class="gam-streak" title="Consecutive days answering questions"><span aria-hidden="true">🔥</span> <span id="gamStreakNum">0</span></div>
+  <button type="button" class="gam-sound-toggle" id="gamSoundToggle" title="Toggle sound effects">🔊</button>
+</div>
+<div class="gam-badges" id="gamBadgesRow"></div>
+
+<main>
+  <!-- "Continue where you left off" — filled by renderDashboard() -->
+  <div id="dashContinueMount" style="margin-bottom:24px;"></div>
+
+  <div id="tasksSection" style="display:none;">
+    <h2 class="section-label">📋 My Tasks <span id="notifBadge" style="display:none; background:var(--wrong); color:#fff; border-radius:99px; padding:1px 9px; font-size:10px;"></span></h2>
+    <div class="tasks-panel">
+      <div id="notifList"></div>
+      <div id="tasksTableWrap" style="overflow-x:auto;">
+        <table>
+          <thead><tr>
+            <th class="col-page" style="text-align:left;">Task</th><th>Due</th><th>Status</th><th>Attempts</th><th>My score</th><th></th>
+          </tr></thead>
+          <tbody id="tasksBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="myInsights" style="display:none;">
+    <h2 class="section-label">📈 My Score History</h2>
+    <div class="tasks-panel">
+      <div id="scoreHistoryList"></div>
+    </div>
+    <h2 class="section-label">🎯 Topics to Review</h2>
+    <div class="tasks-panel">
+      <p class="muted" style="margin-bottom:10px; font-size:12px;">Based on your answers across all completed tasks — lowest first.</p>
+      <div id="weakTopicsList"></div>
+    </div>
+  </div>
+
+  <h2 class="section-label">Activity Breakdown by Topic</h2>
+  <div class="legend" aria-hidden="true">
+    <div class="legend-item"><div class="legend-dot" style="background:#c9bfaa"></div>Not started</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#7a5c9e"></div>In progress</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#d4a843"></div>Complete ✓</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#c9bfaa;opacity:.4"></div>Not available</div>
+  </div>
+  <div id="dashContent"></div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="tasks-shared.js"></script>
+<script src="gamification.js"></script>
+<script>
+// Keep these in sync with the constants at the top of script.js.
+  const SUPABASE_URL = 'https://eaohjlyiotyqhvsizcpw.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhb2hqbHlpb3R5cWh2c2l6Y3B3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNzUzMDksImV4cCI6MjA5ODc1MTMwOX0.lHF4OUiTT3G_fzlXvXI_4QMu48o6eEnq0hWw6K1uBAk';
+const GCSE_SESSION_KEY = 'gcse_session_v1';
+
+let supabaseClient = null;
+let currentSession = null;
+let currentRole = null;
+
+function readGcseSession() {
+  try { return JSON.parse(localStorage.getItem(GCSE_SESSION_KEY) || 'null'); } catch (e) { return null; }
+}
+
+async function initDashboardAuth() {
+  const cached = readGcseSession();
+  if (!cached) { location.replace('login.html?redirect=' + encodeURIComponent(location.pathname)); return false; }
+  if (cached.role === 'teacher') { location.replace('teacher-dashboard.html'); return false; }
+
+  supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const { data, error } = await supabaseClient.auth.setSession({
+    access_token: cached.access_token, refresh_token: cached.refresh_token,
+  });
+  if (error || !data.session) {
+    localStorage.removeItem(GCSE_SESSION_KEY);
+    location.replace('login.html?redirect=' + encodeURIComponent(location.pathname));
+    return false;
+  }
+  currentSession = data.session;
+  currentRole = cached.role;
+  localStorage.setItem(GCSE_SESSION_KEY, JSON.stringify({
+    access_token: data.session.access_token, refresh_token: data.session.refresh_token,
+    expires_at: data.session.expires_at, role: cached.role, username: cached.username,
+  }));
+
+  document.getElementById('accountBar').innerHTML =
+    `<span>Logged in as <strong>${cached.username || 'you'}</strong></span>
+     <button type="button" class="nav-link" id="logoutBtn">Log out</button>`;
+  document.getElementById('logoutBtn').addEventListener('click', async () => {
+    await supabaseClient.auth.signOut();
+    localStorage.removeItem(GCSE_SESSION_KEY);
+    location.replace('login.html');
+  });
+  return true;
+}
+
+// Fetches this student's progress from the server and merges it with
+// whatever is cached locally, so the dashboard still shows something
+// useful the moment it loads even before the server round-trip finishes.
+async function loadServerProgress() {
+  if (!supabaseClient || !currentSession) return {};
+  const { data, error } = await supabaseClient
+    .from('progress_summary')
+    .select('page_id, section, done, total, updated_at')
+    .eq('student_id', currentSession.user.id);
+  if (error || !data) return {};
+  const result = {};
+  data.forEach(row => {
+    if (!result[row.page_id]) result[row.page_id] = {};
+    result[row.page_id][row.section] = { done: row.done, total: row.total, ts: new Date(row.updated_at).getTime() };
+  });
+  return result;
+}
+
+function mergeProgress(local, server) {
+  const merged = JSON.parse(JSON.stringify(local));
+  Object.keys(server).forEach(pageId => {
+    if (!merged[pageId]) merged[pageId] = {};
+    Object.keys(server[pageId]).forEach(section => {
+      const s = server[pageId][section], l = merged[pageId][section];
+      // Prefer whichever side has the higher done count for this section.
+      if (!l || s.done > l.done) merged[pageId][section] = s;
+    });
+  });
+  return merged;
+}
+
+// PAGE_GROUPS, SECTIONS, flatPages(), makeRing(), pageTitle(), computeTotals(),
+// trueSectionTotal() and pageSectionTotals() all come from progress-shared.js
+// (included as a <script> below) -- this file used to hand-duplicate all of
+// them, and the duplicate had already drifted: this file's own pagesStarted
+// logic (in renderDashboard, below) used a different "started" definition
+// than progress-shared.js's computeTotals(), so this dashboard and the
+// teacher dashboard disagreed for the same student.
+
+// Topic access (schema: supabase/topic-access-schema.sql). Mirrors the
+// lock logic in topic-guard.js so the dashboard list itself shows locked
+// topics up front, rather than only discovering it after clicking in.
+async function loadTopicSettings() {
+  if (!supabaseClient) return null;
+  try {
+    const { data, error } = await supabaseClient.rpc('get_my_topic_settings');
+    return error ? null : data;
+  } catch (e) { return null; }
+}
+
+// Content-less curriculum "overview" pages (e.g. the 2.4 Marketing Mix hub,
+// which just links out to 2.4.1-2.4.6 and has no gradable content) must be
+// excluded from the sequential-unlock chain -- otherwise they can never
+// register as "complete" and permanently lock every topic after them.
+function hasGradableContent(pageId) {
+  const t = window.SECTION_TOTALS && window.SECTION_TOTALS[pageId];
+  return !!t && Object.keys(t).some(k => k !== 'flashcards' && t[k] > 0);
+}
+
+function computeLockedPages(settings, progress) {
+  const locked = new Set();
+  if (!settings || settings.mode === 'open') return locked;
+  const granted = new Set(settings.granted || []);
+  const order = [];
+  PAGE_GROUPS.forEach(g => flatPages(g).forEach(p => { if (hasGradableContent(p.id)) order.push(p.id); }));
+
+  if (settings.mode === 'manual') {
+    const hidden = new Set(settings.hidden || []);
+    order.forEach(id => { if (hidden.has(id) && !granted.has(id)) locked.add(id); });
+    return locked;
+  }
+
+  // sequential — a topic is locked unless the previous one is fully done
+  let prevComplete = true;
+  order.forEach(id => {
+    if (!prevComplete && !granted.has(id)) locked.add(id);
+    const sections = pageSectionTotals(id, progress[id] || {}).filter(s => s.total > 0);
+    prevComplete = sections.length > 0 && sections.every(s => s.done >= s.total);
+  });
+  return locked;
+}
+
+const PREFIX='geo_progress_';
+
+function loadProgress(){
+  const all={};
+  try{
+    Object.keys(localStorage).filter(k=>k.startsWith(PREFIX)).forEach(k=>{
+      const rest=k.slice(PREFIX.length), sep=rest.indexOf('__');
+      if(sep<0)return;
+      const pid=rest.slice(0,sep), sec=rest.slice(sep+2);
+      if(!all[pid])all[pid]={};
+      try{all[pid][sec]=JSON.parse(localStorage.getItem(k));}catch(e){}
+    });
+  }catch(e){}
+  return all;
+}
+async function renderDashboard(){
+  const progress=mergeProgress(loadProgress(), await loadServerProgress());
+  const topicSettings=await loadTopicSettings();
+  const lockedPages=computeLockedPages(topicSettings, progress);
+
+  // "Continue where you left off" — same card as the home page, driven by
+  // the merged local+server progress just computed (never a locked topic).
+  if (typeof _gamInjectContinueCard === 'function') {
+    try {
+      _gamServerProgress = progress;
+      const mount = document.getElementById('dashContinueMount');
+      if (mount) {
+        const old = mount.querySelector('.gam-continue');
+        if (old) old.remove();
+        _gamInjectContinueCard(mount);
+        const card = mount.querySelector('.gam-continue');
+        if (card) {
+          const idByHref = {};
+          PAGE_GROUPS.forEach(g => flatPages(g).forEach(p => { idByHref[p.href] = p.id; }));
+          if (lockedPages.has(idByHref[card.getAttribute('href')])) card.remove();
+        }
+      }
+    } catch (e) {}
+  }
+
+  const container=document.getElementById('dashContent');
+  container.innerHTML='';
+  let grandDone=0,grandTotal=0,pagesStarted=0;
+
+  PAGE_GROUPS.forEach(group=>{
+    let gDone=0,gTotal=0;
+    flatPages(group).forEach(p=>{
+      const pd=progress[p.id]||{};
+      let started=false;
+      // "Started" matches computeTotals()'s definition (some section
+      // actually answered) so this tile agrees with the teacher dashboard,
+      // instead of counting a topic as started the moment its tab is
+      // merely opened (which records a total but no answers).
+      pageSectionTotals(p.id, pd).forEach(d=>{gDone+=d.done;gTotal+=d.total;if(d.done>0)started=true;});
+      if(started)pagesStarted++;
+    });
+    grandDone+=gDone; grandTotal+=gTotal;
+    const gPct=gTotal?Math.round(gDone/gTotal*100):0;
+
+    const groupEl=document.createElement('section');
+    groupEl.className='topic-group';
+    groupEl.setAttribute('aria-label',group.title);
+
+    const tableId=`table-${group.id}`;
+    const groupHeader=document.createElement('button');
+    groupHeader.type='button';
+    groupHeader.className='group-header';
+    groupHeader.style.borderLeftColor=group.colour;
+    groupHeader.setAttribute('aria-expanded','true');
+    groupHeader.setAttribute('aria-controls',tableId);
+    groupHeader.innerHTML=`
+      <div class="group-header-text">
+        <h3 class="group-title">${group.title}</h3>
+        <div class="group-sub">${group.sub}</div>
+      </div>
+      <div class="group-ring-wrap">
+        ${makeRing(gDone,gTotal,38,`${group.title} overall`)}
+        <span class="group-pct" aria-hidden="true">${gTotal?gPct+'%':'–'}</span>
+      </div>
+      <span class="group-chevron" aria-hidden="true">â–¾</span>`;
+    groupEl.appendChild(groupHeader);
+
+    const tableWrap=document.createElement('div');
+    tableWrap.className='dash-table-wrap';
+    tableWrap.id=tableId;
+
+    const table=document.createElement('table');
+    table.innerHTML=`<caption class="sr-only">Activity progress for ${group.title}</caption>`;
+    const thead=document.createElement('thead');
+    thead.innerHTML=`<tr>
+      <th scope="col" class="col-page">Topic</th>
+      ${SECTIONS.map(s=>`<th scope="col"><span aria-hidden="true">${s.icon}</span><br><span style="font-size:9px">${s.label}</span></th>`).join('')}
+      <th scope="col">Total</th><th scope="col"><span class="sr-only">Reset</span></th></tr>`;
+    table.appendChild(thead);
+
+    const tbody=document.createElement('tbody');
+    const hasData=flatPages(group).some(p=>{
+      const pd=progress[p.id]||{};
+      return SECTIONS.some(s=>pd[s.key]&&pd[s.key].total>0);
+    });
+
+    if(!hasData){
+      const row=document.createElement('tr');
+      row.className='empty-row';
+      row.innerHTML=`<td colspan="${SECTIONS.length+3}">No progress yet — open a topic page to get started.</td>`;
+      tbody.appendChild(row);
+    } else {
+      group.pages.forEach(page=>{
+        // Parent row
+        const tr=buildRow(page, progress[page.id]||{}, false, lockedPages.has(page.id));
+        tbody.appendChild(tr);
+        // Child rows
+        if(page.children){
+          page.children.forEach(child=>{
+            tbody.appendChild(buildRow(child, progress[child.id]||{}, true, lockedPages.has(child.id)));
+          });
+        }
+      });
+    }
+
+    table.appendChild(tbody);
+    tableWrap.appendChild(table);
+    groupEl.appendChild(tableWrap);
+    container.appendChild(groupEl);
+
+    groupHeader.addEventListener('click',()=>{
+      const collapsed=groupHeader.classList.toggle('collapsed');
+      tableWrap.classList.toggle('collapsed',collapsed);
+      groupHeader.setAttribute('aria-expanded',String(!collapsed));
+    });
+  });
+
+  const pct=grandTotal?Math.round(grandDone/grandTotal*100):0;
+  document.getElementById('summaryPct').textContent=pct+'%';
+  document.getElementById('summaryDone').textContent=grandDone;
+  document.getElementById('summaryTotal').textContent=grandTotal;
+  document.getElementById('summaryPages').textContent=pagesStarted;
+  document.getElementById('overallBarFill').style.width=pct+'%';
+  document.getElementById('overallBarTrack').setAttribute('aria-valuenow',pct);
+
+  if(typeof computeGamificationStats==='function') renderGamificationBar(computeGamificationStats(progress, dashStreak));
+}
+
+let dashStreak=0;
+function renderGamificationBar(stats){
+  document.getElementById('gamLevelNum').textContent=stats.level;
+  document.getElementById('gamXpLbl').textContent=`${stats.xpIntoLevel} / ${stats.xpForNextLevel} XP to level ${stats.level+1}`;
+  const pct=stats.xpForNextLevel?Math.round(stats.xpIntoLevel/stats.xpForNextLevel*100):0;
+  document.getElementById('gamXpFill').style.width=pct+'%';
+  document.getElementById('gamStreakNum').textContent=stats.streak;
+
+  const earnedIds=new Set(gamificationEarnedBadges(stats).map(b=>b.id));
+  document.getElementById('gamBadgesRow').innerHTML=BADGE_DEFS.map(b=>{
+    const got=earnedIds.has(b.id);
+    return `<span class="gam-badge${got?'':' locked'}" title="${b.label}: ${b.desc}">${b.icon} ${b.label}</span>`;
+  }).join('');
+
+  gamificationCheckNewBadges(stats);
+}
+
+document.getElementById('gamSoundToggle').addEventListener('click', ()=>{
+  const on=gamificationSoundEnabled();
+  gamificationSetSoundEnabled(!on);
+  document.getElementById('gamSoundToggle').textContent=!on?'\u{1F50A}':'\u{1F507}';
+});
+if(typeof gamificationSoundEnabled==='function'){
+  document.getElementById('gamSoundToggle').textContent=gamificationSoundEnabled()?'\u{1F50A}':'\u{1F507}';
+}
+
+function buildRow(page, pd, isChild, locked){
+  const tr=document.createElement('tr');
+  if(isChild)tr.className='subpage-row';
+  if(locked)tr.classList.add('locked-row');
+
+  const nameTd=document.createElement('td');
+  nameTd.className='col-page'+(isChild?' indent':'');
+  nameTd.innerHTML=`<a class="page-link" href="${page.href}">
+    <span class="page-name${isChild?' sub':''}">${isChild?'↳ ':''}${page.name}</span>
+    ${page.sub?`<span class="page-sub">${page.sub}</span>`:''}
+  </a>${locked?'<span class="lock-badge" title="Locked — open the topic to see why, or ask your teacher">🔒 Locked</span>':''}`;
+  tr.appendChild(nameTd);
+
+  let rowDone=0,rowTotal=0;
+  pageSectionTotals(page.id, pd).forEach(data=>{
+    const label=SECTIONS.find(s=>s.key===data.key).label;
+    const td=document.createElement('td');
+    td.innerHTML=`<div class="ring-cell">${makeRing(data.done,data.total,isChild?34:38,label)}</div>`;
+    tr.appendChild(td);
+    rowDone+=data.done; rowTotal+=data.total;
+  });
+
+  const rowPct=rowTotal?Math.round(rowDone/rowTotal*100):0;
+  const totalTd=document.createElement('td');
+  totalTd.innerHTML=`<div class="row-total">
+    ${makeRing(rowDone,rowTotal,isChild?38:44,'Total')}
+    <span class="row-pct" aria-hidden="true">${rowTotal?rowPct+'%':'–'}</span>
+  </div>`;
+  tr.appendChild(totalTd);
+
+  const resetTd=document.createElement('td');
+  resetTd.innerHTML=`<button type="button" class="reset-page-btn" data-page="${page.id}" data-name="${page.name}"
+    aria-label="Reset progress for ${page.name}" title="Reset progress for ${page.name}"><span aria-hidden="true">↺</span></button>`;
+  tr.appendChild(resetTd);
+  return tr;
+}
+
+document.getElementById('dashContent').addEventListener('click',async e=>{
+  const btn=e.target.closest('.reset-page-btn');
+  if(!btn)return;
+  const pageId=btn.dataset.page;
+  const pageName=btn.dataset.name||pageId;
+  if(!confirm(`Reset all progress for "${pageName}"?\nThis cannot be undone.`))return;
+  try{Object.keys(localStorage).filter(k=>k.startsWith(PREFIX+pageId+'__')).forEach(k=>localStorage.removeItem(k));}catch(e){}
+  if(supabaseClient){
+    try{await supabaseClient.rpc('reset_my_page_progress',{p_page_id:pageId});}catch(e){}
+  }
+  renderDashboard();
+});
+
+try{
+  const ch=new BroadcastChannel('geo_progress');
+  ch.addEventListener('message',({data})=>{
+    try{localStorage.setItem(`${PREFIX}${data.pageId}__${data.section}`,JSON.stringify({done:data.done,total:data.total,ts:Date.now()}));}catch(err){}
+    renderDashboard();
+  });
+}catch(e){}
+
+// ══════════ MY TASKS & NOTIFICATIONS ══════════
+// Data model + helpers come from tasks-shared.js. RLS means these selects
+// only ever return this student's own rows / assigned published tasks.
+let myTaskRows = [];   // [{ task, assignment, attempts }]
+let readKeys = [];
+
+async function loadMyTasks() {
+  if (!supabaseClient || !currentSession) return;
+  const uid = currentSession.user.id;
+  try {
+    const [{ data: tasks }, { data: asg }, { data: atts }, { data: reads }] = await Promise.all([
+      supabaseClient.from('tasks').select('*'),
+      supabaseClient.from('task_assignments').select('*').eq('student_id', uid),
+      supabaseClient.from('task_attempts').select('*').eq('student_id', uid),
+      supabaseClient.from('task_notification_reads').select('note_key').eq('student_id', uid),
+    ]);
+    readKeys = (reads || []).map(r => r.note_key);
+    myTaskRows = (asg || []).map(a => {
+      const task = (tasks || []).find(t => t.id === a.task_id);
+      if (!task) return null;
+      return { task, assignment: a, attempts: (atts || []).filter(x => x.task_id === a.task_id) };
+    }).filter(Boolean);
+  } catch (e) {
+    return; // tasks schema not installed yet — leave the section hidden
+  }
+  renderMyTasks();
+}
+
+function renderMyTasks() {
+  const section = document.getElementById('tasksSection');
+  if (!myTaskRows.length) { section.style.display = 'none'; document.getElementById('myInsights').style.display = 'none'; return; }
+  section.style.display = '';
+
+  // Notifications
+  const notes = deriveStudentNotifications(myTaskRows, readKeys);
+  const badge = document.getElementById('notifBadge');
+  badge.style.display = notes.length ? '' : 'none';
+  badge.textContent = notes.length ? notes.length + ' new' : '';
+  document.getElementById('notifList').innerHTML = notes.map(n => `
+    <div class="note-row" data-key="${n.key}">
+      <span aria-hidden="true">${n.icon}</span>
+      <span class="note-text">${n.text} <a href="task.html?id=${n.taskId}" style="color:var(--accent); font-weight:600;">Open →</a></span>
+      <button type="button" class="note-dismiss" title="Dismiss" aria-label="Dismiss notification">✕</button>
+    </div>`).join('');
+
+  // Task table — nearest deadline first, finished work at the bottom.
+  const order = { in_progress: 0, not_started: 1, overdue: 2, locked: 3, submitted: 4 };
+  const rows = myTaskRows.slice().sort((a, b) => {
+    const sa = studentTaskState(a.task, a.assignment, a.attempts);
+    const sb = studentTaskState(b.task, b.assignment, b.attempts);
+    if (order[sa] !== order[sb]) return order[sa] - order[sb];
+    const da = effectiveDue(a.task, a.assignment), db = effectiveDue(b.task, b.assignment);
+    return (da ? da.getTime() : Infinity) - (db ? db.getTime() : Infinity);
+  });
+
+  document.getElementById('tasksBody').innerHTML = rows.map(({ task, assignment, attempts }) => {
+    const state = studentTaskState(task, assignment, attempts);
+    const counted = countedAttempt(task, attempts);
+    const due = effectiveDue(task, assignment);
+    const subs = submittedAttempts(attempts);
+    let score = '—';
+    if (counted) {
+      score = counted.marking_complete
+        ? `${counted.marks_awarded}/${counted.marks_total} (${attemptPct(counted)}%)`
+        : '✍️ being marked';
+    }
+    let label = { submitted: counted && counted.is_late ? 'Submitted late' : 'Submitted',
+                  in_progress: 'In progress', overdue: 'Overdue', locked: 'Missed',
+                  not_started: 'To do' }[state];
+    const action = state === 'submitted' || state === 'locked'
+      ? `<a class="task-open-btn secondary" href="task.html?id=${task.id}">Results</a>`
+      : `<a class="task-open-btn" href="task.html?id=${task.id}">${state === 'in_progress' ? 'Resume' : 'Start'}</a>`;
+    // Make approaching deadlines impossible to miss
+    let dueStyle = '', dueFlag = '';
+    if (due && (state === 'not_started' || state === 'in_progress')) {
+      const hrs = (due.getTime() - Date.now()) / 36e5;
+      if (hrs <= 24) { dueStyle = 'color:var(--wrong);font-weight:700;'; dueFlag = ' ⏰'; }
+      else if (hrs <= 72) { dueStyle = 'color:#8f6d19;font-weight:600;'; }
+    }
+    return `<tr>
+      <td class="col-page" style="text-align:left;"><strong style="font-size:13px;">${taskEscapeHtml(task.title)}</strong>
+        ${assignment.due_override || assignment.extra_time_minutes ? '<span class="task-chip pending" title="You have an adjusted deadline or extra time">adjusted for you</span>' : ''}</td>
+      <td style="font-family:'DM Mono',monospace; font-size:11.5px; white-space:nowrap;${dueStyle}"${dueFlag ? ' title="Due within 24 hours"' : ''}>${due ? fmtDateTime(due) : '—'}${dueFlag}</td>
+      <td><span class="task-chip ${state}">${label}</span></td>
+      <td style="font-family:'DM Mono',monospace; font-size:12px;">${subs.length}${task.attempts_allowed ? '/' + task.attempts_allowed : ''}</td>
+      <td style="font-family:'DM Mono',monospace; font-size:12px; white-space:nowrap;">${score}</td>
+      <td>${action}</td>
+    </tr>`;
+  }).join('');
+
+  renderScoreHistory();
+}
+
+// ── Score history: every marked attempt, oldest first ──
+function renderScoreHistory() {
+  const wrap = document.getElementById('myInsights');
+  const container = document.getElementById('scoreHistoryList');
+  wrap.style.display = '';
+  const entries = [];
+  myTaskRows.forEach(({ task, attempts }) => {
+    const c = countedAttempt(task, attempts);
+    if (c && c.marking_complete && c.marks_total) {
+      entries.push({ title: task.title, pct: attemptPct(c), at: c.submitted_at || c.started_at });
+    }
+  });
+  if (!entries.length) { container.innerHTML = '<p class="muted" style="font-size:12px;">No marked tasks yet.</p>'; return; }
+  entries.sort((a, b) => new Date(a.at) - new Date(b.at));
+  container.innerHTML = entries.map(e => `
+    <div class="score-row">
+      <span class="title" title="${taskEscapeHtml(e.title)}">${taskEscapeHtml(e.title)}</span>
+      <span class="bar-wrap"><span class="bar-fill" style="width:${e.pct}%"></span></span>
+      <span class="pct">${e.pct}%</span>
+    </div>`).join('');
+}
+
+// ── Weak topics: aggregate correct-rate / avg-marks-% across all my submitted attempts ──
+async function loadWeakTopics() {
+  const container = document.getElementById('weakTopicsList');
+  if (!supabaseClient || !currentSession) return;
+  const { data, error } = await supabaseClient.rpc('get_my_topic_performance');
+  if (error || !data || !data.length) {
+    container.innerHTML = '<p class="muted" style="font-size:12px;">Complete a few tasks and this will show which topics to revisit.</p>';
+    return;
+  }
+  const byPage = {};
+  data.forEach(r => {
+    const score = r.correct_rate != null ? r.correct_rate : r.avg_marks_pct;
+    if (score == null) return;
+    const w = r.attempts || 1;
+    const agg = byPage[r.page_id] = byPage[r.page_id] || { weighted: 0, weight: 0 };
+    agg.weighted += score * w;
+    agg.weight += w;
+  });
+  const rows = Object.entries(byPage)
+    .map(([pageId, agg]) => ({ pageId, score: agg.weighted / agg.weight }))
+    .sort((a, b) => a.score - b.score)
+    .slice(0, 8);
+  if (!rows.length) {
+    container.innerHTML = '<p class="muted" style="font-size:12px;">Complete a few tasks and this will show which topics to revisit.</p>';
+    return;
+  }
+  const hrefById = {};
+  PAGE_GROUPS.forEach(g => flatPages(g).forEach(p => { hrefById[p.id] = p.href; }));
+  container.innerHTML = rows.map(r => {
+    const pct = Math.round(r.score * 100);
+    const band = pct >= 70 ? 'strong' : pct >= 40 ? 'borderline' : 'weak';
+    const href = hrefById[r.pageId];
+    const inner = `
+      <span class="title">${taskEscapeHtml(pageTitle(r.pageId))}</span>
+      <span class="band ${band}">${pct}%</span>
+      ${href ? '<span style="font-family:\'DM Mono\',monospace;font-size:11px;color:var(--accent);white-space:nowrap;">Revise →</span>' : ''}`;
+    return href
+      ? `<a class="weak-row" href="${href}" style="text-decoration:none;color:inherit;">${inner}</a>`
+      : `<div class="weak-row">${inner}</div>`;
+  }).join('');
+}
+
+document.getElementById('notifList').addEventListener('click', async e => {
+  const btn = e.target.closest('.note-dismiss');
+  if (!btn) return;
+  const row = btn.closest('.note-row');
+  const key = row.dataset.key;
+  row.remove();
+  readKeys.push(key);
+  renderMyTasks();
+  try {
+    await supabaseClient.from('task_notification_reads')
+      .upsert({ student_id: currentSession.user.id, note_key: key });
+  } catch (err) {}
+});
+
+initDashboardAuth().then(async ok => {
+  if (!ok) return;
+  if (typeof gamificationRefreshStreak === 'function') dashStreak = await gamificationRefreshStreak(supabaseClient);
+  renderDashboard(); loadMyTasks(); loadWeakTopics();
+});
+</script>
+<script src="footer-legal.js"></script>
+</body>
+</html>

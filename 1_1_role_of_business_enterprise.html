@@ -305,6 +305,13 @@
     // ══════════════════════════════════════
     //  DATA: 1.1 The Role of Business Enterprise and Entrepreneurship
     // ══════════════════════════════════════
+    const pageMeta = {
+            id: '1-1-role-of-business-enterprise',
+            badge: 'OCR GCSE Business — Component 1',
+            title: '1.1 Role of Business Enterprise',
+            subtitle: 'Interactive revision guide',
+            subject: 'business',
+        };
 
     const topics = [
         {
@@ -319,7 +326,18 @@
   <li><strong>Risk:</strong> The possibility of a negative outcome when starting or running a business, such as financial loss, poor health, or strained relationships.</li>
   <li><strong>Reward:</strong> The benefit gained from taking a risk — financial (profit) or non-financial (independence, self-satisfaction).</li>
   <li><strong>Business activity:</strong> The process by which a business produces goods or provides services to satisfy the needs of customers.</li>
-</ul>`
+</ul>`,
+            readCheck: {
+                q: "Which of these correctly distinguishes an 'entrepreneur' from 'enterprise'?",
+                opts: [
+                    "An entrepreneur is the risk-taker; enterprise is spotting an opportunity",
+                    "An entrepreneur is a synonym for a manager, while enterprise means a company's turnover",
+                    "An entrepreneur is only someone who owns a large company; enterprise is a legal structure",
+                    "An entrepreneur and enterprise mean exactly the same thing and are interchangeable"
+                ],
+                ans: 0,
+                explain: "An entrepreneur is the individual who takes the risk of setting up and running a business, while enterprise is the concept of spotting an opportunity and acting on it."
+            }
         },
         {
             title: "What is Business Activity & Enterprise?",
@@ -336,7 +354,18 @@
   <h4>Case Study: Google — Spotting an Opportunity</h4>
   <p>Larry Page and Sergey Brin started Google by meeting in a garage. They spotted the need for a reliable search engine in the fast-growing computer market. That small idea grew into one of the world's most valuable companies. Google is now developing drone technology to speed up deliveries — showing that enterprise means continuously spotting new opportunities.</p>
   <p><strong>Takeaway:</strong> Enterprise is about constantly looking for unmet needs. Entrepreneurs don't just wait — they act.</p>
-</div>`
+</div>`,
+            readCheck: {
+                q: "Which of the following is NOT one of the three core purposes of business enterprise?",
+                opts: [
+                    "Maximising short-term share price",
+                    "Spotting an opportunity to sell",
+                    "Developing an idea for a product",
+                    "Satisfying customer needs directly"
+                ],
+                ans: 0,
+                explain: "The three core purposes are spotting an opportunity, developing an idea, and satisfying customer needs — maximising share price is not one of them."
+            }
         },
         {
             title: "Characteristics of an Entrepreneur",
@@ -348,7 +377,18 @@
   <li><strong>Determination / Perseverance:</strong> Not giving up when things get difficult. Dyson tried over 5,000 designs before finding one that worked. This is the most commonly tested characteristic in context questions.</li>
   <li><strong>Confidence / Self-belief:</strong> Believing that their idea will succeed and being able to inspire others to believe it too. An confident entrepreneur doesn't say 'I can't' — they say 'I will'.</li>
 </ul>
-<p>⚠️ <strong>Examiner Warning:</strong> Do NOT write traits like <strong>'hardworking', 'motivated', 'well-organised', 'resilient', or 'teamwork'</strong>. The mark scheme explicitly states these will NOT be awarded marks. Stick to the four official characteristics above.</p>`
+<p>⚠️ <strong>Examiner Warning:</strong> Do NOT write traits like <strong>'hardworking', 'motivated', 'well-organised', 'resilient', or 'teamwork'</strong>. The mark scheme explicitly states these will NOT be awarded marks. Stick to the four official characteristics above.</p>`,
+            readCheck: {
+                q: "Which of the four officially accepted entrepreneurial characteristics describes not giving up when problems arise?",
+                opts: [
+                    "Determination",
+                    "Confidence",
+                    "Creativity",
+                    "Risk-taking"
+                ],
+                ans: 0,
+                explain: "Determination (or perseverance) is the characteristic of continuing to work through difficulties without giving up."
+            }
         },
         {
             title: "Rewards vs Drawbacks of Risk Taking",
@@ -368,7 +408,18 @@
     <div class="con-item"><strong>Failing health:</strong> The stress of running a business — whether it is struggling or booming — can cause serious mental and physical illness.</div>
     <div class="con-item"><strong>Strained relationships:</strong> Starting a business demands enormous time. Holidays are sacrificed, family time is lost, and personal relationships suffer as the business takes priority.</div>
   </div>
-</div>`
+</div>`,
+            readCheck: {
+                q: "Which of the following is a NON-FINANCIAL reward of entrepreneurship?",
+                opts: [
+                    "Independence",
+                    "Profit",
+                    "Turnover",
+                    "Wages"
+                ],
+                ans: 0,
+                explain: "Independence — being your own boss — is a non-financial reward. Profit is the financial reward, while turnover and wages are not entrepreneurial rewards."
+            }
         },
         {
             title: "Real-World Case Studies",
@@ -383,7 +434,18 @@
   <h4>Case Study: Zuber & Mohsin Issa — Spotting Opportunities</h4>
   <p>The Issa brothers started with a single petrol station in Manchester in 2001. By continuously spotting new opportunities — adding supermarkets, coffee shops, and fast-food outlets to their petrol stations — they grew to over 5,000 outlets across Europe and the USA. In October 2020, they purchased a controlling stake in Asda from Walmart for £6.8 billion.</p>
   <p><strong>Takeaway:</strong> Enterprise is not a one-time event. The Issa brothers show that successful entrepreneurship means spotting new opportunities at every stage of growth.</p>
-</div>`
+</div>`,
+            readCheck: {
+                q: "When using case study evidence to explain an entrepreneur's characteristic, what must you always do to earn the application mark?",
+                opts: [
+                    "Link the characteristic to specific evidence about the person",
+                    "Give a dictionary definition of the characteristic itself",
+                    "List as many different characteristics as you possibly can",
+                    "Compare the entrepreneur to a completely different case study"
+                ],
+                ans: 0,
+                explain: "Application marks require linking the characteristic to specific evidence from the case study, not just defining the term."
+            }
         },
         {
             title: "Evaluating Risk & Reward",
@@ -397,7 +459,18 @@
   <li>What is the entrepreneur's <strong>financial position</strong> — can they afford to lose the money invested?</li>
   <li>What are the <strong>non-financial costs</strong> (health, time, relationships) and how might these affect the entrepreneur's ability to run the business long-term?</li>
 </ul>
-<p><strong>Evaluation point:</strong> Just because an entrepreneur is confident, determined, and willing to take a risk does <em>not</em> guarantee success. You must use specific evidence from the case study to justify your judgement — a conclusion that just repeats earlier points scores no evaluation marks.</p>`
+<p><strong>Evaluation point:</strong> Just because an entrepreneur is confident, determined, and willing to take a risk does <em>not</em> guarantee success. You must use specific evidence from the case study to justify your judgement — a conclusion that just repeats earlier points scores no evaluation marks.</p>`,
+            readCheck: {
+                q: "When answering an evaluation question about whether an entrepreneur should take a risk, what should your final judgement be based on?",
+                opts: [
+                    "Specific evidence from the case study, not repeated earlier points",
+                    "Your own personal opinion about business in general",
+                    "Whichever side of the argument has more bullet points listed",
+                    "The entrepreneur's characteristics alone, ignoring other factors"
+                ],
+                ans: 0,
+                explain: "Evaluation marks require judgements to be justified using specific evidence from the case study — a conclusion that just repeats earlier points scores no evaluation marks."
+            }
         }
     ];
 
@@ -678,31 +751,108 @@
     const miscData = [
         {
             wrong: "Students write 'hardworking', 'motivated', 'resilient', or 'well-organised' as characteristics of an entrepreneur.",
-            correct: "The OCR mark scheme only accepts four characteristics: creativity, risk-taking, determination, and confidence. Writing other traits — no matter how sensible they seem — scores zero marks. The examiner is very specific about this."
+            correct: "The OCR mark scheme only accepts four characteristics: creativity, risk-taking, determination, and confidence. Writing other traits — no matter how sensible they seem — scores zero marks. The examiner is very specific about this.",
+            readCheck: {
+                q: "Which of these is one of the four characteristics officially accepted by the OCR mark scheme?",
+                opts: [
+                    "Risk-taking",
+                    "Hardworking",
+                    "Well-organised",
+                    "Resilient"
+                ],
+                ans: 0,
+                explain: "Only creativity, risk-taking, determination and confidence are accepted; traits like hardworking, well-organised and resilient score zero marks."
+            }
         },
         {
             wrong: "Students think 'paying taxes' or 'cold weather' are entrepreneurial risks.",
-            correct: "Entrepreneurial risks are personal consequences of running a business: financial loss, failing health, and strained relationships. Taxes are business costs; weather is a working hazard — neither is an entrepreneurial risk in the OCR context."
+            correct: "Entrepreneurial risks are personal consequences of running a business: financial loss, failing health, and strained relationships. Taxes are business costs; weather is a working hazard — neither is an entrepreneurial risk in the OCR context.",
+            readCheck: {
+                q: "Which of these counts as a genuine 'entrepreneurial risk' rather than a working hazard or business cost?",
+                opts: [
+                    "Failing health due to stress",
+                    "Paying the yearly business taxes",
+                    "Cold winter weather",
+                    "Slippery wet ladders"
+                ],
+                ans: 0,
+                explain: "Entrepreneurial risks are personal consequences to the entrepreneur, such as failing health, financial loss and strained relationships — not routine costs or physical hazards of the job."
+            }
         },
         {
             wrong: "Students confuse 'risk' and 'reward' — writing self-satisfaction as a risk, or financial loss as a reward.",
-            correct: "Risks are negative outcomes (financial loss, poor health, damaged relationships). Rewards are positive outcomes (profit, independence, self-satisfaction). Self-satisfaction is always a REWARD, never a risk."
+            correct: "Risks are negative outcomes (financial loss, poor health, damaged relationships). Rewards are positive outcomes (profit, independence, self-satisfaction). Self-satisfaction is always a REWARD, never a risk.",
+            readCheck: {
+                q: "Self-satisfaction should always be classified as which of the following?",
+                opts: [
+                    "A non-financial reward",
+                    "A non-financial risk",
+                    "A financial reward",
+                    "A financial risk"
+                ],
+                ans: 0,
+                explain: "Self-satisfaction is a positive outcome — a non-financial reward — and should never be written as a risk."
+            }
         },
         {
             wrong: "Students explain what a characteristic means instead of applying it to the business in the case study.",
-            correct: "For application marks, you MUST link the characteristic to the specific business. E.g. 'James Dyson showed creativity by designing a bagless vacuum cleaner that had never existed before.' Never just define the term — always say HOW the entrepreneur showed it."
+            correct: "For application marks, you MUST link the characteristic to the specific business. E.g. 'James Dyson showed creativity by designing a bagless vacuum cleaner that had never existed before.' Never just define the term — always say HOW the entrepreneur showed it.",
+            readCheck: {
+                q: "To earn an application mark when explaining a characteristic, what must a student do?",
+                opts: [
+                    "State exactly how the entrepreneur showed the trait",
+                    "Define what the characteristic word actually means",
+                    "Name as many characteristics as you possibly can",
+                    "Repeat the same characteristic in different words"
+                ],
+                ans: 0,
+                explain: "Application marks require showing HOW the entrepreneur demonstrated the characteristic using case study evidence, not simply defining the term."
+            }
         },
         {
             wrong: "Students think that because an entrepreneur has all four characteristics, their business is guaranteed to succeed.",
-            correct: "Having the right characteristics increases the chance of success but does not guarantee it. Market conditions, competition, economic factors, and access to finance all affect whether a business succeeds. The examiner expects you to consider multiple factors when evaluating."
+            correct: "Having the right characteristics increases the chance of success but does not guarantee it. Market conditions, competition, economic factors, and access to finance all affect whether a business succeeds. The examiner expects you to consider multiple factors when evaluating.",
+            readCheck: {
+                q: "Does having all four entrepreneurial characteristics guarantee that a business will succeed?",
+                opts: [
+                    "No — competition, market conditions and finance also matter",
+                    "Yes — the four characteristics alone guarantee full success",
+                    "No — only risk-taking ever has any effect on success",
+                    "Yes — but only if the entrepreneur also has experience"
+                ],
+                ans: 0,
+                explain: "Having the right characteristics increases the chance of success but doesn't guarantee it; other factors such as competition and finance also matter."
+            }
         },
         {
             wrong: "Students write that wages are a financial reward for enterprise.",
-            correct: "Wages are paid to EMPLOYEES by the business. The financial reward for the entrepreneur is PROFIT — the money left after all costs have been paid. Entrepreneurs do not earn wages from their own business."
+            correct: "Wages are paid to EMPLOYEES by the business. The financial reward for the entrepreneur is PROFIT — the money left after all costs have been paid. Entrepreneurs do not earn wages from their own business.",
+            readCheck: {
+                q: "What is the correct financial reward earned by an entrepreneur from their own business?",
+                opts: [
+                    "Profit",
+                    "Wages",
+                    "Salary",
+                    "Turnover"
+                ],
+                ans: 0,
+                explain: "Entrepreneurs earn profit — the money left after costs have been paid — not wages, which are paid to employees."
+            }
         },
         {
             wrong: "Students think enterprise only means starting a brand-new product that has never existed before.",
-            correct: "Enterprise includes spotting opportunities to improve existing products, fill gaps in existing markets, or deliver an existing service more cheaply or in a better location. Improving something that already exists is still enterprise."
+            correct: "Enterprise includes spotting opportunities to improve existing products, fill gaps in existing markets, or deliver an existing service more cheaply or in a better location. Improving something that already exists is still enterprise.",
+            readCheck: {
+                q: "Which of the following counts as 'enterprise' according to the OCR definition?",
+                opts: [
+                    "Improving an existing product or making it cheaper",
+                    "Only inventing a completely brand-new product",
+                    "Only opening a business in a brand-new location",
+                    "Only starting a business with no competitors at all"
+                ],
+                ans: 0,
+                explain: "Enterprise includes spotting opportunities to improve existing products or provide them more cheaply or in a better way — not just brand-new inventions."
+            }
         }
     ];
 
@@ -723,7 +873,18 @@
       <p><strong>⚠️ Examiner Warning:</strong> The most common correct answer in exams is 'risk taker'. Many students waste time writing full sentences when a single word earns the mark. Do not over-write on 1-mark questions.</p>
       <p><strong>🚫 Never write:</strong> 'motivated', 'well-organised', 'resilient', 'teamwork', or 'hardworking' for a characteristics question — the examiner explicitly will not award marks for these.</p>
     `,
-            pills: ["K"]
+            pills: ["K"],
+            readCheck: {
+                q: "How should you answer a 1-mark 'State' or 'Identify' question?",
+                opts: [
+                    "Give exactly one clear, specific accepted point, no explanation",
+                    "Write a full paragraph explaining the point in a lot of detail",
+                    "Give three different points to be extra safe",
+                    "Explain the point fully using a case study example"
+                ],
+                ans: 0,
+                explain: "A 1-mark identify/state question only needs one clear, specific, accepted point — no explanation or examples are required."
+            }
         },
         {
             type: "Explain — 2 marks",
@@ -743,7 +904,18 @@
         <li><em>"[Business] demonstrates [characteristic] by..."</em></li>
       </ul>
     `,
-            pills: ["K", "U", "app"]
+            pills: ["K", "U", "app"],
+            readCheck: {
+                q: "What two elements must a 2-mark 'Explain' answer contain to score both marks?",
+                opts: [
+                    "A named characteristic (K) plus an application to the business (APP)",
+                    "A definition of the term followed by a second, different definition",
+                    "Two different characteristics named but neither one explained",
+                    "An opinion about the business followed by a short conclusion"
+                ],
+                ans: 0,
+                explain: "A 2-mark explain question requires Knowledge (naming the characteristic) plus Application (linking it to the specific business) — you cannot score APP without first scoring K."
+            }
         },
         {
             type: "Analyse — 3 marks",
@@ -760,7 +932,18 @@
       <p><strong>✅ Good Answer (3 marks):</strong><br/><em>"One risk of starting a hairdressing business in competition with Sophisticutz is financial loss (U). The text states there are already several established competitors occupying the best locations in town (APP). As a result, the new salon would struggle to attract customers in the early stages, meaning the entrepreneur could lose their personal savings before the business becomes profitable (AN)."</em></p>
       <p><strong>The 'So What?' Rule:</strong><br/>Keep asking yourself 'So what?' until you reach a bottom-line business impact (profit, costs, customers, survival).</p>
     `,
-            pills: ["U", "app", "an"]
+            pills: ["U", "app", "an"],
+            readCheck: {
+                q: "In a 3-mark 'Analyse' answer, what does the final step (AN) require you to do?",
+                opts: [
+                    "Explain the impact on the business, e.g. profit, customers, survival",
+                    "Repeat the application point again but in slightly different words",
+                    "Define the key term used earlier in the first step",
+                    "State a second characteristic shown by the entrepreneur"
+                ],
+                ans: 0,
+                explain: "The Analysis step requires explaining the impact of the point on the business — for example on money, customers, reputation or survival."
+            }
         },
         {
             type: "Explain Three Characteristics — 6 marks",
@@ -782,7 +965,18 @@
       </ul>
       <p><strong>Use the text!</strong> The examiner provides information about the entrepreneur specifically so you can apply it. Every application mark requires evidence from the case study.</p>
     `,
-            pills: ["K", "U", "app"]
+            pills: ["K", "U", "app"],
+            readCheck: {
+                q: "A 6-mark question asking you to 'explain three entrepreneurial characteristics' is best answered using which structure?",
+                opts: [
+                    "Three separate K + APP mini-answers, one for each trait",
+                    "One long paragraph covering all characteristics at once",
+                    "Three definitions of characteristics with no application",
+                    "One single characteristic explained in great depth"
+                ],
+                ans: 0,
+                explain: "The 6-mark question is simply three 2-mark explain answers in a row — each needs a named characteristic (K) plus application to the business (APP)."
+            }
         }
     ];
 
@@ -1056,6 +1250,11 @@
     ];
 </script>
     <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

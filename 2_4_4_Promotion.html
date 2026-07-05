@@ -213,7 +213,13 @@
         // ══════════════════════════════════════
         //  DATA: 2.4 Sub-topic 4: Promotion (Point of Sale & Advertising)
         // ══════════════════════════════════════
-
+    const pageMeta = {
+        id: '2-4-4-promotion',
+        badge: 'OCR GCSE Business — Component 1',
+        title: '2.4.4 Promotion',
+        subtitle: 'Interactive revision guide',
+        subject: 'business',
+    };
         const topics = [
             {
                 title: "Introduction to Promotion",
@@ -226,7 +232,18 @@
       <li>To create or change the image of a business, its products, and services.</li>
       <li>To maintain or increase sales.</li>
       </ol>
-      <p>Promotion is generally divided into two main areas: <strong>Point of Sale Promotion</strong> and <strong>Advertising Media</strong>.</p>`
+      <p>Promotion is generally divided into two main areas: <strong>Point of Sale Promotion</strong> and <strong>Advertising Media</strong>.</p>`,
+                readCheck: {
+                    q: "What is the main purpose of promotion within the marketing mix?",
+                    opts: [
+                        "To reduce the cost of manufacturing a product",
+                        "To inform and persuade customers to buy a product",
+                        "To set the price of a product based on demand",
+                        "To decide where a product will be distributed"
+                    ],
+                    ans: 1,
+                    explain: "Promotion is defined as informing customers about what is for sale and persuading them to buy it, making it distinct from the other Ps of the marketing mix."
+                }
             },
             {
                 title: "Point of Sale Promotion",
@@ -237,7 +254,18 @@
       <li><strong>Competitions:</strong> A person who buys a product is entered into a competition (e.g., to win a free holiday). This encourages large, multiple, or repeat purchases as customers buy more to gain extra entries.</li>
       <li><strong>Free Samples:</strong> Often seen with products like cosmetics or food/soft drinks. Giving a 30% extra free bottle or a free tasting sample persuades consumers to try a product they haven't had before.</li>
       <li><strong>Loss Leaders:</strong> Items that are deliberately sold at a loss to attract customers into a store. The hope is that once the customer is inside, they will be tempted to buy other, highly profitable products at the same time.</li>
-      </ul>`
+      </ul>`,
+                readCheck: {
+                    q: "What is the defining feature of a Point of Sale promotion?",
+                    opts: [
+                        "It broadcasts a brand message to the wider public over several weeks",
+                        "It only applies to products sold online",
+                        "It offers an incentive at the point of purchase to trigger a sale",
+                        "It is used exclusively to build long-term brand image"
+                    ],
+                    ans: 2,
+                    explain: "Point of Sale promotions (like price reductions, competitions, free samples and loss leaders) are specific offers available when purchasing, designed to tempt an immediate purchase."
+                }
             },
             {
                 title: "Advertising Media",
@@ -249,21 +277,54 @@
       <li><strong>Print Media (Newspapers & Magazines):</strong> Magazines are great for targeting specific groups (e.g., a high-end perfume in a glossy fashion magazine). National newspapers reach a wide audience, while local newspapers are perfect for small, local businesses.</li>
       <li><strong>Radio:</strong> Local radio allows a business to target a specific geographical area cheaply. National radio reaches a wide audience. However, it lacks visual impact so products cannot be demonstrated.</li>
       <li><strong>Websites:</strong> Businesses use their own sites or pay for banner ads on other popular sites. E-commerce platforms like ASOS or Boohoo rely heavily on digital advertising to drive traffic directly to their digital checkout.</li>
-      </ul>`
+      </ul>`,
+                readCheck: {
+                    q: "Which advertising media offers high visual and audio impact and reaches millions of people, but is the most expensive option?",
+                    opts: [
+                        "Local radio",
+                        "Print media",
+                        "Social media",
+                        "Television"
+                    ],
+                    ans: 3,
+                    explain: "Television reaches millions of people with high visual and audio impact, making it ideal for mass-market products, but it is described as the most expensive form of advertising."
+                }
             },
             {
                 title: "Case Study: Mobile Phone Services",
                 tag: "Case Study",
                 content: `<p><strong>Three, EE, Vodafone, O2</strong></p>
       <p>Millions of people buy and use mobile phones. The main companies supplying the phones and services are in close competition. They are constantly updating the deals they offer (e.g., price, 5G coverage, data, Apple Music add-ons) hoping to persuade consumers to change to their service.</p>
-      <p>Without promotion, customers would be completely unaware of these deals. Mobile phone companies spend a massive amount of money on advertising to ensure all potential buyers know about their offers. Because the market is so saturated, each company has to aggressively match the promotion of the others to attract new customers and keep existing ones; otherwise, rivals will step in and steal their market share.</p>`
+      <p>Without promotion, customers would be completely unaware of these deals. Mobile phone companies spend a massive amount of money on advertising to ensure all potential buyers know about their offers. Because the market is so saturated, each company has to aggressively match the promotion of the others to attract new customers and keep existing ones; otherwise, rivals will step in and steal their market share.</p>`,
+                readCheck: {
+                    q: "Why do mobile network providers like EE and Vodafone spend heavily on promotion even though the market is already saturated?",
+                    opts: [
+                        "To reduce the manufacturing cost of handsets",
+                        "Because government regulation forces them to advertise their handsets",
+                        "To stop rivals stealing market share by keeping customers informed",
+                        "Because they have no real competitors to worry about"
+                    ],
+                    ans: 2,
+                    explain: "In a saturated market, each company must aggressively match rivals' promotion to attract and retain customers, otherwise competitors will step in and steal market share."
+                }
             },
             {
                 title: "Case Study: Go Compare & Compare the Market",
                 tag: "Case Study",
                 content: `<p>Price comparison websites like <strong>Go Compare</strong> and <strong>Compare the Market</strong> use heavy Television advertising to promote their services. Their target market is essentially every household in the UK that needs car, home, or pet insurance.</p>
       <p><strong>Evaluation: Should they concentrate on TV?</strong><br>
-      Yes, they should. They earn their money by providing links to different insurance companies; the more links clicked, the more money they earn. Because their target market is so broad (all UK households), no other advertising media can match the sheer volume and reach of TV. While radio or social media might be cheaper, it would not reach the same millions of potential mass-market consumers, allowing rivals to 'steal' their customers and reduce their income.</p>`
+      Yes, they should. They earn their money by providing links to different insurance companies; the more links clicked, the more money they earn. Because their target market is so broad (all UK households), no other advertising media can match the sheer volume and reach of TV. While radio or social media might be cheaper, it would not reach the same millions of potential mass-market consumers, allowing rivals to 'steal' their customers and reduce their income.</p>`,
+                readCheck: {
+                    q: "Why is television advertising judged to be the right choice for Go Compare and Compare the Market?",
+                    opts: [
+                        "TV is the cheapest media option available to them",
+                        "Their target market is every UK household, so TV gives the best reach",
+                        "TV only reaches people already searching online for insurance deals",
+                        "It allows them to target just one narrow age group precisely"
+                    ],
+                    ans: 1,
+                    explain: "Because their target market is so broad (all UK households needing insurance), the evaluation concludes no other advertising media can match the sheer volume and reach of TV, even though it is expensive."
+                }
             },
             {
                 title: "Choosing the Right Promotion",
@@ -274,7 +335,18 @@
       <li><strong>A famous perfume brand:</strong> Needs to maintain a premium brand image. Glossy photographs in high-end fashion magazines are ideal.</li>
       <li><strong>A highly specialized tech product (e.g., advanced sat-nav):</strong> Should be advertised in specialist motoring or tech magazines to hit a niche target market directly.</li>
       <li><strong>ASOS / Boohoo.com:</strong> Both target 16-24 year old fashion-conscious consumers. Social media (Instagram, TikTok) is the most effective way to reach this demographic, combining targeted ads with direct links to their e-commerce apps.</li>
-      </ul>`
+      </ul>`,
+                readCheck: {
+                    q: "What two factors must a business weigh up most carefully when choosing the right promotional method for a situation?",
+                    opts: [
+                        "The size of the shop window display and the colour scheme",
+                        "The cost of the method and the nature of the target audience",
+                        "The age of the business owner and their personal taste",
+                        "The number of competitors within the same postcode"
+                    ],
+                    ans: 1,
+                    explain: "The card states a business must evaluate the Cost versus the Target Audience, which is why a local café uses cheap local media while a mass-market brand may justify TV."
+                }
             }
         ];
 
@@ -562,19 +634,63 @@
         const miscData = [
             {
                 wrong: "Students often confuse 'Point of Sale Promotion' with 'Advertising Media'.",
-                correct: "Point of Sale is the specific offer at the shop/checkout to force a quick sale (e.g. BOGOF, 50% off, free sample). Advertising Media is the channel used to broadcast a message to the wider world (e.g. TV, Radio, Social Media)."
+                correct: "Point of Sale is the specific offer at the shop/checkout to force a quick sale (e.g. BOGOF, 50% off, free sample). Advertising Media is the channel used to broadcast a message to the wider world (e.g. TV, Radio, Social Media).",
+                readCheck: {
+                    q: "How does Point of Sale Promotion differ from Advertising Media?",
+                    opts: [
+                        "They are the same thing; both terms just describe general advertising to the public",
+                        "Advertising Media only applies to online businesses",
+                        "Point of Sale is the checkout offer; Advertising Media is the wider broadcast channel",
+                        "Point of Sale is always more expensive than Advertising Media"
+                    ],
+                    ans: 2,
+                    explain: "Point of Sale is the specific offer at the till/shop (e.g. BOGOF, free sample), whereas Advertising Media is the broadcast channel (e.g. TV, radio, social media) used to reach a wider audience."
+                }
             },
             {
                 wrong: "Students think 'Loss Leader' just means the business is losing money generally.",
-                correct: "A Loss Leader is a highly specific strategy: deliberately pricing ONE specific item below its cost to make, acting as bait to draw customers into the store so they buy OTHER profitable items."
+                correct: "A Loss Leader is a highly specific strategy: deliberately pricing ONE specific item below its cost to make, acting as bait to draw customers into the store so they buy OTHER profitable items.",
+                readCheck: {
+                    q: "What does the term 'Loss Leader' specifically mean?",
+                    opts: [
+                        "A business that is generally losing money overall",
+                        "Pricing one specific item below cost to draw customers into the store",
+                        "A manager who has lost control of the sales team",
+                        "A product that has been recalled by the manufacturer due to poor quality"
+                    ],
+                    ans: 1,
+                    explain: "A Loss Leader is a specific strategy of pricing ONE item below cost as bait, not a general sign that the whole business is losing money."
+                }
             },
             {
                 wrong: "When asked for an advantage of a specific media (e.g. TV), students give a generic advantage of promotion (e.g. 'it gets more customers').",
-                correct: "You must give an advantage UNIQUE to that media. For TV: 'It provides moving images and sound to demonstrate the product'. For Local Radio: 'It targets a specific geographical town cheaply'."
+                correct: "You must give an advantage UNIQUE to that media. For TV: 'It provides moving images and sound to demonstrate the product'. For Local Radio: 'It targets a specific geographical town cheaply'.",
+                readCheck: {
+                    q: "When an exam question asks for an advantage of a named media such as TV, what must the answer include to score well?",
+                    opts: [
+                        "A generic advantage of promotion, such as 'it gets more customers'",
+                        "A feature unique to that media, such as TV's moving images and sound",
+                        "A comparison to every other media type available",
+                        "Just the name of the media repeated back"
+                    ],
+                    ans: 1,
+                    explain: "Marks require an advantage UNIQUE to the named media (e.g. TV shows moving images and sound; local radio targets a specific town cheaply), not a vague, generic benefit of promotion."
+                }
             },
             {
                 wrong: "Students suggest TV advertising for small, local businesses (like a single café).",
-                correct: "TV advertising is massively expensive and reaches a national audience. It is completely inappropriate for a single local café. Always match the scale of the media to the scale of the business."
+                correct: "TV advertising is massively expensive and reaches a national audience. It is completely inappropriate for a single local café. Always match the scale of the media to the scale of the business.",
+                readCheck: {
+                    q: "Why would recommending TV advertising for a single local café be a poor exam answer?",
+                    opts: [
+                        "TV cannot legally be used to advertise a small, independent local business such as a café",
+                        "TV is very expensive and reaches a national audience, wasting money on distant people",
+                        "TV adverts cannot include images of food",
+                        "Local cafés are not allowed to advertise at all"
+                    ],
+                    ans: 1,
+                    explain: "The scale of the media must match the scale of the business; TV is hugely expensive and reaches a national audience, which is inappropriate and wasteful for a single local café."
+                }
             }
         ];
 
@@ -584,14 +700,36 @@
                 title: "Naming Advertising Media",
                 content: `<p>If asked to state an advertising media, be specific. "Internet" is a bit vague — use "Social media" or "Company Website".</p>
       <p><strong>Accepted Media:</strong> Television / Local or National Radio / Social Media / Print Media (Newspapers/Magazines) / Leaflets / Billboards.</p>`,
-                pills: ["kn"]
+                pills: ["kn"],
+                readCheck: {
+                    q: "Why would writing 'the internet' as an answer to 'state an advertising media' likely lose the mark?",
+                    opts: [
+                        "The internet is not accepted as an advertising media answer at all",
+                        "It is too vague; a specific method like 'social media' is needed",
+                        "Only television and radio are ever accepted as answers",
+                        "It should be written in full as 'World Wide Web'"
+                    ],
+                    ans: 1,
+                    explain: "For a 1-mark 'state/identify' question you must be specific — the tip warns that 'internet' is too vague and examiners want a named method like 'social media' or 'company website'."
+                }
             },
             {
                 type: "Analyse (3 marks)",
                 title: "Analysing a Media Choice",
                 content: `<p>Structure: Identify a feature of the media (U) &rarr; Apply to the business scenario (APP) &rarr; State the business impact (AN).</p>
       <p><strong>Example (Sainsbury's using TV):</strong> "TV allows the use of moving images and sound to demonstrate products (U). Sainsbury's can use this to visually show the high quality of its food ranges to middle-income earners (APP), which will increase brand awareness and boost total sales revenue (AN)."</p>`,
-                pills: ["un", "app", "an"]
+                pills: ["un", "app", "an"],
+                readCheck: {
+                    q: "What is the correct three-step structure for answering a 3-mark 'Analyse a media choice' exam question?",
+                    opts: [
+                        "State the business's turnover, then its profit, then its market share",
+                        "Identify a feature of the media, apply it to the scenario, then state the impact",
+                        "List every advertising media the business could use, in order of cost",
+                        "Give the business's opinion, a counter-opinion, and then a final overall decision"
+                    ],
+                    ans: 1,
+                    explain: "The tip sets out the structure as Understanding a feature of the media, Application to the business scenario, then Analysis of the business impact (U -> APP -> AN)."
+                }
             },
             {
                 type: "Evaluate (7 marks)",
@@ -603,7 +741,18 @@
       <li><strong>Reach:</strong> Do they need national reach or just local town reach?</li>
       </ul>
       <p>Always justify your final decision using the specific context of the case study business.</p>`,
-                pills: ["app", "an", "eval"]
+                pills: ["app", "an", "eval"],
+                readCheck: {
+                    q: "What must a 7-mark 'Evaluate' answer on a promotional method include to score full marks?",
+                    opts: [
+                        "A list of every possible advertising media with no final decision",
+                        "Only the cheapest promotional method, with no discussion of the target market at all",
+                        "A weighing of pros and cons, plus a justified final decision using case study context",
+                        "A single sentence stating a preference without any reasoning"
+                    ],
+                    ans: 2,
+                    explain: "Evaluate questions require weighing pros and cons such as cost, target market and reach, then justifying the final decision using the specific context of the case study business."
+                }
             }
         ];
 
@@ -707,7 +856,12 @@
     </script>
 
     <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
 
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

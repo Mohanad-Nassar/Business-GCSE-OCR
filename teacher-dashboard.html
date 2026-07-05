@@ -1,0 +1,1305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Teacher Dashboard — GCSE Business Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="business-style.css"/>
+<style>
+  html, body { display:block !important; grid-template-columns:none !important; grid-template-rows:none !important; grid-template-areas:none !important; }
+  header, main { grid-area:unset !important; }
+  body { background:var(--paper); color:var(--ink); }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
+
+  header { background:var(--ink); border-bottom:3px solid var(--accent); padding:28px 40px 24px; position:relative; overflow:hidden; }
+  .header-inner { position:relative; z-index:1; display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+  .header-badge { display:inline-block; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:12px; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(22px,3.5vw,32px); font-weight:700; color:var(--paper); line-height:1.15; margin-bottom:5px; }
+  header p { font-size:13px; color:rgba(245,240,232,.6); }
+  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--paper); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
+  .nav-link:hover { background:rgba(255,255,255,.18); }
+  .account-bar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:12px; font-family:'DM Mono',monospace; font-size:11px; color:rgba(245,240,232,.75); }
+
+  main { padding:32px 40px 60px; max-width:1100px; margin:0 auto; }
+  .section-label { font-weight:500; font-family:'DM Mono',monospace; font-size:11px; color:var(--accent); letter-spacing:.14em; text-transform:uppercase; display:flex; align-items:center; gap:10px; margin:36px 0 18px; }
+  .section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+  .section-label:first-of-type { margin-top:0; }
+
+  .panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:22px 24px; }
+  .class-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; }
+  .class-card { background:var(--card-bg); border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:8px; padding:16px 18px; cursor:pointer; text-align:left; font-family:inherit; transition:background .15s,border-color .15s; }
+  .class-card:hover, .class-card.active { background:var(--cream); border-color:var(--accent); }
+  .class-card h3 { font-family:'Playfair Display',serif; font-size:16px; margin-bottom:4px; }
+  .class-card .meta { font-family:'DM Mono',monospace; font-size:10.5px; color:var(--mid); }
+
+  .inline-form { display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end; margin-top:16px; }
+  .field { display:flex; flex-direction:column; gap:5px; }
+  .field label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); }
+  .field input { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px; font-family:'DM Sans',sans-serif; min-width:0; }
+  .btn { background:var(--ink); color:var(--paper); border:none; padding:10px 18px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
+  .btn:hover { background:#1c2c3d; }
+  .btn:disabled { opacity:.55; cursor:default; }
+  .btn.secondary { background:transparent; border:1px solid var(--border); color:var(--ink); }
+  .btn.secondary:hover { border-color:var(--accent); color:var(--accent); }
+  .btn.danger { background:transparent; border:1px solid var(--border); color:var(--wrong); }
+  .btn.danger:hover { border-color:var(--wrong); background:rgba(200,75,49,.06); }
+  .btn.small { padding:6px 12px; font-size:11.5px; }
+
+  table { width:100%; border-collapse:collapse; margin-top:14px; }
+  thead tr { background:var(--cream); border-bottom:2px solid var(--border); }
+  th { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); padding:9px 10px; text-align:left; }
+  td { padding:10px 10px; border-bottom:1px solid var(--border); vertical-align:middle; font-size:13px; }
+  tr:last-child td { border-bottom:none; }
+  .mono { font-family:'DM Mono',monospace; font-size:12px; }
+  .actions-cell { display:flex; gap:6px; flex-wrap:wrap; }
+  .pct-bar-wrap { width:90px; height:8px; background:var(--border); border-radius:99px; overflow:hidden; display:inline-block; vertical-align:middle; margin-right:6px; }
+  .pct-bar-fill { height:100%; background:linear-gradient(90deg,var(--accent),var(--gold)); }
+  .empty { padding:24px; text-align:center; color:var(--mid); font-size:13px; font-style:italic; }
+  .struggle-badge { display:inline-block; font-family:'DM Mono',monospace; font-size:10px; padding:2px 9px; border-radius:99px; background:rgba(200,75,49,.1); color:var(--wrong); border:1px solid rgba(200,75,49,.3); margin-left:6px; white-space:nowrap; cursor:help; }
+
+  .chip { display:inline-block; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.05em; padding:3px 10px; border-radius:99px; white-space:nowrap; }
+  .chip.pending { background:rgba(122,92,158,.1); color:#6a4f8c; border:1px solid rgba(122,92,158,.3); }
+  .chip.ontime { background:rgba(45,122,79,.1); color:#2d7a4f; border:1px solid rgba(45,122,79,.3); }
+  .chip.missed { background:rgba(200,75,49,.1); color:var(--wrong); border:1px solid rgba(200,75,49,.3); }
+
+  .credentials-box { margin-top:16px; border:1px solid var(--gold); background:rgba(212,168,67,.08); border-radius:8px; padding:16px 18px; }
+  .credentials-box .warn { font-size:12.5px; color:#8f6d19; margin-bottom:10px; font-weight:600; }
+  .credentials-box table { margin-top:8px; }
+
+  .msg { font-size:12.5px; padding:10px 12px; border-radius:6px; display:none; margin-top:12px; }
+  .msg.show { display:block; }
+  .msg.error { background:rgba(200,75,49,.1); color:var(--wrong); border:1px solid rgba(200,75,49,.25); }
+  .msg.ok { background:rgba(45,122,79,.1); color:#2d7a4f; border:1px solid rgba(45,122,79,.25); }
+
+  .log-row td { font-size:12px; }
+  .hidden { display:none !important; }
+
+  /* Class detail toolbar + sub-view tabs */
+  .class-toolbar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:36px 0 16px; }
+  .class-toolbar .section-label { margin:0; flex:1; min-width:180px; }
+  .subtab { background:transparent; border:1px solid var(--border); color:var(--mid); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.04em; padding:8px 16px; border-radius:7px; cursor:pointer; white-space:nowrap; }
+  .subtab:hover { border-color:var(--accent); color:var(--accent); }
+  .subtab.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+
+  /* Stat tiles */
+  .tiles { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:22px; }
+  .tile { flex:1; min-width:120px; background:var(--cream); border:1px solid var(--border); border-radius:9px; padding:14px 16px; }
+  .tile .val { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:var(--accent); line-height:1; }
+  .tile .lbl { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--mid); margin-top:5px; }
+
+  .subhead { font-family:'Playfair Display',serif; font-size:15px; font-weight:700; color:var(--ink); margin:26px 0 12px; }
+  .subhead:first-child { margin-top:0; }
+  .muted { color:var(--mid); font-size:12px; }
+  .clickable-row { cursor:pointer; }
+  .clickable-row:hover td { background:rgba(74,111,165,.06); }
+  .manage-wrap { border:1px dashed var(--border); border-radius:9px; padding:4px 18px 18px; margin-bottom:8px; background:rgba(0,0,0,.015); }
+
+  /* Topic access panel */
+  .tv-group { border:1px solid var(--border); border-radius:8px; margin-bottom:10px; overflow:hidden; }
+  .tv-group-header { display:flex; align-items:center; gap:10px; padding:9px 14px; background:var(--cream); user-select:none; border-left:4px solid var(--accent); }
+  .tv-group-header .t { font-family:'Playfair Display',serif; font-size:13px; font-weight:700; }
+  .tv-group-btn { flex:1; display:flex; align-items:center; gap:10px; background:none; border:none; cursor:pointer; text-align:left; font-family:inherit; padding:0; }
+  .tv-group-btn .t { flex:1; }
+  .tv-count { font-size:10.5px; font-family:'DM Mono',monospace; white-space:nowrap; }
+  .tv-unit-cb { width:16px; height:16px; cursor:pointer; flex-shrink:0; accent-color:var(--accent); }
+  .tv-bulk { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:12px; }
+  .tv-group-body { padding:6px 14px 10px; }
+  .tv-group-body.hidden { display:none; }
+  .tv-row { display:flex; align-items:center; gap:10px; padding:6px 0; border-top:1px solid var(--border); font-size:13px; }
+  .tv-row:first-child { border-top:none; }
+  .tv-row label { display:flex; align-items:center; gap:8px; cursor:pointer; flex:1; }
+  /* ── Topic Access guided steps ── */
+  .step-panel { margin-bottom:16px; }
+  .step-head { display:flex; gap:14px; align-items:flex-start; margin-bottom:14px; }
+  .step-num { flex-shrink:0; width:30px; height:30px; border-radius:50%; background:var(--ink); color:var(--paper); display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:13px; font-weight:600; }
+  .step-sub { font-size:12px; margin-top:3px; }
+  .choice-cards { display:flex; gap:10px; flex-wrap:wrap; }
+  .choice-card { flex:1; min-width:170px; max-width:280px; border:1.5px solid var(--border); border-radius:10px; padding:12px 14px; cursor:pointer; display:flex; flex-direction:column; gap:4px; background:var(--card-bg); transition:border-color .15s, box-shadow .15s, background .15s; position:relative; }
+  .choice-card:hover { border-color:var(--accent); }
+  .choice-card input { position:absolute; opacity:0; pointer-events:none; }
+  .choice-card.selected { border-color:var(--accent); box-shadow:0 0 0 2px rgba(74,111,165,.18); background:rgba(74,111,165,.05); }
+  .cc-title { font-weight:600; font-size:13.5px; }
+  .cc-desc { font-size:11.5px; color:var(--mid); line-height:1.45; }
+  .flow-timers { margin-top:14px; border-top:1px dashed var(--border); padding-top:14px; max-width:620px; }
+  .flow-timers.hidden { display:none; }
+  .flow-timers .secs { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .flow-timers .secs .muted { font-size:12px; }
+  .flow-timers input[type="number"] { width:84px; padding:8px 10px; border:1px solid var(--border); border-radius:6px; font-size:14px; font-family:'DM Sans',sans-serif; }
+  /* ── Getting-started guide ── */
+  .guide-panel { margin-bottom:22px; border-left:4px solid var(--gold); }
+  .guide-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+  .guide-steps { display:grid; grid-template-columns:repeat(auto-fit, minmax(215px, 1fr)); gap:10px; margin-top:14px; }
+  .guide-step { border:1.5px solid var(--border); border-radius:10px; padding:12px 14px; background:var(--card-bg); display:flex; flex-direction:column; gap:6px; }
+  .guide-step.done { border-color:rgba(45,122,79,.45); background:rgba(45,122,79,.05); }
+  .guide-step.next { border-color:var(--gold); box-shadow:0 0 0 2px rgba(212,168,67,.25); }
+  .gs-top { display:flex; align-items:center; gap:8px; }
+  .gs-num { width:24px; height:24px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:11.5px; font-weight:600; background:var(--cream); border:1px solid var(--border); color:var(--mid); }
+  .guide-step.done .gs-num { background:#2d7a4f; border-color:#2d7a4f; color:#fff; }
+  .guide-step.next .gs-num { background:var(--gold); border-color:var(--gold); color:#fff; }
+  .gs-title { font-weight:600; font-size:13px; }
+  .gs-desc { font-size:11.5px; color:var(--mid); line-height:1.5; flex:1; }
+  .guide-panel.collapsed .guide-steps { display:none; }
+  .guide-panel.collapsed .step-sub { display:none; }
+  .login-link-row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; background:var(--cream); border:1px solid var(--border); border-radius:8px; padding:10px 14px; max-width:640px; }
+  .login-link-row code { font-family:'DM Mono',monospace; font-size:12px; word-break:break-all; flex:1; min-width:200px; }
+  /* ── "Needs you today" strip + class-card badges ── */
+  .action-strip { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:22px; padding:14px 20px; border-left:4px solid #b8860b; }
+  .action-strip.all-clear { border-left-color:#2d7a4f; }
+  .action-strip .as-label { font-weight:600; font-size:13.5px; }
+  .card-alert { color:#8f6d19; font-weight:600; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="header-badge">OCR GCSE Business Studies · J204</div>
+      <h1>Teacher Dashboard</h1>
+      <p>Classes, student logins, progress, homework and pacing — the guide below walks you through setup.</p>
+      <div class="account-bar" id="accountBar"></div>
+    </div>
+    <div class="header-links">
+      <a class="nav-link" href="index.html">← Site Home</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ═══ GETTING-STARTED GUIDE (ticks fill in automatically) ═══ -->
+  <div class="panel guide-panel" id="guidePanel">
+    <div class="guide-head">
+      <div>
+        <h3 class="subhead" style="margin:0;">👋 Getting started</h3>
+        <p class="muted step-sub">Four small steps and your class is revising — the ticks fill in automatically as you go.</p>
+      </div>
+      <button type="button" class="btn secondary small" id="guideToggle">Hide guide</button>
+    </div>
+    <div class="guide-steps" id="guideSteps"></div>
+  </div>
+
+  <!-- "Needs you today" — filled by renderActionStrip() -->
+  <div id="actionStrip" class="hidden"></div>
+
+  <h2 class="section-label">Your Classes <span class="muted" style="font-size:12px; font-weight:400;">— click a class to open it</span></h2>
+  <div class="panel">
+    <div class="class-grid" id="classGrid"><div class="empty">Loading…</div></div>
+    <form class="inline-form" id="newClassForm">
+      <div class="field">
+        <label for="newClassName">New class name</label>
+        <input type="text" id="newClassName" placeholder="e.g. Year 10 Business" required/>
+      </div>
+      <button type="submit" class="btn">+ Create Class</button>
+    </form>
+    <div class="msg" id="classMsg"></div>
+  </div>
+
+  <div id="classDetail" class="hidden">
+    <div class="class-toolbar">
+      <h2 class="section-label" id="classDetailLabel">Class</h2>
+      <button type="button" class="subtab active" id="tabProgress">📊 Class Progress</button>
+      <button type="button" class="subtab" id="tabStudents">👥 Students &amp; Logins</button>
+      <button type="button" class="subtab" id="tabTasks">📋 Tasks</button>
+      <button type="button" class="subtab" id="tabTopicAccess">🔒 Topic Access</button>
+    </div>
+
+    <!-- ═══ VIEW: CLASS PROGRESS ═══ -->
+    <div id="classProgressView">
+      <p class="muted" style="margin-bottom:12px;">Everything updates by itself as students answer questions — no marking needed here. An <span class="mono" style="font-size:11px;">⚠ needs attention</span> badge appears next to anyone falling behind on tasks.</p>
+      <div class="panel">
+        <div class="tiles" id="classTiles"></div>
+        <h3 class="subhead">Whole-class completion <span class="muted">— totals across every student; click a unit row to expand it</span></h3>
+        <div id="classGridView"><div class="empty">Loading…</div></div>
+
+        <h3 class="subhead">Students <span class="muted">— click a student to open their full dashboard</span></h3>
+        <table id="leaderboardTable">
+          <thead><tr><th>Username</th><th>Overall progress</th><th>Answers logged</th><th></th></tr></thead>
+          <tbody id="leaderboardBody"><tr><td colspan="4" class="empty">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══ VIEW: STUDENTS & LOGINS ═══ -->
+    <div id="studentsView" class="hidden">
+      <div class="panel step-panel">
+        <div class="step-head">
+          <span class="step-num">1</span>
+          <div>
+            <h3 class="subhead" style="margin:0;">Create logins for your students</h3>
+            <p class="muted step-sub">Choose how many you need — usernames and passwords are generated for you. You can add more any time.</p>
+          </div>
+        </div>
+        <form class="inline-form" id="generateForm">
+          <div class="field">
+            <label for="genCount">How many students?</label>
+            <input type="number" id="genCount" min="1" max="60" value="1" style="width:90px"/>
+          </div>
+          <button type="submit" class="btn">✨ Generate logins</button>
+          <button type="button" class="btn secondary" id="downloadCsvBtn" style="display:none;">⬇ Download CSV</button>
+        </form>
+        <div class="msg" id="generateMsg"></div>
+        <div id="credentialsBox"></div>
+      </div>
+
+      <div class="panel step-panel">
+        <div class="step-head">
+          <span class="step-num">2</span>
+          <div>
+            <h3 class="subhead" style="margin:0;">Hand the logins out</h3>
+            <p class="muted step-sub">Download the CSV above (or copy the table) and give each student their username and password. They sign in here:</p>
+          </div>
+        </div>
+        <div class="login-link-row">
+          <code id="studentLoginLink" class="mono"></code>
+          <button type="button" class="btn secondary small" id="copyLoginLinkBtn">📋 Copy link</button>
+        </div>
+        <p class="muted" style="font-size:12px; margin-top:8px;">Passwords can't be viewed again later — but you can reset one in a click from the list below.</p>
+      </div>
+
+      <div class="panel">
+        <h3 class="subhead">Your students <span class="muted">— view someone's dashboard, reset a password, or remove a login</span></h3>
+        <table id="rosterTable">
+          <thead><tr>
+            <th>Username</th><th>Joined</th><th>Progress</th><th>Actions</th>
+          </tr></thead>
+          <tbody id="rosterBody"><tr><td colspan="4" class="empty">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══ VIEW: TASKS ═══ -->
+    <div id="classTasksView" class="hidden">
+      <div class="panel step-panel">
+        <h3 class="subhead" style="margin-bottom:4px;">Set homework &amp; quizzes</h3>
+        <p class="muted" style="margin-bottom:12px;">A task is a set of questions you pick (or let the site pick) from any topics — with a due date, attempt limits and optional timer. MCQ, True/False and fill-in-the-blanks mark themselves; written answers queue up for you. Build and mark everything in the Task Manager; the table below is your class summary.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+          <a class="btn" id="newTaskLink" href="teacher-tasks.html">+ Create a task</a>
+          <a class="btn secondary" id="openTaskManagerLink" href="teacher-tasks.html">📋 Open Task Manager</a>
+        </div>
+      </div>
+      <div class="panel">
+        <h3 class="subhead">This class's tasks</h3>
+        <table>
+          <thead><tr><th>Task</th><th>Status</th><th>Due</th><th>Submitted</th><th>To mark</th><th>Avg (whole class)</th></tr></thead>
+          <tbody id="classTasksBody"><tr><td colspan="6" class="empty">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══ VIEW: TOPIC ACCESS + LEARNING FLOW ═══ -->
+    <div id="topicAccessView" class="hidden">
+      <p class="muted" style="margin-bottom:14px;">Three quick settings that shape how this class studies. Every change saves instantly and applies the next time a student opens a topic page.</p>
+
+      <!-- Step 1: whole-topic locking -->
+      <div class="panel step-panel">
+        <div class="step-head">
+          <span class="step-num">1</span>
+          <div>
+            <h3 class="subhead" style="margin:0;">Which topics can students open?</h3>
+            <p class="muted step-sub">Lock whole topics — for example, ones you haven't taught yet.</p>
+          </div>
+        </div>
+        <div class="choice-cards" id="topicModeCards">
+          <label class="choice-card"><input type="radio" name="topicMode" value="open">
+            <span class="cc-title">🔓 All open</span>
+            <span class="cc-desc">Every topic is available (default)</span></label>
+          <label class="choice-card"><input type="radio" name="topicMode" value="manual">
+            <span class="cc-title">🎯 I choose</span>
+            <span class="cc-desc">Tick exactly which topics are visible below</span></label>
+          <label class="choice-card"><input type="radio" name="topicMode" value="sequential">
+            <span class="cc-title">🪜 In order</span>
+            <span class="cc-desc">Each topic unlocks when the previous one is finished</span></label>
+        </div>
+        <div class="msg" id="topicModeMsg"></div>
+        <div class="hidden" id="manualVisibilityPanel" style="margin-top:14px;">
+          <p class="muted" style="margin-bottom:8px;">Unticked topics are locked for the whole class (approved requests below can still unlock one topic for one student):</p>
+          <div id="topicVisibilityContainer"></div>
+        </div>
+      </div>
+
+      <!-- Step 2: activity order inside a topic -->
+      <div class="panel step-panel">
+        <div class="step-head">
+          <span class="step-num">2</span>
+          <div>
+            <h3 class="subhead" style="margin:0;">Inside a topic — how do students move between activities?</h3>
+            <p class="muted step-sub">The activities run Key Learning → MCQ → Matching → Fill the Blanks → Misconceptions → Exam Tips → True/False → Exam Practice.</p>
+          </div>
+        </div>
+        <div class="choice-cards" id="flowOrderCards">
+          <label class="choice-card"><input type="radio" name="flowOrder" value="open">
+            <span class="cc-title">🔀 Free choice</span>
+            <span class="cc-desc">Students can hop between activities in any order (default)</span></label>
+          <label class="choice-card"><input type="radio" name="flowOrder" value="sequential">
+            <span class="cc-title">🪜 In order</span>
+            <span class="cc-desc">Each activity unlocks only when the previous one is 100% correct — wrong answers must be redone</span></label>
+        </div>
+        <div class="msg" id="flowOrderMsg"></div>
+      </div>
+
+      <!-- Step 3: one-at-a-time + timers -->
+      <div class="panel step-panel">
+        <div class="step-head">
+          <span class="step-num">3</span>
+          <div>
+            <h3 class="subhead" style="margin:0;">How are questions shown?</h3>
+            <p class="muted step-sub">The timers stop students racing through and guessing.</p>
+          </div>
+        </div>
+        <div class="choice-cards" id="flowFocusCards">
+          <label class="choice-card"><input type="radio" name="flowFocus" value="one">
+            <span class="cc-title">1️⃣ One at a time</span>
+            <span class="cc-desc">A single question/card with Back &amp; Next buttons (default)</span></label>
+          <label class="choice-card"><input type="radio" name="flowFocus" value="all">
+            <span class="cc-title">📄 All at once</span>
+            <span class="cc-desc">The whole list on one page — no timers</span></label>
+        </div>
+        <div id="flowTimersRow" class="flow-timers">
+          <div class="field">
+            <label for="flowPreSeconds">📖 Reading time — before they can answer</label>
+            <div class="secs"><input type="number" id="flowPreSeconds" min="0" max="120" step="5">
+              <span class="muted">seconds. Answering earlier shows a "slow down and read the question" nudge. 0 turns it off.</span></div>
+          </div>
+          <div class="field" style="margin-top:12px;">
+            <label for="flowPostSeconds">⏳ Pause after answering — before Next unlocks</label>
+            <div class="secs"><input type="number" id="flowPostSeconds" min="0" max="120" step="5">
+              <span class="muted">seconds, so the feedback sinks in. 0 turns it off.</span></div>
+          </div>
+        </div>
+        <div class="msg" id="flowFocusMsg"></div>
+      </div>
+
+      <div class="panel">
+        <h3 class="subhead">Access requests <span class="muted" id="requestsCount"></span></h3>
+        <p class="muted" style="margin-bottom:10px;">Students on a locked topic can ask you to open it — approving unlocks that one topic for just that student, in any mode.</p>
+        <table>
+          <thead><tr><th>Student</th><th>Topic</th><th>Requested</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="requestsBody"><tr><td colspan="5" class="empty">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══ VIEW: SINGLE STUDENT DASHBOARD ═══ -->
+    <div id="studentDetail" class="hidden">
+      <div class="class-toolbar">
+        <h2 class="section-label" id="studentDetailLabel">Student</h2>
+        <button type="button" class="subtab" id="backToClassBtn">← Back to class</button>
+      </div>
+      <div class="panel">
+        <div class="tiles" id="studentTiles"></div>
+
+        <h3 class="subhead">Tasks <span class="muted">— this student's assigned tasks and results</span></h3>
+        <table id="studentTasksTable">
+          <thead><tr><th>Task</th><th>Due (theirs)</th><th>Status</th><th>Attempts</th><th>Score</th><th>Time</th><th></th></tr></thead>
+          <tbody id="studentTasksBody"><tr><td colspan="7" class="empty">Loading…</td></tr></tbody>
+        </table>
+
+        <h3 class="subhead">Progress by topic &amp; activity</h3>
+        <div id="studentGridView"><div class="empty">Loading…</div></div>
+
+        <h3 class="subhead">Recent answers <span class="muted">— most recent 100, newest first</span></h3>
+        <table id="logTable">
+          <thead><tr><th>When</th><th>Topic</th><th>Section</th><th>Question</th><th>Correct</th></tr></thead>
+          <tbody id="logBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="tasks-shared.js"></script>
+<script src="gamification.js"></script>
+<script>
+// PAGE_GROUPS, SECTIONS, makeRing, renderProgressGrid, computeTotals and
+// pageTitle() all come from progress-shared.js (included above).
+
+// Keep these in sync with the constants at the top of script.js.
+  const SUPABASE_URL = 'https://eaohjlyiotyqhvsizcpw.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhb2hqbHlpb3R5cWh2c2l6Y3B3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNzUzMDksImV4cCI6MjA5ODc1MTMwOX0.lHF4OUiTT3G_fzlXvXI_4QMu48o6eEnq0hWw6K1uBAk';
+const GCSE_SESSION_KEY = 'gcse_session_v1';
+
+let supabaseClient = null;
+let currentSession = null;
+let classes = [];
+let activeClassId = null;
+let lastGeneratedCsv = '';
+
+function readSession() {
+  try { return JSON.parse(localStorage.getItem(GCSE_SESSION_KEY) || 'null'); } catch (e) { return null; }
+}
+function redirectToLogin() {
+  location.replace('login.html?redirect=' + encodeURIComponent(location.pathname));
+}
+
+async function init() {
+  const cached = readSession();
+  if (!cached) return redirectToLogin();
+
+  supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const { data, error } = await supabaseClient.auth.setSession({
+    access_token: cached.access_token, refresh_token: cached.refresh_token,
+  });
+  if (error || !data.session) { localStorage.removeItem(GCSE_SESSION_KEY); return redirectToLogin(); }
+  if (cached.role !== 'teacher') { location.replace('dashboard.html'); return; }
+
+  currentSession = data.session;
+  localStorage.setItem(GCSE_SESSION_KEY, JSON.stringify({
+    access_token: data.session.access_token, refresh_token: data.session.refresh_token,
+    expires_at: data.session.expires_at, role: cached.role, username: cached.username,
+  }));
+
+  document.getElementById('accountBar').innerHTML =
+    `<span>Logged in as <strong>${cached.username || 'teacher'}</strong></span>
+     <button type="button" class="nav-link" id="logoutBtn">Log out</button>`;
+  document.getElementById('logoutBtn').addEventListener('click', async () => {
+    await supabaseClient.auth.signOut();
+    localStorage.removeItem(GCSE_SESSION_KEY);
+    location.replace('login.html');
+  });
+
+  const loginLinkEl = document.getElementById('studentLoginLink');
+  if (loginLinkEl) loginLinkEl.textContent = studentLoginUrl();
+  document.getElementById('copyLoginLinkBtn').addEventListener('click', async (e) => {
+    try { await navigator.clipboard.writeText(studentLoginUrl()); e.target.textContent = '✓ Copied!'; }
+    catch (err) { prompt('Copy this link:', studentLoginUrl()); }
+    setTimeout(() => { e.target.innerHTML = '📋 Copy link'; }, 2000);
+  });
+
+  await loadClasses();
+  refreshGuideCounts();
+  refreshPendingCounts();
+}
+
+async function callFunction(name, body) {
+  const res = await fetch(`/.netlify/functions/${name}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${currentSession.access_token}` },
+    body: JSON.stringify(body),
+  });
+  const json = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(json.error || `Request failed (${res.status})`);
+  return json;
+}
+
+function showMsg(el, text, ok) {
+  el.textContent = text;
+  el.className = 'msg show ' + (ok ? 'ok' : 'error');
+}
+
+// ── Classes ──
+async function loadClasses() {
+  // select('*') so the dashboard still works if class-flow-settings.sql
+  // hasn't been run yet (the flow columns just come back undefined).
+  const { data, error } = await supabaseClient.from('classes').select('*').order('created_at');
+  const grid = document.getElementById('classGrid');
+  if (error) { grid.innerHTML = `<div class="empty">Couldn't load classes.</div>`; return; }
+  classes = data || [];
+  renderGuide();
+  renderClassCards();
+}
+
+function renderClassCards() {
+  const grid = document.getElementById('classGrid');
+  if (!classes.length) { grid.innerHTML = `<div class="empty">No classes yet — type a name below and click <strong>+ Create Class</strong> to get going 👇</div>`; return; }
+  grid.innerHTML = '';
+  classes.forEach(c => {
+    const p = _classPending[c.id] || {};
+    const bits = [`👥 ${p.students || 0} student${p.students === 1 ? '' : 's'}`];
+    if (p.toMark) bits.push(`<span class="card-alert">✍️ ${p.toMark} to mark</span>`);
+    if (p.requests) bits.push(`<span class="card-alert">🙋 ${p.requests} request${p.requests === 1 ? '' : 's'}</span>`);
+    const card = document.createElement('button');
+    card.type = 'button';
+    card.className = 'class-card' + (c.id === activeClassId ? ' active' : '');
+    card.innerHTML = `<h3>${escapeHtml(c.name)}</h3><div class="meta">${bits.join(' · ')}</div>`;
+    card.addEventListener('click', () => selectClass(c.id));
+    grid.appendChild(card);
+  });
+}
+
+// ── "Needs you today" — pending marking + access requests across classes ──
+let _classPending = {}; // classId -> { students, requests, toMark }
+
+async function refreshPendingCounts() {
+  const pend = {};
+  const bump = (cid, key) => {
+    if (!cid) return;
+    (pend[cid] = pend[cid] || { students: 0, requests: 0, toMark: 0 })[key]++;
+  };
+  try {
+    const { data } = await supabaseClient.from('class_students').select('class_id');
+    (data || []).forEach(r => bump(r.class_id, 'students'));
+  } catch (e) {}
+  try {
+    const { data } = await supabaseClient.from('topic_access_requests').select('class_id').eq('status', 'pending');
+    (data || []).forEach(r => bump(r.class_id, 'requests'));
+  } catch (e) {}
+  try {
+    const { data: tasks } = await supabaseClient.from('tasks').select('id, class_id').eq('status', 'published');
+    const classByTask = {};
+    (tasks || []).forEach(t => { classByTask[t.id] = t.class_id; });
+    const ids = Object.keys(classByTask);
+    if (ids.length) {
+      const { data: atts } = await supabaseClient.from('task_attempts')
+        .select('task_id').in('task_id', ids)
+        .eq('status', 'submitted').eq('marking_complete', false);
+      (atts || []).forEach(a => bump(classByTask[a.task_id], 'toMark'));
+    }
+  } catch (e) {} // tasks schema not installed — counts just stay 0
+  _classPending = pend;
+  renderClassCards();
+  renderActionStrip();
+}
+
+function renderActionStrip() {
+  const strip = document.getElementById('actionStrip');
+  if (!strip) return;
+  let students = 0, requests = 0, toMark = 0;
+  let firstMarkClass = null, firstReqClass = null;
+  classes.forEach(c => {
+    const p = _classPending[c.id] || {};
+    students += p.students || 0;
+    requests += p.requests || 0;
+    toMark += p.toMark || 0;
+    if (p.toMark && !firstMarkClass) firstMarkClass = c.id;
+    if (p.requests && !firstReqClass) firstReqClass = c.id;
+  });
+
+  if (toMark || requests) {
+    strip.className = 'panel action-strip';
+    strip.innerHTML = `
+      <span class="as-label">📥 Needs you today:</span>
+      ${toMark ? `<a class="btn small" href="teacher-tasks.html?class=${firstMarkClass}">✍️ Mark ${toMark} answer${toMark === 1 ? '' : 's'}</a>` : ''}
+      ${requests ? `<button type="button" class="btn small" id="asRequestsBtn">🙋 Review ${requests} access request${requests === 1 ? '' : 's'}</button>` : ''}`;
+    const reqBtn = document.getElementById('asRequestsBtn');
+    if (reqBtn) reqBtn.addEventListener('click', async () => {
+      await selectClass(firstReqClass);
+      showClassSubView('topicAccess');
+      loadTopicAccessView();
+    });
+  } else if (students > 0) {
+    strip.className = 'panel action-strip all-clear';
+    strip.innerHTML = `<span class="as-label">✅ All caught up — nothing waiting for you.</span>`;
+  } else {
+    strip.className = 'hidden';
+    strip.innerHTML = '';
+  }
+}
+
+document.getElementById('newClassForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const nameInput = document.getElementById('newClassName');
+  const name = nameInput.value.trim();
+  if (!name) return;
+  const msg = document.getElementById('classMsg');
+  const { error } = await supabaseClient.from('classes').insert({ name, teacher_id: currentSession.user.id });
+  if (error) { showMsg(msg, error.message, false); return; }
+  nameInput.value = '';
+  msg.className = 'msg';
+  await loadClasses();
+});
+
+// ── Getting-started guide ──
+// Four steps with live done/next states so a first-time teacher always
+// knows what to do next. Steps 2–4 use two cheap head-count queries
+// (students in my classes / any progress rows visible to me).
+const GUIDE_HIDE_KEY = 'gcse_teacher_guide_hidden';
+let _guideCounts = { students: 0, progress: 0 };
+
+async function refreshGuideCounts() {
+  try {
+    const { count } = await supabaseClient.from('class_students').select('*', { count: 'exact', head: true });
+    _guideCounts.students = count || 0;
+  } catch (e) {}
+  try {
+    const { count } = await supabaseClient.from('progress_summary').select('*', { count: 'exact', head: true });
+    _guideCounts.progress = count || 0;
+  } catch (e) {}
+  renderGuide();
+}
+
+function studentLoginUrl() { return new URL('login.html', location.href).href; }
+
+function renderGuide() {
+  const wrap = document.getElementById('guideSteps');
+  if (!wrap) return;
+  const hasClasses = classes.length > 0;
+  const hasStudents = _guideCounts.students > 0;
+  const hasProgress = _guideCounts.progress > 0;
+
+  const steps = [
+    { title: 'Create your class', done: hasClasses,
+      desc: 'One class per teaching group — just a name, e.g. "Year 10 Business".',
+      action: hasClasses ? '' : `<button type="button" class="btn small" data-guide="class">+ Create a class</button>` },
+    { title: 'Add student logins', done: hasStudents,
+      desc: 'Open your class and generate a login for each student — usernames and passwords are made for you.',
+      action: hasClasses && !hasStudents ? `<button type="button" class="btn small" data-guide="students">👥 Add students</button>` : '' },
+    { title: 'Hand the logins out', done: hasProgress,
+      desc: `Print or share the CSV; students sign in at<br><span class="mono" style="font-size:10.5px; word-break:break-all;">${escapeHtml(studentLoginUrl())}</span>`,
+      action: `<button type="button" class="btn secondary small" data-guide="copylink">📋 Copy login link</button>` },
+    { title: 'Watch, set homework, set the pace', done: hasProgress,
+      desc: 'Progress fills in live as they revise. Set homework in 📋 Tasks, and control pacing &amp; timers in 🔒 Topic Access.',
+      action: hasClasses ? `<button type="button" class="btn secondary small" data-guide="progress">📊 Open my class</button>` : '' },
+  ];
+
+  let nextFound = false;
+  wrap.innerHTML = steps.map((s, i) => {
+    let cls = '';
+    if (s.done) cls = 'done';
+    else if (!nextFound) { cls = 'next'; nextFound = true; }
+    return `<div class="guide-step ${cls}">
+      <div class="gs-top"><span class="gs-num">${s.done ? '✓' : i + 1}</span><span class="gs-title">${s.title}</span></div>
+      <div class="gs-desc">${s.desc}</div>
+      ${s.action ? `<div>${s.action}</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+document.getElementById('guideSteps').addEventListener('click', async (e) => {
+  const btn = e.target.closest('button[data-guide]');
+  if (!btn) return;
+  const act = btn.dataset.guide;
+  if (act === 'class') {
+    const input = document.getElementById('newClassName');
+    input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    input.focus();
+  } else if (act === 'students' && classes[0]) {
+    await selectClass(classes[0].id);
+    showClassSubView('students');
+  } else if (act === 'progress' && classes[0]) {
+    await selectClass(classes[0].id);
+  } else if (act === 'copylink') {
+    try {
+      await navigator.clipboard.writeText(studentLoginUrl());
+      btn.textContent = '✓ Copied!';
+    } catch (e2) {
+      prompt('Copy this link:', studentLoginUrl());
+    }
+    setTimeout(() => { btn.innerHTML = '📋 Copy login link'; }, 2000);
+  }
+});
+
+document.getElementById('guideToggle').addEventListener('click', () => {
+  const collapsed = document.getElementById('guidePanel').classList.toggle('collapsed');
+  document.getElementById('guideToggle').textContent = collapsed ? 'Show guide' : 'Hide guide';
+  try { localStorage.setItem(GUIDE_HIDE_KEY, collapsed ? '1' : '0'); } catch (e) {}
+});
+(function initGuideCollapsed() {
+  let hidden = false;
+  try { hidden = localStorage.getItem(GUIDE_HIDE_KEY) === '1'; } catch (e) {}
+  if (hidden) {
+    document.getElementById('guidePanel').classList.add('collapsed');
+    document.getElementById('guideToggle').textContent = 'Show guide';
+  }
+})();
+
+// State for the currently open class.
+let classStudents = [];   // [{ id, username, joined_at }]
+let classSummaries = [];  // raw progress_summary rows for every student in the class
+let classTaskRowsByStudent = {}; // studentId -> [{ task, assignment, attempts }], for struggling-flag detection
+let tvOpenGroups = new Set(); // curriculum group ids currently expanded in the Topic Access tab's visibility list
+
+async function selectClass(classId) {
+  activeClassId = classId;
+  document.getElementById('credentialsBox').innerHTML = '';
+  document.getElementById('downloadCsvBtn').style.display = 'none';
+  tvOpenGroups = new Set();
+  await loadClasses(); // refresh active highlight
+  const cls = classes.find(c => c.id === classId);
+  document.getElementById('classDetailLabel').textContent = cls ? cls.name : 'Class';
+  document.getElementById('classDetail').classList.remove('hidden');
+  document.getElementById('openTaskManagerLink').href = 'teacher-tasks.html?class=' + classId;
+  document.getElementById('newTaskLink').href = 'teacher-tasks.html?class=' + classId;
+  showClassSubView('progress');
+  await loadClassData();
+  // A brand-new class has no students yet — take the teacher straight to
+  // the guided "create logins" step instead of an empty progress view.
+  if (!classStudents.length) showClassSubView('students');
+}
+
+// Toggle between the class sub-views: 'progress' | 'students' | 'tasks' | 'student'.
+function showClassSubView(which) {
+  const isStudent = which === 'student';
+  document.getElementById('classProgressView').classList.toggle('hidden', which !== 'progress');
+  document.getElementById('studentsView').classList.toggle('hidden', which !== 'students');
+  document.getElementById('classTasksView').classList.toggle('hidden', which !== 'tasks');
+  document.getElementById('topicAccessView').classList.toggle('hidden', which !== 'topicAccess');
+  document.getElementById('studentDetail').classList.toggle('hidden', !isStudent);
+  // Hide the main Progress/Students toolbar while drilled into one student.
+  document.querySelector('#classDetail > .class-toolbar').classList.toggle('hidden', isStudent);
+  document.getElementById('tabProgress').classList.toggle('active', which === 'progress');
+  document.getElementById('tabStudents').classList.toggle('active', which === 'students');
+  document.getElementById('tabTasks').classList.toggle('active', which === 'tasks');
+  document.getElementById('tabTopicAccess').classList.toggle('active', which === 'topicAccess');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Fetch the class roster + everyone's progress once, then render both views.
+async function loadClassData() {
+  const { data: members, error } = await supabaseClient
+    .from('class_students')
+    .select('joined_at, profiles!inner(id, username)')
+    .eq('class_id', activeClassId)
+    .order('joined_at');
+  classStudents = error ? [] : (members || []).map(m => ({
+    id: m.profiles.id, username: m.profiles.username, joined_at: m.joined_at,
+  }));
+
+  const ids = classStudents.map(s => s.id);
+  if (ids.length) {
+    const { data: sums } = await supabaseClient
+      .from('progress_summary').select('student_id, page_id, section, done, total').in('student_id', ids);
+    classSummaries = sums || [];
+  } else {
+    classSummaries = [];
+  }
+
+  await loadStrugglingFlags(ids);
+  renderClassProgress();
+  renderRoster();
+}
+
+// One extra round-trip per class switch, to power the "needs attention"
+// badges — tasks/assignments/attempts for every student in this class.
+async function loadStrugglingFlags(studentIds) {
+  classTaskRowsByStudent = {};
+  if (!studentIds.length) return;
+  try {
+    const { data: tasks } = await supabaseClient.from('tasks').select('*').eq('class_id', activeClassId);
+    const taskIds = (tasks || []).map(t => t.id);
+    if (!taskIds.length) return;
+    const [{ data: asg }, { data: atts }] = await Promise.all([
+      supabaseClient.from('task_assignments').select('*').in('task_id', taskIds),
+      supabaseClient.from('task_attempts').select('*').in('task_id', taskIds),
+    ]);
+    studentIds.forEach(sid => {
+      classTaskRowsByStudent[sid] = (asg || [])
+        .filter(a => a.student_id === sid)
+        .map(a => ({
+          task: tasks.find(t => t.id === a.task_id),
+          assignment: a,
+          attempts: (atts || []).filter(x => x.task_id === a.task_id && x.student_id === sid),
+        }))
+        .filter(r => r.task);
+    });
+  } catch (e) { /* tasks schema not installed yet — no flags, no error shown */ }
+}
+
+// Build a { pageId: { section: {done,total} } } object for one student.
+function progressForStudent(studentId) {
+  const prog = {};
+  classSummaries.filter(s => s.student_id === studentId).forEach(s => {
+    if (!prog[s.page_id]) prog[s.page_id] = {};
+    prog[s.page_id][s.section] = { done: s.done, total: s.total };
+  });
+  return prog;
+}
+
+// Sum every student's progress into one object (whole-class totals).
+function aggregateClassProgress() {
+  const prog = {};
+  classSummaries.forEach(s => {
+    if (!prog[s.page_id]) prog[s.page_id] = {};
+    if (!prog[s.page_id][s.section]) prog[s.page_id][s.section] = { done: 0, total: 0 };
+    prog[s.page_id][s.section].done += s.done;
+    prog[s.page_id][s.section].total += s.total;
+  });
+  return prog;
+}
+
+function studentTotals(studentId) {
+  // Routed through computeTotals() so a topic the student has engaged with
+  // counts ALL its sections' true totals, same fix as the progress grids.
+  const t = computeTotals(progressForStudent(studentId));
+  return { done: t.grandDone, total: t.grandTotal, pct: t.pct };
+}
+
+function tile(val, lbl) { return `<div class="tile"><div class="val">${val}</div><div class="lbl">${lbl}</div></div>`; }
+
+function renderClassProgress() {
+  const n = classStudents.length;
+  let classDone = 0, classTotal = 0, activeCount = 0;
+  classStudents.forEach(s => {
+    const t = studentTotals(s.id);
+    classDone += t.done; classTotal += t.total;
+    if (t.done > 0) activeCount++;
+  });
+  const pct = classTotal ? Math.round(classDone / classTotal * 100) : 0;
+
+  document.getElementById('classTiles').innerHTML =
+    tile(n, 'Students') + tile(pct + '%', 'Avg completion') +
+    tile(activeCount, 'Started working') + tile(classDone, 'Activities done');
+
+  renderProgressGrid(document.getElementById('classGridView'), aggregateClassProgress());
+
+  const body = document.getElementById('leaderboardBody');
+  if (!n) {
+    body.innerHTML = `<tr><td colspan="4" class="empty">No students yet — open the <strong>👥 Students &amp; Logins</strong> tab above to create logins in two clicks.</td></tr>`;
+    return;
+  }
+  const rows = classStudents.map(s => ({ s, t: studentTotals(s.id) })).sort((a, b) => b.t.pct - a.t.pct);
+  body.innerHTML = rows.map(({ s, t }) => {
+    const struggle = computeStrugglingFlag(classTaskRowsByStudent[s.id] || []);
+    return `
+    <tr class="clickable-row" data-id="${s.id}" data-name="${escapeHtml(s.username)}">
+      <td class="mono">${escapeHtml(s.username)}${struggle.flag ? `<span class="struggle-badge" title="${escapeHtml(struggle.reason)}">âš  needs attention</span>` : ''}</td>
+      <td><span class="pct-bar-wrap"><span class="pct-bar-fill" style="width:${t.pct}%"></span></span>${t.total ? t.pct + '%' : '–'}</td>
+      <td>${t.done}</td>
+      <td><span class="muted">View →</span></td>
+    </tr>`;
+  }).join('');
+}
+
+document.getElementById('leaderboardBody').addEventListener('click', e => {
+  const row = e.target.closest('tr[data-id]');
+  if (row) viewStudent(row.dataset.id, row.dataset.name);
+});
+
+// Sub-view tabs + management toggle (static elements, safe to wire once).
+document.getElementById('tabProgress').addEventListener('click', () => showClassSubView('progress'));
+document.getElementById('tabStudents').addEventListener('click', () => showClassSubView('students'));
+document.getElementById('tabTasks').addEventListener('click', () => { showClassSubView('tasks'); loadClassTasksSummary(); });
+document.getElementById('tabTopicAccess').addEventListener('click', () => { showClassSubView('topicAccess'); loadTopicAccessView(); });
+document.getElementById('backToClassBtn').addEventListener('click', () => showClassSubView('progress'));
+
+// ── Generate students ──
+document.getElementById('generateForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const msg = document.getElementById('generateMsg');
+  const countInput = document.getElementById('genCount');
+  const count = parseInt(countInput.value, 10);
+  if (!activeClassId || !count || count < 1) return;
+
+  const submitBtn = e.target.querySelector('button[type=submit]');
+  submitBtn.disabled = true;
+  msg.className = 'msg';
+  try {
+    const result = await callFunction('generate-students', { class_id: activeClassId, count });
+    renderCredentials(result.students || []);
+    if (result.failed) showMsg(msg, `Created ${result.students.length}, ${result.failed} failed — try generating again for the rest.`, false);
+    else showMsg(msg, `Created ${result.students.length} student login${result.students.length === 1 ? '' : 's'} — now download the CSV and hand them out (step 2).`, true);
+    await loadClassData();
+    refreshGuideCounts();
+    refreshPendingCounts();
+  } catch (err) {
+    showMsg(msg, err.message, false);
+  } finally {
+    submitBtn.disabled = false;
+  }
+});
+
+function renderCredentials(students) {
+  const box = document.getElementById('credentialsBox');
+  const csvBtn = document.getElementById('downloadCsvBtn');
+  if (!students.length) { box.innerHTML = ''; csvBtn.style.display = 'none'; return; }
+
+  lastGeneratedCsv = 'username,password\n' + students.map(s => `${s.username},${s.password}`).join('\n');
+  box.innerHTML = `
+    <div class="credentials-box">
+      <div class="warn">⚠ Write these down or export them now — passwords cannot be viewed again, only reset.</div>
+      <table><thead><tr><th>Username</th><th>Password</th></tr></thead>
+      <tbody>${students.map(s => `<tr><td class="mono">${escapeHtml(s.username)}</td><td class="mono">${escapeHtml(s.password)}</td></tr>`).join('')}</tbody></table>
+    </div>`;
+  csvBtn.style.display = '';
+}
+
+document.getElementById('downloadCsvBtn').addEventListener('click', () => {
+  const blob = new Blob([lastGeneratedCsv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'student-logins.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+// ── Roster (renders from state loaded by loadClassData) ──
+function renderRoster() {
+  const body = document.getElementById('rosterBody');
+  if (!classStudents.length) {
+    body.innerHTML = `<tr><td colspan="4" class="empty">No students yet — use <strong>step 1</strong> above to generate their logins.</td></tr>`;
+    return;
+  }
+  body.innerHTML = classStudents.map(s => {
+    const t = studentTotals(s.id);
+    const struggle = computeStrugglingFlag(classTaskRowsByStudent[s.id] || []);
+    return `<tr>
+      <td class="mono">${escapeHtml(s.username)}${struggle.flag ? `<span class="struggle-badge" title="${escapeHtml(struggle.reason)}">âš  needs attention</span>` : ''}</td>
+      <td>${new Date(s.joined_at).toLocaleDateString()}</td>
+      <td><span class="pct-bar-wrap"><span class="pct-bar-fill" style="width:${t.pct}%"></span></span>${t.total ? t.pct + '%' : '–'}</td>
+      <td class="actions-cell">
+        <button type="button" class="btn secondary small" data-action="view" data-id="${s.id}" data-name="${escapeHtml(s.username)}">View</button>
+        <button type="button" class="btn secondary small" data-action="reset" data-id="${s.id}" data-name="${escapeHtml(s.username)}">Reset Password</button>
+        <button type="button" class="btn danger small" data-action="delete" data-id="${s.id}" data-name="${escapeHtml(s.username)}">Remove</button>
+      </td></tr>`;
+  }).join('');
+}
+
+document.getElementById('rosterBody').addEventListener('click', async (e) => {
+  const btn = e.target.closest('button[data-action]');
+  if (!btn) return;
+  const studentId = btn.dataset.id, name = btn.dataset.name, action = btn.dataset.action;
+
+  if (action === 'view') return viewStudent(studentId, name);
+
+  if (action === 'reset') {
+    if (!confirm(`Reset the password for "${name}"?`)) return;
+    try {
+      const result = await callFunction('reset-student-password', { student_id: studentId });
+      alert(`New password for ${name}: ${result.password}\n\nWrite this down now — it cannot be viewed again.`);
+    } catch (err) { alert('Failed to reset password: ' + err.message); }
+    return;
+  }
+
+  if (action === 'delete') {
+    if (!confirm(`Remove "${name}" permanently? This deletes their login and all progress.`)) return;
+    try {
+      await callFunction('delete-student', { student_id: studentId });
+      await loadClassData();
+    } catch (err) { alert('Failed to remove student: ' + err.message); }
+  }
+});
+
+// ── Single student dashboard (full ring grid + recent answer log) ──
+async function viewStudent(studentId, name) {
+  showClassSubView('student');
+  document.getElementById('studentDetailLabel').textContent = name;
+  document.getElementById('studentGridView').innerHTML = `<div class="empty">Loading…</div>`;
+  document.getElementById('logBody').innerHTML = `<tr><td colspan="5" class="empty">Loading…</td></tr>`;
+  loadStudentTasks(studentId); // async, fills its own table
+
+  // Progress grid is built from data already loaded for the class — instant.
+  const prog = progressForStudent(studentId);
+  const totals = computeTotals(prog);
+  // Streak needs a per-student server check we don't have (get_my_streak()
+  // only answers for the caller), so this uses 0 — level/XP/badges are
+  // otherwise the same derived stats the student sees on their own dashboard.
+  const gamStats = typeof computeGamificationStats === 'function' ? computeGamificationStats(prog, 0) : null;
+  document.getElementById('studentTiles').innerHTML =
+    tile(totals.pct + '%', 'Overall') + tile(totals.grandDone, 'Activities done') +
+    tile(totals.pagesStarted, 'Topics started') +
+    (gamStats ? tile('Lv ' + gamStats.level, gamStats.xp + ' XP') +
+      tile(gamificationEarnedBadges(gamStats).length + '/' + BADGE_DEFS.length, 'Badges earned') : '');
+  renderProgressGrid(document.getElementById('studentGridView'), prog);
+
+  // The per-question answer log needs a fresh query.
+  const { data: events } = await supabaseClient
+    .from('progress_events')
+    .select('page_id, section, question_id, is_correct, answered_at')
+    .eq('student_id', studentId)
+    .order('answered_at', { ascending: false })
+    .limit(100);
+  const logBody = document.getElementById('logBody');
+  if (!events || !events.length) {
+    logBody.innerHTML = `<tr><td colspan="5" class="empty">No answers recorded yet.</td></tr>`;
+  } else {
+    logBody.innerHTML = events.map(ev => `
+      <tr class="log-row">
+        <td class="mono">${new Date(ev.answered_at).toLocaleString()}</td>
+        <td>${escapeHtml(pageTitle(ev.page_id))}</td>
+        <td>${escapeHtml(ev.section)}</td>
+        <td class="mono">${escapeHtml(String(ev.question_id))}</td>
+        <td>${ev.is_correct === true ? '✓' : ev.is_correct === false ? '✗' : '–'}</td>
+      </tr>`).join('');
+  }
+}
+
+// ══════════ TASKS INTEGRATION (helpers from tasks-shared.js) ══════════
+
+// Summary table on the class "Tasks" tab.
+async function loadClassTasksSummary() {
+  const body = document.getElementById('classTasksBody');
+  body.innerHTML = '<tr><td colspan="6" class="empty">Loading…</td></tr>';
+  try {
+    const { data: tasks, error } = await supabaseClient
+      .from('tasks').select('*').eq('class_id', activeClassId).order('created_at', { ascending: false });
+    if (error) throw error;
+    if (!tasks || !tasks.length) {
+      body.innerHTML = '<tr><td colspan="6" class="empty">No tasks for this class yet — click <strong>+ Create a task</strong> above to set your first piece of homework.</td></tr>';
+      return;
+    }
+    const ids = tasks.map(t => t.id);
+    const [{ data: asg }, { data: atts }] = await Promise.all([
+      supabaseClient.from('task_assignments').select('task_id, student_id').in('task_id', ids),
+      supabaseClient.from('task_attempts').select('task_id, student_id, status, attempt_number, marks_awarded, marks_total, marking_complete, is_late').in('task_id', ids),
+    ]);
+    body.innerHTML = tasks.map(t => {
+      const taskAsg = (asg || []).filter(a => a.task_id === t.id);
+      const taskAtts = (atts || []).filter(a => a.task_id === t.id);
+      const stats = computeTaskStats(t, taskAsg, taskAtts);
+      return `<tr class="clickable-row" data-task="${t.id}">
+        <td><strong>${escapeHtml(t.title)}</strong></td>
+        <td>${t.status === 'draft' ? '📝 Draft' : '✅ Published'}</td>
+        <td class="mono">${t.due_at ? fmtDateTime(t.due_at) : '—'}</td>
+        <td class="mono">${stats.submitted}/${stats.assigned}</td>
+        <td class="mono">${stats.toMark ? 'âš  ' + stats.toMark : '0'}</td>
+        <td class="mono">${stats.avgTrue != null ? stats.avgTrue + '%' : '—'}${stats.avgMarked != null && stats.avgMarked !== stats.avgTrue ? `<br><span class="muted" style="font-size:10px;">marked only: ${stats.avgMarked}%</span>` : ''}</td>
+      </tr>`;
+    }).join('');
+  } catch (e) {
+    body.innerHTML = '<tr><td colspan="6" class="empty">Tasks aren\'t set up yet — run supabase/tasks-schema.sql in the Supabase SQL editor (see SETUP.md).</td></tr>';
+  }
+}
+
+document.getElementById('classTasksBody').addEventListener('click', e => {
+  const row = e.target.closest('tr[data-task]');
+  if (row) location.href = `teacher-tasks.html?class=${activeClassId}&task=${row.dataset.task}`;
+});
+
+// ── Topic Access + learning flow (schema: supabase/topic-access-schema.sql
+//     + supabase/class-flow-settings.sql) ──
+function _checkRadio(name, value) {
+  document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+    r.checked = r.value === value;
+    r.closest('.choice-card').classList.toggle('selected', r.checked);
+  });
+}
+
+async function loadTopicAccessView() {
+  const cls = classes.find(c => c.id === activeClassId) || {};
+  const mode = cls.topic_access_mode || 'open';
+  _checkRadio('topicMode', mode);
+  document.getElementById('manualVisibilityPanel').classList.toggle('hidden', mode !== 'manual');
+
+  _checkRadio('flowOrder', cls.flow_activity_order || 'open');
+  const focusOn = cls.flow_focus_mode !== false; // default true
+  _checkRadio('flowFocus', focusOn ? 'one' : 'all');
+  document.getElementById('flowTimersRow').classList.toggle('hidden', !focusOn);
+  document.getElementById('flowPreSeconds').value = cls.flow_pre_seconds != null ? cls.flow_pre_seconds : 10;
+  document.getElementById('flowPostSeconds').value = cls.flow_post_seconds != null ? cls.flow_post_seconds : 10;
+
+  await Promise.all([renderTopicVisibility(), renderTopicRequests()]);
+}
+
+// One saver for every control in the three steps — writes the patch to the
+// class row and mirrors it into the local cache.
+async function saveClassFlow(patch, msgId) {
+  const msg = document.getElementById(msgId);
+  const { error } = await supabaseClient.from('classes').update(patch).eq('id', activeClassId);
+  if (error) {
+    const hint = /column .* does not exist|schema cache/i.test(error.message || '')
+      ? ' — run supabase/class-flow-settings.sql first (see SETUP.md)' : '';
+    showMsg(msg, error.message + hint, false);
+    return false;
+  }
+  showMsg(msg, 'Saved — applies the next time students open a topic page.', true);
+  const cls = classes.find(c => c.id === activeClassId);
+  if (cls) Object.assign(cls, patch);
+  return true;
+}
+
+document.getElementById('topicModeCards').addEventListener('change', async (e) => {
+  if (e.target.name !== 'topicMode') return;
+  const mode = e.target.value;
+  _checkRadio('topicMode', mode);
+  if (!await saveClassFlow({ topic_access_mode: mode }, 'topicModeMsg')) return;
+  document.getElementById('manualVisibilityPanel').classList.toggle('hidden', mode !== 'manual');
+});
+
+document.getElementById('flowOrderCards').addEventListener('change', async (e) => {
+  if (e.target.name !== 'flowOrder') return;
+  _checkRadio('flowOrder', e.target.value);
+  saveClassFlow({ flow_activity_order: e.target.value }, 'flowOrderMsg');
+});
+
+document.getElementById('flowFocusCards').addEventListener('change', async (e) => {
+  if (e.target.name !== 'flowFocus') return;
+  const focusOn = e.target.value === 'one';
+  _checkRadio('flowFocus', e.target.value);
+  document.getElementById('flowTimersRow').classList.toggle('hidden', !focusOn);
+  saveClassFlow({ flow_focus_mode: focusOn }, 'flowFocusMsg');
+});
+
+['flowPreSeconds', 'flowPostSeconds'].forEach(id => {
+  document.getElementById(id).addEventListener('change', (e) => {
+    let n = parseInt(e.target.value, 10);
+    if (isNaN(n)) n = 10;
+    n = Math.max(0, Math.min(120, n));
+    e.target.value = n;
+    saveClassFlow(
+      id === 'flowPreSeconds' ? { flow_pre_seconds: n } : { flow_post_seconds: n },
+      'flowFocusMsg'
+    );
+  });
+});
+
+// Manual mode: one checkbox per topic, grouped by curriculum unit, with
+// bulk controls — a whole-unit tickbox on each header (indeterminate when
+// mixed) and Show all / Hide all for the whole course, so a teacher can
+// hide everything then open just what they've taught. Absence of a
+// class_topic_visibility row means visible (see topic-access-schema.sql).
+async function tvBulkSet(pageIds, visible) {
+  const rows = pageIds.map(pid => ({ class_id: activeClassId, page_id: pid, visible }));
+  const { error } = await supabaseClient.from('class_topic_visibility').upsert(rows);
+  if (error) { alert(error.message); return false; }
+  await renderTopicVisibility(); // refresh counts + tick states
+  return true;
+}
+
+async function renderTopicVisibility() {
+  const container = document.getElementById('topicVisibilityContainer');
+  const { data: rows } = await supabaseClient
+    .from('class_topic_visibility').select('page_id, visible').eq('class_id', activeClassId);
+  const hiddenSet = new Set((rows || []).filter(r => r.visible === false).map(r => r.page_id));
+
+  container.innerHTML = '';
+
+  // Quick-select bar (whole course)
+  const bulk = document.createElement('div');
+  bulk.className = 'tv-bulk';
+  bulk.innerHTML = `
+    <button type="button" class="btn secondary small" data-tvall="show">✅ Show all</button>
+    <button type="button" class="btn secondary small" data-tvall="hide">🚫 Hide all</button>
+    <span class="muted" style="font-size:11.5px;">Tip: hide everything, then tick just the units or topics you've taught. A unit's tickbox toggles all of its topics at once.</span>`;
+  bulk.addEventListener('click', async e => {
+    const btn = e.target.closest('button[data-tvall]');
+    if (!btn) return;
+    btn.disabled = true;
+    const all = [];
+    PAGE_GROUPS.forEach(g => flatPages(g).forEach(p => all.push(p.id)));
+    await tvBulkSet(all, btn.dataset.tvall === 'show');
+  });
+  container.appendChild(bulk);
+
+  PAGE_GROUPS.forEach(group => {
+    const pages = flatPages(group);
+    const hiddenCount = pages.filter(p => hiddenSet.has(p.id)).length;
+    const wrap = document.createElement('div');
+    wrap.className = 'tv-group';
+    const isOpen = tvOpenGroups.has(group.id);
+    wrap.innerHTML = `
+      <div class="tv-group-header" style="border-left-color:${group.colour}">
+        <input type="checkbox" class="tv-unit-cb" title="Show or hide every topic in ${escapeHtml(group.title)}" aria-label="Show or hide every topic in ${escapeHtml(group.title)}"/>
+        <button type="button" class="tv-group-btn">
+          <span class="t">${escapeHtml(group.title)}</span>
+          <span class="muted tv-count">${pages.length - hiddenCount}/${pages.length} visible</span>
+          <span aria-hidden="true">&#9662;</span>
+        </button>
+      </div>
+      <div class="tv-group-body${isOpen ? '' : ' hidden'}"></div>`;
+
+    const unitCb = wrap.querySelector('.tv-unit-cb');
+    unitCb.checked = hiddenCount === 0;
+    unitCb.indeterminate = hiddenCount > 0 && hiddenCount < pages.length;
+    unitCb.addEventListener('change', async () => {
+      unitCb.disabled = true;
+      await tvBulkSet(pages.map(p => p.id), unitCb.checked);
+    });
+
+    const body = wrap.querySelector('.tv-group-body');
+    body.innerHTML = pages.map(p => `
+      <div class="tv-row">
+        <label><input type="checkbox" data-page="${p.id}" ${hiddenSet.has(p.id) ? '' : 'checked'}/> ${escapeHtml(p.name)}</label>
+      </div>`).join('');
+    wrap.querySelector('.tv-group-btn').addEventListener('click', () => {
+      body.classList.toggle('hidden');
+      if (body.classList.contains('hidden')) tvOpenGroups.delete(group.id); else tvOpenGroups.add(group.id);
+    });
+    body.querySelectorAll('input[data-page]').forEach(cb => cb.addEventListener('change', async () => {
+      const { error } = await supabaseClient.from('class_topic_visibility')
+        .upsert({ class_id: activeClassId, page_id: cb.dataset.page, visible: cb.checked });
+      if (error) { alert(error.message); cb.checked = !cb.checked; return; }
+      renderTopicVisibility(); // keep the unit tickbox + counts in step
+    }));
+    container.appendChild(wrap);
+  });
+}
+
+// Access-request queue: pending requests need action; resolved ones show
+// as history underneath.
+async function renderTopicRequests() {
+  const body = document.getElementById('requestsBody');
+  const { data, error } = await supabaseClient
+    .from('topic_access_requests')
+    .select('id, page_id, status, requested_at, resolved_at, profiles!inner(username)')
+    .eq('class_id', activeClassId)
+    .order('requested_at', { ascending: false });
+  if (error) { body.innerHTML = `<tr><td colspan="5" class="empty">Couldn't load requests.</td></tr>`; return; }
+
+  const rows = data || [];
+  const pending = rows.filter(r => r.status === 'pending').length;
+  document.getElementById('requestsCount').textContent = pending ? `— ${pending} waiting for you` : '';
+
+  if (!rows.length) { body.innerHTML = `<tr><td colspan="5" class="empty">No access requests yet.</td></tr>`; return; }
+  body.innerHTML = rows.map(r => `
+    <tr data-id="${r.id}">
+      <td class="mono">${escapeHtml(r.profiles.username)}</td>
+      <td>${escapeHtml(pageTitle(r.page_id))}</td>
+      <td class="mono">${fmtDateTime(r.requested_at)}</td>
+      <td>${r.status === 'pending' ? '<span class="chip pending">Waiting</span>' : r.status === 'approved' ? '<span class="chip ontime">Approved</span>' : '<span class="chip missed">Denied</span>'}</td>
+      <td class="actions-cell">${r.status === 'pending'
+        ? `<button type="button" class="btn small" data-a="approve">Approve</button><button type="button" class="btn secondary small" data-a="deny">Deny</button>`
+        : ''}</td>
+    </tr>`).join('');
+}
+
+document.getElementById('requestsBody').addEventListener('click', async e => {
+  const btn = e.target.closest('button[data-a]');
+  if (!btn) return;
+  const row = btn.closest('tr[data-id]');
+  btn.disabled = true;
+  const { error } = await supabaseClient.rpc('resolve_topic_access_request', {
+    p_request_id: row.dataset.id, p_approve: btn.dataset.a === 'approve',
+  });
+  if (error) { alert(error.message); btn.disabled = false; return; }
+  renderTopicRequests();
+  refreshPendingCounts();
+});
+
+// Per-student task results inside the single-student drill-down.
+async function loadStudentTasks(studentId) {
+  const body = document.getElementById('studentTasksBody');
+  body.innerHTML = '<tr><td colspan="7" class="empty">Loading…</td></tr>';
+  try {
+    const { data: asg, error } = await supabaseClient
+      .from('task_assignments').select('*').eq('student_id', studentId);
+    if (error) throw error;
+    const taskIds = (asg || []).map(a => a.task_id);
+    if (!taskIds.length) {
+      body.innerHTML = '<tr><td colspan="7" class="empty">No tasks assigned to this student yet.</td></tr>';
+      return;
+    }
+    const [{ data: tasks }, { data: atts }] = await Promise.all([
+      supabaseClient.from('tasks').select('*').in('id', taskIds).eq('class_id', activeClassId),
+      supabaseClient.from('task_attempts').select('*').eq('student_id', studentId).in('task_id', taskIds),
+    ]);
+    if (!tasks || !tasks.length) {
+      body.innerHTML = '<tr><td colspan="7" class="empty">No tasks assigned in this class yet.</td></tr>';
+      return;
+    }
+    body.innerHTML = tasks.map(t => {
+      const assignment = (asg || []).find(a => a.task_id === t.id);
+      const attempts = (atts || []).filter(a => a.task_id === t.id);
+      const state = studentTaskState(t, assignment, attempts);
+      const c = countedAttempt(t, attempts);
+      const due = effectiveDue(t, assignment);
+      const label = state === 'submitted' ? (c && c.is_late ? 'Submitted late' : 'On time')
+        : TASK_STATE_LABELS[state];
+      return `<tr>
+        <td><strong>${escapeHtml(t.title)}</strong>${t.status === 'draft' ? ' <span class="muted">(draft)</span>' : ''}</td>
+        <td class="mono">${due ? fmtDateTime(due) : '—'}${assignment && (assignment.due_override || assignment.extra_time_minutes) ? ' ♿' : ''}</td>
+        <td>${label}${c && !c.marking_complete ? ' · marking' : ''}</td>
+        <td class="mono">${submittedAttempts(attempts).length}${t.attempts_allowed ? '/' + t.attempts_allowed : ''}</td>
+        <td class="mono">${c ? `${c.marks_awarded ?? 0}/${c.marks_total ?? '—'}${c.marks_total ? ' (' + attemptPct(c) + '%)' : ''}` : '—'}</td>
+        <td class="mono">${c ? fmtDuration(c.time_spent_seconds) : '—'}</td>
+        <td><a href="teacher-tasks.html?class=${activeClassId}&task=${t.id}" style="color:var(--accent); font-size:12px;">Open →</a></td>
+      </tr>`;
+    }).join('');
+  } catch (e) {
+    body.innerHTML = '<tr><td colspan="7" class="empty">Tasks aren\'t set up yet — run supabase/tasks-schema.sql (see SETUP.md).</td></tr>';
+  }
+}
+
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+}
+
+init();
+</script>
+<script src="footer-legal.js"></script>
+</body>
+</html>

@@ -305,6 +305,15 @@
         //  DATA: 5.1 The Role of the Finance Function
         // ══════════════════════════════════════
 
+        const pageMeta = {
+                id: '5-1-role-of-finance-function',
+                badge: 'OCR GCSE Business — Component 2',
+                title: '5.1 Role of Finance Function',
+                subtitle: 'Interactive revision guide',
+                subject: 'business',
+            };
+
+
         // 1. Main Learning Content
         const topics = [
             {
@@ -322,7 +331,13 @@
   <li><strong>Forecast:</strong> An estimate or prediction of what is expected to happen in the future (e.g. a cash-flow forecast).</li>
   <li><strong>Sources of Finance:</strong> Where a business gets money from — examples include savings, loans, overdrafts, and share issues.</li>
   <li><strong>Interdependence:</strong> The way in which different departments within a business rely on each other to operate effectively.</li>
-</ul>`
+</ul>`,
+                readCheck: {
+                    q: "According to the key definitions, what is the 'finance function'?",
+                    opts: ["The department in a larger business that manages money and produces financial information", "The department in a larger business that recruits staff and organises training programmes", "The department in a larger business that designs adverts and researches target customers", "The department in a larger business that manufactures goods and inspects finished products"],
+                    ans: 0,
+                    explain: "The card defines the finance function as the department that manages money and produces financial information — distinct from HR, marketing, or production departments."
+                }
             },
             {
                 title: "The Purpose of the Finance Function",
@@ -344,7 +359,13 @@
     <div class="con-item"><strong>No finance department:</strong> Sole traders and partnerships usually hire an external accountant to check their finances.</div>
     <div class="con-item"><strong>Limited resources:</strong> Cannot afford a full-time specialist finance team, which may slow decision-making.</div>
   </div>
-</div>`
+</div>`,
+                readCheck: {
+                    q: "What are the two core purposes of the finance function described in this card?",
+                    opts: ["Designing new products and setting prices for the firm's target market segments", "Supporting business planning and providing financial information to other departments", "Recruiting new employees and organising staff appraisal and training programmes", "Negotiating supplier contracts and managing the delivery of essential raw materials"],
+                    ans: 1,
+                    explain: "The card states the finance function exists to support business planning/decision-making and to provide financial information — not product design, recruitment, or supply-chain tasks."
+                }
             },
             {
                 title: "Roles of the Finance Function",
@@ -359,7 +380,13 @@
   <li><strong>Arranging finance:</strong> Sources funding such as loans, overdrafts, or share issues when the business needs capital.</li>
   <li><strong>Managing payments and receipts:</strong> Ensures bills are paid on time and money owed to the business is collected.</li>
 </ul>
-<p>⚠️ <strong>Examiner Warning:</strong> The finance function does NOT advertise products, recruit staff, make quality decisions, or choose marketing methods. These belong to other departments. Confusing these is a very common mistake.</p>`
+<p>⚠️ <strong>Examiner Warning:</strong> The finance function does NOT advertise products, recruit staff, make quality decisions, or choose marketing methods. These belong to other departments. Confusing these is a very common mistake.</p>`,
+                readCheck: {
+                    q: "Which of these is listed as a role of the finance function, rather than another department?",
+                    opts: ["Choosing which television advert style will attract more customers", "Deciding which candidates should be shortlisted for interview", "Calculating the break-even output needed to avoid making a loss", "Checking that finished goods meet the required quality standard"],
+                    ans: 2,
+                    explain: "The card lists calculating break-even output as a finance function task; advertising style, recruitment shortlisting and quality checks belong to marketing, HR and operations instead."
+                }
             },
             {
                 title: "How the Finance Function Influences Business Activity",
@@ -373,7 +400,13 @@
   <li><strong>Business expansion:</strong> Advises on sources of finance, forecasts costs, and models the impact on break-even and cash flow.</li>
   <li><strong>Changing the way products are sold (e.g. moving online):</strong> Provides data on the impact of different sales channels on revenues and costs.</li>
 </ul>
-<p>This shows that business departments are <strong>interdependent</strong> — they rely on each other. The finance function sits at the heart of this, providing data that every other department needs to make good decisions.</p>`
+<p>This shows that business departments are <strong>interdependent</strong> — they rely on each other. The finance function sits at the heart of this, providing data that every other department needs to make good decisions.</p>`,
+                readCheck: {
+                    q: "How does the finance function support a business that is changing its production method?",
+                    opts: ["It writes the new job descriptions needed for the fully redesigned production process", "It designs the new packaging that will be used once production has changed", "It negotiates the planning permission needed for the new production site", "It forecasts changes in revenue and costs and recalculates the new break-even output"],
+                    ans: 3,
+                    explain: "The card explains that when production methods change, finance forecasts revenue/cost changes and recalculates break-even — not job design, packaging, or planning permission."
+                }
             },
             {
                 title: "Finance and Business Growth",
@@ -389,7 +422,13 @@
   <h4>Case Study: Stellantis / Vauxhall — Ellesmere Port</h4>
   <p>In July 2021, Stellantis (owners of Vauxhall) announced their Ellesmere Port factory would produce all-electric vans. The decision followed lengthy negotiations with the UK government, which reportedly offered a £30 million grant. The finance function at Stellantis played a central role — supporting business planning and ensuring all decision-making was informed by accurate financial data. Without this financial analysis, such a major investment decision could not have been made confidently.</p>
   <p><strong>Takeaway:</strong> Large-scale business decisions always involve the finance function. It provides the financial evidence needed to justify investment, expansion, or change.</p>
-</div>`
+</div>`,
+                readCheck: {
+                    q: "According to this card, why do many small businesses remain small?",
+                    opts: ["They could not raise the finance needed to expand into a larger business", "They chose not to advertise their products outside their local area", "They lacked enough staff willing to work extra hours during busy periods", "They refused to change their opening hours to suit more customers"],
+                    ans: 0,
+                    explain: "The card states many small businesses remain small simply because they could not raise the finance needed to expand — a direct link between finance and business growth."
+                }
             },
             {
                 title: "Financial Information: What It Includes",
@@ -407,7 +446,13 @@
 <div class="formula-box">
   <strong>Break-Even Output =</strong> Fixed Costs &divide; (Selling Price &minus; Variable Cost per Unit)
 </div>
-<p>Each of these pieces of information feeds into business decision-making — no manager should make a significant decision without consulting the finance function first.</p>`
+<p>Each of these pieces of information feeds into business decision-making — no manager should make a significant decision without consulting the finance function first.</p>`,
+                readCheck: {
+                    q: "Which of these is one of the four types of financial information listed in this card?",
+                    opts: ["Job description, which shows the duties expected of a new employee", "Break-even, which shows how many units must be sold to cover all costs", "Market map, which shows how competitors are positioned by price", "Organisation chart, which shows the levels of hierarchy in a firm"],
+                    ans: 1,
+                    explain: "The card lists break-even alongside sources of finance, revenue/costs/profit and cash flow as the four types of financial information — the other options belong to HR and marketing."
+                }
             },
             {
                 title: "Finance & Interdependence Between Departments",
@@ -423,7 +468,13 @@
   <h4>Case Study: IKEA — Lancing Store Decision</h4>
   <p>In July 2021, IKEA backed out of opening a new store at Lancing, West Sussex — a site it had identified back in 2016. The coronavirus pandemic had dramatically shifted consumer behaviour towards online shopping, making the financial case for the store much weaker. The finance function would have analysed projected revenues, costs, and profitability of the Lancing store before recommending the business not proceed. IKEA announced it would instead invest further in its online operations.</p>
   <p><strong>Takeaway:</strong> The finance function doesn't just track money — it protects the business from bad investments by providing the evidence needed to make the right call, even when that means walking away from a major project.</p>
-</div>`
+</div>`,
+                readCheck: {
+                    q: "What does 'interdependence' mean in the context of the finance function?",
+                    opts: ["A business relies entirely on a single supplier for all of its raw material needs", "A company depends on a single bank for every one of its sources of finance", "Different departments within a business rely on each other to operate effectively", "Departments work in complete isolation without needing any shared data"],
+                    ans: 2,
+                    explain: "The card defines interdependence as departments relying on each other — e.g. marketing depends on finance for a budget — which is the opposite of departments working in isolation."
+                }
             }
         ];
 
@@ -710,35 +761,83 @@
         const miscData = [
             {
                 wrong: "The finance function manages the whole business — it is the most important department.",
-                correct: "The finance function is one of several departments. It provides financial information and supports other departments, but decisions are made across the business collaboratively. Its importance varies depending on the decision being made."
+                correct: "The finance function is one of several departments. It provides financial information and supports other departments, but decisions are made across the business collaboratively. Its importance varies depending on the decision being made.",
+                readCheck: {
+                    q: "Why is it wrong to say the finance function is 'the most important department'?",
+                    opts: ["It is actually the least important department of all because it only ever counts and records money", "It is only relevant once a business has already become a public limited company", "It only really matters once a business is preparing to close down completely", "It is one of several departments that provides data to support decisions made across the business"],
+                    ans: 3,
+                    explain: "The correct explanation is that finance is one of several interdependent departments supporting decisions collaboratively — its importance is not fixed as 'most important' in every case."
+                }
             },
             {
                 wrong: "Revenue and profit are the same thing.",
-                correct: "Revenue is the total money received from sales. Profit is what is LEFT after subtracting total costs from revenue. A business can have high revenue but still make a loss if its costs are even higher."
+                correct: "Revenue is the total money received from sales. Profit is what is LEFT after subtracting total costs from revenue. A business can have high revenue but still make a loss if its costs are even higher.",
+                readCheck: {
+                    q: "What is the key difference between revenue and profit?",
+                    opts: ["Profit is what remains after total costs are subtracted from total revenue", "Revenue is what remains after total costs are subtracted from total profit", "Revenue and profit both refer to the same figure shown on a cash-flow forecast", "Profit is always a fixed percentage of whatever revenue a business earns"],
+                    ans: 0,
+                    explain: "Profit = Revenue − Costs, so profit is what is left after costs are deducted from revenue; a business can have high revenue but still make a loss if costs are higher still."
+                }
             },
             {
                 wrong: "The finance function decides what to spend money on.",
-                correct: "The finance function provides the financial data that informs spending decisions — but it does not make those decisions alone. For example, marketing decides to run a campaign; finance tells them how much they can afford and monitors the results."
+                correct: "The finance function provides the financial data that informs spending decisions — but it does not make those decisions alone. For example, marketing decides to run a campaign; finance tells them how much they can afford and monitors the results.",
+                readCheck: {
+                    q: "What role does the finance function actually play in spending decisions?",
+                    opts: ["It makes every spending decision alone without input from other departments", "It provides financial data that informs decisions but does not make them alone", "It only gets involved after money has already been spent by a department", "It has no involvement at all in decisions about how money is spent"],
+                    ans: 1,
+                    explain: "The correct view is that finance supplies the data — e.g. telling marketing what it can afford — while other departments still make the actual spending decision."
+                }
             },
             {
                 wrong: "Break-even means the business is making a profit.",
-                correct: "Break-even means the business is making exactly zero profit — it has covered all its costs but has nothing left over. Profit only begins after the break-even point is exceeded."
+                correct: "Break-even means the business is making exactly zero profit — it has covered all its costs but has nothing left over. Profit only begins after the break-even point is exceeded.",
+                readCheck: {
+                    q: "What does reaching the break-even point actually mean for a business?",
+                    opts: ["The business has started to generate a small but growing profit", "The business has made a loss equal to its total fixed costs", "The business has covered all its costs but made exactly zero profit", "The business has generated enough revenue to repay all its loans"],
+                    ans: 2,
+                    explain: "Break-even means total revenue equals total costs, so the business makes exactly zero profit — profit only begins once output rises beyond the break-even point."
+                }
             },
             {
                 wrong: "Only large businesses need to worry about finance.",
-                correct: "All businesses — no matter their size — must manage their finances well to survive. Small businesses may not have a finance department, but the owner must still track costs, revenue, and cash flow carefully."
+                correct: "All businesses — no matter their size — must manage their finances well to survive. Small businesses may not have a finance department, but the owner must still track costs, revenue, and cash flow carefully.",
+                readCheck: {
+                    q: "Which statement correctly describes who needs to manage finances carefully?",
+                    opts: ["Only large businesses with a dedicated finance department need to worry at all", "Only businesses that sell shares publicly on the stock market need to worry", "Only businesses that have already taken out a large bank loan need to worry", "All businesses, regardless of size, must manage their finances well to survive"],
+                    ans: 3,
+                    explain: "The card corrects the misconception that only large firms need to worry about finance — every business, including sole traders without a finance department, must track money carefully."
+                }
             },
             {
                 wrong: "'Finance' and 'finance function' mean the same thing in exam questions.",
-                correct: "In exam questions, 'finance' often refers to money or sources of funding, while 'finance function' refers to the specific department in a business. Read the question carefully to understand which one is being asked about."
+                correct: "In exam questions, 'finance' often refers to money or sources of funding, while 'finance function' refers to the specific department in a business. Read the question carefully to understand which one is being asked about.",
+                readCheck: {
+                    q: "In exam questions, how do 'finance' and 'finance function' typically differ?",
+                    opts: ["'Finance' usually means money or funding, while 'finance function' means the department", "'Finance' and 'finance function' are simply two names for the exact same department", "'Finance' always means a bank loan, while 'finance function' means a share issue", "'Finance' refers to profit only, while 'finance function' refers to revenue only"],
+                    ans: 0,
+                    explain: "The card explains that 'finance' often refers to money/funding, while 'finance function' refers specifically to the department — so exam questions must be read carefully to see which is meant."
+                }
             },
             {
                 wrong: "Saying 'the finance function manages the business efficiently' is enough to score the understanding mark in an analyse question.",
-                correct: "This is a tautological answer — it just repeats the idea without explaining what the finance function actually does. You must explain a specific task (e.g. producing cash-flow forecasts, calculating break-even) to earn the understanding mark."
+                correct: "This is a tautological answer — it just repeats the idea without explaining what the finance function actually does. You must explain a specific task (e.g. producing cash-flow forecasts, calculating break-even) to earn the understanding mark.",
+                readCheck: {
+                    q: "Why does saying the finance function 'manages the business efficiently' fail to earn the understanding mark?",
+                    opts: ["It is factually incorrect because the finance function does not manage efficiency", "It is tautological and does not name a specific finance task the department performs", "It is too technical for an examiner to accept as a valid business term", "It only applies to public limited companies, not to smaller private firms"],
+                    ans: 1,
+                    explain: "The card explains this answer just repeats the idea without naming a specific task, such as producing cash-flow forecasts — a tautological answer scores no understanding mark."
+                }
             },
             {
                 wrong: "Cash flow and profit are the same — if a business is profitable, it won't have cash flow problems.",
-                correct: "A profitable business can still run out of cash if it doesn't receive payment from customers quickly enough. Cash flow is about timing of money in and out; profit is a longer-term calculation. A business can be profitable but cash-poor."
+                correct: "A profitable business can still run out of cash if it doesn't receive payment from customers quickly enough. Cash flow is about timing of money in and out; profit is a longer-term calculation. A business can be profitable but cash-poor.",
+                readCheck: {
+                    q: "Why can a profitable business still run into cash-flow problems?",
+                    opts: ["Profit and cash flow are identical figures calculated the same way", "A profitable business automatically receives all customer payments instantly", "Cash flow depends on payment timing, while profit is a longer-term calculation", "Cash-flow problems can only happen to a business that is making a loss"],
+                    ans: 2,
+                    explain: "The card explains that cash flow is about the timing of money in and out, whereas profit is a longer-term measure — so a business can be profitable yet still cash-poor."
+                }
             }
         ];
 
@@ -762,7 +861,13 @@
       This is specific and names a real task the finance function performs.</p>
       <p><strong>⚠️ Examiner Warning:</strong> Do NOT say "the finance function is important for the business" — this tells the examiner nothing. State a specific role: budgeting, calculating break-even, measuring profit and loss, sourcing finance, forecasting cash flow.</p>
     `,
-                pills: ["K"]
+                pills: ["K"],
+                readCheck: {
+                    q: "What is the key rule for answering a 1-mark 'Identify' or 'State' question?",
+                    opts: ["Give one vague general statement summarising the whole topic", "Give two or three related points to maximise your chances", "Give a short paragraph explaining the point in full detail", "Give one clear, specific point with no explanation needed"],
+                    ans: 3,
+                    explain: "The card explains a 1-mark question needs exactly one clear, specific point — a vague or general statement, or unnecessary explanation, will not gain the mark."
+                }
             },
             {
                 type: "Analyse — 3 marks",
@@ -787,7 +892,13 @@
 
       <p><strong>🚫 Knowledge Dumping Alert:</strong> Many students write everything they know about the finance function without linking it to BP. The examiner's report noted that the majority of candidates scored zero on Q2 because they did not explain what the finance function involves — they just said it "manages the business efficiently."</p>
     `,
-                pills: ["U", "app", "an"]
+                pills: ["U", "app", "an"],
+                readCheck: {
+                    q: "What are the three steps required in a 3-mark 'Analyse' answer?",
+                    opts: ["Understanding, Application, then Analysis of the impact on the business", "Definition, Evaluation, then a final and fully justified overall judgement", "Identification, Description, then a relevant real-world worked example", "Introduction, Summary, then a concluding recommendation paragraph"],
+                    ans: 0,
+                    explain: "The card sets out the 'Holy Trinity' for analyse questions: Understanding (what the finance function does), Application (link to the case study), and Analysis (the impact)."
+                }
             },
             {
                 type: "Evaluate — 7 marks",
@@ -816,7 +927,13 @@
       </ul>
       <p><strong>⚠️ The "It Depends" Trap:</strong> Only use "it depends" if you then specify what it depends on and why. A conclusion that simply repeats your analysis scores zero evaluation marks.</p>
     `,
-                pills: ["K", "U", "app", "an", "eval"]
+                pills: ["K", "U", "app", "an", "eval"],
+                readCheck: {
+                    q: "What must a strong evaluation paragraph do, beyond repeating the analysis points?",
+                    opts: ["Restate the two earlier analysis points using slightly different wording", "Make a clear judgement and justify it with new reasoning from the case study", "List every possible advantage and disadvantage without choosing between them", "Introduce a brand new topic that has not been discussed anywhere before"],
+                    ans: 1,
+                    explain: "The card warns that a conclusion which just repeats the analysis scores zero evaluation marks — the judgement must be justified with new reasoning tied to the case study."
+                }
             },
             {
                 type: "The Understanding Mark — Critical Warning",
@@ -837,7 +954,13 @@
       </ul>
       <p><strong>Rule of thumb:</strong> Could a student who had never studied business write your answer? If yes, it's not showing understanding — it's just common sense and will score zero.</p>
     `,
-                pills: ["U", "app", "an"]
+                pills: ["U", "app", "an"],
+                readCheck: {
+                    q: "Why is the understanding mark described as the 'gateway mark' in analyse questions?",
+                    opts: ["It is worth far more marks than the application and analysis points combined", "It is the only one of the marks that can be earned without reading the case study", "Without naming a specific finance task, no further marks can be awarded at all", "It is automatically awarded to every single student who attempts the question"],
+                    ans: 2,
+                    explain: "The examiner's report cited in the card shows most candidates scored zero because they never identified a specific finance task — without that gateway mark, no further marks can follow."
+                }
             }
         ];
 
@@ -1076,6 +1199,11 @@
         ];</script>
 
     <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

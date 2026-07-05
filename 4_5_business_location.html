@@ -305,6 +305,13 @@
 // ══════════════════════════════════════
 //  DATA TEMPLATE: 4.5 Business Location
 // ══════════════════════════════════════
+  const pageMeta = {
+    id: '4-5-business-location',
+    badge: 'OCR GCSE Business — Component 1',
+    title: '4.5 Business Location',
+    subtitle: 'Interactive revision guide',
+    subject: 'business',
+  };
 
 // 1. Main Learning Content
 const topics = [
@@ -321,7 +328,18 @@ const topics = [
   <li><strong>Enterprise zone:</strong> A government-designated area where businesses are offered incentives such as reduced business rates, lower taxes on investment, and superfast broadband to encourage them to locate there.</li>
   <li><strong>Freeport:</strong> An area where businesses can import goods without paying tariffs or VAT — duties are only payable if goods are sold in the wider UK market.</li>
   <li><strong>Northern Powerhouse:</strong> A UK Government initiative to encourage businesses to locate, stay and expand in the north of England by improving infrastructure and providing funding from Liverpool to Hull.</li>
-</ul>`
+</ul>`,
+    readCheck: {
+      q: "What is the key difference between an Enterprise Zone and a Freeport?",
+      opts: [
+        "They are identical — both offer the exact same package of incentives to businesses",
+        "Enterprise zones cut business rates and taxes; freeports also let firms import goods tariff-free",
+        "Freeports are only open to food and farming businesses, unlike enterprise zones",
+        "Enterprise zones let firms import goods tariff-free, while freeports only cut business rates"
+      ],
+      ans: 1,
+      explain: "Enterprise zones offer incentives like reduced business rates, lower taxes on investment, and superfast broadband. Freeports go further — goods can be imported without paying tariffs or VAT until they enter the wider UK market, making them especially attractive for businesses that import, process and re-export."
+    }
   },
   {
     title: "Why Location Matters",
@@ -338,7 +356,18 @@ const topics = [
 <div class="case-study-box">
   <h4>Key Evaluation Point</h4>
   <p>Proximity to the market remains a very important factor for many businesses. However, the growth of internet selling and the reduction in transport and shipping costs has made it possible for more and more businesses to compete even when not near their customers. A business like <strong>Amazon</strong> competes effectively by selling vast quantities at low prices from strategically positioned warehouses — proximity to the customer is far less important than proximity to a good road network.</p>
-</div>`
+</div>`,
+    readCheck: {
+      q: "Why is Amazon's location strategy different from that of a traditional retailer?",
+      opts: [
+        "Amazon ignores location completely, since online sales make the site irrelevant",
+        "Amazon values good road links over closeness to customers, selling from warehouses",
+        "Amazon needs to sit right next to its customers, just like a high street shop",
+        "Amazon's warehouse sites are chosen purely by where its raw material suppliers sit"
+      ],
+      ans: 1,
+      explain: "Amazon sells online at high volumes, so being near a motorway network for fast delivery matters far more than being near any individual customer — unlike a high street retailer which relies on footfall."
+    }
   },
   {
     title: "Factor 1: Costs",
@@ -359,7 +388,18 @@ const topics = [
   <h4>Case Study: Burberry</h4>
   <p>Burberry — a luxury fashion brand with a Royal Warrant — moved production from Wales to China because UK factory and labour costs were higher than almost anywhere else in the world.</p>
   <p><strong>Takeaway:</strong> Even prestigious brands prioritise cost efficiency, especially when manufacturing is labour-intensive.</p>
-</div>`
+</div>`,
+    readCheck: {
+      q: "Cambridge Research Biochemicals moved to Teesside in 1999. What was the key financial reason?",
+      opts: [
+        "Teesside offered much faster transport links into central London than Cambridge did",
+        "Rents in Teesside were only 10% of Cambridge rents, saving huge sums",
+        "Government regulations legally required all biochemical firms to relocate to Teesside",
+        "Cambridge had completely lost its supply of skilled biochemical research workers"
+      ],
+      ans: 1,
+      explain: "CRB relocated because rents in Teesside were only 10% of Cambridge rents — a 90% reduction in premises costs. This was further enhanced in 2014 by a £65,000 government 'Let's Grow' grant when they moved into the Teesside Valley enterprise zone."
+    }
   },
   {
     title: "Factor 2: Proximity to the Market",
@@ -384,7 +424,18 @@ const topics = [
     <div class="con-item"><strong>More competition:</strong> Popular locations attract rival businesses, increasing competitive pressure and potentially driving down prices.</div>
     <div class="con-item"><strong>Not always necessary:</strong> Online businesses and manufacturers of small, lightweight goods do not always need to be near their customers.</div>
   </div>
-</div>`
+</div>`,
+    readCheck: {
+      q: "Toyota Tsusho UK makes wheels for Jaguar Land Rover and is located just 33 miles from JLR's Castle Bromwich plant. Which location factor does this best illustrate?",
+      opts: [
+        "Proximity to raw materials — Toyota Tsusho needs steel supplies close by",
+        "Proximity to market — Toyota Tsusho sits near JLR to cut delivery costs",
+        "Government incentives — the West Midlands site sits inside an enterprise zone",
+        "Labour availability — Castle Bromwich has a large pool of skilled engineers"
+      ],
+      ans: 1,
+      explain: "Toyota Tsusho UK is a manufacturer whose main customer is JLR. Locating 33 miles away reduces delivery costs for bulky car wheels and makes it easier to respond quickly to JLR's production schedule — a classic example of a manufacturer locating near its market."
+    }
   },
   {
     title: "Factor 3: Proximity to Raw Materials",
@@ -405,7 +456,18 @@ const topics = [
   <h4>Case Study: Dewlay Cheesemakers, Lancashire</h4>
   <p>Dewlay buys milk from dairy farms within six miles of its dairy in Garstang, Lancashire. This reduces transport costs <em>and</em> allows Dewlay to market its 'green' credentials — it was the first cheese producer to generate its own electricity from a wind turbine.</p>
   <p><strong>Takeaway:</strong> Locating near raw materials can bring both financial savings and reputational benefits in an environmentally conscious market.</p>
-</div>`
+</div>`,
+    readCheck: {
+      q: "Why does Cargill Foods locate its factory directly on the Liverpool docks rather than inland?",
+      opts: [
+        "Liverpool offers the lowest labour costs of any UK port city",
+        "Wheat is unloaded from ships straight into the factory, cutting cost",
+        "Government regulations require all food processors to sit at ports",
+        "Liverpool docks charge the cheapest factory rent of any UK location"
+      ],
+      ans: 1,
+      explain: "Cargill imports wheat by sea — locating at the docks means the wheat goes straight from ship to factory with no intermediate transport. Moving the factory inland would add lorry transport, extra loading/unloading, and significant cost."
+    }
   },
   {
     title: "Factor 4: Proximity to Labour",
@@ -420,7 +482,18 @@ const topics = [
   <h4>Case Study: Channel 4 Moves to Leeds</h4>
   <p>Channel 4 opened additional headquarters in Leeds. Key reasons: office space costs £250–£300/month in Leeds vs £650–£2,500/month in London; average salaries are lower (£33,000 vs £38,000); and Leeds has three universities — three-quarters of Leeds Beckett graduates stay in the city, providing a strong talent pipeline.</p>
   <p><strong>Takeaway:</strong> For office-based businesses, northern cities can offer a compelling mix of lower costs AND a well-educated, skilled labour pool.</p>
-</div>`
+</div>`,
+    readCheck: {
+      q: "What specific labour advantage did Leeds offer Channel 4 compared to London?",
+      opts: [
+        "Leeds has more television and media production studios",
+        "Lower salaries plus strong graduate retention from universities",
+        "Employment law requires Leeds staff to work longer hours",
+        "The government pays Channel 4 staff salaries directly in Leeds"
+      ],
+      ans: 1,
+      explain: "Leeds offered Channel 4 both lower salaries (£33,000 vs £38,000 in London) and a ready supply of graduates — three-quarters of Leeds Beckett graduates stay in the city — making it both cheaper and talent-rich compared to London."
+    }
   },
   {
     title: "Factor 5: Government Influence",
@@ -445,7 +518,18 @@ const topics = [
     <div class="con-item"><strong>Other factors persist:</strong> Incentives alone cannot compensate for poor transport links, low skilled labour supply, or limited customer base.</div>
     <div class="con-item"><strong>Bureaucracy:</strong> Applying for grants or enterprise zone status can be time-consuming and the outcome is uncertain.</div>
   </div>
-</div>`
+</div>`,
+    readCheck: {
+      q: "How many Enterprise Zones and Freeports were there in the UK at the time covered in this topic?",
+      opts: [
+        "8 Enterprise Zones and 48 Freeports",
+        "48 Enterprise Zones and 8 Freeports",
+        "4 Enterprise Zones and 4 Freeports",
+        "100 Enterprise Zones and 20 Freeports"
+      ],
+      ans: 1,
+      explain: "There are 48 Enterprise Zones (including four in South Wales) and 8 Freeports announced in 2021. The numbers are easy to mix up — remember there are far more enterprise zones than freeports."
+    }
   },
   {
     title: "Online vs Physical Location",
@@ -471,7 +555,18 @@ const topics = [
   <h4>Case Study: The Wool Warehouse</h4>
   <p>Set up in 2012, the Wool Warehouse deliberately chose a warehouse rather than a high street shop to enter the online yarn market. At the time, there were only 2–3 yarn suppliers online. Online sales took off, and by 2014 they doubled their warehouse space as their range expanded.</p>
   <p><strong>Takeaway:</strong> Going online allowed the Wool Warehouse to enter a market with very little competition, reach customers nationally, and keep overheads low — all without needing a prime retail location.</p>
-</div>`
+</div>`,
+    readCheck: {
+      q: "When The Wool Warehouse launched in 2012, what market condition made the online strategy particularly attractive?",
+      opts: [
+        "There were hundreds of yarn competitors already selling online by that point",
+        "There were only 2–3 yarn suppliers online, meaning almost no competition",
+        "The government awarded them a large grant specifically to launch online sales",
+        "Every high street yarn shop in the country had already shut down by 2012"
+      ],
+      ans: 1,
+      explain: "In 2012 there were only 2–3 online yarn suppliers — almost no competition. The Wool Warehouse seized that gap, reaching customers nationally without the cost of a high-street location. By 2014 they doubled their warehouse space as sales grew."
+    }
   }
 ];
 
@@ -754,35 +849,83 @@ const tfData = [
 const miscData = [
   {
     wrong: "Students think 'the high street' is the only location option for a business.",
-    correct: "Businesses can locate anywhere — high streets, industrial estates, online warehouses, near ports, in enterprise zones. The best location depends entirely on the type of business and which factors are most important to it."
+    correct: "Businesses can locate anywhere — high streets, industrial estates, online warehouses, near ports, in enterprise zones. The best location depends entirely on the type of business and which factors are most important to it.",
+    readCheck: {
+      q: "Which of the following is NOT a valid location option for a business?",
+      opts: ["An out-of-town industrial estate", "A warehouse near a motorway junction", "A government enterprise zone", "All of these are valid location options"],
+      ans: 3,
+      explain: "All of these — industrial estates, motorway-adjacent warehouses, and enterprise zones — are perfectly valid location options. There is no single 'right' location type; it depends entirely on the business's needs."
+    }
   },
   {
     wrong: "Students confuse 'proximity to market' (near customers) with 'proximity to raw materials' (near suppliers).",
-    correct: "These are two completely separate location factors. 'Proximity to market' = near customers. 'Proximity to raw materials' = near suppliers of inputs. A business can prioritise one, the other, or both — depending on what it produces."
+    correct: "These are two completely separate location factors. 'Proximity to market' = near customers. 'Proximity to raw materials' = near suppliers of inputs. A business can prioritise one, the other, or both — depending on what it produces.",
+    readCheck: {
+      q: "Dewlay Cheesemakers sources milk from farms within six miles of its dairy. Which location factor is this?",
+      opts: ["Proximity to market — Dewlay is close to its cheese buyers", "Proximity to raw materials — Dewlay is close to milk suppliers", "Government incentives — the farms are in an enterprise zone", "Labour availability — farm workers make the cheese"],
+      ans: 1,
+      explain: "Milk is the raw material for cheese-making. Dewlay locates near its dairy farms (suppliers of milk) to minimise transport costs and keep milk fresh — this is proximity to raw materials, not proximity to market."
+    }
   },
   {
     wrong: "Students write that 'an online business doesn't need to think about location at all.'",
-    correct: "Online businesses still have critical location decisions — particularly for their warehouses. They need good transport links (road/rail), a reliable labour supply, and affordable land. The Wool Warehouse is a clear example of deliberate location planning for an online business."
+    correct: "Online businesses still have critical location decisions — particularly for their warehouses. They need good transport links (road/rail), a reliable labour supply, and affordable land. The Wool Warehouse is a clear example of deliberate location planning for an online business.",
+    readCheck: {
+      q: "What location factor is MOST important for an online retailer choosing where to put its warehouse?",
+      opts: ["Proximity to customers — the warehouse should sit near shoppers directly", "Proximity to competitors — the warehouse should sit near rival firms", "Good transport links — road and rail access for fast nationwide delivery", "City centre visibility — the warehouse should boost brand recognition locally"],
+      ans: 2,
+      explain: "Online retailers don't need to be near customers physically — they reach them through delivery. What matters most for a warehouse is excellent road and rail links to get parcels to customers quickly and cheaply across the country."
+    }
   },
   {
     wrong: "Students write that 'government grants automatically make a location the best choice.'",
-    correct: "Government incentives reduce costs but do not eliminate other disadvantages. A location with good grants but poor transport links, scarce skilled labour, or no market access may still be unsuitable for certain businesses."
+    correct: "Government incentives reduce costs but do not eliminate other disadvantages. A location with good grants but poor transport links, scarce skilled labour, or no market access may still be unsuitable for certain businesses.",
+    readCheck: {
+      q: "A business receives a £100,000 enterprise zone grant to locate in a remote area with no motorway access and few local workers. Should it definitely accept?",
+      opts: ["Yes — a grant of that size always makes any site worthwhile", "Not necessarily — poor transport and labour could outweigh the grant", "Yes — government grants always cancel out every location downside", "No — businesses should always reject grants tied to remote areas"],
+      ans: 1,
+      explain: "Government incentives reduce costs but cannot fix fundamental disadvantages like poor transport infrastructure or scarce skilled workers. The overall location package must be evaluated — grants are just one factor among many."
+    }
   },
   {
     wrong: "Students believe all businesses must locate near their raw materials.",
-    correct: "Proximity to raw materials only matters when materials are bulky, perishable, or expensive to transport. A business making small, lightweight products (e.g., greeting cards) has no reason to locate near raw materials."
+    correct: "Proximity to raw materials only matters when materials are bulky, perishable, or expensive to transport. A business making small, lightweight products (e.g., greeting cards) has no reason to locate near raw materials.",
+    readCheck: {
+      q: "Which of the following businesses has the STRONGEST reason to locate near its raw materials?",
+      opts: ["A greeting card manufacturer using lightweight card and paper", "A software development company selling downloadable digital products", "A cheese producer using fresh, perishable local milk", "An online clothing retailer shipping garments nationwide"],
+      ans: 2,
+      explain: "Fresh milk is perishable and bulky — it cannot travel long distances before spoiling. A cheese producer must be near its milk supply. The other businesses use materials that are either lightweight, digital, or easily shipped over long distances."
+    }
   },
   {
     wrong: "For a 7-mark 'discuss' or 'evaluate' question, students list location factors without making a final judgement.",
-    correct: "The examiner's report highlights that most students gain marks for application and analysis but miss evaluation marks by not making a judgement. You MUST weigh up which factor is most important and state WHY, using context from the case study. Even a simple, contextualised judgement earns evaluation marks."
+    correct: "The examiner's report highlights that most students gain marks for application and analysis but miss evaluation marks by not making a judgement. You MUST weigh up which factor is most important and state WHY, using context from the case study. Even a simple, contextualised judgement earns evaluation marks.",
+    readCheck: {
+      q: "Most students score around 4/7 on a location evaluate question. What do they typically miss?",
+      opts: ["They don't name any relevant location factors at all", "They don't apply their answer to the specific business", "They don't make a final judgement on the most important factor", "They write far too much without ever reaching a conclusion"],
+      ans: 2,
+      explain: "The examiner's report consistently flags this — most candidates demonstrate application and analysis but skip the evaluation mark by failing to make a final contextualised judgement. Even a short, specific conclusion earns evaluation marks."
+    }
   },
   {
     wrong: "Students think 'Silicon Fen' is in Silicon Valley, USA.",
-    correct: "Silicon Fen is an area near Cambridge, UK. It is named after the Fens (the flat marshy land near Cambridge). It is a cluster of ICT firms and highly skilled technology workers, not connected to Silicon Valley in California."
+    correct: "Silicon Fen is an area near Cambridge, UK. It is named after the Fens (the flat marshy land near Cambridge). It is a cluster of ICT firms and highly skilled technology workers, not connected to Silicon Valley in California.",
+    readCheck: {
+      q: "Where is 'Silicon Fen' and why is it relevant to business location?",
+      opts: ["San Francisco, USA — it is the home of tech giants like Apple and Google", "Near Cambridge, UK — it is a cluster of ICT firms and skilled tech workers", "In the north of England — it was created by the Northern Powerhouse initiative", "In South Wales — it is one of four enterprise zones in the region"],
+      ans: 1,
+      explain: "Silicon Fen is near Cambridge, UK — named after the flat Fens landscape. It is a cluster of ICT businesses that attracts and benefits from the pool of highly skilled technology graduates from Cambridge University."
+    }
   },
   {
     wrong: "When asked to 'analyse one factor', students write about several factors briefly rather than one factor in depth.",
-    correct: "The examiner wants ONE factor developed with three steps: Understanding (explain the factor) → Application (link to the specific business using case study evidence) → Analysis (explain the impact on the business). Two brief points will not score full marks."
+    correct: "The examiner wants ONE factor developed with three steps: Understanding (explain the factor) → Application (link to the specific business using case study evidence) → Analysis (explain the impact on the business). Two brief points will not score full marks.",
+    readCheck: {
+      q: "On a 3-mark 'Analyse one location factor' question, a student writes two sentences about two different factors. How many marks do they score?",
+      opts: ["3 marks — covering two different factors shows good breadth of knowledge", "2 marks — one mark is awarded for each factor mentioned", "1 mark — without U, APP and AN for one factor, marks are capped", "0 marks — only one location factor should ever be discussed"],
+      ans: 2,
+      explain: "The 3-mark U → APP → AN chain requires depth on ONE factor, not breadth across several. Two brief mentions of different factors can only earn at most 1 mark — without Application and Analysis, the chain is incomplete."
+    }
   }
 ];
 
@@ -811,7 +954,18 @@ const examTips = [
       </ul>
       <p><strong>⏱️ Exam Tip:</strong> Do NOT write more than one sentence for a 1-mark question. Move on quickly — every minute counts in the exam.</p>
     `,
-    pills: ["K"]
+    pills: ["K"],
+    readCheck: {
+      q: "Which of these answers would score 1 mark for 'Identify one factor a business considers when choosing its location'?",
+      opts: [
+        "\"Location is very important for all businesses.\"",
+        "\"Proximity to the market / nearness to customers.\"",
+        "\"Businesses need to think carefully about where they are.\"",
+        "\"The area.\""
+      ],
+      ans: 1,
+      explain: "Only a specific, named factor scores the mark — 'proximity to the market' is precise and correct. The other options are all vague restatements of the question and would score zero."
+    }
   },
   {
     type: "Analyse — 3 marks",
@@ -837,7 +991,18 @@ const examTips = [
         <li><em>AN: "As a result, the business would..." / "This means costs would..." / "This could lead to..."</em></li>
       </ul>
     `,
-    pills: ["U", "app", "an"]
+    pills: ["U", "app", "an"],
+    readCheck: {
+      q: "A student analyses AM plc's location by writing: 'AM plc should locate where there are skilled workers because they are important.' How many marks does this score?",
+      opts: [
+        "3 marks — it names skilled workers and links this clearly to AM plc",
+        "2 marks — it shows knowledge and some application to AM plc's case",
+        "1 mark — it states the factor but gives no application or analysis",
+        "0 marks — skilled workers is not considered a genuine location factor"
+      ],
+      ans: 2,
+      explain: "This scores only 1 mark (U) — it names the factor but fails to apply it using specific evidence from the AM plc case study (APP) and gives no analysis of the financial or operational consequence (AN). The chain is U → APP → AN and all three steps are needed."
+    }
   },
   {
     type: "Recommend — 3 marks",
@@ -856,7 +1021,18 @@ const examTips = [
       <em>"Lo-Cost Rental should NOT locate at Heathrow Airport (JUDGEMENT). The very high cost of renting a service desk and parking spaces at the airport would make it almost impossible for Lo-Cost to maintain its low-priced model while staying profitable. Furthermore, well-established competitors such as Hertz and Avis can subsidise lower prices with revenue from premium cars — a strategy Lo-Cost cannot replicate (JUSTIFICATION ×2)."</em></p>
       <p><strong>💡 The Rule:</strong> Justification MUST address both sides to earn 2 justification marks. Defending only one side = maximum 1 justification mark.</p>
     `,
-    pills: ["U", "app", "eval"]
+    pills: ["U", "app", "eval"],
+    readCheck: {
+      q: "Why does 'Lo-Cost should not locate at Heathrow because it is expensive' only score 1 out of 3 marks?",
+      opts: [
+        "It scores 0 — cost is never accepted as a valid location factor",
+        "It scores 1 — just the judgement mark; 'expensive' is too vague",
+        "It scores 2 — the judgement mark plus one justification point",
+        "It scores 3 — a clear decision alone is enough for full marks"
+      ],
+      ans: 1,
+      explain: "This earns only the judgement mark (1/3). To score the two justification marks, you need specific case study detail AND consideration of both sides — why Heathrow is unsuitable for Lo-Cost AND why competitors like Hertz can sustain the cost when Lo-Cost cannot."
+    }
   },
   {
     type: "Discuss / Evaluate — 7 marks",
@@ -882,7 +1058,18 @@ const examTips = [
       <em>"Overall, the most important factor for Costa Coffee was the high footfall from the town centre location, because as a retailer selling products in person — not online — passing trade is essential for survival. Without customers walking past, no other factor matters."</em><br/>
       This earns all 3 evaluation marks: a specific judgement (footfall), justified in context (Costa sells in person), with clear reasoning (passing trade is essential).</p>
     `,
-    pills: ["K", "U", "app", "an", "eval"]
+    pills: ["K", "U", "app", "an", "eval"],
+    readCheck: {
+      q: "The Costa Coffee evaluation example earns 3 evaluation marks. What three things does it include?",
+      opts: [
+        "Three separate advantages of choosing a busy town centre spot",
+        "A clear judgement, specific context about Costa, and its reasoning",
+        "A definition of footfall, one advantage, and one clear disadvantage",
+        "Two full analysis paragraphs and a short summary of key points"
+      ],
+      ans: 1,
+      explain: "A full 3-mark evaluation needs: (1) a clear decision about which factor is most important, (2) specific context from the business (Costa sells face-to-face, not online), and (3) reasoning explaining why that factor matters most — not simply repeating earlier analysis."
+    }
   }
 ];
 
@@ -1135,6 +1322,11 @@ const examQuestions = [
 ];
 </script>
     <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

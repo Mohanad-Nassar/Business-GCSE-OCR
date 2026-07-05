@@ -1,0 +1,178 @@
+/* Shared stylesheet for the site's legal/compliance pages (Privacy Policy,
+   Cookie Policy, Terms, Acceptable Use, Children's Code, Accessibility).
+   Reuses the same colour variables as style.css / business-style.css, with
+   fallbacks so this works even if a page hasn't already defined :root. */
+
+:root {
+  --ink: #0f1923;
+  --paper: #f5f0e8;
+  --cream: #ede7d9;
+  --accent: #7a5c9e;
+  --gold: #d4a843;
+  --mid: #5a6e7f;
+  --border: #c9bfaa;
+  --card-bg: #fffcf6;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body.legal-page {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  margin: 0;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+.legal-header {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 28px 24px 22px;
+}
+
+.legal-header .badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+
+.legal-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  margin: 0 0 4px;
+}
+
+.legal-header .updated {
+  font-size: 12.5px;
+  color: var(--cream);
+  opacity: .8;
+}
+
+.legal-nav {
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .04em;
+}
+
+.legal-nav a {
+  color: var(--mid);
+  text-decoration: none;
+  padding: 4px 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.legal-nav a:hover,
+.legal-nav a[aria-current="page"] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+main.legal-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 36px 24px 60px;
+}
+
+.legal-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  margin: 34px 0 10px;
+  color: var(--ink);
+}
+
+.legal-content h2:first-child { margin-top: 0; }
+
+.legal-content h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 20px 0 8px;
+}
+
+.legal-content p,
+.legal-content li { font-size: 14.5px; color: var(--ink); }
+
+.legal-content ul, .legal-content ol {
+  padding-left: 22px;
+  margin: 8px 0 14px;
+}
+
+.legal-content li { margin-bottom: 6px; }
+
+.legal-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 20px;
+  font-size: 13.5px;
+}
+
+.legal-content th, .legal-content td {
+  text-align: left;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.legal-content th {
+  background: var(--cream);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.plain-summary {
+  background: var(--card-bg);
+  border: 1px solid var(--gold);
+  border-left: 4px solid var(--gold);
+  border-radius: 6px;
+  padding: 16px 18px;
+  margin: 0 0 28px;
+}
+
+.plain-summary .label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.plain-summary p { margin: 0 0 8px; font-size: 14.5px; }
+.plain-summary p:last-child { margin-bottom: 0; }
+
+.provisional-note {
+  background: rgba(200,75,49,.08);
+  border: 1px solid rgba(200,75,49,.3);
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 13px;
+  margin: 0 0 28px;
+}
+
+.legal-content a { color: var(--accent); }
+
+.back-home {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: var(--cream);
+  text-decoration: none;
+}
+.back-home:hover { text-decoration: underline; }

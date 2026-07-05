@@ -1,0 +1,26 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[build.environment]
+  # SUPABASE_URL is a PUBLIC value — it's the project's API address and is
+  # meant to live in the front-end JavaScript (just like the anon key).
+  # Netlify's secret scanner flags it only because it's also registered as
+  # an env var and appears in committed files. Telling the scanner to skip
+  # this one key clears the false positive. The service_role key is
+  # deliberately NOT listed here, so it stays fully protected — and it must
+  # never appear in any committed file.
+  SECRETS_SCAN_OMIT_KEYS = "SUPABASE_URL"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Weekly cron: builds/tops-up each student's "retry what you got wrong" task.
+# Runs with no HTTP caller — see netlify/functions/weekly-retry-tasks.js.
+[functions."weekly-retry-tasks"]
+  schedule = "@weekly"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200

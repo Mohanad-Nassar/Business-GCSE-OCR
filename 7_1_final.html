@@ -305,6 +305,14 @@
     //  DATA: 7. The Interdependent Nature of Business
     // ══════════════════════════════════════
 
+
+    const pageMeta = {
+      id: '7-1-final',
+      badge: 'OCR GCSE Business — Synoptic',
+      title: '7.1 Interdependent Nature of Business',
+      subtitle: 'Interactive revision guide',
+      subject: 'business',
+    };
     // 1. Main Learning Content
     const topics = [
       {
@@ -322,7 +330,13 @@
           <li><strong>Synopticity:</strong> In OCR GCSE Business, this means that knowledge from Component 01 topics is brought together with knowledge from Component 02 topics to answer a question — showing how different areas of business are truly connected.</li>
           <li><strong>Business Areas:</strong> The four main functional areas of a business: Marketing, Human Resources (HR), Business Operations, and Finance.</li>
           <li><strong>Globalisation:</strong> The process of interaction and integration between people, companies and governments worldwide — opening up international markets and supply chains.</li>
-        </ul>`
+        </ul>`,
+        readCheck: {
+            q: "According to the key definitions, what does 'synopticity' mean in OCR GCSE Business?",
+            opts: ["Bringing together knowledge from Component 01 and Component 02 to answer a question", "The possibility that a business will lose money from a decision that it has made", "A measure of how well a business is doing, based on sales and profit", "The four main functional areas of a business working in isolation"],
+            ans: 0,
+            explain: "The card defines synopticity as bringing together knowledge from Component 01 and Component 02 topics to show how different business areas are connected."
+        }
       },
       {
         title: "The Four Interdependent Business Areas",
@@ -341,7 +355,13 @@
         <div class="case-study-box">
           <h4>Case Study: Wyke Farm</h4>
           <p>Wyke Farm, a Devon dairy producer, invested in solar panels and biomethane technology. This single decision linked all four areas: <strong>Operations</strong> changed its production process; <strong>Finance</strong> used a £11m bank loan and £2m retained profit; <strong>Marketing</strong> could now promote an environmentally friendly image and sell energy as a new product; <strong>HR</strong> may have needed new skilled workers. The £100,000/month energy saving was a clear financial reward for taking the risk of the investment.</p>
-        </div>`
+        </div>`,
+        readCheck: {
+            q: "According to the Wyke Farm case study, which business areas were linked by the solar panel investment?",
+            opts: ["Only the finance department, with no effect on any other area", "All four areas — operations, finance, marketing and HR together", "Only the marketing department, with no effect on any other area", "None of the four business areas were affected by the decision"],
+            ans: 1,
+            explain: "The card explains Wyke Farm's solar panel investment linked all four areas: operations changed, finance funded it, marketing promoted it, and HR may have needed new skilled workers."
+        }
       },
       {
         title: "Risk and Reward in Business",
@@ -373,7 +393,13 @@
             <div class="con-item"><strong>Lack of Security:</strong> No guaranteed income, long hours, difficulty taking holidays — a significant personal sacrifice.</div>
             <div class="con-item"><strong>Business Failure:</strong> The ultimate risk — if revenues cannot cover costs, the business must close, potentially leaving the owner in debt.</div>
           </div>
-        </div>`
+        </div>`,
+        readCheck: {
+            q: "According to this card, what is an example of a non-financial risk to a business owner?",
+            opts: ["Losing the money invested if the business fails or a decision backfires", "The profit made by the business as a return for taking that risk", "Health problems from stress and strained relationships with family", "Full control over decisions without answering to a manager"],
+            ans: 2,
+            explain: "The card lists health problems from stress and strained family relationships as non-financial risks — distinct from financial risk (losing invested money)."
+        }
       },
       {
         title: "Minimising Risk",
@@ -384,7 +410,13 @@
           <li><strong>Write a Business Plan:</strong> A detailed plan covering objectives, financial forecasts, marketing strategies and operational plans. It forces the entrepreneur to think through every aspect and is required when applying for a bank loan.</li>
           <li><strong>Ensure Sufficient Finance is Available:</strong> Many businesses fail not because of poor ideas, but because they run out of cash. Planning cash flow carefully and securing enough start-up capital is critical.</li>
         </ul>
-        <p>All three of these risk-minimisation strategies draw on <strong>financial information</strong> — which demonstrates once again how the different areas of business are interdependent.</p>`
+        <p>All three of these risk-minimisation strategies draw on <strong>financial information</strong> — which demonstrates once again how the different areas of business are interdependent.</p>`,
+        readCheck: {
+            q: "According to this card, what do all three risk-minimisation strategies draw on?",
+            opts: ["Sheer luck, since risk can never actually be reduced by planning", "Government grants, which are required before starting any business", "Legal advice, which is the only way to reduce the risk of failure", "Financial information, showing how business areas are interdependent"],
+            ans: 3,
+            explain: "The card explains market research, a business plan, and ensuring sufficient finance all draw on financial information — showing business areas are interdependent."
+        }
       },
       {
         title: "Using Financial Information to Make Decisions",
@@ -410,7 +442,13 @@
             <strong>Gross Profit =</strong> Revenue &minus; Cost of Sales
             <br><br>
               <strong>Net Profit Margin (%) =</strong> (Net Profit &divide; Revenue) &times; 100
-            </div>`
+            </div>`,
+        readCheck: {
+            q: "According to this card, what does 'net profit margin' show?",
+            opts: ["What percentage of revenue becomes profit, useful for comparing efficiency", "The total amount of cash a business has in its bank account today", "The exact number of units a business must sell to break even", "The total revenue a business receives before any of its costs are deducted"],
+            ans: 0,
+            explain: "The card explains net profit margin shows what percentage of revenue becomes profit, useful for comparing a business's efficiency over time."
+        }
       },
       {
         title: "Limitations of Financial Information",
@@ -426,7 +464,13 @@
               <ul>
                 <li><strong>Year-on-Year:</strong> Comparing this year's performance against previous years to identify trends.</li>
                 <li><strong>Against Competitors:</strong> Comparing with rivals (only possible for Limited Companies which must publish their accounts) to benchmark performance.</li>
-              </ul>`
+              </ul>`,
+        readCheck: {
+            q: "According to this card, what limitation does Average Rate of Return (ARR) have?",
+            opts: ["It can only ever be calculated by limited companies, not other businesses", "It does not account for the effects of inflation on the value of money", "It ignores the cost of the original investment being compared", "It cannot be used to compare two different investment options at all"],
+            ans: 1,
+            explain: "The card explains ARR does not account for inflation — £1 today is worth more than £1 in five years' time, but ARR treats them the same."
+        }
       },
       {
         title: "Synoptic Questions: How to Link Business Areas",
@@ -442,7 +486,13 @@
                 <p>&rarr; Knowledge/Understanding marks: define and explain <strong>marketing</strong>.<br>
                   &rarr; Application/Analysis/Evaluation marks: explain how the specific marketing changes (takeaway menu, website adverts) would have affected the <strong>cash flow</strong> of the Dog and Gun specifically.</p>
               </div>
-              <p>A common mistake is to write entirely about marketing and forget to link it back to the named impact (cash flow). Always keep asking yourself: <em>"So what does this mean for the cash flow / costs / revenue of this specific business?"</em></p>`
+              <p>A common mistake is to write entirely about marketing and forget to link it back to the named impact (cash flow). Always keep asking yourself: <em>"So what does this mean for the cash flow / costs / revenue of this specific business?"</em></p>`,
+        readCheck: {
+            q: "According to this card, where do Application, Analysis and Evaluation marks come from in a synoptic question?",
+            opts: ["Simply repeating the definition of the 'change' topic several times over again here", "Describing the 'change' topic in as much general detail as possible", "Explaining the impact on the specific business regarding the named 'affected' topic", "Listing every possible business area without ever linking any of them together"],
+            ans: 2,
+            explain: "The card explains APP, AN and EVAL marks come from explaining the impact on the specific business regarding the named 'affected' topic, such as cash flow."
+        }
       }
     ];
 
@@ -721,35 +771,83 @@
     const miscData = [
       {
         wrong: "Students write about 'interdependence' as simply meaning 'businesses need each other' or 'companies trade with each other.'",
-        correct: "Interdependence in this context means the four FUNCTIONAL AREAS within a SINGLE business (marketing, HR, operations, finance) are linked. A decision in one internal area affects the others. It is NOT about businesses trading with each other."
+        correct: "Interdependence in this context means the four FUNCTIONAL AREAS within a SINGLE business (marketing, HR, operations, finance) are linked. A decision in one internal area affects the others. It is NOT about businesses trading with each other.",
+        readCheck: {
+            q: "What does 'interdependence' actually mean in this topic?",
+            opts: ["Different businesses need each other and trade with one another", "A business depends entirely on its own direct competitors in order to succeed", "A business depends on customers trading with each other directly", "The four functional areas within a single business are linked to each other"],
+            ans: 3,
+            explain: "The card explains interdependence means the four functional areas within a SINGLE business are linked — it is not about businesses trading with each other."
+        }
       },
       {
         wrong: "For the 3-mark analyse question, students describe what a function does generally (e.g. 'marketing involves promotion') without linking it to the specific business in the case study.",
-        correct: "The examiner's report highlighted this was the most common reason for scoring zero. You MUST name a specific marketing activity (Understanding), THEN link it to the specific company named (Application), THEN explain the impact on the other function mentioned in the question (Analysis)."
+        correct: "The examiner's report highlighted this was the most common reason for scoring zero. You MUST name a specific marketing activity (Understanding), THEN link it to the specific company named (Application), THEN explain the impact on the other function mentioned in the question (Analysis).",
+        readCheck: {
+            q: "Why does describing a function generally, e.g. 'marketing involves promotion', score zero on a 3-mark analyse question?",
+            opts: ["It fails to link the activity to the specific business named in the case study", "It is factually incorrect, since marketing never involves promotion at all", "It already contains full application and analysis in one short sentence", "It only applies to finance questions, and never to marketing questions"],
+            ans: 0,
+            explain: "The card explains this was the most common reason for scoring zero — you must name a specific activity, link it to the business, then explain the impact."
+        }
       },
       {
         wrong: "Students confuse 'risk' with only financial risk — they do not mention non-financial risks like stress, health issues or strained family relationships.",
-        correct: "The specification explicitly identifies BOTH financial risk (losing money invested) AND non-financial risk (health, stress, damaged family relationships). For a question asking for two risks, one of each type is a strong answer."
+        correct: "The specification explicitly identifies BOTH financial risk (losing money invested) AND non-financial risk (health, stress, damaged family relationships). For a question asking for two risks, one of each type is a strong answer.",
+        readCheck: {
+            q: "Does 'risk' in this topic only refer to financial risk?",
+            opts: ["Yes — only financial risk is ever recognised in this exam specification", "No — non-financial risks like stress and strained relationships also count", "Yes — but only health risks count as a form of financial risk", "No — but only because financial risk does not actually exist"],
+            ans: 1,
+            explain: "The card explains the specification identifies BOTH financial risk (losing invested money) AND non-financial risk (health, stress, damaged relationships)."
+        }
       },
       {
         wrong: "Students write that the limitation of ARR is that 'it is hard to calculate' or 'businesses do not always have the right data.'",
-        correct: "The official, examinable limitation of ARR is that it does NOT account for the effects of INFLATION on the value of money. Money received in the future is worth less in real terms than money received today — ARR ignores this."
+        correct: "The official, examinable limitation of ARR is that it does NOT account for the effects of INFLATION on the value of money. Money received in the future is worth less in real terms than money received today — ARR ignores this.",
+        readCheck: {
+            q: "What is the official, examinable limitation of ARR, according to this card?",
+            opts: ["It is too difficult for most businesses to actually calculate correctly", "Businesses never have the right data available to calculate it at all", "It does not account for the effects of inflation on the value of money", "It can only be used by businesses that have already made a profit"],
+            ans: 2,
+            explain: "The card explains the official limitation is that ARR ignores inflation — money received in the future is worth less in real terms than money today."
+        }
       },
       {
         wrong: "For the 9-mark synoptic question, students focus entirely on the 'change' topic (e.g. marketing) and forget to explain the impact on the 'affected' topic (e.g. cash flow).",
-        correct: "Your K and U marks come from explaining the 'change' topic. But your APP, AN and EVAL marks ALL come from explaining the effect on the specific impact named in the question (e.g. cash flow, costs, revenues). You MUST switch focus to the impact in the second half of your answer."
+        correct: "Your K and U marks come from explaining the 'change' topic. But your APP, AN and EVAL marks ALL come from explaining the effect on the specific impact named in the question (e.g. cash flow, costs, revenues). You MUST switch focus to the impact in the second half of your answer.",
+        readCheck: {
+            q: "What mistake do students make when they focus entirely on the 'change' topic in a 9-mark synoptic question?",
+            opts: ["They correctly earn every single mark available for the whole question", "They accidentally answer a completely different question by mistake", "They spend too little time explaining what the 'change' topic actually involves", "They forget to explain the impact on the 'affected' topic named in the question"],
+            ans: 3,
+            explain: "The card explains APP, AN and EVAL marks all come from explaining the effect on the named 'affected' topic — you must switch focus in the second half of the answer."
+        }
       },
       {
         wrong: "Students confuse 'stakeholders' with 'shareholders' — they write an entire answer referring to 'stakeholders' without ever naming a specific one.",
-        correct: "To gain Application and Analysis marks in the 9-mark question about financial data and stakeholders, you MUST name specific stakeholders (e.g. employees, suppliers, banks, the local community). Vague references to 'stakeholders' do not earn marks."
+        correct: "To gain Application and Analysis marks in the 9-mark question about financial data and stakeholders, you MUST name specific stakeholders (e.g. employees, suppliers, banks, the local community). Vague references to 'stakeholders' do not earn marks.",
+        readCheck: {
+            q: "What must students do to gain Application and Analysis marks about stakeholders?",
+            opts: ["Name specific stakeholders, such as employees, suppliers, banks or the community", "Use only the general word 'stakeholders' throughout the entire answer", "Refer only to shareholders, since stakeholders are never creditable at all here", "Avoid naming any stakeholder group at all in the final answer given"],
+            ans: 0,
+            explain: "The card explains you must name specific stakeholders like employees, suppliers or banks — vague references to 'stakeholders' do not earn marks."
+        }
       },
       {
         wrong: "Students think profit and cash flow are the same thing — they use the terms interchangeably.",
-        correct: "Profit is total revenue minus total costs over a period. Cash flow is the actual movement of money in and out of the business. A business can be profitable but still have a cash flow problem if customers have not yet paid their invoices."
+        correct: "Profit is total revenue minus total costs over a period. Cash flow is the actual movement of money in and out of the business. A business can be profitable but still have a cash flow problem if customers have not yet paid their invoices.",
+        readCheck: {
+            q: "Are profit and cash flow the same thing that can be used interchangeably?",
+            opts: ["Yes — profit and cash flow are simply two names for the same figure", "No — a business can be profitable but still have a cash flow problem", "Yes — but only if the business has already paid all of its invoices", "No — but only because cash flow is always higher than profit"],
+            ans: 1,
+            explain: "The card explains profit is revenue minus costs over a period, while cash flow is the actual movement of money — a business can be profitable yet still face a cash shortage."
+        }
       },
       {
         wrong: "When asked how a marketing decision affects operations, students write about marketing activities (e.g. 'they will advertise more') rather than the impact on the operations/production function.",
-        correct: "The examiner's report noted this was very common. Once you have identified the marketing activity (for the Understanding mark), you MUST explain the consequence for the operations function specifically — e.g. 'this means operations will need to INCREASE PRODUCTION to meet higher demand.'"
+        correct: "The examiner's report noted this was very common. Once you have identified the marketing activity (for the Understanding mark), you MUST explain the consequence for the operations function specifically — e.g. 'this means operations will need to INCREASE PRODUCTION to meet higher demand.'",
+        readCheck: {
+            q: "When asked how a marketing decision affects operations, what must the answer explain?",
+            opts: ["Only the marketing activities themselves, such as advertising more heavily", "A definition of operations with no link at all to the marketing decision", "The consequence for the operations function specifically, such as increased production", "The consequence for the finance function instead of the operations function itself"],
+            ans: 2,
+            explain: "The card explains you must explain the consequence for operations specifically — e.g. 'operations will need to increase production to meet higher demand.'"
+        }
       }
     ];
 
@@ -773,7 +871,13 @@
                 <em>"The finance function produces cash-flow forecasts and budgets (U) in order to inform BP's managers how much money is available for investment into new technologies (APP), such as the wind farms being developed in America, meaning BP can make financially sound decisions to meet its sustainability objectives (AN)."</em></p>
               <p><strong>⚠️ Examiner Warning:</strong> On the real exam, two thirds of candidates scored zero on Q2 (Unilever, 3 marks) and the majority scored zero on Q4 (BP, 3 marks). The reason was identical in both cases: they failed to identify a specific activity of the named function. "Marketing the product" or "managing the business efficiently" are too vague and score nothing.</p>
               `,
-        pills: ["U", "app", "an"]
+        pills: ["U", "app", "an"],
+        readCheck: {
+            q: "According to this card, what happens if you don't show Understanding first in a 3-mark analyse question?",
+            opts: ["You can still earn full marks through Application and Analysis alone", "You automatically earn 2 out of 3 marks for the remaining two steps", "The examiner awards the mark anyway, provided the answer is detailed", "No further marks can follow, since Understanding is a locked gate"],
+            ans: 3,
+            explain: "The card describes Understanding as a 'locked gate' — without it, no Application or Analysis marks can be awarded, no matter how good the rest of the answer is."
+        }
       },
       {
         type: "Evaluate — 9 marks (Synoptic)",
@@ -794,7 +898,13 @@
               <p><strong>🚫 Critical Warning — Do NOT write evaluation in the wrong place.</strong> The three evaluation marks are ONLY awarded in the final judgement section. Writing "I think this is good" halfway through your analysis does not count as evaluation.</p>
               <p><strong>⚠️ Examiner Warning:</strong> Many candidates wrote entirely about 'stakeholders' without ever naming a specific one (e.g. employees, suppliers, banks). Vague references to 'stakeholders' earned zero for application AND analysis. You must name them.</p>
               `,
-        pills: ["K", "U", "app", "an", "eval"]
+        pills: ["K", "U", "app", "an", "eval"],
+        readCheck: {
+            q: "According to this card, where are the three evaluation marks specifically awarded?",
+            opts: ["Only in the final judgement section, not partway through the analysis", "Anywhere in the answer, as long as a personal opinion is expressed", "Only in the very first paragraph, before any analysis is given", "Automatically, regardless of where in the answer they are written"],
+            ans: 0,
+            explain: "The card warns evaluation marks are ONLY awarded in the final judgement section — writing 'I think this is good' halfway through the analysis does not count."
+        }
       },
       {
         type: "Analyse — 3 marks (Pairs of linked questions)",
@@ -810,7 +920,13 @@
               <p><strong>✅ Good Answer for Finance (3 marks):</strong><br />
                 <em>"Being environmentally friendly is likely to increase operating costs (U) as NEXT plc. will need to source products from more expensive ethical/eco-friendly suppliers worldwide (APP). This means the finance department may face cash flow difficulties and need to apply for a larger bank overdraft to cover the shortfall (AN)."</em></p>
               `,
-        pills: ["U", "app", "an"]
+        pills: ["U", "app", "an"],
+        readCheck: {
+            q: "According to this card, what must you avoid when analysing the same theme across three different functions?",
+            opts: ["Using the U to APP to AN structure for each of the three separate answers", "Repeating the same point in each answer instead of a different aspect each time", "Discussing marketing, HR and finance as three genuinely separate business functions", "Writing three separate three-mark answers instead of one combined answer"],
+            ans: 1,
+            explain: "The card warns against repeating the same point in each answer — each response must show a different aspect of the same theme, marked independently."
+        }
       },
       {
         type: "Recommend — 3 marks",
@@ -825,7 +941,13 @@
               <p><strong>✅ Good Answer (3 marks):</strong><br />
                 <em>"The human resources function would be most affected by NEXT plc. being environmentally friendly (JUDGEMENT) because it would impact the way ALL of its workers are employed, trained and managed on a day-to-day basis (JUSTIFICATION). For example, NEXT would need to introduce new IT-based processes, mobile technologies and online training packages to reduce its carbon footprint across its entire workforce (STRONG CONTEXTUAL DETAIL)."</em></p>
               `,
-        pills: ["an", "eval"]
+        pills: ["an", "eval"],
+        readCheck: {
+            q: "According to this card, what separates a 3-mark recommend answer from a 1-mark answer?",
+            opts: ["Simply naming a winner, without giving any reason for the choice made", "Writing a much longer answer overall, regardless of its actual content", "Detailed, specific justification showing clear appraisal, not just a named winner", "Avoiding any reference at all to the specific business that is named in the question"],
+            ans: 2,
+            explain: "The card explains a 3-mark answer needs detailed, specific justification showing clear appraisal, while a 1-mark answer just names a winner with limited justification."
+        }
       },
       {
         type: "State / Identify — 1–2 marks",
@@ -844,7 +966,13 @@
                 <em>"1. Raw materials / cost of sales. 2. Packaging."</em></p>
               <p><strong>⚠️ Examiner Warning on Variable Costs:</strong> Do NOT accept 'salaries' — these are fixed costs. The mark scheme specifically excludes this. Only accept wages (which can vary with hours worked), raw materials, packaging and stock/components.</p>
               `,
-        pills: ["K"]
+        pills: ["K"],
+        readCheck: {
+            q: "According to this card, why would 'salaries' be rejected as an answer to 'identify a variable cost'?",
+            opts: ["Salaries are not a real business cost recognised in this exam specification", "Salaries only ever apply to businesses with more than one employee", "Salaries are classed as a form of revenue, not a cost, in this topic", "Salaries are a fixed cost, not a variable one, according to the mark scheme"],
+            ans: 3,
+            explain: "The card's examiner warning states salaries are a fixed cost — the mark scheme specifically excludes them from being accepted as a variable cost."
+        }
       },
       {
         type: "Calculate — 3 marks",
@@ -865,7 +993,13 @@
               <p><strong>Net Profit Margin</strong> = (£50,000 &divide; £2,000,000) &times; 100 = <strong>2.5%</strong></p>
               <p><strong>⚠️ Warning:</strong> If you only write the final answer with no workings and it is wrong, you score zero. With workings shown, even a mathematical error in the final step earns 2 out of 3 marks.</p>
               `,
-        pills: ["U", "app"]
+        pills: ["U", "app"],
+        readCheck: {
+            q: "According to this card, what happens if you write only the final answer with no workings and it is wrong?",
+            opts: ["You score zero, since there is no method shown to award partial credit", "You still score full marks, since only the final answer is ever checked", "You automatically score 2 out of 3 marks regardless of the final answer", "The examiner estimates your workings and awards marks accordingly"],
+            ans: 0,
+            explain: "The card warns that with no workings shown, a wrong final answer scores zero — but with workings shown, even a mathematical error can earn 2 out of 3 marks."
+        }
       }
     ];
 
@@ -1092,6 +1226,11 @@
 
 
   <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

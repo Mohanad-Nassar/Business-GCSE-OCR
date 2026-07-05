@@ -1,0 +1,2155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tasks — Teacher · GCSE Business Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="business-style.css"/>
+<style>
+  html, body { display:block !important; grid-template-columns:none !important; grid-template-rows:none !important; grid-template-areas:none !important; }
+  header, main { grid-area:unset !important; }
+  body { background:var(--paper); color:var(--ink); }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
+
+  header { background:var(--ink); border-bottom:3px solid var(--accent); padding:24px 40px 20px; }
+  .header-inner { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+  .header-badge { display:inline-block; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:10px; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:700; color:var(--paper); margin-bottom:4px; }
+  header p { font-size:13px; color:rgba(245,240,232,.6); }
+  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--paper); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
+  .nav-link:hover { background:rgba(255,255,255,.18); }
+
+  main { padding:28px 40px 80px; max-width:1150px; margin:0 auto; }
+  .section-label { font-weight:500; font-family:'DM Mono',monospace; font-size:11px; color:var(--accent); letter-spacing:.14em; text-transform:uppercase; display:flex; align-items:center; gap:10px; margin:30px 0 16px; }
+  .section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+  .section-label:first-child { margin-top:0; }
+
+  .panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:20px 22px; margin-bottom:18px; }
+  .btn { background:var(--ink); color:var(--paper); border:none; padding:10px 18px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
+  .btn:hover { background:#1c2c3d; }
+  .btn:disabled { opacity:.5; cursor:default; }
+  .btn.secondary { background:transparent; border:1px solid var(--border); color:var(--ink); }
+  .btn.secondary:hover { border-color:var(--accent); color:var(--accent); }
+  .btn.accent { background:var(--accent); }
+  .btn.danger { background:transparent; border:1px solid var(--border); color:var(--wrong); }
+  .btn.danger:hover { border-color:var(--wrong); background:rgba(200,75,49,.06); }
+  .btn.small { padding:6px 12px; font-size:11.5px; }
+
+  table { width:100%; border-collapse:collapse; margin-top:12px; }
+  thead tr { background:var(--cream); border-bottom:2px solid var(--border); }
+  th { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); padding:9px 10px; text-align:left; }
+  td { padding:10px; border-bottom:1px solid var(--border); vertical-align:middle; font-size:13px; }
+  tr:last-child td { border-bottom:none; }
+  .mono { font-family:'DM Mono',monospace; font-size:12px; }
+  .muted { color:var(--mid); font-size:12px; }
+  .empty { padding:22px; text-align:center; color:var(--mid); font-size:13px; font-style:italic; }
+  .clickable-row { cursor:pointer; }
+  .clickable-row:hover td { background:rgba(74,111,165,.06); }
+
+  .field { display:flex; flex-direction:column; gap:5px; min-width:0; }
+  .field label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); }
+  .field input, .field select, .field textarea { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:13.5px; font-family:'DM Sans',sans-serif; background:#fff; }
+  .field textarea { resize:vertical; min-height:64px; }
+  .form-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; }
+
+  .chip { display:inline-block; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.05em; padding:3px 10px; border-radius:99px; white-space:nowrap; }
+  .chip.draft { background:rgba(90,110,127,.12); color:#5a6e7f; border:1px solid rgba(90,110,127,.3); }
+  .chip.published { background:rgba(45,122,79,.1); color:#2d7a4f; border:1px solid rgba(45,122,79,.3); }
+  .chip.late { background:rgba(212,168,67,.15); color:#8f6d19; border:1px solid rgba(212,168,67,.4); }
+  .chip.missed { background:rgba(200,75,49,.1); color:var(--wrong); border:1px solid rgba(200,75,49,.3); }
+  .chip.ontime { background:rgba(45,122,79,.1); color:#2d7a4f; border:1px solid rgba(45,122,79,.3); }
+  .chip.pending { background:rgba(122,92,158,.1); color:#6a4f8c; border:1px solid rgba(122,92,158,.3); }
+  .chip.used { background:rgba(200,75,49,.1); color:var(--wrong); border:1px solid rgba(200,75,49,.3); }
+  .chip.fresh { background:rgba(45,122,79,.08); color:#2d7a4f; border:1px solid rgba(45,122,79,.25); }
+  .chip.qtype { background:rgba(74,111,165,.1); color:var(--accent); border:1px solid rgba(74,111,165,.3); }
+
+  .tiles { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:18px; }
+  .tile { flex:1; min-width:110px; background:var(--cream); border:1px solid var(--border); border-radius:9px; padding:12px 14px; }
+  .tile .val { font-family:'Playfair Display',serif; font-size:24px; font-weight:700; color:var(--accent); line-height:1; }
+  .tile .lbl { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--mid); margin-top:5px; }
+
+  .subtab { background:transparent; border:1px solid var(--border); color:var(--mid); font-family:'DM Mono',monospace; font-size:11px; padding:8px 16px; border-radius:7px; cursor:pointer; white-space:nowrap; }
+  .subtab:hover { border-color:var(--accent); color:var(--accent); }
+  .subtab.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .toolbar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:26px 0 14px; }
+  .toolbar .section-label { margin:0; flex:1; min-width:160px; }
+
+  .subhead { font-family:'Playfair Display',serif; font-size:15px; font-weight:700; margin:22px 0 10px; }
+  .subhead:first-child { margin-top:0; }
+  .msg { font-size:12.5px; padding:10px 12px; border-radius:6px; display:none; margin-top:12px; }
+  .msg.show { display:block; }
+  .msg.error { background:rgba(200,75,49,.1); color:var(--wrong); border:1px solid rgba(200,75,49,.25); }
+  .msg.ok { background:rgba(45,122,79,.1); color:#2d7a4f; border:1px solid rgba(45,122,79,.25); }
+  .hidden { display:none !important; }
+
+  /* builder — options in the left column, question preview on the right */
+  .editor-cols { display:grid; grid-template-columns:minmax(0,1fr) minmax(340px,460px); gap:18px; align-items:start; }
+  .editor-right { position:sticky; top:14px; max-height:calc(100vh - 28px); display:flex; flex-direction:column; }
+  .editor-right .panel { margin-bottom:0; display:flex; flex-direction:column; min-height:120px; overflow:hidden; }
+  #reviewList { overflow-y:auto; flex:1; padding-right:4px; }
+  @media (max-width:1080px) {
+    .editor-cols { grid-template-columns:1fr; }
+    .editor-right { position:static; max-height:none; }
+    #reviewList { max-height:520px; }
+  }
+  .step-num { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:11px; margin-right:8px; flex-shrink:0; }
+  .editor-steps { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
+  .reading-preview { font-size:12px; background:var(--cream); border-left:3px solid var(--accent); padding:8px 12px; border-radius:0 6px 6px 0; margin:6px 0; max-height:180px; overflow-y:auto; }
+  .picker-group { border:1px solid var(--border); border-radius:8px; margin-bottom:10px; overflow:hidden; }
+  .picker-group-header { display:flex; align-items:center; gap:10px; padding:10px 14px; background:var(--cream); cursor:pointer; user-select:none; border:none; width:100%; text-align:left; font-family:inherit; border-left:4px solid var(--accent); }
+  .picker-group-header .t { font-family:'Playfair Display',serif; font-size:13.5px; font-weight:700; flex:1; }
+  .picker-group-header .chevron, .picker-page-header .chevron, .cat-header .chevron { font-size:11px; color:var(--mid); transition:transform .15s ease; flex-shrink:0; }
+  .picker-page.collapsed .picker-page-header .chevron, .cat-row.collapsed .cat-header .chevron { transform:rotate(-90deg); }
+
+  /* topic-level accordion (one per page inside a curriculum group) */
+  .picker-page { border-top:1px solid var(--border); }
+  .picker-page-header { display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:10px 14px; width:100%; text-align:left; background:none; border:none; cursor:pointer; font-family:inherit; }
+  .picker-page-header:hover { background:rgba(0,0,0,.02); }
+  .picker-page-header .name { flex:1; min-width:170px; font-size:13px; font-weight:600; }
+  .picker-page-header .counts { font-family:'DM Mono',monospace; font-size:10px; color:var(--mid); }
+  .picker-page-body { padding:0 14px 10px; }
+  .picker-page.collapsed .picker-page-body { display:none; }
+
+  /* category-level accordion (one per question source within a topic) */
+  .cat-row { border:1px solid var(--border); border-radius:7px; margin-top:8px; overflow:hidden; background:rgba(0,0,0,.012); }
+  .cat-header { display:flex; align-items:center; gap:8px; flex-wrap:wrap; padding:8px 10px; }
+  .cat-toggle { display:flex; align-items:center; gap:8px; flex:1; min-width:160px; background:none; border:none; cursor:pointer; font-family:inherit; padding:0; text-align:left; }
+  .cat-header .icon { font-size:14px; }
+  .cat-header .label { font-family:'DM Mono',monospace; font-size:11.5px; font-weight:600; color:var(--ink); }
+  .cat-header .avail { font-family:'DM Mono',monospace; font-size:10px; color:var(--mid); }
+  .cat-header .picked { font-family:'DM Mono',monospace; font-size:10px; }
+  .cat-selectall { display:flex; align-items:center; gap:4px; font-family:'DM Mono',monospace; font-size:10.5px; color:var(--mid); cursor:pointer; user-select:none; white-space:nowrap; }
+  .cat-random { display:flex; align-items:center; gap:6px; }
+  .cat-random input[type=number] { width:52px; padding:5px 6px; border:1px solid var(--border); border-radius:5px; font-size:11.5px; font-family:'DM Sans',sans-serif; }
+  .cat-body { padding:0 10px 8px; border-top:1px dashed var(--border); max-height:320px; overflow-y:auto; }
+  .cat-row.collapsed .cat-body { display:none; }
+  .manual-q { display:flex; gap:8px; align-items:flex-start; padding:7px 4px; border-bottom:1px solid var(--border); font-size:12.5px; }
+  .manual-q:last-child { border-bottom:none; }
+  .manual-q input[type=checkbox] { margin-top:3px; }
+  .manual-q .qbody { flex:1; min-width:0; }
+  .manual-q.just-added { background:rgba(212,168,67,.14); border-radius:6px; }
+  .btn.icon-btn { background:transparent; border:1px solid var(--border); color:var(--mid); padding:2px 8px; border-radius:5px; font-size:11px; cursor:pointer; }
+  .btn.icon-btn:hover { border-color:var(--accent); color:var(--accent); }
+
+  /* question preview modal */
+  .qp-overlay { position:fixed; inset:0; background:rgba(20,20,25,.55); display:flex; align-items:flex-start; justify-content:center; padding:5vh 16px; z-index:200; overflow-y:auto; }
+  .qp-overlay.hidden { display:none; }
+  .qp-modal { background:#fff; border-radius:10px; max-width:640px; width:100%; padding:20px 22px; box-shadow:0 20px 60px rgba(0,0,0,.35); }
+  .qp-modal-top { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; }
+  .qp-modal-top .chips { flex:1; display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+  .qp-close { background:transparent; border:none; font-size:20px; line-height:1; cursor:pointer; color:var(--mid); padding:0 2px; }
+  .qp-close:hover { color:var(--ink); }
+  .qcard { border:1px solid var(--border); border-radius:8px; padding:12px 14px; margin-bottom:10px; background:#fff; }
+  .qcard.used-warn { border-color:rgba(200,75,49,.45); }
+  .qcard.just-added { border-color:var(--gold); background:linear-gradient(rgba(212,168,67,.09),rgba(212,168,67,.09)),#fff; box-shadow:0 0 0 1px var(--gold),0 0 14px rgba(212,168,67,.55); animation:qcard-glow-in .9s ease-out; }
+  .chip.new-add { background:rgba(212,168,67,.16); color:#8f6d19; border:1px solid rgba(212,168,67,.5); }
+  @keyframes qcard-glow-in { from { box-shadow:0 0 0 1px var(--gold),0 0 26px rgba(212,168,67,.9); } to { box-shadow:0 0 0 1px var(--gold),0 0 14px rgba(212,168,67,.55); } }
+  .qcard-top { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:6px; }
+  .qcard-top .pos { font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); }
+  .qcard-top .marks { font-family:'DM Mono',monospace; font-size:11px; color:#8f6d19; font-weight:500; }
+  .qcard .qtext { font-size:13px; line-height:1.5; }
+  .qcard .case { font-size:11.5px; color:var(--mid); background:var(--cream); border-left:3px solid var(--gold); padding:6px 10px; margin:6px 0; max-height:76px; overflow:hidden; }
+  .qcard .opts { font-size:12px; color:#444; margin-top:5px; padding-left:18px; }
+  .qcard-actions { display:flex; gap:6px; margin-top:8px; }
+  details.ms { margin-top:6px; }
+  details.ms summary { font-family:'DM Mono',monospace; font-size:10.5px; color:var(--accent); cursor:pointer; }
+  details.ms .marks-section, details.ms > div { font-size:12px; background:var(--cream); padding:8px 12px; border-radius:6px; margin-top:5px; }
+
+  .assign-row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:8px 10px; border-bottom:1px solid var(--border); }
+  .assign-row:last-child { border-bottom:none; }
+  .assign-row .u { font-family:'DM Mono',monospace; font-size:12.5px; flex:1; min-width:130px; }
+  .assign-row input[type=datetime-local] { padding:5px 8px; border:1px solid var(--border); border-radius:5px; font-size:11.5px; }
+  .assign-row input[type=number] { width:64px; padding:5px 8px; border:1px solid var(--border); border-radius:5px; font-size:12px; }
+  .ovr-lbl { font-family:'DM Mono',monospace; font-size:9.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--mid); }
+
+  .sticky-actions { position:sticky; bottom:0; background:var(--paper); border-top:2px solid var(--border); padding:12px 0; display:flex; gap:10px; flex-wrap:wrap; align-items:center; z-index:5; }
+
+  /* Guided Assign→Publish flow: the accent button's label fades out/in and
+     pulses whenever the step changes, so moving on to the next class (or to
+     Publish) reads as a deliberate step forward, not the page hanging. */
+  #publishBtn { transition:opacity .13s ease, transform .13s ease; }
+  #publishBtn.btn-fade-out { opacity:0; transform:scale(.94); }
+  @keyframes btn-flourish-pulse {
+    0%   { box-shadow:0 0 0 0 rgba(122,92,158,.6); }
+    50%  { box-shadow:0 0 0 9px rgba(122,92,158,0); }
+    100% { box-shadow:0 0 0 0 rgba(122,92,158,0); }
+  }
+  #publishBtn.btn-flourish { animation:btn-flourish-pulse .7s ease-out; }
+
+  .assign-status-chip { font-family:'DM Mono',monospace; font-size:10.5px; padding:2px 9px; border-radius:20px; background:var(--cream); color:var(--mid); border:1px solid var(--border); }
+  .assign-status-chip.done { background:rgba(122,92,158,.14); color:var(--accent); border-color:var(--accent); }
+
+  /* Briefly glows gold and scrolls into view — the visual cue that this is
+     the class the teacher needs to assign next. */
+  .assign-panel-current { animation:assign-panel-glow 1.6s ease-out; border-radius:8px; }
+  @keyframes assign-panel-glow {
+    0%   { box-shadow:0 0 0 3px rgba(212,168,67,.9); background:rgba(212,168,67,.14); }
+    100% { box-shadow:0 0 0 0 rgba(212,168,67,0); background:transparent; }
+  }
+
+  /* marking queue */
+  .mark-card { border:1px solid var(--border); border-radius:9px; margin-bottom:12px; background:#fff; overflow:hidden; }
+  .mark-card-header { padding:10px 14px; background:var(--cream); display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  .mark-card-header .who { font-family:'DM Mono',monospace; font-size:12.5px; font-weight:500; }
+  .mark-body { padding:12px 14px; }
+  .mark-answer { background:rgba(74,111,165,.05); border:1px solid var(--border); border-radius:6px; padding:10px 12px; font-size:13px; white-space:pre-wrap; margin:8px 0; }
+  .mark-controls { display:flex; gap:10px; align-items:flex-end; flex-wrap:wrap; margin-top:10px; }
+  .mark-controls input[type=number] { width:80px; padding:8px 10px; border:1px solid var(--border); border-radius:6px; font-size:13px; }
+  .mark-controls textarea { flex:1; min-width:220px; min-height:52px; padding:8px 10px; border:1px solid var(--border); border-radius:6px; font-size:12.5px; font-family:'DM Sans',sans-serif; }
+  .ai-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(122,92,158,.08); border:1px dashed rgba(122,92,158,.4); color:#6a4f8c; border-radius:6px; padding:8px 12px; font-size:12px; }
+
+  /* per-question drill-down + answer distribution */
+  .q-drilldown table { background:#fff; border-radius:6px; overflow:hidden; }
+  .ans-dist-legend { font-family:'DM Mono',monospace; font-size:10px; color:var(--mid); margin-bottom:8px; }
+  .ans-dist-row { display:flex; align-items:center; gap:8px; font-size:11.5px; margin-bottom:4px; }
+  .ans-dist-label { flex:0 0 220px; max-width:220px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-family:'DM Mono',monospace; color:var(--mid); }
+  .ans-dist-row.correct .ans-dist-label { color:#2d7a4f; font-weight:600; }
+  .ans-dist-bar-wrap { flex:1; height:14px; background:#fff; border:1px solid var(--border); border-radius:3px; overflow:hidden; }
+  .ans-dist-bar { display:block; height:100%; border-radius:2px; }
+  .ans-dist-row.correct .ans-dist-bar { background:#2d7a4f; }
+  .ans-dist-row.mostwrong .ans-dist-bar { background:var(--wrong); }
+  .ans-dist-row.otherwrong .ans-dist-bar { background:var(--mid); opacity:.5; }
+  .ans-dist-count { flex:0 0 64px; text-align:right; font-family:'DM Mono',monospace; font-size:10.5px; color:var(--mid); }
+
+  @media (max-width:700px) { header, main { padding-left:16px; padding-right:16px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="header-badge">OCR GCSE Business Studies · J204</div>
+      <h1>📋 Task Manager</h1>
+      <p>Create, assign, mark and analyse question-based tasks</p>
+    </div>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <a class="nav-link" href="teacher-dashboard.html">← Teacher Dashboard</a>
+      <a class="nav-link" href="index.html">Site Home</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ═══ VIEW: TASK LIST ═══ -->
+  <div id="viewList">
+    <div class="panel" style="border-left:4px solid var(--gold); margin-bottom:18px;">
+      <p class="muted" style="font-size:12.5px; line-height:1.7; margin:0;">
+        <strong style="color:var(--ink);">How tasks work:</strong>
+        ① choose your class below → ② click <strong>+ New Task</strong> and build it in three guided steps (settings → questions → students) → ③ <strong>Publish</strong> when ready (or save a draft — invisible to students).
+        Multiple-choice, True/False and fill-in-the-blanks mark themselves; written answers wait for you in the task's <strong>✍️ Marking queue</strong>. Click any task in the list to see its analytics, marking and students.
+      </p>
+    </div>
+
+    <h2 class="section-label">Class</h2>
+    <div class="panel">
+      <div style="display:flex; gap:10px; align-items:flex-end; flex-wrap:wrap;">
+        <div class="field" style="min-width:240px;">
+          <label for="classSelect">Choose a class</label>
+          <select id="classSelect"></select>
+        </div>
+        <button type="button" class="btn accent" id="newTaskBtn">+ New Task</button>
+      </div>
+    </div>
+
+    <h2 class="section-label">Tasks</h2>
+    <div class="panel">
+      <table>
+        <thead><tr><th>Task</th><th>Status</th><th>Due</th><th>Questions</th><th>Assigned</th><th>Submitted</th><th>To mark</th><th>Avg (whole class)</th></tr></thead>
+        <tbody id="taskListBody"><tr><td colspan="8" class="empty">Choose a class above.</td></tr></tbody>
+      </table>
+    </div>
+
+    <h2 class="section-label">Weak topics <span class="muted" style="text-transform:none; letter-spacing:0; font-size:11px;">— across every task for this class, weakest first</span></h2>
+    <div class="panel">
+      <table>
+        <thead><tr><th>Topic</th><th>Type</th><th>Answers</th><th>Correct rate</th><th>Avg marks %</th></tr></thead>
+        <tbody id="weakTopicsBody"><tr><td colspan="5" class="empty">Choose a class above.</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══ VIEW: TASK EDITOR (draft / builder) ═══ -->
+  <div id="viewEditor" class="hidden">
+    <div class="toolbar">
+      <h2 class="section-label" id="editorTitle">New Task</h2>
+      <button type="button" class="subtab" id="editorBackBtn">← Back to tasks</button>
+    </div>
+
+    <div class="editor-cols">
+    <div class="editor-left">
+    <div class="editor-steps" id="editorSteps">
+      <button type="button" class="subtab active" data-estep="1">1 · Details &amp; settings</button>
+      <button type="button" class="subtab" data-estep="2">2 · Choose questions</button>
+      <button type="button" class="subtab" data-estep="3">3 · Assign &amp; students</button>
+    </div>
+
+    <div class="panel" id="editorStep1">
+      <h3 class="subhead"><span class="step-num">1</span>Details &amp; settings</h3>
+      <p class="muted" style="margin-bottom:12px;">Only the <strong>title</strong> and <strong>due date</strong> are required — the other defaults suit a normal homework. You can edit everything while it's a draft.</p>
+      <div class="form-grid">
+        <div class="field" style="grid-column:1/-1;">
+          <label for="fTitle">Task title *</label>
+          <input type="text" id="fTitle" placeholder="e.g. Market Research homework — week 4" maxlength="120"/>
+        </div>
+        <div class="field" style="grid-column:1/-1;">
+          <label for="fInstructions">Instructions to students (optional)</label>
+          <textarea id="fInstructions" placeholder="Anything students should know before they start…"></textarea>
+        </div>
+        <div class="field">
+          <label for="fDue">Due date &amp; time *</label>
+          <input type="datetime-local" id="fDue"/>
+        </div>
+        <div class="field">
+          <label for="fLatePolicy">Late submissions</label>
+          <select id="fLatePolicy">
+            <option value="accept_late">Accept late (marked “Late”)</option>
+            <option value="lock">Do not accept — lock at deadline</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fAttempts">Attempts allowed</label>
+          <select id="fAttempts">
+            <option value="1">1 attempt</option>
+            <option value="2">2 attempts</option>
+            <option value="3">3 attempts</option>
+            <option value="">Unlimited</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fScoring">Which attempt counts</label>
+          <select id="fScoring">
+            <option value="best">Best attempt</option>
+            <option value="latest">Most recent attempt</option>
+            <option value="first">First attempt</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fTimeLimit">Time limit (minutes, blank = untimed)</label>
+          <input type="number" id="fTimeLimit" min="1" max="600" placeholder="e.g. 30"/>
+        </div>
+        <div class="field">
+          <label for="fTimerLeave">Timer if student leaves mid-task</label>
+          <select id="fTimerLeave">
+            <option value="paused">Pause the timer (answers saved)</option>
+            <option value="running">Keep the timer running</option>
+          </select>
+        </div>
+        <div class="field" style="grid-column:1/-1;">
+          <label>Marking</label>
+          <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center;">
+            <label style="display:flex; align-items:center; gap:6px; font-size:13px; cursor:pointer;">
+              <input type="radio" name="fMarking" value="manual" checked/> Manual marking (marking queue)
+            </label>
+            <label class="ai-badge" title="AI marking against each question's mark scheme is coming soon">
+              <input type="radio" name="fMarking" value="ai" disabled/> 🤖 AI marking against mark schemes — <strong>Coming soon</strong>
+            </label>
+          </div>
+          <div class="muted" style="margin-top:4px;">Multiple-choice and True/False are always marked automatically. Written answers go to your marking queue.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel hidden" id="editorStep2">
+      <h3 class="subhead"><span class="step-num">2</span>Choose questions <span class="muted" id="pickSummary"></span></h3>
+      <p class="muted" style="margin-bottom:12px;">Click a topic to expand it, then click a category (📚 Key Learning, ❓ MCQ Quiz, 🔗 Matching, ✏️ Fill the Blanks, ⚠️ Misconceptions, 🎯 Exam Tips, ✅ True/False, 📝 Exam Practice) to see its questions — tick exactly which ones you want, or set a number and click <strong>🎲 Add random</strong> to let the system pick that many from just that category. Use <strong>👁 Preview</strong> to read a question in full before adding it. Everything you add appears in the <strong>preview on the right</strong> and is kept in the same topic-then-category order students will answer it in.</p>
+      <div id="pickerContainer"></div>
+    </div>
+
+    <div class="panel hidden" id="editorStep3">
+      <h3 class="subhead"><span class="step-num">3</span>Assign to classes &amp; students <span class="muted" id="assignSummary"></span></h3>
+      <div class="field" style="margin-bottom:12px;">
+        <label>Classes to send this task to</label>
+        <div id="classPickList" style="display:flex; gap:16px; flex-wrap:wrap; margin-top:4px;"></div>
+      </div>
+      <div id="addClassRow" class="hidden" style="display:flex; gap:10px; align-items:flex-end; margin-bottom:16px; padding:12px; background:var(--cream); border-radius:8px;">
+        <div class="field" style="min-width:200px;">
+          <label for="addClassSelect">Also send this task to another class</label>
+          <select id="addClassSelect"></select>
+        </div>
+        <button type="button" class="btn secondary small" id="addClassBtn">+ Duplicate to this class</button>
+      </div>
+      <div id="classAssignPanels"></div>
+      <div class="muted" style="margin-top:8px;">Per-student <strong>deadline override</strong> and <strong>extra time</strong> are for absences and SEN/extra-time accommodations. Leave blank to use the task defaults.</div>
+    </div>
+
+    </div><!-- /editor-left -->
+
+    <div class="editor-right">
+      <div class="panel">
+        <h3 class="subhead">👁 Question preview <span class="muted" id="reviewSummary">— none added yet</span></h3>
+        <p class="muted" style="margin-bottom:10px;">⭯ Replace swaps a question for another from the same topic. <span class="chip used">⚠ Used before</span> means at least one selected student already had this question in a previous task.</p>
+        <div id="reviewList"><div class="empty">No questions added yet — use step 2.</div></div>
+      </div>
+    </div>
+    </div><!-- /editor-cols -->
+
+    <div class="sticky-actions">
+      <button type="button" class="btn secondary" id="stepPrevBtn">← Back</button>
+      <span style="width:1px; align-self:stretch; background:var(--border);"></span>
+      <button type="button" class="btn secondary" id="saveDraftBtn">💾 Save draft</button>
+      <button type="button" class="btn accent" id="publishBtn">📝 Choose questions →</button>
+      <button type="button" class="btn danger" id="deleteTaskBtn">Delete</button>
+      <span class="muted" id="editorHint"></span>
+      <div class="msg" id="editorMsg" style="margin:0; flex-basis:100%;"></div>
+    </div>
+  </div>
+
+  <!-- ═══ VIEW: TASK DETAIL (published) ═══ -->
+  <div id="viewDetail" class="hidden">
+    <div class="toolbar">
+      <h2 class="section-label" id="detailTitle">Task</h2>
+      <button type="button" class="subtab active" data-dtab="analytics">📈 Analytics</button>
+      <button type="button" class="subtab" data-dtab="marking">✍️ Marking queue <span id="markCount"></span></button>
+      <button type="button" class="subtab" data-dtab="students">👥 Students &amp; overrides</button>
+      <button type="button" class="subtab" data-dtab="questions">❓ Questions</button>
+      <button type="button" class="subtab" id="detailBackBtn">← Back to tasks</button>
+    </div>
+
+    <div class="panel" id="detailSettingsPanel">
+      <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:flex-end;">
+        <div id="detailMeta" style="flex:1; min-width:220px; font-size:13px; line-height:1.9;"></div>
+        <div class="field">
+          <label for="detailDue">Due date (always editable)</label>
+          <input type="datetime-local" id="detailDue"/>
+        </div>
+        <button type="button" class="btn small" id="detailDueSave">Update due date</button>
+        <button type="button" class="btn secondary small" id="detailEditBtn">✏️ Edit task</button>
+      </div>
+      <div class="msg" id="detailMsg"></div>
+    </div>
+
+    <!-- Analytics -->
+    <div id="dtab-analytics">
+      <div class="panel">
+        <div class="tiles" id="anaTiles"></div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:6px;">
+          <button type="button" class="btn secondary small" id="csvResultsBtn">⬇ Export results CSV</button>
+          <button type="button" class="btn secondary small" id="csvQuestionsBtn">⬇ Export per-question CSV</button>
+          <button type="button" class="btn secondary small hidden" id="compareClassesBtn">🔀 Compare classes</button>
+        </div>
+        <div id="classComparisonPanel" class="hidden" style="margin-bottom:14px;">
+          <h3 class="subhead">Class comparison <span class="muted">— this task was also sent to other classes</span></h3>
+          <table>
+            <thead><tr><th>Class</th><th>Assigned</th><th>Submitted</th><th>Avg (whole class)</th><th>Avg (marked only)</th></tr></thead>
+            <tbody id="classComparisonBody"></tbody>
+          </table>
+        </div>
+        <h3 class="subhead">Students</h3>
+        <table>
+          <thead><tr><th>Student</th><th>Status</th><th>Attempts</th><th>Score</th><th>%</th><th>Time</th><th></th></tr></thead>
+          <tbody id="anaStudentsBody"></tbody>
+        </table>
+        <h3 class="subhead">Per-question performance</h3>
+        <table>
+          <thead><tr><th>#</th><th>Question</th><th>Type</th><th>Marks</th><th>Answered</th><th>Correct / full marks</th><th>Avg marks</th><th>Avg time</th></tr></thead>
+          <tbody id="anaQuestionsBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Marking queue -->
+    <div id="dtab-marking" class="hidden">
+      <div class="panel">
+        <div class="ai-badge" style="margin-bottom:14px;">🤖 <strong>AI marking — coming soon.</strong>&nbsp;Answers will be auto-marked against each question's mark scheme and appear here for your approval. <button type="button" class="btn small" disabled style="margin-left:6px;">Run AI marking</button></div>
+        <div id="markingQueue"><div class="empty">Nothing to mark.</div></div>
+      </div>
+    </div>
+
+    <!-- Students & overrides -->
+    <div id="dtab-students" class="hidden">
+      <div class="panel">
+        <h3 class="subhead">Assigned students</h3>
+        <p class="muted">You can add students at any time. Deadline overrides and extra time can be changed at any time and apply immediately.</p>
+        <div id="detailAssignList"></div>
+        <h3 class="subhead">Add students</h3>
+        <div id="detailAddList" style="display:flex; gap:8px; flex-wrap:wrap;"></div>
+      </div>
+    </div>
+
+    <!-- Questions (read-only) -->
+    <div id="dtab-questions" class="hidden">
+      <div class="panel">
+        <p class="muted" id="questionsLockNote"></p>
+        <div id="detailQuestionList"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="qpOverlay" class="qp-overlay hidden">
+  <div id="qpModal" class="qp-modal"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="question-bank.js"></script>
+<script src="tasks-shared.js"></script>
+<script src="progress-shared.js"></script>
+<script>
+'use strict';
+const esc = taskEscapeHtml;
+let auth = null;
+let classes = [];
+let activeClassId = null;
+let roster = [];              // [{id, username}]
+let classTasks = [];          // task rows for the class
+let classTaskStats = {};      // taskId -> {questions, assigned, submitted, toMark, avgPct}
+
+// Editor state
+let editingTask = null;       // existing task row when editing, else null
+let edStep = 1;               // which of the 3 editor steps is currently shown (1/2/3)
+let edQuestions = [];         // ordered bank entries chosen for the task
+let edPicker = {};            // pageId -> {cats: {sourceKey: {count}}}
+let edLastAddedIds = new Set(); // question ids added by the most recent picker action — highlighted in the review panel
+let edOpenGroups = new Set(); // curriculum group ids currently expanded in the picker
+let edOpenPages = new Set();  // topic page ids currently expanded in the picker
+let edOpenCats = new Set();   // `${pageId}::${sourceKey}` category rows currently expanded in the picker
+let usedByStudent = null;     // question_key -> Set(studentId) from previous published tasks
+let edSelectedClasses = new Set();   // classIds checked in step 3 (new-task flow only)
+let edRosterCache = new Map();       // classId -> [{id, username}], fetched lazily
+let edAssignedByClass = new Map();   // classId -> Map(studentId -> {due_override, extra_time_minutes})
+let edSiblingClassIds = new Set();   // classIds already covered by this task's assignment_group_id (editing only)
+let edConfirmedClassIds = new Set(); // classIds whose assignment has been persisted this session (or was already saved)
+let edCreatedTaskByClass = new Map(); // classId -> task row created so far, for the brand-new multi-class flow
+let edAssignGroupId = null;          // shared assignment_group_id once >1 class is being assigned in the new-task flow
+
+// Detail state
+let dTask = null, dQuestions = [], dAssignments = [], dAttempts = [], dAnswers = [];
+let qDrillOpen = new Set();       // question ids currently expanded in the per-question table
+let qDrillRevealAll = new Set();  // question ids where "reveal all answers" is toggled on
+let qDrillRevealOne = new Set();  // "questionId|studentId" keys individually revealed
+
+const $ = id => document.getElementById(id);
+const BANK_BY_PAGE = bankByPage();
+const BANK_BY_ID = bankById();
+
+function showMsg(el, text, ok) { el.textContent = text; el.className = 'msg show ' + (ok ? 'ok' : 'error'); }
+function clearMsg(el) { el.className = 'msg'; }
+function show(view) {
+  ['viewList', 'viewEditor', 'viewDetail'].forEach(v => $(v).classList.toggle('hidden', v !== view));
+  window.scrollTo({ top: 0 });
+}
+function toLocalInput(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  const p = n => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}T${p(d.getHours())}:${p(d.getMinutes())}`;
+}
+function fromLocalInput(v) { return v ? new Date(v).toISOString() : null; }
+
+// ══════════ INIT ══════════
+async function init() {
+  auth = await tasksAuthInit('teacher');
+  if (!auth) return;
+
+  const { data } = await auth.client.from('classes').select('id, name').order('created_at');
+  classes = data || [];
+  const sel = $('classSelect');
+  sel.innerHTML = '<option value="">— choose —</option>' +
+    classes.map(c => `<option value="${c.id}">${esc(c.name)}</option>`).join('');
+
+  const params = new URLSearchParams(location.search);
+  const wantClass = params.get('class'), wantTask = params.get('task');
+  if (wantClass && classes.some(c => c.id === wantClass)) sel.value = wantClass;
+  else if (classes.length === 1) sel.value = classes[0].id;
+
+  sel.addEventListener('change', () => selectClass(sel.value));
+  if (sel.value) await selectClass(sel.value);
+
+  if (wantTask) {
+    const t = classTasks.find(t => t.id === wantTask);
+    if (t) t.status === 'draft' ? openEditor(t) : openDetail(t);
+  }
+}
+
+async function selectClass(classId) {
+  activeClassId = classId || null;
+  if (!activeClassId) {
+    $('taskListBody').innerHTML = '<tr><td colspan="8" class="empty">Choose a class above.</td></tr>';
+    $('weakTopicsBody').innerHTML = '<tr><td colspan="5" class="empty">Choose a class above.</td></tr>';
+    return;
+  }
+
+  const { data: members } = await auth.client
+    .from('class_students').select('profiles!inner(id, username)')
+    .eq('class_id', activeClassId);
+  roster = (members || []).map(m => ({ id: m.profiles.id, username: m.profiles.username }))
+    .sort((a, b) => a.username.localeCompare(b.username));
+  edRosterCache.set(activeClassId, roster);
+
+  await loadClassTasks();
+  loadWeakTopics();
+}
+
+async function loadWeakTopics() {
+  const body = $('weakTopicsBody');
+  if (!activeClassId) { body.innerHTML = '<tr><td colspan="5" class="empty">Choose a class above.</td></tr>'; return; }
+  body.innerHTML = '<tr><td colspan="5" class="empty">Loading…</td></tr>';
+  const { data, error } = await auth.client.rpc('get_class_topic_performance', { p_class_id: activeClassId });
+  if (error) { body.innerHTML = `<tr><td colspan="5" class="empty">${esc(error.message)}</td></tr>`; return; }
+  const rows = (data || [])
+    .map(r => ({ ...r, score: r.correct_rate != null ? r.correct_rate : r.avg_marks_pct }))
+    .filter(r => r.score != null)
+    .sort((a, b) => a.score - b.score);
+  body.innerHTML = rows.map(r => `
+    <tr>
+      <td>${esc(pageTitle(r.page_id))}</td>
+      <td><span class="chip qtype">${QTYPE_LABELS[r.qtype] || r.qtype}</span></td>
+      <td class="mono">${r.attempts}</td>
+      <td class="mono">${r.correct_rate != null ? Math.round(r.correct_rate * 100) + '%' : '—'}</td>
+      <td class="mono">${r.avg_marks_pct != null ? Math.round(r.avg_marks_pct * 100) + '%' : '—'}</td>
+    </tr>`).join('') || '<tr><td colspan="5" class="empty">No submitted answers yet for this class.</td></tr>';
+}
+
+async function loadClassTasks() {
+  const { data: tasks, error } = await auth.client
+    .from('tasks').select('*').eq('class_id', activeClassId).order('created_at', { ascending: false });
+  if (error) { $('taskListBody').innerHTML = `<tr><td colspan="8" class="empty">${esc(error.message)}</td></tr>`; return; }
+  classTasks = tasks || [];
+  classTaskStats = {};
+  if (classTasks.length) {
+    const ids = classTasks.map(t => t.id);
+    const [{ data: qs }, { data: asg }, { data: atts }] = await Promise.all([
+      auth.client.from('task_questions').select('task_id').in('task_id', ids),
+      auth.client.from('task_assignments').select('task_id, student_id').in('task_id', ids),
+      auth.client.from('task_attempts').select('task_id, student_id, status, marks_awarded, marks_total, marking_complete, attempt_number, is_late').in('task_id', ids),
+    ]);
+    classTasks.forEach(t => {
+      const taskAsg = (asg || []).filter(a => a.task_id === t.id);
+      const taskAtts = (atts || []).filter(a => a.task_id === t.id);
+      const stats = computeTaskStats(t, taskAsg, taskAtts);
+      classTaskStats[t.id] = {
+        questions: (qs || []).filter(q => q.task_id === t.id).length,
+        assigned: stats.assigned,
+        submitted: stats.submitted,
+        toMark: stats.toMark,
+        avgPct: stats.avgTrue,
+        avgMarked: stats.avgMarked,
+        hasAttempts: taskAtts.length > 0,
+      };
+    });
+  }
+  renderTaskList();
+}
+
+function renderTaskList() {
+  const body = $('taskListBody');
+  if (!classTasks.length) { body.innerHTML = '<tr><td colspan="8" class="empty">No tasks for this class yet — click <strong>+ New Task</strong> above and the builder will walk you through it.</td></tr>'; return; }
+  body.innerHTML = classTasks.map(t => {
+    const s = classTaskStats[t.id] || {};
+    return `<tr class="clickable-row" data-id="${t.id}">
+      <td><strong>${esc(t.title)}</strong></td>
+      <td><span class="chip ${t.status}">${t.status === 'draft' ? 'Draft' : 'Published'}</span></td>
+      <td class="mono">${t.due_at ? fmtDateTime(t.due_at) : '—'}</td>
+      <td class="mono">${s.questions ?? '—'}</td>
+      <td class="mono">${s.assigned ?? 0}</td>
+      <td class="mono">${s.submitted ?? 0}/${s.assigned ?? 0}</td>
+      <td class="mono">${s.toMark ? '⚠ ' + s.toMark : '0'}</td>
+      <td class="mono">${s.avgPct != null ? s.avgPct + '%' : '—'}${s.avgMarked != null && s.avgMarked !== s.avgPct ? `<br><span class="muted" style="font-size:10px;">marked only: ${s.avgMarked}%</span>` : ''}</td>
+    </tr>`;
+  }).join('');
+}
+
+$('taskListBody').addEventListener('click', e => {
+  const row = e.target.closest('tr[data-id]');
+  if (!row) return;
+  const t = classTasks.find(t => t.id === row.dataset.id);
+  if (t) t.status === 'draft' ? openEditor(t) : openDetail(t);
+});
+$('newTaskBtn').addEventListener('click', () => openEditor(null));
+$('editorBackBtn').addEventListener('click', async () => { await loadClassTasks(); show('viewList'); });
+$('detailBackBtn').addEventListener('click', async () => { await loadClassTasks(); show('viewList'); });
+
+// ── Editor step navigation (Details → Choose questions → Assign) ──
+// There's no separate "Next" button any more — the accent button IS the
+// guide through the whole flow, so its label always says exactly what
+// clicking it will do next: choose questions, assign a class, or publish.
+function showEditorStep(step) {
+  edStep = Math.min(3, Math.max(1, step));
+  [1, 2, 3].forEach(s => $('editorStep' + s).classList.toggle('hidden', s !== edStep));
+  $('editorSteps').querySelectorAll('.subtab').forEach(t => t.classList.toggle('active', parseInt(t.dataset.estep, 10) === edStep));
+  $('stepPrevBtn').classList.toggle('hidden', edStep === 1);
+  $('editorSteps').scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  const phase = syncPrimaryBtnAndChips();
+  if (edStep === 3 && phase.kind === 'assign-class') focusAssignPanel(phase.classId);
+}
+$('editorSteps').querySelectorAll('.subtab').forEach(t => t.addEventListener('click', () => showEditorStep(parseInt(t.dataset.estep, 10))));
+$('stepPrevBtn').addEventListener('click', () => showEditorStep(edStep - 1));
+
+// Classes to walk through in step 3, in a stable (alphabetical) order —
+// independent of the order they happened to be ticked in.
+function orderedSelectedClassIds() {
+  return [...edSelectedClasses].sort((a, b) => {
+    const na = (classes.find(c => c.id === a) || {}).name || '';
+    const nb = (classes.find(c => c.id === b) || {}).name || '';
+    return na.localeCompare(nb);
+  });
+}
+
+// What should clicking the accent button do right now?
+function computeAssignPhase() {
+  if (editingTask && editingTask.status === 'published') return { kind: 'save-changes' };
+  if (edStep === 1) return { kind: 'choose-questions' };
+  if (edStep === 2) return { kind: 'go-assign' };
+  const classIds = editingTask ? [editingTask.class_id] : orderedSelectedClassIds();
+  const nextClassId = classIds.find(cid => !edConfirmedClassIds.has(cid));
+  if (nextClassId) {
+    const cls = classes.find(c => c.id === nextClassId);
+    return { kind: 'assign-class', classId: nextClassId, className: cls ? cls.name : 'this class' };
+  }
+  return { kind: 'publish' };
+}
+
+// Swaps the button's text with a quick fade + pulse — never an instant swap —
+// so a label change always reads as "the app just moved you forward",
+// not a stall.
+function setPrimaryBtnLabel(text) {
+  const btn = $('publishBtn');
+  if (!btn || btn.textContent === text) return;
+  btn.classList.add('btn-fade-out');
+  setTimeout(() => {
+    btn.textContent = text;
+    btn.classList.remove('btn-fade-out');
+    btn.classList.remove('btn-flourish');
+    void btn.offsetWidth; // restart the animation even if the class never left the DOM
+    btn.classList.add('btn-flourish');
+  }, 130);
+}
+
+// ✅/⏳ chip on each class panel in step 3, reflecting edConfirmedClassIds.
+function renderAssignStatusChips() {
+  document.querySelectorAll('[data-assign-panel]').forEach(panel => {
+    const chip = panel.querySelector('[data-status-chip]');
+    if (!chip) return;
+    const done = edConfirmedClassIds.has(panel.dataset.assignPanel);
+    chip.textContent = done ? '✅ Assigned' : '⏳ Not yet assigned';
+    chip.classList.toggle('done', done);
+  });
+}
+
+function syncPrimaryBtnAndChips() {
+  const phase = computeAssignPhase();
+  const labels = {
+    'choose-questions': '📝 Choose questions →',
+    'go-assign': '👥 Assign →',
+    'assign-class': `👥 Assign — ${phase.className} →`,
+    'publish': '🚀 Publish',
+    'save-changes': '💾 Save changes',
+  };
+  setPrimaryBtnLabel(labels[phase.kind]);
+  renderAssignStatusChips();
+  return phase;
+}
+
+// Scrolls the named class's panel into view and gives it a gold glow —
+// the unmistakable "assign this one next" cue. Pass confirmedClassName when
+// arriving here right after finishing a different class, to also announce
+// the handoff in the message bar.
+function focusAssignPanel(classId, confirmedClassName) {
+  const panel = document.querySelector(`[data-assign-panel="${classId}"]`);
+  if (panel) {
+    panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    panel.classList.remove('assign-panel-current');
+    void panel.offsetWidth;
+    panel.classList.add('assign-panel-current');
+  }
+  if (confirmedClassName) {
+    const cls = classes.find(c => c.id === classId);
+    showMsg($('editorMsg'), `✅ Assigned ${confirmedClassName}. 👉 Now assign students for ${cls ? cls.name : 'the next class'}.`, true);
+  }
+}
+
+// ══════════ "USED BEFORE" MAP ══════════
+// question_key -> Set(studentId) across my OTHER published tasks.
+async function loadUsedMap(excludeTaskId) {
+  const { data: myTasks } = await auth.client.from('tasks').select('id').eq('status', 'published');
+  const ids = (myTasks || []).map(t => t.id).filter(id => id !== excludeTaskId);
+  usedByStudent = {};
+  if (!ids.length) return;
+  const [{ data: qs }, { data: asg }] = await Promise.all([
+    auth.client.from('task_questions').select('task_id, question_key').in('task_id', ids),
+    auth.client.from('task_assignments').select('task_id, student_id').in('task_id', ids),
+  ]);
+  const studentsByTask = {};
+  (asg || []).forEach(a => (studentsByTask[a.task_id] = studentsByTask[a.task_id] || []).push(a.student_id));
+  (qs || []).forEach(q => {
+    const set = usedByStudent[q.question_key] = usedByStudent[q.question_key] || new Set();
+    (studentsByTask[q.task_id] || []).forEach(sid => set.add(sid));
+  });
+}
+
+// Is this question "used before" for any currently selected student, across all selected classes?
+function usedForSelection(questionKey) {
+  if (!usedByStudent) return false;
+  const set = usedByStudent[questionKey];
+  if (!set || !set.size) return false;
+  for (const m of edAssignedByClass.values()) for (const sid of m.keys()) if (set.has(sid)) return true;
+  return false;
+}
+
+// ══════════ EDITOR ══════════
+async function openEditor(task) {
+  editingTask = task;
+  edQuestions = [];
+  edPicker = {};
+  edLastAddedIds = new Set();
+  edOpenGroups = new Set();
+  edOpenPages = new Set();
+  edOpenCats = new Set();
+  edSelectedClasses = new Set();
+  edAssignedByClass = new Map();
+  edSiblingClassIds = new Set();
+  edConfirmedClassIds = new Set();
+  edCreatedTaskByClass = new Map();
+  edAssignGroupId = null;
+  clearMsg($('editorMsg'));
+
+  $('editorTitle').textContent = task ? (task.status === 'draft' ? 'Edit draft' : 'Edit task') : 'New Task';
+  $('fTitle').value = task ? task.title : '';
+  $('fInstructions').value = task ? task.instructions : '';
+  $('fDue').value = task ? toLocalInput(task.due_at) : '';
+  $('fLatePolicy').value = task ? task.late_policy : 'accept_late';
+  $('fAttempts').value = task ? (task.attempts_allowed ?? '') : '1';
+  $('fScoring').value = task ? task.attempt_scoring : 'best';
+  $('fTimeLimit').value = task && task.time_limit_minutes ? task.time_limit_minutes : '';
+  $('fTimerLeave').value = task ? task.timer_on_leave : 'paused';
+  $('deleteTaskBtn').classList.toggle('hidden', !task);
+  $('editorHint').textContent = task && task.status === 'published'
+    ? 'This task is already published — students will see your changes immediately.' : '';
+
+  if (task) {
+    const [{ data: qs }, { data: asg }] = await Promise.all([
+      auth.client.from('task_questions').select('*').eq('task_id', task.id).order('q_order'),
+      auth.client.from('task_assignments').select('*').eq('task_id', task.id),
+    ]);
+    edQuestions = (qs || []).map(q => {
+      const bankQ = BANK_BY_ID[q.question_key];
+      // Prefer the live bank entry; fall back to the stored snapshot+key.
+      return bankQ || {
+        id: q.question_key, pageId: q.page_id,
+        pageName: (q.snapshot && q.snapshot.pageName) || q.page_id,
+        source: q.source, type: q.qtype, marks: Number(q.marks),
+        question: q.snapshot.question, options: q.snapshot.options,
+        caseStudy: q.snapshot.caseStudy, reading: q.snapshot.reading,
+        readingTitle: q.snapshot.readingTitle, hint: q.snapshot.hint,
+        starter: q.snapshot.starter, num: q.snapshot.num, key: q.answer_key,
+      };
+    });
+    // Drafts can never have attempts (starting one requires status
+    // 'published'), so it's always safe to bring a reopened draft's order
+    // up to the current canonical order. Published tasks are left as
+    // loaded — resorting one that already has student attempts would look
+    // like a real question-order change and trip the server's freeze
+    // trigger on save, even though nothing was actually added or removed.
+    if (task.status === 'draft') edQuestions = sortTaskQuestions(edQuestions);
+    edSelectedClasses.add(task.class_id);
+    const map = new Map();
+    (asg || []).forEach(a => map.set(a.student_id, {
+      due_override: a.due_override, extra_time_minutes: a.extra_time_minutes || 0,
+    }));
+    edAssignedByClass.set(task.class_id, map);
+    if ((asg || []).length > 0) edConfirmedClassIds.add(task.class_id);
+    edSiblingClassIds.add(task.class_id);
+    if (task.assignment_group_id) {
+      const { data: sibs } = await auth.client.from('tasks').select('class_id').eq('assignment_group_id', task.assignment_group_id);
+      (sibs || []).forEach(s => edSiblingClassIds.add(s.class_id));
+    }
+    if (task.builder_state && task.builder_state.picker) edPicker = task.builder_state.picker;
+  } else if (activeClassId) {
+    // New task: default to the class currently filtered in the list view, for convenience.
+    edSelectedClasses.add(activeClassId);
+    edAssignedByClass.set(activeClassId, new Map());
+  }
+
+  await loadUsedMap(task ? task.id : null);
+  renderPicker();
+  renderReview();
+  await renderAssignPanels();
+  showEditorStep(1);
+  show('viewEditor');
+}
+
+// ── Step 2: topic picker ──
+// edPicker[pageId] = { cats: { [sourceKey]: { count } } } — how many to
+// randomly add from each category; purely a builder convenience, not saved
+// question data. Older drafts may have the pre-accordion shape ({mode,
+// count, types}) — defaultPageCfg() below discards it cleanly.
+function defaultPageCfg(cfg) {
+  if (cfg && cfg.cats) return cfg;
+  return { cats: {} };
+}
+function defaultCatCfg() { return { count: 3 }; }
+
+function renderPicker() {
+  const container = $('pickerContainer');
+  container.innerHTML = '';
+  PAGE_GROUPS.forEach(group => {
+    const pages = flatPages(group).filter(p => (BANK_BY_PAGE[p.id] || []).length);
+    if (!pages.length) return;
+    const details = document.createElement('div');
+    details.className = 'picker-group';
+    const inTask = pages.reduce((n, p) => n + edQuestions.filter(q => q.pageId === p.id).length, 0);
+    details.innerHTML = `
+      <button type="button" class="picker-group-header" style="border-left-color:${group.colour}">
+        <span class="t">${esc(group.title)}</span>
+        <span class="counts">${inTask ? inTask + ' in task · ' : ''}${pages.length} topics</span>
+        <span class="chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="picker-group-body${edOpenGroups.has(group.id) ? '' : ' hidden'}"></div>`;
+    const body = details.querySelector('.picker-group-body');
+    pages.forEach(p => body.appendChild(pickerPageRow(p)));
+    details.querySelector('.picker-group-header').addEventListener('click', () => {
+      body.classList.toggle('hidden');
+      if (body.classList.contains('hidden')) edOpenGroups.delete(group.id); else edOpenGroups.add(group.id);
+    });
+    container.appendChild(details);
+  });
+  updatePickSummary();
+}
+
+// One collapsible row per topic page; expanding it reveals one collapsible
+// category row per question source (Key Learning, MCQ, Matching, …), each
+// in the same order the activities appear on the topic page itself.
+// Expand/collapse state persists across re-renders in edOpenPages/edOpenCats
+// so re-rendering after an "Add random" doesn't collapse everything again.
+function pickerPageRow(page) {
+  const all = BANK_BY_PAGE[page.id] || [];
+  const cfg = edPicker[page.id] = defaultPageCfg(edPicker[page.id]);
+  const bySource = {};
+  all.forEach(q => (bySource[q.source] = bySource[q.source] || []).push(q));
+  const present = SOURCE_ORDER.filter(s => (bySource[s.key] || []).length);
+  const chosen = edQuestions.filter(q => q.pageId === page.id).length;
+
+  const wrap = document.createElement('div');
+  wrap.className = 'picker-page' + (edOpenPages.has(page.id) ? '' : ' collapsed');
+  wrap.innerHTML = `
+    <button type="button" class="picker-page-header">
+      <span class="name">${esc(page.name)}</span>
+      <span class="counts">${chosen ? chosen + ' in task · ' : ''}${all.length} question${all.length === 1 ? '' : 's'}</span>
+      <span class="chevron" aria-hidden="true">▾</span>
+    </button>
+    <div class="picker-page-body"></div>`;
+  const pageBody = wrap.querySelector('.picker-page-body');
+  present.forEach(s => pageBody.appendChild(categoryRow(page, s, bySource[s.key], cfg)));
+  wrap.querySelector('.picker-page-header').addEventListener('click', () => {
+    wrap.classList.toggle('collapsed');
+    if (wrap.classList.contains('collapsed')) edOpenPages.delete(page.id); else edOpenPages.add(page.id);
+  });
+  return wrap;
+}
+
+function categoryRow(page, sourceDef, questions, pageCfg) {
+  const ccfg = pageCfg.cats[sourceDef.key] = pageCfg.cats[sourceDef.key] || defaultCatCfg();
+  const openKey = page.id + '::' + sourceDef.key;
+
+  const row = document.createElement('div');
+  row.className = 'cat-row' + (edOpenCats.has(openKey) ? '' : ' collapsed');
+  const header = document.createElement('div');
+  header.className = 'cat-header';
+  const body = document.createElement('div');
+  body.className = 'cat-body';
+  row.appendChild(header);
+  row.appendChild(body);
+
+  function pickedCount() {
+    const ids = new Set(questions.map(q => q.id));
+    return edQuestions.filter(q => ids.has(q.id)).length;
+  }
+
+  function renderHeader() {
+    const picked = pickedCount();
+    const allPicked = picked === questions.length;
+    header.innerHTML = `
+      <button type="button" class="cat-toggle">
+        <span class="icon" aria-hidden="true">${sourceDef.icon}</span>
+        <span class="label">${sourceDef.label}</span>
+        <span class="avail">${questions.length} available</span>
+        ${picked ? `<span class="picked chip qtype">${picked} picked</span>` : ''}
+        <span class="chevron" aria-hidden="true">▾</span>
+      </button>
+      <label class="cat-selectall"><input type="checkbox" data-a="selall" ${allPicked ? 'checked' : ''}/> All</label>
+      <span class="cat-random" title="Add this many at random from ${esc(sourceDef.label)}">
+        <input type="number" min="1" max="${questions.length}" value="${Math.min(ccfg.count, questions.length)}"/>
+        <button type="button" class="btn small secondary" data-a="random">🎲 Add random</button>
+      </span>`;
+    header.querySelector('.cat-toggle').addEventListener('click', () => {
+      row.classList.toggle('collapsed');
+      if (row.classList.contains('collapsed')) edOpenCats.delete(openKey); else edOpenCats.add(openKey);
+      if (!row.classList.contains('collapsed')) renderList();
+    });
+    header.querySelector('[data-a=selall]').addEventListener('click', e => e.stopPropagation());
+    header.querySelector('[data-a=selall]').addEventListener('change', e => {
+      // selectAllInCategory() now calls renderPicker() itself, which rebuilds
+      // this whole row (and its header/list) fresh — no need to refresh here too.
+      selectAllInCategory(questions, e.target.checked);
+    });
+    header.querySelector('input[type=number]').addEventListener('change', e => {
+      ccfg.count = Math.max(1, Math.min(questions.length, parseInt(e.target.value, 10) || 1));
+    });
+    header.querySelector('[data-a=random]').addEventListener('click', () => addRandomFromCategory(questions, ccfg.count));
+  }
+
+  function renderList() {
+    const inTask = new Set(edQuestions.map(q => q.id));
+    body.innerHTML = questions.map(q => `
+      <label class="manual-q${edLastAddedIds.has(q.id) ? ' just-added' : ''}">
+        <input type="checkbox" data-qid="${q.id}" ${inTask.has(q.id) ? 'checked' : ''}/>
+        <span class="qbody">
+          <span class="mono" style="color:#8f6d19">[${q.marks} mk]</span>
+          ${usedForSelection(q.id) ? '<span class="chip used">⚠ Used before</span>' : ''}
+          ${esc(q.question.length > 160 ? q.question.slice(0, 160) + '…' : q.question)}
+          <button type="button" class="btn icon-btn" data-preview="${q.id}">👁 Preview</button>
+        </span>
+      </label>`).join('');
+    body.querySelectorAll('input[data-qid]').forEach(cb => cb.addEventListener('change', () => {
+      // toggleQuestion() now calls renderPicker() itself, which rebuilds
+      // this whole row (and its header/list) fresh — no need to refresh here too.
+      toggleQuestion(BANK_BY_ID[cb.dataset.qid], cb.checked);
+    }));
+    body.querySelectorAll('[data-preview]').forEach(btn => btn.addEventListener('click', () => openPreview(BANK_BY_ID[btn.dataset.preview])));
+  }
+
+  renderHeader();
+  if (!row.classList.contains('collapsed')) renderList();
+  return row;
+}
+
+function toggleQuestion(q, checked) {
+  if (checked) {
+    if (!edQuestions.some(x => x.id === q.id)) edQuestions.push(q);
+    edLastAddedIds = new Set([q.id]);
+  }
+  else edQuestions = edQuestions.filter(x => x.id !== q.id);
+  edQuestions = sortTaskQuestions(edQuestions);
+  // Rebuilds the whole picker (not just this category) so the topic-row and
+  // curriculum-group "N in task" counts stay in sync — addRandomFromCategory
+  // already did this; manual ticks previously didn't, so those badges went
+  // stale after a manual pick.
+  renderPicker();
+  renderReview();
+}
+
+// Tick/untick every question in one category at once.
+function selectAllInCategory(questions, select) {
+  const ids = new Set(questions.map(q => q.id));
+  if (select) {
+    const added = questions.filter(q => !edQuestions.some(x => x.id === q.id));
+    edQuestions.push(...added);
+    edLastAddedIds = new Set(added.map(q => q.id));
+  } else {
+    edQuestions = edQuestions.filter(x => !ids.has(x.id));
+  }
+  edQuestions = sortTaskQuestions(edQuestions);
+  renderPicker();
+  renderReview();
+}
+
+// Sample `count` questions from one category, preferring ones not used
+// before by the currently-selected students, then keep the whole task in
+// canonical topic/category order.
+function addRandomFromCategory(questions, count) {
+  const inTask = new Set(edQuestions.map(q => q.id));
+  const pool = questions.filter(q => !inTask.has(q.id));
+  if (!pool.length) { alert('All questions in this section are already in the task.'); return; }
+  const fresh = pool.filter(q => !usedForSelection(q.id));
+  const rest = pool.filter(q => usedForSelection(q.id));
+  const shuffled = [...shuffle(fresh), ...shuffle(rest)];
+  const take = shuffled.slice(0, Math.min(count, shuffled.length));
+  edQuestions.push(...take);
+  edLastAddedIds = new Set(take.map(q => q.id));
+  edQuestions = sortTaskQuestions(edQuestions);
+  renderPicker();
+  renderReview();
+}
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function updatePickSummary() {
+  const totalMarks = edQuestions.reduce((s, q) => s + q.marks, 0);
+  $('pickSummary').textContent = edQuestions.length
+    ? `— ${edQuestions.length} questions · ${totalMarks} marks` : '';
+}
+
+// Full question content (case study, reading, text, options, mark scheme) —
+// shared by the review cards and the picker's preview modal.
+function questionBodyHtml(q, { truncateCase, openMarkScheme } = {}) {
+  const caseText = q.caseStudy ? (truncateCase && q.caseStudy.length > 260 ? esc(q.caseStudy.slice(0, 260)) + '…' : esc(q.caseStudy)) : '';
+  return `
+    ${q.caseStudy ? `<div class="case">${caseText}</div>` : ''}
+    ${q.reading ? `<details class="ms"><summary>📖 Reading shown with this question${q.readingTitle ? ' — ' + esc(q.readingTitle) : ''}</summary><div class="reading-preview">${q.reading}</div></details>` : ''}
+    <div class="qtext">${esc(q.question)}</div>
+    ${q.options ? `<ol class="opts" type="A">${q.options.map(o => `<li>${esc(o)}</li>`).join('')}</ol>` : ''}
+    ${q.type === 'fib' && q.key && q.key.blanks ? `<details class="ms"><summary>Blank answers</summary><div>${Object.entries(q.key.blanks).map(([k, v]) => `<span class="mono">${esc(k)}:</span> ${esc(v)}`).join(' · ')}</div></details>` : ''}
+    ${q.key && (q.key.markScheme || q.key.explain) ? `<details class="ms" ${openMarkScheme ? 'open' : ''}><summary>Mark scheme / answer</summary><div>${q.key.markScheme || esc(q.key.explain || '')}</div></details>` : ''}
+    ${q.key && q.key.modelAnswer ? `<details class="ms"><summary>Model answer</summary><div>${esc(q.key.modelAnswer)}</div></details>` : ''}`;
+}
+
+// ── Question preview modal (used from both the picker and the review list) ──
+function openPreview(q) {
+  if (!q) return;
+  const used = usedForSelection(q.id);
+  $('qpModal').innerHTML = `
+    <div class="qp-modal-top">
+      <span class="chips">
+        <span class="chip qtype">${SOURCE_LABELS[q.source]} · ${QTYPE_LABELS[q.type]}</span>
+        <span class="marks mono">[${q.marks} mark${q.marks === 1 ? '' : 's'}]</span>
+        <span class="muted">${esc(q.pageName)}</span>
+        ${used ? '<span class="chip used">⚠ Used before with selected student(s)</span>' : '<span class="chip fresh">New to these students</span>'}
+      </span>
+      <button type="button" class="qp-close" id="qpCloseBtn" aria-label="Close preview">✕</button>
+    </div>
+    ${questionBodyHtml(q)}`;
+  $('qpOverlay').classList.remove('hidden');
+  $('qpCloseBtn').addEventListener('click', closePreview);
+}
+function closePreview() { $('qpOverlay').classList.add('hidden'); }
+$('qpOverlay').addEventListener('click', e => { if (e.target === $('qpOverlay')) closePreview(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('qpOverlay').classList.contains('hidden')) closePreview(); });
+
+// ── Step 3: review ──
+function renderReview() {
+  const list = $('reviewList');
+  updatePickSummary();
+  const totalMarks = edQuestions.reduce((s, q) => s + q.marks, 0);
+  $('reviewSummary').textContent = edQuestions.length
+    ? `— ${edQuestions.length} questions · ${totalMarks} marks total` : '— none added yet';
+  if (!edQuestions.length) { list.innerHTML = '<div class="empty">No questions added yet — use step 2.</div>'; return; }
+
+  list.innerHTML = '';
+  let lastAddedEl = null;
+  edQuestions.forEach((q, i) => {
+    const used = usedForSelection(q.id);
+    const justAdded = edLastAddedIds.has(q.id);
+    const card = document.createElement('div');
+    card.className = 'qcard' + (used ? ' used-warn' : '') + (justAdded ? ' just-added' : '');
+    card.innerHTML = `
+      <div class="qcard-top">
+        <span class="pos">Q${i + 1}</span>
+        ${justAdded ? '<span class="chip new-add">✨ Just added</span>' : ''}
+        <span class="chip qtype">${SOURCE_LABELS[q.source]} · ${QTYPE_LABELS[q.type]}</span>
+        <span class="marks">[${q.marks} mark${q.marks === 1 ? '' : 's'}]</span>
+        <span class="muted">${esc(q.pageName)}</span>
+        ${used ? '<span class="chip used">⚠ Used before with selected student(s)</span>' : '<span class="chip fresh">New to these students</span>'}
+      </div>
+      ${questionBodyHtml(q, { truncateCase: true })}
+      <div class="qcard-actions">
+        <button type="button" class="btn secondary small" data-a="preview" data-i="${i}">👁 Preview</button>
+        <button type="button" class="btn secondary small" data-a="replace" data-i="${i}">⭯ Replace</button>
+        <button type="button" class="btn danger small" data-a="remove" data-i="${i}">✕ Remove</button>
+      </div>`;
+    if (justAdded) lastAddedEl = card;
+    list.appendChild(card);
+  });
+  if (lastAddedEl) lastAddedEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+}
+
+$('reviewList').addEventListener('click', e => {
+  const btn = e.target.closest('button[data-a]');
+  if (!btn) return;
+  const i = parseInt(btn.dataset.i, 10);
+  const q = edQuestions[i];
+  if (btn.dataset.a === 'preview') { openPreview(q); return; }
+  if (btn.dataset.a === 'remove') edQuestions.splice(i, 1);
+  if (btn.dataset.a === 'replace') {
+    const inTask = new Set(edQuestions.map(x => x.id));
+    // Same topic, same source when possible, prefer questions unused with these students.
+    let pool = (BANK_BY_PAGE[q.pageId] || []).filter(x => !inTask.has(x.id));
+    const sameSource = pool.filter(x => x.source === q.source);
+    if (sameSource.length) pool = sameSource;
+    const fresh = pool.filter(x => !usedForSelection(x.id));
+    const pick = (fresh.length ? fresh : pool)[Math.floor(Math.random() * (fresh.length ? fresh.length : pool.length))];
+    if (!pick) { alert('No alternative question available in this topic.'); return; }
+    edQuestions[i] = pick;
+    edLastAddedIds = new Set([pick.id]);
+  }
+  edQuestions = sortTaskQuestions(edQuestions);
+  renderPicker();
+  renderReview();
+});
+
+// ── Step 3: classes + assign ──
+async function getRosterForClass(classId) {
+  if (edRosterCache.has(classId)) return edRosterCache.get(classId);
+  const { data: members } = await auth.client
+    .from('class_students').select('profiles!inner(id, username)')
+    .eq('class_id', classId);
+  const list = (members || []).map(m => ({ id: m.profiles.id, username: m.profiles.username }))
+    .sort((a, b) => a.username.localeCompare(b.username));
+  edRosterCache.set(classId, list);
+  return list;
+}
+
+function updateAddClassRow() {
+  const row = $('addClassRow');
+  if (!editingTask) { row.classList.add('hidden'); return; }
+  const options = classes.filter(c => !edSiblingClassIds.has(c.id));
+  if (!options.length) { row.classList.add('hidden'); return; }
+  row.classList.remove('hidden');
+  $('addClassSelect').innerHTML = options.map(c => `<option value="${c.id}">${esc(c.name)}</option>`).join('');
+}
+
+async function renderAssignPanels() {
+  const pick = $('classPickList');
+  if (editingTask) {
+    const cls = classes.find(c => c.id === editingTask.class_id);
+    pick.innerHTML = `<span class="chip published">${esc(cls ? cls.name : 'This class')}</span> <span class="muted">— the class this task belongs to. Use "Also send this task to another class" below to duplicate it elsewhere.</span>`;
+  } else {
+    pick.innerHTML = classes.length ? classes.map(c => `
+      <label style="display:flex; align-items:center; gap:6px; cursor:pointer; font-size:13px;">
+        <input type="checkbox" data-cls="${c.id}" ${edSelectedClasses.has(c.id) ? 'checked' : ''}/>${esc(c.name)}
+      </label>`).join('') : '<span class="muted">You have no classes yet — create one in the Teacher Dashboard first.</span>';
+    pick.querySelectorAll('input[data-cls]').forEach(cb => cb.addEventListener('change', async () => {
+      const cid = cb.dataset.cls;
+      if (cb.checked) {
+        edSelectedClasses.add(cid);
+        if (!edAssignedByClass.has(cid)) edAssignedByClass.set(cid, new Map());
+        await getRosterForClass(cid);
+      } else {
+        edSelectedClasses.delete(cid);
+        edAssignedByClass.delete(cid);
+        edConfirmedClassIds.delete(cid);
+        const created = edCreatedTaskByClass.get(cid);
+        if (created) {
+          edCreatedTaskByClass.delete(cid);
+          auth.client.from('tasks').delete().eq('id', created.id)
+            .then(({ error }) => { if (error) console.error('Failed to remove the draft created for the unticked class:', error); });
+        }
+      }
+      await renderAssignPanels();
+      renderReview();
+    }));
+  }
+
+  updateAddClassRow();
+
+  const panelsEl = $('classAssignPanels');
+  panelsEl.innerHTML = '';
+  for (const cid of orderedSelectedClassIds()) {
+    const cls = classes.find(c => c.id === cid);
+    const classRoster = await getRosterForClass(cid);
+    let assignedMap = edAssignedByClass.get(cid);
+    if (!assignedMap) { assignedMap = new Map(); edAssignedByClass.set(cid, assignedMap); }
+
+    const panel = document.createElement('div');
+    panel.style.marginBottom = '16px';
+    panel.dataset.assignPanel = cid;
+    panel.innerHTML = `
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+        <strong style="font-size:13px;">${esc(cls ? cls.name : cid)}</strong>
+        <span class="assign-status-chip" data-status-chip></span>
+        <span class="muted" data-summary></span>
+        <button type="button" class="btn secondary small" data-all>Select all</button>
+        <button type="button" class="btn secondary small" data-none>Select none</button>
+      </div>
+      <div data-list></div>`;
+    const listEl = panel.querySelector('[data-list]');
+    const summaryEl = panel.querySelector('[data-summary]');
+
+    function updatePanelSummary() {
+      summaryEl.textContent = assignedMap.size ? `— ${assignedMap.size} of ${classRoster.length} selected` : '— none selected';
+      updateAssignSummary();
+    }
+    function renderRows() {
+      if (!classRoster.length) { listEl.innerHTML = '<div class="empty">This class has no students yet.</div>'; return; }
+      listEl.innerHTML = '';
+      classRoster.forEach(s => {
+        const st = assignedMap.get(s.id);
+        const row = document.createElement('div');
+        row.className = 'assign-row';
+        row.innerHTML = `
+          <label style="display:flex; align-items:center; gap:8px; flex:1; min-width:150px; cursor:pointer;">
+            <input type="checkbox" data-sid="${s.id}" ${st ? 'checked' : ''}/>
+            <span class="u">${esc(s.username)}</span>
+          </label>
+          <span class="ovr-lbl">Deadline override</span>
+          <input type="datetime-local" data-ovr="due" data-sid="${s.id}" value="${st && st.due_override ? toLocalInput(st.due_override) : ''}" ${st ? '' : 'disabled'}/>
+          <span class="ovr-lbl">Extra time (min)</span>
+          <input type="number" min="0" max="240" data-ovr="extra" data-sid="${s.id}" value="${st ? (st.extra_time_minutes || 0) : 0}" ${st ? '' : 'disabled'}/>`;
+        listEl.appendChild(row);
+      });
+      listEl.querySelectorAll('input[type=checkbox][data-sid]').forEach(cb => cb.addEventListener('change', () => {
+        const sid = cb.dataset.sid;
+        if (cb.checked) assignedMap.set(sid, { due_override: null, extra_time_minutes: 0 });
+        else assignedMap.delete(sid);
+        listEl.querySelectorAll(`input[data-ovr][data-sid="${sid}"]`).forEach(inp => { inp.disabled = !cb.checked; });
+        updatePanelSummary();
+        renderReview(); // "used before" badges depend on the selection
+      }));
+      listEl.querySelectorAll('input[data-ovr]').forEach(inp => inp.addEventListener('change', () => {
+        const st = assignedMap.get(inp.dataset.sid);
+        if (!st) return;
+        if (inp.dataset.ovr === 'due') st.due_override = fromLocalInput(inp.value);
+        else st.extra_time_minutes = Math.max(0, parseInt(inp.value, 10) || 0);
+      }));
+      updatePanelSummary();
+    }
+    panel.querySelector('[data-all]').addEventListener('click', () => {
+      classRoster.forEach(s => { if (!assignedMap.has(s.id)) assignedMap.set(s.id, { due_override: null, extra_time_minutes: 0 }); });
+      renderRows(); renderReview();
+    });
+    panel.querySelector('[data-none]').addEventListener('click', () => {
+      assignedMap.clear(); renderRows(); renderReview();
+    });
+
+    renderRows();
+    panelsEl.appendChild(panel);
+  }
+
+  updateAssignSummary();
+}
+
+function updateAssignSummary() {
+  let total = 0;
+  edAssignedByClass.forEach(m => { total += m.size; });
+  $('assignSummary').textContent = total
+    ? `— ${total} student${total === 1 ? '' : 's'} across ${edSelectedClasses.size} class${edSelectedClasses.size === 1 ? '' : 'es'}`
+    : '';
+  // If a class gets ticked down to zero students after being confirmed, it
+  // needs assigning again — drop it back out of the confirmed set.
+  edConfirmedClassIds.forEach(cid => { if (!(edAssignedByClass.get(cid) || new Map()).size) edConfirmedClassIds.delete(cid); });
+  syncPrimaryBtnAndChips();
+}
+
+$('addClassBtn').addEventListener('click', async () => {
+  const targetClassId = $('addClassSelect').value;
+  if (!targetClassId || !editingTask) return;
+  $('addClassBtn').disabled = true;
+  try {
+    let groupId = editingTask.assignment_group_id;
+    if (!groupId) {
+      groupId = crypto.randomUUID();
+      const { error } = await auth.client.from('tasks').update({ assignment_group_id: groupId }).eq('id', editingTask.id);
+      if (error) throw error;
+      editingTask.assignment_group_id = groupId;
+    }
+    const row = {
+      title: editingTask.title, instructions: editingTask.instructions, due_at: editingTask.due_at,
+      late_policy: editingTask.late_policy, attempts_allowed: editingTask.attempts_allowed,
+      attempt_scoring: editingTask.attempt_scoring, time_limit_minutes: editingTask.time_limit_minutes,
+      timer_on_leave: editingTask.timer_on_leave, marking_mode: editingTask.marking_mode,
+      builder_state: editingTask.builder_state, status: 'draft',
+      class_id: targetClassId, teacher_id: auth.session.user.id, assignment_group_id: groupId,
+    };
+    const { data: newTask, error: insErr } = await auth.client.from('tasks').insert(row).select('*').single();
+    if (insErr) throw insErr;
+    if (edQuestions.length) {
+      const { error: qErr } = await auth.client.from('task_questions').insert(buildQuestionRows(newTask.id));
+      if (qErr) throw qErr;
+    }
+    alert('Draft created for the new class — assign its students, then publish.');
+    await openEditor(newTask);
+  } catch (err) {
+    alert(err.message || String(err));
+  } finally {
+    $('addClassBtn').disabled = false;
+  }
+});
+
+// ── Save / publish / delete ──
+function collectSettings() {
+  return {
+    title: $('fTitle').value.trim(),
+    instructions: $('fInstructions').value.trim(),
+    due_at: fromLocalInput($('fDue').value),
+    late_policy: $('fLatePolicy').value,
+    attempts_allowed: $('fAttempts').value === '' ? null : parseInt($('fAttempts').value, 10),
+    attempt_scoring: $('fScoring').value,
+    time_limit_minutes: $('fTimeLimit').value ? parseInt($('fTimeLimit').value, 10) : null,
+    timer_on_leave: $('fTimerLeave').value,
+    marking_mode: 'manual',
+    builder_state: { picker: edPicker },
+  };
+}
+
+function buildQuestionRows(taskId) {
+  return edQuestions.map((q, i) => ({
+    task_id: taskId, q_order: i, question_key: q.id, page_id: q.pageId,
+    source: q.source, qtype: q.type, marks: q.marks,
+    snapshot: {
+      question: q.question, options: q.options ?? null, caseStudy: q.caseStudy ?? null,
+      reading: q.reading ?? null, readingTitle: q.readingTitle ?? null,
+      hint: q.hint ?? null, starter: q.starter ?? null, num: q.num ?? null, pageName: q.pageName,
+    },
+    answer_key: q.key || {},
+  }));
+}
+
+// Upsert selected assignments, remove unselected. Runs before question
+// replacement so that if questions are frozen, everything else still saves.
+async function syncAssignments(taskId, assignedMap) {
+  const { data: existingA } = await auth.client.from('task_assignments').select('student_id').eq('task_id', taskId);
+  const existingIds = new Set((existingA || []).map(a => a.student_id));
+  const wantedIds = new Set(assignedMap.keys());
+  const toRemove = [...existingIds].filter(id => !wantedIds.has(id));
+  if (toRemove.length) await auth.client.from('task_assignments').delete().eq('task_id', taskId).in('student_id', toRemove);
+  const upserts = [...assignedMap.entries()].map(([sid, o]) => ({
+    task_id: taskId, student_id: sid, due_override: o.due_override, extra_time_minutes: o.extra_time_minutes || 0,
+  }));
+  if (upserts.length) {
+    const { error } = await auth.client.from('task_assignments').upsert(upserts);
+    if (error) throw error;
+  }
+}
+
+// Replace the question set (the DB trigger rejects this once any student has started).
+async function syncQuestions(taskId) {
+  const { data: existingQs } = await auth.client.from('task_questions').select('id, question_key, q_order').eq('task_id', taskId).order('q_order');
+  const changed = JSON.stringify((existingQs || []).map(q => q.question_key)) !== JSON.stringify(edQuestions.map(q => q.id));
+  if (!changed) return;
+  if (existingQs && existingQs.length) {
+    const { error } = await auth.client.from('task_questions').delete().eq('task_id', taskId);
+    if (error) throw new Error(error.message.includes('started') ? 'Questions can no longer be changed — a student has already started this task. Your other changes were saved.' : error.message);
+  }
+  const qRows = buildQuestionRows(taskId);
+  if (qRows.length) {
+    const { error } = await auth.client.from('task_questions').insert(qRows);
+    if (error) throw error;
+  }
+}
+
+async function saveTask(publish) {
+  const msg = $('editorMsg');
+  clearMsg(msg);
+  const s = collectSettings();
+  if (!s.title) return showMsg(msg, 'Give the task a title.', false);
+
+  // ── Editing a single existing task row — its own class is fixed ──
+  if (editingTask) {
+    const assignedMap = edAssignedByClass.get(editingTask.class_id) || new Map();
+    if (publish || editingTask.status === 'published') {
+      if (!s.due_at) return showMsg(msg, 'A published task needs a due date.', false);
+      if (!edQuestions.length) return showMsg(msg, 'Add at least one question.', false);
+      if (!assignedMap.size) return showMsg(msg, 'Assign at least one student.', false);
+    }
+    const status = publish ? 'published' : editingTask.status;
+    const row = { ...s, status, class_id: editingTask.class_id, teacher_id: auth.session.user.id };
+    if (publish && !editingTask.published_at) row.published_at = new Date().toISOString();
+
+    $('saveDraftBtn').disabled = $('publishBtn').disabled = true;
+    try {
+      const { error } = await auth.client.from('tasks').update(row).eq('id', editingTask.id);
+      if (error) throw error;
+      await syncAssignments(editingTask.id, assignedMap);
+      await syncQuestions(editingTask.id);
+
+      await loadClassTasks();
+      const saved = classTasks.find(t => t.id === editingTask.id) || { ...editingTask, ...row };
+      if (publish) { openDetail(saved); }
+      else {
+        editingTask = saved;
+        showMsg(msg, 'Draft saved — students can\'t see it until you publish.', true);
+        $('deleteTaskBtn').classList.remove('hidden');
+        syncPrimaryBtnAndChips();
+      }
+    } catch (err) {
+      showMsg(msg, err.message || String(err), false);
+    } finally {
+      $('saveDraftBtn').disabled = $('publishBtn').disabled = false;
+    }
+    return;
+  }
+
+  // ── Creating a brand-new task, possibly for several classes at once ──
+  const classIds = [...edSelectedClasses];
+  if (!classIds.length) return showMsg(msg, 'Choose at least one class.', false);
+  if (publish) {
+    if (!s.due_at) return showMsg(msg, 'A published task needs a due date.', false);
+    if (!edQuestions.length) return showMsg(msg, 'Add at least one question.', false);
+    const anyAssigned = classIds.some(cid => (edAssignedByClass.get(cid) || new Map()).size);
+    if (!anyAssigned) return showMsg(msg, 'Assign at least one student in at least one class.', false);
+  }
+  const status = publish ? 'published' : 'draft';
+  let groupId = edAssignGroupId;
+  if (classIds.length > 1 && !groupId) { groupId = crypto.randomUUID(); edAssignGroupId = groupId; }
+
+  $('saveDraftBtn').disabled = $('publishBtn').disabled = true;
+  try {
+    let firstTask = null;
+    for (const cid of classIds) {
+      const assignedMap = edAssignedByClass.get(cid) || new Map();
+      const existing = edCreatedTaskByClass.get(cid);
+      let data;
+      // Reuse whatever row "Assign to <class>" already created for this
+      // class this session, instead of inserting a duplicate.
+      if (existing) {
+        const patch = { ...s, status, class_id: cid, teacher_id: auth.session.user.id };
+        if (groupId && !existing.assignment_group_id) patch.assignment_group_id = groupId;
+        if (publish) patch.published_at = existing.published_at || new Date().toISOString();
+        const { error } = await auth.client.from('tasks').update(patch).eq('id', existing.id);
+        if (error) throw error;
+        data = { ...existing, ...patch };
+        await syncQuestions(data.id);
+      } else {
+        const row = { ...s, status, class_id: cid, teacher_id: auth.session.user.id, assignment_group_id: groupId };
+        if (publish) row.published_at = new Date().toISOString();
+        const { data: inserted, error } = await auth.client.from('tasks').insert(row).select('*').single();
+        if (error) throw error;
+        data = inserted;
+        if (edQuestions.length) {
+          const { error: qErr } = await auth.client.from('task_questions').insert(buildQuestionRows(data.id));
+          if (qErr) throw qErr;
+        }
+      }
+      edCreatedTaskByClass.set(cid, data);
+      if (assignedMap.size) { await syncAssignments(data.id, assignedMap); edConfirmedClassIds.add(cid); }
+      if (!firstTask) firstTask = data;
+    }
+
+    // The roster/analytics views below all assume activeClassId matches whichever
+    // task we're about to open — make sure that's still true before continuing.
+    if (activeClassId !== firstTask.class_id) {
+      $('classSelect').value = firstTask.class_id;
+      await selectClass(firstTask.class_id);
+    } else {
+      await loadClassTasks();
+    }
+    const saved = classTasks.find(t => t.id === firstTask.id) || firstTask;
+
+    if (publish) {
+      openDetail(saved);
+      if (classIds.length > 1) {
+        const clsName = (classes.find(c => c.id === saved.class_id) || {}).name || 'this class';
+        alert(`Published to ${classIds.length} classes. Showing "${saved.title}" for ${clsName} — use "Compare classes" in Analytics to see the others.`);
+      }
+    } else {
+      editingTask = saved;
+      edSelectedClasses = new Set([saved.class_id]);
+      edSiblingClassIds = new Set(classIds);
+      showMsg(msg, classIds.length > 1 ? `Draft saved for ${classIds.length} classes.` : 'Draft saved — students can\'t see it until you publish.', true);
+      $('deleteTaskBtn').classList.remove('hidden');
+      await renderAssignPanels();
+    }
+  } catch (err) {
+    showMsg(msg, err.message || String(err), false);
+  } finally {
+    $('saveDraftBtn').disabled = $('publishBtn').disabled = false;
+  }
+}
+
+// Generates the shared assignment_group_id the first time a second class
+// enters the picture, retro-tagging any class row already created solo.
+async function ensureAssignGroupId() {
+  if (edSelectedClasses.size <= 1) return null;
+  if (edAssignGroupId) return edAssignGroupId;
+  edAssignGroupId = crypto.randomUUID();
+  for (const [, row] of edCreatedTaskByClass) {
+    if (!row.assignment_group_id) {
+      const { error } = await auth.client.from('tasks').update({ assignment_group_id: edAssignGroupId }).eq('id', row.id);
+      if (!error) row.assignment_group_id = edAssignGroupId;
+    }
+  }
+  return edAssignGroupId;
+}
+
+// The "👥 Assign — <class>" click: persists just that one class's ticked
+// students (creating its draft row on first use), then hands off to the
+// next unconfirmed class — or to Publish once every class is done.
+async function confirmAssignForClass(classId) {
+  const msg = $('editorMsg');
+  clearMsg(msg);
+  const cls = classes.find(c => c.id === classId);
+  const clsName = cls ? cls.name : 'this class';
+  const assignedMap = edAssignedByClass.get(classId) || new Map();
+  if (!assignedMap.size) return showMsg(msg, `Tick at least one student in ${clsName} to assign.`, false);
+  const s = collectSettings();
+  if (!s.title) return showMsg(msg, 'Give the task a title.', false);
+
+  $('saveDraftBtn').disabled = $('publishBtn').disabled = true;
+  try {
+    if (editingTask) {
+      // Editing an existing task — this class IS the task's own row.
+      const row = { ...s, status: editingTask.status, class_id: editingTask.class_id, teacher_id: auth.session.user.id };
+      const { error } = await auth.client.from('tasks').update(row).eq('id', editingTask.id);
+      if (error) throw error;
+      await syncAssignments(editingTask.id, assignedMap);
+      await syncQuestions(editingTask.id);
+      await loadClassTasks();
+      editingTask = classTasks.find(t => t.id === editingTask.id) || { ...editingTask, ...row };
+      $('deleteTaskBtn').classList.remove('hidden');
+    } else {
+      let taskRow = edCreatedTaskByClass.get(classId);
+      if (!taskRow) {
+        const groupId = await ensureAssignGroupId();
+        const row = { ...s, status: 'draft', class_id: classId, teacher_id: auth.session.user.id, assignment_group_id: groupId };
+        const { data, error } = await auth.client.from('tasks').insert(row).select('*').single();
+        if (error) throw error;
+        taskRow = data;
+        edCreatedTaskByClass.set(classId, taskRow);
+        if (edQuestions.length) {
+          const { error: qErr } = await auth.client.from('task_questions').insert(buildQuestionRows(taskRow.id));
+          if (qErr) throw qErr;
+        }
+      } else {
+        // Already created earlier this session (e.g. re-confirming after
+        // going back to tweak settings) — keep it in step with the form.
+        const patch = { ...s, class_id: classId, teacher_id: auth.session.user.id };
+        const { error } = await auth.client.from('tasks').update(patch).eq('id', taskRow.id);
+        if (error) throw error;
+        Object.assign(taskRow, patch);
+        await syncQuestions(taskRow.id);
+      }
+      await syncAssignments(taskRow.id, assignedMap);
+    }
+
+    edConfirmedClassIds.add(classId);
+    const phase = syncPrimaryBtnAndChips();
+    if (phase.kind === 'assign-class') {
+      focusAssignPanel(phase.classId, clsName);
+    } else {
+      showMsg(msg, `✅ Assigned ${clsName} — every selected class now has students. Click Publish when you're ready to go live.`, true);
+    }
+  } catch (err) {
+    showMsg(msg, err.message || String(err), false);
+  } finally {
+    $('saveDraftBtn').disabled = $('publishBtn').disabled = false;
+  }
+}
+
+$('saveDraftBtn').addEventListener('click', () => saveTask(false));
+// The accent button IS the wizard: its label always says exactly what
+// clicking it does next, so the click handler just acts on that same phase.
+$('publishBtn').addEventListener('click', () => {
+  const phase = computeAssignPhase();
+  const msg = $('editorMsg');
+  if (phase.kind === 'choose-questions') {
+    if (!$('fTitle').value.trim()) return showMsg(msg, 'Give the task a title.', false);
+    showEditorStep(2);
+  } else if (phase.kind === 'go-assign') {
+    if (!edQuestions.length) return showMsg(msg, 'Add at least one question before assigning.', false);
+    showEditorStep(3);
+  } else if (phase.kind === 'assign-class') {
+    confirmAssignForClass(phase.classId);
+  } else {
+    saveTask(true); // 'publish' (new task, or an existing draft) or 'save-changes' (already live)
+  }
+});
+$('deleteTaskBtn').addEventListener('click', async () => {
+  if (!editingTask) return;
+  const warn = editingTask.status === 'published'
+    ? `Delete "${editingTask.title}" permanently? Students will lose access and ALL attempts and marks will be deleted.`
+    : `Delete draft "${editingTask.title}"?`;
+  if (!confirm(warn)) return;
+  const { error } = await auth.client.from('tasks').delete().eq('id', editingTask.id);
+  if (error) return showMsg($('editorMsg'), error.message, false);
+  await loadClassTasks();
+  show('viewList');
+});
+
+// ══════════ DETAIL VIEW ══════════
+async function openDetail(task) {
+  dTask = task;
+  qDrillOpen = new Set();
+  qDrillRevealAll = new Set();
+  qDrillRevealOne = new Set();
+  $('detailTitle').textContent = task.title;
+  clearMsg($('detailMsg'));
+  switchDetailTab('analytics');
+  show('viewDetail');
+
+  const [{ data: qs }, { data: asg }, { data: atts }] = await Promise.all([
+    auth.client.from('task_questions').select('*').eq('task_id', task.id).order('q_order'),
+    auth.client.from('task_assignments').select('*').eq('task_id', task.id),
+    auth.client.from('task_attempts').select('*').eq('task_id', task.id).order('attempt_number'),
+  ]);
+  dQuestions = qs || []; dAssignments = asg || []; dAttempts = atts || [];
+  dAnswers = [];
+  if (dAttempts.length) {
+    const { data: ans } = await auth.client.from('task_answers').select('*').in('attempt_id', dAttempts.map(a => a.id));
+    dAnswers = ans || [];
+  }
+
+  $('detailDue').value = toLocalInput(task.due_at);
+  const hasAttempts = dAttempts.length > 0;
+  $('detailMeta').innerHTML = `
+    <span class="chip published">Published</span>
+    &nbsp;${dQuestions.length} questions · ${dQuestions.reduce((s, q) => s + Number(q.marks), 0)} marks
+    &nbsp;· Attempts: <strong>${task.attempts_allowed ?? 'unlimited'}</strong> (${task.attempt_scoring} counts)
+    &nbsp;· Late: <strong>${task.late_policy === 'lock' ? 'locks at deadline' : 'accepted, flagged late'}</strong>
+    &nbsp;· Timer: <strong>${task.time_limit_minutes ? task.time_limit_minutes + ' min (' + (task.timer_on_leave === 'paused' ? 'pauses' : 'keeps running') + ' on leave)' : 'untimed'}</strong>`;
+  $('detailEditBtn').classList.toggle('hidden', false);
+  $('questionsLockNote').textContent = hasAttempts
+    ? '🔒 A student has started this task, so questions can no longer be changed or removed (the due date and student list stay editable).'
+    : 'No attempts yet — you can still edit the questions via “Edit task”.';
+
+  renderAnalytics();
+  loadClassComparison(task);
+  renderMarkingQueue();
+  renderDetailStudents();
+  renderDetailQuestions();
+}
+
+document.querySelectorAll('[data-dtab]').forEach(btn =>
+  btn.addEventListener('click', () => switchDetailTab(btn.dataset.dtab)));
+function switchDetailTab(which) {
+  document.querySelectorAll('[data-dtab]').forEach(b => b.classList.toggle('active', b.dataset.dtab === which));
+  ['analytics', 'marking', 'students', 'questions'].forEach(t =>
+    $('dtab-' + t).classList.toggle('hidden', t !== which));
+}
+
+$('detailDueSave').addEventListener('click', async () => {
+  const iso = fromLocalInput($('detailDue').value);
+  if (!iso) return showMsg($('detailMsg'), 'Pick a due date first.', false);
+  const { error } = await auth.client.from('tasks').update({ due_at: iso }).eq('id', dTask.id);
+  if (error) return showMsg($('detailMsg'), error.message, false);
+  dTask.due_at = iso;
+  showMsg($('detailMsg'), 'Due date updated.', true);
+});
+$('detailEditBtn').addEventListener('click', () => openEditor(dTask));
+
+// Status of one student on this task (teacher view).
+function detailStudentStatus(sid) {
+  const assignment = dAssignments.find(a => a.student_id === sid);
+  const attempts = dAttempts.filter(a => a.student_id === sid);
+  const state = studentTaskState(dTask, assignment, attempts);
+  const counted = countedAttempt(dTask, attempts);
+  return { assignment, attempts, state, counted };
+}
+
+function statusChip(state, counted) {
+  if (state === 'submitted') {
+    return counted && counted.is_late ? '<span class="chip late">Late</span>' : '<span class="chip ontime">On time</span>';
+  }
+  if (state === 'in_progress') return '<span class="chip pending">In progress</span>';
+  if (state === 'overdue') return '<span class="chip late">Overdue</span>';
+  if (state === 'locked') return '<span class="chip missed">Missed</span>';
+  return '<span class="chip draft">Not started</span>';
+}
+
+function renderAnalytics() {
+  const rows = dAssignments.map(a => ({ sid: a.student_id, ...detailStudentStatus(a.student_id) }));
+  const submitted = rows.filter(r => r.state === 'submitted');
+  const late = submitted.filter(r => r.counted && r.counted.is_late);
+  const missed = rows.filter(r => r.state === 'locked' || r.state === 'overdue');
+  const stats = computeTaskStats(dTask, dAssignments, dAttempts);
+  const avgTime = submitted.length ? submitted.reduce((s, r) => s + (r.counted ? r.counted.time_spent_seconds : 0), 0) / submitted.length : 0;
+
+  $('anaTiles').innerHTML =
+    tile(dAssignments.length, 'Assigned') +
+    tile(`${submitted.length - late.length} / ${late.length}`, 'On time / late') +
+    tile(missed.length, 'Overdue / missed') +
+    tile(stats.avgTrue != null ? stats.avgTrue + '%' : '—', 'Avg score (whole class)') +
+    tile(stats.avgMarked != null ? stats.avgMarked + '%' : '—', 'Avg score (marked only)') +
+    tile(fmtDuration(avgTime), 'Avg time spent');
+
+  const nameOf = sid => (roster.find(s => s.id === sid) || {}).username || sid.slice(0, 8);
+  $('anaStudentsBody').innerHTML = rows.map(r => {
+    const c = r.counted;
+    return `<tr>
+      <td class="mono">${esc(nameOf(r.sid))}</td>
+      <td>${statusChip(r.state, c)}${c && !c.marking_complete ? ' <span class="chip pending">Marking pending</span>' : ''}</td>
+      <td class="mono">${submittedAttempts(r.attempts).length}${dTask.attempts_allowed ? '/' + dTask.attempts_allowed : ''}</td>
+      <td class="mono">${c ? `${c.marks_awarded ?? 0}/${c.marks_total ?? '—'}` : '—'}</td>
+      <td class="mono">${c && c.marks_total ? attemptPct(c) + '%' : '—'}</td>
+      <td class="mono">${c ? fmtDuration(c.time_spent_seconds) : '—'}</td>
+      <td>${r.assignment && (r.assignment.due_override || r.assignment.extra_time_minutes) ? '<span class="chip qtype" title="Has accommodations">♿ adjusted</span>' : ''}</td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="7" class="empty">No students assigned.</td></tr>';
+
+  // Per-question stats over each student's counted attempt.
+  const countedIds = new Set(rows.map(r => r.counted && r.counted.id).filter(Boolean));
+  $('anaQuestionsBody').innerHTML = dQuestions.map((q, i) => {
+    const answers = dAnswers.filter(a => a.task_question_id === q.id && countedIds.has(a.attempt_id));
+    const answered = answers.filter(a => a.answer != null);
+    const full = answers.filter(a => a.awarded != null && Number(a.awarded) >= Number(q.marks));
+    const markedAns = answers.filter(a => a.awarded != null);
+    const avgMarks = markedAns.length ? (markedAns.reduce((s, a) => s + Number(a.awarded), 0) / markedAns.length) : null;
+    const avgT = answered.length ? answered.reduce((s, a) => s + a.time_spent_seconds, 0) / answered.length : 0;
+    const qText = q.snapshot.question;
+    const open = qDrillOpen.has(q.id);
+    const summaryRow = `<tr class="clickable-row" data-qid="${q.id}">
+      <td class="mono">Q${i + 1} ${open ? '▾' : '▸'}</td>
+      <td style="max-width:380px;">${esc(qText.length > 110 ? qText.slice(0, 110) + '…' : qText)}</td>
+      <td><span class="chip qtype">${QTYPE_LABELS[q.qtype] || q.qtype}</span></td>
+      <td class="mono">${q.marks}</td>
+      <td class="mono">${answered.length}/${countedIds.size}</td>
+      <td class="mono">${markedAns.length ? full.length + '/' + markedAns.length : '—'}</td>
+      <td class="mono">${avgMarks != null ? avgMarks.toFixed(1) : '—'}</td>
+      <td class="mono">${fmtDuration(avgT)}</td>
+    </tr>`;
+    return summaryRow + (open ? renderQuestionDrilldown(q, rows, countedIds) : '');
+  }).join('') || '<tr><td colspan="8" class="empty">No questions.</td></tr>';
+}
+
+// ── Per-question drill-down: who answered what ──
+function fibBlankKeysTeacher(q) {
+  const gaps = (q.snapshot.question.match(/_{3,}/g) || []).length;
+  const n = Math.max(gaps, Math.round(Number(q.marks)) || 1);
+  return Array.from({ length: n }, (_, i) => 'B' + (i + 1));
+}
+
+function formatAnswerForDisplay(q, ans) {
+  const v = ans.answer.value;
+  if (q.qtype === 'mcq') {
+    const opts = q.snapshot.options || [];
+    return v != null ? esc(String.fromCharCode(65 + v) + '. ' + (opts[v] ?? '')) : '<em>No answer</em>';
+  }
+  if (q.qtype === 'tf') return v == null ? '<em>No answer</em>' : (v ? 'True' : 'False');
+  if (q.qtype === 'fib') {
+    const vals = (v && typeof v === 'object') ? v : {};
+    return fibBlankKeysTeacher(q).map((k, bi) => `<strong>${bi + 1}.</strong> ${esc(vals[k] || '—')}`).join(' · ');
+  }
+  return v != null && String(v).trim() !== '' ? esc(String(v)) : '<em>No answer</em>';
+}
+
+// Distribution of submitted answers, for mcq (always) and single-blank fib
+// (multi-blank fib is skipped — a distribution chart isn't meaningful there).
+function buildAnswerDistribution(q, rows, countedIds, answerByAttempt) {
+  if (q.qtype === 'mcq') {
+    const opts = q.snapshot.options || [];
+    const correctIdx = q.answer_key && q.answer_key.answer;
+    const counts = opts.map(() => 0);
+    let total = 0;
+    rows.forEach(r => {
+      if (!r.counted || !countedIds.has(r.counted.id)) return;
+      const ans = answerByAttempt[r.counted.id];
+      const idx = ans && ans.answer ? ans.answer.value : null;
+      if (idx != null && counts[idx] != null) { counts[idx]++; total++; }
+    });
+    if (!total) return '';
+    let mostWrongIdx = -1, mostWrongCount = 0;
+    opts.forEach((o, idx) => { if (idx !== correctIdx && counts[idx] > mostWrongCount) { mostWrongCount = counts[idx]; mostWrongIdx = idx; } });
+    const bars = opts.map((opt, idx) => {
+      const count = counts[idx];
+      const pct = Math.round(count / total * 100);
+      const kind = idx === correctIdx ? 'correct' : (idx === mostWrongIdx && count > 0 ? 'mostwrong' : 'otherwrong');
+      return `<div class="ans-dist-row ${kind}">
+        <span class="ans-dist-label" title="${esc(opt)}">${kind === 'correct' ? '✓ ' : ''}${String.fromCharCode(65 + idx)}. ${esc(opt)}</span>
+        <span class="ans-dist-bar-wrap"><span class="ans-dist-bar" style="width:${pct}%"></span></span>
+        <span class="ans-dist-count">${count} (${pct}%)</span>
+      </div>`;
+    }).join('');
+    return `<div class="ans-dist"><div class="ans-dist-legend">✓ Correct &nbsp;·&nbsp; darker red = most common wrong answer &nbsp;·&nbsp; muted = other wrong answers</div>${bars}</div>`;
+  }
+
+  if (q.qtype === 'fib') {
+    const blankKeys = fibBlankKeysTeacher(q);
+    if (blankKeys.length !== 1) return '';
+    const correctRaw = q.answer_key && q.answer_key.blanks ? q.answer_key.blanks[blankKeys[0]] : null;
+    const norm = s => String(s ?? '').trim().toLowerCase();
+    const correctNorm = norm(correctRaw);
+    const tally = new Map();
+    let total = 0;
+    rows.forEach(r => {
+      if (!r.counted || !countedIds.has(r.counted.id)) return;
+      const ans = answerByAttempt[r.counted.id];
+      const vals = ans && ans.answer && typeof ans.answer.value === 'object' ? ans.answer.value : null;
+      const raw = vals ? vals[blankKeys[0]] : null;
+      if (!raw || !String(raw).trim()) return;
+      const key = norm(raw);
+      if (!tally.has(key)) tally.set(key, { count: 0, display: String(raw).trim() });
+      tally.get(key).count++;
+      total++;
+    });
+    if (!total) return '';
+    if (correctNorm && !tally.has(correctNorm)) tally.set(correctNorm, { count: 0, display: correctRaw });
+    let mostWrongKey = null, mostWrongCount = 0;
+    tally.forEach((v, k) => { if (k !== correctNorm && v.count > mostWrongCount) { mostWrongCount = v.count; mostWrongKey = k; } });
+    const bars = [...tally.entries()].sort((a, b) => b[1].count - a[1].count).slice(0, 6).map(([key, v]) => {
+      const pct = Math.round(v.count / total * 100);
+      const kind = key === correctNorm ? 'correct' : (key === mostWrongKey ? 'mostwrong' : 'otherwrong');
+      return `<div class="ans-dist-row ${kind}">
+        <span class="ans-dist-label" title="${esc(v.display)}">${kind === 'correct' ? '✓ ' : ''}${esc(v.display)}</span>
+        <span class="ans-dist-bar-wrap"><span class="ans-dist-bar" style="width:${pct}%"></span></span>
+        <span class="ans-dist-count">${v.count} (${pct}%)</span>
+      </div>`;
+    }).join('');
+    return `<div class="ans-dist"><div class="ans-dist-legend">✓ Correct &nbsp;·&nbsp; darker red = most common wrong answer &nbsp;·&nbsp; muted = other wrong answers</div>${bars}</div>`;
+  }
+
+  return '';
+}
+
+function renderQuestionDrilldown(q, rows, countedIds) {
+  const nameOf = sid => (roster.find(s => s.id === sid) || {}).username || sid.slice(0, 8);
+  const answerByAttempt = {};
+  dAnswers.filter(a => a.task_question_id === q.id).forEach(a => { answerByAttempt[a.attempt_id] = a; });
+  const revealAll = qDrillRevealAll.has(q.id);
+
+  const studentRows = rows.map(r => {
+    const ans = r.counted ? answerByAttempt[r.counted.id] : null;
+    const key = q.id + '|' + r.sid;
+    const revealed = revealAll || qDrillRevealOne.has(key);
+    const hasAnswer = ans && ans.answer != null;
+    let statusHtml;
+    if (!hasAnswer) statusHtml = '<span class="muted">No answer</span>';
+    else if (ans.is_correct != null) statusHtml = ans.is_correct ? '<span class="chip ontime">Correct</span>' : '<span class="chip missed">Incorrect</span>';
+    else if (ans.awarded != null) statusHtml = `<span class="mono">${ans.awarded}/${q.marks}</span>`;
+    else statusHtml = '<span class="chip pending">Unmarked</span>';
+    return `
+      <tr>
+        <td>${hasAnswer ? `<button type="button" class="btn secondary small" data-toggle-student="${esc(key)}">${esc(nameOf(r.sid))} ${revealed ? '▾' : '▸'}</button>` : esc(nameOf(r.sid))}</td>
+        <td>${statusHtml}</td>
+        <td class="mono">${ans ? fmtDuration(ans.time_spent_seconds) : '—'}</td>
+      </tr>
+      ${revealed && hasAnswer ? `<tr><td colspan="3" style="padding-top:0;"><div class="mark-answer" style="margin:0;">${formatAnswerForDisplay(q, ans)}</div></td></tr>` : ''}`;
+  }).join('');
+
+  const dist = buildAnswerDistribution(q, rows, countedIds, answerByAttempt);
+
+  return `<tr class="q-drilldown">
+    <td colspan="8" style="background:var(--cream); padding:14px 16px;">
+      ${dist ? `<div style="margin-bottom:14px;">${dist}</div>` : ''}
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+        <strong style="font-size:12.5px;">Student answers</strong>
+        <button type="button" class="btn secondary small" data-reveal-all="${q.id}">${revealAll ? 'Hide all answers' : 'Reveal answers for all students'}</button>
+      </div>
+      <table>
+        <thead><tr><th>Student</th><th>Status</th><th>Time</th></tr></thead>
+        <tbody>${studentRows}</tbody>
+      </table>
+    </td>
+  </tr>`;
+}
+
+$('anaQuestionsBody').addEventListener('click', e => {
+  const revealAllBtn = e.target.closest('[data-reveal-all]');
+  if (revealAllBtn) {
+    const qid = revealAllBtn.dataset.revealAll;
+    if (qDrillRevealAll.has(qid)) qDrillRevealAll.delete(qid); else qDrillRevealAll.add(qid);
+    renderAnalytics();
+    return;
+  }
+  const studentBtn = e.target.closest('[data-toggle-student]');
+  if (studentBtn) {
+    const key = studentBtn.dataset.toggleStudent;
+    if (qDrillRevealOne.has(key)) qDrillRevealOne.delete(key); else qDrillRevealOne.add(key);
+    renderAnalytics();
+    return;
+  }
+  const row = e.target.closest('tr.clickable-row[data-qid]');
+  if (row) {
+    const qid = row.dataset.qid;
+    if (qDrillOpen.has(qid)) qDrillOpen.delete(qid); else qDrillOpen.add(qid);
+    renderAnalytics();
+  }
+});
+
+function tile(val, lbl) { return `<div class="tile"><div class="val">${val}</div><div class="lbl">${lbl}</div></div>`; }
+
+// ── Class comparison (tasks sent to several classes at once) ──
+async function loadClassComparison(task) {
+  const btn = $('compareClassesBtn');
+  if (!task.assignment_group_id) { btn.classList.add('hidden'); $('classComparisonPanel').classList.add('hidden'); return; }
+
+  const { data: sibs } = await auth.client.from('tasks').select('*').eq('assignment_group_id', task.assignment_group_id);
+  const siblings = sibs || [];
+  if (siblings.length < 2) { btn.classList.add('hidden'); $('classComparisonPanel').classList.add('hidden'); return; }
+
+  const ids = siblings.map(t => t.id);
+  const [{ data: asg }, { data: atts }] = await Promise.all([
+    auth.client.from('task_assignments').select('task_id, student_id').in('task_id', ids),
+    auth.client.from('task_attempts').select('*').in('task_id', ids),
+  ]);
+  const rows = siblings.map(t => {
+    const cls = classes.find(c => c.id === t.class_id);
+    const stats = computeTaskStats(t, (asg || []).filter(a => a.task_id === t.id), (atts || []).filter(a => a.task_id === t.id));
+    return { className: cls ? cls.name : t.class_id, isCurrent: t.id === task.id, ...stats };
+  }).sort((a, b) => (b.avgTrue ?? -1) - (a.avgTrue ?? -1));
+
+  btn.classList.remove('hidden');
+  $('classComparisonBody').innerHTML = rows.map(r => `
+    <tr${r.isCurrent ? ' style="background:rgba(74,111,165,.06);"' : ''}>
+      <td><strong>${esc(r.className)}</strong>${r.isCurrent ? ' <span class="muted">(this class)</span>' : ''}</td>
+      <td class="mono">${r.assigned}</td>
+      <td class="mono">${r.submitted}/${r.assigned}</td>
+      <td class="mono">${r.avgTrue != null ? r.avgTrue + '%' : '—'}</td>
+      <td class="mono">${r.avgMarked != null ? r.avgMarked + '%' : '—'}</td>
+    </tr>`).join('');
+}
+$('compareClassesBtn').addEventListener('click', () => $('classComparisonPanel').classList.toggle('hidden'));
+
+// ── CSV export ──
+$('csvResultsBtn').addEventListener('click', () => {
+  const nameOf = sid => (roster.find(s => s.id === sid) || {}).username || sid;
+  const rows = [['Student', 'Status', 'Late', 'Attempts used', 'Marks awarded', 'Marks total', 'Percent', 'Time spent (s)', 'Started', 'Submitted']];
+  dAssignments.forEach(a => {
+    const r = detailStudentStatus(a.student_id);
+    const c = r.counted;
+    rows.push([
+      nameOf(a.student_id), TASK_STATE_LABELS[r.state],
+      c ? (c.is_late ? 'yes' : 'no') : '', submittedAttempts(r.attempts).length,
+      c ? (c.marks_awarded ?? '') : '', c ? (c.marks_total ?? '') : '',
+      c && c.marks_total ? attemptPct(c) : '', c ? c.time_spent_seconds : '',
+      c ? c.started_at : '', c ? (c.submitted_at || '') : '',
+    ]);
+  });
+  downloadCsv(rows, `${dTask.title.replace(/[^\w-]+/g, '_')}_results.csv`);
+});
+
+$('csvQuestionsBtn').addEventListener('click', () => {
+  const nameOf = sid => (roster.find(s => s.id === sid) || {}).username || sid;
+  const attemptById = {};
+  dAttempts.forEach(a => { attemptById[a.id] = a; });
+  const qIndex = {};
+  dQuestions.forEach((q, i) => { qIndex[q.id] = i + 1; });
+  const rows = [['Student', 'Attempt', 'Question #', 'Question', 'Type', 'Marks available', 'Answered', 'Correct', 'Marks awarded', 'Time spent (s)', 'Feedback']];
+  dAnswers.forEach(ans => {
+    const att = attemptById[ans.attempt_id];
+    const q = dQuestions.find(x => x.id === ans.task_question_id);
+    if (!att || !q) return;
+    rows.push([
+      nameOf(att.student_id), att.attempt_number, 'Q' + qIndex[q.id],
+      q.snapshot.question, q.qtype, q.marks,
+      ans.answer != null ? 'yes' : 'no',
+      ans.is_correct == null ? '' : (ans.is_correct ? 'yes' : 'no'),
+      ans.awarded ?? '', ans.time_spent_seconds, ans.feedback || '',
+    ]);
+  });
+  downloadCsv(rows, `${dTask.title.replace(/[^\w-]+/g, '_')}_per_question.csv`);
+});
+
+// ── Marking queue ──
+function renderMarkingQueue() {
+  const container = $('markingQueue');
+  const attemptById = {};
+  dAttempts.forEach(a => { attemptById[a.id] = a; });
+  const nameOf = sid => (roster.find(s => s.id === sid) || {}).username || sid.slice(0, 8);
+  const qById = {};
+  dQuestions.forEach((q, i) => { qById[q.id] = { ...q, idx: i + 1 }; });
+
+  const unmarked = dAnswers.filter(a => {
+    const att = attemptById[a.attempt_id];
+    return att && att.status === 'submitted' && a.awarded == null;
+  }).sort((a, b) => {
+    const A = attemptById[a.attempt_id], B = attemptById[b.attempt_id];
+    return (A.submitted_at || '').localeCompare(B.submitted_at || '') ||
+           (qById[a.task_question_id]?.idx || 0) - (qById[b.task_question_id]?.idx || 0);
+  });
+
+  $('markCount').textContent = unmarked.length ? `(${unmarked.length})` : '';
+  if (!unmarked.length) { container.innerHTML = '<div class="empty">🎉 Nothing waiting to be marked.</div>'; return; }
+
+  container.innerHTML = '';
+  unmarked.forEach(ans => {
+    const att = attemptById[ans.attempt_id];
+    const q = qById[ans.task_question_id];
+    if (!q) return;
+    const card = document.createElement('div');
+    card.className = 'mark-card';
+    card.innerHTML = `
+      <div class="mark-card-header">
+        <span class="who">👤 ${esc(nameOf(att.student_id))}</span>
+        <span class="chip ${att.is_late ? 'late' : 'ontime'}">${att.is_late ? 'Late' : 'On time'}</span>
+        <span class="muted">Attempt ${att.attempt_number} · submitted ${fmtDateTime(att.submitted_at)}</span>
+        <span class="mono" style="margin-left:auto;">Q${q.idx} · ${q.marks} marks · ${fmtDuration(ans.time_spent_seconds)}</span>
+      </div>
+      <div class="mark-body">
+        ${questionBodyHtml({
+          caseStudy: q.snapshot.caseStudy, reading: q.snapshot.reading, readingTitle: q.snapshot.readingTitle,
+          question: q.snapshot.question, options: q.snapshot.options, type: q.qtype, key: q.answer_key,
+        }, { openMarkScheme: true })}
+        <div class="mark-answer">${ans.answer && ans.answer.value != null && String(ans.answer.value).trim() !== '' ? esc(String(ans.answer.value)) : '<em style="color:var(--mid)">No answer given</em>'}</div>
+        <div class="mark-controls">
+          <div class="field"><label>Marks (0–${q.marks})</label>
+            <input type="number" min="0" max="${q.marks}" step="0.5" data-mark-input/></div>
+          <textarea placeholder="Feedback for the student (optional)" data-feedback-input></textarea>
+          <button type="button" class="btn" data-save-mark data-answer-id="${ans.id}">Save mark</button>
+        </div>
+        <div class="msg" data-mark-msg></div>
+      </div>`;
+    card.querySelector('[data-save-mark]').addEventListener('click', async btn => {
+      const markInp = card.querySelector('[data-mark-input]');
+      const fb = card.querySelector('[data-feedback-input]').value.trim();
+      const msgEl = card.querySelector('[data-mark-msg]');
+      const val = parseFloat(markInp.value);
+      if (isNaN(val) || val < 0 || val > Number(q.marks)) return showMsg(msgEl, `Enter a mark between 0 and ${q.marks}.`, false);
+      card.querySelector('[data-save-mark]').disabled = true;
+      const { data, error } = await auth.client.rpc('mark_task_answer', {
+        p_answer_id: ans.id, p_awarded: val, p_feedback: fb || null, p_source: 'teacher',
+      });
+      if (error) { showMsg(msgEl, error.message, false); card.querySelector('[data-save-mark]').disabled = false; return; }
+      // Refresh local state and re-render.
+      const idx = dAnswers.findIndex(x => x.id === ans.id);
+      dAnswers[idx] = { ...ans, awarded: val, feedback: fb, marked_by: 'teacher' };
+      const attIdx = dAttempts.findIndex(x => x.id === att.id);
+      if (data) dAttempts[attIdx] = { ...dAttempts[attIdx], ...data };
+      renderMarkingQueue();
+      renderAnalytics();
+    });
+    container.appendChild(card);
+  });
+}
+
+// ── Students & overrides tab ──
+function renderDetailStudents() {
+  const nameOf = sid => (roster.find(s => s.id === sid) || {}).username || sid.slice(0, 8);
+  const list = $('detailAssignList');
+  list.innerHTML = dAssignments.map(a => `
+    <div class="assign-row">
+      <span class="u">${esc(nameOf(a.student_id))}</span>
+      <span class="ovr-lbl">Deadline override</span>
+      <input type="datetime-local" data-osid="${a.student_id}" data-o="due" value="${a.due_override ? toLocalInput(a.due_override) : ''}"/>
+      <span class="ovr-lbl">Extra time (min)</span>
+      <input type="number" min="0" max="240" data-osid="${a.student_id}" data-o="extra" value="${a.extra_time_minutes || 0}"/>
+      <button type="button" class="btn small" data-osave="${a.student_id}">Save</button>
+    </div>`).join('') || '<div class="empty">No students assigned yet.</div>';
+
+  list.querySelectorAll('[data-osave]').forEach(btn => btn.addEventListener('click', async () => {
+    const sid = btn.dataset.osave;
+    const due = list.querySelector(`input[data-osid="${sid}"][data-o="due"]`).value;
+    const extra = parseInt(list.querySelector(`input[data-osid="${sid}"][data-o="extra"]`).value, 10) || 0;
+    btn.disabled = true;
+    const { error } = await auth.client.from('task_assignments')
+      .update({ due_override: fromLocalInput(due), extra_time_minutes: Math.max(0, extra) })
+      .eq('task_id', dTask.id).eq('student_id', sid);
+    btn.disabled = false;
+    btn.textContent = error ? '✗ Failed' : '✓ Saved';
+    setTimeout(() => { btn.textContent = 'Save'; }, 1600);
+    if (!error) {
+      const a = dAssignments.find(x => x.student_id === sid);
+      a.due_override = fromLocalInput(due); a.extra_time_minutes = extra;
+      renderAnalytics();
+    }
+  }));
+
+  const assignedIds = new Set(dAssignments.map(a => a.student_id));
+  const addable = roster.filter(s => !assignedIds.has(s.id));
+  $('detailAddList').innerHTML = addable.length
+    ? addable.map(s => `<button type="button" class="btn secondary small" data-add-sid="${s.id}">+ ${esc(s.username)}</button>`).join('')
+    : '<span class="muted">Everyone in this class is already assigned.</span>';
+  document.querySelectorAll('[data-add-sid]').forEach(btn => btn.addEventListener('click', async () => {
+    btn.disabled = true;
+    const { error } = await auth.client.from('task_assignments')
+      .insert({ task_id: dTask.id, student_id: btn.dataset.addSid });
+    if (error) { alert(error.message); btn.disabled = false; return; }
+    const { data: asg } = await auth.client.from('task_assignments').select('*').eq('task_id', dTask.id);
+    dAssignments = asg || [];
+    renderDetailStudents();
+    renderAnalytics();
+  }));
+}
+
+function renderDetailQuestions() {
+  $('detailQuestionList').innerHTML = dQuestions.map((q, i) => `
+    <div class="qcard">
+      <div class="qcard-top">
+        <span class="pos">Q${i + 1}</span>
+        <span class="chip qtype">${SOURCE_LABELS[q.source] || q.source} · ${QTYPE_LABELS[q.qtype] || q.qtype}</span>
+        <span class="marks">[${q.marks} mark${Number(q.marks) === 1 ? '' : 's'}]</span>
+        <span class="muted">${esc(q.snapshot.pageName || q.page_id)}</span>
+      </div>
+      ${q.snapshot.caseStudy ? `<details class="ms"><summary>Case study</summary><div>${esc(q.snapshot.caseStudy)}</div></details>` : ''}
+      ${q.snapshot.reading ? `<details class="ms"><summary>📖 Reading${q.snapshot.readingTitle ? ' — ' + esc(q.snapshot.readingTitle) : ''}</summary><div class="reading-preview">${q.snapshot.reading}</div></details>` : ''}
+      <div class="qtext">${esc(q.snapshot.question)}</div>
+      ${q.snapshot.options ? `<ol class="opts" type="A">${q.snapshot.options.map(o => `<li>${esc(o)}</li>`).join('')}</ol>` : ''}
+      ${q.qtype === 'fib' && q.answer_key.blanks ? `<details class="ms"><summary>Blank answers</summary><div>${Object.entries(q.answer_key.blanks).map(([k, v]) => `<span class="mono">${esc(k)}:</span> ${esc(v)}`).join(' · ')}</div></details>` : ''}
+      ${q.answer_key.markScheme ? `<details class="ms"><summary>Mark scheme</summary><div>${q.answer_key.markScheme}</div></details>` : ''}
+      ${q.answer_key.explain ? `<details class="ms"><summary>Answer explanation</summary><div>${esc(q.answer_key.explain)}</div></details>` : ''}
+    </div>`).join('') || '<div class="empty">No questions.</div>';
+}
+
+init();
+</script>
+<script src="footer-legal.js"></script>
+</body>
+</html>

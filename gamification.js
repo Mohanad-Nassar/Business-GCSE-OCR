@@ -1,0 +1,1029 @@
+// ══════════════════════════════════════════════════════════════
+// GAMIFICATION — XP, levels, badges, streaks, combos, sound effects.
+// Included on topic pages (after script.js + section-totals.js +
+// progress-shared.js), on index.html and on both dashboards. On topic
+// pages it also injects a persistent HUD (level/XP/streak/badges + this
+// topic's progress), prev/next topic navigation and a one-time
+// topic-complete confetti celebration; on index.html it injects the
+// hero HUD and per-card progress footers — see the sections at the
+// bottom of this file.
+//
+// XP/levels/badges are pure functions over progress data (see the header
+// note in supabase/gamification-functions.sql for why) — nothing here is
+// "awarded" or written anywhere except two tiny localStorage flags (which
+// badges have already been shown as a toast, and whether sound is muted).
+// Depends on PAGE_GROUPS / flatPages / pageSectionTotals from
+// progress-shared.js, and SOURCE_ORDER-style category keys.
+// ══════════════════════════════════════════════════════════════
+
+const GAMIFICATION_XP_PER_QUESTION = 10;
+const GAMIFICATION_CATEGORY_BONUS = 50;
+const GAMIFICATION_TOPIC_BONUS = 200;
+const GAMIFICATION_CATEGORY_KEYS = ['learn', 'mcq', 'match', 'fib', 'misc', 'tips', 'tf', 'exam'];
+
+const BADGE_DEFS = [
+  { id: 'first-steps',    icon: '🥉', label: 'First Steps',     desc: 'Answer your first question',              test: s => s.totalDone >= 1 },
+  { id: 'century',        icon: '💯', label: 'Century',          desc: 'Answer 100 questions',                     test: s => s.totalDone >= 100 },
+  { id: 'getting-serious',icon: '🚀', label: 'Getting Serious',  desc: 'Reach 500 XP',                             test: s => s.xp >= 500 },
+  { id: 'topic-master',   icon: '🏆', label: 'Topic Master',     desc: 'Fully complete one topic',                 test: s => s.topicsComplete >= 1 },
+  { id: 'on-a-roll',      icon: '🏅', label: 'On a Roll',        desc: 'Fully complete 5 topics',                  test: s => s.topicsComplete >= 5 },
+  { id: 'unit-champion',  icon: '🌟', label: 'Unit Champion',    desc: 'Fully complete every topic in one unit',   test: s => s.unitComplete },
+  { id: 'gcse-legend',    icon: '👑', label: 'GCSE Legend',      desc: 'Fully complete every topic',               test: s => s.topicsComplete >= s.totalTopics && s.totalTopics > 0 },
+  { id: 'bookworm',       icon: '📚', label: 'Bookworm',         desc: 'Complete Key Learning in 10 topics',       test: s => s.byCategory.learn >= 10 },
+  { id: 'quiz-whiz',      icon: '❓', label: 'Quiz Whiz',        desc: 'Complete MCQ Quiz in 10 topics',           test: s => s.byCategory.mcq >= 10 },
+  { id: 'match-master',   icon: '🔗', label: 'Match Master',     desc: 'Complete Matching in 10 topics',           test: s => s.byCategory.match >= 10 },
+  { id: 'fill-it-in',     icon: '✏️', label: 'Fill It In',       desc: 'Complete Fill the Blanks in 10 topics',    test: s => s.byCategory.fib >= 10 },
+  { id: 'myth-buster',    icon: '⚠️', label: 'Myth Buster',      desc: 'Complete Misconceptions in 10 topics',     test: s => s.byCategory.misc >= 10 },
+  { id: 'tip-top',        icon: '🎯', label: 'Tip Top',          desc: 'Complete Exam Tips in 10 topics',          test: s => s.byCategory.tips >= 10 },
+  { id: 'true-believer',  icon: '✅', label: 'True Believer',    desc: 'Complete True/False in 10 topics',         test: s => s.byCategory.tf >= 10 },
+  { id: 'exam-ready',     icon: '📝', label: 'Exam Ready',       desc: 'Complete Exam Practice in 5 topics',       test: s => s.byCategory.exam >= 5 },
+  { id: 'on-fire',        icon: '🔥', label: 'On Fire',          desc: '3-day answering streak',                   test: s => s.streak >= 3 },
+  { id: 'unstoppable',    icon: '🔥', label: 'Unstoppable',      desc: '7-day answering streak',                   test: s => s.streak >= 7 },
+];
+
+function gamificationLevelFromXp(xp) {
+  let level = 1, xpForThis = 0;
+  while (xp >= xpForThis + level * level * 50) { xpForThis += level * level * 50; level++; }
+  return { level, xpIntoLevel: xp - xpForThis, xpForNextLevel: level * level * 50 };
+}
+
+// Content-less curriculum "overview" pages (e.g. the 2.4 Marketing Mix hub)
+// have no gradable sections at all and can never register as "complete" —
+// excluded here so they don't make unit/course completion permanently
+// unreachable (mirrors the same fix in topic-guard.js/dashboard.html).
+function _gamHasGradableContent(pageId) {
+  const t = window.SECTION_TOTALS && window.SECTION_TOTALS[pageId];
+  return !!t && Object.keys(t).some(k => k !== 'flashcards' && t[k] > 0);
+}
+
+// The single source of truth for XP/levels/badges/completion — call this
+// with the same merged {pageId:{section:{done,total}}} progress object
+// the dashboards already build, plus a streak count (0 if unknown yet).
+function computeGamificationStats(progress, streak) {
+  let xp = 0, topicsComplete = 0, totalDone = 0, totalTopics = 0, unitCompleteAny = false;
+  const byCategory = {};
+  GAMIFICATION_CATEGORY_KEYS.forEach(k => { byCategory[k] = 0; });
+
+  PAGE_GROUPS.forEach(group => {
+    const pages = flatPages(group).filter(p => _gamHasGradableContent(p.id));
+    let unitComplete = 0;
+    pages.forEach(p => {
+      totalTopics++;
+      const sections = pageSectionTotals(p.id, progress[p.id] || {}).filter(s => s.key !== 'flashcards');
+      let anySection = false, allComplete = true;
+      sections.forEach(s => {
+        totalDone += s.done;
+        xp += s.done * GAMIFICATION_XP_PER_QUESTION;
+        if (s.total > 0) {
+          anySection = true;
+          if (s.done >= s.total) {
+            xp += GAMIFICATION_CATEGORY_BONUS;
+            if (byCategory[s.key] != null) byCategory[s.key]++;
+          } else {
+            allComplete = false;
+          }
+        }
+      });
+      if (anySection && allComplete) { xp += GAMIFICATION_TOPIC_BONUS; topicsComplete++; unitComplete++; }
+    });
+    if (pages.length > 0 && unitComplete === pages.length) unitCompleteAny = true;
+  });
+
+  const lvl = gamificationLevelFromXp(xp);
+  return {
+    xp, level: lvl.level, xpIntoLevel: lvl.xpIntoLevel, xpForNextLevel: lvl.xpForNextLevel,
+    topicsComplete, totalDone, totalTopics, byCategory,
+    unitComplete: unitCompleteAny, streak: streak || 0,
+  };
+}
+
+function gamificationEarnedBadges(stats) {
+  return BADGE_DEFS.filter(b => b.test(stats));
+}
+
+// Diffs newly-earned badges against what's already been shown, toasts the
+// new ones, and remembers what's been shown — purely a "don't re-toast the
+// same badge on every page load" flag, not the badge state itself (that's
+// always recomputed from `stats`).
+function gamificationCheckNewBadges(stats) {
+  const earned = gamificationEarnedBadges(stats);
+  let seen = [];
+  try { seen = JSON.parse(localStorage.getItem('gcse_badges_seen') || '[]'); } catch (e) {}
+  const seenSet = new Set(seen);
+  const fresh = earned.filter(b => !seenSet.has(b.id));
+  if (fresh.length) {
+    try { localStorage.setItem('gcse_badges_seen', JSON.stringify(earned.map(b => b.id))); } catch (e) {}
+    fresh.forEach((b, i) => setTimeout(() => gamificationShowBadgeToast(b), i * 3200));
+  }
+  return earned;
+}
+
+// ── Sound (synthesized — no external audio assets) ──
+
+let _gamAudioCtx = null;
+function _gamCtx() {
+  if (!_gamAudioCtx) {
+    try { _gamAudioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { return null; }
+  }
+  return _gamAudioCtx;
+}
+
+function gamificationSoundEnabled() {
+  try { return localStorage.getItem('gcse_sound_off') !== '1'; } catch (e) { return true; }
+}
+function gamificationSetSoundEnabled(on) {
+  try { localStorage.setItem('gcse_sound_off', on ? '0' : '1'); } catch (e) {}
+}
+
+function _gamTone(freq, start, dur, type, peak) {
+  const ctx = _gamCtx();
+  if (!ctx) return;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = type || 'sine';
+  osc.frequency.value = freq;
+  const t0 = ctx.currentTime + start;
+  gain.gain.setValueAtTime(0.0001, t0);
+  gain.gain.linearRampToValueAtTime(peak || 0.15, t0 + 0.02);
+  gain.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+  osc.connect(gain); gain.connect(ctx.destination);
+  osc.start(t0); osc.stop(t0 + dur + 0.05);
+}
+
+function gamificationPlaySound(kind) {
+  if (!gamificationSoundEnabled()) return;
+  if (kind === 'correct') { _gamTone(660, 0, .12, 'sine'); _gamTone(990, .09, .18, 'sine'); }
+  else if (kind === 'wrong') { _gamTone(220, 0, .18, 'sine', .1); }
+  else if (kind === 'levelup') { [523, 659, 784, 1047].forEach((f, i) => _gamTone(f, i * .09, .22, 'triangle', .16)); }
+  else if (kind === 'badge') { _gamTone(784, 0, .14, 'triangle', .16); _gamTone(1175, .1, .28, 'triangle', .18); }
+  else if (kind === 'combo') { _gamTone(880, 0, .1, 'triangle', .13); _gamTone(1320, .08, .16, 'triangle', .15); }
+  else { _gamTone(440, 0, .08, 'sine', .08); }
+}
+
+// ── Toasts ──
+
+function _gamEnsureStyles() {
+  if (document.getElementById('gam-toast-styles')) return;
+  const style = document.createElement('style');
+  style.id = 'gam-toast-styles';
+  style.textContent = `
+    .gam-xp-toast{position:fixed;top:18px;right:18px;z-index:490;background:var(--ink,#1a2332);color:#fff;font-family:'DM Mono',monospace;font-size:13px;font-weight:600;padding:8px 16px;border-radius:99px;box-shadow:0 8px 24px rgba(0,0,0,.25);opacity:0;transform:translateY(-10px);transition:opacity .25s,transform .25s;pointer-events:none;}
+    .gam-xp-toast.show{opacity:1;transform:translateY(0);}
+    .gam-badge-toast{position:fixed;top:18px;right:18px;z-index:491;display:flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--gold,#d4a843);color:#1a2332;font-family:'DM Sans',sans-serif;padding:12px 18px;border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.3);opacity:0;transform:translateY(-16px) scale(.95);transition:opacity .3s,transform .3s;max-width:280px;}
+    .gam-badge-toast.show{opacity:1;transform:translateY(0) scale(1);}
+    .gam-badge-icon{font-size:28px;line-height:1;}
+    .gam-badge-title{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:#8f6d19;}
+    .gam-badge-name{font-family:'Playfair Display',serif;font-weight:700;font-size:14px;}
+    .gam-levelup-toast{position:fixed;top:18px;right:18px;z-index:402;background:linear-gradient(135deg,#7a5c9e,#4a6fa5);color:#fff;font-family:'Playfair Display',serif;font-weight:700;font-size:15px;padding:14px 20px;border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.35);opacity:0;transform:translateY(-16px) scale(.95);transition:opacity .3s,transform .3s;}
+    .gam-levelup-toast.show{opacity:1;transform:translateY(0) scale(1);}
+    .gam-combo-toast{position:fixed;top:64px;right:18px;z-index:400;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#b8860b,#d4a843);color:#fff;font-family:'DM Mono',monospace;font-size:13px;font-weight:600;padding:8px 16px;border-radius:99px;box-shadow:0 8px 24px rgba(184,134,11,.4);opacity:0;transform:translateY(-10px) scale(.9);transition:opacity .25s,transform .25s cubic-bezier(.34,1.4,.64,1);pointer-events:none;}
+    .gam-combo-toast.show{opacity:1;transform:translateY(0) scale(1);}
+  `;
+  document.head.appendChild(style);
+}
+
+function _gamToast(el, holdMs) {
+  document.body.appendChild(el);
+  requestAnimationFrame(() => el.classList.add('show'));
+  setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 400); }, holdMs);
+}
+
+function gamificationShowXpToast(amount) {
+  _gamEnsureStyles();
+  const el = document.createElement('div');
+  el.className = 'gam-xp-toast';
+  el.textContent = `+${amount} XP`;
+  _gamToast(el, 900);
+}
+
+function gamificationShowBadgeToast(badge) {
+  _gamEnsureStyles();
+  gamificationPlaySound('badge');
+  const el = document.createElement('div');
+  el.className = 'gam-badge-toast';
+  el.innerHTML = `<span class="gam-badge-icon" aria-hidden="true">${badge.icon}</span>
+    <div><div class="gam-badge-title">Badge unlocked!</div><div class="gam-badge-name">${badge.label}</div></div>`;
+  _gamToast(el, 4200);
+}
+
+function gamificationShowLevelUpToast(level) {
+  _gamEnsureStyles();
+  const el = document.createElement('div');
+  el.className = 'gam-levelup-toast';
+  el.textContent = `⭐ Level ${level}!`;
+  _gamToast(el, 2600);
+}
+
+function gamificationShowComboToast(combo) {
+  _gamEnsureStyles();
+  const el = document.createElement('div');
+  el.className = 'gam-combo-toast';
+  el.innerHTML = `<span aria-hidden="true">🔥</span> ${combo} correct in a row!`;
+  _gamToast(el, 1600);
+}
+
+// ── Streak (needs a server round trip — see gamification-functions.sql) ──
+
+let _gamStreak = 0;
+async function gamificationRefreshStreak(client) {
+  try {
+    if (!client) return 0;
+    const { data, error } = await client.rpc('get_my_streak');
+    if (!error && data) {
+      _gamStreak = data.current || 0;
+      // Repaint the topic/home HUD if one is on this page (no-op elsewhere) —
+      // callers like script.js refresh the streak after auth without repainting.
+      if (typeof _gamUpdateHud === 'function') _gamUpdateHud();
+    }
+  } catch (e) {}
+  return _gamStreak;
+}
+
+// ── Daily goal (device-local, display-only — XP stays pure) ──
+// Gives the day-streak something visible to chase: answer N questions
+// today. Counted locally per calendar day; old keys are pruned as we go.
+const GAMIFICATION_DAILY_GOAL = 20;
+
+function _gamDailyKey() {
+  const d = new Date();
+  const p = n => String(n).padStart(2, '0');
+  return `gcse_daily_${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+}
+
+function gamificationDailyCount() {
+  try { return parseInt(localStorage.getItem(_gamDailyKey()) || '0', 10) || 0; } catch (e) { return 0; }
+}
+
+function _gamBumpDaily() {
+  const key = _gamDailyKey();
+  let n = gamificationDailyCount() + 1;
+  try {
+    Object.keys(localStorage).forEach(k => {
+      if (k.startsWith('gcse_daily_') && k !== key) localStorage.removeItem(k);
+    });
+    localStorage.setItem(key, String(n));
+  } catch (e) {}
+  if (n === GAMIFICATION_DAILY_GOAL) {
+    gamificationPlaySound('badge');
+    if (typeof _gamConfettiBurst === 'function') _gamConfettiBurst(24);
+    _gamEnsureStyles();
+    const el = document.createElement('div');
+    el.className = 'gam-combo-toast';
+    el.innerHTML = `<span aria-hidden="true">🎯</span> Daily goal smashed — ${GAMIFICATION_DAILY_GOAL} questions today! Streak safe 🔥`;
+    _gamToast(el, 3200);
+  }
+  return n;
+}
+
+// ── Per-answer hook, called from script.js's ProgressStore.saveAnswers() ──
+
+// In-session combo: consecutive correct answers (display-only — XP stays a
+// pure function of progress data). Neutral answers (reading a card,
+// revealing a mark scheme) neither extend nor break it.
+let _gamCombo = 0;
+const GAMIFICATION_COMBO_MILESTONES = [3, 5, 8, 12, 16, 20, 25, 30, 40, 50];
+
+function _gamTrackCombo(isCorrect) {
+  if (isCorrect === true) {
+    _gamCombo++;
+    if (GAMIFICATION_COMBO_MILESTONES.includes(_gamCombo)) {
+      gamificationPlaySound('combo');
+      gamificationShowComboToast(_gamCombo);
+    }
+  } else if (isCorrect === false) {
+    _gamCombo = 0;
+  }
+}
+
+let _gamLevelSeen = null;
+let _gamCheckTimer = null;
+function gamificationOnAnswer(isCorrect, section) {
+  if (typeof PAGE_GROUPS === 'undefined' || typeof ProgressStore === 'undefined') return;
+  gamificationPlaySound(isCorrect === true ? 'correct' : isCorrect === false ? 'wrong' : 'neutral');
+  // XP is only earned for CORRECT answers (quiz sections store done =
+  // correct count), so a wrong answer gets no "+10 XP" flash. Neutral
+  // actions (reading a card, revealing a mark scheme) still earn.
+  // Flashcards never earn XP (see computeGamificationStats).
+  if (isCorrect !== false && section !== 'flashcards') gamificationShowXpToast(GAMIFICATION_XP_PER_QUESTION);
+  if (section !== 'flashcards') _gamBumpDaily();
+  _gamTrackCombo(isCorrect);
+
+  // Debounced so a burst of quick answers doesn't spam badge/level toasts.
+  clearTimeout(_gamCheckTimer);
+  _gamCheckTimer = setTimeout(() => {
+    const stats = computeGamificationStats(ProgressStore.getAll(), _gamStreak);
+    if (_gamLevelSeen != null && stats.level > _gamLevelSeen) {
+      gamificationPlaySound('levelup');
+      gamificationShowLevelUpToast(stats.level);
+    }
+    _gamLevelSeen = stats.level;
+    gamificationCheckNewBadges(stats);
+    if (typeof _gamUpdateHud === 'function') _gamUpdateHud(stats);
+    if (typeof _gamMaybeCelebrateTopic === 'function') _gamMaybeCelebrateTopic();
+  }, 450);
+}
+
+// Prime the "already at this level" baseline once, quietly, so the very
+// first answer of a session doesn't wrongly look like a level-up.
+(function gamificationPrimeLevel() {
+  if (typeof PAGE_GROUPS === 'undefined' || typeof ProgressStore === 'undefined') return;
+  try { _gamLevelSeen = computeGamificationStats(ProgressStore.getAll(), 0).level; } catch (e) {}
+})();
+
+// ══════════════════════════════════════════════════════════════
+// TOPIC-PAGE HUD + PREV/NEXT TOPIC NAVIGATION
+// Auto-injected on topic pages only (detected by a .tab-bar plus a page
+// id that exists in PAGE_GROUPS — dashboards have neither, so they keep
+// their own gam-bar markup). Surfaces the same level/XP/streak/badges
+// state the dashboard shows, plus this topic's own progress, and adds
+// previous/next topic links so students can move through the course
+// without bouncing back to the home page. Lives entirely inside <main>
+// so it is safe in both the mobile flow layout and the desktop
+// sidebar/tabbar body grid in style.css.
+// ══════════════════════════════════════════════════════════════
+
+function _gamOrderedPages() {
+  const out = [];
+  PAGE_GROUPS.forEach(g => flatPages(g).forEach(p => out.push({ ...p, groupTitle: g.title, colour: g.colour })));
+  return out;
+}
+
+// XP still on the table for a topic: 10/question + 50/section + the
+// 200 topic bonus (flashcards never earn XP — see computeGamificationStats).
+function _gamPagePotentialXp(pageId) {
+  const t = window.SECTION_TOTALS && window.SECTION_TOTALS[pageId];
+  if (!t) return 0;
+  let xp = 0, any = false;
+  Object.keys(t).forEach(k => {
+    if (k !== 'flashcards' && t[k] > 0) { any = true; xp += t[k] * GAMIFICATION_XP_PER_QUESTION + GAMIFICATION_CATEGORY_BONUS; }
+  });
+  return any ? xp + GAMIFICATION_TOPIC_BONUS : 0;
+}
+
+// Progress source that works on pages without script.js (index.html):
+// prefer the live ProgressStore, otherwise rebuild the same
+// {pageId:{section:{done,total}}} shape straight from its localStorage
+// keys (PREFIX and key format mirror ProgressStore in script.js).
+function _gamReadLocalProgress() {
+  const PREFIX = 'geo_progress_';
+  const result = {};
+  try {
+    Object.keys(localStorage).forEach(k => {
+      if (!k.startsWith(PREFIX)) return;
+      const rest = k.slice(PREFIX.length);
+      if (rest.indexOf('__answers__') !== -1) return;
+      const sep = rest.indexOf('__');
+      if (sep <= 0) return;
+      const pageId = rest.slice(0, sep), section = rest.slice(sep + 2);
+      if (!section) return;
+      let v = null;
+      try { v = JSON.parse(localStorage.getItem(k)); } catch (e) {}
+      if (!v) return;
+      (result[pageId] = result[pageId] || {})[section] = { done: v.done || 0, total: v.total || 0, ts: v.ts || 0 };
+    });
+  } catch (e) {}
+  return result;
+}
+
+function _gamProgressData() {
+  let base = null;
+  if (typeof ProgressStore !== 'undefined') {
+    try { base = ProgressStore.getAll(); } catch (e) {}
+  }
+  if (!base) base = _gamReadLocalProgress();
+  // On the home page a server snapshot may be merged in for display (this
+  // device's localStorage can lag another device) — take the higher done.
+  if (_gamServerProgress) base = _gamMergeProgress(base, _gamServerProgress);
+  return base;
+}
+
+let _gamServerProgress = null;
+
+function _gamMergeProgress(local, server) {
+  const out = {};
+  [local, server].forEach(src => {
+    Object.keys(src || {}).forEach(pid => {
+      Object.keys(src[pid]).forEach(section => {
+        const cur = (out[pid] = out[pid] || {})[section] || { done: 0, total: 0, ts: 0 };
+        const row = src[pid][section];
+        out[pid][section] = {
+          done: Math.max(cur.done || 0, row.done || 0),
+          total: Math.max(cur.total || 0, row.total || 0),
+          ts: Math.max(cur.ts || 0, row.ts || 0),
+        };
+      });
+    });
+  });
+  return out;
+}
+
+// Home-page display refresh from the server (students only): pulls the
+// progress_summary rollups, merges them over local data, and repaints the
+// hero HUD, the continue card and every topic-card footer. Display-only —
+// nothing is written to localStorage (topic pages do real hydration via
+// gcseHydrateFromServer in script.js).
+async function gamificationRefreshHomeFromServer(client) {
+  try {
+    if (!client) return;
+    const { data, error } = await client.from('progress_summary').select('page_id, section, done, total');
+    if (error || !data || !data.length) return;
+    const prog = {};
+    data.forEach(r => {
+      (prog[r.page_id] = prog[r.page_id] || {})[r.section] = { done: r.done || 0, total: r.total || 0 };
+    });
+    _gamServerProgress = prog;
+  } catch (e) { return; }
+
+  _gamUpdateHud();
+  document.querySelectorAll('.gam-card-prog').forEach(el => el.remove());
+  document.querySelectorAll('.topic-card.gam-complete').forEach(el => el.classList.remove('gam-complete'));
+  gamificationDecorateTopicCards();
+  const mount = document.getElementById('gamHudMount');
+  if (mount) {
+    const cont = mount.querySelector('.gam-continue');
+    if (cont) cont.remove();
+    _gamInjectContinueCard(mount);
+  }
+}
+
+// This topic's done/total across scored sections, always against TRUE
+// totals (so an untouched topic reads 0/58 rather than 0/0).
+function _gamTopicProgress(pageId, progress) {
+  const pd = (progress || {})[pageId] || {};
+  let done = 0, total = 0, anySection = false, allComplete = true;
+  SECTIONS.forEach(s => {
+    if (s.key === 'flashcards') return;
+    const d = pd[s.key] || {};
+    const t = trueSectionTotal(pageId, s.key, d.total || 0);
+    done += d.done || 0;
+    total += t;
+    if (t > 0) { anySection = true; if ((d.done || 0) < t) allComplete = false; }
+  });
+  return { done, total, complete: anySection && allComplete };
+}
+
+function _gamInjectHudStyles() {
+  if (document.getElementById('gam-hud-styles')) return;
+  const style = document.createElement('style');
+  style.id = 'gam-hud-styles';
+  style.textContent = `
+    .gam-hud{background:var(--card-bg,#fffcf6);border:1.5px solid var(--border,#c9bfaa);border-radius:12px;padding:14px 18px 12px;margin:0 0 22px;}
+    .gam-hud-main{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+    .gam-hud-level{display:flex;flex-direction:column;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#7a5c9e,#4a6fa5);color:#fff;flex-shrink:0;box-shadow:0 3px 10px rgba(74,111,165,.35);}
+    .gam-hud-level-num{font-family:'Playfair Display',serif;font-weight:700;font-size:18px;line-height:1;}
+    .gam-hud-level-lbl{font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;}
+    @keyframes gamHudLevelPop{0%{transform:scale(1)}45%{transform:scale(1.22)}100%{transform:scale(1)}}
+    .gam-hud-level.pop{animation:gamHudLevelPop .6s ease;}
+    .gam-hud-xp{flex:1;min-width:150px;}
+    .gam-hud-xp-lbl{display:flex;justify-content:space-between;gap:10px;font-family:'DM Mono',monospace;font-size:10px;color:var(--mid,#5a6e7f);margin-bottom:5px;}
+    .gam-hud-xp-track{background:var(--border,#c9bfaa);border-radius:99px;height:8px;overflow:hidden;}
+    .gam-hud-xp-fill{height:100%;width:0%;background:linear-gradient(90deg,#7a5c9e,#4a6fa5);border-radius:99px;transition:width .5s ease;}
+    .gam-hud-chips{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+    .gam-hud-chip{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:11.5px;font-weight:600;color:var(--ink,#1a2332);background:var(--cream,#ede7d9);border:1px solid var(--border,#c9bfaa);border-radius:99px;padding:6px 12px;text-decoration:none;cursor:pointer;transition:border-color .15s,background .15s;}
+    .gam-hud-chip:hover{border-color:var(--accent,#4a6fa5);background:var(--card-bg,#fffcf6);}
+    .gam-hud-streak{color:#8f6d19;cursor:help;}
+    .gam-hud-daily{cursor:help;}
+    .gam-hud-daily.goal-met{background:rgba(45,122,79,.14);border-color:#2d7a4f;color:#2d7a4f;}
+    .gam-hud-caret{font-size:9px;transition:transform .2s;}
+    .gam-hud-badges-btn[aria-expanded="true"] .gam-hud-caret{transform:rotate(180deg);}
+    .gam-hud-badge-panel{display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid var(--border,#c9bfaa);margin-top:12px;padding-top:12px;}
+    .gam-hud-badge{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:10.5px;padding:4px 10px;border-radius:99px;background:rgba(212,168,67,.12);border:1px solid rgba(212,168,67,.4);color:#8f6d19;cursor:help;}
+    .gam-hud-badge.locked{background:rgba(90,110,127,.08);border-color:rgba(90,110,127,.2);color:var(--mid,#5a6e7f);opacity:.55;filter:grayscale(1);}
+    .gam-hud-topic{display:flex;align-items:center;gap:10px;margin-top:11px;padding-top:10px;border-top:1px dashed var(--border,#c9bfaa);}
+    .gam-hud-topic-lbl{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mid,#5a6e7f);white-space:nowrap;}
+    .gam-hud-topic-track{flex:1;background:var(--border,#c9bfaa);border-radius:99px;height:6px;overflow:hidden;}
+    .gam-hud-topic-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--gold,#d4a843),#b8860b);border-radius:99px;transition:width .5s ease;}
+    .gam-hud-topic-count{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--mid,#5a6e7f);white-space:nowrap;}
+    .gam-hud-topic-done{font-family:'DM Mono',monospace;font-size:10.5px;font-weight:600;color:#2d7a4f;white-space:nowrap;}
+    .gam-hud-nextup{background:linear-gradient(135deg,#d4a843,#b8860b) !important;color:#fff !important;border-color:#b8860b !important;}
+    .gam-hud-nextup:hover{filter:brightness(1.08);}
+    /* ── Prev/next topic nav ── */
+    .gam-topic-nav{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;margin:36px 0 8px;padding-top:22px;border-top:2px solid var(--border,#c9bfaa);}
+    .gam-nav-card{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:4px;background:var(--card-bg,#fffcf6);border:1.5px solid var(--border,#c9bfaa);border-radius:10px;padding:14px 16px 13px;text-decoration:none;color:var(--ink,#1a2332);transition:box-shadow .2s,transform .2s,border-color .2s;}
+    .gam-nav-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gam-accent,var(--accent,#4a6fa5));}
+    .gam-nav-card:hover{box-shadow:0 6px 22px rgba(0,0,0,.13);transform:translateY(-2px);border-color:#b0a490;}
+    .gam-nav-next{text-align:right;align-items:flex-end;}
+    .gam-nav-next::before{left:auto;right:0;}
+    .gam-nav-dir{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mid,#5a6e7f);}
+    .gam-nav-name{font-family:'Playfair Display',serif;font-weight:700;font-size:14.5px;line-height:1.3;}
+    .gam-nav-xp{font-family:'DM Mono',monospace;font-size:10px;color:#8f6d19;}
+    .gam-nav-home{align-items:center;justify-content:center;text-align:center;font-size:20px;padding:14px 18px;}
+    .gam-nav-home::before{display:none;}
+    .gam-nav-home span{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid,#5a6e7f);}
+    .gam-nav-spacer{visibility:hidden;}
+    .gam-topic-nav .celebrate{border-color:var(--gold,#d4a843);background:linear-gradient(135deg,rgba(212,168,67,.14),var(--card-bg,#fffcf6));}
+    .gam-topic-nav .celebrate .gam-nav-dir{color:#8f6d19;}
+    /* ── Home-page hero variant (dark background) ── */
+    .gam-hud--hero{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);margin:26px 0 0;position:relative;z-index:1;}
+    .gam-hud--hero .gam-hud-xp-lbl{color:#9fb0bd;}
+    .gam-hud--hero .gam-hud-xp-track{background:rgba(255,255,255,.16);}
+    .gam-hud--hero .gam-hud-chip{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.2);color:var(--paper,#f5f0e8);}
+    .gam-hud--hero .gam-hud-chip:hover{border-color:var(--gold,#d4a843);background:rgba(255,255,255,.14);}
+    .gam-hud--hero .gam-hud-streak{color:var(--gold,#d4a843);}
+    .gam-hud--hero .gam-hud-badge-panel{border-top-color:rgba(255,255,255,.14);}
+    .gam-hud--hero .gam-hud-badge{background:rgba(212,168,67,.16);}
+    .gam-hud--hero .gam-hud-badge.locked{color:#9fb0bd;background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15);}
+    /* ── "Continue where you left off" hero card ── */
+    .gam-continue{display:flex;align-items:center;gap:14px;margin-top:14px;background:linear-gradient(135deg,#d4a843,#b8860b);border-radius:14px;padding:14px 18px;text-decoration:none;color:#fff;position:relative;z-index:1;box-shadow:0 8px 24px rgba(184,134,11,.35);transition:transform .15s,box-shadow .15s;}
+    .gam-continue:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(184,134,11,.5);}
+    .gam-continue-play{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.22);font-size:15px;flex-shrink:0;}
+    .gam-continue-txt{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0;}
+    .gam-continue-lbl{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.9;}
+    .gam-continue-name{font-family:'Playfair Display',serif;font-weight:700;font-size:17px;line-height:1.25;}
+    .gam-continue-bar{display:block;height:5px;border-radius:99px;background:rgba(255,255,255,.28);overflow:hidden;margin-top:5px;max-width:320px;}
+    .gam-continue-bar > span{display:block;height:100%;background:#fff;border-radius:99px;}
+    .gam-continue-pct{font-family:'DM Mono',monospace;font-size:13px;font-weight:600;white-space:nowrap;}
+    /* ── Home-page topic-card progress footers ── */
+    .gam-card-prog{display:flex;align-items:center;gap:8px;margin-top:12px;}
+    .gam-card-prog-track{flex:1;height:5px;border-radius:99px;background:var(--border,#c9bfaa);overflow:hidden;}
+    .gam-card-prog-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent,#4a6fa5),var(--gold,#d4a843));}
+    .gam-card-prog-pct{font-family:'DM Mono',monospace;font-size:10px;color:var(--mid,#5a6e7f);white-space:nowrap;}
+    .gam-card-prog-xp{font-family:'DM Mono',monospace;font-size:10px;color:#8f6d19;white-space:nowrap;}
+    .gam-card-complete-chip{display:inline-flex;align-items:center;gap:4px;font-family:'DM Mono',monospace;font-size:10px;font-weight:600;color:#8f6d19;background:rgba(212,168,67,.16);border:1px solid var(--gold,#d4a843);border-radius:99px;padding:2px 9px;}
+    a.topic-card.gam-complete{border-color:var(--gold,#d4a843);}
+    /* ── Topic-complete celebration ── */
+    .gam-celeb-overlay{position:fixed;inset:0;z-index:480;background:rgba(15,25,35,.55);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .3s;}
+    .gam-celeb-overlay.show{opacity:1;}
+    .gam-celeb-card{background:var(--card-bg,#fffcf6);border:2px solid var(--gold,#d4a843);border-radius:18px;box-shadow:0 24px 70px rgba(0,0,0,.45);max-width:420px;width:100%;padding:34px 30px 26px;text-align:center;font-family:'DM Sans',sans-serif;color:var(--ink,#1a2332);transform:scale(.6) rotate(-3deg);transition:transform .45s cubic-bezier(.34,1.5,.5,1);}
+    .gam-celeb-overlay.show .gam-celeb-card{transform:scale(1) rotate(0);}
+    .gam-celeb-trophy{font-size:56px;line-height:1;animation:gamTrophyFloat 2.4s ease-in-out infinite;}
+    @keyframes gamTrophyFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+    .gam-celeb-title{font-family:'Playfair Display',serif;font-weight:900;font-size:27px;margin:12px 0 6px;}
+    .gam-celeb-sub{font-size:13.5px;color:var(--mid,#5a6e7f);line-height:1.5;margin-bottom:16px;}
+    .gam-celeb-bonus{display:inline-block;font-family:'DM Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.1em;color:#8f6d19;background:rgba(212,168,67,.16);border:1.5px solid var(--gold,#d4a843);border-radius:99px;padding:7px 18px;margin-bottom:20px;}
+    .gam-celeb-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+    .gam-celeb-btn{font-family:'DM Mono',monospace;font-size:12px;font-weight:600;padding:10px 18px;border-radius:8px;cursor:pointer;text-decoration:none;border:1.5px solid var(--gold,#d4a843);background:linear-gradient(135deg,#d4a843,#b8860b);color:#fff;transition:transform .15s,box-shadow .15s;}
+    .gam-celeb-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(184,134,11,.4);}
+    .gam-celeb-btn.ghost{background:transparent;color:var(--ink,#1a2332);border-color:var(--border,#c9bfaa);}
+    .gam-confetti{position:fixed;top:-18px;width:9px;height:15px;z-index:481;pointer-events:none;animation:gamConfettiFall linear forwards;}
+    @keyframes gamConfettiFall{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(105vh) rotate(680deg);opacity:0}}
+    @media (prefers-reduced-motion:reduce){
+      .gam-confetti{display:none;}
+      .gam-celeb-trophy{animation:none;}
+      .gam-celeb-card{transition:none;transform:none;}
+    }
+    @media (max-width:700px){
+      .gam-hud{padding:12px 12px 10px;}
+      .gam-hud-main{gap:10px;}
+      .gam-hud-dash span{display:none;}
+      .gam-topic-nav{grid-template-columns:1fr 1fr;}
+      .gam-nav-home{display:none;}
+      .gam-nav-spacer{display:none;}
+      .gam-topic-nav .gam-nav-card:only-child{grid-column:1/-1;}
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+let _gamHudEl = null;
+let _gamHudPageId = null;
+let _gamHudLevelShown = null;
+
+function _gamUpdateHud(stats) {
+  if (!_gamHudEl) return;
+  if (!stats) { try { stats = computeGamificationStats(_gamProgressData(), _gamStreak); } catch (e) { return; } }
+  const $ = id => _gamHudEl.querySelector('#' + id);
+
+  $('gamHudLevelNum').textContent = stats.level;
+  const levelEl = $('gamHudLevel');
+  if (_gamHudLevelShown != null && stats.level > _gamHudLevelShown) {
+    levelEl.classList.remove('pop');
+    void levelEl.offsetWidth; // restart the animation
+    levelEl.classList.add('pop');
+  }
+  _gamHudLevelShown = stats.level;
+
+  $('gamHudXpLbl').textContent = `${stats.xpIntoLevel} / ${stats.xpForNextLevel} XP to level ${stats.level + 1}`;
+  $('gamHudXpTotal').textContent = `${stats.xp} XP total`;
+  const pct = stats.xpForNextLevel ? Math.round(stats.xpIntoLevel / stats.xpForNextLevel * 100) : 0;
+  $('gamHudXpFill').style.width = pct + '%';
+
+  $('gamHudStreak').textContent = stats.streak;
+
+  const dailyEl = $('gamHudDailyCount');
+  if (dailyEl) {
+    const n = gamificationDailyCount();
+    dailyEl.textContent = `${Math.min(n, GAMIFICATION_DAILY_GOAL)}/${GAMIFICATION_DAILY_GOAL}`;
+    const chip = $('gamHudDaily');
+    if (chip) chip.classList.toggle('goal-met', n >= GAMIFICATION_DAILY_GOAL);
+  }
+
+  const earned = gamificationEarnedBadges(stats);
+  const earnedIds = new Set(earned.map(b => b.id));
+  $('gamHudBadgeCount').textContent = `${earned.length}/${BADGE_DEFS.length}`;
+  $('gamHudBadgePanel').innerHTML = BADGE_DEFS.map(b => {
+    const got = earnedIds.has(b.id);
+    return `<span class="gam-hud-badge${got ? '' : ' locked'}" title="${b.label}: ${b.desc}">${b.icon} ${b.label}</span>`;
+  }).join('');
+
+  // This topic's own progress row
+  if (_gamHudPageId) {
+    const tp = _gamTopicProgress(_gamHudPageId, _gamProgressData());
+    $('gamHudTopicFill').style.width = (tp.total ? Math.round(tp.done / tp.total * 100) : 0) + '%';
+    $('gamHudTopicCount').textContent = tp.total ? `${Math.min(tp.done, tp.total)}/${tp.total}` : '–';
+    $('gamHudTopicDone').hidden = !tp.complete;
+
+    // "▶ Next up" — appears only once the activity the student is working
+    // on is finished, pointing at the next unfinished one. While they're
+    // mid-activity it stays hidden (no point advertising the tab they're
+    // already on). When the whole topic is complete it points at the next
+    // lesson instead.
+    const nextBtn = $('gamHudNextUp');
+    if (nextBtn) {
+      let show = false;
+      if (tp.complete) {
+        const nextCard = document.getElementById('gamNavNextCard');
+        const href = nextCard ? nextCard.getAttribute('href') : null;
+        if (href) {
+          const nameEl = nextCard.querySelector('.gam-nav-name');
+          show = true;
+          nextBtn.innerHTML = href === 'dashboard.html'
+            ? '🎉 Topic done — see my progress →'
+            : `▶ Next lesson: 📚 ${nameEl ? nameEl.textContent : 'Next topic'} →`;
+          nextBtn.dataset.href = href;
+          delete nextBtn.dataset.tabId;
+        }
+      } else if (typeof ACTIVITY_ORDER !== 'undefined'
+          && typeof sectionIsComplete === 'function' && typeof _activityTotal === 'function') {
+        const next = ACTIVITY_ORDER.find(a => !a.optional && _activityTotal(a.section) > 0 && !sectionIsComplete(a.section)) || null;
+        if (next && next.section !== _gamActiveTabSection()) {
+          show = true;
+          nextBtn.innerHTML = `▶ Next up: ${next.icon} ${next.label} →`;
+          nextBtn.dataset.tabId = next.tabId;
+          delete nextBtn.dataset.href;
+        }
+      }
+      nextBtn.hidden = !show;
+    }
+
+    // Light up the "next topic" card once this topic is finished
+    const nextCard = document.getElementById('gamNavNextCard');
+    if (nextCard) {
+      nextCard.classList.toggle('celebrate', tp.complete);
+      const dir = nextCard.querySelector('.gam-nav-dir');
+      if (dir) dir.textContent = tp.complete ? '🎉 Topic complete — next up' : 'Next →';
+    }
+  }
+}
+
+// ── Topic-complete celebration (confetti + card, once per topic) ──
+
+function _gamCelebFlagKey(pageId) { return 'gcse_topic_celebrated_' + pageId; }
+
+// Quietly mark this topic as already-celebrated when it's complete —
+// used at HUD init and after cross-device hydration, so progress that
+// merely *arrives* finished never pops confetti.
+function gamificationMarkTopicCelebratedIfComplete() {
+  if (!_gamHudPageId) return;
+  try {
+    if (_gamTopicProgress(_gamHudPageId, _gamProgressData()).complete) {
+      localStorage.setItem(_gamCelebFlagKey(_gamHudPageId), '1');
+    }
+  } catch (e) {}
+}
+
+function _gamConfettiBurst(count) {
+  _gamInjectHudStyles();
+  const colours = ['#7a5c9e', '#d4a843', '#1a6b6b', '#c84b31', '#2d7a4f', '#4a6fa5'];
+  for (let i = 0; i < count; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'gam-confetti';
+    piece.style.left = Math.random() * 100 + 'vw';
+    piece.style.background = colours[i % colours.length];
+    piece.style.animationDuration = (2 + Math.random() * 1.6) + 's';
+    piece.style.animationDelay = (Math.random() * .7) + 's';
+    piece.style.borderRadius = Math.random() > .5 ? '50%' : '2px';
+    document.body.appendChild(piece);
+    setTimeout(() => piece.remove(), 4600);
+  }
+}
+
+// Fired from the debounced answer check the moment the last activity of a
+// topic is finished. The localStorage flag makes it once-per-topic; the
+// flag is cleared by ProgressStore.clearPage() when a student resets the
+// page, and set quietly at HUD init for topics that were already complete
+// (so a long-finished page doesn't pop confetti on every future visit).
+function _gamMaybeCelebrateTopic() {
+  if (!_gamHudPageId || typeof ProgressStore === 'undefined') return;
+  let tp;
+  try { tp = _gamTopicProgress(_gamHudPageId, ProgressStore.getAll()); } catch (e) { return; }
+  if (!tp.complete) return;
+  const key = _gamCelebFlagKey(_gamHudPageId);
+  try {
+    if (localStorage.getItem(key)) return;
+    localStorage.setItem(key, '1');
+  } catch (e) {}
+  _gamShowTopicCelebration();
+}
+
+function _gamShowTopicCelebration() {
+  if (document.getElementById('gamCelebOverlay')) return;
+  _gamInjectHudStyles();
+  gamificationPlaySound('levelup');
+  _gamConfettiBurst(44);
+
+  const name = (typeof pageTitle === 'function' && _gamHudPageId) ? pageTitle(_gamHudPageId) : 'this topic';
+  const nextCard = document.getElementById('gamNavNextCard');
+  const nextHref = nextCard ? nextCard.getAttribute('href') : 'dashboard.html';
+  const nextLabel = nextCard && nextCard.getAttribute('href') !== 'dashboard.html' ? 'Next topic →' : 'See my progress →';
+
+  const overlay = document.createElement('div');
+  overlay.className = 'gam-celeb-overlay';
+  overlay.id = 'gamCelebOverlay';
+  overlay.innerHTML = `
+    <div class="gam-celeb-card" role="dialog" aria-modal="true" aria-label="Topic complete">
+      <div class="gam-celeb-trophy" aria-hidden="true">🏆</div>
+      <div class="gam-celeb-title">Topic Complete!</div>
+      <p class="gam-celeb-sub">You've finished every activity in<br><strong>${name}</strong></p>
+      <div class="gam-celeb-bonus">+${GAMIFICATION_TOPIC_BONUS} XP TOPIC BONUS</div>
+      <div class="gam-celeb-actions">
+        <button type="button" class="gam-celeb-btn ghost" id="gamCelebClose">Keep practising</button>
+        <a class="gam-celeb-btn" href="${nextHref}">${nextLabel}</a>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+  requestAnimationFrame(() => overlay.classList.add('show'));
+
+  const close = () => {
+    document.removeEventListener('keydown', onKey);
+    overlay.classList.remove('show');
+    setTimeout(() => overlay.remove(), 320);
+  };
+  const onKey = e => { if (e.key === 'Escape') close(); };
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  overlay.querySelector('#gamCelebClose').addEventListener('click', close);
+  document.addEventListener('keydown', onKey);
+}
+
+// The level/XP/streak/badges row shared by the topic-page HUD and the
+// home-page hero HUD (same element ids, so _gamUpdateHud repaints both).
+function _gamHudMainHtml() {
+  return `
+    <div class="gam-hud-main">
+      <div class="gam-hud-level" id="gamHudLevel" title="Earn XP by answering questions to level up">
+        <div class="gam-hud-level-num" id="gamHudLevelNum">1</div>
+        <div class="gam-hud-level-lbl">Level</div>
+      </div>
+      <div class="gam-hud-xp">
+        <div class="gam-hud-xp-lbl"><span id="gamHudXpLbl">0 XP</span><span id="gamHudXpTotal"></span></div>
+        <div class="gam-hud-xp-track"><div class="gam-hud-xp-fill" id="gamHudXpFill"></div></div>
+      </div>
+      <div class="gam-hud-chips">
+        <span class="gam-hud-chip gam-hud-daily" id="gamHudDaily" title="Daily goal — answer ${GAMIFICATION_DAILY_GOAL} questions today (on this device) to keep your streak alive">🎯 <span id="gamHudDailyCount">0/${GAMIFICATION_DAILY_GOAL}</span></span>
+        <span class="gam-hud-chip gam-hud-streak" title="Days in a row you've answered questions">🔥 <span id="gamHudStreak">0</span></span>
+        <button type="button" class="gam-hud-chip gam-hud-badges-btn" id="gamHudBadgesBtn" aria-expanded="false" aria-controls="gamHudBadgePanel">🏅 <span id="gamHudBadgeCount">0/${BADGE_DEFS.length}</span> <span class="gam-hud-caret" aria-hidden="true">▾</span></button>
+      </div>
+    </div>`;
+}
+
+function _gamWireHudControls(hud) {
+  hud.querySelector('#gamHudBadgesBtn').addEventListener('click', () => {
+    const btn = hud.querySelector('#gamHudBadgesBtn');
+    const panel = hud.querySelector('#gamHudBadgePanel');
+    const open = panel.hidden;
+    panel.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+  });
+}
+
+// Reusable sound on/off toggle — lives in the site nav on topic pages
+// and in the hero nav on index.html (dashboards keep their own control,
+// all sharing the same localStorage flag).
+function gamificationCreateSoundButton(cls) {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  if (cls) btn.className = cls;
+  btn.title = 'Toggle sound effects';
+  btn.setAttribute('aria-label', 'Toggle sound effects');
+  const paint = () => { btn.textContent = gamificationSoundEnabled() ? '🔊' : '🔇'; };
+  paint();
+  btn.addEventListener('click', () => {
+    gamificationSetSoundEnabled(!gamificationSoundEnabled());
+    paint();
+  });
+  return btn;
+}
+
+function _gamInjectTopicHud(current) {
+  const main = document.querySelector('main');
+  if (!main) return;
+  _gamInjectHudStyles();
+
+  const hud = document.createElement('div');
+  hud.className = 'gam-hud';
+  hud.id = 'gamHud';
+  hud.innerHTML = _gamHudMainHtml() + `
+    <div class="gam-hud-topic">
+      <span class="gam-hud-topic-lbl">This topic</span>
+      <div class="gam-hud-topic-track"><div class="gam-hud-topic-fill" id="gamHudTopicFill"></div></div>
+      <span class="gam-hud-topic-count" id="gamHudTopicCount">–</span>
+      <span class="gam-hud-topic-done" id="gamHudTopicDone" hidden>✓ Complete · +${GAMIFICATION_TOPIC_BONUS} XP bonus banked</span>
+      <button type="button" class="gam-hud-chip gam-hud-nextup" id="gamHudNextUp" hidden>▶ Next up</button>
+    </div>
+    <div class="gam-hud-badge-panel" id="gamHudBadgePanel" hidden></div>`;
+  main.insertBefore(hud, main.firstChild);
+  _gamHudEl = hud;
+  _gamHudPageId = current.id;
+  _gamWireHudControls(hud);
+  hud.querySelector('#gamHudNextUp').addEventListener('click', function () {
+    if (this.dataset.href) { location.href = this.dataset.href; return; }
+    if (this.dataset.tabId && typeof goToActivity === 'function') goToActivity(this.dataset.tabId);
+  });
+}
+
+// Which activity's tab panel is currently open (null on non-topic pages).
+function _gamActiveTabSection() {
+  const panel = document.querySelector('.tab-panel.active');
+  if (!panel || typeof ACTIVITY_ORDER === 'undefined') return null;
+  const tabId = (panel.id || '').replace(/^tab-/, '');
+  const act = ACTIVITY_ORDER.find(a => a.tabId === tabId);
+  return act ? act.section : null;
+}
+
+// Home-page hero variant: same status row, no "this topic" bar.
+function _gamInjectHomeHud(mount) {
+  _gamInjectHudStyles();
+  const hud = document.createElement('div');
+  hud.className = 'gam-hud gam-hud--hero';
+  hud.id = 'gamHud';
+  hud.innerHTML = _gamHudMainHtml() + `
+    <div class="gam-hud-badge-panel" id="gamHudBadgePanel" hidden></div>`;
+  mount.appendChild(hud);
+  _gamHudEl = hud;
+  _gamHudPageId = null;
+  _gamWireHudControls(hud);
+}
+
+// "Continue where you left off" — the most recently worked-on,
+// not-yet-complete topic (by the ts ProgressStore stamps on every save);
+// falls back to the first incomplete topic in course order for students
+// who haven't started anything on this device yet.
+function _gamInjectContinueCard(mount) {
+  if (mount.querySelector('.gam-continue')) return;
+  const data = _gamProgressData();
+  const pagesById = {};
+  PAGE_GROUPS.forEach(g => flatPages(g).forEach(p => { pagesById[p.id] = p; }));
+
+  let bestPage = null, bestTs = 0;
+  Object.keys(data).forEach(pid => {
+    const page = pagesById[pid];
+    if (!page || !_gamHasGradableContent(pid)) return;
+    const tp = _gamTopicProgress(pid, data);
+    if (tp.complete || tp.done === 0) return;
+    let ts = 0;
+    Object.keys(data[pid]).forEach(s => { ts = Math.max(ts, data[pid][s].ts || 0); });
+    if (ts >= bestTs) { bestTs = ts; bestPage = page; }
+  });
+  if (!bestPage) {
+    const seq = [];
+    PAGE_GROUPS.forEach(g => flatPages(g).forEach(p => { if (_gamHasGradableContent(p.id)) seq.push(p); }));
+    bestPage = seq.find(p => !_gamTopicProgress(p.id, data).complete) || null;
+  }
+  if (!bestPage) return; // whole course complete — nothing to continue
+
+  const tp = _gamTopicProgress(bestPage.id, data);
+  const pct = tp.total ? Math.round(tp.done / tp.total * 100) : 0;
+  const started = tp.done > 0;
+
+  const card = document.createElement('a');
+  card.className = 'gam-continue';
+  card.href = bestPage.href;
+  card.innerHTML = `
+    <span class="gam-continue-play" aria-hidden="true">▶</span>
+    <span class="gam-continue-txt">
+      <span class="gam-continue-lbl">${started ? 'Continue where you left off' : 'Start your next topic'}</span>
+      <span class="gam-continue-name">${bestPage.name}</span>
+      ${started ? `<span class="gam-continue-bar"><span style="width:${pct}%"></span></span>` : ''}
+    </span>
+    <span class="gam-continue-pct">${started ? pct + '%' : '⚡ +' + _gamPagePotentialXp(bestPage.id) + ' XP'}</span>`;
+  mount.appendChild(card);
+}
+
+// Adds a progress footer to every curriculum card on the home page:
+// a gold "Complete" chip, an in-progress bar with %, or the XP still on
+// the table for untouched topics. Reads the same local progress the
+// topic pages write, so it works logged-in or not.
+function gamificationDecorateTopicCards() {
+  if (typeof PAGE_GROUPS === 'undefined') return;
+  const cards = document.querySelectorAll('a.topic-card[href]');
+  if (!cards.length) return;
+  _gamInjectHudStyles();
+
+  const byHref = {};
+  PAGE_GROUPS.forEach(g => flatPages(g).forEach(p => { byHref[p.href] = p; }));
+  const progress = _gamProgressData();
+
+  cards.forEach(card => {
+    const page = byHref[card.getAttribute('href')];
+    if (!page || card.querySelector('.gam-card-prog')) return;
+    const tp = _gamTopicProgress(page.id, progress);
+    if (!tp.total) return; // hub/overview pages with nothing gradable
+
+    const row = document.createElement('div');
+    row.className = 'gam-card-prog';
+    if (tp.complete) {
+      card.classList.add('gam-complete');
+      row.innerHTML = `<span class="gam-card-complete-chip">🏆 Complete</span>
+        <span class="gam-card-prog-xp">+${_gamPagePotentialXp(page.id)} XP banked</span>`;
+    } else if (tp.done > 0) {
+      const pct = Math.min(100, Math.round(tp.done / tp.total * 100));
+      row.innerHTML = `<div class="gam-card-prog-track"><div class="gam-card-prog-fill" style="width:${pct}%"></div></div>
+        <span class="gam-card-prog-pct">${pct}%</span>`;
+    } else {
+      row.innerHTML = `<span class="gam-card-prog-xp">⚡ up to ${_gamPagePotentialXp(page.id)} XP</span>`;
+    }
+    card.appendChild(row);
+  });
+}
+
+function _gamInjectTopicNav(pages, idx) {
+  const main = document.querySelector('main');
+  if (!main) return;
+  const prev = idx > 0 ? pages[idx - 1] : null;
+  const next = idx < pages.length - 1 ? pages[idx + 1] : null;
+
+  const nav = document.createElement('nav');
+  nav.className = 'gam-topic-nav';
+  nav.setAttribute('aria-label', 'Topic navigation');
+
+  const prevHtml = prev
+    ? `<a class="gam-nav-card" href="${prev.href}" style="--gam-accent:${prev.colour}">
+         <span class="gam-nav-dir">← Previous</span>
+         <span class="gam-nav-name">${prev.name}</span></a>`
+    : `<span class="gam-nav-card gam-nav-spacer" aria-hidden="true"></span>`;
+
+  let nextHtml;
+  if (next) {
+    const potXp = _gamPagePotentialXp(next.id);
+    nextHtml = `<a class="gam-nav-card gam-nav-next" id="gamNavNextCard" href="${next.href}" style="--gam-accent:${next.colour}">
+        <span class="gam-nav-dir">Next →</span>
+        <span class="gam-nav-name">${next.name}</span>
+        ${potXp ? `<span class="gam-nav-xp">⚡ up to ${potXp} XP waiting</span>` : ''}</a>`;
+  } else {
+    nextHtml = `<a class="gam-nav-card gam-nav-next" id="gamNavNextCard" href="dashboard.html" style="--gam-accent:var(--gold,#d4a843)">
+        <span class="gam-nav-dir">Course end →</span>
+        <span class="gam-nav-name">See your progress &amp; badges</span></a>`;
+  }
+
+  nav.innerHTML = prevHtml +
+    `<a class="gam-nav-card gam-nav-home" href="index.html"><span aria-hidden="true">🏡</span><span>All topics</span></a>` +
+    nextHtml;
+  main.appendChild(nav);
+}
+
+// Streak needs the Supabase client, which script.js creates asynchronously
+// after auth — poll briefly, then refresh the streak and repaint the HUD.
+function _gamHudStreakInit(tries) {
+  tries = tries || 0;
+  const client = window._gcseSupabaseClient;
+  if (client) {
+    gamificationRefreshStreak(client).then(() => _gamUpdateHud());
+    return;
+  }
+  if (tries > 40) return; // ~20s — offline/teacher preview, streak just stays 0
+  setTimeout(() => _gamHudStreakInit(tries + 1), 500);
+}
+
+// ── Init: topic pages only ──
+(function gamificationInitTopicHud() {
+  if (typeof PAGE_GROUPS === 'undefined' || typeof ProgressStore === 'undefined' || typeof getPageId !== 'function') return;
+  if (!document.querySelector('.tab-bar') || !document.querySelector('main')) return;
+  const pages = _gamOrderedPages();
+  const pageId = getPageId();
+  const idx = pages.findIndex(p => p.id === pageId);
+  if (idx === -1) return; // not a curriculum topic page (e.g. exam prep)
+
+  const build = () => {
+    _gamInjectTopicHud(pages[idx]);
+    _gamInjectTopicNav(pages, idx);
+    _gamUpdateHud();
+    _gamHudStreakInit();
+    // A topic that was already complete before this visit shouldn't pop
+    // confetti again — mark it celebrated quietly.
+    gamificationMarkTopicCelebratedIfComplete();
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build);
+  else build();
+})();
+
+// ── Init: home page (index.html provides #gamHudMount) ──
+(function gamificationInitHomeHud() {
+  if (typeof PAGE_GROUPS === 'undefined') return;
+  const build = () => {
+    const mount = document.getElementById('gamHudMount');
+    if (mount && !document.getElementById('gamHud')) {
+      _gamInjectHomeHud(mount);
+      _gamInjectContinueCard(mount);
+      _gamUpdateHud();
+      _gamHudStreakInit();
+    }
+    // Sound toggle joins the hero nav cluster (top right, next to My Progress)
+    const heroNav = document.querySelector('.hero-nav');
+    if (heroNav && !heroNav.querySelector('.gam-sound-btn')) {
+      heroNav.appendChild(gamificationCreateSoundButton('gam-sound-btn'));
+    }
+    gamificationDecorateTopicCards();
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build);
+  else build();
+})();

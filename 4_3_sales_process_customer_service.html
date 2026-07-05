@@ -305,6 +305,13 @@
     // ══════════════════════════════════════
     //  DATA: 4.3 The Sales Process and Customer Service
     // ══════════════════════════════════════
+    const pageMeta = {
+            id: '4-3-sales-process-customer-service',
+            badge: 'OCR GCSE Business — Component 1',
+            title: '4.3 The Sales Process',
+            subtitle: 'Interactive revision guide',
+            subject: 'business',
+        };
 
     // 1. Main Learning Content
     const topics = [
@@ -321,7 +328,13 @@
 <li><strong>Telesales:</strong> Sales completed over the telephone.</li>
 <li><strong>After-sales service:</strong> Advice and help given to a customer after they have bought a product or service.</li>
 <li><strong>Product knowledge:</strong> The detailed knowledge of a product or service that staff within a business use to help persuade a customer to buy.</li>
-</ul>`
+</ul>`,
+            readCheck: {
+                q: "According to the key terms, what is 'customer engagement'?",
+                opts: ["The contact between the business and customer", "The area of business dealing with customer enquiries", "Advice given to a customer after a purchase", "Direct contact between buyer and seller in a shop"],
+                ans: 0,
+                explain: "Customer engagement is defined precisely as 'the contact between the business and customer' — distinct from customer service (enquiries) or after-sales service (post-purchase advice)."
+            }
         },
         {
             title: "Methods of Selling",
@@ -336,7 +349,13 @@
 <div class="case-study-box">
 <h4>Case Study: John Lewis & Partners</h4>
 <p>John Lewis uses all three methods. Its department stores use face-to-face selling with trained staff who have excellent product knowledge, particularly in electronics. It also has a fast-growing e-commerce operation and uses phone lines for customer queries. JLP's strategy shows how a business can combine multiple selling methods to serve different customers effectively.</p>
-</div>`
+</div>`,
+            readCheck: {
+                q: "Which company, according to the case study, uses all three selling methods (face-to-face, e-commerce, and telesales)?",
+                opts: ["John Lewis Partners", "Amazon UK Ltd", "JC Motors Ltd", "Marks & Spencer"],
+                ans: 0,
+                explain: "The case study states John Lewis uses face-to-face selling in stores, a fast-growing e-commerce operation, and phone lines for customer queries."
+            }
         },
         {
             title: "The Influence of E-commerce on Business Activity",
@@ -349,7 +368,13 @@
 <li><strong>Creation of specific departments:</strong> Large businesses like M&S, Next, and John Lewis have set up dedicated online departments to manage e-commerce sales and avoid losing business to competitors.</li>
 <li><strong>Click and collect:</strong> Customers order online and collect in-store later, solving the "not home for delivery" problem. Stores must dedicate space for click and collect areas.</li>
 <li><strong>Delivery options:</strong> Speed of delivery is a key competitive area. Amazon Prime offers next-day and same-day delivery. Drone delivery is a future possibility but faces security and safety hurdles.</li>
-</ul>`
+</ul>`,
+            readCheck: {
+                q: "What historic event is identified as dramatically accelerating e-commerce growth?",
+                opts: ["The COVID-19 pandemic of 2020–21", "The 2008 financial crisis", "The launch of Amazon Prime", "The invention of the smartphone"],
+                ans: 0,
+                explain: "The card states the growth of e-commerce was 'accelerated dramatically during the COVID-19 pandemic of 2020–21'."
+            }
         },
         {
             title: "Advantages & Disadvantages of E-commerce for Businesses",
@@ -370,7 +395,13 @@
 <div class="con-item"><strong>Online security:</strong> Businesses must maintain a secure website and keep customer data safe. A breach destroys customer trust and adds significant costs.</div>
 <div class="con-item"><strong>Advances in technology:</strong> Businesses must constantly update their technology (e.g. mobile-optimised sites) to keep up with customer buying habits. This is ongoing and costly.</div>
 </div>
-</div>`
+</div>`,
+            readCheck: {
+                q: "Which of these is listed as a disadvantage of e-commerce FOR BUSINESSES (not customers)?",
+                opts: ["Worldwide competition puts downward pressure on margins", "Customers cannot touch or try products before buying", "Payment is geared towards card/debit only", "Restricted shop opening hours"],
+                ans: 0,
+                explain: "The business disadvantages list worldwide competition and easy price comparison putting downward pressure on margins; the other options are customer-side issues."
+            }
         },
         {
             title: "Advantages & Disadvantages of E-commerce for Customers",
@@ -391,7 +422,13 @@
 <div class="con-item"><strong>Technology barriers:</strong> Some customers (especially older groups) lack internet access or confidence with technology.</div>
 <div class="con-item"><strong>Only images seen:</strong> Cannot touch, feel, or try products before buying. This is less of a problem for familiar products (e.g. a known DVD) but significant for clothing or furniture.</div>
 </div>
-</div>`
+</div>`,
+            readCheck: {
+                q: "Which is listed as a disadvantage of e-commerce FOR CUSTOMERS?",
+                opts: ["They cannot touch, feel, or try products before buying", "Businesses must maintain secure websites to protect customer data", "Businesses face worldwide competition from other online sellers", "Businesses must constantly update their technology to stay competitive"],
+                ans: 0,
+                explain: "'Only images seen' — being unable to touch, feel, or try products — is listed as a customer disadvantage; the other options are business-side disadvantages."
+            }
         },
         {
             title: "Face to Face Selling & Telesales",
@@ -424,7 +461,13 @@
 <div class="con-item">Reaching customers who are not tech-savvy</div>
 <div class="con-item">When customers want to negotiate terms or receive personalised guidance by phone</div>
 </div>
-</div>`
+</div>`,
+            readCheck: {
+                q: "Which selling method is most useful for a customer who wants to negotiate a better deal, e.g. renewing a mobile phone contract?",
+                opts: ["Telesales", "Face to face selling", "E-commerce", "Click and collect"],
+                ans: 0,
+                explain: "The card states telesales allows the customer to negotiate — e.g. renewing a mobile phone contract by phone lets them bargain for a better deal."
+            }
         },
         {
             title: "The Importance of Customer Service & After-Sales Service",
@@ -451,7 +494,13 @@
 <div class="con-item">Negative online reviews can rapidly damage brand reputation in the e-commerce age.</div>
 <div class="con-item">Lost sales and reduced market share in the long run.</div>
 </div>
-</div>`
+</div>`,
+            readCheck: {
+                q: "Which purchase is used as the example of a product needing HIGH customer service, where face-to-face is essential?",
+                opts: ["A wedding dress", "A book", "A DVD", "A phone contract renewal"],
+                ans: 0,
+                explain: "The card contrasts buying a book online (low service needed) with buying a wedding dress (high service, face-to-face essential)."
+            }
         },
         {
             title: "Product Knowledge & Customer Engagement",
@@ -473,7 +522,13 @@
 <div class="case-study-box">
 <h4>Case Study: Amazon vs John Lewis</h4>
 <p>Amazon competes on <strong>price, choice, and speed of delivery</strong> — using Prime's next-day and same-day delivery to stay ahead. John Lewis, by contrast, focuses on <strong>product knowledge and face-to-face customer engagement</strong>, especially important for complex electronics purchases where customers need explanation. Both approaches show that excellent customer service can take very different forms depending on the business model.</p>
-</div>`
+</div>`,
+            readCheck: {
+                q: "In which type of business does the guide say product knowledge is 'relatively less critical'?",
+                opts: ["A newsagent", "A garden centre", "An electronics store", "A car dealership"],
+                ans: 0,
+                explain: "The guide states that in a newsagent, product knowledge is relatively less critical, unlike a garden centre or electronics store."
+            }
         },
         {
             title: "Real-World Application: Amazon & E-commerce Growth",
@@ -490,7 +545,13 @@
 <li>It competes through speed and choice rather than in-person customer engagement</li>
 <li>Its success is closely tied to the logistics industry (warehouses, delivery networks)</li>
 <li>The coronavirus pandemic of 2020–21 accelerated e-commerce growth, forcing many traditional retailers to adapt or close (e.g. Debenhams and Top Shop left the high street)</li>
-</ul>`
+</ul>`,
+            readCheck: {
+                q: "In what year did Amazon launch its Prime service in the UK?",
+                opts: ["2007", "1994", "2020", "2015"],
+                ans: 0,
+                explain: "The case study states 'In 2007 it launched its Prime service in the UK, promising next-day delivery.'"
+            }
         }
     ];
 
@@ -776,43 +837,103 @@
     const miscData = [
         {
             wrong: "Having a website means a business is doing e-commerce.",
-            correct: "E-commerce means the business actually SELLS products online — not just advertises them. A business with only a promotional website that does not take online orders is NOT an e-commerce business."
+            correct: "E-commerce means the business actually SELLS products online — not just advertises them. A business with only a promotional website that does not take online orders is NOT an e-commerce business.",
+            readCheck: {
+                q: "A business has a website that only advertises its products, with no way to buy online. Is this e-commerce?",
+                opts: ["No – e-commerce requires actually selling online, not advertising", "Yes – any business website automatically counts as e-commerce", "Only if it's a well-known brand with a large customer base", "Yes, as long as the website clearly lists prices and products"],
+                ans: 0,
+                explain: "E-commerce means the business actually sells online — a promotional-only website with no orders taken is not e-commerce."
+            }
         },
         {
             wrong: "E-commerce is only suitable for large businesses like Amazon.",
-            correct: "E-commerce is accessible to businesses of all sizes. A small business can set up a website for relatively little cost and reach a worldwide market, competing with larger firms in ways that were not possible before the internet."
+            correct: "E-commerce is accessible to businesses of all sizes. A small business can set up a website for relatively little cost and reach a worldwide market, competing with larger firms in ways that were not possible before the internet.",
+            readCheck: {
+                q: "Which statement about e-commerce and business size is correct?",
+                opts: ["Small businesses can use e-commerce to reach a worldwide market", "E-commerce is only suitable for large businesses like Amazon", "Only businesses with physical stores can succeed online", "E-commerce requires a large marketing budget to work at all"],
+                ans: 0,
+                explain: "E-commerce is accessible to businesses of all sizes — a small business can set up a website cheaply and reach a worldwide market."
+            }
         },
         {
             wrong: "Customer service only means being polite to customers in a shop.",
-            correct: "Customer service covers the FULL customer journey: before, during, AND after the sale. After-sales service (handling returns, repairs, complaints) is a critical and separately examinable component of good customer service."
+            correct: "Customer service covers the FULL customer journey: before, during, AND after the sale. After-sales service (handling returns, repairs, complaints) is a critical and separately examinable component of good customer service.",
+            readCheck: {
+                q: "What does 'customer service' actually cover, according to the guide?",
+                opts: ["The full journey — before, during, and after the sale", "Only being polite to customers face-to-face in a shop", "Only handling complaints and returns after the sale is made", "Only advertising and promotion before the sale is made"],
+                ans: 0,
+                explain: "Customer service covers the full customer journey, including after-sales service, not just politeness in a shop."
+            }
         },
         {
             wrong: "E-commerce always reduces costs for a business.",
-            correct: "While e-commerce can lower operating costs (no shop rent), it also creates NEW costs: website security, delivery logistics, returns handling, and keeping up with technology. The net financial effect depends on the specific business."
+            correct: "While e-commerce can lower operating costs (no shop rent), it also creates NEW costs: website security, delivery logistics, returns handling, and keeping up with technology. The net financial effect depends on the specific business.",
+            readCheck: {
+                q: "Does e-commerce always reduce a business's costs?",
+                opts: ["No – it lowers some costs but adds new ones like security and logistics", "Yes – it always reduces costs because there is no shop rent to pay", "No – e-commerce always increases a business's total operating costs", "Yes – because online businesses no longer need to employ any staff"],
+                ans: 0,
+                explain: "E-commerce can lower operating costs but also creates new costs such as website security, delivery logistics, and returns handling."
+            }
         },
         {
             wrong: "A disadvantage of e-commerce to the customer is that it costs the business more money.",
-            correct: "When a question asks for a disadvantage to the CUSTOMER, you must write about how the customer is negatively affected — not how the business is affected. Mixing up perspectives is one of the most common ways students lose marks."
+            correct: "When a question asks for a disadvantage to the CUSTOMER, you must write about how the customer is negatively affected — not how the business is affected. Mixing up perspectives is one of the most common ways students lose marks.",
+            readCheck: {
+                q: "If a question asks for a disadvantage of e-commerce TO THE CUSTOMER, what must the answer focus on?",
+                opts: ["How the customer is negatively affected", "How the business's costs increase", "How the business loses market share", "How delivery companies are affected"],
+                ans: 0,
+                explain: "Mixing up perspectives is a common error — an answer about a 'disadvantage to the customer' must focus on the customer, not the business."
+            }
         },
         {
             wrong: "Good customer engagement means being as helpful and informative as possible at all times.",
-            correct: "There is a fine line between being helpful and being 'pushy.' Too much information or pressure can drive customers away. Good engagement means reading the customer's needs and responding appropriately — not overwhelming them."
+            correct: "There is a fine line between being helpful and being 'pushy.' Too much information or pressure can drive customers away. Good engagement means reading the customer's needs and responding appropriately — not overwhelming them.",
+            readCheck: {
+                q: "According to the guide, what is the risk of 'too much' customer engagement?",
+                opts: ["It can feel pushy and drive customers away", "It always increases sales no matter how it's done", "It has no downsides at all for the business", "It only affects online customers, not face-to-face ones"],
+                ans: 0,
+                explain: "There is a fine line between being helpful and being pushy — too much information or pressure can drive customers away."
+            }
         },
         {
             wrong: "Product knowledge is only important for face-to-face selling.",
-            correct: "Product knowledge is also important in telesales (staff must advise customers over the phone) and e-commerce (website descriptions, FAQs, and live chat all require accurate, detailed product information)."
+            correct: "Product knowledge is also important in telesales (staff must advise customers over the phone) and e-commerce (website descriptions, FAQs, and live chat all require accurate, detailed product information).",
+            readCheck: {
+                q: "Is product knowledge only important for face-to-face selling?",
+                opts: ["No – it also matters in telesales and in e-commerce websites", "Yes – it is completely irrelevant to telesales and e-commerce", "No – it only matters for e-commerce, not telesales", "Yes – only face-to-face shop staff need product knowledge"],
+                ans: 0,
+                explain: "Product knowledge also matters in telesales (advising by phone) and e-commerce (accurate website descriptions and live chat)."
+            }
         },
         {
             wrong: "Click and collect is the same as home delivery.",
-            correct: "Click and collect means the customer orders online but COLLECTS from a store — there is NO home delivery. It is specifically designed to solve the problem of customers not being home when a delivery arrives."
+            correct: "Click and collect means the customer orders online but COLLECTS from a store — there is NO home delivery. It is specifically designed to solve the problem of customers not being home when a delivery arrives.",
+            readCheck: {
+                q: "What is the key difference between click and collect and home delivery?",
+                opts: ["Click and collect means collecting from a store, not delivery", "They are exactly the same thing with no real difference", "Click and collect is always faster than home delivery", "Click and collect only works for food and grocery shopping"],
+                ans: 0,
+                explain: "Click and collect means ordering online but collecting from a store — there is no home delivery involved."
+            }
         },
         {
             wrong: "E-commerce and digital distribution mean the same thing.",
-            correct: "E-commerce involves an online sale followed by PHYSICAL delivery. Digital distribution means the product itself is delivered digitally (e.g. a downloaded game or e-book) with no physical delivery required."
+            correct: "E-commerce involves an online sale followed by PHYSICAL delivery. Digital distribution means the product itself is delivered digitally (e.g. a downloaded game or e-book) with no physical delivery required.",
+            readCheck: {
+                q: "What is the key difference between e-commerce and digital distribution?",
+                opts: ["E-commerce involves physical delivery, unlike digital", "They mean exactly the same thing in every situation", "Digital distribution always involves a physical shop instead", "E-commerce never involves any kind of delivery at all"],
+                ans: 0,
+                explain: "E-commerce involves an online sale followed by physical delivery, while digital distribution delivers the product itself digitally, e.g. a downloaded game or e-book."
+            }
         },
         {
             wrong: "Telesales is becoming irrelevant because of e-commerce.",
-            correct: "Telesales remains important as a bridge between e-commerce and face-to-face selling, particularly for older customers, subscription renewals (insurance, utilities, phone contracts), and situations where customers want to negotiate directly."
+            correct: "Telesales remains important as a bridge between e-commerce and face-to-face selling, particularly for older customers, subscription renewals (insurance, utilities, phone contracts), and situations where customers want to negotiate directly.",
+            readCheck: {
+                q: "Is telesales becoming irrelevant because of e-commerce?",
+                opts: ["No – it remains important as a bridge for older customers", "Yes – it has been entirely replaced by e-commerce websites", "No – it is now more popular than face-to-face selling", "Yes – no businesses run telesales departments anymore at all"],
+                ans: 0,
+                explain: "Telesales remains important, particularly for older customers, subscription renewals, and customers who want to negotiate directly."
+            }
         }
     ];
 
@@ -831,7 +952,13 @@
       <p><strong>⚠️ Examiner Warning:</strong> Many students lost marks by writing promotional methods (price skimming, advertising) when asked for a <em>method of selling</em>. Read the exact question wording before writing.</p>
       <p><strong>🚫 Knowledge Dumping Alert:</strong> Do NOT write a definition when asked to 'identify'. Just name the thing.</p>
     `,
-            pills: ["K"]
+            pills: ["K"],
+            readCheck: {
+                q: "For a 1-mark 'State' or 'Identify' question, what should your answer contain?",
+                opts: ["One specific point, no explanation needed", "A full paragraph with U, APP and AN chains", "A dictionary-style term definition", "Two safety points, one per mark"],
+                ans: 0,
+                explain: "The tip states a 1-mark identify/state question needs exactly one correct point — no explanation, no case study."
+            }
         },
         {
             type: "Explain — 2 marks",
@@ -847,7 +974,13 @@
       <p><strong>✅ Good Answer (2 marks):</strong><br/><em>"A business using e-commerce has lower operating costs (1) because it does not need to pay expensive city-centre rents for a physical shop (1)."</em></p>
       <p><strong>⚠️ Examiner Warning:</strong> Some students answered from the customer's perspective when asked about a business advantage. Re-read: who does the question say the advantage is FOR?</p>
     `,
-            pills: ["K", "U"]
+            pills: ["K", "U"],
+            readCheck: {
+                q: "What error did the guide flag as a common mistake on this 2-mark 'explain' question about a business advantage?",
+                opts: ["Answering from the customer's view, not the firm's", "Forgetting to name the business anywhere at all", "Writing far too much content for the marks given", "Using bullet points, not full written sentences"],
+                ans: 0,
+                explain: "The examiner warning notes some students answered from the customer's perspective when the question asked about a business advantage."
+            }
         },
         {
             type: "Analyse — 3 marks",
@@ -870,7 +1003,13 @@
       <p><strong>✅ Good Answer (3 marks):</strong><br/><em>"Call centre employees need to be able to advise customers on what is best to buy (U). AZ's products are sold to qualified medical professionals, hospitals and governments (APP), so if employees cannot answer technical questions, sales and profits may fall (AN)."</em></p>
       <p><strong>🚫 Knowledge Dumping Alert:</strong> Do not write everything you know about the topic. Answer the specific question with reference to the specific business.</p>
     `,
-            pills: ["U", "app", "an"]
+            pills: ["U", "app", "an"],
+            readCheck: {
+                q: "In the U → APP → AN structure for a 3-mark analyse question, what does 'APP' require?",
+                opts: ["Direct reference to the case study business with evidence", "A general definition of the relevant business theory", "A clear judgement or final recommendation on the issue", "A concluding evaluation using the 'it depends' rule"],
+                ans: 0,
+                explain: "Application (APP) means directly referencing the case study business with specific text evidence — without it, you score zero for analysis."
+            }
         },
         {
             type: "Analyse (Two impacts) — 6 marks",
@@ -891,7 +1030,13 @@
       </ul>
       <p><strong>⚠️ Examiner Warning (Primark question):</strong> Many students wrote from the CUSTOMER'S point of view when the question asked about Primark Ltd. If the question says "to Primark Ltd," every point must show how PRIMARK is affected — not how customers feel about it.</p>
     `,
-            pills: ["U", "app", "an"]
+            pills: ["U", "app", "an"],
+            readCheck: {
+                q: "How many marks are available for a conclusion or evaluation in a 6-mark 'analyse two impacts' question?",
+                opts: ["Zero", "One", "Three", "Six"],
+                ans: 0,
+                explain: "The guide is explicit that there are zero marks for a conclusion in a 6-mark 'two impacts' analyse question — writing 'Overall, I think...' wastes time and scores nothing."
+            }
         },
         {
             type: "Recommend — 3 marks",
@@ -908,7 +1053,13 @@
       <p><strong>✅ Good Answer (3 marks):</strong><br/><em>"Primark should continue (JUDGEMENT). If it stops, it may lose customers who have already changed their buying habits and got used to ordering online, as the text states buying habits have already changed (CONTEXT). This would reduce Primark's revenue and market share. (+2 MARKS)"</em></p>
       <p><strong>⚠️ Examiner Comment:</strong> Less than a quarter of students got full marks on this type of question. Most could make a recommendation but could not justify it using the context — they repeated the text rather than using it to support their argument.</p>
     `,
-            pills: ["U", "app", "an"]
+            pills: ["U", "app", "an"],
+            readCheck: {
+                q: "What does a full 3-mark 'recommend' answer require beyond a simple advantage/disadvantage list?",
+                opts: ["A clear judgement supported by contextual justification", "Only a simple yes or no decision with no reasoning", "A list of three separate recommendations for the business", "An evaluation paragraph using the 'it depends' rule"],
+                ans: 0,
+                explain: "A 3-mark recommend answer needs 1 mark for judgement and 2 marks for contextual justification, using case study evidence that is actually used, not just repeated."
+            }
         },
         {
             type: "Evaluate — 9 marks",
@@ -930,7 +1081,13 @@
       <p><strong>⚠️ Evaluation Warning:</strong> A conclusion that only repeats what you already wrote scores ZERO for evaluation. The "It depends on..." must introduce a NEW condition or consideration not already covered.</p>
       <p><strong>🚫 Knowledge Dumping Alert:</strong> Do NOT list every fact you know about customer service. Every sentence must be specifically linked to the business's objective in the question.</p>
     `,
-            pills: ["K", "U", "app", "an", "eval"]
+            pills: ["K", "U", "app", "an", "eval"],
+            readCheck: {
+                q: "According to the guide, what makes a concluding 'it depends on...' statement score zero for evaluation?",
+                opts: ["Repeating earlier points instead of a new condition", "Placing it in paragraph four, not paragraph one", "Failing to mention the business by name", "Writing fewer than two full sentences"],
+                ans: 0,
+                explain: "The evaluation warning states a conclusion that only repeats what was already written scores zero — the 'it depends' must introduce a new condition not already covered."
+            }
         },
         {
             type: "Perspective Trap — All Questions",
@@ -949,7 +1106,13 @@
       </ul>
       <p><strong>⚠️ Direct Examiner Quote:</strong> On the Primark question, many students wrote advantages and disadvantages from the customer's point of view even when the question clearly asked about Primark Ltd. This was one of the main reasons students scored 0 marks on that question.</p>
     `,
-            pills: ["U", "app"]
+            pills: ["U", "app"],
+            readCheck: {
+                q: "On the Primark question referenced in the guide, what was the main reason many students scored 0 marks?",
+                opts: ["They wrote points from the customer's view, not Primark's", "They forgot to mention click and collect at all", "They ran out of exam time before finishing the answer", "They used bullet points instead of full written paragraphs"],
+                ans: 0,
+                explain: "The direct examiner quote notes many students wrote from the customer's point of view even though the question asked about Primark Ltd, causing them to score 0."
+            }
         }
     ];
 
@@ -1651,6 +1814,11 @@
     ];
 </script>
     <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

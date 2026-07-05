@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Task — GCSE Business Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="business-style.css"/>
+<style>
+  html, body { display:block !important; grid-template-columns:none !important; grid-template-rows:none !important; grid-template-areas:none !important; }
+  header, main { grid-area:unset !important; }
+  body { background:var(--paper); color:var(--ink); }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
+
+  header { background:var(--ink); border-bottom:3px solid var(--accent); padding:18px 32px; position:sticky; top:0; z-index:20; }
+  .header-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(16px,2.6vw,22px); font-weight:700; color:var(--paper); }
+  header .sub { font-family:'DM Mono',monospace; font-size:10.5px; color:rgba(245,240,232,.6); margin-top:2px; }
+  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--paper); font-family:'DM Mono',monospace; font-size:11px; padding:7px 14px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
+  .nav-link:hover { background:rgba(255,255,255,.18); }
+  .timer-pill { font-family:'DM Mono',monospace; font-size:14px; font-weight:500; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); color:var(--paper); padding:8px 16px; border-radius:99px; }
+  .timer-pill.low { background:rgba(200,75,49,.35); border-color:var(--wrong); animation:pulse 1s infinite alternate; }
+  .timer-pill.paused { opacity:.7; }
+  @keyframes pulse { from { opacity:1; } to { opacity:.65; } }
+
+  main { padding:26px 32px 80px; max-width:900px; margin:0 auto; }
+  .panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:20px 22px; margin-bottom:16px; }
+  .btn { background:var(--ink); color:var(--paper); border:none; padding:11px 20px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13.5px; cursor:pointer; }
+  .btn:hover { background:#1c2c3d; }
+  .btn:disabled { opacity:.5; cursor:default; }
+  .btn.accent { background:var(--accent); }
+  .btn.secondary { background:transparent; border:1px solid var(--border); color:var(--ink); }
+  .btn.secondary:hover { border-color:var(--accent); color:var(--accent); }
+  .btn.big { font-size:15px; padding:13px 26px; }
+  .muted { color:var(--mid); font-size:12.5px; }
+  .mono { font-family:'DM Mono',monospace; }
+  .hidden { display:none !important; }
+  .empty { padding:24px; text-align:center; color:var(--mid); font-style:italic; }
+
+  .chip { display:inline-block; font-family:'DM Mono',monospace; font-size:10.5px; padding:3px 10px; border-radius:99px; white-space:nowrap; }
+  .chip.ontime { background:rgba(45,122,79,.1); color:#2d7a4f; border:1px solid rgba(45,122,79,.3); }
+  .chip.late { background:rgba(212,168,67,.15); color:#8f6d19; border:1px solid rgba(212,168,67,.4); }
+  .chip.missed { background:rgba(200,75,49,.1); color:var(--wrong); border:1px solid rgba(200,75,49,.3); }
+  .chip.pending { background:rgba(122,92,158,.1); color:#6a4f8c; border:1px solid rgba(122,92,158,.3); }
+  .chip.info { background:rgba(74,111,165,.1); color:var(--accent); border:1px solid rgba(74,111,165,.3); }
+
+  .task-title { font-family:'Playfair Display',serif; font-size:24px; font-weight:700; margin-bottom:8px; }
+  .meta-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:10px; margin:14px 0; }
+  .meta-item { background:var(--cream); border:1px solid var(--border); border-radius:8px; padding:10px 14px; }
+  .meta-item .l { font-family:'DM Mono',monospace; font-size:9.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--mid); }
+  .meta-item .v { font-size:14px; font-weight:600; margin-top:3px; }
+  .banner { border-radius:8px; padding:12px 16px; font-size:13.5px; margin:12px 0; }
+  .banner.warn { background:rgba(212,168,67,.12); border:1px solid rgba(212,168,67,.4); color:#8f6d19; }
+  .banner.bad { background:rgba(200,75,49,.08); border:1px solid rgba(200,75,49,.3); color:var(--wrong); }
+  .banner.good { background:rgba(45,122,79,.08); border:1px solid rgba(45,122,79,.3); color:#2d7a4f; }
+
+  /* palette */
+  .palette { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px; }
+  .pal-btn { width:38px; height:38px; border-radius:8px; border:1.5px solid var(--border); background:#fff; font-family:'DM Mono',monospace; font-size:12px; cursor:pointer; }
+  .pal-btn.answered { background:rgba(45,122,79,.12); border-color:#2d7a4f; color:#2d7a4f; font-weight:700; }
+  .pal-btn.current { border-color:var(--accent); box-shadow:0 0 0 2px rgba(74,111,165,.3); }
+
+  .qhead { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px; }
+  .qnum { font-family:'DM Mono',monospace; font-size:12px; color:var(--mid); }
+  .qmarks { font-family:'DM Mono',monospace; font-size:12px; color:#8f6d19; font-weight:500; }
+  .case-study { background:var(--cream); border-left:4px solid var(--gold); border-radius:0 8px 8px 0; padding:12px 16px; font-size:13.5px; line-height:1.65; margin-bottom:14px; white-space:pre-wrap; }
+  .reading-card { background:var(--cream); border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:0 8px 8px 0; padding:12px 16px; font-size:13.5px; line-height:1.65; margin-bottom:14px; max-height:340px; overflow-y:auto; }
+  .reading-card h5, .reading-card strong { color:var(--ink); }
+  .reading-lbl { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
+  .qtext { font-size:16px; line-height:1.6; font-weight:600; margin-bottom:14px; }
+  .fib-text { font-size:15.5px; line-height:2.2; font-weight:500; }
+  .fib-input { display:inline-block; width:130px; padding:6px 10px; border:1.5px solid var(--accent); border-radius:6px; font-size:14px; font-family:'DM Sans',sans-serif; margin:0 3px; background:#fff; }
+  .fib-input:focus { outline:none; box-shadow:0 0 0 2px rgba(74,111,165,.25); }
+
+  .wordbank-bar { margin-bottom:14px; }
+  .wordbank-toggle { background:rgba(122,92,158,.1); border:1px solid rgba(122,92,158,.35); color:#6a4f8c; font-family:'DM Mono',monospace; font-size:11.5px; padding:8px 16px; border-radius:99px; cursor:pointer; }
+  .wordbank-toggle:hover { background:rgba(122,92,158,.18); }
+  .wordbank-panel { display:flex; flex-wrap:wrap; gap:8px; background:var(--cream); border:1px solid var(--border); border-radius:8px; padding:12px 14px; margin-top:8px; }
+  .wb-word { font-family:'DM Sans',sans-serif; font-size:13px; background:#fff; border:1.5px solid rgba(122,92,158,.4); color:var(--ink); padding:6px 12px; border-radius:99px; cursor:pointer; user-select:none; transition:opacity .12s, border-color .12s; }
+  .wb-word:hover { border-color:#6a4f8c; }
+  .wb-word.struck { text-decoration:line-through; opacity:.45; border-style:dashed; }
+
+  .opt { display:flex; gap:10px; align-items:flex-start; border:1.5px solid var(--border); border-radius:8px; padding:12px 14px; margin-bottom:8px; cursor:pointer; font-size:14px; background:#fff; transition:border-color .12s, background .12s; }
+  .opt:hover { border-color:var(--accent); }
+  .opt.selected { border-color:var(--accent); background:rgba(74,111,165,.07); }
+  .opt input { margin-top:3px; }
+  .opt .letter { font-family:'DM Mono',monospace; font-weight:500; color:var(--accent); }
+
+  textarea.answer-box { width:100%; min-height:170px; padding:12px 14px; border:1.5px solid var(--border); border-radius:8px; font-size:14px; font-family:'DM Sans',sans-serif; line-height:1.6; resize:vertical; }
+  textarea.answer-box:focus { border-color:var(--accent); outline:none; }
+  details.helper { margin-top:10px; }
+  details.helper summary { font-family:'DM Mono',monospace; font-size:11px; color:var(--accent); cursor:pointer; }
+  details.helper div { background:var(--cream); border-radius:6px; padding:10px 12px; font-size:13px; margin-top:6px; white-space:pre-wrap; }
+
+  .player-nav { display:flex; gap:10px; align-items:center; margin-top:16px; flex-wrap:wrap; }
+  .save-state { font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); }
+
+  /* results */
+  .score-hero { text-align:center; padding:22px; }
+  .score-hero .big-score { font-family:'Playfair Display',serif; font-size:44px; font-weight:700; color:var(--accent); }
+  .score-hero .pct { font-family:'DM Mono',monospace; font-size:15px; color:var(--mid); margin-top:4px; }
+  .r-q { border:1px solid var(--border); border-radius:9px; padding:14px 16px; margin-bottom:12px; background:#fff; }
+  .r-q.correct { border-left:4px solid #2d7a4f; }
+  .r-q.wrong { border-left:4px solid var(--wrong); }
+  .r-q.pending-mark { border-left:4px solid #7a5c9e; }
+  .your-answer { background:rgba(74,111,165,.05); border:1px solid var(--border); border-radius:6px; padding:10px 12px; font-size:13.5px; white-space:pre-wrap; margin:8px 0; }
+  .feedback-box { background:rgba(122,92,158,.07); border:1px solid rgba(122,92,158,.3); border-radius:6px; padding:10px 12px; font-size:13.5px; margin:8px 0; }
+  .feedback-box .fl { font-family:'DM Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:#6a4f8c; margin-bottom:4px; }
+  details.ms { margin-top:8px; }
+  details.ms summary { font-family:'DM Mono',monospace; font-size:11px; color:var(--accent); cursor:pointer; }
+  details.ms > div { font-size:13px; background:var(--cream); padding:10px 14px; border-radius:6px; margin-top:6px; }
+  .lb-row { display:flex; align-items:center; gap:12px; padding:8px 12px; border-bottom:1px solid var(--border); font-size:13.5px; }
+  .lb-row:last-child { border-bottom:none; }
+  .lb-row.me { background:rgba(74,111,165,.08); border-radius:6px; font-weight:700; }
+  .lb-rank { font-family:'DM Mono',monospace; width:34px; }
+  .lb-bar-wrap { flex:1; height:8px; background:var(--border); border-radius:99px; overflow:hidden; }
+  .lb-bar { height:100%; background:linear-gradient(90deg,var(--accent),var(--gold)); }
+  .lb-pct { font-family:'DM Mono',monospace; font-size:12px; width:56px; text-align:right; }
+
+  @media(max-width:640px){ header, main { padding-left:14px; padding-right:14px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <h1 id="hdrTitle">📝 Task</h1>
+      <div class="sub" id="hdrSub"></div>
+    </div>
+    <div style="display:flex; gap:10px; align-items:center;">
+      <span class="timer-pill hidden" id="timerPill">--:--</span>
+      <a class="nav-link" href="dashboard.html" id="exitLink">Save &amp; exit</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div id="loading" class="empty">Loading task…</div>
+
+  <!-- ═══ INTRO ═══ -->
+  <div id="viewIntro" class="hidden">
+    <div class="panel">
+      <div class="task-title" id="introTitle"></div>
+      <div id="introInstructions" style="font-size:14px; line-height:1.7; white-space:pre-wrap;"></div>
+      <div class="meta-grid" id="introMeta"></div>
+      <div id="introBanners"></div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
+        <button type="button" class="btn accent big hidden" id="startBtn">Start task →</button>
+        <button type="button" class="btn accent big hidden" id="resumeBtn">Resume attempt →</button>
+        <button type="button" class="btn secondary big hidden" id="reviewBtn">Review my results</button>
+      </div>
+    </div>
+    <div class="panel hidden" id="prevAttemptsPanel">
+      <h3 style="font-family:'Playfair Display',serif; font-size:15px; margin-bottom:8px;">Your attempts</h3>
+      <div id="prevAttempts"></div>
+    </div>
+  </div>
+
+  <!-- ═══ PLAYER ═══ -->
+  <div id="viewPlayer" class="hidden">
+    <div class="palette" id="palette"></div>
+    <div class="wordbank-bar hidden" id="wordBankBar">
+      <button type="button" class="wordbank-toggle" id="wordBankToggle">📖 Reveal word bank</button>
+      <div class="wordbank-panel hidden" id="wordBankPanel"></div>
+    </div>
+    <div class="panel" id="questionPanel"></div>
+    <div class="player-nav">
+      <button type="button" class="btn secondary" id="prevBtn">← Previous</button>
+      <button type="button" class="btn secondary" id="nextBtn">Next →</button>
+      <span class="save-state" id="saveState"></span>
+      <button type="button" class="btn accent" id="submitBtn" style="margin-left:auto;">✅ Submit task</button>
+    </div>
+  </div>
+
+  <!-- ═══ RESULTS ═══ -->
+  <div id="viewResults" class="hidden">
+    <div class="panel score-hero" id="scoreHero"></div>
+    <div class="panel hidden" id="leaderboardPanel">
+      <h3 style="font-family:'Playfair Display',serif; font-size:15px; margin-bottom:10px;">🏆 Class leaderboard <span class="muted">(anonymous — only you can see which is you)</span></h3>
+      <div id="leaderboard"></div>
+    </div>
+    <div style="display:flex; gap:10px; margin-bottom:14px; flex-wrap:wrap;" id="resultsActions"></div>
+    <div id="resultsQuestions"></div>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="tasks-shared.js"></script>
+<script>
+'use strict';
+const esc = taskEscapeHtml;
+const $ = id => document.getElementById(id);
+
+let auth = null;
+let task = null, assignment = null, questions = [], attempts = [];
+let attempt = null;              // active in_progress attempt while playing
+let answers = {};                // task_question_id -> {value}
+let qTime = {};                  // task_question_id -> seconds (cumulative, this attempt)
+let curIdx = 0;
+let qShownAt = null;             // timestamp the current question appeared
+let timerInterval = null;
+let elapsedBase = 0;             // seconds accumulated while visible (paused mode)
+let visibleSince = null;
+let saveTimer = null;
+let dirty = new Set();           // question ids with unsaved answers
+let submitting = false;
+let wordBankWords = null;        // fetched lazily on first reveal — shuffled fill-in-blank words, no question/blank mapping
+let wordBankStruck = new Set();  // indices the student has struck through (scratch aid only)
+let wordBankRevealed = false;
+
+const params = new URLSearchParams(location.search);
+const TASK_ID = params.get('id');
+
+function elapsedKey() { return 'gcse_task_elapsed_' + attempt.id; }
+
+// ══════════ LOAD ══════════
+async function init() {
+  auth = await tasksAuthInit('student');
+  if (!auth) return;
+  if (!TASK_ID) { $('loading').textContent = 'No task specified.'; return; }
+
+  const [{ data: tasks }, { data: asg }, { data: atts }, { data: qs, error: qErr }] = await Promise.all([
+    auth.client.from('tasks').select('*').eq('id', TASK_ID),
+    auth.client.from('task_assignments').select('*').eq('task_id', TASK_ID).eq('student_id', auth.session.user.id),
+    auth.client.from('task_attempts').select('*').eq('task_id', TASK_ID).order('attempt_number'),
+    auth.client.rpc('get_my_task_questions', { p_task_id: TASK_ID }),
+  ]);
+  task = (tasks || [])[0];
+  assignment = (asg || [])[0];
+  attempts = atts || [];
+  questions = qs || [];
+  if (!task || !assignment || qErr) {
+    $('loading').textContent = 'This task isn\'t available to you (it may not be assigned to you, or hasn\'t been published).';
+    return;
+  }
+  $('loading').classList.add('hidden');
+  $('hdrTitle').textContent = '📝 ' + task.title;
+  showIntro();
+}
+
+// ══════════ INTRO ══════════
+function showIntro() {
+  stopTimer();
+  $('viewPlayer').classList.add('hidden');
+  $('viewResults').classList.add('hidden');
+  $('viewIntro').classList.remove('hidden');
+  $('timerPill').classList.add('hidden');
+  $('exitLink').textContent = '← My dashboard';
+
+  const due = effectiveDue(task, assignment);
+  const past = due && Date.now() > due.getTime();
+  const remaining = attemptsRemaining(task, attempts);
+  const subs = submittedAttempts(attempts);
+  const inProg = attempts.find(a => a.status === 'in_progress');
+  const limit = effectiveTimeLimitMinutes(task, assignment);
+  const state = studentTaskState(task, assignment, attempts);
+  const totalMarks = questions.reduce((s, q) => s + Number(q.marks), 0);
+
+  $('introTitle').textContent = task.title;
+  $('introInstructions').textContent = task.instructions || '';
+  $('hdrSub').textContent = `${questions.length} questions · ${totalMarks} marks`;
+
+  $('introMeta').innerHTML = `
+    <div class="meta-item"><div class="l">Due</div><div class="v">${due ? fmtDateTime(due) : '—'}</div></div>
+    <div class="meta-item"><div class="l">Questions / marks</div><div class="v">${questions.length} · ${totalMarks} marks</div></div>
+    <div class="meta-item"><div class="l">Attempts</div><div class="v">${subs.length} used${task.attempts_allowed ? ' of ' + task.attempts_allowed : ' (unlimited)'} · ${task.attempt_scoring} counts</div></div>
+    <div class="meta-item"><div class="l">Time limit</div><div class="v">${limit ? limit + ' min' + (assignment.extra_time_minutes ? ` (incl. +${assignment.extra_time_minutes} extra)` : '') : 'Untimed'}</div></div>
+    <div class="meta-item"><div class="l">If you leave mid-task</div><div class="v">${task.time_limit_minutes ? (task.timer_on_leave === 'paused' ? 'Timer pauses' : 'Timer keeps running') : 'Answers are saved'}</div></div>
+    <div class="meta-item"><div class="l">Late work</div><div class="v">${task.late_policy === 'lock' ? 'Locks at deadline' : 'Accepted, marked “Late”'}</div></div>`;
+
+  const banners = [];
+  if (state === 'locked') banners.push(`<div class="banner bad">🔒 The deadline has passed and this task no longer accepts submissions. You can review the questions and correct answers below.</div>`);
+  else if (past && task.late_policy === 'accept_late' && !subs.length) banners.push(`<div class="banner warn">⚠️ The deadline has passed. You can still complete this task, but your submission will be marked <strong>Late</strong>.</div>`);
+  if (subs.length && !remaining) banners.push(`<div class="banner good">✅ You've used all your attempts. Your ${task.attempt_scoring} attempt counts.</div>`);
+  $('introBanners').innerHTML = banners.join('');
+
+  const canStart = state !== 'locked' && remaining > 0 && !inProg;
+  $('startBtn').classList.toggle('hidden', !canStart);
+  $('startBtn').textContent = subs.length ? `Start attempt ${subs.length + 1} →` : 'Start task →';
+  $('resumeBtn').classList.toggle('hidden', !(inProg && state !== 'locked'));
+  $('reviewBtn').classList.toggle('hidden', !(subs.length || state === 'locked'));
+  $('reviewBtn').textContent = subs.length ? 'Review my results' : 'View questions & answers';
+
+  const panel = $('prevAttemptsPanel');
+  panel.classList.toggle('hidden', !subs.length);
+  if (subs.length) {
+    const counted = countedAttempt(task, attempts);
+    $('prevAttempts').innerHTML = subs.map(a => `
+      <div class="lb-row">
+        <span class="mono">Attempt ${a.attempt_number}</span>
+        <span class="chip ${a.is_late ? 'late' : 'ontime'}">${a.is_late ? 'Late' : 'On time'}</span>
+        ${a.marking_complete
+          ? `<span class="mono">${a.marks_awarded}/${a.marks_total} (${attemptPct(a)}%)</span>`
+          : `<span class="chip pending">Marking in progress — ${a.marks_awarded ?? 0} marks so far</span>`}
+        <span class="muted">${fmtDuration(a.time_spent_seconds)}</span>
+        ${counted && counted.id === a.id ? '<span class="chip info">Counts</span>' : ''}
+      </div>`).join('');
+  }
+}
+
+$('startBtn').addEventListener('click', startAttempt);
+$('resumeBtn').addEventListener('click', startAttempt);
+$('reviewBtn').addEventListener('click', showResults);
+
+// ══════════ PLAYER ══════════
+async function startAttempt() {
+  $('startBtn').disabled = $('resumeBtn').disabled = true;
+  const { data, error } = await auth.client.rpc('start_task_attempt', { p_task_id: TASK_ID });
+  $('startBtn').disabled = $('resumeBtn').disabled = false;
+  if (error) { alert(error.message); return; }
+  attempt = data;
+  if (!attempts.some(a => a.id === attempt.id)) attempts.push(attempt);
+
+  // Restore autosaved answers + per-question times for this attempt.
+  answers = {}; qTime = {};
+  const { data: saved } = await auth.client.from('task_answers')
+    .select('task_question_id, answer, time_spent_seconds').eq('attempt_id', attempt.id);
+  (saved || []).forEach(r => {
+    if (r.answer) answers[r.task_question_id] = r.answer;
+    qTime[r.task_question_id] = r.time_spent_seconds || 0;
+  });
+  try { elapsedBase = parseInt(localStorage.getItem(elapsedKey()), 10) || 0; } catch (e) { elapsedBase = 0; }
+  // Paused-mode elapsed can never be less than time already logged on questions.
+  const loggedTotal = Object.values(qTime).reduce((s, v) => s + v, 0);
+  elapsedBase = Math.max(elapsedBase, loggedTotal);
+
+  curIdx = 0;
+  dirty.clear();
+  $('viewIntro').classList.add('hidden');
+  $('viewResults').classList.add('hidden');
+  $('viewPlayer').classList.remove('hidden');
+  $('exitLink').textContent = 'Save & exit';
+  startTimer();
+  renderPalette();
+  renderQuestion();
+  initWordBank();
+}
+
+// ── timing ──
+// Total elapsed seconds for the attempt right now.
+function attemptElapsed() {
+  if (task.timer_on_leave === 'running') {
+    return Math.floor((Date.now() - new Date(attempt.started_at).getTime()) / 1000);
+  }
+  // paused mode: accumulated visible time
+  let e = elapsedBase;
+  if (visibleSince != null) e += Math.floor((Date.now() - visibleSince) / 1000);
+  return e;
+}
+
+function timeLeftSeconds() {
+  const limit = effectiveTimeLimitMinutes(task, assignment);
+  if (!limit) return null;
+  return limit * 60 - attemptElapsed();
+}
+
+function startTimer() {
+  stopTimer();
+  visibleSince = document.visibilityState === 'visible' ? Date.now() : null;
+  qShownAt = Date.now();
+  const pill = $('timerPill');
+  const limit = effectiveTimeLimitMinutes(task, assignment);
+  pill.classList.toggle('hidden', !limit);
+  timerInterval = setInterval(() => {
+    if (!attempt) return;
+    if (limit) {
+      const left = timeLeftSeconds();
+      const m = Math.max(0, Math.floor(left / 60)), s = Math.max(0, left % 60);
+      pill.textContent = `⏱ ${m}:${String(s).padStart(2, '0')}`;
+      pill.classList.toggle('low', left <= 120);
+      pill.classList.toggle('paused', task.timer_on_leave === 'paused' && visibleSince == null);
+      if (left <= 0) { autoSubmit(); }
+    }
+  }, 500);
+}
+function stopTimer() { if (timerInterval) { clearInterval(timerInterval); timerInterval = null; } }
+
+// Bank the time spent on the currently shown question.
+function bankQuestionTime() {
+  if (!attempt || qShownAt == null) return;
+  const q = questions[curIdx];
+  if (!q) return;
+  // Only count time while the tab was visible.
+  const now = Date.now();
+  const from = Math.max(qShownAt, visibleSince ?? now);
+  const delta = Math.max(0, Math.floor((now - from) / 1000));
+  qTime[q.id] = (qTime[q.id] || 0) + delta;
+  qShownAt = now;
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (!attempt) return;
+  if (document.visibilityState === 'hidden') {
+    bankQuestionTime();
+    if (visibleSince != null) {
+      elapsedBase += Math.floor((Date.now() - visibleSince) / 1000);
+      visibleSince = null;
+      try { localStorage.setItem(elapsedKey(), String(elapsedBase)); } catch (e) {}
+    }
+    flushSaves(); // answers are always saved when you leave
+  } else {
+    visibleSince = Date.now();
+    qShownAt = Date.now();
+  }
+});
+window.addEventListener('beforeunload', () => {
+  if (!attempt) return;
+  bankQuestionTime();
+  if (visibleSince != null) {
+    elapsedBase += Math.floor((Date.now() - visibleSince) / 1000);
+    try { localStorage.setItem(elapsedKey(), String(elapsedBase)); } catch (e) {}
+  }
+  flushSaves();
+});
+
+// ── rendering ──
+// Does an answer value carry actual content? (fib answers are objects)
+function answerHasContent(v) {
+  if (v == null) return false;
+  if (typeof v === 'object') return Object.values(v).some(x => String(x ?? '').trim() !== '');
+  return String(v).trim() !== '';
+}
+
+// The blank keys for a fib question, in display order (B1, B2, …).
+function fibBlankKeys(q) {
+  const gaps = (q.snapshot.question.match(/_{3,}/g) || []).length;
+  const n = Math.max(gaps, Math.round(Number(q.marks)) || 1);
+  return Array.from({ length: n }, (_, i) => 'B' + (i + 1));
+}
+
+// ── Fill-in-the-blanks word bank ──
+// Blank count is visible from the question text itself (the "___" gaps),
+// so we can decide whether to offer the word bank without touching any
+// secret data. The actual words are fetched lazily, only once revealed,
+// from get_task_fib_word_bank() — a shuffled multiset with no link back to
+// which question/blank each word belongs to (see supabase/tasks-fib-wordbank.sql).
+function totalFibBlanks() {
+  return questions.filter(q => q.qtype === 'fib').reduce((s, q) => s + fibBlankKeys(q).length, 0);
+}
+function wordBankStruckStorageKey() { return 'gcse_task_wb_struck_' + attempt.id; }
+
+function initWordBank() {
+  wordBankWords = null;
+  wordBankRevealed = false;
+  wordBankStruck = new Set();
+  const bar = $('wordBankBar');
+  if (totalFibBlanks() <= 2) { bar.classList.add('hidden'); return; }
+  bar.classList.remove('hidden');
+  $('wordBankPanel').classList.add('hidden');
+  $('wordBankToggle').textContent = '📖 Reveal word bank';
+}
+
+async function toggleWordBank() {
+  const panel = $('wordBankPanel');
+  if (!wordBankRevealed) {
+    $('wordBankToggle').disabled = true;
+    const { data, error } = await auth.client.rpc('get_task_fib_word_bank', { p_task_id: TASK_ID });
+    $('wordBankToggle').disabled = false;
+    if (error) { alert(error.message); return; }
+    wordBankWords = data || [];
+    try { wordBankStruck = new Set(JSON.parse(localStorage.getItem(wordBankStruckStorageKey())) || []); } catch (e) { wordBankStruck = new Set(); }
+    wordBankRevealed = true;
+  }
+  panel.classList.toggle('hidden');
+  $('wordBankToggle').textContent = panel.classList.contains('hidden') ? '📖 Show word bank' : '📖 Hide word bank';
+  if (!panel.classList.contains('hidden')) renderWordBankPanel();
+}
+
+function renderWordBankPanel() {
+  $('wordBankPanel').innerHTML = (wordBankWords || []).map((w, i) => `
+    <button type="button" class="wb-word${wordBankStruck.has(i) ? ' struck' : ''}" data-wi="${i}">${esc(w)}</button>`).join('')
+    || '<span class="muted">No fill-in-the-blank words in this task.</span>';
+  $('wordBankPanel').querySelectorAll('.wb-word').forEach(btn => btn.addEventListener('click', () => {
+    const i = parseInt(btn.dataset.wi, 10);
+    if (wordBankStruck.has(i)) wordBankStruck.delete(i); else wordBankStruck.add(i);
+    try { localStorage.setItem(wordBankStruckStorageKey(), JSON.stringify([...wordBankStruck])); } catch (e) {}
+    btn.classList.toggle('struck');
+  }));
+}
+$('wordBankToggle').addEventListener('click', toggleWordBank);
+
+function renderPalette() {
+  let answeredCount = 0;
+  $('palette').innerHTML = questions.map((q, i) => {
+    const a = answers[q.id];
+    const done = a && answerHasContent(a.value);
+    if (done) answeredCount++;
+    return `<button type="button" class="pal-btn ${done ? 'answered' : ''} ${i === curIdx ? 'current' : ''}" data-i="${i}" title="Question ${i + 1}">${i + 1}</button>`;
+  }).join('');
+  // Keep the submit button honest about how much is left
+  const submitBtn = $('submitBtn');
+  if (submitBtn) {
+    submitBtn.innerHTML = answeredCount >= questions.length
+      ? '✅ Submit task'
+      : `✅ Submit <span style="font-weight:400; opacity:.85;">(${answeredCount}/${questions.length} answered)</span>`;
+  }
+}
+$('palette').addEventListener('click', e => {
+  const b = e.target.closest('button[data-i]');
+  if (b) gotoQuestion(parseInt(b.dataset.i, 10));
+});
+
+function renderQuestion() {
+  const q = questions[curIdx];
+  const snap = q.snapshot;
+  const a = answers[q.id] || {};
+  let inputHtml = '';
+  if (q.qtype === 'mcq') {
+    inputHtml = (snap.options || []).map((o, oi) => `
+      <label class="opt ${a.value === oi ? 'selected' : ''}">
+        <input type="radio" name="mcq" value="${oi}" ${a.value === oi ? 'checked' : ''}/>
+        <span><span class="letter">${String.fromCharCode(65 + oi)}.</span> ${esc(o)}</span>
+      </label>`).join('');
+  } else if (q.qtype === 'tf') {
+    inputHtml = [[true, '✔ True'], [false, '✘ False']].map(([v, lbl]) => `
+      <label class="opt ${a.value === v ? 'selected' : ''}">
+        <input type="radio" name="tf" value="${v}" ${a.value === v ? 'checked' : ''}/>
+        <span>${lbl}</span>
+      </label>`).join('');
+  } else if (q.qtype === 'fib') {
+    // Rebuild the sentence with an input box in each gap.
+    const vals = (a.value && typeof a.value === 'object') ? a.value : {};
+    const keys = fibBlankKeys(q);
+    const parts = snap.question.split(/_{3,}/);
+    let html = '<div class="fib-text">';
+    parts.forEach((part, pi) => {
+      html += esc(part);
+      if (pi < parts.length - 1 && pi < keys.length) {
+        const k = keys[pi];
+        html += `<input type="text" class="fib-input" data-bk="${k}" value="${esc(vals[k] || '')}" autocomplete="off" spellcheck="false" aria-label="Blank ${pi + 1}"/>`;
+      }
+    });
+    html += '</div><div class="muted" style="margin-top:10px;">One mark per blank — spelling matters, capitals don\'t.</div>';
+    inputHtml = html;
+  } else {
+    inputHtml = `<textarea class="answer-box" id="writtenAnswer" placeholder="Type your answer here… (${q.marks} marks — aim for ${q.marks >= 6 ? 'a developed, structured answer' : q.marks >= 3 ? 'developed points' : 'clear, precise points'})">${esc(a.value || '')}</textarea>
+      ${snap.hint ? `<details class="helper"><summary>💡 Hint</summary><div>${esc(snap.hint)}</div></details>` : ''}
+      ${snap.starter ? `<details class="helper"><summary>✏️ Sentence starter</summary><div>${esc(snap.starter)}</div></details>` : ''}`;
+  }
+
+  $('questionPanel').innerHTML = `
+    <div class="qhead">
+      <span class="qnum">Question ${curIdx + 1} of ${questions.length}</span>
+      <span class="chip info">${QTYPE_LABELS[q.qtype] || q.qtype}</span>
+      <span class="qmarks">[${q.marks} mark${Number(q.marks) === 1 ? '' : 's'}]</span>
+    </div>
+    ${snap.caseStudy ? `<div class="case-study"><strong>Case study:</strong>\n${esc(snap.caseStudy)}</div>` : ''}
+    ${snap.reading ? `<div><div class="reading-lbl">📖 Read this first${snap.readingTitle ? ' — ' + esc(snap.readingTitle) : ''}</div><div class="reading-card">${snap.reading}</div></div>` : ''}
+    ${q.qtype === 'fib' ? '' : `<div class="qtext">${esc(snap.question)}</div>`}
+    ${inputHtml}`;
+
+  $('prevBtn').disabled = curIdx === 0;
+  $('nextBtn').disabled = curIdx === questions.length - 1;
+
+  // wire inputs
+  $('questionPanel').querySelectorAll('input[type=radio]').forEach(r => r.addEventListener('change', () => {
+    const v = q.qtype === 'mcq' ? parseInt(r.value, 10) : r.value === 'true';
+    setAnswer(q.id, v, true);
+    renderQuestion(); // refresh selected styling
+    renderPalette();
+  }));
+  const ta = $('writtenAnswer');
+  if (ta) ta.addEventListener('input', () => {
+    setAnswer(q.id, ta.value, false);
+    renderPalette();
+  });
+  const fibInputs = [...$('questionPanel').querySelectorAll('.fib-input')];
+  if (fibInputs.length) {
+    const collect = () => {
+      const vals = {};
+      fibInputs.forEach(inp => { vals[inp.dataset.bk] = inp.value; });
+      setAnswer(q.id, vals, false);
+      renderPalette();
+    };
+    fibInputs.forEach(inp => inp.addEventListener('input', collect));
+  }
+}
+
+function gotoQuestion(i) {
+  if (i === curIdx || i < 0 || i >= questions.length) return;
+  bankQuestionTime();
+  flushSaves();
+  curIdx = i;
+  qShownAt = Date.now();
+  renderPalette();
+  renderQuestion();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+$('prevBtn').addEventListener('click', () => gotoQuestion(curIdx - 1));
+$('nextBtn').addEventListener('click', () => gotoQuestion(curIdx + 1));
+
+// ── autosave ──
+function setAnswer(qid, value, immediate) {
+  answers[qid] = { value };
+  dirty.add(qid);
+  $('saveState').textContent = 'Saving…';
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(flushSaves, immediate ? 50 : 1200);
+}
+
+async function flushSaves() {
+  if (!attempt || !dirty.size) return;
+  bankQuestionTime();
+  const toSave = [...dirty];
+  dirty.clear();
+  const results = await Promise.all(toSave.map(qid =>
+    auth.client.rpc('save_task_answer', {
+      p_attempt_id: attempt.id,
+      p_task_question_id: qid,
+      p_answer: answers[qid],
+      p_time_spent_seconds: Math.round(qTime[qid] || 0),
+    }).then(({ error }) => ({ qid, error }))
+  ));
+  const failed = results.filter(r => r.error);
+  failed.forEach(r => dirty.add(r.qid));
+  $('saveState').textContent = failed.length
+    ? '⚠ Some answers not saved — check your connection'
+    : '✓ All answers saved ' + new Date().toLocaleTimeString();
+}
+
+// ── submit ──
+async function doSubmit(auto) {
+  if (!attempt || submitting) return;
+  submitting = true;
+  stopTimer();
+  bankQuestionTime();
+  await flushSaves();
+
+  const { data, error } = await auth.client.rpc('submit_task_attempt', {
+    p_attempt_id: attempt.id,
+    p_time_spent_seconds: Math.min(attemptElapsed(), 60 * 60 * 12),
+  });
+  submitting = false;
+  if (error) {
+    alert(error.message);
+    if (/locked/i.test(error.message)) { attempt = null; await reloadAttempts(); showIntro(); }
+    else startTimer();
+    return;
+  }
+  try { localStorage.removeItem(elapsedKey()); } catch (e) {}
+  attempt = null;
+  await reloadAttempts();
+  if (auto) alert('⏱ Time is up — your task has been submitted automatically.');
+  showResults();
+}
+
+let autoSubmitted = false;
+function autoSubmit() {
+  if (autoSubmitted) return;
+  autoSubmitted = true;
+  doSubmit(true);
+}
+
+$('submitBtn').addEventListener('click', () => {
+  const unanswered = questions.filter(q => {
+    const a = answers[q.id];
+    return !(a && answerHasContent(a.value));
+  }).length;
+  const msg = unanswered
+    ? `You have ${unanswered} unanswered question${unanswered === 1 ? '' : 's'}. Submit anyway?`
+    : 'Submit your answers? You can\'t change this attempt afterwards.';
+  if (confirm(msg)) doSubmit(false);
+});
+
+async function reloadAttempts() {
+  const { data: atts } = await auth.client.from('task_attempts')
+    .select('*').eq('task_id', TASK_ID).order('attempt_number');
+  attempts = atts || [];
+}
+
+// ══════════ RESULTS ══════════
+async function showResults() {
+  stopTimer();
+  $('viewIntro').classList.add('hidden');
+  $('viewPlayer').classList.add('hidden');
+  $('viewResults').classList.remove('hidden');
+  $('timerPill').classList.add('hidden');
+  $('exitLink').textContent = '← My dashboard';
+
+  const counted = countedAttempt(task, attempts);
+  const subs = submittedAttempts(attempts);
+  const state = studentTaskState(task, assignment, attempts);
+
+  // Answer keys — only revealed once the server allows it.
+  let keys = null;
+  const { data: keyRows } = await auth.client.rpc('get_task_answer_keys', { p_task_id: TASK_ID });
+  if (keyRows) {
+    keys = {};
+    keyRows.forEach(r => { keys[r.task_question_id] = r.answer_key; });
+  }
+
+  // hero
+  const hero = $('scoreHero');
+  if (counted) {
+    if (counted.marking_complete) {
+      hero.innerHTML = `
+        <div class="big-score">${counted.marks_awarded} / ${counted.marks_total}</div>
+        <div class="pct">${attemptPct(counted)}% · ${counted.is_late ? '<span class="chip late">Submitted late</span>' : '<span class="chip ontime">On time</span>'} · time ${fmtDuration(counted.time_spent_seconds)}</div>
+        ${subs.length > 1 ? `<div class="muted" style="margin-top:6px;">Your ${task.attempt_scoring} attempt counts (attempt ${counted.attempt_number} of ${subs.length}).</div>` : ''}`;
+    } else {
+      hero.innerHTML = `
+        <div class="big-score">${counted.marks_awarded ?? 0} marks so far</div>
+        <div class="pct"><span class="chip pending">✍️ Marking in progress</span> — written answers are being marked by your teacher. Auto-marked questions are included above.</div>`;
+    }
+  } else {
+    hero.innerHTML = `<div class="pct">You didn't submit this task${state === 'locked' ? ' before it locked' : ''}. The questions${keys ? ' and correct answers' : ''} are shown below.</div>`;
+  }
+
+  // leaderboard (only when there is something to rank)
+  const lbPanel = $('leaderboardPanel');
+  lbPanel.classList.add('hidden');
+  if (subs.length) {
+    const { data: lb } = await auth.client.rpc('get_task_leaderboard', { p_task_id: TASK_ID });
+    if (lb && lb.length) {
+      lbPanel.classList.remove('hidden');
+      $('leaderboard').innerHTML = lb.map(r => `
+        <div class="lb-row ${r.is_me ? 'me' : ''}">
+          <span class="lb-rank">${medal(r.rank)}</span>
+          <span style="width:90px;">${r.is_me ? 'You' : 'Student'}</span>
+          <span class="lb-bar-wrap"><span class="lb-bar" style="width:${Math.min(100, r.pct)}%"></span></span>
+          <span class="lb-pct">${r.pct}%</span>
+          ${r.is_late ? '<span class="chip late">Late</span>' : ''}
+        </div>`).join('');
+    }
+  }
+
+  // per-question breakdown for the counted attempt (fetched here so both the
+  // actions row below and the question list can use it)
+  let attemptAnswers = {};
+  if (counted) {
+    const { data: ans } = await auth.client.from('task_answers').select('*').eq('attempt_id', counted.id);
+    (ans || []).forEach(a => { attemptAnswers[a.task_question_id] = a; });
+  }
+
+  // actions
+  const remaining = attemptsRemaining(task, attempts);
+  const canRetry = state !== 'locked' && remaining > 0;
+  const wrongCount = counted ? questions.filter(q =>
+    ['mcq', 'tf', 'fib'].includes(q.qtype) && attemptAnswers[q.id] && attemptAnswers[q.id].is_correct === false
+  ).length : 0;
+  $('resultsActions').innerHTML =
+    (canRetry ? `<button type="button" class="btn accent" id="retryBtn">↻ Start attempt ${subs.length + 1}${task.attempts_allowed ? ' of ' + task.attempts_allowed : ''}</button>
+       <span class="muted" style="align-self:center;">Your ${task.attempt_scoring} attempt will count.</span>` : '') +
+    (wrongCount ? `<button type="button" class="btn secondary" id="retryWrongBtn">🎯 Retry only what I got wrong (${wrongCount})</button>` : '');
+  const retryBtn = $('retryBtn');
+  if (retryBtn) retryBtn.addEventListener('click', startAttempt);
+  const retryWrongBtn = $('retryWrongBtn');
+  if (retryWrongBtn) retryWrongBtn.addEventListener('click', async () => {
+    retryWrongBtn.disabled = true;
+    const { data: newTaskId, error } = await auth.client.rpc('create_retry_task', { p_source_attempt_id: counted.id });
+    if (error) { alert(error.message); retryWrongBtn.disabled = false; return; }
+    location.href = `task.html?id=${newTaskId}`;
+  });
+
+  $('resultsQuestions').innerHTML = questions.map((q, i) => {
+    const snap = q.snapshot;
+    const a = attemptAnswers[q.id];
+    const key = keys && keys[q.id];
+    const hasAnswer = a && a.answer && answerHasContent(a.answer.value);
+
+    let stateClass = '', stateChip = '';
+    if (a && a.is_correct === true) { stateClass = 'correct'; stateChip = `<span class="chip ontime">✓ Correct · ${a.awarded}/${q.marks}</span>`; }
+    else if (a && a.is_correct === false) { stateClass = 'wrong'; stateChip = `<span class="chip missed">✗ ${hasAnswer ? 'Incorrect' : 'Not answered'} · 0/${q.marks}</span>`; }
+    else if (a && a.awarded != null) {
+      stateClass = Number(a.awarded) >= Number(q.marks) ? 'correct' : (Number(a.awarded) === 0 ? 'wrong' : '');
+      stateChip = `<span class="chip info">${a.awarded}/${q.marks} marks</span>`;
+    } else if (counted) { stateClass = 'pending-mark'; stateChip = '<span class="chip pending">Awaiting marking</span>'; }
+
+    let yourAnswerHtml = '';
+    if (counted) {
+      let display = '<em style="color:var(--mid)">No answer given</em>';
+      if (hasAnswer) {
+        if (q.qtype === 'mcq') display = esc(String.fromCharCode(65 + a.answer.value) + '. ' + ((snap.options || [])[a.answer.value] ?? ''));
+        else if (q.qtype === 'tf') display = a.answer.value ? 'True' : 'False';
+        else if (q.qtype === 'fib') {
+          const vals = (a.answer.value && typeof a.answer.value === 'object') ? a.answer.value : {};
+          const kb = key && key.blanks ? key.blanks : null;
+          display = fibBlankKeys(q).map((k, bi) => {
+            const mine = String(vals[k] ?? '').trim();
+            const right = kb ? String(kb[k] ?? '').trim() : null;
+            const ok = right != null && mine.toLowerCase() === right.toLowerCase();
+            return `Blank ${bi + 1}: <strong>${mine ? esc(mine) : '—'}</strong>` +
+                   (right != null ? (ok ? ' ✓' : ` ✗ <span style="color:#2d7a4f">(correct: ${esc(right)})</span>`) : '');
+          }).join('<br>');
+        }
+        else display = esc(String(a.answer.value));
+      }
+      yourAnswerHtml = `<div class="your-answer"><strong>Your answer:</strong><br>${display}</div>`;
+    }
+
+    let keyHtml = '';
+    if (key) {
+      if (q.qtype === 'mcq' && key.answer != null) keyHtml += `<div class="banner good" style="margin:8px 0;">Correct answer: <strong>${String.fromCharCode(65 + key.answer)}. ${esc((snap.options || [])[key.answer] ?? '')}</strong></div>`;
+      if (q.qtype === 'tf' && key.answer != null) keyHtml += `<div class="banner good" style="margin:8px 0;">Correct answer: <strong>${key.answer ? 'True' : 'False'}</strong></div>`;
+      if (q.qtype === 'fib' && key.blanks && !counted) keyHtml += `<div class="banner good" style="margin:8px 0;">Answers: ${fibBlankKeys(q).map((k, bi) => `<strong>${bi + 1}.</strong> ${esc(key.blanks[k] ?? '')}`).join(' · ')}</div>`;
+      if (key.explain) keyHtml += `<details class="ms"><summary>Explanation</summary><div>${esc(key.explain)}</div></details>`;
+      if (key.markScheme) keyHtml += `<details class="ms"><summary>Mark scheme</summary><div>${key.markScheme}</div></details>`;
+      if (key.modelAnswer) keyHtml += `<details class="ms"><summary>Model answer</summary><div>${key.modelAnswer}</div></details>`;
+    }
+
+    return `<div class="r-q ${stateClass}">
+      <div class="qhead">
+        <span class="qnum">Q${i + 1}</span>
+        <span class="qmarks">[${q.marks} mark${Number(q.marks) === 1 ? '' : 's'}]</span>
+        ${stateChip}
+        ${a ? `<span class="muted" style="margin-left:auto;">⏱ ${fmtDuration(a.time_spent_seconds)}</span>` : ''}
+      </div>
+      ${snap.caseStudy ? `<details class="ms"><summary>Case study</summary><div>${esc(snap.caseStudy)}</div></details>` : ''}
+      ${snap.reading ? `<details class="ms"><summary>📖 Reading${snap.readingTitle ? ' — ' + esc(snap.readingTitle) : ''}</summary><div>${snap.reading}</div></details>` : ''}
+      <div style="font-size:14px; font-weight:600; margin:6px 0;">${esc(snap.question)}</div>
+      ${q.qtype === 'mcq' && !counted ? `<ol class="opts" type="A" style="font-size:13px; padding-left:20px;">${(snap.options || []).map(o => `<li>${esc(o)}</li>`).join('')}</ol>` : ''}
+      ${yourAnswerHtml}
+      ${a && a.feedback ? `<div class="feedback-box"><div class="fl">${a.marked_by === 'ai' ? '🤖 AI feedback' : '👩‍🏫 Teacher feedback'}</div>${esc(a.feedback)}</div>` : ''}
+      ${keyHtml}
+    </div>`;
+  }).join('');
+
+  if (!keys && counted) {
+    $('resultsQuestions').insertAdjacentHTML('afterbegin',
+      '<div class="banner warn" style="margin-bottom:12px;">Correct answers and mark schemes stay hidden while you can still submit attempts.</div>');
+  }
+  window.scrollTo({ top: 0 });
+}
+
+function medal(rank) { return rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : '#' + rank; }
+
+init();
+</script>
+<script src="footer-legal.js"></script>
+</body>
+</html>

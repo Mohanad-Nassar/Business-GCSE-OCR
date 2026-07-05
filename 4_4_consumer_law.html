@@ -305,6 +305,13 @@
         // ══════════════════════════════════════
         //  DATA TEMPLATE: 4.4 Consumer Law
         // ══════════════════════════════════════
+        const pageMeta = {
+                id: '4-4-consumer-law',
+                badge: 'OCR GCSE Business — Component 1',
+                title: '4.4 Consumer Law',
+                subtitle: 'Interactive revision guide',
+                subject: 'business',
+            };
 
         // 1. Main Learning Content
         const topics = [
@@ -321,7 +328,13 @@
       <li><strong>Reputation:</strong> What customers say and feel about a business. Damage to a reputation can seriously affect a business's long-term survival and sales.</li>
       <li><strong>Compensation:</strong> A payment made to a customer for loss or damage caused by a defective product, claimable under the Consumer Protection Act 1987.</li>
       <li><strong>Consumer Protection Act 1987:</strong> Gives consumers the right to claim compensation if a defective product causes death, damage, or personal injury.</li>
-    </ul>`
+    </ul>`,
+                readCheck: {
+                    q: "Under which act can consumers claim compensation if a defective product causes death, damage, or personal injury?",
+                    opts: ["Consumer Protection Act 1987", "Consumer Rights Act 2015", "Sale of Goods Act 1979", "Trade Descriptions Act 1968"],
+                    ans: 0,
+                    explain: "The Consumer Protection Act 1987 specifically gives consumers the right to claim compensation for defective products causing death, damage, or personal injury."
+                }
             },
             {
                 title: "The Consumer Rights Act 2015: The Three Requirements",
@@ -338,7 +351,13 @@
       <p><strong>Mandy</strong> buys face cream claiming to eliminate wrinkles, but it doesn't work &rarr; <em>Not fit for purpose</em> (does not do what it claims).</p>
       <p><strong>Tim</strong> orders a blue top online but receives a green one &rarr; <em>Not as described</em> (product does not match its description).</p>
       <p><strong>Oliver</strong> buys a jumper in the sale and finds the seam is ripped when he gets home &rarr; Could be <em>not of satisfactory quality</em> — even sale goods must meet basic standards unless the fault was pointed out at the time of purchase.</p>
-    </div>`
+    </div>`,
+                readCheck: {
+                    q: "Mandy buys face cream claiming to eliminate wrinkles, but it doesn't work. Which requirement has been breached?",
+                    opts: ["Fit for purpose", "Satisfactory quality", "As described", "Consumer Protection Act 1987"],
+                    ans: 0,
+                    explain: "The cream fails to do what the seller claimed it would do, so it is not fit for purpose."
+                }
             },
             {
                 title: "Time-Based Customer Rights Under the Consumer Rights Act",
@@ -349,7 +368,13 @@
       <li><strong>Within the First 6 Months — Seller's Burden of Proof:</strong> If a product develops a fault within the first six months, it is assumed the fault was present at the time of purchase. The <strong>seller</strong> must prove otherwise. The customer may request a repair, replacement, or price reduction.</li>
       <li><strong>After 6 Months — Customer's Burden of Proof:</strong> It is up to the <strong>customer</strong> to prove that the fault was present at the time of delivery. This is significantly more difficult. Customers have up to <strong>six years</strong> to complete a claim against the seller.</li>
       <li><strong>Services:</strong> If a service (e.g. a kitchen fitter or plumber) is not completed in the agreed time or to a reasonable standard, the customer can request the work to be redone. If that is not possible, a price reduction of up to 100% should be agreed.</li>
-    </ul>`
+    </ul>`,
+                readCheck: {
+                    q: "Within how many months of purchase does the burden of proof fall on the seller, not the customer, to show a fault wasn't present at purchase?",
+                    opts: ["6 months", "30 days", "12 months", "6 years"],
+                    ans: 0,
+                    explain: "Within the first 6 months, a fault is assumed to have been present at purchase and the seller must prove otherwise."
+                }
             },
             {
                 title: "The Impact of Consumer Law on Business",
@@ -360,7 +385,13 @@
       <li><strong>Safety of Goods:</strong> Under the Consumer Protection Act 1987, if defective products cause death, injury, or damage to property, customers can claim compensation. This can result in huge financial costs and forces firms to maintain strict safety procedures throughout production.</li>
       <li><strong>Loss of Reputation:</strong> If a business produces poor-quality or defective goods, customers will complain — often publicly on social media. Negative reviews spread rapidly, damaging a business's reputation and driving customers to competitors. In extreme cases, this could lead to the business closing down entirely.</li>
       <li><strong>Training Costs:</strong> To comply with consumer law, businesses must invest in training employees to produce goods of the required quality standard. This increases operating costs but reduces the risk of producing defective goods that lead to costly refunds or legal claims.</li>
-    </ul>`
+    </ul>`,
+                readCheck: {
+                    q: "According to this topic, what is the main risk when customers complain about poor-quality goods online?",
+                    opts: ["Negative reviews spread fast and damage its reputation", "An automatic fine gets issued by Trading Standards", "Staff training costs are cut to zero at once", "Customers permanently lose their refund rights"],
+                    ans: 0,
+                    explain: "The card explains that negative reviews spread rapidly on social media, damaging reputation and pushing customers towards competitors."
+                }
             },
             {
                 title: "Advantages & Disadvantages of Complying with Consumer Law",
@@ -382,7 +413,13 @@
         <div class="con-item"><strong>Reputational Risk Remains:</strong> Even one high-profile product failure — especially amplified on social media — can cause lasting damage despite a strong compliance record.</div>
       </div>
     </div>
-    <p style="margin-top:12px;"><strong>Examiner Tip:</strong> When evaluating, always consider the specific business context. A large, well-established business may absorb one complaint without lasting damage — but a smaller business with a local reputation could be severely affected by a single product failure.</p>`
+    <p style="margin-top:12px;"><strong>Examiner Tip:</strong> When evaluating, always consider the specific business context. A large, well-established business may absorb one complaint without lasting damage — but a smaller business with a local reputation could be severely affected by a single product failure.</p>`,
+                readCheck: {
+                    q: "According to the Examiner Tip, which type of business could be more severely affected by a single product failure?",
+                    opts: ["A smaller business with a local reputation", "A large, well-established business", "A business operating only online", "A business with multiple product lines"],
+                    ans: 0,
+                    explain: "The Examiner Tip states a smaller business with a local reputation could be severely affected by just one product failure, unlike a large established business."
+                }
             },
             {
                 title: "Case Study: Consumer Law in the Real World",
@@ -402,7 +439,13 @@
       <h4>Case Study: Which? — The Consumers' Champion</h4>
       <p>Which? (formerly the Consumer's Association) was founded in 1957 and works on behalf of customers, making them aware of their legal rights and testing products for compliance with the law. It has challenged supermarkets and banks to treat customers more fairly.</p>
       <p><strong>Takeaway:</strong> Which? exists to make individual customers as powerful as the large organisations they deal with. Its ability to publicly challenge major businesses puts significant pressure on all firms to stay within the law — reinforcing that consumer law is actively enforced, not just theoretical.</p>
-    </div>`
+    </div>`,
+                readCheck: {
+                    q: "Approximately how many employees does Pukka Pies Ltd have, according to the case study?",
+                    opts: ["360", "4,000", "1,957", "100"],
+                    ans: 0,
+                    explain: "The case study states Pukka Pies Ltd is a family-owned business with approximately 360 employees."
+                }
             }
         ];
 
@@ -687,35 +730,83 @@
         const miscData = [
             {
                 wrong: "Consumer law requires goods to be of the 'best possible quality'.",
-                correct: "Consumer law only requires 'satisfactory quality' — a standard that reflects the price paid. A budget product does not need to be as good as a luxury product; it just needs to be appropriate for its price point."
+                correct: "Consumer law only requires 'satisfactory quality' — a standard that reflects the price paid. A budget product does not need to be as good as a luxury product; it just needs to be appropriate for its price point.",
+                readCheck: {
+                    q: "What standard of quality does consumer law actually require?",
+                    opts: ["Satisfactory quality, reflecting the price paid", "The best possible quality regardless of price", "Premium quality for all goods", "No legally defined quality standard"],
+                    ans: 0,
+                    explain: "Consumer law only requires 'satisfactory quality' — a standard appropriate to the price paid, not the best possible quality."
+                }
             },
             {
                 wrong: "Writing about fair wages, worker rights, or ethical suppliers will earn marks in a consumer law question.",
-                correct: "Consumer law is specifically about protecting customers when they buy goods and services. Employment law covers workers' rights. Ethical sourcing is a separate topic. The 2025 examiner's report explicitly warned that candidates who wrote about wages or working conditions scored zero — even with good application and analysis."
+                correct: "Consumer law is specifically about protecting customers when they buy goods and services. Employment law covers workers' rights. Ethical sourcing is a separate topic. The 2025 examiner's report explicitly warned that candidates who wrote about wages or working conditions scored zero — even with good application and analysis.",
+                readCheck: {
+                    q: "What did the 2025 examiner's report say about answers discussing fair wages in a consumer law question?",
+                    opts: ["They scored zero despite good application and analysis", "They earned partial marks for application only", "They earned full marks if linked to reputation", "They earned knowledge marks but no application marks"],
+                    ans: 0,
+                    explain: "The examiner's report explicitly warned that candidates writing about wages or working conditions scored zero, despite good application and analysis."
+                }
             },
             {
                 wrong: "The 30-day refund rule applies to all products, including downloaded music and apps.",
-                correct: "The 30-day return rule does NOT apply to digital products such as downloaded music, films, or apps. For digital goods, customers can request a replacement or a price reduction of up to 100%."
+                correct: "The 30-day return rule does NOT apply to digital products such as downloaded music, films, or apps. For digital goods, customers can request a replacement or a price reduction of up to 100%.",
+                readCheck: {
+                    q: "Does the 30-day full refund rule apply to downloaded music or apps?",
+                    opts: ["No — digital products are excluded from this rule", "Yes — it applies to all products including digital ones", "Only if the digital product cost over £50", "Only to downloaded films, not music or apps"],
+                    ans: 0,
+                    explain: "The 30-day rule does not apply to digital products; customers can instead request a replacement or a price reduction of up to 100%."
+                }
             },
             {
                 wrong: "After 30 days, customers have no rights at all and cannot make any further claims for faulty goods.",
-                correct: "Customer rights continue beyond 30 days. Within 6 months, customers can claim a repair or replacement. After 6 months, they can still claim for up to six years if they can prove the fault existed at the time of purchase."
+                correct: "Customer rights continue beyond 30 days. Within 6 months, customers can claim a repair or replacement. After 6 months, they can still claim for up to six years if they can prove the fault existed at the time of purchase.",
+                readCheck: {
+                    q: "What can a customer do after 30 days but within 6 months if goods turn out to be faulty?",
+                    opts: ["Claim a repair or replacement", "Nothing — rights end completely after 30 days", "Only claim a full refund", "Only complain to Which? magazine"],
+                    ans: 0,
+                    explain: "Within 6 months of purchase, customers can still claim a repair or replacement, as the fault is assumed to have existed at purchase."
+                }
             },
             {
                 wrong: "Complying with consumer law is purely a cost to a business with no benefits.",
-                correct: "Compliance brings significant benefits: improved reputation, fewer returns, increased customer loyalty, and avoidance of costly legal action. In 7-mark questions, you must evaluate both sides — benefits and drawbacks."
+                correct: "Compliance brings significant benefits: improved reputation, fewer returns, increased customer loyalty, and avoidance of costly legal action. In 7-mark questions, you must evaluate both sides — benefits and drawbacks.",
+                readCheck: {
+                    q: "What benefit does complying with consumer law bring to a business, according to this card?",
+                    opts: ["Improved reputation and increased customer loyalty", "Guaranteed exemption from all future legal claims", "Immediate elimination of production costs", "Automatic increase in market share"],
+                    ans: 0,
+                    explain: "Compliance brings benefits such as improved reputation, fewer returns, increased customer loyalty, and avoidance of costly legal action."
+                }
             },
             {
                 wrong: "Consumer law only applies to large businesses with many customers.",
-                correct: "Consumer law applies to ALL businesses selling goods or services to customers, regardless of size. A small family-run bakery must comply with the same Consumer Rights Act 2015 as a large supermarket like Tesco."
+                correct: "Consumer law applies to ALL businesses selling goods or services to customers, regardless of size. A small family-run bakery must comply with the same Consumer Rights Act 2015 as a large supermarket like Tesco.",
+                readCheck: {
+                    q: "Does consumer law apply only to large businesses with many customers?",
+                    opts: ["No — it applies to businesses of any size", "Yes — only businesses with over 100 employees", "Yes — only publicly listed companies", "No — only businesses that sell online"],
+                    ans: 0,
+                    explain: "Consumer law applies to all businesses selling goods or services, including a small family-run bakery, just as much as a large supermarket like Tesco."
+                }
             },
             {
                 wrong: "The Consumer Rights Act 2015 and the Consumer Protection Act 1987 are the same law.",
-                correct: "These are two separate laws. The Consumer Rights Act 2015 covers the three requirements (satisfactory quality, fit for purpose, as described). The Consumer Protection Act 1987 specifically covers compensation claims when defective products cause death, injury, or damage."
+                correct: "These are two separate laws. The Consumer Rights Act 2015 covers the three requirements (satisfactory quality, fit for purpose, as described). The Consumer Protection Act 1987 specifically covers compensation claims when defective products cause death, injury, or damage.",
+                readCheck: {
+                    q: "What is the key difference between the Consumer Rights Act 2015 and the Consumer Protection Act 1987?",
+                    opts: ["The 2015 Act covers quality; the 1987 Act covers compensation", "The two Acts are actually the same law with different names", "The 1987 Act only protects customers of food businesses", "The 2015 Act only protects buyers of digital products"],
+                    ans: 0,
+                    explain: "The two laws are separate: the 2015 Act covers satisfactory quality, fit for purpose and as described, while the 1987 Act covers compensation for death, injury, or damage caused by defective products."
+                }
             },
             {
                 wrong: "Repeating earlier analysis points in a conclusion will earn evaluation marks in a 7-mark question.",
-                correct: "Repeating earlier points in a conclusion earns zero evaluation marks. A good conclusion makes a new, justified judgement using specific context from the case study — using 'It depends on...' or 'However, this is only the case if...' style reasoning to show higher-level thinking."
+                correct: "Repeating earlier points in a conclusion earns zero evaluation marks. A good conclusion makes a new, justified judgement using specific context from the case study — using 'It depends on...' or 'However, this is only the case if...' style reasoning to show higher-level thinking.",
+                readCheck: {
+                    q: "What happens if a student simply repeats earlier analysis points in a 7-mark conclusion?",
+                    opts: ["They earn zero evaluation marks", "They earn full evaluation marks for consistency", "They earn 1 mark for effort", "They earn analysis marks retroactively"],
+                    ans: 0,
+                    explain: "Repeating earlier points in a conclusion earns zero evaluation marks — a good conclusion must make a new, justified judgement."
+                }
             }
         ];
 
@@ -743,7 +834,13 @@
     
           <p><strong>⚠️ Critical Examiner Warning:</strong> Many students confuse consumer law with employment law, writing about fair wages or working conditions. This scores ZERO — no matter how detailed the answer is. The mark scheme explicitly states: "No further marks can be gained without understanding" of what consumer law actually requires.</p>
         `,
-                pills: ["K"]
+                pills: ["K"],
+                readCheck: {
+                    q: "Why does 'Consumer law protects customers' score 0 marks as an answer to a 1-mark identify question?",
+                    opts: ["It is too vague to identify a specific protection", "It wrongly confuses consumer law with employment law", "It is factually incorrect about consumer rights", "It is too long for a 1-mark question"],
+                    ans: 0,
+                    explain: "The card explains this answer is too vague — it doesn't identify any specific protection required under consumer law."
+                }
             },
             {
                 type: "Explain — 2 marks",
@@ -766,7 +863,13 @@
     
           <p><strong>🚫 Knowledge Dumping Alert:</strong> You only need ONE impact, explained and applied to the business. Writing everything you know about consumer law will NOT earn more marks — only one applied point is needed.</p>
         `,
-                pills: ["K", "app"]
+                pills: ["K", "app"],
+                readCheck: {
+                    q: "What are the two steps required to earn full marks on a 2-mark 'Explain' question?",
+                    opts: ["Identify an impact, then apply it to the business", "State three separate requirements of consumer law", "Give two direct quotes from the case study", "Identify an impact and then evaluate its importance"],
+                    ans: 0,
+                    explain: "The 2-step formula is: Step 1 identify a specific impact, Step 2 apply it to the named business using case study detail."
+                }
             },
             {
                 type: "Analyse — 3 marks",
@@ -797,7 +900,13 @@
             <li><em>"This will lead to... / As a result, the business will... / This reduces... meaning... (AN)"</em></li>
           </ul>
         `,
-                pills: ["U", "app", "an"]
+                pills: ["U", "app", "an"],
+                readCheck: {
+                    q: "What are the three steps of the 'Holy Trinity' structure for a 3-mark analyse question?",
+                    opts: ["Understanding, Application, Analysis", "Knowledge, Evaluation, Justification", "Identify, Explain, Conclude", "Application, Evaluation, Reasoning"],
+                    ans: 0,
+                    explain: "The 3-step formula for a 3-mark analyse question is U (Understanding) → APP (Application) → AN (Analysis)."
+                }
             },
             {
                 type: "Evaluate / Discuss — 7 marks",
@@ -828,7 +937,13 @@
             <li><em>"However, the full impact will depend on whether... / This matters more because the business... (Reasoning)"</em></li>
           </ul>
         `,
-                pills: ["U", "app", "an", "eval"]
+                pills: ["U", "app", "an", "eval"],
+                readCheck: {
+                    q: "How many marks are allocated to Evaluation (EV) in a 7-mark 'Evaluate/Discuss' question?",
+                    opts: ["3 marks", "2 marks", "4 marks", "7 marks"],
+                    ans: 0,
+                    explain: "The 7 marks split as APP (2) + AN (2) + EV (3), so Evaluation is worth 3 marks."
+                }
             },
             {
                 type: "Critical Warning — All Question Types",
@@ -859,7 +974,13 @@
     
           <p><strong>The Simple Test:</strong> Can you link your point back to "satisfactory quality," "fit for purpose," or "as described"? If not, you are likely writing about the wrong topic. Stop and refocus.</p>
         `,
-                pills: ["K", "U"]
+                pills: ["K", "U"],
+                readCheck: {
+                    q: "What is the 'Simple Test' recommended to check whether a point is genuinely about consumer law?",
+                    opts: ["Can the point be linked to one of the three requirements?", "Does it mention a named business from the case study?", "Is the point longer than two written sentences?", "Does it directly reference the Consumer Protection Act?"],
+                    ans: 0,
+                    explain: "The Simple Test checks whether a point can be linked back to one of the three requirements: satisfactory quality, fit for purpose, or as described."
+                }
             }
         ];4
 
@@ -1052,6 +1173,11 @@
     </script>
 
     <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

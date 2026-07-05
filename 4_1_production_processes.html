@@ -305,6 +305,13 @@
         // ══════════════════════════════════════
         //  DATA: 4.1 Production Processes
         // ══════════════════════════════════════
+        const pageMeta = {
+                id: '4-1-production-processes',
+                badge: 'OCR GCSE Business — Component 1',
+                title: '4.1 Production Processes',
+                subtitle: 'Interactive revision guide',
+                subject: 'business',
+            };
 
         // 1. Main Learning Content
         const topics = [
@@ -319,7 +326,18 @@
       <li><strong>Automation:</strong> Is a production process involving machinery that is not controlled by a person but usually controlled by a computer.</li>
       <li><strong>Robotics:</strong> Is the use of robots in the process of production.</li>
       <li><strong>Production Processes:</strong> Are the three methods or processes of production – job, batch and flow.</li>
-    </ul>`
+    </ul>`,
+                readCheck: {
+                    q: "What is the key difference between automation and robotics?",
+                    opts: [
+                        "They mean the same thing; textbooks use the terms interchangeably",
+                        "Automation is the broader term; robotics is one specific type of it",
+                        "Robotics is broader; automation means only human-shaped machines",
+                        "Automation always needs a robot; robotics never involves automation"
+                    ],
+                    ans: 1,
+                    explain: "Automation covers any computer-controlled production process. Robotics is a specific subset of automation where programmable robots perform tasks — all robotics is automation, but not all automation involves robots."
+                }
             },
             {
                 title: "Job Production",
@@ -353,7 +371,18 @@
     <h4>Case Study: The Coppice Co-op Ltd</h4>
     <p>Louis Le Glas is a skilled woodworker at the Coppice Co-op Ltd in Carnforth, Lancashire. He designs and carves unique pieces of furniture, and each piece is one-of-a-kind. Customers can have furniture made exactly as they want it — true bespoke production. The business is also fiercely concerned about sustainable production, managing woodlands through a process called coppicing.</p>
     <p><strong>Takeaway:</strong> Job production allows Louis to charge premium prices because each piece is unique. However, it limits how many products he can make, keeping the scale of the business small.</p>
-    </div>`
+    </div>`,
+                readCheck: {
+                    q: "Why does job production typically result in higher prices for customers?",
+                    opts: [
+                        "Because the products are sold through supermarket chains at a discount",
+                        "Because each product is individually crafted, needing skilled time",
+                        "Because businesses using job production always make huge profits",
+                        "Because flow production always costs more to run than job production"
+                    ],
+                    ans: 1,
+                    explain: "Job production is labour-intensive and requires skilled workers to make each item individually — both of which drive up costs per unit, which are then passed on through premium prices."
+                }
             },
             {
                 title: "Batch Production",
@@ -385,7 +414,18 @@
     <h4>Case Study: Crown Paints</h4>
     <p>Crown Paints, based in Darwen, Lancashire, makes a range of paints including silk and matte emulsions, gloss paints, and primers in many colours and shades. The ingredients are mixed to make one type and colour of paint. Once this batch is finished, tins are labelled and filled. The factory then switches to produce a different colour or type of paint entirely.</p>
     <p><strong>Takeaway:</strong> Batch production lets Crown Paints offer a huge range of colours without needing a permanently separate production line for each one. However, cleaning and resetting equipment between batches costs time and money.</p>
-    </div>`
+    </div>`,
+                readCheck: {
+                    q: "Why can switching between batches create a cash flow problem for a business?",
+                    opts: [
+                        "Because the batch machinery always breaks down mid-switch",
+                        "Because materials get stocked, so cash goes out before revenue",
+                        "Because batch production always needs more staff than flow",
+                        "Because holding stock has no effect on cash flow at all"
+                    ],
+                    ans: 1,
+                    explain: "Holding stock ties up money — the business has paid for materials but hasn't yet sold any finished goods made from them, creating a gap between cash going out and cash coming in."
+                }
             },
             {
                 title: "Flow Production",
@@ -419,7 +459,18 @@
     <h4>Case Study: Heinz Baked Beans</h4>
     <p>Heinz makes its baked beans at a factory just outside Wigan. Over 1 billion tins are made each year using a continuous flow method. The beans are mixed with sauce, put into tins that are sealed, then cooked in ovens. From there, the tins go on to be labelled. This entire process runs every day, throughout the year, without stopping.</p>
     <p><strong>Takeaway:</strong> Flow production allows Heinz to keep the price of baked beans extremely low by producing at massive scale. However, any breakdown on the production line could halt the entire factory and cost millions in lost output and missed orders.</p>
-    </div>`
+    </div>`,
+                readCheck: {
+                    q: "How many tins of baked beans does Heinz produce per year at its Wigan factory, and what does this illustrate about flow production?",
+                    opts: [
+                        "1 million — suits only very small-scale firms",
+                        "Over 1 billion — shows massive scale, low unit cost",
+                        "100,000 — shows flow is slower than batch overall",
+                        "No figure is given anywhere in the study"
+                    ],
+                    ans: 1,
+                    explain: "Heinz produces over 1 billion tins per year — a perfect illustration of how flow production enables vast output at low unit costs through economies of scale, running continuously without stopping."
+                }
             },
             {
                 title: "Automation, Computers & Robotics in Production",
@@ -446,7 +497,18 @@
     <p>Amazon has over 100,000 robots in its UK warehouses. When a customer places an order, the request is automatically passed to a robot. The robot follows digital patterns on the warehouse floor to locate the correct shelf and brings it to a human worker, who boxes and ships the item. Previously, human 'pickers' walked many miles per day to do this manually.</p>
     <p>Amazon's UK sales rose by 51% to £19.4 billion in 2020. Employment actually grew by 3,000 workers despite the robot introduction. The robots enabled Prime next-day delivery. However, worker injury rates increased, and robots represent a breakdown risk.</p>
     <p><strong>Takeaway:</strong> Amazon's robots dramatically increased productivity and created a major competitive advantage (next-day delivery). But technology does not simply replace all workers — it often creates new roles and new problems.</p>
-    </div>`
+    </div>`,
+                readCheck: {
+                    q: "Approximately what percentage of robot use globally is in car manufacturing?",
+                    opts: [
+                        "15%",
+                        "35%",
+                        "65%",
+                        "90%"
+                    ],
+                    ans: 2,
+                    explain: "Around 65% of all robot use is in car manufacturing — for welding, painting, and lifting. This makes car production the single biggest user of robotics globally."
+                }
             },
             {
                 title: "Advantages & Disadvantages of Technology in Production",
@@ -471,7 +533,18 @@
     <div class="con-item"><strong>High initial cost:</strong> Buying and financing new technology is expensive. The upfront investment may take many years to recoup.</div>
     <div class="con-item"><strong>Customer and data concerns:</strong> Customers sometimes dislike automated systems (e.g., automated phone lines). Where personal data is stored, there are also security risks.</div>
     </div>
-    </div>`
+    </div>`,
+                readCheck: {
+                    q: "According to the World Economic Forum (2020), what was the predicted NET effect of technology on jobs by 2025?",
+                    opts: [
+                        "A net loss of 85 million jobs, with no new roles created to replace them",
+                        "A net gain of 12 million jobs, since 97 million are created and 85 million eliminated",
+                        "No overall change, since technology creates and destroys roughly equal numbers of jobs",
+                        "A net loss of 97 million jobs, since automation eliminates more roles than it creates"
+                    ],
+                    ans: 1,
+                    explain: "The World Economic Forum predicted technology would eliminate 85 million jobs but create 97 million new ones — a net gain of 12 million. This is why 'technology eliminates all jobs' is a misconception."
+                }
             },
             {
                 title: "Choosing the Right Production Method (Evaluation)",
@@ -492,7 +565,18 @@
       <li><em>"This depends on the level of demand — if the market grows significantly, flow production would lower unit costs and improve competitiveness..."</em></li>
       <li><em>"This depends on whether customers in this market prioritise uniqueness and quality over low price..."</em></li>
       <li><em>"This depends on whether the Montana Bakery wants to continue making the range of speciality breads it currently offers..."</em></li>
-    </ul>`
+    </ul>`,
+                readCheck: {
+                    q: "A bakery currently uses batch production for its speciality breads. A consultant recommends switching to flow production. What is the most important factor to consider before deciding?",
+                    opts: [
+                        "Whether the bakery owner personally prefers using machines rather than skilled staff",
+                        "Whether demand is high and consistent enough to justify the huge set-up cost of a flow line",
+                        "Whether rival bakeries have already switched over to using flow production themselves",
+                        "Flow production is always the right choice whenever a business wants to grow its output"
+                    ],
+                    ans: 1,
+                    explain: "Flow production requires enormous capital investment and only makes sense when demand is very high and consistent for an identical product. A speciality bakery with varied, lower-volume orders may find batch production more appropriate — 'it depends on' the nature and scale of demand."
+                }
             }
         ];
 
@@ -756,35 +840,123 @@
         const miscData = [
             {
                 wrong: "Once a business chooses a production method, it is stuck with that method and cannot change.",
-                correct: "Businesses can use a combination of methods simultaneously. A caravan manufacturer might use job production to assemble each caravan but batch production to make shared components. The method can also evolve as the business grows or demand changes."
+                correct: "Businesses can use a combination of methods simultaneously. A caravan manufacturer might use job production to assemble each caravan but batch production to make shared components. The method can also evolve as the business grows or demand changes.",
+                readCheck: {
+                    q: "Can a business use more than one production method at the same time?",
+                    opts: [
+                        "No, a business must choose one method and keep it forever",
+                        "Yes, a caravan maker might use job for assembly, batch for parts",
+                        "Only if the business employs over 500 staff across its sites",
+                        "Only in manufacturing, never within a service-based business"
+                    ],
+                    ans: 1,
+                    explain: "Businesses can and do combine methods — using job production for unique assemblies while using batch or flow for shared components within the same business."
+                }
             },
             {
                 wrong: "Job production is only suitable for small businesses.",
-                correct: "Job production is used by businesses of all sizes. The Crossrail project in London (one of Europe's largest infrastructure projects), ship-building companies, and bespoke advertising agencies all use job production. Size is irrelevant — the method refers to making individual, unique products."
+                correct: "Job production is used by businesses of all sizes. The Crossrail project in London (one of Europe's largest infrastructure projects), ship-building companies, and bespoke advertising agencies all use job production. Size is irrelevant — the method refers to making individual, unique products.",
+                readCheck: {
+                    q: "Which of the following is an example of job production by a LARGE business?",
+                    opts: [
+                        "Heinz producing baked beans on a continuous assembly line",
+                        "Crown Paints switching between different paint colours",
+                        "The Crossrail project — a unique, one-off construction job",
+                        "Warburton's making batches of different types of bread"
+                    ],
+                    ans: 2,
+                    explain: "Crossrail is a massive infrastructure project involving thousands of workers — yet it is job production because it is a unique, one-off product. Job production is defined by uniqueness, not business size."
+                }
             },
             {
                 wrong: "Flow production workers are highly skilled.",
-                correct: "Flow production workers typically carry out repetitive, specialised tasks on an assembly line and are generally not considered highly skilled. It is JOB production that requires skilled workers — craftspeople, architects, surgeons, etc. — which is why job production has higher labour costs."
+                correct: "Flow production workers typically carry out repetitive, specialised tasks on an assembly line and are generally not considered highly skilled. It is JOB production that requires skilled workers — craftspeople, architects, surgeons, etc. — which is why job production has higher labour costs.",
+                readCheck: {
+                    q: "Which production method requires the most skilled workers, and why?",
+                    opts: [
+                        "Flow production, because operating an assembly line takes considerable technical skill",
+                        "Batch production, because switching between different products requires real expertise",
+                        "Job production, because each product is individually made to unique specifications",
+                        "All three methods need roughly the same level of skill from their workers"
+                    ],
+                    ans: 2,
+                    explain: "Job production demands highly skilled labour — craftspeople, architects, surgeons — because each product must meet individual specifications. This is why job production has the highest labour costs."
+                }
             },
             {
                 wrong: "Technology always replaces all workers, resulting in zero employment.",
-                correct: "Technology reduces the number of workers needed but rarely eliminates them entirely. It also creates new jobs. Amazon introduced 100,000+ robots in its warehouses, but UK employment at Amazon actually grew by 3,000 workers as sales increased — because robots created new demand and new roles."
+                correct: "Technology reduces the number of workers needed but rarely eliminates them entirely. It also creates new jobs. Amazon introduced 100,000+ robots in its warehouses, but UK employment at Amazon actually grew by 3,000 workers as sales increased — because robots created new demand and new roles.",
+                readCheck: {
+                    q: "What actually happened to Amazon UK employment after it introduced over 100,000 robots into its warehouses?",
+                    opts: [
+                        "Employment fell to zero, since every worker was replaced by a robot",
+                        "Employment fell by 3,000 workers as robots took over most warehouse roles",
+                        "Employment grew by 3,000 workers as sales and new roles increased",
+                        "Employment stayed exactly the same despite the introduction of the robots"
+                    ],
+                    ans: 2,
+                    explain: "Despite introducing 100,000+ robots, Amazon UK employment grew by 3,000 workers — demonstrating that technology creates new jobs and roles even as it changes or eliminates others."
+                }
             },
             {
                 wrong: "Batch production and flow production are basically the same — they both make lots of products.",
-                correct: "They are fundamentally different. Batch makes a group of one type of product, then stops and switches to a different type. Flow makes the same product continuously without ever stopping. Flow is for very high volumes of an identical product; batch allows product variety through switching."
+                correct: "They are fundamentally different. Batch makes a group of one type of product, then stops and switches to a different type. Flow makes the same product continuously without ever stopping. Flow is for very high volumes of an identical product; batch allows product variety through switching.",
+                readCheck: {
+                    q: "What is the fundamental difference between batch and flow production?",
+                    opts: [
+                        "Batch relies mainly on machines, flow relies only on workers",
+                        "Batch makes a group then switches; flow never stops",
+                        "Flow production is always cheaper to run than batch",
+                        "Batch production can only ever be used by small firms"
+                    ],
+                    ans: 1,
+                    explain: "The defining difference is continuity and variety: batch production stops and switches between product types; flow production never stops and makes the same product continuously."
+                }
             },
             {
                 wrong: "Automation and robotics mean exactly the same thing.",
-                correct: "Automation is the broader term — any computer-controlled production process. Robotics is a specific type of automation where programmable robots perform tasks. All robotics is automation, but not all automation involves robots (e.g., automated door sensors, online banking systems)."
+                correct: "Automation is the broader term — any computer-controlled production process. Robotics is a specific type of automation where programmable robots perform tasks. All robotics is automation, but not all automation involves robots (e.g., automated door sensors, online banking systems).",
+                readCheck: {
+                    q: "A school system that automatically texts parents when their child is absent — is this automation, robotics, or neither?",
+                    opts: [
+                        "Robotics, because the system is controlled entirely by a computer program",
+                        "Automation, because it is computer-controlled but involves no physical robot",
+                        "Neither, because sending a text message is not really a business process",
+                        "Both, because automation and robotics describe exactly the same technology"
+                    ],
+                    ans: 1,
+                    explain: "This is automation — a computer-controlled process running without human involvement — but not robotics, which specifically requires a programmable physical robot. Not all automation involves robots."
+                }
             },
             {
                 wrong: "For a 3-mark 'Analyse' question, simply naming a benefit and writing a general explanation is enough for full marks.",
-                correct: "For 3 marks (U + APP + AN), you must: (1) state the benefit/point clearly, (2) apply it to the specific business in the case study using evidence from the text, AND (3) explain the business impact (on costs, revenue, or competitiveness). Without the Application, you cannot score the Analysis mark."
+                correct: "For 3 marks (U + APP + AN), you must: (1) state the benefit/point clearly, (2) apply it to the specific business in the case study using evidence from the text, AND (3) explain the business impact (on costs, revenue, or competitiveness). Without the Application, you cannot score the Analysis mark.",
+                readCheck: {
+                    q: "Why can't you score the Analysis (AN) mark on a 3-mark question without first including Application (APP)?",
+                    opts: [
+                        "You can — Analysis marks are always awarded regardless",
+                        "Marks are awarded in sequence — link to the business first",
+                        "Because Analysis marks only exist on six-mark questions",
+                        "Because Application and Analysis count as the same mark"
+                    ],
+                    ans: 1,
+                    explain: "The U → APP → AN chain is sequential — without linking your point to the case study business (APP), there is no foundation for the analysis mark. AN cannot be awarded without APP."
+                }
             },
             {
                 wrong: "Flow production always produces lower quality goods compared to job production.",
-                correct: "Flow production CAN produce high-quality, consistent goods. Modern computer-controlled machines are highly accurate. Cars produced on assembly lines, for example, undergo rigorous quality checks. The assumption that mass-produced automatically means low quality is outdated and incorrect."
+                correct: "Flow production CAN produce high-quality, consistent goods. Modern computer-controlled machines are highly accurate. Cars produced on assembly lines, for example, undergo rigorous quality checks. The assumption that mass-produced automatically means low quality is outdated and incorrect.",
+                readCheck: {
+                    q: "Does flow production necessarily produce lower quality goods than job production?",
+                    opts: [
+                        "Yes, because mass-produced goods are always lower quality than hand-made ones",
+                        "No, modern computer-controlled machines are accurate and give consistent quality",
+                        "Yes, but this drop in quality only happens within the food industry",
+                        "No, flow production always produces better quality than job production does"
+                    ],
+                    ans: 1,
+                    explain: "Modern automated flow production lines can be extremely precise and consistent — cars from assembly lines undergo rigorous quality checks. The idea that mass-produced automatically equals low quality is outdated."
+                }
             }
         ];
 
@@ -814,7 +986,18 @@
     
           <p><strong>🚫 Knowledge Dumping Alert:</strong> Do NOT write a full paragraph for a 1-mark question. Every extra sentence you write here is wasted time you need for the higher-mark questions.</p>
         `,
-                pills: ["K"]
+                pills: ["K"],
+                readCheck: {
+                    q: "Why does the answer 'flow production is faster' NOT score a mark on a 1-mark 'Identify a characteristic of flow production' question?",
+                    opts: [
+                        "Because speed is never something examiners consider relevant to production",
+                        "Because speed depends on what is made and isn't a fixed characteristic of flow",
+                        "Because only batch production can accurately be described as being faster",
+                        "Because the examiner actually accepts the word 'faster' for full marks"
+                    ],
+                    ans: 1,
+                    explain: "OCR examiners specifically flagged this — 'faster' is relative and context-dependent, not a specific characteristic of flow production. Precise answers like 'uses an assembly line' or 'produces continuously' are required."
+                }
             },
             {
                 type: "Explain — 2 marks",
@@ -839,7 +1022,18 @@
     
           <p><strong>⚠️ Application Warning:</strong> For a 2-mark 'Explain one way technology might affect production' question, you MUST apply your point to the specific business. Answers about selling online or marketing when the question asks about <em>production</em> scored zero — always re-read the question carefully.</p>
         `,
-                pills: ["K", "U"]
+                pills: ["K", "U"],
+                readCheck: {
+                    q: "Which answer would score 2 marks for 'Explain what is meant by batch production'?",
+                    opts: [
+                        "\"Batch production happens in factories that make one product.\"",
+                        "\"Batch production is when products are made quickly in bulk.\"",
+                        "\"Batch (1 mark), made as a group before switching product (1 mark).\"",
+                        "\"Batch production makes lots of products, which is good for business.\""
+                    ],
+                    ans: 2,
+                    explain: "A 2-mark Explain answer needs the name (1 mark) and an accurate explanation of how it works (1 mark). Vague statements about 'large quantities' or 'good for businesses' do not explain the defining characteristic of batch production."
+                }
             },
             {
                 type: "Analyse — 3 marks",
@@ -866,7 +1060,18 @@
           <p><strong>⚠️ The "So What?" Rule:</strong> Keep asking "So what?" until you reach a bottom-line business impact.<br/>
           "Automation reduces the number of workers needed." → So what? → "This lowers wage costs." → So what? → "This reduces average costs, allowing JLR to price its cars more competitively and increase profit margins." Now you have AN.</p>
         `,
-                pills: ["U", "app", "an"]
+                pills: ["U", "app", "an"],
+                readCheck: {
+                    q: "Complete the analysis chain for JLR: 'Automation reduces the number of workers needed (U) → JLR's factories use robots for welding and painting (APP) → ...'",
+                    opts: [
+                        "→ 'This means JLR has installed several new welding robots.'",
+                        "→ 'This lowers JLR's wage costs, boosting its competitiveness (AN).'",
+                        "→ 'This means the workers at JLR's factories feel much happier.'",
+                        "→ 'This shows JLR is a large car manufacturer based in the UK.'"
+                    ],
+                    ans: 1,
+                    explain: "The Analysis mark requires a specific bottom-line business impact — reduced costs, improved competitiveness, higher revenue or profit. Simply restating what happens is not analysis."
+                }
             },
             {
                 type: "Analyse Two Points — 6 marks",
@@ -892,7 +1097,18 @@
           <p><strong>Exemplar (JLR, Advantage 1):</strong><br/>
           <em>"Automation will increase the number of cars JLR can produce (U). Machines can work 24/7, unlike human workers, meaning more cars move along the production line at JLR's factories (APP). This should increase JLR's total sales revenue and help it compete more effectively with BMW and Mercedes (AN)."</em></p>
         `,
-                pills: ["U", "app", "an"]
+                pills: ["U", "app", "an"],
+                readCheck: {
+                    q: "Should you write a conclusion or evaluation at the end of a 6-mark 'Analyse two advantages' question?",
+                    opts: [
+                        "Yes, because a strong conclusion always improves the quality of the answer",
+                        "No, there are no evaluation marks here; every sentence must be U, APP or AN",
+                        "Yes, but the conclusion should be limited to a single short sentence",
+                        "Only if you manage to finish both analysis points well ahead of time"
+                    ],
+                    ans: 1,
+                    explain: "A 6-mark Analyse question has no evaluation marks — writing a conclusion wastes time and scores nothing. Every sentence must directly contribute to one of the two U → APP → AN chains."
+                }
             },
             {
                 type: "Evaluate / Recommend — 3 marks (AO3b)",
@@ -914,7 +1130,18 @@
     
           <p><strong>⚠️ Examiner Note:</strong> Both judgements (switch / don't switch; use robots / don't use robots) are perfectly valid in the exam — what matters is your contextual justification, not which side you pick.</p>
         `,
-                pills: ["eval"]
+                pills: ["eval"],
+                readCheck: {
+                    q: "What are the THREE parts required for a full 3-mark Recommend/Evaluate answer?",
+                    opts: [
+                        "Three separate advantages of whichever production method has been chosen",
+                        "A clear judgement, a justification for it, and context from the case study",
+                        "A definition of the term, one advantage, and one matching disadvantage",
+                        "Two full paragraphs of analysis followed by a short closing summary"
+                    ],
+                    ans: 1,
+                    explain: "A 3-mark Recommend answer needs: (1) a clear decision, (2) a reason that weighs up the options, and (3) specific context from the case study. Without all three, you will drop marks."
+                }
             },
             {
                 type: "Evaluate — 7 marks (APP + AN + EVAL)",
@@ -934,7 +1161,18 @@
     
           <p><strong>🚫 Customer-Only Impacts:</strong> The OCR examiner explicitly states "No reward for answers which only consider impacts on the customer." Your analysis and evaluation MUST focus on the impact on the BUSINESS — costs, revenue, profit, reputation, and competitiveness.</p>
         `,
-                pills: ["app", "an", "eval"]
+                pills: ["app", "an", "eval"],
+                readCheck: {
+                    q: "Why does a 7-mark evaluate question award NO knowledge marks, and what should your first sentence do instead?",
+                    opts: [
+                        "Because knowledge of methods isn't tested at GCSE level at all",
+                        "All marks are for APP, AN and EVAL, so start by applying a point",
+                        "Because you should open with a definition to show knowledge",
+                        "Because knowledge marks are hidden within the Application marks"
+                    ],
+                    ans: 1,
+                    explain: "A 7-mark evaluate question rewards APP (up to 2), AN (up to 2) and EVAL (up to 3) — there are zero knowledge marks. Opening with a definition wastes precious marks; start immediately with application to the case study business."
+                }
             }
         ];
 
@@ -1311,6 +1549,11 @@
     </script>
 
     <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

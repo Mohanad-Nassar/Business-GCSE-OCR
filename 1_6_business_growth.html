@@ -306,6 +306,13 @@
 // ══════════════════════════════════════
 //  DATA: 1.6 Business Growth
 // ══════════════════════════════════════
+  const pageMeta = {
+    id: '1-6-business-growth',
+    badge: 'OCR GCSE Business — Component 1',
+    title: '1.6 Business Growth',
+    subtitle: 'Interactive revision guide',
+    subject: 'business',
+  };
 
 // 1. Main Learning Content
 const topics = [
@@ -323,7 +330,13 @@ const topics = [
   <li><strong>Forward Vertical Growth:</strong> When a business merges with, or takes over, a business that it <em>supplies goods or services to</em> — moving forward down the supply chain.</li>
   <li><strong>Diversification:</strong> When a business merges with or takes over another business with which it has <em>no connection</em> — entering a completely new market.</li>
   <li><strong>Market Share:</strong> A business's sales as a percentage of total market sales. Formula: (Business Sales ÷ Total Market Sales) × 100.</li>
-</ul>`
+</ul>`,
+    readCheck: {
+      q: "A business merges with a company in a completely unrelated industry, such as a clothing brand buying a software firm. What type of growth is this?",
+      opts: ["Diversification", "Horizontal growth", "Backward vertical growth", "Forward vertical growth"],
+      ans: 0,
+      explain: "Diversification is defined as merging with or taking over a business with no connection, entering a completely new market."
+    }
   },
   {
     title: "Organic (Internal) Growth — Methods",
@@ -339,7 +352,13 @@ const topics = [
   <h4>Case Study: Pets at Home</h4>
   <p>Pets at Home achieved organic growth by <strong>expanding the range of services it offers internally</strong> — including grooming services and veterinary services. Rather than buying other businesses, it grew by developing new revenue streams within its existing brand and customer base, attracting new customer segments who need pet care beyond just products.</p>
   <p><strong>Takeaway:</strong> Adding new services to an existing customer base is a classic method of organic growth — no mergers required.</p>
-</div>`
+</div>`,
+    readCheck: {
+      q: "Which of the following is an example of organic (internal) growth?",
+      opts: ["A business develops a new product via its own research", "A business buys a controlling stake in a rival firm", "Two businesses agree to merge into one new company", "A business takes over its main supplier"],
+      ans: 0,
+      explain: "Organic growth expands the business using its own internal resources, such as developing new products, without merging with or acquiring another business."
+    }
   },
   {
     title: "External (Inorganic) Growth — Mergers & Takeovers",
@@ -357,7 +376,13 @@ const topics = [
   <strong>Forward vertical</strong> = buying your retailer/customer (moving → right)<br>
   <strong>Horizontal</strong> = buying a business at the same level as you<br>
   <strong>Diversification</strong> = buying a business in a completely unrelated industry
-</div>`
+</div>`,
+    readCheck: {
+      q: "What is the key difference between a merger and a takeover?",
+      opts: ["A merger is mutual agreement; a takeover is buying a controlling stake", "A merger only happens between competitors, while a takeover only happens between suppliers", "A merger is always cheaper than a takeover", "A takeover always results in a completely new company name being formed"],
+      ans: 0,
+      explain: "A merger is by mutual agreement, whereas a takeover is where one business gains control by purchasing over 50% of another's shares, often without the target having a choice."
+    }
   },
   {
     title: "Types of External Growth",
@@ -375,7 +400,13 @@ const topics = [
   <li>Potter + pottery shop = <strong>Forward vertical</strong> (shop sells the pottery)</li>
   <li>Radio maker + TV maker = <strong>Horizontal</strong> (same industry, same stage)</li>
   <li>Clothing brand + tech firm = <strong>Diversification</strong> (no connection)</li>
-</ul>`
+</ul>`,
+    readCheck: {
+      q: "A potter (pottery maker) takes over the shop that sells its pottery to customers. What type of external growth is this?",
+      opts: ["Forward vertical growth", "Backward vertical growth", "Horizontal growth", "Diversification"],
+      ans: 0,
+      explain: "Forward vertical growth occurs when a business joins with a business it sells to — here the potter joins the shop it supplies pottery to, moving forward down the supply chain."
+    }
   },
   {
     title: "Advantages & Disadvantages: Organic vs External Growth",
@@ -411,7 +442,13 @@ const topics = [
     <div class="con-item"><strong>Management challenges:</strong> Managers may lack the experience to run a much larger, more complex organisation, leading to inefficiency and wasted money.</div>
     <div class="con-item"><strong>Culture clashes:</strong> Employees from different businesses may have conflicting values or working practices, reducing productivity.</div>
   </div>
-</div>`
+</div>`,
+    readCheck: {
+      q: "Which of these is listed as a key advantage of organic growth over external growth?",
+      opts: ["Owners maintain full strategic control without having to share profits", "Market share increases almost immediately", "The business gains instant access to a rival's expertise and customer base", "Competition in the market is reduced"],
+      ans: 0,
+      explain: "The card lists 'maintains control' as an advantage of organic growth, since owners retain full decision-making authority; the other options are listed as advantages of external growth instead."
+    }
   },
   {
     title: "Market Share — Formula & Calculations",
@@ -430,7 +467,13 @@ Shinz Ltd (40%) + Littlelong Motors (10%) = <strong>50% combined = £230,000</st
 <ul>
   <li>Market share rises → more competitive, greater pricing power, stronger negotiating position with suppliers.</li>
   <li>Market share falls → rivals growing faster, business losing ground even if its own sales are rising.</li>
-</ul>`
+</ul>`,
+    readCheck: {
+      q: "A business's sales grow by 20% while the total market grows by 30% over the same period. What happens to the business's market share?",
+      opts: ["It falls, since market share is relative to the market", "It rises, because the business's sales increased", "It stays exactly the same", "It cannot be determined without knowing profit figures"],
+      ans: 0,
+      explain: "The card's key warning states that if total market sales grow faster than a business's own sales, its market share falls even though its sales have risen, because market share is always relative to the total market."
+    }
   },
   {
     title: "Real-World Case Studies in Business Growth",
@@ -451,7 +494,13 @@ Shinz Ltd (40%) + Littlelong Motors (10%) = <strong>50% combined = £230,000</st
   <h4>Case Study: Greggs — Choosing Between Growth Methods</h4>
   <p>Greggs is a 'food-on-the-go' brand with 20,000 employees and a growing vegan product range (vegan sausage rolls launched 2019 boosted sales by 9.6% in 7 weeks). Greggs considered two external growth options: (1) a <strong>backward vertical merger</strong> with a flour producer to secure raw material supply and reduce costs; (2) a <strong>horizontal takeover</strong> of a rival food-on-the-go brand to eliminate competition and rapidly increase market share.</p>
   <p><strong>Takeaway:</strong> Different growth strategies serve different purposes. Backward vertical growth secures supplies and cuts costs; horizontal takeover removes competition and boosts market share rapidly. The best choice depends on the business's specific aims and context.</p>
-</div>`
+</div>`,
+    readCheck: {
+      q: "Which case study business grew almost entirely through organic growth, taking over only a very small number of businesses in its history?",
+      opts: ["Apple", "Boohoo", "Greggs", "None of these — all three grew solely through mergers"],
+      ans: 0,
+      explain: "The card states Apple grew to become the largest company in the world almost entirely through organic growth, focusing on researching and developing its own products rather than buying other businesses."
+    }
   }
 ];
 
@@ -674,35 +723,83 @@ const tfData = [
 const miscData = [
   {
     wrong: "Students describe organic growth as simply 'growing your business naturally' without specifying a method.",
-    correct: "Organic growth has specific methods: increasing output, developing new products, gaining new customers, and increasing market share. Always name the specific method and explain how it works in the context of the business."
+    correct: "Organic growth has specific methods: increasing output, developing new products, gaining new customers, and increasing market share. Always name the specific method and explain how it works in the context of the business.",
+    readCheck: {
+      q: "What does an examiner expect a student to do when answering a question on organic growth, rather than just saying it means 'growing naturally'?",
+      opts: ["Name the specific method, e.g. new products", "Just state that the business is getting bigger", "Compare it to a takeover", "Give the exact date the business started"],
+      ans: 0,
+      explain: "Organic growth has specific named methods that must be identified and explained in context, not just described vaguely as 'growing naturally'."
+    }
   },
   {
     wrong: "Students confuse mergers and takeovers and use the terms interchangeably.",
-    correct: "A merger is by mutual agreement — both businesses choose to join. A takeover is when one business buys more than 50% of another's shares to gain control — the target may not have wanted this. The examiner will penalise you for using these interchangeably."
+    correct: "A merger is by mutual agreement — both businesses choose to join. A takeover is when one business buys more than 50% of another's shares to gain control — the target may not have wanted this. The examiner will penalise you for using these interchangeably.",
+    readCheck: {
+      q: "How does a takeover differ from a merger?",
+      opts: ["A takeover is buying over 50% of shares to gain control", "A takeover and a merger are simply two names for the same process", "A takeover always involves two businesses of equal size", "A takeover requires both businesses to rebrand under a new name"],
+      ans: 0,
+      explain: "A merger is by mutual agreement, while a takeover is when one business buys a controlling stake (over 50% of shares) — using the terms interchangeably will be penalised."
+    }
   },
   {
     wrong: "Students say a jam maker buying a fruit farm is horizontal growth because both involve food.",
-    correct: "Horizontal growth means SAME stage of production in the SAME industry. A jam maker and a fruit farm are at DIFFERENT stages — one supplies the other. This is BACKWARD VERTICAL growth. Think about the supply chain direction."
+    correct: "Horizontal growth means SAME stage of production in the SAME industry. A jam maker and a fruit farm are at DIFFERENT stages — one supplies the other. This is BACKWARD VERTICAL growth. Think about the supply chain direction.",
+    readCheck: {
+      q: "A jam manufacturer buys a fruit farm that supplies it with fruit. What type of growth is this?",
+      opts: ["Backward vertical growth, since the farm supplies the jam factory", "Horizontal growth, because both businesses are involved with food", "Forward vertical growth, because the farm sells its fruit onward", "Diversification, because farming and manufacturing are different activities"],
+      ans: 0,
+      explain: "This is backward vertical growth, not horizontal growth, because the farm supplies the jam maker — they are at different stages of production, not the same stage in the same industry."
+    }
   },
   {
     wrong: "Students describe all external growth as 'diversification'.",
-    correct: "Diversification is specifically when a business joins with a company in a completely UNRELATED industry. If the businesses are connected by the supply chain or operate in the same industry, it is horizontal or vertical, NOT diversification."
+    correct: "Diversification is specifically when a business joins with a company in a completely UNRELATED industry. If the businesses are connected by the supply chain or operate in the same industry, it is horizontal or vertical, NOT diversification.",
+    readCheck: {
+      q: "Which best describes when a business merger or takeover counts as 'diversification'?",
+      opts: ["Only when joining a totally unrelated industry", "Whenever any external growth takes place", "Whenever a business merges with a supplier", "Whenever a business takes over a competitor"],
+      ans: 0,
+      explain: "Diversification specifically means joining an unrelated industry — if the businesses are linked through the supply chain or same industry, it is vertical or horizontal growth instead, not diversification."
+    }
   },
   {
     wrong: "Students write 'this will lead to more profit' as their analysis mark.",
-    correct: "Examiners will not award analysis marks for just saying 'more profit'. You must explain the chain: WHY does the action lead to more profit? e.g., 'Reducing competition means fewer alternatives for customers, allowing the business to charge higher prices, increasing its profit margin (AN).'"
+    correct: "Examiners will not award analysis marks for just saying 'more profit'. You must explain the chain: WHY does the action lead to more profit? e.g., 'Reducing competition means fewer alternatives for customers, allowing the business to charge higher prices, increasing its profit margin (AN).'",
+    readCheck: {
+      q: "Why would an exam answer that simply states 'this will lead to more profit' fail to earn an analysis mark?",
+      opts: ["Because it skips the chain of reasoning explaining why", "Because 'profit' is spelled incorrectly in most answers", "Because analysis marks are only for evaluation questions", "Because profit is not a valid business impact"],
+      ans: 0,
+      explain: "Examiners require the full chain of reasoning (e.g. reduced competition allows higher prices, increasing profit margin) rather than a bare assertion of 'more profit'."
+    }
   },
   {
     wrong: "Students think increasing market share always means a business's sales have increased.",
-    correct: "Market share can increase even if the business's sales stay the same — if the total market shrank. Sales can also rise while market share falls if the total market grew faster. Market share is ALWAYS relative to total market size."
+    correct: "Market share can increase even if the business's sales stay the same — if the total market shrank. Sales can also rise while market share falls if the total market grew faster. Market share is ALWAYS relative to total market size.",
+    readCheck: {
+      q: "Can a business's sales rise while its market share falls at the same time?",
+      opts: ["Yes, if the total market grows faster than its own sales", "No, market share and sales always move in the same direction", "No, market share can only be calculated using profit figures", "Yes, but only if the business changes its prices"],
+      ans: 0,
+      explain: "Market share is always relative to total market size, so sales can rise while market share falls if the overall market is growing even faster."
+    }
   },
   {
     wrong: "Students think organic growth and internal growth are different terms.",
-    correct: "Organic growth and internal growth are the same thing — both refer to growing the business from within, without joining with another business. These terms are completely interchangeable in the exam."
+    correct: "Organic growth and internal growth are the same thing — both refer to growing the business from within, without joining with another business. These terms are completely interchangeable in the exam.",
+    readCheck: {
+      q: "Are 'organic growth' and 'internal growth' different concepts in the exam?",
+      opts: ["No, they are interchangeable terms for growing from within", "Yes, organic growth only applies to product development", "Yes, internal growth only applies to increasing output", "No, but only 'internal growth' should be used in exam answers"],
+      ans: 0,
+      explain: "Organic growth and internal growth are the same thing and are fully interchangeable terms in the exam."
+    }
   },
   {
     wrong: "For evaluation questions, students list pros and cons but never commit to a final decision.",
-    correct: "An evaluation MUST end with a clear, justified decision — 'I recommend X because...'. Sitting on the fence scores zero evaluation marks no matter how good the analysis is. The examiner needs to see a decision AND a contextual justification."
+    correct: "An evaluation MUST end with a clear, justified decision — 'I recommend X because...'. Sitting on the fence scores zero evaluation marks no matter how good the analysis is. The examiner needs to see a decision AND a contextual justification.",
+    readCheck: {
+      q: "What is required for an evaluation answer to score full evaluation marks?",
+      opts: ["A clear, justified final decision, not just a list of pros and cons", "A minimum of six advantages and disadvantages", "Avoiding any mention of the case study business by name", "A list of pros and cons without picking a side, to stay balanced"],
+      ans: 0,
+      explain: "Sitting on the fence scores zero evaluation marks — a clear decision with contextual justification is required, no matter how strong the analysis is."
+    }
   }
 ];
 
@@ -720,7 +817,13 @@ const examTips = [
     <p><strong>⚠️ Examiner Warning (Q2i — Nina's Knitting Supplies):</strong></p>
     <p>The examiner noted this question "dichotomised candidates" — students either knew the terms for external growth and scored full marks, or didn't and scored zero. This is a pure <strong>vocabulary test</strong>. Revise these terms: merger, takeover, horizontal, backward/forward vertical, diversification.</p>
     <p><strong>🚫 Don't confuse organic and external growth methods.</strong> 'Developing new products' is organic. 'Merger' is external. The question will always specify which type it wants.</p>`,
-    pills: ["K"]
+    pills: ["K"],
+    readCheck: {
+      q: "What is the correct approach to answering a 1-mark 'Identify' question?",
+      opts: ["Give one precise, specific term without explanation", "Write a full sentence defining the term", "List as many relevant terms as possible", "Explain the advantages and disadvantages of the term"],
+      ans: 0,
+      explain: "The formula for a 1-mark Identify question is one precise term = 1 mark — writing a vague sentence instead of naming the specific term (e.g. 'merger') loses the mark."
+    }
   },
   {
     type: "Explain — 2 marks",
@@ -736,7 +839,13 @@ const examTips = [
     <p><strong>❌ Bad Answer (0–1 marks):</strong></p>
     <p><em>"Boohoo grew by selling more things."</em> — Too vague, no context, scores 0 or 1 at most.</p>
     <p><strong>🚫 Don't just define organic growth.</strong> The question asks HOW the specific business used it. Use a case study detail to prove you understand the application.</p>`,
-    pills: ["U", "app"]
+    pills: ["U", "app"],
+    readCheck: {
+      q: "What must a 2-mark 'Explain' answer include to score both marks?",
+      opts: ["A stated method plus its application to the business", "Two different named methods with no further detail", "A definition of organic growth only", "A comparison between two different businesses"],
+      ans: 0,
+      explain: "The formula for 2-mark Explain questions is: state the method (1 mark) plus apply it to the business context using a case study detail (1 mark)."
+    }
   },
   {
     type: "Analyse — 3 marks",
@@ -753,7 +862,13 @@ const examTips = [
     <em>"Merging with a flour producer could reduce raw material costs (U), as flour is a key ingredient in Greggs&apos pastries and vegan sausage rolls (APP). This would allow Greggs to lower its retail prices, increasing sales and helping it achieve its aim of being the nation's favourite food-on-the-go provider (AN)."</em></p>
     <p><strong>❌ Bad Answer (1 mark max):</strong><br/>
     <em>"It would reduce costs and increase profit."</em> — No application, no chain = 1 mark at best.</p>`,
-    pills: ["U", "app", "an"]
+    pills: ["U", "app", "an"],
+    readCheck: {
+      q: "According to the 'Holy Trinity' formula for a 3-mark Analyse question, what three steps must the answer contain?",
+      opts: ["Understanding, Application, Analysis", "Knowledge, Understanding, Evaluation", "Definition, Example, Conclusion", "Advantage, Disadvantage, Decision"],
+      ans: 0,
+      explain: "The three-step chain is Understanding (state the benefit/drawback), Application (a case study detail), and Analysis (the bottom-line business impact) — missing the application step scores zero for analysis."
+    }
   },
   {
     type: "Analyse Two — 6 marks",
@@ -768,7 +883,13 @@ const examTips = [
     <p>The examiner noted that many students jumped straight to "more profit" with no link to external growth. This scores zero. You must build the chain: <em>"Merging (U) gives Beautiful Buds access to Green Gardens' 12% market share (APP), increasing its sales revenue from selling plants through their retail outlets (AN)."</em></p>
     <p><strong>🚫 Do NOT write a conclusion.</strong> There are zero evaluation marks available in a 6-mark question. A conclusion wastes time.</p>
     <p><strong>Context tip (Beautiful Buds):</strong> Contextual references include plants, garden centres, 12% market share, country's largest retailer. Use them! 'Managers' or 'Leaders' alone are too vague for application marks.</p>`,
-    pills: ["U", "app", "an"]
+    pills: ["U", "app", "an"],
+    readCheck: {
+      q: "Why should a student NOT write a conclusion in a 6-mark 'Analyse two...' question?",
+      opts: ["Because zero evaluation marks are available, wasting time", "Because conclusions are only allowed in 1-mark questions", "Because the question only allows one paragraph in total", "Because a conclusion would repeat the case study title"],
+      ans: 0,
+      explain: "The card explicitly warns not to write a conclusion because a 6-mark Analyse question carries zero evaluation marks, making a conclusion a waste of exam time."
+    }
   },
   {
     type: "Evaluate — 7 marks",
@@ -789,7 +910,13 @@ const examTips = [
     <p><strong>⚠️ "Sitting on the fence" = 0 evaluation marks.</strong> You MUST make a clear decision. The "It depends on..." construction is only valid if you then commit to which side that condition favours.</p>
     <p><strong>Exemplar from Nina's Knitting Supplies (full marks):</strong><br/>
     <em>"I think Nina should switch to external growth. A merger with a competitor knitting retailer (CONT) would help her grow market share faster than organic growth, which she has done for 15 years already (EVAL). This is especially important now that new competitors are entering the market, meaning organic growth alone may no longer be fast enough to protect her business (EVAL)."</em></p>`,
-    pills: ["K", "U", "app", "an", "eval"]
+    pills: ["K", "U", "app", "an", "eval"],
+    readCheck: {
+      q: "What happens if a student's evaluation answer 'sits on the fence' without making a decision?",
+      opts: ["It scores zero evaluation marks, whatever the analysis", "It automatically scores half marks", "It is acceptable as long as both sides are equally detailed", "It only loses the Knowledge and Understanding marks"],
+      ans: 0,
+      explain: "The card states clearly that 'sitting on the fence' equals 0 evaluation marks — a clear, justified decision is required for those marks."
+    }
   },
   {
     type: "Evaluate with Data — 9 marks",
@@ -812,7 +939,13 @@ const examTips = [
       <li><strong>EVAL (3 marks):</strong> Justified contextual decision</li>
     </ul>
     <p><strong>⚠️ Examiner Warning (Shinz Q3):</strong> Many high-ability students lost the Knowledge mark by not explicitly defining a merger or using merger terminology. Don't assume the examiner knows you know the definition — say it in your first sentence!</p>`,
-    pills: ["K", "U", "app", "an", "eval"]
+    pills: ["K", "U", "app", "an", "eval"],
+    readCheck: {
+      q: "In a 9-mark 'Evaluate with Data' question, how many marks are specifically available just for using numerical data from the case study?",
+      opts: ["2 marks", "0 marks — data use is not separately credited", "5 marks", "1 mark"],
+      ans: 0,
+      explain: "The card states the 9-mark question awards 2 separate marks purely for quantitative/numerical application, calling it 'the most commonly missed opportunity on the entire paper'."
+    }
   },
   {
     type: "Recommend — 3 marks",
@@ -829,7 +962,13 @@ const examTips = [
     <em>"Greggs should merge with the flour producer (1) because it allows the business to quality-assure one of the main ingredients it needs for its vegan pastries (CONT), whereas a takeover of a rival would only put more pressure on management capacity and supply of ingredients (+2)."</em></p>
     <p><strong>❌ Bad Answer (1 mark only):</strong><br/>
     <em>"Greggs should take over a competitor because it will increase market share."</em> — No comparison, no context. 1 mark maximum.</p>`,
-    pills: ["U", "app", "eval"]
+    pills: ["U", "app", "eval"],
+    readCheck: {
+      q: "What is the key rule for the justification in a 3-mark 'Recommend' question?",
+      opts: ["The justification must compare the choice to the alternative", "The justification only needs to list advantages of the chosen option", "The justification must avoid mentioning the case study business", "The justification must include a numerical calculation"],
+      ans: 0,
+      explain: "The justification MUST be comparative — simply listing advantages of the chosen option without comparing it to the other option gets no justification marks."
+    }
   }
 ];
 
@@ -1112,6 +1251,11 @@ const examQuestions = [
 
 </script>
     <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

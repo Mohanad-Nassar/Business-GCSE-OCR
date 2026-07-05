@@ -304,6 +304,13 @@
         // ══════════════════════════════════════
         //  DATA: 5.2 Sources of Finance
         // ══════════════════════════════════════
+        const pageMeta = {
+                id: '5-2-sources-of-finance',
+                badge: 'OCR GCSE Business — Component 2',
+                title: '5.2 Sources of Finance',
+                subtitle: 'Interactive revision guide',
+                subject: 'business',
+            };
 
         // 1. Main Learning Content
         const topics = [
@@ -327,7 +334,13 @@
   <li><strong>Interest:</strong> The cost of borrowing money — a percentage charged on the amount owed.</li>
   <li><strong>Security:</strong> An asset offered to a lender as a guarantee of repayment (e.g. a house or business premises).</li>
   <li><strong>Dividend:</strong> A share of the company's profit paid out to shareholders.</li>
-</ul>`
+</ul>`,
+                readCheck: {
+                    q: "According to the key definitions, what is 'external finance'?",
+                    opts: ["Money raised from outside the business, such as loans, share issues or overdrafts", "Money raised from within the business, such as retained profit or owner's capital", "Money the business receives from selling goods or services to customers", "Money the business pays out to shareholders as a reward for their investment"],
+                    ans: 0,
+                    explain: "The card defines external finance as money raised from outside the business — such as loans, share issues, overdrafts, trade credit or crowdfunding — unlike internal finance."
+                }
             },
             {
                 title: "Why Businesses Need Finance",
@@ -346,7 +359,13 @@
 <div class="case-study-box">
   <h4>Case Study: Makerfield Services Ltd — Short-Term Financing</h4>
   <p>Makerfield Services Ltd is a small electrical contractor. It needs money day-to-day for wiring, sockets and wages. Cash flow in is not always enough to cover these costs, so it arranges an overdraft facility with its bank — it can overspend by an agreed amount, paying interest only on what it borrows. When revenue arrives, the overdraft is reduced. This illustrates how short-term finance solves a temporary cash-flow problem without committing to a long-term loan.</p>
-</div>`
+</div>`,
+                readCheck: {
+                    q: "Which of these is given as a reason a business needs finance in this card?",
+                    opts: ["Deciding which television channel to advertise a new product on", "Replacing old machinery, equipment or premises that have become obsolete", "Choosing which supplier offers the best quality raw materials", "Recording customer complaints made about a recent product launch event"],
+                    ans: 1,
+                    explain: "The card lists replacing worn-out or obsolete assets as a reason a business needs finance; the other options are marketing, procurement and customer service tasks, not reasons for raising finance."
+                }
             },
             {
                 title: "Internal Sources of Finance",
@@ -376,7 +395,13 @@
     <div class="con-item"><strong>Opportunity cost:</strong> Using savings or retained profit means that money cannot be used elsewhere (e.g. invested in a savings account).</div>
     <div class="con-item"><strong>Sale of assets takes time:</strong> It may be difficult or slow to find a buyer for machinery or property.</div>
   </div>
-</div>`
+</div>`,
+                readCheck: {
+                    q: "Which of these is correctly identified as an internal source of finance?",
+                    opts: ["A bank loan, which is only available to businesses that can offer sufficient security", "Trade credit, which is only available once a supplier agrees the terms", "Retained profit, which is only available to businesses that have already made a profit", "A share issue, which is only available to limited companies"],
+                    ans: 2,
+                    explain: "The card lists retained profit alongside owner's capital and sale of assets as internal sources; bank loans, trade credit and share issues are all external sources."
+                }
             },
             {
                 title: "External Sources of Finance",
@@ -393,7 +418,13 @@
 <div class="case-study-box">
   <h4>Case Study: Chineasy — Crowdfunding a Start-Up</h4>
   <p>ShaoLan Hsueh needed finance to develop a course to help Western people learn Chinese characters, including books, flash cards and a website. She used Kickstarter to raise nearly £200,000 within a month — well above her £75,000 target — by promoting her idea on social media. Contributors became shareholders in Chineasy Limited. This case shows how crowdfunding can reach a large number of investors quickly, removing the need for a bank loan or traditional investor.</p>
-</div>`
+</div>`,
+                readCheck: {
+                    q: "Which of these external sources is limited-company-only, according to this card?",
+                    opts: ["Overdraft, which allows the business to spend more than its account balance", "Trade credit, which allows the business to delay paying its suppliers", "Crowdfunding, which allows the business to raise money from a website", "Share issue, which allows the business to sell new shares to investors"],
+                    ans: 3,
+                    explain: "The card states a share issue is available to limited companies only, since it involves selling shares — overdrafts, trade credit and crowdfunding are open to a wider range of business types."
+                }
             },
             {
                 title: "Advantages & Disadvantages of Each External Source",
@@ -488,7 +519,13 @@
     <div class="con-item">The partner may not have the required skills or enough capital to meet the business's needs.</div>
     <div class="con-item">Decision-making can become slower and lead to disagreements.</div>
   </div>
-</div>`
+</div>`,
+                readCheck: {
+                    q: "According to this card, what is a key disadvantage of using a share issue?",
+                    opts: ["Shareholders gain a say in how the business is run, reducing owners' control", "Interest rates on a share issue are extremely high compared with a bank loan", "The bank can demand repayment of a share issue at very short notice", "Goods bought through a share issue must be paid for even if unsold"],
+                    ans: 0,
+                    explain: "The card lists reduced owner control as a disadvantage of a share issue, since shareholders gain a say in the business — share issues do not carry interest or bank repayment demands."
+                }
             },
             {
                 title: "Short-, Medium- and Long-Term Finance",
@@ -506,7 +543,13 @@
   <li>Limited companies <strong>cannot take on extra partners</strong>.</li>
   <li>Businesses with a poor financial record may struggle to get a bank loan.</li>
   <li>Retained profit is <strong>only available to established businesses</strong> that have already generated profit.</li>
-</ul>`
+</ul>`,
+                readCheck: {
+                    q: "Which of these is classed as a short-term source of finance in this card?",
+                    opts: ["Share issue, used to fund major long-term expansion projects", "Overdraft, used to cover day-to-day running costs such as wages and stock", "Bank loan, used to purchase machinery over several years", "Taking on a new partner, used for a long-term injection of capital funds"],
+                    ans: 1,
+                    explain: "The card classifies overdraft (alongside trade credit) as short-term finance, used for day-to-day costs — share issues, most bank loans and new partners are medium- or long-term."
+                }
             },
             {
                 title: "Choosing the Right Source of Finance",
@@ -527,7 +570,13 @@
 <div class="case-study-box">
   <h4>Case Study: Everton FC — Share Issue and Loans</h4>
   <p>In 2020–21, Everton Football Club needed finance for three reasons: lost matchday revenue due to COVID-19, new player signings costing over £180 million, and a new £500 million stadium project. The club issued £250 million of new shares to its existing owner Farhad Moshiri and planned to borrow the rest from private lenders. This illustrates how large, established organisations may use a combination of share issues and loans to fund major long-term investments.</p>
-</div>`
+</div>`,
+                readCheck: {
+                    q: "Which factor does this card identify as affecting the choice of finance source?",
+                    opts: ["Colour, since some sources are only available to businesses with a certain brand image", "Location, since some sources are only available in certain towns or cities", "Control, since share issues and new partners reduce the owner's decision-making power", "Weather, since seasonal businesses cannot use any external sources at all"],
+                    ans: 2,
+                    explain: "The card lists control as a factor in choosing finance, since share issues and new partners reduce the owner's control, unlike loans or overdrafts which do not affect ownership."
+                }
             },
             {
                 title: "Share Issue Calculations",
@@ -552,7 +601,13 @@
 <div class="formula-box">
   <strong>Annual Interest = </strong> Loan Amount &times; Interest Rate (%)
 </div>
-<p>Example: A £12,000 loan at 8% interest per year = £12,000 &times; 0.08 = <strong>£960 interest in year 1</strong></p>`
+<p>Example: A £12,000 loan at 8% interest per year = £12,000 &times; 0.08 = <strong>£960 interest in year 1</strong></p>`,
+                readCheck: {
+                    q: "How is the total finance raised by a share issue calculated?",
+                    opts: ["Number of shares sold divided by the price per share", "Total profit of the business divided by the number of shareholders", "Loan amount multiplied by the annual interest rate percentage", "Number of shares sold multiplied by the price per share"],
+                    ans: 3,
+                    explain: "The card gives the formula Total Finance Raised = Number of shares sold x Price per share — the interest formula (loan x rate) is a different calculation used for bank loans."
+                }
             }
         ];
 
@@ -837,43 +892,103 @@
         const miscData = [
             {
                 wrong: "Retained profit is a pot of cash sitting in the business that can be spent at any time.",
-                correct: "Retained profit is an accounting figure showing profits not paid out to owners. The cash from those profits has likely already been used in day-to-day operations. Only if cash has been physically set aside will the business have a lump sum to invest."
+                correct: "Retained profit is an accounting figure showing profits not paid out to owners. The cash from those profits has likely already been used in day-to-day operations. Only if cash has been physically set aside will the business have a lump sum to invest.",
+                readCheck: {
+                    q: "What is the correct view of what 'retained profit' represents?",
+                    opts: ["An accounting figure for profit not paid out, which may already be spent on operations", "A pot of cash sitting untouched in the business that can be spent at any time at all", "A loan from the bank that must be repaid together with interest charges", "A fee charged to shareholders for holding shares in the business"],
+                    ans: 0,
+                    explain: "The card explains retained profit is an accounting figure, not necessarily a cash pile — the cash from those profits may already have been used in day-to-day operations."
+                }
             },
             {
                 wrong: "All sources of finance are available to every type of business.",
-                correct: "Different sources are available to different types of businesses. For example, share issues are only for limited companies; taking on a partner is only for sole traders/partnerships; retained profit is only for established businesses."
+                correct: "Different sources are available to different types of businesses. For example, share issues are only for limited companies; taking on a partner is only for sole traders/partnerships; retained profit is only for established businesses.",
+                readCheck: {
+                    q: "Which statement correctly describes the availability of finance sources?",
+                    opts: ["Every single source of finance is available equally to any type of business at all", "Different sources are available to different types of business, such as share issues", "Only limited companies are able to raise any finance at all", "Only sole traders are restricted from using any external finance sources"],
+                    ans: 1,
+                    explain: "The card corrects the misconception that all sources are available to everyone — share issues suit limited companies, taking a partner suits sole traders/partnerships, and retained profit needs an established business."
+                }
             },
             {
                 wrong: "An overdraft is a good way to fund a major long-term investment like buying a building.",
-                correct: "An overdraft is a short-term source designed for day-to-day cash flow problems. It is expensive (high daily interest) and not suitable for long-term investments. A bank loan or share issue would be more appropriate."
+                correct: "An overdraft is a short-term source designed for day-to-day cash flow problems. It is expensive (high daily interest) and not suitable for long-term investments. A bank loan or share issue would be more appropriate.",
+                readCheck: {
+                    q: "Why is an overdraft not suitable for funding a major long-term investment?",
+                    opts: ["It is only available to businesses that have already made a large profit", "It requires the business to sell part of its ownership to a bank", "It is a short-term, expensive source designed for day-to-day cash flow gaps", "It cannot legally be arranged unless the business has zero debt"],
+                    ans: 2,
+                    explain: "The card explains an overdraft is short-term and expensive (high daily interest), designed for day-to-day cash flow problems rather than major long-term investments like buying a building."
+                }
             },
             {
                 wrong: "Interest is only a disadvantage of bank loans.",
-                correct: "Interest applies to overdrafts and trade credit (if not paid on time) as well as loans. Crowdfunding loans also carry interest. The only sources with no interest are internal sources (owner's capital, retained profit) and share issues."
+                correct: "Interest applies to overdrafts and trade credit (if not paid on time) as well as loans. Crowdfunding loans also carry interest. The only sources with no interest are internal sources (owner's capital, retained profit) and share issues.",
+                readCheck: {
+                    q: "Which sources of finance can also involve paying interest, besides bank loans?",
+                    opts: ["Owner's capital and retained profit are the only other examples", "Share issues and taking on a new partner are the only other examples", "Sale of assets and retained profit are the only other examples", "Overdrafts and late trade credit, as well as crowdfunding loans"],
+                    ans: 3,
+                    explain: "The card corrects the idea that interest only applies to bank loans — overdrafts, late trade credit payments, and crowdfunding loans can all involve interest too."
+                }
             },
             {
                 wrong: "Taking on a new partner means hiring a new employee who earns a salary.",
-                correct: "A new partner is a co-owner of the business, not an employee. They contribute capital, share in the profits AND losses, and have the right to take part in decision-making. They do not earn a fixed salary."
+                correct: "A new partner is a co-owner of the business, not an employee. They contribute capital, share in the profits AND losses, and have the right to take part in decision-making. They do not earn a fixed salary.",
+                readCheck: {
+                    q: "What is the correct status of a new partner joining a business?",
+                    opts: ["A co-owner who contributes capital and shares in profits and losses", "An employee who is paid a fixed salary for the work they do", "A lender who is repaid with interest over a fixed period of time", "A shareholder who receives a dividend but has no voting rights"],
+                    ans: 0,
+                    explain: "The card explains a new partner is a co-owner, not an employee — they contribute capital, share in profits AND losses, and take part in decision-making rather than earning a salary."
+                }
             },
             {
                 wrong: "Using your own savings to finance a business is completely free with no cost at all.",
-                correct: "Owner's capital has no interest cost, but it does have an opportunity cost — the money could have been earning interest in a bank account or invested elsewhere. There is also the risk of losing personal savings if the business fails."
+                correct: "Owner's capital has no interest cost, but it does have an opportunity cost — the money could have been earning interest in a bank account or invested elsewhere. There is also the risk of losing personal savings if the business fails.",
+                readCheck: {
+                    q: "What cost does using owner's savings to finance a business actually involve?",
+                    opts: ["No cost of any kind at all, since savings are always entirely free to use", "An opportunity cost, since the money could have earned interest elsewhere", "Interest charged by the bank on the amount of savings used", "A fee paid to shareholders for the use of their personal savings"],
+                    ans: 1,
+                    explain: "The card explains owner's capital has no interest cost but does have an opportunity cost, since the money could have earned interest elsewhere or been invested another way."
+                }
             },
             {
                 wrong: "For a 'recommend' question, you only need to give reasons FOR your chosen option to get full marks.",
-                correct: "OCR examiners require a comparative answer — you must explain why your chosen option is BETTER THAN the alternative. Answers that only discuss the chosen option without referencing the rejected option cannot score more than 1 mark for justification."
+                correct: "OCR examiners require a comparative answer — you must explain why your chosen option is BETTER THAN the alternative. Answers that only discuss the chosen option without referencing the rejected option cannot score more than 1 mark for justification.",
+                readCheck: {
+                    q: "What must a full-mark answer to a 'recommend' question include?",
+                    opts: ["Only reasons for the chosen option, without ever mentioning the alternative", "A complete list of every possible source of finance available", "A comparison explaining why the chosen option is better than the alternative", "A general definition of finance with no reference to either option"],
+                    ans: 2,
+                    explain: "The card explains OCR requires a comparative answer justifying why the chosen option is better than the rejected one — answers covering only the chosen option score at most 1 mark."
+                }
             },
             {
                 wrong: "A share issue means the business has to repay shareholders like a loan.",
-                correct: "Money raised through a share issue does not need to be repaid. Shareholders own part of the business and may receive dividends if profits are made and distributed, but the original sum invested is not returned to them."
+                correct: "Money raised through a share issue does not need to be repaid. Shareholders own part of the business and may receive dividends if profits are made and distributed, but the original sum invested is not returned to them.",
+                readCheck: {
+                    q: "Does money raised through a share issue need to be repaid like a loan?",
+                    opts: ["Yes — shareholders must be repaid the full amount plus additional interest", "Yes — but only if the business fails to make a profit that year", "No — but only if the shareholders agree in writing to waive repayment", "No — shareholders own part of the business and are not repaid the original sum"],
+                    ans: 3,
+                    explain: "The card corrects the misconception that a share issue must be repaid — shareholders own part of the business and may receive dividends, but the original investment is not repaid to them."
+                }
             },
             {
                 wrong: "Crowdfunding always means people are donating money with nothing in return.",
-                correct: "Crowdfunding can work in three ways: donors give money (common for community projects), lenders provide a loan (repaid with interest), or investors buy equity (a share of the business). Most business crowdfunding involves equity or lending."
+                correct: "Crowdfunding can work in three ways: donors give money (common for community projects), lenders provide a loan (repaid with interest), or investors buy equity (a share of the business). Most business crowdfunding involves equity or lending.",
+                readCheck: {
+                    q: "What does the card say about how crowdfunding contributions actually work?",
+                    opts: ["Contributors may donate, lend, or buy equity — not just donate with nothing back", "Contributors always donate money with absolutely nothing given back in return", "Contributors always receive a fixed rate of interest on their money", "Contributors always become full legal business partners as a result"],
+                    ans: 0,
+                    explain: "The card explains crowdfunding can work three ways — donation, loan, or equity — correcting the idea that it always means donations with nothing given in return."
+                }
             },
             {
                 wrong: "A bank loan and an overdraft are essentially the same thing.",
-                correct: "They are very different. A bank loan is a fixed sum borrowed for a fixed period with set instalments. An overdraft is a flexible, daily arrangement where interest is charged only on the amount overdrawn — it varies day by day and is meant for short-term needs."
+                correct: "They are very different. A bank loan is a fixed sum borrowed for a fixed period with set instalments. An overdraft is a flexible, daily arrangement where interest is charged only on the amount overdrawn — it varies day by day and is meant for short-term needs.",
+                readCheck: {
+                    q: "What is the key difference between a bank loan and an overdraft?",
+                    opts: ["A loan and an overdraft are essentially identical arrangements with a bank", "A loan is a fixed sum for a fixed period, while an overdraft is a flexible daily arrangement", "A loan is repaid daily, while an overdraft is repaid in one single lump sum", "A loan requires no interest to be paid at all, while an overdraft always charges some interest"],
+                    ans: 1,
+                    explain: "The card explains a bank loan is a fixed sum for a fixed period with set instalments, while an overdraft is a flexible daily arrangement charged only on the amount overdrawn."
+                }
             }
         ];
 
@@ -897,7 +1012,13 @@
       Specific and directly answers the question.</p>
       <p><strong>⚠️ Examiner Warning:</strong> If the question says "other than expansion", any answer linked to growth or opening new premises scores zero — even if it's perfectly correct business knowledge. Always re-read the exact wording.</p>
     `,
-                pills: ["K"]
+                pills: ["K"],
+                readCheck: {
+                    q: "What must you avoid when answering a question that says 'other than expansion'?",
+                    opts: ["Giving an answer that mentions day-to-day running costs like wages", "Giving an answer that mentions research and development costs", "Giving any answer linked to growth or opening new premises", "Giving an answer that mentions replacing old machinery or equipment"],
+                    ans: 2,
+                    explain: "The card warns that when a question excludes expansion, any growth-related answer scores zero — even if it is otherwise correct business knowledge — so re-read the exact wording."
+                }
             },
             {
                 type: "State One Disadvantage — 2 marks (1+1)",
@@ -912,7 +1033,13 @@
       <em>"Interest must be paid on the loan, increasing the total cost for the business."</em></p>
       <p><strong>⚠️ Examiner Warning:</strong> Students often write a disadvantage of the wrong source — e.g. writing about interest for owner's capital. Always make sure your disadvantage logically matches the source it's asking about.</p>
     `,
-                pills: ["K"]
+                pills: ["K"],
+                readCheck: {
+                    q: "What is the most common mistake in a 'state one disadvantage of each' question?",
+                    opts: ["Writing far more disadvantages than the actual number the question really asks for", "Failing to mention any specific source of finance at all in the answer", "Writing the disadvantage using bullet points instead of full sentences", "Writing a disadvantage that doesn't logically match the source being asked about"],
+                    ans: 3,
+                    explain: "The card warns students often write a disadvantage of the wrong source — e.g. mentioning interest for owner's capital — so the disadvantage must logically match the source asked about."
+                }
             },
             {
                 type: "Analyse — 3 marks",
@@ -936,7 +1063,13 @@
       <em>"A share issue raises finance without requiring repayment (U). This is useful for CFM as they are considering becoming a private limited company and need to fund a new café costing several thousand pounds (APP). By avoiding a bank loan, Martin and Anne will not have to pay interest, keeping their costs low and protecting their 25% net profit margin (AN)."</em></p>
       <p><strong>🚫 Examiner Warning — "Knowledge Dumping":</strong> Writing everything you know about share issues without referring to the specific business scores very few marks. The examiner is testing whether you can apply theory to context, not just recall theory.</p>
     `,
-                pills: ["U", "app", "an"]
+                pills: ["U", "app", "an"],
+                readCheck: {
+                    q: "What score do you get for the analysis mark if you don't apply to the case study business?",
+                    opts: ["Zero — the analysis mark requires application to the specific business", "Full marks, since analysis can always be entirely theoretical", "Half marks, since basic understanding alone still counts for quite a lot", "One mark, regardless of whether or not you apply the answer"],
+                    ans: 0,
+                    explain: "The card states you score zero for the analysis mark without applying to the case study business — the U to APP to AN chain requires application before analysis can be credited."
+                }
             },
             {
                 type: "Recommend — 3 marks",
@@ -958,7 +1091,13 @@
       <em>"CFM should use retained profit (JUDGEMENT). Unlike a share issue, retained profit does not require Martin and Anne to sell part of their business, so they keep full control (JUSTIFICATION). Since CFM has only been trading for two years and has a negative cash flow forecast (-£5,500 closing balance), bringing in outside shareholders could lead to pressure to prioritise profit over the partners' goals (CONTEXT)."</em></p>
       <p><strong>⚠️ Examiner Warning:</strong> Over 50% of students fail to score more than 1 mark on this type of question. The most common mistake is repeating points from the previous two questions without making a clear comparison. The examiner wants new reasoning — not a summary of what you already said.</p>
     `,
-                pills: ["U", "app", "an", "eval"]
+                pills: ["U", "app", "an", "eval"],
+                readCheck: {
+                    q: "According to this card, why do most students fail to score well on 'recommend' questions?",
+                    opts: ["They recommend an option that isn't actually mentioned anywhere in the case study", "They repeat earlier points without making a clear comparison between the two options", "They write far more detail than the three available marks actually require", "They forget to state any final judgement anywhere in their answer"],
+                    ans: 1,
+                    explain: "The card explains over 50% of students fail to score more than 1 mark by repeating earlier points instead of making a genuine new comparison between the two options."
+                }
             },
             {
                 type: "Evaluate — 7 marks",
@@ -980,7 +1119,13 @@
       <em>"Overall, I recommend the bank loan. This is because Martina's savings are barely enough to cover the equipment cost — leaving her with no contingency fund is very risky for a new business. The interest cost is manageable if she secures a low rate, and her stable cash flow forecast suggests she can afford the repayments. Ultimately, it depends on the interest rate offered — if it is high, using savings becomes more attractive."</em></p>
       <p><strong>"It Depends On..." Rule:</strong> A conclusion that simply says "Option A is best" without nuance scores few evaluation marks. Examiners reward answers that identify the key condition or factor the decision hinges on.</p>
     `,
-                pills: ["U", "app", "an", "eval"]
+                pills: ["U", "app", "an", "eval"],
+                readCheck: {
+                    q: "What do examiners reward in the final evaluation paragraph, according to this card?",
+                    opts: ["Simply stating that one option is the best one without giving any further reasoning", "Repeating the two earlier analysis paragraphs in a slightly shorter form", "Identifying the key condition or factor that the final decision actually depends on", "Avoiding a final decision so that both options remain equally valid"],
+                    ans: 2,
+                    explain: "The card's 'It Depends On...' rule explains examiners reward identifying the key factor the decision hinges on, rather than a bare judgement or a repeat of earlier analysis."
+                }
             }
         ];
 
@@ -1350,6 +1495,11 @@
     </script>
 
     <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

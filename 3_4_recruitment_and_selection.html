@@ -186,6 +186,13 @@
   // ══════════════════════════════════════
   //  DATA
   // ══════════════════════════════════════
+  const pageMeta = {
+      id: '3-4-recruitment-and-selection',
+      badge: 'OCR GCSE Business — Component 1',
+      title: '3.4 Recruitment and Selection',
+      subtitle: 'Interactive revision guide',
+      subject: 'business',
+    };
 
   const topics = [
     {
@@ -205,7 +212,13 @@
 <li><strong>CV (curriculum vitae)</strong> — A document on which the applicant outlines their personal details, experience and skills</li>
 <li><strong>Application form</strong> — A form which asks applicants for personal details, experience and skills</li>
 <li><strong>Letter of application</strong> — A letter written by the applicant usually explaining why they think they are suitable for the job</li>
-</ul>`
+</ul>`,
+      readCheck: {
+        q: "According to core recruitment terminology, what is 'selection'?",
+        opts: ["The process of choosing between applicants for a job", "The process of finding people to work in a business", "Training a new worker to fit into the business", "A list of duties and responsibilities of a worker"],
+        ans: 0,
+        explain: "Selection is defined as the process of choosing between applicants for a job, distinct from recruitment (finding people to work in the business)."
+      }
     },
     {
       title: "Why Businesses Recruit",
@@ -217,7 +230,13 @@
 <li><strong>Skills shortage / Skills gap</strong> — May arise as new methods of production are introduced, perhaps using new technology. Recruiting skilled workers can be very difficult, particularly if the economy is doing well. It is not unusual for businesses to look abroad when recruiting skilled workers</li>
 </ul>
 <p><strong>Note from OCR delivery guide:</strong> Sometimes the work can be reallocated amongst other posts to avoid the need to replace the job role. Businesses should not automatically recruit whenever someone leaves.</p>
-<p><strong>Cost of poor recruitment:</strong> Oxford Economics research found replacing a staff member costs on average £30,614. Lost output during the settling-in period (28 weeks on average) accounts for £25,181, with direct recruitment costs of £5,433 covering agency fees, advertising, management time and HR processing.</p>`
+<p><strong>Cost of poor recruitment:</strong> Oxford Economics research found replacing a staff member costs on average £30,614. Lost output during the settling-in period (28 weeks on average) accounts for £25,181, with direct recruitment costs of £5,433 covering agency fees, advertising, management time and HR processing.</p>`,
+      readCheck: {
+        q: "According to the OCR delivery guide note, what should a business consider before recruiting a replacement for a worker who has left?",
+        opts: ["Whether the work could be reallocated instead", "Whether to increase the salary of the role", "Whether to close the department entirely", "Whether to promote the departing worker's manager"],
+        ans: 0,
+        explain: "The card notes work can sometimes be reallocated among other posts, and businesses should not automatically recruit whenever someone leaves."
+      }
     },
     {
       title: "The Recruitment & Selection Process",
@@ -237,7 +256,13 @@
 <li>Step 7: Carry out interviews / tests / group activities</li>
 <li>Step 8: Make a job offer</li>
 </ul>
-<p><strong>Important distinction:</strong> 'Recruitment' refers to searching for suitable candidates and attracting them to apply. 'Selection' refers to vetting candidates to choose the most suitable one.</p>`
+<p><strong>Important distinction:</strong> 'Recruitment' refers to searching for suitable candidates and attracting them to apply. 'Selection' refers to vetting candidates to choose the most suitable one.</p>`,
+      readCheck: {
+        q: "Which of the following best describes 'selection' in the recruitment and selection process?",
+        opts: ["Vetting candidates to choose the most suitable one", "Searching for and attracting suitable candidates to apply", "Writing the job description and person specification", "Advertising the vacancy to attract applicants"],
+        ans: 0,
+        explain: "The card states selection refers to vetting candidates to choose the most suitable person, while recruitment means searching for and attracting candidates."
+      }
     },
     {
       title: "Job Description vs Person Specification",
@@ -261,7 +286,13 @@
 <div class="pro-item">Skills and personal qualities</div>
 <div class="pro-item">Special requirements (e.g. can drive)</div>
 </div>
-</div>`
+</div>`,
+      readCheck: {
+        q: "In a person specification, what does marking an attribute as 'D' indicate?",
+        opts: ["The attribute is desirable but not essential", "The attribute is required by law", "The candidate must demonstrate it at interview", "The attribute disqualifies the candidate"],
+        ans: 0,
+        explain: "The card explains each attribute in a person specification is marked E (essential) or D (desirable)."
+      }
     },
     {
       title: "Internal vs External Recruitment",
@@ -301,7 +332,13 @@
 <div class="con-item">Induction training needed — higher cost</div>
 <div class="con-item">Greater risk — managers don't know the candidate well</div>
 </div>
-</div>`
+</div>`,
+      readCheck: {
+        q: "Which of these is a disadvantage of internal recruitment, according to the card?",
+        opts: ["Their old role still needs to be filled by someone", "It takes longer than external recruitment", "It requires more induction training", "It brings a wider range of skills and experience"],
+        ans: 0,
+        explain: "The card lists that the job vacated by the promoted person still needs to be filled as a disadvantage of internal recruitment; the other options actually describe external recruitment or its disadvantages."
+      }
     },
     {
       title: "Advertising Media",
@@ -316,7 +353,13 @@
 <li><strong>Job centres</strong> — Government-run; free to use; useful for people without internet access. External.</li>
 <li><strong>Word of mouth</strong> — Business lets existing employees know about a vacancy. Saves advertising cost. Both internal and external.</li>
 <li><strong>Email/noticeboard/company magazine</strong> — Internal methods only.</li>
-</ul>`
+</ul>`,
+      readCheck: {
+        q: "According to the card, what are specialist magazines (e.g. Times Educational Supplement) mainly used to recruit?",
+        opts: ["Highly skilled workers like consultants", "Workers for short-term temporary contracts", "Local unskilled retail staff", "Internal staff seeking promotion"],
+        ans: 0,
+        explain: "The card states specialist magazines are used to recruit highly skilled workers such as consultants, engineers and scientists."
+      }
     },
     {
       title: "Methods of Selection",
@@ -334,7 +377,13 @@
 <li><strong>Tests and presentations</strong> — Check specific skills (e.g. typing, IT, maths). Presentations show how well a candidate can communicate ideas. Gives very specific, measurable information.</li>
 <li><strong>Group activities</strong> — Applicants work together on a task. Reveals interpersonal/teamworking skills and leadership ability. Particularly useful when the job requires working closely with others.</li>
 <li><strong>References</strong> — Statement from a previous employer about work done, how well they did their job, punctuality and attendance. Can verify information from the CV/application form. Provides a third-party view, though references can sometimes be misleading.</li>
-</ul>`
+</ul>`,
+      readCheck: {
+        q: "Which method is used at the shortlisting stage rather than the final selection stage?",
+        opts: ["Application form", "Group activity", "Interview", "Reference"],
+        ans: 0,
+        explain: "The card places letters of application, CVs and application forms at the shortlisting stage, while interviews, tests, group activities and references belong to final selection."
+      }
     },
     {
       title: "Recruitment & Employment Agencies",
@@ -347,7 +396,13 @@
 <li>The firm then interviews recommended candidates before making a final decision</li>
 </ul>
 <p>Using a recruitment agency saves time and money if it reduces the need for a large HR department. The agency is a specialist organisation that knows how and where to advertise and what information is needed about applicants.</p>
-<p><strong>Employment agencies</strong> keep lists of people willing to do certain kinds of work (e.g. receptionists, office typists). A firm can ask for a worker for a short period of time, paying the worker's wage plus the agency's fee. If the temporary worker performs well, the firm may offer a permanent post — though the agency may charge a further introduction fee.</p>`
+<p><strong>Employment agencies</strong> keep lists of people willing to do certain kinds of work (e.g. receptionists, office typists). A firm can ask for a worker for a short period of time, paying the worker's wage plus the agency's fee. If the temporary worker performs well, the firm may offer a permanent post — though the agency may charge a further introduction fee.</p>`,
+      readCheck: {
+        q: "What is the key difference between a recruitment agency and an employment agency, according to the card?",
+        opts: ["Employment agencies supply short-term hires; recruitment agencies handle full recruitment", "Recruitment agencies only advertise vacancies, while employment agencies conduct interviews", "Employment agencies are free to use, while recruitment agencies always charge a fee", "Recruitment agencies are used only by small businesses"],
+        ans: 0,
+        explain: "The card explains recruitment agencies carry out the recruitment/selection process for a business, while employment agencies keep lists of workers available for short-term hire."
+      }
     }
   ];
 
@@ -460,31 +515,73 @@
   const miscData = [
     {
       wrong: "'Recruitment' and 'selection' mean the same thing.",
-      correct: "They are different stages. Recruitment refers to searching for suitable candidates and attracting them to apply for a vacancy. Selection refers to the process of vetting candidates to choose the most suitable person for the role."
+      correct: "They are different stages. Recruitment refers to searching for suitable candidates and attracting them to apply for a vacancy. Selection refers to the process of vetting candidates to choose the most suitable person for the role.",
+      readCheck: {
+        q: "What is the correct distinction between 'recruitment' and 'selection'?",
+        opts: ["Recruitment attracts candidates; selection vets the best one", "Recruitment and selection are two words for the same process", "Recruitment happens after selection is complete", "Selection means advertising a vacancy"],
+        ans: 0,
+        explain: "The card clarifies recruitment and selection are different stages: recruitment attracts candidates, selection vets them to choose the best person."
+      }
     },
     {
       wrong: "A job description lists the qualifications and skills needed for the job.",
-      correct: "A job description lists the tasks, duties and responsibilities of the role. Qualifications and skills needed belong in the person specification. Confusing these two documents is one of the most common errors in GCSE exams."
+      correct: "A job description lists the tasks, duties and responsibilities of the role. Qualifications and skills needed belong in the person specification. Confusing these two documents is one of the most common errors in GCSE exams.",
+      readCheck: {
+        q: "What does a job description actually list?",
+        opts: ["The tasks, duties and responsibilities of the role", "The qualifications and skills needed for the job", "The salary and benefits package", "The personal qualities of an ideal candidate"],
+        ans: 0,
+        explain: "The card corrects the common misconception that a job description lists qualifications/skills — that belongs in the person specification; a job description lists tasks, duties and responsibilities."
+      }
     },
     {
       wrong: "Internal recruitment is always better because it is cheaper.",
-      correct: "Internal recruitment has advantages (cheaper, quicker, motivated staff) but also disadvantages (no fresh ideas, limited choice, causes conflict). The best method depends on the specific situation — for example, if a business needs a skills gap filled, external recruitment is needed."
+      correct: "Internal recruitment has advantages (cheaper, quicker, motivated staff) but also disadvantages (no fresh ideas, limited choice, causes conflict). The best method depends on the specific situation — for example, if a business needs a skills gap filled, external recruitment is needed.",
+      readCheck: {
+        q: "Why is it wrong to say internal recruitment is 'always better' than external recruitment?",
+        opts: ["The best method depends on the situation faced", "Because internal recruitment is always more expensive", "Because internal recruitment always causes conflict among staff", "Because external recruitment is always quicker"],
+        ans: 0,
+        explain: "The card explains internal recruitment has both advantages and disadvantages, and the best method depends on the situation — e.g. filling a skills gap needs external recruitment."
+      }
     },
     {
       wrong: "When an employee leaves, a business must always recruit a replacement.",
-      correct: "Not necessarily. Sometimes the work can be redistributed to other employees. Businesses should analyse their HR needs before automatically recruiting. Recruitment is expensive and time-consuming, so the need must be justified."
+      correct: "Not necessarily. Sometimes the work can be redistributed to other employees. Businesses should analyse their HR needs before automatically recruiting. Recruitment is expensive and time-consuming, so the need must be justified.",
+      readCheck: {
+        q: "Is it true that a business must always recruit a replacement when an employee leaves?",
+        opts: ["No — the work can sometimes go to other employees", "Yes — a business must recruit within one week by law", "Yes — otherwise the person specification becomes invalid", "No — the role is simply removed from the organisation permanently"],
+        ans: 0,
+        explain: "The card corrects this misconception, explaining that work can sometimes be redistributed to other employees, and the need to recruit must be justified since it is expensive and time-consuming."
+      }
     },
     {
       wrong: "A CV is better than an application form because the applicant includes all the information.",
-      correct: "A CV shows the applicant's ability to organise information, but applicants may leave out essential details. Application forms ensure all applicants provide exactly the same information, making it easier to compare them. Each method has its advantages."
+      correct: "A CV shows the applicant's ability to organise information, but applicants may leave out essential details. Application forms ensure all applicants provide exactly the same information, making it easier to compare them. Each method has its advantages.",
+      readCheck: {
+        q: "Why might an application form be considered better than a CV for comparing applicants?",
+        opts: ["It ensures every applicant gives the same information", "It always includes more personal details than a CV", "It is cheaper to produce than a CV", "It guarantees the applicant is telling the truth"],
+        ans: 0,
+        explain: "The card explains application forms ensure all applicants provide identical information, making comparison easier, whereas a CV's structure is decided by the applicant and may omit details."
+      }
     },
     {
       wrong: "References always provide accurate, honest information about a candidate.",
-      correct: "References can be misleading. Sometimes employers give workers good references because they want them to leave. For this reason, businesses often use more than one method of selection to build a fuller picture of each candidate."
+      correct: "References can be misleading. Sometimes employers give workers good references because they want them to leave. For this reason, businesses often use more than one method of selection to build a fuller picture of each candidate.",
+      readCheck: {
+        q: "Why can references sometimes be misleading?",
+        opts: ["Employers may give good references to workers they want gone", "References are only used for internal recruitment", "References are always written by the candidate themselves", "References replace the need for an interview"],
+        ans: 0,
+        explain: "The card notes that employers sometimes give good references because they want a worker to leave, which is why businesses use more than one selection method."
+      }
     },
     {
       wrong: "Some learners refer to the 'person specification' as the 'job specification'.",
-      correct: "The correct term used in the OCR specification is 'person specification'. Always use this term in your answers to show precise subject knowledge."
+      correct: "The correct term used in the OCR specification is 'person specification'. Always use this term in your answers to show precise subject knowledge.",
+      readCheck: {
+        q: "Which term is the correct OCR specification term for the document listing a candidate's required qualities and qualifications?",
+        opts: ["Person specification", "Job specification", "Candidate description", "Role specification"],
+        ans: 0,
+        explain: "The card states the correct OCR term is 'person specification', not 'job specification'."
+      }
     }
   ];
 
@@ -496,21 +593,39 @@
       content: `<p>You need <strong>Knowledge (1 mark)</strong> + <strong>Application (1 mark)</strong>.</p>
 <p>State the advantage/disadvantage, then link it specifically to the business in the question.</p>
 <p><em>Example: "External recruitment may bring new ideas (K) which is important for Waitrose as it operates in a very competitive supermarket industry where new product development is key (APP)."</em></p>`,
-      pills: ["K", "app"]
+      pills: ["K", "app"],
+      readCheck: {
+        q: "What two marks make up a 2-mark 'Explain' question (AO1b + AO2)?",
+        opts: ["Knowledge (1 mark) + Application (1 mark)", "Knowledge (1 mark) + Evaluation (1 mark)", "Application (1 mark) + Analysis (1 mark)", "Understanding (1 mark) + Evaluation (1 mark)"],
+        ans: 0,
+        explain: "The card states 2-mark Explain questions require Knowledge (1 mark) plus Application (1 mark), linking the point specifically to the business in the question."
+      }
     },
     {
       type: "Question Type",
       title: "3-mark Analyse questions (AO1b + AO2 + AO3a)",
       content: `<p>State the advantage/method → Apply to the business → Analyse the business impact.</p>
 <p><em>Example: "Interviews allow the interviewer to ask detailed questions about the candidates' skills (K). Given that Clarks designers work with fast-changing fashion trends (APP), this will allow Clarks to select workers who are up-to-date, potentially increasing market share (AN)."</em></p>`,
-      pills: ["U", "app", "an"]
+      pills: ["U", "app", "an"],
+      readCheck: {
+        q: "What is the correct structure for a 3-mark 'Analyse' question?",
+        opts: ["State the method, apply it, then analyse the impact", "State the advantage, then make a final judgement", "Describe the method, then compare it to an alternative", "State two separate advantages of the method"],
+        ans: 0,
+        explain: "The card explains 3-mark Analyse questions require: state the advantage/method, apply it to the business, then analyse the business impact (K+APP+AN)."
+      }
     },
     {
       type: "Question Type",
       title: "3-mark Recommend questions (AO3b)",
       content: `<p>You must: (1) Make a clear decision — don't sit on the fence. (2) Justify why your chosen method is better than the alternative — a comparison is essential. (3) Use context from the case study.</p>
 <p><em>Example: "Interviews are likely to be more effective (1) because Clarks can assess candidates' knowledge of current fashion (CONT). A reference is unlikely to include this information unless they previously worked for another fashion business (+2)."</em></p>`,
-      pills: ["eval", "eval", "eval"]
+      pills: ["eval", "eval", "eval"],
+      readCheck: {
+        q: "What must a student do to access full marks on a 3-mark 'Recommend' question (AO3b)?",
+        opts: ["Make a decision, justified against the alternative", "List as many advantages as possible without choosing one option", "Describe both methods without making a decision", "Simply repeat the question in the answer"],
+        ans: 0,
+        explain: "The card states students must make a clear decision, justify why the chosen method is better than the alternative (a comparison is essential), and use case study context."
+      }
     },
     {
       type: "Question Type",
@@ -521,14 +636,26 @@
 <li>Give both advantages and disadvantages of the recruitment method</li>
 <li>Make a final judgement that is contextually justified using information from the case study</li>
 </ul>`,
-      pills: ["K", "U", "app", "an", "eval"]
+      pills: ["K", "U", "app", "an", "eval"],
+      readCheck: {
+        q: "According to the marking grid for a 9-mark Evaluate question, how many marks are allocated to Evaluation?",
+        opts: ["3 marks", "1 mark", "2 marks", "4 marks"],
+        ans: 0,
+        explain: "The card's marking grid allocates Knowledge (1) + Understanding (1) + Application/data (2) + Analysis (2) + Evaluation (3) = 9 marks."
+      }
     },
     {
       type: "Common Error",
       title: "Don't just describe the method — give the advantage",
       content: `<p>Examiners do NOT award marks for describing what a method is (e.g. "an interview is where you ask candidates questions"). You must state the <strong>advantage for the business</strong> of using that method.</p>
 <p>Also avoid generic phrases like "it helps find the best person for the job" — this is the purpose of all selection methods and earns no marks.</p>`,
-      pills: []
+      pills: [],
+      readCheck: {
+        q: "Why do examiners award no marks for a statement like 'an interview is where you ask candidates questions'?",
+        opts: ["It just describes the method, not a business advantage", "Because interviews are not a valid selection method", "Because it exceeds the word limit for the question", "Because it should be written in the case study instead"],
+        ans: 0,
+        explain: "The card warns that examiners do not award marks for describing what a method is — students must state the advantage for the business of using it."
+      }
     },
     {
       type: "Key Fact",
@@ -541,7 +668,13 @@
 <li>Days to fill the job: Internal 20 days vs External 60 days (3× faster)</li>
 </ul>
 <p>Using these numbers in analysis earns application marks.</p>`,
-      pills: []
+      pills: [],
+      readCheck: {
+        q: "In the BFF case study data on this card, how much cheaper is internal recruitment cost compared to external?",
+        opts: ["£2,000 cheaper", "£1,300 cheaper", "£3,300 cheaper", "£500 cheaper"],
+        ans: 0,
+        explain: "The card states internal recruitment cost is £500 versus external at £2,500 — a difference of £2,000."
+      }
     }
   ];
 
@@ -695,5 +828,10 @@ Table 1: Recruitment data
   ];
 </script>
 <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
+<script src="footer-legal.js"></script>
 </body>
 </html>

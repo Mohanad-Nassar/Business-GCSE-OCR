@@ -205,7 +205,13 @@
   // ══════════════════════════════════════
     //  DATA
     // ══════════════════════════════════════
-
+  const pageMeta = {
+    id: '2-2-market-research',
+    badge: 'OCR GCSE Business — Component 1',
+    title: '2.2 Market Research',
+    subtitle: 'Interactive revision guide',
+    subject: 'business',
+  };
     const topics = [
       {
         title: "What is Market Research?",
@@ -213,7 +219,13 @@
         content: `<p><strong>Market research</strong> is the collection of data on customer habits to help decision-making in marketing.</p>
 <p>Before a business starts, it is important that the owners check exactly who their customers are likely to be. Are they old or young, male or female, rich or poor? There is little point in starting a business and then wondering why you are not selling anything!</p>
 <p>This analysis of the market will normally be part of the <strong>business plan</strong> and it is an important part in setting up a successful business. Who a business aims its product or service at is called the <strong>target market</strong>. Understanding your target market is important because it can help a business <strong>segment</strong> its market — which means aiming different products at different groups of people.</p>
-<p><strong>Case study — Sarah's Gourmet Dishes:</strong> Sarah Jones thought she had a good idea for a business in selling organic gourmet food online. She did not undertake any market research. She did not really know what competition she had in the gourmet online food market. She only had a general idea about the price she should be charging. There was no clear view on exactly who her customers were likely to be. Deliveries were disorganised. After a disastrous first six months Sarah had lost much of her savings in the business. Sarah would have benefited from undertaking market research before she started her business.</p>`
+<p><strong>Case study — Sarah's Gourmet Dishes:</strong> Sarah Jones thought she had a good idea for a business in selling organic gourmet food online. She did not undertake any market research. She did not really know what competition she had in the gourmet online food market. She only had a general idea about the price she should be charging. There was no clear view on exactly who her customers were likely to be. Deliveries were disorganised. After a disastrous first six months Sarah had lost much of her savings in the business. Sarah would have benefited from undertaking market research before she started her business.</p>`,
+        readCheck: {
+    q: "What is market research?",
+    opts: ["The advertising of a product to boost sales", "The collection of data on customer habits to help decision-making in marketing", "The recruitment and training of sales staff", "The process of designing and testing new packaging for a product before its launch"],
+    ans: 1,
+    explain: "The card defines market research as the collection of data on customer habits to help decision-making in marketing — this is what Sarah failed to do before launching her business."
+}
       },
       {
         title: "Why is Market Research Important?",
@@ -226,7 +238,13 @@
 <li><strong>Identifies competition:</strong> Businesses need to know who their competitors are and what they offer.</li>
 <li><strong>Helps with market segmentation:</strong> Different products can be aimed at different groups — e.g. watches come in many styles aimed at different types of customer.</li>
 </ul>
-<p><strong>Important evaluation point:</strong> Not all businesses use all types of market research. Smaller businesses may use very little, if any. Some owners rely on their own judgement. The question is always: does the business have the money and time to complete expensive research?</p>`
+<p><strong>Important evaluation point:</strong> Not all businesses use all types of market research. Smaller businesses may use very little, if any. Some owners rely on their own judgement. The question is always: does the business have the money and time to complete expensive research?</p>`,
+        readCheck: {
+    q: "According to this card, why does market research help avoid unnecessary investment?",
+    opts: ["It confirms there is demand before money is spent on a project", "It guarantees a fixed return on any investment made", "It removes the need for a business to make a business plan", "It automatically reduces a business's production costs"],
+    ans: 0,
+    explain: "The card explains that if a business is considering investing lots of money, research helps confirm demand exists — otherwise the investment will be wasted."
+}
       },
       {
         title: "Primary Research — Questionnaires",
@@ -245,7 +263,13 @@
 <div class="con-item">People filling in the forms may not understand the questions being asked</div>
 </div>
 </div>
-<p style="margin-top:8px;"><strong>Tip:</strong> To increase response rates, businesses sometimes offer an entry into a free prize draw to encourage consumers to complete and return the questionnaire.</p>`
+<p style="margin-top:8px;"><strong>Tip:</strong> To increase response rates, businesses sometimes offer an entry into a free prize draw to encourage consumers to complete and return the questionnaire.</p>`,
+        readCheck: {
+    q: "According to this card, what is a key disadvantage of using questionnaires?",
+    opts: ["They are usually much more expensive to run and organise than face-to-face interviews", "It is difficult to predict how many completed questionnaires will be returned", "They cannot be used to target specific consumers", "They cannot be completed online"],
+    ans: 1,
+    explain: "The card lists as a disadvantage that it is difficult to predict how many completed questionnaires will be returned — unlike interviews, which are described as more expensive."
+}
       },
       {
         title: "Primary Research — Interviews",
@@ -262,7 +286,13 @@
 <div class="con-item">Can be expensive because an interviewer has to be paid</div>
 <div class="con-item">Customers may feel uncomfortable being interviewed — whether stopped in the street or on the phone</div>
 </div>
-</div>`
+</div>`,
+        readCheck: {
+    q: "According to this card, what is a stated advantage of interviews over questionnaires?",
+    opts: ["The interviewer can explain questions if there is a misunderstanding", "Interviews are usually cheaper to carry out than questionnaires or focus groups", "Interviews never make customers feel uncomfortable", "Interviews do not require anyone to be paid"],
+    ans: 0,
+    explain: "The card states that in an interview, the interviewer can explain questions if there is a misunderstanding, whereas questionnaires offer no such clarification."
+}
       },
       {
         title: "Primary Research — Trials",
@@ -280,7 +310,13 @@
 <div class="con-item">The business may conduct a trial and only find out what they first thought</div>
 </div>
 </div>
-<p style="margin-top:8px;"><strong>Important exam note:</strong> Trialling is about measuring whether people will BUY a product (sales figures). It is NOT about getting qualitative feedback on how to improve the product. Do not confuse trialling with giving out free samples to gain opinions.</p>`
+<p style="margin-top:8px;"><strong>Important exam note:</strong> Trialling is about measuring whether people will BUY a product (sales figures). It is NOT about getting qualitative feedback on how to improve the product. Do not confuse trialling with giving out free samples to gain opinions.</p>`,
+        readCheck: {
+    q: "According to the exam note in this card, what does trialling a product primarily measure?",
+    opts: ["Customer opinions and feedback on how to improve the product's design", "Whether people will buy the product, shown through sales figures", "Staff satisfaction with the new product", "The cost of manufacturing the product"],
+    ans: 1,
+    explain: "The card warns that trialling is about measuring whether people will BUY a product (sales figures), not about gathering qualitative feedback to improve it."
+}
       },
       {
         title: "Primary Research — Focus Groups",
@@ -297,7 +333,13 @@
 <div class="con-item">Though carefully chosen, they are still small groups — making data collection more expensive per person than interviews and questionnaires</div>
 <div class="con-item">The selection of people to take part is time-consuming and so costly</div>
 </div>
-</div>`
+</div>`,
+        readCheck: {
+    q: "Why is data from focus groups usually considered accurate, according to this card?",
+    opts: ["They always produce quantitative data only", "Focus groups involve very large numbers of participants", "Focus groups are selected to represent the target market", "Focus groups are always conducted online"],
+    ans: 2,
+    explain: "The card states that focus groups are chosen to represent the target market, so the data from them is usually very accurate and can be relied upon for important decisions."
+}
       },
       {
         title: "Secondary Research — What It Is and Sources",
@@ -309,7 +351,13 @@
 <li><strong>Websites:</strong> A huge amount of information is available on the internet. Many companies put information about themselves and their products online, which competitor businesses can use as secondary research.</li>
 <li><strong>Internal data:</strong> Many businesses have their own secondary data — past sales figures, profits from departments, and comments from customers. Usually kept on computers and used when making decisions for the future.</li>
 <li><strong>Newspapers and magazines:</strong> Full of information useful to businesses — on other businesses, trends in fashion and interests that could be used to develop new products and services. As much of this is now online, searching is easier.</li>
-</ul>`
+</ul>`,
+        readCheck: {
+    q: "According to this card, what is secondary research?",
+    opts: ["Data collected first-hand for a specific business's needs", "Research that another organisation has already completed", "Research that only comes from focus groups", "Research that is always more expensive than primary research"],
+    ans: 1,
+    explain: "The card defines secondary (desk) research as research that another organisation has already completed, giving census data, websites, internal data and newspapers/magazines as sources."
+}
       },
       {
         title: "Advantages and Disadvantages of Secondary Research",
@@ -327,7 +375,13 @@
 <div class="con-item">The data might not be in a form that the business can <strong>analyse easily</strong>. Only by designing its own research (primary) can a business be sure it is in the form it requires</div>
 </div>
 </div>
-<p style="margin-top:8px;"><strong>Internal data</strong> is a special type of secondary data — it comes from within the business itself (e.g. past sales figures, customer comments). This avoids the problem of data not being exactly right, as the business has already collected it for its own purposes.</p>`
+<p style="margin-top:8px;"><strong>Internal data</strong> is a special type of secondary data — it comes from within the business itself (e.g. past sales figures, customer comments). This avoids the problem of data not being exactly right, as the business has already collected it for its own purposes.</p>`,
+        readCheck: {
+    q: "Why is internal data considered an especially useful type of secondary data, according to this card?",
+    opts: ["Because it is classed as primary research", "Because it comes from within the business, avoiding inaccuracy", "Because it is always more up to date than the national census", "Because it is provided free by the government"],
+    ans: 1,
+    explain: "The card explains that internal data comes from within the business itself, which avoids the usual secondary research problem of data not being exactly what the business wants."
+}
       },
       {
         title: "Qualitative vs Quantitative Data",
@@ -345,7 +399,13 @@
 <div class="pro-item"><strong>Advantage:</strong> Easy to analyse and can be gathered from a large number of people</div>
 <div class="con-item"><strong>Disadvantage:</strong> Limits how much people can say about what they like or dislike — no depth of opinion</div>
 </div>
-</div>`
+</div>`,
+        readCheck: {
+    q: "A business asks customers how often they eat chocolate. What type of data is this, according to this card?",
+    opts: ["Qualitative data, because it is about food preferences", "Quantitative data, because it deals with facts and numbers, not opinions", "Qualitative data, because it must be collected using primary research", "Quantitative data, because it can only be collected through focus groups"],
+    ans: 1,
+    explain: "The card gives this exact example — asking how often people eat chocolate is quantitative because it deals with facts and numbers, not an opinion on chocolate (which would be qualitative)."
+}
       },
       {
         title: "Evaluation — Choosing the Right Research Method",
@@ -359,7 +419,13 @@
 <li><strong>What is the product?</strong> Some products benefit from trials (e.g. food products); others from focus groups (e.g. advertising campaigns); others from questionnaires (e.g. general consumer preferences).</li>
 </ul>
 <p><strong>Always look at the business in the question:</strong> Is it likely to need research? Does it have the money to complete expensive research? Remember that some businesses will not complete any market research, with owners relying on their own judgement.</p>
-<p><strong>Primary vs secondary comparison:</strong> Primary research is often more useful because it can be designed for the exact needs of the business and is up to date. However, it is more expensive and time-consuming. Secondary research is cheaper and widely available but may be outdated or not tailored to the business's specific needs.</p>`
+<p><strong>Primary vs secondary comparison:</strong> Primary research is often more useful because it can be designed for the exact needs of the business and is up to date. However, it is more expensive and time-consuming. Secondary research is cheaper and widely available but may be outdated or not tailored to the business's specific needs.</p>`,
+        readCheck: {
+    q: "According to this card, which factor is most likely to push a small business toward secondary rather than primary research?",
+    opts: ["A legal requirement to always use secondary data", "Limited money to spend on expensive research", "Secondary data always being more accurate than primary data", "Primary research being banned for small businesses"],
+    ans: 1,
+    explain: "The card notes that primary research is usually more expensive, so smaller businesses may rely on cheaper secondary research or informal methods due to limited funds."
+}
       }
     ];
 
@@ -526,27 +592,63 @@
     const miscData = [
       {
         wrong: "Students think trialling means giving out free samples to get feedback on how to improve a product.",
-        correct: "Trialling is a primary market research method that involves launching a product in a limited number of stores or a limited area for a short time. The purpose is to measure SALES FIGURES to see whether there is demand — NOT to get opinions or qualitative feedback. The only direct feedback from trialling is quantitative (sales data). Do not say trialling helps 'improve' the product."
+        correct: "Trialling is a primary market research method that involves launching a product in a limited number of stores or a limited area for a short time. The purpose is to measure SALES FIGURES to see whether there is demand — NOT to get opinions or qualitative feedback. The only direct feedback from trialling is quantitative (sales data). Do not say trialling helps 'improve' the product.",
+        readCheck: {
+    q: "What does trialling a product actually measure?",
+    opts: ["Qualitative feedback on how to improve the design of the product", "Sales figures showing whether there is demand for the product", "Staff performance during the trial period", "Long-term brand loyalty among customers"],
+    ans: 1,
+    explain: "The card corrects the misconception that trialling gathers improvement feedback — it is a primary method that measures quantitative sales figures to test demand."
+}
       },
       {
         wrong: "Students confuse primary and secondary research and mix up their advantages and disadvantages.",
-        correct: "PRIMARY research is new data collected first-hand — it is more expensive and time-consuming but specific to the business's exact needs and up to date. SECONDARY research is data already collected by someone else — it is cheaper and widely available but may be outdated and may not be in the exact form the business requires. A simple memory trick: Primary = first-hand = field research. Secondary = second-hand = desk research."
+        correct: "PRIMARY research is new data collected first-hand — it is more expensive and time-consuming but specific to the business's exact needs and up to date. SECONDARY research is data already collected by someone else — it is cheaper and widely available but may be outdated and may not be in the exact form the business requires. A simple memory trick: Primary = first-hand = field research. Secondary = second-hand = desk research.",
+        readCheck: {
+    q: "Which memory trick correctly matches research type to its source, according to this card?",
+    opts: ["Primary = desk research; secondary = field research", "Primary = first-hand = field research; secondary = second-hand = desk research", "Primary = data collected from competitors; secondary = data collected from customers", "Primary is always free; secondary is always paid for"],
+    ans: 1,
+    explain: "The card gives the memory trick that primary is first-hand field research, while secondary is second-hand desk research — the reverse pairing is the common student error."
+}
       },
       {
         wrong: "Students state that qualitative data is 'better' than quantitative data, or vice versa, without explaining why.",
-        correct: "Neither is universally better — each has advantages and disadvantages depending on what the business needs. Qualitative gives rich detail and opinion but is harder to analyse. Quantitative is easy to analyse and can include large numbers of people but gives no depth of opinion. For evaluation questions, you must weigh up which is MOST USEFUL for that specific business and context, and justify your judgement."
+        correct: "Neither is universally better — each has advantages and disadvantages depending on what the business needs. Qualitative gives rich detail and opinion but is harder to analyse. Quantitative is easy to analyse and can include large numbers of people but gives no depth of opinion. For evaluation questions, you must weigh up which is MOST USEFUL for that specific business and context, and justify your judgement.",
+        readCheck: {
+    q: "How should a student correctly evaluate qualitative vs quantitative data in an exam answer, according to this card?",
+    opts: ["State that quantitative data is always better because it is easier and quicker to fully analyse", "Weigh up which is most useful for the specific business and context, then justify the judgement", "State that qualitative data is always better because it gives opinions", "Avoid comparing the two types of data in evaluation answers"],
+    ans: 1,
+    explain: "The card stresses that neither type is universally better — students must weigh up which is most useful for the specific business and context and justify their judgement."
+}
       },
       {
         wrong: "Students write that the advantage of primary research is that it is 'more reliable' without explaining why.",
-        correct: "The key advantages of primary research are that it is (1) designed EXACTLY how the business wants, (2) collected for a specific purpose, and (3) up to date. Saying it is 'more reliable' is too vague and will not gain marks. You must say WHY it is more reliable — because it is specifically tailored to the business's needs and is current."
+        correct: "The key advantages of primary research are that it is (1) designed EXACTLY how the business wants, (2) collected for a specific purpose, and (3) up to date. Saying it is 'more reliable' is too vague and will not gain marks. You must say WHY it is more reliable — because it is specifically tailored to the business's needs and is current.",
+        readCheck: {
+    q: "Why is simply stating primary research is 'more reliable' not enough to gain marks, according to this card?",
+    opts: ["Because primary research is not actually reliable", "Because it does not explain WHY it is reliable", "Because reliability only applies to secondary research", "Because examiners never award marks for reliability"],
+    ans: 1,
+    explain: "The card explains that the statement is too vague — students must explain WHY primary research is more reliable, i.e. it is designed exactly for the business and is current."
+}
       },
       {
         wrong: "Students confuse the terms 'qualitative' and 'quantitative' in answers.",
-        correct: "Remember: QUALITATIVE = quality of opinions (think: 'qual' as in quality, feelings, views). QUANTITATIVE = quantity, numbers, facts (think: 'quant' as in quantity). A useful exam check: if your 'qualitative' example involves a number or percentage, you have probably confused the two terms."
+        correct: "Remember: QUALITATIVE = quality of opinions (think: 'qual' as in quality, feelings, views). QUANTITATIVE = quantity, numbers, facts (think: 'quant' as in quantity). A useful exam check: if your 'qualitative' example involves a number or percentage, you have probably confused the two terms.",
+        readCheck: {
+    q: "What memory device does this card give to help distinguish qualitative from quantitative data?",
+    opts: ["QUALitative = numbers; QUANTitative = opinions", "QUALitative = QUALity of opinions; QUANTitative = QUANTity/numbers", "Qualitative data always refers to census data collected by the government", "Quantitative always refers to focus group data"],
+    ans: 1,
+    explain: "The card gives the memory device that QUALitative relates to QUALity of opinions/feelings, while QUANTitative relates to QUANTity/numbers and facts."
+}
       },
       {
         wrong: "Students think all businesses must use primary research and that secondary research is always inferior.",
-        correct: "This is wrong. The choice of research depends on the business's circumstances. Secondary research is often the best starting point and may be all a business needs — especially if it is small, lacks funds, or needs general data. For evaluation questions, always consider the TYPE and SIZE of the business. A small business opening a local café may get all the information it needs from census data, websites and local newspapers — without spending money on expensive primary research."
+        correct: "This is wrong. The choice of research depends on the business's circumstances. Secondary research is often the best starting point and may be all a business needs — especially if it is small, lacks funds, or needs general data. For evaluation questions, always consider the TYPE and SIZE of the business. A small business opening a local café may get all the information it needs from census data, websites and local newspapers — without spending money on expensive primary research.",
+        readCheck: {
+    q: "A small business opening a local café needs general information about its area. What does this card say it should likely do?",
+    opts: ["Always commission expensive primary research regardless of budget", "Rely on secondary research such as census data and websites", "Avoid market research altogether since it is only a café", "Use only qualitative focus group data"],
+    ans: 1,
+    explain: "The card's example states a small local café may get all the information it needs from secondary sources like census data, websites and local newspapers, without paying for primary research."
+}
       }
     ];
 
@@ -560,7 +662,13 @@
 <li><strong>Secondary methods:</strong> Census, websites, newspapers, magazines, internal data, government publications, trade journals</li>
 </ul>
 <p><strong>Common errors:</strong> Writing 'survey' as a secondary source (it is primary). Writing 'customer reviews' or 'forums' — examiners do not accept these as standalone answers. Do not give the TYPE of data (e.g. 'sales figures') as a source — name the SOURCE (e.g. 'internal data' or 'websites').</p>`,
-        pills: ["kn"]
+        pills: ["kn"],
+        readCheck: {
+    q: "According to this card, which is a common error students make when identifying research sources?",
+    opts: ["Writing 'census' as a secondary source", "Writing 'survey' as a secondary source when it's actually primary", "Writing 'trial' as a primary source", "Writing 'websites' as a secondary source instead of a primary one"],
+    ans: 1,
+    explain: "The card lists as a common error writing 'survey' as a secondary source, when a survey/questionnaire is actually a primary research method."
+}
       },
       {
         type: "Explain (2 marks)",
@@ -572,7 +680,13 @@
 </ul>
 <p><strong>Example — Focus group:</strong> "A focus group is a small group of people (1) who are asked to give their views about a product or service being developed (1)."</p>
 <p><strong>Example — Market research:</strong> "Market research is the collection of data on customer habits (1) — for example using questionnaires or interviews — to help a business make decisions about its products and services (1)."</p>`,
-        pills: ["kn", "un"]
+        pills: ["kn", "un"],
+        readCheck: {
+    q: "What two-part structure is required to gain full marks on a 2-mark 'explain' question, according to this card?",
+    opts: ["Application (1) + Analysis (1)", "Knowledge (1) + Understanding (1)", "Two separate definitions of the exact same term", "A judgement (1) plus a justification (1)"],
+    ans: 1,
+    explain: "The card states the structure is Knowledge (1) — defining the term — plus Understanding (1) shown through an example or further explanation."
+}
       },
       {
         type: "Analyse (3 marks)",
@@ -585,7 +699,13 @@
 </ul>
 <p><strong>Example (EDF, focus groups):</strong> "EDF can carefully select a focus group from customers that reflect its target market (U), for example customers who want green energy (APP). This should provide accurate information on what potential customers want, which EDF can use to make better decisions and reduce the risk of launching a service that customers do not need (AN)."</p>
 <p><strong>Common error:</strong> Do not just describe WHAT the method is — state the BENEFIT to the business, then analyse the IMPACT on the business.</p>`,
-        pills: ["un", "app", "an"]
+        pills: ["un", "app", "an"],
+        readCheck: {
+    q: "What common error does this card highlight for 3-mark 'analyse' questions on market research methods?",
+    opts: ["Not naming the research method at all", "Describing WHAT the method is, not its benefit and impact", "Writing too much application and not enough knowledge", "Forgetting to mention the business's competitors"],
+    ans: 1,
+    explain: "The card warns not to just describe what the method is — students must state the benefit to the business and then analyse the impact, following Understanding → Application → Analysis."
+}
       },
       {
         type: "Evaluate (7–9 marks)",
@@ -598,7 +718,13 @@
 <li>Justify using a contextual reason from the case study (strong justification = 2 extra marks)</li>
 </ul>
 <p><strong>Exemplar response (Sainsbury's):</strong> "Utilising primary market research means they can find out specific information (AN) about sales in its competitive market (APP), so that Sainsbury's can fulfil the needs and wants of its middle to high income customers (APP). Using secondary market research is much cheaper (AN). However, since Sainsbury's is one of the largest UK supermarkets (APP), financial constraints are unlikely to be a problem. I think Sainsbury's should use primary market research (EVAL) in future because it needs specific information to help the company develop and market products to compete with rivals like Aldi (contextual EVAL)."</p>`,
-        pills: ["app", "an", "eval"]
+        pills: ["app", "an", "eval"],
+        readCheck: {
+    q: "What must a top-mark evaluation answer on primary vs secondary research include, according to this card?",
+    opts: ["Only a definition of primary and secondary research", "Two case details, plus a clear, justified judgement", "A list of every research method available to the business", "The examiner's own opinion on which method is best"],
+    ans: 1,
+    explain: "The card states the highest marks require application (2) and analysis (2) using case-study details, plus a justified judgement using a contextual reason for full evaluation marks."
+}
       },
       {
         type: "Evaluate (9 marks — Case Study)",
@@ -612,7 +738,13 @@
 <li><strong>Evaluation:</strong> Make a clear judgement (should they go ahead or not?), then justify using precise data from the case study</li>
 </ul>
 <p><strong>Key tip:</strong> For the evaluation justification marks, you MUST use (not simply repeat) information from the case study. The justification must clearly explain WHY the data leads you to your judgement.</p>`,
-        pills: ["kn", "un", "app", "an", "eval"]
+        pills: ["kn", "un", "app", "an", "eval"],
+        readCheck: {
+    q: "According to this card's key tip, what must students do to gain evaluation justification marks?",
+    opts: ["Simply repeat the numbers given in the case study", "Use, not repeat, case data to explain the judgement", "Avoid using any case study data in the evaluation", "State a judgement without needing a justification"],
+    ans: 1,
+    explain: "The card's key tip states that for justification marks, students MUST use (not simply repeat) case study information and clearly explain why the data leads to their judgement."
+}
       }
     ];
 
@@ -861,6 +993,11 @@
     ];
 </script>
   <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
 
+<script src="footer-legal.js"></script>
 </body>
 </html>

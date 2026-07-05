@@ -215,7 +215,13 @@
         //  DATA: 2.4 Sub-topic 3: Pricing Methods 
         // 2_4_pricing_methods.html
         // ══════════════════════════════════════
-
+        const pageMeta = {
+            id: '2-4-3-pricing-methods',
+            badge: 'OCR GCSE Business — Component 1',
+            title: '2.4.3 Pricing Methods',
+            subtitle: 'Interactive revision guide',
+            subject: 'business',
+        };
         const topics = [
             {
                 title: "The Importance of Price",
@@ -229,7 +235,13 @@
       <li>The Product Life Cycle (prices change as products age)</li>
       <li>Market Share objectives</li>
       <li>Positioning and Brand Image</li>
-      </ul>`
+      </ul>`,
+                readCheck: {
+                    q: "Which part of the marketing mix is the only one that directly generates revenue for a business?",
+                    opts: ["Price", "Product", "Place", "Promotion"],
+                    ans: 0,
+                    explain: "Price is the only element of the 4Ps that directly brings money into the business; Product, Place and Promotion all involve costs."
+                }
             },
             {
                 title: "Cost-Plus Pricing",
@@ -248,7 +260,13 @@
       <div class="con-item">If the mark-up is set too high, the price may be expensive compared to rivals, leading to lost sales.</div>
       <div class="con-item">If costs fluctuate frequently, the selling price may have to continually change.</div>
       </div>
-      </div>`
+      </div>`,
+                readCheck: {
+                    q: "What is the main disadvantage of cost-plus pricing?",
+                    opts: ["It ignores competitor prices and what customers will pay", "It never guarantees a profit on items sold", "It cannot be calculated by small businesses", "It always results in lower profit margins than skimming"],
+                    ans: 0,
+                    explain: "Cost-plus pricing only considers internal costs plus a mark-up, so it ignores external factors such as competitors' prices."
+                }
             },
             {
                 title: "Competitor Pricing",
@@ -265,7 +283,13 @@
       <div class="con-item">Because price is the same as rivals, the business must find other (often expensive) ways to attract customers, like better customer service or more promotion.</div>
       <div class="con-item">The business must constantly research competitors' prices, which increases administrative costs.</div>
       </div>
-      </div>`
+      </div>`,
+                readCheck: {
+                    q: "A major disadvantage of competitor pricing is that a business...",
+                    opts: ["must find other costly ways to attract customers", "can no longer make any profit on its products", "must always price below all rivals", "will automatically dominate the market"],
+                    ans: 0,
+                    explain: "Because the price matches rivals, the business must compete on non-price factors like customer service or promotion, as the card's disadvantages note."
+                }
             },
             {
                 title: "Penetration Pricing",
@@ -283,7 +307,13 @@
       <div class="con-item">In the short term, it is likely to result in lower profits (or even a loss) compared to if prices were higher.</div>
       <div class="con-item">It can be difficult to raise the selling price in the future without upsetting customers.</div>
       </div>
-      </div>`
+      </div>`,
+                readCheck: {
+                    q: "Penetration pricing involves setting a price that is...",
+                    opts: ["below rivals to enter a crowded market, then raised", "above competitors to signal premium quality", "identical to competitors to avoid losing customers", "below cost permanently to eliminate all rivals"],
+                    ans: 0,
+                    explain: "Penetration pricing means pricing below rivals to 'penetrate' a crowded market, with the price raised once the business is established."
+                }
             },
             {
                 title: "Price Skimming",
@@ -300,7 +330,13 @@
       <div class="con-item">Cannot last long as the high profits will quickly attract competitors to create rival products.</div>
       <div class="con-item">Sales volume is slower because the product is expensive and many customers cannot afford it.</div>
       </div>
-      </div>`
+      </div>`,
+                readCheck: {
+                    q: "Price skimming is most suitable for a business that has...",
+                    opts: ["a new, highly technical product facing no rivals yet", "an old product it needs to clear from stock", "identical products to lots of competitors", "a product aimed at very price-sensitive customers"],
+                    ans: 0,
+                    explain: "The card explains skimming is used when a business introduces a new, unique or highly technical product clearly superior to competitors."
+                }
             },
             {
                 title: "Promotional Pricing & Loss Leaders",
@@ -320,7 +356,13 @@
       <div class="con-item">Customers may get used to the cheap prices and refuse to buy the product when it returns to full price.</div>
       <div class="con-item">Too many sales can damage the brand's reputation and premium image.</div>
       </div>
-      </div>`
+      </div>`,
+                readCheck: {
+                    q: "What defines a 'loss leader'?",
+                    opts: ["A product sold below cost to draw customers into the shop", "A product sold at exactly its cost price to break even", "Any product included in a seasonal sale", "The best-selling product in a shop"],
+                    ans: 0,
+                    explain: "The card defines a loss leader as a product deliberately sold at a price below its cost to make, hoping customers buy other profitable items too."
+                }
             }
         ];
 
@@ -577,19 +619,43 @@
         const miscData = [
             {
                 wrong: "Students confuse Penetration Pricing and Price Skimming.",
-                correct: "PENETRATION = Start LOW to break into a market, then raise later. SKIMMING = Start HIGH to maximise profit on a new invention, then drop later as it ages."
+                correct: "PENETRATION = Start LOW to break into a market, then raise later. SKIMMING = Start HIGH to maximise profit on a new invention, then drop later as it ages.",
+                readCheck: {
+                    q: "Which correctly distinguishes penetration pricing from price skimming?",
+                    opts: ["Penetration starts LOW; skimming starts HIGH on new items", "Penetration starts HIGH to maximise profit; skimming starts LOW to break into a market", "Both strategies start high and lower the price over time", "Both strategies start low and raise the price over time"],
+                    ans: 0,
+                    explain: "As the card clarifies, PENETRATION starts LOW to break in, while SKIMMING starts HIGH on a new invention and drops later."
+                }
             },
             {
                 wrong: "Students think Price Skimming means dropping the price to look like a bargain.",
-                correct: "Examiners note this is a massive misconception. The value of skimming is NOT to drop the price later to look like a bargain. The value is charging a massive premium AT THE START to maximize financial returns from customers who want to be the first to own a superior product."
+                correct: "Examiners note this is a massive misconception. The value of skimming is NOT to drop the price later to look like a bargain. The value is charging a massive premium AT THE START to maximize financial returns from customers who want to be the first to own a superior product.",
+                readCheck: {
+                    q: "According to the exam-note correction, what is the real value of price skimming?",
+                    opts: ["Charging a premium at the start to maximise early returns", "Dropping the price immediately to make it look like a bargain", "Matching competitor prices from day one", "Selling below cost to build a customer base quickly"],
+                    ans: 0,
+                    explain: "The card corrects the misconception: skimming's value comes from charging a high price AT THE START, not from dropping it later to look cheap."
+                }
             },
             {
                 wrong: "Students think Cost-Plus pricing always results in high prices, making it unpopular.",
-                correct: "Cost-plus only results in high prices if the business demands a massive percentage mark-up. Its actual flaw is that it ignores the market—it could accidentally set a price much lower than customers are willing to pay, or slightly higher than a rival."
+                correct: "Cost-plus only results in high prices if the business demands a massive percentage mark-up. Its actual flaw is that it ignores the market—it could accidentally set a price much lower than customers are willing to pay, or slightly higher than a rival.",
+                readCheck: {
+                    q: "What is the real flaw of cost-plus pricing, as opposed to the misconception that it 'always results in high prices'?",
+                    opts: ["It ignores the market, risking too low a price", "It is illegal to use in competitive markets", "It guarantees a financial loss on every sale", "It cannot be used by manufacturing businesses"],
+                    ans: 0,
+                    explain: "The card explains cost-plus only leads to high prices with a large mark-up; its actual flaw is ignoring the market and rival prices entirely."
+                }
             },
             {
                 wrong: "For 'analyse' questions, students write impacts on the customer instead of the business.",
-                correct: "If the question says 'Analyse one advantage to Shinz Ltd', you must state how the pricing method impacts the BUSINESS (e.g. increased revenue, higher profit margin, improved cash flow). Saying 'the customer saves money' scores zero for analysis."
+                correct: "If the question says 'Analyse one advantage to Shinz Ltd', you must state how the pricing method impacts the BUSINESS (e.g. increased revenue, higher profit margin, improved cash flow). Saying 'the customer saves money' scores zero for analysis.",
+                readCheck: {
+                    q: "In an 'Analyse one advantage to [Business]' pricing question, what must the analysis point focus on?",
+                    opts: ["The impact on the business, e.g. more revenue", "The impact on the customer, e.g. money saved", "The impact on the government", "The impact on the environment"],
+                    ans: 0,
+                    explain: "The card warns that stating 'the customer saves money' scores zero; the analysis must show impact on the BUSINESS, such as revenue or cash flow."
+                }
             }
         ];
 
@@ -600,7 +666,13 @@
                 content: `<p>Structure: Understanding of the method (1) &rarr; Application to the business (1) &rarr; Business-facing impact (1).</p>
       <p><strong>Example (Cost-plus for a Salon):</strong> "Cost-plus pricing ensures that the price always exceeds the costs of the business (U). By adding a mark-up to the wages of the new employees (APP), the salon guarantees that a profit is made on every haircut, avoiding a financial loss (AN)."</p>
       <p><strong>Warning:</strong> Do NOT explain *what* the method is (e.g. "Cost-plus is when you add profit to costs"). You must state a specific <em>advantage</em> or <em>disadvantage</em> to gain the first mark.</p>`,
-                pills: ["un", "app", "an"]
+                pills: ["un", "app", "an"],
+                readCheck: {
+                    q: "In a 3-mark 'Analyse' pricing question, what must you avoid doing if you want to gain the first mark?",
+                    opts: ["Just explaining the method, without an advantage or flaw", "Applying your answer to the case study business", "Stating a specific advantage or disadvantage of the method", "Concluding with a financial impact on the business"],
+                    ans: 0,
+                    explain: "The tip warns not to just explain what the method is (e.g. 'cost-plus is when...') — you must state a specific advantage or disadvantage to gain the first mark."
+                }
             },
             {
                 type: "Evaluate (7 marks)",
@@ -608,7 +680,13 @@
                 content: `<p>If asked to evaluate the importance of price (e.g., Currys case study), you must weigh price against other factors.</p>
       <p><strong>Yes, it is important:</strong> In markets like technology, products are identical (a Samsung TV is the same everywhere). Consumers use the internet to easily compare prices. Without competitive pricing, Currys will lose sales.</p>
       <p><strong>No, other things matter:</strong> Quality of customer service (technical advice), the brand reputation, or the convenience of the store location might be more important to certain customers than saving a few pounds.</p>`,
-                pills: ["app", "an", "eval"]
+                pills: ["app", "an", "eval"],
+                readCheck: {
+                    q: "When evaluating the importance of price for a business like Currys, what should a strong answer do?",
+                    opts: ["Weigh price against service, reputation, or location", "Only discuss why price is the single most important factor and ignore other factors", "Ignore competitor prices entirely", "Focus solely on the cost of manufacturing the product"],
+                    ans: 0,
+                    explain: "The tip states you must weigh price's importance against other factors like customer service and location, not treat price in isolation."
+                }
             },
             {
                 type: "Recommend (3 marks)",
@@ -616,7 +694,13 @@
                 content: `<p>When asked to recommend between two strategies (e.g., Skimming vs Competitor pricing), your justification MUST be <strong>comparative</strong>.</p>
       <p><strong>Bad:</strong> "Shinz Ltd should use competitor pricing because it will attract customers." (No comparison made).</p>
       <p><strong>Good:</strong> "Shinz Ltd should use competitor pricing (1) to ensure potential customers do not go to the rival car wash 5 miles away, whereas skimming would push price-sensitive customers directly to that rival (+2)."</p>`,
-                pills: ["eval"]
+                pills: ["eval"],
+                readCheck: {
+                    q: "When recommending one pricing strategy over another, what must the justification be?",
+                    opts: ["Comparative — the chosen strategy beats the alternative", "A simple restatement of the definition of the strategy", "Focused only on the strategy you did not choose", "Based purely on which strategy is cheapest to implement"],
+                    ans: 0,
+                    explain: "The tip states the justification MUST be comparative, showing why the chosen strategy beats the alternative for that specific business, not just listing a standalone benefit."
+                }
             }
         ];
 
@@ -713,8 +797,13 @@
 
     </script>
     <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
 
 
+<script src="footer-legal.js"></script>
 </body>
 
 </html>

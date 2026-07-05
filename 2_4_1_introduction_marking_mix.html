@@ -214,7 +214,13 @@
         // ══════════════════════════════════════
         //  DATA: 2.4 The Marketing Mix (Introduction)
         // ══════════════════════════════════════
-
+    const pageMeta = {
+        id: '2-4-1-introduction-marking-mix',
+        badge: 'OCR GCSE Business — Component 1',
+        title: '2.4.1 Introduction to Marketing Mix',
+        subtitle: 'Interactive revision guide',
+        subject: 'business',
+    };
         const topics = [
             {
                 title: "What is the Marketing Mix?",
@@ -226,14 +232,26 @@
       <li><strong>Place:</strong> How the product is distributed to the customer (shops, online, wholesalers).</li>
       <li><strong>Promotion:</strong> How the business communicates with customers to encourage them to buy (advertising, special offers).</li>
       </ul>
-      <p>A business must understand each one of these Ps and how they work together to help it successfully sell its products and services. The marketing mix is not a static plan; it must adapt and change as the market and consumer tastes change.</p>`
+      <p>A business must understand each one of these Ps and how they work together to help it successfully sell its products and services. The marketing mix is not a static plan; it must adapt and change as the market and consumer tastes change.</p>`,
+                readCheck: {
+                    q: "Which four elements make up the marketing mix?",
+                    opts: ["Product, Price, Place, Promotion", "Product, Price, Planning, Profit", "Product, Positioning, Place, Promotion", "Packaging, Price, Place, Promotion"],
+                    ans: 0,
+                    explain: "The marketing mix is made up of the 4 Ps: Product, Price, Place, and Promotion."
+                }
             },
             {
                 title: "Market-Orientated vs Product-Orientated",
                 tag: "Business Approaches",
                 content: `<p>Before deciding on the 4 Ps, a business usually adopts one of two approaches:</p>
       <p><strong>Market-orientated business:</strong> A business that bases its marketing mix entirely on sound market research. It finds out what the consumer wants <em>first</em>, and then designs a product to meet those needs. This approach is generally less risky.</p>
-      <p><strong>Product-orientated business:</strong> A business that focuses primarily on the creation and making of the product itself, rather than the needs of the market. They create a great product first and then try to find a market for it. This can be risky, but highly successful for innovative tech companies (e.g., the original Apple iPhone).</p>`
+      <p><strong>Product-orientated business:</strong> A business that focuses primarily on the creation and making of the product itself, rather than the needs of the market. They create a great product first and then try to find a market for it. This can be risky, but highly successful for innovative tech companies (e.g., the original Apple iPhone).</p>`,
+                readCheck: {
+                    q: "Which approach involves a business researching what consumers want first, before designing the product?",
+                    opts: ["Market-orientated", "Product-orientated", "Cost-orientated", "Sales-orientated"],
+                    ans: 0,
+                    explain: "A market-orientated business bases its marketing mix on market research carried out before the product is designed, making it generally less risky."
+                }
             },
             {
                 title: "Case Study: The 'Big Four' Supermarkets",
@@ -244,14 +262,26 @@
       <li><strong>Product:</strong> They offer a wide range of goods (food, clothing, electricals) and specific ranges like 'Taste the Difference' (Sainsbury’s) to appeal to different segments. Budget rivals like Aldi/Lidl have a smaller range, reducing overheads.</li>
       <li><strong>Place:</strong> Providing choice in <em>where</em> to shop. Tesco 'Metro' and Sainsbury’s 'Local' cater to town centres, while massive superstores sit on the outskirts. Home delivery offers another vital distribution channel.</li>
       <li><strong>Promotion:</strong> Spending millions on advertising to tell customers about new offers and stay one step ahead of the competition.</li>
-      </ul>`
+      </ul>`,
+                readCheck: {
+                    q: "In the supermarkets case study, Tesco 'Metro' and Sainsbury's 'Local' stores catering to town centres, alongside outskirt superstores and home delivery, illustrate which element of the marketing mix?",
+                    opts: ["Place", "Product", "Price", "Promotion"],
+                    ans: 0,
+                    explain: "Offering different store formats and delivery options is about distribution channels, which is the 'Place' element of the marketing mix."
+                }
             },
             {
                 title: "How the 4 Ps Work Together (Integration)",
                 tag: "Analysis",
                 content: `<p>The 4 Ps cannot be planned in isolation; they are <strong>interdependent</strong>. If one changes, the others must often change to match it.</p>
       <p>For example, if a business decides to create a highly innovative, premium quality item (<strong>Product</strong>), it will likely need to charge a high <strong>Price</strong> to cover expensive materials and portray a luxury image. It will need to distribute the item in high-end, exclusive locations (<strong>Place</strong>), and advertise in luxury magazines rather than cheap leaflets (<strong>Promotion</strong>).</p>
-      <p>If the mix is confused (e.g., a premium luxury product sold in a budget discount store), customers will be confused, and the product will likely fail.</p>`
+      <p>If the mix is confused (e.g., a premium luxury product sold in a budget discount store), customers will be confused, and the product will likely fail.</p>`,
+                readCheck: {
+                    q: "Why must the 4 Ps of the marketing mix be planned together rather than in isolation?",
+                    opts: ["Because they are interdependent, changes affect the others", "Because the law requires all four to be identical", "Because only Price and Promotion actually affect sales", "Because customers only ever notice the Product and Price"],
+                    ans: 0,
+                    explain: "The 4 Ps are interdependent — for example, a premium Product needs a high Price, exclusive Place, and upmarket Promotion to avoid confusing customers."
+                }
             }
         ];
 
@@ -350,15 +380,33 @@
         const miscData = [
             {
                 wrong: "Students often think 'Place' means the location where the product is manufactured (e.g., the factory).",
-                correct: "'Place' refers specifically to DISTRIBUTION CHANNELS — how the product gets from the business to the consumer. This could be a physical retail shop, a wholesaler, or an e-commerce website."
+                correct: "'Place' refers specifically to DISTRIBUTION CHANNELS — how the product gets from the business to the consumer. This could be a physical retail shop, a wholesaler, or an e-commerce website.",
+                readCheck: {
+                    q: "What does 'Place' actually refer to in the marketing mix?",
+                    opts: ["The distribution channels reaching the consumer", "The location where the product is manufactured", "The design of the shop window display", "The head office address of the business"],
+                    ans: 0,
+                    explain: "'Place' means distribution channels — e.g. a physical shop, a wholesaler, or a website — not the factory where the product is made."
+                }
             },
             {
                 wrong: "Students think the 4 Ps are chosen independently and don't affect each other.",
-                correct: "The 4 Ps are highly INTERDEPENDENT. If you change your product to make it more luxurious, you must also change your price (increase it), place (exclusive shops), and promotion (high-end magazines) to match."
+                correct: "The 4 Ps are highly INTERDEPENDENT. If you change your product to make it more luxurious, you must also change your price (increase it), place (exclusive shops), and promotion (high-end magazines) to match.",
+                readCheck: {
+                    q: "If a business makes its product more luxurious, what does the idea of an 'interdependent' marketing mix suggest it should also do?",
+                    opts: ["Adjust price, place and promotion to match the new positioning", "Keep price, place and promotion exactly the same to save costs", "Only change promotion, since customers only respond to adverts", "Lower the price to attract more customers to the new product"],
+                    ans: 0,
+                    explain: "Because the 4 Ps are interdependent, making the product more luxurious means price, place and promotion must also change to match, e.g. a higher price and exclusive shops."
+                }
             },
             {
                 wrong: "Students assume that a product-orientated business will always fail because they don't do market research first.",
-                correct: "While riskier, product-orientated businesses can be massively successful if they create a highly innovative product that consumers didn't even know they wanted yet (e.g., the first smartphones or early tech inventions)."
+                correct: "While riskier, product-orientated businesses can be massively successful if they create a highly innovative product that consumers didn't even know they wanted yet (e.g., the first smartphones or early tech inventions).",
+                readCheck: {
+                    q: "Which statement about product-orientated businesses is most accurate?",
+                    opts: ["They can be highly successful with a truly innovative product", "They always fail because they skip market research entirely", "They are only ever used by budget supermarkets", "They can never be profitable in the long term"],
+                    ans: 0,
+                    explain: "Product-orientated businesses are riskier but can succeed spectacularly with highly innovative products, as seen with early smartphones."
+                }
             }
         ];
 
@@ -369,21 +417,39 @@
                 content: `<p>In multiple choice questions, examiners love testing your understanding of 'Place'.</p>
       <p>Always remember: Place = <strong>Distribution Channels</strong>.</p>
       <p>If you see options about factories, warehouses, or ordering raw materials, ignore them. Look for words like 'digital distribution', 'retailers', or 'wholesalers'.</p>`,
-                pills: ["K"]
+                pills: ["K"],
+                readCheck: {
+                    q: "In a multiple-choice question about 'Place', which type of answer option should you avoid selecting?",
+                    opts: ["Options describing factories, warehouses or ordering raw materials", "Options describing wholesalers", "Options describing digital distribution channels such as websites", "Options describing retailers"],
+                    ans: 0,
+                    explain: "Place = distribution channels, so factory, warehouse and raw-material options are distractors testing production, not distribution."
+                }
             },
             {
                 type: "Concept Link",
                 title: "Linking the Mix to the Target Market",
                 content: `<p>When devising a marketing mix, it must always link back to the <strong>target market</strong> (from Unit 2.3).</p>
       <p>If an exam scenario says the target market is 'low-income teenagers', every part of your suggested 4 Ps must match that demographic: low price, digital promotion (social media), modern design, and online/accessible place.</p>`,
-                pills: ["un", "app"]
+                pills: ["un", "app"],
+                readCheck: {
+                    q: "If an exam case study describes the target market as 'low-income teenagers', what should your suggested marketing mix include?",
+                    opts: ["A low price, digital promotion, and accessible place", "A high price and exclusive, luxury store locations", "Premium packaging with print magazine adverts only", "A focus on Price alone, ignoring the other three Ps"],
+                    ans: 0,
+                    explain: "Every part of the 4 Ps must link back to the target market, so 'low-income teenagers' calls for low price, digital promotion, and accessible place."
+                }
             },
             {
                 type: "Evaluate (9 marks)",
                 title: "Creating a Marketing Mix",
                 content: `<p>For high tariff questions, you may be asked to evaluate a proposed marketing mix or recommend one.</p>
       <p>To score top marks, you must explicitly state how the parts of the mix <strong>work together</strong>. Don't just list a price and a promotion separately. Explain <em>why</em> that specific price supports that specific promotion method.</p>`,
-                pills: ["an", "eval"]
+                pills: ["an", "eval"],
+                readCheck: {
+                    q: "To achieve top marks in a high-tariff (9 mark) question evaluating a marketing mix, what must you explicitly do?",
+                    opts: ["Explain how the mix's parts work together, not separately", "List as many possible prices and promotions as you can", "Focus only on describing the Product element in detail", "Describe the business's history and background"],
+                    ans: 0,
+                    explain: "Top marks require explicitly explaining why a specific price supports a specific promotion, showing the mix works together rather than just listing the Ps separately."
+                }
             }
         ];
 
@@ -454,7 +520,12 @@
 
     </script>
     <script src="script.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="topic-guard.js"></script>
     
-    </body>
+    <script src="footer-legal.js"></script>
+</body>
     
     </html>
