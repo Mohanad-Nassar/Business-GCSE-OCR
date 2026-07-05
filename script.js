@@ -587,13 +587,13 @@ function redoWrongAnswers(section) {
         mcqScore = 0; mcqTotal = 0;
         const wrap = document.getElementById('mcqWrap');
         if (wrap) wrap.innerHTML = '';
-        buildMCQ(); // recounts from the remaining (correct) answers
+        buildMCQ(true); // recounts from the remaining (correct) answers, only showing the ones left to retry
         ProgressStore.save(pid, 'mcq', mcqScore, mcqData.length);
     } else {
         tfScore = 0; tfTotal = 0;
         const wrap = document.getElementById('tfWrap');
         if (wrap) wrap.innerHTML = '';
-        buildTF();
+        buildTF(true);
         ProgressStore.save(pid, 'tf', tfScore, tfData.length);
     }
     if (typeof _gamUpdateHud === 'function') _gamUpdateHud();
@@ -1424,13 +1424,29 @@ function applyMCQAnswered(block, qi, chosenOi) {
     }
 }
 
-function buildMCQ() {
+function buildMCQ(retryOnly = false) {
     const wrap = document.getElementById('mcqWrap');
     if (!wrap) return;
     const saved = ProgressStore.get(getPageId(), 'mcq');
     const savedAnswers = ProgressStore.getAnswers(getPageId(), 'mcq');
 
     mcqData.forEach((q, qi) => {
+        // Restore previously answered state (old format: bare option index;
+        // new format: { oi, correct } so the server log gets is_correct).
+        // Keyed by the question's stable id so shuffles can't misalign it.
+        const key = _stableQi(mcqData, qi);
+        const hasSaved = savedAnswers && savedAnswers[key] !== undefined;
+
+        if (hasSaved) {
+            const v = savedAnswers[key];
+            const chosenOi = (v !== null && typeof v === 'object') ? v.oi : v;
+            mcqTotal++;
+            if (chosenOi === mcqData[qi].ans) mcqScore++;
+            // Retry mode only renders the questions still needing an
+            // answer, so students aren't hunting through already-correct ones.
+            if (retryOnly) return;
+        }
+
         const block = document.createElement('div');
         block.className = 'q-block';
         block.innerHTML = `<div class="q-num">QUESTION ${qi + 1}</div><div class="q-text">${q.q}</div>
@@ -1438,16 +1454,10 @@ function buildMCQ() {
 <div class="q-feedback" id="qfb-${qi}"></div>`;
         wrap.appendChild(block);
 
-        // Restore previously answered state (old format: bare option index;
-        // new format: { oi, correct } so the server log gets is_correct).
-        // Keyed by the question's stable id so shuffles can't misalign it.
-        const key = _stableQi(mcqData, qi);
-        if (savedAnswers && savedAnswers[key] !== undefined) {
+        if (hasSaved) {
             const v = savedAnswers[key];
             const chosenOi = (v !== null && typeof v === 'object') ? v.oi : v;
             applyMCQAnswered(block, qi, chosenOi);
-            mcqTotal++;
-            if (chosenOi === mcqData[qi].ans) mcqScore++;
         }
     });
 
@@ -1516,6 +1526,7 @@ function injectMatchSizePicker() {
     if (document.getElementById('matchSizePicker')) return;
     const scoreBar = getMatchScoreBar();
     if (!scoreBar) return;
+    const T = getSubjectTheme();
 
     const wrapper = document.createElement('div');
     wrapper.style.cssText = 'display:flex;align-items:center;gap:6px;';
@@ -1529,13 +1540,13 @@ function injectMatchSizePicker() {
     sel.id = 'matchSizePicker';
     sel.style.cssText = `
         appearance:none; -webkit-appearance:none;
-        background:var(--surface2); border:1.5px solid var(--border);
+        background:${T.surface2}; border:1.5px solid var(--border);
         border-radius:6px; padding:5px 10px;
         font-family:'DM Mono',monospace; font-size:11px; font-weight:600;
-        color:var(--accent2); cursor:pointer; outline:none;
+        color:${T.accentHl}; cursor:pointer; outline:none;
         transition:border-color .15s;
     `;
-    sel.addEventListener('focus', () => sel.style.borderColor = 'var(--accent2)');
+    sel.addEventListener('focus', () => sel.style.borderColor = T.accentHl);
     sel.addEventListener('blur',  () => sel.style.borderColor = 'var(--border)');
 
     // Build options: Auto, then 4 up to matchData.length-1 (always leave at least 1 in round 2)
@@ -1579,6 +1590,7 @@ function rebuildMatchHeader() {
 // Called AFTER buildMatchRound so matchLeft exists in the DOM
 function injectMatchHeader() {
     if (document.getElementById('matchRoundHeader')) return;
+    const T = getSubjectTheme();
 
     const r1count = getMatchRoundData(1).length;
     const r2count = getMatchRoundData(2).length;
@@ -1587,7 +1599,7 @@ function injectMatchHeader() {
     const header = document.createElement('div');
     header.id = 'matchRoundHeader';
     header.style.cssText = `
-        background:var(--surface2);
+        background:${T.surface2};
         border:1px solid var(--border);
         border-radius:10px;
         padding:16px 20px;
@@ -1598,7 +1610,7 @@ function injectMatchHeader() {
     `;
     header.innerHTML = `
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-            <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--accent2);letter-spacing:.12em;text-transform:uppercase;">🃏 Matching — 2 Rounds</span>
+            <span style="font-family:'DM Mono',monospace;font-size:11px;color:${T.accentHl};letter-spacing:.12em;text-transform:uppercase;">🃏 Matching — 2 Rounds</span>
             <span id="matchRoundLabel" style="font-family:'DM Mono',monospace;font-size:11px;color:var(--mid);letter-spacing:.08em;">Currently on Round 1 of 2</span>
         </div>
         <div>
@@ -1607,21 +1619,21 @@ function injectMatchHeader() {
                 <span id="matchOverallLabel" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);">0 / ${total}</span>
             </div>
             <div style="background:var(--border);border-radius:99px;height:10px;overflow:hidden;">
-                <div id="matchBarOverall" style="height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--gold));border-radius:99px;transition:width .4s ease;"></div>
+                <div id="matchBarOverall" style="height:100%;width:0%;background:linear-gradient(90deg,${T.accent},${T.accentHl});border-radius:99px;transition:width .4s ease;"></div>
             </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px;">
             <div style="display:flex;align-items:center;gap:10px;">
                 <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);width:60px;flex-shrink:0;">Round 1</span>
                 <div style="flex:1;background:var(--border);border-radius:99px;height:7px;overflow:hidden;">
-                    <div id="matchBar1" style="height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:99px;transition:width .4s ease;"></div>
+                    <div id="matchBar1" style="height:100%;width:0%;background:linear-gradient(90deg,${T.accent},${T.accentHl});border-radius:99px;transition:width .4s ease;"></div>
                 </div>
                 <span id="matchBarLabel1" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);width:40px;text-align:right;">0/${r1count}</span>
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
                 <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);width:60px;flex-shrink:0;">Round 2</span>
                 <div style="flex:1;background:var(--border);border-radius:99px;height:7px;overflow:hidden;">
-                    <div id="matchBar2" style="height:100%;width:0%;background:linear-gradient(90deg,var(--teal),var(--accent2));border-radius:99px;transition:width .4s ease;opacity:.35;"></div>
+                    <div id="matchBar2" style="height:100%;width:0%;background:linear-gradient(90deg,var(--teal),${T.accentHl});border-radius:99px;transition:width .4s ease;opacity:.35;"></div>
                 </div>
                 <span id="matchBarLabel2" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);width:40px;text-align:right;">0/${r2count}</span>
             </div>
@@ -1672,6 +1684,7 @@ function updateMatchProgress(round) {
 
 // ── Celebration overlay
 function showMatchCelebration() {
+    const T = getSubjectTheme();
     if (!document.getElementById('matchCelebStyles')) {
         const s = document.createElement('style');
         s.id = 'matchCelebStyles';
@@ -1722,7 +1735,7 @@ function showMatchCelebration() {
     card.style.cssText = `
         position:fixed; top:50%; left:50%;
         transform:translate(-50%,-50%);
-        background:var(--surface2); border:2px solid var(--accent2);
+        background:${T.overlayCard}; border:2px solid ${T.accentHl};
         border-radius:16px; padding:36px 40px; text-align:center;
         z-index:10002; min-width:280px; max-width:90vw;
         box-shadow:0 24px 60px rgba(0,0,0,.6), 0 0 0 1px rgba(82,183,136,.2);
@@ -1734,10 +1747,10 @@ function showMatchCelebration() {
     const r2 = getMatchRoundData(2).length;
     card.innerHTML = `
         <div style="font-size:52px;margin-bottom:12px;animation:celebFloat 1.8s ease-in-out infinite;">🎉</div>
-        <div style="font-family:'Merriweather',serif;font-size:22px;font-weight:700;color:var(--accent2);margin-bottom:8px;">
+        <div style="font-family:'Merriweather',serif;font-size:22px;font-weight:700;color:${T.accentHl};margin-bottom:8px;">
             ${perfect ? 'Perfect Score!' : 'All Matched!'}
         </div>
-        <div style="font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text-dim);margin-bottom:6px;line-height:1.6;">
+        <div style="font-family:'DM Sans',sans-serif;font-size:14px;color:${T.textDim};margin-bottom:6px;line-height:1.6;">
             ${perfect
                 ? 'You matched every pair first time — amazing work! 🌟'
                 : `You got there! ${matchMistakes.size} pair${matchMistakes.size>1?'s':''} needed a second try.`}
@@ -1746,8 +1759,8 @@ function showMatchCelebration() {
             ${r1} pairs · Round 1 &nbsp;+&nbsp; ${r2} pairs · Round 2
         </div>
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-            <button id="celebDismiss" style="background:var(--accent);color:var(--text);border:none;border-radius:8px;padding:10px 22px;font-family:'DM Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.06em;">✓ Done</button>
-            <button id="celebReset" style="background:transparent;color:var(--text-dim);border:1.5px solid var(--border);border-radius:8px;padding:10px 22px;font-family:'DM Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.06em;">🔄 Play Again</button>
+            <button id="celebDismiss" style="background:${T.accent};color:${T.accentText};border:none;border-radius:8px;padding:10px 22px;font-family:'DM Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.06em;">✓ Done</button>
+            <button id="celebReset" style="background:transparent;color:${T.textDim};border:1.5px solid var(--border);border-radius:8px;padding:10px 22px;font-family:'DM Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.06em;">🔄 Play Again</button>
         </div>
     `;
 
@@ -2684,27 +2697,37 @@ function applyTFAnswered(card, i, chosenVal) {
     return correct;
 }
 
-function buildTF() {
+function buildTF(retryOnly = false) {
     const wrap = document.getElementById('tfWrap');
     if (!wrap) return;
     const savedAnswers = ProgressStore.getAnswers(getPageId(), 'tf');
 
     tfData.forEach((item, i) => {
+        // Restore saved answer (old format: bare boolean; new format:
+        // { val, correct } so the server log gets is_correct).
+        // Keyed by the statement's stable id so shuffles can't misalign it.
+        const key = _stableQi(tfData, i);
+        const savedVal = savedAnswers && savedAnswers[key];
+        const hasSaved = savedAnswers && savedAnswers[key] !== undefined;
+
+        if (hasSaved) {
+            const chosen = (savedVal !== null && typeof savedVal === 'object') ? savedVal.val : savedVal;
+            const correct = chosen === item.answer;
+            tfTotal++;
+            if (correct) tfScore++;
+            // Retry mode only renders the statements still needing an
+            // answer, so students aren't hunting through already-correct ones.
+            if (retryOnly) return;
+        }
+
         const card = document.createElement('div'); card.className = 'tf-card';
         card.innerHTML = `<div><div class="tf-text">${item.statement}</div><div class="tf-explanation" id="tfExp-${i}">${item.explanation}</div></div>
 <div class="tf-btns"><button class="tf-btn" data-i="${i}" data-val="true">TRUE</button><button class="tf-btn" data-i="${i}" data-val="false">FALSE</button></div>`;
         wrap.appendChild(card);
 
-        // Restore saved answer (old format: bare boolean; new format:
-        // { val, correct } so the server log gets is_correct).
-        // Keyed by the statement's stable id so shuffles can't misalign it.
-        const key = _stableQi(tfData, i);
-        if (savedAnswers && savedAnswers[key] !== undefined) {
-            const v = savedAnswers[key];
-            const chosen = (v !== null && typeof v === 'object') ? v.val : v;
-            const correct = applyTFAnswered(card, i, chosen);
-            tfTotal++;
-            if (correct) tfScore++;
+        if (hasSaved) {
+            const chosen = (savedVal !== null && typeof savedVal === 'object') ? savedVal.val : savedVal;
+            applyTFAnswered(card, i, chosen);
         }
     });
 
