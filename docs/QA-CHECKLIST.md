@@ -15,6 +15,15 @@ Automated logic tests exist too: `python tools/logic_test.py`.
       and a gold **▶ Continue where you left off** card.
 - [ ] Topic cards show progress footers (⚡ XP for untouched, % bar for
       started, 🏆 Complete for finished ones).
+- [ ] First visit on a fresh browser: the onboarding tour auto-shows (dim
+      overlay + gold spotlight ring, 5 steps: HUD → 🔔 bell → topics →
+      example task card → Manage Account); reload the page — it does NOT
+      reopen. Click **❓ Take the tour** next to My Progress — it replays.
+- [ ] 🔔 bell appears in the account bar; after a teacher assigns/marks a
+      task (see Task Manager below) it shows a badge count and the dropdown
+      lists it with a working **Open →** link; ✕ dismisses and the count
+      drops (persists after reload — same `task_notification_reads` row the
+      dashboard's own notification list uses).
 
 **Topic page (pick any 1.x topic)**
 - [ ] HUD at the top; tab bar shows a ring/✓ per activity.
@@ -35,10 +44,26 @@ Automated logic tests exist too: `python tools/logic_test.py`.
 **Student dashboard (dashboard.html)**
 - [ ] Continue card at top; tasks table (if any) shows due-soon dates in
       red/amber; "Topics to Review" rows link to topic pages ("Revise →").
+- [ ] 🔔 bell shows in the account bar (top of header); dismissing a
+      notification here also removes it from the bell dropdown (and vice
+      versa) without a page reload needed on the second page.
+
+**Manage Account (manage-account.html)**
+- [ ] Reachable from the account bar/site nav on index.html, a topic page,
+      and dashboard.html. Account tab shows username, "Student", member-since
+      date, and your class(es) with the correct teacher name.
+- [ ] Password tab: mismatched passwords and passwords under 8 characters
+      are rejected with a message, not silently. A valid change succeeds;
+      log out and log back in with the NEW password to confirm it stuck.
+- [ ] A teacher visiting `manage-account.html` directly is redirected to
+      `teacher-dashboard.html` (this page is student-only).
 
 **Mobile width (narrow the window to ~380px)**
 - [ ] Header nav, HUD chips and tab bar wrap/scroll sensibly; the two
       circular buttons bottom-right don't overlap content.
+- [ ] Bell dropdown becomes a full-width bottom sheet rather than clipping
+      off-screen; on task.html the fixed bottom-right bell doesn't overlap
+      the sticky header/timer pill.
 
 ## Teacher flow
 

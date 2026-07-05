@@ -26,6 +26,7 @@ or Netlify accounts). Follow these steps in order.
 10. **Then run [`supabase/topic-access-schema.sql`](supabase/topic-access-schema.sql)**. Adds per-class topic locking (open / manual / sequential), student "please open this topic" requests, and per-student unlock grants — managed from the Teacher Dashboard's **🔒 Topic Access** tab. Also safe to re-run.
 11. **Then run [`supabase/class-flow-settings.sql`](supabase/class-flow-settings.sql)** (after `topic-access-schema.sql`). Adds the per-class learning-flow settings behind the same **🔒 Topic Access** tab: whether activities inside a topic unlock in order or freely, whether students see one question/card at a time, and the reading-time / after-answer timers (defaults: free order, one-at-a-time, 10s + 10s). Also safe to re-run.
 12. **Then run [`supabase/ai-marking.sql`](supabase/ai-marking.sql)**. Adds `task_answer_suggestions`, a teacher-only table Gemini's AI marking suggestions are written to — kept separate from `task_answers` (which students can read their own rows of) so a suggestion is never visible to a student before the teacher reviews and saves it. Needed for the "AI marking" feature in step 9 below. Also safe to re-run.
+13. **Then run [`supabase/student-account.sql`](supabase/student-account.sql)**. Adds `get_my_classes()`, which powers the "My Classes" list (class name + teacher's name) on the student-facing `manage-account.html` page. Also safe to re-run.
 
 ## 3. Add your teacher invite code
 
@@ -118,6 +119,27 @@ Existing tasks are unaffected by rebuilds (each task snapshots its questions in 
    (click again to top up a longer queue).
 6. If the Marking queue shows "Add GEMINI_API_KEY in Netlify", the key isn't set in Netlify's
    environment variables yet â€” see step 2 above.
+
+## 10. Notifications bell, onboarding tour & Manage Account
+
+1. Run `supabase/student-account.sql` (step 2.13 above) if you haven't already â€” needed for the
+   "My Classes" list on the new Manage Account page.
+2. No other setup â€” these three pieces are pure front-end + the RPC above:
+   - **Notification bell** (`notifications-shared.js`): a ðŸ”” in the site nav / account bar (fixed
+     bottom-right on `task.html`) on every student-facing page. Shows the same "task assigned /
+     due soon / overdue / marked" notices that used to only appear on `dashboard.html`'s "My Tasks"
+     list (that list still works too â€” both read the same `task_notification_reads` table, so
+     dismissing one dismisses it everywhere).
+   - **Onboarding tour** (`onboarding-tour.js`, `index.html` only): a 5-step guided walkthrough shown
+     automatically the first time a student account loads the home page on a given browser
+     (`localStorage` flag `gcse_onboarding_tour_seen_v1`). A "â“ Take the tour" link next to
+     "My Progress" replays it any time.
+   - **Manage Account** (`manage-account.html`): account details (username, member-since, classes +
+     teacher) and a password-change form (calls Supabase's own `auth.updateUser()` directly â€” no new
+     Netlify function). Linked from the account bar/site nav on every student page.
+3. Test as a student: confirm the bell shows a badge after a teacher assigns/marks a task, the tour
+   appears once on a fresh browser profile then not again, and a password change round-trips (log
+   out, log back in with the new password).
 
 ## Notes
 

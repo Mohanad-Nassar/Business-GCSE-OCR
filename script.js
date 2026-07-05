@@ -262,7 +262,7 @@ function _gcseInjectAccountBar() {
         wrap.style.cssText = 'display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;';
         wrap.innerHTML = `
             <span class="sn-user">Hi, <strong>${_gcseProfile.username || 'teacher'}</strong></span>
-            ${_gcseProfile.role === 'teacher' ? '<a href="teacher-dashboard.html" class="sn-link"><span aria-hidden="true">🧑‍🏫</span> <span class="sn-label">Teacher Dashboard</span></a>' : ''}
+            ${_gcseProfile.role === 'teacher' ? '<a href="teacher-dashboard.html" class="sn-link"><span aria-hidden="true">🧑‍🏫</span> <span class="sn-label">Teacher Dashboard</span></a>' : '<a href="manage-account.html" class="sn-link"><span aria-hidden="true">⚙</span> <span class="sn-label">Manage Account</span></a>'}
             <button type="button" class="sn-btn gcse-logout-btn"><span aria-hidden="true">↪</span> <span class="sn-label">Log out</span></button>`;
         nav.appendChild(wrap);
         wrap.querySelector('.gcse-logout-btn').addEventListener('click', gcseLogout);
@@ -277,7 +277,7 @@ function _gcseInjectAccountBar() {
     bar.className = 'gcse-account-bar';
     bar.innerHTML = `
         <span class="gcse-account-user">Logged in as <strong>${_gcseProfile.username || 'teacher'}</strong></span>
-        ${_gcseProfile.role === 'teacher' ? '<a href="teacher-dashboard.html" class="nav-link">Teacher Dashboard</a>' : ''}
+        ${_gcseProfile.role === 'teacher' ? '<a href="teacher-dashboard.html" class="nav-link">Teacher Dashboard</a>' : '<a href="manage-account.html" class="nav-link">⚙ Manage Account</a>'}
         <button type="button" class="nav-link gcse-logout-btn">Log out</button>
     `;
     header.appendChild(bar);
