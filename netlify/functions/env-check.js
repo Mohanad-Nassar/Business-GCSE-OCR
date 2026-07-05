@@ -7,6 +7,7 @@
 exports.handler = async () => {
     const url = process.env.SUPABASE_URL || '';
     const key = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
+    const geminiKey = process.env.GEMINI_API_KEY || '';
     return {
         statusCode: 200,
         headers: { 'Content-Type': 'application/json' },
@@ -17,9 +18,12 @@ exports.handler = async () => {
             SUPABASE_URL_length: url.length,
             SUPABASE_SERVICE_ROLE_KEY_present: key.length > 0,
             SUPABASE_SERVICE_ROLE_KEY_length: key.length,
-            // Names of ALL env vars that start with SUPABASE (helps spot typos
-            // like SUPABASE_SERVICE_KEY). Names only — no values.
+            GEMINI_API_KEY_present: geminiKey.length > 0,
+            GEMINI_API_KEY_length: geminiKey.length,
+            // Names of ALL env vars that start with SUPABASE/GEMINI (helps spot
+            // typos like SUPABASE_SERVICE_KEY). Names only — no values.
             supabase_var_names_seen: Object.keys(process.env).filter(n => n.startsWith('SUPABASE')),
+            gemini_var_names_seen: Object.keys(process.env).filter(n => n.startsWith('GEMINI')),
         }, null, 2),
     };
 };
