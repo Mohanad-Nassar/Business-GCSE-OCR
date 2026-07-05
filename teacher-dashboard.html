@@ -216,8 +216,8 @@
 
         <h3 class="subhead">Students <span class="muted">— click a student to open their full dashboard</span></h3>
         <table id="leaderboardTable">
-          <thead><tr><th>Username</th><th>Overall progress</th><th>Answers logged</th><th></th></tr></thead>
-          <tbody id="leaderboardBody"><tr><td colspan="4" class="empty">Loading…</td></tr></tbody>
+          <thead><tr><th>Username</th><th>Level</th><th>Overall progress</th><th>🔥 Streak</th><th>🏅 Badges</th><th>Answers logged</th><th></th></tr></thead>
+          <tbody id="leaderboardBody"><tr><td colspan="7" class="empty">Loading…</td></tr></tbody>
         </table>
       </div>
     </div>
@@ -701,6 +701,7 @@ document.getElementById('guideToggle').addEventListener('click', () => {
 // State for the currently open class.
 let classStudents = [];   // [{ id, username, joined_at }]
 let classSummaries = [];  // raw progress_summary rows for every student in the class
+let classStreaks = {};    // studentId -> { current, longest } (get_class_streaks)
 let classTaskRowsByStudent = {}; // studentId -> [{ task, assignment, attempts }], for struggling-flag detection
 let tvOpenGroups = new Set(); // curriculum group ids currently expanded in the Topic Access tab's visibility list
 
@@ -759,9 +760,28 @@ async function loadClassData() {
     classSummaries = [];
   }
 
+  // Day-streaks for the whole class in one call (see
+  // supabase/class-gamification.sql; streaks just show "–" until it's run).
+  classStreaks = {};
+  if (ids.length) {
+    try {
+      const { data: st, error } = await supabaseClient.rpc('get_class_streaks', { p_class_id: activeClassId });
+      if (!error) (st || []).forEach(r => { classStreaks[r.student_id] = r; });
+    } catch (e) {}
+  }
+
   await loadStrugglingFlags(ids);
   renderClassProgress();
   renderRoster();
+}
+
+
+// The same pure level/XP/badge derivation the student sees, plus their
+// real streak — so teacher and student always agree on the numbers.
+function studentGamStats(studentId) {
+  if (typeof computeGamificationStats !== 'function') return null;
+  const streak = (classStreaks[studentId] || {}).current || 0;
+  return computeGamificationStats(progressForStudent(studentId), streak);
 }
 
 // One extra round-trip per class switch, to power the "needs attention"
@@ -823,32 +843,45 @@ function tile(val, lbl) { return `<div class="tile"><div class="val">${val}</div
 
 function renderClassProgress() {
   const n = classStudents.length;
-  let classDone = 0, classTotal = 0, activeCount = 0;
+  const canGam = typeof computeGamificationStats === 'function';
+  let classDone = 0, classTotal = 0, activeCount = 0, classXp = 0;
+  const gamById = {};
   classStudents.forEach(s => {
     const t = studentTotals(s.id);
     classDone += t.done; classTotal += t.total;
     if (t.done > 0) activeCount++;
+    if (canGam) {
+      gamById[s.id] = studentGamStats(s.id);
+      if (gamById[s.id]) classXp += gamById[s.id].xp;
+    }
   });
   const pct = classTotal ? Math.round(classDone / classTotal * 100) : 0;
 
   document.getElementById('classTiles').innerHTML =
     tile(n, 'Students') + tile(pct + '%', 'Avg completion') +
-    tile(activeCount, 'Started working') + tile(classDone, 'Activities done');
+    tile(activeCount, 'Started working') + tile(classDone, 'Activities done') +
+    (canGam ? tile('⚡ ' + classXp.toLocaleString(), 'Class XP') : '');
 
   renderProgressGrid(document.getElementById('classGridView'), aggregateClassProgress());
 
   const body = document.getElementById('leaderboardBody');
   if (!n) {
-    body.innerHTML = `<tr><td colspan="4" class="empty">No students yet — open the <strong>👥 Students &amp; Logins</strong> tab above to create logins in two clicks.</td></tr>`;
+    body.innerHTML = `<tr><td colspan="7" class="empty">No students yet — open the <strong>👥 Students &amp; Logins</strong> tab above to create logins in two clicks.</td></tr>`;
     return;
   }
   const rows = classStudents.map(s => ({ s, t: studentTotals(s.id) })).sort((a, b) => b.t.pct - a.t.pct);
   body.innerHTML = rows.map(({ s, t }) => {
     const struggle = computeStrugglingFlag(classTaskRowsByStudent[s.id] || []);
+    const g = gamById[s.id];
+    const streak = (classStreaks[s.id] || {}).current || 0;
+    const longest = (classStreaks[s.id] || {}).longest || 0;
     return `
     <tr class="clickable-row" data-id="${s.id}" data-name="${escapeHtml(s.username)}">
       <td class="mono">${escapeHtml(s.username)}${struggle.flag ? `<span class="struggle-badge" title="${escapeHtml(struggle.reason)}">âš  needs attention</span>` : ''}</td>
+      <td class="mono" title="${g ? g.xp.toLocaleString() + ' XP' : ''}">${g ? 'Lv ' + g.level : '–'}</td>
       <td><span class="pct-bar-wrap"><span class="pct-bar-fill" style="width:${t.pct}%"></span></span>${t.total ? t.pct + '%' : '–'}</td>
+      <td class="mono" title="Longest ever: ${longest} day${longest === 1 ? '' : 's'}">${streak ? '🔥 ' + streak : '–'}</td>
+      <td class="mono">${g ? gamificationEarnedBadges(g).length + '/' + BADGE_DEFS.length : '–'}</td>
       <td>${t.done}</td>
       <td><span class="muted">View →</span></td>
     </tr>`;
@@ -975,14 +1008,16 @@ async function viewStudent(studentId, name) {
   // Progress grid is built from data already loaded for the class — instant.
   const prog = progressForStudent(studentId);
   const totals = computeTotals(prog);
-  // Streak needs a per-student server check we don't have (get_my_streak()
-  // only answers for the caller), so this uses 0 — level/XP/badges are
-  // otherwise the same derived stats the student sees on their own dashboard.
-  const gamStats = typeof computeGamificationStats === 'function' ? computeGamificationStats(prog, 0) : null;
+  // Streak comes from get_class_streaks() (loaded with the class) —
+  // level/XP/badges are the same derived stats the student sees on
+  // their own dashboard.
+  const _streak = (classStreaks[studentId] || {}).current || 0;
+  const gamStats = studentGamStats(studentId);
   document.getElementById('studentTiles').innerHTML =
     tile(totals.pct + '%', 'Overall') + tile(totals.grandDone, 'Activities done') +
     tile(totals.pagesStarted, 'Topics started') +
-    (gamStats ? tile('Lv ' + gamStats.level, gamStats.xp + ' XP') +
+    (gamStats ? tile('Lv ' + gamStats.level, gamStats.xp.toLocaleString() + ' XP') +
+      tile('🔥 ' + _streak, 'Day streak') +
       tile(gamificationEarnedBadges(gamStats).length + '/' + BADGE_DEFS.length, 'Badges earned') : '');
   renderProgressGrid(document.getElementById('studentGridView'), prog);
 

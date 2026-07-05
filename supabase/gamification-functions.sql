@@ -59,3 +59,4 @@ begin
 end;
 $$;
 grant execute on function get_my_streak() to authenticated;
+
