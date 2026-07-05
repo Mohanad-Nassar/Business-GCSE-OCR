@@ -288,6 +288,27 @@ redo = json.loads(c2.eval(f"""JSON.stringify({{
 check("redo clears only the wrong answers", redo["keys"] == ["0"], redo)
 check("redo recounts + persists summary (1/3)", redo["summary"]["done"] == 1 and redo["summary"]["total"] == 3 and redo["total"] == 1 and redo["score"] == 1, redo)
 
+# ── stable question ids: 🔀 Randomise must not misalign saved answers ──
+sh = json.loads(c2.eval(f"""JSON.stringify((function(){{
+  mcqData = [
+    {{ q: 'A', opts: ['x','y','z'], ans: 0 }},
+    {{ q: 'B', opts: ['x','y','z'], ans: 1 }},
+    {{ q: 'C', opts: ['x','y','z'], ans: 2 }},
+  ];
+  tagStableQuestionIds();
+  ProgressStore.setAnswersBulk('{pid}', 'mcq', {{ 0: 0, 1: 1, 2: {{ oi: 2, correct: true }} }}); // all correct
+  mcqScore = 0; mcqTotal = 0; buildMCQ();
+  var before = {{ score: mcqScore, total: mcqTotal }};
+  mcqData.reverse(); // what the Randomise button does
+  mcqScore = 0; mcqTotal = 0;
+  _els['mcqWrap'].innerHTML = ''; buildMCQ();
+  var after = {{ score: mcqScore, total: mcqTotal }};
+  return {{ before: before, after: after, keys: Object.keys(ProgressStore.getAnswers('{pid}', 'mcq')) }};
+}})())"""))
+check("answers restore correctly before shuffle (3/3)", sh["before"] == {"score": 3, "total": 3}, sh)
+check("shuffle keeps every answer on its own question (3/3)", sh["after"] == {"score": 3, "total": 3}, sh)
+check("storage keys stay in the original-id space", sorted(sh["keys"]) == ["0", "1", "2"], sh)
+
 # ── guided-flow helpers: mastery completion + activity ordering ──
 flow = json.loads(c2.eval(f"""JSON.stringify((function(){{
   var beforeLearn = sectionIsComplete('learn');

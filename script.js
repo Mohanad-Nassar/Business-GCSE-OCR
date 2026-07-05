@@ -382,6 +382,25 @@ function resolveTabId(canonicalId) {
     return canonicalId; // fallback
 }
 
+// ═══════════════════════════════════════════════════════════════
+// STABLE QUESTION IDS
+// Answers are persisted per question, but the 🔀 Randomise buttons
+// shuffle the data arrays in place — so positional keys would pin old
+// answers onto the wrong questions after a shuffle. Tag every question
+// with its ORIGINAL index once, before anything can reorder it, and key
+// all saves/restores by that. (Same key space as the old positional
+// keys on an unshuffled page, so existing saved data still lines up.)
+// ═══════════════════════════════════════════════════════════════
+function tagStableQuestionIds() {
+    if (typeof mcqData !== 'undefined') mcqData.forEach((q, i) => { if (q._qi == null) q._qi = i; });
+    if (typeof tfData !== 'undefined') tfData.forEach((q, i) => { if (q._qi == null) q._qi = i; });
+    if (typeof fibData !== 'undefined') fibData.forEach((f, i) => { if (f._fi == null) f._fi = i; });
+}
+function _stableQi(arr, i) {
+    const q = arr[i];
+    return q && q._qi != null ? q._qi : i;
+}
+
 // ── TAB SWITCHING ──
 function switchTab(id, btn) {
     // Sequential unlock for students: locked activities bounce with a hint
@@ -546,8 +565,11 @@ function _wrongAnswerKeys(section) {
                : null;
     if (!data || typeof ProgressStore === 'undefined') return [];
     const answers = ProgressStore.getAnswers(getPageId(), section) || {};
+    // Answers are keyed by each question's STABLE id (survives shuffles)
+    const byKey = {};
+    data.forEach((q, i) => { byKey[q._qi != null ? q._qi : i] = q; });
     return Object.keys(answers).filter(k => {
-        const q = data[+k];
+        const q = byKey[k];
         if (!q) return false;
         const v = answers[k];
         if (v !== null && typeof v === 'object') return v.correct === false;
@@ -1417,9 +1439,11 @@ function buildMCQ() {
         wrap.appendChild(block);
 
         // Restore previously answered state (old format: bare option index;
-        // new format: { oi, correct } so the server log gets is_correct)
-        if (savedAnswers && savedAnswers[qi] !== undefined) {
-            const v = savedAnswers[qi];
+        // new format: { oi, correct } so the server log gets is_correct).
+        // Keyed by the question's stable id so shuffles can't misalign it.
+        const key = _stableQi(mcqData, qi);
+        if (savedAnswers && savedAnswers[key] !== undefined) {
+            const v = savedAnswers[key];
             const chosenOi = (v !== null && typeof v === 'object') ? v.oi : v;
             applyMCQAnswered(block, qi, chosenOi);
             mcqTotal++;
@@ -1442,7 +1466,7 @@ function buildMCQ() {
         document.getElementById('mcqTotal').textContent = mcqTotal;
         updateMCQProgress();
         ProgressStore.save(getPageId(), 'mcq', mcqScore, mcqData.length);
-        ProgressStore.saveAnswers(getPageId(), 'mcq', qi, { oi, correct: oi === mcqData[qi].ans });
+        ProgressStore.saveAnswers(getPageId(), 'mcq', _stableQi(mcqData, qi), { oi, correct: oi === mcqData[qi].ans });
     });
     injectMCQProgressBar();
     updateProgressBar('mcq', mcqScore, mcqData.length);
@@ -2397,7 +2421,7 @@ function buildFIB() {
                 if (!ans) return `<em>(see above)</em>`;
                 const opts = [ans, ...distractors.filter(d => d !== ans).slice(0, 3)].sort(() => Math.random() - .5);
                 const optHTML = ['— choose —', ...opts].map(o => `<option value="${o === '— choose —' ? '' : o}">${o}</option>`).join('');
-                return `<span class="blank-select" data-fi="${fi}" data-key="${key}" data-ans="${ans}"><select>${optHTML}</select></span>`;
+                return `<span class="blank-select" data-fi="${fi}" data-sfi="${f._fi != null ? f._fi : fi}" data-key="${key}" data-ans="${ans}"><select>${optHTML}</select></span>`;
             });
             div.innerHTML = html;
         } else {
@@ -2437,7 +2461,7 @@ function buildFIB() {
         if (!isAdvancedFIB) {
             const savedFIB = ProgressStore.getAnswers(getPageId(), 'fib') || {};
             div.querySelectorAll('.blank-select').forEach(wrapper => {
-                const saveKey = `${wrapper.dataset.fi}_${wrapper.dataset.key}`;
+                const saveKey = `${wrapper.dataset.sfi != null ? wrapper.dataset.sfi : wrapper.dataset.fi}_${wrapper.dataset.key}`;
                 const sv = savedFIB[saveKey];
                 const val = (sv !== null && typeof sv === 'object') ? (sv.correct === false ? '' : sv.answer) : sv;
                 if (val) {
@@ -2464,7 +2488,7 @@ function buildFIB() {
                 document.getElementById('fibScore').textContent = fibScore;
                 updateFIBProgress();
                 ProgressStore.save(getPageId(), 'fib', fibScore, fibCorrectTotal);
-                ProgressStore.saveAnswers(getPageId(), 'fib', `${wrapper.dataset.fi}_${wrapper.dataset.key}`, { answer: ans, correct: true });
+                ProgressStore.saveAnswers(getPageId(), 'fib', `${wrapper.dataset.sfi != null ? wrapper.dataset.sfi : wrapper.dataset.fi}_${wrapper.dataset.key}`, { answer: ans, correct: true });
             } else {
                 wrapper.classList.remove('correct'); wrapper.classList.add('wrong');
                 if (typeof gamificationPlaySound === 'function') gamificationPlaySound('wrong');
@@ -2473,7 +2497,7 @@ function buildFIB() {
                 if (typeof _gcseQueueOrSend === 'function') {
                     _gcseQueueOrSend({
                         page_id: getPageId(), section: 'fib',
-                        question_id: `${wrapper.dataset.fi}_${wrapper.dataset.key}`,
+                        question_id: `${wrapper.dataset.sfi != null ? wrapper.dataset.sfi : wrapper.dataset.fi}_${wrapper.dataset.key}`,
                         answer: { answer: chosen, correct: false }, is_correct: false,
                         done: fibScore, total: fibCorrectTotal,
                     });
@@ -2672,9 +2696,11 @@ function buildTF() {
         wrap.appendChild(card);
 
         // Restore saved answer (old format: bare boolean; new format:
-        // { val, correct } so the server log gets is_correct)
-        if (savedAnswers && savedAnswers[i] !== undefined) {
-            const v = savedAnswers[i];
+        // { val, correct } so the server log gets is_correct).
+        // Keyed by the statement's stable id so shuffles can't misalign it.
+        const key = _stableQi(tfData, i);
+        if (savedAnswers && savedAnswers[key] !== undefined) {
+            const v = savedAnswers[key];
             const chosen = (v !== null && typeof v === 'object') ? v.val : v;
             const correct = applyTFAnswered(card, i, chosen);
             tfTotal++;
@@ -2697,7 +2723,7 @@ function buildTF() {
         document.getElementById('tfTotal').textContent = tfTotal;
         updateTFProgress();
         ProgressStore.save(getPageId(), 'tf', tfScore, tfData.length);
-        ProgressStore.saveAnswers(getPageId(), 'tf', i, { val: chosenVal, correct });
+        ProgressStore.saveAnswers(getPageId(), 'tf', _stableQi(tfData, i), { val: chosenVal, correct });
     });
     injectTFProgressBar();
     updateProgressBar('tf', tfScore, tfData.length);
@@ -3372,6 +3398,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSiteNav();
     buildThemeToggle();
     if (typeof courseData !== 'undefined') initCourseSidebar();
+    tagStableQuestionIds();
     injectExampleReadChecks();
     buildLessonBar();
     initTabProgress();
