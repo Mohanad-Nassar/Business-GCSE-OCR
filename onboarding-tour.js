@@ -1,31 +1,48 @@
 // ══════════════════════════════════════════════════════════════
-// NEW-STUDENT ONBOARDING TOUR — index.html only. A 5-step guided
-// walkthrough (HUD → notifications bell → topics → tasks → account),
-// shown automatically once per browser for a student account, with a
-// small "❓ Take the tour" link to replay it any time.
+// NEW-STUDENT ONBOARDING TOUR — a guided walkthrough that spans THREE
+// page types: index.html (welcome/HUD/bell/topics) → dashboard.html
+// (progress/tasks/topics-to-review) → any topic page (tab bar/exam
+// practice/account). Loaded on index.html, dashboard.html and every
+// topic page (like notifications-shared.js) so a step's "Next" button
+// can navigate the browser to a real page and the tour picks back up
+// there — state survives the navigation via localStorage.
 //
-// Loaded after gamification.js and notifications-shared.js (both of
-// which build their DOM synchronously inside a DOMContentLoaded
-// handler registered earlier in the document) so every step's target
-// element already exists by the time this file's own DOMContentLoaded
-// handler runs — no polling needed, unlike notifications-shared.js's
-// async client lookup.
+// Auto-starts once per browser (gcse_onboarding_tour_seen_v1 flag),
+// only from index.html; a "❓ Take the tour" link there replays it.
+// Mid-tour progress lives in gcse_onboarding_tour_state_v1 = {step};
+// any navigation that ISN'T the tour's own "Next" button (closing the
+// tab, clicking something else, going back) clears it via beforeunload,
+// so a stale step never pops up unexpectedly on a later visit.
 //
 // Animation idiom copied from gamification.js's _gamShowTopicCelebration
-// (fade-in overlay via a .show class, role=dialog, Escape/click-outside
-// to close) — kept calmer here (no confetti/sound).
+// (fade-in via a .show class, role=dialog, Escape/click-outside to
+// close) — kept calmer here (no confetti/sound). The spotlight ring is
+// a box-shadow trick (no SVG mask needed).
 // ══════════════════════════════════════════════════════════════
 
 const ONBOARDING_TOUR_FLAG = 'gcse_onboarding_tour_seen_v1';
+const ONBOARDING_STATE_KEY = 'gcse_onboarding_tour_state_v1';
 const ONBOARDING_SESSION_KEY = 'gcse_session_v1';
+const ONBOARDING_FALLBACK_TOPIC = '1_1_role_of_business_enterprise.html';
+
+// An element that's present but display:none (e.g. an empty-state
+// section on a brand-new account) shouldn't be spotlighted — it has no
+// visible position. Falls back to `orEl` (assumed always-visible).
+function _tourVisible(el, orEl) {
+    if (el && el.offsetParent !== null) return el;
+    return orEl || null;
+}
 
 const ONBOARDING_STEPS = [
+    // ── index.html ──
     {
+        page: 'index',
         target: () => document.getElementById('gamHudMount'),
         title: 'Welcome! 👋',
-        body: 'This is your <strong>Level</strong>, <strong>XP</strong> and <strong>🔥 streak</strong> — they grow every time you answer a question. Let’s take a 30-second look around.',
+        body: 'This is your <strong>Level</strong>, <strong>XP</strong> and <strong>🔥 streak</strong> — they grow every time you answer a question. Let’s take a quick look around.',
     },
     {
+        page: 'index',
         target: () => document.querySelector('.gcse-notif-wrap .gcse-notif-btn'),
         title: 'Your notifications 🔔',
         body: 'When a teacher sets you a task or marks your work, it shows up here. For example:',
@@ -36,14 +53,32 @@ const ONBOARDING_STEPS = [
             </div>`,
     },
     {
+        page: 'index',
         target: () => document.querySelector('.gam-continue') || document.querySelector('.topic-card') || document.getElementById('mainContent'),
         title: 'Pick up where you left off',
         body: 'The gold card jumps straight back into your most recent topic, and every topic below is one click away — click any card to start revising.',
     },
     {
+        page: 'index',
         target: () => document.querySelector('.hero-nav a[href="dashboard.html"]'),
-        title: 'Tasks & marks',
-        body: 'When your teacher sets a task, it (and its result once marked) appears on your <strong>Dashboard</strong>. For example:',
+        title: 'Your Dashboard',
+        body: 'Let’s take a look at your Dashboard — your full progress, tasks and scores all live there.',
+        navTo: () => 'dashboard.html',
+        navLabel: 'Go to Dashboard →',
+    },
+
+    // ── dashboard.html ──
+    {
+        page: 'dashboard',
+        target: () => document.querySelector('.summary-strip'),
+        title: 'Your progress at a glance',
+        body: 'This strip totals your answers across every topic — how much you’ve done, and how much is left.',
+    },
+    {
+        page: 'dashboard',
+        target: () => _tourVisible(document.getElementById('tasksSection'), document.querySelector('main')),
+        title: 'Tasks from your teacher',
+        body: 'When your teacher sets a task, it appears here with its due date and status. Once it’s marked, your score shows up too. For example:',
         example: `
             <div class="gcse-tour-example gcse-tour-example-task">
                 <span class="gcse-tour-example-title">Break-even analysis</span>
@@ -51,9 +86,41 @@ const ONBOARDING_STEPS = [
             </div>`,
     },
     {
-        target: () => document.getElementById('manageAccountLink'),
-        title: 'Your account',
-        body: 'Manage your account details and change your password any time from here.',
+        page: 'dashboard',
+        target: () => _tourVisible(document.getElementById('myInsights'), document.getElementById('dashContent')),
+        title: 'Topics to review',
+        body: 'Once you’ve completed a few tasks, we’ll highlight the topics worth revisiting most — lowest scores first.',
+    },
+    {
+        page: 'dashboard',
+        target: () => document.querySelector('#dashContent .page-link'),
+        title: 'Let’s open a topic',
+        body: 'Every topic has its own page — notes, quizzes, matching, and exam practice. Let’s open one and take a look.',
+        navTo: () => {
+            const l = document.querySelector('#dashContent .page-link');
+            return (l && l.getAttribute('href')) || ONBOARDING_FALLBACK_TOPIC;
+        },
+        navLabel: 'Open a topic →',
+    },
+
+    // ── any topic page ──
+    {
+        page: 'topic',
+        target: () => document.getElementById('tabBar'),
+        title: 'Everything for this topic',
+        body: 'Each tab is a different way to revise: notes, quizzes, matching, fill-in-the-blanks and more. Work through them in order, or jump straight to whichever you need.',
+    },
+    {
+        page: 'topic',
+        target: () => document.querySelector('#tabBar button[onclick*="exampractice"]'),
+        title: 'Exam Practice',
+        body: 'This tab has real exam-style questions with full mark schemes — great for checking you’re exam-ready.',
+    },
+    {
+        page: 'topic',
+        target: () => document.querySelector('.site-nav .sn-link[href="manage-account.html"]') || document.getElementById('manageAccountLink'),
+        title: 'You’re all set!',
+        body: 'You can manage your account and change your password any time from here. Happy revising!',
     },
 ];
 
@@ -102,36 +169,90 @@ let _tourOverlay = null;
 let _tourCard = null;
 let _tourSpotlighted = null;
 let _tourOnKey = null;
+let _tourScrollRAF = null;
+let _tourScrollTimer = null;
+let _tourNavigatingAway = false;
+
+function _tourStopTrackingScroll() {
+    if (_tourScrollRAF) cancelAnimationFrame(_tourScrollRAF);
+    if (_tourScrollTimer) clearTimeout(_tourScrollTimer);
+    _tourScrollRAF = null;
+    _tourScrollTimer = null;
+}
+
+// A smooth scrollIntoView animates for a few hundred ms — position the
+// card every frame while that's happening, so it doesn't get measured
+// against the target's PRE-scroll position (the "out of place" bug).
+function _tourTrackScroll(target) {
+    _tourStopTrackingScroll();
+    const tick = () => {
+        _tourPositionCard(target);
+        _tourScrollRAF = requestAnimationFrame(tick);
+    };
+    _tourScrollRAF = requestAnimationFrame(tick);
+    _tourScrollTimer = setTimeout(_tourStopTrackingScroll, 650);
+}
 
 function _tourPositionCard(target) {
     if (!_tourCard) return;
-    const cardRect = { w: 320, h: _tourCard.offsetHeight || 200 };
+    const cardW = 320, cardH = _tourCard.offsetHeight || 200;
+    const margin = 14;
     if (!target) {
+        _tourCard.style.transform = 'translate(-50%,-50%)';
         _tourCard.style.top = '50%';
         _tourCard.style.left = '50%';
-        _tourCard.style.transform = 'translate(-50%,-50%)';
         return;
     }
     _tourCard.style.transform = 'none';
     const r = target.getBoundingClientRect();
-    const margin = 14;
     let top = r.bottom + margin;
-    if (top + cardRect.h > window.innerHeight - margin) top = Math.max(margin, r.top - cardRect.h - margin);
-    let left = Math.min(Math.max(margin, r.left), window.innerWidth - cardRect.w - margin);
+    if (top + cardH > window.innerHeight - margin) top = r.top - cardH - margin;
+    top = Math.min(Math.max(top, margin), Math.max(margin, window.innerHeight - cardH - margin));
+    const left = Math.min(Math.max(margin, r.left), Math.max(margin, window.innerWidth - cardW - margin));
     _tourCard.style.top = top + 'px';
     _tourCard.style.left = left + 'px';
 }
 
-function _tourShowStep(i) {
+function _tourReadState() {
+    try { return JSON.parse(localStorage.getItem(ONBOARDING_STATE_KEY) || 'null'); } catch (e) { return null; }
+}
+function _tourClearState() {
+    try { localStorage.removeItem(ONBOARDING_STATE_KEY); } catch (e) {}
+}
+function _tourSaveState(step) {
+    try { localStorage.setItem(ONBOARDING_STATE_KEY, JSON.stringify({ step })); } catch (e) {}
+}
+
+// Waits (briefly, bounded) for a step's target to exist/become visible
+// before rendering it — covers the async render race on a fresh page
+// load (e.g. dashboard.html's task list, or a topic page's account bar
+// link, both populated after a network round-trip, not at parse time).
+function _tourWaitForTarget(step, cb) {
+    let tries = 0;
+    (function poll() {
+        const t = typeof step.target === 'function' ? step.target() : null;
+        if ((t && t.offsetParent !== null) || ++tries >= 15) return cb();
+        setTimeout(poll, 200);
+    })();
+}
+
+function _tourRenderStep(i) {
     if (_tourSpotlighted) { _tourSpotlighted.classList.remove('gcse-tour-spotlight'); _tourSpotlighted = null; }
+    _tourStopTrackingScroll();
+
     const step = ONBOARDING_STEPS[i];
     const target = typeof step.target === 'function' ? step.target() : null;
     if (target) {
         target.classList.add('gcse-tour-spotlight');
         _tourSpotlighted = target;
         target.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        _tourTrackScroll(target);
     }
+
     const isLast = i === ONBOARDING_STEPS.length - 1;
+    const navUrl = step.navTo ? step.navTo() : null;
+    const nextLabel = navUrl ? (step.navLabel || 'Continue →') : (isLast ? 'Done' : 'Next →');
+
     _tourCard.innerHTML = `
         <div class="gcse-tour-step">Step ${i + 1} of ${ONBOARDING_STEPS.length}</div>
         <div class="gcse-tour-title">${step.title}</div>
@@ -139,20 +260,33 @@ function _tourShowStep(i) {
         ${step.example || ''}
         <div class="gcse-tour-actions">
             <button type="button" class="gcse-tour-skip" id="gcseTourSkip">Skip tour</button>
-            <button type="button" class="gcse-tour-next" id="gcseTourNext">${isLast ? 'Done' : 'Next →'}</button>
+            <button type="button" class="gcse-tour-next" id="gcseTourNext">${nextLabel}</button>
         </div>`;
     _tourCard.querySelector('#gcseTourSkip').addEventListener('click', _tourClose);
     _tourCard.querySelector('#gcseTourNext').addEventListener('click', () => {
+        if (navUrl) {
+            _tourSaveState(i + 1);
+            _tourNavigatingAway = true;
+            location.href = navUrl;
+            return;
+        }
         if (isLast) return _tourClose();
-        _tourIndex++;
-        _tourShowStep(_tourIndex);
+        _tourIndex = i + 1;
+        _tourAdvanceTo(_tourIndex);
     });
     // Position after the card's real height is known (innerHTML just changed).
     requestAnimationFrame(() => _tourPositionCard(target));
 }
 
+function _tourAdvanceTo(i) {
+    _tourIndex = i;
+    _tourWaitForTarget(ONBOARDING_STEPS[i], () => _tourRenderStep(i));
+}
+
 function _tourClose() {
     try { localStorage.setItem(ONBOARDING_TOUR_FLAG, '1'); } catch (e) {}
+    _tourClearState();
+    _tourStopTrackingScroll();
     if (_tourSpotlighted) _tourSpotlighted.classList.remove('gcse-tour-spotlight');
     if (_tourOnKey) document.removeEventListener('keydown', _tourOnKey);
     if (_tourOverlay) {
@@ -163,10 +297,11 @@ function _tourClose() {
     _tourOverlay = null; _tourCard = null; _tourSpotlighted = null;
 }
 
-function gcseStartOnboardingTour() {
+// startIndex lets a resumed tour (arriving on dashboard.html/a topic
+// page mid-flow) open straight at the right step instead of step 0.
+function gcseStartOnboardingTour(startIndex) {
     if (document.getElementById('gcseTourOverlay')) return; // already open
     _tourInjectStyles();
-    _tourIndex = 0;
 
     _tourOverlay = document.createElement('div');
     _tourOverlay.className = 'gcse-tour-overlay';
@@ -189,7 +324,7 @@ function gcseStartOnboardingTour() {
     document.addEventListener('keydown', _tourOnKey);
     _tourOverlay.addEventListener('click', () => _tourClose());
 
-    _tourShowStep(0);
+    _tourAdvanceTo(startIndex || 0);
 }
 
 function _tourInjectReplayLink() {
@@ -200,20 +335,47 @@ function _tourInjectReplayLink() {
     btn.id = 'gcseTourReplayBtn';
     btn.className = 'gcse-tour-replay';
     btn.textContent = '❓ Take the tour';
-    btn.addEventListener('click', gcseStartOnboardingTour);
+    btn.addEventListener('click', () => { _tourClearState(); gcseStartOnboardingTour(0); });
     nav.appendChild(btn);
 }
+
+function _tourDetectPageKind() {
+    if (document.getElementById('tabBar')) return 'topic';
+    const file = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    if (file === 'dashboard.html') return 'dashboard';
+    if (file === '' || file === 'index.html') return 'index';
+    return null;
+}
+
+// Any navigation away from a page that ISN'T the tour's own "Next"
+// button (closing the tab, clicking something else, going back)
+// abandons an in-progress tour rather than leaving a stale step that
+// would pop up unexpectedly on a later, unrelated visit.
+window.addEventListener('beforeunload', () => {
+    if (!_tourNavigatingAway) _tourClearState();
+});
 
 function _tourBoot() {
     let cached;
     try { cached = JSON.parse(localStorage.getItem(ONBOARDING_SESSION_KEY) || 'null'); } catch (e) { cached = null; }
     if (!cached || cached.role !== 'student') return;
 
-    _tourInjectReplayLink();
+    const pageKind = _tourDetectPageKind();
+    if (!pageKind) return;
 
+    const state = _tourReadState();
+    if (state && ONBOARDING_STEPS[state.step] && ONBOARDING_STEPS[state.step].page === pageKind) {
+        gcseStartOnboardingTour(state.step);
+        return;
+    }
+    if (state) _tourClearState(); // stale / landed somewhere unexpected — abandon quietly
+
+    if (pageKind !== 'index') return; // only index.html offers the replay link + auto-starts a fresh tour
+
+    _tourInjectReplayLink();
     let seen = false;
     try { seen = !!localStorage.getItem(ONBOARDING_TOUR_FLAG); } catch (e) {}
-    if (!seen) gcseStartOnboardingTour();
+    if (!seen) gcseStartOnboardingTour(0);
 }
 
 if (document.readyState === 'loading') {
