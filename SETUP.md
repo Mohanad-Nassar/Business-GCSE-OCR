@@ -25,6 +25,7 @@ or Netlify accounts). Follow these steps in order.
 9. **Then run [`supabase/class-gamification.sql`](supabase/class-gamification.sql)**. Adds `get_class_streaks()`, which powers the per-student Level / 🔥 Streak / 🏅 Badges columns teachers see in Class Progress (levels/XP/badges themselves are derived client-side; only streaks need this). Also safe to re-run.
 10. **Then run [`supabase/topic-access-schema.sql`](supabase/topic-access-schema.sql)**. Adds per-class topic locking (open / manual / sequential), student "please open this topic" requests, and per-student unlock grants — managed from the Teacher Dashboard's **🔒 Topic Access** tab. Also safe to re-run.
 11. **Then run [`supabase/class-flow-settings.sql`](supabase/class-flow-settings.sql)** (after `topic-access-schema.sql`). Adds the per-class learning-flow settings behind the same **🔒 Topic Access** tab: whether activities inside a topic unlock in order or freely, whether students see one question/card at a time, and the reading-time / after-answer timers (defaults: free order, one-at-a-time, 10s + 10s). Also safe to re-run.
+12. **Then run [`supabase/ai-marking.sql`](supabase/ai-marking.sql)**. Adds `task_answer_suggestions`, a teacher-only table Gemini's AI marking suggestions are written to — kept separate from `task_answers` (which students can read their own rows of) so a suggestion is never visible to a student before the teacher reviews and saves it. Needed for the "AI marking" feature in step 9 below. Also safe to re-run.
 
 ## 3. Add your teacher invite code
 
@@ -60,7 +61,7 @@ and replace with your actual Project URL and anon key from step 1. (Find-and-rep
    - `SUPABASE_URL` = your Project URL
    - `SUPABASE_SERVICE_ROLE_KEY` = your service_role key (the secret one â€” this is what lets the teacher-dashboard create/delete/reset student logins)
 2. Commit and push these code changes, or trigger a redeploy. Netlify will detect `netlify.toml` and `package.json`, install `@supabase/supabase-js`, and deploy the functions in `netlify/functions/` automatically.
-3. Confirm it worked: **Site â†’ Functions** in the Netlify dashboard should list `teacher-signup`, `generate-students`, `delete-student`, `reset-student-password`, and `weekly-retry-tasks`.
+3. Confirm it worked: **Site â†’ Functions** in the Netlify dashboard should list `teacher-signup`, `generate-students`, `delete-student`, `reset-student-password`, `weekly-retry-tasks`, and `suggest-marks`.
 4. `weekly-retry-tasks` is a **scheduled function** (see the `schedule = "@weekly"` entry in `netlify.toml`) â€” it runs on its own every week with no one visiting the site, building/topping-up each student's "questions to review" task from their recent wrong answers. It needs `tasks-retry-schema.sql` (step 2.7 above) to already be run, and uses the same `SUPABASE_SERVICE_ROLE_KEY` as the other functions. Before trusting the weekly schedule, trigger it once manually from **Site â†’ Functions â†’ weekly-retry-tasks â†’ Trigger function** in the Netlify dashboard and check the response/logs.
 
 ## 6. Create your own teacher account
@@ -81,7 +82,7 @@ and replace with your actual Project URL and anon key from step 1. (Find-and-rep
 ## 8. Try the Tasks feature
 
 1. In the Teacher Dashboard, open a class and click the **ðŸ“‹ Tasks** tab, then **+ New Task** (this opens `teacher-tasks.html`, the Task Manager).
-2. Fill in the settings (due date, late policy, attempts, which attempt counts, optional time limit and timer-on-leave behaviour). AI marking shows as "Coming soon" â€” everything is already structured for it (mark schemes are stored with every question), so it can be switched on later without rework.
+2. Fill in the settings (due date, late policy, attempts, which attempt counts, optional time limit and timer-on-leave behaviour). The "AI suggestions" radio is informational only â€” Gemini-powered mark suggestions for written answers are available in every task's Marking queue regardless of which one is picked (see step 9 below); marking itself always stays manual until you click **Save mark**.
 3. In step 2 pick topics and question types â€” exam practice, MCQs, True/False, Key-Learning reading checks, misconception checks, exam-tip checks, fill-in-the-blanks and key-term matching â€” either **Random** (give a number) or **Manual** (tick exact questions). The **preview pane on the right** shows every question; âš  "Used before" flags questions a selected student has already had, and â­¯ Replace swaps one out.
 4. Assign students (with optional per-student deadline override / extra time), then **Save draft** (invisible to students) or **Publish**.
 5. Students see the task, notifications and results on their dashboard (`dashboard.html`) and sit it at `task.html`. You mark written answers in the task's **Marking queue** tab; **Analytics** has per-student and per-question breakdowns plus CSV export.
@@ -95,6 +96,28 @@ python tools/build_question_bank.py
 ```
 
 Existing tasks are unaffected by rebuilds (each task snapshots its questions in the database when saved).
+
+## 9. Turn on AI marking suggestions (optional)
+
+1. Get a Gemini API key from [Google AI Studio](https://aistudio.google.com/apikey).
+2. Add it in two places (never in any `.html`/`.js` file that ships to the browser â€” only the
+   Netlify function reads it, via `process.env`):
+   - **Netlify (production):** Site configuration â†’ Environment variables â†’ add `GEMINI_API_KEY` =
+     your key (same screen as `SUPABASE_SERVICE_ROLE_KEY` in step 5). Redeploy after adding.
+   - **Local dev:** put `GEMINI_API_KEY=...` in a `.env` file at the repo root (already gitignored,
+     see `.env.example`) â€” `netlify dev` picks it up automatically.
+3. Run `supabase/ai-marking.sql` (step 2.12 above) if you haven't already.
+4. That's it â€” no further code changes needed. In a task's **âœï¸ Marking queue** tab, click
+   **âœ¨ Suggest marks** to have Gemini pre-mark unmarked written answers (a mark, student-facing
+   feedback, teacher-facing reasoning and a confidence score per answer). Nothing is saved as a real
+   mark until you click **Use this** on a suggestion (copies it into the mark/feedback boxes) and
+   then **Save mark** â€” exactly like marking manually.
+5. Cost note: each suggested answer is one Gemini API call; at current pricing that's a small
+   fraction of a penny per answer. Nothing runs automatically or on a schedule â€” you control spend
+   entirely by choosing when to click the button, and a single click processes at most 20 answers
+   (click again to top up a longer queue).
+6. If the Marking queue shows "Add GEMINI_API_KEY in Netlify", the key isn't set in Netlify's
+   environment variables yet â€” see step 2 above.
 
 ## Notes
 

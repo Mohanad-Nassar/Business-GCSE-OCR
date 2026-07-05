@@ -200,6 +200,9 @@
   .mark-controls input[type=number] { width:80px; padding:8px 10px; border:1px solid var(--border); border-radius:6px; font-size:13px; }
   .mark-controls textarea { flex:1; min-width:220px; min-height:52px; padding:8px 10px; border:1px solid var(--border); border-radius:6px; font-size:12.5px; font-family:'DM Sans',sans-serif; }
   .ai-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(122,92,158,.08); border:1px dashed rgba(122,92,158,.4); color:#6a4f8c; border-radius:6px; padding:8px 12px; font-size:12px; }
+  .ai-suggestion-card { margin:10px 0; padding:10px 12px; background:rgba(122,92,158,.06); border:1px solid rgba(122,92,158,.3); border-radius:8px; font-size:12.5px; }
+  .ai-suggestion-head { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:6px; font-weight:600; color:#6a4f8c; }
+  .ai-suggestion-feedback { margin-bottom:6px; }
 
   /* per-question drill-down + answer distribution */
   .q-drilldown table { background:#fff; border-radius:6px; overflow:hidden; }
@@ -344,8 +347,8 @@
             <label style="display:flex; align-items:center; gap:6px; font-size:13px; cursor:pointer;">
               <input type="radio" name="fMarking" value="manual" checked/> Manual marking (marking queue)
             </label>
-            <label class="ai-badge" title="AI marking against each question's mark scheme is coming soon">
-              <input type="radio" name="fMarking" value="ai" disabled/> 🤖 AI marking against mark schemes — <strong>Coming soon</strong>
+            <label class="ai-badge" title="Gemini can suggest marks for written answers in the Marking queue — you always review and save them yourself">
+              <input type="radio" name="fMarking" value="ai"/> 🤖 AI suggestions in the marking queue
             </label>
           </div>
           <div class="muted" style="margin-top:4px;">Multiple-choice and True/False are always marked automatically. Written answers go to your marking queue.</div>
@@ -454,7 +457,12 @@
     <!-- Marking queue -->
     <div id="dtab-marking" class="hidden">
       <div class="panel">
-        <div class="ai-badge" style="margin-bottom:14px;">🤖 <strong>AI marking — coming soon.</strong>&nbsp;Answers will be auto-marked against each question's mark scheme and appear here for your approval. <button type="button" class="btn small" disabled style="margin-left:6px;">Run AI marking</button></div>
+        <div class="ai-badge" style="margin-bottom:14px; flex-wrap:wrap;">
+          ✨ <strong>AI suggestions</strong>&nbsp;— Gemini can suggest marks, feedback and reasoning for written answers below; you always review and save them yourself.
+          <button type="button" class="btn small" id="suggestMarksBtn" style="margin-left:6px;">✨ Suggest marks</button>
+          <span class="muted" id="suggestMarksStatus"></span>
+        </div>
+        <div class="msg" id="suggestMarksMsg"></div>
         <div id="markingQueue"><div class="empty">Nothing to mark.</div></div>
       </div>
     </div>
@@ -518,6 +526,7 @@ let edAssignGroupId = null;          // shared assignment_group_id once >1 class
 
 // Detail state
 let dTask = null, dQuestions = [], dAssignments = [], dAttempts = [], dAnswers = [];
+let dSuggestions = {}; // answer_id -> task_answer_suggestions row (AI marking)
 let qDrillOpen = new Set();       // question ids currently expanded in the per-question table
 let qDrillRevealAll = new Set();  // question ids where "reveal all answers" is toggled on
 let qDrillRevealOne = new Set();  // "questionId|studentId" keys individually revealed
@@ -525,6 +534,21 @@ let qDrillRevealOne = new Set();  // "questionId|studentId" keys individually re
 const $ = id => document.getElementById(id);
 const BANK_BY_PAGE = bankByPage();
 const BANK_BY_ID = bankById();
+
+async function callFunction(name, body) {
+  const res = await fetch(`/.netlify/functions/${name}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${auth.session.access_token}` },
+    body: JSON.stringify(body),
+  });
+  const json = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    const err = new Error(json.error || `Request failed (${res.status})`);
+    err.code = json.code;
+    throw err;
+  }
+  return json;
+}
 
 function showMsg(el, text, ok) { el.textContent = text; el.className = 'msg show ' + (ok ? 'ok' : 'error'); }
 function clearMsg(el) { el.className = 'msg'; }
@@ -1662,10 +1686,14 @@ async function openDetail(task) {
     auth.client.from('task_attempts').select('*').eq('task_id', task.id).order('attempt_number'),
   ]);
   dQuestions = qs || []; dAssignments = asg || []; dAttempts = atts || [];
-  dAnswers = [];
+  dAnswers = []; dSuggestions = {};
   if (dAttempts.length) {
     const { data: ans } = await auth.client.from('task_answers').select('*').in('attempt_id', dAttempts.map(a => a.id));
     dAnswers = ans || [];
+  }
+  if (dAnswers.length) {
+    const { data: sugg } = await auth.client.from('task_answer_suggestions').select('*').in('answer_id', dAnswers.map(a => a.id));
+    (sugg || []).forEach(s => { dSuggestions[s.answer_id] = s; });
   }
 
   $('detailDue').value = toLocalInput(task.due_at);
@@ -2034,6 +2062,7 @@ function renderMarkingQueue() {
     const att = attemptById[ans.attempt_id];
     const q = qById[ans.task_question_id];
     if (!q) return;
+    const suggestion = dSuggestions[ans.id];
     const card = document.createElement('div');
     card.className = 'mark-card';
     card.innerHTML = `
@@ -2049,6 +2078,17 @@ function renderMarkingQueue() {
           question: q.snapshot.question, options: q.snapshot.options, type: q.qtype, key: q.answer_key,
         }, { openMarkScheme: true })}
         <div class="mark-answer">${ans.answer && ans.answer.value != null && String(ans.answer.value).trim() !== '' ? esc(String(ans.answer.value)) : '<em style="color:var(--mid)">No answer given</em>'}</div>
+        ${suggestion ? `
+        <div class="ai-suggestion-card">
+          <div class="ai-suggestion-head">
+            <span>✨ AI suggestion</span>
+            <span class="mono">${suggestion.ai_marks}/${q.marks} marks</span>
+            <span class="muted">confidence ${Math.round(suggestion.ai_confidence * 100)}%</span>
+          </div>
+          <div class="ai-suggestion-feedback"><strong>Feedback:</strong> ${esc(suggestion.ai_feedback)}</div>
+          <details class="ms"><summary>Reasoning</summary><div>${esc(suggestion.ai_reasoning)}</div></details>
+          <button type="button" class="btn small" data-use-suggestion>Use this</button>
+        </div>` : ''}
         <div class="mark-controls">
           <div class="field"><label>Marks (0–${q.marks})</label>
             <input type="number" min="0" max="${q.marks}" step="0.5" data-mark-input/></div>
@@ -2057,6 +2097,12 @@ function renderMarkingQueue() {
         </div>
         <div class="msg" data-mark-msg></div>
       </div>`;
+    if (suggestion) {
+      card.querySelector('[data-use-suggestion]').addEventListener('click', () => {
+        card.querySelector('[data-mark-input]').value = suggestion.ai_marks;
+        card.querySelector('[data-feedback-input]').value = suggestion.ai_feedback;
+      });
+    }
     card.querySelector('[data-save-mark]').addEventListener('click', async btn => {
       const markInp = card.querySelector('[data-mark-input]');
       const fb = card.querySelector('[data-feedback-input]').value.trim();
@@ -2079,6 +2125,56 @@ function renderMarkingQueue() {
     container.appendChild(card);
   });
 }
+
+// Answers eligible for a fresh AI suggestion: submitted, written, unmarked,
+// non-blank, and not already suggested (mirrors suggest-marks.js's filter).
+function eligibleForSuggestion() {
+  const attemptById = {};
+  dAttempts.forEach(a => { attemptById[a.id] = a; });
+  const qById = {};
+  dQuestions.forEach(q => { qById[q.id] = q; });
+  return dAnswers.filter(a => {
+    const att = attemptById[a.attempt_id];
+    const q = qById[a.task_question_id];
+    if (!att || att.status !== 'submitted' || !q || q.qtype !== 'written') return false;
+    if (a.awarded != null || dSuggestions[a.id]) return false;
+    return a.answer && typeof a.answer.value === 'string' && a.answer.value.trim() !== '';
+  });
+}
+
+$('suggestMarksBtn').addEventListener('click', async () => {
+  const btn = $('suggestMarksBtn');
+  const statusEl = $('suggestMarksStatus');
+  const msgEl = $('suggestMarksMsg');
+  clearMsg(msgEl);
+  const eligible = eligibleForSuggestion();
+  if (!eligible.length) {
+    showMsg(msgEl, 'Nothing new to suggest — every unmarked written answer already has a suggestion (or has no answer).', true);
+    return;
+  }
+  btn.disabled = true;
+  statusEl.textContent = `Suggesting marks for ${eligible.length} answer${eligible.length === 1 ? '' : 's'}…`;
+  try {
+    const result = await callFunction('suggest-marks', { task_id: dTask.id });
+    const { data: sugg } = await auth.client.from('task_answer_suggestions').select('*').in('answer_id', dAnswers.map(a => a.id));
+    dSuggestions = {};
+    (sugg || []).forEach(s => { dSuggestions[s.answer_id] = s; });
+    renderMarkingQueue();
+    const parts = [`✨ ${result.suggested} suggestion${result.suggested === 1 ? '' : 's'} added`];
+    if (result.failed) parts.push(`${result.failed} failed`);
+    if (result.remaining) parts.push(`${result.remaining} left — click again`);
+    showMsg(msgEl, parts.join(' · '), true);
+  } catch (err) {
+    if (err.code === 'missing_api_key') {
+      showMsg(msgEl, 'Add GEMINI_API_KEY in Netlify (see SETUP.md) to turn this on.', false);
+    } else {
+      showMsg(msgEl, err.message, false);
+    }
+  } finally {
+    btn.disabled = false;
+    statusEl.textContent = '';
+  }
+});
 
 // ── Students & overrides tab ──
 function renderDetailStudents() {

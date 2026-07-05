@@ -44,6 +44,17 @@ Teachers authenticate with a real work email + a school-issued invite code.
 Gamification (XP, level, badges, day-streak) is **derived on read** from `progress_events` /
 `progress_summary` — it is not stored as an independent record.
 
+**AI marking suggestions (added July 2026):** when a teacher clicks "Suggest marks" in a task's
+Marking queue, the `suggest-marks` Netlify function sends only the question text, mark scheme,
+model answer, maximum marks and the student's written-answer text to Google's Gemini API for each
+unmarked answer — never a username, student id, class name or any other identifier. Gemini returns
+a suggested mark, student-facing feedback, teacher-facing reasoning and a confidence score, which
+are written to a teacher-only table (`task_answer_suggestions`) that students cannot read (see
+`supabase/ai-marking.sql`). Nothing becomes a real mark, and no AI-written feedback reaches a
+student, until the teacher reviews the suggestion and explicitly accepts it through the existing
+manual marking action — this is assistive drafting for the teacher, not an automated decision made
+about a pupil.
+
 Usernames are pseudonymous handles; the schema has no field for a pupil's real name. **Open item:**
 confirm operationally whether any teacher has, in practice, set a pupil's username to their real
 name — if so this changes the pseudonymisation assessment below.
@@ -61,6 +72,7 @@ teachers see class-level dashboards to target follow-up teaching.
 | Supabase | Database + authentication hosting | UK/EU region (confirmed) |
 | Netlify | Static site + serverless function hosting | UK/EU region (confirmed) |
 | Google Fonts | Webfont delivery (IP address only, no account data) | Not a data processor for personal data in this system, but a third-party network request — disclosed in the Cookie Policy |
+| Google (Gemini API) | Optional: AI marking-suggestion assistance for written answers — receives question text, mark scheme, model answer, max marks and a student's answer text only (no usernames/ids); only called when a teacher clicks "Suggest marks" | Google Cloud, per Gemini API terms — not confirmed UK/EU-only (open item, see Step 4 risk 7) |
 
 No other third parties (no analytics, no advertising, no CRM/email marketing tool) have access to
 this data.
@@ -106,6 +118,7 @@ Not yet carried out. Required before sign-off:
 | 4 | Teacher invite codes shared or leaked, allowing unauthorised teacher signup | Medium | Medium | Trust |
 | 5 | System not yet formally adopted — unclear accountability if a data subject request or breach occurs today | High (current state) | High | Trust, pupils |
 | 6 | Google Fonts request discloses pupil device IP to Google | Low | Low | Pupils |
+| 7 | Written-answer text (no identifiers) sent to Google's Gemini API for AI marking suggestions; data residency of that processing is not yet confirmed UK/EU-only | Low | Low | Pupils (indirectly — no identifiers leave the system) |
 
 ---
 
@@ -119,6 +132,7 @@ Not yet carried out. Required before sign-off:
 | 4 | Rotate/limit teacher invite codes; consider one-time or time-limited codes | Recommend review |
 | 5 | Complete Trust sign-off of this DPIA and formally designate a controller/DPO | **Open — this document is the first step** |
 | 6 | Optional: self-host fonts instead of loading from Google Fonts, to remove the third-party request entirely | Low priority, disclosed in Cookie Policy in the meantime |
+| 7 | No usernames/ids are ever sent (data minimisation by design); confirm Gemini API data-processing terms/region with Google before wider rollout; feature is opt-in per click, not automatic | In place (minimisation); region confirmation still open |
 
 ---
 
