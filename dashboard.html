@@ -346,6 +346,7 @@
 <script src="section-totals.js"></script>
 <script src="progress-shared.js"></script>
 <script src="tasks-shared.js"></script>
+<script src="notifications-shared.js"></script>
 <script src="gamification.js"></script>
 <script>
 // Keep these in sync with the constants at the top of script.js.
@@ -384,6 +385,7 @@ async function initDashboardAuth() {
 
   document.getElementById('accountBar').innerHTML =
     `<span>Logged in as <strong>${cached.username || 'you'}</strong></span>
+     <a class="nav-link" href="manage-account.html">⚙ Manage Account</a>
      <button type="button" class="nav-link" id="logoutBtn">Log out</button>`;
   document.getElementById('logoutBtn').addEventListener('click', async () => {
     await supabaseClient.auth.signOut();

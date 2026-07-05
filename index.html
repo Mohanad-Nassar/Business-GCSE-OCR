@@ -1191,6 +1191,7 @@
       if (!bar) return;
       bar.innerHTML = `<span style="font-size:13px;color:rgba(255,255,255,.75);">Hi, <strong>${cached.username || 'teacher'}</strong></span>
         ${cached.role === 'teacher' ? '<a href="teacher-dashboard.html">🧑‍🏫 <span>Teacher Dashboard</span></a>' : ''}
+        <a href="manage-account.html" id="manageAccountLink">⚙ <span>Manage Account</span></a>
         <a href="#" id="homeLogoutLink">↪ <span>Log out</span></a>`;
       document.getElementById('homeLogoutLink').addEventListener('click', async (e) => {
         e.preventDefault();
@@ -1262,6 +1263,8 @@
       if (e.key === 'Escape' && searchInput.value) clearSearch();
     });
   </script>
+<script src="notifications-shared.js"></script>
+<script src="onboarding-tour.js"></script>
 <script src="footer-legal.js"></script>
 </body>
 

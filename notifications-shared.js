@@ -1,0 +1,279 @@
+// ══════════════════════════════════════════════════════════════
+// STUDENT NOTIFICATIONS — a 🔔 bell + dropdown, loaded on every
+// student-facing page (38 topic pages, index.html, dashboard.html,
+// task.html — teacher pages don't load this). Self-contained like
+// footer-legal.js: no dependency on script.js/tasks-shared.js load
+// order, so it works on index.html exactly the same as everywhere
+// else. No-ops entirely for teachers / logged-out visitors.
+//
+// deriveStudentNotifications() below is also called directly by
+// dashboard.html's own "My Tasks" notification list (this file is
+// loaded there before that inline script runs) — keep its name and
+// signature stable. It used to live in tasks-shared.js; moved here
+// because tasks-shared.js isn't loaded on topic pages/index.html.
+// ══════════════════════════════════════════════════════════════
+
+const NOTIF_SUPABASE_URL = 'https://eaohjlyiotyqhvsizcpw.supabase.co';
+const NOTIF_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhb2hqbHlpb3R5cWh2c2l6Y3B3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNzUzMDksImV4cCI6MjA5ODc1MTMwOX0.lHF4OUiTT3G_fzlXvXI_4QMu48o6eEnq0hWw6K1uBAk';
+const NOTIF_SESSION_KEY = 'gcse_session_v1';
+
+// ── private copies of the small date/score helpers deriveStudentNotifications
+// needs — kept internal (prefixed) so they never collide with the same-named
+// globals tasks-shared.js still defines for its own, larger purposes on the
+// pages that load both files. ──
+function _notifEffectiveDue(task, assignment) {
+    const o = assignment && assignment.due_override;
+    return o ? new Date(o) : (task.due_at ? new Date(task.due_at) : null);
+}
+function _notifSubmittedAttempts(attempts) {
+    return (attempts || []).filter(a => a.status === 'submitted');
+}
+function _notifAttemptPct(attempt) {
+    if (!attempt || !attempt.marks_total) return null;
+    return Math.round(((attempt.marks_awarded || 0) / attempt.marks_total) * 1000) / 10;
+}
+function _notifFmtDateTime(d) {
+    if (!d) return '—';
+    const dt = (d instanceof Date) ? d : new Date(d);
+    return dt.toLocaleDateString(undefined, { day: 'numeric', month: 'short' }) + ' ' +
+           dt.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+}
+function _notifFmtScore(attempt) {
+    if (!attempt || attempt.marks_total == null) return '—';
+    const pct = _notifAttemptPct(attempt);
+    return `${attempt.marks_awarded ?? 0}/${attempt.marks_total} (${pct}%)`;
+}
+
+// ── Student notifications (derived — no cron needed) ──
+// Returns [{ key, icon, text, taskId, at }] newest first, excluding read keys.
+function deriveStudentNotifications(rows, readKeys) {
+    // rows: [{ task, assignment, attempts }]
+    const notes = [];
+    const read = new Set(readKeys || []);
+    const now = Date.now();
+    const SOON = 48 * 3600 * 1000;
+
+    rows.forEach(({ task, assignment, attempts }) => {
+        const due = _notifEffectiveDue(task, assignment);
+        const subs = _notifSubmittedAttempts(attempts);
+        const assignedAt = new Date(assignment.assigned_at).getTime();
+
+        notes.push({
+            key: 'assigned:' + task.id, icon: '📋', taskId: task.id, at: assignedAt,
+            text: `New task assigned: “${task.title}”` + (due ? ` — due ${_notifFmtDateTime(due)}` : ''),
+        });
+        if (due && !subs.length) {
+            if (now < due.getTime() && due.getTime() - now < SOON) {
+                notes.push({
+                    key: 'due:' + task.id, icon: '⏰', taskId: task.id, at: due.getTime() - SOON,
+                    text: `Deadline approaching: “${task.title}” is due ${_notifFmtDateTime(due)}`,
+                });
+            }
+            if (now > due.getTime()) {
+                notes.push({
+                    key: 'overdue:' + task.id, icon: '⚠️', taskId: task.id, at: due.getTime(),
+                    text: task.late_policy === 'lock'
+                        ? `Deadline passed: “${task.title}” has locked`
+                        : `Overdue: “${task.title}” — you can still submit, it will be marked late`,
+                });
+            }
+        }
+        subs.filter(a => a.marking_complete).forEach(a => {
+            notes.push({
+                key: 'marked:' + a.id, icon: '✅', taskId: task.id,
+                at: new Date(a.submitted_at || a.started_at).getTime(),
+                text: `Results ready: “${task.title}” has been marked — ${_notifFmtScore(a)}`,
+            });
+        });
+    });
+
+    return notes.filter(n => !read.has(n.key)).sort((a, b) => b.at - a.at);
+}
+
+function _notifEsc(str) {
+    return String(str ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+// ── Bell UI (self-invoking; everything below is private to this IIFE) ──
+(function () {
+    const REFRESH_INTERVAL_MS = 5 * 60 * 1000; // conservative backstop poll
+    let _client = null;
+    let _uid = null;
+    let _items = [];
+
+    function injectStyles() {
+        if (document.getElementById('gcseNotifStyles')) return;
+        const s = document.createElement('style');
+        s.id = 'gcseNotifStyles';
+        s.textContent = `
+.gcse-notif-wrap{position:relative;display:inline-flex;align-items:center;}
+.gcse-notif-wrap.gcse-notif-fixed{position:fixed;bottom:20px;right:20px;z-index:500;}
+.gcse-notif-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.25);color:var(--paper,#f5f0e8);font-size:16px;cursor:pointer;
+  font-family:inherit;line-height:1;padding:0;transition:border-color .15s,background .15s;}
+.gcse-notif-wrap.gcse-notif-fixed .gcse-notif-btn{background:var(--ink,#0f1923);
+  border-color:rgba(255,255,255,.3);box-shadow:0 4px 14px rgba(0,0,0,.35);}
+.gcse-notif-btn:hover{border-color:var(--gold,#d4a843);background:rgba(255,255,255,.18);}
+.gcse-notif-badge{position:absolute;top:-3px;right:-3px;background:var(--wrong,#c84b31);
+  color:#fff;font-family:'DM Mono',monospace;font-size:10px;font-weight:600;
+  min-width:16px;height:16px;border-radius:99px;display:none;align-items:center;
+  justify-content:center;padding:0 4px;border:2px solid var(--ink,#0f1923);}
+.gcse-notif-badge.show{display:flex;}
+.gcse-notif-panel{position:absolute;top:calc(100% + 10px);right:0;width:320px;max-width:88vw;
+  max-height:70vh;overflow-y:auto;background:var(--card-bg,#fffcf6);
+  border:1px solid var(--border,#c9bfaa);border-radius:10px;
+  box-shadow:0 14px 40px rgba(0,0,0,.25);padding:6px;display:none;z-index:501;
+  font-family:'DM Sans',sans-serif;color:var(--ink,#1a2332);}
+.gcse-notif-panel.show{display:block;}
+.gcse-notif-wrap.gcse-notif-fixed .gcse-notif-panel{top:auto;bottom:calc(100% + 10px);}
+.gcse-notif-empty{padding:20px 10px;text-align:center;color:var(--mid,#5a6e7f);font-size:12.5px;font-style:italic;}
+.gcse-notif-row{display:flex;gap:8px;align-items:flex-start;padding:10px 8px;font-size:12.5px;line-height:1.4;}
+.gcse-notif-row+.gcse-notif-row{border-top:1px solid var(--border,#c9bfaa);}
+.gcse-notif-row .gcse-notif-icon{flex-shrink:0;}
+.gcse-notif-row .gcse-notif-text{flex:1;}
+.gcse-notif-row .gcse-notif-open{display:block;margin-top:3px;color:var(--accent,#4a6fa5);font-weight:600;text-decoration:none;font-size:11.5px;}
+.gcse-notif-dismiss{flex-shrink:0;background:none;border:none;color:var(--mid,#5a6e7f);
+  cursor:pointer;font-size:13px;padding:2px 5px;border-radius:4px;line-height:1;}
+.gcse-notif-dismiss:hover{background:var(--cream,#ede7d9);color:var(--ink,#1a2332);}
+@media (max-width:520px){
+  .gcse-notif-panel{position:fixed !important;top:auto !important;bottom:0 !important;left:0;right:0;
+    width:100%;max-width:100%;max-height:60vh;border-radius:14px 14px 0 0;}
+}
+        `;
+        document.head.appendChild(s);
+    }
+
+    function buildBell() {
+        const wrap = document.createElement('div');
+        wrap.className = 'gcse-notif-wrap';
+        wrap.innerHTML = `
+            <button type="button" class="gcse-notif-btn" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                <span aria-hidden="true">🔔</span><span class="gcse-notif-badge"></span>
+            </button>
+            <div class="gcse-notif-panel" role="menu" aria-label="Notifications"></div>`;
+        const btn = wrap.querySelector('.gcse-notif-btn');
+        const panel = wrap.querySelector('.gcse-notif-panel');
+        btn.addEventListener('click', e => {
+            e.stopPropagation();
+            const willShow = !panel.classList.contains('show');
+            panel.classList.toggle('show', willShow);
+            btn.setAttribute('aria-expanded', String(willShow));
+        });
+        document.addEventListener('click', e => {
+            if (!wrap.contains(e.target)) {
+                panel.classList.remove('show');
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
+        panel.addEventListener('click', async e => {
+            const dismissBtn = e.target.closest('.gcse-notif-dismiss');
+            if (!dismissBtn) return;
+            const key = dismissBtn.closest('.gcse-notif-row').dataset.key;
+            _items = _items.filter(n => n.key !== key);
+            render(wrap);
+            if (_client && _uid) {
+                try { await _client.from('task_notification_reads').upsert({ student_id: _uid, note_key: key }); }
+                catch (err) {}
+            }
+        });
+        return wrap;
+    }
+
+    function render(wrap) {
+        const badge = wrap.querySelector('.gcse-notif-badge');
+        const panel = wrap.querySelector('.gcse-notif-panel');
+        badge.textContent = _items.length > 9 ? '9+' : String(_items.length);
+        badge.classList.toggle('show', _items.length > 0);
+        panel.innerHTML = _items.length ? _items.map(n => `
+            <div class="gcse-notif-row" data-key="${_notifEsc(n.key)}">
+                <span class="gcse-notif-icon" aria-hidden="true">${n.icon}</span>
+                <span class="gcse-notif-text">${_notifEsc(n.text)}<a class="gcse-notif-open" href="task.html?id=${encodeURIComponent(n.taskId)}">Open →</a></span>
+                <button type="button" class="gcse-notif-dismiss" title="Dismiss" aria-label="Dismiss notification">✕</button>
+            </div>`).join('') : '<div class="gcse-notif-empty">No new notifications.</div>';
+    }
+
+    function mountBell(wrap) {
+        const siteNav = document.getElementById('siteNav');
+        if (siteNav) { siteNav.appendChild(wrap); return; }
+        const accountBar = document.getElementById('accountBar');
+        if (accountBar && accountBar.parentNode) { accountBar.insertAdjacentElement('afterend', wrap); return; }
+        wrap.classList.add('gcse-notif-fixed');
+        document.body.appendChild(wrap);
+    }
+
+    // Reuses window._gcseSupabaseClient if another already-loaded script
+    // (script.js / tasks-shared.js / index.html's inline bootstrap) has set
+    // one up — bounded poll, since that assignment happens after an async
+    // setSession() call, not necessarily by the time this file runs. Only
+    // builds its own as a last resort.
+    function getClient() {
+        return new Promise(resolve => {
+            let tries = 0;
+            (function poll() {
+                if (window._gcseSupabaseClient) return resolve(window._gcseSupabaseClient);
+                if (++tries < 10) return setTimeout(poll, 200);
+                if (!window.supabase) return resolve(null);
+                let cached;
+                try { cached = JSON.parse(localStorage.getItem(NOTIF_SESSION_KEY) || 'null'); } catch (e) { cached = null; }
+                if (!cached) return resolve(null);
+                const client = window.supabase.createClient(NOTIF_SUPABASE_URL, NOTIF_SUPABASE_ANON_KEY);
+                client.auth.setSession({ access_token: cached.access_token, refresh_token: cached.refresh_token })
+                    .then(({ data, error }) => {
+                        if (error || !data.session) return resolve(null);
+                        window._gcseSupabaseClient = client;
+                        resolve(client);
+                    })
+                    .catch(() => resolve(null));
+            })();
+        });
+    }
+
+    async function loadAndRender(wrap) {
+        if (!_uid) {
+            try {
+                const { data } = await _client.auth.getSession();
+                _uid = data && data.session && data.session.user && data.session.user.id;
+            } catch (e) { return; }
+        }
+        if (!_uid) return;
+        try {
+            const [{ data: tasks }, { data: asg }, { data: atts }, { data: reads }] = await Promise.all([
+                _client.from('tasks').select('*'),
+                _client.from('task_assignments').select('*').eq('student_id', _uid),
+                _client.from('task_attempts').select('*').eq('student_id', _uid),
+                _client.from('task_notification_reads').select('note_key').eq('student_id', _uid),
+            ]);
+            const readKeys = (reads || []).map(r => r.note_key);
+            const rows = (asg || []).map(a => {
+                const task = (tasks || []).find(t => t.id === a.task_id);
+                if (!task) return null;
+                return { task, assignment: a, attempts: (atts || []).filter(x => x.task_id === a.task_id) };
+            }).filter(Boolean);
+            _items = deriveStudentNotifications(rows, readKeys);
+            render(wrap);
+        } catch (e) { /* tasks schema not installed yet, or offline — leave as-is */ }
+    }
+
+    async function boot() {
+        let cached;
+        try { cached = JSON.parse(localStorage.getItem(NOTIF_SESSION_KEY) || 'null'); } catch (e) { cached = null; }
+        if (!cached || cached.role !== 'student') return;
+
+        injectStyles();
+        const wrap = buildBell();
+        mountBell(wrap);
+
+        _client = await getClient();
+        if (!_client) return;
+        loadAndRender(wrap);
+        document.addEventListener('visibilitychange', () => { if (!document.hidden) loadAndRender(wrap); });
+        setInterval(() => loadAndRender(wrap), REFRESH_INTERVAL_MS);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot);
+    } else {
+        boot();
+    }
+})();

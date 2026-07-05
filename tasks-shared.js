@@ -224,52 +224,6 @@ const TASK_STATE_LABELS = {
   locked: 'Missed (locked)', not_started: 'Not started',
 };
 
-// ── Student notifications (derived — no cron needed) ──
-// Returns [{ key, icon, text, taskId, at }] newest first, excluding read keys.
-function deriveStudentNotifications(rows, readKeys) {
-  // rows: [{ task, assignment, attempts }]
-  const notes = [];
-  const read = new Set(readKeys || []);
-  const now = Date.now();
-  const SOON = 48 * 3600 * 1000;
-
-  rows.forEach(({ task, assignment, attempts }) => {
-    const due = effectiveDue(task, assignment);
-    const subs = submittedAttempts(attempts);
-    const assignedAt = new Date(assignment.assigned_at).getTime();
-
-    notes.push({
-      key: 'assigned:' + task.id, icon: '📋', taskId: task.id, at: assignedAt,
-      text: `New task assigned: “${task.title}”` + (due ? ` — due ${fmtDateTime(due)}` : ''),
-    });
-    if (due && !subs.length) {
-      if (now < due.getTime() && due.getTime() - now < SOON) {
-        notes.push({
-          key: 'due:' + task.id, icon: '⏰', taskId: task.id, at: due.getTime() - SOON,
-          text: `Deadline approaching: “${task.title}” is due ${fmtDateTime(due)}`,
-        });
-      }
-      if (now > due.getTime()) {
-        notes.push({
-          key: 'overdue:' + task.id, icon: '⚠️', taskId: task.id, at: due.getTime(),
-          text: task.late_policy === 'lock'
-            ? `Deadline passed: “${task.title}” has locked`
-            : `Overdue: “${task.title}” — you can still submit, it will be marked late`,
-        });
-      }
-    }
-    subs.filter(a => a.marking_complete).forEach(a => {
-      notes.push({
-        key: 'marked:' + a.id, icon: '✅', taskId: task.id,
-        at: new Date(a.submitted_at || a.started_at).getTime(),
-        text: `Results ready: “${task.title}” has been marked — ${fmtScore(a)}`,
-      });
-    });
-  });
-
-  return notes.filter(n => !read.has(n.key)).sort((a, b) => b.at - a.at);
-}
-
 // ── Formatting ──
 
 function fmtDateTime(d) {
