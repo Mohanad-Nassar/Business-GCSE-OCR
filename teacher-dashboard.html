@@ -1250,10 +1250,10 @@ async function renderTopicRequests() {
   const body = document.getElementById('requestsBody');
   const { data, error } = await supabaseClient
     .from('topic_access_requests')
-    .select('id, page_id, status, requested_at, resolved_at, profiles!inner(username)')
+    .select('id, page_id, status, requested_at, resolved_at, profiles!topic_access_requests_student_id_fkey(username)')
     .eq('class_id', activeClassId)
     .order('requested_at', { ascending: false });
-  if (error) { body.innerHTML = `<tr><td colspan="5" class="empty">Couldn't load requests.</td></tr>`; return; }
+  if (error) { body.innerHTML = `<tr><td colspan="5" class="empty">Couldn't load requests.</td></tr>`; console.error('renderTopicRequests', error); return; }
 
   const rows = data || [];
   const pending = rows.filter(r => r.status === 'pending').length;
