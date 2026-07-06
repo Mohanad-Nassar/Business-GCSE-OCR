@@ -1839,6 +1839,7 @@
     height: 100vh;
     background: rgba(15, 25, 35, 0.7);
     /* Dark semi-transparent */
+    -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
     z-index: 9998;
     /* Sits just behind the sidebar */

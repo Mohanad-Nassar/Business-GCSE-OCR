@@ -1731,6 +1731,7 @@
     height: 100vh;
     background: rgba(15, 25, 35, 0.7);
     /* Dark semi-transparent */
+    -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
     z-index: 9998;
     /* Sits just behind the sidebar */
@@ -2229,6 +2230,7 @@ body.sidebar-mobile-open .course-sidebar { left: 0; }
 .sidebar-overlay {
     position: fixed; inset: 0;
     background: rgba(15,25,35,.7);
+    -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
     z-index: 9998;
     opacity: 0; visibility: hidden;
