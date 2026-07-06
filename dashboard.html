@@ -129,9 +129,8 @@
     .gam-streak { font-family:'DM Mono',monospace; font-size:14px; font-weight:600; color:#8f6d19; white-space:nowrap; }
     .gam-sound-toggle { background:transparent; border:1px solid var(--border); border-radius:8px; padding:6px 10px; cursor:pointer; font-size:14px; }
     .gam-sound-toggle:hover { border-color:var(--accent); }
-    .gam-badges { display:flex; gap:8px; flex-wrap:wrap; padding:10px 40px; background:var(--card-bg); border-bottom:1px solid var(--border); }
-    .gam-badge { display:flex; align-items:center; gap:5px; font-family:'DM Mono',monospace; font-size:10.5px; padding:4px 10px; border-radius:99px; background:rgba(212,168,67,.12); border:1px solid rgba(212,168,67,.4); color:#8f6d19; cursor:help; }
-    .gam-badge.locked { background:rgba(90,110,127,.08); border-color:rgba(90,110,127,.2); color:var(--mid); opacity:.55; filter:grayscale(1); }
+    .gam-badge-link { font-family:'DM Mono',monospace; font-size:11.5px; font-weight:600; color:#8f6d19; background:rgba(212,168,67,.12); border:1px solid rgba(212,168,67,.4); border-radius:99px; padding:6px 14px; text-decoration:none; white-space:nowrap; transition:background .15s,border-color .15s; }
+    .gam-badge-link:hover { background:rgba(212,168,67,.2); border-color:var(--gold); }
 
     /* ── MAIN ── */
     main { padding:32px 40px 60px; }
@@ -209,7 +208,6 @@
       padding:8px 12px; cursor:pointer; transition:border-color .15s,color .15s;
     }
     .reset-page-btn:hover { border-color:var(--wrong); color:var(--wrong); }
-    .empty-row td { padding:36px 20px; text-align:center; color:var(--mid); font-size:13px; font-style:italic; }
 
     /* ── MY TASKS & NOTIFICATIONS ── */
     .tasks-panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:18px 20px; margin-bottom:30px; }
@@ -297,13 +295,19 @@
     <div class="gam-xp-track"><div class="gam-xp-fill" id="gamXpFill" style="width:0%"></div></div>
   </div>
   <div class="gam-streak" title="Consecutive days answering questions"><span aria-hidden="true">🔥</span> <span id="gamStreakNum">0</span></div>
+  <a class="gam-badge-link" id="gamBadgesLink" href="badges.html">🏅 <span id="gamBadgesCount">0/0</span> badges — view all →</a>
   <button type="button" class="gam-sound-toggle" id="gamSoundToggle" title="Toggle sound effects">🔊</button>
 </div>
-<div class="gam-badges" id="gamBadgesRow"></div>
 
 <main>
   <!-- "Continue where you left off" — filled by renderDashboard() -->
   <div id="dashContinueMount" style="margin-bottom:24px;"></div>
+
+  <h2 class="section-label">🎯 Daily Revise</h2>
+  <div class="tasks-panel" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+    <p class="muted" style="font-size:13px; margin:0; max-width:480px;">Short, spaced-out practice across every topic — answer a question right three times running and it's mastered.</p>
+    <a class="task-open-btn" href="daily-revise.html">Start today's questions →</a>
+  </div>
 
   <div id="tasksSection" style="display:none;">
     <h2 class="section-label">📋 My Tasks <span id="notifBadge" style="display:none; background:var(--wrong); color:#fff; border-radius:99px; padding:1px 9px; font-size:10px;"></span></h2>
@@ -321,6 +325,10 @@
   </div>
 
   <div id="myInsights" style="display:none;">
+    <h2 class="section-label">🛫 Flight Path</h2>
+    <div class="tasks-panel">
+      <div id="flightPathChart"></div>
+    </div>
     <h2 class="section-label">📈 My Score History</h2>
     <div class="tasks-panel">
       <div id="scoreHistoryList"></div>
@@ -354,6 +362,7 @@
   const SUPABASE_URL = 'https://eaohjlyiotyqhvsizcpw.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhb2hqbHlpb3R5cWh2c2l6Y3B3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNzUzMDksImV4cCI6MjA5ODc1MTMwOX0.lHF4OUiTT3G_fzlXvXI_4QMu48o6eEnq0hWw6K1uBAk';
 const GCSE_SESSION_KEY = 'gcse_session_v1';
+const FLIGHT_PATH_EXAM_DATE = new Date('2027-05-12');
 
 let supabaseClient = null;
 let currentSession = null;
@@ -442,8 +451,9 @@ async function loadTopicSettings() {
   if (!supabaseClient) return null;
   try {
     const { data, error } = await supabaseClient.rpc('get_my_topic_settings');
-    return error ? null : data;
-  } catch (e) { return null; }
+    if (error) { console.error('get_my_topic_settings', error); return null; }
+    return data;
+  } catch (e) { console.error('get_my_topic_settings', e); return null; }
 }
 
 // Content-less curriculum "overview" pages (e.g. the 2.4 Marketing Mix hub,
@@ -574,29 +584,21 @@ async function renderDashboard(){
     table.appendChild(thead);
 
     const tbody=document.createElement('tbody');
-    const hasData=flatPages(group).some(p=>{
-      const pd=progress[p.id]||{};
-      return SECTIONS.some(s=>pd[s.key]&&pd[s.key].total>0);
+    // Every topic in the group always gets a row with its real question
+    // counts (via pageSectionTotals -> trueSectionTotal), whether or not the
+    // student has opened it yet — a brand-new student should see the whole
+    // course laid out, not an empty "no progress yet" placeholder.
+    group.pages.forEach(page=>{
+      // Parent row
+      const tr=buildRow(page, progress[page.id]||{}, false, lockedPages.has(page.id));
+      tbody.appendChild(tr);
+      // Child rows
+      if(page.children){
+        page.children.forEach(child=>{
+          tbody.appendChild(buildRow(child, progress[child.id]||{}, true, lockedPages.has(child.id)));
+        });
+      }
     });
-
-    if(!hasData){
-      const row=document.createElement('tr');
-      row.className='empty-row';
-      row.innerHTML=`<td colspan="${SECTIONS.length+3}">No progress yet — open a topic page to get started.</td>`;
-      tbody.appendChild(row);
-    } else {
-      group.pages.forEach(page=>{
-        // Parent row
-        const tr=buildRow(page, progress[page.id]||{}, false, lockedPages.has(page.id));
-        tbody.appendChild(tr);
-        // Child rows
-        if(page.children){
-          page.children.forEach(child=>{
-            tbody.appendChild(buildRow(child, progress[child.id]||{}, true, lockedPages.has(child.id)));
-          });
-        }
-      });
-    }
 
     table.appendChild(tbody);
     tableWrap.appendChild(table);
@@ -629,11 +631,8 @@ function renderGamificationBar(stats){
   document.getElementById('gamXpFill').style.width=pct+'%';
   document.getElementById('gamStreakNum').textContent=stats.streak;
 
-  const earnedIds=new Set(gamificationEarnedBadges(stats).map(b=>b.id));
-  document.getElementById('gamBadgesRow').innerHTML=BADGE_DEFS.map(b=>{
-    const got=earnedIds.has(b.id);
-    return `<span class="gam-badge${got?'':' locked'}" title="${b.label}: ${b.desc}">${b.icon} ${b.label}</span>`;
-  }).join('');
+  const earnedCount=gamificationEarnedBadges(stats).length;
+  document.getElementById('gamBadgesCount').textContent=`${earnedCount}/${BADGE_DEFS.length}`;
 
   gamificationCheckNewBadges(stats);
 }
@@ -692,7 +691,7 @@ document.getElementById('dashContent').addEventListener('click',async e=>{
   if(!confirm(`Reset all progress for "${pageName}"?\nThis cannot be undone.`))return;
   try{Object.keys(localStorage).filter(k=>k.startsWith(PREFIX+pageId+'__')).forEach(k=>localStorage.removeItem(k));}catch(e){}
   if(supabaseClient){
-    try{await supabaseClient.rpc('reset_my_page_progress',{p_page_id:pageId});}catch(e){}
+    try{await supabaseClient.rpc('reset_my_page_progress',{p_page_id:pageId});}catch(e){console.error('reset_my_page_progress', e);}
   }
   renderDashboard();
 });
@@ -827,6 +826,7 @@ async function loadWeakTopics() {
   const { data, error } = await supabaseClient.rpc('get_my_topic_performance');
   if (error || !data || !data.length) {
     container.innerHTML = '<p class="muted" style="font-size:12px;">Complete a few tasks and this will show which topics to revisit.</p>';
+    await loadFlightPath();
     return;
   }
   const byPage = {};
@@ -838,6 +838,20 @@ async function loadWeakTopics() {
     agg.weighted += score * w;
     agg.weight += w;
   });
+
+  // Course-wide weighted average (same weighting as the per-topic figures
+  // below, just summed across every topic instead of the worst 8) powers
+  // today's Flight Path snapshot.
+  const totals = Object.values(byPage).reduce((a, agg) => {
+    a.weighted += agg.weighted; a.weight += agg.weight; return a;
+  }, { weighted: 0, weight: 0 });
+  if (totals.weight > 0) {
+    const coursePct = Math.round(totals.weighted / totals.weight * 100);
+    const { error: snapErr } = await supabaseClient.rpc('record_flight_path_snapshot', { p_pct: coursePct });
+    if (snapErr) console.error('record_flight_path_snapshot', snapErr);
+  }
+  await loadFlightPath();
+
   const rows = Object.entries(byPage)
     .map(([pageId, agg]) => ({ pageId, score: agg.weighted / agg.weight }))
     .sort((a, b) => a.score - b.score)
@@ -862,6 +876,86 @@ async function loadWeakTopics() {
   }).join('');
 }
 
+// ── Flight Path: the student's course-wide % over time, against a target
+// band that rises toward the exam date (minimum → 60%, aspiration → 80%). ──
+async function loadFlightPath() {
+  const container = document.getElementById('flightPathChart');
+  if (!container || !supabaseClient || !currentSession) return;
+  const { data, error } = await supabaseClient
+    .from('flight_path_snapshots')
+    .select('snapshot_date, pct')
+    .eq('student_id', currentSession.user.id)
+    .order('snapshot_date');
+  if (error) {
+    console.error('loadFlightPath', error);
+    container.innerHTML = '<p class="muted" style="font-size:12px;">Couldn’t load your Flight Path.</p>';
+    return;
+  }
+  if (!data || !data.length) {
+    container.innerHTML = '<p class="muted" style="font-size:12px;">Come back tomorrow to start seeing your Flight Path — it tracks your overall % once a day.</p>';
+    return;
+  }
+  container.innerHTML = renderFlightPathSVG(data);
+}
+
+function renderFlightPathSVG(snapshots) {
+  const W = 640, H = 220, padL = 34, padR = 54, padT = 16, padB = 28;
+  const plotW = W - padL - padR, plotH = H - padT - padB;
+
+  const startDate = new Date(snapshots[0].snapshot_date);
+  const endDate = FLIGHT_PATH_EXAM_DATE > startDate ? FLIGHT_PATH_EXAM_DATE : startDate;
+  const span = Math.max(1, endDate - startDate);
+  const x = d => padL + ((new Date(d) - startDate) / span) * plotW;
+  const y = pct => padT + (1 - Math.max(0, Math.min(100, pct)) / 100) * plotH;
+
+  // Target band: two lines rising from 0% at the first snapshot to
+  // 60% (minimum) / 80% (aspiration) at the exam date.
+  const minAtExam = 60, aimAtExam = 80;
+  const bandAt = (d, target) => {
+    const t = Math.max(0, Math.min(1, (new Date(d) - startDate) / span));
+    return t * target;
+  };
+  const examX = x(FLIGHT_PATH_EXAM_DATE);
+  const bandPoints = [
+    [x(startDate), y(bandAt(startDate, minAtExam))],
+    [examX, y(minAtExam)],
+    [examX, y(aimAtExam)],
+    [x(startDate), y(bandAt(startDate, aimAtExam))],
+  ].map(p => p.join(',')).join(' ');
+
+  const linePoints = snapshots.map(s => `${x(s.snapshot_date).toFixed(1)},${y(s.pct).toFixed(1)}`).join(' ');
+  const last = snapshots[snapshots.length - 1];
+  const lastX = x(last.snapshot_date), lastY = y(last.pct);
+
+  const fmt = d => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+  const dots = snapshots.map(s => `<circle cx="${x(s.snapshot_date).toFixed(1)}" cy="${y(s.pct).toFixed(1)}" r="3" fill="#7a5c9e" stroke="var(--card-bg)" stroke-width="2">
+      <title>${fmt(s.snapshot_date)}: ${s.pct}%</title>
+    </circle>`).join('');
+
+  return `
+    <svg width="100%" height="${H}" viewBox="0 0 ${W} ${H}" role="img"
+      aria-label="Flight path: your overall percentage from ${fmt(startDate)} to today is ${last.pct}%, against a target of ${minAtExam}% to ${aimAtExam}% by ${fmt(FLIGHT_PATH_EXAM_DATE)}">
+      <line x1="${padL}" y1="${y(0).toFixed(1)}" x2="${W - padR}" y2="${y(0).toFixed(1)}" stroke="var(--border)" stroke-width="1"/>
+      <line x1="${padL}" y1="${y(100).toFixed(1)}" x2="${W - padR}" y2="${y(100).toFixed(1)}" stroke="var(--border)" stroke-width="1"/>
+      <text x="${padL - 6}" y="${y(0).toFixed(1)}" text-anchor="end" dominant-baseline="middle" font-family="DM Mono,monospace" font-size="9" fill="var(--mid)">0%</text>
+      <text x="${padL - 6}" y="${y(100).toFixed(1)}" text-anchor="end" dominant-baseline="middle" font-family="DM Mono,monospace" font-size="9" fill="var(--mid)">100%</text>
+
+      <polygon points="${bandPoints}" fill="#2d7a4f" opacity=".1"/>
+      <line x1="${x(startDate).toFixed(1)}" y1="${y(bandAt(startDate, minAtExam)).toFixed(1)}" x2="${examX.toFixed(1)}" y2="${y(minAtExam).toFixed(1)}" stroke="#2d7a4f" stroke-width="1" opacity=".55"/>
+      <line x1="${x(startDate).toFixed(1)}" y1="${y(bandAt(startDate, aimAtExam)).toFixed(1)}" x2="${examX.toFixed(1)}" y2="${y(aimAtExam).toFixed(1)}" stroke="#2d7a4f" stroke-width="1" opacity=".55"/>
+      <text x="${examX.toFixed(1) - 4}" y="${y(minAtExam).toFixed(1)}" text-anchor="end" dominant-baseline="middle" font-family="DM Mono,monospace" font-size="9" fill="#2d7a4f">Min ${minAtExam}%</text>
+      <text x="${examX.toFixed(1) - 4}" y="${(y(aimAtExam) - 8).toFixed(1)}" text-anchor="end" dominant-baseline="middle" font-family="DM Mono,monospace" font-size="9" fill="#2d7a4f">Aim ${aimAtExam}%</text>
+
+      ${snapshots.length > 1 ? `<polyline points="${linePoints}" fill="none" stroke="#7a5c9e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>` : ''}
+      ${dots}
+      <circle cx="${lastX.toFixed(1)}" cy="${lastY.toFixed(1)}" r="5" fill="#7a5c9e" stroke="var(--card-bg)" stroke-width="2"/>
+      <text x="${lastX.toFixed(1) + 8}" y="${lastY.toFixed(1)}" dominant-baseline="middle" font-family="DM Mono,monospace" font-size="11" font-weight="600" fill="var(--ink)">${last.pct}%</text>
+
+      <text x="${padL}" y="${H - 6}" font-family="DM Mono,monospace" font-size="9" fill="var(--mid)">${fmt(startDate)}</text>
+      <text x="${W - padR}" y="${H - 6}" text-anchor="end" font-family="DM Mono,monospace" font-size="9" fill="var(--mid)">${fmt(FLIGHT_PATH_EXAM_DATE)} (exam)</text>
+    </svg>`;
+}
+
 document.getElementById('notifList').addEventListener('click', async e => {
   const btn = e.target.closest('.note-dismiss');
   if (!btn) return;
@@ -873,12 +967,13 @@ document.getElementById('notifList').addEventListener('click', async e => {
   try {
     await supabaseClient.from('task_notification_reads')
       .upsert({ student_id: currentSession.user.id, note_key: key });
-  } catch (err) {}
+  } catch (err) { console.error('task_notification_reads upsert', err); }
 });
 
 initDashboardAuth().then(async ok => {
   if (!ok) return;
   if (typeof gamificationRefreshStreak === 'function') dashStreak = await gamificationRefreshStreak(supabaseClient);
+  if (typeof gamificationRefreshDailyReviseStats === 'function') await gamificationRefreshDailyReviseStats(supabaseClient);
   renderDashboard(); loadMyTasks(); loadWeakTopics();
 });
 </script>

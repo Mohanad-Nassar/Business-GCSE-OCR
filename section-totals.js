@@ -5,7 +5,7 @@
 // independent of any student's progress — used to fix progress
 // stats so a topic a student has engaged with counts ALL of its
 // sections' totals, not just the ones they've personally started.
-// Generated: 2026-07-04T14:42:36Z
+// Generated: 2026-07-05T22:25:54Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS = {
  "1-1-role-of-business-enterprise": {
@@ -320,9 +320,9 @@ window.SECTION_TOTALS = {
   "exam": 10,
   "mcq": 12,
   "tf": 12,
-  "learn": 0,
-  "misc": 0,
-  "tips": 0,
+  "learn": 7,
+  "misc": 8,
+  "tips": 4,
   "fib": 12,
   "match": 14,
   "flashcards": 14
@@ -331,9 +331,9 @@ window.SECTION_TOTALS = {
   "exam": 22,
   "mcq": 12,
   "tf": 12,
-  "learn": 0,
-  "misc": 0,
-  "tips": 0,
+  "learn": 8,
+  "misc": 10,
+  "tips": 5,
   "fib": 12,
   "match": 13,
   "flashcards": 15
@@ -342,9 +342,9 @@ window.SECTION_TOTALS = {
   "exam": 46,
   "mcq": 15,
   "tf": 12,
-  "learn": 0,
-  "misc": 0,
-  "tips": 0,
+  "learn": 10,
+  "misc": 8,
+  "tips": 6,
   "fib": 13,
   "match": 13,
   "flashcards": 18
@@ -353,9 +353,9 @@ window.SECTION_TOTALS = {
   "exam": 23,
   "mcq": 14,
   "tf": 12,
-  "learn": 0,
-  "misc": 0,
-  "tips": 0,
+  "learn": 9,
+  "misc": 10,
+  "tips": 5,
   "fib": 12,
   "match": 12,
   "flashcards": 15
@@ -364,9 +364,9 @@ window.SECTION_TOTALS = {
   "exam": 34,
   "mcq": 12,
   "tf": 12,
-  "learn": 0,
-  "misc": 0,
-  "tips": 0,
+  "learn": 6,
+  "misc": 6,
+  "tips": 6,
   "fib": 12,
   "match": 12,
   "flashcards": 15
@@ -375,9 +375,9 @@ window.SECTION_TOTALS = {
   "exam": 26,
   "mcq": 12,
   "tf": 12,
-  "learn": 0,
-  "misc": 0,
-  "tips": 0,
+  "learn": 8,
+  "misc": 11,
+  "tips": 11,
   "fib": 12,
   "match": 12,
   "flashcards": 10
@@ -386,9 +386,9 @@ window.SECTION_TOTALS = {
   "exam": 17,
   "mcq": 12,
   "tf": 12,
-  "learn": 0,
-  "misc": 0,
-  "tips": 0,
+  "learn": 10,
+  "misc": 8,
+  "tips": 5,
   "fib": 12,
   "match": 12,
   "flashcards": 15
@@ -397,9 +397,9 @@ window.SECTION_TOTALS = {
   "exam": 17,
   "mcq": 12,
   "tf": 12,
-  "learn": 0,
-  "misc": 0,
-  "tips": 0,
+  "learn": 9,
+  "misc": 10,
+  "tips": 10,
   "fib": 12,
   "match": 12,
   "flashcards": 15
@@ -408,9 +408,9 @@ window.SECTION_TOTALS = {
   "exam": 16,
   "mcq": 12,
   "tf": 11,
-  "learn": 0,
-  "misc": 0,
-  "tips": 0,
+  "learn": 7,
+  "misc": 8,
+  "tips": 6,
   "fib": 12,
   "match": 12,
   "flashcards": 15

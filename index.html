@@ -1207,6 +1207,7 @@
       // did — on any device.
       if (cached.role === 'student') {
         if (typeof gamificationRefreshStreak === 'function') gamificationRefreshStreak(supabaseClient);
+        if (typeof gamificationRefreshDailyReviseStats === 'function') gamificationRefreshDailyReviseStats(supabaseClient);
         if (typeof gamificationRefreshHomeFromServer === 'function') gamificationRefreshHomeFromServer(supabaseClient);
       }
     }

@@ -135,6 +135,9 @@ async function gcseInitAuth() {
     if (cached.role === 'student' && typeof gamificationRefreshStreak === 'function') {
         gamificationRefreshStreak(_gcseSupabaseClient);
     }
+    if (cached.role === 'student' && typeof gamificationRefreshDailyReviseStats === 'function') {
+        gamificationRefreshDailyReviseStats(_gcseSupabaseClient);
+    }
 }
 
 // ── Cross-device sync ──
@@ -395,6 +398,7 @@ function tagStableQuestionIds() {
     if (typeof mcqData !== 'undefined') mcqData.forEach((q, i) => { if (q._qi == null) q._qi = i; });
     if (typeof tfData !== 'undefined') tfData.forEach((q, i) => { if (q._qi == null) q._qi = i; });
     if (typeof fibData !== 'undefined') fibData.forEach((f, i) => { if (f._fi == null) f._fi = i; });
+    if (typeof flashcards !== 'undefined') flashcards.forEach((f, i) => { if (f._qi == null) f._qi = i; });
 }
 function _stableQi(arr, i) {
     const q = arr[i];
@@ -745,9 +749,10 @@ async function gcseRefreshFlowSettings() {
     let flow;
     try {
         const { data, error } = await _gcseSupabaseClient.rpc('get_my_topic_settings');
-        if (error || !data || !data.flow) return;
+        if (error) { console.error('gcseRefreshFlowSettings', error); return; }
+        if (!data || !data.flow) return;
         flow = data.flow;
-    } catch (e) { return; }
+    } catch (e) { console.error('gcseRefreshFlowSettings', e); return; }
     _flowSettings = Object.assign({}, GCSE_FLOW_DEFAULTS, flow);
     try { localStorage.setItem(GCSE_FLOW_KEY, JSON.stringify(_flowSettings)); } catch (e) {}
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', applyFlowSettings);
@@ -2552,7 +2557,7 @@ function injectFIBAdvancedToggle() {
 // ══════════════════════════════════════
 // FLASHCARDS
 // ══════════════════════════════════════
-let activeDeck = [], fcIndex = 0, knownCards = [], unknownCards = [];
+let activeDeck = [], fcIndex = 0, redCards = [], amberCards = [], greenCards = [];
 
 function injectFCProgressBar() {
     if (document.getElementById('fcBarWrap')) return;
@@ -2562,24 +2567,67 @@ function injectFCProgressBar() {
     scoreBar.after(bar);
 }
 
+// Adds the Amber score counter + "🟡 Nearly" button purely via JS, so none
+// of the 38 topic pages' inline flashcard markup needs editing.
+function injectFCAmberUI() {
+    const scoreBar = document.getElementById('fcScoreBar');
+    if (scoreBar && !document.getElementById('fcAmber')) {
+        const knownWrap = document.getElementById('fcKnown');
+        if (knownWrap && knownWrap.parentElement) {
+            const amberWrap = document.createElement('div');
+            amberWrap.innerHTML = `<div class="score-num" id="fcAmber" style="color:#d4a843">0</div><div style="font-size:12px;color:var(--mid)">nearly</div>`;
+            knownWrap.parentElement.after(amberWrap);
+        }
+    }
+    const assess = document.getElementById('fcNavAssess');
+    if (assess && !document.getElementById('fcAmberBtn')) {
+        const btns = assess.querySelectorAll('.fc-btn');
+        if (btns.length >= 2) {
+            const amberBtn = document.createElement('button');
+            amberBtn.type = 'button';
+            amberBtn.id = 'fcAmberBtn';
+            amberBtn.className = 'fc-btn outline';
+            amberBtn.style.cssText = 'border-color:#d4a843;color:#8a6800;flex:1';
+            amberBtn.textContent = '🟡 Nearly';
+            amberBtn.addEventListener('click', () => markCard('amber'));
+            assess.insertBefore(amberBtn, btns[1]);
+        }
+    }
+}
+
 function updateFCProgress() {
-    const done = knownCards.length + unknownCards.length;
-    updateProgressBar('fc', done, activeDeck.length + done);
+    // Only Green counts toward mastery progress (Red/Amber still need review).
+    updateProgressBar('fc', greenCards.length, activeDeck.length);
 }
 
 function initFlashcards() {
     if (!document.getElementById('fcTerm') || typeof flashcards === 'undefined') return;
     activeDeck = [...flashcards];
     injectFCProgressBar();
+    injectFCAmberUI();
     ProgressStore.saveTotal(getPageId(), 'flashcards', activeDeck.length);
+
+    // Restore each card's previously graded Red/Amber/Green verdict —
+    // keyed by the card's stable id so shuffles/randomise can't misalign
+    // it (same pattern as MCQ/TF's _stableQi-keyed answers).
+    redCards = []; amberCards = []; greenCards = [];
+    const savedAnswers = ProgressStore.getAnswers(getPageId(), 'flashcards') || {};
+    flashcards.forEach((f, i) => {
+        const v = savedAnswers[_stableQi(flashcards, i)];
+        if (!v || typeof v !== 'object' || !v.status) return;
+        if (v.status === 'green') greenCards.push(f);
+        else if (v.status === 'amber') amberCards.push(f);
+        else if (v.status === 'red') redCards.push(f);
+    });
+
     // Restore saved position
-    const savedFC = ProgressStore.getAnswers(getPageId(), 'flashcards');
-    if (savedFC && savedFC.progress && savedFC.progress.index > 0) {
-        fcIndex = Math.min(savedFC.progress.index, activeDeck.length - 1);
+    const savedProgress = savedAnswers.progress;
+    if (savedProgress && savedProgress.index > 0) {
+        fcIndex = Math.min(savedProgress.index, activeDeck.length - 1);
         document.getElementById('fcSummaryArea').style.display = 'none';
         document.getElementById('fcActiveArea').style.display = 'block';
         document.getElementById('fcScoreBar').style.display = 'flex';
-        updateProgressBar('fc', savedFC.progress.done || 0, activeDeck.length);
+        updateProgressBar('fc', greenCards.length, activeDeck.length);
         renderFC(); updateFCScore();
         // Show how far they got without losing progress
     } else {
@@ -2587,15 +2635,20 @@ function initFlashcards() {
     }
 }
 function resetFlashcardsState() {
-    fcIndex = 0; knownCards = []; unknownCards = [];
+    fcIndex = 0;
     document.getElementById('fcSummaryArea').style.display = 'none';
     document.getElementById('fcActiveArea').style.display = 'block';
     document.getElementById('fcScoreBar').style.display = 'flex';
-    updateProgressBar('fc', 0, activeDeck.length);
+    updateProgressBar('fc', greenCards.length, activeDeck.length);
     renderFC(); updateFCScore();
 }
-function resetFlashcards() { activeDeck = [...flashcards]; updateProgressBar("fc", 0, activeDeck.length); resetFlashcardsState(); }
-function reviewWrong() { if (unknownCards.length === 0) return; activeDeck = [...unknownCards]; resetFlashcardsState(); }
+function resetFlashcards() { activeDeck = [...flashcards]; redCards = []; amberCards = []; greenCards = []; updateProgressBar("fc", 0, activeDeck.length); resetFlashcardsState(); }
+function reviewWrong() {
+    const toReview = [...redCards, ...amberCards];
+    if (!toReview.length) return;
+    activeDeck = toReview;
+    resetFlashcardsState();
+}
 function renderFC() {
     const termEl = document.getElementById('fcTerm');
     if (!termEl || activeDeck.length === 0) return;
@@ -2606,6 +2659,7 @@ function renderFC() {
     document.getElementById('flashcard').classList.remove('flipped');
     document.getElementById('fcNavDefault').style.display = 'flex';
     document.getElementById('fcNavAssess').style.display = 'none';
+    _fcUpdateCapUI();
 }
 function flipCard() {
     const cardEl = document.getElementById('flashcard');
@@ -2614,23 +2668,61 @@ function flipCard() {
     const isFlipped = cardEl.classList.contains('flipped');
     document.getElementById('fcNavDefault').style.display = isFlipped ? 'none' : 'flex';
     document.getElementById('fcNavAssess').style.display = isFlipped ? 'flex' : 'none';
+    if (isFlipped) _fcUpdateCapUI();
 }
-function markCard(isKnown) {
-    if (isKnown) knownCards.push(activeDeck[fcIndex]); else unknownCards.push(activeDeck[fcIndex]);
+// Disables the R/A/G buttons and shows a "come back tomorrow" message once
+// the daily flashcard-review cap (gamification.js) has been reached.
+function _fcUpdateCapUI() {
+    const assess = document.getElementById('fcNavAssess');
+    if (!assess) return;
+    const capped = typeof fcDailyReviewCount === 'function' && typeof FC_DAILY_CAP !== 'undefined'
+        && fcDailyReviewCount() >= FC_DAILY_CAP;
+    assess.querySelectorAll('.fc-btn').forEach(b => b.disabled = capped);
+    let msg = document.getElementById('fcCapMsg');
+    if (capped) {
+        if (!msg) {
+            msg = document.createElement('p');
+            msg.id = 'fcCapMsg';
+            msg.className = 'fc-hint';
+            msg.style.color = 'var(--mid)';
+            assess.after(msg);
+        }
+        msg.textContent = `🎯 Daily flashcard limit reached (${FC_DAILY_CAP}/day) — come back tomorrow for more.`;
+    } else if (msg) {
+        msg.remove();
+    }
+}
+function markCard(status) {
+    const normalized = status === true ? 'green' : status === false ? 'red' : status;
+    if (typeof fcDailyReviewCount === 'function' && typeof FC_DAILY_CAP !== 'undefined'
+        && fcDailyReviewCount() >= FC_DAILY_CAP) {
+        _fcUpdateCapUI();
+        return;
+    }
+    const card = activeDeck[fcIndex];
+    if (normalized === 'green') greenCards.push(card);
+    else if (normalized === 'amber') amberCards.push(card);
+    else redCards.push(card);
     updateFCScore();
     updateFCProgress();
-    ProgressStore.save(getPageId(), 'flashcards', knownCards.length + unknownCards.length, activeDeck.length);
-    ProgressStore.saveAnswers(getPageId(), 'flashcards', 'progress', { index: fcIndex + 1, done: knownCards.length + unknownCards.length });
+    // card._qi is stamped once (tagStableQuestionIds) and travels with the
+    // object — reading it directly is safer than re-deriving an index here,
+    // since activeDeck may be a shuffled/filtered subset of `flashcards`.
+    const key = card && card._qi != null ? card._qi : fcIndex;
+    ProgressStore.save(getPageId(), 'flashcards', greenCards.length, activeDeck.length);
+    ProgressStore.saveAnswers(getPageId(), 'flashcards', 'progress', { index: fcIndex + 1, done: greenCards.length });
+    ProgressStore.saveAnswers(getPageId(), 'flashcards', key, { status: normalized });
+    if (typeof _fcBumpDaily === 'function') _fcBumpDaily();
     if (fcIndex < activeDeck.length - 1) {
         fcIndex++; renderFC();
     } else {
         showFCSummary();
-        const perfect = unknownCards.length === 0;
+        const perfect = redCards.length === 0 && amberCards.length === 0;
         setTimeout(() => showCelebration({
             title: perfect ? 'Perfect Deck!' : 'Deck Complete!',
             subtitle: perfect
                 ? 'You knew every card — outstanding! 🌟'
-                : `${knownCards.length} known, ${unknownCards.length} to review`,
+                : `${greenCards.length} mastered, ${redCards.length + amberCards.length} to review`,
             extra: `${activeDeck.length} card${activeDeck.length !== 1 ? 's' : ''} completed`,
             section: 'flashcards',
             onReset: resetFlashcards
@@ -2640,16 +2732,22 @@ function markCard(isKnown) {
 function updateFCScore() {
     const knownEl = document.getElementById('fcKnown');
     if (!knownEl) return;
-    knownEl.textContent = knownCards.length;
-    document.getElementById('fcUnknown').textContent = unknownCards.length;
+    knownEl.textContent = greenCards.length;
+    const amberEl = document.getElementById('fcAmber');
+    if (amberEl) amberEl.textContent = amberCards.length;
+    document.getElementById('fcUnknown').textContent = redCards.length;
     document.getElementById('fcTotalTrack').textContent = activeDeck.length;
 }
 function showFCSummary() {
     document.getElementById('fcActiveArea').style.display = 'none';
     document.getElementById('fcSummaryArea').style.display = 'block';
-    document.getElementById('fcSummaryKnown').textContent = knownCards.length;
+    document.getElementById('fcSummaryKnown').textContent = greenCards.length;
     document.getElementById('fcSummaryTotal').textContent = activeDeck.length;
-    document.getElementById('btnReviewWrong').style.display = unknownCards.length > 0 ? 'inline-block' : 'none';
+    const reviewBtn = document.getElementById('btnReviewWrong');
+    if (reviewBtn) {
+        reviewBtn.style.display = (redCards.length + amberCards.length) > 0 ? 'inline-block' : 'none';
+        reviewBtn.textContent = 'Review Red + Amber';
+    }
 }
 function nextCard() { if (!activeDeck.length) return; fcIndex = (fcIndex + 1) % activeDeck.length; renderFC(); }
 function prevCard() { if (!activeDeck.length) return; fcIndex = (fcIndex - 1 + activeDeck.length) % activeDeck.length; renderFC(); }
@@ -4050,7 +4148,7 @@ const ProgressStore = (() => {
         // dashboard reset uses; fire-and-forget).
         try {
             if (_gcseSupabaseClient && _gcseProfile && _gcseProfile.role === 'student') {
-                _gcseSupabaseClient.rpc('reset_my_page_progress', { p_page_id: pageIdArg }).then(() => {}, () => {});
+                _gcseSupabaseClient.rpc('reset_my_page_progress', { p_page_id: pageIdArg }).then(() => {}, e => console.error('reset_my_page_progress', e));
             }
         } catch (e) {}
     }

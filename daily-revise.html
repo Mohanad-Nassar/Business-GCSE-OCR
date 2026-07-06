@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Revise — GCSE Business Studies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="business-style.css"/>
+  <style>
+    html, body {
+      display: block !important;
+      grid-template-columns: none !important;
+      grid-template-rows: none !important;
+      grid-template-areas: none !important;
+    }
+    header, main { grid-area: unset !important; }
+    body { background: var(--paper); color: var(--ink); min-height: 100vh; }
+    :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
+
+    header {
+      background: var(--ink); border-bottom: 3px solid var(--accent);
+      padding: 28px 40px 24px; position: relative; overflow: hidden;
+    }
+    header::before {
+      content:''; position:absolute; top:-50px; right:-50px;
+      width:220px; height:220px; border-radius:50%;
+      background:var(--accent); opacity:.14; pointer-events:none;
+    }
+    .header-inner { position:relative; z-index:1; display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+    .header-badge {
+      display:inline-block; background:var(--accent); color:#fff;
+      font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em;
+      text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:12px;
+    }
+    header h1 { font-family:'Playfair Display',serif; font-size:clamp(22px,3.5vw,30px); font-weight:700; color:var(--paper); line-height:1.15; margin-bottom:5px; }
+    header p { font-size:13px; color:rgba(245,240,232,.6); }
+    .header-links { display:flex; gap:10px; flex-wrap:wrap; align-items:flex-start; }
+    .nav-link {
+      background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
+      color:var(--paper); font-family:'DM Mono',monospace; font-size:11px;
+      padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap;
+      transition:background .15s,border-color .15s;
+    }
+    .nav-link:hover { background:rgba(255,255,255,.18); border-color:var(--gold); }
+    .gcse-account-bar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-family:'DM Mono',monospace; font-size:11px; color:rgba(245,240,232,.75); }
+    .gcse-account-bar button.nav-link { cursor:pointer; }
+
+    main { max-width:640px; margin:0 auto; padding:32px 24px 80px; }
+    .panel { background:var(--card-bg); border:1px solid var(--border); border-radius:12px; padding:26px 28px; }
+    .muted { color:var(--mid); font-size:12px; }
+    .empty { padding:24px; text-align:center; color:var(--mid); font-style:italic; font-size:13px; }
+
+    .dr-stats { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:22px; font-family:'DM Mono',monospace; font-size:12px; color:var(--mid); }
+    .dr-stats .stat { display:flex; align-items:center; gap:6px; }
+    .dr-stats .stat b { color:var(--ink); font-size:14px; }
+
+    .qhead { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:14px; font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); text-transform:uppercase; letter-spacing:.06em; }
+    .chip { display:inline-block; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.05em; padding:3px 10px; border-radius:99px; background:rgba(122,92,158,.1); color:var(--accent); border:1px solid rgba(122,92,158,.3); }
+    .qtext { font-size:15px; font-weight:600; line-height:1.55; margin-bottom:16px; }
+    .case-study { background:#f0ece4; border-left:4px solid var(--accent); border-radius:0 6px 6px 0; padding:12px 14px; font-size:13px; line-height:1.7; margin-bottom:14px; white-space:pre-wrap; }
+
+    .opt {
+      display:block; border:1.5px solid var(--border); background:var(--cream);
+      border-radius:7px; padding:11px 16px; margin-bottom:9px; cursor:pointer;
+      font-size:13.5px; transition:background .15s,border-color .15s;
+    }
+    .opt:hover { background:#e8e1d3; border-color:var(--mid); }
+    .opt input { margin-right:8px; }
+    .opt.correct { background:#d4edda; border-color:var(--success); color:var(--success); font-weight:600; }
+    .opt.wrong { background:#fde8e5; border-color:var(--wrong); color:var(--wrong); font-weight:600; }
+    .opt.disabled { pointer-events:none; }
+
+    .fib-text { font-size:15px; line-height:2.4; margin-bottom:10px; }
+    .fib-input {
+      background:var(--cream); border:2px solid var(--accent); border-radius:6px;
+      padding:4px 10px; font-family:'DM Mono',monospace; font-size:13px; font-weight:600;
+      color:var(--ink); width:140px; outline:none; text-align:center; margin:0 4px;
+    }
+    .fib-input.correct { border-color:var(--success); background:#d4edda; }
+    .fib-input.wrong { border-color:var(--wrong); background:#fde8e5; }
+    .blank-select {
+      appearance:none; -webkit-appearance:none;
+      background:var(--cream); border:2px solid var(--accent); border-radius:6px;
+      padding:4px 22px 4px 10px; font-family:'DM Mono',monospace; font-size:13px; font-weight:600;
+      color:var(--ink); outline:none; margin:0 4px;
+    }
+    .blank-select.correct { border-color:var(--success); background:#d4edda; }
+    .blank-select.wrong { border-color:var(--wrong); background:#fde8e5; }
+    .dr-fib-answer { font-size:12.5px; color:var(--success); font-weight:600; }
+
+    .dr-feedback { margin-top:16px; padding:12px 16px; border-radius:8px; font-size:13.5px; display:none; }
+    .dr-feedback.show { display:block; }
+    /* 4-tier mastery feedback: 0 red (incorrect) / 1 orange (correct once) /
+       2 yellow (correct twice) / 3 green (mastered) — same hues as the
+       site's existing confetti/celebration palette. */
+    .dr-feedback.m0 { background:#fde2e2; color:#8b2317; }
+    .dr-feedback.m1 { background:#fde3d3; color:#8a3d10; }
+    .dr-feedback.m2 { background:#fdf1cf; color:#7a5800; }
+    .dr-feedback.m3 { background:#d4edda; color:#1a5c34; }
+    .dr-mastery-chip { display:inline-block; font-family:'DM Mono',monospace; font-size:10px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:2px 9px; border-radius:99px; margin-bottom:6px; }
+    .dr-mastery-chip.m0 { background:#c84b31; color:#fff; }
+    .dr-mastery-chip.m1 { background:#e76f51; color:#fff; }
+    .dr-mastery-chip.m2 { background:#e9c46a; color:#4a3800; }
+    .dr-mastery-chip.m3 { background:#2d7a4f; color:#fff; }
+
+    /* Per-question mastery bar (top of each question): 4 equal segments in
+       the same tier hues — fill = how far through the Rule of 3 this
+       question is. Off segments stay neutral. */
+    .dr-mastery-bar { display:flex; gap:4px; margin-bottom:14px; }
+    .dr-mastery-bar .seg { flex:1; height:8px; border-radius:4px; background:var(--border); opacity:.45; transition:background .3s, opacity .3s; }
+    .dr-mastery-bar .seg.on { opacity:1; }
+    .dr-mastery-bar .seg.s0.on { background:#c84b31; }
+    .dr-mastery-bar .seg.s1.on { background:#e76f51; }
+    .dr-mastery-bar .seg.s2.on { background:#e9c46a; }
+    .dr-mastery-bar .seg.s3.on { background:#2d7a4f; }
+
+    .dr-pref-row { display:flex; align-items:flex-start; gap:8px; font-size:13px; padding:5px 0; cursor:pointer; }
+    .dr-pref-row input { margin-top:3px; }
+    .dr-pref-row .dr-pref-hint { display:block; font-size:11.5px; color:var(--mid); }
+
+    .btn { background:var(--ink); color:var(--paper); border:none; padding:11px 20px; border-radius:7px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13.5px; cursor:pointer; transition:background .15s; }
+    .btn:hover { background:#1c2c3d; }
+    .btn:disabled { opacity:.5; cursor:default; }
+    .dr-actions { margin-top:18px; display:flex; justify-content:flex-end; align-items:center; gap:10px; }
+
+    .dr-filter-toggle { background:transparent; border:1px solid var(--border); color:var(--ink); font-family:'DM Mono',monospace; font-size:11.5px; padding:7px 14px; border-radius:7px; cursor:pointer; }
+    .dr-filter-toggle:hover { border-color:var(--accent); color:var(--accent); }
+    .dr-filter-toggle:disabled { opacity:.5; cursor:default; }
+    .dr-filter-toggle:disabled:hover { border-color:var(--border); color:var(--ink); }
+    .dr-filter-group { margin-bottom:4px; }
+    .dr-filter-group summary { cursor:pointer; font-weight:600; font-size:13px; padding:8px 0; list-style:none; }
+    .dr-filter-group summary::-webkit-details-marker { display:none; }
+    .dr-filter-group summary::before { content:'▸ '; }
+    .dr-filter-group[open] summary::before { content:'▾ '; }
+    .dr-filter-topic { display:block; font-size:13px; padding:5px 0 5px 18px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="header-badge">OCR GCSE Business Studies · J204</div>
+      <h1>🎯 Daily Revise</h1>
+      <p>Short, spaced-out practice — answer a question right three times running and it's mastered.</p>
+    </div>
+    <div class="header-links">
+      <a class="nav-link" href="dashboard.html">← Dashboard</a>
+    </div>
+  </div>
+  <div class="gcse-account-bar" id="accountBar" style="padding:0 40px 4px;"></div>
+</header>
+
+<main>
+  <div class="dr-stats" id="drStats"></div>
+
+  <div id="drFilterToggleRow" style="display:none; margin-bottom:12px;">
+    <button type="button" class="dr-filter-toggle" id="drFilterToggleBtn">🔍 Filters</button>
+  </div>
+  <div class="panel" id="drFilterPanel" style="display:none; margin-bottom:16px;">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+      <strong style="font-size:13px;">Question filters</strong>
+      <button type="button" class="btn" id="drApplyFilterBtn" style="padding:7px 14px; font-size:12px;">Update</button>
+    </div>
+    <div style="margin-top:8px;">
+      <label class="dr-pref-row"><input type="checkbox" id="drSmartMode" checked/>
+        <span><strong>Smart mode</strong>
+          <span class="dr-pref-hint">Spaces questions out over time — only asks what's due today. Turn off to practise anything, any time.</span></span>
+      </label>
+      <label class="dr-pref-row"><input type="checkbox" id="drExcludeMastered" checked/>
+        <span><strong>Don't ask mastered questions</strong>
+          <span class="dr-pref-hint">Skips questions you've already answered right three times in a row.</span></span>
+      </label>
+      <label class="dr-pref-row"><input type="checkbox" id="drIncorrectOnly"/>
+        <span><strong>Incorrect only</strong>
+          <span class="dr-pref-hint">Only questions you got wrong last time.</span></span>
+      </label>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:14px; padding-top:12px; border-top:1px solid var(--border);">
+      <strong style="font-size:13px;">Practise only these topics</strong>
+      <button type="button" class="dr-filter-toggle" id="drFilterAllBtn">Select all</button>
+    </div>
+    <p class="muted" id="drFilterNote" style="margin-top:6px;"></p>
+    <div id="drFilterGroups" style="margin-top:10px;"></div>
+  </div>
+
+  <div class="panel" id="drPanel">
+    <div class="empty" id="drLoading">Loading today's questions…</div>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="section-totals.js"></script>
+<script src="progress-shared.js"></script>
+<script src="tasks-shared.js"></script>
+<script src="gamification.js"></script>
+<script src="daily-revise.js"></script>
+<script src="footer-legal.js"></script>
+</body>
+</html>

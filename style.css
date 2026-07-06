@@ -940,6 +940,19 @@
      background: var(--cream);
  }
 
+ .fc-btn:disabled {
+     opacity: .45;
+     cursor: not-allowed;
+ }
+
+ .fc-btn:disabled:hover {
+     background: var(--ink);
+ }
+
+ .fc-btn.outline:disabled:hover {
+     background: transparent;
+ }
+
  .tf-wrap {
      display: flex;
      flex-direction: column;
@@ -1019,6 +1032,7 @@
      margin-bottom: 24px;
      display: flex;
      align-items: center;
+     flex-wrap: wrap;
      gap: 16px;
  }
 
@@ -1322,6 +1336,10 @@
      .ep-btn-row {
          flex-direction: column;
      }
+
+     .tips-grid {
+         grid-template-columns: 1fr;
+     }
  }
 
  /* Case Study Highlight Box */
@@ -1478,7 +1496,11 @@
      }
  }
 
- /* ── Case Study Tables ── */
+ /* ── Case Study Tables ──
+    display:block (rather than the default table) turns the table itself
+    into a scroll container on narrow screens — wide tables scroll inside
+    their own box instead of forcing the whole page to overflow sideways.
+    Rows/cells keep their table layout; only the outer box's display changes. */
  .case-table {
      width: 100%;
      max-width: 600px;
@@ -1486,7 +1508,9 @@
      border-collapse: collapse;
      font-size: 0.9rem;
      text-align: center;
-     display: table;
+     display: block;
+     overflow-x: auto;
+     -webkit-overflow-scrolling: touch;
  }
 
  .case-table caption {

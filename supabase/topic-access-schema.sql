@@ -29,6 +29,10 @@
 
 alter table classes add column if not exists topic_access_mode text not null default 'open'
     check (topic_access_mode in ('open', 'manual', 'sequential'));
+-- Whether a locked topic offers a "please open this" request button at all.
+-- Default true = today's existing behaviour unchanged for classes that
+-- haven't touched this. false = the topic is just locked, no request option.
+alter table classes add column if not exists topic_access_allow_requests boolean not null default true;
 
 -- ── class_topic_visibility ── (manual mode)
 -- Absence of a row = visible. A row with visible=false hides that topic
@@ -88,16 +92,18 @@ create policy "tar_teacher_all" on topic_access_requests
 create or replace function get_my_topic_settings() returns jsonb
 language plpgsql security definer stable set search_path = public as $$
 declare
-    v_uid      uuid := auth.uid();
-    v_class_id uuid;
-    v_mode     text := 'open';
-    v_hidden   text[];
-    v_granted  text[];
-    v_requests jsonb;
+    v_uid            uuid := auth.uid();
+    v_class_id       uuid;
+    v_mode           text := 'open';
+    v_allow_requests boolean := true;
+    v_hidden         text[];
+    v_granted        text[];
+    v_requests       jsonb;
 begin
     if v_uid is null then raise exception 'not authenticated'; end if;
 
-    select c.id, c.topic_access_mode into v_class_id, v_mode
+    select c.id, c.topic_access_mode, c.topic_access_allow_requests
+    into v_class_id, v_mode, v_allow_requests
     from class_students cs join classes c on c.id = cs.class_id
     where cs.student_id = v_uid
     order by cs.joined_at asc limit 1;
@@ -120,6 +126,7 @@ begin
 
     return jsonb_build_object(
         'mode', coalesce(v_mode, 'open'),
+        'allow_requests', coalesce(v_allow_requests, true),
         'hidden', to_jsonb(v_hidden),
         'granted', to_jsonb(v_granted),
         'requests', v_requests

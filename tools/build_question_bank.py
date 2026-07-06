@@ -29,8 +29,12 @@ guessing.
 """
 
 import json
+import os
+import random
 import re
 import sys
+import urllib.error
+import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -267,6 +271,163 @@ def prune(d: dict) -> dict:
     return {k: v for k, v in d.items() if v is not None}
 
 
+def sql_string(s: str) -> str:
+    """Escape a Python string as a single-quoted Postgres text literal."""
+    return "'" + str(s).replace("'", "''") + "'"
+
+
+def sql_jsonb(obj) -> str:
+    return sql_string(json.dumps(obj, ensure_ascii=False)) + "::jsonb"
+
+
+def _load_dotenv():
+    """Minimal .env loader (KEY=value per line) — no dependency needed for
+    the one file this script reads. Doesn't override already-set env vars."""
+    env_path = ROOT / ".env"
+    if not env_path.exists():
+        return
+    for line in env_path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        k, _, v = line.partition("=")
+        k = k.strip()
+        if k and k not in os.environ:
+            os.environ[k] = v.strip()
+
+
+# Pushes bank_questions rows straight to Supabase via PostgREST, using the
+# service-role key (same credential the Netlify functions already use, e.g.
+# netlify/functions/_lib/adminClient.js) — bypasses RLS same as the SQL
+# Editor would. Runs automatically every time this script runs; if the key
+# isn't configured (e.g. a fresh clone with no .env yet), it just skips the
+# upload and leaves the generated SQL files as the fallback.
+def upload_bank_questions(rows):
+    _load_dotenv()
+    url = os.environ.get("SUPABASE_URL")
+    key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+    if not url or not key:
+        print("SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY not set (.env) — skipping live "
+              "upload; run the files in supabase/bank-questions-seed/ manually instead.",
+              file=sys.stderr)
+        return
+
+    endpoint = url.rstrip("/") + "/rest/v1/bank_questions?on_conflict=question_key"
+    headers = {
+        "apikey": key,
+        "Authorization": f"Bearer {key}",
+        "Content-Type": "application/json",
+        "Prefer": "resolution=merge-duplicates,return=minimal",
+    }
+
+    batch_size = 200
+    uploaded = 0
+    for i in range(0, len(rows), batch_size):
+        batch = rows[i:i + batch_size]
+        payload = [
+            {
+                "question_key": qkey, "page_id": page_id, "page_name": page_name,
+                "source": source, "qtype": qtype, "marks": marks,
+                "snapshot": snapshot, "answer_key": answer_key,
+            }
+            for (qkey, page_id, page_name, source, qtype, marks, snapshot, answer_key) in batch
+        ]
+        body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+        req = urllib.request.Request(endpoint, data=body, headers=headers, method="POST")
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                resp.read()
+            uploaded += len(batch)
+        except urllib.error.HTTPError as e:
+            body_text = e.read().decode("utf-8", errors="replace")
+            print(f"bank_questions upload FAILED at row {i}: HTTP {e.code} {body_text}", file=sys.stderr)
+            print(f"  {uploaded} of {len(rows)} rows uploaded before the failure.", file=sys.stderr)
+            return
+        except urllib.error.URLError as e:
+            print(f"bank_questions upload FAILED at row {i}: {e}", file=sys.stderr)
+            print(f"  {uploaded} of {len(rows)} rows uploaded before the failure.", file=sys.stderr)
+            return
+
+    print(f"bank_questions: {uploaded} rows uploaded live to Supabase ({url}).")
+
+
+# Bank-wide seed for the Daily Revise mastery engine (supabase/bank-questions-schema.sql).
+# Deliberately excludes 'written' questions — free-text exam-practice answers have no
+# deterministic correctness signal, so they can't participate in auto-graded mastery.
+# Splits each entry into a student-safe `snapshot` (no answer) and a hidden `answer_key`
+# (the `key` object) — same split as task_questions.snapshot/answer_key, so the answer
+# is never present in any student-reachable response. See supabase/daily-revise-functions.sql.
+#
+# Also uploads live to Supabase automatically (see upload_bank_questions above) whenever
+# SUPABASE_SERVICE_ROLE_KEY is configured in .env — the generated files below are the
+# fallback for a machine without that key set up, not the primary path.
+#
+# Emitted as many small numbered files (not one big file) — Supabase's SQL editor
+# rejects an overly large pasted query, and one file per statement means there's no
+# way to accidentally paste more than one chunk into the editor at once. If you have
+# `psql` or another direct Postgres client, running the single old-style combined file
+# in one command works fine (no editor size limit applies there); the numbered files
+# are for the copy-paste-into-the-web-editor workflow used by every other schema file.
+def write_bank_questions_seed(bank):
+    rows = []
+    skipped_written = 0
+    for q in bank:
+        if q.get("type") == "written":
+            skipped_written += 1
+            continue
+        snapshot = {k: v for k, v in q.items()
+                    if k not in ("id", "pageId", "pageName", "source", "type", "marks", "key")}
+        answer_key = q.get("key", {})
+        rows.append((q["id"], q["pageId"], q["pageName"], q["source"], q["type"],
+                     q["marks"], snapshot, answer_key))
+
+    stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    chunk_size = 100
+    chunks = [rows[i:i + chunk_size] for i in range(0, len(rows), chunk_size)]
+
+    seed_dir = ROOT / "supabase" / "bank-questions-seed"
+    seed_dir.mkdir(exist_ok=True)
+    for old in seed_dir.glob("*.sql"):
+        old.unlink()
+    old_combined = ROOT / "supabase" / "bank-questions-seed.sql"
+    if old_combined.exists():
+        old_combined.unlink()
+
+    for n, chunk in enumerate(chunks, start=1):
+        values = []
+        for (qkey, page_id, page_name, source, qtype, marks, snapshot, answer_key) in chunk:
+            values.append("(" + ", ".join([
+                sql_string(qkey), sql_string(page_id), sql_string(page_name),
+                sql_string(source), sql_string(qtype), str(marks),
+                sql_jsonb(snapshot), sql_jsonb(answer_key),
+            ]) + ")")
+        text = (
+            "-- ══════════════════════════════════════════════════════════════\n"
+            "-- BANK QUESTIONS SEED — GENERATED FILE, DO NOT EDIT BY HAND\n"
+            f"-- Part {n} of {len(chunks)}. Built by tools/build_question_bank.py.\n"
+            "-- Run every part, in order, AFTER supabase/bank-questions-schema.sql.\n"
+            "-- Each part is a standalone statement — paste just this one file into\n"
+            "-- the Supabase SQL editor and click Run, then move to the next part.\n"
+            "-- Safe to re-run (upserts by question_key).\n"
+            f"-- Generated: {stamp}\n"
+            "-- ══════════════════════════════════════════════════════════════\n"
+            "insert into bank_questions "
+            "(question_key, page_id, page_name, source, qtype, marks, snapshot, answer_key)\n"
+            "values\n" + ",\n".join(values) + "\n"
+            "on conflict (question_key) do update set\n"
+            "  page_id = excluded.page_id, page_name = excluded.page_name,\n"
+            "  source = excluded.source, qtype = excluded.qtype, marks = excluded.marks,\n"
+            "  snapshot = excluded.snapshot, answer_key = excluded.answer_key,\n"
+            "  updated_at = now();\n"
+        )
+        (seed_dir / f"{n:03d}.sql").write_text(text, encoding="utf-8")
+
+    print(f"bank-questions-seed/: {len(chunks)} files written, {len(rows)} rows "
+          f"({skipped_written} written-type skipped)")
+
+    upload_bank_questions(rows)
+
+
 def main():
     bank = []
     warnings = []
@@ -284,6 +445,10 @@ def main():
         # task-builder bank — but their count is still needed for progress
         # totals (see section-totals.js below).
         flash_counts[page_id] = len(extract_array(src, "flashcards", file) or [])
+
+        # This page's FIB distractor word bank — used below to precompute
+        # each blank's dropdown option set (see the fibData loop).
+        fib_words = extract_array(src, "fibWords", file) or []
 
         def unique_id(source, text):
             base = f"{page_id}:{source}:{djb2(text)}"
@@ -379,16 +544,37 @@ def main():
 
         # Fill-in-the-blanks: one question per item, one mark per blank,
         # auto-marked blank-by-blank (case/space-insensitive).
+        #
+        # blankOptions precomputes each blank's dropdown choices (the correct
+        # word + up to 3 distractors from this page's fibWords, shuffled) —
+        # the SAME algorithm the topic page's own dropdown mode uses
+        # (script.js's buildFIB) — but computed once here, at generation
+        # time, while we still have the real answer, specifically so the
+        # unlabelled option SET (never which one is correct) can go into
+        # bank_questions.snapshot for Daily Revise's dropdown mode without
+        # ever exposing the answer itself.
         for q in extract_array(src, "fibData", file) or []:
             if not q or not q.get("display") or not isinstance(q.get("blanks"), dict) or not q["blanks"]:
                 continue
+            blanks = q["blanks"]
+            correct_answers = [v for v in blanks.values() if v]
+            blank_options = {}
+            for key, ans in blanks.items():
+                if not ans:
+                    continue
+                distractors = [w for w in fib_words if w not in correct_answers]
+                random.shuffle(distractors)
+                opts = [ans] + distractors[:3]
+                random.shuffle(opts)
+                blank_options[key] = opts
             bank.append(prune({
                 "id": unique_id("fib", q["display"]),
                 "pageId": page_id, "pageName": page_name,
                 "source": "fib", "type": "fib",
-                "marks": len(q["blanks"]),
+                "marks": len(blanks),
                 "question": q["display"],
-                "key": {"blanks": q["blanks"]},
+                "blankOptions": blank_options or None,
+                "key": {"blanks": blanks},
             }))
 
         # Matching pairs become MCQs: pick the right definition for a term.
@@ -426,6 +612,8 @@ def main():
     )
     out = ROOT / "question-bank.js"
     out.write_text(header + json.dumps(bank, ensure_ascii=False, indent=1) + ";\n", encoding="utf-8")
+
+    write_bank_questions_seed(bank)
 
     sources = ["exam", "mcq", "tf", "learn", "misc", "tips", "fib", "match"]
     by_page = {}

@@ -38,7 +38,11 @@
   .btn.danger:hover { border-color:var(--wrong); background:rgba(200,75,49,.06); }
   .btn.small { padding:6px 12px; font-size:11.5px; }
 
-  table { width:100%; border-collapse:collapse; margin-top:12px; }
+  /* display:block turns each table into its own horizontal-scroll
+     container on narrow screens, instead of the whole page overflowing
+     sideways — rows/cells keep their table layout, only the outer box's
+     display changes. None of these tables have a wrapper div in the HTML. */
+  table { width:100%; border-collapse:collapse; margin-top:12px; display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
   thead tr { background:var(--cream); border-bottom:2px solid var(--border); }
   th { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); padding:9px 10px; text-align:left; }
   td { padding:10px; border-bottom:1px solid var(--border); vertical-align:middle; font-size:13px; }
@@ -613,7 +617,7 @@ async function loadWeakTopics() {
   if (!activeClassId) { body.innerHTML = '<tr><td colspan="5" class="empty">Choose a class above.</td></tr>'; return; }
   body.innerHTML = '<tr><td colspan="5" class="empty">Loading…</td></tr>';
   const { data, error } = await auth.client.rpc('get_class_topic_performance', { p_class_id: activeClassId });
-  if (error) { body.innerHTML = `<tr><td colspan="5" class="empty">${esc(error.message)}</td></tr>`; return; }
+  if (error) { body.innerHTML = `<tr><td colspan="5" class="empty">${esc(error.message)}</td></tr>`; console.error('loadWeakTopics', error); return; }
   const rows = (data || [])
     .map(r => ({ ...r, score: r.correct_rate != null ? r.correct_rate : r.avg_marks_pct }))
     .filter(r => r.score != null)
@@ -631,7 +635,7 @@ async function loadWeakTopics() {
 async function loadClassTasks() {
   const { data: tasks, error } = await auth.client
     .from('tasks').select('*').eq('class_id', activeClassId).order('created_at', { ascending: false });
-  if (error) { $('taskListBody').innerHTML = `<tr><td colspan="8" class="empty">${esc(error.message)}</td></tr>`; return; }
+  if (error) { $('taskListBody').innerHTML = `<tr><td colspan="8" class="empty">${esc(error.message)}</td></tr>`; console.error('loadClassTasks', error); return; }
   classTasks = tasks || [];
   classTaskStats = {};
   if (classTasks.length) {
@@ -2113,7 +2117,7 @@ function renderMarkingQueue() {
       const { data, error } = await auth.client.rpc('mark_task_answer', {
         p_answer_id: ans.id, p_awarded: val, p_feedback: fb || null, p_source: 'teacher',
       });
-      if (error) { showMsg(msgEl, error.message, false); card.querySelector('[data-save-mark]').disabled = false; return; }
+      if (error) { showMsg(msgEl, error.message, false); console.error('mark_task_answer', error); card.querySelector('[data-save-mark]').disabled = false; return; }
       // Refresh local state and re-render.
       const idx = dAnswers.findIndex(x => x.id === ans.id);
       dAnswers[idx] = { ...ans, awarded: val, feedback: fb, marked_by: 'teacher' };
@@ -2217,7 +2221,7 @@ function renderDetailStudents() {
     btn.disabled = true;
     const { error } = await auth.client.from('task_assignments')
       .insert({ task_id: dTask.id, student_id: btn.dataset.addSid });
-    if (error) { alert(error.message); btn.disabled = false; return; }
+    if (error) { alert(error.message); console.error('task_assignments insert', error); btn.disabled = false; return; }
     const { data: asg } = await auth.client.from('task_assignments').select('*').eq('task_id', dTask.id);
     dAssignments = asg || [];
     renderDetailStudents();

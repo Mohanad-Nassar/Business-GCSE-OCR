@@ -174,7 +174,7 @@ function _notifEsc(str) {
             render(wrap);
             if (_client && _uid) {
                 try { await _client.from('task_notification_reads').upsert({ student_id: _uid, note_key: key }); }
-                catch (err) {}
+                catch (err) { console.error('task_notification_reads upsert', err); }
             }
         });
         return wrap;

@@ -35,12 +35,16 @@
     return !!t && Object.keys(t).some(k => k !== 'flashcards' && t[k] > 0);
   }
 
-  async function fetchOwnProgress(pageId) {
+  // One query for every topic before this one in the sequential order,
+  // instead of one query per topic — used to find the real blocker below.
+  async function fetchProgressForPages(pageIds) {
     const { data } = await window._gcseSupabaseClient
-      .from('progress_summary').select('section, done, total').eq('page_id', pageId);
-    const pd = {};
-    (data || []).forEach(r => { pd[r.section] = { done: r.done, total: r.total }; });
-    return pd;
+      .from('progress_summary').select('page_id, section, done, total').in('page_id', pageIds);
+    const byPage = {};
+    (data || []).forEach(r => {
+      (byPage[r.page_id] = byPage[r.page_id] || {})[r.section] = { done: r.done, total: r.total };
+    });
+    return byPage;
   }
 
   async function checkAccess() {
@@ -55,42 +59,67 @@
       settings = data;
     } catch (e) { return; }
 
-    const { mode, hidden, granted, requests } = settings;
+    const { mode, allow_requests, hidden, granted, requests } = settings;
     if ((granted || []).includes(pageId)) return;
     if (mode === 'open') return;
 
-    let locked = false, reason = '';
+    let locked = false, reason = '', blockerPage = null;
     if (mode === 'manual') {
       locked = (hidden || []).includes(pageId);
       reason = "Your teacher hasn't opened this topic for your class yet.";
     } else if (mode === 'sequential') {
       const order = [];
-      PAGE_GROUPS.forEach(g => flatPages(g).forEach(p => { if (hasGradableContent(p.id)) order.push(p.id); }));
+      const pagesById = {};
+      PAGE_GROUPS.forEach(g => flatPages(g).forEach(p => {
+        if (hasGradableContent(p.id)) { order.push(p.id); pagesById[p.id] = p; }
+      }));
       const idx = order.indexOf(pageId);
       if (idx > 0) {
-        const prevId = order[idx - 1];
-        const prevProgress = await fetchOwnProgress(prevId);
-        const sections = pageSectionTotals(prevId, prevProgress).filter(s => s.total > 0);
-        const complete = sections.length > 0 && sections.every(s => s.done >= s.total);
-        locked = !complete;
-        reason = `Finish "${pageTitle(prevId)}" first to unlock this topic.`;
+        const priorIds = order.slice(0, idx);
+        const progressByPage = await fetchProgressForPages(priorIds);
+        // The real blocker is the EARLIEST incomplete topic in the whole
+        // chain, not just the one immediately before this — that one might
+        // itself still be locked behind an even earlier gap, which would
+        // otherwise send a student on a confusing hop backwards one topic
+        // at a time instead of straight to the one they actually need.
+        for (const pid of priorIds) {
+          const sections = pageSectionTotals(pid, progressByPage[pid] || {}).filter(s => s.total > 0);
+          const complete = sections.length > 0 && sections.every(s => s.done >= s.total);
+          if (!complete) { blockerPage = pagesById[pid]; break; }
+        }
+        if (blockerPage) {
+          locked = true;
+          reason = `Finish "${blockerPage.name}" first to unlock this topic.`;
+        }
       }
     }
-    if (locked) showLockedOverlay(pageId, reason, requests);
+    if (locked) showLockedOverlay(pageId, reason, requests, blockerPage, allow_requests !== false);
   }
 
-  function showLockedOverlay(pageId, reason, requests) {
+  function showLockedOverlay(pageId, reason, requests, blockerPage, allowRequests) {
     const main = document.querySelector('main') || document.body;
     main.innerHTML = '';
     const box = document.createElement('div');
     box.style.cssText = 'max-width:520px;margin:60px auto;padding:32px;text-align:center;font-family:"DM Sans",sans-serif;';
+    // Sequential locks send the student straight to the topic they actually
+    // need to finish, not just back to the dashboard — that's the useful
+    // next action here. Manual (teacher-hidden) locks have no such "next
+    // topic" concept, so they keep the plain dashboard link.
+    const primaryLink = blockerPage
+      ? `<a href="${blockerPage.href}" style="display:inline-block;padding:11px 22px;border-radius:8px;background:#1a2332;color:#fff;text-decoration:none;font-weight:600;">→ Go to "${blockerPage.name}"</a>
+         <p style="margin-top:16px;"><a href="dashboard.html" style="color:inherit;font-size:13px;">← Back to dashboard</a></p>`
+      : `<p><a href="dashboard.html" style="color:inherit;">← Back to dashboard</a></p>`;
     box.innerHTML = `
       <div style="font-size:40px;margin-bottom:10px;" aria-hidden="true">🔒</div>
       <h1 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:10px;">This topic isn't open yet</h1>
       <p style="color:#666;margin-bottom:20px;">${reason}</p>
       <div id="tgRequestArea"></div>
-      <p style="margin-top:24px;"><a href="dashboard.html" style="color:inherit;">← Back to dashboard</a></p>`;
+      <div style="margin-top:24px;">${primaryLink}</div>`;
     main.appendChild(box);
+
+    // Teacher-controlled: some classes just lock a topic with no way to
+    // ask for early access at all — leave the request area empty entirely.
+    if (!allowRequests) return;
 
     const area = box.querySelector('#tgRequestArea');
     const existing = (requests || []).find(r => r.page_id === pageId && r.status !== 'denied')

@@ -21,24 +21,29 @@ const GAMIFICATION_CATEGORY_BONUS = 50;
 const GAMIFICATION_TOPIC_BONUS = 200;
 const GAMIFICATION_CATEGORY_KEYS = ['learn', 'mcq', 'match', 'fib', 'misc', 'tips', 'tf', 'exam'];
 
+// `group` is display-only — it's how badges.html sections the full badge
+// list, so a new group can be added later without restructuring anything.
 const BADGE_DEFS = [
-  { id: 'first-steps',    icon: '🥉', label: 'First Steps',     desc: 'Answer your first question',              test: s => s.totalDone >= 1 },
-  { id: 'century',        icon: '💯', label: 'Century',          desc: 'Answer 100 questions',                     test: s => s.totalDone >= 100 },
-  { id: 'getting-serious',icon: '🚀', label: 'Getting Serious',  desc: 'Reach 500 XP',                             test: s => s.xp >= 500 },
-  { id: 'topic-master',   icon: '🏆', label: 'Topic Master',     desc: 'Fully complete one topic',                 test: s => s.topicsComplete >= 1 },
-  { id: 'on-a-roll',      icon: '🏅', label: 'On a Roll',        desc: 'Fully complete 5 topics',                  test: s => s.topicsComplete >= 5 },
-  { id: 'unit-champion',  icon: '🌟', label: 'Unit Champion',    desc: 'Fully complete every topic in one unit',   test: s => s.unitComplete },
-  { id: 'gcse-legend',    icon: '👑', label: 'GCSE Legend',      desc: 'Fully complete every topic',               test: s => s.topicsComplete >= s.totalTopics && s.totalTopics > 0 },
-  { id: 'bookworm',       icon: '📚', label: 'Bookworm',         desc: 'Complete Key Learning in 10 topics',       test: s => s.byCategory.learn >= 10 },
-  { id: 'quiz-whiz',      icon: '❓', label: 'Quiz Whiz',        desc: 'Complete MCQ Quiz in 10 topics',           test: s => s.byCategory.mcq >= 10 },
-  { id: 'match-master',   icon: '🔗', label: 'Match Master',     desc: 'Complete Matching in 10 topics',           test: s => s.byCategory.match >= 10 },
-  { id: 'fill-it-in',     icon: '✏️', label: 'Fill It In',       desc: 'Complete Fill the Blanks in 10 topics',    test: s => s.byCategory.fib >= 10 },
-  { id: 'myth-buster',    icon: '⚠️', label: 'Myth Buster',      desc: 'Complete Misconceptions in 10 topics',     test: s => s.byCategory.misc >= 10 },
-  { id: 'tip-top',        icon: '🎯', label: 'Tip Top',          desc: 'Complete Exam Tips in 10 topics',          test: s => s.byCategory.tips >= 10 },
-  { id: 'true-believer',  icon: '✅', label: 'True Believer',    desc: 'Complete True/False in 10 topics',         test: s => s.byCategory.tf >= 10 },
-  { id: 'exam-ready',     icon: '📝', label: 'Exam Ready',       desc: 'Complete Exam Practice in 5 topics',       test: s => s.byCategory.exam >= 5 },
-  { id: 'on-fire',        icon: '🔥', label: 'On Fire',          desc: '3-day answering streak',                   test: s => s.streak >= 3 },
-  { id: 'unstoppable',    icon: '🔥', label: 'Unstoppable',      desc: '7-day answering streak',                   test: s => s.streak >= 7 },
+  { id: 'first-steps',    icon: '🥉', label: 'First Steps',     desc: 'Answer your first question',              group: 'Progress', test: s => s.totalDone >= 1 },
+  { id: 'century',        icon: '💯', label: 'Century',          desc: 'Answer 100 questions',                     group: 'Progress', test: s => s.totalDone >= 100 },
+  { id: 'getting-serious',icon: '🚀', label: 'Getting Serious',  desc: 'Reach 500 XP',                             group: 'Progress', test: s => s.xp >= 500 },
+  { id: 'topic-master',   icon: '🏆', label: 'Topic Master',     desc: 'Fully complete one topic',                 group: 'Progress', test: s => s.topicsComplete >= 1 },
+  { id: 'on-a-roll',      icon: '🏅', label: 'On a Roll',        desc: 'Fully complete 5 topics',                  group: 'Progress', test: s => s.topicsComplete >= 5 },
+  { id: 'unit-champion',  icon: '🌟', label: 'Unit Champion',    desc: 'Fully complete every topic in one unit',   group: 'Progress', test: s => s.unitComplete },
+  { id: 'gcse-legend',    icon: '👑', label: 'GCSE Legend',      desc: 'Fully complete every topic',               group: 'Progress', test: s => s.topicsComplete >= s.totalTopics && s.totalTopics > 0 },
+  { id: 'bookworm',       icon: '📚', label: 'Bookworm',         desc: 'Complete Key Learning in 10 topics',       group: 'Categories', test: s => s.byCategory.learn >= 10 },
+  { id: 'quiz-whiz',      icon: '❓', label: 'Quiz Whiz',        desc: 'Complete MCQ Quiz in 10 topics',           group: 'Categories', test: s => s.byCategory.mcq >= 10 },
+  { id: 'match-master',   icon: '🔗', label: 'Match Master',     desc: 'Complete Matching in 10 topics',           group: 'Categories', test: s => s.byCategory.match >= 10 },
+  { id: 'fill-it-in',     icon: '✏️', label: 'Fill It In',       desc: 'Complete Fill the Blanks in 10 topics',    group: 'Categories', test: s => s.byCategory.fib >= 10 },
+  { id: 'myth-buster',    icon: '⚠️', label: 'Myth Buster',      desc: 'Complete Misconceptions in 10 topics',     group: 'Categories', test: s => s.byCategory.misc >= 10 },
+  { id: 'tip-top',        icon: '🎯', label: 'Tip Top',          desc: 'Complete Exam Tips in 10 topics',          group: 'Categories', test: s => s.byCategory.tips >= 10 },
+  { id: 'true-believer',  icon: '✅', label: 'True Believer',    desc: 'Complete True/False in 10 topics',         group: 'Categories', test: s => s.byCategory.tf >= 10 },
+  { id: 'exam-ready',     icon: '📝', label: 'Exam Ready',       desc: 'Complete Exam Practice in 5 topics',       group: 'Categories', test: s => s.byCategory.exam >= 5 },
+  { id: 'on-fire',        icon: '🔥', label: 'On Fire',          desc: '3-day answering streak',                   group: 'Streaks', test: s => s.streak >= 3 },
+  { id: 'unstoppable',    icon: '🔥', label: 'Unstoppable',      desc: '7-day answering streak',                   group: 'Streaks', test: s => s.streak >= 7 },
+  { id: 'daily-starter',  icon: '🎯', label: 'Daily Habit',      desc: 'Answer 20 Daily Revise questions correctly', group: 'Daily Revise', test: s => s.drCorrect >= 20 },
+  { id: 'daily-sharp',    icon: '🥈', label: 'Getting Sharp',    desc: 'Master 25 questions in Daily Revise',      group: 'Daily Revise', test: s => s.drMastered >= 25 },
+  { id: 'daily-pro',      icon: '🥇', label: 'Daily Revise Pro', desc: 'Master 100 questions in Daily Revise',     group: 'Daily Revise', test: s => s.drMastered >= 100 },
 ];
 
 function gamificationLevelFromXp(xp) {
@@ -58,8 +63,12 @@ function _gamHasGradableContent(pageId) {
 
 // The single source of truth for XP/levels/badges/completion — call this
 // with the same merged {pageId:{section:{done,total}}} progress object
-// the dashboards already build, plus a streak count (0 if unknown yet).
-function computeGamificationStats(progress, streak) {
+// the dashboards already build, plus a streak count (0 if unknown yet) and
+// (optionally) this student's lifetime Daily Revise stats — see
+// gamificationRefreshDailyReviseStats(); defaults to the last-fetched cache
+// so existing call sites that don't pass it keep working unchanged.
+function computeGamificationStats(progress, streak, drStats) {
+  drStats = drStats || _gamDrStats;
   let xp = 0, topicsComplete = 0, totalDone = 0, totalTopics = 0, unitCompleteAny = false;
   const byCategory = {};
   GAMIFICATION_CATEGORY_KEYS.forEach(k => { byCategory[k] = 0; });
@@ -89,11 +98,22 @@ function computeGamificationStats(progress, streak) {
     if (pages.length > 0 && unitComplete === pages.length) unitCompleteAny = true;
   });
 
+  // Daily Revise practice — a durable, only-ever-growing lifetime count (see
+  // daily_revise_stats / record_mastery_answer in daily-revise-functions.sql)
+  // folded into the same XP total everything else uses. Mastering a
+  // question earns the same bonus as fully completing a topic section.
+  const drCorrect = (drStats && drStats.correctCount) || 0;
+  const drMastered = (drStats && drStats.masteredCount) || 0;
+  totalDone += drCorrect;
+  xp += drCorrect * GAMIFICATION_XP_PER_QUESTION;
+  xp += drMastered * GAMIFICATION_CATEGORY_BONUS;
+
   const lvl = gamificationLevelFromXp(xp);
   return {
     xp, level: lvl.level, xpIntoLevel: lvl.xpIntoLevel, xpForNextLevel: lvl.xpForNextLevel,
     topicsComplete, totalDone, totalTopics, byCategory,
     unitComplete: unitCompleteAny, streak: streak || 0,
+    drCorrect, drMastered,
   };
 }
 
@@ -239,6 +259,27 @@ async function gamificationRefreshStreak(client) {
   return _gamStreak;
 }
 
+// ── Daily Revise lifetime stats (needs a server round trip — see
+// daily_revise_stats / daily-revise-stats-schema.sql). Reset to zero on
+// every page load, same as the streak above; computeGamificationStats()
+// falls back to this cache when no drStats argument is passed. ──
+
+let _gamDrStats = { correctCount: 0, masteredCount: 0 };
+async function gamificationRefreshDailyReviseStats(client) {
+  try {
+    if (!client) return _gamDrStats;
+    const { data: { user } = {} } = await client.auth.getUser();
+    if (!user) return _gamDrStats;
+    const { data, error } = await client.from('daily_revise_stats')
+      .select('total_correct, total_mastered').eq('student_id', user.id).maybeSingle();
+    if (!error && data) {
+      _gamDrStats = { correctCount: data.total_correct || 0, masteredCount: data.total_mastered || 0 };
+      if (typeof _gamUpdateHud === 'function') _gamUpdateHud();
+    }
+  } catch (e) {}
+  return _gamDrStats;
+}
+
 // ── Daily goal (device-local, display-only — XP stays pure) ──
 // Gives the day-streak something visible to chase: answer N questions
 // today. Counted locally per calendar day; old keys are pruned as we go.
@@ -272,6 +313,33 @@ function _gamBumpDaily() {
     el.innerHTML = `<span aria-hidden="true">🎯</span> Daily goal smashed — ${GAMIFICATION_DAILY_GOAL} questions today! Streak safe 🔥`;
     _gamToast(el, 3200);
   }
+  return n;
+}
+
+// ── Flashcard daily review cap (separate from the daily goal above —
+// flashcards are deliberately excluded from that counter/streak, since this
+// one caps volume to enforce spaced repetition rather than reward it). ──
+const FC_DAILY_CAP = 20;
+
+function _fcDailyKey() {
+  const d = new Date();
+  const p = n => String(n).padStart(2, '0');
+  return `gcse_fc_daily_${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+}
+
+function fcDailyReviewCount() {
+  try { return parseInt(localStorage.getItem(_fcDailyKey()) || '0', 10) || 0; } catch (e) { return 0; }
+}
+
+function _fcBumpDaily() {
+  const key = _fcDailyKey();
+  const n = fcDailyReviewCount() + 1;
+  try {
+    Object.keys(localStorage).forEach(k => {
+      if (k.startsWith('gcse_fc_daily_') && k !== key) localStorage.removeItem(k);
+    });
+    localStorage.setItem(key, String(n));
+  } catch (e) {}
   return n;
 }
 
@@ -484,11 +552,6 @@ function _gamInjectHudStyles() {
     .gam-hud-streak{color:#8f6d19;cursor:help;}
     .gam-hud-daily{cursor:help;}
     .gam-hud-daily.goal-met{background:rgba(45,122,79,.14);border-color:#2d7a4f;color:#2d7a4f;}
-    .gam-hud-caret{font-size:9px;transition:transform .2s;}
-    .gam-hud-badges-btn[aria-expanded="true"] .gam-hud-caret{transform:rotate(180deg);}
-    .gam-hud-badge-panel{display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid var(--border,#c9bfaa);margin-top:12px;padding-top:12px;}
-    .gam-hud-badge{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:10.5px;padding:4px 10px;border-radius:99px;background:rgba(212,168,67,.12);border:1px solid rgba(212,168,67,.4);color:#8f6d19;cursor:help;}
-    .gam-hud-badge.locked{background:rgba(90,110,127,.08);border-color:rgba(90,110,127,.2);color:var(--mid,#5a6e7f);opacity:.55;filter:grayscale(1);}
     .gam-hud-topic{display:flex;align-items:center;gap:10px;margin-top:11px;padding-top:10px;border-top:1px dashed var(--border,#c9bfaa);}
     .gam-hud-topic-lbl{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mid,#5a6e7f);white-space:nowrap;}
     .gam-hud-topic-track{flex:1;background:var(--border,#c9bfaa);border-radius:99px;height:6px;overflow:hidden;}
@@ -520,9 +583,6 @@ function _gamInjectHudStyles() {
     .gam-hud--hero .gam-hud-chip{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.2);color:var(--paper,#f5f0e8);}
     .gam-hud--hero .gam-hud-chip:hover{border-color:var(--gold,#d4a843);background:rgba(255,255,255,.14);}
     .gam-hud--hero .gam-hud-streak{color:var(--gold,#d4a843);}
-    .gam-hud--hero .gam-hud-badge-panel{border-top-color:rgba(255,255,255,.14);}
-    .gam-hud--hero .gam-hud-badge{background:rgba(212,168,67,.16);}
-    .gam-hud--hero .gam-hud-badge.locked{color:#9fb0bd;background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15);}
     /* ── "Continue where you left off" hero card ── */
     .gam-continue{display:flex;align-items:center;gap:14px;margin-top:14px;background:linear-gradient(135deg,#d4a843,#b8860b);border-radius:14px;padding:14px 18px;text-decoration:none;color:#fff;position:relative;z-index:1;box-shadow:0 8px 24px rgba(184,134,11,.35);transition:transform .15s,box-shadow .15s;}
     .gam-continue:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(184,134,11,.5);}
@@ -609,12 +669,7 @@ function _gamUpdateHud(stats) {
   }
 
   const earned = gamificationEarnedBadges(stats);
-  const earnedIds = new Set(earned.map(b => b.id));
   $('gamHudBadgeCount').textContent = `${earned.length}/${BADGE_DEFS.length}`;
-  $('gamHudBadgePanel').innerHTML = BADGE_DEFS.map(b => {
-    const got = earnedIds.has(b.id);
-    return `<span class="gam-hud-badge${got ? '' : ' locked'}" title="${b.label}: ${b.desc}">${b.icon} ${b.label}</span>`;
-  }).join('');
 
   // This topic's own progress row
   if (_gamHudPageId) {
@@ -771,20 +826,11 @@ function _gamHudMainHtml() {
       <div class="gam-hud-chips">
         <span class="gam-hud-chip gam-hud-daily" id="gamHudDaily" title="Daily goal — answer ${GAMIFICATION_DAILY_GOAL} questions today (on this device) to keep your streak alive">🎯 <span id="gamHudDailyCount">0/${GAMIFICATION_DAILY_GOAL}</span></span>
         <span class="gam-hud-chip gam-hud-streak" title="Days in a row you've answered questions">🔥 <span id="gamHudStreak">0</span></span>
-        <button type="button" class="gam-hud-chip gam-hud-badges-btn" id="gamHudBadgesBtn" aria-expanded="false" aria-controls="gamHudBadgePanel">🏅 <span id="gamHudBadgeCount">0/${BADGE_DEFS.length}</span> <span class="gam-hud-caret" aria-hidden="true">▾</span></button>
+        <a class="gam-hud-chip gam-hud-badges-btn" id="gamHudBadgesBtn" href="badges.html">🏅 <span id="gamHudBadgeCount">0/${BADGE_DEFS.length}</span></a>
       </div>
     </div>`;
 }
 
-function _gamWireHudControls(hud) {
-  hud.querySelector('#gamHudBadgesBtn').addEventListener('click', () => {
-    const btn = hud.querySelector('#gamHudBadgesBtn');
-    const panel = hud.querySelector('#gamHudBadgePanel');
-    const open = panel.hidden;
-    panel.hidden = !open;
-    btn.setAttribute('aria-expanded', String(open));
-  });
-}
 
 // Reusable sound on/off toggle — lives in the site nav on topic pages
 // and in the hero nav on index.html (dashboards keep their own control,
@@ -819,12 +865,10 @@ function _gamInjectTopicHud(current) {
       <span class="gam-hud-topic-count" id="gamHudTopicCount">–</span>
       <span class="gam-hud-topic-done" id="gamHudTopicDone" hidden>✓ Complete · +${GAMIFICATION_TOPIC_BONUS} XP bonus banked</span>
       <button type="button" class="gam-hud-chip gam-hud-nextup" id="gamHudNextUp" hidden>▶ Next up</button>
-    </div>
-    <div class="gam-hud-badge-panel" id="gamHudBadgePanel" hidden></div>`;
+    </div>`;
   main.insertBefore(hud, main.firstChild);
   _gamHudEl = hud;
   _gamHudPageId = current.id;
-  _gamWireHudControls(hud);
   hud.querySelector('#gamHudNextUp').addEventListener('click', function () {
     if (this.dataset.href) { location.href = this.dataset.href; return; }
     if (this.dataset.tabId && typeof goToActivity === 'function') goToActivity(this.dataset.tabId);
@@ -846,12 +890,10 @@ function _gamInjectHomeHud(mount) {
   const hud = document.createElement('div');
   hud.className = 'gam-hud gam-hud--hero';
   hud.id = 'gamHud';
-  hud.innerHTML = _gamHudMainHtml() + `
-    <div class="gam-hud-badge-panel" id="gamHudBadgePanel" hidden></div>`;
+  hud.innerHTML = _gamHudMainHtml();
   mount.appendChild(hud);
   _gamHudEl = hud;
   _gamHudPageId = null;
-  _gamWireHudControls(hud);
 }
 
 // "Continue where you left off" — the most recently worked-on,
@@ -978,6 +1020,7 @@ function _gamHudStreakInit(tries) {
   const client = window._gcseSupabaseClient;
   if (client) {
     gamificationRefreshStreak(client).then(() => _gamUpdateHud());
+    gamificationRefreshDailyReviseStats(client).then(() => _gamUpdateHud());
     return;
   }
   if (tries > 40) return; // ~20s — offline/teacher preview, streak just stays 0

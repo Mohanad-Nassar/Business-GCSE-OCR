@@ -310,7 +310,7 @@ async function startAttempt() {
   $('startBtn').disabled = $('resumeBtn').disabled = true;
   const { data, error } = await auth.client.rpc('start_task_attempt', { p_task_id: TASK_ID });
   $('startBtn').disabled = $('resumeBtn').disabled = false;
-  if (error) { alert(error.message); return; }
+  if (error) { alert(error.message); console.error('startAttempt', error); return; }
   attempt = data;
   if (!attempts.some(a => a.id === attempt.id)) attempts.push(attempt);
 
@@ -459,7 +459,7 @@ async function toggleWordBank() {
     $('wordBankToggle').disabled = true;
     const { data, error } = await auth.client.rpc('get_task_fib_word_bank', { p_task_id: TASK_ID });
     $('wordBankToggle').disabled = false;
-    if (error) { alert(error.message); return; }
+    if (error) { alert(error.message); console.error('toggleWordBank', error); return; }
     wordBankWords = data || [];
     try { wordBankStruck = new Set(JSON.parse(localStorage.getItem(wordBankStruckStorageKey())) || []); } catch (e) { wordBankStruck = new Set(); }
     wordBankRevealed = true;
@@ -751,7 +751,7 @@ async function showResults() {
   if (retryWrongBtn) retryWrongBtn.addEventListener('click', async () => {
     retryWrongBtn.disabled = true;
     const { data: newTaskId, error } = await auth.client.rpc('create_retry_task', { p_source_attempt_id: counted.id });
-    if (error) { alert(error.message); retryWrongBtn.disabled = false; return; }
+    if (error) { alert(error.message); console.error('create_retry_task', error); retryWrongBtn.disabled = false; return; }
     location.href = `task.html?id=${newTaskId}`;
   });
 

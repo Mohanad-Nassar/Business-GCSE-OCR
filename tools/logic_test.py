@@ -139,7 +139,7 @@ check("home HUD level 2 from 140 XP", r["level"] == 2 or r["level"] == "2", r)
 check("home HUD xp label 90/200", "90 / 200" in str(r["xpLbl"]), r)
 check("home HUD xp total 140", "140 XP" in str(r["xpTotal"]), r)
 check("home HUD fill 45%", r["fill"] == "45%", r)
-check("home HUD badges 1/17 (first steps)", str(r["badges"]) == "1/17", r)
+check("home HUD badges 1/20 (first steps)", str(r["badges"]) == "1/20", r)
 check("HUD markup has no sound/dashboard chips",
       c1.eval("(_gamHudMainHtml().indexOf('gamHudSound') === -1) && (_gamHudMainHtml().indexOf('gam-hud-dash') === -1)"))
 
@@ -436,6 +436,38 @@ check("site nav injected first in header", nav["isNav"], nav)
 check("site nav links All Topics + My Progress", "index.html" in nav["html"] and "dashboard.html" in nav["html"], nav)
 check("site nav received sound toggle", nav["extraChildren"] == 1, nav)
 check("legacy home-link hidden via body class", nav["bodyFlag"], nav)
+
+# ══════════════ Context 3: daily-revise.html-like (mastery bar + filters) ══════════════
+c3 = MiniRacer()
+c3.eval(STUBS)
+# daily-revise.js's top-level needs these globals (normally from tasks-shared.js)
+c3.eval("""
+var taskEscapeHtml = function(s){ return String(s == null ? '' : s); };
+var tasksAuthInit = function(){ return Promise.resolve(null); };
+""")
+c3.eval(read("daily-revise.js"))
+
+bar = json.loads(c3.eval("JSON.stringify([drBarFill(null), drBarFill(0), drBarFill(1), drBarFill(2), drBarFill(3), drBarFill(99)])"))
+check("mastery bar fill: never-seen 0, wrong 1, once 2, twice 3, mastered 4 (clamped)",
+      bar == [0, 1, 2, 3, 4, 4], bar)
+seg = c3.eval("drBarHtml(1)")
+check("bar html: correct-once lights exactly s0+s1",
+      'class="seg s0 on"' in seg and 'class="seg s1 on"' in seg
+      and 'class="seg s2"' in seg and 'class="seg s3"' in seg, seg)
+check("bar html: never-seen lights nothing and labels as new",
+      ' on' not in c3.eval("drBarHtml(null)") and 'New question' in c3.eval("drBarHtml(null)"))
+
+qp = json.loads(c3.eval("""JSON.stringify([
+  drQueueParams({smart:true, excludeMastered:true, incorrectOnly:false}, []),
+  drQueueParams({smart:false, excludeMastered:false, incorrectOnly:false}, ['p1','p2']),
+  drQueueParams({smart:true, excludeMastered:false, incorrectOnly:true}, []),
+])"""))
+check("queue params: defaults reproduce original behaviour",
+      qp[0] == {"p_page_ids": None, "p_smart": True, "p_exclude_mastered": True, "p_incorrect_only": False}, qp[0])
+check("queue params: toggles + topic filter pass through",
+      qp[1] == {"p_page_ids": ["p1", "p2"], "p_smart": False, "p_exclude_mastered": False, "p_incorrect_only": False}, qp[1])
+check("queue params: incorrect-only forces exclude-mastered",
+      qp[2]["p_incorrect_only"] is True and qp[2]["p_exclude_mastered"] is True, qp[2])
 
 print()
 print(f"{passed} passed, {failed} failed")
