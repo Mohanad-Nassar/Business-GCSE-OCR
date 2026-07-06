@@ -218,6 +218,7 @@
       <button type="button" class="subtab" id="tabStudents">👥 Students &amp; Logins</button>
       <button type="button" class="subtab" id="tabTasks">📋 Tasks</button>
       <button type="button" class="subtab" id="tabTopicAccess">🔒 Topic Access</button>
+      <button type="button" class="subtab" id="tabDailyRevise">🎯 Daily Revise</button>
     </div>
 
     <!-- ═══ VIEW: CLASS PROGRESS ═══ -->
@@ -227,18 +228,6 @@
         <div class="tiles" id="classTiles"></div>
         <h3 class="subhead">Whole-class completion <span class="muted">— totals across every student; click a unit row to expand it</span></h3>
         <div id="classGridView"><div class="empty">Loading…</div></div>
-
-        <!-- Filled by loadDailyReviseSummary(); stays hidden until the
-             analytics RPCs exist (supabase/daily-revise-analytics.sql). -->
-        <div id="drSummaryPanel" class="hidden" style="margin-top:18px; padding:14px 16px; background:var(--cream); border:1px solid var(--border); border-radius:9px;">
-          <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
-            <strong style="font-size:13.5px;">🎯 Daily Revise</strong>
-            <span class="mono" style="font-size:12px;">📋 <b id="drSumAttempts">0</b> attempts</span>
-            <span class="mono" style="font-size:12px;">🏆 <b id="drSumMastered">0</b> mastered</span>
-            <span class="mono" style="font-size:12px;">🎚️ <b id="drSumAccuracy">—</b> accuracy</span>
-            <a id="drAnalyticsLink" href="teacher-analytics.html" style="margin-left:auto; font-size:12.5px; font-weight:600; color:var(--accent); text-decoration:none;">Full Daily Revise analytics →</a>
-          </div>
-        </div>
 
         <h3 class="subhead">Students <span class="muted">— click a student to open their full dashboard</span></h3>
         <table id="leaderboardTable">
@@ -426,15 +415,34 @@
         <div class="msg" id="flowFocusMsg"></div>
       </div>
 
-      <!-- Step 4: Daily Revise cross-topic practice zone -->
-      <div class="panel step-panel">
-        <div class="step-head">
-          <span class="step-num">4</span>
-          <div>
-            <h3 class="subhead" style="margin:0;">🎯 Daily Revise — cross-topic practice</h3>
-            <p class="muted step-sub">Controls the spaced-repetition practice zone students reach from their dashboard.</p>
-          </div>
+      <div class="panel">
+        <h3 class="subhead">Access requests <span class="muted" id="requestsCount"></span></h3>
+        <p class="muted" style="margin-bottom:10px;">Students on a locked topic can ask you to open it — approving unlocks that one topic for just that student, in any mode.</p>
+        <table>
+          <thead><tr><th>Student</th><th>Topic</th><th>Requested</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="requestsBody"><tr><td colspan="5" class="empty">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══ VIEW: DAILY REVISE ═══ -->
+    <div id="dailyReviseView" class="hidden">
+      <p class="muted" style="margin-bottom:14px;">Everything about the cross-topic Daily Revise practice zone, in one place — how it's scoped and paced, and how the class is doing in it.</p>
+
+      <!-- Filled by loadDailyReviseSummary(); stays hidden until the
+           analytics RPCs exist (supabase/daily-revise-analytics.sql). -->
+      <div id="drSummaryPanel" class="panel hidden">
+        <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
+          <strong style="font-size:13.5px;">📈 This class's Daily Revise activity</strong>
+          <span class="mono" style="font-size:12px;">📋 <b id="drSumAttempts">0</b> attempts</span>
+          <span class="mono" style="font-size:12px;">🏆 <b id="drSumMastered">0</b> mastered</span>
+          <span class="mono" style="font-size:12px;">🎚️ <b id="drSumAccuracy">—</b> accuracy</span>
+          <a id="drAnalyticsLink" href="teacher-analytics.html" style="margin-left:auto; font-size:12.5px; font-weight:600; color:var(--accent); text-decoration:none;">Full Daily Revise analytics →</a>
         </div>
+      </div>
+
+      <div class="panel step-panel">
+        <h3 class="subhead" style="margin:0 0 4px;">Controls the spaced-repetition practice zone students reach from their dashboard.</h3>
         <div class="choice-cards" id="drTopicModeCards">
           <label class="choice-card"><input type="radio" name="drTopicMode" value="teacher_controlled">
             <span class="cc-title">🔒 Teacher controlled</span>
@@ -479,15 +487,6 @@
         </div>
         <div style="margin-top:10px;"><button type="button" class="btn small" id="drSettingsUpdateBtn">💾 Update</button></div>
         <div class="msg" id="drSettingsMsg"></div>
-      </div>
-
-      <div class="panel">
-        <h3 class="subhead">Access requests <span class="muted" id="requestsCount"></span></h3>
-        <p class="muted" style="margin-bottom:10px;">Students on a locked topic can ask you to open it — approving unlocks that one topic for just that student, in any mode.</p>
-        <table>
-          <thead><tr><th>Student</th><th>Topic</th><th>Requested</th><th>Status</th><th>Actions</th></tr></thead>
-          <tbody id="requestsBody"><tr><td colspan="5" class="empty">Loading…</td></tr></tbody>
-        </table>
       </div>
     </div>
 
@@ -841,6 +840,7 @@ function showClassSubView(which) {
   document.getElementById('studentsView').classList.toggle('hidden', which !== 'students');
   document.getElementById('classTasksView').classList.toggle('hidden', which !== 'tasks');
   document.getElementById('topicAccessView').classList.toggle('hidden', which !== 'topicAccess');
+  document.getElementById('dailyReviseView').classList.toggle('hidden', which !== 'dailyRevise');
   document.getElementById('studentDetail').classList.toggle('hidden', !isStudent);
   // Hide the main Progress/Students toolbar while drilled into one student.
   document.querySelector('#classDetail > .class-toolbar').classList.toggle('hidden', isStudent);
@@ -848,6 +848,7 @@ function showClassSubView(which) {
   document.getElementById('tabStudents').classList.toggle('active', which === 'students');
   document.getElementById('tabTasks').classList.toggle('active', which === 'tasks');
   document.getElementById('tabTopicAccess').classList.toggle('active', which === 'topicAccess');
+  document.getElementById('tabDailyRevise').classList.toggle('active', which === 'dailyRevise');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -884,7 +885,6 @@ async function loadClassData() {
   await loadStrugglingFlags(ids);
   renderClassProgress();
   renderRoster();
-  loadDailyReviseSummary(); // fire-and-forget — hides itself if unavailable
 }
 
 
@@ -1028,6 +1028,7 @@ document.getElementById('tabProgress').addEventListener('click', () => showClass
 document.getElementById('tabStudents').addEventListener('click', () => showClassSubView('students'));
 document.getElementById('tabTasks').addEventListener('click', () => { showClassSubView('tasks'); loadClassTasksSummary(); });
 document.getElementById('tabTopicAccess').addEventListener('click', () => { showClassSubView('topicAccess'); loadTopicAccessView(); });
+document.getElementById('tabDailyRevise').addEventListener('click', () => { showClassSubView('dailyRevise'); loadDailyReviseView(); });
 document.getElementById('backToClassBtn').addEventListener('click', () => showClassSubView('progress'));
 
 // ── Generate students ──
@@ -1269,6 +1270,15 @@ async function loadTopicAccessView() {
   _setTimerControl('flowPreSeconds', 'flowPreSecondsCustom', cls.flow_pre_seconds, 10);
   _setTimerControl('flowPostSeconds', 'flowPostSecondsCustom', cls.flow_post_seconds, 10);
 
+  await Promise.all([loadTopicVisibilityState(), renderTopicRequests()]);
+  renderTopicVisibility();
+}
+
+// Everything Daily Revise — scoping/pacing settings + this class's usage —
+// now lives together in its own tab (moved out of Topic Access, which used
+// to bundle it in as "step 4"), so a teacher only has one place to look.
+async function loadDailyReviseView() {
+  const cls = classes.find(c => c.id === activeClassId) || {};
   const drMode = cls.daily_revise_topic_mode || 'teacher_controlled';
   _checkRadio('drTopicMode', drMode);
   _updateDrTopicFilterPanel(drMode);
@@ -1279,9 +1289,9 @@ async function loadTopicAccessView() {
   document.getElementById('drPreSeconds').value = cls.daily_revise_pre_seconds != null ? cls.daily_revise_pre_seconds : 5;
   document.getElementById('drPostSeconds').value = cls.daily_revise_post_seconds != null ? cls.daily_revise_post_seconds : 5;
 
-  await Promise.all([loadTopicVisibilityState(), loadDailyReviseFilterState(), renderTopicRequests()]);
-  renderTopicVisibility();
+  await loadDailyReviseFilterState();
   renderDailyReviseTopics();
+  loadDailyReviseSummary(); // fire-and-forget — hides itself if unavailable
 }
 
 // One saver for every control in the four steps — writes the patch to the

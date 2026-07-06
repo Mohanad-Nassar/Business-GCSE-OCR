@@ -91,18 +91,26 @@ Automated logic tests exist too: `python tools/logic_test.py`.
 - [ ] Change Step 3 to "All at once" → a student topic page (after reload)
       shows the whole list, no timers. Change back.
       (Requires `supabase/class-flow-settings.sql` to have been run.)
-- [ ] Class Progress tab shows the "🎯 Daily Revise" strip (attempts /
+- [ ] New **🎯 Daily Revise** tab (beside Topic Access) holds everything
+      Daily-Revise-related together: the topic-mode/cap/pacing settings
+      (moved out of Topic Access step 4) AND the usage strip (attempts /
       mastered / accuracy) once a student has practised; its "Full Daily
       Revise analytics →" link opens `teacher-analytics.html` for that class.
       (Requires `supabase/daily-revise-analytics.sql`; the strip hides
-      itself if that hasn't been run.)
+      itself if that hasn't been run.) Topic Access itself now ends at
+      step 3 + Access requests — no Daily Revise content left there.
 
 **Daily Revise Analytics (teacher-analytics.html)**
-- [ ] All four tabs load: Usage (sort + All/7/30-day windows), Student
-      overview (stacked mastery bars + accuracy), Question analysis (least/
-      most-understood cards with per-option answer bars; FIB questions show
-      a correct/incorrect split instead), Class matrix (heat-tinted student ×
-      topic grid with a Mastered % column, horizontally scrollable).
+- [ ] All four tabs load: Usage (sort + All/7/30-day windows, now including
+      Accuracy and Mastered columns), Student overview (stacked mastery bars
+      + accuracy), Question analysis (least/most-understood cards with
+      per-option answer bars; FIB questions show a correct/incorrect split
+      instead), Class matrix (heat-tinted student × topic grid with a
+      Mastered % column, horizontally scrollable).
+- [ ] "🔍 Filter by topic" (top-right of the tab row) opens a shared topic
+      picker; ticking one or more topics + Update re-scopes ALL FOUR tabs at
+      once (Usage/Overview/Questions/Matrix all reflect just those topics);
+      clearing all ticks and updating again returns to whole-class figures.
 - [ ] "⬇ Download data" in Question analysis saves a CSV of every question,
       not just the top-10s.
 
