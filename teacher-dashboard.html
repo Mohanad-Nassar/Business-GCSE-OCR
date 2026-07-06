@@ -836,6 +836,7 @@ async function selectClass(classId) {
 // Toggle between the class sub-views: 'progress' | 'students' | 'tasks' | 'student'.
 function showClassSubView(which) {
   const isStudent = which === 'student';
+  const wasStudent = !document.getElementById('studentDetail').classList.contains('hidden');
   document.getElementById('classProgressView').classList.toggle('hidden', which !== 'progress');
   document.getElementById('studentsView').classList.toggle('hidden', which !== 'students');
   document.getElementById('classTasksView').classList.toggle('hidden', which !== 'tasks');
@@ -849,7 +850,10 @@ function showClassSubView(which) {
   document.getElementById('tabTasks').classList.toggle('active', which === 'tasks');
   document.getElementById('tabTopicAccess').classList.toggle('active', which === 'topicAccess');
   document.getElementById('tabDailyRevise').classList.toggle('active', which === 'dailyRevise');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Only jump to the top for a real context change (drilling into a
+  // student's own dashboard, or coming back from one) — switching between
+  // the class-level tabs shouldn't yank you away from where you're reading.
+  if (isStudent || wasStudent) window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // Fetch the class roster + everyone's progress once, then render both views.
