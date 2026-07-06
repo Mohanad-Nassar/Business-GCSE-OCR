@@ -1923,6 +1923,7 @@ body.sidebar-mobile-open .sidebar-overlay {
     border-radius: 7px;
     font-size: 13px;
     cursor: pointer;
+    -webkit-user-select: none;
     user-select: none;
     pointer-events: auto;
     width: 100%; /* full width inside zones (flex-column) */
