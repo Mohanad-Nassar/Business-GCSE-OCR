@@ -48,6 +48,18 @@ Automated logic tests exist too: `python tools/logic_test.py`.
       notification here also removes it from the bell dropdown (and vice
       versa) without a page reload needed on the second page.
 
+**Daily Revise (daily-revise.html)**
+- [ ] Every question shows the 4-segment mastery bar at the top: a brand-new
+      question is all grey; answer it right and a segment lights (red →
+      +orange → +yellow → green = mastered); get ANY question wrong — even
+      a mastered one with "Don't ask mastered" off — and the bar snaps back
+      to a single red segment.
+- [ ] 🔍 Filters: the three toggles (Smart mode / Don't ask mastered /
+      Incorrect only) + Update re-query the queue; choices persist across a
+      reload; toggles stay usable even when the class is Teacher controlled
+      (only the topic ticks are locked). "Incorrect only" with nothing wrong
+      shows the friendly "No questions you last got wrong" state.
+
 **Manage Account (manage-account.html)**
 - [ ] Reachable from the account bar/site nav on index.html, a topic page,
       and dashboard.html. Account tab shows username, "Student", member-since
@@ -79,6 +91,20 @@ Automated logic tests exist too: `python tools/logic_test.py`.
 - [ ] Change Step 3 to "All at once" → a student topic page (after reload)
       shows the whole list, no timers. Change back.
       (Requires `supabase/class-flow-settings.sql` to have been run.)
+- [ ] Class Progress tab shows the "🎯 Daily Revise" strip (attempts /
+      mastered / accuracy) once a student has practised; its "Full Daily
+      Revise analytics →" link opens `teacher-analytics.html` for that class.
+      (Requires `supabase/daily-revise-analytics.sql`; the strip hides
+      itself if that hasn't been run.)
+
+**Daily Revise Analytics (teacher-analytics.html)**
+- [ ] All four tabs load: Usage (sort + All/7/30-day windows), Student
+      overview (stacked mastery bars + accuracy), Question analysis (least/
+      most-understood cards with per-option answer bars; FIB questions show
+      a correct/incorrect split instead), Class matrix (heat-tinted student ×
+      topic grid with a Mastered % column, horizontally scrollable).
+- [ ] "⬇ Download data" in Question analysis saves a CSV of every question,
+      not just the top-10s.
 
 **Task Manager**
 - [ ] "How tasks work" strip shows; build a 2-question task through the

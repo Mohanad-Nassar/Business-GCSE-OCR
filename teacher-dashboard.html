@@ -48,7 +48,11 @@
   .btn.danger:hover { border-color:var(--wrong); background:rgba(200,75,49,.06); }
   .btn.small { padding:6px 12px; font-size:11.5px; }
 
-  table { width:100%; border-collapse:collapse; margin-top:14px; }
+  /* display:block turns each table into its own horizontal-scroll
+     container on narrow screens, instead of the whole page overflowing
+     sideways — rows/cells keep their table layout, only the outer box's
+     display changes. None of these tables have a wrapper div in the HTML. */
+  table { width:100%; border-collapse:collapse; margin-top:14px; display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
   thead tr { background:var(--cream); border-bottom:2px solid var(--border); }
   th { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); padding:9px 10px; text-align:left; }
   td { padding:10px 10px; border-bottom:1px solid var(--border); vertical-align:middle; font-size:13px; }
@@ -127,7 +131,9 @@
   .flow-timers.hidden { display:none; }
   .flow-timers .secs { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
   .flow-timers .secs .muted { font-size:12px; }
-  .flow-timers input[type="number"] { width:84px; padding:8px 10px; border:1px solid var(--border); border-radius:6px; font-size:14px; font-family:'DM Sans',sans-serif; }
+  .flow-timers input[type="number"], .flow-timers select { padding:8px 10px; border:1px solid var(--border); border-radius:6px; font-size:14px; font-family:'DM Sans',sans-serif; }
+  .flow-timers input[type="number"] { width:84px; }
+  .flow-timers select { width:130px; }
   /* ── Getting-started guide ── */
   .guide-panel { margin-bottom:22px; border-left:4px solid var(--gold); }
   .guide-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
@@ -150,6 +156,14 @@
   .action-strip.all-clear { border-left-color:#2d7a4f; }
   .action-strip .as-label { font-weight:600; font-size:13.5px; }
   .card-alert { color:#8f6d19; font-weight:600; }
+
+  /* This page had no mobile breakpoint at all — every sibling page
+     (dashboard.html, task.html, teacher-tasks.html) already reduces
+     header/main side padding below ~700px. */
+  @media (max-width:700px) {
+    header { padding:20px 16px; }
+    main { padding:20px 16px 48px; }
+  }
 </style>
 </head>
 <body>
@@ -213,6 +227,18 @@
         <div class="tiles" id="classTiles"></div>
         <h3 class="subhead">Whole-class completion <span class="muted">— totals across every student; click a unit row to expand it</span></h3>
         <div id="classGridView"><div class="empty">Loading…</div></div>
+
+        <!-- Filled by loadDailyReviseSummary(); stays hidden until the
+             analytics RPCs exist (supabase/daily-revise-analytics.sql). -->
+        <div id="drSummaryPanel" class="hidden" style="margin-top:18px; padding:14px 16px; background:var(--cream); border:1px solid var(--border); border-radius:9px;">
+          <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
+            <strong style="font-size:13.5px;">🎯 Daily Revise</strong>
+            <span class="mono" style="font-size:12px;">📋 <b id="drSumAttempts">0</b> attempts</span>
+            <span class="mono" style="font-size:12px;">🏆 <b id="drSumMastered">0</b> mastered</span>
+            <span class="mono" style="font-size:12px;">🎚️ <b id="drSumAccuracy">—</b> accuracy</span>
+            <a id="drAnalyticsLink" href="teacher-analytics.html" style="margin-left:auto; font-size:12.5px; font-weight:600; color:var(--accent); text-decoration:none;">Full Daily Revise analytics →</a>
+          </div>
+        </div>
 
         <h3 class="subhead">Students <span class="muted">— click a student to open their full dashboard</span></h3>
         <table id="leaderboardTable">
@@ -291,7 +317,7 @@
 
     <!-- ═══ VIEW: TOPIC ACCESS + LEARNING FLOW ═══ -->
     <div id="topicAccessView" class="hidden">
-      <p class="muted" style="margin-bottom:14px;">Three quick settings that shape how this class studies. Every change saves instantly and applies the next time a student opens a topic page.</p>
+      <p class="muted" style="margin-bottom:14px;">Three quick settings that shape how this class studies. Nothing takes effect for students until you click <strong>Update</strong> on that section.</p>
 
       <!-- Step 1: whole-topic locking -->
       <div class="panel step-panel">
@@ -313,10 +339,24 @@
             <span class="cc-title">🪜 In order</span>
             <span class="cc-desc">Each topic unlocks when the previous one is finished</span></label>
         </div>
+        <div id="allowRequestsRow" class="hidden" style="margin-top:14px;">
+          <label style="display:block;font-size:13px;font-weight:600;margin-bottom:8px;">If a topic is locked, can students ask you to open it?</label>
+          <div class="choice-cards" id="allowRequestsCards">
+            <label class="choice-card"><input type="radio" name="allowRequests" value="yes">
+              <span class="cc-title">🙋 Allow requests</span>
+              <span class="cc-desc">A locked topic shows an "Ask my teacher" button (default)</span></label>
+            <label class="choice-card"><input type="radio" name="allowRequests" value="no">
+              <span class="cc-title">🚫 Just locked</span>
+              <span class="cc-desc">No request option — it stays locked until you open it yourself</span></label>
+          </div>
+        </div>
+        <div style="margin-top:10px;"><button type="button" class="btn small" id="topicModeUpdateBtn">💾 Update</button></div>
         <div class="msg" id="topicModeMsg"></div>
         <div class="hidden" id="manualVisibilityPanel" style="margin-top:14px;">
           <p class="muted" style="margin-bottom:8px;">Unticked topics are locked for the whole class (approved requests below can still unlock one topic for one student):</p>
           <div id="topicVisibilityContainer"></div>
+          <div style="margin-top:10px;"><button type="button" class="btn small" id="topicVisibilityUpdateBtn">💾 Update</button></div>
+          <div class="msg" id="topicVisibilityMsg"></div>
         </div>
       </div>
 
@@ -337,6 +377,7 @@
             <span class="cc-title">🪜 In order</span>
             <span class="cc-desc">Each activity unlocks only when the previous one is 100% correct — wrong answers must be redone</span></label>
         </div>
+        <div style="margin-top:10px;"><button type="button" class="btn small" id="flowOrderUpdateBtn">💾 Update</button></div>
         <div class="msg" id="flowOrderMsg"></div>
       </div>
 
@@ -360,16 +401,84 @@
         <div id="flowTimersRow" class="flow-timers">
           <div class="field">
             <label for="flowPreSeconds">📖 Reading time — before they can answer</label>
-            <div class="secs"><input type="number" id="flowPreSeconds" min="0" max="120" step="5">
-              <span class="muted">seconds. Answering earlier shows a "slow down and read the question" nudge. 0 turns it off.</span></div>
+            <div class="secs"><select id="flowPreSeconds">
+                <option value="0">Off (0s)</option>
+                <option value="5">5 seconds</option>
+                <option value="10">10 seconds</option>
+                <option value="custom">Custom…</option>
+              </select>
+              <input type="number" id="flowPreSecondsCustom" min="0" max="120" step="1" class="hidden" style="width:84px;">
+              <span class="muted">Answering earlier shows a "slow down and read the question" nudge.</span></div>
           </div>
           <div class="field" style="margin-top:12px;">
             <label for="flowPostSeconds">⏳ Pause after answering — before Next unlocks</label>
-            <div class="secs"><input type="number" id="flowPostSeconds" min="0" max="120" step="5">
-              <span class="muted">seconds, so the feedback sinks in. 0 turns it off.</span></div>
+            <div class="secs"><select id="flowPostSeconds">
+                <option value="0">Off (0s)</option>
+                <option value="5">5 seconds</option>
+                <option value="10">10 seconds</option>
+                <option value="custom">Custom…</option>
+              </select>
+              <input type="number" id="flowPostSecondsCustom" min="0" max="120" step="1" class="hidden" style="width:84px;">
+              <span class="muted">so the feedback sinks in.</span></div>
           </div>
         </div>
+        <div style="margin-top:10px;"><button type="button" class="btn small" id="flowFocusUpdateBtn">💾 Update</button></div>
         <div class="msg" id="flowFocusMsg"></div>
+      </div>
+
+      <!-- Step 4: Daily Revise cross-topic practice zone -->
+      <div class="panel step-panel">
+        <div class="step-head">
+          <span class="step-num">4</span>
+          <div>
+            <h3 class="subhead" style="margin:0;">🎯 Daily Revise — cross-topic practice</h3>
+            <p class="muted step-sub">Controls the spaced-repetition practice zone students reach from their dashboard.</p>
+          </div>
+        </div>
+        <div class="choice-cards" id="drTopicModeCards">
+          <label class="choice-card"><input type="radio" name="drTopicMode" value="teacher_controlled">
+            <span class="cc-title">🔒 Teacher controlled</span>
+            <span class="cc-desc">You choose which topics students practise below — students can't change it (default: every topic active)</span></label>
+          <label class="choice-card"><input type="radio" name="drTopicMode" value="teacher_guided">
+            <span class="cc-title">🧭 Teacher guided</span>
+            <span class="cc-desc">Students can change their filter but are restricted to only topics active on the class filter below. They can also target a single topic by clicking a chart in their revision report.</span></label>
+          <label class="choice-card"><input type="radio" name="drTopicMode" value="student_controlled">
+            <span class="cc-title">🎛️ Student controlled</span>
+            <span class="cc-desc">Students can filter to any topic(s) freely</span></label>
+        </div>
+        <div style="margin-top:10px;"><button type="button" class="btn small" id="drTopicModeUpdateBtn">💾 Update</button></div>
+        <div class="msg" id="drTopicModeMsg"></div>
+        <div class="hidden" id="drTopicFilterPanel" style="margin-top:14px;">
+          <p class="muted" style="margin-bottom:8px;" id="drTopicFilterNote">Topics unticked here won't appear in a student's Daily Revise filter:</p>
+          <div id="drTopicFilterContainer"></div>
+          <div style="margin-top:10px;"><button type="button" class="btn small" id="drTopicFilterUpdateBtn">💾 Update</button></div>
+          <div class="msg" id="drTopicFilterMsg"></div>
+        </div>
+
+        <div class="flow-timers" style="margin-top:16px;">
+          <div class="field">
+            <label for="drWeeklyCap">📅 Weekly workload cap</label>
+            <div class="secs">
+              <input type="number" id="drWeeklyCap" min="1" max="1000" step="1" style="width:84px;">
+              <label style="display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:normal;">
+                <input type="checkbox" id="drUnlimitedCap"> Unlimited
+              </label>
+              <span class="muted">questions/week, spread evenly across the week (roughly cap÷7 per day). Unlimited removes any ceiling — the queue just serves however many are actually due.</span>
+            </div>
+          </div>
+          <div class="field" style="margin-top:12px;">
+            <label for="drPreSeconds">📖 Reading time — before they can answer</label>
+            <div class="secs"><input type="number" id="drPreSeconds" min="0" max="60" step="1">
+              <span class="muted">seconds. 0 turns it off.</span></div>
+          </div>
+          <div class="field" style="margin-top:12px;">
+            <label for="drPostSeconds">⏳ Pause after answering — before Next unlocks</label>
+            <div class="secs"><input type="number" id="drPostSeconds" min="0" max="60" step="1">
+              <span class="muted">seconds. 0 turns it off.</span></div>
+          </div>
+        </div>
+        <div style="margin-top:10px;"><button type="button" class="btn small" id="drSettingsUpdateBtn">💾 Update</button></div>
+        <div class="msg" id="drSettingsMsg"></div>
       </div>
 
       <div class="panel">
@@ -498,7 +607,7 @@ async function loadClasses() {
   // hasn't been run yet (the flow columns just come back undefined).
   const { data, error } = await supabaseClient.from('classes').select('*').order('created_at');
   const grid = document.getElementById('classGrid');
-  if (error) { grid.innerHTML = `<div class="empty">Couldn't load classes.</div>`; return; }
+  if (error) { grid.innerHTML = `<div class="empty">Couldn't load classes.</div>`; console.error('loadClasses', error); return; }
   classes = data || [];
   renderGuide();
   renderClassCards();
@@ -534,11 +643,11 @@ async function refreshPendingCounts() {
   try {
     const { data } = await supabaseClient.from('class_students').select('class_id');
     (data || []).forEach(r => bump(r.class_id, 'students'));
-  } catch (e) {}
+  } catch (e) { console.error('refreshPendingCounts: class_students', e); }
   try {
     const { data } = await supabaseClient.from('topic_access_requests').select('class_id').eq('status', 'pending');
     (data || []).forEach(r => bump(r.class_id, 'requests'));
-  } catch (e) {}
+  } catch (e) { console.error('refreshPendingCounts: topic_access_requests', e); }
   try {
     const { data: tasks } = await supabaseClient.from('tasks').select('id, class_id').eq('status', 'published');
     const classByTask = {};
@@ -598,7 +707,7 @@ document.getElementById('newClassForm').addEventListener('submit', async (e) => 
   if (!name) return;
   const msg = document.getElementById('classMsg');
   const { error } = await supabaseClient.from('classes').insert({ name, teacher_id: currentSession.user.id });
-  if (error) { showMsg(msg, error.message, false); return; }
+  if (error) { showMsg(msg, error.message, false); console.error('newClassForm submit', error); return; }
   nameInput.value = '';
   msg.className = 'msg';
   await loadClasses();
@@ -615,11 +724,11 @@ async function refreshGuideCounts() {
   try {
     const { count } = await supabaseClient.from('class_students').select('*', { count: 'exact', head: true });
     _guideCounts.students = count || 0;
-  } catch (e) {}
+  } catch (e) { console.error('refreshGuideCounts: class_students', e); }
   try {
     const { count } = await supabaseClient.from('progress_summary').select('*', { count: 'exact', head: true });
     _guideCounts.progress = count || 0;
-  } catch (e) {}
+  } catch (e) { console.error('refreshGuideCounts: progress_summary', e); }
   renderGuide();
 }
 
@@ -704,12 +813,14 @@ let classSummaries = [];  // raw progress_summary rows for every student in the 
 let classStreaks = {};    // studentId -> { current, longest } (get_class_streaks)
 let classTaskRowsByStudent = {}; // studentId -> [{ task, assignment, attempts }], for struggling-flag detection
 let tvOpenGroups = new Set(); // curriculum group ids currently expanded in the Topic Access tab's visibility list
+let drOpenGroups = new Set(); // same, for the Daily Revise topic-filter list
 
 async function selectClass(classId) {
   activeClassId = classId;
   document.getElementById('credentialsBox').innerHTML = '';
   document.getElementById('downloadCsvBtn').style.display = 'none';
   tvOpenGroups = new Set();
+  drOpenGroups = new Set();
   await loadClasses(); // refresh active highlight
   const cls = classes.find(c => c.id === classId);
   document.getElementById('classDetailLabel').textContent = cls ? cls.name : 'Class';
@@ -773,6 +884,7 @@ async function loadClassData() {
   await loadStrugglingFlags(ids);
   renderClassProgress();
   renderRoster();
+  loadDailyReviseSummary(); // fire-and-forget — hides itself if unavailable
 }
 
 
@@ -840,6 +952,24 @@ function studentTotals(studentId) {
 }
 
 function tile(val, lbl) { return `<div class="tile"><div class="val">${val}</div><div class="lbl">${lbl}</div></div>`; }
+
+// Small Daily Revise roll-up in the Progress tab. Quietly hides itself if
+// the analytics functions aren't installed yet (supabase/
+// daily-revise-analytics.sql) — same forgiving style as the tasks section.
+async function loadDailyReviseSummary() {
+  const panel = document.getElementById('drSummaryPanel');
+  try {
+    const { data, error } = await supabaseClient.rpc('get_class_dr_overview', { p_class_id: activeClassId });
+    if (error || !data) { panel.classList.add('hidden'); return; }
+    let attempts = 0, correct = 0, mastered = 0;
+    data.forEach(r => { attempts += r.attempts; correct += r.correct; mastered += r.mastered; });
+    document.getElementById('drSumAttempts').textContent = attempts.toLocaleString();
+    document.getElementById('drSumMastered').textContent = mastered.toLocaleString();
+    document.getElementById('drSumAccuracy').textContent = attempts ? Math.round(correct / attempts * 100) + '%' : '—';
+    document.getElementById('drAnalyticsLink').href = 'teacher-analytics.html?class=' + activeClassId;
+    panel.classList.remove('hidden');
+  } catch (e) { panel.classList.add('hidden'); }
+}
 
 function renderClassProgress() {
   const n = classStudents.length;
@@ -1094,25 +1224,70 @@ function _checkRadio(name, value) {
   });
 }
 
+// flowPreSeconds/flowPostSeconds are a quick-pick 0/5/10 <select> plus a
+// "Custom…" option that reveals a plain number input — so a teacher can
+// either click a common value or type an exact one. Sets the select to the
+// matching preset when the value is 0/5/10, otherwise flips it to "custom"
+// and shows the number input pre-filled with the real value.
+function _setTimerControl(selectId, customId, value, fallback) {
+  const n = value != null ? value : fallback;
+  const select = document.getElementById(selectId);
+  const custom = document.getElementById(customId);
+  if (n === 0 || n === 5 || n === 10) {
+    select.value = String(n);
+    custom.classList.add('hidden');
+  } else {
+    select.value = 'custom';
+    custom.value = n;
+    custom.classList.remove('hidden');
+  }
+}
+function _readTimerControl(selectId, customId) {
+  const select = document.getElementById(selectId);
+  if (select.value === 'custom') {
+    return Math.max(0, Math.min(120, parseInt(document.getElementById(customId).value, 10) || 0));
+  }
+  return parseInt(select.value, 10) || 0;
+}
+
+// Every control below stages its change locally (radios/inputs just update
+// their own display state) and only writes to the database when that
+// section's own "💾 Update" button is clicked — nothing here reaches a
+// student's account until the teacher explicitly confirms it.
 async function loadTopicAccessView() {
   const cls = classes.find(c => c.id === activeClassId) || {};
   const mode = cls.topic_access_mode || 'open';
   _checkRadio('topicMode', mode);
   document.getElementById('manualVisibilityPanel').classList.toggle('hidden', mode !== 'manual');
+  document.getElementById('allowRequestsRow').classList.toggle('hidden', mode === 'open');
+  _checkRadio('allowRequests', cls.topic_access_allow_requests === false ? 'no' : 'yes');
 
   _checkRadio('flowOrder', cls.flow_activity_order || 'open');
   const focusOn = cls.flow_focus_mode !== false; // default true
   _checkRadio('flowFocus', focusOn ? 'one' : 'all');
   document.getElementById('flowTimersRow').classList.toggle('hidden', !focusOn);
-  document.getElementById('flowPreSeconds').value = cls.flow_pre_seconds != null ? cls.flow_pre_seconds : 10;
-  document.getElementById('flowPostSeconds').value = cls.flow_post_seconds != null ? cls.flow_post_seconds : 10;
+  _setTimerControl('flowPreSeconds', 'flowPreSecondsCustom', cls.flow_pre_seconds, 10);
+  _setTimerControl('flowPostSeconds', 'flowPostSecondsCustom', cls.flow_post_seconds, 10);
 
-  await Promise.all([renderTopicVisibility(), renderTopicRequests()]);
+  const drMode = cls.daily_revise_topic_mode || 'teacher_controlled';
+  _checkRadio('drTopicMode', drMode);
+  _updateDrTopicFilterPanel(drMode);
+  const drCap = cls.daily_revise_weekly_cap;
+  document.getElementById('drUnlimitedCap').checked = drCap == null;
+  document.getElementById('drWeeklyCap').value = drCap != null ? drCap : 100;
+  document.getElementById('drWeeklyCap').disabled = drCap == null;
+  document.getElementById('drPreSeconds').value = cls.daily_revise_pre_seconds != null ? cls.daily_revise_pre_seconds : 5;
+  document.getElementById('drPostSeconds').value = cls.daily_revise_post_seconds != null ? cls.daily_revise_post_seconds : 5;
+
+  await Promise.all([loadTopicVisibilityState(), loadDailyReviseFilterState(), renderTopicRequests()]);
+  renderTopicVisibility();
+  renderDailyReviseTopics();
 }
 
-// One saver for every control in the three steps — writes the patch to the
-// class row and mirrors it into the local cache.
-async function saveClassFlow(patch, msgId) {
+// One saver for every control in the four steps — writes the patch to the
+// class row and mirrors it into the local cache. Called only from an
+// "Update" button's click handler, never from a control's own change event.
+async function saveClassFlow(patch, msgId, savedMsg) {
   const msg = document.getElementById(msgId);
   const { error } = await supabaseClient.from('classes').update(patch).eq('id', activeClassId);
   if (error) {
@@ -1121,45 +1296,192 @@ async function saveClassFlow(patch, msgId) {
     showMsg(msg, error.message + hint, false);
     return false;
   }
-  showMsg(msg, 'Saved — applies the next time students open a topic page.', true);
+  showMsg(msg, savedMsg || 'Saved — applies the next time students open a topic page.', true);
   const cls = classes.find(c => c.id === activeClassId);
   if (cls) Object.assign(cls, patch);
   return true;
 }
 
-document.getElementById('topicModeCards').addEventListener('change', async (e) => {
+document.getElementById('topicModeCards').addEventListener('change', (e) => {
   if (e.target.name !== 'topicMode') return;
   const mode = e.target.value;
   _checkRadio('topicMode', mode);
-  if (!await saveClassFlow({ topic_access_mode: mode }, 'topicModeMsg')) return;
   document.getElementById('manualVisibilityPanel').classList.toggle('hidden', mode !== 'manual');
+  document.getElementById('allowRequestsRow').classList.toggle('hidden', mode === 'open');
+});
+document.getElementById('allowRequestsCards').addEventListener('change', (e) => {
+  if (e.target.name !== 'allowRequests') return;
+  _checkRadio('allowRequests', e.target.value);
+});
+document.getElementById('topicModeUpdateBtn').addEventListener('click', () => {
+  const mode = document.querySelector('input[name="topicMode"]:checked')?.value || 'open';
+  const allowRequests = document.querySelector('input[name="allowRequests"]:checked')?.value !== 'no';
+  saveClassFlow({ topic_access_mode: mode, topic_access_allow_requests: allowRequests }, 'topicModeMsg');
 });
 
-document.getElementById('flowOrderCards').addEventListener('change', async (e) => {
+document.getElementById('flowOrderCards').addEventListener('change', (e) => {
   if (e.target.name !== 'flowOrder') return;
   _checkRadio('flowOrder', e.target.value);
-  saveClassFlow({ flow_activity_order: e.target.value }, 'flowOrderMsg');
+});
+document.getElementById('flowOrderUpdateBtn').addEventListener('click', () => {
+  const val = document.querySelector('input[name="flowOrder"]:checked')?.value || 'open';
+  saveClassFlow({ flow_activity_order: val }, 'flowOrderMsg');
 });
 
-document.getElementById('flowFocusCards').addEventListener('change', async (e) => {
+document.getElementById('flowFocusCards').addEventListener('change', (e) => {
   if (e.target.name !== 'flowFocus') return;
   const focusOn = e.target.value === 'one';
   _checkRadio('flowFocus', e.target.value);
   document.getElementById('flowTimersRow').classList.toggle('hidden', !focusOn);
-  saveClassFlow({ flow_focus_mode: focusOn }, 'flowFocusMsg');
 });
-
 ['flowPreSeconds', 'flowPostSeconds'].forEach(id => {
   document.getElementById(id).addEventListener('change', (e) => {
-    let n = parseInt(e.target.value, 10);
-    if (isNaN(n)) n = 10;
-    n = Math.max(0, Math.min(120, n));
-    e.target.value = n;
-    saveClassFlow(
-      id === 'flowPreSeconds' ? { flow_pre_seconds: n } : { flow_post_seconds: n },
-      'flowFocusMsg'
-    );
+    document.getElementById(id + 'Custom').classList.toggle('hidden', e.target.value !== 'custom');
+    if (e.target.value === 'custom') document.getElementById(id + 'Custom').focus();
   });
+});
+document.getElementById('flowFocusUpdateBtn').addEventListener('click', () => {
+  const focusOn = document.querySelector('input[name="flowFocus"]:checked')?.value !== 'all';
+  const pre = _readTimerControl('flowPreSeconds', 'flowPreSecondsCustom');
+  const post = _readTimerControl('flowPostSeconds', 'flowPostSecondsCustom');
+  saveClassFlow({ flow_focus_mode: focusOn, flow_pre_seconds: pre, flow_post_seconds: post }, 'flowFocusMsg');
+});
+
+// ── Daily Revise settings (schema: supabase/daily-revise-class-settings.sql) ──
+// The topic-filter grid is shown for BOTH teacher_controlled (where the
+// teacher's picks ARE the fixed class-wide practice set) and teacher_guided
+// (where they're the ceiling students can additionally narrow within) —
+// only student_controlled hides it, since there the student picks freely.
+function _updateDrTopicFilterPanel(mode) {
+  document.getElementById('drTopicFilterPanel').classList.toggle('hidden', mode === 'student_controlled');
+  const note = document.getElementById('drTopicFilterNote');
+  if (note) {
+    note.textContent = mode === 'teacher_controlled'
+      ? "Topics unticked here are excluded from every student's Daily Revise practice — students can't change this:"
+      : "Topics unticked here won't appear in a student's Daily Revise filter:";
+  }
+}
+document.getElementById('drTopicModeCards').addEventListener('change', (e) => {
+  if (e.target.name !== 'drTopicMode') return;
+  const mode = e.target.value;
+  _checkRadio('drTopicMode', mode);
+  _updateDrTopicFilterPanel(mode);
+});
+document.getElementById('drTopicModeUpdateBtn').addEventListener('click', () => {
+  const mode = document.querySelector('input[name="drTopicMode"]:checked')?.value || 'teacher_controlled';
+  saveClassFlow({ daily_revise_topic_mode: mode }, 'drTopicModeMsg',
+    mode === 'teacher_controlled'
+      ? 'Saved — remember to also tick the topics below and hit their own Update button.'
+      : 'Saved — applies the next time a student opens Daily Revise.');
+});
+
+document.getElementById('drUnlimitedCap').addEventListener('change', (e) => {
+  document.getElementById('drWeeklyCap').disabled = e.target.checked;
+});
+['drPreSeconds', 'drPostSeconds', 'drWeeklyCap'].forEach(id => {
+  document.getElementById(id).addEventListener('change', (e) => {
+    let n = parseInt(e.target.value, 10);
+    if (id === 'drWeeklyCap') { if (isNaN(n) || n < 1) n = 100; }
+    else { if (isNaN(n)) n = 5; n = Math.max(0, Math.min(60, n)); }
+    e.target.value = n;
+  });
+});
+document.getElementById('drSettingsUpdateBtn').addEventListener('click', () => {
+  const unlimited = document.getElementById('drUnlimitedCap').checked;
+  const cap = unlimited ? null : (parseInt(document.getElementById('drWeeklyCap').value, 10) || 100);
+  const pre = Math.max(0, Math.min(60, parseInt(document.getElementById('drPreSeconds').value, 10) || 0));
+  const post = Math.max(0, Math.min(60, parseInt(document.getElementById('drPostSeconds').value, 10) || 0));
+  saveClassFlow({ daily_revise_weekly_cap: cap, daily_revise_pre_seconds: pre, daily_revise_post_seconds: post }, 'drSettingsMsg',
+    'Saved — applies the next time a student opens Daily Revise.');
+});
+
+// teacher_guided mode: one checkbox per topic, same grouped-by-unit pattern
+// as the topic-visibility grid below, but bound to class_topic_filter_active
+// instead of class_topic_visibility — a deliberately separate table, since
+// that one is tied to the topic-LOCK feature's write-rejection behaviour.
+// Absence of a row means active (same "absence = default" convention).
+// `drInactive` is a local working copy — checkboxes/bulk buttons only ever
+// mutate it and re-render; nothing is written until "Update" is clicked.
+let drInactive = new Set();
+
+async function loadDailyReviseFilterState() {
+  const { data: rows } = await supabaseClient
+    .from('class_topic_filter_active').select('page_id, active').eq('class_id', activeClassId);
+  drInactive = new Set((rows || []).filter(r => r.active === false).map(r => r.page_id));
+}
+
+function renderDailyReviseTopics() {
+  const container = document.getElementById('drTopicFilterContainer');
+  if (!container) return;
+  container.innerHTML = '';
+
+  const bulk = document.createElement('div');
+  bulk.className = 'tv-bulk';
+  bulk.innerHTML = `
+    <button type="button" class="btn secondary small" data-drall="show">✅ Activate all</button>
+    <button type="button" class="btn secondary small" data-drall="hide">🚫 Deactivate all</button>`;
+  bulk.addEventListener('click', e => {
+    const btn = e.target.closest('button[data-drall]');
+    if (!btn) return;
+    const all = [];
+    PAGE_GROUPS.forEach(g => flatPages(g).forEach(p => all.push(p.id)));
+    if (btn.dataset.drall === 'show') all.forEach(pid => drInactive.delete(pid));
+    else all.forEach(pid => drInactive.add(pid));
+    renderDailyReviseTopics();
+  });
+  container.appendChild(bulk);
+
+  PAGE_GROUPS.forEach(group => {
+    const pages = flatPages(group);
+    const inactiveCount = pages.filter(p => drInactive.has(p.id)).length;
+    const wrap = document.createElement('div');
+    wrap.className = 'tv-group';
+    const isOpen = drOpenGroups.has(group.id);
+    wrap.innerHTML = `
+      <div class="tv-group-header" style="border-left-color:${group.colour}">
+        <input type="checkbox" class="tv-unit-cb" title="Activate or deactivate every topic in ${escapeHtml(group.title)}" aria-label="Activate or deactivate every topic in ${escapeHtml(group.title)}"/>
+        <button type="button" class="tv-group-btn">
+          <span class="t">${escapeHtml(group.title)}</span>
+          <span class="muted tv-count">${pages.length - inactiveCount}/${pages.length} active</span>
+          <span aria-hidden="true">&#9662;</span>
+        </button>
+      </div>
+      <div class="tv-group-body${isOpen ? '' : ' hidden'}"></div>`;
+
+    const unitCb = wrap.querySelector('.tv-unit-cb');
+    unitCb.checked = inactiveCount === 0;
+    unitCb.indeterminate = inactiveCount > 0 && inactiveCount < pages.length;
+    unitCb.addEventListener('change', () => {
+      if (unitCb.checked) pages.forEach(p => drInactive.delete(p.id));
+      else pages.forEach(p => drInactive.add(p.id));
+      renderDailyReviseTopics();
+    });
+
+    const body = wrap.querySelector('.tv-group-body');
+    body.innerHTML = pages.map(p => `
+      <div class="tv-row">
+        <label><input type="checkbox" data-page="${p.id}" ${drInactive.has(p.id) ? '' : 'checked'}/> ${escapeHtml(p.name)}</label>
+      </div>`).join('');
+    wrap.querySelector('.tv-group-btn').addEventListener('click', () => {
+      body.classList.toggle('hidden');
+      if (body.classList.contains('hidden')) drOpenGroups.delete(group.id); else drOpenGroups.add(group.id);
+    });
+    body.querySelectorAll('input[data-page]').forEach(cb => cb.addEventListener('change', () => {
+      if (cb.checked) drInactive.delete(cb.dataset.page); else drInactive.add(cb.dataset.page);
+      renderDailyReviseTopics(); // local re-render only — keeps the unit tickbox + counts in step
+    }));
+    container.appendChild(wrap);
+  });
+}
+
+document.getElementById('drTopicFilterUpdateBtn').addEventListener('click', async () => {
+  const msg = document.getElementById('drTopicFilterMsg');
+  const all = [];
+  PAGE_GROUPS.forEach(g => flatPages(g).forEach(p => all.push(p.id)));
+  const rows = all.map(pid => ({ class_id: activeClassId, page_id: pid, active: !drInactive.has(pid) }));
+  const { error } = await supabaseClient.from('class_topic_filter_active').upsert(rows);
+  if (error) { showMsg(msg, error.message, false); console.error('class_topic_filter_active update', error); return; }
+  showMsg(msg, 'Saved — applies the next time a student opens Daily Revise.', true);
 });
 
 // Manual mode: one checkbox per topic, grouped by curriculum unit, with
@@ -1167,20 +1489,18 @@ document.getElementById('flowFocusCards').addEventListener('change', async (e) =
 // mixed) and Show all / Hide all for the whole course, so a teacher can
 // hide everything then open just what they've taught. Absence of a
 // class_topic_visibility row means visible (see topic-access-schema.sql).
-async function tvBulkSet(pageIds, visible) {
-  const rows = pageIds.map(pid => ({ class_id: activeClassId, page_id: pid, visible }));
-  const { error } = await supabaseClient.from('class_topic_visibility').upsert(rows);
-  if (error) { alert(error.message); return false; }
-  await renderTopicVisibility(); // refresh counts + tick states
-  return true;
-}
+// `tvHidden` is a local working copy, same pattern as `drInactive` above —
+// nothing is written until "Update" is clicked.
+let tvHidden = new Set();
 
-async function renderTopicVisibility() {
-  const container = document.getElementById('topicVisibilityContainer');
+async function loadTopicVisibilityState() {
   const { data: rows } = await supabaseClient
     .from('class_topic_visibility').select('page_id, visible').eq('class_id', activeClassId);
-  const hiddenSet = new Set((rows || []).filter(r => r.visible === false).map(r => r.page_id));
+  tvHidden = new Set((rows || []).filter(r => r.visible === false).map(r => r.page_id));
+}
 
+function renderTopicVisibility() {
+  const container = document.getElementById('topicVisibilityContainer');
   container.innerHTML = '';
 
   // Quick-select bar (whole course)
@@ -1189,20 +1509,21 @@ async function renderTopicVisibility() {
   bulk.innerHTML = `
     <button type="button" class="btn secondary small" data-tvall="show">✅ Show all</button>
     <button type="button" class="btn secondary small" data-tvall="hide">🚫 Hide all</button>
-    <span class="muted" style="font-size:11.5px;">Tip: hide everything, then tick just the units or topics you've taught. A unit's tickbox toggles all of its topics at once.</span>`;
-  bulk.addEventListener('click', async e => {
+    <span class="muted" style="font-size:11.5px;">Tip: hide everything, then tick just the units or topics you've taught. Click <strong>Update</strong> below to save.</span>`;
+  bulk.addEventListener('click', e => {
     const btn = e.target.closest('button[data-tvall]');
     if (!btn) return;
-    btn.disabled = true;
     const all = [];
     PAGE_GROUPS.forEach(g => flatPages(g).forEach(p => all.push(p.id)));
-    await tvBulkSet(all, btn.dataset.tvall === 'show');
+    if (btn.dataset.tvall === 'show') all.forEach(pid => tvHidden.delete(pid));
+    else all.forEach(pid => tvHidden.add(pid));
+    renderTopicVisibility();
   });
   container.appendChild(bulk);
 
   PAGE_GROUPS.forEach(group => {
     const pages = flatPages(group);
-    const hiddenCount = pages.filter(p => hiddenSet.has(p.id)).length;
+    const hiddenCount = pages.filter(p => tvHidden.has(p.id)).length;
     const wrap = document.createElement('div');
     wrap.className = 'tv-group';
     const isOpen = tvOpenGroups.has(group.id);
@@ -1220,29 +1541,38 @@ async function renderTopicVisibility() {
     const unitCb = wrap.querySelector('.tv-unit-cb');
     unitCb.checked = hiddenCount === 0;
     unitCb.indeterminate = hiddenCount > 0 && hiddenCount < pages.length;
-    unitCb.addEventListener('change', async () => {
-      unitCb.disabled = true;
-      await tvBulkSet(pages.map(p => p.id), unitCb.checked);
+    unitCb.addEventListener('change', () => {
+      if (unitCb.checked) pages.forEach(p => tvHidden.delete(p.id));
+      else pages.forEach(p => tvHidden.add(p.id));
+      renderTopicVisibility();
     });
 
     const body = wrap.querySelector('.tv-group-body');
     body.innerHTML = pages.map(p => `
       <div class="tv-row">
-        <label><input type="checkbox" data-page="${p.id}" ${hiddenSet.has(p.id) ? '' : 'checked'}/> ${escapeHtml(p.name)}</label>
+        <label><input type="checkbox" data-page="${p.id}" ${tvHidden.has(p.id) ? '' : 'checked'}/> ${escapeHtml(p.name)}</label>
       </div>`).join('');
     wrap.querySelector('.tv-group-btn').addEventListener('click', () => {
       body.classList.toggle('hidden');
       if (body.classList.contains('hidden')) tvOpenGroups.delete(group.id); else tvOpenGroups.add(group.id);
     });
-    body.querySelectorAll('input[data-page]').forEach(cb => cb.addEventListener('change', async () => {
-      const { error } = await supabaseClient.from('class_topic_visibility')
-        .upsert({ class_id: activeClassId, page_id: cb.dataset.page, visible: cb.checked });
-      if (error) { alert(error.message); cb.checked = !cb.checked; return; }
-      renderTopicVisibility(); // keep the unit tickbox + counts in step
+    body.querySelectorAll('input[data-page]').forEach(cb => cb.addEventListener('change', () => {
+      if (cb.checked) tvHidden.delete(cb.dataset.page); else tvHidden.add(cb.dataset.page);
+      renderTopicVisibility(); // local re-render only — keeps the unit tickbox + counts in step
     }));
     container.appendChild(wrap);
   });
 }
+
+document.getElementById('topicVisibilityUpdateBtn').addEventListener('click', async () => {
+  const msg = document.getElementById('topicVisibilityMsg');
+  const all = [];
+  PAGE_GROUPS.forEach(g => flatPages(g).forEach(p => all.push(p.id)));
+  const rows = all.map(pid => ({ class_id: activeClassId, page_id: pid, visible: !tvHidden.has(pid) }));
+  const { error } = await supabaseClient.from('class_topic_visibility').upsert(rows);
+  if (error) { showMsg(msg, error.message, false); console.error('class_topic_visibility update', error); return; }
+  showMsg(msg, 'Saved — applies the next time a student opens a topic page.', true);
+});
 
 // Access-request queue: pending requests need action; resolved ones show
 // as history underneath.
@@ -1280,7 +1610,7 @@ document.getElementById('requestsBody').addEventListener('click', async e => {
   const { error } = await supabaseClient.rpc('resolve_topic_access_request', {
     p_request_id: row.dataset.id, p_approve: btn.dataset.a === 'approve',
   });
-  if (error) { alert(error.message); btn.disabled = false; return; }
+  if (error) { alert(error.message); console.error('resolve_topic_access_request', error); btn.disabled = false; return; }
   renderTopicRequests();
   refreshPendingCounts();
 });
