@@ -236,10 +236,17 @@ function setupFilterUI() {
   if (filterUIWired) return;
   filterUIWired = true;
 
-  document.getElementById('drFilterToggleBtn').addEventListener('click', () => {
-    const panel = document.getElementById('drFilterPanel');
-    panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
-  });
+  const openDrFilter = () => {
+    document.getElementById('drFilterPanel').classList.add('show');
+    document.getElementById('drFilterBackdrop').classList.add('show');
+  };
+  const closeDrFilter = () => {
+    document.getElementById('drFilterPanel').classList.remove('show');
+    document.getElementById('drFilterBackdrop').classList.remove('show');
+  };
+  document.getElementById('drFilterToggleBtn').addEventListener('click', openDrFilter);
+  document.getElementById('drFilterBackdrop').addEventListener('click', closeDrFilter);
+  document.getElementById('drFilterCloseBtn').addEventListener('click', closeDrFilter);
 
   document.getElementById('drApplyFilterBtn').addEventListener('click', async () => {
     drPrefs = {
@@ -251,6 +258,7 @@ function setupFilterUI() {
     if (drSettings.topic_mode !== 'teacher_controlled') {
       selectedPageIds = [...drFilterWorking];
     }
+    closeDrFilter();
     await loadQueue();
   });
 }

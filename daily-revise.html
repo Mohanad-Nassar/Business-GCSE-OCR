@@ -130,6 +130,16 @@
     .dr-filter-toggle:disabled { opacity:.5; cursor:default; }
     .dr-filter-toggle:disabled:hover { border-color:var(--border); color:var(--ink); }
     /* Topic checkbox grid itself reuses progress-shared.js's .tv-* component. */
+
+    /* Filters slides in as a right-hand sidebar, not an inline panel. */
+    .filter-backdrop { position:fixed; inset:0; background:rgba(15,25,35,.35); z-index:899; opacity:0; pointer-events:none; transition:opacity .2s ease; }
+    .filter-backdrop.show { opacity:1; pointer-events:auto; }
+    .filter-sidebar { position:fixed; top:0; right:0; height:100vh; width:380px; max-width:92vw; background:var(--card-bg); border-left:1px solid var(--border); box-shadow:-8px 0 30px rgba(0,0,0,.18); z-index:900; padding:20px; overflow-y:auto; transform:translateX(100%); transition:transform .25s ease; display:flex; flex-direction:column; }
+    .filter-sidebar.show { transform:translateX(0); }
+    .filter-sidebar-head { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .filter-sidebar-close { background:none; border:none; font-size:16px; cursor:pointer; color:var(--mid); padding:4px 8px; border-radius:6px; line-height:1; }
+    .filter-sidebar-close:hover { background:var(--cream); color:var(--ink); }
+    .filter-sidebar-foot { margin-top:auto; padding-top:14px; border-top:1px solid var(--border); position:sticky; bottom:-20px; background:var(--card-bg); margin-left:-20px; margin-right:-20px; padding-left:20px; padding-right:20px; padding-bottom:20px; }
   </style>
 </head>
 <body>
@@ -154,10 +164,11 @@
   <div id="drFilterToggleRow" style="display:none; margin-bottom:12px;">
     <button type="button" class="dr-filter-toggle" id="drFilterToggleBtn">🔍 Filters</button>
   </div>
-  <div class="panel" id="drFilterPanel" style="display:none; margin-bottom:16px;">
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+  <div class="filter-backdrop" id="drFilterBackdrop"></div>
+  <aside class="filter-sidebar" id="drFilterPanel" aria-label="Question filters">
+    <div class="filter-sidebar-head">
       <strong style="font-size:13px;">Question filters</strong>
-      <button type="button" class="btn" id="drApplyFilterBtn" style="padding:7px 14px; font-size:12px;">Update</button>
+      <button type="button" class="filter-sidebar-close" id="drFilterCloseBtn" aria-label="Close">✕</button>
     </div>
     <div style="margin-top:8px;">
       <label class="dr-pref-row"><input type="checkbox" id="drSmartMode" checked/>
@@ -178,7 +189,10 @@
     </div>
     <p class="muted" id="drFilterNote" style="margin-top:6px;"></p>
     <div id="drFilterGroups" style="margin-top:10px;"></div>
-  </div>
+    <div class="filter-sidebar-foot">
+      <button type="button" class="btn" id="drApplyFilterBtn" style="width:100%;">Update</button>
+    </div>
+  </aside>
 
   <div class="panel" id="drPanel">
     <div class="empty" id="drLoading">Loading today's questions…</div>

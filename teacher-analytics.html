@@ -112,7 +112,16 @@
   .ana-filter-toggle { background:transparent; border:1px solid var(--border); color:var(--ink); font-family:'DM Mono',monospace; font-size:11.5px; padding:7px 14px; border-radius:7px; cursor:pointer; }
   .ana-filter-toggle:hover { border-color:var(--accent); color:var(--accent); }
   .ana-filter-toggle.active { background:var(--accent); border-color:var(--accent); color:#fff; }
-  .ana-filter-panel { margin-bottom:16px; }
+
+  /* Filter-by-topic slides in as a right-hand sidebar, not an inline panel. */
+  .filter-backdrop { position:fixed; inset:0; background:rgba(15,25,35,.35); z-index:899; opacity:0; pointer-events:none; transition:opacity .2s ease; }
+  .filter-backdrop.show { opacity:1; pointer-events:auto; }
+  .filter-sidebar { position:fixed; top:0; right:0; height:100vh; width:380px; max-width:92vw; background:var(--card-bg); border-left:1px solid var(--border); box-shadow:-8px 0 30px rgba(0,0,0,.18); z-index:900; padding:20px; overflow-y:auto; transform:translateX(100%); transition:transform .25s ease; display:flex; flex-direction:column; }
+  .filter-sidebar.show { transform:translateX(0); }
+  .filter-sidebar-head { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .filter-sidebar-close { background:none; border:none; font-size:16px; cursor:pointer; color:var(--mid); padding:4px 8px; border-radius:6px; line-height:1; }
+  .filter-sidebar-close:hover { background:var(--cream); color:var(--ink); }
+  .filter-sidebar-foot { margin-top:auto; padding-top:14px; border-top:1px solid var(--border); position:sticky; bottom:-20px; background:var(--card-bg); margin-left:-20px; margin-right:-20px; padding-left:20px; padding-right:20px; padding-bottom:20px; }
 </style>
 </head>
 <body>
@@ -140,14 +149,18 @@
     <button type="button" class="ana-filter-toggle" id="anaFilterToggleBtn" style="margin-left:auto;">🔍 Filter by topic</button>
   </div>
 
-  <div class="panel ana-filter-panel hidden" id="anaFilterPanel">
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+  <div class="filter-backdrop" id="anaFilterBackdrop"></div>
+  <aside class="filter-sidebar" id="anaFilterPanel" aria-label="Filter by topic">
+    <div class="filter-sidebar-head">
       <strong style="font-size:13px;">Scope this whole page to specific topics</strong>
-      <button type="button" class="btn small" id="anaFilterUpdateBtn">Update</button>
+      <button type="button" class="filter-sidebar-close" id="anaFilterCloseBtn" aria-label="Close">✕</button>
     </div>
     <p class="muted" id="anaFilterNote" style="margin:6px 0 10px;">Nothing ticked = every topic. Applies to Usage, Student overview, Question analysis and Class matrix together.</p>
     <div id="anaFilterGroups"></div>
-  </div>
+    <div class="filter-sidebar-foot">
+      <button type="button" class="btn" id="anaFilterUpdateBtn" style="width:100%;">Update</button>
+    </div>
+  </aside>
 
   <!-- Usage -->
   <div id="atab-usage" class="panel">
@@ -295,13 +308,22 @@ function setupTopicFilter() {
   if (filterUIWired) return;
   filterUIWired = true;
 
-  $('anaFilterToggleBtn').addEventListener('click', () => {
-    $('anaFilterPanel').classList.toggle('hidden');
-  });
+  const openFilter = () => {
+    $('anaFilterPanel').classList.add('show');
+    $('anaFilterBackdrop').classList.add('show');
+  };
+  const closeFilter = () => {
+    $('anaFilterPanel').classList.remove('show');
+    $('anaFilterBackdrop').classList.remove('show');
+  };
+  $('anaFilterToggleBtn').addEventListener('click', openFilter);
+  $('anaFilterBackdrop').addEventListener('click', closeFilter);
+  $('anaFilterCloseBtn').addEventListener('click', closeFilter);
   $('anaFilterUpdateBtn').addEventListener('click', () => {
     selectedPageIds = [...anaFilterWorking];
     $('anaFilterToggleBtn').classList.toggle('active', selectedPageIds.length > 0);
     loadAll();
+    closeFilter();
   });
 }
 
