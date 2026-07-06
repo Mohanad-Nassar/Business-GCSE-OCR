@@ -93,6 +93,133 @@ function flatPages(group) {
   return out;
 }
 
+function _tfgEsc(str) {
+  return String(str ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+function _tfgInjectStyles() {
+  if (document.getElementById('topicFilterGridStyles')) return;
+  const s = document.createElement('style');
+  s.id = 'topicFilterGridStyles';
+  s.textContent = `
+    .tv-group{border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;}
+    .tv-group-header{display:flex;align-items:center;gap:10px;padding:9px 14px;background:var(--cream);user-select:none;border-left:4px solid var(--accent);}
+    .tv-group-header .t{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;}
+    .tv-group-btn{flex:1;display:flex;align-items:center;gap:10px;background:none;border:none;cursor:pointer;text-align:left;font-family:inherit;padding:0;}
+    .tv-group-btn .t{flex:1;}
+    .tv-count{font-size:10.5px;font-family:'DM Mono',monospace;white-space:nowrap;}
+    .tv-unit-cb{width:16px;height:16px;cursor:pointer;flex-shrink:0;accent-color:var(--accent);}
+    .tv-bulk{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px;}
+    .tv-group-body{padding:6px 14px 10px;}
+    .tv-group-body.hidden{display:none;}
+    .tv-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-top:1px solid var(--border);font-size:13px;}
+    .tv-row:first-child{border-top:none;}
+    .tv-row label{display:flex;align-items:center;gap:8px;cursor:pointer;flex:1;}
+    .tv-row label.disabled{cursor:default;opacity:.7;}
+  `;
+  document.head.appendChild(s);
+}
+
+// Reusable grouped topic-checkbox grid — colour-striped curriculum units,
+// each with a whole-unit tickbox ("n/m" count, indeterminate when mixed)
+// and an expand/collapse chevron, and a flat list of per-topic checkboxes
+// underneath. This is the same component behind the Teacher Dashboard's
+// Topic Access visibility grid and Daily Revise class-scope grid — any
+// page that already includes this file (for PAGE_GROUPS/flatPages) can
+// reuse it instead of hand-rolling another checkbox accordion.
+//
+// opts:
+//   isChecked(pageId) -> bool       current state of one row
+//   onToggle(pageIds, checked)      called with every affected page id
+//                                   whenever a row, a whole unit, or a bulk
+//                                   button changes state — mutate your own
+//                                   state here; the grid re-renders itself
+//                                   right after, reading it back fresh
+//   countLabel(onCount, total) -> string   text for the "n/m …" chip
+//   bulkButtons?: [{ label, onClick(allPageIds) }]   0-2 buttons; omit
+//                                   entirely (e.g. read-only views) to hide
+//                                   the whole bulk row
+//   bulkNote?: string               shown after the bulk buttons
+//   disabledRow?(pageId) -> bool    true = force-checked, no listener
+//                                   (e.g. a teacher's fixed selection shown
+//                                   read-only to a student)
+//   openGroups: Set                 which group ids start/stay expanded —
+//                                   caller-owned so it survives re-renders
+//   groups?: array                  defaults to PAGE_GROUPS
+//   pageFilter?(page) -> bool       restrict which topics appear at all;
+//                                   a unit with zero pages left is skipped
+function renderTopicFilterGrid(container, opts) {
+  _tfgInjectStyles();
+  container.innerHTML = '';
+  const groups = opts.groups || PAGE_GROUPS;
+  const rerender = () => renderTopicFilterGrid(container, opts);
+
+  if (opts.bulkButtons && opts.bulkButtons.length) {
+    const all = [];
+    groups.forEach(g => {
+      const pages = opts.pageFilter ? flatPages(g).filter(opts.pageFilter) : flatPages(g);
+      pages.forEach(p => all.push(p.id));
+    });
+    const bulk = document.createElement('div');
+    bulk.className = 'tv-bulk';
+    bulk.innerHTML = opts.bulkButtons.map((b, i) =>
+      `<button type="button" class="btn secondary small" data-tfg-bulk="${i}">${_tfgEsc(b.label)}</button>`).join('')
+      + (opts.bulkNote ? `<span class="muted" style="font-size:11.5px;">${opts.bulkNote}</span>` : '');
+    bulk.addEventListener('click', e => {
+      const btn = e.target.closest('button[data-tfg-bulk]');
+      if (!btn) return;
+      opts.bulkButtons[Number(btn.dataset.tfgBulk)].onClick(all);
+      rerender();
+    });
+    container.appendChild(bulk);
+  }
+
+  groups.forEach(group => {
+    const pages = opts.pageFilter ? flatPages(group).filter(opts.pageFilter) : flatPages(group);
+    if (!pages.length) return;
+    const onCount = pages.filter(p => opts.isChecked(p.id)).length;
+    const wrap = document.createElement('div');
+    wrap.className = 'tv-group';
+    const isOpen = opts.openGroups.has(group.id);
+    wrap.innerHTML = `
+      <div class="tv-group-header" style="border-left-color:${group.colour}">
+        <input type="checkbox" class="tv-unit-cb" title="Toggle every topic in ${_tfgEsc(group.title)}" aria-label="Toggle every topic in ${_tfgEsc(group.title)}"/>
+        <button type="button" class="tv-group-btn">
+          <span class="t">${_tfgEsc(group.title)}</span>
+          <span class="muted tv-count">${_tfgEsc(opts.countLabel(onCount, pages.length))}</span>
+          <span aria-hidden="true">&#9662;</span>
+        </button>
+      </div>
+      <div class="tv-group-body${isOpen ? '' : ' hidden'}"></div>`;
+
+    const unitCb = wrap.querySelector('.tv-unit-cb');
+    unitCb.checked = onCount === pages.length;
+    unitCb.indeterminate = onCount > 0 && onCount < pages.length;
+    unitCb.addEventListener('change', () => {
+      opts.onToggle(pages.map(p => p.id), unitCb.checked);
+      rerender();
+    });
+
+    const body = wrap.querySelector('.tv-group-body');
+    body.innerHTML = pages.map(p => {
+      const disabled = !!(opts.disabledRow && opts.disabledRow(p.id));
+      const checked = disabled || opts.isChecked(p.id);
+      return `<div class="tv-row">
+        <label class="${disabled ? 'disabled' : ''}"><input type="checkbox" data-page="${p.id}" ${checked ? 'checked' : ''} ${disabled ? 'disabled' : ''}/> ${_tfgEsc(p.name)}</label>
+      </div>`;
+    }).join('');
+    wrap.querySelector('.tv-group-btn').addEventListener('click', () => {
+      body.classList.toggle('hidden');
+      if (body.classList.contains('hidden')) opts.openGroups.delete(group.id); else opts.openGroups.add(group.id);
+    });
+    body.querySelectorAll('input[data-page]:not([disabled])').forEach(cb => cb.addEventListener('change', () => {
+      opts.onToggle([cb.dataset.page], cb.checked);
+      rerender();
+    }));
+    container.appendChild(wrap);
+  });
+}
+
 function makeRing(done, total, size = 40, label = '') {
   const r = size * .37, circ = 2 * Math.PI * r, cx = size / 2, cy = size / 2;
   const pct = total > 0 ? done / total : 0, offset = circ - pct * circ, sw = size * .09;

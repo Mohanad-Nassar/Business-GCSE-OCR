@@ -129,12 +129,7 @@
     .dr-filter-toggle:hover { border-color:var(--accent); color:var(--accent); }
     .dr-filter-toggle:disabled { opacity:.5; cursor:default; }
     .dr-filter-toggle:disabled:hover { border-color:var(--border); color:var(--ink); }
-    .dr-filter-group { margin-bottom:4px; }
-    .dr-filter-group summary { cursor:pointer; font-weight:600; font-size:13px; padding:8px 0; list-style:none; }
-    .dr-filter-group summary::-webkit-details-marker { display:none; }
-    .dr-filter-group summary::before { content:'▸ '; }
-    .dr-filter-group[open] summary::before { content:'▾ '; }
-    .dr-filter-topic { display:block; font-size:13px; padding:5px 0 5px 18px; }
+    /* Topic checkbox grid itself reuses progress-shared.js's .tv-* component. */
   </style>
 </head>
 <body>
@@ -178,9 +173,8 @@
           <span class="dr-pref-hint">Only questions you got wrong last time.</span></span>
       </label>
     </div>
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:14px; padding-top:12px; border-top:1px solid var(--border);">
+    <div style="margin-top:14px; padding-top:12px; border-top:1px solid var(--border);">
       <strong style="font-size:13px;">Practise only these topics</strong>
-      <button type="button" class="dr-filter-toggle" id="drFilterAllBtn">Select all</button>
     </div>
     <p class="muted" id="drFilterNote" style="margin-top:6px;"></p>
     <div id="drFilterGroups" style="margin-top:10px;"></div>

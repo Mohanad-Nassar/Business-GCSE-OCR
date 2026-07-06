@@ -107,18 +107,12 @@
   .heat.h3 { background:rgba(45,122,79,.16); color:#1a5c34; }
   .heat.hnone { background:transparent; color:var(--mid); }
 
-  /* Shared topic filter (applies to all four tabs at once) — same visual
-     language as daily-revise.html's own topic filter. */
+  /* Shared topic filter toggle button (applies to all four tabs at once) —
+     the grid itself reuses progress-shared.js's .tv-* component. */
   .ana-filter-toggle { background:transparent; border:1px solid var(--border); color:var(--ink); font-family:'DM Mono',monospace; font-size:11.5px; padding:7px 14px; border-radius:7px; cursor:pointer; }
   .ana-filter-toggle:hover { border-color:var(--accent); color:var(--accent); }
   .ana-filter-toggle.active { background:var(--accent); border-color:var(--accent); color:#fff; }
   .ana-filter-panel { margin-bottom:16px; }
-  .ana-filter-group { margin-bottom:4px; }
-  .ana-filter-group summary { cursor:pointer; font-weight:600; font-size:13px; padding:8px 0; list-style:none; }
-  .ana-filter-group summary::-webkit-details-marker { display:none; }
-  .ana-filter-group summary::before { content:'▸ '; }
-  .ana-filter-group[open] summary::before { content:'▾ '; }
-  .ana-filter-topic { display:inline-block; width:auto; min-width:220px; font-size:13px; padding:5px 14px 5px 18px; }
 </style>
 </head>
 <body>
@@ -149,10 +143,7 @@
   <div class="panel ana-filter-panel hidden" id="anaFilterPanel">
     <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
       <strong style="font-size:13px;">Scope this whole page to specific topics</strong>
-      <div style="display:flex; gap:8px;">
-        <button type="button" class="ana-filter-toggle" id="anaFilterAllBtn">Select all</button>
-        <button type="button" class="btn small" id="anaFilterUpdateBtn">Update</button>
-      </div>
+      <button type="button" class="btn small" id="anaFilterUpdateBtn">Update</button>
     </div>
     <p class="muted" id="anaFilterNote" style="margin:6px 0 10px;">Nothing ticked = every topic. Applies to Usage, Student overview, Question analysis and Class matrix together.</p>
     <div id="anaFilterGroups"></div>
@@ -234,7 +225,9 @@ let classId = null;
 let roster = [];            // [{id, username}] sorted by username
 let nameOf = id => id;
 let qaData = [];            // full question-analysis rows for CSV
-let selectedPageIds = [];   // [] = every topic; shared across all four tabs
+let selectedPageIds = [];        // [] = every topic; shared across all four tabs (committed on Update)
+let anaFilterWorking = new Set(); // live working copy the grid edits before Update commits it
+let anaFilterOpenGroups = new Set();
 let filterUIWired = false;
 
 function pctOf(part, whole) { return whole ? Math.round((part / whole) * 100) : 0; }
@@ -281,34 +274,32 @@ document.querySelectorAll('[data-atab]').forEach(btn => btn.addEventListener('cl
 }));
 
 // ── Shared topic filter (all four tabs read selectedPageIds) ──
+// Uses the same grouped-checkbox grid (renderTopicFilterGrid, in
+// progress-shared.js) as the Teacher Dashboard's Topic Access / Daily
+// Revise scope grids — a live working copy (anaFilterWorking) the grid
+// edits immediately for instant counts, committed to selectedPageIds only
+// when Update is clicked (matching those grids' "stage, then Update" flow).
 function setupTopicFilter() {
   if (typeof PAGE_GROUPS === 'undefined') return;
-  const groupsEl = $('anaFilterGroups');
-  groupsEl.innerHTML = '';
-  PAGE_GROUPS.forEach(group => {
-    const pages = flatPages(group);
-    const details = document.createElement('details');
-    details.className = 'ana-filter-group';
-    details.innerHTML = `<summary>${esc(group.title)}</summary>` +
-      pages.map(p => `<label class="ana-filter-topic"><input type="checkbox" data-page="${p.id}"/> ${esc(p.name)}</label>`).join('');
-    groupsEl.appendChild(details);
+  renderTopicFilterGrid($('anaFilterGroups'), {
+    isChecked: pid => anaFilterWorking.has(pid),
+    onToggle: (pids, checked) => pids.forEach(pid => checked ? anaFilterWorking.add(pid) : anaFilterWorking.delete(pid)),
+    countLabel: (n, total) => `${n}/${total} selected`,
+    bulkButtons: [
+      { label: 'Select all', onClick: all => all.forEach(pid => anaFilterWorking.add(pid)) },
+      { label: 'Clear all', onClick: all => all.forEach(pid => anaFilterWorking.delete(pid)) },
+    ],
+    openGroups: anaFilterOpenGroups,
   });
 
   if (filterUIWired) return;
   filterUIWired = true;
 
   $('anaFilterToggleBtn').addEventListener('click', () => {
-    const panel = $('anaFilterPanel');
-    const willShow = panel.classList.contains('hidden');
-    panel.classList.toggle('hidden', !willShow);
-  });
-  $('anaFilterAllBtn').addEventListener('click', () => {
-    const boxes = document.querySelectorAll('#anaFilterGroups input[data-page]');
-    const allChecked = Array.from(boxes).every(b => b.checked);
-    boxes.forEach(b => { b.checked = !allChecked; });
+    $('anaFilterPanel').classList.toggle('hidden');
   });
   $('anaFilterUpdateBtn').addEventListener('click', () => {
-    selectedPageIds = Array.from(document.querySelectorAll('#anaFilterGroups input[data-page]:checked')).map(b => b.dataset.page);
+    selectedPageIds = [...anaFilterWorking];
     $('anaFilterToggleBtn').classList.toggle('active', selectedPageIds.length > 0);
     loadAll();
   });

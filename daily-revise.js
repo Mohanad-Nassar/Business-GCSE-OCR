@@ -52,6 +52,8 @@ let preTimer = null;
 let isAdvancedFIB = false;
 
 let filterUIWired = false;
+let drFilterWorking = new Set();   // live working copy the grid edits; committed to selectedPageIds on Apply
+let drFilterOpenGroups = new Set(); // which curriculum units are expanded — persists across re-renders
 
 // ── Question filters (Smart-Revise style) ──
 // Scheduling preferences, persisted per-browser. Unlike the TOPIC filter
@@ -204,22 +206,23 @@ function setupFilterUI() {
     ? new Set(drSettings.active_page_ids || [])
     : null; // student_controlled — every topic, freely editable
 
-  const groupsEl = document.getElementById('drFilterGroups');
-  groupsEl.innerHTML = '';
-  PAGE_GROUPS.forEach(group => {
-    const pages = flatPages(group).filter(p => !allowedIds || allowedIds.has(p.id));
-    if (!pages.length) return;
-    const details = document.createElement('details');
-    details.className = 'dr-filter-group';
-    details.innerHTML = `<summary>${esc(group.title)}</summary>` +
-      pages.map(p => `<label class="dr-filter-topic"><input type="checkbox" data-page="${p.id}" ${editable ? '' : 'checked disabled'}/> ${esc(p.name)}</label>`).join('');
-    groupsEl.appendChild(details);
+  // Re-sync the working copy from whatever's currently committed each time
+  // this runs (e.g. the page regaining focus) — same "stage, then Update"
+  // grid used by the Teacher Dashboard's topic grids.
+  drFilterWorking = new Set(editable ? selectedPageIds : []);
+  renderTopicFilterGrid(document.getElementById('drFilterGroups'), {
+    isChecked: pid => drFilterWorking.has(pid),
+    onToggle: (pids, checked) => pids.forEach(pid => checked ? drFilterWorking.add(pid) : drFilterWorking.delete(pid)),
+    countLabel: (n, total) => `${n}/${total} selected`,
+    bulkButtons: editable ? [
+      { label: 'Select all', onClick: all => all.forEach(pid => drFilterWorking.add(pid)) },
+      { label: 'Clear all', onClick: all => all.forEach(pid => drFilterWorking.delete(pid)) },
+    ] : undefined,
+    disabledRow: editable ? undefined : () => true,
+    openGroups: drFilterOpenGroups,
+    pageFilter: p => !allowedIds || allowedIds.has(p.id),
   });
 
-  // Only TOPIC editing is teacher-gated; the question-filter toggles above
-  // (Smart mode / mastered / incorrect-only) work in every mode, so Update
-  // always stays clickable.
-  document.getElementById('drFilterAllBtn').disabled = !editable;
   document.getElementById('drFilterNote').textContent = editable ? ''
     : "Your teacher has set which topics your class practises here — you can't change it. The question filters above are still yours.";
   if (!editable) selectedPageIds = []; // no topic filter possible in this mode
@@ -238,13 +241,6 @@ function setupFilterUI() {
     panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
   });
 
-  document.getElementById('drFilterAllBtn').addEventListener('click', (e) => {
-    if (e.currentTarget.disabled) return;
-    const boxes = document.querySelectorAll('#drFilterGroups input[data-page]');
-    const allChecked = Array.from(boxes).every(b => b.checked);
-    boxes.forEach(b => { b.checked = !allChecked; });
-  });
-
   document.getElementById('drApplyFilterBtn').addEventListener('click', async () => {
     drPrefs = {
       smart: document.getElementById('drSmartMode').checked,
@@ -253,7 +249,7 @@ function setupFilterUI() {
     };
     drSavePrefs();
     if (drSettings.topic_mode !== 'teacher_controlled') {
-      selectedPageIds = Array.from(document.querySelectorAll('#drFilterGroups input[data-page]:checked')).map(b => b.dataset.page);
+      selectedPageIds = [...drFilterWorking];
     }
     await loadQueue();
   });
