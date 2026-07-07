@@ -1,13 +1,18 @@
 // ══════════════════════════════════════════════════════════════
 // SHARED TASK HELPERS
-// Used by teacher-tasks.html, task.html, dashboard.html and
-// teacher-dashboard.html. Pure functions + a small auth bootstrap;
-// no DOM rendering here except the CSV download helper.
+// Used by teacher-tasks.html, teacher-worksheets.html, task.html,
+// dashboard.html and teacher-dashboard.html. Pure functions + a small
+// auth bootstrap; no DOM rendering here except the CSV download helper.
 //
 // Data shapes match supabase/tasks-schema.sql:
 //   task        — row from `tasks`
 //   assignment  — row from `task_assignments` (per student)
 //   attempt     — row from `task_attempts`
+//
+// teacher-tasks.html / teacher-worksheets.html additionally need their
+// question bank to be swappable at runtime (selected class's subject /
+// a worksheet subject picker) instead of fixed at page-load — see
+// "Dynamic per-subject question bank" below.
 // ══════════════════════════════════════════════════════════════
 
 const TASKS_SUPABASE_URL = 'https://eaohjlyiotyqhvsizcpw.supabase.co';
@@ -57,6 +62,20 @@ function bankByPage() {
   return m;
 }
 
+// Swappable lookup caches. teacher-tasks.html and teacher-worksheets.html
+// used to compute these once as page-load `const`s from whatever bank the
+// static <script src="/subjects/business/question-bank.js"> tag happened to
+// load. Now that the bank can change at runtime (see loadSubjectBank
+// below), both pages read these `let`s directly instead of declaring their
+// own module-level copies — call refreshBankCaches() any time
+// window.QUESTION_BANK changes.
+let BANK_BY_PAGE = {};
+let BANK_BY_ID = {};
+function refreshBankCaches() {
+  BANK_BY_PAGE = bankByPage();
+  BANK_BY_ID = bankById();
+}
+
 const QTYPE_LABELS = { mcq: 'Multiple choice', tf: 'True / False', written: 'Written answer', fib: 'Fill in the blanks' };
 const SOURCE_LABELS = {
   learn: 'Key Learning', mcq: 'MCQ Quiz', match: 'Matching', fib: 'Fill the Blanks',
@@ -87,6 +106,76 @@ function bankRank(id) {
     (window.QUESTION_BANK || []).forEach((q, i) => { _bankRankCache[q.id] = i; });
   }
   return _bankRankCache[id] ?? 0;
+}
+// Must be called any time window.QUESTION_BANK is swapped for a different
+// subject's bank — otherwise bankRank() keeps handing out ranks from
+// whichever subject happened to build the cache first, and curriculum
+// ordering (sortTaskQuestions) silently corrupts for every subject after it.
+function resetBankRankCache() { _bankRankCache = null; }
+
+// ── Dynamic per-subject question bank ──
+// Topic pages know their own subject at build time via a relative
+// <script src="page-groups.js"> include. teacher-tasks.html and
+// teacher-worksheets.html pick their subject at RUNTIME instead (the
+// selected class's subject / a worksheet subject dropdown), so they can't
+// use a static include for the bank.
+//
+// /page-groups-all.js (window.PAGE_GROUPS_ALL, included by both pages)
+// already holds every subject's topic tree merged into one small file, so
+// switching subject only needs to repoint window.SUBJECT/window.PAGE_GROUPS
+// at the right slot — no network fetch needed for that part. Only
+// question-bank.js (deliberately never merged across subjects, ~4.3MB each)
+// needs an actual dynamic <script> load.
+
+// Points window.SUBJECT/window.PAGE_GROUPS at `slug` using the
+// already-loaded /subjects-index.js + /page-groups-all.js registries.
+// Synchronous — no network involved, unlike loadSubjectBank below.
+function setActiveSubject(slug) {
+  const subjects = window.SUBJECTS || [];
+  const groupsAll = window.PAGE_GROUPS_ALL || {};
+  let subject = subjects.find(s => s.slug === slug);
+  if (!subject) {
+    console.error('setActiveSubject: unknown subject "' + slug + '" — falling back to business');
+    subject = subjects.find(s => s.slug === 'business') || subjects[0] || null;
+  }
+  window.SUBJECT = subject || null;
+  window.PAGE_GROUPS = (subject && groupsAll[subject.slug]) || [];
+  return subject;
+}
+
+// Swaps in `slug`'s question bank: points window.SUBJECT/PAGE_GROUPS at it
+// (setActiveSubject, above), removes any previously-injected bank <script>
+// (tagged with [data-subject-bank]), injects a fresh one for
+// /subjects/<slug>/question-bank.js, and once it has loaded (or failed)
+// recomputes BANK_BY_PAGE/BANK_BY_ID and clears the bank-rank cache so
+// curriculum ordering never uses stale ranks from the previous subject.
+// Returns a promise resolving to the subject registry entry (or rejecting
+// on a network/script error — callers should surface that to the teacher).
+function loadSubjectBank(slug) {
+  const subject = setActiveSubject(slug);
+  document.querySelectorAll('script[data-subject-bank]').forEach(el => el.remove());
+  // Clear the bank itself while the new one is in flight, so a slow or
+  // failed load can never be mistaken for the previous subject's data
+  // still being current.
+  window.QUESTION_BANK = [];
+  refreshBankCaches();
+  resetBankRankCache();
+
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = `/subjects/${(subject && subject.slug) || slug}/question-bank.js`;
+    script.setAttribute('data-subject-bank', '');
+    script.onload = () => {
+      refreshBankCaches();
+      resetBankRankCache();
+      resolve(subject);
+    };
+    script.onerror = () => {
+      console.error('loadSubjectBank: failed to load question bank for "' + slug + '"');
+      reject(new Error('Failed to load question bank for ' + slug));
+    };
+    document.head.appendChild(script);
+  });
 }
 
 // Sorts a list of bank-entry questions into curriculum order: topic page

@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Interactive OCR GCSE Business Studies revision guide: 24 topics with notes, quizzes, flashcards and exam practice.">
-  <title>Business Studies – Interactive Study Guide</title>
+  <meta name="description" content="Your subjects hub — interactive OCR GCSE revision guides with notes, quizzes, flashcards and exam practice.">
+  <title>My Subjects – Study Guide</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -23,14 +23,6 @@
       --border: #c9bfaa;
       --success: #2d7a4f;
       --card-bg: #fffcf6;
-      /* Component colours */
-      --c1: #4a6fa5;
-      --c2: #c84b31;
-      --c3: #1a6b6b;
-      --c4: #7a5c9e;
-      --c5: #c47d2a;
-      --c6: #2d7a4f;
-      --c7: #c84b8a;
     }
 
     *,
@@ -156,7 +148,7 @@
       color: #c3ccd4;
       max-width: 560px;
       line-height: 1.7;
-      margin-bottom: 28px;
+      margin-bottom: 8px;
     }
 
     .hero-nav {
@@ -195,113 +187,6 @@
       border-color: var(--gold);
     }
 
-    .hero-stats {
-      display: flex;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-
-    .stat {
-      border-left: 3px solid var(--gold);
-      padding-left: 14px;
-    }
-
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      line-height: 1;
-      color: var(--paper);
-    }
-
-    .stat-label {
-      font-size: 12px;
-      color: #9fb0bd;
-      margin-top: 3px;
-      letter-spacing: .5px;
-    }
-
-    /* ── SEARCH ── */
-    .search-wrap {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 28px 48px 0;
-    }
-
-    .search-label {
-      display: block;
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--mid);
-      margin-bottom: 8px;
-    }
-
-    .search-box {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--card-bg);
-      border: 1.5px solid var(--border);
-      border-radius: 10px;
-      padding: 12px 18px;
-      transition: border-color .15s, box-shadow .15s;
-    }
-
-    .search-box:focus-within {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(74, 111, 165, .18);
-    }
-
-    .search-box input {
-      flex: 1;
-      background: none;
-      border: none;
-      outline: none;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      color: var(--ink);
-    }
-
-    .search-box input::placeholder {
-      color: #877e6c;
-    }
-
-    .search-count {
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      color: var(--mid);
-      margin-top: 8px;
-      min-height: 18px;
-    }
-
-    .search-icon {
-      color: var(--mid);
-      font-size: 16px;
-    }
-
-    .search-clear {
-      background: none;
-      border: none;
-      color: var(--mid);
-      cursor: pointer;
-      font-size: 20px;
-      line-height: 1;
-      display: none;
-      padding: 6px 10px;
-      margin: -6px -8px -6px -4px;
-      border-radius: 6px;
-    }
-
-    .search-clear:hover {
-      color: var(--ink);
-      background: var(--cream);
-    }
-
-    .search-clear.show {
-      display: block;
-    }
-
     /* ── MAIN ── */
     .content {
       max-width: 1200px;
@@ -309,89 +194,38 @@
       padding: 36px 48px 80px;
     }
 
-    /* ── COMPONENT HEADER ── */
-    .component-block {
-      margin-bottom: 52px;
-    }
-
-    .component-header {
-      display: flex;
-      align-items: flex-end;
-      gap: 16px;
-      margin-bottom: 28px;
-      padding-bottom: 16px;
-      border-bottom: 2px solid var(--border);
-    }
-
-    .component-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 64px;
-      line-height: 1;
-      opacity: .12;
-      color: var(--ink);
-      font-weight: 900;
-      flex-shrink: 0;
-    }
-
-    .component-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--mid);
-      margin-bottom: 4px;
-    }
-
-    .component-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 26px;
-      color: var(--ink);
-    }
-
-    .component-sub {
-      font-size: 13px;
-      color: var(--mid);
-      margin-top: 4px;
-    }
-
-    /* ── SECTION GROUP ── */
-    .section-group {
-      margin-bottom: 36px;
-    }
-
-    .section-group-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-
-    .section-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .section-name {
+    .section-label {
       font-family: 'DM Mono', monospace;
       font-size: 11px;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--mid);
+      margin-bottom: 18px;
     }
 
-    .section-line {
-      flex: 1;
-      height: 1px;
-      background: var(--border);
+    .hub-loading {
+      color: var(--mid);
+      font-size: 14px;
+      padding: 20px 0;
     }
 
-    /* ── TOPIC CARDS ── */
+    .hub-empty {
+      background: var(--card-bg);
+      border: 1.5px dashed var(--border);
+      border-radius: 10px;
+      padding: 24px 26px;
+      color: var(--mid);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 620px;
+    }
+
+    /* ── SUBJECT CARDS ── */
     .topic-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 16px;
+      margin-bottom: 48px;
     }
 
     .topic-card {
@@ -441,7 +275,7 @@
 
     .topic-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1.35;
       color: var(--ink);
       margin-bottom: 10px;
@@ -475,70 +309,26 @@
       color: var(--ink);
     }
 
-    /* Highlight on search match */
-    .topic-card.hidden {
-      display: none;
-    }
-
-    .topic-card.highlight {
-      border-color: var(--gold);
-    }
-
-    .topic-card.highlight::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(212, 168, 67, .06);
-      border-radius: 10px;
-      pointer-events: none;
-    }
-
-    /* ── SPECIAL: FINAL CARD ── */
-    .topic-card.final-card {
-      background: var(--ink);
-      color: var(--paper);
-      border-color: var(--ink);
-    }
-
-    .topic-card.final-card h3 {
-      color: var(--paper);
-    }
-
-    .topic-card.final-card .code {
-      color: var(--gold);
-    }
-
-    .topic-card.final-card .card-meta {
-      color: #9fb0bd;
-    }
-
-    .topic-card.final-card .arrow {
-      color: var(--gold);
-    }
-
-    .topic-card.final-card:hover {
-      box-shadow: 0 8px 28px rgba(0, 0, 0, .3);
-    }
-
-    .topic-card.final-card::before {
-      background: var(--gold);
-    }
-
-    /* ── NO RESULTS ── */
-    .no-results {
-      text-align: center;
-      padding: 60px 20px;
-      color: var(--mid);
-      display: none;
-    }
-
-    .no-results.show {
+    .topic-card .subject-icon {
+      font-size: 26px;
+      margin-bottom: 10px;
       display: block;
     }
 
-    .no-results p {
-      font-size: 15px;
+    /* Sibling of .topic-card (not nested inside it — nested <a> elements
+       are invalid HTML), so it's styled off .subject-card-wrap instead. */
+    .subject-card-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .subject-card-wrap .subject-secondary {
       margin-top: 8px;
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
+      color: var(--accent);
+      text-decoration: underline;
+      display: inline-block;
     }
 
     /* ── RESPONSIVE ── */
@@ -551,46 +341,13 @@
         padding: 24px 20px 60px;
       }
 
-      .search-wrap {
-        padding: 20px 20px 0;
-      }
-
       .topic-grid {
         grid-template-columns: 1fr;
-      }
-
-      .hero-stats {
-        gap: 20px;
       }
 
       .hero-nav {
         position: static;
         margin-bottom: 16px;
-      }
-    }
-
-    /* ── ANIMATION ── */
-    .component-block {
-      animation: fadeUp .4s ease both;
-    }
-
-    .component-block:nth-child(1) {
-      animation-delay: .05s;
-    }
-
-    .component-block:nth-child(2) {
-      animation-delay: .15s;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(14px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
       }
     }
 
@@ -613,577 +370,145 @@
 
 <body>
 
-  <a class="skip-link" href="#mainContent">Skip to topics</a>
+  <a class="skip-link" href="#mainContent">Skip to subjects</a>
 
   <!-- HERO -->
   <header class="hero">
     <div class="hero-inner">
       <nav class="hero-nav" aria-label="Site">
-        <a href="dashboard.html">📊 <span>My Progress</span></a>
         <span id="accountBar" style="display:inline-flex;align-items:center;gap:10px;"></span>
       </nav>
       <div class="hero-eyebrow">
-        <span class="badge">GCSE Business</span>
-        <span class="badge gold">Study Guide</span>
+        <span class="badge">OCR GCSE</span>
+        <span class="badge gold">Study Guides</span>
       </div>
-      <h1>Business Studies<br>Interactive Study Guide</h1>
-      <p>Two components · seven sections · 24 topics. Click any topic card to open its interactive lesson with notes,
-        quizzes, flashcards and exam practice.</p>
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-num">2</div>
-          <div class="stat-label">Components</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">7</div>
-          <div class="stat-label">Sections</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">24</div>
-          <div class="stat-label">Topics</div>
-        </div>
-      </div>
-      <!-- Gamification HUD (level / XP / streak / badges) — filled by gamification.js -->
-      <div id="gamHudMount"></div>
+      <h1>My Subjects</h1>
+      <p id="hubIntro">Interactive revision guides with notes, quizzes, flashcards and exam practice — pick a
+        subject to get started.</p>
     </div>
   </header>
 
-  <!-- SEARCH -->
-  <div class="search-wrap" role="search">
-    <label class="search-label" for="searchInput">Find a topic</label>
-    <div class="search-box">
-      <span class="search-icon" aria-hidden="true">⌕</span>
-      <input type="search" id="searchInput" autocomplete="off" enterkeyhint="search"
-        placeholder="Search topics, e.g. &ldquo;cash flow&rdquo; or &ldquo;marketing mix&rdquo;…">
-      <button type="button" class="search-clear" id="searchClear" onclick="clearSearch()"
-        aria-label="Clear search">×</button>
-    </div>
-    <p class="search-count" id="searchCount" role="status" aria-live="polite"></p>
-  </div>
-
   <!-- MAIN CONTENT -->
   <main class="content" id="mainContent">
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- COMPONENT 1 -->
-    <!-- ═══════════════════════════════════════════ -->
-    <div class="component-block" id="comp1">
-      <div class="component-header">
-        <div class="component-num">1</div>
-        <div class="component-info">
-          <div class="component-label">Component One</div>
-          <h2 class="component-title">Business Activity, Marketing &amp; People</h2>
-          <div class="component-sub">Sections 1–3 · Topics 1.1 – 3.7</div>
-        </div>
-      </div>
-
-      <!-- Section 1 -->
-
-      <div class="section-group" id="sec1">
-        <div class="section-group-header">
-          <span class="section-dot" aria-hidden="true" style="background:var(--c1)"></span>
-          <h3 class="section-name">1. Business Activity</h3>
-          <span class="section-line"></span>
-        </div>
-        <div class="topic-grid">
-          <a class="topic-card" href="/subjects/business/1_1_role_of_business_enterprise.html" style="--accent:var(--c1)">
-            <span class="code">1.1</span>
-            <h3>The Role of Business Enterprise and Entrepreneurship</h3>
-            <div class="card-meta">
-              <span>Business Activity</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/1_2_business_planning.html" style="--accent:var(--c1)">
-            <span class="code">1.2</span>
-            <h3>Business Planning</h3>
-            <div class="card-meta">
-              <span>Business Activity</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/1_3_business_ownership.html" style="--accent:var(--c1)">
-            <span class="code">1.3</span>
-            <h3>Business Ownership</h3>
-            <div class="card-meta">
-              <span>Business Activity</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/1_4_business_aims_objectives.html" style="--accent:var(--c1)">
-            <span class="code">1.4</span>
-            <h3>Business Aims and Objectives</h3>
-            <div class="card-meta">
-              <span>Business Activity</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/1_5_stakeholders_in_business.html" style="--accent:var(--c1)">
-            <span class="code">1.5</span>
-            <h3>Stakeholders in Business</h3>
-            <div class="card-meta">
-              <span>Business Activity</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/1_6_business_growth.html" style="--accent:var(--c1)">
-            <span class="code">1.6</span>
-            <h3>Business Growth</h3>
-            <div class="card-meta">
-              <span>Business Activity</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Section 2 -->
-      <div class="section-group" id="sec2">
-        <div class="section-group-header">
-          <span class="section-dot" aria-hidden="true" style="background:var(--c2)"></span>
-          <h3 class="section-name">2. Marketing</h3>
-          <span class="section-line"></span>
-        </div>
-        <div class="topic-grid">
-          <a class="topic-card" href="/subjects/business/2_1_role_of_marketing.html" style="--accent:var(--c2)">
-            <span class="code">2.1</span>
-            <h3>The Role of Marketing</h3>
-            <div class="card-meta">
-              <span>Marketing</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/2_2_market_research.html" style="--accent:var(--c2)">
-            <span class="code">2.2</span>
-            <h3>Market Research</h3>
-            <div class="card-meta">
-              <span>Marketing</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/2_3_market_segmentation.html" style="--accent:var(--c2)">
-            <span class="code">2.3</span>
-            <h3>Market Segmentation</h3>
-            <div class="card-meta">
-              <span>Marketing</span>
-
-
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/2_4_marketing_mix.html" style="--accent:var(--c2)">
-            <span class="code">2.4</span>
-            <h3>The Marketing Mix</h3>
-            <div class="card-meta">
-              <span>Marketing</span>
-
-
-
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Section 3 -->
-      <div class="section-group" id="sec3">
-        <div class="section-group-header">
-          <span class="section-dot" aria-hidden="true" style="background:var(--c3)"></span>
-          <h3 class="section-name">3. People</h3>
-          <span class="section-line"></span>
-        </div>
-        <div class="topic-grid">
-          <a class="topic-card" href="/subjects/business/3_1_role_of_human_resources.html" style="--accent:var(--c3)">
-            <span class="code">3.1</span>
-            <h3>The Role of Human Resources</h3>
-            <div class="card-meta">
-              <span>People</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/3_2_organisational_structures.html" style="--accent:var(--c3)">
-            <span class="code">3.2</span>
-            <h3>Organisational Structures and Different Ways of Working</h3>
-            <div class="card-meta">
-              <span>People</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/3_3_communication_in_business.html" style="--accent:var(--c3)">
-            <span class="code">3.3</span>
-            <h3>Communication in Business</h3>
-            <div class="card-meta">
-              <span>People</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/3_4_recruitment_and_selection.html" style="--accent:var(--c3)">
-            <span class="code">3.4</span>
-            <h3>Recruitment and Selection</h3>
-            <div class="card-meta">
-              <span>People</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/3_5_motivation_and_retention.html" style="--accent:var(--c3)">
-            <span class="code">3.5</span>
-            <h3>Motivation and Retention</h3>
-            <div class="card-meta">
-              <span>People</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/3_6_training_and_development.html" style="--accent:var(--c3)">
-            <span class="code">3.6</span>
-            <h3>Training and Development</h3>
-            <div class="card-meta">
-              <span>People</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/3_7_employment_law.html" style="--accent:var(--c3)">
-            <span class="code">3.7</span>
-            <h3>Employment Law</h3>
-            <div class="card-meta">
-              <span>People</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div><!-- /comp1 -->
-
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- COMPONENT 2 -->
-    <!-- ═══════════════════════════════════════════ -->
-    <div class="component-block" id="comp2">
-      <div class="component-header">
-        <div class="component-num">2</div>
-        <div class="component-info">
-          <div class="component-label">Component Two</div>
-          <h2 class="component-title">Operations, Finance &amp; Influences</h2>
-          <div class="component-sub">Sections 4–7 · Topics 4.1 – 7.1</div>
-        </div>
-      </div>
-
-      <!-- Section 4 -->
-      <div class="section-group" id="sec4">
-        <div class="section-group-header">
-          <span class="section-dot" aria-hidden="true" style="background:var(--c4)"></span>
-          <h3 class="section-name">4. Operations</h3>
-          <span class="section-line"></span>
-        </div>
-        <div class="topic-grid">
-          <a class="topic-card" href="/subjects/business/4_1_production_processes.html" style="--accent:var(--c4)">
-            <span class="code">4.1</span>
-            <h3>Production Processes</h3>
-            <div class="card-meta">
-              <span>Operations</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/4_2_quality_of_goods_services.html" style="--accent:var(--c4)">
-            <span class="code">4.2</span>
-            <h3>Quality of Goods and Services</h3>
-            <div class="card-meta">
-              <span>Operations</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/4_3_sales_process_customer_service.html" style="--accent:var(--c4)">
-            <span class="code">4.3</span>
-            <h3>The Sales Process and Customer Service</h3>
-            <div class="card-meta">
-              <span>Operations</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/4_4_consumer_law.html" style="--accent:var(--c4)">
-            <span class="code">4.4</span>
-            <h3>Consumer Law</h3>
-            <div class="card-meta">
-              <span>Operations</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/4_5_business_location.html" style="--accent:var(--c4)">
-            <span class="code">4.5</span>
-            <h3>Business Location</h3>
-            <div class="card-meta">
-              <span>Operations</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/4_6_working_with_suppliers.html" style="--accent:var(--c4)">
-            <span class="code">4.6</span>
-            <h3>Working with Suppliers</h3>
-            <div class="card-meta">
-              <span>Operations</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Section 5 -->
-      <div class="section-group" id="sec5">
-        <div class="section-group-header">
-          <span class="section-dot" aria-hidden="true" style="background:var(--c5)"></span>
-          <h3 class="section-name">5. Finance</h3>
-          <span class="section-line"></span>
-        </div>
-        <div class="topic-grid">
-          <a class="topic-card" href="/subjects/business/5_1_role_of_finance_function.html" style="--accent:var(--c5)">
-            <span class="code">5.1</span>
-            <h3>The Role of the Finance Function</h3>
-            <div class="card-meta">
-              <span>Finance</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/5_2_sources_of_finance.html" style="--accent:var(--c5)">
-            <span class="code">5.2</span>
-            <h3>Sources of Finance</h3>
-            <div class="card-meta">
-              <span>Finance</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/5_3_revenue_costs_profit_loss.html" style="--accent:var(--c5)">
-            <span class="code">5.3</span>
-            <h3>Revenue, Costs, Profit and Loss</h3>
-            <div class="card-meta">
-              <span>Finance</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-
-          <a class="topic-card" href="/subjects/business/5_4_break_even.html" style="--accent:var(--c5)">
-            <span class="code">5.4</span>
-            <h3>Break-even</h3>
-            <div class="card-meta">
-              <span>Finance</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/5_5_cash_and_cash_flow.html" style="--accent:var(--c5)">
-            <span class="code">5.5</span>
-            <h3>Cash and Cash Flow</h3>
-            <div class="card-meta">
-              <span>Finance</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Section 6 -->
-      <div class="section-group" id="sec6">
-        <div class="section-group-header">
-          <span class="section-dot" aria-hidden="true" style="background:var(--c6)"></span>
-          <h3 class="section-name">6. Influences on Business</h3>
-          <span class="section-line"></span>
-        </div>
-        <div class="topic-grid">
-          <a class="topic-card" href="/subjects/business/6_1_ethical_environmental.html" style="--accent:var(--c6)">
-            <span class="code">6.1</span>
-            <h3>Ethical and Environmental Considerations</h3>
-            <div class="card-meta">
-              <span>Influences on Business</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/6_2_the_economic_climate.html" style="--accent:var(--c6)">
-            <span class="code">6.2</span>
-            <h3>The Economic Climate</h3>
-            <div class="card-meta">
-              <span>Influences on Business</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/6_3_globalisation.html" style="--accent:var(--c6)">
-            <span class="code">6.3</span>
-            <h3>Globalisation</h3>
-            <div class="card-meta">
-              <span>Influences on Business</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Section 7 -->
-      <div class="section-group" id="sec7">
-        <div class="section-group-header">
-          <span class="section-dot" aria-hidden="true" style="background:var(--c7)"></span>
-          <h3 class="section-name">7. The Interdependent Nature of Business</h3>
-          <span class="section-line"></span>
-        </div>
-        <div class="topic-grid">
-          <a class="topic-card final-card" href="/subjects/business/7_1_final.html">
-            <span class="code">7.1</span>
-            <h3>Final – The Interdependent Nature of Business</h3>
-            <div class="card-meta">
-              <span>Bringing it all together</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-    </div><!-- /comp2 -->
-    
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- COMPONENT 3 -->
-    <!-- ═══════════════════════════════════════════ -->
-    <div class="component-block" id="ExamPrep">
-      <div class="component-header">
-        <div class="component-num">3</div>
-        <div class="component-info">
-          <div class="component-label">Component Three</div>
-          <h2 class="component-title">Exam Preparation</h2>
-          <div class="component-sub">Paper 1 &amp; Paper 2 · Analysis, predictions and question banks</div>
-        </div>
-      </div>
-    
-      <!-- SECTION 4 -->
-      <div class="section-group" id="secPaper1">
-        <div class="section-group-header">
-          <span class="section-dot" aria-hidden="true" style="background:var(--c4)"></span>
-          <h3 class="section-name">Paper 1</h3>
-          <span class="section-line"></span>
-        </div>
-    
-        <div class="topic-grid">
-          <a class="topic-card" href="/subjects/business/exam_prep/ocr_gcse_business_paper1_analysis.html" style="--accent:var(--c4)">
-            <span class="code">Paper 1</span>
-            <h3>Paper 1 Analysis and Prediction</h3>
-            <div class="card-meta">
-              <span>Unit 1 &amp; Unit 2 &amp; Unit 3</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-    
-          <a class="topic-card" href="/subjects/business/exam_prep/paper1_all_AO1_Exam_Questions.html" style="--accent:var(--c4)">
-            <span class="code">Paper 1</span>
-            <h3>Paper 1 All AO1 Exam Questions</h3>
-            <div class="card-meta">
-              <span>AO1: Knowledge and Understanding</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-    
-          <a class="topic-card" href="/subjects/business/exam_prep/paper1_all_AO2_MCQ_Exam_Questions.html" style="--accent:var(--c4)">
-            <span class="code">Paper 1</span>
-            <h3>Paper 1 All AO2 MCQ Exam Questions</h3>
-            <div class="card-meta">
-              <span>AO2: Application</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-        </div> <!-- Closes sec4 .topic-grid -->
-      </div> <!-- Closes sec4 -->
-    
-      <!-- SECTION 5 -->
-      <div class="section-group" id="secPaper2">
-        <div class="section-group-header">
-          <span class="section-dot" aria-hidden="true" style="background:var(--c3)"></span>
-          <h3 class="section-name">Paper 2</h3>
-          <span class="section-line"></span>
-        </div>
-    
-        <div class="topic-grid">
-          <a class="topic-card" href="/subjects/business/exam_prep/paper2/OCR_Business_Paper2_Analysis.html" style="--accent:var(--c3)">
-            <span class="code">Paper 2</span>
-            <h3>Paper 2 Analysis and Prediction</h3>
-            <div class="card-meta">
-              <span>Unit 4 &amp; Unit 5 &amp; Unit 6</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="topic-card" href="/subjects/business/exam_prep/paper2/finance_calculations.html" style="--accent:var(--c3)">
-            <span class="code">Paper 2</span>
-            <h3>Paper 2 Finance Calculations</h3>
-            <div class="card-meta">
-              <span>Unit 5 Calculations</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-           
-
-          <a class="topic-card" href="/subjects/business/exam_prep/paper2/paper2_All_MCQ_Questions.html" style="--accent:var(--c3)">
-            <span class="code">Paper 2</span>
-            <h3>Paper 2 All MCQ questions</h3>
-            <div class="card-meta">
-              <span>AO1 &amp; AO2</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </div>
-          </a>
-        </div> <!-- Closes sec5 .topic-grid -->
-        
-      </div> <!-- Closes sec5 -->
-    
-      <!-- NO RESULTS -->
-      <div class="no-results" id="noResults">
-        <div style="font-size:40px;" aria-hidden="true">⌕</div>
-        <p>No topics matched your search. Try a different keyword.</p>
-      </div>
-    
-    </div> <!-- Closes ExamPrep component-block -->
-
-
-
-
-
-
-
+    <h2 class="section-label" id="hubSectionLabel">Subjects</h2>
+    <div id="hubGrid" class="hub-loading">Loading your subjects…</div>
   </main>
 
-  <script>
-    // Site-wide login guard. Redirects immediately if there's no cached
-    // session — keep in sync with the equivalent block at the top of
-    // script.js (topic pages) and dashboard.html / teacher-dashboard.html.
-    (function gcseHomeAuthGuard() {
-      const GCSE_SESSION_KEY = 'gcse_session_v1';
-      let session;
-      try { session = JSON.parse(localStorage.getItem(GCSE_SESSION_KEY) || 'null'); } catch (e) { session = null; }
-      if (!session || !session.access_token) {
-        location.replace('login.html?redirect=' + encodeURIComponent(location.pathname));
-      }
-    })();
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-  <!-- Progress + gamification (hero HUD and per-card progress footers) -->
   <script src="/subjects-index.js"></script>
-<script src="/page-groups-all.js"></script>
-<script src="/section-totals-all.js"></script>
-<script src="/subject-loader.js"></script>
-<script>subjectLoaderInit({ mode: 'single' });</script>
-  <script src="progress-shared.js"></script>
-  <script src="gamification.js"></script>
   <script>
     // Keep these in sync with the constants at the top of script.js.
     const SUPABASE_URL = 'https://eaohjlyiotyqhvsizcpw.supabase.co';
-      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhb2hqbHlpb3R5cWh2c2l6Y3B3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNzUzMDksImV4cCI6MjA5ODc1MTMwOX0.lHF4OUiTT3G_fzlXvXI_4QMu48o6eEnq0hWw6K1uBAk';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhb2hqbHlpb3R5cWh2c2l6Y3B3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNzUzMDksImV4cCI6MjA5ODc1MTMwOX0.lHF4OUiTT3G_fzlXvXI_4QMu48o6eEnq0hWw6K1uBAk';
     const GCSE_SESSION_KEY = 'gcse_session_v1';
 
-    async function gcseHomeInitAccountBar() {
-      let cached;
-      try { cached = JSON.parse(localStorage.getItem(GCSE_SESSION_KEY) || 'null'); } catch (e) { cached = null; }
-      if (!cached) return;
+    // Non-redirecting read of the cached session — unlike tasksAuthInit()
+    // (tasks-shared.js) / the old per-page login guards, this hub must
+    // stay reachable by logged-out visitors, so it only ever *reads* the
+    // cache here and decides which view to render; it never redirects to
+    // login.html on its own.
+    function hubReadSession() {
+      try { return JSON.parse(localStorage.getItem(GCSE_SESSION_KEY) || 'null'); } catch (e) { return null; }
+    }
+
+    // Note: the optional "My Progress" secondary link is rendered as a
+    // sibling of the card <a>, not nested inside it — nested <a> elements
+    // are invalid HTML and browsers silently break out of the outer
+    // anchor when they hit one, which would make the card's own link
+    // target unpredictable.
+    function subjectCardHtml(subject, opts) {
+      opts = opts || {};
+      const href = opts.href || `/subjects/${subject.slug}/index.html`;
+      const accent = subject.colour ? ` style="--accent:${subject.colour}"` : '';
+      const examBoard = subject.examBoard || subject.exam_board || 'OCR';
+      const specCode = subject.specCode || subject.spec_code || '';
+      const level = subject.level || '';
+      const card = `<a class="topic-card" href="${href}"${accent}>
+          <span class="subject-icon" aria-hidden="true">${subject.icon || '📘'}</span>
+          <span class="code">${examBoard}${specCode ? ' · ' + specCode : ''}</span>
+          <h3>${subject.name}</h3>
+          <div class="card-meta">
+            <span>${level}${opts.tag ? ' · ' + opts.tag : ''}</span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </div>
+        </a>`;
+      if (!opts.secondaryHref) return `<div class="subject-card-wrap">${card}</div>`;
+      return `<div class="subject-card-wrap">${card}<a class="subject-secondary" href="${opts.secondaryHref}">📊 My Progress →</a></div>`;
+    }
+
+    // Logged-out (or role-less/corrupted session) view: every subject in
+    // the registry, Business real, the rest clearly tagged so nobody
+    // mistakes a placeholder for finished content.
+    function renderPublicSubjectsHub() {
+      document.getElementById('hubSectionLabel').textContent = 'Subjects';
+      const subjects = window.SUBJECTS || [];
+      const grid = document.getElementById('hubGrid');
+      grid.classList.remove('hub-loading');
+      grid.innerHTML = subjects.map(s => subjectCardHtml(s, { tag: s.slug === 'business' ? '' : 'Coming soon' })).join('');
+    }
+
+    // Logged-in student view: only the subjects get_my_subjects() returns
+    // (their own classes) — a subject a student isn't enrolled in is
+    // fully hidden here, not shown as "coming soon" clutter.
+    function renderStudentSubjectsHub(rows) {
+      document.getElementById('hubSectionLabel').textContent = 'Your Subjects';
+      const grid = document.getElementById('hubGrid');
+      grid.classList.remove('hub-loading');
+      if (!rows.length) {
+        grid.innerHTML = `<div class="hub-empty">You're not enrolled in any class yet, so there's nothing to show
+          here. Ask your teacher to add you to a class, then refresh this page.</div>`;
+        return;
+      }
+      grid.innerHTML = rows.map(s => subjectCardHtml(s, {
+        secondaryHref: `/dashboard.html?subject=${s.slug}`,
+      })).join('');
+    }
+
+    async function hubInitAccountBar(cached, supabaseClient) {
+      const bar = document.getElementById('accountBar');
+      if (!bar) return;
+      bar.innerHTML = `<span style="font-size:13px;color:rgba(255,255,255,.75);">Hi, <strong>${cached.username || 'you'}</strong></span>
+        <a href="/manage-account.html" id="manageAccountLink">⚙ <span>Manage Account</span></a>
+        <a href="#" id="homeLogoutLink">↪ <span>Log out</span></a>`;
+      document.getElementById('homeLogoutLink').addEventListener('click', async (e) => {
+        e.preventDefault();
+        await supabaseClient.auth.signOut();
+        localStorage.removeItem(GCSE_SESSION_KEY);
+        location.reload();
+      });
+    }
+
+    async function hubInit() {
+      const cached = hubReadSession();
+
+      // No session, or a corrupted/role-less cache — public hub.
+      if (!cached || !cached.access_token) {
+        renderPublicSubjectsHub();
+        return;
+      }
+
+      // Teachers manage their subjects/classes from the teacher dashboard,
+      // not this student-facing hub — send them straight there (mirrors
+      // dashboard.html's initDashboardAuth(), which does the same before
+      // it ever touches student-only data).
+      if (cached.role === 'teacher') {
+        location.replace('/teacher-dashboard.html');
+        return;
+      }
+
+      if (cached.role !== 'student') {
+        renderPublicSubjectsHub();
+        return;
+      }
 
       const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-      // gamification.js polls window._gcseSupabaseClient for the streak —
-      // mirror it here the same way script.js does on topic pages.
       window._gcseSupabaseClient = supabaseClient;
       const { data, error } = await supabaseClient.auth.setSession({
         access_token: cached.access_token, refresh_token: cached.refresh_token,
       });
       if (error || !data.session) {
         localStorage.removeItem(GCSE_SESSION_KEY);
-        location.replace('login.html?redirect=' + encodeURIComponent(location.pathname));
+        renderPublicSubjectsHub();
         return;
       }
       localStorage.setItem(GCSE_SESSION_KEY, JSON.stringify({
@@ -1191,82 +516,21 @@
         expires_at: data.session.expires_at, role: cached.role, username: cached.username,
       }));
 
-      const bar = document.getElementById('accountBar');
-      if (!bar) return;
-      bar.innerHTML = `<span style="font-size:13px;color:rgba(255,255,255,.75);">Hi, <strong>${cached.username || 'teacher'}</strong></span>
-        ${cached.role === 'teacher' ? '<a href="teacher-dashboard.html">🧑‍🏫 <span>Teacher Dashboard</span></a>' : ''}
-        <a href="manage-account.html" id="manageAccountLink">⚙ <span>Manage Account</span></a>
-        <a href="#" id="homeLogoutLink">↪ <span>Log out</span></a>`;
-      document.getElementById('homeLogoutLink').addEventListener('click', async (e) => {
-        e.preventDefault();
-        await supabaseClient.auth.signOut();
-        localStorage.removeItem(GCSE_SESSION_KEY);
-        location.replace('login.html');
-      });
+      hubInitAccountBar(cached, supabaseClient);
+      document.getElementById('hubIntro').textContent =
+        'Pick up where you left off, or jump into a subject to browse every topic.';
 
-      // Now that the session is live, fetch the answering streak for the
-      // hero HUD (gamification.js repaints the HUD when it arrives) and
-      // merge the server's progress over this device's local copy so the
-      // HUD, continue card and topic cards match what the student really
-      // did — on any device.
-      if (cached.role === 'student') {
-        if (typeof gamificationRefreshStreak === 'function') gamificationRefreshStreak(supabaseClient);
-        if (typeof gamificationRefreshDailyReviseStats === 'function') gamificationRefreshDailyReviseStats(supabaseClient);
-        if (typeof gamificationRefreshHomeFromServer === 'function') gamificationRefreshHomeFromServer(supabaseClient);
+      try {
+        const { data: subjects, error: subjectsErr } = await supabaseClient.rpc('get_my_subjects');
+        if (subjectsErr) { console.error('get_my_subjects', subjectsErr); renderStudentSubjectsHub([]); return; }
+        renderStudentSubjectsHub(subjects || []);
+      } catch (e) {
+        console.error('get_my_subjects', e);
+        renderStudentSubjectsHub([]);
       }
     }
-    gcseHomeInitAccountBar();
-  </script>
-  <script>
-    const searchInput = document.getElementById('searchInput');
-    const searchClear = document.getElementById('searchClear');
-    const noResults = document.getElementById('noResults');
-    const searchCount = document.getElementById('searchCount');
 
-    const cards = Array.from(document.querySelectorAll('.topic-card'));
-
-    searchInput.addEventListener('input', () => {
-      const q = searchInput.value.trim().toLowerCase();
-      searchClear.classList.toggle('show', q.length > 0);
-
-      let visible = 0;
-      cards.forEach(card => {
-        const text = card.textContent.toLowerCase();
-        const match = !q || text.includes(q);
-        card.classList.toggle('hidden', !match);
-        card.classList.toggle('highlight', !!q && match);
-        if (match) visible++;
-      });
-
-      noResults.classList.toggle('show', q.length > 0 && visible === 0);
-      searchCount.textContent = q
-        ? (visible === 0 ? 'No topics found' : `${visible} topic${visible === 1 ? '' : 's'} found`)
-        : '';
-
-      // Hide section groups with no visible cards
-      document.querySelectorAll('.section-group').forEach(sg => {
-        const anyVisible = Array.from(sg.querySelectorAll('.topic-card'))
-          .some(c => !c.classList.contains('hidden'));
-        sg.style.display = anyVisible ? '' : 'none';
-      });
-
-      // Hide component blocks with no visible section groups
-      document.querySelectorAll('.component-block').forEach(cb => {
-        const anyVisible = Array.from(cb.querySelectorAll('.section-group'))
-          .some(sg => sg.style.display !== 'none');
-        cb.style.display = anyVisible ? '' : 'none';
-      });
-    });
-
-    function clearSearch() {
-      searchInput.value = '';
-      searchInput.dispatchEvent(new Event('input'));
-      searchInput.focus();
-    }
-
-    searchInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && searchInput.value) clearSearch();
-    });
+    hubInit();
   </script>
 <script src="notifications-shared.js"></script>
 <script src="onboarding-tour.js"></script>

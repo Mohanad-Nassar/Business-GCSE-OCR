@@ -258,7 +258,7 @@
           <label for="classSelect">Choose a class</label>
           <select id="classSelect"></select>
         </div>
-        <button type="button" class="btn accent" id="newTaskBtn">+ New Task</button>
+        <button type="button" class="btn accent" id="newTaskBtn" disabled>+ New Task</button>
       </div>
     </div>
 
@@ -497,13 +497,14 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/subjects/business/question-bank.js"></script><!-- TODO(step-5): load /subjects/<slug>/question-bank.js for the selected class's subject dynamically -->
 <script src="tasks-shared.js"></script>
 <script src="/subjects-index.js"></script>
 <script src="/page-groups-all.js"></script>
 <script src="/section-totals-all.js"></script>
 <script src="/subject-loader.js"></script>
-<!-- TODO(step-5): resolve the subject from the selected class (per-class subject picker) instead of defaulting to business -->
+<!-- Sane default (business) before a class is chosen; selectClass() below
+     overrides window.SUBJECT/PAGE_GROUPS + the bank itself via
+     loadSubjectBank() once the selected class's actual subject is known. -->
 <script>subjectLoaderInit({ mode: 'single' });</script>
 <script src="progress-shared.js"></script>
 <script>
@@ -542,8 +543,9 @@ let qDrillRevealAll = new Set();  // question ids where "reveal all answers" is 
 let qDrillRevealOne = new Set();  // "questionId|studentId" keys individually revealed
 
 const $ = id => document.getElementById(id);
-const BANK_BY_PAGE = bankByPage();
-const BANK_BY_ID = bankById();
+// BANK_BY_PAGE / BANK_BY_ID live in tasks-shared.js as `let`s, populated by
+// loadSubjectBank() once the selected class's subject bank has loaded —
+// see selectClass() / init() below.
 
 async function callFunction(name, body) {
   const res = await fetch(`/.netlify/functions/${name}`, {
@@ -566,6 +568,18 @@ function show(view) {
   ['viewList', 'viewEditor', 'viewDetail'].forEach(v => $(v).classList.toggle('hidden', v !== view));
   window.scrollTo({ top: 0 });
 }
+// A class's subject slug, per the `subjects(slug)` FK embed on the classes
+// query (falls back to 'business' for older rows / an embed miss).
+function classSubjectSlug(cls) { return (cls && cls.subjects && cls.subjects.slug) || 'business'; }
+// Classes that share the currently-loaded bank's subject — this is the set
+// a task's questions can validly be assigned to. Prevents assigning a task
+// built from one subject's question bank (edQuestions) to a class from a
+// different subject once more than one subject has real classes.
+function classesForActiveSubject() {
+  const slug = (window.SUBJECT && window.SUBJECT.slug) || 'business';
+  return classes.filter(c => classSubjectSlug(c) === slug);
+}
+
 function toLocalInput(iso) {
   if (!iso) return '';
   const d = new Date(iso);
@@ -579,7 +593,10 @@ async function init() {
   auth = await tasksAuthInit('teacher');
   if (!auth) return;
 
-  const { data } = await auth.client.from('classes').select('id, name').order('created_at');
+  // subjects(slug) is a PostgREST FK embed (classes.subject_id -> subjects.id)
+  // — gives us the class's subject slug in the same round-trip, needed to
+  // pick the right question bank in selectClass() below.
+  const { data } = await auth.client.from('classes').select('id, name, subject_id, subjects(slug)').order('created_at');
   classes = data || [];
   const sel = $('classSelect');
   sel.innerHTML = '<option value="">— choose —</option>' +
@@ -604,6 +621,26 @@ async function selectClass(classId) {
   if (!activeClassId) {
     $('taskListBody').innerHTML = '<tr><td colspan="8" class="empty">Choose a class above.</td></tr>';
     $('weakTopicsBody').innerHTML = '<tr><td colspan="5" class="empty">Choose a class above.</td></tr>';
+    $('newTaskBtn').disabled = true;
+    return;
+  }
+
+  // Load this class's subject bank BEFORE anything that reads it (task list,
+  // weak topics, and — indirectly, once the teacher clicks + New Task — the
+  // Step 2 question picker). "+ New Task" stays disabled meanwhile so the
+  // picker can never open against a stale/empty bank; there's no in-place
+  // class switcher on the editor view itself (classSelect only exists on
+  // viewList), so a bank swap can never happen mid-edit of an open task.
+  $('newTaskBtn').disabled = true;
+  $('taskListBody').innerHTML = '<tr><td colspan="8" class="empty">Loading…</td></tr>';
+  $('weakTopicsBody').innerHTML = '<tr><td colspan="5" class="empty">Loading…</td></tr>';
+  const cls = classes.find(c => c.id === activeClassId);
+  const subjectSlug = (cls && cls.subjects && cls.subjects.slug) || 'business';
+  try {
+    await loadSubjectBank(subjectSlug);
+  } catch (e) {
+    console.error('selectClass: bank load failed', e);
+    $('taskListBody').innerHTML = '<tr><td colspan="8" class="empty">Could not load this class\'s question bank — try reloading the page.</td></tr>';
     return;
   }
 
@@ -616,6 +653,7 @@ async function selectClass(classId) {
 
   await loadClassTasks();
   loadWeakTopics();
+  $('newTaskBtn').disabled = false;
 }
 
 async function loadWeakTopics() {
@@ -1226,7 +1264,10 @@ async function getRosterForClass(classId) {
 function updateAddClassRow() {
   const row = $('addClassRow');
   if (!editingTask) { row.classList.add('hidden'); return; }
-  const options = classes.filter(c => !edSiblingClassIds.has(c.id));
+  // Same-subject only (see classesForActiveSubject) — editingTask's own
+  // class is always this subject already, since selectClass() loads the
+  // bank for whichever class's task list is open.
+  const options = classesForActiveSubject().filter(c => !edSiblingClassIds.has(c.id));
   if (!options.length) { row.classList.add('hidden'); return; }
   row.classList.remove('hidden');
   $('addClassSelect').innerHTML = options.map(c => `<option value="${c.id}">${esc(c.name)}</option>`).join('');
@@ -1238,10 +1279,13 @@ async function renderAssignPanels() {
     const cls = classes.find(c => c.id === editingTask.class_id);
     pick.innerHTML = `<span class="chip published">${esc(cls ? cls.name : 'This class')}</span> <span class="muted">— the class this task belongs to. Use "Also send this task to another class" below to duplicate it elsewhere.</span>`;
   } else {
-    pick.innerHTML = classes.length ? classes.map(c => `
+    // Only classes matching the bank the picker in Step 2 pulled its
+    // questions from — a new-task assignment can't span subjects.
+    const eligible = classesForActiveSubject();
+    pick.innerHTML = eligible.length ? eligible.map(c => `
       <label style="display:flex; align-items:center; gap:6px; cursor:pointer; font-size:13px;">
         <input type="checkbox" data-cls="${c.id}" ${edSelectedClasses.has(c.id) ? 'checked' : ''}/>${esc(c.name)}
-      </label>`).join('') : '<span class="muted">You have no classes yet — create one in the Teacher Dashboard first.</span>';
+      </label>`).join('') : `<span class="muted">${classes.length ? 'No classes for this task\'s subject yet.' : 'You have no classes yet — create one in the Teacher Dashboard first.'}</span>`;
     pick.querySelectorAll('input[data-cls]').forEach(cb => cb.addEventListener('change', async () => {
       const cid = cb.dataset.cls;
       if (cb.checked) {

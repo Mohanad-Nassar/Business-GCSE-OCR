@@ -38,12 +38,23 @@ const SECTIONS = [
   {key:'exam',icon:'📝',label:'Exam Practice'},
 ];
 
-const PAGE_TITLES = (() => {
-  const m = {};
-  (window.PAGE_GROUPS || []).forEach(g => flatPages(g).forEach(p => { m[p.id] = p.name; }));
-  return m;
-})();
-function pageTitle(pageId) { return PAGE_TITLES[pageId] || pageId; }
+// Deliberately NOT cached at load time: window.PAGE_GROUPS gets reassigned
+// after this script runs whenever a page switches subject (teacher-dashboard's
+// setActiveSubjectForClass, tasks-shared's setActiveSubject/loadSubjectBank,
+// or a plain ?subject= navigation) -- a one-time cache built here would
+// silently keep mapping ids to Business's titles forever after such a
+// switch. This walks a small tree (11-38 pages) and is only called from a
+// few low-frequency UI spots (activity logs, topic-access queues), so
+// recomputing fresh each call is cheap and avoids having to hook a
+// cache-reset into every reassignment site across multiple files.
+function pageTitle(pageId) {
+  for (const g of (window.PAGE_GROUPS || [])) {
+    for (const p of flatPages(g)) {
+      if (p.id === pageId) return p.name;
+    }
+  }
+  return pageId;
+}
 
 function flatPages(group) {
   const out = [];

@@ -255,6 +255,14 @@
     </p>
   </div>
 
+  <div class="panel" style="display:flex; gap:14px; align-items:flex-end; flex-wrap:wrap;">
+    <div class="field" style="min-width:220px;">
+      <label for="subjectSelect">Subject</label>
+      <select id="subjectSelect"></select>
+    </div>
+    <p class="muted" style="margin:0; font-size:12px;">Worksheets aren't tied to a class — pick which subject's question bank to build this one from. Switching subject clears any questions already chosen below.</p>
+  </div>
+
   <div id="draftBar" class="draft-bar hidden">
     <span id="draftBarText">📝 You have an unfinished worksheet draft.</span>
     <button type="button" class="btn small accent" id="draftResumeBtn">Resume draft</button>
@@ -401,13 +409,14 @@
 <div id="printRoot"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/subjects/business/question-bank.js"></script><!-- TODO(step-5): load /subjects/<slug>/question-bank.js for the selected class's subject dynamically -->
 <script src="tasks-shared.js"></script>
 <script src="/subjects-index.js"></script>
 <script src="/page-groups-all.js"></script>
 <script src="/section-totals-all.js"></script>
 <script src="/subject-loader.js"></script>
-<!-- TODO(step-5): resolve the subject from the selected class (per-class subject picker) instead of defaulting to business -->
+<!-- Sane default (business) before init() runs; changeSubject()/init() below
+     override window.SUBJECT/PAGE_GROUPS + the bank itself via
+     loadSubjectBank() once #subjectSelect resolves the chosen subject. -->
 <script>subjectLoaderInit({ mode: 'single' });</script>
 <script src="progress-shared.js"></script>
 <script>
@@ -432,18 +441,65 @@ let draftReady = false;       // guards saveDraft() until init decides about an 
 const usedForSelection = () => false;
 
 const $ = id => document.getElementById(id);
-const BANK_BY_PAGE = bankByPage();
-const BANK_BY_ID = bankById();
+// BANK_BY_PAGE / BANK_BY_ID live in tasks-shared.js as `let`s, populated by
+// loadSubjectBank() — see init() / changeSubject() below.
 const DRAFT_KEY = 'ws_draft_v1';
+
+// ══════════ SUBJECT PICKER ══════════
+// Worksheets aren't class-scoped, so (unlike teacher-tasks.html) there's no
+// class to derive the subject from — a plain dropdown, defaulting to business.
+function populateSubjectSelect() {
+  const sel = $('subjectSelect');
+  const subjects = window.SUBJECTS || [];
+  sel.innerHTML = subjects.map(s => `<option value="${s.slug}">${s.icon ? s.icon + ' ' : ''}${esc(s.name)}</option>`).join('');
+  sel.value = 'business';
+}
+
+// Switching subject makes the previously-chosen questions meaningless (a
+// worksheet can't mix subjects), so this clears the builder back to a blank
+// slate — the same reset openEditor() would do on teacher-tasks.html.
+async function changeSubject(slug) {
+  edQuestions = [];
+  edPicker = {};
+  edLastAddedIds = new Set();
+  edOpenGroups = new Set();
+  edOpenPages = new Set();
+  edOpenCats = new Set();
+  $('draftBar').classList.add('hidden');
+  $('subjectSelect').disabled = true;
+  $('pickerContainer').innerHTML = '<div class="empty">Loading question bank…</div>';
+  try {
+    await loadSubjectBank(slug);
+  } catch (e) {
+    console.error('changeSubject: bank load failed', e);
+    $('pickerContainer').innerHTML = '<div class="empty">Could not load this subject\'s question bank — try reloading the page.</div>';
+    $('subjectSelect').disabled = false;
+    return;
+  }
+  renderPicker();
+  renderReview();
+  updateOptsSummary();
+  if (draftReady) saveDraft(); // clears any stale draft left over from the previous subject
+  $('subjectSelect').disabled = false;
+}
 
 // ══════════ INIT ══════════
 async function init() {
   auth = await tasksAuthInit('teacher');
   if (!auth) return;
+  populateSubjectSelect();
+  try {
+    await loadSubjectBank($('subjectSelect').value);
+  } catch (e) {
+    console.error('init: initial bank load failed', e);
+    $('pickerContainer').innerHTML = '<div class="empty">Could not load the question bank — try reloading the page.</div>';
+    return;
+  }
   renderPicker();
   renderReview();
   offerDraft();
   draftReady = true;
+  $('subjectSelect').addEventListener('change', () => changeSubject($('subjectSelect').value));
 }
 
 // ══════════ STEP NAVIGATION ══════════

@@ -38,7 +38,9 @@
   .inline-form { display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end; margin-top:16px; }
   .field { display:flex; flex-direction:column; gap:5px; }
   .field label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); }
-  .field input { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px; font-family:'DM Sans',sans-serif; min-width:0; }
+  .field input, .field select { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px; font-family:'DM Sans',sans-serif; min-width:0; }
+  .field select { background:var(--card-bg); color:var(--ink); min-width:190px; }
+  .class-card .subject-chip-row { margin:2px 0 6px; }
   .btn { background:var(--ink); color:var(--paper); border:none; padding:10px 18px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
   .btn:hover { background:#1c2c3d; }
   .btn:disabled { opacity:.55; cursor:default; }
@@ -205,6 +207,10 @@
       <div class="field">
         <label for="newClassName">New class name</label>
         <input type="text" id="newClassName" placeholder="e.g. Year 10 Business" required/>
+      </div>
+      <div class="field">
+        <label for="newClassSubject">Subject</label>
+        <select id="newClassSubject"></select>
       </div>
       <button type="submit" class="btn">+ Create Class</button>
     </form>
@@ -524,7 +530,10 @@
 <script src="/page-groups-all.js"></script>
 <script src="/section-totals-all.js"></script>
 <script src="/subject-loader.js"></script>
-<!-- TODO(step-5): resolve the subject from the selected class (per-class subject picker) instead of defaulting to business -->
+<!-- Initial value only — every class has its own subject, so selectClass()
+     calls setActiveSubjectForClass() to reassign window.SUBJECT/PAGE_GROUPS
+     to the ACTIVE class's real subject the moment a class card is clicked.
+     This just seeds a sane default (Business) before any class is selected. -->
 <script>subjectLoaderInit({ mode: 'single' });</script>
 <script src="progress-shared.js"></script>
 <script src="tasks-shared.js"></script>
@@ -586,6 +595,7 @@ async function init() {
   });
 
   await loadClasses();
+  loadSubjectsList(); // fire-and-forget — populates the class-creation subject picker
   refreshGuideCounts();
   refreshPendingCounts();
 }
@@ -610,12 +620,38 @@ function showMsg(el, text, ok) {
 async function loadClasses() {
   // select('*') so the dashboard still works if class-flow-settings.sql
   // hasn't been run yet (the flow columns just come back undefined).
-  const { data, error } = await supabaseClient.from('classes').select('*').order('created_at');
+  // `subjects(slug, name, colour, icon)` rides the classes.subject_id -> FK
+  // PostgREST auto-embeds (many-to-one, so it comes back as a single object,
+  // not an array) — this is how the dashboard learns each class's REAL
+  // subject without any client-side id-matching against window.SUBJECTS
+  // (which is the generated registry and doesn't carry DB ids at all).
+  const { data, error } = await supabaseClient.from('classes').select('*, subjects(slug, name, colour, icon)').order('created_at');
   const grid = document.getElementById('classGrid');
   if (error) { grid.innerHTML = `<div class="empty">Couldn't load classes.</div>`; console.error('loadClasses', error); return; }
   classes = data || [];
   renderGuide();
   renderClassCards();
+}
+
+// hex -> [r,g,b] for turning a subject's flat colour (e.g. "#1a6b6b") into
+// the same translucent-background-plus-solid-border chip look already used
+// by .chip.pending/.ontime/.missed above — those are hand-picked rgba()
+// literals because they're a fixed palette; subject colours are data-driven
+// (window.SUBJECTS / the `subjects` table), so this computes the same look.
+function _hexToRgbTriplet(hex) {
+  const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex || '');
+  return m ? [parseInt(m[1], 16), parseInt(m[2], 16), parseInt(m[3], 16)] : [122, 92, 158]; // business purple fallback
+}
+
+// Small subject badge for a class card — reuses the existing base .chip
+// component (shape/font/padding) rather than inventing a new one; only the
+// colour is per-subject and computed inline since it's data, not a fixed
+// CSS modifier class like .pending/.ontime/.missed.
+function subjectChipHtml(subj) {
+  if (!subj) return '';
+  const [r, g, b] = _hexToRgbTriplet(subj.colour);
+  const colour = subj.colour || '#7a5c9e';
+  return `<div class="subject-chip-row"><span class="chip" style="background:rgba(${r},${g},${b},.12); color:${escapeHtml(colour)}; border:1px solid rgba(${r},${g},${b},.35);">${subj.icon ? escapeHtml(subj.icon) + ' ' : ''}${escapeHtml(subj.name || '')}</span></div>`;
 }
 
 function renderClassCards() {
@@ -630,7 +666,7 @@ function renderClassCards() {
     const card = document.createElement('button');
     card.type = 'button';
     card.className = 'class-card' + (c.id === activeClassId ? ' active' : '');
-    card.innerHTML = `<h3>${escapeHtml(c.name)}</h3><div class="meta">${bits.join(' · ')}</div>`;
+    card.innerHTML = `<h3>${escapeHtml(c.name)}</h3>${subjectChipHtml(c.subjects)}<div class="meta">${bits.join(' · ')}</div>`;
     card.addEventListener('click', () => selectClass(c.id));
     grid.appendChild(card);
   });
@@ -705,13 +741,47 @@ function renderActionStrip() {
   }
 }
 
+// Subject picker for class creation. window.SUBJECTS (the generated
+// registry) has no DB id, only slug/name/colour/icon — so the picker needs
+// its own tiny query against the real `subjects` table for real uuids to
+// insert as classes.subject_id. Cheap, one-time, RLS-readable by everyone
+// (subjects_read_all). If it fails or hasn't loaded yet, the submit handler
+// below simply omits subject_id and the column default (Business) applies —
+// same graceful-degradation style as loadClasses()'s select('*') comment.
+let subjectsList = []; // [{id, slug, name, colour, icon}]
+
+async function loadSubjectsList() {
+  try {
+    const { data, error } = await supabaseClient.from('subjects').select('id, slug, name, colour, icon').eq('active', true).order('sort_order');
+    if (error) throw error;
+    subjectsList = data || [];
+  } catch (e) { console.error('loadSubjectsList', e); subjectsList = []; }
+  renderSubjectPicker();
+}
+
+function renderSubjectPicker() {
+  const sel = document.getElementById('newClassSubject');
+  if (!sel) return;
+  if (!subjectsList.length) { sel.innerHTML = '<option value="">Business (default)</option>'; return; }
+  // Subjects with no generated topic tree yet (CS/Economics at launch) are
+  // real, creatable classes — just honestly labelled, not hidden.
+  sel.innerHTML = subjectsList.map(s => {
+    const hasContent = !!(window.PAGE_GROUPS_ALL && (window.PAGE_GROUPS_ALL[s.slug] || []).length);
+    const label = (s.icon ? s.icon + ' ' : '') + s.name + (hasContent ? '' : ' (content coming soon)');
+    return `<option value="${escapeHtml(s.id)}"${s.slug === 'business' ? ' selected' : ''}>${escapeHtml(label)}</option>`;
+  }).join('');
+}
+
 document.getElementById('newClassForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const nameInput = document.getElementById('newClassName');
   const name = nameInput.value.trim();
   if (!name) return;
   const msg = document.getElementById('classMsg');
-  const { error } = await supabaseClient.from('classes').insert({ name, teacher_id: currentSession.user.id });
+  const subjectId = document.getElementById('newClassSubject').value;
+  const payload = { name, teacher_id: currentSession.user.id };
+  if (subjectId) payload.subject_id = subjectId;
+  const { error } = await supabaseClient.from('classes').insert(payload);
   if (error) { showMsg(msg, error.message, false); console.error('newClassForm submit', error); return; }
   nameInput.value = '';
   msg.className = 'msg';
@@ -820,6 +890,26 @@ let classTaskRowsByStudent = {}; // studentId -> [{ task, assignment, attempts }
 let tvOpenGroups = new Set(); // curriculum group ids currently expanded in the Topic Access tab's visibility list
 let drOpenGroups = new Set(); // same, for the Daily Revise topic-filter list
 
+// Points window.SUBJECT / window.PAGE_GROUPS at the ACTIVE class's real
+// subject. Both are read fresh (as bare globals) by every render function
+// below — renderProgressGrid() in progress-shared.js, and this file's own
+// Topic Access / Daily Revise views (PAGE_GROUPS.forEach(...)) — so a
+// reassignment here before those (re)run is all the plumbing they need;
+// nothing needs to be passed as an explicit parameter. `cls.subjects` is the
+// row PostgREST embeds from classes.subject_id -> subjects(id) in
+// loadClasses() above (an object, not an array, since it's many-to-one).
+// Falls back to Business if the embed is missing for any reason (e.g. a
+// pre-migration classes row, or the query briefly failing).
+function setActiveSubjectForClass(cls) {
+  const embedded = cls && cls.subjects;
+  const slug = (embedded && embedded.slug) || 'business';
+  const subjects = window.SUBJECTS || [];
+  const subject = subjects.find(s => s.slug === slug) || embedded ||
+    subjects.find(s => s.slug === 'business') || subjects[0] || null;
+  window.SUBJECT = subject;
+  window.PAGE_GROUPS = (window.PAGE_GROUPS_ALL && window.PAGE_GROUPS_ALL[slug]) || [];
+}
+
 async function selectClass(classId) {
   activeClassId = classId;
   document.getElementById('credentialsBox').innerHTML = '';
@@ -828,6 +918,7 @@ async function selectClass(classId) {
   drOpenGroups = new Set();
   await loadClasses(); // refresh active highlight
   const cls = classes.find(c => c.id === classId);
+  setActiveSubjectForClass(cls); // must run before showClassSubView/loadClassData below, which render against window.PAGE_GROUPS
   document.getElementById('classDetailLabel').textContent = cls ? cls.name : 'Class';
   document.getElementById('classDetail').classList.remove('hidden');
   document.getElementById('openTaskManagerLink').href = 'teacher-tasks.html?class=' + classId;

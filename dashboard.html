@@ -90,6 +90,16 @@
     }
     .nav-link:hover { background:rgba(255,255,255,.18); border-color:var(--gold); }
 
+    /* ── SUBJECT SWITCHER (only shown when a student has >1 subject) ── */
+    .subject-switcher select {
+      background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
+      color:var(--paper); font-family:'DM Mono',monospace; font-size:11px;
+      letter-spacing:.06em; padding:8px 12px; border-radius:6px; cursor:pointer;
+    }
+    .subject-switcher select:hover { background:rgba(255,255,255,.18); border-color:var(--gold); }
+    .subject-switcher select:focus-visible { outline:3px solid var(--gold); outline-offset:2px; }
+    .subject-switcher option { color:var(--ink); }
+
     .gcse-account-bar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-family:'DM Mono',monospace; font-size:11px; color:rgba(245,240,232,.75); }
     .gcse-account-bar button.nav-link { cursor:pointer; }
 
@@ -263,6 +273,7 @@
       <p>Track your revision progress across every topic and activity</p>
     </div>
     <div class="header-links">
+      <span id="subjectSwitcherMount"></span>
       <a class="nav-link" href="index.html">← Home</a>
     </div>
   </div>
@@ -455,6 +466,36 @@ function mergeProgress(local, server) {
 // has set window.SUBJECT from ?subject= (default business).
 function activeSubjectSlug() {
   return (window.SUBJECT && window.SUBJECT.slug) || 'business';
+}
+
+// Subject switcher: a simple navigation aid, only shown when this student
+// is enrolled in more than one subject's classes (get_my_subjects() —
+// same RPC the root hub uses). Picking a different subject just reloads
+// the dashboard with ?subject=<slug>; subject-loader.js (already included
+// above) reads that on the next load, exactly like every other
+// subject-aware root page.
+async function initSubjectSwitcher() {
+  if (!supabaseClient) return;
+  try {
+    const { data: subjects, error } = await supabaseClient.rpc('get_my_subjects');
+    if (error || !subjects || subjects.length < 2) return;
+    const mount = document.getElementById('subjectSwitcherMount');
+    if (!mount) return;
+    const current = activeSubjectSlug();
+    const select = document.createElement('select');
+    select.id = 'subjectSwitcherSelect';
+    select.setAttribute('aria-label', 'Switch subject');
+    select.innerHTML = subjects.map(s =>
+      `<option value="${s.slug}"${s.slug === current ? ' selected' : ''}>${s.icon ? s.icon + ' ' : ''}${s.name}</option>`
+    ).join('');
+    select.addEventListener('change', () => {
+      location.href = 'dashboard.html?subject=' + encodeURIComponent(select.value);
+    });
+    const wrap = document.createElement('div');
+    wrap.className = 'subject-switcher';
+    wrap.appendChild(select);
+    mount.replaceWith(wrap);
+  } catch (e) { console.error('get_my_subjects', e); }
 }
 
 async function loadTopicSettings() {
@@ -989,6 +1030,7 @@ initDashboardAuth().then(async ok => {
   if (!ok) return;
   if (typeof gamificationRefreshStreak === 'function') dashStreak = await gamificationRefreshStreak(supabaseClient);
   if (typeof gamificationRefreshDailyReviseStats === 'function') await gamificationRefreshDailyReviseStats(supabaseClient);
+  initSubjectSwitcher();
   renderDashboard(); loadMyTasks(); loadWeakTopics();
 });
 </script>
