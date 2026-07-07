@@ -140,14 +140,39 @@ Unit 4. International Trade and the Global Economy
 the numeric prefix, unlike Business's `1_1_...` pattern; the manifest's per-page `file`
 field absorbs this difference, no renaming required.)
 
-## Content sources (CONFIRMED 2026-07-07; amended same day)
+## Content sources (CONFIRMED 2026-07-07; amended same day; scaffolding DONE 2026-07-07)
 
 - **⚠ AMENDMENT: do NOT generate CS/Economics content yet.** Both subjects ship as
-  PLACEHOLDERS only: `subject.json` manifests carrying the confirmed topic trees with a
-  top-level `"placeholder": true` flag; the pipeline includes them in `subjects-index.js`
-  (so the hub shows them as "coming soon") but skips question-bank/page generation and
-  tolerates their missing HTML files. Real content is generated later on the user's
-  go-ahead. Step 6 becomes: placeholder scaffolding only.
+  PLACEHOLDERS: real `subject.json` manifests with their confirmed topic trees, and a
+  real topic HTML page per entry (same tab-bar/9-activity-panel shell as Business, same
+  shared-JS includes) — but every page is marked `"noQuestions": true` and its data
+  arrays are empty except one "🚧 coming soon" Key Learning card. `noQuestions` pages are
+  filtered out of `question_pages()` (build_question_bank.py:377) BEFORE any file is
+  opened, so they're fully inert to the pipeline — zero parsing, zero risk of placeholder
+  content ever reaching Daily Revise/tasks/worksheets.
+- **Built by `tools/scaffold_placeholder_subject.py`** (re-runnable; only fills in missing
+  pages by default, `--force-pages` to regenerate all): `python tools/scaffold_placeholder_subject.py --subject computer-science --subject economics`.
+  Generated 11 CS pages (2 units) + 22 Economics pages (4 units, using the user's own
+  exact filenames verbatim — sentence-case, e.g. `1.1_Main_economic_groups_and_factors_of_production.html`,
+  not title-case). Verified: business unchanged (3074 questions/37 pages, byte-identical),
+  CS/Econ produce 0 questions from 0 pages (fully skipped as designed), all 33 pages'
+  inline scripts parse in V8, `page-groups.js` per subject has the right page count, and
+  the whole thing serves correctly over HTTP.
+- **Sync mechanism proven live**, not just asserted: built a disposable `_scratch_sync_test`
+  subject with 2 real MCQs + 1 TF + 1 learn-readCheck (no noQuestions), ran the pipeline
+  scoped to it, confirmed correct subject-prefixed ids/counts/seed SQL, then deleted it
+  and rebuilt clean (registries back to exactly business/computer-science/economics,
+  business numbers unchanged). **The real workflow when content is ready for a page:**
+  remove that page's `"noQuestions": true` from `subjects/<slug>/subject.json`, fill in
+  its `topics`/`mcqData`/`tfData`/`fibData`/`matchData`/`miscData`/`examTips`/`flashcards`/
+  `examQuestions` arrays (shape = any `subjects/business/*.html`), run
+  `python tools/build_question_bank.py --upload`. No code changes needed — same one-command
+  sync as Business (SETUP.md "Keeping content in sync").
+- **Consciously deferred, not forgotten:** CS's 3 extra activity types (code tracing,
+  algorithm ordering, data-representation drills) are NOT built into these placeholder
+  pages — they're a separate, substantial feature (new data schema + rendering + auto-marking
+  + a new pipeline SOURCE type each) belonging to a future phase, not this scaffolding pass.
+  CS placeholder pages currently offer the same 9 standard tabs as every other subject.
 - **Economics (when green-lit later):** all 22 topic pages + question banks AI-generated
   from the OCR J205 spec, reviewed by the user before publish.
 - **Computer Science (when green-lit later):** generate from the OCR J277 spec. Proposed

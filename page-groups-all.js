@@ -2,7 +2,7 @@
 // ALL PAGE GROUPS — GENERATED FILE, DO NOT EDIT BY HAND
 // Built by tools/build_question_bank.py: every subject's topic tree
 // keyed by subject slug, for cross-subject pages (hub, profile).
-// Generated: 2026-07-07T11:24:05Z
+// Generated: 2026-07-07T15:44:41Z
 // ══════════════════════════════════════════════════════════════
 window.PAGE_GROUPS_ALL = {
  "business": [
@@ -259,6 +259,256 @@ window.PAGE_GROUPS_ALL = {
      "name": "7.1 Interdependent Nature",
      "sub": "Synoptic",
      "href": "/subjects/business/7_1_final.html"
+    }
+   ]
+  }
+ ],
+ "computer-science": [
+  {
+   "id": "1-computer-systems",
+   "title": "1. Computer Systems",
+   "sub": "Unit 1",
+   "colour": "#1a6b6b",
+   "pages": [
+    {
+     "id": "computer-science:1-1-systems-architecture",
+     "name": "1.1 Systems Architecture",
+     "sub": "Computer Systems",
+     "href": "/subjects/computer-science/1_1_systems_architecture.html"
+    },
+    {
+     "id": "computer-science:1-2-memory-and-storage",
+     "name": "1.2 Memory and Storage",
+     "sub": "Computer Systems",
+     "href": "/subjects/computer-science/1_2_memory_and_storage.html"
+    },
+    {
+     "id": "computer-science:1-3-computer-networks-connections-and-protocols",
+     "name": "1.3 Computer Networks, Connections and Protocols",
+     "sub": "Computer Systems",
+     "href": "/subjects/computer-science/1_3_computer_networks_connections_and_protocols.html"
+    },
+    {
+     "id": "computer-science:1-4-network-security",
+     "name": "1.4 Network Security",
+     "sub": "Computer Systems",
+     "href": "/subjects/computer-science/1_4_network_security.html"
+    },
+    {
+     "id": "computer-science:1-5-systems-software",
+     "name": "1.5 Systems Software",
+     "sub": "Computer Systems",
+     "href": "/subjects/computer-science/1_5_systems_software.html"
+    },
+    {
+     "id": "computer-science:1-6-ethical-legal-cultural-and-environmental-impacts",
+     "name": "1.6 Ethical, Legal, Cultural and Environmental Impacts",
+     "sub": "Computer Systems",
+     "href": "/subjects/computer-science/1_6_ethical_legal_cultural_and_environmental_impacts.html"
+    }
+   ]
+  },
+  {
+   "id": "2-computational-thinking-algorithms-and-programming",
+   "title": "2. Computational Thinking, Algorithms and Programming",
+   "sub": "Unit 2",
+   "colour": "#1a6b6b",
+   "pages": [
+    {
+     "id": "computer-science:2-1-algorithms",
+     "name": "2.1 Algorithms",
+     "sub": "Computational Thinking, Algorithms and Programming",
+     "href": "/subjects/computer-science/2_1_algorithms.html"
+    },
+    {
+     "id": "computer-science:2-2-programming-fundamentals",
+     "name": "2.2 Programming Fundamentals",
+     "sub": "Computational Thinking, Algorithms and Programming",
+     "href": "/subjects/computer-science/2_2_programming_fundamentals.html"
+    },
+    {
+     "id": "computer-science:2-3-producing-robust-programs",
+     "name": "2.3 Producing Robust Programs",
+     "sub": "Computational Thinking, Algorithms and Programming",
+     "href": "/subjects/computer-science/2_3_producing_robust_programs.html"
+    },
+    {
+     "id": "computer-science:2-4-boolean-logic",
+     "name": "2.4 Boolean Logic",
+     "sub": "Computational Thinking, Algorithms and Programming",
+     "href": "/subjects/computer-science/2_4_boolean_logic.html"
+    },
+    {
+     "id": "computer-science:2-5-programming-languages-and-ides",
+     "name": "2.5 Programming Languages and IDEs",
+     "sub": "Computational Thinking, Algorithms and Programming",
+     "href": "/subjects/computer-science/2_5_programming_languages_and_ides.html"
+    }
+   ]
+  }
+ ],
+ "economics": [
+  {
+   "id": "1-introduction-to-economics",
+   "title": "1. Introduction to Economics",
+   "sub": "Unit 1",
+   "colour": "#2d7a4f",
+   "pages": [
+    {
+     "id": "economics:1-1-main-economic-groups-and-factors-of-production",
+     "name": "1.1 Main Economic Groups and Factors of Production",
+     "sub": "Introduction to Economics",
+     "href": "/subjects/economics/1.1_Main_economic_groups_and_factors_of_production.html"
+    },
+    {
+     "id": "economics:1-2-the-basic-economic-problem",
+     "name": "1.2 The Basic Economic Problem",
+     "sub": "Introduction to Economics",
+     "href": "/subjects/economics/1.2_The_basic_economic_problem.html"
+    }
+   ]
+  },
+  {
+   "id": "2-the-role-of-markets-and-money",
+   "title": "2. The Role of Markets and Money",
+   "sub": "Unit 2",
+   "colour": "#2d7a4f",
+   "pages": [
+    {
+     "id": "economics:2-1-the-role-of-markets",
+     "name": "2.1 The Role of Markets",
+     "sub": "The Role of Markets and Money",
+     "href": "/subjects/economics/2.1_The_role_of_markets.html"
+    },
+    {
+     "id": "economics:2-2-demand",
+     "name": "2.2 Demand",
+     "sub": "The Role of Markets and Money",
+     "href": "/subjects/economics/2.2_Demand.html"
+    },
+    {
+     "id": "economics:2-3-supply",
+     "name": "2.3 Supply",
+     "sub": "The Role of Markets and Money",
+     "href": "/subjects/economics/2.3_Supply.html"
+    },
+    {
+     "id": "economics:2-4-price",
+     "name": "2.4 Price",
+     "sub": "The Role of Markets and Money",
+     "href": "/subjects/economics/2.4_Price.html"
+    },
+    {
+     "id": "economics:2-5-competition",
+     "name": "2.5 Competition",
+     "sub": "The Role of Markets and Money",
+     "href": "/subjects/economics/2.5_Competition.html"
+    },
+    {
+     "id": "economics:2-6-production",
+     "name": "2.6 Production",
+     "sub": "The Role of Markets and Money",
+     "href": "/subjects/economics/2.6_Production.html"
+    },
+    {
+     "id": "economics:2-7-the-labour-market",
+     "name": "2.7 The Labour Market",
+     "sub": "The Role of Markets and Money",
+     "href": "/subjects/economics/2.7_The_labour_market.html"
+    },
+    {
+     "id": "economics:2-8-the-role-of-money-and-financial-markets",
+     "name": "2.8 The Role of Money and Financial Markets",
+     "sub": "The Role of Markets and Money",
+     "href": "/subjects/economics/2.8_The_role_of_money_and_financial_markets.html"
+    }
+   ]
+  },
+  {
+   "id": "3-economic-objectives-and-the-role-of-government",
+   "title": "3. Economic Objectives and the Role of Government",
+   "sub": "Unit 3",
+   "colour": "#2d7a4f",
+   "pages": [
+    {
+     "id": "economics:3-1-economic-growth",
+     "name": "3.1 Economic Growth",
+     "sub": "Economic Objectives and the Role of Government",
+     "href": "/subjects/economics/3.1_Economic_growth.html"
+    },
+    {
+     "id": "economics:3-2-low-unemployment",
+     "name": "3.2 Low Unemployment",
+     "sub": "Economic Objectives and the Role of Government",
+     "href": "/subjects/economics/3.2_Low_unemployment.html"
+    },
+    {
+     "id": "economics:3-3-fair-distribution-of-income",
+     "name": "3.3 Fair Distribution of Income",
+     "sub": "Economic Objectives and the Role of Government",
+     "href": "/subjects/economics/3.3_Fair_distribution_of_income.html"
+    },
+    {
+     "id": "economics:3-4-price-stability",
+     "name": "3.4 Price Stability",
+     "sub": "Economic Objectives and the Role of Government",
+     "href": "/subjects/economics/3.4_Price_stability.html"
+    },
+    {
+     "id": "economics:3-5-fiscal-policy",
+     "name": "3.5 Fiscal Policy",
+     "sub": "Economic Objectives and the Role of Government",
+     "href": "/subjects/economics/3.5_Fiscal_policy.html"
+    },
+    {
+     "id": "economics:3-6-monetary-policy",
+     "name": "3.6 Monetary Policy",
+     "sub": "Economic Objectives and the Role of Government",
+     "href": "/subjects/economics/3.6_Monetary_policy.html"
+    },
+    {
+     "id": "economics:3-7-supply-side-policies",
+     "name": "3.7 Supply-Side Policies",
+     "sub": "Economic Objectives and the Role of Government",
+     "href": "/subjects/economics/3.7_Supply_side_policies.html"
+    },
+    {
+     "id": "economics:3-8-limitations-of-markets",
+     "name": "3.8 Limitations of Markets",
+     "sub": "Economic Objectives and the Role of Government",
+     "href": "/subjects/economics/3.8_Limitations_of_markets.html"
+    }
+   ]
+  },
+  {
+   "id": "4-international-trade-and-the-global-economy",
+   "title": "4. International Trade and the Global Economy",
+   "sub": "Unit 4",
+   "colour": "#2d7a4f",
+   "pages": [
+    {
+     "id": "economics:4-1-importance-of-international-trade",
+     "name": "4.1 Importance of International Trade",
+     "sub": "International Trade and the Global Economy",
+     "href": "/subjects/economics/4.1_Importance_of_international_trade.html"
+    },
+    {
+     "id": "economics:4-2-balance-of-payments",
+     "name": "4.2 Balance of Payments",
+     "sub": "International Trade and the Global Economy",
+     "href": "/subjects/economics/4.2_Balance_of_payments.html"
+    },
+    {
+     "id": "economics:4-3-exchange-rates",
+     "name": "4.3 Exchange Rates",
+     "sub": "International Trade and the Global Economy",
+     "href": "/subjects/economics/4.3_Exchange_rates.html"
+    },
+    {
+     "id": "economics:4-4-globalisation",
+     "name": "4.4 Globalisation",
+     "sub": "International Trade and the Global Economy",
+     "href": "/subjects/economics/4.4_Globalisation.html"
     }
    ]
   }
