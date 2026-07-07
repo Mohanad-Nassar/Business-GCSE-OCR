@@ -71,14 +71,24 @@ function drSavePrefs() {
   try { localStorage.setItem(DR_FILTER_PREFS_KEY, JSON.stringify(drPrefs)); } catch (e) {}
 }
 
+// This page is a single-subject view: subjectLoaderInit({mode:'single'})
+// in daily-revise.html has set window.SUBJECT from ?subject= (default
+// business) before this file loads.
+function drSubjectSlug() {
+  return (window.SUBJECT && window.SUBJECT.slug) || 'business';
+}
+
 // The exact RPC params for get_daily_revise_queue. Incorrect-only is a
 // subset of unmastered, so it forces excludeMastered (pure, unit-tested).
+// Full signature: (p_limit, p_page_ids, p_smart, p_exclude_mastered,
+// p_incorrect_only, p_subject) — named params, order-independent.
 function drQueueParams(prefs, pageIds) {
   return {
     p_page_ids: (pageIds && pageIds.length) ? pageIds : null,
     p_smart: !!prefs.smart,
     p_exclude_mastered: prefs.incorrectOnly ? true : !!prefs.excludeMastered,
     p_incorrect_only: !!prefs.incorrectOnly,
+    p_subject: drSubjectSlug(),
   };
 }
 
@@ -124,7 +134,8 @@ async function init() {
 // listeners at the bottom of this file.
 async function refreshLive() {
   try {
-    const { data: settingsData, error: settingsErr } = await drClient.rpc('get_daily_revise_settings');
+    const { data: settingsData, error: settingsErr } = await drClient.rpc('get_daily_revise_settings',
+      { p_subject: drSubjectSlug() });
     if (settingsErr) {
       console.error('get_daily_revise_settings', settingsErr);
     } else if (settingsData) {

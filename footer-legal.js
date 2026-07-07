@@ -29,17 +29,19 @@
   footer.id = 'siteLegalFooter';
   footer.innerHTML =
     '<nav class="flf-links" aria-label="Legal">' +
-      '<a href="privacy-policy.html">Privacy Policy</a>' +
-      '<a href="cookie-policy.html">Cookie Policy</a>' +
-      '<a href="terms.html">Terms &amp; Conditions</a>' +
-      '<a href="acceptable-use.html">Acceptable Use</a>' +
-      '<a href="childrens-code.html">Children’s Code</a>' +
-      '<a href="accessibility.html">Accessibility</a>' +
+      // Root-absolute: this footer is injected on topic pages under
+      // /subjects/<slug>/ as well as on root pages.
+      '<a href="/privacy-policy.html">Privacy Policy</a>' +
+      '<a href="/cookie-policy.html">Cookie Policy</a>' +
+      '<a href="/terms.html">Terms &amp; Conditions</a>' +
+      '<a href="/acceptable-use.html">Acceptable Use</a>' +
+      '<a href="/childrens-code.html">Children’s Code</a>' +
+      '<a href="/accessibility.html">Accessibility</a>' +
       '<a href="mailto:' + CONTACT_EMAIL + '">Contact</a>' +
     '</nav>' +
     '<p class="flf-note">This is a teacher-led revision resource for OCR GCSE Business ' +
       'Studies (J204). Formal adoption by Avanti Schools Trust is pending — see the ' +
-      '<a href="privacy-policy.html">Privacy Policy</a> for current data-protection contact details.</p>';
+      '<a href="/privacy-policy.html">Privacy Policy</a> for current data-protection contact details.</p>';
 
   document.body.appendChild(footer);
 })();

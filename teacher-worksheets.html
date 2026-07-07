@@ -1,0 +1,1250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Worksheets — Teacher · GCSE Business Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@300;400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="business-style.css"/>
+<style>
+  html, body { display:block !important; grid-template-columns:none !important; grid-template-rows:none !important; grid-template-areas:none !important; }
+  header, main { grid-area:unset !important; }
+  body { background:var(--paper); color:var(--ink); }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
+
+  header { background:var(--ink); border-bottom:3px solid var(--accent); padding:24px 40px 20px; }
+  .header-inner { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+  .header-badge { display:inline-block; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:10px; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:700; color:var(--paper); margin-bottom:4px; }
+  header p { font-size:13px; color:rgba(245,240,232,.6); }
+  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--paper); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
+  .nav-link:hover { background:rgba(255,255,255,.18); }
+
+  main { padding:28px 40px 80px; max-width:1150px; margin:0 auto; }
+  .section-label { font-weight:500; font-family:'DM Mono',monospace; font-size:11px; color:var(--accent); letter-spacing:.14em; text-transform:uppercase; display:flex; align-items:center; gap:10px; margin:30px 0 16px; }
+  .section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+  .section-label:first-child { margin-top:0; }
+
+  .panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:20px 22px; margin-bottom:18px; }
+  .btn { background:var(--ink); color:var(--paper); border:none; padding:10px 18px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
+  .btn:hover { background:#1c2c3d; }
+  .btn:disabled { opacity:.5; cursor:default; }
+  .btn.secondary { background:transparent; border:1px solid var(--border); color:var(--ink); }
+  .btn.secondary:hover { border-color:var(--accent); color:var(--accent); }
+  .btn.accent { background:var(--accent); }
+  .btn.danger { background:transparent; border:1px solid var(--border); color:var(--wrong); }
+  .btn.danger:hover { border-color:var(--wrong); background:rgba(200,75,49,.06); }
+  .btn.small { padding:6px 12px; font-size:11.5px; }
+  .btn.icon-btn { background:transparent; border:1px solid var(--border); color:var(--mid); padding:2px 8px; border-radius:5px; font-size:11px; cursor:pointer; }
+  .btn.icon-btn:hover { border-color:var(--accent); color:var(--accent); }
+
+  .mono { font-family:'DM Mono',monospace; font-size:12px; }
+  .muted { color:var(--mid); font-size:12px; }
+  .empty { padding:22px; text-align:center; color:var(--mid); font-size:13px; font-style:italic; }
+  .hidden { display:none !important; }
+
+  .field { display:flex; flex-direction:column; gap:5px; min-width:0; }
+  .field label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); }
+  .field input, .field select, .field textarea { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:13.5px; font-family:'DM Sans',sans-serif; background:#fff; }
+  .field textarea { resize:vertical; min-height:64px; }
+  .form-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; }
+  .check-row { display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer; }
+  .check-row input { flex-shrink:0; }
+
+  .chip { display:inline-block; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.05em; padding:3px 10px; border-radius:99px; white-space:nowrap; }
+  .chip.qtype { background:rgba(74,111,165,.1); color:var(--accent); border:1px solid rgba(74,111,165,.3); }
+  .chip.new-add { background:rgba(212,168,67,.16); color:#8f6d19; border:1px solid rgba(212,168,67,.5); }
+
+  .subtab { background:transparent; border:1px solid var(--border); color:var(--mid); font-family:'DM Mono',monospace; font-size:11px; padding:8px 16px; border-radius:7px; cursor:pointer; white-space:nowrap; }
+  .subtab:hover { border-color:var(--accent); color:var(--accent); }
+  .subtab.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .subhead { font-family:'Playfair Display',serif; font-size:15px; font-weight:700; margin:22px 0 10px; }
+  .subhead:first-child { margin-top:0; }
+  .step-num { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:11px; margin-right:8px; flex-shrink:0; }
+  .editor-steps { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
+  .sticky-actions { position:sticky; bottom:0; background:var(--paper); border-top:2px solid var(--border); padding:12px 0; display:flex; gap:10px; flex-wrap:wrap; align-items:center; z-index:5; }
+
+  /* builder — picker/options in the left column, live selection on the right */
+  .editor-cols { display:grid; grid-template-columns:minmax(0,1fr) minmax(340px,460px); gap:18px; align-items:start; }
+  .editor-right { position:sticky; top:14px; max-height:calc(100vh - 28px); display:flex; flex-direction:column; }
+  .editor-right .panel { margin-bottom:0; display:flex; flex-direction:column; min-height:120px; overflow:hidden; }
+  #reviewList { overflow-y:auto; flex:1; padding-right:4px; }
+  @media (max-width:1080px) {
+    .editor-cols { grid-template-columns:1fr; }
+    .editor-right { position:static; max-height:none; }
+    #reviewList { max-height:520px; }
+  }
+
+  .reading-preview { font-size:12px; background:var(--cream); border-left:3px solid var(--accent); padding:8px 12px; border-radius:0 6px 6px 0; margin:6px 0; max-height:180px; overflow-y:auto; }
+  .picker-group { border:1px solid var(--border); border-radius:8px; margin-bottom:10px; overflow:hidden; }
+  .picker-group-header { display:flex; align-items:center; gap:10px; padding:10px 14px; background:var(--cream); cursor:pointer; -webkit-user-select:none; user-select:none; border:none; width:100%; text-align:left; font-family:inherit; border-left:4px solid var(--accent); }
+  .picker-group-header .t { font-family:'Playfair Display',serif; font-size:13.5px; font-weight:700; flex:1; }
+  .picker-group-header .counts { font-family:'DM Mono',monospace; font-size:10px; color:var(--mid); }
+  .picker-group-header .chevron, .picker-page-header .chevron, .cat-header .chevron { font-size:11px; color:var(--mid); transition:transform .15s ease; flex-shrink:0; }
+  .picker-page.collapsed .picker-page-header .chevron, .cat-row.collapsed .cat-header .chevron { transform:rotate(-90deg); }
+  .picker-page { border-top:1px solid var(--border); }
+  .picker-page-header { display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:10px 14px; width:100%; text-align:left; background:none; border:none; cursor:pointer; font-family:inherit; }
+  .picker-page-header:hover { background:rgba(0,0,0,.02); }
+  .picker-page-header .name { flex:1; min-width:170px; font-size:13px; font-weight:600; }
+  .picker-page-header .counts { font-family:'DM Mono',monospace; font-size:10px; color:var(--mid); }
+  .picker-page-body { padding:0 14px 10px; }
+  .picker-page.collapsed .picker-page-body { display:none; }
+  .cat-row { border:1px solid var(--border); border-radius:7px; margin-top:8px; overflow:hidden; background:rgba(0,0,0,.012); }
+  .cat-header { display:flex; align-items:center; gap:8px; flex-wrap:wrap; padding:8px 10px; }
+  .cat-toggle { display:flex; align-items:center; gap:8px; flex:1; min-width:160px; background:none; border:none; cursor:pointer; font-family:inherit; padding:0; text-align:left; }
+  .cat-header .icon { font-size:14px; }
+  .cat-header .label { font-family:'DM Mono',monospace; font-size:11.5px; font-weight:600; color:var(--ink); }
+  .cat-header .avail { font-family:'DM Mono',monospace; font-size:10px; color:var(--mid); }
+  .cat-header .picked { font-family:'DM Mono',monospace; font-size:10px; }
+  .cat-selectall { display:flex; align-items:center; gap:4px; font-family:'DM Mono',monospace; font-size:10.5px; color:var(--mid); cursor:pointer; -webkit-user-select:none; user-select:none; white-space:nowrap; }
+  .cat-random { display:flex; align-items:center; gap:6px; }
+  .cat-random input[type=number] { width:52px; padding:5px 6px; border:1px solid var(--border); border-radius:5px; font-size:11.5px; font-family:'DM Sans',sans-serif; }
+  .cat-body { padding:0 10px 8px; border-top:1px dashed var(--border); max-height:320px; overflow-y:auto; }
+  .cat-row.collapsed .cat-body { display:none; }
+  .manual-q { display:flex; gap:8px; align-items:flex-start; padding:7px 4px; border-bottom:1px solid var(--border); font-size:12.5px; }
+  .manual-q:last-child { border-bottom:none; }
+  .manual-q input[type=checkbox] { margin-top:3px; }
+  .manual-q .qbody { flex:1; min-width:0; }
+  .manual-q.just-added { background:rgba(212,168,67,.14); border-radius:6px; }
+
+  /* question preview modal */
+  .qp-overlay { position:fixed; inset:0; background:rgba(20,20,25,.55); display:flex; align-items:flex-start; justify-content:center; padding:5vh 16px; z-index:200; overflow-y:auto; }
+  .qp-overlay.hidden { display:none; }
+  .qp-modal { background:#fff; border-radius:10px; max-width:640px; width:100%; padding:20px 22px; box-shadow:0 20px 60px rgba(0,0,0,.35); }
+  .qp-modal-top { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; }
+  .qp-modal-top .chips { flex:1; display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+  .qp-close { background:transparent; border:none; font-size:20px; line-height:1; cursor:pointer; color:var(--mid); padding:0 2px; }
+  .qp-close:hover { color:var(--ink); }
+  .qcard { border:1px solid var(--border); border-radius:8px; padding:12px 14px; margin-bottom:10px; background:#fff; }
+  .qcard.just-added { border-color:var(--gold); background:linear-gradient(rgba(212,168,67,.09),rgba(212,168,67,.09)),#fff; box-shadow:0 0 0 1px var(--gold),0 0 14px rgba(212,168,67,.55); }
+  .qcard-top { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:6px; }
+  .qcard-top .pos { font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); }
+  .qcard-top .marks { font-family:'DM Mono',monospace; font-size:11px; color:#8f6d19; font-weight:500; }
+  .qcard .qtext { font-size:13px; line-height:1.5; }
+  .qcard .case { font-size:11.5px; color:var(--mid); background:var(--cream); border-left:3px solid var(--gold); padding:6px 10px; margin:6px 0; max-height:76px; overflow:hidden; }
+  .qcard .opts { font-size:12px; color:#444; margin-top:5px; padding-left:18px; }
+  .qcard-actions { display:flex; gap:6px; margin-top:8px; }
+  details.ms { margin-top:6px; }
+  details.ms summary { font-family:'DM Mono',monospace; font-size:10.5px; color:var(--accent); cursor:pointer; }
+  details.ms .marks-section, details.ms > div { font-size:12px; background:var(--cream); padding:8px 12px; border-radius:6px; margin-top:5px; }
+
+  .draft-bar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; background:rgba(212,168,67,.14); border:1px solid rgba(212,168,67,.5); border-radius:8px; padding:10px 14px; margin-bottom:14px; font-size:13px; }
+
+  /* ══════════ THE PRINTED WORKSHEET ══════════
+     #printRoot is a direct child of <body> so the print stylesheet can hide
+     everything else. On screen it doubles as the Step-3 preview ("paper"
+     framing below); in print it becomes the whole document.
+     Layout modes are pure CSS variables:
+       (default)        compact ink-saver — black on white, tight spacing
+       .ws-style-site   website look — site fonts + purple accents
+       .ws-size-lg/-xl  SEN font sizes                                    */
+  #printRoot {
+    --ws-font: Arial, Helvetica, sans-serif;
+    --ws-head-font: Arial, Helvetica, sans-serif;
+    --ws-base: 10.5pt;
+    --ws-accent: #000;
+    --ws-rule: #444;
+    --ws-line-h: 1.35;
+    --ws-q-gap: 9px;
+    --ws-answer-line-h: 7.5mm;
+    --ws-blank-w: 34mm;
+    display:none;
+    background:#fff; color:#000;
+    font-family:var(--ws-font); font-size:var(--ws-base); line-height:var(--ws-line-h);
+    max-width:820px; margin:0 auto 50px; padding:15mm 16mm;
+    border:1px solid var(--border); box-shadow:0 8px 32px rgba(0,0,0,.16);
+  }
+  body.previewing #printRoot { display:block; }
+  #printRoot.ws-style-site {
+    --ws-font: 'DM Sans', Arial, sans-serif;
+    --ws-head-font: 'Playfair Display', Georgia, serif;
+    --ws-accent: #7a5c9e;
+    --ws-rule: #7a5c9e;
+    --ws-line-h: 1.55;
+    --ws-q-gap: 14px;
+    --ws-answer-line-h: 9mm;
+    --ws-blank-w: 42mm;
+  }
+  #printRoot.ws-size-lg { --ws-base: 12.5pt; --ws-answer-line-h: 9mm; --ws-blank-w: 42mm; }
+  #printRoot.ws-size-xl { --ws-base: 14pt; --ws-answer-line-h: 10.5mm; --ws-blank-w: 48mm; }
+
+  .ws-head { border-bottom:2px solid var(--ws-rule); padding-bottom:6px; margin-bottom:10px; }
+  .ws-title { font-family:var(--ws-head-font); font-size:1.5em; font-weight:700; color:var(--ws-accent); margin:0 0 2px; }
+  .ws-course { font-size:.85em; color:#333; margin-bottom:6px; }
+  .ws-nameline { display:flex; gap:14px; flex-wrap:wrap; font-size:.95em; margin:6px 0 2px; }
+  .ws-nameline .fill { display:inline-block; border-bottom:1px solid #000; min-width:38mm; }
+  .ws-nameline .fill.short { min-width:20mm; }
+  .ws-instructions { font-size:.95em; margin:6px 0 0; }
+  .ws-howto { font-size:.85em; color:#333; margin-top:4px; font-style:italic; }
+  .ws-topics { font-size:.8em; color:#444; margin-top:3px; }
+
+  .ws-sec-head { font-family:var(--ws-head-font); font-weight:700; font-size:1.1em; color:var(--ws-accent); border-bottom:1px solid var(--ws-rule); margin:12px 0 7px; padding-bottom:2px; break-after:avoid; page-break-after:avoid; }
+
+  .ws-q { display:flex; gap:6px; margin-bottom:var(--ws-q-gap); break-inside:avoid; page-break-inside:avoid; }
+  .ws-num { font-weight:700; min-width:24px; flex-shrink:0; }
+  .ws-qmain { flex:1; min-width:0; }
+  .ws-marks { font-weight:600; white-space:nowrap; margin-left:8px; font-size:.9em; }
+  .ws-opts { margin:3px 0 0; padding-left:22px; }
+  .ws-opts li { margin-bottom:1.5px; }
+  .ws-opts.cols2 { columns:2; column-gap:9mm; }
+  .ws-opts-inline { margin-top:2px; }
+  .ws-opts-inline span { display:inline-block; margin-right:16px; white-space:nowrap; }
+  .ws-tf { font-weight:700; white-space:nowrap; margin-left:10px; letter-spacing:.06em; }
+  .ws-line { border-bottom:1px solid #999; height:var(--ws-answer-line-h); }
+  .ws-starter { color:#555; font-style:italic; margin-top:2px; font-size:.95em; }
+  .ws-blank { display:inline-block; min-width:var(--ws-blank-w); border-bottom:1.3px solid #000; padding:0 2mm; font-weight:600; }
+  .ws-blank-lbl { font-weight:700; font-size:.9em; }
+  .ws-case, .ws-reading { border:1px solid #555; border-left:3px solid var(--ws-accent); padding:6px 10px; margin:8px 0 7px; font-size:.93em; break-inside:avoid; page-break-inside:avoid; }
+  .ws-case-lbl, .ws-reading-lbl { font-weight:700; font-size:.9em; margin-bottom:2px; }
+  .ws-wordbank { border:1.6px solid var(--ws-accent); border-radius:4px; padding:6px 10px; margin:5px 0 10px; break-inside:avoid; page-break-inside:avoid; }
+  .ws-wordbank-lbl { font-weight:700; font-size:.85em; letter-spacing:.04em; text-transform:uppercase; margin-bottom:3px; }
+  .ws-wordbank .words { display:flex; flex-wrap:wrap; gap:3px 14px; }
+  .ws-wordbank .words span { white-space:nowrap; }
+  .ws-wordbank .note { font-size:.82em; font-style:italic; color:#333; margin-top:3px; }
+
+  .ws-match-table { width:100%; border-collapse:collapse; margin:4px 0 8px; break-inside:avoid; page-break-inside:avoid; }
+  .ws-match-table th, .ws-match-table td { border:1px solid #000; padding:3px 7px; text-align:left; vertical-align:top; font-size:.95em; }
+  .ws-match-table th { font-size:.8em; text-transform:uppercase; letter-spacing:.05em; background:transparent; }
+  .ws-match-table .box { width:13mm; text-align:center; }
+
+  .ws-answers { break-before:page; page-break-before:always; border-top:2px solid var(--ws-rule); margin-top:16px; padding-top:8px; }
+  .ws-answers h2 { font-family:var(--ws-head-font); font-size:1.25em; color:var(--ws-accent); margin:0 0 2px; }
+  .ws-answers-strap { font-size:.82em; font-style:italic; color:#333; margin-bottom:8px; }
+  .ws-key-cols { columns:2; column-gap:10mm; font-size:.95em; }
+  .ws-key-item { break-inside:avoid; page-break-inside:avoid; margin-bottom:4px; }
+  .ws-key-sub { font-weight:700; column-span:all; margin:6px 0 3px; color:var(--ws-accent); }
+  .ws-key-item .expl { color:#333; font-size:.9em; }
+  .ws-key-item .marks-section { font-size:.9em; }
+
+  @page { margin: 13mm; }
+  @media print {
+    header, main, .qp-overlay, .no-print { display:none !important; }
+    body { background:#fff !important; }
+    #printRoot { display:block !important; max-width:none !important; margin:0 !important; padding:0 !important; border:none !important; box-shadow:none !important; }
+  }
+
+  @media (max-width:700px) { header, main { padding-left:16px; padding-right:16px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="header-badge">OCR GCSE Business Studies · J204</div>
+      <h1>🖨️ Worksheet Builder</h1>
+      <p>Build printable question sheets from the same bank your online tasks use — answers always land on the final page</p>
+    </div>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <a class="nav-link" href="teacher-dashboard.html">← Teacher Dashboard</a>
+      <a class="nav-link" href="teacher-tasks.html">📋 Tasks</a>
+      <a class="nav-link" href="index.html">Site Home</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="panel" style="border-left:4px solid var(--gold);">
+    <p class="muted" style="font-size:12.5px; line-height:1.7; margin:0;">
+      <strong style="color:var(--ink);">How it works:</strong>
+      ① pick questions from any topics (same picker as Tasks) → ② choose layout, word-bank and SEN options → ③ preview, then <strong>Print / Save as PDF</strong> (or download an editable Word copy).
+      Nothing is assigned to students — this only makes paper. The <strong>answer key always starts on a fresh final page</strong>, so print “all pages except the last” for the class set.
+      Questions stay in sync with the topic pages automatically because they come from the same live question bank as tasks.
+    </p>
+  </div>
+
+  <div id="draftBar" class="draft-bar hidden">
+    <span id="draftBarText">📝 You have an unfinished worksheet draft.</span>
+    <button type="button" class="btn small accent" id="draftResumeBtn">Resume draft</button>
+    <button type="button" class="btn small secondary" id="draftDiscardBtn">Discard</button>
+  </div>
+
+  <div class="editor-steps">
+    <button type="button" class="subtab active" data-wstep="1">1 · Choose questions</button>
+    <button type="button" class="subtab" data-wstep="2">2 · Worksheet options</button>
+    <button type="button" class="subtab" data-wstep="3">3 · Preview &amp; print</button>
+  </div>
+
+  <div class="editor-cols" id="builderCols">
+    <div class="editor-left">
+
+      <div class="panel" id="wsStep1">
+        <h3 class="subhead"><span class="step-num">1</span>Choose questions <span class="muted" id="pickSummary"></span></h3>
+        <p class="muted" style="margin-bottom:12px;">Click a topic to expand it, then click a category (📚 Key Learning, ❓ MCQ Quiz, 🔗 Matching, ✏️ Fill the Blanks, ⚠️ Misconceptions, 🎯 Exam Tips, ✅ True/False, 📝 Exam Practice) to see its questions — tick exactly which ones you want, or set a number and click <strong>🎲 Add random</strong>. You can mix questions from as many topics as you like; the sheet keeps them in curriculum order.</p>
+        <div id="pickerContainer"></div>
+      </div>
+
+      <div class="panel hidden" id="wsStep2">
+        <h3 class="subhead"><span class="step-num">2</span>Worksheet options <span class="muted" id="optsSummary"></span></h3>
+
+        <div id="optsPanel">
+        <div class="form-grid">
+          <div class="field" style="grid-column:1/-1;">
+            <label for="oTitle">Worksheet title</label>
+            <input type="text" id="oTitle" maxlength="120" value="Business Revision Worksheet"/>
+          </div>
+          <div class="field" style="grid-column:1/-1;">
+            <label for="oInstructions">Instructions to students (optional)</label>
+            <textarea id="oInstructions" placeholder="e.g. Answer in full sentences. No calculators needed."></textarea>
+          </div>
+          <div class="field">
+            <label for="oStyle">Layout style</label>
+            <select id="oStyle">
+              <option value="compact">🌱 Compact ink-saver (recommended)</option>
+              <option value="site">🎨 Website style (site fonts &amp; colours)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="oSize">Font size (SEN)</label>
+            <select id="oSize">
+              <option value="std">Standard</option>
+              <option value="lg">Large</option>
+              <option value="xl">Extra large</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="oLinesPerMark">Answer lines per mark (written questions)</label>
+            <select id="oLinesPerMark">
+              <option value="1">1 line per mark (max ink saving)</option>
+              <option value="1.5">1½ lines per mark</option>
+              <option value="2" selected>2 lines per mark</option>
+              <option value="3">3 lines per mark (extra space / SEN)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="oKeyDetail">Answer key detail</label>
+            <select id="oKeyDetail">
+              <option value="short">Answers only (1 page-ish)</option>
+              <option value="detailed">Detailed — explanations &amp; mark schemes</option>
+            </select>
+          </div>
+        </div>
+
+        <h3 class="subhead">✏️ Fill-in-the-blanks &amp; word banks</h3>
+        <p class="muted" style="margin-bottom:10px;">Blanks questions are grouped into <strong>rounds</strong>, each with its own word bank, so one giant bank never overwhelms students. Fewer questions per round + fewer extra words = easier (good for SEN); one big round + many extra words = harder.</p>
+        <div class="form-grid">
+          <div class="field">
+            <label for="oFibPerRound">Blanks questions per round</label>
+            <select id="oFibPerRound">
+              <option value="4">4 per round (small banks, easiest)</option>
+              <option value="6">6 per round</option>
+              <option value="8" selected>8 per round</option>
+              <option value="12">12 per round</option>
+              <option value="0">All in one round (single big bank)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="oFibDistractors">Extra (wrong) words per bank</label>
+            <select id="oFibDistractors">
+              <option value="0">0 — bank contains only the answers (SEN)</option>
+              <option value="2">2 extra words</option>
+              <option value="3" selected>3 extra words</option>
+              <option value="5">5 extra words</option>
+              <option value="8">8 extra words (hardest)</option>
+            </select>
+          </div>
+          <label class="check-row" style="align-self:end;">
+            <input type="checkbox" id="oFibFirstLetter"/> Give the first letter of each blank (SEN support)
+          </label>
+        </div>
+
+        <h3 class="subhead">📄 What to include</h3>
+        <div class="form-grid">
+          <label class="check-row"><input type="checkbox" id="oNameLine" checked/> Name / Class / Date / Score line at the top</label>
+          <label class="check-row"><input type="checkbox" id="oShowMarks" checked/> Show marks next to each question</label>
+          <label class="check-row"><input type="checkbox" id="oMatchTables" checked/> Turn Matching questions into match-the-columns tables</label>
+          <label class="check-row"><input type="checkbox" id="oIncludeReadings" checked/> Include reading cards (Key Learning / Misconceptions / Exam Tips)</label>
+          <label class="check-row"><input type="checkbox" id="oMcqTwoCol" checked/> Two-column MCQ options where they fit (saves paper)</label>
+          <label class="check-row"><input type="checkbox" id="oSentenceStarters"/> Print sentence starters under written questions (SEN)</label>
+        </div>
+        <p class="muted" id="readingsWarn" style="margin-top:8px; display:none;">⚠ With reading cards off, Key Learning / Misconceptions / Exam Tips questions may lack the context they refer to.</p>
+        </div>
+      </div>
+
+      <div class="panel hidden" id="wsStep3ctl">
+        <h3 class="subhead"><span class="step-num">3</span>Preview &amp; print <span class="muted" id="printSummary"></span></h3>
+        <p class="muted" style="margin-bottom:12px;">This is exactly what will print. The answer key starts on a <strong>new page at the very end</strong> — when photocopying for students, print every page except the key. Use your browser's print dialog and choose <strong>“Save as PDF”</strong> as the destination to keep a PDF copy.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <button type="button" class="btn accent" id="printBtn">🖨️ Print / Save as PDF</button>
+          <button type="button" class="btn secondary" id="docBtn" title="Editable copy with basic formatting — open in Word to tweak wording or spacing">⬇ Download Word copy (.doc)</button>
+          <button type="button" class="btn secondary" id="shuffleBtn" title="Re-shuffles word-bank distractors and matching columns — handy for a second version of the same sheet">🔀 New shuffle</button>
+        </div>
+        <div class="muted" id="printEmptyMsg" style="margin-top:10px; display:none;">No questions selected yet — go back to step 1.</div>
+      </div>
+
+    </div><!-- /editor-left -->
+
+    <div class="editor-right">
+      <div class="panel">
+        <h3 class="subhead">👁 Selected questions <span class="muted" id="reviewSummary">— none added yet</span></h3>
+        <p class="muted" style="margin-bottom:10px;">⭯ Replace swaps a question for another from the same topic &amp; category.</p>
+        <div id="reviewList"><div class="empty">No questions added yet — use step 1.</div></div>
+      </div>
+    </div>
+  </div><!-- /editor-cols -->
+
+  <div class="sticky-actions">
+    <button type="button" class="btn secondary" id="stepPrevBtn">← Back</button>
+    <button type="button" class="btn" id="stepNextBtn">Next: Worksheet options →</button>
+    <span class="muted" id="stickySummary" style="margin-left:auto;"></span>
+  </div>
+</main>
+
+<div id="qpOverlay" class="qp-overlay hidden">
+  <div id="qpModal" class="qp-modal"></div>
+</div>
+
+<!-- The worksheet itself. Direct child of <body>: the print stylesheet hides
+     header+main and prints only this. -->
+<div id="printRoot"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/subjects/business/question-bank.js"></script><!-- TODO(step-5): load /subjects/<slug>/question-bank.js for the selected class's subject dynamically -->
+<script src="tasks-shared.js"></script>
+<script src="/subjects-index.js"></script>
+<script src="/page-groups-all.js"></script>
+<script src="/section-totals-all.js"></script>
+<script src="/subject-loader.js"></script>
+<!-- TODO(step-5): resolve the subject from the selected class (per-class subject picker) instead of defaulting to business -->
+<script>subjectLoaderInit({ mode: 'single' });</script>
+<script src="progress-shared.js"></script>
+<script>
+'use strict';
+const esc = taskEscapeHtml;
+let auth = null;
+
+// Builder state — same variable names as teacher-tasks.html so the picker
+// functions below stay a verbatim copy (easy to diff / re-sync later).
+let edQuestions = [];         // ordered bank entries chosen for the worksheet
+let edPicker = {};            // pageId -> {cats: {sourceKey: {count}}}
+let edLastAddedIds = new Set();
+let edOpenGroups = new Set();
+let edOpenPages = new Set();
+let edOpenCats = new Set();
+let wsStep = 1;               // 1 choose · 2 options · 3 preview
+let draftReady = false;       // guards saveDraft() until init decides about an old draft
+
+// Worksheets aren't assigned to a class, so there's no "used before with
+// these students" concept — the stub keeps the copied picker code unchanged
+// ("Add random" degrades to a plain shuffle, chips simply never render).
+const usedForSelection = () => false;
+
+const $ = id => document.getElementById(id);
+const BANK_BY_PAGE = bankByPage();
+const BANK_BY_ID = bankById();
+const DRAFT_KEY = 'ws_draft_v1';
+
+// ══════════ INIT ══════════
+async function init() {
+  auth = await tasksAuthInit('teacher');
+  if (!auth) return;
+  renderPicker();
+  renderReview();
+  offerDraft();
+  draftReady = true;
+}
+
+// ══════════ STEP NAVIGATION ══════════
+const STEP_NEXT_LABELS = { 1: 'Next: Worksheet options →', 2: 'Next: Preview & print →', 3: '🖨️ Print / Save as PDF' };
+function showStep(step) {
+  wsStep = step;
+  $('wsStep1').classList.toggle('hidden', step !== 1);
+  $('wsStep2').classList.toggle('hidden', step !== 2);
+  $('wsStep3ctl').classList.toggle('hidden', step !== 3);
+  document.querySelectorAll('[data-wstep]').forEach(b => b.classList.toggle('active', Number(b.dataset.wstep) === step));
+  $('stepPrevBtn').disabled = step === 1;
+  $('stepNextBtn').textContent = STEP_NEXT_LABELS[step];
+  document.body.classList.toggle('previewing', step === 3);
+  // The right-hand selection panel is redundant next to the full preview.
+  document.querySelector('.editor-right').classList.toggle('hidden', step === 3);
+  if (step === 3) buildAndRenderWorksheet();
+  window.scrollTo({ top: 0 });
+}
+document.querySelectorAll('[data-wstep]').forEach(b => b.addEventListener('click', () => showStep(Number(b.dataset.wstep))));
+$('stepPrevBtn').addEventListener('click', () => showStep(Math.max(1, wsStep - 1)));
+$('stepNextBtn').addEventListener('click', () => {
+  if (wsStep === 3) { doPrint(); return; }
+  showStep(wsStep + 1);
+});
+
+// ══════════ QUESTION PICKER ══════════
+// Copied from teacher-tasks.html (Step 2 there) — keep in sync if that page's
+// picker changes. Only differences: "selected" wording, no used-before chips.
+function defaultPageCfg(cfg) {
+  if (cfg && cfg.cats) return cfg;
+  return { cats: {} };
+}
+function defaultCatCfg() { return { count: 3 }; }
+
+function renderPicker() {
+  const container = $('pickerContainer');
+  container.innerHTML = '';
+  PAGE_GROUPS.forEach(group => {
+    const pages = flatPages(group).filter(p => (BANK_BY_PAGE[p.id] || []).length);
+    if (!pages.length) return;
+    const details = document.createElement('div');
+    details.className = 'picker-group';
+    const inTask = pages.reduce((n, p) => n + edQuestions.filter(q => q.pageId === p.id).length, 0);
+    details.innerHTML = `
+      <button type="button" class="picker-group-header" style="border-left-color:${group.colour}">
+        <span class="t">${esc(group.title)}</span>
+        <span class="counts">${inTask ? inTask + ' selected · ' : ''}${pages.length} topics</span>
+        <span class="chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="picker-group-body${edOpenGroups.has(group.id) ? '' : ' hidden'}"></div>`;
+    const body = details.querySelector('.picker-group-body');
+    pages.forEach(p => body.appendChild(pickerPageRow(p)));
+    details.querySelector('.picker-group-header').addEventListener('click', () => {
+      body.classList.toggle('hidden');
+      if (body.classList.contains('hidden')) edOpenGroups.delete(group.id); else edOpenGroups.add(group.id);
+    });
+    container.appendChild(details);
+  });
+  updatePickSummary();
+}
+
+function pickerPageRow(page) {
+  const all = BANK_BY_PAGE[page.id] || [];
+  const cfg = edPicker[page.id] = defaultPageCfg(edPicker[page.id]);
+  const bySource = {};
+  all.forEach(q => (bySource[q.source] = bySource[q.source] || []).push(q));
+  const present = SOURCE_ORDER.filter(s => (bySource[s.key] || []).length);
+  const chosen = edQuestions.filter(q => q.pageId === page.id).length;
+
+  const wrap = document.createElement('div');
+  wrap.className = 'picker-page' + (edOpenPages.has(page.id) ? '' : ' collapsed');
+  wrap.innerHTML = `
+    <button type="button" class="picker-page-header">
+      <span class="name">${esc(page.name)}</span>
+      <span class="counts">${chosen ? chosen + ' selected · ' : ''}${all.length} question${all.length === 1 ? '' : 's'}</span>
+      <span class="chevron" aria-hidden="true">▾</span>
+    </button>
+    <div class="picker-page-body"></div>`;
+  const pageBody = wrap.querySelector('.picker-page-body');
+  present.forEach(s => pageBody.appendChild(categoryRow(page, s, bySource[s.key], cfg)));
+  wrap.querySelector('.picker-page-header').addEventListener('click', () => {
+    wrap.classList.toggle('collapsed');
+    if (wrap.classList.contains('collapsed')) edOpenPages.delete(page.id); else edOpenPages.add(page.id);
+  });
+  return wrap;
+}
+
+function categoryRow(page, sourceDef, questions, pageCfg) {
+  const ccfg = pageCfg.cats[sourceDef.key] = pageCfg.cats[sourceDef.key] || defaultCatCfg();
+  const openKey = page.id + '::' + sourceDef.key;
+
+  const row = document.createElement('div');
+  row.className = 'cat-row' + (edOpenCats.has(openKey) ? '' : ' collapsed');
+  const header = document.createElement('div');
+  header.className = 'cat-header';
+  const body = document.createElement('div');
+  body.className = 'cat-body';
+  row.appendChild(header);
+  row.appendChild(body);
+
+  function pickedCount() {
+    const ids = new Set(questions.map(q => q.id));
+    return edQuestions.filter(q => ids.has(q.id)).length;
+  }
+
+  function renderHeader() {
+    const picked = pickedCount();
+    const allPicked = picked === questions.length;
+    header.innerHTML = `
+      <button type="button" class="cat-toggle">
+        <span class="icon" aria-hidden="true">${sourceDef.icon}</span>
+        <span class="label">${sourceDef.label}</span>
+        <span class="avail">${questions.length} available</span>
+        ${picked ? `<span class="picked chip qtype">${picked} picked</span>` : ''}
+        <span class="chevron" aria-hidden="true">▾</span>
+      </button>
+      <label class="cat-selectall"><input type="checkbox" data-a="selall" ${allPicked ? 'checked' : ''}/> All</label>
+      <span class="cat-random" title="Add this many at random from ${esc(sourceDef.label)}">
+        <input type="number" min="1" max="${questions.length}" value="${Math.min(ccfg.count, questions.length)}"/>
+        <button type="button" class="btn small secondary" data-a="random">🎲 Add random</button>
+      </span>`;
+    header.querySelector('.cat-toggle').addEventListener('click', () => {
+      row.classList.toggle('collapsed');
+      if (row.classList.contains('collapsed')) edOpenCats.delete(openKey); else edOpenCats.add(openKey);
+      if (!row.classList.contains('collapsed')) renderList();
+    });
+    header.querySelector('[data-a=selall]').addEventListener('click', e => e.stopPropagation());
+    header.querySelector('[data-a=selall]').addEventListener('change', e => {
+      selectAllInCategory(questions, e.target.checked);
+    });
+    header.querySelector('input[type=number]').addEventListener('change', e => {
+      ccfg.count = Math.max(1, Math.min(questions.length, parseInt(e.target.value, 10) || 1));
+    });
+    header.querySelector('[data-a=random]').addEventListener('click', () => addRandomFromCategory(questions, ccfg.count));
+  }
+
+  function renderList() {
+    const inTask = new Set(edQuestions.map(q => q.id));
+    body.innerHTML = questions.map(q => `
+      <label class="manual-q${edLastAddedIds.has(q.id) ? ' just-added' : ''}">
+        <input type="checkbox" data-qid="${q.id}" ${inTask.has(q.id) ? 'checked' : ''}/>
+        <span class="qbody">
+          <span class="mono" style="color:#8f6d19">[${q.marks} mk]</span>
+          ${esc(q.question.length > 160 ? q.question.slice(0, 160) + '…' : q.question)}
+          <button type="button" class="btn icon-btn" data-preview="${q.id}">👁 Preview</button>
+        </span>
+      </label>`).join('');
+    body.querySelectorAll('input[data-qid]').forEach(cb => cb.addEventListener('change', () => {
+      toggleQuestion(BANK_BY_ID[cb.dataset.qid], cb.checked);
+    }));
+    body.querySelectorAll('[data-preview]').forEach(btn => btn.addEventListener('click', () => openPreview(BANK_BY_ID[btn.dataset.preview])));
+  }
+
+  renderHeader();
+  if (!row.classList.contains('collapsed')) renderList();
+  return row;
+}
+
+function toggleQuestion(q, checked) {
+  if (checked) {
+    if (!edQuestions.some(x => x.id === q.id)) edQuestions.push(q);
+    edLastAddedIds = new Set([q.id]);
+  }
+  else edQuestions = edQuestions.filter(x => x.id !== q.id);
+  edQuestions = sortTaskQuestions(edQuestions);
+  renderPicker();
+  renderReview();
+}
+
+function selectAllInCategory(questions, select) {
+  const ids = new Set(questions.map(q => q.id));
+  if (select) {
+    const added = questions.filter(q => !edQuestions.some(x => x.id === q.id));
+    edQuestions.push(...added);
+    edLastAddedIds = new Set(added.map(q => q.id));
+  } else {
+    edQuestions = edQuestions.filter(x => !ids.has(x.id));
+  }
+  edQuestions = sortTaskQuestions(edQuestions);
+  renderPicker();
+  renderReview();
+}
+
+function addRandomFromCategory(questions, count) {
+  const inTask = new Set(edQuestions.map(q => q.id));
+  const pool = questions.filter(q => !inTask.has(q.id));
+  if (!pool.length) { alert('All questions in this section are already on the worksheet.'); return; }
+  const fresh = pool.filter(q => !usedForSelection(q.id));
+  const rest = pool.filter(q => usedForSelection(q.id));
+  const shuffled = [...shuffle(fresh), ...shuffle(rest)];
+  const take = shuffled.slice(0, Math.min(count, shuffled.length));
+  edQuestions.push(...take);
+  edLastAddedIds = new Set(take.map(q => q.id));
+  edQuestions = sortTaskQuestions(edQuestions);
+  renderPicker();
+  renderReview();
+}
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function updatePickSummary() {
+  const totalMarks = edQuestions.reduce((s, q) => s + q.marks, 0);
+  const txt = edQuestions.length ? `— ${edQuestions.length} questions · ${totalMarks} marks` : '';
+  $('pickSummary').textContent = txt;
+  $('stickySummary').textContent = txt.replace(/^—\s*/, '');
+}
+
+function questionBodyHtml(q, { truncateCase, openMarkScheme } = {}) {
+  const caseText = q.caseStudy ? (truncateCase && q.caseStudy.length > 260 ? esc(q.caseStudy.slice(0, 260)) + '…' : esc(q.caseStudy)) : '';
+  return `
+    ${q.caseStudy ? `<div class="case">${caseText}</div>` : ''}
+    ${q.reading ? `<details class="ms"><summary>📖 Reading shown with this question${q.readingTitle ? ' — ' + esc(q.readingTitle) : ''}</summary><div class="reading-preview">${q.reading}</div></details>` : ''}
+    <div class="qtext">${esc(q.question)}</div>
+    ${q.options ? `<ol class="opts" type="A">${q.options.map(o => `<li>${esc(o)}</li>`).join('')}</ol>` : ''}
+    ${q.type === 'fib' && q.key && q.key.blanks ? `<details class="ms"><summary>Blank answers</summary><div>${Object.entries(q.key.blanks).map(([k, v]) => `<span class="mono">${esc(k)}:</span> ${esc(v)}`).join(' · ')}</div></details>` : ''}
+    ${q.key && (q.key.markScheme || q.key.explain) ? `<details class="ms" ${openMarkScheme ? 'open' : ''}><summary>Mark scheme / answer</summary><div>${q.key.markScheme || esc(q.key.explain || '')}</div></details>` : ''}
+    ${q.key && q.key.modelAnswer ? `<details class="ms"><summary>Model answer</summary><div>${esc(q.key.modelAnswer)}</div></details>` : ''}`;
+}
+
+function openPreview(q) {
+  if (!q) return;
+  $('qpModal').innerHTML = `
+    <div class="qp-modal-top">
+      <span class="chips">
+        <span class="chip qtype">${SOURCE_LABELS[q.source]} · ${QTYPE_LABELS[q.type]}</span>
+        <span class="marks mono">[${q.marks} mark${q.marks === 1 ? '' : 's'}]</span>
+        <span class="muted">${esc(q.pageName)}</span>
+      </span>
+      <button type="button" class="qp-close" id="qpCloseBtn" aria-label="Close preview">✕</button>
+    </div>
+    ${questionBodyHtml(q)}`;
+  $('qpOverlay').classList.remove('hidden');
+  $('qpCloseBtn').addEventListener('click', closePreview);
+}
+function closePreview() { $('qpOverlay').classList.add('hidden'); }
+$('qpOverlay').addEventListener('click', e => { if (e.target === $('qpOverlay')) closePreview(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('qpOverlay').classList.contains('hidden')) closePreview(); });
+
+// ══════════ SELECTED-QUESTIONS PANEL ══════════
+function renderReview() {
+  const list = $('reviewList');
+  updatePickSummary();
+  updateOptsSummary();
+  const totalMarks = edQuestions.reduce((s, q) => s + q.marks, 0);
+  $('reviewSummary').textContent = edQuestions.length
+    ? `— ${edQuestions.length} questions · ${totalMarks} marks total` : '— none added yet';
+  saveDraft();
+  if (!edQuestions.length) { list.innerHTML = '<div class="empty">No questions added yet — use step 1.</div>'; return; }
+
+  list.innerHTML = '';
+  let lastAddedEl = null;
+  edQuestions.forEach((q, i) => {
+    const justAdded = edLastAddedIds.has(q.id);
+    const card = document.createElement('div');
+    card.className = 'qcard' + (justAdded ? ' just-added' : '');
+    card.innerHTML = `
+      <div class="qcard-top">
+        <span class="pos">Q${i + 1}</span>
+        ${justAdded ? '<span class="chip new-add">✨ Just added</span>' : ''}
+        <span class="chip qtype">${SOURCE_LABELS[q.source]} · ${QTYPE_LABELS[q.type]}</span>
+        <span class="marks">[${q.marks} mark${q.marks === 1 ? '' : 's'}]</span>
+        <span class="muted">${esc(q.pageName)}</span>
+      </div>
+      ${questionBodyHtml(q, { truncateCase: true })}
+      <div class="qcard-actions">
+        <button type="button" class="btn secondary small" data-a="preview" data-i="${i}">👁 Preview</button>
+        <button type="button" class="btn secondary small" data-a="replace" data-i="${i}">⭯ Replace</button>
+        <button type="button" class="btn danger small" data-a="remove" data-i="${i}">✕ Remove</button>
+      </div>`;
+    if (justAdded) lastAddedEl = card;
+    list.appendChild(card);
+  });
+  if (lastAddedEl) lastAddedEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+}
+
+$('reviewList').addEventListener('click', e => {
+  const btn = e.target.closest('button[data-a]');
+  if (!btn) return;
+  const i = parseInt(btn.dataset.i, 10);
+  const q = edQuestions[i];
+  if (btn.dataset.a === 'preview') { openPreview(q); return; }
+  if (btn.dataset.a === 'remove') edQuestions.splice(i, 1);
+  if (btn.dataset.a === 'replace') {
+    const inTask = new Set(edQuestions.map(x => x.id));
+    let pool = (BANK_BY_PAGE[q.pageId] || []).filter(x => !inTask.has(x.id));
+    const sameSource = pool.filter(x => x.source === q.source);
+    if (sameSource.length) pool = sameSource;
+    const pick = pool[Math.floor(Math.random() * pool.length)];
+    if (!pick) { alert('No alternative question available in this topic.'); return; }
+    edQuestions[i] = pick;
+    edLastAddedIds = new Set([pick.id]);
+  }
+  edQuestions = sortTaskQuestions(edQuestions);
+  renderPicker();
+  renderReview();
+});
+
+// ══════════ OPTIONS ══════════
+function readOpts() {
+  return {
+    title: $('oTitle').value.trim() || 'Business Revision Worksheet',
+    instructions: $('oInstructions').value.trim(),
+    style: $('oStyle').value,                              // 'compact' | 'site'
+    size: $('oSize').value,                                // 'std' | 'lg' | 'xl'
+    linesPerMark: parseFloat($('oLinesPerMark').value) || 2,
+    keyDetail: $('oKeyDetail').value,                      // 'short' | 'detailed'
+    fibPerRound: parseInt($('oFibPerRound').value, 10),    // 0 = single round
+    fibDistractors: parseInt($('oFibDistractors').value, 10),
+    fibFirstLetter: $('oFibFirstLetter').checked,
+    nameLine: $('oNameLine').checked,
+    showMarks: $('oShowMarks').checked,
+    matchTables: $('oMatchTables').checked,
+    includeReadings: $('oIncludeReadings').checked,
+    mcqTwoCol: $('oMcqTwoCol').checked,
+    sentenceStarters: $('oSentenceStarters').checked,
+  };
+}
+
+function writeOpts(o) {
+  $('oTitle').value = o.title || 'Business Revision Worksheet';
+  $('oInstructions').value = o.instructions || '';
+  $('oStyle').value = o.style || 'compact';
+  $('oSize').value = o.size || 'std';
+  $('oLinesPerMark').value = String(o.linesPerMark ?? 2);
+  $('oKeyDetail').value = o.keyDetail || 'short';
+  $('oFibPerRound').value = String(o.fibPerRound ?? 8);
+  $('oFibDistractors').value = String(o.fibDistractors ?? 3);
+  $('oFibFirstLetter').checked = !!o.fibFirstLetter;
+  $('oNameLine').checked = o.nameLine !== false;
+  $('oShowMarks').checked = o.showMarks !== false;
+  $('oMatchTables').checked = o.matchTables !== false;
+  $('oIncludeReadings').checked = o.includeReadings !== false;
+  $('oMcqTwoCol').checked = o.mcqTwoCol !== false;
+  $('oSentenceStarters').checked = !!o.sentenceStarters;
+}
+
+function updateOptsSummary() {
+  const opts = readOpts();
+  const fibQs = edQuestions.filter(q => q.type === 'fib');
+  const per = opts.fibPerRound > 0 ? opts.fibPerRound : (fibQs.length || 1);
+  const rounds = Math.ceil(fibQs.length / per) || 0;
+  const totalMarks = edQuestions.reduce((s, q) => s + q.marks, 0);
+  $('optsSummary').textContent = edQuestions.length
+    ? `— ${edQuestions.length} questions · ${totalMarks} marks${fibQs.length ? ` · ${rounds} blank round${rounds === 1 ? '' : 's'}` : ''}`
+    : '';
+  $('readingsWarn').style.display = opts.includeReadings ? 'none' : 'block';
+}
+
+$('optsPanel').addEventListener('change', () => { updateOptsSummary(); saveDraft(); });
+$('optsPanel').addEventListener('input', () => saveDraft());
+
+// ══════════ DRAFT AUTO-SAVE (localStorage only — nothing hits the server) ══════════
+function saveDraft() {
+  if (!draftReady) return;
+  // While the resume offer is still on screen, an empty selection means the
+  // teacher simply hasn't decided yet — never delete the stored draft then.
+  const offering = !$('draftBar').classList.contains('hidden');
+  try {
+    if (!edQuestions.length) {
+      if (!offering) localStorage.removeItem(DRAFT_KEY);
+      return;
+    }
+    localStorage.setItem(DRAFT_KEY, JSON.stringify({
+      qids: edQuestions.map(q => q.id),
+      opts: readOpts(),
+      savedAt: new Date().toISOString(),
+    }));
+    $('draftBar').classList.add('hidden'); // new work supersedes the old draft offer
+  } catch (e) { /* storage full/blocked — drafts are a convenience only */ }
+}
+
+function offerDraft() {
+  let draft = null;
+  try { draft = JSON.parse(localStorage.getItem(DRAFT_KEY) || 'null'); } catch (e) {}
+  if (!draft || !Array.isArray(draft.qids)) return;
+  const alive = draft.qids.filter(id => BANK_BY_ID[id]);
+  if (!alive.length) { localStorage.removeItem(DRAFT_KEY); return; }
+  const when = draft.savedAt ? new Date(draft.savedAt).toLocaleString() : 'earlier';
+  $('draftBarText').textContent = `📝 Unfinished worksheet draft from ${when} — ${alive.length} question${alive.length === 1 ? '' : 's'}${alive.length < draft.qids.length ? ` (${draft.qids.length - alive.length} no longer in the bank)` : ''}.`;
+  $('draftBar').classList.remove('hidden');
+  $('draftResumeBtn').onclick = () => {
+    edQuestions = sortTaskQuestions(alive.map(id => BANK_BY_ID[id]));
+    if (draft.opts) writeOpts(draft.opts);
+    edLastAddedIds = new Set();
+    $('draftBar').classList.add('hidden');
+    renderPicker();
+    renderReview();
+  };
+  $('draftDiscardBtn').onclick = () => {
+    localStorage.removeItem(DRAFT_KEY);
+    $('draftBar').classList.add('hidden');
+  };
+}
+
+// ══════════ WORKSHEET MODEL ══════════
+// Turns the flat selection into printable sections:
+//   items  — everything except fill-in-the-blanks, in curriculum order,
+//            with runs of Matching questions merged into one table exercise
+//   rounds — fill-in-the-blanks chunked into word-bank rounds
+// Numbering runs continuously across both.
+function buildWorksheetModel(opts) {
+  const qs = sortTaskQuestions(edQuestions);
+  const fibQs = qs.filter(q => q.type === 'fib');
+  const rest = qs.filter(q => q.type !== 'fib');
+
+  const items = [];
+  let num = 0;
+
+  for (let i = 0; i < rest.length; i++) {
+    const q = rest[i];
+    if (opts.matchTables && q.source === 'match') {
+      const group = [q];
+      while (i + 1 < rest.length && rest[i + 1].source === 'match' && rest[i + 1].pageId === q.pageId) group.push(rest[++i]);
+      const table = buildMatchGroup(group);
+      if (table) {
+        num++;
+        items.push({ kind: 'match', num, ...table, marks: group.length, pageName: q.pageName });
+        continue;
+      }
+      group.forEach(g => { num++; items.push({ kind: 'q', num, q: g }); });
+      continue;
+    }
+    num++;
+    items.push({ kind: 'q', num, q });
+  }
+
+  const per = opts.fibPerRound > 0 ? opts.fibPerRound : (fibQs.length || 1);
+  const chunks = [];
+  for (let i = 0; i < fibQs.length; i += per) chunks.push(fibQs.slice(i, i + per));
+  const rounds = chunks.map((roundQs, ri) => {
+    const bank = buildWordBank(roundQs, opts.fibDistractors, chunks, ri);
+    const rItems = roundQs.map(q => { num++; return { kind: 'q', num, q }; });
+    return { roundNum: ri + 1, bank, items: rItems };
+  });
+
+  const totalMarks = items.reduce((s, it) => s + (it.kind === 'match' ? it.marks : it.q.marks), 0)
+    + fibQs.reduce((s, q) => s + q.marks, 0);
+  const topics = [...new Set(qs.map(q => q.pageName))];
+  return { items, rounds, totalMarks, count: num, topics };
+}
+
+// Blank keys are B1, B2, … — numeric sort so B10 doesn't land before B2.
+function blankKeys(q) {
+  return Object.keys((q.key && q.key.blanks) || {})
+    .sort((a, b) => (parseInt(a.slice(1), 10) || 0) - (parseInt(b.slice(1), 10) || 0));
+}
+
+// Word bank for one round: every blank's answer (deduped, case-insensitive)
+// plus N plausible distractors from the same questions' pre-built option
+// pools; topped up from other rounds' answers if the pool runs dry. Sorted
+// alphabetically — looks deliberate on paper and destroys ordering cues.
+function buildWordBank(roundQs, distractorCount, allChunks, roundIndex) {
+  const correct = [];
+  const seen = new Set();
+  let dupes = false;
+  roundQs.forEach(q => blankKeys(q).forEach(k => {
+    const w = String(q.key.blanks[k]);
+    const lw = w.toLowerCase();
+    if (seen.has(lw)) { dupes = true; return; }
+    seen.add(lw);
+    correct.push(w);
+  }));
+
+  const pool = new Map(); // lowercase -> original casing
+  roundQs.forEach(q => {
+    if (!q.blankOptions) return;
+    Object.values(q.blankOptions).forEach(arr => (arr || []).forEach(w => {
+      const s = String(w), l = s.toLowerCase();
+      if (!seen.has(l) && !pool.has(l)) pool.set(l, s);
+    }));
+  });
+  let distractors = shuffle([...pool.values()]).slice(0, distractorCount);
+  if (distractors.length < distractorCount) {
+    const extra = new Map();
+    allChunks.forEach((chunk, ci) => {
+      if (ci === roundIndex) return;
+      chunk.forEach(q => blankKeys(q).forEach(k => {
+        const s = String(q.key.blanks[k]), l = s.toLowerCase();
+        if (!seen.has(l) && !pool.has(l) && !extra.has(l)) extra.set(l, s);
+      }));
+    });
+    distractors = distractors.concat(shuffle([...extra.values()]).slice(0, distractorCount - distractors.length));
+  }
+
+  const words = [...correct, ...distractors]
+    .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+  return { words, dupes };
+}
+
+// Rebuild a run of ≥3 Matching questions (stored in the bank as MCQs
+// "Which definition matches the key term “X”?") into a real match-the-columns
+// exercise. Returns null if any question doesn't fit the pattern — the
+// caller falls back to plain MCQ rendering.
+function buildMatchGroup(qs) {
+  if (qs.length < 3) return null;
+  const pairs = [];
+  for (const q of qs) {
+    const m = (q.question || '').match(/[“"]([^”"]+)[”"]/);
+    if (!m || !Array.isArray(q.options) || !q.key || typeof q.key.answer !== 'number') return null;
+    const def = q.options[q.key.answer];
+    if (def == null) return null;
+    pairs.push({ term: m[1], def });
+  }
+  const order = shuffle(pairs.map((_, i) => i)); // order[row] = which pair's definition sits in that row
+  return {
+    terms: pairs.map(p => p.term),
+    defs: order.map(i => pairs[i].def),
+    answers: pairs.map((_, i) => String.fromCharCode(65 + order.indexOf(i))),
+  };
+}
+
+// ══════════ WORKSHEET RENDERING ══════════
+function marksTag(n, opts) {
+  return opts.showMarks ? `<span class="ws-marks">[${n}]</span>` : '';
+}
+
+function answerLines(n) {
+  return `<div class="ws-lines">${'<div class="ws-line"></div>'.repeat(Math.max(1, n))}</div>`;
+}
+
+// One instruction line generated from whichever question types are present.
+function howtoLine(model, opts) {
+  const kinds = new Set();
+  model.items.forEach(it => kinds.add(it.kind === 'match' ? 'match' : it.q.type));
+  if (model.rounds.length) kinds.add('fib');
+  const bits = [];
+  if (kinds.has('mcq')) bits.push('circle the correct letter for multiple-choice questions');
+  if (kinds.has('tf')) bits.push('circle TRUE or FALSE');
+  if (kinds.has('match')) bits.push('write the letter of each definition next to its key term');
+  if (kinds.has('fib')) bits.push('fill each blank using the word bank for that round');
+  if (kinds.has('written')) bits.push('answer written questions on the lines provided');
+  if (!bits.length) return '';
+  const s = bits.join('; ');
+  return `<div class="ws-howto">${esc(s.charAt(0).toUpperCase() + s.slice(1))}.</div>`;
+}
+
+function renderWorksheetQuestion(it, opts) {
+  if (it.kind === 'match') return renderMatchItem(it, opts);
+  const q = it.q;
+  let body = '';
+
+  if (q.type === 'mcq') {
+    body = `<div>${esc(q.question)}</div>${renderMcqOptions(q, opts)}`;
+  } else if (q.type === 'tf') {
+    body = `<div style="display:flex; align-items:baseline;"><span style="flex:1;">${esc(q.question)}</span><span class="ws-tf">TRUE / FALSE</span></div>`;
+  } else if (q.type === 'fib') {
+    body = renderFibText(q, opts);
+  } else { // written
+    let text = q.question;
+    if (opts.showMarks) text = text.replace(/\s*\[\d+\s*marks?\]\s*$/i, '');
+    const starter = opts.sentenceStarters && q.starter ? `<div class="ws-starter">${esc(q.starter)}</div>` : '';
+    const lines = Math.max(2, Math.ceil(q.marks * opts.linesPerMark));
+    body = `<div>${esc(text)}</div>${starter}${answerLines(lines)}`;
+  }
+
+  const marks = it.kind === 'match' ? it.marks : q.marks;
+  return `<div class="ws-q"><span class="ws-num">${it.num}.</span><div class="ws-qmain">${body}</div>${marksTag(marks, opts)}</div>`;
+}
+
+function renderMcqOptions(q, opts) {
+  const options = q.options || [];
+  const total = options.reduce((s, o) => s + o.length, 0);
+  if (opts.mcqTwoCol && total <= 90 && options.every(o => o.length <= 30)) {
+    return `<div class="ws-opts-inline">${options.map((o, i) => `<span><strong>${String.fromCharCode(65 + i)}.</strong> ${esc(o)}</span>`).join('')}</div>`;
+  }
+  const cols = opts.mcqTwoCol && options.every(o => o.length <= 45) ? ' cols2' : '';
+  return `<ol class="ws-opts${cols}" type="A">${options.map(o => `<li>${esc(o)}</li>`).join('')}</ol>`;
+}
+
+function renderFibText(q, opts) {
+  const keys = blankKeys(q);
+  const parts = String(q.question).split(/_{3,}/);
+  const multi = keys.length > 1;
+  let out = '';
+  for (let i = 0; i < parts.length; i++) {
+    out += esc(parts[i]);
+    if (i >= parts.length - 1) break;
+    const key = keys[Math.min(i, keys.length - 1)];
+    const word = key ? String(q.key.blanks[key]) : '';
+    const label = multi ? `<span class="ws-blank-lbl">(${String.fromCharCode(97 + i)})</span> ` : '';
+    const hint = opts.fibFirstLetter && word ? esc(word.charAt(0)) : '&nbsp;';
+    out += `${label}<span class="ws-blank">${hint}</span>`;
+  }
+  return `<div>${out}</div>`;
+}
+
+function renderMatchItem(it, opts) {
+  const rows = it.terms.map((term, i) => `
+    <tr>
+      <td><strong>${i + 1}.</strong> ${esc(term)}</td>
+      <td class="box"></td>
+      <td><strong>${String.fromCharCode(65 + i)}.</strong> ${esc(it.defs[i])}</td>
+    </tr>`).join('');
+  return `
+    <div class="ws-q"><span class="ws-num">${it.num}.</span><div class="ws-qmain">
+      <div>Match each key term to its definition — write the letter in the middle box. <em>(${esc(it.pageName)})</em></div>
+      <table class="ws-match-table">
+        <thead><tr><th>Key term</th><th class="box">Letter</th><th>Definition</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>${marksTag(it.marks, opts)}</div>`;
+}
+
+// Renders the mixed (non-FIB) items, boxing shared case studies / readings
+// once for each consecutive run instead of repeating them per question.
+function renderMixedItems(items, opts) {
+  let html = '';
+  let i = 0;
+  while (i < items.length) {
+    const it = items[i];
+    if (it.kind === 'q' && it.q.caseStudy) {
+      let j = i;
+      while (j + 1 < items.length && items[j + 1].kind === 'q' && items[j + 1].q.caseStudy === it.q.caseStudy) j++;
+      const range = j > i ? `questions ${it.num}–${items[j].num}` : `question ${it.num}`;
+      html += `<div class="ws-case"><div class="ws-case-lbl">📋 Case study — read it, then answer ${esc(range)}.</div>${esc(it.q.caseStudy)}</div>`;
+      for (let k = i; k <= j; k++) html += renderWorksheetQuestion(items[k], opts);
+      i = j + 1;
+      continue;
+    }
+    if (it.kind === 'q' && it.q.reading && opts.includeReadings) {
+      let j = i;
+      while (j + 1 < items.length && items[j + 1].kind === 'q' && items[j + 1].q.reading
+        && items[j + 1].q.readingTitle === it.q.readingTitle) j++;
+      const range = j > i ? `questions ${it.num}–${items[j].num}` : `question ${it.num}`;
+      html += `<div class="ws-reading"><div class="ws-reading-lbl">📖 ${esc(it.q.readingTitle || 'Reading')} — read it, then answer ${esc(range)}.</div>${it.q.reading}</div>`;
+      for (let k = i; k <= j; k++) html += renderWorksheetQuestion(items[k], opts);
+      i = j + 1;
+      continue;
+    }
+    html += renderWorksheetQuestion(it, opts);
+    i++;
+  }
+  return html;
+}
+
+function renderWordBank(bank) {
+  return `<div class="ws-wordbank">
+    <div class="ws-wordbank-lbl">Word bank</div>
+    <div class="words">${bank.words.map(w => `<span>${esc(w)}</span>`).join('')}</div>
+    ${bank.dupes ? '<div class="note">Some words are used more than once.</div>' : ''}
+  </div>`;
+}
+
+function renderWorksheet(model, opts) {
+  let html = `<div class="ws-head">
+    <div class="ws-title">${esc(opts.title)}</div>
+    <div class="ws-course">OCR GCSE Business Studies (J204)</div>
+    ${opts.nameLine ? `<div class="ws-nameline">
+      <span>Name: <span class="fill"></span></span>
+      <span>Class: <span class="fill short"></span></span>
+      <span>Date: <span class="fill short"></span></span>
+      ${opts.showMarks ? `<span>Score: <span class="fill short"></span> / ${model.totalMarks}</span>` : ''}
+    </div>` : ''}
+    ${opts.instructions ? `<div class="ws-instructions">${esc(opts.instructions)}</div>` : ''}
+    ${howtoLine(model, opts)}
+    ${model.topics.length ? `<div class="ws-topics">Topics: ${esc(model.topics.join(' · '))}</div>` : ''}
+  </div>`;
+
+  html += renderMixedItems(model.items, opts);
+
+  model.rounds.forEach(round => {
+    const label = model.rounds.length > 1 ? `Fill in the blanks — Round ${round.roundNum}` : 'Fill in the blanks';
+    html += `<div class="ws-sec-head">✏️ ${label}</div>`;
+    html += renderWordBank(round.bank);
+    round.items.forEach(it => { html += renderWorksheetQuestion(it, opts); });
+  });
+
+  html += renderAnswerKey(model, opts);
+  return html;
+}
+
+// ══════════ ANSWER KEY (always the last section, always a fresh page) ══════════
+function keyEntry(it, opts) {
+  const detailed = opts.keyDetail === 'detailed';
+  if (it.kind === 'match') {
+    let s = `<div class="ws-key-item"><strong>${it.num}.</strong> ${it.terms.map((_, i) => `${i + 1}→${it.answers[i]}`).join(' &nbsp;')}`;
+    if (detailed) s += `<div class="expl">${it.terms.map((t, i) => `${esc(t)} = ${esc(it.defs[it.answers[i].charCodeAt(0) - 65])}`).join('<br/>')}</div>`;
+    return s + '</div>';
+  }
+  const q = it.q;
+  if (q.type === 'mcq') {
+    let s = `<div class="ws-key-item"><strong>${it.num}.</strong> ${String.fromCharCode(65 + ((q.key && typeof q.key.answer === 'number') ? q.key.answer : 0))}`;
+    if (detailed && q.key && q.key.explain) s += `<div class="expl">${esc(q.key.explain)}</div>`;
+    return s + '</div>';
+  }
+  if (q.type === 'tf') {
+    let s = `<div class="ws-key-item"><strong>${it.num}.</strong> ${q.key && q.key.answer ? 'TRUE' : 'FALSE'}`;
+    if (detailed && q.key && q.key.explain) s += `<div class="expl">${esc(q.key.explain)}</div>`;
+    return s + '</div>';
+  }
+  if (q.type === 'fib') {
+    const keys = blankKeys(q);
+    const multi = keys.length > 1;
+    const parts = keys.map((k, i) => `${multi ? `(${String.fromCharCode(97 + i)}) ` : ''}${esc(String(q.key.blanks[k]))}`);
+    return `<div class="ws-key-item"><strong>${it.num}.</strong> ${parts.join(' &nbsp;')}</div>`;
+  }
+  // written
+  let body;
+  if (detailed && q.key && q.key.markScheme) body = q.key.markScheme; // trusted site-generated HTML
+  else if (q.key && q.key.modelAnswer) body = `<div class="expl">${esc(q.key.modelAnswer)}</div>`;
+  else if (q.key && q.key.markScheme) body = q.key.markScheme;
+  else body = '<div class="expl">(teacher judgement)</div>';
+  return `<div class="ws-key-item"><strong>${it.num}.</strong> <em>Written — ${q.marks} mark${q.marks === 1 ? '' : 's'}</em>${body}</div>`;
+}
+
+function renderAnswerKey(model, opts) {
+  let inner = model.items.map(it => keyEntry(it, opts)).join('');
+  model.rounds.forEach(round => {
+    const label = model.rounds.length > 1 ? `Fill in the blanks — Round ${round.roundNum}` : 'Fill in the blanks';
+    inner += `<div class="ws-key-sub">✏️ ${label}</div>`;
+    inner += round.items.map(it => keyEntry(it, opts)).join('');
+  });
+  return `<section class="ws-answers">
+    <h2>Answer Key — ${esc(opts.title)}</h2>
+    <p class="ws-answers-strap">Teacher copy · ${model.count} questions · ${model.totalMarks} marks — do not photocopy this page for students.</p>
+    <div class="ws-key-cols">${inner}</div>
+  </section>`;
+}
+
+// ══════════ BUILD + OUTPUT ══════════
+function buildAndRenderWorksheet() {
+  const opts = readOpts();
+  const root = $('printRoot');
+  root.className = (opts.style === 'site' ? 'ws-style-site ' : '') + (opts.size !== 'std' ? `ws-size-${opts.size}` : '');
+  const empty = !edQuestions.length;
+  $('printBtn').disabled = empty;
+  $('docBtn').disabled = empty;
+  $('shuffleBtn').disabled = empty;
+  $('printEmptyMsg').style.display = empty ? 'block' : 'none';
+  if (empty) { root.innerHTML = ''; $('printSummary').textContent = ''; return; }
+  const model = buildWorksheetModel(opts);
+  root.innerHTML = renderWorksheet(model, opts);
+  $('printSummary').textContent = `— ${model.count} questions · ${model.totalMarks} marks${model.rounds.length ? ` · ${model.rounds.length} blank round${model.rounds.length === 1 ? '' : 's'}` : ''}`;
+}
+
+function doPrint() {
+  if (!edQuestions.length) return;
+  window.print();
+}
+
+$('printBtn').addEventListener('click', doPrint);
+$('shuffleBtn').addEventListener('click', buildAndRenderWorksheet);
+
+// If the teacher hits Ctrl+P from step 1/2, build the sheet on the fly. On
+// step 3 leave it alone — rebuilding would reshuffle word banks and matching
+// columns, so what printed wouldn't be what was previewed.
+window.addEventListener('beforeprint', () => { if (edQuestions.length && wsStep !== 3) buildAndRenderWorksheet(); });
+
+// Editable Word copy — Word opens HTML saved as .doc. Fidelity is lower than
+// print (no CSS columns / variables), so inline a simplified stylesheet.
+function downloadDoc() {
+  if (!edQuestions.length) return;
+  const opts = readOpts();
+  const docCss = `
+    body { font-family:${opts.style === 'site' ? "'DM Sans',Arial" : 'Arial'},sans-serif; font-size:${opts.size === 'xl' ? '14pt' : opts.size === 'lg' ? '12.5pt' : '10.5pt'}; line-height:1.4; color:#000; }
+    .ws-title { font-size:18pt; font-weight:bold; ${opts.style === 'site' ? 'color:#7a5c9e;' : ''} }
+    .ws-head { border-bottom:2px solid #444; padding-bottom:6px; margin-bottom:10px; }
+    .ws-nameline span { margin-right:18px; }
+    .ws-nameline .fill { display:inline-block; border-bottom:1px solid #000; width:120px; }
+    .ws-nameline .fill.short { width:60px; }
+    .ws-howto, .ws-answers-strap, .ws-starter { font-style:italic; color:#333; }
+    .ws-topics { font-size:8.5pt; color:#444; }
+    .ws-q { margin-bottom:8pt; }
+    .ws-num { font-weight:bold; }
+    .ws-marks { font-weight:bold; }
+    .ws-sec-head { font-size:12pt; font-weight:bold; border-bottom:1px solid #444; margin:12pt 0 6pt; ${opts.style === 'site' ? 'color:#7a5c9e;' : ''} }
+    .ws-line { border-bottom:1px solid #999; height:22pt; }
+    .ws-blank { border-bottom:1px solid #000; padding:0 30pt; font-weight:bold; }
+    .ws-tf { font-weight:bold; }
+    .ws-case, .ws-reading, .ws-wordbank { border:1px solid #555; padding:5pt 8pt; margin:6pt 0; }
+    .ws-case-lbl, .ws-reading-lbl, .ws-wordbank-lbl { font-weight:bold; }
+    .ws-wordbank .words span { margin-right:14pt; }
+    .ws-match-table { border-collapse:collapse; width:100%; }
+    .ws-match-table th, .ws-match-table td { border:1px solid #000; padding:2pt 5pt; }
+    .ws-answers { page-break-before:always; border-top:2px solid #444; margin-top:12pt; padding-top:6pt; }
+    .ws-answers h2 { font-size:14pt; ${opts.style === 'site' ? 'color:#7a5c9e;' : ''} }
+    .ws-key-item { margin-bottom:4pt; }
+    .ws-key-item .expl { color:#333; font-size:9pt; }
+    .ws-key-sub { font-weight:bold; margin:8pt 0 4pt; }`;
+  const html = `<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word">`
+    + `<head><meta charset="utf-8"/><title>${esc(opts.title)}</title><style>${docCss}</style></head>`
+    + `<body>${$('printRoot').innerHTML}</body></html>`;
+  const blob = new Blob(['﻿', html], { type: 'application/msword' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = opts.title.replace(/[^\w\- ]+/g, '').trim().replace(/\s+/g, '_').toLowerCase() + '.doc';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(a.href);
+}
+$('docBtn').addEventListener('click', downloadDoc);
+
+init();
+</script>
+</body>
+</html>

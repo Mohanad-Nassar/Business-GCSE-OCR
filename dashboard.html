@@ -351,7 +351,11 @@
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="section-totals.js"></script>
+<script src="/subjects-index.js"></script>
+<script src="/page-groups-all.js"></script>
+<script src="/section-totals-all.js"></script>
+<script src="/subject-loader.js"></script>
+<script>subjectLoaderInit({ mode: 'single' });</script>
 <script src="progress-shared.js"></script>
 <script src="tasks-shared.js"></script>
 <script src="notifications-shared.js"></script>
@@ -447,10 +451,17 @@ function mergeProgress(local, server) {
 // Topic access (schema: supabase/topic-access-schema.sql). Mirrors the
 // lock logic in topic-guard.js so the dashboard list itself shows locked
 // topics up front, rather than only discovering it after clicking in.
+// The dashboard is a single-subject view: subjectLoaderInit({mode:'single'})
+// has set window.SUBJECT from ?subject= (default business).
+function activeSubjectSlug() {
+  return (window.SUBJECT && window.SUBJECT.slug) || 'business';
+}
+
 async function loadTopicSettings() {
   if (!supabaseClient) return null;
   try {
-    const { data, error } = await supabaseClient.rpc('get_my_topic_settings');
+    const { data, error } = await supabaseClient.rpc('get_my_topic_settings',
+      { p_subject: activeSubjectSlug() });
     if (error) { console.error('get_my_topic_settings', error); return null; }
     return data;
   } catch (e) { console.error('get_my_topic_settings', e); return null; }
@@ -847,7 +858,8 @@ async function loadWeakTopics() {
   }, { weighted: 0, weight: 0 });
   if (totals.weight > 0) {
     const coursePct = Math.round(totals.weighted / totals.weight * 100);
-    const { error: snapErr } = await supabaseClient.rpc('record_flight_path_snapshot', { p_pct: coursePct });
+    const { error: snapErr } = await supabaseClient.rpc('record_flight_path_snapshot',
+      { p_pct: coursePct, p_subject: activeSubjectSlug() });
     if (snapErr) console.error('record_flight_path_snapshot', snapErr);
   }
   await loadFlightPath();
@@ -881,10 +893,13 @@ async function loadWeakTopics() {
 async function loadFlightPath() {
   const container = document.getElementById('flightPathChart');
   if (!container || !supabaseClient || !currentSession) return;
+  // Snapshots are per subject now (student_id + subject_slug + date) —
+  // scope the chart to the subject being viewed or it merges subjects.
   const { data, error } = await supabaseClient
     .from('flight_path_snapshots')
     .select('snapshot_date, pct')
     .eq('student_id', currentSession.user.id)
+    .eq('subject_slug', activeSubjectSlug())
     .order('snapshot_date');
   if (error) {
     console.error('loadFlightPath', error);

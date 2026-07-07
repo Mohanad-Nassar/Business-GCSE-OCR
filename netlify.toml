@@ -24,3 +24,207 @@
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
+
+# -- step-4 restructure redirects (old root topic URLs) --
+# Pre-launch nicety: any bookmarked/emailed old root topic URL
+# lands on the same page in its new home.
+
+[[redirects]]
+  from = "/1_1_role_of_business_enterprise.html"
+  to = "/subjects/business/1_1_role_of_business_enterprise.html"
+  status = 301
+
+[[redirects]]
+  from = "/1_2_business_planning.html"
+  to = "/subjects/business/1_2_business_planning.html"
+  status = 301
+
+[[redirects]]
+  from = "/1_3_business_ownership.html"
+  to = "/subjects/business/1_3_business_ownership.html"
+  status = 301
+
+[[redirects]]
+  from = "/1_4_business_aims_objectives.html"
+  to = "/subjects/business/1_4_business_aims_objectives.html"
+  status = 301
+
+[[redirects]]
+  from = "/1_5_stakeholders_in_business.html"
+  to = "/subjects/business/1_5_stakeholders_in_business.html"
+  status = 301
+
+[[redirects]]
+  from = "/1_6_business_growth.html"
+  to = "/subjects/business/1_6_business_growth.html"
+  status = 301
+
+[[redirects]]
+  from = "/2_1_role_of_marketing.html"
+  to = "/subjects/business/2_1_role_of_marketing.html"
+  status = 301
+
+[[redirects]]
+  from = "/2_2_market_research.html"
+  to = "/subjects/business/2_2_market_research.html"
+  status = 301
+
+[[redirects]]
+  from = "/2_3_market_segmentation.html"
+  to = "/subjects/business/2_3_market_segmentation.html"
+  status = 301
+
+[[redirects]]
+  from = "/2_4_marketing_mix.html"
+  to = "/subjects/business/2_4_marketing_mix.html"
+  status = 301
+
+[[redirects]]
+  from = "/2_4_1_introduction_marking_mix.html"
+  to = "/subjects/business/2_4_1_introduction_marking_mix.html"
+  status = 301
+
+[[redirects]]
+  from = "/2_4_2_Product_and_The_Product_Life_Cycle.html"
+  to = "/subjects/business/2_4_2_Product_and_The_Product_Life_Cycle.html"
+  status = 301
+
+[[redirects]]
+  from = "/2_4_3_pricing_methods.html"
+  to = "/subjects/business/2_4_3_pricing_methods.html"
+  status = 301
+
+[[redirects]]
+  from = "/2_4_4_Promotion.html"
+  to = "/subjects/business/2_4_4_Promotion.html"
+  status = 301
+
+[[redirects]]
+  from = "/2_4_5_place.html"
+  to = "/subjects/business/2_4_5_place.html"
+  status = 301
+
+[[redirects]]
+  from = "/2_4_6_market_data_integrated_mix.html"
+  to = "/subjects/business/2_4_6_market_data_integrated_mix.html"
+  status = 301
+
+[[redirects]]
+  from = "/3_1_role_of_human_resources.html"
+  to = "/subjects/business/3_1_role_of_human_resources.html"
+  status = 301
+
+[[redirects]]
+  from = "/3_2_organisational_structures.html"
+  to = "/subjects/business/3_2_organisational_structures.html"
+  status = 301
+
+[[redirects]]
+  from = "/3_3_communication_in_business.html"
+  to = "/subjects/business/3_3_communication_in_business.html"
+  status = 301
+
+[[redirects]]
+  from = "/3_4_recruitment_and_selection.html"
+  to = "/subjects/business/3_4_recruitment_and_selection.html"
+  status = 301
+
+[[redirects]]
+  from = "/3_5_motivation_and_retention.html"
+  to = "/subjects/business/3_5_motivation_and_retention.html"
+  status = 301
+
+[[redirects]]
+  from = "/3_6_training_and_development.html"
+  to = "/subjects/business/3_6_training_and_development.html"
+  status = 301
+
+[[redirects]]
+  from = "/3_7_employment_law.html"
+  to = "/subjects/business/3_7_employment_law.html"
+  status = 301
+
+[[redirects]]
+  from = "/4_1_production_processes.html"
+  to = "/subjects/business/4_1_production_processes.html"
+  status = 301
+
+[[redirects]]
+  from = "/4_2_quality_of_goods_services.html"
+  to = "/subjects/business/4_2_quality_of_goods_services.html"
+  status = 301
+
+[[redirects]]
+  from = "/4_3_sales_process_customer_service.html"
+  to = "/subjects/business/4_3_sales_process_customer_service.html"
+  status = 301
+
+[[redirects]]
+  from = "/4_4_consumer_law.html"
+  to = "/subjects/business/4_4_consumer_law.html"
+  status = 301
+
+[[redirects]]
+  from = "/4_5_business_location.html"
+  to = "/subjects/business/4_5_business_location.html"
+  status = 301
+
+[[redirects]]
+  from = "/4_6_working_with_suppliers.html"
+  to = "/subjects/business/4_6_working_with_suppliers.html"
+  status = 301
+
+[[redirects]]
+  from = "/5_1_role_of_finance_function.html"
+  to = "/subjects/business/5_1_role_of_finance_function.html"
+  status = 301
+
+[[redirects]]
+  from = "/5_2_sources_of_finance.html"
+  to = "/subjects/business/5_2_sources_of_finance.html"
+  status = 301
+
+[[redirects]]
+  from = "/5_3_revenue_costs_profit_loss.html"
+  to = "/subjects/business/5_3_revenue_costs_profit_loss.html"
+  status = 301
+
+[[redirects]]
+  from = "/5_4_break_even.html"
+  to = "/subjects/business/5_4_break_even.html"
+  status = 301
+
+[[redirects]]
+  from = "/5_5_cash_and_cash_flow.html"
+  to = "/subjects/business/5_5_cash_and_cash_flow.html"
+  status = 301
+
+[[redirects]]
+  from = "/6_1_ethical_environmental.html"
+  to = "/subjects/business/6_1_ethical_environmental.html"
+  status = 301
+
+[[redirects]]
+  from = "/6_2_the_economic_climate.html"
+  to = "/subjects/business/6_2_the_economic_climate.html"
+  status = 301
+
+[[redirects]]
+  from = "/6_3_globalisation.html"
+  to = "/subjects/business/6_3_globalisation.html"
+  status = 301
+
+[[redirects]]
+  from = "/7_1_final.html"
+  to = "/subjects/business/7_1_final.html"
+  status = 301
+
+[[redirects]]
+  from = "/Extra/*"
+  to = "/subjects/business/extra/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/exam_prep/*"
+  to = "/subjects/business/exam_prep/:splat"
+  status = 301

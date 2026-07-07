@@ -219,6 +219,7 @@
       <button type="button" class="subtab" id="tabTasks">📋 Tasks</button>
       <button type="button" class="subtab" id="tabTopicAccess">🔒 Topic Access</button>
       <button type="button" class="subtab" id="tabDailyRevise">🎯 Daily Revise</button>
+      <button type="button" class="subtab" id="tabWorksheets">🖨️ Worksheets</button>
     </div>
 
     <!-- ═══ VIEW: CLASS PROGRESS ═══ -->
@@ -519,7 +520,12 @@
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="section-totals.js"></script>
+<script src="/subjects-index.js"></script>
+<script src="/page-groups-all.js"></script>
+<script src="/section-totals-all.js"></script>
+<script src="/subject-loader.js"></script>
+<!-- TODO(step-5): resolve the subject from the selected class (per-class subject picker) instead of defaulting to business -->
+<script>subjectLoaderInit({ mode: 'single' });</script>
 <script src="progress-shared.js"></script>
 <script src="tasks-shared.js"></script>
 <script src="gamification.js"></script>
@@ -1033,6 +1039,7 @@ document.getElementById('tabStudents').addEventListener('click', () => showClass
 document.getElementById('tabTasks').addEventListener('click', () => { showClassSubView('tasks'); loadClassTasksSummary(); });
 document.getElementById('tabTopicAccess').addEventListener('click', () => { showClassSubView('topicAccess'); loadTopicAccessView(); });
 document.getElementById('tabDailyRevise').addEventListener('click', () => { showClassSubView('dailyRevise'); loadDailyReviseView(); });
+document.getElementById('tabWorksheets').addEventListener('click', () => { location.href = 'teacher-worksheets.html'; });
 document.getElementById('backToClassBtn').addEventListener('click', () => showClassSubView('progress'));
 
 // ── Generate students ──

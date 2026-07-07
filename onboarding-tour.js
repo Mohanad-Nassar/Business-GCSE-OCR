@@ -23,7 +23,7 @@
 const ONBOARDING_TOUR_FLAG = 'gcse_onboarding_tour_seen_v1';
 const ONBOARDING_STATE_KEY = 'gcse_onboarding_tour_state_v1';
 const ONBOARDING_SESSION_KEY = 'gcse_session_v1';
-const ONBOARDING_FALLBACK_TOPIC = '1_1_role_of_business_enterprise.html';
+const ONBOARDING_FALLBACK_TOPIC = '/subjects/business/1_1_role_of_business_enterprise.html';
 
 // An element that's present but display:none (e.g. an empty-state
 // section on a brand-new account) shouldn't be spotlighted — it has no

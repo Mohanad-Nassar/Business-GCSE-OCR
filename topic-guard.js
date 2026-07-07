@@ -54,7 +54,11 @@
 
     let settings;
     try {
-      const { data, error } = await window._gcseSupabaseClient.rpc('get_my_topic_settings');
+      // p_subject picks the caller's class FOR THIS SUBJECT (a student can
+      // be in one class per subject) — window.SUBJECT comes from the
+      // generated page-groups.js loaded on every topic page.
+      const { data, error } = await window._gcseSupabaseClient.rpc('get_my_topic_settings',
+        { p_subject: (window.SUBJECT && window.SUBJECT.slug) || null });
       if (error || !data) return; // fail open on a network hiccup — don't block the page
       settings = data;
     } catch (e) { return; }
@@ -107,8 +111,8 @@
     // topic" concept, so they keep the plain dashboard link.
     const primaryLink = blockerPage
       ? `<a href="${blockerPage.href}" style="display:inline-block;padding:11px 22px;border-radius:8px;background:#1a2332;color:#fff;text-decoration:none;font-weight:600;">→ Go to "${blockerPage.name}"</a>
-         <p style="margin-top:16px;"><a href="dashboard.html" style="color:inherit;font-size:13px;">← Back to dashboard</a></p>`
-      : `<p><a href="dashboard.html" style="color:inherit;">← Back to dashboard</a></p>`;
+         <p style="margin-top:16px;"><a href="/dashboard.html" style="color:inherit;font-size:13px;">← Back to dashboard</a></p>`
+      : `<p><a href="/dashboard.html" style="color:inherit;">← Back to dashboard</a></p>`;
     box.innerHTML = `
       <div style="font-size:40px;margin-bottom:10px;" aria-hidden="true">🔒</div>
       <h1 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:10px;">This topic isn't open yet</h1>

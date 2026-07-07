@@ -82,14 +82,33 @@ create policy "tar_teacher_all" on topic_access_requests
 -- via get_my_topic_settings() and write via request_topic_access() below,
 -- same pattern as progress_events/progress_summary in schema.sql.
 
--- ── get_my_topic_settings() ──
+-- ── get_my_topic_settings(p_subject) ──
 -- Everything a student's client needs to compute lock state for every
 -- topic: their class's mode, the manual-mode hidden list, their own
 -- grants, and their own request history (so the UI can show "pending" /
--- "denied" without a direct SELECT policy). If a student is somehow in
--- more than one class, the earliest-joined class wins — this app's
--- classes are effectively 1-per-student in practice.
-create or replace function get_my_topic_settings() returns jsonb
+-- "denied" without a direct SELECT policy).
+--
+-- MULTI-SUBJECT SIGNATURE CHANGE: this function used to be zero-arg and
+-- picked "the" class by earliest joined_at — a one-class assumption. It
+-- now takes p_subject (a subjects.slug, e.g. 'business') and resolves the
+-- caller's class FOR THAT SUBJECT via my_class_for_subject() (schema.sql).
+-- p_subject default null = old earliest-class behaviour, so a not-yet-
+-- updated client calling with no args still works. The old zero-arg
+-- version MUST be dropped (below) — `create or replace` with a new
+-- parameter list would otherwise create a second, ambiguous overload and
+-- clients must never see two versions.
+--
+-- ⚠️ THIS FUNCTION IS RE-DECLARED (create or replace, full body swap — NOT
+-- additive) in supabase/class-flow-settings.sql, which adds a `flow` key
+-- and MUST run after this file. If you ever edit the version here, you
+-- MUST re-run class-flow-settings.sql immediately afterward too, or the
+-- live function reverts to this shorter version and every "Inside a
+-- topic" / timer setting (Steps 2-3 in the Teacher Dashboard) silently
+-- stops reaching students, even though nothing about them changed.
+-- The two copies' signatures must also stay identical — both are
+-- (p_subject text default null) returns jsonb.
+drop function if exists get_my_topic_settings();
+create or replace function get_my_topic_settings(p_subject text default null) returns jsonb
 language plpgsql security definer stable set search_path = public as $$
 declare
     v_uid            uuid := auth.uid();
@@ -102,11 +121,12 @@ declare
 begin
     if v_uid is null then raise exception 'not authenticated'; end if;
 
-    select c.id, c.topic_access_mode, c.topic_access_allow_requests
-    into v_class_id, v_mode, v_allow_requests
-    from class_students cs join classes c on c.id = cs.class_id
-    where cs.student_id = v_uid
-    order by cs.joined_at asc limit 1;
+    v_class_id := my_class_for_subject(p_subject);
+    if v_class_id is not null then
+        select c.topic_access_mode, c.topic_access_allow_requests
+        into v_mode, v_allow_requests
+        from classes c where c.id = v_class_id;
+    end if;
 
     if v_class_id is not null then
         select coalesce(array_agg(page_id), '{}') into v_hidden
@@ -115,6 +135,9 @@ begin
         v_hidden := '{}';
     end if;
 
+    -- Grants/requests are returned for ALL subjects on purpose — page ids
+    -- are subject-prefixed ('business:…'), so the client matches by page_id
+    -- and rows from other subjects are simply never looked up.
     select coalesce(array_agg(page_id), '{}') into v_granted
     from student_topic_grants where student_id = v_uid;
 
@@ -133,25 +156,29 @@ begin
     );
 end;
 $$;
-grant execute on function get_my_topic_settings() to authenticated;
+grant execute on function get_my_topic_settings(text) to authenticated;
 
 -- ── request_topic_access() ──
 -- Upserts a pending request for the caller's own class; a no-op (returns
 -- the existing row) if one's already pending, so mashing the button
--- can't spam the teacher's queue.
+-- can't spam the teacher's queue. The class is resolved from the page id's
+-- subject prefix ('business:1-1-…' → the caller's business class), so the
+-- request always lands in the right teacher's queue even for a student
+-- enrolled in several subjects. An unprefixed (legacy) page id falls back
+-- to the earliest-joined class, same as before.
 create or replace function request_topic_access(p_page_id text) returns jsonb
 language plpgsql security definer set search_path = public as $$
 declare
     v_uid        uuid := auth.uid();
+    v_subject    text;
     v_class_id   uuid;
     v_id         uuid;
 begin
     if v_uid is null then raise exception 'not authenticated'; end if;
 
-    select c.id into v_class_id
-    from class_students cs join classes c on c.id = cs.class_id
-    where cs.student_id = v_uid
-    order by cs.joined_at asc limit 1;
+    v_subject := case when position(':' in p_page_id) > 0
+                      then split_part(p_page_id, ':', 1) else null end;
+    v_class_id := my_class_for_subject(v_subject);
     if v_class_id is null then raise exception 'You are not in a class'; end if;
 
     select id into v_id from topic_access_requests
@@ -198,6 +225,12 @@ grant execute on function resolve_topic_access_request(uuid, boolean) to authent
 -- Same body as schema.sql, plus one guard: reject writes for a topic a
 -- student's class has explicitly hidden (manual mode), unless they hold
 -- a grant. Sequential mode is not checked here — see the header note.
+-- THIS IS THE LIVE COPY (it replaces schema.sql's). The class whose
+-- manual-lock list applies is resolved from the page id's subject prefix
+-- via my_class_for_subject(); an unprefixed (legacy) page id falls back to
+-- the earliest-joined class, and a page id whose prefix matches none of
+-- the student's classes skips the lock check entirely (fail-open — the
+-- write still records, it just can't be manually locked).
 create or replace function record_progress(
     p_page_id     text,
     p_section     text,
@@ -213,6 +246,7 @@ set search_path = public
 as $$
 declare
     v_uid uuid := auth.uid();
+    v_subject text;
     v_class_id uuid;
     v_mode text;
     v_granted boolean;
@@ -227,10 +261,12 @@ begin
     ) into v_granted;
 
     if not v_granted then
-        select c.id, c.topic_access_mode into v_class_id, v_mode
-        from class_students cs join classes c on c.id = cs.class_id
-        where cs.student_id = v_uid
-        order by cs.joined_at asc limit 1;
+        v_subject := case when position(':' in p_page_id) > 0
+                          then split_part(p_page_id, ':', 1) else null end;
+        v_class_id := my_class_for_subject(v_subject);
+        if v_class_id is not null then
+            select c.topic_access_mode into v_mode from classes c where c.id = v_class_id;
+        end if;
 
         if v_class_id is not null and v_mode = 'manual' then
             select exists(

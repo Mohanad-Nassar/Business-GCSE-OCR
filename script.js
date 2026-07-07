@@ -32,7 +32,9 @@ const STUDENT_EMAIL_DOMAIN = 'students.local';
 
 const GCSE_SESSION_KEY = 'gcse_session_v1';
 const GCSE_QUEUE_KEY = 'gcse_sync_queue_v1';
-const LOGIN_PAGE = 'login.html';
+// Root-absolute: topic pages now live at /subjects/<slug>/, so a relative
+// link would resolve inside the subject directory.
+const LOGIN_PAGE = '/login.html';
 // Pages that must stay reachable without a session.
 const GCSE_NO_GUARD_PAGES = ['login.html', 'teacher-signup.html'];
 
@@ -265,7 +267,7 @@ function _gcseInjectAccountBar() {
         wrap.style.cssText = 'display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;';
         wrap.innerHTML = `
             <span class="sn-user">Hi, <strong>${_gcseProfile.username || 'teacher'}</strong></span>
-            ${_gcseProfile.role === 'teacher' ? '<a href="teacher-dashboard.html" class="sn-link"><span aria-hidden="true">🧑‍🏫</span> <span class="sn-label">Teacher Dashboard</span></a>' : '<a href="manage-account.html" class="sn-link"><span aria-hidden="true">⚙</span> <span class="sn-label">Manage Account</span></a>'}
+            ${_gcseProfile.role === 'teacher' ? '<a href="/teacher-dashboard.html" class="sn-link"><span aria-hidden="true">🧑‍🏫</span> <span class="sn-label">Teacher Dashboard</span></a>' : '<a href="/manage-account.html" class="sn-link"><span aria-hidden="true">⚙</span> <span class="sn-label">Manage Account</span></a>'}
             <button type="button" class="sn-btn gcse-logout-btn"><span aria-hidden="true">↪</span> <span class="sn-label">Log out</span></button>`;
         nav.appendChild(wrap);
         wrap.querySelector('.gcse-logout-btn').addEventListener('click', gcseLogout);
@@ -280,7 +282,7 @@ function _gcseInjectAccountBar() {
     bar.className = 'gcse-account-bar';
     bar.innerHTML = `
         <span class="gcse-account-user">Logged in as <strong>${_gcseProfile.username || 'teacher'}</strong></span>
-        ${_gcseProfile.role === 'teacher' ? '<a href="teacher-dashboard.html" class="nav-link">Teacher Dashboard</a>' : '<a href="manage-account.html" class="nav-link">⚙ Manage Account</a>'}
+        ${_gcseProfile.role === 'teacher' ? '<a href="/teacher-dashboard.html" class="nav-link">Teacher Dashboard</a>' : '<a href="/manage-account.html" class="nav-link">⚙ Manage Account</a>'}
         <button type="button" class="nav-link gcse-logout-btn">Log out</button>
     `;
     header.appendChild(bar);
@@ -476,8 +478,8 @@ function initSiteNav() {
     nav.className = 'site-nav';
     nav.setAttribute('aria-label', 'Site');
     nav.innerHTML = `
-        <a class="sn-brand" href="index.html"><span aria-hidden="true">🏡</span> All Topics</a>
-        <a class="sn-link" href="dashboard.html"><span aria-hidden="true">📊</span> <span class="sn-label">My Progress</span></a>`;
+        <a class="sn-brand" href="/index.html"><span aria-hidden="true">🏡</span> All Topics</a>
+        <a class="sn-link" href="/dashboard.html"><span aria-hidden="true">📊</span> <span class="sn-label">My Progress</span></a>`;
     if (typeof gamificationCreateSoundButton === 'function') {
         nav.appendChild(gamificationCreateSoundButton('sn-btn'));
     }
@@ -748,7 +750,10 @@ async function gcseRefreshFlowSettings() {
     if (!_gcseSupabaseClient || !_gcseProfile || _gcseProfile.role !== 'student') return;
     let flow;
     try {
-        const { data, error } = await _gcseSupabaseClient.rpc('get_my_topic_settings');
+        // p_subject scopes the answer to THIS page's subject's class —
+        // window.SUBJECT is set by the generated page-groups.js.
+        const { data, error } = await _gcseSupabaseClient.rpc('get_my_topic_settings',
+            { p_subject: (window.SUBJECT && window.SUBJECT.slug) || null });
         if (error) { console.error('gcseRefreshFlowSettings', error); return; }
         if (!data || !data.flow) return;
         flow = data.flow;
@@ -3323,30 +3328,30 @@ const courseData = [
     {
         title: "1. Business Activity",
         links: [
-            { url: "1_1_role_of_business_enterprise.html",  label: "1.1 Role of Business Enterprise" },
-            { url: "1_2_business_planning.html",             label: "1.2 Business Planning" },
-            { url: "1_3_business_ownership.html",            label: "1.3 Business Ownership" },
-            { url: "1_4_business_aims_objectives.html",      label: "1.4 Aims and Objectives" },
-            { url: "1_5_stakeholders_in_business.html",      label: "1.5 Stakeholders in Business" },
-            { url: "1_6_business_growth.html",               label: "1.6 Business Growth" }
+            { url: "/subjects/business/1_1_role_of_business_enterprise.html",  label: "1.1 Role of Business Enterprise" },
+            { url: "/subjects/business/1_2_business_planning.html",             label: "1.2 Business Planning" },
+            { url: "/subjects/business/1_3_business_ownership.html",            label: "1.3 Business Ownership" },
+            { url: "/subjects/business/1_4_business_aims_objectives.html",      label: "1.4 Aims and Objectives" },
+            { url: "/subjects/business/1_5_stakeholders_in_business.html",      label: "1.5 Stakeholders in Business" },
+            { url: "/subjects/business/1_6_business_growth.html",               label: "1.6 Business Growth" }
         ]
     },
     {
         title: "2. Marketing",
         links: [
-            { url: "2_1_role_of_marketing.html",    label: "2.1 The Role of Marketing" },
-            { url: "2_2_market_research.html",       label: "2.2 Market Research" },
-            { url: "2_3_market_segmentation.html",   label: "2.3 Market Segmentation" },
+            { url: "/subjects/business/2_1_role_of_marketing.html",    label: "2.1 The Role of Marketing" },
+            { url: "/subjects/business/2_2_market_research.html",       label: "2.2 Market Research" },
+            { url: "/subjects/business/2_3_market_segmentation.html",   label: "2.3 Market Segmentation" },
             {
-                url: "2_4_marketing_mix.html",
+                url: "/subjects/business/2_4_marketing_mix.html",
                 label: "2.4 The Marketing Mix",
                 children: [
-                    { url: "2_4_1_introduction_marking_mix.html",      label: "2.4.1 Introduction" },
-                    { url: "2_4_2_Product_and_The_Product_Life_Cycle.html",  label: "2.4.2 Product & PLC" },
-                    { url: "2_4_3_pricing_methods.html",                label: "2.4.3 Pricing Methods" },
-                    { url: "2_4_4_Promotion.html",                      label: "2.4.4 Promotion" },
-                    { url: "2_4_5_place.html",                          label: "2.4.5 Place" },
-                    { url: "2_4_6_market_data_integrated_mix.html",     label: "2.4.6 Market Data & Mix" }
+                    { url: "/subjects/business/2_4_1_introduction_marking_mix.html",      label: "2.4.1 Introduction" },
+                    { url: "/subjects/business/2_4_2_Product_and_The_Product_Life_Cycle.html",  label: "2.4.2 Product & PLC" },
+                    { url: "/subjects/business/2_4_3_pricing_methods.html",                label: "2.4.3 Pricing Methods" },
+                    { url: "/subjects/business/2_4_4_Promotion.html",                      label: "2.4.4 Promotion" },
+                    { url: "/subjects/business/2_4_5_place.html",                          label: "2.4.5 Place" },
+                    { url: "/subjects/business/2_4_6_market_data_integrated_mix.html",     label: "2.4.6 Market Data & Mix" }
                 ]
             }
         ]
@@ -3354,48 +3359,48 @@ const courseData = [
     {
         title: "3. People",
         links: [
-            { url: "3_1_role_of_human_resources.html",       label: "3.1 Role of Human Resources" },
-            { url: "3_2_organisational_structures.html",     label: "3.2 Organisational Structures" },
-            { url: "3_3_communication_in_business.html",     label: "3.3 Communication in Business" },
-            { url: "3_4_recruitment_and_selection.html",     label: "3.4 Recruitment and Selection" },
-            { url: "3_5_motivation_and_retention.html",      label: "3.5 Motivation and Retention" },
-            { url: "3_6_training_and_development.html",      label: "3.6 Training and Development" },
-            { url: "3_7_employment_law.html",                label: "3.7 Employment Law" }
+            { url: "/subjects/business/3_1_role_of_human_resources.html",       label: "3.1 Role of Human Resources" },
+            { url: "/subjects/business/3_2_organisational_structures.html",     label: "3.2 Organisational Structures" },
+            { url: "/subjects/business/3_3_communication_in_business.html",     label: "3.3 Communication in Business" },
+            { url: "/subjects/business/3_4_recruitment_and_selection.html",     label: "3.4 Recruitment and Selection" },
+            { url: "/subjects/business/3_5_motivation_and_retention.html",      label: "3.5 Motivation and Retention" },
+            { url: "/subjects/business/3_6_training_and_development.html",      label: "3.6 Training and Development" },
+            { url: "/subjects/business/3_7_employment_law.html",                label: "3.7 Employment Law" }
         ]
     },
     {
         title: "4. Operations",
         links: [
-            { url: "4_1_production_processes.html",          label: "4.1 Production Processes" },
-            { url: "4_2_quality_of_goods_services.html",     label: "4.2 Quality of Goods & Services" },
-            { url: "4_3_sales_process_customer_service.html",label: "4.3 The Sales Process" },
-            { url: "4_4_consumer_law.html",                  label: "4.4 Consumer Law" },
-            { url: "4_5_business_location.html",             label: "4.5 Business Location" },
-            { url: "4_6_working_with_suppliers.html",        label: "4.6 Working with Suppliers" }
+            { url: "/subjects/business/4_1_production_processes.html",          label: "4.1 Production Processes" },
+            { url: "/subjects/business/4_2_quality_of_goods_services.html",     label: "4.2 Quality of Goods & Services" },
+            { url: "/subjects/business/4_3_sales_process_customer_service.html",label: "4.3 The Sales Process" },
+            { url: "/subjects/business/4_4_consumer_law.html",                  label: "4.4 Consumer Law" },
+            { url: "/subjects/business/4_5_business_location.html",             label: "4.5 Business Location" },
+            { url: "/subjects/business/4_6_working_with_suppliers.html",        label: "4.6 Working with Suppliers" }
         ]
     },
     {
         title: "5. Finance",
         links: [
-            { url: "5_1_role_of_finance_function.html",      label: "5.1 Role of Finance Function" },
-            { url: "5_2_sources_of_finance.html",            label: "5.2 Sources of Finance" },
-            { url: "5_3_revenue_costs_profit_loss.html",     label: "5.3 Revenue, Costs, Profit" },
-            { url: "5_4_break_even.html",                    label: "5.4 Break-even" },
-            { url: "5_5_cash_and_cash_flow.html",            label: "5.5 Cash and Cash Flow" }
+            { url: "/subjects/business/5_1_role_of_finance_function.html",      label: "5.1 Role of Finance Function" },
+            { url: "/subjects/business/5_2_sources_of_finance.html",            label: "5.2 Sources of Finance" },
+            { url: "/subjects/business/5_3_revenue_costs_profit_loss.html",     label: "5.3 Revenue, Costs, Profit" },
+            { url: "/subjects/business/5_4_break_even.html",                    label: "5.4 Break-even" },
+            { url: "/subjects/business/5_5_cash_and_cash_flow.html",            label: "5.5 Cash and Cash Flow" }
         ]
     },
     {
         title: "6. Influences",
         links: [
-            { url: "6_1_ethical_environmental.html",         label: "6.1 Ethical & Environmental" },
-            { url: "6_2_the_economic_climate.html",          label: "6.2 The Economic Climate" },
-            { url: "6_3_globalisation.html",                 label: "6.3 Globalisation" }
+            { url: "/subjects/business/6_1_ethical_environmental.html",         label: "6.1 Ethical & Environmental" },
+            { url: "/subjects/business/6_2_the_economic_climate.html",          label: "6.2 The Economic Climate" },
+            { url: "/subjects/business/6_3_globalisation.html",                 label: "6.3 Globalisation" }
         ]
     },
     {
         title: "7. Final",
         links: [
-            { url: "7_1_final.html",                         label: "7.1 Interdependent Nature" }
+            { url: "/subjects/business/7_1_final.html",                         label: "7.1 Interdependent Nature" }
         ]
     }
 ];
@@ -3420,7 +3425,7 @@ function initCourseSidebar() {
 
     let html = `
         <div class="sb-header">
-            <a href="index.html">← All Lessons</a>
+            <a href="/index.html">← All Lessons</a>
             <button class="mobile-close-btn" id="mobileCloseBtn">✕ Close</button>
         </div>`;
 
@@ -4156,10 +4161,21 @@ const ProgressStore = (() => {
     return { save, saveTotal, saveAnswers, setAnswersBulk, removeAnswers, getAnswers, get, getPage, getAll, clearPage };
 })();
 
-// ── Get the page ID from pageMeta (defined in each topic HTML)
+// ── Get the page ID from pageMeta (defined in each topic HTML), prefixed
+// with the page's subject slug — window.SUBJECT comes from the generated
+// page-groups.js each topic page loads. "1-1-role-of-business-enterprise"
+// becomes "business:1-1-role-of-business-enterprise": the subject-safe id
+// used by localStorage progress keys, progress_summary/progress_events
+// rows, SECTION_TOTALS and the question bank alike. (Pre-launch: old
+// unprefixed local progress is deliberately abandoned, no migration.)
 function getPageId() {
-    if (typeof pageMeta !== 'undefined' && pageMeta.id) return pageMeta.id;
-    return location.pathname.split('/').pop().replace('.html', '') || 'unknown';
+    let id;
+    if (typeof pageMeta !== 'undefined' && pageMeta.id) id = pageMeta.id;
+    else id = location.pathname.split('/').pop().replace('.html', '') || 'unknown';
+    if (window.SUBJECT && window.SUBJECT.slug && id.indexOf(':') === -1) {
+        id = window.SUBJECT.slug + ':' + id;
+    }
+    return id;
 }
 
 // Apply pageMeta to the DOM (badge, title, subtitle, page title)

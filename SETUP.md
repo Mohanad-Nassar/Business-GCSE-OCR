@@ -12,28 +12,103 @@ or Netlify accounts). Follow these steps in order.
    - **anon public** key (safe to expose in the browser) 
    - **service_role** key (**secret** â€” never put this in any `.html`/`.js` file, only in Netlify's environment variables in step 4)
 
-## 2. Run the database schema
+## 2. Run the database schema (fresh project — run in this exact order)
 
-1. In the Supabase dashboard, open **SQL Editor**.
-2. Open [`supabase/schema.sql`](supabase/schema.sql) from this repo, copy the whole file, paste it into the SQL Editor, and click **Run**.
-3. This creates all the tables, security rules, and the `record_progress` function. It's safe to re-run if you ever need to.
-4. **Then run [`supabase/tasks-schema.sql`](supabase/tasks-schema.sql) the same way** (it must run *after* `schema.sql`). This adds the Tasks feature: teacher-created question tasks with drafts, deadlines, attempt limits, per-student accommodations (deadline overrides / extra time), autosaved answers with per-question timing, automatic marking of MCQ / True-False / fill-in-the-blanks, a manual marking queue for written answers, notifications, analytics, and an anonymised leaderboard. Also safe to re-run.
-5. **Then run [`supabase/tasks-groups-migration.sql`](supabase/tasks-groups-migration.sql)** (after `tasks-schema.sql`). This adds `assignment_group_id` to `tasks`, used when a teacher sends one task to several classes at once. Also safe to re-run.
-6. **Then run [`supabase/tasks-analytics-functions.sql`](supabase/tasks-analytics-functions.sql)**. Adds `get_class_topic_performance()` and `get_my_topic_performance()`, which power the "Weak topics" views for teachers and students. Also safe to re-run.
-7. **Then run [`supabase/tasks-retry-schema.sql`](supabase/tasks-retry-schema.sql)**. Adds `source_kind`/`parent_task_id` to `tasks` and the `create_retry_task()` function, which lets a student generate a small follow-up task from just the questions they got wrong. Also safe to re-run.
-8. **Then run [`supabase/gamification-functions.sql`](supabase/gamification-functions.sql)**. Adds `get_my_streak()`, which powers the day-streak flame students see on their pages. Also safe to re-run.
-9. **Then run [`supabase/class-gamification.sql`](supabase/class-gamification.sql)**. Adds `get_class_streaks()`, which powers the per-student Level / 🔥 Streak / 🏅 Badges columns teachers see in Class Progress (levels/XP/badges themselves are derived client-side; only streaks need this). Also safe to re-run.
-10. **Then run [`supabase/topic-access-schema.sql`](supabase/topic-access-schema.sql)**. Adds per-class topic locking (open / manual / sequential), student "please open this topic" requests, and per-student unlock grants — managed from the Teacher Dashboard's **🔒 Topic Access** tab. Also safe to re-run.
-11. **Then run [`supabase/class-flow-settings.sql`](supabase/class-flow-settings.sql)** (after `topic-access-schema.sql`). Adds the per-class learning-flow settings behind the same **🔒 Topic Access** tab: whether activities inside a topic unlock in order or freely, whether students see one question/card at a time, and the reading-time / after-answer timers (defaults: free order, one-at-a-time, 10s + 10s). Also safe to re-run.
-12. **Then run [`supabase/ai-marking.sql`](supabase/ai-marking.sql)**. Adds `task_answer_suggestions`, a teacher-only table Gemini's AI marking suggestions are written to — kept separate from `task_answers` (which students can read their own rows of) so a suggestion is never visible to a student before the teacher reviews and saves it. Needed for the "AI marking" feature in step 9 below. Also safe to re-run.
-13. **Then run [`supabase/student-account.sql`](supabase/student-account.sql)**. Adds `get_my_classes()`, which powers the "My Classes" list (class name + teacher's name) on the student-facing `manage-account.html` page. Also safe to re-run.
-14. **Then run [`supabase/flight-path-schema.sql`](supabase/flight-path-schema.sql)** (after `tasks-analytics-functions.sql`, step 6). Adds `flight_path_snapshots` and `record_flight_path_snapshot()`, which power the "🛫 Flight Path" graph on the student dashboard — a daily snapshot of overall % plotted against a target range that rises toward the exam date. Also safe to re-run.
-15. **Then run [`supabase/bank-questions-schema.sql`](supabase/bank-questions-schema.sql)**. Adds `bank_questions` (every auto-gradable question in the course, split into a student-visible snapshot and a hidden answer key — see the file's header comment for why) and `question_mastery` (per-student spaced-repetition state), for the "🎯 Daily Revise" page. Also safe to re-run.
-16. **`bank_questions` populates itself** — as long as `.env` has `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` set (see `.env.example`; same credential the Netlify functions already use), every run of `python tools/build_question_bank.py` pushes the current question set straight to Supabase over its REST API — no SQL editor step needed, and it's safe to re-run whenever a topic page's questions change. If those env vars aren't set, the script skips the upload and falls back to writing [`supabase/bank-questions-seed/`](supabase/bank-questions-seed/) — a folder of small generated `NNN.sql` files (one INSERT each, ~130KB, kept small on purpose since Supabase's SQL editor rejects one giant pasted query) you'd paste in one at a time instead.
-17. **Then run [`supabase/daily-revise-class-settings.sql`](supabase/daily-revise-class-settings.sql)**. Adds per-class Daily Revise controls (topic-filter mode, workload cap, pacing seconds) plus `class_topic_filter_active`, all configured from the Teacher Dashboard's Topic Access tab (step 4 of that tab). In both **🔒 Teacher controlled** and **🧭 Teacher guided** modes, the teacher's own topic ticks in that panel are the actual filter applied — the difference is only whether students may additionally narrow it themselves. Also safe to re-run.
-18. **Then run [`supabase/daily-revise-stats-schema.sql`](supabase/daily-revise-stats-schema.sql)**. Adds `daily_revise_stats`, a per-student lifetime counter (`total_correct`/`total_mastered`) that only ever grows — feeds Daily Revise practice into a student's total XP and powers its two dedicated badges, without letting a mastery reset (wrong answer) claw XP back. Also safe to re-run.
-19. **Then run [`supabase/daily-revise-functions.sql`](supabase/daily-revise-functions.sql)** (after steps 17–18). Adds `get_daily_revise_settings()`, `get_daily_revise_queue()` and `record_mastery_answer()`, the functions `daily-revise.html` uses — the only way students ever read a question or have an answer graded; correctness is always computed server-side, never trusted from the client. Also safe to re-run. **If you ran an earlier version of this file, re-run it** — the queue function gained a `mastery_count` return column and three filter parameters (Smart mode / mastered / incorrect-only); run the SQL *before* deploying updated site code, since the new `daily-revise.html` calls the 5-parameter version.
-20. **Then run [`supabase/daily-revise-analytics.sql`](supabase/daily-revise-analytics.sql)** (after step 19). Adds the four teacher-only analytics functions (`get_class_dr_usage/overview/questions/matrix`) behind the **📈 Daily Revise Analytics** page (`teacher-analytics.html`, linked from the class's **🎯 Daily Revise** tab). Usage now includes Accuracy and Mastered, and every function takes an optional topic filter so a teacher can scope the whole page to specific topics. Students' `question_mastery` rows stay invisible to other students — these functions check class ownership and return class aggregates only. **If you ran an earlier version of this file, re-run it** — all four functions gained a topic-filter parameter (re-run the SQL before deploying updated site code, same reasoning as step 19).
+The SQL files are the canonical schema (there are no migration files — the site
+is pre-launch, so multi-subject support was folded straight into them). On a
+**fresh or reset project**, paste each file below into the **SQL Editor** and
+click **Run**, one file at a time, **in this order**. Every file is safe to
+re-run, but the *order* matters on first run (later files reference tables and
+functions created by earlier ones).
+
+1. [`supabase/schema.sql`](supabase/schema.sql) — core tables (**`subjects`** — seeded with the three launch subjects — `profiles`, `classes` with its `subject_id` FK, `class_students`, progress tables), all RLS policies, the RLS helper functions (`is_class_owner`, `my_class_for_subject`, …), `record_progress()` and `get_my_subjects()`.
+2. [`supabase/tasks-schema.sql`](supabase/tasks-schema.sql) — the Tasks feature: teacher-created question tasks with drafts, deadlines, attempt limits, per-student accommodations, autosaved answers, auto-marking of MCQ / True-False / fill-in-the-blanks, the manual marking queue, notifications, analytics and the anonymised leaderboard.
+3. [`supabase/tasks-groups-migration.sql`](supabase/tasks-groups-migration.sql) — `assignment_group_id` on `tasks`, for sending one task to several classes at once.
+4. [`supabase/tasks-analytics-functions.sql`](supabase/tasks-analytics-functions.sql) — `get_class_topic_performance()` / `get_my_topic_performance()`, the "Weak topics" views.
+5. [`supabase/tasks-retry-schema.sql`](supabase/tasks-retry-schema.sql) — `source_kind`/`parent_task_id` on `tasks` and `create_retry_task()` (student follow-up tasks from wrong answers).
+6. [`supabase/gamification-functions.sql`](supabase/gamification-functions.sql) — `get_my_streak()`, the day-streak flame (deliberately **cross-subject**: one streak across the whole platform).
+7. [`supabase/class-gamification.sql`](supabase/class-gamification.sql) — `get_class_streaks()` for the teacher's Class Progress columns.
+8. [`supabase/topic-access-schema.sql`](supabase/topic-access-schema.sql) — per-class topic locking (open / manual / sequential), "please open this topic" requests, per-student grants, and the live `record_progress()` override.
+9. [`supabase/class-flow-settings.sql`](supabase/class-flow-settings.sql) — per-class learning-flow settings (activity order, focus mode, timers). **Must run after `topic-access-schema.sql`, every time — LAST of that pair.**
+
+   ⚠️ **Steps 8 and 9 both define `get_my_topic_settings(p_subject)` — step 9's copy fully replaces step 8's, not merges with it.** Whenever you re-run step 8 for any reason, you must **immediately re-run step 9 straight after it**, or the Teacher Dashboard's "Inside a topic" / timer settings silently stop reaching students.
+10. [`supabase/ai-marking.sql`](supabase/ai-marking.sql) — `task_answer_suggestions`, the teacher-only table for Gemini mark suggestions (see step 9 of this document).
+11. [`supabase/student-account.sql`](supabase/student-account.sql) — `get_my_classes()` for the Manage Account page.
+12. [`supabase/flight-path-schema.sql`](supabase/flight-path-schema.sql) — `flight_path_snapshots` (now keyed per student **per subject** per day) and `record_flight_path_snapshot()`.
+13. [`supabase/bank-questions-schema.sql`](supabase/bank-questions-schema.sql) — `bank_questions` (per-subject question bank, student-visible `snapshot` split from hidden `answer_key`) and `question_mastery`, for "🎯 Daily Revise".
+14. [`supabase/daily-revise-class-settings.sql`](supabase/daily-revise-class-settings.sql) — per-class Daily Revise controls (topic-filter mode, workload cap, pacing) plus `class_topic_filter_active`.
+15. [`supabase/daily-revise-stats-schema.sql`](supabase/daily-revise-stats-schema.sql) — `daily_revise_stats`, the lifetime XP counters (now one row per student **per subject**).
+16. [`supabase/daily-revise-functions.sql`](supabase/daily-revise-functions.sql) — `get_daily_revise_settings()`, `get_daily_revise_queue()` and `record_mastery_answer()` (must run after steps 13–15).
+17. [`supabase/daily-revise-analytics.sql`](supabase/daily-revise-analytics.sql) — the four teacher-only analytics functions (`get_class_dr_usage/overview/questions/matrix`) behind `teacher-analytics.html`, each scoped to the class's own subject.
+18. **Seed the question bank** — run:
+    ```
+    python tools/build_question_bank.py --upload
+    ```
+    (needs `SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` in `.env`, see `.env.example`). This is the one command that populates `bank_questions` (Daily Revise's source) for every subject — see "Keeping content in sync" below, because it's also how you push any *future* content edit, not just this first-time seed.
+
+    *No Python / no service-role key on this machine?* Fall back to running the generated files in [`supabase/bank-questions-seed/business/`](supabase/bank-questions-seed/business/) (`001.sql`, `002.sql`, … **in order**, one per SQL-editor run — they're deliberately small because the editor rejects one giant pasted query). This fallback only *adds/updates* rows — it can't remove ones a `--upload` run would delete, so prefer `--upload` whenever you can. See that folder's `README.md`; the old un-prefixed seed files that used to sit directly in `bank-questions-seed/` are legacy and gone — don't run them if one resurfaces from a backup.
+
+## Keeping content in sync after this
+
+Once the project is set up, **`python tools/build_question_bank.py --upload` is the
+only command you need after editing any topic page's questions** (Key Learning,
+MCQ, Matching, Fill-the-Blanks, Misconceptions, Exam Tips, True/False, Exam
+Practice) — add one, remove one, or reword one enough that its content-hash id
+changes. One run does all of the following, for every subject at once:
+
+- Regenerates each subject's local `question-bank.js` / `page-groups.js` /
+  `section-totals.js` — read directly (no server round-trip) by the teacher
+  task builder, the worksheet builder, and the student index/dashboard, so
+  those are always current the moment you rebuild.
+- Upserts new/changed questions into the live `bank_questions` table
+  (Daily Revise's source) — and **deletes any row for a question this build
+  no longer produces**, so a removed question actually disappears from
+  Daily Revise instead of lingering forever. (Its `question_mastery`
+  progress rows go with it, via `on delete cascade`.)
+
+The one thing that deliberately does **not** change: **already-published
+tasks and previously-printed worksheets are frozen.** `task_questions`
+stores a full snapshot of each question at the moment a teacher publishes
+the task (`tasks-schema.sql`), specifically so a student's live homework
+never changes under them mid-assignment. Only *new* tasks/worksheets pick up
+the latest bank content — which they always do, since they read the
+freshly-regenerated `question-bank.js` directly.
+
+Running with no flags (`python tools/build_question_bank.py`) is safe at any
+time too — it only rewrites the local files and never touches the network;
+add `--upload` whenever you're ready to push that sync live.
+
+### What changed for multi-subject
+
+The platform now supports multiple subjects (Business, Computer Science and
+Economics are seeded — CS and Economics as placeholders until their content
+ships). If you knew the old single-subject schema:
+
+- **New `subjects` table** (seeded in `schema.sql`, updated by the build
+  pipeline) — slug, name, key stage, exam board/spec, **`exam_date`** (drives
+  Daily Revise pacing and the Flight Path band; the old hardcoded date is
+  gone), per-subject colour/icon. Read-all RLS.
+- **`classes.subject_id`** — every class belongs to exactly one subject. A
+  class created without one (the current teacher UI) defaults to Business
+  server-side. A student's subject list is derived from their classes via the
+  new `get_my_subjects()` RPC — there is no separate enrollments table.
+- **Page ids are subject-prefixed** (`business:1-1-role-of-business-enterprise`),
+  so progress rows, topic grants/visibility and bank question ids are
+  subject-safe; SQL derives the subject with `split_part(page_id, ':', 1)`.
+- **RPC signature changes** (old zero-/short-arg versions are dropped by the
+  files themselves): `get_my_topic_settings(p_subject text default null)`,
+  `get_daily_revise_settings(p_subject text default null)`,
+  `get_daily_revise_queue(…, p_subject text default null)` (6 params),
+  `record_flight_path_snapshot(p_pct numeric, p_subject text default 'business')`.
+  Defaults preserve the old behaviour for not-yet-updated clients.
+- **`bank_questions.subject_slug`**, **`daily_revise_stats` PK
+  (student_id, subject_slug)** and **`flight_path_snapshots` unique key
+  (student_id, subject_slug, snapshot_date)** make those per-subject.
+  `get_my_streak()` and XP stay cross-subject.
+- After the reset, verify with `python tools/smoke_test_supabase.py` (reads
+  `.env`; read-only REST checks: subjects seeded, new RPC signatures callable,
+  and the answer-key invariant — no student/anon can select `bank_questions`
+  directly).
 
 ## 3. Add your teacher invite code
 

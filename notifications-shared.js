@@ -188,7 +188,7 @@ function _notifEsc(str) {
         panel.innerHTML = _items.length ? _items.map(n => `
             <div class="gcse-notif-row" data-key="${_notifEsc(n.key)}">
                 <span class="gcse-notif-icon" aria-hidden="true">${n.icon}</span>
-                <span class="gcse-notif-text">${_notifEsc(n.text)}<a class="gcse-notif-open" href="task.html?id=${encodeURIComponent(n.taskId)}">Open →</a></span>
+                <span class="gcse-notif-text">${_notifEsc(n.text)}<a class="gcse-notif-open" href="/task.html?id=${encodeURIComponent(n.taskId)}">Open →</a></span>
                 <button type="button" class="gcse-notif-dismiss" title="Dismiss" aria-label="Dismiss notification">✕</button>
             </div>`).join('') : '<div class="gcse-notif-empty">No new notifications.</div>';
     }

@@ -270,10 +270,15 @@ async function gamificationRefreshDailyReviseStats(client) {
     if (!client) return _gamDrStats;
     const { data: { user } = {} } = await client.auth.getUser();
     if (!user) return _gamDrStats;
+    // daily_revise_stats is one row PER SUBJECT now (PK student_id +
+    // subject_slug) — sum across rows for cross-subject lifetime totals.
     const { data, error } = await client.from('daily_revise_stats')
-      .select('total_correct, total_mastered').eq('student_id', user.id).maybeSingle();
+      .select('total_correct, total_mastered').eq('student_id', user.id);
     if (!error && data) {
-      _gamDrStats = { correctCount: data.total_correct || 0, masteredCount: data.total_mastered || 0 };
+      _gamDrStats = {
+        correctCount: data.reduce((s, r) => s + (r.total_correct || 0), 0),
+        masteredCount: data.reduce((s, r) => s + (r.total_mastered || 0), 0),
+      };
       if (typeof _gamUpdateHud === 'function') _gamUpdateHud();
     }
   } catch (e) {}
@@ -692,7 +697,7 @@ function _gamUpdateHud(stats) {
         if (href) {
           const nameEl = nextCard.querySelector('.gam-nav-name');
           show = true;
-          nextBtn.innerHTML = href === 'dashboard.html'
+          nextBtn.innerHTML = href === '/dashboard.html'
             ? '🎉 Topic done — see my progress →'
             : `▶ Next lesson: 📚 ${nameEl ? nameEl.textContent : 'Next topic'} →`;
           nextBtn.dataset.href = href;
@@ -779,8 +784,8 @@ function _gamShowTopicCelebration() {
 
   const name = (typeof pageTitle === 'function' && _gamHudPageId) ? pageTitle(_gamHudPageId) : 'this topic';
   const nextCard = document.getElementById('gamNavNextCard');
-  const nextHref = nextCard ? nextCard.getAttribute('href') : 'dashboard.html';
-  const nextLabel = nextCard && nextCard.getAttribute('href') !== 'dashboard.html' ? 'Next topic →' : 'See my progress →';
+  const nextHref = nextCard ? nextCard.getAttribute('href') : '/dashboard.html';
+  const nextLabel = nextCard && nextCard.getAttribute('href') !== '/dashboard.html' ? 'Next topic →' : 'See my progress →';
 
   const overlay = document.createElement('div');
   overlay.className = 'gam-celeb-overlay';
@@ -826,7 +831,7 @@ function _gamHudMainHtml() {
       <div class="gam-hud-chips">
         <span class="gam-hud-chip gam-hud-daily" id="gamHudDaily" title="Daily goal — answer ${GAMIFICATION_DAILY_GOAL} questions today (on this device) to keep your streak alive">🎯 <span id="gamHudDailyCount">0/${GAMIFICATION_DAILY_GOAL}</span></span>
         <span class="gam-hud-chip gam-hud-streak" title="Days in a row you've answered questions">🔥 <span id="gamHudStreak">0</span></span>
-        <a class="gam-hud-chip gam-hud-badges-btn" id="gamHudBadgesBtn" href="badges.html">🏅 <span id="gamHudBadgeCount">0/${BADGE_DEFS.length}</span></a>
+        <a class="gam-hud-chip gam-hud-badges-btn" id="gamHudBadgesBtn" href="/badges.html">🏅 <span id="gamHudBadgeCount">0/${BADGE_DEFS.length}</span></a>
       </div>
     </div>`;
 }
@@ -1002,13 +1007,13 @@ function _gamInjectTopicNav(pages, idx) {
         <span class="gam-nav-name">${next.name}</span>
         ${potXp ? `<span class="gam-nav-xp">⚡ up to ${potXp} XP waiting</span>` : ''}</a>`;
   } else {
-    nextHtml = `<a class="gam-nav-card gam-nav-next" id="gamNavNextCard" href="dashboard.html" style="--gam-accent:var(--gold,#d4a843)">
+    nextHtml = `<a class="gam-nav-card gam-nav-next" id="gamNavNextCard" href="/dashboard.html" style="--gam-accent:var(--gold,#d4a843)">
         <span class="gam-nav-dir">Course end →</span>
         <span class="gam-nav-name">See your progress &amp; badges</span></a>`;
   }
 
   nav.innerHTML = prevHtml +
-    `<a class="gam-nav-card gam-nav-home" href="index.html"><span aria-hidden="true">🏡</span><span>All topics</span></a>` +
+    `<a class="gam-nav-card gam-nav-home" href="/index.html"><span aria-hidden="true">🏡</span><span>All topics</span></a>` +
     nextHtml;
   main.appendChild(nav);
 }

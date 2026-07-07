@@ -497,8 +497,14 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="question-bank.js"></script>
+<script src="/subjects/business/question-bank.js"></script><!-- TODO(step-5): load /subjects/<slug>/question-bank.js for the selected class's subject dynamically -->
 <script src="tasks-shared.js"></script>
+<script src="/subjects-index.js"></script>
+<script src="/page-groups-all.js"></script>
+<script src="/section-totals-all.js"></script>
+<script src="/subject-loader.js"></script>
+<!-- TODO(step-5): resolve the subject from the selected class (per-class subject picker) instead of defaulting to business -->
+<script>subjectLoaderInit({ mode: 'single' });</script>
 <script src="progress-shared.js"></script>
 <script>
 'use strict';

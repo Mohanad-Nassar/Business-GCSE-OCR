@@ -4,14 +4,27 @@
 -- daily-revise-stats-schema.sql, in the Supabase SQL editor. Safe to re-run.
 --
 -- Three functions power daily-revise.html's spaced-repetition "Rule of 3":
---   get_daily_revise_settings() — the class's topic-filter mode, active
---                                 topics, workload cap and pacing seconds,
---                                 so the client can build its filter UI
---                                 before the first queue fetch
---   get_daily_revise_queue()    — today's prioritised question batch,
---                                 filtered/capped per the class's settings
+--   get_daily_revise_settings(p_subject) — the class's topic-filter mode,
+--                                 active topics, workload cap and pacing
+--                                 seconds, so the client can build its
+--                                 filter UI before the first queue fetch
+--   get_daily_revise_queue(…, p_subject) — today's prioritised question
+--                                 batch, filtered/capped per the class's
+--                                 settings
 --   record_mastery_answer()     — grades an answer server-side and updates
 --                                 mastery_count / next_due_at
+--
+-- MULTI-SUBJECT: both read functions take p_subject (a subjects.slug,
+-- default null = legacy earliest-class / all-rows behaviour so older
+-- clients keep working). The class is resolved per subject via
+-- my_class_for_subject() (schema.sql), the bank pool is filtered by
+-- bank_questions.subject_slug, and the pacing exam date comes from
+-- subjects.exam_date instead of a hardcoded constant.
+-- record_mastery_answer()'s signature is unchanged, but it now attributes
+-- the daily_revise_stats row to the question's subject (the table's PK is
+-- (student_id, subject_slug) — see daily-revise-stats-schema.sql).
+-- get_my_streak() (gamification-functions.sql) deliberately stays
+-- cross-subject: one streak flame across the whole platform.
 -- Neither queue function's declared return columns include answer_key —
 -- that omission is the enforcement that keeps answers hidden from
 -- students, the same mechanism get_my_task_questions() already uses in
@@ -20,7 +33,11 @@
 -- client-supplied "is this correct" value.
 -- ══════════════════════════════════════════════════════════════
 
-create or replace function get_daily_revise_settings() returns jsonb
+-- Old zero-arg signature — must go, or the new defaulted-parameter version
+-- below would sit beside it as an ambiguous overload.
+drop function if exists get_daily_revise_settings();
+
+create or replace function get_daily_revise_settings(p_subject text default null) returns jsonb
 language plpgsql security definer stable set search_path = public as $$
 declare
     v_uid          uuid := auth.uid();
@@ -33,21 +50,24 @@ declare
 begin
     if v_uid is null then raise exception 'not authenticated'; end if;
 
-    select c.id, c.daily_revise_topic_mode, c.daily_revise_weekly_cap,
-           c.daily_revise_pre_seconds, c.daily_revise_post_seconds
-    into v_class_id, v_topic_mode, v_weekly_cap, v_pre_seconds, v_post_seconds
-    from class_students cs join classes c on c.id = cs.class_id
-    where cs.student_id = v_uid
-    order by cs.joined_at asc limit 1;
+    v_class_id := my_class_for_subject(p_subject);
+    if v_class_id is not null then
+        select c.daily_revise_topic_mode, c.daily_revise_weekly_cap,
+               c.daily_revise_pre_seconds, c.daily_revise_post_seconds
+        into v_topic_mode, v_weekly_cap, v_pre_seconds, v_post_seconds
+        from classes c where c.id = v_class_id;
+    end if;
 
     -- active_page_ids reflects the teacher's class_topic_filter_active
     -- selection in BOTH teacher_controlled (where it's the fixed, only
     -- filter — students just can't edit it) and teacher_guided (where it's
-    -- the ceiling students can additionally narrow within).
+    -- the ceiling students can additionally narrow within). Scoped to the
+    -- requested subject's bank rows (p_subject null = all, legacy).
     if v_class_id is not null and v_topic_mode in ('teacher_controlled', 'teacher_guided') then
         select coalesce(array_agg(distinct b.page_id), '{}') into v_active_pages
         from bank_questions b
-        where not exists (
+        where (p_subject is null or b.subject_slug = p_subject)
+          and not exists (
             select 1 from class_topic_filter_active f
             where f.class_id = v_class_id and f.page_id = b.page_id and f.active = false
         );
@@ -62,7 +82,7 @@ begin
     );
 end;
 $$;
-grant execute on function get_daily_revise_settings() to authenticated;
+grant execute on function get_daily_revise_settings(text) to authenticated;
 
 -- Overload/return-shape changes from earlier signatures — drop them
 -- explicitly first, since `create or replace` on a different parameter list
@@ -70,6 +90,7 @@ grant execute on function get_daily_revise_settings() to authenticated;
 -- change a RETURNS TABLE column list at all.
 drop function if exists get_daily_revise_queue(int);
 drop function if exists get_daily_revise_queue(int, text[]);
+drop function if exists get_daily_revise_queue(int, text[], boolean, boolean, boolean);
 
 -- p_smart / p_exclude_mastered / p_incorrect_only back the student filter
 -- toggles in daily-revise.html; the defaults reproduce the original
@@ -80,10 +101,14 @@ drop function if exists get_daily_revise_queue(int, text[]);
 --   p_exclude_mastered — true (default): mastery_count < 3 only
 --   p_incorrect_only — only questions whose LAST answer was wrong
 --                      (a mastery row exists with mastery_count = 0)
+--   p_subject        — subjects.slug to revise; scopes the class-settings
+--                      lookup, the bank pool and the pacing exam date.
+--                      null (default) = legacy single-subject behaviour:
+--                      earliest class, whole bank, business exam date.
 create or replace function get_daily_revise_queue(
     p_limit int default null, p_page_ids text[] default null,
     p_smart boolean default true, p_exclude_mastered boolean default true,
-    p_incorrect_only boolean default false)
+    p_incorrect_only boolean default false, p_subject text default null)
 returns table (
     question_key  text,
     page_id       text,
@@ -100,8 +125,7 @@ declare
     v_class_id       uuid;
     v_topic_mode     text := 'teacher_controlled';
     v_weekly_cap     int;
-    -- Keep in sync with dashboard.html's FLIGHT_PATH_EXAM_DATE.
-    v_exam_date      date := '2027-05-12';
+    v_exam_date      date;
     v_weeks_to_exam  numeric;
     v_remaining      int;
     v_weekly_target  int;
@@ -110,11 +134,20 @@ declare
 begin
     if v_uid is null then raise exception 'not authenticated'; end if;
 
-    select c.id, c.daily_revise_topic_mode, c.daily_revise_weekly_cap
-    into v_class_id, v_topic_mode, v_weekly_cap
-    from class_students cs join classes c on c.id = cs.class_id
-    where cs.student_id = v_uid
-    order by cs.joined_at asc limit 1;
+    v_class_id := my_class_for_subject(p_subject);
+    if v_class_id is not null then
+        select c.daily_revise_topic_mode, c.daily_revise_weekly_cap
+        into v_topic_mode, v_weekly_cap
+        from classes c where c.id = v_class_id;
+    end if;
+
+    -- Pacing runs toward the subject's real exam date (subjects.exam_date,
+    -- seeded/updated from the subject manifest); the business date is the
+    -- sane fallback for null p_subject (legacy clients) or a subject with
+    -- no exam scheduled.
+    select s.exam_date into v_exam_date
+    from subjects s where s.slug = coalesce(p_subject, 'business');
+    v_exam_date := coalesce(v_exam_date, date '2027-05-12');
 
     -- Resolve the effective topic filter against the class's mode — this
     -- runs server-side so a tampered client can't escape teacher_controlled/
@@ -130,7 +163,8 @@ begin
         -- "spans every topic" behaviour with no extra step.
         select coalesce(array_agg(distinct b.page_id), '{}') into v_filter
         from bank_questions b
-        where not exists (
+        where (p_subject is null or b.subject_slug = p_subject)
+          and not exists (
             select 1 from class_topic_filter_active f
             where f.class_id = v_class_id and f.page_id = b.page_id and f.active = false
         );
@@ -139,7 +173,8 @@ begin
             -- No client filter given — use every currently-active topic.
             select coalesce(array_agg(distinct b.page_id), '{}') into v_filter
             from bank_questions b
-            where not exists (
+            where (p_subject is null or b.subject_slug = p_subject)
+              and not exists (
                 select 1 from class_topic_filter_active f
                 where f.class_id = v_class_id and f.page_id = b.page_id and f.active = false
             );
@@ -168,7 +203,8 @@ begin
     from bank_questions b
     left join question_mastery m
         on m.question_key = b.question_key and m.student_id = v_uid
-    where (not p_incorrect_only or m.mastery_count = 0)
+    where (p_subject is null or b.subject_slug = p_subject)
+      and (not p_incorrect_only or m.mastery_count = 0)
       and (not p_exclude_mastered or coalesce(m.mastery_count, 0) < 3)
       and (v_filter is null or b.page_id = any(v_filter));
 
@@ -191,7 +227,8 @@ begin
     from bank_questions b
     left join question_mastery m
         on m.question_key = b.question_key and m.student_id = v_uid
-    where (not p_incorrect_only or m.mastery_count = 0)
+    where (p_subject is null or b.subject_slug = p_subject)
+      and (not p_incorrect_only or m.mastery_count = 0)
       and (not p_exclude_mastered or coalesce(m.mastery_count, 0) < 3)
       and (not p_smart or m.next_due_at is null or m.next_due_at <= now())
       and (v_filter is null or b.page_id = any(v_filter))
@@ -202,7 +239,7 @@ begin
     limit p_limit;
 end;
 $$;
-grant execute on function get_daily_revise_queue(int, text[], boolean, boolean, boolean) to authenticated;
+grant execute on function get_daily_revise_queue(int, text[], boolean, boolean, boolean, text) to authenticated;
 
 create or replace function record_mastery_answer(p_question_key text, p_answer jsonb) returns jsonb
 language plpgsql security definer set search_path = public as $$
@@ -266,10 +303,14 @@ begin
     -- the student's total XP and the two Daily-Revise badges (gamification.js).
     -- total_mastered increments only on the transition INTO mastery (3), not
     -- every time an already-mastered question is somehow re-answered.
-    insert into daily_revise_stats (student_id, total_correct, total_mastered, updated_at)
-    values (v_uid, case when v_is_correct then 1 else 0 end,
+    -- One row per (student, subject) — attributed to the question's own
+    -- subject_slug; XP/badge readers sum a student's rows for the
+    -- cross-subject total.
+    insert into daily_revise_stats (student_id, subject_slug, total_correct, total_mastered, updated_at)
+    values (v_uid, v_row.subject_slug,
+                    case when v_is_correct then 1 else 0 end,
                     case when v_new_count = 3 and v_old_count < 3 then 1 else 0 end, now())
-    on conflict (student_id) do update
+    on conflict (student_id, subject_slug) do update
         set total_correct  = daily_revise_stats.total_correct + excluded.total_correct,
             total_mastered = daily_revise_stats.total_mastered + excluded.total_mastered,
             updated_at     = now();

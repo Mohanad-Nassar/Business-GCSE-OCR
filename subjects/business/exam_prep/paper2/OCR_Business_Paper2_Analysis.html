@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OCR GCSE Business Paper 2 — Full Examiner Analysis</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #f5f0e8;
+    --cream: #ede8dc;
+    --accent: #c8392b;
+    --accent2: #2563a8;
+    --gold: #b8860b;
+    --green: #1a6e3c;
+    --mid: #5a5550;
+    --light: #a09890;
+    --border: #ccc5b5;
+    --tag-bg: #e8f0fb;
+    --tag-border: #2563a8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--ink);
+    color: var(--paper);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-bottom: 3px solid var(--accent);
+  }
+  nav a {
+    color: var(--paper);
+    text-decoration: none;
+    padding: 10px 16px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-right: 1px solid #333;
+    transition: background 0.2s;
+  }
+  nav a:hover { background: var(--accent); }
+
+  /* HERO */
+  .hero {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 60px,
+      rgba(255,255,255,0.03) 60px,
+      rgba(255,255,255,0.03) 61px
+    );
+  }
+  .hero-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 64px);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .hero p {
+    font-size: 16px;
+    color: #bbb;
+    max-width: 680px;
+    position: relative;
+  }
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+    position: relative;
+  }
+  .badge {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #ddd;
+    padding: 4px 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    border-radius: 2px;
+  }
+
+  /* CONTAINER */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+
+  /* SECTION */
+  section { padding: 60px 0; border-bottom: 1px solid var(--border); }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .part-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  /* TABLES */
+  .table-wrap { overflow-x: auto; margin: 24px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  thead { background: var(--ink); color: var(--paper); }
+  thead th {
+    padding: 12px 14px;
+    text-align: left;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+  tbody tr:hover { background: var(--cream); }
+  td { padding: 10px 14px; vertical-align: top; }
+  .rank-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 13px;
+  }
+  .topic-code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    color: var(--accent2);
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .bar-wrap { display: flex; align-items: center; gap: 8px; }
+  .bar {
+    height: 8px;
+    background: var(--accent2);
+    border-radius: 1px;
+    min-width: 2px;
+  }
+  .bar-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .years-pill {
+    font-size: 11px;
+    color: var(--mid);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .core-badge {
+    display: inline-block;
+    background: var(--green);
+    color: white;
+    font-size: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    padding: 2px 7px;
+    border-radius: 2px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .gap-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    padding: 2px 7px;
+    border-radius: 2px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* CARDS */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; margin: 28px 0; }
+  .card {
+    background: white;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent2);
+    padding: 20px 22px;
+    border-radius: 2px;
+  }
+  .card.red-top { border-top-color: var(--accent); }
+  .card.gold-top { border-top-color: var(--gold); }
+  .card.green-top { border-top-color: var(--green); }
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .card .sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--mid);
+    margin-bottom: 10px;
+  }
+  .card p { font-size: 13.5px; color: #333; line-height: 1.6; }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    border: 1px solid var(--tag-border);
+    color: var(--accent2);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin: 3px 2px 0;
+  }
+  .tag.red { background: #fdecea; border-color: var(--accent); color: var(--accent); }
+  .tag.gold { background: #fdf6e3; border-color: var(--gold); color: var(--gold); }
+
+  /* MISTAKE CARDS */
+  .mistake-block {
+    background: white;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    padding: 18px 22px;
+    margin-bottom: 16px;
+    border-radius: 0 2px 2px 0;
+  }
+  .mistake-block h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .mistake-block .q { font-weight: 600; font-size: 14px; margin-bottom: 8px; color: var(--ink); }
+  .mistake-block .why { font-size: 13.5px; color: #444; margin-bottom: 8px; }
+  .mistake-block .correct {
+    background: #f0faf4;
+    border: 1px solid #a3d9b8;
+    padding: 10px 14px;
+    font-size: 13px;
+    border-radius: 2px;
+    color: var(--green);
+  }
+  .mistake-block .correct strong { color: #0d4a26; }
+
+  /* PREDICTED QUESTIONS */
+  .pq-block {
+    background: white;
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .pq-header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .pq-rank {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .pq-title { font-weight: 600; font-size: 15px; }
+  .pq-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #aaa;
+  }
+  .pq-body { padding: 20px 22px; }
+  .pq-question {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    border-left: 3px solid var(--accent2);
+    padding-left: 14px;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .pq-marks {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3px 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    margin-bottom: 14px;
+  }
+  .pq-justification {
+    font-size: 13px;
+    color: var(--mid);
+    font-style: italic;
+    margin-bottom: 16px;
+    padding: 10px 14px;
+    background: var(--cream);
+    border-radius: 2px;
+  }
+  .pq-answer { font-size: 13.5px; line-height: 1.7; }
+  .pq-answer h5 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 14px 0 6px;
+  }
+  .pq-answer ul { padding-left: 20px; }
+  .pq-answer li { margin-bottom: 5px; }
+  .pq-answer p { margin-bottom: 8px; }
+  .answer-box {
+    background: #f8f9fa;
+    border: 1px solid var(--border);
+    padding: 14px 18px;
+    border-radius: 2px;
+    font-size: 13.5px;
+    line-height: 1.7;
+    margin-top: 10px;
+  }
+  .confidence-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .confidence-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--mid); }
+  .confidence-track {
+    flex: 1;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .confidence-fill { height: 100%; background: var(--accent); border-radius: 3px; }
+
+  /* HEATMAP */
+  .heatmap { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 4px; margin: 20px 0; }
+  .hm-cell {
+    padding: 8px 6px;
+    border-radius: 2px;
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+  }
+  .hm-0 { background: #e8e0d5; color: #888; }
+  .hm-1 { background: #d4e8f5; color: #1a6090; }
+  .hm-2 { background: #a8d4ee; color: #0d4a70; }
+  .hm-3 { background: #7abde0; color: #0a3550; }
+  .hm-4 { background: #4da8d4; color: white; }
+  .hm-5 { background: #2c8cbf; color: white; }
+  .hm-6plus { background: var(--accent2); color: white; }
+
+  /* YEAR GRID */
+  .year-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 20px 0; }
+  .year-row { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+  .year-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--mid); width: 80px; flex-shrink: 0; }
+  .year-topics { display: flex; flex-wrap: wrap; gap: 4px; }
+  .yt {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+  .yt-q16 { background: #dbeafe; color: #1d4ed8; }
+  .yt-q17 { background: #d1fae5; color: #065f46; }
+  .yt-q18 { background: #fee2e2; color: #991b1b; }
+
+  /* INFO BOX */
+  .info-box {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 13.5px;
+    border-radius: 0 2px 2px 0;
+  }
+  .info-box strong { color: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: #888;
+    text-align: center;
+    padding: 30px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    line-height: 1.8;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .hero { padding: 40px 20px; }
+    .container { padding: 0 16px; }
+    section { padding: 40px 0; }
+    .card-grid { grid-template-columns: 1fr; }
+  }
+
+  /* PRINT */
+  @media print {
+    nav { display: none; }
+    .hero { background: #333; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#part1">① Frequency</a>
+  <a href="#part2">② Question Types</a>
+  <a href="#part3">③ Gap Analysis</a>
+  <a href="#part4">④ Common Errors</a>
+  <a href="#part5">⑤ Predictions</a>
+  <a href="/index.html" class="home-link">← 🏡 Home</a>
+</nav>
+
+<div class="hero">
+  <div class="container">
+    <div class="hero-label">OCR GCSE Business J204/02 — Complete Examiner Intelligence Report</div>
+    <h1>Paper 2: Operations,<br>Finance &amp; Influences</h1>
+    <p>A full statistical and pedagogical analysis of every past paper from Sample through 2025 — covering frequency, gap analysis, common errors, and high-confidence predictions for the next examination series.</p>
+    <div class="hero-badges">
+      <span class="badge">Sample Paper</span>
+      <span class="badge">2019</span>
+      <span class="badge">2020</span>
+      <span class="badge">2021</span>
+      <span class="badge">2022</span>
+      <span class="badge">2023</span>
+      <span class="badge">2024</span>
+      <span class="badge">2025</span>
+      <span class="badge">8 Papers Analysed</span>
+      <span class="badge">80 Marks Per Paper</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ PART 1 -->
+<section id="part1">
+<div class="container">
+  <div class="section-header">
+    <span class="part-num">Part 01</span>
+    <h2>Frequency Analysis — Ranked Topic Appearances</h2>
+  </div>
+
+  <div class="info-box">
+    <strong>Methodology:</strong> Each sub-question appearance is counted separately. A topic appearing in both Q16(a) and Q16(c) of the same paper counts as two appearances. Section A MCQ appearances also counted where a topic is clearly identifiable. Q18 starred questions counted once per paper. Total possible sub-question appearances across 8 papers ≈ 80+ individual question slots.
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Topic Code</th>
+          <th>Topic Name</th>
+          <th>Appearances</th>
+          <th>Volume</th>
+          <th>Years Examined</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="rank-num">1</td>
+          <td class="topic-code">5.3</td>
+          <td><strong>Revenue, Costs, Profit &amp; Loss</strong> <span class="core-badge">CORE</span></td>
+          <td>
+            <div class="bar-wrap"><div class="bar" style="width:180px"></div><span class="bar-num">22</span></div>
+          </td>
+          <td>Calculations (GPM, NPM, profit), profit importance, cost types, ARR, revenue analysis</td>
+          <td class="years-pill">Sample, 2019, 2020, 2021, 2022, 2023, 2024, 2025</td>
+        </tr>
+        <tr>
+          <td class="rank-num">2</td>
+          <td class="topic-code">5.4</td>
+          <td><strong>Break-even</strong> <span class="core-badge">CORE</span></td>
+          <td>
+            <div class="bar-wrap"><div class="bar" style="width:145px"></div><span class="bar-num">18</span></div>
+          </td>
+          <td>Calculate BEQ, usefulness, limitations, analysis of BEP in decisions</td>
+          <td class="years-pill">Sample, 2019, 2020, 2021, 2022, 2023, 2024, 2025</td>
+        </tr>
+        <tr>
+          <td class="rank-num">3</td>
+          <td class="topic-code">5.5</td>
+          <td><strong>Cash &amp; Cash Flow</strong> <span class="core-badge">CORE</span></td>
+          <td>
+            <div class="bar-wrap"><div class="bar" style="width:130px"></div><span class="bar-num">16</span></div>
+          </td>
+          <td>Cash flow forecast completion, importance of cash, cash vs profit, overdraft</td>
+          <td class="years-pill">Sample, 2019, 2020, 2021, 2022, 2023, 2024, 2025</td>
+        </tr>
+        <tr>
+          <td class="rank-num">4</td>
+          <td class="topic-code">5.2</td>
+          <td><strong>Sources of Finance</strong> <span class="core-badge">CORE</span></td>
+          <td>
+            <div class="bar-wrap"><div class="bar" style="width:120px"></div><span class="bar-num">15</span></div>
+          </td>
+          <td>Crowdfunding, bank loan, share issue, retained profit, trade credit, overdraft</td>
+          <td class="years-pill">Sample, 2019, 2020, 2021, 2022, 2023, 2024, 2025</td>
+        </tr>
+        <tr>
+          <td class="rank-num">5</td>
+          <td class="topic-code">6.1</td>
+          <td><strong>Ethical &amp; Environmental Considerations</strong> <span class="core-badge">CORE</span></td>
+          <td>
+            <div class="bar-wrap"><div class="bar" style="width:115px"></div><span class="bar-num">14</span></div>
+          </td>
+          <td>Ethical sourcing, sustainability, environmental impact, plan A-style programmes</td>
+          <td class="years-pill">Sample, 2019, 2020, 2021, 2022, 2023, 2024, 2025</td>
+        </tr>
+        <tr>
+          <td class="rank-num">6</td>
+          <td class="topic-code">6.3</td>
+          <td><strong>Globalisation</strong> <span class="core-badge">CORE</span></td>
+          <td>
+            <div class="bar-wrap"><div class="bar" style="width:110px"></div><span class="bar-num">13</span></div>
+          </td>
+          <td>MNC advantages/disadvantages, globalisation impacts, international branding, location overseas</td>
+          <td class="years-pill">Sample, 2019, 2020, 2021, 2022, 2023, 2024, 2025</td>
+        </tr>
+        <tr>
+          <td class="rank-num">7</td>
+          <td class="topic-code">4.1</td>
+          <td><strong>Production Processes</strong></td>
+          <td>
+            <div class="bar-wrap"><div class="bar" style="width:105px"></div><span class="bar-num">13</span></div>
+          </td>
+          <td>Job, batch, flow; automation; advantages/disadvantages; switching production types</td>
+          <td class="years-pill">Sample, 2019, 2020, 2021, 2022, 2023, 2024, 2025</td>
+        </tr>
+        <tr>
+          <td class="rank-num">8</td>
+          <td class="topic-code">6.2</td>
+          <td><strong>Economic Climate</strong></td>
+          <td>
+            <div class="bar-wrap"><div class="bar" style="width:100px"></div><span class="bar-num">12</span></div>
+          </td>
+          <td>Consumer income, unemployment, inflation effects on business decisions</td>
+          <td class="years-pill">2019, 2020, 2021, 2022, 2023, 2024, 2025</td>
+        </tr>
+        <tr>
+          <td class="rank-num">9</td>
+          <td class="topic-code">4.6</td>
+          <td><strong>Working with Suppliers</strong></td>
+          <td>
+            <div class="bar-wrap"><div class="bar" style="width:95px"></div><span class="bar-num">11</span></div>
+          </td>
+          <td>Procurement role, supply chain, logistics decisions, supply factors</td>
+          <td class="years-pill">Sample, 2019, 2020, 2021, 2022, 2023, 2024, 2025</td>
+        </tr>
+        <tr>
+          <td class="rank-num">10</td>
+          <td class="topic-code">4.2</td>
+          <td><strong>Quality of Goods &amp; Services</strong></td>
+          <td>
+            <div class="bar-wrap"><div class="bar" style="width:90px"></div><span class="bar-num">11</span></div>
+          </td>
+          <td>Quality control vs assurance, importance of quality, ensuring quality methods</td>
+          <td class="years-pill">Sample, 2019, 2020, 2021, 2022, 2023, 2024, 2025</td>
+        </tr>
+        <tr>
+          <td class="rank-num">11</td>
+          <td class="topic-code">7.1</td>
+          <td><strong>Interdependent Nature of Business</strong></td>
+          <td>
+            <div class="bar-wrap"><div class="bar" style="width:85px"></div><span class="bar-num">10</span></div>
+          </td>
+          <td>Finance function impact, functional interdependencies, risk and reward, financial data</td>
+          <td class="years-pill">Sample, 2019, 2020, 2021, 2022, 2023, 2024, 2025</td>
+        </tr>
+        <tr>
+          <td class="rank-num">12</td>
+          <td class="topic-code">4.5</td>
+          <td><strong>Business Location</strong></td>
+          <td>
+            <div class="bar-wrap"><div class="bar" style="width:75px"></div><span class="bar-num">9</span></div>
+          </td>
+          <td>Location factors, discuss/evaluate relocation decisions</td>
+          <td class="years-pill">Sample, 2019, 2020, 2021, 2022, 2023, 2024, 2025</td>
+        </tr>
+        <tr>
+          <td class="rank-num">13</td>
+          <td class="topic-code">4.3</td>
+          <td><strong>Sales Process &amp; Customer Service</strong></td>
+          <td>
+            <div class="bar-wrap"><div class="bar" style="width:70px"></div><span class="bar-num">9</span></div>
+          </td>
+          <td>Methods of selling, customer service importance, e-commerce, product knowledge</td>
+          <td class="years-pill">Sample, 2019, 2020, 2021, 2022, 2023, 2024, 2025</td>
+        </tr>
+        <tr>
+          <td class="rank-num">14</td>
+          <td class="topic-code">5.1</td>
+          <td><strong>Role of the Finance Function</strong></td>
+          <td>
+            <div class="bar-wrap"><div class="bar" style="width:60px"></div><span class="bar-num">7</span></div>
+          </td>
+          <td>Finance function purpose, influence on business activity, authorising payments</td>
+          <td class="years-pill">2019, 2020, 2021, 2022, 2023, 2025</td>
+        </tr>
+        <tr>
+          <td class="rank-num">15</td>
+          <td class="topic-code">4.4</td>
+          <td><strong>Consumer Law</strong></td>
+          <td>
+            <div class="bar-wrap"><div class="bar" style="width:55px"></div><span class="bar-num">7</span></div>
+          </td>
+          <td>Consumer rights, impact on business, satisfactory quality, safety requirements</td>
+          <td class="years-pill">Sample, 2019, 2020, 2021, 2022, 2023, 2024</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ PART 2 -->
+<section id="part2">
+<div class="container">
+  <div class="section-header">
+    <span class="part-num">Part 02</span>
+    <h2>Question Type &amp; Command Word Analysis</h2>
+  </div>
+
+  <div class="info-box">
+    <strong>Key pattern:</strong> Q16–Q17 each use a layered structure of State/Identify (1–2 marks) → Explain/Calculate (2–3 marks) → Analyse (3–6 marks) → Recommend/Evaluate (3–7 marks). Q18 always culminates in the 9-mark starred Evaluate question. Section A MCQs (1 mark each, 15 questions) test definitional and calculation knowledge across all topics.
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>5.3 Revenue, Costs, Profit &amp; Loss</h3>
+      <div class="sub">TOPIC CODE 5.3.1–5.3.6</div>
+      <p>Dominated by <strong>Calculate</strong> commands — gross profit margin, net profit margin, average profit, percentage change in revenue. Frequently appears as a 2–3 mark calculation sub-question. Also appears as <strong>Analyse</strong> (3 marks) when asking students to use financial data. The 7-mark starred format has been used to evaluate the usefulness of financial data (2023 Q18). Mark allocations: 1, 2, 3, 6, 7, 9.</p>
+      <div><span class="tag">Calculate</span><span class="tag">Analyse</span><span class="tag">Evaluate</span><span class="tag">Identify</span><span class="tag red">1–9 marks</span></div>
+    </div>
+
+    <div class="card">
+      <h3>5.4 Break-even</h3>
+      <div class="sub">TOPIC CODE 5.4.1–5.4.3</div>
+      <p>Always involves <strong>Calculate</strong> (BEQ formula: Fixed Costs ÷ Contribution per unit) worth 3–4 marks. Usually followed by <strong>Analyse</strong> (one way BEP can be used) worth 3 marks. Limitations of break-even appear frequently as Analyse questions. Appeared as 9-mark starred Evaluate in 2022 Q18. Section A MCQ: calculation of BEQ or break-even hours.</p>
+      <div><span class="tag">Calculate</span><span class="tag">Analyse</span><span class="tag">Evaluate</span><span class="tag red">3–9 marks</span></div>
+    </div>
+
+    <div class="card">
+      <h3>5.5 Cash &amp; Cash Flow</h3>
+      <div class="sub">TOPIC CODE 5.5.1–5.5.4</div>
+      <p><strong>State</strong> (1 mark) why cash is important, <strong>Explain</strong> (2 marks) use of cash flow forecast, <strong>Calculate</strong> (1–2 marks) closing/opening balances or missing figures, and <strong>Analyse</strong> (3 marks) cash position. Section A MCQs regularly test cash flow forecast completion. The cash vs profit distinction is a frequent examiner note.</p>
+      <div><span class="tag">State</span><span class="tag">Explain</span><span class="tag">Calculate</span><span class="tag">Analyse</span><span class="tag red">1–3 marks</span></div>
+    </div>
+
+    <div class="card">
+      <h3>5.2 Sources of Finance</h3>
+      <div class="sub">TOPIC CODE 5.2.1–5.2.3</div>
+      <p>Typically appears in Q17 as <strong>Analyse one advantage AND one disadvantage</strong> (6 marks) of a specific source (crowdfunding, share issue, bank loan, selling assets, new partner). Always followed by a <strong>Recommend</strong> (3 marks) question comparing two sources. Section A MCQs test identification of appropriate source types.</p>
+      <div><span class="tag">Analyse</span><span class="tag">Recommend</span><span class="tag">Identify</span><span class="tag red">2–7 marks</span></div>
+    </div>
+
+    <div class="card">
+      <h3>6.1 Ethical &amp; Environmental Considerations</h3>
+      <div class="sub">TOPIC CODE 6.1.1–6.1.2</div>
+      <p>Appears as <strong>State/Identify</strong> (1–2 marks) ethical or environmental considerations, <strong>Analyse</strong> (3 marks) impact of being ethical/sustainable, and most significantly as the 9-mark starred <strong>Evaluate</strong> question (2019 Q18 — ethical treatment of workers; 2021 Q18 — environmental considerations and marketing mix). Highly versatile topic.</p>
+      <div><span class="tag">State</span><span class="tag">Identify</span><span class="tag">Analyse</span><span class="tag">Evaluate</span><span class="tag red">1–9 marks</span></div>
+    </div>
+
+    <div class="card">
+      <h3>6.3 Globalisation</h3>
+      <div class="sub">TOPIC CODE 6.3.1–6.3.2</div>
+      <p>Frequently in Q16 or Q17 as <strong>Analyse two impacts</strong> (6 marks), then <strong>Recommend</strong> which impact is most significant (3 marks). Also used in Q18 as 9-mark <strong>Evaluate</strong> (2020 — globalisation, risk and reward for AM plc shareholders). International branding appears as <strong>Evaluate</strong> (7 marks, 2024 Q16e).</p>
+      <div><span class="tag">Analyse</span><span class="tag">Recommend</span><span class="tag">Evaluate</span><span class="tag red">3–9 marks</span></div>
+    </div>
+
+    <div class="card">
+      <h3>4.1 Production Processes</h3>
+      <div class="sub">TOPIC CODE 4.1.1–4.1.2</div>
+      <p><strong>State/Identify/Explain</strong> a production process (1–2 marks). Often followed by <strong>Analyse one advantage AND one disadvantage</strong> of switching production types (6 marks), then <strong>Recommend</strong> (3 marks) whether to switch. Technology and automation appear as <strong>Explain/Analyse</strong> questions. Section A MCQs test identification of production types.</p>
+      <div><span class="tag">State</span><span class="tag">Explain</span><span class="tag">Analyse</span><span class="tag">Recommend</span><span class="tag red">1–6 marks</span></div>
+    </div>
+
+    <div class="card">
+      <h3>6.2 Economic Climate</h3>
+      <div class="sub">TOPIC CODE 6.2.1</div>
+      <p>Appears as <strong>Analyse</strong> (3 marks each) the impact of unemployment change AND consumer income change separately, then <strong>Recommend</strong> (3 marks) which has greater impact. Has appeared as 9-mark starred <strong>Evaluate</strong> in 2025 Q18 (economic climate affecting marketing decisions). Section A MCQs test basic understanding of economic indicators.</p>
+      <div><span class="tag">Analyse</span><span class="tag">Recommend</span><span class="tag">Evaluate</span><span class="tag red">3–9 marks</span></div>
+    </div>
+
+    <div class="card">
+      <h3>4.6 Working with Suppliers</h3>
+      <div class="sub">TOPIC CODE 4.6.1–4.6.2</div>
+      <p><strong>Identify/State</strong> roles of procurement (1–2 marks), <strong>Explain</strong> a role (2 marks), <strong>Analyse</strong> advantages of specific supplier decisions (3 marks). The supply chain length and logistics decisions have appeared as 6-mark paired Analyse questions (2021 Q18). <strong>Evaluate</strong> supplier reliability used in 2023 Q16 (7 marks).</p>
+      <div><span class="tag">Identify</span><span class="tag">Explain</span><span class="tag">Analyse</span><span class="tag">Evaluate</span><span class="tag red">1–7 marks</span></div>
+    </div>
+
+    <div class="card">
+      <h3>4.2 Quality of Goods &amp; Services</h3>
+      <div class="sub">TOPIC CODE 4.2.1–4.2.3</div>
+      <p><strong>Explain</strong> (2 marks) why quality is important. <strong>Analyse</strong> (3 marks) importance/benefits of quality, or methods of ensuring quality. <strong>State</strong> (1 mark) a method. Section A MCQs distinguish between quality control and quality assurance definitions. Rarely appears as a standalone 7-mark or 9-mark question.</p>
+      <div><span class="tag">State</span><span class="tag">Explain</span><span class="tag">Analyse</span><span class="tag red">1–4 marks</span></div>
+    </div>
+
+    <div class="card">
+      <h3>7.1 Interdependent Nature of Business</h3>
+      <div class="sub">TOPIC CODE 7.1.1–7.1.4</div>
+      <p>Appears as <strong>Analyse</strong> (3 marks) how one function impacts another (e.g., marketing impacting operations). Financial data interpretation is often embedded in Q18 as <strong>Evaluate</strong> (9 marks) — e.g., 2023: how useful is financial data to stakeholders. Risk and reward appears in Section A MCQs and as Analyse questions.</p>
+      <div><span class="tag">Analyse</span><span class="tag">Evaluate</span><span class="tag red">3–9 marks</span></div>
+    </div>
+
+    <div class="card">
+      <h3>4.5 Business Location</h3>
+      <div class="sub">TOPIC CODE 4.5.1</div>
+      <p><strong>Identify/State</strong> (1–2 marks) factors influencing location. <strong>Discuss</strong> or <strong>Evaluate</strong> (7 marks) a location decision — this is the key higher-mark format. Used as 7-mark Discuss in 2019 Q16 (Costa Coffee Welshpool location) and 2025 Q17 (caravan vs restaurant relocation). Pairs consistently with case study context.</p>
+      <div><span class="tag">Identify</span><span class="tag">Discuss</span><span class="tag">Evaluate</span><span class="tag red">1–7 marks</span></div>
+    </div>
+
+    <div class="card">
+      <h3>4.3 Sales Process &amp; Customer Service</h3>
+      <div class="sub">TOPIC CODE 4.3.1–4.3.4</div>
+      <p><strong>State/Identify</strong> (1 mark) a method of selling. <strong>Explain</strong> (2–4 marks) advantages of e-commerce. <strong>Analyse</strong> (3 marks) impact of product knowledge or technology on customer service. Customer engagement appears in Section A MCQs. Rarely a 7-mark or 9-mark question in isolation.</p>
+      <div><span class="tag">State</span><span class="tag">Explain</span><span class="tag">Analyse</span><span class="tag red">1–4 marks</span></div>
+    </div>
+
+    <div class="card">
+      <h3>5.1 Role of Finance Function</h3>
+      <div class="sub">TOPIC CODE 5.1.1–5.1.2</div>
+      <p><strong>Identify</strong> tasks of the finance function (Section A MCQ). <strong>Analyse</strong> (3 marks) how finance function influences business objectives. Appears linked to interdependency (7.1) questions. Relatively lower-mark allocation compared to 5.3–5.5.</p>
+      <div><span class="tag">Identify</span><span class="tag">Analyse</span><span class="tag red">1–3 marks</span></div>
+    </div>
+
+    <div class="card">
+      <h3>4.4 Consumer Law</h3>
+      <div class="sub">TOPIC CODE 4.4.1</div>
+      <p>Almost exclusively tested in Section A MCQs (1 mark) — "by law, a business must…" format. Appears as <strong>Identify</strong> (1 mark) or <strong>Analyse</strong> (3 marks) the impact of consumer law on a specific business. Has not appeared as a 7-mark or 9-mark question. Was absent from 2025.</p>
+      <div><span class="tag">Identify</span><span class="tag">Analyse</span><span class="tag red">1–3 marks</span></div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif; margin:36px 0 16px; font-size:20px;">Question Structure by Paper — Q16, Q17, Q18 Topic Mapping</h3>
+  <div class="year-grid">
+    <div class="year-row">
+      <span class="year-label">SAMPLE</span>
+      <div class="year-topics">
+        <span class="yt yt-q16">Q16: 4.2 Quality / 4.1 Technology / 6.3 Globalisation</span>
+        <span class="yt yt-q17">Q17: 5.4 Break-even / 5.2 Sources of Finance</span>
+        <span class="yt yt-q18">Q18: 6.1 Environmental / 7.1 Interdependency [9★]</span>
+      </div>
+    </div>
+    <div class="year-row">
+      <span class="year-label">2019</span>
+      <div class="year-topics">
+        <span class="yt yt-q16">Q16: 6.1 Environmental / 4.6 Suppliers / 4.5 Location [7]</span>
+        <span class="yt yt-q17">Q17: 5.3.2 Variable Costs / 5.3.6 ARR / 5.2 Sources</span>
+        <span class="yt yt-q18">Q18: 4.2 Quality / 4.1 Production / 6.1 Ethics [9★]</span>
+      </div>
+    </div>
+    <div class="year-row">
+      <span class="year-label">2020</span>
+      <div class="year-topics">
+        <span class="yt yt-q16">Q16: 4.2 Quality / 4.3 Customer Service / 4.6 Suppliers [7]</span>
+        <span class="yt yt-q17">Q17: 5.4 Break-even / 5.3 Profitability / 5.2 Sources [7]</span>
+        <span class="yt yt-q18">Q18: 6.1 Environmental / 4.5 Location / 6.2 Economic / 6.3 Globalisation [9★]</span>
+      </div>
+    </div>
+    <div class="year-row">
+      <span class="year-label">2021</span>
+      <div class="year-topics">
+        <span class="yt yt-q16">Q16: 6.3 Globalisation / 4.3 E-commerce / 6.1 Ethics [7]</span>
+        <span class="yt yt-q17">Q17: 5.5 Cash Flow / 5.3 Net Profit / 5.2 Sources [3]</span>
+        <span class="yt yt-q18">Q18: 4.4 Consumer Law / 4.1 Batch / 6.2 Unemployment / 4.6 Logistics [9★ Env]</span>
+      </div>
+    </div>
+    <div class="year-row">
+      <span class="year-label">2022</span>
+      <div class="year-topics">
+        <span class="yt yt-q16">Q16: 6.1 Environmental / 5.1 Finance Function / 5.3 Revenue / 4.5 Location [7]</span>
+        <span class="yt yt-q17">Q17: 4.3 Selling / 6.1 Ethics / 5.3.6 ARR / 5.5 Cash Flow [3]</span>
+        <span class="yt yt-q18">Q18: 4.1 Batch Production / 4.6 Suppliers / 5.4 Break-even [9★]</span>
+      </div>
+    </div>
+    <div class="year-row">
+      <span class="year-label">2023</span>
+      <div class="year-topics">
+        <span class="yt yt-q16">Q16: 4.1 Production / 4.2 Quality / 4.3 E-commerce / 4.6 Procurement / 4.6 Reliability [7]</span>
+        <span class="yt yt-q17">Q17: 4.3 Customer Service / 4.2 Quality / 7.1 Financial Data / 6.3 MNC [7]</span>
+        <span class="yt yt-q18">Q18: 5.4 Break-even / 6.2 Economic / 7.1 Financial Data [9★]</span>
+      </div>
+    </div>
+    <div class="year-row">
+      <span class="year-label">2024</span>
+      <div class="year-topics">
+        <span class="yt yt-q16">Q16: 4.1 Flow Production / 7.1 Interdependency / 5.3 Revenue / 6.2 Economic / 6.3 Int'l Branding [7]</span>
+        <span class="yt yt-q17">Q17: 5.2 Finance / 5.3 Profit / 5.4 Break-even / 5.5 Cash Flow / 5.2 New Partner [7]</span>
+        <span class="yt yt-q18">Q18: 4.2 Quality / 4.6 Suppliers / 4.3 E-commerce / 6.1 Ethics vs Shareholders [9★]</span>
+      </div>
+    </div>
+    <div class="year-row">
+      <span class="year-label">2025</span>
+      <div class="year-topics">
+        <span class="yt yt-q16">Q16: 4.1 Production / 6.1 Environmental / 5.3.5 Net Profit Margin / 6.1 Sustainability / 6.3 MNC [7]</span>
+        <span class="yt yt-q17">Q17: 4.3 Customer Service / 5.2 Overdraft / 5.5 Cash / 5.3 ARR / 4.5 Location [7]</span>
+        <span class="yt yt-q18">Q18: 4.3 Selling / 4.1 Technology/AI / 6.3 MNC / 5.2 Finance / 6.2 Economic [9★]</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ PART 3 -->
+<section id="part3">
+<div class="container">
+  <div class="section-header">
+    <span class="part-num">Part 03</span>
+    <h2>Gap &amp; Rotation Analysis</h2>
+  </div>
+
+  <div class="card-grid">
+    <div class="card green-top">
+      <h3>🔒 Core Topics — Every Year Without Fail</h3>
+      <div class="sub">Appear in EVERY paper across all 8 years</div>
+      <p>These topics are examination certainties. Students must achieve mastery, not just familiarity:</p>
+      <ul style="padding-left:18px; margin-top:8px; font-size:13.5px;">
+        <li><strong>5.3</strong> Revenue, Costs, Profit &amp; Loss (esp. GPM/NPM calculation)</li>
+        <li><strong>5.4</strong> Break-even (BEQ calculation + analysis)</li>
+        <li><strong>5.5</strong> Cash &amp; Cash Flow</li>
+        <li><strong>6.1</strong> Ethical &amp; Environmental Considerations</li>
+        <li><strong>5.2</strong> Sources of Finance (compare two sources)</li>
+        <li><strong>4.1</strong> Production Processes</li>
+        <li><strong>6.3</strong> Globalisation</li>
+      </ul>
+    </div>
+
+    <div class="card red-top">
+      <h3>🔴 Gap Topics — Overdue for Return</h3>
+      <div class="sub">Topics absent from recent papers (2023–2025)</div>
+      <p>These topics have not featured prominently in 2023–2025 and carry elevated probability for 2026:</p>
+      <ul style="padding-left:18px; margin-top:8px; font-size:13.5px;">
+        <li><strong>4.4 Consumer Law</strong> — absent from 2025 entirely; last substantive Q in 2024's Q18 only briefly</li>
+        <li><strong>5.3.6 ARR (Average Rate of Return)</strong> — appeared 2019, 2022, 2023 but not 2024 Q17; returned briefly 2025 Q17 as a sub-question calculation only</li>
+        <li><strong>4.5 Business Location</strong> as a 7-mark Discuss/Evaluate — last used fully in 2025 Q17 (7 marks); before that 2019</li>
+        <li><strong>4.6 Supply Chain as Q18 topic</strong> — last as Q18 main focus in 2021; became supporting topic since</li>
+      </ul>
+    </div>
+
+    <div class="card gold-top">
+      <h3>🔄 Rotating Topics — 2–3 Year Cycle</h3>
+      <div class="sub">Alternate in and out of exam papers</div>
+      <p>These topics follow clear rotation patterns:</p>
+      <ul style="padding-left:18px; margin-top:8px; font-size:13.5px;">
+        <li><strong>6.2 Economic Climate as 9★ Evaluate</strong>: appeared 2020 (AM plc), 2023 (GK), 2025 (Gymshark) — roughly every 2 years</li>
+        <li><strong>6.3 Globalisation as 9★</strong>: appeared 2020 Q18; next cycle due</li>
+        <li><strong>4.1 Batch vs Flow as 6-mark Analyse</strong>: 2019, 2021, 2022 — then less prominent</li>
+        <li><strong>5.2 Sources of Finance as main Q17 theme</strong>: 2019, 2020, 2021, returned 2024 — strong rotation</li>
+        <li><strong>6.1 Ethics as 9★</strong>: 2019 (workers), 2021 (environment+marketing), 2024 (ethics vs shareholders) — appearing every 2 years</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>📊 Q18 Starred Question Topic History</h3>
+      <div class="sub">The 9-mark question — most critical rotation to track</div>
+      <p>The Q18 starred question has covered:</p>
+      <ul style="padding-left:18px; margin-top:8px; font-size:13.5px;">
+        <li><strong>Sample:</strong> Interdependency / Environmental impact</li>
+        <li><strong>2019:</strong> Ethical treatment of workers → motivation</li>
+        <li><strong>2020:</strong> Globalisation → risk and reward</li>
+        <li><strong>2021:</strong> Environmental considerations → marketing mix</li>
+        <li><strong>2022:</strong> Break-even → pricing decisions</li>
+        <li><strong>2023:</strong> Financial data usefulness to stakeholders</li>
+        <li><strong>2024:</strong> Ethics vs shareholders' interests</li>
+        <li><strong>2025:</strong> Economic climate → marketing decisions</li>
+      </ul>
+      <p style="margin-top:10px; color:var(--accent); font-weight:600; font-size:13px;">2026 strong candidates: Globalisation impacts on decision-making OR Production technology impact on costs/quality</p>
+    </div>
+  </div>
+
+  <div class="info-box" style="margin-top:28px;">
+    <strong>Key statistical insight:</strong> No Q18 topic has been repeated in consecutive years. The 2025 Q18 was economic climate. Therefore 2026 will NOT be economic climate. The two topics most overdue for Q18 treatment are <strong>6.3 Globalisation</strong> (last as Q18 main focus in 2020) and <strong>4.1/4.2 Production &amp; Quality combined</strong> (never been the 9-mark starred question). Consumer Law (4.4) has never appeared as a 7 or 9-mark question — making it a potential surprise entrant.
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ PART 4 -->
+<section id="part4">
+<div class="container">
+  <div class="section-header">
+    <span class="part-num">Part 04</span>
+    <h2>Common Errors — What Students Get Wrong</h2>
+  </div>
+  <p style="margin-bottom:24px; color:var(--mid);">All errors identified directly from examiner mark scheme guidance notes (TV = Too Vague, No Reward statements, NB warnings, and guidance restrictions).</p>
+
+  <div class="mistake-block">
+    <h4>Error Type — Cash vs Profit Confusion</h4>
+    <div class="q">Questions on cash flow, importance of cash, or cash management</div>
+    <div class="why"><strong>Why students get it wrong:</strong> Students confuse cash with profit, writing "a business needs cash to make a profit" or discussing profit when asked about cash. The examiner explicitly states "No reward for answers which confuse cash and profit." Students also describe long-term investment uses of cash rather than short-term operational needs.</div>
+    <div class="correct"><strong>Correct approach:</strong> Cash is needed to pay <em>short-term</em> debts and expenses (wages, rent, suppliers). Without it, a business cannot continue operating even if it is profitable. Never write "to make profit" as a reason for needing cash. Focus on liquidity and survival — e.g., "Cash allows the business to pay its suppliers on time, preventing disruption to stock supply."</div>
+  </div>
+
+  <div class="mistake-block">
+    <h4>Error Type — Too Vague (TV) Answers</h4>
+    <div class="q">Analyse/Explain questions on ethics, environment, customer service, quality, location</div>
+    <div class="why"><strong>Why students get it wrong:</strong> Students write generic statements without developing the business impact. Mark schemes flag many specific TV (Too Vague) answers: "May need to be more environmentally friendly" (TV for climate change question); "To help protect the environment" (TV for environmental reasons); "To keep customers satisfied" (TV for customer service); "Competition", "population", "customers" (TV for location factors); "Customer service getting better or worse" (TV for customer service analyse questions).</div>
+    <div class="correct"><strong>Correct approach:</strong> Always chain: Point → Business Impact → Financial/Strategic Consequence. Example instead of "being ethical improves reputation" write: "Acting ethically, such as paying fair wages, can improve DM's reputation (K), which may attract customers who value sustainability (APP), increasing sales revenue and market share (ANALYSIS)."</div>
+  </div>
+
+  <div class="mistake-block">
+    <h4>Error Type — Net Profit Margin Calculation Errors</h4>
+    <div class="q">Calculate [business]'s net profit margin for [year] to two decimal places</div>
+    <div class="why"><strong>Why students get it wrong:</strong> Students use the inverse formula (Revenue ÷ Net Profit instead of Net Profit ÷ Revenue × 100), forget to multiply by 100, or fail to give the answer to exactly two decimal places. The 2025 mark scheme specifically flags "No reward for inverse answer (627.54%)" and awards maximum 1 mark if not given to two decimal places.</div>
+    <div class="correct"><strong>Correct formula:</strong> Net Profit Margin = (Net Profit ÷ Revenue) × 100. Always show workings. Always give to two decimal places unless told otherwise. Check: the answer should be less than 100%. Gross profit margin uses gross profit (before expenses) not net profit.</div>
+  </div>
+
+  <div class="mistake-block">
+    <h4>Error Type — Average Rate of Return (ARR) Formula</h4>
+    <div class="q">Calculate the average rate of return (ARR) for [investment]</div>
+    <div class="why"><strong>Why students get it wrong:</strong> Students confuse total profit with average annual profit. They forget to divide total net profit by the number of years first, then divide by the initial investment. Some use revenue instead of profit. Others miss the "× 100" step to express as a percentage.</div>
+    <div class="correct"><strong>Correct formula:</strong> ARR = (Average Annual Profit ÷ Cost of Investment) × 100. Step 1: Average annual profit = Total net profit ÷ Number of years. Step 2: ARR = (Step 1 result ÷ Initial cost) × 100. Always express as a percentage (%).</div>
+  </div>
+
+  <div class="mistake-block">
+    <h4>Error Type — Break-even Calculation Units</h4>
+    <div class="q">Calculate the break-even quantity / point for [business]</div>
+    <div class="why"><strong>Why students get it wrong:</strong> Students give the answer in £ (pounds) rather than units/sessions/items. The mark scheme notes "NB: Maximum of two marks for an answer with the wrong units (e.g. £)." Students also use total variable costs rather than variable cost per unit in the contribution formula.</div>
+    <div class="correct"><strong>Correct formula:</strong> BEQ = Fixed Costs ÷ (Selling Price per unit − Variable Cost per unit). The denominator is "contribution per unit." Answer must be expressed in <em>units</em> (number of items, sessions, hours, etc.) not in £. Always show full workings for 3–4 mark questions.</div>
+  </div>
+
+  <div class="mistake-block">
+    <h4>Error Type — Recommend Questions Without Comparison</h4>
+    <div class="q">Recommend whether [business] should use Option A or Option B</div>
+    <div class="why"><strong>Why students get it wrong:</strong> Students write only about their chosen option without referencing the rejected alternative. The mark schemes consistently state: "NB: If two separate points are made, there must be a comparative link" and "justification is why one method is BETTER THAN the other." A recommendation that only says "Option A is good because…" cannot access the top mark without comparing it to Option B.</div>
+    <div class="correct"><strong>Correct structure:</strong> (1) State your recommendation clearly. (2) Give one reason why the chosen option is better. (3) Reference why the rejected option is worse/less suitable in this context. Use the case study data to justify. E.g., "Riley should relocate to a restaurant (1) as it would provide a stable, year-round trading location (reason), unlike the caravan which is limited by weather and footfall (comparative reference to rejected option)."</div>
+  </div>
+
+  <div class="mistake-block">
+    <h4>Error Type — Analyse Answers Without Business Impact</h4>
+    <div class="q">Analyse one advantage/disadvantage of [action] for [business]</div>
+    <div class="why"><strong>Why students get it wrong:</strong> Students identify a relevant point but do not develop it into a business consequence. Mark schemes repeatedly state "NB: Analysis must be business-facing" and "No reward for only stating 'low costs' or 'costs will increase' without development." Writing "it will reduce costs" alone earns no more than a knowledge mark. Students must show the consequence of that change.</div>
+    <div class="correct"><strong>Correct 3-mark chain:</strong> Knowledge (what) → Application (to the business context) → Analysis (consequence for the business). E.g., "Using batch production allows Pukka Pies to produce large quantities at once (K), meaning they can spread the fixed costs of the factory across more pies (APP), which reduces the cost per unit and improves the gross profit margin (ANALYSIS)."</div>
+  </div>
+
+  <div class="mistake-block">
+    <h4>Error Type — Environmental vs Ethical Confusion</h4>
+    <div class="q">State/identify environmental OR ethical considerations</div>
+    <div class="why"><strong>Why students get it wrong:</strong> Students mix up ethical and environmental considerations, giving ethical answers when asked for environmental ones and vice versa. The 2025 mark scheme states "No reward for answers about sustainability, ethics or legislation" when asked for environmental reasons to be environmentally friendly. Conversely, answering "reduce carbon emissions" when asked for an ethical consideration is also penalised.</div>
+    <div class="correct"><strong>Correct distinction:</strong> <em>Environmental</em> = impact on the natural world (carbon emissions, recycling, waste, pollution, renewable energy, packaging). <em>Ethical</em> = doing what is morally right with people (fair wages, no child labour, fair trade, supplier treatment, honesty with customers). Climate change is an environmental/economic issue — not an ethical consideration unless framed around worker treatment.</div>
+  </div>
+
+  <div class="mistake-block">
+    <h4>Error Type — Finance Function vs Other Functions</h4>
+    <div class="q">Identify tasks of the finance function / Which is NOT a finance function task?</div>
+    <div class="why"><strong>Why students get it wrong:</strong> Students incorrectly assign tasks to finance that belong to other functions. E.g., "advertising price reductions" (marketing, not finance), "creating educational resources" (operations/HR, not finance), "producing GCSE results reports" (data/admin, not finance). The finance function specifically covers: managing cash flow, budgeting, producing profit/loss accounts, calculating break-even, authorising payments, financial forecasting.</div>
+    <div class="correct"><strong>Finance function tasks include:</strong> Applying for loans, calculating break-even, measuring profit/loss, authorising supplier payments, producing financial reports, monitoring cash flow forecasts, managing budgets, calculating ARR for investment decisions. Marketing, HR hiring, and production scheduling are NOT finance function tasks.</div>
+  </div>
+
+  <div class="mistake-block">
+    <h4>Error Type — Evaluate Questions Without Balanced Judgement</h4>
+    <div class="q">Evaluate [topic] — 7-mark or 9-mark starred questions</div>
+    <div class="why"><strong>Why students get it wrong:</strong> Students write one-sided responses arguing only advantages or only disadvantages. For 7-mark and 9-mark evaluate questions, the mark scheme requires a balanced discussion with a supported judgement. Students often reach L2 (4–5 marks) but cannot access L3 (6–7 marks) or L4 (8–9 marks) because they do not provide a clear, justified conclusion that weighs competing factors.</div>
+    <div class="correct"><strong>Correct structure for 9★ Evaluate:</strong> (1) Argument for (with K, APP, ANALYSIS) → (2) Counter-argument or limiting factor (with K, APP, ANALYSIS) → (3) Further development → (4) Balanced judgement referencing both sides and the specific context/data given. The conclusion must not introduce new points — it should synthesise what has been argued. Use phrases like "On balance…", "Taking into account…", "The most significant factor is… because in the context of [business]…"</div>
+  </div>
+
+  <div class="mistake-block">
+    <h4>Error Type — Not Using Case Study Context in Application</h4>
+    <div class="q">Any Analyse or higher question in Section B</div>
+    <div class="why"><strong>Why students get it wrong:</strong> Students give textbook answers without relating them to the specific business in the question. Mark schemes state "NB: Context must be used to be awarded as application" and warn that general answers can access Knowledge but not Application marks. For example, writing "businesses use procurement to choose suppliers" without referencing that Gymshark/DM/Pukka Pies is a multinational/specific type of business loses the application mark.</div>
+    <div class="correct"><strong>Always name the business and its specific situation:</strong> Use the data provided (revenue figures, profit margins, production method, company type). For example: "For Gymshark, which is a fast-growing online sportswear brand (APP), using retained profits avoids the need to pay interest on a bank loan (K), which is significant given the economic pressures on consumer spending noted in the case study (ANALYSIS)."</div>
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ PART 5 -->
+<section id="part5">
+<div class="container">
+  <div class="section-header">
+    <span class="part-num">Part 05</span>
+    <h2>Predicted Questions for 2026 — Ranked by Confidence</h2>
+  </div>
+
+  <div class="info-box">
+    <strong>Basis for predictions:</strong> All predictions are derived from the historical data above. Gap analysis, Q18 rotation cycle, command word patterns, and mark allocation trends are the primary drivers. No prediction is speculative beyond what the data supports.
+  </div>
+
+  <!-- PQ 1 -->
+  <div class="pq-block">
+    <div class="pq-header">
+      <div><span class="pq-rank">01</span></div>
+      <div>
+        <div class="pq-title">6.3 Globalisation — Q18 Starred Evaluate (9 marks)</div>
+        <div class="pq-meta">TOPIC 6.3.2 | Command: Evaluate | 9 marks | Highest Confidence</div>
+      </div>
+    </div>
+    <div class="pq-body">
+      <div class="pq-question">Evaluate how globalisation may affect [business name]'s decisions about where to locate its operations. [9]</div>
+      <span class="pq-marks">★ Evaluate | 9 marks | Q18</span>
+      <div class="pq-justification">Globalisation was the Q18 topic in 2020 (risk/reward for AM plc shareholders). No Q18 topic has been repeated, and with 5 years since 2020, globalisation is statistically overdue for return to Q18. The 2025 Q18 used economic climate; the 2021 Q18 used environmental considerations; globalisation fills the natural gap. Its link to location decisions (4.5) and MNC advantages (6.3.2) gives rich context for a business case study question.</div>
+      <div class="pq-answer">
+        <h5>Mark-Band Model Answer</h5>
+        <div class="answer-box">
+          <p><strong>L1 Knowledge points to include:</strong> Globalisation refers to the increasing integration of economies worldwide through trade, investment and technology. Businesses can locate operations in countries with lower costs, access new markets, or be closer to raw material sources.</p>
+          <p><strong>L2 Application — Link to the Case Study Business:</strong> Reference specific details: type of business (MNC/plc), revenue data, existing international operations, supply chain details as given in the case study text.</p>
+          <p><strong>L3 Developed Analysis — Arguments FOR globalisation influencing location:</strong></p>
+          <ul>
+            <li>Lower labour costs in developing countries allow [business] to reduce production costs, improving the gross profit margin and allowing more competitive pricing in a difficult economic climate.</li>
+            <li>Locating in a market close to where products are sold reduces logistics costs and delivery times, improving customer service and reducing distribution expenses.</li>
+            <li>Access to specialist skills or raw materials in specific countries (e.g., tech expertise in India, lithium in Chile) can improve product quality or reduce input costs.</li>
+          </ul>
+          <p><strong>L3 Counter-analysis — Challenges of global location:</strong></p>
+          <ul>
+            <li>Cultural and language barriers can increase management complexity and communication costs, reducing operational efficiency.</li>
+            <li>Political instability or changing trade regulations in overseas locations create supply chain risks that can disrupt production — a potential significant cost.</li>
+            <li>Ethical concerns about labour standards in some countries may damage the business's reputation with UK/EU consumers, reducing sales.</li>
+          </ul>
+          <p><strong>L4 Balanced Judgement:</strong> On balance, globalisation significantly influences location decisions primarily because cost reduction and market access advantages typically outweigh the risks for established multinationals with strong supply chain management. However, for smaller businesses or those with strong brand identities built on ethical sourcing, the reputational risks of offshore production may outweigh the cost savings. The most important factor depends on whether [business]'s competitive advantage is built on price or on brand/quality — if the former, global location is highly beneficial; if the latter, domestic production may better serve long-term objectives.</p>
+        </div>
+      </div>
+      <div class="confidence-bar">
+        <span class="confidence-label">Confidence</span>
+        <div class="confidence-track"><div class="confidence-fill" style="width:92%"></div></div>
+        <span class="confidence-label">92%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PQ 2 -->
+  <div class="pq-block">
+    <div class="pq-header">
+      <div><span class="pq-rank">02</span></div>
+      <div>
+        <div class="pq-title">5.3 + 5.4 Finance: ARR Calculation + Break-even Analysis</div>
+        <div class="pq-meta">TOPIC 5.3.6 + 5.4.2 | Command: Calculate + Analyse | 3+3 marks | Q17</div>
+      </div>
+    </div>
+    <div class="pq-body">
+      <div class="pq-question">(c)(i) Calculate the average rate of return (ARR) for [investment]. Show your workings. [3]<br>(ii) Calculate the break-even quantity for [business]. Show your workings. [3]<br>(iii) Analyse one way [business] could use its break-even data to make decisions. [3]</div>
+      <span class="pq-marks">Calculate + Analyse | 3+3+3 marks | Q17</span>
+      <div class="pq-justification">ARR and break-even have both appeared together in Q17 multiple times (2019, 2022, 2024). The combination of ARR calculation followed by break-even calculation and analysis is the most tested multi-calculation format in Paper 2. With the 2025 Q17 including ARR briefly, a fuller multi-calculation Q17 is anticipated in 2026, matching the 2019/2022 pattern.</div>
+      <div class="pq-answer">
+        <h5>Model Answers</h5>
+        <div class="answer-box">
+          <p><strong>ARR Calculation (3 marks):</strong></p>
+          <p>Step 1: Average annual profit = Total net profit over life of investment ÷ Number of years<br>
+          Step 2: ARR = (Average annual profit ÷ Initial cost of investment) × 100<br>
+          Example: Investment costs £40,000; total net profit over 4 years = £28,000<br>
+          Average annual profit = £28,000 ÷ 4 = £7,000<br>
+          ARR = (£7,000 ÷ £40,000) × 100 = <strong>17.5%</strong></p>
+          <p><strong>Break-even Calculation (3 marks):</strong></p>
+          <p>BEQ = Fixed Costs ÷ (Selling Price per unit − Variable Cost per unit)<br>
+          BEQ = Fixed Costs ÷ Contribution per unit<br>
+          Example: FC = £12,000/month; SP = £40; VC = £16<br>
+          Contribution = £40 − £16 = £24<br>
+          BEQ = £12,000 ÷ £24 = <strong>500 units</strong></p>
+          <p><strong>Analyse use of BEP (3 marks — full chain):</strong></p>
+          <p>The business can use its break-even quantity to set sales targets (K). For [business], which is a small sole trader, knowing it must sell 500 units per month means Riley can set a minimum weekly sales target of approximately 125 units (APP). If sales fall below this, the business knows it is making a loss and can take action such as reducing costs or increasing prices before the problem becomes critical (ANALYSIS — business-facing consequence).</p>
+        </div>
+      </div>
+      <div class="confidence-bar">
+        <span class="confidence-label">Confidence</span>
+        <div class="confidence-track"><div class="confidence-fill" style="width:90%"></div></div>
+        <span class="confidence-label">90%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PQ 3 -->
+  <div class="pq-block">
+    <div class="pq-header">
+      <div><span class="pq-rank">03</span></div>
+      <div>
+        <div class="pq-title">5.2 Sources of Finance — Analyse + Recommend (Q17)</div>
+        <div class="pq-meta">TOPIC 5.2.2–5.2.3 | Command: Analyse + Recommend | 6+3 marks | Q17</div>
+      </div>
+    </div>
+    <div class="pq-body">
+      <div class="pq-question">(d)(i) Analyse one advantage and one disadvantage for [business] of using [Source A] to raise finance. [6]<br>(ii) Recommend whether [business] should use [Source A] or [Source B] to finance [investment]. [3]</div>
+      <span class="pq-marks">Analyse + Recommend | 6+3 marks | Q17</span>
+      <div class="pq-justification">This exact format (6-mark Analyse advantage AND disadvantage + 3-mark Recommend) has appeared in 2019, 2020, 2021, and 2024. The sources rotate: crowdfunding, bank loan, share issue, selling assets, new partner have all been used. The most overdue combination for 2026 is crowdfunding vs retained profit or share issue vs bank loan, as these combinations haven't been tested since 2020/2024 respectively.</div>
+      <div class="pq-answer">
+        <h5>Model Answer — Crowdfunding vs Bank Loan</h5>
+        <div class="answer-box">
+          <p><strong>Advantage of Crowdfunding (3 marks):</strong><br>
+          Crowdfunding does not require repayment of interest (K). For a small business like [business] which is already managing tight cash flow (APP), avoiding interest payments means more cash is retained to cover operating costs such as wages and rent (ANALYSIS — business-facing).</p>
+          <p><strong>Disadvantage of Crowdfunding (3 marks):</strong><br>
+          The business must make its business idea public to attract investors (K). This means that competitors could see [business]'s plans for expansion (APP), potentially copying the idea or undercutting prices before the expansion is complete, which could reduce the competitive advantage gained (ANALYSIS).</p>
+          <p><strong>Recommend (3 marks — must compare both options):</strong><br>
+          [Business] should use a bank loan rather than crowdfunding (recommendation). Although a bank loan requires interest repayments, the business has a stable and proven cash flow (reference to data) meaning it can afford the monthly repayments without cash flow problems (reason chosen is better). Crowdfunding is unpredictable — there is no guarantee the target amount will be raised — so a bank loan offers more certainty of obtaining the full £30,000 needed (comparative reference to why rejected option is worse).</p>
+        </div>
+      </div>
+      <div class="confidence-bar">
+        <span class="confidence-label">Confidence</span>
+        <div class="confidence-track"><div class="confidence-fill" style="width:88%"></div></div>
+        <span class="confidence-label">88%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PQ 4 -->
+  <div class="pq-block">
+    <div class="pq-header">
+      <div><span class="pq-rank">04</span></div>
+      <div>
+        <div class="pq-title">4.1 Production Processes — Analyse + Recommend (Q16/Q18)</div>
+        <div class="pq-meta">TOPIC 4.1.1–4.1.2 | Command: Analyse + Recommend | 6+3 marks</div>
+      </div>
+    </div>
+    <div class="pq-body">
+      <div class="pq-question">(d)(i) Analyse one advantage and one disadvantage for [business] of [switching from/using] [production method]. [6]<br>(ii) Recommend whether [business] should switch to [production method]. [3]</div>
+      <span class="pq-marks">Analyse + Recommend | 6+3 marks | Q16 or Q18</span>
+      <div class="pq-justification">This format appeared in 2019 (Montana Bakery: batch to flow), 2021 (Pukka Pies: batch), 2022 (Barratt: batch). It has not appeared in this full 6+3 format since 2022. The pattern shows it rotates every 2–3 years. 2026 is therefore strongly positioned for a return. The likely format is flow vs batch, or automation/technology impact on production, which also connects to 4.1.2.</div>
+      <div class="pq-answer">
+        <h5>Model Answer — Switching from Batch to Flow Production</h5>
+        <div class="answer-box">
+          <p><strong>Advantage of Flow Production (3 marks):</strong><br>
+          Flow production allows goods to be produced continuously without stopping (K). For [business], which makes standardised products at high volume (APP), this means output per hour increases significantly, spreading fixed costs (such as factory rent) over more units, which reduces the cost per unit and improves the gross profit margin (ANALYSIS).</p>
+          <p><strong>Disadvantage of Flow Production (3 marks):</strong><br>
+          Flow production requires a very high initial capital investment in machinery and equipment (K). For [business], which is a medium-sized manufacturer, the cost of purchasing and installing automated flow production lines may be several hundred thousand pounds (APP), creating significant pressure on cash flow and potentially requiring a large bank loan, increasing financial risk (ANALYSIS).</p>
+          <p><strong>Recommend (3 marks):</strong><br>
+          [Business] should switch to flow production (recommendation). Although the initial cost is high, the long-term reduction in cost per unit will allow the business to lower prices and compete more effectively against larger competitors (reason). Continuing with batch production would limit output capacity and prevent the business from meeting growing demand, ultimately costing more in lost sales revenue than the investment in flow production (comparative reference to rejected option).</p>
+        </div>
+      </div>
+      <div class="confidence-bar">
+        <span class="confidence-label">Confidence</span>
+        <div class="confidence-track"><div class="confidence-fill" style="width:85%"></div></div>
+        <span class="confidence-label">85%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PQ 5 -->
+  <div class="pq-block">
+    <div class="pq-header">
+      <div><span class="pq-rank">05</span></div>
+      <div>
+        <div class="pq-title">6.1 Ethics — 9★ Evaluate (Q18 starred)</div>
+        <div class="pq-meta">TOPIC 6.1.1 | Command: Evaluate | 9 marks | Q18</div>
+      </div>
+    </div>
+    <div class="pq-body">
+      <div class="pq-question">Evaluate the extent to which acting ethically may conflict with [business]'s desire to maximise profit. [9]*</div>
+      <span class="pq-marks">★ Evaluate | 9 marks | Q18</span>
+      <div class="pq-justification">Ethics as Q18 topic appeared in 2019 (ethical treatment of workers), 2024 (ethics vs shareholders). The 2024 appearance used "ethical suppliers vs shareholder interests" — a fresh angle. A 2026 return is plausible using a different ethical framing (e.g., ethics vs profit maximisation, or environmental ethics' impact on costs). The topic is rich enough to allow varied approaches every 2 years.</div>
+      <div class="pq-answer">
+        <h5>Model Answer Framework</h5>
+        <div class="answer-box">
+          <p><strong>Point 1 — Ethics increases costs, reducing profit:</strong> Acting ethically often increases costs (K). For example, paying suppliers fair wages or using environmentally certified materials is more expensive than sourcing from the cheapest available supplier (APP). This increases cost of sales, reducing the gross profit margin and ultimately net profit — directly conflicting with profit maximisation goals (ANALYSIS).</p>
+          <p><strong>Point 2 — Ethics can increase revenue and profit long-term:</strong> However, ethical behaviour can enhance brand reputation (K). Consumers — particularly younger demographics who form a growing share of [business]'s target market — are increasingly willing to pay premium prices for ethical products (APP). This can increase revenue and market share, meaning that ethical behaviour may actually support rather than conflict with long-term profit objectives (ANALYSIS).</p>
+          <p><strong>Point 3 — Risk of NOT being ethical:</strong> Being unethical carries significant risks — legal penalties under consumer law, reputational damage from social media exposure, and loss of key contracts with ethical-standard retailers — all of which would reduce revenue more than the cost of ethical compliance (ANALYSIS with counter to the conflict argument).</p>
+          <p><strong>Balanced Judgement:</strong> On balance, ethics and profit maximisation are not necessarily in direct conflict in the long term. While ethical practices increase short-term costs, the reputational gains and reduced legal risk make ethical behaviour a sound business investment. For [business], whose revenue depends on consumer trust and brand loyalty, the conflict between ethics and profit is less significant than for a commodity business competing purely on price. Therefore, ethics should be seen as a long-term enabler of profit rather than a barrier to it.</p>
+        </div>
+      </div>
+      <div class="confidence-bar">
+        <span class="confidence-label">Confidence</span>
+        <div class="confidence-track"><div class="confidence-fill" style="width:82%"></div></div>
+        <span class="confidence-label">82%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PQ 6 -->
+  <div class="pq-block">
+    <div class="pq-header">
+      <div><span class="pq-rank">06</span></div>
+      <div>
+        <div class="pq-title">4.4 Consumer Law — Analyse Impact on Business (Q16/Q18)</div>
+        <div class="pq-meta">TOPIC 4.4.1 | Command: Analyse | 3 marks</div>
+      </div>
+    </div>
+    <div class="pq-body">
+      <div class="pq-question">(b) Analyse one impact of consumer law on [business]. [3]</div>
+      <span class="pq-marks">Analyse | 3 marks | Q16 or Q18</span>
+      <div class="pq-justification">Consumer law has appeared in Section A MCQs virtually every year, but as a 3-mark Analyse question it appeared in 2021 and 2024, and was absent from 2025. Given the consistent MCQ presence and periodic 3-mark Section B appearance, a 2026 return at the Analyse level is very likely. It has never appeared as a 7 or 9-mark question, suggesting it will continue as a shorter sub-question.</div>
+      <div class="pq-answer">
+        <h5>Model Answer</h5>
+        <div class="answer-box">
+          <p><strong>3-mark Chain Answer:</strong></p>
+          <p>Consumer law requires businesses to sell goods that are of satisfactory quality, fit for purpose, and as described (K). For [business], which sells [product type] directly to consumers, this means any defective product must be refunded, repaired, or replaced at no cost to the customer (APP). If [business] receives a high number of returns, this increases operational costs and reduces profit margins — and repeated failure to meet legal standards could result in fines or reputational damage that drives customers to competitors (ANALYSIS — business-facing consequence).</p>
+        </div>
+      </div>
+      <div class="confidence-bar">
+        <span class="confidence-label">Confidence</span>
+        <div class="confidence-track"><div class="confidence-fill" style="width:78%"></div></div>
+        <span class="confidence-label">78%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PQ 7 -->
+  <div class="pq-block">
+    <div class="pq-header">
+      <div><span class="pq-rank">07</span></div>
+      <div>
+        <div class="pq-title">5.3 Net Profit Margin Calculation + Financial Data Analysis</div>
+        <div class="pq-meta">TOPIC 5.3.5 | Command: Calculate + Analyse | 2+3 marks | Q16</div>
+      </div>
+    </div>
+    <div class="pq-body">
+      <div class="pq-question">(c)(i) Calculate [business]'s net profit margin for [year] to two decimal places. [2]<br>(ii) Analyse one reason for [business] of using financial data to make decisions. [3]</div>
+      <span class="pq-marks">Calculate + Analyse | 2+3 marks | Q16</span>
+      <div class="pq-justification">This exact format appeared in 2025 Q16(c). Given the strong pattern of repeating calculation + analysis pairings each year, this structure will almost certainly continue in 2026, likely with GPM in addition to or instead of NPM, and with a different business context. Students who cannot do profitability ratio calculations lose guaranteed marks.</div>
+      <div class="pq-answer">
+        <h5>Model Answer</h5>
+        <div class="answer-box">
+          <p><strong>NPM Calculation (2 marks):</strong><br>
+          Net Profit Margin = (Net Profit ÷ Revenue) × 100<br>
+          E.g., Net Profit = £159.4m, Revenue = £1000.3m<br>
+          = (159.4 ÷ 1000.3) × 100 = <strong>15.94%</strong><br>
+          <em>Must be to 2 decimal places. Show working for both marks.</em></p>
+          <p><strong>Analyse use of financial data (3 marks):</strong><br>
+          Financial data can be used to monitor the business's performance over time (K). For [business], which operates in a competitive market, comparing the net profit margin year on year (APP) allows managers to identify whether rising costs or falling revenues are reducing profitability, enabling them to take corrective action — such as renegotiating supplier contracts or cutting expenses — before the situation worsens (ANALYSIS).</p>
+        </div>
+      </div>
+      <div class="confidence-bar">
+        <span class="confidence-label">Confidence</span>
+        <div class="confidence-track"><div class="confidence-fill" style="width:88%"></div></div>
+        <span class="confidence-label">88%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PQ 8 -->
+  <div class="pq-block">
+    <div class="pq-header">
+      <div><span class="pq-rank">08</span></div>
+      <div>
+        <div class="pq-title">4.5 Business Location — Discuss/Evaluate (7 marks)</div>
+        <div class="pq-meta">TOPIC 4.5.1 | Command: Discuss | 7 marks | Q17</div>
+      </div>
+    </div>
+    <div class="pq-body">
+      <div class="pq-question">(ii) Discuss whether [business] should [relocate/choose location A or B]. [7]</div>
+      <span class="pq-marks">Discuss | 7 marks | Q16 or Q17</span>
+      <div class="pq-justification">Business location as a 7-mark Discuss question appeared in 2019 Q16 (Costa Coffee, Welshpool) and 2025 Q17 (Riley, caravan vs restaurant). With 2025 having used this, a 2026 appearance is less likely at 7 marks but possible in a shorter 3-mark Identify + recommend format. The 7-mark location discuss question follows a 2-year gap pattern.</div>
+      <div class="pq-answer">
+        <h5>Model Answer — 7-mark Discuss Framework</h5>
+        <div class="answer-box">
+          <p><strong>Arguments FOR relocating / choosing new location:</strong></p>
+          <ul>
+            <li>Access to larger customer base — higher footfall in town centre increases potential sales revenue</li>
+            <li>Proximity to target market — reduces delivery/travel costs and improves customer convenience</li>
+            <li>Availability of suitable labour — larger population = easier recruitment of skilled staff</li>
+            <li>Infrastructure — better transport links reduce logistics costs and improve supply chain reliability</li>
+          </ul>
+          <p><strong>Arguments AGAINST relocation / FOR staying:</strong></p>
+          <ul>
+            <li>Higher rent in prime locations significantly increases fixed costs, raising the break-even quantity</li>
+            <li>Disruption to existing customer relationships and brand recognition in current area</li>
+            <li>One-off relocation costs (removals, new fit-out) create short-term cash flow pressure</li>
+          </ul>
+          <p><strong>Justified Conclusion (essential for top marks):</strong> On balance, [business] should/should not relocate because [most significant factor] outweighs [opposing factor] given that [specific reference to case study data — revenue, cost, target market].</p>
+        </div>
+      </div>
+      <div class="confidence-bar">
+        <span class="confidence-label">Confidence</span>
+        <div class="confidence-track"><div class="confidence-fill" style="width:72%"></div></div>
+        <span class="confidence-label">72%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PQ 9 -->
+  <div class="pq-block">
+    <div class="pq-header">
+      <div><span class="pq-rank">09</span></div>
+      <div>
+        <div class="pq-title">5.5 Cash Flow — State + Explain + Analyse</div>
+        <div class="pq-meta">TOPIC 5.5.1–5.5.3 | Command: State + Explain + Analyse | 1+2+3 marks</div>
+      </div>
+    </div>
+    <div class="pq-body">
+      <div class="pq-question">(a) State one reason why cash is important to a business. [1]<br>(b) Explain one use of a cash flow forecast to a business. [2]<br>(c) Analyse [business]'s cash position considering its [plans/expansion/data]. [3]</div>
+      <span class="pq-marks">State + Explain + Analyse | 1+2+3 marks | Q17</span>
+      <div class="pq-justification">This tiered cash flow structure (State + Explain + Analyse) appeared in 2021 Q17 and 2023 Q18 and 2025 Q17. It is a guaranteed annual feature in some form. The 1-mark "state why cash is important" opener has appeared in 2019, 2021, 2023, and 2025 — making it one of the most reliably tested single-mark questions in the paper.</div>
+      <div class="pq-answer">
+        <h5>Model Answers</h5>
+        <div class="answer-box">
+          <p><strong>State (1 mark):</strong> Cash is important to pay short-term debts/expenses such as wages, rent and supplier invoices. [Do NOT write "to make profit" — no reward.]</p>
+          <p><strong>Explain use of cash flow forecast (2 marks):</strong> A cash flow forecast allows a business to identify future periods of cash shortage in advance (1). This means the business can arrange an overdraft or reduce spending before the problem occurs, preventing the business from being unable to pay its bills (1).</p>
+          <p><strong>Analyse cash position (3 marks):</strong> The cash flow data shows [business] has a declining/negative closing balance (K — reference data). For [business], which is planning to invest in [equipment/expansion] costing £X, this means the business may not have sufficient cash to fund the investment without external finance (APP). If the business cannot secure an overdraft or loan in time, it may be forced to delay or cancel its expansion plans, limiting future revenue growth (ANALYSIS).</p>
+        </div>
+      </div>
+      <div class="confidence-bar">
+        <span class="confidence-label">Confidence</span>
+        <div class="confidence-track"><div class="confidence-fill" style="width:90%"></div></div>
+        <span class="confidence-label">90%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PQ 10 -->
+  <div class="pq-block">
+    <div class="pq-header">
+      <div><span class="pq-rank">10</span></div>
+      <div>
+        <div class="pq-title">4.3 E-commerce — Analyse Advantage + Disadvantage (Q16/Q18)</div>
+        <div class="pq-meta">TOPIC 4.3.2 | Command: Analyse | 6 marks</div>
+      </div>
+    </div>
+    <div class="pq-body">
+      <div class="pq-question">(d)(i) Analyse one advantage and one disadvantage for [business] of offering [e-commerce / online sales / click-and-collect]. [6]<br>(ii) Recommend whether [business] should continue to [use e-commerce]. [3]</div>
+      <span class="pq-marks">Analyse + Recommend | 6+3 marks</span>
+      <div class="pq-justification">E-commerce as a 6+3 format appeared in 2024 Q18 (Primark click-and-collect). It also appeared as an Explain question in 2020 and an Analyse question in 2021. With digital/AI technology themes featuring in 2025 (Gymshark AI app), the continued focus on digital sales methods is very likely in 2026, potentially with a different angle (social media selling, AI-driven customer engagement, or online vs in-store analysis).</div>
+      <div class="pq-answer">
+        <h5>Model Answer</h5>
+        <div class="answer-box">
+          <p><strong>Advantage of E-commerce (3 marks):</strong><br>
+          E-commerce allows the business to sell products 24 hours a day, 7 days a week without the constraints of physical shop opening hours (K). For [business], which targets a national audience, this means customers across different time zones or with busy schedules can purchase at any time (APP), increasing the total volume of sales and revenue compared to relying solely on physical stores (ANALYSIS).</p>
+          <p><strong>Disadvantage of E-commerce (3 marks):</strong><br>
+          Customers cannot physically inspect or try products before purchase when buying online (K). For [business], which sells [clothing/food/physical goods], this may lead to a higher rate of returns as customers receive products that do not meet their expectations (APP). Processing returns is costly in terms of logistics and administration, reducing net profit and potentially damaging customer satisfaction if the returns process is slow (ANALYSIS).</p>
+          <p><strong>Recommend (3 marks):</strong><br>
+          [Business] should continue to offer e-commerce (recommendation). The ability to reach customers nationally provides a far larger market than physical stores alone, and the revenue potential outweighs the cost of managing returns (reason chosen is better). Without e-commerce, [business] would be limited to local footfall only, which — given the data showing declining high street traffic — would significantly reduce future growth prospects (comparison with rejected option).</p>
+        </div>
+      </div>
+      <div class="confidence-bar">
+        <span class="confidence-label">Confidence</span>
+        <div class="confidence-track"><div class="confidence-fill" style="width:75%"></div></div>
+        <span class="confidence-label">75%</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<footer>
+  <div>OCR GCSE Business J204/02 — Paper 2 Examiner Intelligence Report</div>
+  <div>Compiled from: Sample, 2019, 2020, 2021, 2022, 2023, 2024, 2025 past papers &amp; mark schemes</div>
+  <div style="margin-top:8px; color:#555;">All analysis is derived solely from official OCR past papers and mark schemes. Predictions are probabilistic, not guaranteed.</div>
+</footer>
+
+</body>
+</html>

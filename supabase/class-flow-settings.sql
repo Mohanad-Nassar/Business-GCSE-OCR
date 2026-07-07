@@ -26,6 +26,22 @@
 -- students through get_my_topic_settings(), re-declared below with a
 -- new `flow` key (existing keys unchanged, so topic-guard.js is
 -- unaffected).
+--
+-- ⚠️ This is a FULL re-declaration (create or replace) of the same
+-- function topic-access-schema.sql already defines — not additive. This
+-- file's copy must always be a superset of that one's fields (currently:
+-- mode, allow_requests, hidden, granted, requests, flow). If
+-- topic-access-schema.sql ever gains a new field, copy it in here too,
+-- then re-run THIS file last — whichever of the two ran most recently
+-- wins, in full.
+--
+-- MULTI-SUBJECT SIGNATURE CHANGE (kept in lockstep with
+-- topic-access-schema.sql): get_my_topic_settings is no longer zero-arg —
+-- both copies are now (p_subject text default null) returns jsonb, and
+-- resolve the caller's class for that subject via my_class_for_subject()
+-- (schema.sql) instead of "earliest-joined class". The old zero-arg
+-- version is dropped below (same guard as topic-access-schema.sql) so
+-- clients never see two overloads.
 -- ══════════════════════════════════════════════════════════════
 
 alter table classes add column if not exists flow_activity_order text not null default 'open'
@@ -36,31 +52,34 @@ alter table classes add column if not exists flow_pre_seconds int not null defau
 alter table classes add column if not exists flow_post_seconds int not null default 10
     check (flow_post_seconds between 0 and 120);
 
--- ── get_my_topic_settings() ── (same as topic-access-schema.sql, plus `flow`)
-create or replace function get_my_topic_settings() returns jsonb
+-- ── get_my_topic_settings(p_subject) ── (same as topic-access-schema.sql, plus `flow`)
+drop function if exists get_my_topic_settings();
+create or replace function get_my_topic_settings(p_subject text default null) returns jsonb
 language plpgsql security definer stable set search_path = public as $$
 declare
-    v_uid      uuid := auth.uid();
-    v_class_id uuid;
-    v_mode     text := 'open';
-    v_hidden   text[];
-    v_granted  text[];
-    v_requests jsonb;
-    v_flow     jsonb;
+    v_uid            uuid := auth.uid();
+    v_class_id       uuid;
+    v_mode           text := 'open';
+    v_allow_requests boolean := true;
+    v_hidden         text[];
+    v_granted        text[];
+    v_requests       jsonb;
+    v_flow           jsonb;
 begin
     if v_uid is null then raise exception 'not authenticated'; end if;
 
-    select c.id, c.topic_access_mode,
-           jsonb_build_object(
-               'activity_order', c.flow_activity_order,
-               'focus_mode',     c.flow_focus_mode,
-               'pre_seconds',    c.flow_pre_seconds,
-               'post_seconds',   c.flow_post_seconds
-           )
-    into v_class_id, v_mode, v_flow
-    from class_students cs join classes c on c.id = cs.class_id
-    where cs.student_id = v_uid
-    order by cs.joined_at asc limit 1;
+    v_class_id := my_class_for_subject(p_subject);
+    if v_class_id is not null then
+        select c.topic_access_mode, c.topic_access_allow_requests,
+               jsonb_build_object(
+                   'activity_order', c.flow_activity_order,
+                   'focus_mode',     c.flow_focus_mode,
+                   'pre_seconds',    c.flow_pre_seconds,
+                   'post_seconds',   c.flow_post_seconds
+               )
+        into v_mode, v_allow_requests, v_flow
+        from classes c where c.id = v_class_id;
+    end if;
 
     if v_class_id is not null then
         select coalesce(array_agg(page_id), '{}') into v_hidden
@@ -69,6 +88,9 @@ begin
         v_hidden := '{}';
     end if;
 
+    -- Grants/requests are returned for ALL subjects on purpose — page ids
+    -- are subject-prefixed ('business:…'), so the client matches by page_id
+    -- and rows from other subjects are simply never looked up.
     select coalesce(array_agg(page_id), '{}') into v_granted
     from student_topic_grants where student_id = v_uid;
 
@@ -80,6 +102,7 @@ begin
 
     return jsonb_build_object(
         'mode', coalesce(v_mode, 'open'),
+        'allow_requests', coalesce(v_allow_requests, true),
         'hidden', to_jsonb(v_hidden),
         'granted', to_jsonb(v_granted),
         'requests', v_requests,
@@ -92,4 +115,4 @@ begin
     );
 end;
 $$;
-grant execute on function get_my_topic_settings() to authenticated;
+grant execute on function get_my_topic_settings(text) to authenticated;

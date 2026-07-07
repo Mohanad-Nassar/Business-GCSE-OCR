@@ -13,6 +13,14 @@
 -- Every function takes an optional p_page_ids text[] (default null = every
 -- topic) so the teacher can scope the whole analytics page to one or more
 -- topics via the shared "🔍 Filter by topic" control.
+--
+-- MULTI-SUBJECT: every function additionally scopes itself to the CLASS'S
+-- OWN SUBJECT (classes.subject_id → subjects.slug). A student enrolled in
+-- several subjects shares one progress_events / question_mastery pool, so
+-- without this a business class's analytics would count that student's
+-- computer-science Daily Revise activity. Bank joins filter on
+-- bank_questions.subject_slug; raw progress_events scans filter on the
+-- page-id subject prefix ('<slug>:…'). Signatures are unchanged.
 -- ══════════════════════════════════════════════════════════════
 
 -- ── Usage: per-student activity volume + accuracy/mastered ──
@@ -27,9 +35,14 @@ create or replace function get_class_dr_usage(p_class_id uuid, p_days int defaul
 returns table (student_id uuid, attempts int, correct int, days_revised int,
                last_revised_at timestamptz, mastered int)
 language plpgsql security definer stable set search_path = public as $$
+declare
+    v_slug text;
 begin
     if auth.uid() is null then raise exception 'not authenticated'; end if;
     if not is_class_owner(p_class_id) then raise exception 'Not authorised'; end if;
+
+    select s.slug into v_slug
+    from classes c join subjects s on s.id = c.subject_id where c.id = p_class_id;
 
     return query
     with acc as (
@@ -46,6 +59,7 @@ begin
         join progress_events pe
             on pe.student_id = cs.student_id and pe.section = 'daily-revise'
         where cs.class_id = p_class_id
+          and pe.page_id like v_slug || ':%'
           and (p_page_ids is null or pe.page_id = any(p_page_ids))
         group by cs.student_id
     ), mast as (
@@ -54,6 +68,7 @@ begin
         join question_mastery m on m.student_id = cs.student_id
         join bank_questions b on b.question_key = m.question_key
         where cs.class_id = p_class_id
+          and b.subject_slug = v_slug
           and (p_page_ids is null or b.page_id = any(p_page_ids))
         group by cs.student_id
     )
@@ -77,9 +92,14 @@ create or replace function get_class_dr_overview(p_class_id uuid, p_page_ids tex
 returns table (student_id uuid, incorrect int, tier1 int, tier2 int, mastered int,
                attempts int, correct int)
 language plpgsql security definer stable set search_path = public as $$
+declare
+    v_slug text;
 begin
     if auth.uid() is null then raise exception 'not authenticated'; end if;
     if not is_class_owner(p_class_id) then raise exception 'Not authorised'; end if;
+
+    select s.slug into v_slug
+    from classes c join subjects s on s.id = c.subject_id where c.id = p_class_id;
 
     return query
     with tiers as (
@@ -92,6 +112,7 @@ begin
         join question_mastery m on m.student_id = cs.student_id
         join bank_questions b on b.question_key = m.question_key
         where cs.class_id = p_class_id
+          and b.subject_slug = v_slug
           and (p_page_ids is null or b.page_id = any(p_page_ids))
         group by cs.student_id
     ), acc as (
@@ -102,6 +123,7 @@ begin
         join progress_events pe
             on pe.student_id = cs.student_id and pe.section = 'daily-revise'
         where cs.class_id = p_class_id
+          and pe.page_id like v_slug || ':%'
           and (p_page_ids is null or pe.page_id = any(p_page_ids))
         group by cs.student_id
     )
@@ -133,9 +155,14 @@ returns table (question_key text, page_id text, page_name text, qtype text,
                snapshot jsonb, answer_key jsonb, students_attempted int,
                attempts int, correct int, option_counts jsonb)
 language plpgsql security definer stable set search_path = public as $$
+declare
+    v_slug text;
 begin
     if auth.uid() is null then raise exception 'not authenticated'; end if;
     if not is_class_owner(p_class_id) then raise exception 'Not authorised'; end if;
+
+    select s.slug into v_slug
+    from classes c join subjects s on s.id = c.subject_id where c.id = p_class_id;
 
     return query
     with ev as (
@@ -147,6 +174,7 @@ begin
         join class_students cs on cs.student_id = pe.student_id and cs.class_id = p_class_id
         join bank_questions bq on bq.question_key = pe.question_id
         where pe.section = 'daily-revise'
+          and bq.subject_slug = v_slug
           and (p_days is null or pe.answered_at >= now() - make_interval(days => p_days))
           and (p_page_ids is null or bq.page_id = any(p_page_ids))
     ), agg as (
@@ -188,11 +216,15 @@ drop function if exists get_class_dr_matrix(uuid);
 create or replace function get_class_dr_matrix(p_class_id uuid, p_page_ids text[] default null) returns jsonb
 language plpgsql security definer stable set search_path = public as $$
 declare
+    v_slug  text;
     v_pages jsonb;
     v_cells jsonb;
 begin
     if auth.uid() is null then raise exception 'not authenticated'; end if;
     if not is_class_owner(p_class_id) then raise exception 'Not authorised'; end if;
+
+    select s.slug into v_slug
+    from classes c join subjects s on s.id = c.subject_id where c.id = p_class_id;
 
     select coalesce(jsonb_agg(p order by p->>'page_id'), '[]'::jsonb) into v_pages
     from (
@@ -200,7 +232,8 @@ begin
             'page_id', b.page_id, 'page_name', min(b.page_name),
             'bank_total', count(*)::int) as p
         from bank_questions b
-        where p_page_ids is null or b.page_id = any(p_page_ids)
+        where b.subject_slug = v_slug
+          and (p_page_ids is null or b.page_id = any(p_page_ids))
         group by b.page_id
     ) pages;
 
@@ -215,6 +248,7 @@ begin
         join question_mastery m on m.student_id = cs.student_id
         join bank_questions b on b.question_key = m.question_key
         where cs.class_id = p_class_id
+          and b.subject_slug = v_slug
           and (p_page_ids is null or b.page_id = any(p_page_ids))
         group by cs.student_id, b.page_id
     ) cells;
