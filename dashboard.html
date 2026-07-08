@@ -128,7 +128,7 @@
     }
 
     /* ── GAMIFICATION BAR ── */
-    .gam-bar { background:var(--card-bg); border-bottom:1px solid var(--border); padding:12px 40px; display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+    .gam-bar { background:var(--card-bg); border-bottom:1px solid var(--border); padding:12px 40px; display:flex; gap:20px; align-items:center; justify-content:center; flex-wrap:wrap; }
     .gam-level { display:flex; flex-direction:column; align-items:center; justify-content:center; width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,#7a5c9e,#4a6fa5); color:#fff; flex-shrink:0; }
     .gam-level-num { font-family:'Playfair Display',serif; font-weight:700; font-size:17px; line-height:1; }
     .gam-level-lbl { font-family:'DM Mono',monospace; font-size:7px; letter-spacing:.08em; text-transform:uppercase; opacity:.85; }
@@ -320,6 +320,15 @@
     <a class="task-open-btn" href="daily-revise.html">Start today's questions →</a>
   </div>
 
+  <h2 class="section-label">Review Calendar 🗓️</h2>
+  <div class="tasks-panel" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+    <p class="muted" style="font-size:13px; margin:0; max-width:480px;">Topic reviews scheduled 1 day, 1 week and 4 weeks after you first practise them — pass a short quiz to tick each one off.</p>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span id="reviewCalendarBadge"></span>
+      <a class="task-open-btn" id="reviewCalendarLink" href="review-calendar.html">Open calendar →</a>
+    </div>
+  </div>
+
   <div id="tasksSection" style="display:none;">
     <h2 class="section-label">📋 My Tasks <span id="notifBadge" style="display:none; background:var(--wrong); color:#fff; border-radius:99px; padding:1px 9px; font-size:10px;"></span></h2>
     <div class="tasks-panel">
@@ -372,6 +381,7 @@
 <script src="notifications-shared.js"></script>
 <script src="onboarding-tour.js"></script>
 <script src="gamification.js"></script>
+<script src="spaced-repetition.js"></script>
 <script>
 // Keep these in sync with the constants at the top of script.js.
   const SUPABASE_URL = 'https://eaohjlyiotyqhvsizcpw.supabase.co';
@@ -466,6 +476,42 @@ function mergeProgress(local, server) {
 // has set window.SUBJECT from ?subject= (default business).
 function activeSubjectSlug() {
   return (window.SUBJECT && window.SUBJECT.slug) || 'business';
+}
+
+// Review Calendar card: link carries the current subject slug, and its
+// due-count badge paints instantly from spaced-repetition.js's cache (if
+// present) then refreshes from the server once the Supabase client is
+// ready. spaced-repetition.js is a separate, parallel deliverable — every
+// call into it is typeof-guarded so this dashboard never breaks if that
+// script hasn't landed yet.
+function initReviewCalendarCard() {
+  const slug = activeSubjectSlug();
+  const link = document.getElementById('reviewCalendarLink');
+  if (link) link.href = 'review-calendar.html?subject=' + encodeURIComponent(slug);
+
+  const badgeEl = document.getElementById('reviewCalendarBadge');
+  if (!badgeEl) return;
+  if (typeof srCachedSchedule === 'function' && typeof srRenderDueBadge === 'function') {
+    try {
+      const cached = srCachedSchedule(slug);
+      if (cached) {
+        const today = typeof srTodayStr === 'function' ? srTodayStr() : new Date().toISOString().slice(0, 10);
+        srRenderDueBadge(badgeEl, cached, today);
+      }
+    } catch (e) { console.error('srCachedSchedule', e); }
+  }
+}
+
+async function refreshReviewCalendarCard() {
+  if (typeof srFetchSchedule !== 'function' || typeof srRenderDueBadge !== 'function') return;
+  if (!supabaseClient) return;
+  const badgeEl = document.getElementById('reviewCalendarBadge');
+  if (!badgeEl) return;
+  try {
+    const rows = await srFetchSchedule(supabaseClient, activeSubjectSlug());
+    const today = typeof srTodayStr === 'function' ? srTodayStr() : new Date().toISOString().slice(0, 10);
+    srRenderDueBadge(badgeEl, rows, today);
+  } catch (e) { console.error('srFetchSchedule', e); }
 }
 
 // Subject switcher: a simple navigation aid, only shown when this student
@@ -1026,12 +1072,17 @@ document.getElementById('notifList').addEventListener('click', async e => {
   } catch (err) { console.error('task_notification_reads upsert', err); }
 });
 
+// Paint the Review Calendar card's link + cached due-count immediately —
+// doesn't need auth, so it shows up the moment the page loads.
+try { initReviewCalendarCard(); } catch (e) { console.error('initReviewCalendarCard', e); }
+
 initDashboardAuth().then(async ok => {
   if (!ok) return;
   if (typeof gamificationRefreshStreak === 'function') dashStreak = await gamificationRefreshStreak(supabaseClient);
   if (typeof gamificationRefreshDailyReviseStats === 'function') await gamificationRefreshDailyReviseStats(supabaseClient);
   initSubjectSwitcher();
   renderDashboard(); loadMyTasks(); loadWeakTopics();
+  refreshReviewCalendarCard();
 });
 </script>
 <script src="footer-legal.js"></script>

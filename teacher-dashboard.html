@@ -75,6 +75,35 @@
   .credentials-box .warn { font-size:12.5px; color:#8f6d19; margin-bottom:10px; font-weight:600; }
   .credentials-box table { margin-top:8px; }
 
+  .prefix-guide { margin-top:14px; padding:12px 14px; border:1px solid var(--border); border-radius:8px; background:var(--cream); }
+  .prefix-guide .prefix-guide-title { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); margin-bottom:8px; }
+  .prefix-guide ol { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:6px; font-size:12.5px; color:var(--ink); }
+  .prefix-guide .prefix-preview { margin-top:10px; padding-top:10px; border-top:1px dashed var(--border); font-size:12.5px; }
+  .prefix-guide .prefix-error { color:var(--wrong); font-size:12px; margin-top:6px; }
+
+  .pw-mode-cards { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+  .pw-mode-card { flex:1; min-width:170px; max-width:280px; border:1.5px solid var(--border); border-radius:10px; padding:12px 14px; cursor:pointer; display:flex; flex-direction:column; gap:4px; background:var(--card-bg); transition:border-color .15s, box-shadow .15s, background .15s; position:relative; }
+  .pw-mode-card:hover { border-color:var(--accent); }
+  .pw-mode-card input { position:absolute; opacity:0; pointer-events:none; }
+  .pw-mode-card.selected { border-color:var(--accent); box-shadow:0 0 0 2px rgba(74,111,165,.18); background:rgba(74,111,165,.05); }
+  .pw-mode-card .pw-mode-title { font-weight:600; font-size:13px; }
+  .pw-mode-card .pw-mode-desc { font-size:11.5px; color:var(--mid); }
+  .pw-wrap { position:relative; margin-top:10px; max-width:260px; }
+  .pw-wrap input { width:100%; padding:9px 64px 9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px; font-family:'DM Mono',monospace; }
+  .pw-toggle { position:absolute; right:6px; top:50%; transform:translateY(-50%); background:none; border:none; color:var(--mid); cursor:pointer; font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; padding:6px 8px; border-radius:5px; }
+  .pw-toggle:hover { color:var(--ink); background:var(--cream); }
+  .pw-hint { font-size:11.5px; color:var(--mid); margin-top:8px; max-width:420px; }
+
+  .modal-backdrop { position:fixed; inset:0; background:rgba(26,35,50,.5); display:none; align-items:center; justify-content:center; z-index:200; padding:20px; }
+  .modal-backdrop.show { display:flex; }
+  .modal-panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:22px 24px; max-width:440px; width:100%; }
+  .modal-panel h3 { font-family:'Playfair Display',serif; font-size:16px; margin-bottom:10px; }
+  .modal-panel p { font-size:13px; color:var(--ink); margin-bottom:14px; line-height:1.5; }
+  .modal-checkbox-row { display:flex; gap:10px; align-items:flex-start; background:rgba(200,75,49,.06); border:1px solid rgba(200,75,49,.25); border-radius:8px; padding:12px 14px; margin-bottom:6px; cursor:pointer; }
+  .modal-checkbox-row input { margin-top:3px; flex-shrink:0; }
+  .modal-checkbox-row span { font-size:12.5px; line-height:1.5; color:var(--ink); }
+  .modal-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:16px; }
+
   .msg { font-size:12.5px; padding:10px 12px; border-radius:6px; display:none; margin-top:12px; }
   .msg.show { display:block; }
   .msg.error { background:rgba(200,75,49,.1); color:var(--wrong); border:1px solid rgba(200,75,49,.25); }
@@ -99,6 +128,14 @@
   .subhead { font-family:'Playfair Display',serif; font-size:15px; font-weight:700; color:var(--ink); margin:26px 0 12px; }
   .subhead:first-child { margin-top:0; }
   .muted { color:var(--mid); font-size:12px; }
+  /* renderStreakHeatmap (gamification.js) injects a self-contained .gam-heat
+     widget with its OWN centred title + hint. Inside this panel the ".subhead"
+     above already labels the section, and the widget's "on any subject" hint is
+     wrong for this subject-scoped teacher view — so hide both and let the
+     widget's transparent body sit flush in the panel. We don't touch its cells,
+     colours or scroller, only this redundant chrome + top spacing. */
+  #studentHeatmapMount .gam-heat-title, #studentHeatmapMount .gam-heat-hint { display:none; }
+  #studentHeatmapMount .gam-heat { margin-top:2px; }
   .clickable-row { cursor:pointer; }
   .clickable-row:hover td { background:rgba(74,111,165,.06); }
   .manage-wrap { border:1px dashed var(--border); border-radius:9px; padding:4px 18px 18px; margin-bottom:8px; background:rgba(0,0,0,.015); }
@@ -201,6 +238,10 @@
   <div id="actionStrip" class="hidden"></div>
 
   <h2 class="section-label">Your Classes <span class="muted" style="font-size:12px; font-weight:400;">— click a class to open it</span></h2>
+  <div style="display:flex; gap:8px; margin-bottom:14px;">
+    <button type="button" class="subtab active" id="classesTabActive">📚 My Classes</button>
+    <button type="button" class="subtab" id="classesTabArchived">📦 Archived Classes</button>
+  </div>
   <div class="panel">
     <div class="class-grid" id="classGrid"><div class="empty">Loading…</div></div>
     <form class="inline-form" id="newClassForm">
@@ -221,11 +262,11 @@
     <div class="class-toolbar">
       <h2 class="section-label" id="classDetailLabel">Class</h2>
       <button type="button" class="subtab active" id="tabProgress">📊 Class Progress</button>
-      <button type="button" class="subtab" id="tabStudents">👥 Students &amp; Logins</button>
       <button type="button" class="subtab" id="tabTasks">📋 Tasks</button>
       <button type="button" class="subtab" id="tabTopicAccess">🔒 Topic Access</button>
       <button type="button" class="subtab" id="tabDailyRevise">🎯 Daily Revise</button>
       <button type="button" class="subtab" id="tabWorksheets">🖨️ Worksheets</button>
+      <button type="button" class="subtab" id="tabStudents">⚙️ Settings</button>
     </div>
 
     <!-- ═══ VIEW: CLASS PROGRESS ═══ -->
@@ -233,19 +274,46 @@
       <p class="muted" style="margin-bottom:12px;">Everything updates by itself as students answer questions — no marking needed here. An <span class="mono" style="font-size:11px;">⚠ needs attention</span> badge appears next to anyone falling behind on tasks.</p>
       <div class="panel">
         <div class="tiles" id="classTiles"></div>
-        <h3 class="subhead">Whole-class completion <span class="muted">— totals across every student; click a unit row to expand it</span></h3>
-        <div id="classGridView"><div class="empty">Loading…</div></div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin:6px 0 18px;">
+          <button type="button" class="subtab active" id="progTabStudents">👥 Students</button>
+          <button type="button" class="subtab" id="progTabWholeClass">📊 Whole class</button>
+        </div>
 
-        <h3 class="subhead">Students <span class="muted">— click a student to open their full dashboard</span></h3>
-        <table id="leaderboardTable">
-          <thead><tr><th>Username</th><th>Level</th><th>Overall progress</th><th>🔥 Streak</th><th>🏅 Badges</th><th>Answers logged</th><th></th></tr></thead>
-          <tbody id="leaderboardBody"><tr><td colspan="7" class="empty">Loading…</td></tr></tbody>
-        </table>
+        <div id="progStudentsPane">
+          <h3 class="subhead">Students <span class="muted">— click a student to open their full dashboard</span></h3>
+          <table id="leaderboardTable">
+            <thead><tr><th>Username</th><th>Level</th><th>Overall progress</th><th>🔥 Streak</th><th>🏅 Badges</th><th>Answers logged</th><th></th></tr></thead>
+            <tbody id="leaderboardBody"><tr><td colspan="7" class="empty">Loading…</td></tr></tbody>
+          </table>
+        </div>
+
+        <div id="progWholeClassPane" class="hidden">
+          <h3 class="subhead">Whole-class completion <span class="muted">— totals across every student; click a unit row to expand it</span></h3>
+          <div id="classGridView"><div class="empty">Loading…</div></div>
+        </div>
       </div>
     </div>
 
     <!-- ═══ VIEW: STUDENTS & LOGINS ═══ -->
     <div id="studentsView" class="hidden">
+      <div class="panel">
+        <h3 class="subhead">Class settings</h3>
+        <div class="field" style="max-width:420px;">
+          <label for="renameClassInput">Class name</label>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+            <input type="text" id="renameClassInput" maxlength="80" style="flex:1; min-width:200px;"/>
+            <button type="button" class="btn" id="renameClassBtn">💾 Rename</button>
+          </div>
+        </div>
+        <div class="msg" id="classSettingsMsg"></div>
+        <hr style="border:none; border-top:1px solid var(--border); margin:22px 0 18px;"/>
+        <p class="muted" style="margin-bottom:12px;" id="archiveClassHint">Archiving hides this class from "My Classes" and moves it to "Archived Classes" — nothing is deleted, and you can unarchive it here any time.</p>
+        <button type="button" class="btn secondary" id="archiveClassBtn">📦 Archive this class</button>
+        <hr style="border:none; border-top:1px solid var(--border); margin:22px 0 18px;"/>
+        <p class="muted" style="margin-bottom:12px;">This permanently deletes the class, its tasks, topic-access rules and Daily Revise settings. Students keep their logins unless you choose to delete those too, and can be added to another class — any answers they've already logged stay in their own history regardless.</p>
+        <button type="button" class="btn danger" id="deleteClassBtn">🗑️ Delete this class</button>
+      </div>
+
       <div class="panel step-panel">
         <div class="step-head">
           <span class="step-num">1</span>
@@ -259,9 +327,42 @@
             <label for="genCount">How many students?</label>
             <input type="number" id="genCount" min="1" max="60" value="1" style="width:90px"/>
           </div>
+          <div class="field">
+            <label for="genPrefix">Custom username start <span style="text-transform:none; font-weight:400;">(optional)</span></label>
+            <input type="text" id="genPrefix" maxlength="40" placeholder="e.g. Y10K.2026" style="width:200px"/>
+          </div>
           <button type="submit" class="btn">✨ Generate logins</button>
           <button type="button" class="btn secondary" id="downloadCsvBtn" style="display:none;">⬇ Download CSV</button>
         </form>
+
+        <div class="prefix-guide">
+          <div class="prefix-guide-title">How the custom start works</div>
+          <ol>
+            <li>Leave it blank for random, easy-to-read usernames (e.g. <span class="mono">otter482</span>) — the default.</li>
+            <li>Or type a class code, e.g. <span class="mono">Y10K.2026</span> — letters, numbers, dots, hyphens and underscores only.</li>
+            <li>Your students are then numbered from it: <span class="mono">S1Y10K.2026</span>, <span class="mono">S2Y10K.2026</span>, <span class="mono">S3Y10K.2026</span> …</li>
+            <li>Generating more later with the <em>same</em> code carries the numbering on (it won't repeat S1, S2…) — safe to reuse across sessions or even other classes.</li>
+          </ol>
+          <div class="prefix-preview muted" id="genPrefixPreview"></div>
+          <div class="prefix-error" id="genPrefixError" style="display:none;"></div>
+        </div>
+
+        <div class="pw-mode-cards" id="genPwModeCards">
+          <label class="pw-mode-card selected"><input type="radio" name="genPwMode" value="random" checked>
+            <span class="pw-mode-title">🎲 Random passwords</span>
+            <span class="pw-mode-desc">Each student gets their own random password (default)</span></label>
+          <label class="pw-mode-card"><input type="radio" name="genPwMode" value="fixed">
+            <span class="pw-mode-title">🔑 One password for everyone</span>
+            <span class="pw-mode-desc">Set a single starting password for this whole batch</span></label>
+        </div>
+        <div id="genFixedPwRow" class="hidden">
+          <div class="pw-wrap">
+            <input type="password" id="genFixedPassword" autocomplete="new-password" minlength="8" maxlength="72" placeholder="At least 8 characters"/>
+            <button type="button" class="pw-toggle" id="genFixedPwToggle" aria-label="Show password">Show</button>
+          </div>
+          <p class="pw-hint">Every student in this batch will share this password until they change it themselves — students can set their own from <strong>Manage Account → Password</strong> once they've signed in.</p>
+        </div>
+
         <div class="msg" id="generateMsg"></div>
         <div id="credentialsBox"></div>
       </div>
@@ -506,6 +607,9 @@
       <div class="panel">
         <div class="tiles" id="studentTiles"></div>
 
+        <h3 class="subhead">Practice calendar <span class="muted">— days this student practised this subject, over the last year</span></h3>
+        <div id="studentHeatmapMount"></div>
+
         <h3 class="subhead">Tasks <span class="muted">— this student's assigned tasks and results</span></h3>
         <table id="studentTasksTable">
           <thead><tr><th>Task</th><th>Due (theirs)</th><th>Status</th><th>Attempts</th><th>Score</th><th>Time</th><th></th></tr></thead>
@@ -524,6 +628,23 @@
     </div>
   </div>
 </main>
+
+<!-- ═══ Delete-class confirmation modal ═══ -->
+<div class="modal-backdrop" id="deleteClassBackdrop">
+  <div class="modal-panel">
+    <h3 id="deleteClassModalTitle">Delete class</h3>
+    <p id="deleteClassModalBody"></p>
+    <label class="modal-checkbox-row">
+      <input type="checkbox" id="deleteClassStudentsToo"/>
+      <span id="deleteClassStudentsLabel"></span>
+    </label>
+    <div class="msg" id="deleteClassModalMsg"></div>
+    <div class="modal-actions">
+      <button type="button" class="btn secondary" id="deleteClassCancelBtn">Cancel</button>
+      <button type="button" class="btn danger" id="deleteClassConfirmBtn">🗑️ Delete class</button>
+    </div>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/subjects-index.js"></script>
@@ -552,6 +673,7 @@ let currentSession = null;
 let classes = [];
 let activeClassId = null;
 let lastGeneratedCsv = '';
+let classesTab = 'active'; // 'active' | 'archived' — which grid the My/Archived tabs show
 
 function readSession() {
   try { return JSON.parse(localStorage.getItem(GCSE_SESSION_KEY) || 'null'); } catch (e) { return null; }
@@ -579,6 +701,7 @@ async function init() {
 
   document.getElementById('accountBar').innerHTML =
     `<span>Logged in as <strong>${cached.username || 'teacher'}</strong></span>
+     <a class="nav-link" href="manage-account.html">⚙ Manage Account</a>
      <button type="button" class="nav-link" id="logoutBtn">Log out</button>`;
   document.getElementById('logoutBtn').addEventListener('click', async () => {
     await supabaseClient.auth.signOut();
@@ -656,9 +779,15 @@ function subjectChipHtml(subj) {
 
 function renderClassCards() {
   const grid = document.getElementById('classGrid');
-  if (!classes.length) { grid.innerHTML = `<div class="empty">No classes yet — type a name below and click <strong>+ Create Class</strong> to get going 👇</div>`; return; }
+  const shown = classes.filter(c => !!c.archived === (classesTab === 'archived'));
+  if (!shown.length) {
+    grid.innerHTML = classesTab === 'archived'
+      ? `<div class="empty">No archived classes — classes you archive from Class settings show up here.</div>`
+      : `<div class="empty">No classes yet — type a name below and click <strong>+ Create Class</strong> to get going 👇</div>`;
+    return;
+  }
   grid.innerHTML = '';
-  classes.forEach(c => {
+  shown.forEach(c => {
     const p = _classPending[c.id] || {};
     const bits = [`👥 ${p.students || 0} student${p.students === 1 ? '' : 's'}`];
     if (p.toMark) bits.push(`<span class="card-alert">✍️ ${p.toMark} to mark</span>`);
@@ -670,6 +799,17 @@ function renderClassCards() {
     card.addEventListener('click', () => selectClass(c.id));
     grid.appendChild(card);
   });
+}
+
+document.getElementById('classesTabActive').addEventListener('click', () => setClassesTab('active'));
+document.getElementById('classesTabArchived').addEventListener('click', () => setClassesTab('archived'));
+function setClassesTab(tab) {
+  classesTab = tab;
+  document.getElementById('classesTabActive').classList.toggle('active', tab === 'active');
+  document.getElementById('classesTabArchived').classList.toggle('active', tab === 'archived');
+  // Creating a class only makes sense in the My Classes view.
+  document.getElementById('newClassForm').classList.toggle('hidden', tab !== 'active');
+  renderClassCards();
 }
 
 // ── "Needs you today" — pending marking + access requests across classes ──
@@ -886,6 +1026,7 @@ document.getElementById('guideToggle').addEventListener('click', () => {
 let classStudents = [];   // [{ id, username, joined_at }]
 let classSummaries = [];  // raw progress_summary rows for every student in the class
 let classStreaks = {};    // studentId -> { current, longest } (get_class_streaks)
+let classActivityDays = {}; // studentId -> [{ day:'YYYY-MM-DD', count }] (get_class_activity_days), for the practice heatmap
 let classTaskRowsByStudent = {}; // studentId -> [{ task, assignment, attempts }], for struggling-flag detection
 let tvOpenGroups = new Set(); // curriculum group ids currently expanded in the Topic Access tab's visibility list
 let drOpenGroups = new Set(); // same, for the Daily Revise topic-filter list
@@ -947,6 +1088,14 @@ function showClassSubView(which) {
   document.getElementById('tabTasks').classList.toggle('active', which === 'tasks');
   document.getElementById('tabTopicAccess').classList.toggle('active', which === 'topicAccess');
   document.getElementById('tabDailyRevise').classList.toggle('active', which === 'dailyRevise');
+  // Pre-fill the rename box with the current class name whenever Settings opens.
+  if (which === 'students') {
+    const cls = classes.find(c => c.id === activeClassId);
+    const renameInput = document.getElementById('renameClassInput');
+    if (renameInput && cls) renameInput.value = cls.name;
+    document.getElementById('classSettingsMsg').className = 'msg';
+    updateArchiveClassButton(cls);
+  }
   // Only jump to the top for a real context change (drilling into a
   // student's own dashboard, or coming back from one) — switching between
   // the class-level tabs shouldn't yank you away from where you're reading.
@@ -976,10 +1125,24 @@ async function loadClassData() {
   // Day-streaks for the whole class in one call (see
   // supabase/class-gamification.sql; streaks just show "–" until it's run).
   classStreaks = {};
+  classActivityDays = {};
   if (ids.length) {
     try {
       const { data: st, error } = await supabaseClient.rpc('get_class_streaks', { p_class_id: activeClassId });
       if (!error) (st || []).forEach(r => { classStreaks[r.student_id] = r; });
+    } catch (e) {}
+
+    // Per-day activity for the whole class, scoped to THIS class's subject
+    // (window.SUBJECT was set by setActiveSubjectForClass in selectClass),
+    // for the single-student practice-calendar heatmap. Flat array →
+    // grouped by student_id. A class before get_class_activity_days is run
+    // just shows an empty heatmap, so any failure is swallowed.
+    try {
+      const p_subject = (window.SUBJECT && window.SUBJECT.slug) || null;
+      const { data: act, error: actErr } = await supabaseClient.rpc('get_class_activity_days', { p_class_id: activeClassId, p_subject: p_subject });
+      if (!actErr) (act || []).forEach(r => {
+        (classActivityDays[r.student_id] = classActivityDays[r.student_id] || []).push({ day: r.day, count: r.count });
+      });
     } catch (e) {}
   }
 
@@ -1133,7 +1296,80 @@ document.getElementById('tabDailyRevise').addEventListener('click', () => { show
 document.getElementById('tabWorksheets').addEventListener('click', () => { location.href = 'teacher-worksheets.html'; });
 document.getElementById('backToClassBtn').addEventListener('click', () => showClassSubView('progress'));
 
+// Inner toggle inside Class Progress: switch between the Students leaderboard
+// and the whole-class completion grid (both stay filled by renderClassProgress).
+function showProgressPane(which) {
+  document.getElementById('progStudentsPane').classList.toggle('hidden', which !== 'students');
+  document.getElementById('progWholeClassPane').classList.toggle('hidden', which !== 'wholeClass');
+  document.getElementById('progTabStudents').classList.toggle('active', which === 'students');
+  document.getElementById('progTabWholeClass').classList.toggle('active', which === 'wholeClass');
+}
+document.getElementById('progTabStudents').addEventListener('click', () => showProgressPane('students'));
+document.getElementById('progTabWholeClass').addEventListener('click', () => showProgressPane('wholeClass'));
+
 // ── Generate students ──
+// Custom username start ("class code"): mirrors the server's
+// sanitizeUsernamePrefix() regex (netlify/functions/_lib/credentials.js) so a
+// teacher sees the same validation locally instead of waiting on a round
+// trip. The actual starting number (S<n>…) is decided server-side from
+// existing usernames with this exact code, so the preview here is
+// deliberately hedged ("may be higher") rather than promising S1.
+const GEN_PREFIX_RE = /^[A-Za-z0-9][A-Za-z0-9._-]{0,39}$/;
+
+function updatePrefixPreview() {
+  const raw = document.getElementById('genPrefix').value.trim();
+  const previewEl = document.getElementById('genPrefixPreview');
+  const errorEl = document.getElementById('genPrefixError');
+  errorEl.style.display = 'none';
+
+  if (!raw) {
+    previewEl.textContent = 'No code entered — random usernames like otter482 will be used.';
+    return;
+  }
+  if (!GEN_PREFIX_RE.test(raw)) {
+    previewEl.textContent = '';
+    errorEl.textContent = 'Use only letters, numbers, dots, hyphens or underscores, starting with a letter or number (max 40 characters).';
+    errorEl.style.display = 'block';
+    return;
+  }
+  const count = Math.max(1, Math.min(60, parseInt(document.getElementById('genCount').value, 10) || 1));
+  const shown = Math.min(count, 3);
+  const samples = Array.from({ length: shown }, (_, i) => `S${i + 1}${raw}`);
+  let text = 'Preview: ' + samples.join(', ') + (count > shown ? `, … (${count} total)` : '');
+  text += ' — the actual starting number may be higher if this code has already been used.';
+  previewEl.textContent = text;
+}
+document.getElementById('genPrefix').addEventListener('input', updatePrefixPreview);
+document.getElementById('genCount').addEventListener('input', updatePrefixPreview);
+updatePrefixPreview();
+
+// Password mode: random (default, one per student) vs a single fixed
+// password for the whole batch. Either way a student can set their own from
+// Manage Account → Password once they've signed in (manage-account.html) —
+// a fixed password is only ever a starting point, never permanent. Same
+// 8-character floor as that page's own change-password form, checked here
+// too since generate-students.js (the server) is the one that actually
+// enforces it — this is just an early, friendlier error.
+const GEN_PW_MIN_LENGTH = 8;
+
+document.getElementById('genPwModeCards').addEventListener('change', (e) => {
+  if (e.target.name !== 'genPwMode') return;
+  document.querySelectorAll('#genPwModeCards .pw-mode-card').forEach(card => {
+    card.classList.toggle('selected', card.querySelector('input').checked);
+  });
+  const fixed = e.target.value === 'fixed';
+  document.getElementById('genFixedPwRow').classList.toggle('hidden', !fixed);
+  if (!fixed) document.getElementById('genFixedPassword').value = '';
+});
+
+document.getElementById('genFixedPwToggle').addEventListener('click', () => {
+  const input = document.getElementById('genFixedPassword');
+  const btn = document.getElementById('genFixedPwToggle');
+  const show = input.type === 'password';
+  input.type = show ? 'text' : 'password';
+  btn.textContent = show ? 'Hide' : 'Show';
+});
+
 document.getElementById('generateForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const msg = document.getElementById('generateMsg');
@@ -1141,14 +1377,32 @@ document.getElementById('generateForm').addEventListener('submit', async (e) => 
   const count = parseInt(countInput.value, 10);
   if (!activeClassId || !count || count < 1) return;
 
+  const prefixRaw = document.getElementById('genPrefix').value.trim();
+  if (prefixRaw && !GEN_PREFIX_RE.test(prefixRaw)) {
+    showMsg(msg, 'Fix the custom username start before generating — see the note above.', false);
+    return;
+  }
+
+  const pwMode = document.querySelector('input[name="genPwMode"]:checked').value;
+  const fixedPassword = document.getElementById('genFixedPassword').value;
+  if (pwMode === 'fixed' && fixedPassword.length < GEN_PW_MIN_LENGTH) {
+    showMsg(msg, `The shared password must be at least ${GEN_PW_MIN_LENGTH} characters.`, false);
+    return;
+  }
+
   const submitBtn = e.target.querySelector('button[type=submit]');
   submitBtn.disabled = true;
   msg.className = 'msg';
   try {
-    const result = await callFunction('generate-students', { class_id: activeClassId, count });
+    const payload = { class_id: activeClassId, count };
+    if (prefixRaw) payload.prefix = prefixRaw;
+    if (pwMode === 'fixed') payload.password = fixedPassword;
+    const result = await callFunction('generate-students', payload);
     renderCredentials(result.students || []);
-    if (result.failed) showMsg(msg, `Created ${result.students.length}, ${result.failed} failed — try generating again for the rest.`, false);
-    else showMsg(msg, `Created ${result.students.length} student login${result.students.length === 1 ? '' : 's'} — now download the CSV and hand them out (step 2).`, true);
+    const startNote = result.prefix ? ` starting at S${result.startIndex}${result.prefix}` : '';
+    const pwNote = result.passwordMode === 'fixed' ? ' with the shared password you set' : '';
+    if (result.failed) showMsg(msg, `Created ${result.students.length}${startNote}${pwNote}, ${result.failed} failed — try generating again for the rest.`, false);
+    else showMsg(msg, `Created ${result.students.length} student login${result.students.length === 1 ? '' : 's'}${startNote}${pwNote} — now download the CSV and hand them out (step 2).`, true);
     await loadClassData();
     refreshGuideCounts();
     refreshPendingCounts();
@@ -1230,6 +1484,174 @@ document.getElementById('rosterBody').addEventListener('click', async (e) => {
   }
 });
 
+// ── Class settings: rename + delete (plain Supabase, teacher RLS covers both) ──
+document.getElementById('renameClassBtn').addEventListener('click', async (e) => {
+  const msg = document.getElementById('classSettingsMsg');
+  const newName = document.getElementById('renameClassInput').value.trim();
+  if (!activeClassId) return;
+  if (!newName) { showMsg(msg, 'Enter a class name before renaming.', false); return; }
+  const btn = e.target;
+  btn.disabled = true;
+  try {
+    const { error } = await supabaseClient.from('classes').update({ name: newName }).eq('id', activeClassId);
+    if (error) throw error;
+    document.getElementById('classDetailLabel').textContent = newName;
+    await loadClasses(); // re-render the class card grid with the new name
+    showMsg(msg, 'Class renamed.', true);
+    setTimeout(() => { msg.className = 'msg'; }, 4000);
+  } catch (err) {
+    showMsg(msg, 'Could not rename the class: ' + err.message, false);
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+// ── Archive / unarchive (plain Supabase update — teacher RLS covers it,
+// same as rename). Purely organisational: it just moves the class between
+// the "My Classes" and "Archived Classes" tabs, nothing is deleted and
+// nothing about the class's data or student logins changes.
+function updateArchiveClassButton(cls) {
+  const btn = document.getElementById('archiveClassBtn');
+  const hint = document.getElementById('archiveClassHint');
+  if (!btn || !cls) return;
+  const archived = !!cls.archived;
+  btn.textContent = archived ? '📤 Unarchive this class' : '📦 Archive this class';
+  hint.textContent = archived
+    ? 'This class is archived and hidden from "My Classes". Unarchiving brings it back.'
+    : 'Archiving hides this class from "My Classes" and moves it to "Archived Classes" — nothing is deleted, and you can unarchive it here any time.';
+}
+
+document.getElementById('archiveClassBtn').addEventListener('click', async (e) => {
+  if (!activeClassId) return;
+  const cls = classes.find(c => c.id === activeClassId);
+  if (!cls) return;
+  const archiving = !cls.archived;
+  const btn = e.target;
+  btn.disabled = true;
+  const msg = document.getElementById('classSettingsMsg');
+  try {
+    const { error } = await supabaseClient.from('classes').update({ archived: archiving }).eq('id', activeClassId);
+    if (error) throw error;
+    await loadClasses();
+    const updated = classes.find(c => c.id === activeClassId);
+    updateArchiveClassButton(updated);
+    showMsg(msg, archiving ? 'Class archived — find it under Archived Classes.' : 'Class unarchived — it\'s back under My Classes.', true);
+    setTimeout(() => { msg.className = 'msg'; }, 4000);
+  } catch (err) {
+    showMsg(msg, `Could not ${archiving ? 'archive' : 'unarchive'} the class: ` + err.message, false);
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+// ── Delete class (confirmation modal — offers to delete every student
+// login in the class too, since that's a much bigger, separate decision
+// from deleting the class itself) ──
+function deleteClassModalConfirmLabel(count) {
+  return count > 0
+    ? `🗑️ Delete class and ${count} student${count === 1 ? '' : 's'}`
+    : '🗑️ Delete class';
+}
+
+document.getElementById('deleteClassBtn').addEventListener('click', () => {
+  if (!activeClassId) return;
+  const cls = classes.find(c => c.id === activeClassId);
+  const clsName = cls ? cls.name : 'this class';
+  const n = classStudents.length;
+
+  document.getElementById('deleteClassModalTitle').textContent = `Delete "${clsName}"?`;
+  document.getElementById('deleteClassModalBody').textContent =
+    'This permanently removes the class, its tasks, topic-access rules and Daily Revise settings. This cannot be undone.';
+  const checkbox = document.getElementById('deleteClassStudentsToo');
+  checkbox.checked = false;
+  checkbox.disabled = n === 0;
+  document.getElementById('deleteClassStudentsLabel').textContent = n > 0
+    ? `Also permanently delete all ${n} student login${n === 1 ? '' : 's'} in this class. If any of them are also in another one of your classes, this deletes their WHOLE account, not just their place here — otherwise, leave this unticked and students just keep their logins, unenrolled from this class.`
+    : 'This class has no students yet.';
+  document.getElementById('deleteClassModalMsg').className = 'msg';
+  document.getElementById('deleteClassConfirmBtn').textContent = deleteClassModalConfirmLabel(0);
+  document.getElementById('deleteClassConfirmBtn').disabled = false;
+  document.getElementById('deleteClassBackdrop').classList.add('show');
+});
+
+document.getElementById('deleteClassStudentsToo').addEventListener('change', (e) => {
+  document.getElementById('deleteClassConfirmBtn').textContent =
+    deleteClassModalConfirmLabel(e.target.checked ? classStudents.length : 0);
+});
+
+function closeDeleteClassModal() {
+  document.getElementById('deleteClassBackdrop').classList.remove('show');
+}
+document.getElementById('deleteClassCancelBtn').addEventListener('click', closeDeleteClassModal);
+document.getElementById('deleteClassBackdrop').addEventListener('click', (e) => {
+  if (e.target.id === 'deleteClassBackdrop') closeDeleteClassModal();
+});
+
+// Deletes students with a small worker pool (mirrors generate-students.js's
+// own CONCURRENCY pattern) rather than one at a time, so removing a full
+// class of ~30 doesn't take thirty sequential round trips.
+async function deleteStudentsConcurrently(studentIds) {
+  const CONCURRENCY = 5;
+  let succeeded = 0, failed = 0;
+  let next = 0;
+  async function worker() {
+    while (next < studentIds.length) {
+      const id = studentIds[next++];
+      try {
+        await callFunction('delete-student', { student_id: id });
+        succeeded++;
+      } catch (e) {
+        failed++;
+      }
+    }
+  }
+  const workers = Array.from({ length: Math.min(CONCURRENCY, studentIds.length) }, worker);
+  await Promise.all(workers);
+  return { succeeded, failed };
+}
+
+document.getElementById('deleteClassConfirmBtn').addEventListener('click', async () => {
+  if (!activeClassId) return;
+  const btn = document.getElementById('deleteClassConfirmBtn');
+  const cancelBtn = document.getElementById('deleteClassCancelBtn');
+  const modalMsg = document.getElementById('deleteClassModalMsg');
+  const deleteStudentsToo = document.getElementById('deleteClassStudentsToo').checked;
+  const studentIds = classStudents.map(s => s.id);
+
+  btn.disabled = true;
+  cancelBtn.disabled = true;
+  try {
+    let studentNote = '';
+    // Delete students FIRST, while they're still linked to this class —
+    // delete-student.js's requireOwnedStudent checks class_students, which
+    // cascade-deletes the moment the class itself is gone, so doing this
+    // after would make every deletion fail with "not your student".
+    if (deleteStudentsToo && studentIds.length) {
+      btn.textContent = `Deleting ${studentIds.length} student${studentIds.length === 1 ? '' : 's'}…`;
+      const { succeeded, failed } = await deleteStudentsConcurrently(studentIds);
+      studentNote = failed
+        ? ` (${succeeded} student${succeeded === 1 ? '' : 's'} deleted, ${failed} failed — you can remove ${failed === 1 ? 'it' : 'them'} individually from the roster afterwards)`
+        : ` (${succeeded} student${succeeded === 1 ? '' : 's'} deleted)`;
+    }
+
+    btn.textContent = 'Deleting class…';
+    const { error } = await supabaseClient.from('classes').delete().eq('id', activeClassId);
+    if (error) throw error;
+
+    closeDeleteClassModal();
+    activeClassId = null;
+    document.getElementById('classDetail').classList.add('hidden');
+    await loadClasses(); // back to the class list
+    if (studentNote) alert('Class deleted' + studentNote + '.');
+  } catch (err) {
+    showMsg(modalMsg, 'Could not delete the class: ' + err.message, false);
+  } finally {
+    btn.disabled = false;
+    cancelBtn.disabled = false;
+    btn.textContent = deleteClassModalConfirmLabel(deleteStudentsToo ? studentIds.length : 0);
+  }
+});
+
 // ── Single student dashboard (full ring grid + recent answer log) ──
 async function viewStudent(studentId, name) {
   showClassSubView('student');
@@ -1252,6 +1674,13 @@ async function viewStudent(studentId, name) {
     (gamStats ? tile('Lv ' + gamStats.level, gamStats.xp.toLocaleString() + ' XP') +
       tile('🔥 ' + _streak, 'Day streak') +
       tile(gamificationEarnedBadges(gamStats).length + '/' + BADGE_DEFS.length, 'Badges earned') : '');
+  // Practice-calendar heatmap — same shared widget the student sees on their
+  // own dashboard, fed this student's per-day slice (subject-scoped, loaded
+  // with the class). Empty array is fully supported (renders an empty grid).
+  if (typeof renderStreakHeatmap === 'function') {
+    renderStreakHeatmap(document.getElementById('studentHeatmapMount'), classActivityDays[studentId] || []);
+  }
+
   renderProgressGrid(document.getElementById('studentGridView'), prog);
 
   // The per-question answer log needs a fresh query.

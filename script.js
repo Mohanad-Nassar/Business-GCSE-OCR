@@ -604,6 +604,15 @@ function redoWrongAnswers(section) {
     }
     if (typeof _gamUpdateHud === 'function') _gamUpdateHud();
     updateRedoWrongButtons();
+    // Focus mode shows one question at a time from _focusState[section].idx.
+    // The wrap was just rebuilt with only the wrong questions, so that index
+    // (likely left pointing at the last question of the FULL set) must be
+    // reset to the first one here — otherwise _focusTick()'s clamp just pins
+    // it to the last item of the new, shorter list instead of the first.
+    if (_focusState[section]) {
+        _focusState[section].idx = 0;
+        _focusTick();
+    }
     const sel = section === 'mcq' ? '#mcqWrap .q-block:not([data-answered])' : '#tfWrap .tf-card:not([data-answered])';
     const first = document.querySelector(sel);
     if (first && first.scrollIntoView) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -1176,6 +1185,7 @@ function applyFlowSettings() {
     refreshActivityLocks();
     if (gcseIsStudent() && _flowSettings.focus_mode) initFocusMode();
     else teardownFocusMode();
+    updateExpandAllControlsVisibility();
 }
 
 function initStudentFlow() {
@@ -1186,11 +1196,19 @@ function initStudentFlow() {
 }
 
 // ── HEADER ACTIONS (Expand All + Grid/List toggle) ──
+// Only meaningful in "All at once" mode (focus_mode false) — in "One at a
+// time" (focus_mode true) these same two grids (Key Learning, Exam Tips)
+// are ALSO in FOCUS_SECTIONS above, so they're already reduced to a single
+// visible card with its own Back/Next nav; Grid View / Expand All Cards
+// would just be redundant controls fighting that view. Hidden for students
+// while focus_mode is on, shown again the moment it's off — kept in sync by
+// updateExpandAllControlsVisibility(), called here AND from
+// applyFlowSettings() (a teacher's setting can refresh mid-session).
 function injectExpandAll(tabId, gridId, cardClass) {
     const tabPanel = document.getElementById(tabId);
     const grid = document.getElementById(gridId);
     if (!tabPanel || !grid) return;
-    if (tabPanel.querySelector('.header-actions-wrap')) return;
+    if (tabPanel.querySelector('.header-actions-wrap')) { updateExpandAllControlsVisibility(); return; }
 
     const title = tabPanel.querySelector('.section-title');
     const subTitle = tabPanel.querySelector('.section-sub');
@@ -1203,6 +1221,7 @@ function injectExpandAll(tabId, gridId, cardClass) {
     if (subTitle) { subTitle.style.marginBottom = '0'; textWrap.appendChild(subTitle); }
 
     const actionWrap = document.createElement('div');
+    actionWrap.className = 'expand-all-controls';
     actionWrap.style.cssText = 'display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:4px;';
 
     let isListView = true, isExpanded = true;
@@ -1233,6 +1252,16 @@ function injectExpandAll(tabId, gridId, cardClass) {
     headerWrap.appendChild(textWrap);
     headerWrap.appendChild(actionWrap);
     tabPanel.insertBefore(headerWrap, grid);
+    updateExpandAllControlsVisibility();
+}
+
+// Shows/hides every injected Grid View + Expand/Collapse All Cards control
+// as a group, based on the CURRENT flow settings — teachers and previews
+// (gcseIsStudent() false) always keep them, matching every other
+// focus-mode gate in this file (see initFocusMode()'s identical guard).
+function updateExpandAllControlsVisibility() {
+    const hide = gcseIsStudent() && _flowSettings.focus_mode;
+    document.querySelectorAll('.expand-all-controls').forEach(w => { w.style.display = hide ? 'none' : ''; });
 }
 
 // ── BUILD LEARN ──

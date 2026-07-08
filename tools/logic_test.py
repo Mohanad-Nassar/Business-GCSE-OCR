@@ -111,12 +111,13 @@ c1 = MiniRacer()
 c1.eval(STUBS)
 # seed local progress the way ProgressStore writes it
 c1.eval("""
-localStorage.setItem('geo_progress_1-1-role-of-business-enterprise__learn', JSON.stringify({done:6,total:6,ts:1}));
-localStorage.setItem('geo_progress_1-1-role-of-business-enterprise__mcq',   JSON.stringify({done:3,total:12,ts:1}));
-localStorage.setItem('geo_progress_1-1-role-of-business-enterprise__answers__mcq', JSON.stringify({0:1}));
+localStorage.setItem('geo_progress_business:1-1-role-of-business-enterprise__learn', JSON.stringify({done:6,total:6,ts:1}));
+localStorage.setItem('geo_progress_business:1-1-role-of-business-enterprise__mcq',   JSON.stringify({done:3,total:12,ts:1}));
+localStorage.setItem('geo_progress_business:1-1-role-of-business-enterprise__answers__mcq', JSON.stringify({0:1}));
 __mkel('gamHudMount');
 """)
-c1.eval(read("section-totals.js"))
+c1.eval(read("subjects/business/page-groups.js"))   # sets window.SUBJECT + window.PAGE_GROUPS
+c1.eval(read("subjects/business/section-totals.js"))
 c1.eval(read("progress-shared.js"))
 c1.eval(read("gamification.js"))
 
@@ -155,19 +156,19 @@ cont = json.loads(c1.eval("""JSON.stringify((function(){
   return card ? { href: card.href, html: card.innerHTML.slice(0, 400) } : null;
 })())"""))
 check("continue card injected", cont is not None, cont)
-check("continue card resumes most recent topic", bool(cont) and cont["href"] == "1_1_role_of_business_enterprise.html", cont)
+check("continue card resumes most recent topic", bool(cont) and cont["href"] == "/subjects/business/1_1_role_of_business_enterprise.html", cont)
 check("continue card shows 11% (9/85) resume state", bool(cont) and "11%" in cont["html"] and "Continue where you left off" in cont["html"], cont)
 
 # pure helpers
-tp = json.loads(c1.eval("JSON.stringify(_gamTopicProgress('1-1-role-of-business-enterprise', _gamProgressData()))"))
+tp = json.loads(c1.eval("JSON.stringify(_gamTopicProgress('business:1-1-role-of-business-enterprise', _gamProgressData()))"))
 check("topic progress done=9 total=85 incomplete", tp == {"done": 9, "total": 85, "complete": False}, tp)
-pot = c1.eval("_gamPagePotentialXp('1-1-role-of-business-enterprise')")
+pot = c1.eval("_gamPagePotentialXp('business:1-1-role-of-business-enterprise')")
 check("potential XP = 85*10 + 8*50 + 200 = 1450", pot == 1450, pot)
 lv = json.loads(c1.eval("JSON.stringify([gamificationLevelFromXp(0).level, gamificationLevelFromXp(49).level, gamificationLevelFromXp(50).level])"))
 check("level curve 0/49/50 -> 1/1/2", lv == [1, 1, 2], lv)
 rd = json.loads(c1.eval("JSON.stringify(_gamReadLocalProgress())"))
 check("local reader parses store (with ts), skips answers",
-      rd == {"1-1-role-of-business-enterprise": {"learn": {"done": 6, "total": 6, "ts": 1}, "mcq": {"done": 3, "total": 12, "ts": 1}}}, rd)
+      rd == {"business:1-1-role-of-business-enterprise": {"learn": {"done": 6, "total": 6, "ts": 1}, "mcq": {"done": 3, "total": 12, "ts": 1}}}, rd)
 
 # combo
 c1.eval("_gamTrackCombo(true); _gamTrackCombo(true); _gamTrackCombo(true);")
@@ -189,14 +190,15 @@ check("daily goal counts today's answers and prunes old days", dg["count"] == 3 
 # ══════════════ Context 2: topic-page-like (script.js + real ProgressStore) ══════════════
 c2 = MiniRacer()
 c2.eval(STUBS)
-c2.eval("var pageMeta = { id: '1-1-role-of-business-enterprise' };")
+c2.eval("var pageMeta = { id: 'business:1-1-role-of-business-enterprise' };")
 c2.eval("['learn','mcq','match','fib','misc','tips','flashcards','tf','exam'].forEach(function(s){ __mkel('tabProg_' + s); });")
-c2.eval(read("section-totals.js"))
+c2.eval(read("subjects/business/page-groups.js"))   # sets window.SUBJECT + window.PAGE_GROUPS
+c2.eval(read("subjects/business/section-totals.js"))
 c2.eval(read("progress-shared.js"))
 c2.eval(read("script.js"))
 c2.eval(read("gamification.js"))
 
-pid = "1-1-role-of-business-enterprise"
+pid = "business:1-1-role-of-business-enterprise"
 c2.eval(f"ProgressStore.saveTotal('{pid}','mcq',12)")
 st = json.loads(c2.eval("JSON.stringify({state:_els['tabProg_mcq'].dataset.state, disp:_els['tabProg_mcq'].style.display, html:_els['tabProg_mcq'].innerHTML.slice(0,30)})"))
 check("tab ring appears when total registered", st["state"] == "part" and st["disp"] == "" and "<svg" in st["html"], st)
@@ -361,7 +363,7 @@ cd0 = json.loads(c2.eval("""JSON.stringify((function(){
 check("post_seconds 0 disables button cooldowns", cd0["disabled"] is False, cd0)
 
 # ── cross-device hydration: server answer-log merge (local wins per question) ──
-pid2 = "1-2-business-planning"
+pid2 = "business:1-2-business-planning"
 c2.eval(f"""
 ProgressStore.setAnswersBulk('{pid2}', 'mcq', {{ 5: {{ oi: 1, correct: false }} }});
 var hydChanged = _gcseMergeServerAnswers('{pid2}', [
@@ -386,10 +388,10 @@ check("page reset writes hydration tombstone", tomb is True)
 
 # ── home-page server merge (display-only) ──
 sm = json.loads(c1.eval("""JSON.stringify((function(){
-  _gamServerProgress = { '1-1-role-of-business-enterprise': { mcq: { done: 12, total: 12 } },
-                         '5-4-break-even': { tf: { done: 4, total: 12 } } };
+  _gamServerProgress = { 'business:1-1-role-of-business-enterprise': { mcq: { done: 12, total: 12 } },
+                         'business:5-4-break-even': { tf: { done: 4, total: 12 } } };
   var d = _gamProgressData();
-  return { mcq: d['1-1-role-of-business-enterprise'].mcq, learn: d['1-1-role-of-business-enterprise'].learn, other: d['5-4-break-even'].tf };
+  return { mcq: d['business:1-1-role-of-business-enterprise'].mcq, learn: d['business:1-1-role-of-business-enterprise'].learn, other: d['business:5-4-break-even'].tf };
 })())"""))
 check("home merge: server-ahead section adopted", sm["mcq"]["done"] == 12, sm)
 check("home merge: local-only sections kept", sm["learn"]["done"] == 6, sm)
@@ -463,11 +465,111 @@ qp = json.loads(c3.eval("""JSON.stringify([
   drQueueParams({smart:true, excludeMastered:false, incorrectOnly:true}, []),
 ])"""))
 check("queue params: defaults reproduce original behaviour",
-      qp[0] == {"p_page_ids": None, "p_smart": True, "p_exclude_mastered": True, "p_incorrect_only": False}, qp[0])
+      qp[0] == {"p_page_ids": None, "p_smart": True, "p_exclude_mastered": True, "p_incorrect_only": False, "p_subject": "business"}, qp[0])
 check("queue params: toggles + topic filter pass through",
-      qp[1] == {"p_page_ids": ["p1", "p2"], "p_smart": False, "p_exclude_mastered": False, "p_incorrect_only": False}, qp[1])
+      qp[1] == {"p_page_ids": ["p1", "p2"], "p_smart": False, "p_exclude_mastered": False, "p_incorrect_only": False, "p_subject": "business"}, qp[1])
 check("queue params: incorrect-only forces exclude-mastered",
       qp[2]["p_incorrect_only"] is True and qp[2]["p_exclude_mastered"] is True, qp[2])
+
+# ══════════════ Context 4: review-calendar-like (spaced-repetition engine) ══════════════
+c4 = MiniRacer()
+c4.eval(STUBS)
+c4.eval(read("spaced-repetition.js"))
+
+# srTodayStr: local date parts, zero-padded
+today = c4.eval("srTodayStr(new Date(2026, 0, 5))")
+check("srTodayStr pads local date parts", today == "2026-01-05", today)
+
+# srStatus: all four states, incl. the due_date == today boundary
+st4 = json.loads(c4.eval("""JSON.stringify([
+  srStatus({ due_date: '2026-07-06', completed_at: null }, '2026-07-07'),
+  srStatus({ due_date: '2026-07-07', completed_at: null }, '2026-07-07'),
+  srStatus({ due_date: '2026-07-08', completed_at: null }, '2026-07-07'),
+  srStatus({ due_date: '2026-07-01', completed_at: '2026-07-02T09:00:00Z' }, '2026-07-07'),
+])"""))
+check("srStatus overdue/due/upcoming/completed (due==today boundary)",
+      st4 == ["overdue", "due", "upcoming", "completed"], st4)
+
+c4.eval("""
+var srRows = [
+  { page_id: 'business:1-1-role-of-business-enterprise', stage: 1, due_date: '2026-07-06', completed_at: null },
+  { page_id: 'business:1-2-business-planning',           stage: 1, due_date: '2026-07-07', completed_at: null },
+  { page_id: 'business:1-1-role-of-business-enterprise', stage: 2, due_date: '2026-07-07', completed_at: null },
+  { page_id: 'business:1-3-business-ownership',          stage: 3, due_date: '2026-08-01', completed_at: null },
+  { page_id: 'business:1-4-business-aims-objectives',    stage: 1, due_date: '2026-07-01', completed_at: '2026-07-01T10:00:00Z' },
+];
+""")
+cnt = json.loads(c4.eval("JSON.stringify(srCounts(srRows, '2026-07-07'))"))
+check("srCounts tallies + actionable = due + overdue",
+      cnt == {"due": 2, "overdue": 1, "upcoming": 1, "completed": 1, "actionable": 3}, cnt)
+cnt0 = json.loads(c4.eval("JSON.stringify(srCounts([], '2026-07-07'))"))
+check("srCounts of empty schedule is all zeros",
+      cnt0 == {"due": 0, "overdue": 0, "upcoming": 0, "completed": 0, "actionable": 0}, cnt0)
+
+grp = json.loads(c4.eval("JSON.stringify(srGroupByDate(srRows))"))
+check("srGroupByDate keys by due_date",
+      sorted(grp.keys()) == ["2026-07-01", "2026-07-06", "2026-07-07", "2026-08-01"], grp)
+check("srGroupByDate preserves input order within a day",
+      [r["stage"] for r in grp["2026-07-07"]] == [1, 2]
+      and grp["2026-07-07"][0]["page_id"] == "business:1-2-business-planning", grp)
+
+lbl = json.loads(c4.eval("JSON.stringify([srStageLabel(1), srStageLabel(2), srStageLabel(3), srStageLabel(7)])"))
+check("srStageLabel maps stages + falls back", lbl == ["1 day", "1 week", "4 weeks", "stage 7"], lbl)
+
+tgt = json.loads(c4.eval("""JSON.stringify([
+  srSessionTarget(0), srSessionTarget(1), srSessionTarget(4), srSessionTarget(5), srSessionTarget(40),
+  srPassMark(1), srPassMark(3), srPassMark(4), srPassMark(5),
+])"""))
+check("srSessionTarget clamps 1..5 (0/1 -> 1, 40 -> 5)", tgt[:5] == [1, 1, 4, 5, 5], tgt)
+check("srPassMark = ceil(60%) (1->1, 3->2, 4->3, 5->3)", tgt[5:] == [1, 2, 3, 3], tgt)
+
+# srMonthMatrix — Feb 2026 starts on a SUNDAY (max leading pad)
+feb = json.loads(c4.eval("JSON.stringify(srMonthMatrix(2026, 1))"))
+check("Feb 2026: 5 Monday-start weeks", len(feb) == 5, feb)
+check("Feb 2026: every week has 7 days", all(len(w) == 7 for w in feb), feb)
+check("Feb 2026: grid runs Mon 26 Jan -> Sun 1 Mar",
+      feb[0][0] == "2026-01-26" and feb[-1][-1] == "2026-03-01", (feb[0][0], feb[-1][-1]))
+check("Feb 2026: 1st sits at the end of week 1, 28th inside the last week",
+      feb[0][6] == "2026-02-01" and "2026-02-28" in feb[-1], feb)
+# June 2026 starts on a MONDAY (zero leading pad)
+jun = json.loads(c4.eval("JSON.stringify(srMonthMatrix(2026, 5))"))
+check("June 2026: starts flush on Mon 1 June", jun[0][0] == "2026-06-01", jun[0])
+check("June 2026: 5 weeks ending Sun 5 July",
+      len(jun) == 5 and all(len(w) == 7 for w in jun) and jun[-1][-1] == "2026-07-05", jun[-1])
+# May 2026 ends on a Sunday — no phantom trailing week
+may = json.loads(c4.eval("JSON.stringify(srMonthMatrix(2026, 4))"))
+check("May 2026: last cell is exactly Sun 31 May (no extra trailing week)",
+      len(may) == 5 and may[-1][-1] == "2026-05-31", may[-1])
+
+# schedule cache round trip (storage helpers, still sync)
+cache = json.loads(c4.eval("""JSON.stringify((function(){
+  var missing = srCachedSchedule('business');
+  localStorage.setItem('sr_schedule_cache_v1:business', JSON.stringify({ fetchedAt: 1, rows: srRows }));
+  localStorage.setItem('sr_schedule_cache_v1:all', 'not json {');
+  return { missing: missing, hit: srCachedSchedule('business').length, corrupt: srCachedSchedule(null) };
+})())"""))
+check("srCachedSchedule: null when empty, rows on hit, null on corrupt JSON",
+      cache == {"missing": None, "hit": 5, "corrupt": None}, cache)
+
+# due badge rendering (stubbed DOM)
+badge = json.loads(c4.eval("""JSON.stringify((function(){
+  var el = makeEl('span');
+  srRenderDueBadge(el, srRows, '2026-07-07');
+  var withOverdue = el.innerHTML;
+  srRenderDueBadge(el, [srRows[1]], '2026-07-07');
+  var oneDue = el.innerHTML;
+  srRenderDueBadge(el, [srRows[3], srRows[4]], '2026-07-07');
+  return { withOverdue: withOverdue, oneDue: oneDue, cleared: el.innerHTML,
+           styles: document.head.children.filter(function(c){ return c.id === 'srStyles'; }).length };
+})())"""))
+check("due badge: 3 reviews due, red-tinted when overdue",
+      "3 reviews due" in badge["withOverdue"] and "sr-overdue" in badge["withOverdue"], badge)
+check("due badge: singular, no overdue tint",
+      "1 review due" in badge["oneDue"] and "sr-overdue" not in badge["oneDue"], badge)
+check("due badge: cleared when nothing actionable", badge["cleared"] == "", badge)
+# (>=1, not ==1: the stub's getElementById can't see appended <style> nodes,
+# so the real once-only guard re-fires per render here)
+check("due badge styles injected into head", badge["styles"] >= 1, badge["styles"])
 
 print()
 print(f"{passed} passed, {failed} failed")

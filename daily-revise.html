@@ -152,6 +152,7 @@
       <p>Short, spaced-out practice — answer a question right three times running and it's mastered.</p>
     </div>
     <div class="header-links">
+      <a class="nav-link" id="reviewCalendarNavLink" href="review-calendar.html">🗓️ Review Calendar</a>
       <a class="nav-link" href="dashboard.html">← Dashboard</a>
     </div>
   </div>
@@ -205,6 +206,15 @@
 <script src="/section-totals-all.js"></script>
 <script src="/subject-loader.js"></script>
 <script>subjectLoaderInit({ mode: 'single' });</script>
+<script>
+  // Carry the current subject through to the Review Calendar, same as the
+  // subject switcher on dashboard.html does for its own links.
+  (function () {
+    var slug = (window.SUBJECT && window.SUBJECT.slug) || 'business';
+    var link = document.getElementById('reviewCalendarNavLink');
+    if (link) link.href = 'review-calendar.html?subject=' + encodeURIComponent(slug);
+  })();
+</script>
 <script src="progress-shared.js"></script>
 <script src="tasks-shared.js"></script>
 <script src="gamification.js"></script>

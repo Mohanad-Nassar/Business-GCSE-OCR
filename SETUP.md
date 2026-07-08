@@ -26,8 +26,8 @@ functions created by earlier ones).
 3. [`supabase/tasks-groups-migration.sql`](supabase/tasks-groups-migration.sql) — `assignment_group_id` on `tasks`, for sending one task to several classes at once.
 4. [`supabase/tasks-analytics-functions.sql`](supabase/tasks-analytics-functions.sql) — `get_class_topic_performance()` / `get_my_topic_performance()`, the "Weak topics" views.
 5. [`supabase/tasks-retry-schema.sql`](supabase/tasks-retry-schema.sql) — `source_kind`/`parent_task_id` on `tasks` and `create_retry_task()` (student follow-up tasks from wrong answers).
-6. [`supabase/gamification-functions.sql`](supabase/gamification-functions.sql) — `get_my_streak()`, the day-streak flame (deliberately **cross-subject**: one streak across the whole platform).
-7. [`supabase/class-gamification.sql`](supabase/class-gamification.sql) — `get_class_streaks()` for the teacher's Class Progress columns.
+6. [`supabase/gamification-functions.sql`](supabase/gamification-functions.sql) — `get_my_streak()`, the day-streak flame (deliberately **cross-subject**: one streak across the whole platform). **Already run this before?** Re-run it anyway — it now also defines `get_my_activity_days()`, the practice-calendar heatmap on the student dashboard and badges page (also cross-subject; safe to re-run, and the widget simply doesn't appear until this has been run). **Run it again even if you just did** — `get_my_activity_days()` has since gained a `p_subject` parameter (subject-scoped on `dashboard.html`/`review-calendar.html`; still cross-subject on `badges.html`), still safe and idempotent to re-run.
+7. [`supabase/class-gamification.sql`](supabase/class-gamification.sql) — `get_class_streaks()` for the teacher's Class Progress columns, and now also `get_class_activity_days(p_class_id, p_subject, p_days)`, the practice-calendar heatmap teachers see for an individual student in `teacher-dashboard.html`'s per-student **View** panel. **Already run this before?** Re-run it anyway — same as `get_my_activity_days()` above, the widget simply doesn't appear in the student panel until this has been run.
 8. [`supabase/topic-access-schema.sql`](supabase/topic-access-schema.sql) — per-class topic locking (open / manual / sequential), "please open this topic" requests, per-student grants, and the live `record_progress()` override.
 9. [`supabase/class-flow-settings.sql`](supabase/class-flow-settings.sql) — per-class learning-flow settings (activity order, focus mode, timers). **Must run after `topic-access-schema.sql`, every time — LAST of that pair.**
 
@@ -40,7 +40,8 @@ functions created by earlier ones).
 15. [`supabase/daily-revise-stats-schema.sql`](supabase/daily-revise-stats-schema.sql) — `daily_revise_stats`, the lifetime XP counters (now one row per student **per subject**).
 16. [`supabase/daily-revise-functions.sql`](supabase/daily-revise-functions.sql) — `get_daily_revise_settings()`, `get_daily_revise_queue()` and `record_mastery_answer()` (must run after steps 13–15).
 17. [`supabase/daily-revise-analytics.sql`](supabase/daily-revise-analytics.sql) — the four teacher-only analytics functions (`get_class_dr_usage/overview/questions/matrix`) behind `teacher-analytics.html`, each scoped to the class's own subject.
-18. **Seed the question bank** — run:
+18. [`supabase/spaced-repetition.sql`](supabase/spaced-repetition.sql) — the Review Calendar: `topic_reviews` plus `get_review_schedule()`, `get_topic_review_questions()` and `record_review_answer()`. **Must run after the daily-revise files (steps 13 and 16)** — it reads `bank_questions` / `question_mastery` and delegates grading to `record_mastery_answer()`.
+19. **Seed the question bank** — run:
     ```
     python tools/build_question_bank.py --upload
     ```

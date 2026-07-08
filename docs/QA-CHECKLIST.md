@@ -48,6 +48,43 @@ Automated logic tests exist too: `python tools/logic_test.py`.
       notification here also removes it from the bell dropdown (and vice
       versa) without a page reload needed on the second page.
 
+**Practice calendar heatmap (dashboard.html + badges.html + review-calendar.html + teacher-dashboard.html)**
+- [ ] Signed in as a test student, the GitHub-contributions-style heatmap
+      appears below the gamification bar on both `dashboard.html` and
+      `badges.html`.
+- [ ] Signed in as a test student, open `review-calendar.html`: the heatmap
+      appears below the month calendar panel, showing the same data as the
+      dashboard one.
+- [ ] Hovering/tapping a day shows a tooltip with its date and question
+      count; an untouched day shows 0.
+- [ ] Answer a question on a Business topic page, then reload: today's cell
+      updates on both pages, same as the 🔥 streak (counts across ANY
+      subject, not just Business).
+- [ ] Narrow the window until the heatmap would overflow: it scrolls
+      horizontally within its own box; the page body does not gain a
+      horizontal scrollbar.
+- [ ] Teacher dashboard and any offline/teacher-only pages show no heatmap
+      and are otherwise unaffected.
+- [ ] Before running the new `get_my_activity_days()` function (or on a
+      project where `gamification-functions.sql` hasn't been re-run): the
+      widget simply doesn't appear on either page — no error toast, no
+      console errors.
+- [ ] Subject-scoping: answer a question on a Business topic page, then check
+      a Business class's `dashboard.html` and `review-calendar.html` — today's
+      cell is lit up. Check a class on a different subject (e.g. Economics)
+      — its `dashboard.html`/`review-calendar.html` heatmap does NOT show that
+      day (each is scoped to its own subject via `get_my_activity_days(p_subject)`).
+- [ ] `badges.html`'s heatmap is unchanged — it still aggregates ALL subjects
+      together, so the same Business answer lights up today's cell there too,
+      alongside any Economics/Computer Science activity.
+- [ ] Teacher: on `teacher-dashboard.html`, open a student's **View** detail
+      panel — the same practice-calendar heatmap widget appears for that
+      student, scoped to the active class's subject.
+- [ ] On a class where `class-gamification.sql` hasn't been re-run yet (no
+      `get_class_activity_days()`): the student's **View** panel simply shows
+      no heatmap — no error toast, no console errors — same
+      graceful-degradation pattern as the rest of this feature.
+
 **Daily Revise (daily-revise.html)**
 - [ ] Every question shows the 4-segment mastery bar at the top: a brand-new
       question is all grey; answer it right and a segment lights (red →

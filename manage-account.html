@@ -113,7 +113,7 @@
       <p>Your account details and login</p>
     </div>
     <div class="header-links">
-      <a class="nav-link" href="dashboard.html">← Dashboard</a>
+      <a class="nav-link" id="backToDashboardLink" href="dashboard.html">← Dashboard</a>
     </div>
   </div>
   <div class="gcse-account-bar" id="accountBar" style="padding:0 40px 4px;"></div>
@@ -131,7 +131,7 @@
       <div class="detail-row"><span class="l">Role</span><span class="v" id="acctRole">—</span></div>
       <div class="detail-row"><span class="l">Member since</span><span class="v" id="acctSince">—</span></div>
 
-      <h3 class="subhead">My Classes</h3>
+      <h3 class="subhead" id="acctClassesLabel">My Classes</h3>
       <div id="acctClasses"><div class="empty">Loading…</div></div>
     </div>
 
@@ -183,10 +183,12 @@
     return new Date(iso).toLocaleDateString(undefined, { day:'numeric', month:'short', year:'numeric' });
   }
 
+  let currentRole = 'student';
+
   async function initAuth() {
     const cached = readGcseSession();
     if (!cached) { location.replace('login.html?redirect=' + encodeURIComponent(location.pathname)); return false; }
-    if (cached.role === 'teacher') { location.replace('teacher-dashboard.html'); return false; }
+    currentRole = cached.role || 'student';
 
     supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     window._gcseSupabaseClient = supabaseClient;
@@ -214,7 +216,9 @@
     });
 
     document.getElementById('acctUsername').textContent = cached.username || '—';
-    document.getElementById('acctRole').textContent = 'Student';
+    document.getElementById('acctRole').textContent = currentRole === 'teacher' ? 'Teacher' : 'Student';
+    document.getElementById('backToDashboardLink').href = currentRole === 'teacher' ? 'teacher-dashboard.html' : 'dashboard.html';
+    document.getElementById('acctClassesLabel').textContent = currentRole === 'teacher' ? 'Your Classes' : 'My Classes';
     return true;
   }
 
@@ -223,6 +227,27 @@
     document.getElementById('acctSince').textContent = profile ? fmtDate(profile.created_at) : '—';
 
     const container = document.getElementById('acctClasses');
+
+    // Teachers own their classes directly (classes.teacher_id, already
+    // covered by the classes_teacher_all RLS policy — same query
+    // teacher-dashboard.html's loadClasses() uses) rather than the
+    // student-only get_my_classes() RPC below.
+    if (currentRole === 'teacher') {
+      const { data: taught, error: taughtErr } = await supabaseClient
+        .from('classes').select('name').order('created_at');
+      if (taughtErr) {
+        container.innerHTML = '<div class="empty">Couldn’t load your classes right now.</div>';
+        return;
+      }
+      if (!taught || !taught.length) {
+        container.innerHTML = '<div class="empty">You haven’t created a class yet.</div>';
+        return;
+      }
+      container.innerHTML = taught.map(c => `
+        <div class="class-row"><span class="cname">${esc(c.name)}</span></div>`).join('');
+      return;
+    }
+
     const { data: classes, error } = await supabaseClient.rpc('get_my_classes');
     if (error) {
       container.innerHTML = '<div class="empty">Couldn’t load your classes right now.</div>';

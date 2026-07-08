@@ -60,3 +60,43 @@ end;
 $$;
 grant execute on function get_my_streak() to authenticated;
 
+-- ── Per-day activity, for the GitHub-style practice heatmap ──
+-- Distinct-day counts of the caller's progress_events over the last p_days
+-- days (default ~53 weeks, so it fills a year-wide calendar). Same UTC date
+-- casting as get_my_streak above; only days that actually had activity are
+-- returned, as a jsonb array [{"day":"YYYY-MM-DD","count":N}, …] ordered by
+-- day. Both topic-page and Daily Revise answers land in progress_events, so
+-- with p_subject null this aggregates across every subject (the cross-subject
+-- view, e.g. badges.html). Pass p_subject to scope the calendar to one subject
+-- on a subject-scoped page (dashboard/review-calendar): page ids are
+-- subject-prefixed, e.g. 'business:1-1-…', so the same `like p_subject || ':%'`
+-- filter get_review_schedule uses selects one subject's events. Both params
+-- default, so a bare get_my_activity_days() call keeps the original
+-- all-subjects, ~year-wide behaviour. Safe to re-run.
+create or replace function get_my_activity_days(p_days int default 371, p_subject text default null) returns jsonb
+language plpgsql security definer stable set search_path = public as $$
+declare
+    v_uid    uuid := auth.uid();
+    v_result jsonb;
+begin
+    if v_uid is null then raise exception 'not authenticated'; end if;
+
+    select coalesce(
+        jsonb_agg(jsonb_build_object('day', d.day, 'count', d.cnt) order by d.day),
+        '[]'::jsonb)
+    into v_result
+    from (
+        select (answered_at at time zone 'utc')::date as day,
+               count(*)::int                          as cnt
+        from progress_events
+        where student_id = v_uid
+          and (answered_at at time zone 'utc')::date > current_date - p_days
+          and (p_subject is null or page_id like p_subject || ':%')
+        group by (answered_at at time zone 'utc')::date
+    ) d;
+
+    return v_result;
+end;
+$$;
+grant execute on function get_my_activity_days(int, text) to authenticated;
+

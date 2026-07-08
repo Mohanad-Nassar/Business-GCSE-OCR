@@ -94,8 +94,8 @@
   .ans-dist-count { flex:0 0 40px; text-align:right; font-family:'DM Mono',monospace; font-size:10.5px; color:var(--mid); }
 
   /* Class matrix heat cells */
-  .matrix-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
-  .matrix-wrap table { display:table; width:auto; min-width:100%; overflow:visible; }
+  .matrix-wrap { overflow:auto; -webkit-overflow-scrolling:touch; max-height:70vh; border:1px solid var(--border); border-radius:8px; }
+  .matrix-wrap table { display:table; width:auto; min-width:100%; overflow:visible; margin-top:0; }
   .matrix-wrap th, .matrix-wrap td { white-space:nowrap; }
   .matrix-wrap th.topic { min-width:110px; }
   .heat { text-align:center; font-family:'DM Mono',monospace; font-size:11.5px; border-radius:5px; }
@@ -106,6 +106,31 @@
   .heat.h2 { background:rgba(233,196,106,.28); color:#7a5800; }
   .heat.h3 { background:rgba(45,122,79,.16); color:#1a5c34; }
   .heat.hnone { background:transparent; color:var(--mid); }
+
+  /* Freeze header row + first (student-name) column — shared by the Usage
+     table and the Class matrix, both of which can grow tall (many students)
+     or wide (many topic columns) enough that you'd otherwise lose track of
+     which row/column you're looking at while scrolling. One scroll container
+     provides both scrollbars, so `position:sticky` on top/left works for
+     both axes at once; the top-left corner cell needs the highest z-index
+     since it's sticky on BOTH axes and must stay above cells that are only
+     sticky on one. */
+  .usage-table-wrap { overflow:auto; -webkit-overflow-scrolling:touch; max-height:70vh; border:1px solid var(--border); border-radius:8px; }
+  .usage-table-wrap table { display:table; width:100%; overflow:visible; margin-top:0; }
+  .matrix-wrap thead th, .usage-table-wrap thead th {
+    position:sticky; top:0; z-index:2; background:var(--cream); box-shadow:0 1px 0 var(--border);
+  }
+  .matrix-wrap th:first-child, .matrix-wrap td:first-child,
+  .usage-table-wrap th:first-child, .usage-table-wrap td:first-child {
+    position:sticky; left:0; z-index:1; background:var(--card-bg); box-shadow:1px 0 0 var(--border);
+  }
+  .matrix-wrap thead th:first-child, .usage-table-wrap thead th:first-child { z-index:3; }
+
+  /* Click-to-sort column headers (Usage table + Class matrix) */
+  th.sortable { cursor:pointer; -webkit-user-select:none; user-select:none; }
+  th.sortable:hover { color:var(--ink); }
+  th.sortable.sorted { color:var(--accent); }
+  .sort-arrow { display:inline-block; margin-left:4px; font-size:9px; }
 
   /* Shared topic filter toggle button (applies to all four tabs at once) —
      the grid itself reuses progress-shared.js's .tv-* component. */
@@ -181,10 +206,19 @@
           <option value="30">Last 30 days</option>
         </select></div>
     </div>
-    <table>
-      <thead><tr><th>Student</th><th>Attempts</th><th>Days revised</th><th>Days since last revised</th><th>Accuracy</th><th>Mastered</th></tr></thead>
-      <tbody id="usageBody"><tr><td colspan="6" class="empty">Loading…</td></tr></tbody>
-    </table>
+    <div class="usage-table-wrap" id="usageTableWrap">
+      <table>
+        <thead><tr>
+          <th class="sortable" data-sort="name">Student</th>
+          <th class="sortable" data-sort="attempts">Attempts</th>
+          <th class="sortable" data-sort="days">Days revised</th>
+          <th class="sortable" data-sort="last">Days since last revised</th>
+          <th class="sortable" data-sort="accuracy">Accuracy</th>
+          <th class="sortable" data-sort="mastered">Mastered</th>
+        </tr></thead>
+        <tbody id="usageBody"><tr><td colspan="6" class="empty">Loading…</td></tr></tbody>
+      </table>
+    </div>
   </div>
 
   <!-- Student overview -->
@@ -335,6 +369,11 @@ function setupTopicFilter() {
 
 // ── Usage ──
 let usageRows = [];
+// Column-header click-to-sort, kept in sync with the "Sort by" dropdown
+// (either one moves the other). dir=1 is each column's natural first-click
+// order — descending ("highest to lowest") for every numeric column, A→Z
+// for Student — clicking the SAME header again flips it.
+let usageSortDir = 1;
 async function loadUsage() {
   const days = $('usageWindow').value;
   const { data, error } = await auth.client.rpc('get_class_dr_usage', {
@@ -350,14 +389,15 @@ async function loadUsage() {
 }
 function renderUsage() {
   const sort = $('usageSort').value;
+  const dir = usageSortDir;
   const acc = r => pctOf(r.correct, r.attempts);
   const rows = usageRows.slice().sort((a, b) => {
-    if (sort === 'attempts') return b.attempts - a.attempts;
-    if (sort === 'days') return b.days_revised - a.days_revised;
-    if (sort === 'last') return new Date(b.last_revised_at || 0) - new Date(a.last_revised_at || 0);
-    if (sort === 'accuracy') return acc(b) - acc(a);
-    if (sort === 'mastered') return b.mastered - a.mastered;
-    return nameOf(a.student_id).localeCompare(nameOf(b.student_id));
+    if (sort === 'attempts') return (b.attempts - a.attempts) * dir;
+    if (sort === 'days') return (b.days_revised - a.days_revised) * dir;
+    if (sort === 'last') return (new Date(b.last_revised_at || 0) - new Date(a.last_revised_at || 0)) * dir;
+    if (sort === 'accuracy') return (acc(b) - acc(a)) * dir;
+    if (sort === 'mastered') return (b.mastered - a.mastered) * dir;
+    return nameOf(a.student_id).localeCompare(nameOf(b.student_id)) * dir;
   });
   $('usageBody').innerHTML = rows.map(r => `<tr>
     <td class="mono">${esc(nameOf(r.student_id))}</td>
@@ -367,9 +407,30 @@ function renderUsage() {
     <td class="mono">${r.attempts ? acc(r) + '%' : '—'}</td>
     <td class="mono">${r.mastered}</td>
   </tr>`).join('') || '<tr><td colspan="6" class="empty">No students in this class yet.</td></tr>';
+  updateUsageSortIndicators(sort);
 }
-$('usageSort').addEventListener('change', renderUsage);
+// Cache each header's plain label ONCE, before any arrow is ever injected —
+// updateUsageSortIndicators re-renders from this, not from the live
+// textContent, since that would already include a previous arrow's text and
+// double up on every subsequent render.
+document.querySelectorAll('#usageTableWrap th.sortable').forEach(th => { th.dataset.label = th.textContent.trim(); });
+
+function updateUsageSortIndicators(sort) {
+  document.querySelectorAll('#usageTableWrap th.sortable').forEach(th => {
+    const active = th.dataset.sort === sort;
+    th.classList.toggle('sorted', active);
+    const arrow = active ? `<span class="sort-arrow">${usageSortDir === 1 ? '▼' : '▲'}</span>` : '';
+    th.innerHTML = th.dataset.label + arrow;
+  });
+}
+$('usageSort').addEventListener('change', () => { usageSortDir = 1; renderUsage(); });
 $('usageWindow').addEventListener('change', loadUsage);
+document.querySelectorAll('#usageTableWrap th.sortable').forEach(th => th.addEventListener('click', () => {
+  const key = th.dataset.sort;
+  if ($('usageSort').value === key) usageSortDir *= -1;
+  else { $('usageSort').value = key; usageSortDir = 1; }
+  renderUsage();
+}));
 
 // ── Student overview ──
 async function loadOverview() {
@@ -484,6 +545,50 @@ $('qaCsvBtn').addEventListener('click', () => {
 });
 
 // ── Class matrix ──
+// Fetched data is cached at module scope so a re-sort (clicking a column
+// header) just re-renders from what's already here, with no RPC round trip.
+let matrixPages = [];
+let matrixCellBy = {};    // studentId|pageId -> cell
+let matrixBankTotal = 0;
+let matrixClassAgg = {};  // pageId -> { pct, mastered } class-wide averages
+// Sort state: key is 'name' | 'mastered' | a page_id. dir=1 is each column's
+// natural first-click order — descending ("highest to lowest") for Mastered
+// and every topic column, A→Z for Student — clicking the SAME header again
+// flips it, exactly like the Usage table above.
+let matrixSortKey = 'name';
+let matrixSortDir = 1;
+
+const matrixHeatCls = pct => pct >= 90 ? 'h3' : pct >= 70 ? 'h2' : pct >= 40 ? 'h1' : 'h0';
+
+function matrixOverallMasteredPct(studentId) {
+  let m = 0;
+  matrixPages.forEach(p => { const c = matrixCellBy[studentId + '|' + p.page_id]; if (c) m += c.mastered; });
+  return pctOf(m, matrixBankTotal);
+}
+// null = this student has no cell for this topic yet — always sinks to the
+// bottom of the sort regardless of direction, since "no data" isn't a score.
+function matrixTopicPct(studentId, pageId) {
+  const c = matrixCellBy[studentId + '|' + pageId];
+  if (!c) return null;
+  const p = matrixPages.find(pg => pg.page_id === pageId);
+  return pctOf(c.correct_plus, p.bank_total);
+}
+function matrixComparator(key, dir) {
+  return (a, b) => {
+    if (key === 'name') return ((a.username || '').localeCompare(b.username || '')) * dir;
+    const va = key === 'mastered' ? matrixOverallMasteredPct(a.id) : matrixTopicPct(a.id, key);
+    const vb = key === 'mastered' ? matrixOverallMasteredPct(b.id) : matrixTopicPct(b.id, key);
+    if (va == null && vb == null) return 0;
+    if (va == null) return 1;
+    if (vb == null) return -1;
+    return (vb - va) * dir;
+  };
+}
+function matrixSortArrow(key) {
+  if (matrixSortKey !== key) return '';
+  return `<span class="sort-arrow">${matrixSortDir === 1 ? '▼' : '▲'}</span>`;
+}
+
 async function loadMatrix() {
   const { data, error } = await auth.client.rpc('get_class_dr_matrix', {
     p_class_id: classId, p_page_ids: selectedPageIds.length ? selectedPageIds : null,
@@ -492,54 +597,70 @@ async function loadMatrix() {
     $('matrixWrap').innerHTML = `<div class="empty">Couldn't load — has supabase/daily-revise-analytics.sql been run? (${esc(error.message)})</div>`;
     return;
   }
-  const pages = (data && data.pages) || [];
+  matrixPages = (data && data.pages) || [];
   const cells = (data && data.cells) || [];
-  if (!roster.length || !pages.length) {
+  if (!roster.length || !matrixPages.length) {
     $('matrixWrap').innerHTML = '<div class="empty">No students or no question bank yet.</div>';
     return;
   }
-  const cellBy = {};   // studentId|pageId -> cell
-  cells.forEach(c => { cellBy[c.student_id + '|' + c.page_id] = c; });
-  const bankTotal = pages.reduce((s, p) => s + p.bank_total, 0);
-
-  const heatCls = pct => pct >= 90 ? 'h3' : pct >= 70 ? 'h2' : pct >= 40 ? 'h1' : 'h0';
+  matrixCellBy = {};
+  cells.forEach(c => { matrixCellBy[c.student_id + '|' + c.page_id] = c; });
+  matrixBankTotal = matrixPages.reduce((s, p) => s + p.bank_total, 0);
 
   // Class-wide per-topic aggregates for the header row.
-  const classAgg = {};
-  pages.forEach(p => {
+  matrixClassAgg = {};
+  matrixPages.forEach(p => {
     let cp = 0, ms = 0;
     roster.forEach(s => {
-      const c = cellBy[s.id + '|' + p.page_id];
+      const c = matrixCellBy[s.id + '|' + p.page_id];
       if (c) { cp += c.correct_plus; ms += c.mastered; }
     });
     const denom = p.bank_total * (roster.length || 1);
-    classAgg[p.page_id] = { pct: pctOf(cp, denom), mastered: pctOf(ms, denom) };
+    matrixClassAgg[p.page_id] = { pct: pctOf(cp, denom), mastered: pctOf(ms, denom) };
   });
 
-  let html = '<table><thead><tr><th>Student</th><th>Mastered</th>';
-  pages.forEach(p => {
-    const a = classAgg[p.page_id];
-    html += `<th class="topic" title="${esc(p.page_name)} — class avg ${a.pct}% on a correct run, ${a.mastered}% mastered">
-      ${esc(p.page_name)}<br><span class="mono muted">◎ ${a.pct}% · 🎓 ${a.mastered}%</span></th>`;
+  renderMatrix();
+}
+
+function renderMatrix() {
+  let html = '<table><thead><tr>' +
+    `<th class="sortable${matrixSortKey === 'name' ? ' sorted' : ''}" data-sort="name">Student${matrixSortArrow('name')}</th>` +
+    `<th class="sortable${matrixSortKey === 'mastered' ? ' sorted' : ''}" data-sort="mastered">Mastered${matrixSortArrow('mastered')}</th>`;
+  matrixPages.forEach(p => {
+    const a = matrixClassAgg[p.page_id];
+    const sorted = matrixSortKey === p.page_id;
+    html += `<th class="topic sortable${sorted ? ' sorted' : ''}" data-sort="${esc(p.page_id)}" title="${esc(p.page_name)} — class avg ${a.pct}% on a correct run, ${a.mastered}% mastered">
+      ${esc(p.page_name)}${matrixSortArrow(p.page_id)}<br><span class="mono muted">◎ ${a.pct}% · 🎓 ${a.mastered}%</span></th>`;
   });
   html += '</tr></thead><tbody>';
 
-  roster.forEach(s => {
-    let mastered = 0;
-    pages.forEach(p => { const c = cellBy[s.id + '|' + p.page_id]; if (c) mastered += c.mastered; });
+  const sortedRoster = roster.slice().sort(matrixComparator(matrixSortKey, matrixSortDir));
+  sortedRoster.forEach(s => {
     html += `<tr><td class="mono">${esc(s.username || s.id.slice(0, 8))}</td>
-      <td class="mono">${pctOf(mastered, bankTotal)}%</td>`;
-    pages.forEach(p => {
-      const c = cellBy[s.id + '|' + p.page_id];
+      <td class="mono">${matrixOverallMasteredPct(s.id)}%</td>`;
+    matrixPages.forEach(p => {
+      const c = matrixCellBy[s.id + '|' + p.page_id];
       if (!c) { html += '<td class="heat hnone">—</td>'; return; }
       const pct = pctOf(c.correct_plus, p.bank_total);
-      html += `<td class="heat ${heatCls(pct)}"><span class="pct">${pct}%</span><br><span class="sub">${c.mastered}/${p.bank_total}</span></td>`;
+      html += `<td class="heat ${matrixHeatCls(pct)}"><span class="pct">${pct}%</span><br><span class="sub">${c.mastered}/${p.bank_total}</span></td>`;
     });
     html += '</tr>';
   });
   html += '</tbody></table>';
   $('matrixWrap').innerHTML = html;
 }
+
+// Delegated (the table inside matrixWrap is fully rebuilt on every render,
+// so listeners attached directly to a <th> wouldn't survive) — the wrapper
+// div itself never changes, only its innerHTML.
+$('matrixWrap').addEventListener('click', (e) => {
+  const th = e.target.closest('th[data-sort]');
+  if (!th) return;
+  const key = th.dataset.sort;
+  if (matrixSortKey === key) matrixSortDir *= -1;
+  else { matrixSortKey = key; matrixSortDir = 1; }
+  renderMatrix();
+});
 
 init();
 </script>

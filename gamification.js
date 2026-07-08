@@ -245,9 +245,14 @@ function gamificationShowComboToast(combo) {
 // ── Streak (needs a server round trip — see gamification-functions.sql) ──
 
 let _gamStreak = 0;
+// Last Supabase client any gamification refresh was handed — lets the
+// heatmap poller find the client on pages (dashboard, badges) that keep it
+// in a module-local, not a window global. Set by the refreshers below.
+let _gamLastClient = null;
 async function gamificationRefreshStreak(client) {
   try {
     if (!client) return 0;
+    _gamLastClient = client;
     const { data, error } = await client.rpc('get_my_streak');
     if (!error && data) {
       _gamStreak = data.current || 0;
@@ -268,6 +273,7 @@ let _gamDrStats = { correctCount: 0, masteredCount: 0 };
 async function gamificationRefreshDailyReviseStats(client) {
   try {
     if (!client) return _gamDrStats;
+    _gamLastClient = client;
     const { data: { user } = {} } = await client.auth.getUser();
     if (!user) return _gamDrStats;
     // daily_revise_stats is one row PER SUBJECT now (PK student_id +
@@ -1072,6 +1078,268 @@ function _gamHudStreakInit(tries) {
     }
     gamificationDecorateTopicCards();
   };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build);
+  else build();
+})();
+
+// ══════════════════════════════════════════════════════════════
+// PRACTICE HEATMAP — a GitHub-contributions-style year calendar of days the
+// student answered questions (any subject: topic pages + Daily Revise all
+// write to progress_events, so this is inherently cross-subject, same as the
+// streak). Auto-mounts on the dashboard (a full-width band right under the
+// gamification bar) and on badges.html (under the summary block); does
+// nothing anywhere else. Data comes from the get_my_activity_days RPC — see
+// supabase/gamification-functions.sql. Everything below is guarded so a page
+// with no auth/client just never shows the widget (no console errors).
+// ══════════════════════════════════════════════════════════════
+
+let _gamActivityDays = [];
+async function gamificationRefreshActivityDays(client) {
+  try {
+    if (!client) return _gamActivityDays;
+    _gamLastClient = client;
+    // Subject-scope the calendar on a subject-scoped page (window.SUBJECT set
+    // by subjectLoaderInit mode:'single'); pass null on the cross-subject view
+    // (mode:'all', e.g. badges.html) to aggregate every subject. p_days is left
+    // to its server default.
+    const { data, error } = await client.rpc('get_my_activity_days',
+      { p_subject: (window.SUBJECT && window.SUBJECT.slug) || null });
+    if (!error && Array.isArray(data)) _gamActivityDays = data;
+  } catch (e) {}   // leave the cache as-is on any failure
+  return _gamActivityDays;
+}
+
+// ── Pure date helpers (UTC-only, to match the server's date bucketing) ──
+function _gamParseDay(s) {
+  const p = String(s).split('-');
+  return new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]));
+}
+function _gamFmtDay(dt) {
+  const p = n => String(n).padStart(2, '0');
+  return dt.getUTCFullYear() + '-' + p(dt.getUTCMonth() + 1) + '-' + p(dt.getUTCDate());
+}
+function _gamAddDays(dt, n) { return new Date(dt.getTime() + n * 86400000); }
+function _gamDayStart(d) {
+  if (typeof d === 'string') return _gamParseDay(d);
+  return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+}
+
+// PURE grid model — no DOM. Returns an array of `weeks` week-columns, each a
+// 7-cell array ordered Monday(row 0)→Sunday(row 6) (UK week). The final
+// column is the week that contains endDate; earlier columns run back in time.
+// Each cell: {date:'YYYY-MM-DD', count, level 0..4, inFuture}.
+//
+// INTENSITY RULE (documented): a day's level is its answer count scaled
+// against THIS student's own busiest day in the data (maxCount), split into
+// quartiles — level = ceil(count / maxCount * 4), clamped to 1..4; a count of
+// 0 stays level 0. Relative-to-personal-max (rather than fixed thresholds) so
+// the calendar reads the same whether a student's "big day" is 5 questions or
+// 200: their best days always glow brightest and quieter days shade
+// proportionally. Empty data → maxCount 0 → every cell level 0.
+function computeHeatmapCells(activityDays, endDate, weeks) {
+  weeks = weeks || 53;
+  const counts = {};
+  let maxCount = 0;
+  (activityDays || []).forEach(r => {
+    if (!r || !r.day) return;
+    const c = Math.max(0, r.count || 0);
+    counts[r.day] = c;
+    if (c > maxCount) maxCount = c;
+  });
+  const levelFor = c => {
+    if (c <= 0 || maxCount <= 0) return 0;
+    return Math.min(4, Math.max(1, Math.ceil((c / maxCount) * 4)));
+  };
+
+  const end = _gamDayStart(endDate || new Date());
+  const endRow = (end.getUTCDay() + 6) % 7;            // Mon=0 … Sun=6
+  const endMonday = _gamAddDays(end, -endRow);
+  const gridStart = _gamAddDays(endMonday, -(weeks - 1) * 7);
+
+  const cols = [];
+  for (let w = 0; w < weeks; w++) {
+    const col = [];
+    for (let r = 0; r < 7; r++) {
+      const dt = _gamAddDays(gridStart, w * 7 + r);
+      const inFuture = dt.getTime() > end.getTime();
+      const count = inFuture ? 0 : (counts[_gamFmtDay(dt)] || 0);
+      col.push({ date: _gamFmtDay(dt), count: count, level: inFuture ? 0 : levelFor(count), inFuture: inFuture });
+    }
+    cols.push(col);
+  }
+  return cols;
+}
+
+const _GAM_WD_SHORT = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const _GAM_MO_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+function _gamHeatTitle(cell) {
+  const d = _gamParseDay(cell.date);
+  const label = _GAM_WD_SHORT[(d.getUTCDay() + 6) % 7] + ' ' + d.getUTCDate() + ' ' +
+    _GAM_MO_SHORT[d.getUTCMonth()] + ' ' + d.getUTCFullYear();
+  const n = cell.count;
+  const head = n > 0 ? (n === 1 ? '1 question' : n + ' questions') : 'No practice';
+  return head + ' · ' + label;
+}
+
+function _gamInjectHeatStyles() {
+  if (document.getElementById('gam-heat-styles')) return;
+  const style = document.createElement('style');
+  style.id = 'gam-heat-styles';
+  // Level 0 = cream surface + hairline border; 1→4 a single-hue gold ramp
+  // deepening light→dark to the site's deep gold #b8860b (a sequential
+  // magnitude scale, monotone in lightness — see the dataviz skill).
+  style.textContent = `
+    .gam-heat-mount--dash{background:var(--card-bg,#fffcf6);border-bottom:1px solid var(--border,#c9bfaa);padding:15px 40px 17px;}
+    .gam-heat-mount--badges{margin:16px 0 24px;}
+    .gam-heat-mount--cal{background:var(--card-bg,#fffcf6);border:1px solid var(--border,#c9bfaa);border-radius:12px;padding:22px 24px;margin-bottom:22px;}
+    .gam-heat{--gh-cell:12px;--gh-gap:3px;--gh-l0:var(--cream,#ede7d9);--gh-l1:#efd98f;--gh-l2:#e5bf5c;--gh-l3:var(--gold,#d4a843);--gh-l4:#b8860b;font-family:'DM Sans',sans-serif;color:var(--ink,#1a2332);}
+    .gam-heat-title{font-family:'Playfair Display',serif;font-weight:700;font-size:15px;margin:0;text-align:center;}
+    .gam-heat-hint{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--mid,#5a6e7f);margin:3px 0 12px;text-align:center;}
+    .gam-heat-scroll{overflow-x:auto;overflow-y:hidden;padding-bottom:4px;-webkit-overflow-scrolling:touch;text-align:center;}
+    .gam-heat-plot{display:inline-flex;gap:6px;}
+    .gam-heat-side{display:flex;flex-direction:column;gap:var(--gh-gap);padding-top:20px;flex-shrink:0;}
+    .gam-heat-wd{height:var(--gh-cell);line-height:var(--gh-cell);font-family:'DM Mono',monospace;font-size:8.5px;color:var(--mid,#5a6e7f);white-space:nowrap;}
+    .gam-heat-main{display:flex;flex-direction:column;}
+    .gam-heat-months{display:grid;grid-template-columns:repeat(var(--gh-weeks),var(--gh-cell));column-gap:var(--gh-gap);height:15px;font-family:'DM Mono',monospace;font-size:9px;color:var(--mid,#5a6e7f);}
+    .gam-heat-mon{grid-row:1;white-space:nowrap;}
+    .gam-heat-cells{display:grid;grid-auto-flow:column;grid-template-columns:repeat(var(--gh-weeks),var(--gh-cell));grid-template-rows:repeat(7,var(--gh-cell));column-gap:var(--gh-gap);row-gap:var(--gh-gap);}
+    .gam-heat-cell{width:var(--gh-cell);height:var(--gh-cell);border-radius:2.5px;background:var(--gh-l0);box-shadow:inset 0 0 0 1px var(--border,#c9bfaa);}
+    .gam-heat-cell[data-lvl="1"]{background:var(--gh-l1);box-shadow:none;}
+    .gam-heat-cell[data-lvl="2"]{background:var(--gh-l2);box-shadow:none;}
+    .gam-heat-cell[data-lvl="3"]{background:var(--gh-l3);box-shadow:none;}
+    .gam-heat-cell[data-lvl="4"]{background:var(--gh-l4);box-shadow:none;}
+    .gam-heat-cell--future{background:transparent;box-shadow:none;}
+    .gam-heat-legend{display:flex;align-items:center;justify-content:center;gap:5px;margin-top:11px;font-family:'DM Mono',monospace;font-size:9.5px;color:var(--mid,#5a6e7f);}
+    .gam-heat-legend .gam-heat-sw{width:var(--gh-cell);height:var(--gh-cell);border-radius:2.5px;}
+    .gam-heat-legend .gam-heat-sw[data-lvl="0"]{background:var(--gh-l0);box-shadow:inset 0 0 0 1px var(--border,#c9bfaa);}
+    .gam-heat-legend .gam-heat-sw[data-lvl="1"]{background:var(--gh-l1);}
+    .gam-heat-legend .gam-heat-sw[data-lvl="2"]{background:var(--gh-l2);}
+    .gam-heat-legend .gam-heat-sw[data-lvl="3"]{background:var(--gh-l3);}
+    .gam-heat-legend .gam-heat-sw[data-lvl="4"]{background:var(--gh-l4);}
+    @media (max-width:700px){.gam-heat-mount--dash{padding:14px 16px 16px;}}
+    @media (max-width:560px){.gam-heat-mount--cal{padding:18px 16px;}}
+  `;
+  document.head.appendChild(style);
+}
+
+// Renders the GitHub-style heatmap into mountEl. `activityDays` is the raw
+// RPC array; endDate defaults to today, 53 weeks (~12 months) wide.
+function renderStreakHeatmap(mountEl, activityDays) {
+  if (!mountEl) return;
+  _gamInjectHeatStyles();
+  const weeks = 53;
+  const cols = computeHeatmapCells(activityDays, new Date(), weeks);
+
+  // Summary numbers for the accessible label.
+  let totalActiveDays = 0, totalQuestions = 0, visibleDays = 0;
+  cols.forEach(col => col.forEach(c => {
+    if (c.inFuture) return;
+    visibleDays++;
+    if (c.count > 0) { totalActiveDays++; totalQuestions += c.count; }
+  }));
+
+  // Month labels: place one at the first column whose Monday starts a new month.
+  let monthsHtml = '', prevMonth = -1;
+  cols.forEach((col, i) => {
+    const d = _gamParseDay(col[0].date);
+    const m = d.getUTCMonth();
+    if (m !== prevMonth) {
+      monthsHtml += `<span class="gam-heat-mon" style="grid-column:${i + 1}">${_GAM_MO_SHORT[m]}</span>`;
+      prevMonth = m;
+    }
+  });
+
+  // Weekday labels — only Mon/Wed/Fri, blanks keep the row rhythm.
+  const wdShow = { 0: 'Mon', 2: 'Wed', 4: 'Fri' };
+  let sideHtml = '';
+  for (let r = 0; r < 7; r++) sideHtml += `<span class="gam-heat-wd">${wdShow[r] || ''}</span>`;
+
+  // Cells, column-major (col 0 rows 0..6, col 1 …) to match grid-auto-flow:column.
+  let cellsHtml = '';
+  cols.forEach(col => col.forEach(cell => {
+    if (cell.inFuture) { cellsHtml += `<span class="gam-heat-cell gam-heat-cell--future" aria-hidden="true"></span>`; return; }
+    cellsHtml += `<span class="gam-heat-cell" data-lvl="${cell.level}" title="${_gamHeatTitle(cell)}"></span>`;
+  }));
+
+  let legendHtml = '<span>Less</span>';
+  for (let l = 0; l <= 4; l++) legendHtml += `<span class="gam-heat-sw" data-lvl="${l}" aria-hidden="true"></span>`;
+  legendHtml += '<span>More</span>';
+
+  const dayWord = totalActiveDays === 1 ? 'day' : 'days';
+  const qWord = totalQuestions === 1 ? 'question' : 'questions';
+  const ariaLabel = `Practice calendar. You practised on ${totalActiveDays} ${dayWord} of the last ${visibleDays}, answering ${totalQuestions} ${qWord} in total.`;
+
+  // Subject-scoped pages (window.SUBJECT set, mode:'single') name the subject;
+  // the cross-subject view (window.SUBJECT null, mode:'all', e.g. badges.html)
+  // keeps the generic line. Interpolated the same way as ariaLabel above.
+  const hintText = (window.SUBJECT && window.SUBJECT.name)
+    ? `Every ${window.SUBJECT.name} question you answer lights up a day.`
+    : 'Every question you answer — on any subject — lights up a day.';
+
+  mountEl.innerHTML = `
+    <section class="gam-heat" style="--gh-weeks:${weeks}">
+      <h3 class="gam-heat-title">📅 Practice calendar</h3>
+      <p class="gam-heat-hint">${hintText}</p>
+      <div class="gam-heat-scroll">
+        <div class="gam-heat-plot" role="img" aria-label="${ariaLabel}">
+          <div class="gam-heat-side">${sideHtml}</div>
+          <div class="gam-heat-main">
+            <div class="gam-heat-months">${monthsHtml}</div>
+            <div class="gam-heat-cells">${cellsHtml}</div>
+          </div>
+        </div>
+      </div>
+      <div class="gam-heat-legend">${legendHtml}</div>
+    </section>`;
+
+  // Most-recent weeks are on the right — scroll there on load.
+  const scroller = mountEl.querySelector('.gam-heat-scroll');
+  if (scroller) scroller.scrollLeft = scroller.scrollWidth;
+}
+
+// Where the widget mounts on this page (null → not a heatmap page).
+function _gamHeatmapAnchor() {
+  const gamBar = document.querySelector('.gam-bar');        // dashboard.html
+  if (gamBar && gamBar.parentNode) return { after: gamBar, cls: 'gam-heat-mount--dash' };
+  const summary = document.getElementById('bdgSummary');    // badges.html
+  if (summary && summary.parentNode) return { after: summary, cls: 'gam-heat-mount--badges' };
+  // review-calendar.html — mount below the month-calendar panel, as a
+  // sibling panel (the mount's --cal class restyles it to match .panel).
+  const srGrid = document.getElementById('srCalGrid');
+  if (srGrid) {
+    const panel = srGrid.closest ? srGrid.closest('.panel') : null;
+    if (panel && panel.parentNode) return { after: panel, cls: 'gam-heat-mount--cal' };
+  }
+  return null;
+}
+
+// Poller modelled on _gamHudStreakInit: wait for the Supabase client (a
+// window global on topic pages, otherwise the last one a refresher was
+// given), then fetch + render. Bails immediately on pages with no mount
+// target, and after ~20s if no client ever appears (offline/teacher preview).
+function _gamHeatmapInit(tries) {
+  tries = tries || 0;
+  const anchor = _gamHeatmapAnchor();
+  if (!anchor) return;
+  const client = window._gcseSupabaseClient || _gamLastClient;
+  if (client) {
+    gamificationRefreshActivityDays(client).then(days => {
+      if (document.getElementById('gamHeatmapMount')) return;   // already mounted
+      const mount = document.createElement('div');
+      mount.id = 'gamHeatmapMount';
+      mount.className = 'gam-heat-mount ' + anchor.cls;
+      anchor.after.parentNode.insertBefore(mount, anchor.after.nextSibling);
+      renderStreakHeatmap(mount, days);
+    });
+    return;
+  }
+  if (tries > 40) return;
+  setTimeout(() => _gamHeatmapInit(tries + 1), 500);
+}
+
+(function gamificationInitHeatmap() {
+  const build = () => { if (_gamHeatmapAnchor()) _gamHeatmapInit(); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build);
   else build();
 })();

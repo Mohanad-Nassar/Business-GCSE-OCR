@@ -29,6 +29,18 @@
      padding: 0;
  }
 
+ /* Reserve the vertical scrollbar's space PERMANENTLY, whether or not a
+    scrollbar is needed right now. Without this, revealing/hiding content
+    tall enough to cross the viewport-height threshold (an MCQ answer's
+    explanation text, Expand All Cards) toggles the scrollbar on/off, which
+    nudges every centred/percentage-based width on the page by the
+    scrollbar's own width — small on its own, but enough to be visibly
+    jarring on a layout this centred. Falls back to nothing (today's
+    behaviour) in the handful of engines that don't support it yet. */
+ html {
+     scrollbar-gutter: stable;
+ }
+
  body {
      font-family: 'DM Sans', sans-serif;
      background: var(--paper);

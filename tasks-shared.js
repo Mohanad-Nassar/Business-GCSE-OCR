@@ -43,6 +43,14 @@ async function tasksAuthInit(requiredRole) {
     access_token: data.session.access_token, refresh_token: data.session.refresh_token,
     expires_at: data.session.expires_at, role: cached.role, username: cached.username,
   }));
+  // Let gamification.js learn about this page's client (it stashes it for
+  // the practice-heatmap poller and refreshes the streak cache). Fire and
+  // forget — never awaited, never affects this function's return value.
+  // Teacher pages don't load gamification.js, so this is a student-page
+  // no-op there by the typeof guard.
+  if (requiredRole === 'student' && typeof gamificationRefreshStreak === 'function') {
+    try { gamificationRefreshStreak(client); } catch (e) {}
+  }
   return { client, session: data.session, role: cached.role, username: cached.username };
 }
 
