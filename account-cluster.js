@@ -37,10 +37,11 @@ async function gcseLogout() {
         if (typeof _gcseWriteSession === 'function') _gcseWriteSession(null);
         else localStorage.removeItem('gcse_session_v1');
     } catch (e) {}
-    // Clear the WP-A3 gate cookie + per-tab enrollment flag (auth-shared.js
-    // isn't loaded on every page, so clear inline).
+    // Clear the WP-A3 gate cookie + per-tab caches (auth-shared.js isn't
+    // loaded on every page, so clear inline).
     try { document.cookie = 'vidya_at=; Path=/; Max-Age=0'; } catch (e) {}
     try { sessionStorage.removeItem('vidya_has_subjects'); } catch (e) {}
+    try { sessionStorage.removeItem('vidya_entitlements_v1'); } catch (e) {}
     location.replace(typeof LOGIN_PAGE === 'string' ? LOGIN_PAGE : '/login.html');
 }
 
@@ -77,6 +78,7 @@ function _gcseInjectAccountBarStyles() {
             font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink,#1a2332);text-decoration:none;}
         .gcse-profile-menu a.gpm-item:hover,.gcse-profile-menu button.gpm-item:hover{background:var(--cream,#ede7d9);}
         .gcse-profile-menu .gpm-divider{border-top:1px solid var(--border,#c9bfaa);margin:5px 0;}
+        .gcse-profile-menu .gpm-section-label{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid,#5a6e7f);padding:7px 12px 3px;}
         .gcse-profile-menu button.gpm-logout{color:#c84b31;font-weight:600;}
         @media (max-width:520px){
             .gcse-profile-name{display:none;}
@@ -214,4 +216,47 @@ function _gcseInjectAccountBar() {
             menu.insertBefore(soundBtn, menu.querySelector('.gpm-divider'));
         } catch (e) {}
     }
+
+    // WP-A4: "Switch subject" section for multi-subject students — never
+    // awaited, the menu works fine without it if the RPC isn't there yet.
+    try { _gcseLoadSubjectSwitcher(menu, role); } catch (e) {}
+}
+
+// One entry per entitled subject (get_my_entitlements, WP-A3), current
+// subject ticked. Shown only when the student has 2+ subjects. Cached per
+// tab for 60s so opening the menu never waits on the network.
+async function _gcseLoadSubjectSwitcher(menu, role) {
+    if (role !== 'student') return;
+    const client = window._gcseSupabaseClient;
+    if (!client || menu.querySelector('.gpm-subject-switch')) return;
+
+    let rows = null;
+    try {
+        const cached = JSON.parse(sessionStorage.getItem('vidya_entitlements_v1') || 'null');
+        if (cached && Date.now() - cached.ts < 60000 && Array.isArray(cached.rows)) rows = cached.rows;
+    } catch (e) {}
+    if (!rows) {
+        try {
+            const { data, error } = await client.rpc('get_my_entitlements');
+            if (error || !Array.isArray(data)) return;
+            rows = data;
+            try { sessionStorage.setItem('vidya_entitlements_v1', JSON.stringify({ ts: Date.now(), rows })); } catch (e) {}
+        } catch (e) { return; }
+    }
+    if (!rows || rows.length < 2) return;
+
+    let currentSlug = (window.SUBJECT && window.SUBJECT.slug) || null;
+    try { currentSlug = currentSlug || localStorage.getItem('gcse_last_subject'); } catch (e) {}
+
+    const items = rows.map(r => {
+        const on = r.subject === currentSlug;
+        return `<a class="gpm-item gpm-subject-switch" href="/dashboard.html?subject=${encodeURIComponent(r.subject)}"${on ? ' aria-current="true" style="font-weight:700;"' : ''}>
+            <span aria-hidden="true">${gcseEscapeHtml(r.icon || '📘')}</span> ${gcseEscapeHtml(r.name || r.subject)}${on ? ' ✓' : ''}</a>`;
+    }).join('');
+
+    const block = document.createElement('div');
+    block.innerHTML = `<div class="gpm-divider" role="separator"></div>
+        <div class="gpm-section-label">Switch subject</div>${items}`;
+    const anchor = menu.querySelector('.gpm-sound') || menu.querySelector('.gpm-divider');
+    while (block.firstChild) menu.insertBefore(block.firstChild, anchor);
 }

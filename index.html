@@ -315,6 +315,37 @@
       display: inline-block;
     }
 
+    /* WP-A4: per-subject quick actions under each enrolled subject card.
+       Sibling of the card <a> for the same nested-anchor reason above. */
+    .subject-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .subject-actions a {
+      flex: 1 1 auto;
+      text-align: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: .04em;
+      color: var(--ink);
+      background: var(--card-bg, #fffcf6);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 6px 10px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: border-color .15s, background .15s;
+    }
+
+    .subject-actions a:hover,
+    .subject-actions a:focus-visible {
+      border-color: var(--accent);
+      background: #fff;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 700px) {
       .hero {
@@ -417,8 +448,21 @@
             <span class="arrow" aria-hidden="true">→</span>
           </div>
         </a>`;
+      if (opts.actions) return `<div class="subject-card-wrap">${card}${subjectActionsHtml(subject.slug)}</div>`;
       if (!opts.secondaryHref) return `<div class="subject-card-wrap">${card}</div>`;
       return `<div class="subject-card-wrap">${card}<a class="subject-secondary" href="${opts.secondaryHref}">📊 My Progress →</a></div>`;
+    }
+
+    // WP-A4: every feature reachable per subject straight from the hub.
+    // The card itself opens the topic list; these pills deep-link the rest.
+    function subjectActionsHtml(slug) {
+      const s = encodeURIComponent(slug);
+      return `<div class="subject-actions" role="group" aria-label="Quick links">
+        <a href="/dashboard.html?subject=${s}">📊 Dashboard</a>
+        <a href="/daily-revise.html?subject=${s}">🎯 Daily Revise</a>
+        <a href="/dashboard.html?subject=${s}#tasksSection">📋 Tasks</a>
+        <a href="/review-calendar.html?subject=${s}">🗓️ Calendar</a>
+      </div>`;
     }
 
     // Logged-out (or role-less/corrupted session) view: every subject in
@@ -445,9 +489,7 @@
           No code yet? Ask your teacher for one, then come back.</div>`;
         return;
       }
-      grid.innerHTML = rows.map(s => subjectCardHtml(s, {
-        secondaryHref: `/dashboard.html?subject=${s.slug}`,
-      })).join('');
+      grid.innerHTML = rows.map(s => subjectCardHtml(s, { actions: true })).join('');
     }
 
     async function hubInitAccountBar(cached, supabaseClient) {
