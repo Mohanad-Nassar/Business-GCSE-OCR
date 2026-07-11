@@ -390,13 +390,35 @@ function taskEscapeHtml(str) {
 // `reading` and `markScheme` are richer site-generated HTML (classes,
 // images, inline styles) and are rendered as-is by the pages — do not route
 // them through here or their attributes would be destroyed.
+// Inline diagram images ARE supported here, since the content build embeds
+// exam figures as `<img>` tags inside otherwise-plain fields (most often
+// caseStudy — see subjects/*/question-bank.js). Unlike the whitelisted
+// formatting tags above, an <img> genuinely needs attributes (src/alt/style),
+// so it's restored by taskRestoreImg below rather than the bare-tag pass —
+// but only when it carries nothing scriptable, so nothing dangerous survives.
 // Inter-tag newlines are collapsed so `white-space:pre-wrap` containers
 // don't add blank gaps between block elements (same idea as the exam tab's
 // case-study handling in script.js).
 function taskRichText(str) {
   return taskEscapeHtml(str)
     .replace(/&lt;(\/?)(p|ul|ol|li|strong|em|b|i|u|br|hr|table|thead|tbody|tr|th|td|caption|sup|sub|h[3-6]|blockquote)\s*\/?&gt;/gi, '<$1$2>')
+    .replace(/&lt;img\b[\s\S]*?&gt;/gi, taskRestoreImg)
     .replace(/>\s*\n\s*</g, '><');
+}
+
+// Restore a single escaped <img> tag produced by taskEscapeHtml. Unescape it
+// back to real HTML, but only if it's inert — reject any on* event handler
+// (onerror/onload/…) or javascript: URL and leave those as harmless escaped
+// text. The content is build-authored (same trust level as the raw-rendered
+// `reading`/`markScheme` fields), so this is a safety net, not the primary
+// guard. Unescape &amp; last so entities like `&amp;lt;` don't double-decode.
+function taskRestoreImg(escaped) {
+  const raw = escaped
+    .replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+    .replace(/&amp;/g, '&');
+  if (/\son\w+\s*=/i.test(raw) || /javascript:/i.test(raw)) return escaped;
+  return raw;
 }
 
 // One-line previews (e.g. the 160-char truncated question in the task and
