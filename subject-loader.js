@@ -72,8 +72,11 @@ function subjectLoaderInit(opts) {
   // Remember the resolved subject so bare links (no ?subject=) keep the
   // student in the subject they were last working in. Topic pages persist
   // the same key via account-cluster.js (they set window.SUBJECT from their
-  // own page-groups.js instead of running this loader).
-  if (subject) {
+  // own page-groups.js instead of running this loader). Never persist a
+  // FALLBACK though — when the URL asked for something we couldn't resolve
+  // (e.g. review-calendar's ?subject=all, or a typo), recording the
+  // business fallback would silently corrupt the student's real subject.
+  if (subject && subject.slug === slug) {
     try { localStorage.setItem('gcse_last_subject', subject.slug); } catch (e) {}
   }
   if (subject && !(subject.slug in groupsAll)) {

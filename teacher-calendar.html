@@ -54,6 +54,16 @@
   .legend span { display:inline-flex; align-items:center; gap:6px; font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); }
   .legend i { width:11px; height:11px; border-radius:3px; display:inline-block; }
 
+  /* WP-A5: multi-select filters (subjects × classes) */
+  .filterbar { display:flex; flex-direction:column; gap:8px; margin-bottom:14px; }
+  .fgroup { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+  .flabel { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); min-width:64px; }
+  .fchip { border:1px solid var(--border); background:#fff; color:var(--mid); border-radius:99px;
+    padding:5px 12px; font-size:12px; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:6px;
+    transition:border-color .15s, background .15s, color .15s; }
+  .fchip[aria-pressed="true"] { background:var(--chip-accent, var(--accent)); border-color:var(--chip-accent, var(--accent)); color:#fff; }
+  .fchip:hover { border-color:var(--chip-accent, var(--accent)); }
+
   @media (max-width:640px){
     main { padding:18px 12px 60px; }
     .cal-cell { min-height:72px; padding:4px; }
@@ -83,12 +93,8 @@
     <div class="cal-title" id="calTitle">…</div>
     <button type="button" class="btn" id="nextBtn" aria-label="Next month">→</button>
     <button type="button" class="btn" id="todayBtn">Today</button>
-    <div class="cal-spacer"></div>
-    <div class="field">
-      <label for="classFilter">Class</label>
-      <select id="classFilter"><option value="">All classes</option></select>
-    </div>
   </div>
+  <div class="filterbar" id="filterBar"></div>
 
   <div class="panel" style="padding:14px;">
     <div class="cal-grid" id="calGrid"><div class="cal-empty" style="grid-column:1/-1;">Loading…</div></div>
@@ -104,9 +110,27 @@
 const esc = taskEscapeHtml;
 const $ = id => document.getElementById(id);
 let auth = null;
-let classesById = {};    // id -> { name, colour }
+let classesById = {};    // id -> { name, colour, subjectSlug, subjectName, subjectIcon, archived }
 let tasks = [];          // published tasks with a due_at
 let viewYear, viewMonth; // month currently shown (0-based month)
+
+// WP-A5: multi-select filters — any combination of subjects × classes.
+// Both groups keep at least one selection (an all-blank calendar reads as
+// broken); the last remaining chip in a group can't be turned off.
+let selSubjects = new Set();
+let selClasses = new Set();
+const TCAL_FILTERS_KEY = 'vidya_teachercal_filters_v1';
+
+function tcalSaveFilters() {
+  try {
+    localStorage.setItem(TCAL_FILTERS_KEY, JSON.stringify({
+      subjects: [...selSubjects], classes: [...selClasses],
+    }));
+  } catch (e) {}
+}
+function tcalLoadFilters() {
+  try { return JSON.parse(localStorage.getItem(TCAL_FILTERS_KEY) || 'null'); } catch (e) { return null; }
+}
 
 const DOW = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
@@ -128,25 +152,93 @@ async function init() {
   if (!auth) return;
 
   const [{ data: cls }, { data: tk }] = await Promise.all([
-    auth.client.from('classes').select('id, name, archived, subjects(colour)').order('created_at'),
+    auth.client.from('classes').select('id, name, archived, subjects(slug, name, icon, colour)').order('created_at'),
     auth.client.from('tasks').select('id, class_id, title, due_at, status'),
   ]);
 
-  (cls || []).forEach(c => { classesById[c.id] = { name: c.name, colour: (c.subjects && c.subjects.colour) || null, archived: !!c.archived }; });
+  (cls || []).forEach(c => {
+    classesById[c.id] = {
+      name: c.name,
+      colour: (c.subjects && c.subjects.colour) || null,
+      subjectSlug: (c.subjects && c.subjects.slug) || null,
+      subjectName: (c.subjects && c.subjects.name) || null,
+      subjectIcon: (c.subjects && c.subjects.icon) || null,
+      archived: !!c.archived,
+    };
+  });
   tasks = (tk || []).filter(t => t.status === 'published' && t.due_at);
 
-  const sel = $('classFilter');
-  sel.innerHTML = '<option value="">All classes</option>' +
-    (cls || []).filter(c => !c.archived).map(c => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');
-  // Preserve a class context arrived at via ?class=<id>.
+  // Filter selections: ?class=<id> narrows to that class (and its subject);
+  // otherwise restore the saved selection; otherwise everything on.
+  const activeIds = Object.keys(classesById).filter(id => !classesById[id].archived);
+  const allSubjects = [...new Set(activeIds.map(id => classesById[id].subjectSlug).filter(Boolean))];
   const wantClass = new URLSearchParams(location.search).get('class');
-  if (wantClass && classesById[wantClass]) sel.value = wantClass;
-  sel.addEventListener('change', render);
+  const saved = tcalLoadFilters();
+  if (wantClass && classesById[wantClass]) {
+    selClasses = new Set([wantClass]);
+    selSubjects = new Set(allSubjects);
+  } else if (saved) {
+    selClasses = new Set((saved.classes || []).filter(id => activeIds.includes(id)));
+    selSubjects = new Set((saved.subjects || []).filter(s => allSubjects.includes(s)));
+  }
+  if (!selClasses.size) selClasses = new Set(activeIds);
+  if (!selSubjects.size) selSubjects = new Set(allSubjects);
 
   const now = new Date();
   viewYear = now.getFullYear();
   viewMonth = now.getMonth();
+  renderFilterBar();
   render();
+}
+
+// ── Multi-select filter chips (subjects × classes) ──
+function renderFilterBar() {
+  const activeIds = Object.keys(classesById).filter(id => !classesById[id].archived);
+  const subjectMeta = {};
+  activeIds.forEach(id => {
+    const c = classesById[id];
+    if (c.subjectSlug && !subjectMeta[c.subjectSlug]) {
+      subjectMeta[c.subjectSlug] = { name: c.subjectName || c.subjectSlug, icon: c.subjectIcon, colour: c.colour };
+    }
+  });
+  const subjects = Object.keys(subjectMeta);
+
+  const subjChips = subjects.length > 1 ? subjects.map(s => {
+    const m = subjectMeta[s];
+    return `<button type="button" class="fchip" data-fsubject="${esc(s)}" aria-pressed="${selSubjects.has(s)}"
+      style="--chip-accent:${esc(m.colour || 'var(--accent)')}">${m.icon ? esc(m.icon) + ' ' : ''}${esc(m.name)}</button>`;
+  }).join('') : '';
+
+  const classChips = activeIds.map(id => {
+    const c = classesById[id];
+    return `<button type="button" class="fchip" data-fclass="${esc(id)}" aria-pressed="${selClasses.has(id)}"
+      style="--chip-accent:${esc(classColour(id))}">${esc(c.name)}</button>`;
+  }).join('');
+
+  $('filterBar').innerHTML = `
+    ${subjChips ? `<div class="fgroup"><span class="flabel">Subjects</span>${subjChips}</div>` : ''}
+    <div class="fgroup"><span class="flabel">Classes</span>${classChips}</div>`;
+
+  $('filterBar').querySelectorAll('[data-fsubject]').forEach(b => b.addEventListener('click', () => {
+    const s = b.dataset.fsubject;
+    if (selSubjects.has(s)) { if (selSubjects.size > 1) selSubjects.delete(s); }
+    else selSubjects.add(s);
+    tcalSaveFilters(); renderFilterBar(); render();
+  }));
+  $('filterBar').querySelectorAll('[data-fclass]').forEach(b => b.addEventListener('click', () => {
+    const id = b.dataset.fclass;
+    if (selClasses.has(id)) { if (selClasses.size > 1) selClasses.delete(id); }
+    else selClasses.add(id);
+    tcalSaveFilters(); renderFilterBar(); render();
+  }));
+}
+
+// A task is visible when its class AND its class's subject are selected.
+function taskVisible(t) {
+  if (!selClasses.has(t.class_id)) return false;
+  const c = classesById[t.class_id];
+  if (c && c.subjectSlug && !selSubjects.has(c.subjectSlug)) return false;
+  return true;
 }
 
 $('prevBtn').addEventListener('click', () => { if (--viewMonth < 0) { viewMonth = 11; viewYear--; } render(); });
@@ -157,12 +249,11 @@ function ymd(d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padSta
 
 function render() {
   $('calTitle').textContent = MONTHS[viewMonth] + ' ' + viewYear;
-  const filterClass = $('classFilter').value;
 
   // Bucket the visible tasks by local calendar day.
   const byDay = {};
   tasks.forEach(t => {
-    if (filterClass && t.class_id !== filterClass) return;
+    if (!taskVisible(t)) return;
     const d = new Date(t.due_at);
     (byDay[ymd(d)] = byDay[ymd(d)] || []).push(t);
   });
@@ -201,7 +292,7 @@ function render() {
 
   // Legend: which colour is which class, for classes with a deadline this view.
   const seen = {};
-  tasks.forEach(t => { if (!filterClass || t.class_id === filterClass) seen[t.class_id] = true; });
+  tasks.forEach(t => { if (taskVisible(t)) seen[t.class_id] = true; });
   const legendIds = Object.keys(seen);
   $('legend').innerHTML = legendIds.length
     ? legendIds.map(id => `<span><i style="background:${esc(classColour(id))}"></i>${esc((classesById[id] || {}).name || 'Class')}</span>`).join('')

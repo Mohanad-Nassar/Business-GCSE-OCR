@@ -490,6 +490,17 @@
         return;
       }
       grid.innerHTML = rows.map(s => subjectCardHtml(s, { actions: true })).join('');
+      // WP-A5: one calendar across every subject (reviews + task deadlines,
+      // filterable there) — only worth surfacing for multi-subject students.
+      if (rows.length > 1) {
+        grid.insertAdjacentHTML('beforeend',
+          `<div class="subject-card-wrap"><a class="topic-card" href="/review-calendar.html?subject=all" style="--accent:var(--gold)">
+            <span class="subject-icon" aria-hidden="true">🗓️</span>
+            <span class="code">ALL SUBJECTS</span>
+            <h3>Combined Calendar</h3>
+            <div class="card-meta"><span>Reviews + task deadlines in one view</span><span class="arrow" aria-hidden="true">→</span></div>
+          </a></div>`);
+      }
     }
 
     async function hubInitAccountBar(cached, supabaseClient) {

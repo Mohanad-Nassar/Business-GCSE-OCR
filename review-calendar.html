@@ -124,6 +124,29 @@
     .sr-more { background:transparent; border:none; color:var(--accent); font-family:'DM Mono',monospace; font-size:9.5px; cursor:pointer; padding:1px 2px; text-align:left; }
     .sr-more:hover { text-decoration:underline; }
 
+    /* WP-A5: teacher-set task deadlines share the grid with reviews.
+       Reviews keep their soft/outline look above; tasks are SOLID chips so
+       the two kinds read differently at a glance. --chip-accent carries the
+       subject colour in the all-subjects view. */
+    .sr-chip-task { background:var(--chip-accent, var(--ink)); color:#fff; display:block; text-decoration:none; }
+    .sr-chip-task .sr-chip-stage { opacity:.9; }
+    .sr-chip-task.is-done { opacity:.55; }
+    .sr-chip.sr-subject-accented { border-left:3px solid var(--chip-accent, var(--accent)); }
+
+    /* Filter bar (subjects × event types) + legend */
+    .sr-filterbar { display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center; margin-bottom:14px; }
+    .sr-filterbar .sr-fgroup { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+    .sr-filterbar .sr-flabel { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); }
+    .sr-fchip { border:1px solid var(--border); background:#fff; color:var(--mid); border-radius:99px;
+      padding:5px 12px; font-size:12px; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:6px;
+      transition:border-color .15s, background .15s, color .15s; }
+    .sr-fchip[aria-pressed="true"] { background:var(--chip-accent, var(--accent)); border-color:var(--chip-accent, var(--accent)); color:#fff; }
+    .sr-fchip:hover { border-color:var(--chip-accent, var(--accent)); }
+    .sr-legend { display:flex; flex-wrap:wrap; gap:12px; margin-top:12px; }
+    .sr-legend span { display:inline-flex; align-items:center; gap:6px; font-family:'DM Mono',monospace; font-size:10.5px; color:var(--mid); }
+    .sr-legend .lg-review { width:12px; height:12px; border-radius:3px; background:#ece7dc; border:1px dashed var(--border); display:inline-block; }
+    .sr-legend .lg-task { width:12px; height:12px; border-radius:3px; background:var(--ink); display:inline-block; }
+
     /* ── Quiz modal ── */
     .sr-modal-backdrop { position:fixed; inset:0; background:rgba(15,25,35,.45); z-index:899; opacity:0; pointer-events:none; transition:opacity .2s ease; }
     .sr-modal-backdrop.show { opacity:1; pointer-events:auto; }
@@ -233,6 +256,7 @@
   </div>
 
   <div class="panel">
+    <div class="sr-filterbar" id="srFilterBar" style="display:none;"></div>
     <div class="sr-cal-head">
       <div class="sr-cal-title" id="srCalTitle">—</div>
       <div class="sr-cal-nav">
@@ -244,6 +268,7 @@
     <div class="sr-cal-scroll">
       <div id="srCalGrid"></div>
     </div>
+    <div class="sr-legend" id="srLegend"></div>
   </div>
 </main>
 
