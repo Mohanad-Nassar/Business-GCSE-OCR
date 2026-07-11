@@ -161,7 +161,16 @@ language sql security definer stable set search_path = public as $$
     left join task_assignments a on a.task_id = t.id and a.student_id = p_student_id
     where t.id = p_task_id;
 $$;
-grant execute on function task_effective_due(uuid, uuid) to authenticated;
+-- INTERNAL ONLY (WP-A7 security audit): this answers for an ARBITRARY
+-- p_student_id (unlike auth.uid()-scoped helpers), so a direct client call could
+-- read another student's per-student due_override (an SEN/extra-time signal).
+-- It is only ever called by the SECURITY DEFINER functions below (start / save /
+-- submit / answer-keys), which invoke it as the function owner and so don't need
+-- this grant. Revoked from all client roles, mirroring has_subject_access() in
+-- entitlements.sql.
+revoke execute on function task_effective_due(uuid, uuid) from public;
+revoke execute on function task_effective_due(uuid, uuid) from anon;
+revoke execute on function task_effective_due(uuid, uuid) from authenticated;
 
 -- ══════════════════════════════════════════════════════════════
 -- SECTION 3 · QUESTION-FREEZE TRIGGER

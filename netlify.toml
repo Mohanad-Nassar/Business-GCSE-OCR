@@ -20,6 +20,21 @@
 [functions."weekly-retry-tasks"]
   schedule = "@weekly"
 
+# WP-A7 security headers — applied to every response.
+# The CSP intentionally allows inline scripts/styles, the jsDelivr CDN (which
+# serves the Supabase JS client) and Google Fonts because the current pages
+# rely on all three; tightening below this WILL break the site. Vendoring the
+# CDN so 'unsafe-inline'/jsdelivr can be dropped is a separate, DEFERRED work
+# package. connect-src pins the app's own Supabase project origin.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com 'self'; img-src 'self' data:; connect-src 'self' https://eaohjlyiotyqhvsizcpw.supabase.co; frame-ancestors 'none'"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
 # WP-A3 content gate: every request under /subjects/ must carry a valid
 # session whose account may access that subject — course content is no
 # longer publicly fetchable. question-bank.js is teacher-only on top.

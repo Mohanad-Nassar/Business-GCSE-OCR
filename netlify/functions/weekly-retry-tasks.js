@@ -1,8 +1,16 @@
-// Scheduled function (see netlify.toml: schedule = "@weekly") — no HTTP
-// caller, so no auth header to check. Runs with the service-role client,
-// which bypasses RLS entirely; every write below re-derives its own
-// teacher_id/class_id from the source data rather than trusting input,
-// since there is no per-caller authorization to lean on here.
+// Scheduled function (see netlify.toml: schedule = "@weekly"). Netlify runs
+// it on a cron with no interactive caller, so there is no user JWT to check;
+// it runs with the service-role client (bypasses RLS) and every write below
+// re-derives its own teacher_id/class_id from the source data rather than
+// trusting input, since there is no per-caller authorization to lean on.
+//
+// The same function is ALSO reachable over public HTTP, so an external POST
+// is rejected (403) unless it presents the shared secret in `x-cron-secret`
+// (matching the CRON_SECRET env var). Genuine cron runs carry Netlify's
+// scheduled payload (a JSON body with `next_run`) and are always allowed —
+// see cronGuard() below. OPERATOR ACTION: set CRON_SECRET in the Netlify
+// site env vars so the HTTP path is protected (a genuine @weekly run does
+// NOT need it).
 //
 // For every student, gathers auto-marked questions (mcq/tf/fib) they got
 // wrong in the last LOOKBACK_DAYS, and either tops up their existing
@@ -21,7 +29,41 @@ function questionRow(taskId, order, q) {
     };
 }
 
-exports.handler = async () => {
+// True when this looks like Netlify's own scheduled (cron) invocation rather
+// than an external HTTP request. Netlify triggers scheduled functions with a
+// JSON body carrying the next scheduled run time (`{ "next_run": "..." }`);
+// some runtimes additionally tag the event header. Either signal = genuine
+// cron. (Documented contract — if Netlify changes the scheduled payload this
+// detection must be updated, otherwise the @weekly run would 403 itself.)
+function isScheduledInvocation(event) {
+    if (!event) return false;
+    const headers = event.headers || {};
+    if ((headers['x-nf-event'] || headers['X-NF-Event']) === 'schedule') return true;
+    try {
+        const body = JSON.parse(event.body || '{}');
+        if (body && typeof body.next_run !== 'undefined') return true;
+    } catch (_e) { /* non-JSON body → not a scheduled payload */ }
+    return false;
+}
+
+// Allows genuine cron runs, and manual/operator HTTP triggers that present the
+// correct x-cron-secret; rejects every other externally-reachable call. Note
+// the `expected && …` guard: with CRON_SECRET unset the secret branch can
+// never match (so an empty header can't sneak past), yet real cron still runs
+// because it is allowed by isScheduledInvocation() above, not by the secret.
+function cronGuard(event) {
+    if (isScheduledInvocation(event)) return null;
+    const expected = process.env.CRON_SECRET;
+    const headers = (event && event.headers) || {};
+    const provided = headers['x-cron-secret'] || headers['X-Cron-Secret'] || '';
+    if (expected && provided === expected) return null;
+    return { statusCode: 403, body: 'Forbidden' };
+}
+
+exports.handler = async (event) => {
+    const blocked = cronGuard(event);
+    if (blocked) return blocked;
+
     let admin;
     try { admin = getAdminClient(); } catch (err) {
         return { statusCode: 500, body: err.message };

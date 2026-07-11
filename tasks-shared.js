@@ -430,9 +430,20 @@ function taskStripTags(str) {
 
 // ── CSV export ──
 
+// CSV-injection (a.k.a. formula-injection) guard: a cell whose text starts
+// with = + - @ (or a leading tab/CR that Excel trims to reveal one) can be
+// interpreted as a formula when the exported file is opened in a
+// spreadsheet — e.g. a student who names themself `=HYPERLINK(...)` or a
+// task title beginning with `+`. Neutralise by prefixing a single quote,
+// which spreadsheets treat as "force text" and strip on display. Applied
+// before the normal quoting so the quote lands inside the quoted field.
+function csvSanitizeCell(s) {
+  return /^[=+\-@\t\r]/.test(s) ? "'" + s : s;
+}
+
 function toCsv(rows) {
   const esc = v => {
-    const s = String(v ?? '');
+    const s = csvSanitizeCell(String(v ?? ''));
     return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
   };
   return rows.map(r => r.map(esc).join(',')).join('\r\n');

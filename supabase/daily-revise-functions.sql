@@ -250,8 +250,39 @@ declare
     v_old_count  int;
     v_new_count  int;
     v_next_due   timestamptz;
+    v_cap        int;
+    v_today      bigint;
 begin
     if v_uid is null then raise exception 'not authenticated'; end if;
+
+    -- Per-student daily sanity cap (WP-A7 security audit). Every graded answer
+    -- logs exactly one section='daily-revise' progress_events row, so today's
+    -- (UTC) count of those is this student's graded-answer tally for the day.
+    -- Rejecting past the cap blunts scripted grinding without affecting any
+    -- real student (the cap sits far above genuine daily volume).
+    -- record_review_answer() (spaced-repetition.sql) delegates its grade to
+    -- this function, so it inherits the same cap automatically.
+    -- The cap comes from platform_settings key 'daily_answer_cap' when that
+    -- table exists (entitlements.sql seeds it); if the table is absent we fall
+    -- back to a hard-coded 1000 rather than fail the grade.
+    begin
+        select nullif(value #>> '{}', '')::int into v_cap
+        from platform_settings where key = 'daily_answer_cap';
+    exception when undefined_table then
+        v_cap := null;
+    end;
+    v_cap := coalesce(v_cap, 1000);
+
+    select count(*) into v_today
+    from progress_events
+    where student_id = v_uid
+      and section = 'daily-revise'
+      and answered_at >= date_trunc('day', now() at time zone 'UTC') at time zone 'UTC';
+
+    if v_today >= v_cap then
+        raise exception 'Daily answer limit reached (% per day) — please come back tomorrow.', v_cap
+            using errcode = 'check_violation';
+    end if;
 
     select * into v_row from bank_questions where question_key = p_question_key;
     if not found then raise exception 'Question not found'; end if;

@@ -877,10 +877,12 @@ function renderMyTasks() {
   const badge = document.getElementById('notifBadge');
   badge.style.display = notes.length ? '' : 'none';
   badge.textContent = notes.length ? notes.length + ' new' : '';
+  // n.text embeds the teacher-set task title — escape it (the notification
+  // bell in notifications-shared.js already does; this list didn't).
   document.getElementById('notifList').innerHTML = notes.map(n => `
-    <div class="note-row" data-key="${n.key}">
+    <div class="note-row" data-key="${taskEscapeHtml(n.key)}">
       <span aria-hidden="true">${n.icon}</span>
-      <span class="note-text">${n.text} <a href="task.html?id=${n.taskId}" style="color:var(--accent); font-weight:600;">Open →</a></span>
+      <span class="note-text">${taskEscapeHtml(n.text)} <a href="task.html?id=${encodeURIComponent(n.taskId)}" style="color:var(--accent); font-weight:600;">Open →</a></span>
       <button type="button" class="note-dismiss" title="Dismiss" aria-label="Dismiss notification">✕</button>
     </div>`).join('');
 

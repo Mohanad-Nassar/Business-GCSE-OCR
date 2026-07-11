@@ -22,7 +22,11 @@ create table if not exists platform_settings (
 );
 insert into platform_settings (key, value) values
     ('billing_enforced', 'false'::jsonb),
-    ('content_protect',  'true'::jsonb)
+    ('content_protect',  'true'::jsonb),
+    -- Per-student daily sanity cap on auto-graded Daily-Revise / Review answers
+    -- (WP-A7). Blunts scripted grinding; well above any real student's volume.
+    -- Read by record_mastery_answer() (daily-revise-functions.sql).
+    ('daily_answer_cap', '1000'::jsonb)
 on conflict (key) do nothing;
 
 alter table platform_settings enable row level security;

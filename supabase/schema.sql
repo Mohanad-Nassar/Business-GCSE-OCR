@@ -461,3 +461,47 @@ drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute function handle_new_user();
+
+-- ══════════════════════════════════════════════════════════════
+-- PROFILES PRIVILEGE-COLUMN GUARD (WP-A7 security audit) — safe to re-run.
+--
+-- profiles_update_own (above) lets a user update THEIR OWN profile row, which
+-- is fine for a future "change my username" edit — BUT Postgres RLS is
+-- row-level, not column-level. Without this guard an authenticated STUDENT
+-- could `update profiles set role = 'teacher'` / `is_owner = true` /
+-- `account_type = 'owner'` on their own row and silently self-escalate:
+-- teacher/owner unlock EVERY subject's gated content and flip
+-- edge_gate_check()'s allow_bank to true (entitlements.sql), which serves
+-- question-bank.js — and that file embeds every correct answer inline. That is
+-- exactly the crown-jewel leak bank_questions is designed to prevent, so the
+-- escalation path must be closed at the source.
+--
+-- This BEFORE UPDATE trigger pins role / account_type / is_owner for any
+-- JWT-authenticated caller (a real user always has a non-null auth.uid()).
+-- Server-side provisioning — the signup Netlify Functions and the
+-- handle_new_user() trigger use the service-role key, the SQL-editor backfills
+-- above run as the table owner — all have a null auth.uid() and are
+-- deliberately left untouched, so nothing legitimate breaks. No client code
+-- updates profiles today (all writes are service-role), so this is pure
+-- defence-in-depth with zero functional impact.
+create or replace function _profiles_block_privilege_change() returns trigger
+language plpgsql set search_path = public as $$
+begin
+    -- Trusted contexts (service role / SQL editor / trigger provisioning) have
+    -- no end-user JWT, so auth.uid() is null — let them change anything.
+    if auth.uid() is null then
+        return new;
+    end if;
+    if new.role         is distinct from old.role
+       or new.account_type is distinct from old.account_type
+       or new.is_owner     is distinct from old.is_owner then
+        raise exception 'Not allowed to change role, account_type or is_owner';
+    end if;
+    return new;
+end;
+$$;
+
+drop trigger if exists profiles_block_privilege_change on profiles;
+create trigger profiles_block_privilege_change
+    before update on profiles
+    for each row execute function _profiles_block_privilege_change();
