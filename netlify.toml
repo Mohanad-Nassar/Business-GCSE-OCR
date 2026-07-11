@@ -20,6 +20,15 @@
 [functions."weekly-retry-tasks"]
   schedule = "@weekly"
 
+# WP-A3 content gate: every request under /subjects/ must carry a valid
+# session whose account may access that subject — course content is no
+# longer publicly fetchable. question-bank.js is teacher-only on top.
+# Kill switch: set env var CONTENT_GATE_DISABLED=true and redeploy.
+# See netlify/edge-functions/content-gate.ts + supabase/entitlements.sql.
+[[edge_functions]]
+  path = "/subjects/*"
+  function = "content-gate"
+
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"

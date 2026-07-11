@@ -250,6 +250,42 @@ buttons on `login.html`'s Email tab) and then join a class with a code
 6. Until a provider is configured, its button shows a friendly "not
    switched on yet" message — nothing breaks.
 
+## 12. Server-side content gating (WP-A3)
+
+Course content under `/subjects/` is no longer public. A Netlify Edge
+Function (`netlify/edge-functions/content-gate.ts`, mounted in netlify.toml)
+checks every request:
+
+- **Logged out** → topic pages redirect to `login.html?redirect=…`; asset
+  requests get 401.
+- **Logged in, not enrolled in that subject** → redirect to
+  `join.html?subject=…`; assets get 403.
+- **`question-bank.js` is teacher-only** (it embeds answers inline) —
+  students get 403 even for their own subject.
+- Verdicts come from the `edge_gate_check()` RPC and are cached for 60s.
+
+Setup:
+1. Run `supabase/entitlements.sql` (adds `platform_settings`,
+   `has_subject_access`, `edge_gate_check`, `get_my_entitlements`). Until
+   this has been run, the gate detects the missing RPC and **fails open**
+   (site keeps working, gate inactive).
+2. Deploy (the edge function ships with the repo — nothing to configure).
+3. Test logged out: `curl -I https://<site>/subjects/business/index.html`
+   → `302` to login. Test logged in as a student of one subject: another
+   subject's topic URL → redirected to the join page.
+
+Notes:
+- The gate reads the session from the `vidya_at` cookie (set at login and
+  refreshed by `tasksAuthInit`). Students logged in before this deploy get
+  the cookie on their next page load of any logged-in page — if someone is
+  somehow stuck, logging out and in fixes it.
+- **Kill switch:** Netlify → Environment variables → `CONTENT_GATE_DISABLED`
+  = `true`, then redeploy — every request passes through unchanged.
+- Infrastructure failures (Supabase unreachable) fail OPEN by design:
+  students being locked out of revision is worse than a brief gate outage.
+- Local testing: `netlify dev` runs the edge function; the cookie is set
+  without `Secure` on plain-http localhost so the flow works there too.
+
 ## Notes
 
 - **Google/Microsoft login**: not built yet, by design (you asked for username/password first). When you're ready, enable the providers under **Authentication → Providers** in Supabase and add sign-in buttons to `login.html` — no schema or backend changes needed.
