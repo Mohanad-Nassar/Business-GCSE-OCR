@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Economics — Unit 2: The Role of Markets and Money</div>
             <h1>2.3 Supply</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide · Supply curves, shifts &amp; movements, and price elasticity of supply</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 2.3 Supply — placeholder, content not yet written
+    //  DATA: 2.3 Supply
     // ══════════════════════════════════════
     const pageMeta = {
             id: '2-3-supply',
@@ -268,21 +268,1832 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>2.3 Supply</strong> will appear here soon.</p>`
+            title: "What is supply?",
+            tag: "Willing AND able to sell",
+            content: `<p><strong>Supply</strong> is the amount of a product that producers are <strong>willing and able</strong> to sell, <strong>at a given price, in a given period of time</strong>.</p>
+<h4>All four parts of the definition earn marks</h4>
+<ul>
+<li><strong>Willing</strong> — the producer wants to sell the product.</li>
+<li><strong>Able</strong> — the producer has the means to supply it. A farmer with 5 cows might <em>like</em> to supply 1,000 litres of milk a day, but isn't able to — so that is not part of their supply.</li>
+<li><strong>At a given price</strong> — e.g. £9.99.</li>
+<li><strong>In a given time period</strong> — e.g. per day or per week.</li>
+</ul>
+<h4>Individual and market supply</h4>
+<ul>
+<li><strong>Individual supply</strong> — the amount ONE firm is willing to supply at each price.</li>
+<li><strong>Market supply</strong> — all the individual supply curves <strong>added together</strong>: the total supplied by every firm in the market at each price.</li>
+</ul>
+<h4>The law of supply — and WHY it holds</h4>
+<p>Quantity supplied varies <strong>directly</strong> with price: as price rises, quantity supplied rises. Three reasons:</p>
+<ul>
+<li>At higher prices <strong>existing firms earn more per unit</strong>, so they are willing to supply more.</li>
+<li>Producing more can push a firm's <strong>costs up</strong> (bigger premises, overtime), so it needs a higher price to justify it.</li>
+<li>Rising prices <strong>attract new firms</strong> into the market that previously found it not worthwhile.</li>
+</ul>
+<h4>Drawing rules</h4>
+<ul>
+<li>The supply curve slopes <strong>upwards from bottom-left to top-right</strong>.</li>
+<li>Label the axes <strong>Price</strong> and <strong>Quantity</strong>, and label the curve <strong>S</strong> (or Supply) — an unlabelled diagram scores no marks.</li>
+</ul>`,
+            readCheck: {
+                q: "A supply curve shows...",
+                opts: ["The quantity of a product for sale at each price", "The quantity of a product purchased at each price", "The equilibrium price", "The equilibrium level of output"],
+                ans: 0,
+                explain: "Supply is what producers offer FOR SALE at each price — what is purchased at each price is demand. This exact MCQ opens the real 2.3 exam paper."
+            }
+        },
+        {
+            title: "Movements along vs shifts of the supply curve",
+            tag: "The twin of the demand rule",
+            content: `<p>Exactly the same logic as demand — but learn the supply list separately, because mixing the two lists up is one of the commonest exam errors.</p>
+<h4>Movement ALONG the curve — caused ONLY by the good's own price</h4>
+<ul>
+<li>Price rises → quantity supplied rises → movement UP the curve = an <strong>expansion</strong> of supply.</li>
+<li>Price falls → quantity supplied falls → movement DOWN the curve = a <strong>contraction</strong> of supply.</li>
+<li><strong>Key exam insight:</strong> a movement along the supply curve can only happen because the <strong>DEMAND curve shifted</strong> and changed the price. Real 6-markers test exactly this.</li>
+</ul>
+<h4>SHIFT of the whole curve — the 8 factors to learn</h4>
+<ul>
+<li><strong>Costs of production</strong> — costs rise (wages, raw materials, crude oil for petrol producers) → LEFT; costs fall → RIGHT.</li>
+<li><strong>Taxes</strong> — higher taxes like VAT raise firms' effective costs → LEFT.</li>
+<li><strong>Subsidies</strong> — a government subsidy lowers a firm's costs → RIGHT (e.g. subsidising firms to extend broadband to regional areas).</li>
+<li><strong>Technology</strong> — new or improved technology lowers average costs → RIGHT.</li>
+<li><strong>Climate / weather</strong> — failed crops → LEFT; bumper crops → RIGHT. Bad weather also delays construction → LEFT.</li>
+<li><strong>Number of producers</strong> — new firms entering (Aldi and Lidl joining the UK supermarket industry) → RIGHT; firms leaving → LEFT.</li>
+<li><strong>Size of existing firms</strong> — existing firms growing significantly → RIGHT.</li>
+<li><strong>Government regulations</strong> — new rules add compliance costs → LEFT; deregulation → RIGHT.</li>
+</ul>
+<h4>Consequences for consumers and producers</h4>
+<ul>
+<li>Supply shifts right → price falls, quantity rises → cheaper for consumers; each unit earns producers less.</li>
+<li>Supply shifts left → price rises, quantity falls → consumers pay more; some may go without.</li>
+</ul>`,
+            readCheck: {
+                q: "The wages of carrot farmers rise. What happens in the market for carrots?",
+                opts: ["The supply curve shifts left", "The supply curve shifts right", "A movement along the supply curve", "The demand curve shifts left"],
+                ans: 0,
+                explain: "Higher wages are a rise in production costs — supplying carrots is less profitable at every price, so the whole supply curve shifts left. This is a real exam MCQ."
+            }
+        },
+        {
+            title: "Price elasticity of supply (PES)",
+            tag: "The formula and the curves",
+            content: `<p><strong>PES measures the responsiveness of quantity supplied to a change in price.</strong></p>
+<h4>The formula</h4>
+<ul>
+<li><strong>PES = % change in quantity supplied ÷ % change in price</strong></li>
+<li>The answer is always <strong>positive</strong> (price up, quantity supplied up — a direct relationship).</li>
+<li>Example: price rises 10%, quantity supplied rises 5% → PES = 0.5 → inelastic.</li>
+</ul>
+<h4>The five results</h4>
+<ul>
+<li><strong>Price elastic (PES &gt; 1)</strong> — supply responds MORE than price. Drawn as a <strong>flat</strong> curve. Happens when inputs are easily obtained and products store well.</li>
+<li><strong>Price inelastic (PES &lt; 1)</strong> — supply responds LESS than price. Drawn as a <strong>steep</strong> curve. Happens when products don't store well, take a long time to produce (gold must be discovered, extracted and refined), or components are hard to get.</li>
+<li><strong>Unitary (PES = 1)</strong> — <strong>ANY straight-line supply curve through the origin</strong> is unitary, whatever its slope. A favourite MCQ trap!</li>
+<li><strong>Perfectly inelastic (PES = 0)</strong> — a <strong>vertical</strong> line: the same quantity whatever the price. Real examples: a sports venue with 90,000 fixed seats; seasonal foods in the short term.</li>
+<li><strong>Perfectly elastic (PES = ∞)</strong> — a <strong>horizontal</strong> line: any quantity supplied, but only at one price. No real-world examples exist.</li>
+</ul>
+<h4>Drawing tip</h4>
+<ul>
+<li>Avoid slopes anywhere near 45° — the examiner must be able to tell at a glance: <strong>elastic = very flat, inelastic = very steep</strong>. Label everything.</li>
+</ul>`,
+            readCheck: {
+                q: "A sports venue has a seating capacity of 90,000. The PES of seats at this venue is...",
+                opts: ["Perfectly inelastic", "Perfectly elastic", "Greater than 1", "Unitary"],
+                ans: 0,
+                explain: "The number of seats cannot change whatever the ticket price — quantity supplied is fixed, PES = 0, a vertical supply curve. This is a real exam MCQ."
+            }
+        },
+        {
+            title: "Why PES matters — and how firms improve it",
+            tag: "Evaluate for consumers & producers",
+            content: `<p>Producers usually WANT elastic supply, so they can cash in when prices rise. Consumers feel PES without ever calculating it.</p>
+<h4>Why it matters to producers</h4>
+<ul>
+<li>Elastic supply = <strong>flexibility</strong> — the firm can respond quickly to demand changes and take advantage of price rises, making it more competitive.</li>
+<li>Inelastic supply = the firm struggles to respond, missing out on revenue when demand surges (and risking unhappy customers).</li>
+</ul>
+<h4>Five ways firms improve their PES</h4>
+<ul>
+<li><strong>Improved technology</strong> — more output in less time, so faster response to price rises.</li>
+<li><strong>Spare capacity</strong> — most factories aim for roughly <strong>75–85% capacity</strong>, partly so they can ramp up. Service firms keep extra staff on call for busy periods.</li>
+<li><strong>Improving shelf life</strong> — better packaging and additives let products be stored, ready to release when price rises.</li>
+<li><strong>Keeping stock on hand</strong> — quick response to demand surges, though storage and staff cost money.</li>
+<li><strong>Workforce flexibility</strong> — training workers for multiple roles so staff can be redeployed to the busiest areas.</li>
+</ul>
+<h4>Why it matters to consumers</h4>
+<ul>
+<li><strong>Inelastic supply</strong> — hard to get the product without paying much more, or at all: think tickets to major concerts and sporting events, where seating is fixed.</li>
+<li><strong>Elastic supply</strong> — easy to get more when you want it (Uber's low barriers to entry and flexible driver hours make its supply elastic), and prices stay more stable.</li>
+</ul>
+<h4>But be ready to evaluate</h4>
+<ul>
+<li>Every method of improving PES has a <strong>financial cost</strong> — pointless if demand isn't changing much.</li>
+<li>Some firms <strong>can't realistically change capacity</strong> — a small independent cinema with fixed seats would need a whole new venue.</li>
+<li>PES is difficult to calculate, and the level of DEMAND often matters more.</li>
+</ul>`,
+            readCheck: {
+                q: "Why do most factories deliberately run below full capacity (around 75–85%)?",
+                opts: ["So they can increase output quickly when prices or demand rise", "Because machines break if used fully", "To keep wages low", "Because the government requires it"],
+                ans: 0,
+                explain: "Spare capacity makes supply more price elastic — the firm can ramp up production fast and absorb problems without missing deadlines."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Which of the following is the correct definition of supply?",
+            opts: ["The amount producers are willing and able to sell at a given price in a given time period", "The amount consumers are willing and able to buy at a given price", "The total output an economy could produce", "The amount of stock a firm holds in its warehouse"],
+            ans: 0,
+            explain: "Supply mirrors the demand definition but for SELLERS: willing AND able to sell, at a given price, in a given time period."
+        },
+        {
+            q: "Which of the following causes a movement ALONG the supply curve for bread (not a shift)?",
+            opts: ["A rise in bakers' wages", "A change in the price of bread itself", "A poor wheat harvest", "A new tax on baked goods"],
+            ans: 1,
+            explain: "Only the good's OWN price causes a movement along the curve. Wages, harvests and taxes are non-price factors — they shift the whole curve."
+        },
+        {
+            q: "Bad weather ruins the wheat harvest. What happens in the market for bread?",
+            opts: ["The supply curve shifts left", "The supply curve shifts right", "A movement up the supply curve", "The demand curve shifts left"],
+            ans: 0,
+            explain: "Wheat is an input for bread — the failed harvest raises costs and cuts what bakers can supply at every price: a leftward supply shift."
+        },
+        {
+            q: "A new machine lets a factory produce twice as much at the same cost. The supply curve...",
+            opts: ["Shifts right", "Shifts left", "Stays the same but demand shifts", "Becomes perfectly inelastic"],
+            ans: 0,
+            explain: "Improved technology lowers average costs, so the firm is willing to supply more at every price — a rightward shift."
+        },
+        {
+            q: "The price of a good rises by 10% and quantity supplied rises by 5%. PES is...",
+            opts: ["0.5, so supply is price inelastic", "2, so supply is price elastic", "0.5, so supply is price elastic", "15, so supply is unitary"],
+            ans: 0,
+            explain: "PES = %ΔQs ÷ %ΔP = 5 ÷ 10 = 0.5. Less than 1 means supply responds less than price — price inelastic."
+        },
+        {
+            q: "Which product is most likely to have price ELASTIC supply?",
+            opts: ["Tinned food made in a factory with spare capacity", "Gold, which must be discovered, extracted and refined", "Seats at a 90,000-capacity stadium", "Fresh strawberries in mid-winter"],
+            ans: 0,
+            explain: "Easily stored products made with spare capacity can be ramped up quickly when price rises. Gold's long production time and fixed stadium seats make those inelastic."
+        },
+        {
+            q: "The supply of seats for tonight's sold-out concert is best described as...",
+            opts: ["Perfectly price inelastic", "Perfectly price elastic", "Unitary", "Price elastic"],
+            ans: 0,
+            explain: "The venue's seats are fixed whatever the ticket price — PES = 0, a vertical supply curve."
+        },
+        {
+            q: "The government pays farmers a subsidy for every tonne of vegetables grown. The supply curve for vegetables...",
+            opts: ["Shifts right", "Shifts left", "Does not move — there is a movement along it", "Becomes vertical"],
+            ans: 0,
+            explain: "A subsidy effectively lowers the farmer's costs, so more is supplied at every price — a rightward shift."
+        },
+        {
+            q: "Which of the following would IMPROVE a firm's price elasticity of supply?",
+            opts: ["Holding spare production capacity", "Selling only perishable goods", "Cutting all warehouse space", "Training each worker for exactly one task"],
+            ans: 0,
+            explain: "Spare capacity lets the firm ramp output up quickly when price rises. Perishables, no storage and rigid job roles all make supply LESS responsive."
+        },
+        {
+            q: "Aldi and Lidl enter the UK supermarket industry. The market supply curve for groceries...",
+            opts: ["Shifts right", "Shifts left", "Stays the same", "Becomes perfectly elastic"],
+            ans: 0,
+            explain: "More producers in the market means more supplied at every price — market supply (the sum of all individual supplies) shifts right."
+        }
+    ];
+
+    const matchData = [
+        { term: "Supply", def: "The amount producers are willing and able to sell at a given price in a given time period" },
+        { term: "Individual supply", def: "The amount one single firm is willing to supply at each price" },
+        { term: "Market supply", def: "All the individual supply curves in a market added together" },
+        { term: "The law of supply", def: "As price rises, quantity supplied rises — a direct relationship" },
+        { term: "Expansion of supply", def: "A rise in quantity supplied caused by a rise in the good's own price" },
+        { term: "Contraction of supply", def: "A fall in quantity supplied caused by a fall in the good's own price" },
+        { term: "Shift of the supply curve", def: "Caused by a non-price factor: costs, taxes, subsidies, technology, weather, number or size of producers, regulation" },
+        { term: "Subsidy", def: "A government payment that lowers a firm's costs and shifts supply to the right" },
+        { term: "Price elasticity of supply (PES)", def: "Percentage change in quantity supplied divided by percentage change in price" },
+        { term: "Price elastic supply", def: "Quantity supplied changes by a bigger percentage than price — drawn as a very flat curve" },
+        { term: "Price inelastic supply", def: "Quantity supplied changes by a smaller percentage than price — drawn as a very steep curve" },
+        { term: "Perfectly inelastic supply", def: "A vertical supply curve — the same quantity is supplied whatever the price, like fixed stadium seats" },
+        { term: "Spare capacity", def: "Deliberately running below maximum output (often 75–85%) so production can be increased quickly" }
+    ];
+
+    const fibData = [
+        {
+            display: "Supply is the amount producers are willing and ___B1___ to sell at a given ___B2___ in a given time period.",
+            blanks: { B1: "able", B2: "price" }
+        },
+        {
+            display: "The law of supply: as price rises, quantity supplied ___B1___. The movement up the supply curve caused by a price rise is called an ___B2___ of supply.",
+            blanks: { B1: "rises", B2: "expansion" }
+        },
+        {
+            display: "Higher taxes raise firms' costs and shift the supply curve to the ___B1___. Subsidies lower costs and shift it to the ___B2___.",
+            blanks: { B1: "left", B2: "right" }
+        },
+        {
+            display: "PES = percentage change in quantity ___B1___ ÷ percentage change in ___B2___. The answer is always positive.",
+            blanks: { B1: "supplied", B2: "price" }
+        },
+        {
+            display: "Any straight-line supply curve that passes through the ___B1___ has ___B2___ price elasticity of supply, whatever its slope.",
+            blanks: { B1: "origin", B2: "unitary" }
+        },
+        {
+            display: "A movement along the supply curve can only be caused by a shift of the ___B1___ curve changing the price. A venue with fixed seating has perfectly ___B2___ supply.",
+            blanks: { B1: "demand", B2: "inelastic" }
+        }
+    ];
+    const fibWords = ["able", "price", "rises", "expansion", "left", "right", "supplied", "origin", "unitary", "demand", "inelastic", "elastic", "falls", "contraction"];
+
+    const tfData = [
+        {
+            statement: "The supply curve slopes upwards from left to right.",
+            answer: true,
+            explanation: "Higher prices make supplying more profitable and attract new firms, so quantity supplied rises with price — the law of supply."
+        },
+        {
+            statement: "A fall in the price of a good shifts its supply curve to the left.",
+            answer: false,
+            explanation: "The good's own price never shifts its supply curve — a price fall causes a movement DOWN the curve (a contraction of supply)."
+        },
+        {
+            statement: "A government subsidy shifts the supply curve to the right.",
+            answer: true,
+            explanation: "A subsidy lowers the firm's effective costs, so it is willing to supply more at every price."
+        },
+        {
+            statement: "If PES is less than 1, supply is price inelastic.",
+            answer: true,
+            explanation: "PES < 1 means the % change in quantity supplied is smaller than the % change in price — the definition of inelastic supply."
+        },
+        {
+            statement: "The supply of seats at a stadium with fixed capacity is perfectly price elastic.",
+            answer: false,
+            explanation: "It's perfectly price INELASTIC — the quantity cannot change whatever the price, a vertical supply curve. Perfectly elastic is the horizontal one."
+        },
+        {
+            statement: "Any straight-line supply curve passing through the origin has unitary elasticity, whatever its slope.",
+            answer: true,
+            explanation: "Through the origin, the % change in quantity always equals the % change in price — PES = 1. A favourite exam trap: slope doesn't matter here."
+        },
+        {
+            statement: "New firms entering a market shift the market supply curve to the right.",
+            answer: true,
+            explanation: "Market supply is all individual supplies added together — more producers means more supplied at every price, like Aldi and Lidl entering UK groceries."
+        },
+        {
+            statement: "If a firm's total revenue rises, its profit must rise too.",
+            answer: false,
+            explanation: "Profit = total revenue − total costs. If costs rise faster than revenue, profit FALLS. OCR flagged this exact misconception in a real mark scheme."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "\"Higher wages for carrot farmers? That reduces demand for carrots.\"",
+            correct: "Ask the sorting question first: <em>does this change how much producers want to SELL, or how much consumers want to BUY?</em> Wages are a cost of PRODUCTION — they hit the supply side, shifting supply left. The demand-shifter list (income, marketing, tastes, substitutes, complements, population...) and the supply-shifter list (costs, taxes, subsidies, technology, weather, number of producers, regulation) must be learned separately — mixing them up throws away easy MCQ marks every year.",
+            readCheck: {
+                q: "Which will shift the SUPPLY curve of carrots to the left?",
+                opts: ["An increase in the wages of carrot farmers", "An increase in the demand for carrots", "A decrease in income tax", "Cheaper farm machinery"],
+                ans: 0,
+                explain: "Higher wages = higher production costs = leftward supply shift. Demand changes don't shift supply, and cheaper machinery would shift it RIGHT."
+            }
+        },
+        {
+            wrong: "\"An upwards movement along the supply curve means the firm supplied more, so there's now excess supply and the price will crash.\"",
+            correct: "A movement along the supply curve can only be caused by the DEMAND curve shifting. An upwards movement means demand shifted RIGHT: the price rose and the firm supplies more at that higher price — good news, not a glut. In the real Celandine Hotel 6-marker, examiners reported that candidates who drew a supply shift instead of a demand shift got most of their analysis wrong, and some wrongly concluded the firm would make a loss and close down. Start these questions by asking: <em>what must have happened to demand?</em>",
+            readCheck: {
+                q: "What causes an upwards movement ALONG a firm's supply curve?",
+                opts: ["The demand curve shifting right, raising the price", "The supply curve shifting right", "A fall in production costs", "A government subsidy"],
+                ans: 0,
+                explain: "Only a demand shift changes the price along a fixed supply curve. The other three all SHIFT the supply curve itself."
+            }
+        },
+        {
+            wrong: "\"A tax on a product just means less is supplied.\"",
+            correct: "Be precise: a tax raises the firm's effective cost of production, so the whole supply curve SHIFTS LEFT — less is supplied <em>at every price</em>. Saying 'quantity supplied falls' without the shift language reads like a movement along the curve, which is a different concept caused only by the good's own price. The same precision applies in reverse to subsidies: the curve shifts right because costs are effectively lower.",
+            readCheck: {
+                q: "A tax is placed on the production of a good. The correct description is...",
+                opts: ["The supply curve shifts to the left", "A movement down the supply curve", "The demand curve shifts left", "The supply curve becomes steeper"],
+                ans: 0,
+                explain: "The tax raises costs at every output level, so the whole curve moves left. This is the real exam MCQ answer (Q17: a tax → left shift)."
+            }
+        },
+        {
+            wrong: "\"Price inelastic supply means supply doesn't change when price changes.\" / mixing up PES and PED",
+            correct: "Ordinary price inelastic supply means quantity supplied changes by a SMALLER PERCENTAGE than price — it still changes! No change at all is PERFECTLY inelastic (PES = 0), and the real ALASA mark scheme capped 'perfectly inelastic' answers at 1 mark because the question said 'their' supply. Examiners also reported candidates answering PES questions in terms of demand, or in terms of elastic — and on the eggs question, definitions with no PERCENTAGES or no CONTEXT scored 0–1. Full-mark sentence: <em>the percentage change in quantity supplied of eggs is greater/less than the percentage change in price</em>.",
+            readCheck: {
+                q: "Supply is price inelastic (PES = 0.4). Price rises 10%. Quantity supplied...",
+                opts: ["Rises by about 4%", "Does not change at all", "Falls by 4%", "Rises by more than 10%"],
+                ans: 0,
+                explain: "Inelastic = smaller response, not NO response: 0.4 × 10% = 4% rise (supply moves the SAME direction as price, unlike demand)."
+            }
+        },
+        {
+            wrong: "\"The steeper supply curve is always less elastic — so a straight line at 30° must be elastic and one at 60° inelastic.\"",
+            correct: "Steep vs flat works for curves that DON'T pass through the origin — but ANY straight-line supply curve through the origin has UNITARY elasticity (PES = 1), whatever its slope, because the % change in quantity always equals the % change in price along it. OCR's examiner report said many candidates picked 'price elastic' for a straight line from the origin 'possibly due to a lack of familiarity' with this rule. Quick test: cuts the PRICE axis → elastic; cuts the QUANTITY axis → inelastic; through the ORIGIN → unitary.",
+            readCheck: {
+                q: "An upward-sloping straight-line supply curve starts at the origin. Its PES is...",
+                opts: ["Unitary (exactly 1)", "Elastic", "Inelastic", "Impossible to say"],
+                ans: 0,
+                explain: "Through the origin = unitary, regardless of slope. Cuts the price axis = elastic; cuts the quantity axis = inelastic."
+            }
+        },
+        {
+            wrong: "\"Revenue went up, so profit went up.\"",
+            correct: "Revenue and profit are NOT the same — OCR printed this as an official 'Misconception' box in the real mark scheme. Profit = total revenue − total costs, so higher revenue only means higher profit if costs rise by LESS than revenue. Selling more usually costs more to produce (materials, wages — Mia's £35,400 pay package in the real exam), so always compare the growth of revenue against the growth of costs before claiming profits rise. Answers that used the two words interchangeably lost marks.",
+            readCheck: {
+                q: "A firm's total revenue rises by £10,000 while its total costs rise by £14,000. Its profit...",
+                opts: ["Falls by £4,000", "Rises by £10,000", "Rises by £4,000", "Stays the same"],
+                ans: 0,
+                explain: "Profit = TR − TC. Costs grew faster than revenue, so profit falls — more revenue does not automatically mean more profit."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "definitions",
+            title: "The 2-markers: percentages AND context",
+            pills: ["Explain what is meant by...", "2 marks", "AO1/AO2"],
+            content: `<p>The real 2.3 papers asked for these definitions — learn them with percentages:</p>
+<ul>
+<li><strong>Supply</strong> — the ability and willingness of firms to provide goods and services <em>at each price, in a given time period</em>.</li>
+<li><strong>A decrease in supply</strong> — a FALL in that ability and willingness at each price (just defining 'supply' = 1 mark).</li>
+<li><strong>PES</strong> — the responsiveness of quantity supplied to a change in price (the formula alone = 1 mark).</li>
+<li><strong>Price inelastic supply</strong> — the % change in quantity supplied is LESS than the % change in price; PES between 0 and 1.</li>
+</ul>
+<h4>How real answers scored</h4>
+<p>❌ <strong>0 marks:</strong> "Supply goes up a lot when price rises" for the eggs question — no percentages, and no marks at all without the CONTEXT of eggs.</p>
+<p>⚠️ <strong>1 mark:</strong> "Quantity supplied is not very responsive to a change in price" — the right idea, but the real examiner capped it at 1 for missing percentage change. Describing PERFECTLY inelastic when the question says ordinary inelastic is also capped at 1.</p>
+<p>✅ <strong>2 marks:</strong> "The percentage change in the quantity of eggs supplied is greater than the percentage change in the price of eggs."</p>`,
+            readCheck: {
+                q: "On the eggs question, a perfect textbook PES definition with NO mention of eggs scored...",
+                opts: ["0 marks — answers had to be in context", "2 marks", "1 mark", "Bonus marks"],
+                ans: 0,
+                explain: "The mark scheme said answers MUST be in the context of egg production. Context isn't decoration — it's the marks."
+            }
+        },
+        {
+            type: "diagrams",
+            title: "Plotting supply curves from tables — the exact rules",
+            pills: ["Draw the supply curve...", "2 marks", "Quantitative skills"],
+            content: `<p>The 2.3 paper has SEVEN drawing questions. The mark schemes repeat the same rules:</p>
+<ul>
+<li><strong>Plot every point exactly</strong> — one wrong point caps you at 1 mark; more than one wrong = 0 (Periff).</li>
+<li><strong>Join the points</strong>, ruler or freehand — unjoined points or a straight 'line of best fit' cap you at 1 mark. The ALASA and Periff curves are genuinely curved!</li>
+<li><strong>Check the axis scales</strong> before plotting — real candidates lost marks misreading the Periff grid's £1000 steps.</li>
+<li>Extensions beyond the data are ignored — but never invent your own numbers.</li>
+<li>For sketched (no-data) diagrams: upward sloping, axes labelled Price and Quantity, curve labelled S — and inelastic curves clearly steeper than 45°.</li>
+</ul>
+<h4>The 30-second checklist</h4>
+<ul>
+<li>Scales read correctly? Points exact? Points JOINED? Labels on?</li>
+</ul>`,
+            readCheck: {
+                q: "You plot all five supply points perfectly, then draw one straight 'line of best fit' through them. You score...",
+                opts: ["1 of the 2 marks", "Both marks", "0 marks", "It depends on neatness"],
+                ans: 0,
+                explain: "Several real mark schemes: maximum 1 mark for a line of best fit or unjoined points. Join point to point."
+            }
+        },
+        {
+            type: "sixmarker",
+            title: "'Movement along the supply curve' 6-markers: shift DEMAND first",
+            pills: ["Using a diagram, analyse...", "6 marks", "Cap without diagram"],
+            content: `<p>This topic's signature 6-marker appeared twice in the real paper (ALASA, The Celandine Hotel): <em>analyse the consequences of a movement along the supply curve</em>.</p>
+<h4>The winning structure</h4>
+<ul>
+<li>Start with the insight most candidates miss: a movement along the supply curve is caused by a <strong>DEMAND shift</strong>. Draw S fixed, shift D to D1, mark the price rising and the movement up S.</li>
+<li>Then chain the consequences: higher price → more supplied → higher revenue → higher pay/profit IF costs rise by less.</li>
+<li>The diagram is not optional: ALASA required it for 5–6 marks; Celandine capped answers at <strong>4/6 with no correct diagram</strong>. The supply curve must NOT be perfectly elastic.</li>
+</ul>
+<h4>How real answers scored</h4>
+<p>❌ Drew a SUPPLY shift instead — "much of the analysis was incorrect". Some concluded the firm would make a loss and close down.</p>
+<p>⚠️ Correct diagram but wrote about ticket sales and concerts when the question was about the number of MUSICIANS — capped at Level 2 (4 marks).</p>
+<p>✅ Demand shift drawn and labelled, movement along S explained, chains about the actual subject of the question, linked back to the diagram.</p>`,
+            readCheck: {
+                q: "In the ALASA 6-marker, answers about ticket sales instead of the number of musicians were capped at...",
+                opts: ["Level 2 — 4 marks", "Full marks", "0 marks", "5 marks"],
+                ans: 0,
+                explain: "The examiner report: answers must address the question asked, not the question candidates would have preferred. The extract tells you the subject."
+            }
+        },
+        {
+            type: "evaluate",
+            title: "Answer the question ASKED — stakeholders and command words",
+            pills: ["Evaluate the...", "6 marks", "AO3b"],
+            content: `<p>The 2.3 examiner reports read like one long warning about misreading questions:</p>
+<ul>
+<li>"Cost for a small business of specialisation by its workers" — candidates who wrote about costs to the WORKERS scored <strong>0</strong>. The business pays recruitment and training costs when bored workers leave.</li>
+<li>"Advantages for WESTUMBRIA" (the region) — answers about advantages to the small businesses themselves "often were not given any marks at all". Regional answers: employment, growth, living standards, attracting firms.</li>
+<li>"Importance of PES for the CONSUMERS of Calwith Farmers' products" — not for the firm. And don't argue "consumers can't calculate PES so it can't matter" — it affects whether they can get eggs at stable prices.</li>
+<li>'Evaluate' comes with an extra requirement: "the extent to which", "the costs", "the advantages", "the importance". Evaluate <em>within</em> that frame.</li>
+</ul>
+<h4>And the perennial killer</h4>
+<p>Strong analysis with little or no evaluation "restricted their marks" on every single Evaluate question. Weigh both sides, then commit: "Overall, ... because ...".</p>`,
+            readCheck: {
+                q: "\"Explain one possible cost FOR A SMALL BUSINESS of specialisation by its workers.\" An answer about workers getting bored (and stopping there) scored...",
+                opts: ["0 marks — it's a cost to the workers, not the business", "2 marks", "1 mark for effort", "Full marks"],
+                ans: 0,
+                explain: "The real exemplar scored 0. Link it to the BUSINESS: bored workers leave, so the business pays higher recruitment and training costs."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Supply", def: "The amount of a product producers are willing and able to sell at a given price in a given period of time." },
+        { term: "Individual supply", def: "The amount one firm is willing to supply at each price in a given time period." },
+        { term: "Market supply", def: "The total amount supplied by all firms in the market at each price — all individual supplies added together." },
+        { term: "The law of supply", def: "Quantity supplied varies DIRECTLY with price: price up → quantity supplied up (more profit per unit, and new firms attracted in)." },
+        { term: "Expansion of supply", def: "A rise in quantity supplied caused by a RISE in the good's own price — a movement UP the supply curve." },
+        { term: "Contraction of supply", def: "A fall in quantity supplied caused by a FALL in the good's own price — a movement DOWN the supply curve." },
+        { term: "The 8 supply shift factors", def: "Costs of production, taxes, subsidies, technology, climate/weather, number of producers, size of existing firms, government regulations." },
+        { term: "Subsidy", def: "A government payment that lowers a firm's costs → supply shifts RIGHT. A tax does the opposite → LEFT." },
+        { term: "Price elasticity of supply (PES)", def: "The responsiveness of quantity supplied to a change in price: % change in quantity supplied ÷ % change in price. Always positive." },
+        { term: "Price elastic supply (PES > 1)", def: "Quantity supplied changes by a BIGGER % than price. Very flat curve. Inputs easy to get, products store well." },
+        { term: "Price inelastic supply (PES < 1)", def: "Quantity supplied changes by a SMALLER % than price. Very steep curve. Poor storage, long production times (gold), scarce components." },
+        { term: "Unitary PES (PES = 1)", def: "ANY straight-line supply curve through the origin, whatever its slope — %ΔQs always equals %ΔP along it." },
+        { term: "Perfectly inelastic supply (PES = 0)", def: "A VERTICAL supply curve — same quantity whatever the price. E.g. a 90,000-seat stadium, seasonal foods in the short run." },
+        { term: "Perfectly elastic supply (PES = ∞)", def: "A HORIZONTAL supply curve — any quantity at one price only. No real-world examples exist." },
+        { term: "How firms improve PES", def: "Better technology, spare capacity (75–85%), longer shelf life, holding stock, flexible multi-skilled workers." },
+        { term: "PES and consumers", def: "Inelastic supply → pay much more or miss out (concert tickets). Elastic supply → easy access, steadier prices (Uber)." },
+        { term: "Movement along the supply curve", def: "Caused ONLY by the good's own price changing — which happens when the DEMAND curve shifts." },
+        { term: "Profit vs revenue", def: "Profit = total revenue − total costs. Higher revenue only raises profit if costs rise by less. They are NOT the same thing." }
+    ];
+
+    const EXAM_CASE_STUDIES = {
+      "extract-1-kasia-and-ben-s-window-cleaning-busine": `<p><strong>Extract 1: Kasia and Ben's window cleaning business</strong> — a monopoly in their own village; two rival businesses in the next village they are considering entering.</p>
+<table style="width:100%;max-width:420px;margin:10px auto;border-collapse:collapse;text-align:center;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Price (£)</th><th style="padding:6px;">Demand (units)</th><th style="padding:6px;">Supply (units)</th></tr>
+<tr><td style="padding:6px;">10</td><td>100</td><td>20</td></tr>
+<tr><td style="padding:6px;">20</td><td>80</td><td>40</td></tr>
+<tr><td style="padding:6px;">30</td><td>60</td><td>60</td></tr>
+<tr><td style="padding:6px;">40</td><td>40</td><td>80</td></tr>
+<tr><td style="padding:6px;">50</td><td>20</td><td>100</td></tr>
+</table>`,
+      "extract-2-alasa": `<p><strong>Extract 2 — ALASA</strong></p>
+<p>Alex, Ling, Amit, Sam and Azmi have recently left music college. They have decided to market themselves as ALASA offering solo musical concerts, with up to all five of them performing.</p>
+<p>Alex, acting as the business manager, pointed out that their supply is price inelastic.</p>
+<p>Alex has produced a price list, including travel costs, based on a three-hour concert.</p>
+<table style="width:100%;max-width:340px;margin:10px auto;border-collapse:collapse;text-align:center;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Number of musicians</th><th style="padding:6px;">Total price (£)</th></tr>
+<tr><td style="padding:6px;">1</td><td>300</td></tr>
+<tr><td style="padding:6px;">2</td><td>700</td></tr>
+<tr><td style="padding:6px;">3</td><td>1100</td></tr>
+<tr><td style="padding:6px;">4</td><td>1600</td></tr>
+<tr><td style="padding:6px;">5</td><td>2200</td></tr>
+</table>
+<p>Ling thinks these prices are fair. If consumers want more musicians they must expect to pay an increasing rate, to justify higher transport and practice costs.</p>
+<p>Amit agreed, but said it was important that they established an equilibrium price and quantity as soon as possible.</p>
+<p>Sam said they needed to think carefully about their costs, as this can cause the supply schedule to shift.</p>
+<p>Azmi said that other factors can cause this to happen.</p>`,
+      "extract-3-summary-of-professor-taylor-s-talk": `<p><strong>Extract 3 — Summary of Professor Taylor's talk</strong></p>
+<p>This is a summary made by Professor Taylor to a meeting of the Westumbria Small Business Association.</p>
+<ul>
+<li>Prices act as a signalling mechanism.</li>
+<li>She explained how a free market may typically respond to excess supply.</li>
+<li>A fall in demand in the last two years has seen business profits fall.</li>
+<li>The price elasticity of supply may differ between businesses (see table).</li>
+<li>Small businesses may gain benefits by specialising but may also experience costs.</li>
+<li>Small businesses are very important for increasing employment and total production in the economy.</li>
+</ul>
+<table style="width:100%;max-width:480px;margin:10px auto;border-collapse:collapse;text-align:center;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Price (£)</th><th style="padding:6px;">Quantity supplied by Firm A</th><th style="padding:6px;">Quantity supplied by Firm B</th></tr>
+<tr><td style="padding:6px;">20</td><td>10</td><td>10</td></tr>
+<tr><td style="padding:6px;">50</td><td>30</td><td>20</td></tr>
+<tr><td style="padding:6px;">80</td><td>50</td><td>30</td></tr>
+</table>`,
+      "extract-2-petterill-railway-ltd": `<p><strong>Extract 2: Petterill Railway Ltd</strong></p>
+<p>Petterill Railway Ltd operates rail services to the Petterill Valley which is situated in a National Park, an area of outstanding natural beauty in the UK. It is a popular destination for both local visitors and tourists from overseas.</p>
+<p>Jit Acharya, the Managing Director, has been considering how best to make use of the capital he has available. He wants to know whether Petterill Railway Ltd is focused on the correct market. At present, half of Petterill Railway Ltd's consumers are local families and the other half are overseas tourists. Jit expects the number of overseas tourists to increase in the next couple of years. If this turns out to be correct, then his new advertising campaign at the local airport should increase the demand for Petterill Railway Ltd's train services.</p>
+<p>Jit is concerned, however, that the supply of services provided by Petterill Railway Ltd is price inelastic. He has calculated that the price elasticity of supply for the railway engines and carriages is +0.4.</p>`,
+      "extract-3-the-supply-of-eggs": `<p><strong>Extract 3: The Supply of Eggs</strong></p>
+<p>Calwith Farmers is a producer of eggs, laid by free range chickens (where chickens are kept outdoors), which are sold in its own farm shop. The shop also sells produce from surrounding farms. Calwith Farmers has relied on gaining economies of scale and making a good profit from a high quantity of sales.</p>
+<p>Twenty years ago, the owners of Calwith Farmers decided that keeping free range chickens was more environmentally sustainable. This specialisation has resulted in considerable benefits, but also some costs.</p>
+<p>Alex, who is in charge of egg production, assumes that the supply of eggs is price elastic. He knows that while this allows him greater flexibility in responding to changes in demand, it does make him partly dependent on the other farms for the extra supply.</p>
+<p>Alex keeps a careful record of the quantity of eggs supplied to the farm shop (by both Calwith Farmers and the other farms) and the price he can charge.</p>
+<table style="width:100%;max-width:420px;margin:10px auto;border-collapse:collapse;text-align:center;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Price of eggs per dozen (£)</th><th style="padding:6px;">Dozens of eggs supplied (per week)</th></tr>
+<tr><td style="padding:6px;">1.60</td><td>20</td></tr>
+<tr><td style="padding:6px;">1.80</td><td>30</td></tr>
+<tr><td style="padding:6px;">2.00</td><td>45</td></tr>
+<tr><td style="padding:6px;">2.20</td><td>60</td></tr>
+<tr><td style="padding:6px;">2.40</td><td>85</td></tr>
+<tr><td style="padding:6px;">2.60</td><td>115</td></tr>
+</table>`,
+      "extract-1-periff-construction-ltd": `<p><strong>Extract 1 — Periff Construction Ltd</strong></p>
+<p>Alex and Zayn are joint owners of Periff Construction Ltd which specialises in housebuilding and extensions. They are looking to expand their business and so need to buy more equipment. They hope to buy this at an auction, but have heard that other competitors will also be there, which could lead to higher prices. Alex and Zayn have looked at previous auctions and have seen that if prices rise, this leads to more supply in the future.</p>
+<table style="width:100%;max-width:420px;margin:10px auto;border-collapse:collapse;text-align:center;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Price (£)</th><th style="padding:6px;">Quantity supplied at the first auction</th><th style="padding:6px;">Quantity supplied at the next auction</th></tr>
+<tr><td style="padding:6px;">1000</td><td>5</td><td>5</td></tr>
+<tr><td style="padding:6px;">2000</td><td>5</td><td>6</td></tr>
+<tr><td style="padding:6px;">3000</td><td>5</td><td>8</td></tr>
+<tr><td style="padding:6px;">4000</td><td>5</td><td>12</td></tr>
+<tr><td style="padding:6px;">5000</td><td>5</td><td>20</td></tr>
+</table>
+<p>The extra equipment is needed as consumer income is rising. The government has also tried to help the construction industry by cutting income tax. Alex has explained to Zayn that to make the most of the tax cuts they will need to increase output and improve productivity. This is because the tax cuts are likely to increase the competition they face.</p>
+<p>Sketch the curve on paper using the grid below.</p>
+<img src="/images/economics/2-3-periff-grid-extracted.png" alt="The blank grid from the exam paper: Price (£) from 0 to 5000 on the vertical axis, Quantity from 0 to 20 on the horizontal axis" style="display:block;width:100%;max-width:440px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+      "extract-2-mia-and-her-pay": `<p><strong>Extract 2 — Mia and her pay</strong></p>
+<p>Mia is looking for her first job, having just gained a good degree in Economics. Layla, her Economics tutor, has explained that the labour market lacks perfect mobility and that Mia will be part of a factor market. With the current low demand for and high supply of labour, Layla has told Mia that she should not expect to earn as much as someone similar did last year.</p>
+<p>Mia has told Layla that she has already been offered a job by Ricomo Ltd. Mia will receive a starting wage of £30 000 a year, plus an extra £200 for each month she stays with the firm. She will also receive an extra 10% of her starting wage, as a bonus, at the end of her first year.</p>
+<p>Mia says that this wage package is because Ricomo's Ltd owners think that employing her will lead to an increase in total revenue. This will enable the business to gain more profit and to supply more products to the market. This is because the owners claim that their products have a perfectly price elastic supply.</p>`
+    };
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "A supply curve shows...",
+            options: ["the equilibrium level of output", "the equilibrium price", "the quantity of a product for sale at each price", "the quantity of a product purchased at each price"],
+            answer: 2,
+            hint: "Supply is the sellers' side — what is offered FOR SALE. 'Purchased' is the demand side, and equilibrium needs both curves.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1 1a)</h5>
+<p><strong>Answer: C — the quantity of a product for sale at each price</strong></p>
+<ul>
+<li>The supply curve maps each price to the quantity producers offer for sale.</li>
+<li>D describes the demand curve; A and B need supply AND demand together.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q2a",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-kasia-and-ben-s-window-cleaning-busine",
+            question: "State one characteristic of each of the following: a competitive market; a monopolistic market.",
+            hint: "Think about the NUMBER of sellers in each, or how easy it is to enter, or who controls the price. One short line each — 'State' means no explanation needed.",
+            starter: "A competitive market has... A monopolistic market has...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>A competitive market — answers may include:</strong></p>
+<ul>
+<li>many sellers</li>
+<li>few barriers to entry / easier to enter the market</li>
+<li>homogenous goods / substitutes</li>
+<li>less control over price.</li>
+</ul>
+<p><strong>A monopolistic market — answers may include:</strong></p>
+<ul>
+<li>only one seller</li>
+<li>large barriers to entry / very difficult to enter the market</li>
+<li>lack of substitutes</li>
+<li>more control over price.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark for a correct characteristic of a competitive market.</li>
+<li>1 mark for a correct characteristic of a monopolistic market.</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>`,
+            modelAnswer: "A competitive market has many sellers competing with each other.\n\nA monopolistic market has only one seller."
+        },
+        {
+            num: "Q2b",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Table 1: Price, demand and supply for Kasia and Ben's window cleaning business</strong></p>
+<table style="width:100%;max-width:420px;margin:10px auto;border-collapse:collapse;text-align:center;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Price (£)</th><th style="padding:6px;">Demand (units)</th><th style="padding:6px;">Supply (units)</th></tr>
+<tr><td style="padding:6px;">10</td><td>100</td><td>20</td></tr>
+<tr><td style="padding:6px;">20</td><td>80</td><td>40</td></tr>
+<tr><td style="padding:6px;">30</td><td>60</td><td>60</td></tr>
+<tr><td style="padding:6px;">40</td><td>40</td><td>80</td></tr>
+<tr><td style="padding:6px;">50</td><td>20</td><td>100</td></tr>
+</table>
+<p>Using the information in Table 1, draw and label a supply and demand diagram on the grid below (sketch it on paper).</p>
+<img src="/images/economics/2-2-window-cleaning-grid-extracted.png" alt="The blank grid from the exam paper: Price (£) from 0 to 60 on the vertical axis, Quantity (units) from 0 to 120 on the horizontal axis" style="display:block;width:100%;max-width:480px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "Using the information in Table 1, draw and label a supply and demand diagram for Kasia and Ben's window cleaning business.",
+            hint: "Two lines from the table: demand falls as price rises, supply rises as price rises. Plot the points, join each set, and LABEL both curves — D and S.",
+            starter: "Sketch it: demand falling from (100 units, £10)... supply rising from (20 units, £10)...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p>The official answer diagram:</p>
+<img src="/images/economics/2-2-window-cleaning-answer-extracted.png" alt="Official mark scheme diagram: a demand line labelled D falling from (20, £50) to (100, £10) and a supply line labelled S rising from (20, £10) to (100, £50), crossing at 60 units and £30" style="display:block;width:100%;max-width:480px;margin:10px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<ul>
+<li>1 mark for correctly drawing and labelling the demand curve.</li>
+<li>1 mark for correctly drawing and labelling the supply curve.</li>
+</ul>
+</div>`,
+            modelAnswer: "Plot the demand figures and join them — a straight line falling from 100 units at £10 to 20 units at £50 — and label it D.\n\nPlot the supply figures rising from 20 units at £10 to 100 units at £50 and label it S. The two lines cross at £30 and 60 units, the equilibrium."
+        },
+        {
+            num: "Q2c",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-kasia-and-ben-s-window-cleaning-busine",
+            question: "Kasia and Ben are thinking about offering their window cleaning services in the next village. Analyse factors that Kasia and Ben would need to consider when making this decision.",
+            hint: "In their own village they are a MONOPOLY. In the next village there are already TWO rivals. What changes about setting prices, winning customers, quality and advertising? Two developed chains — Analyse questions need no conclusion.",
+            starter: "One factor is that Kasia and Ben would no longer be a monopoly, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Unlike current market, they would not be able to set price</li>
+<li>Would have to set price at / close to market price</li>
+<li>Amount sold would be dependent on market demand and supply</li>
+<li>Would possibly need to give more attention to the quality of the product</li>
+<li>May need to advertise (more).</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><em>All level descriptors describe the TOP of the level — best fit approach.</em></p>
+<p><strong>Level 3 (5–6 marks):</strong></p>
+<ul>
+<li>Reasonable knowledge and understanding — all terms/concepts understood</li>
+<li>Reasonable application to the scenario of Kasia and Ben</li>
+<li>Good analysis — developed links built into a chain of reasoning which addresses the question</li>
+</ul>
+<p><strong>Level 2 (3–4 marks):</strong></p>
+<ul>
+<li>Most terms/concepts understood</li>
+<li>Limited application to the scenario</li>
+<li>Reasonable analysis — correct but largely single effects, not developed into a clear chain of reasoning</li>
+</ul>
+<p><strong>Level 1 (1–2 marks):</strong></p>
+<ul>
+<li>Some terms/concepts understood</li>
+<li>No application; limited analysis — a single effect with some link to the question</li>
+</ul>
+<p><strong>0 marks:</strong> No response or no response worthy of credit.</p>
+<p>N.B. Any other relevant points and/or evidence of learners' understanding of the connections between the various topics of both components to be credited.</p>
+</div>`,
+            modelAnswer: "One factor is that Kasia and Ben would no longer be a monopoly. In the next village there are already two other window cleaning businesses, which means they could not set their own price and would have to charge at or close to the price their rivals charge. This could mean earning less for each house cleaned than they do in their own village.\n\nAnother factor is how they would win customers from the existing businesses. They may need to advertise and give more attention to the quality of their service, and this means extra costs, so they would need to consider whether the extra sales would be worth more than the extra costs."
+        },
+        {
+            num: "Q2d(i)",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Explain what is meant by 'price elasticity of demand'.",
+            hint: "Two parts, two marks: the word 'responsiveness', and being clear that it is QUANTITY DEMANDED responding to a change in PRICE — not the other way round.",
+            starter: "Price elasticity of demand measures the responsiveness of...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The responsiveness of quantity demanded to a change in price.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark for responsiveness.</li>
+<li>1 mark for the fact that it is quantity demanded affected by price (and not vice versa).</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>`,
+            modelAnswer: "Price elasticity of demand measures the responsiveness of quantity demanded to a change in price.\n\nIt is the percentage change in quantity demanded divided by the percentage change in price."
+        },
+        {
+            num: "Q2d(ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p>If Kasia and Ben increase the price of window cleaning services from £10 to £20 then they estimate a price elasticity of demand of <strong>−0.2</strong>.</p>`,
+            question: "Explain to Kasia and Ben what this estimate of price elasticity of demand means.",
+            hint: "−0.2 is less than 1 (ignoring the sign) — what type of response is that? The price is DOUBLING (+100%), so quantity demanded falls by only 100% × 0.2 = 20%. What does that mean for revenue?",
+            starter: "A PED of −0.2 means demand is... so the 100% price rise would only...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>−0.2 = inelastic response</li>
+<li>The price has gone up by 100% and the demand should only decrease by 20%</li>
+<li>Therefore Kasia and Ben should increase the price.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark for interpretation of −0.2 as being an inelastic response to a price rise.</li>
+<li>1 further mark for explanation that this means Kasia and Ben would gain more revenue from this price rise.</li>
+</ul>
+</div>`,
+            modelAnswer: "A PED of −0.2 means demand is price inelastic — the 100% price rise from £10 to £20 should only cut the quantity demanded by 20%.\n\nThis means Kasia and Ben would gain more revenue by putting the price up."
+        },
+        {
+            num: "Q2d(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-kasia-and-ben-s-window-cleaning-busine",
+            question: "Evaluate the importance of price elasticity of demand to Kasia and Ben's business. Use the information given in Extract 1 and in Table 1 and your own knowledge.",
+            hint: "Work out revenue at each price (price × demand): £10→£1,000, £20→£1,600, £30→£1,800, £40→£1,600. Which price earns most? Then evaluate: is revenue their only goal? Is the estimate reliable? Finish with a supported 'Overall...'.",
+            starter: "PED is important because it tells Kasia and Ben what happens to revenue when they change price. Table 1 shows...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Analysis may include:</strong></p>
+<ul>
+<li>If PED is inelastic, then a price increase raises revenue (as sales volume drops less than proportionately)</li>
+<li>A price decrease, however, decreases revenue (as sales volume increases less than proportionately)</li>
+<li>In this case the PED gets more elastic as the price increases</li>
+<li>The optimum price is £30 as this brings in the highest revenue.</li>
+</ul>
+<p><strong>Evaluation may include:</strong></p>
+<ul>
+<li>Is revenue / profit the most important objective for Kasia and Ben?</li>
+<li>With possible expansion into the next village, do Kasia and Ben want to increase sales even if revenue decreases?</li>
+<li>Would the price changes be short term or long term?</li>
+<li>Are there economies of scale that may not be reflected in the PED figures?</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application to the scenario; reasonable analysis; good evaluation with a fully supported judgement developed from weighing up both sides; a well-developed, coherent line of reasoning.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation — a judgement may be given but not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited evaluation with unsupported statements.</p>
+<p><strong>0 marks:</strong> No response or no response worthy of credit.</p>
+<p>N.B. Any other relevant points and/or evidence of learners' understanding of the connections between the various topics of both components to be credited.</p>
+</div>`,
+            modelAnswer: "PED is important because it tells Kasia and Ben what happens to their revenue when they change price. Their estimate of −0.2 is inelastic, so raising the price from £10 increases revenue — Table 1 shows revenue is highest at £30, where 60 households pay £1,800 in total.\n\nHowever, revenue may not be their only objective. If they want to expand into the next village, keeping the price lower might win more customers even if revenue falls, and their PED estimate may not stay reliable once they face two competitors who could undercut them.\n\nOverall, PED matters most for setting the price in their own village, where they are a monopoly and £30 earns the most revenue — but it is less useful in the new village, where the market price will be set by competition."
+        },
+        {
+            num: "Q3a",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-alasa",
+            question: "Explain what is meant by 'their supply is price inelastic'.",
+            hint: "Percentages, percentages, percentages: the % change in quantity supplied is LESS than the % change in price (PES between 0 and 1). And careful — the question says 'their' supply, so describing PERFECTLY inelastic is capped at 1 mark.",
+            starter: "The percentage change in the quantity supplied is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The percentage change in quantity supplied is less than the percentage change in price, or the percentage change in price is greater than the percentage change in quantity supplied.</li>
+<li>PES is between 0 and 1.</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 2 marks for a clear explanation.</li>
+<li>Award 1 mark for a statement with some validity.</li>
+<li>NB the question says 'their' so as it is not perfectly inelastic, an answer in terms of perfectly inelastic is worth just 1 mark.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>There were many candidates who did not fully understand what was meant by price elasticity, in this case inelastic price elasticity of supply. The idea of percentage change in quantity being less than percentage change in price was only provided by a minority.</p>
+<p>Some answered in terms of elastic while others wrote about price elasticity of demand.</p>
+<p>A typical exemplar answer — "the quantity supplied of offering solo musical concerts is not very responsive to a change in price" — was given 1 mark: the right general idea, but no idea of percentage change.</p>
+</div>`,
+            modelAnswer: "Supply is price inelastic when the percentage change in quantity supplied is less than the percentage change in price.\n\nALASA's PES is between 0 and 1 — even if the price paid for concerts rises a lot, the number of musicians they can supply barely changes."
+        },
+        {
+            num: "Q3b",
+            marks: 6,
+            type: "written",
+            caseId: "extract-2-alasa",
+            question: "Using a diagram, analyse the possible consequences of a movement along ALASA's supply curve.",
+            hint: "A movement along the SUPPLY curve is caused by a DEMAND shift. Draw the supply curve fixed and shift demand (one shift is enough) — price changes and you move along S. Then the consequences for the MUSICIANS (their pay, competition, leaving the market) — NOT tickets or concerts, and NOT profit/revenue. A diagram is required for 5–6 marks.",
+            starter: "A movement along ALASA's supply curve can only be caused by the demand curve shifting. If demand for musicians increases from D to D1...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p>NB There are: 1 Knowledge mark; 2 Application marks; and 3 Analysis marks available, but no Evaluation marks.</p>
+<p>NB: A diagram is required to gain 5 or 6 marks — the diagram is worth 2 marks, with 1 for Knowledge and 1 for Analysis.</p>
+<p>NB: This question is not about profit or revenue.</p>
+<p><strong>Knowledge might include:</strong></p>
+<ul>
+<li>Correctly drawn and labelled axes and initial supply [and demand] curve/s</li>
+<li>Outward shift in demand would lead to higher prices/greater revenue/income and vice versa</li>
+</ul>
+<p><strong>Application might include:</strong></p>
+<ul>
+<li>Increase in the quantity required if price rises and decrease if price falls</li>
+<li>Supply is price inelastic</li>
+<li>If consumers want more musicians they must expect to pay an increasing rate, to justify higher transport and practice costs</li>
+</ul>
+<p><strong>Analysis might include:</strong></p>
+<ul>
+<li>Shift in the demand curve correctly drawn or indicated and labelled on the diagram [only 1 shift is required]</li>
+<li>Clear explanation of what the diagram shows</li>
+<li>Higher/lower pay for the musicians depending on price movement</li>
+<li>Higher price/demand may encourage greater competition as more musicians enter the market</li>
+<li>Fall in price might force them out of the market</li>
+<li>Reference to PES</li>
+</ul>
+<p>The official mark scheme diagram:</p>
+<img src="/images/economics/2-3-alasa-movement-along-supply-ms-extracted.png" alt="Official mark scheme diagram: a fixed supply curve S with three demand curves D2, D and D1; demand shifting right to D1 raises price from P to P1 and moves up along S; demand shifting left to D2 lowers price to P2 and moves down along S" style="display:block;width:100%;max-width:440px;margin:10px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>NB only one change in the demand curve need be shown. Supply curve must not be perfectly elastic.</p>
+<p>NB If the answer refers only to ticket sales/concerts then a candidate can achieve Level 2, 4 marks.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application to the scenario; good analysis with developed links in a chain of reasoning; diagrams predominantly correct and linked to the analysis.</p>
+<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects; diagram may be improperly labelled or not linked.</p>
+<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis; diagrams unlikely to be correct.</p>
+<p><strong>0 marks:</strong> Response is not worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates included a diagram and the majority gained marks for both knowledge and analysis. Those who did not show a shift in the demand curve, but only drew changes in price and quantity along the supply curve, often had problems when trying to analyse their diagram. Others showed a shift in the SUPPLY curve, which meant much of the analysis was incorrect.</p>
+<p>The main issue was not using the material in the extract correctly and not relating it to the number of MUSICIANS employed — many candidates wrote about tickets or concerts instead.</p>
+<p><strong>Reading and using the Extract:</strong> the Extract provides the material for the application marks and focuses attention on what the question is about. Answers must address the question asked, not the question candidates would have preferred.</p>
+</div>`,
+            modelAnswer: "A movement along ALASA's supply curve can only be caused by the demand curve shifting. If demand for their concerts increases from D to D1, as shown in the diagram, the price rises from P to P1 and there is a movement up the supply curve, so more musicians perform.\n\nThis means higher pay for the musicians. Because their supply is price inelastic, consumers must pay at an increasing rate to get extra musicians, which means each extra booking earns the group proportionally more. However, the higher prices may encourage other musicians to enter the market, increasing competition — while a fall in demand would move them down the supply curve, cutting their pay and possibly forcing some of them out of the market."
+        },
+        {
+            num: "Q3c(i)",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p>Using the information in Extract 2 (the ALASA price list), draw the supply curve for ALASA on the grid (sketch it on paper).</p>
+<img src="/images/economics/2-3-alasa-grid-extracted.png" alt="The blank grid from the exam paper: Price (£) from 0 to 2500 on the vertical axis, Musicians from 0 to 5 on the horizontal axis" style="display:block;width:100%;max-width:440px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "Using the information in Extract 2, draw the supply curve for ALASA.",
+            hint: "Plot the five points exactly — (1, £300), (2, £700), (3, £1,100), (4, £1,600), (5, £2,200) — then join them point-to-point. The curve gets steeper as it rises; a straight 'line of best fit' is capped at 1 mark.",
+            starter: "Sketch it: plot the five price-list points and join them...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p>The official answer diagram:</p>
+<img src="/images/economics/2-3-alasa-supply-answer-extracted.png" alt="Official mark scheme diagram: the five points plotted and joined, forming an upward-sloping supply curve from (1, £300) to (5, £2200) that gets steeper" style="display:block;width:100%;max-width:420px;margin:10px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<ul>
+<li>Award 2 marks for a correctly drawn line (no need to label the line).</li>
+<li>Award 1 mark for a line with at least three correct points plotted.</li>
+<li>Maximum 1 mark if the points are correct but are not joined up, including a straight line joining the first and last points only.</li>
+<li>The information in Extract 2 must be used for marks to be gained.</li>
+<li>Ignore any extensions which may be drawn.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Most candidates gained 2 marks by accurately plotting the points and then joining them up. Others, however, drew a line of best fit thus scoring only 1 mark. A few invented their own numbers.</p>
+<p><strong>Drawing diagrams:</strong> candidates should make sure they can draw and label diagrams correctly both from given data, as here, and in terms of supply and demand diagrams.</p>
+</div>`,
+            modelAnswer: "Plot the five points from the price list: 1 musician at £300, 2 at £700, 3 at £1,100, 4 at £1,600 and 5 at £2,200.\n\nJoin the points together — the supply curve slopes upwards and gets steeper, showing the increasing rate consumers must pay for extra musicians."
+        },
+        {
+            num: "Q3c(ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p>ALASA reduces all the prices of hiring musicians by £50 due to falling travel costs.</p>`,
+            question: "Calculate ALASA's total revenue from two musicians being hired for two separate concerts after the price reduction. Show your working.",
+            hint: "Start from the TABLE: two musicians cost £700. Take off the £50 reduction, then multiply by TWO concerts.",
+            starter: "£700 − £50 = ... then × 2 concerts = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Working:</strong></p>
+<ul>
+<li>£700 − £50 = £650 [1] × 2 = <strong>£1300</strong> [1]</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 2 marks for the correct answer (with or without workings).</li>
+<li>The first figure must come from the table in Extract 2.</li>
+<li>Own Figure Rule applies for a maximum of 1 mark.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Although most candidates gained both marks, some did not relate the information in the question with the table in the extract.</p>
+</div>`,
+            modelAnswer: "Two musicians cost £700 from the price list. After the £50 reduction the price is £700 − £50 = £650.\n\nFor two separate concerts, total revenue = £650 × 2 = £1,300."
+        },
+        {
+            num: "Q3c(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-2-alasa",
+            question: "Evaluate the importance for consumers of ALASA having a price inelastic supply. Use the information given in Extract 2 and your own knowledge.",
+            hint: "Focus on CONSUMERS (not the band) and on musicians (not tickets). Inelastic supply means paying much more for each extra musician — use the numbers (£300 for one vs £2,200 for five). Then weigh it: consumers can hire fewer, hire other musicians, and it only matters if they really want THESE five. Judgement to finish.",
+            starter: "Because ALASA's supply is price inelastic, consumers have to pay at an increasing rate for extra musicians — one costs £300 but five cost £2,200...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p>NB There are: 1 Application mark; 2 Analysis marks; and 3 Evaluation marks available. There are no Knowledge marks.</p>
+<p>NB PES refers to the number of musicians NOT to tickets/concerts.</p>
+<p><strong>Application might include:</strong></p>
+<ul>
+<li>Understanding of inelastic supply, e.g. price changes more/larger %, than quantity</li>
+<li>Consumers have to pay much more to get another musician [without any figures]</li>
+</ul>
+<p><strong>Analysis might include:</strong></p>
+<ul>
+<li>Will have to pay more to get more musicians — cost of 5 is much greater than cost of just 1 × 5</li>
+<li>May not be able to get more than 5</li>
+<li>To bring in more musicians may be very costly</li>
+<li>A negative effect on consumers' ability to buy other products/standard of living</li>
+</ul>
+<p><strong>Evaluation might include:</strong></p>
+<ul>
+<li>Consumers may opt to not hire any of the musicians or only 2 of them: reduction in consumer satisfaction</li>
+<li>If ALASA work more/longer then PES becomes more elastic</li>
+<li>Consumers may opt to hire other musicians</li>
+<li>Effect will depend on how much consumers want to hear these 5 musicians i.e. PES may be unimportant</li>
+<li>There may be other factors which are more important than PES such as conditions of demand</li>
+</ul>
+<p>NB importance for consumers of ALASA must be addressed for more than 2 Evaluation marks. Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application of the effects of inelastic supply on consumers; reasonable analysis; good evaluation with a fully supported judgement developed from weighing up both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation — a judgement may be given but not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited evaluation with unsupported statements.</p>
+<p><strong>0 marks:</strong> Response is not worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates demonstrated application by showing understanding of inelastic supply, and analysis via the potentially negative effect on consumers' standard of living. For evaluation, a number wrote about other factors being more important than PES, such as the conditions of demand.</p>
+<p>Unfortunately, some candidates wrote about tickets or concerts. Others confused price elasticity of supply with demand.</p>
+<p>A real answer scoring 5/6 made two analytical points and two valid evaluations plus an application — to reach 6 it needed one more evaluation focused specifically on the importance to the customer.</p>
+</div>`,
+            modelAnswer: "Because ALASA's supply is price inelastic, consumers must pay at an increasing rate for extra musicians — one musician costs £300 but all five cost £2,200, far more than five times £300. Consumers who want the full five-piece concert therefore give up much more of their income, which could reduce what they can spend on other products.\n\nHowever, this may not matter greatly. Consumers can choose to hire only one or two musicians, or book different performers instead, and the inelastic supply only really bites if they specifically want these five musicians.\n\nOverall, the inelastic supply is important mainly for consumers set on the full band, who face steeply rising prices — for everyone else, the availability of alternatives makes it far less important than how much they actually want ALASA."
+        },
+        {
+            num: "Q4",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The time period is very important when considering supply. What is the best reason for this?",
+            options: ["Goods and services vary in how long it takes to change their supply", "Greater efficiency can be gained if more resources are available", "Production costs will rise in the short run but fall in the long run", "The quantity supplied varies directly with the change in price"],
+            answer: 0,
+            hint: "Think about gold (years to mine) versus pizzas (minutes to make). Why does the TIME window matter when we measure supply?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — Goods and services vary in how long it takes to change their supply</strong></p>
+<ul>
+<li>Some products can be supplied quickly, others (gold, houses, trained musicians) take far longer — so supply must always be measured over a stated time period, and PES rises as the time period lengthens.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Nearly half of the candidates gave the correct answer A, with the other responses showing a lack of solid understanding of the importance of time in supply.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q5",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 1 — The oil market</strong></p>
+<p>Oil is a scarce resource. An important use of oil is to produce petrol. Over a 12-month period between 2021 and 2022 the price of petrol fluctuated significantly. One of the reasons for this was the decrease in the supply of oil to the world market.</p>
+<img src="/images/economics/2-3-petrol-prices-chart-extracted.png" alt="Line chart from the OCR exam paper titled 'Petrol prices' in pence per litre: rising from about 141p in November 2021 to a peak of about 191p in July 2022, then falling back to about 165p by November 2022" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>Many of the largest producers of oil are members of the Organisation of Petroleum Exporting Countries [OPEC]. This is a form of oligopoly which leads to a different outcome for prices than would be expected in a competitive market. The effectiveness of this oligopoly partly depends on the price elasticity of supply of oil.</p>
+<p>Currently, the price elasticity of demand of petrol is price inelastic. However, with the increased use of electric vehicles it is expected to become more price elastic.</p>`,
+            question: "Explain what is meant by a decrease in supply.",
+            hint: "Adapt the supply definition: a FALL in the ability and willingness of firms to provide goods... at each price... in a given time period. Just defining 'supply' without the decrease = 1 mark.",
+            starter: "A decrease in supply is a fall in the ability and willingness of firms to...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>A fall in the ability and willingness of firms to provide goods and services at each price in a given time period.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 2 marks for a clear explanation of the term.</li>
+<li>Award 1 mark if the answer only defines 'supply'.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Candidates who scored well on this question had learnt how to define the term 'supply' and then adapted their definition to cover 'a decrease'.</p>
+<p>Less successful responses tended to either re-phrase the question or gave generic responses that referred to falling production.</p>
+</div>`,
+            modelAnswer: "A decrease in supply is a fall in the ability and willingness of firms to provide goods and services at each price in a given time period.\n\nIt is shown by the whole supply curve shifting to the left — less oil is offered to the world market at every price."
+        },
+        {
+            num: "Q6",
+            marks: 6,
+            type: "written",
+            caseStudy: `<p><strong>Extract 3 — The Celandine Hotel</strong></p>
+<p>The Celandine Hotel won the 'Business Enterprise of 2022 Award' for the county of Cummorland. Although there are many hotels in Cummorland, The Celandine has increased its number of customers. This has been achieved by hosting a wide range of events including conferences, lunches for local businesses, murder mystery evenings, and weddings. This has helped to change the demand for its services from being price elastic to price inelastic.</p>
+<p>Ben and Eve, the owners, are concerned by recent increases in the rate of interest. Five years ago they borrowed £500 000 to help them buy the hotel. At that time, they were paying 3% interest which was £1250 a month. The bank has told them from the start of next month they need to pay 7.5% interest.</p>
+<p>Eve has suggested that they could save money on wages if she gave up her teaching job. She could then manage the business finances and run some of the hotel's events. Ben wondered whether a better option would be to specialise in weddings and conferences in the future.</p>`,
+            question: "Using a diagram, analyse the consequences for Ben and Eve of an upwards movement along their supply curve.",
+            hint: "An UPWARDS movement along supply = the DEMAND curve shifted RIGHT. Draw S fixed, D shifting to D1, price rising p→p1 and quantity q→q1. Consequences: higher prices AND more customers → higher revenue; profit depends on whether revenue grows faster than costs (remember the interest jumping from 3% to 7.5%). Max 4/6 without a correct diagram.",
+            starter: "An upwards movement along the supply curve must be caused by demand increasing. If demand shifts right from D to D1...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Demand has increased so the demand curve shifts to the right</li>
+<li>This means they can charge a higher price while gaining more customers and, therefore, more revenue</li>
+<li>Relative rise in price and quantity will depend on the PES</li>
+<li>Increase in total costs</li>
+<li>Outcome on profit will depend, also, on whether the rise in TR &gt; TC or not</li>
+<li>May attract more competition which could reduce demand/profits longer term</li>
+<li>Diagram (accept as correct if no demand curves are shown)</li>
+</ul>
+<p>The official mark scheme diagram:</p>
+<img src="/images/economics/2-3-celandine-upward-movement-ms-extracted.png" alt="Official mark scheme diagram: a fixed supply curve S with demand shifting right from D to D1, price rising from p to P1 and quantity rising from q to q1 — an upwards movement along the supply curve" style="display:block;width:100%;max-width:440px;margin:10px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p><strong>A maximum of 4 marks if no correct diagram.</strong> Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application of how the movement affects Ben and Eve; good analysis with developed chains of reasoning; the diagram predominantly correct and linked to the analysis.</p>
+<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects; diagram may be improperly labelled or not linked.</p>
+<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis; diagrams unlikely to be correct.</p>
+<p><strong>0 marks:</strong> No work worthy of credit.</p>
+<p>N.B. Any other relevant points and/or evidence of learners' understanding of the connections between the various topics of both components to be credited.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>The better responses recognised that an upwards movement along a supply curve must have been caused by the demand curve having shifted to the right, and so included this in their diagram and linked their written analysis of the impacts back to the diagram — usually higher revenue and the possibility of higher profits if costs rose by less than the additional revenue.</p>
+<p>Less successful responses got the diagram incorrect by showing a shift in supply to the right or left, which meant that most of the written analysis was incorrect too.</p>
+<p>Another misconception was that the upwards movement along the supply curve led to an excess of supply over demand and so would lead to lower prices, the firm making a loss and the potential closure of the business.</p>
+</div>`,
+            modelAnswer: "An upwards movement along Ben and Eve's supply curve must be caused by the demand for the hotel's services increasing — the events they host have shifted demand right from D to D1, as shown in the diagram. The price rises from p to p1 and the quantity rises from q to q1.\n\nThis means The Celandine can charge higher prices for its weddings and conferences while also serving more customers, so its revenue rises. Whether profit rises depends on costs: hosting more events raises total costs, and the interest on their £500,000 loan is jumping from 3% to 7.5%, so profit only grows if the extra revenue is greater than these extra costs."
+        },
+        {
+            num: "Q7",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>A sports venue has a seating capacity of 90 000 people.</p>`,
+            question: "What is the price elasticity of supply of seats at this venue?",
+            options: ["Greater than 1", "Perfectly elastic", "Perfectly inelastic", "Unitary elastic"],
+            answer: 2,
+            hint: "Can the venue add seats if ticket prices double tonight? The quantity is FIXED whatever the price — which PES is that?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: C — Perfectly inelastic</strong></p>
+<ul>
+<li>Seating capacity is fixed at 90,000 whatever the price — quantity supplied cannot respond at all, so PES = 0: a vertical supply curve.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>A high percentage of candidates gave Option C as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q8a",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-summary-of-professor-taylor-s-talk",
+            question: "Explain how a free market may respond to excess supply.",
+            hint: "Excess supply = a surplus. What happens to the price, and what does that do to quantity demanded and quantity supplied until the market clears? Explain the PROCESS — a bare statement is only 1 mark.",
+            starter: "The price falls, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Reduce the price until demand equals supply</li>
+<li>Increase demand until demand equals supply</li>
+<li>Decrease supply until supply equals demand</li>
+<li>Increase advertising so consumers feel that they need the product</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 2 marks for a clear idea of how excess supply is dealt with.</li>
+<li>Award 1 mark for a statement with no explanation.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Most candidates found this question quite straightforward. More successful responses explained how increasing demand or reducing prices would help to clear the market.</p>
+<p>Others found it difficult to get beyond the basic point of lowering the price, lowering the supply, or increasing the demand, as they were unable to explain how the process might continue until equilibrium price and quantity are achieved in a free market.</p>
+</div>`,
+            modelAnswer: "In a free market the price falls when there is excess supply.\n\nThe lower price raises quantity demanded and reduces quantity supplied, and this continues until demand equals supply again at the equilibrium."
+        },
+        {
+            num: "Q8b(i)",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p>Using the information in Extract 3 (the table), draw the supply curve for Firm A on the grid (sketch it on paper).</p>
+<img src="/images/economics/2-3-firm-a-grid-extracted.png" alt="The blank grid from the exam paper: Price (£) from 0 to 90 on the vertical axis, Quantity from 0 to 60 on the horizontal axis" style="display:block;width:100%;max-width:420px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "Using the information in Extract 3, draw the supply curve for Firm A.",
+            hint: "Firm A's column: (10, £20), (30, £50), (50, £80). Plot the three points and join them — and make sure you use FIRM A's numbers, not Firm B's.",
+            starter: "Sketch it: plot Firm A's three points and join them...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p>The official answer diagram:</p>
+<img src="/images/economics/2-3-firm-a-answer-extracted.png" alt="Official mark scheme diagram: a straight upward-sloping supply line through (10, £20), (30, £50) and (50, £80)" style="display:block;width:100%;max-width:400px;margin:10px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<ul>
+<li>Award 2 marks for a correctly drawn line for Firm A (no need to label the line).</li>
+<li>Award 1 mark for a line with at least one correct point plotted for Firm A.</li>
+<li>Maximum 1 mark if the points are not joined up.</li>
+<li>The information in Extract 3 must be used for marks to be gained. Ignore any extensions.</li>
+<li>If the candidate correctly draws a line for Firm B then Own Figure Rule for 1 mark.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Most candidates were given full marks. Where they did not, it was usually because the line drawn did not go through the points plotted or the plotting of one or more of the points was inaccurate.</p>
+</div>`,
+            modelAnswer: "Plot Firm A's three points: 10 units at £20, 30 units at £50 and 50 units at £80.\n\nJoin them — a straight upward-sloping supply line."
+        },
+        {
+            num: "Q8b(ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Explain one possible cost for a small business of specialisation by its workers.",
+            hint: "Careful — the cost must land on the BUSINESS, not the workers. Bored specialised workers leave more often... so what does the BUSINESS then have to pay for? Answers about workers' boredom alone scored 0 on the real paper.",
+            starter: "Workers doing the same specialised task may become bored and leave, which means the business...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Labour turnover increases as workers become bored</li>
+<li>Boredom/demotivation reduces productivity</li>
+<li>Rising costs of supplies/factors of production</li>
+<li>Increased dependency on parts working</li>
+<li>Increased wages</li>
+<li>De-skilling by workers makes business less flexible</li>
+<li>Less adaptable as workers' skills are task-specific</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 1 mark for the identification of a cost FOR A BUSINESS of specialisation by workers.</li>
+<li>Award 1 further mark for development applied to a (small) business.</li>
+<li>Do not award the further mark if the answer is clearly referring to a large business.</li>
+<li>NB: No reward for answers about specialisation in terms of product or market.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>There was considerable evidence of candidates not reading this question correctly, as many answered in terms of costs to the WORKERS of a small business specialising, whereas the question required consideration of the costs to small businesses. As a result, unfortunately, many candidates were given 0 marks.</p>
+<p>More successful responses linked issues caused by specialisation of workers to possible costs within small businesses, such as increased boredom for employees causing increased labour turnover and higher recruitment and/or training costs.</p>
+<p>A real exemplar — "boredom in workers who only specialise in one trade due to repetitiveness" — was given 0 marks: it explained a disadvantage to the workers, not a cost to the business.</p>
+</div>`,
+            modelAnswer: "Workers doing the same specialised task may become bored, so more of them leave — labour turnover rises.\n\nThis is a cost for the small business because it must spend money recruiting and training replacements, which a small firm can ill afford."
+        },
+        {
+            num: "Q8b(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-3-summary-of-professor-taylor-s-talk",
+            question: "Evaluate the advantages that an increase in production by small businesses may have for Westumbria. Use the information given in Extract 3 and your own knowledge.",
+            hint: "The advantages must be for WESTUMBRIA — the region — not for the small businesses themselves (answers about the firms scored 0 on the real paper). Think: employment, incomes, living standards, attracting other firms. Then evaluate: will small firms collectively be big enough? Training costs? Judgement to close.",
+            starter: "An increase in production by small businesses could increase employment in Westumbria, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Greater external economies of scale</li>
+<li>Increase in employment and/or employment opportunities</li>
+<li>Higher profits for firms</li>
+<li>Rise in standard of living</li>
+<li>Attracts other new firms to the area</li>
+</ul>
+<p><strong>Evaluation could include:</strong></p>
+<ul>
+<li>External economies depend on other organisations responding</li>
+<li>Small businesses may have to spend money on training if the skills needed are not available</li>
+<li>Increase in living standards will be important to attract people with the right skills</li>
+<li>Will small businesses be large enough collectively to make a real difference?</li>
+<li>Impact may be dependent on the price elasticity of supply</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application of the advantages for the AREA; reasonable analysis; good evaluation with a fully supported judgement developed from weighing up some of the arguments for as well as at least one issue.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation — a judgement may be given but not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited evaluation with unsupported statements.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>There was evidence that many candidates did not take note of what the question asked. The focus was on the advantages FOR THE REGION of Westumbria, so responses that focused on the advantages to small businesses often were not given any marks at all.</p>
+<p>Candidates who read the question properly and considered the points made in Extract 3 often gained good marks by referring to regional advantages such as increased employment, higher growth, improved living standards and attracting more firms to the area.</p>
+<p><strong>Assessment for learning:</strong> the command word 'evaluate' is frequently accompanied by an extra requirement — 'evaluate the extent to which', 'evaluate the costs', 'evaluate the advantages', 'evaluate the importance of'. It is not just important to evaluate, but to evaluate within the specific requirements of the question asked.</p>
+</div>`,
+            modelAnswer: "An increase in production by small businesses could increase employment in Westumbria — the extract says small businesses are very important for increasing employment and total production. More jobs mean higher incomes for local people, which means a rise in the standard of living across the region, and a successful area could attract other new firms too.\n\nHowever, whether Westumbria really gains depends on the small businesses being large enough collectively to make a real difference, and firms may have to spend money on training if workers in the region do not yet have the right skills.\n\nOverall, the advantages for Westumbria are likely to be significant, because employment and production are exactly what the region gets from its small firms — but only if enough of them expand at the same time."
+        },
+        {
+            num: "Q9",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Price elasticity of supply measures the...",
+            options: ["percentage change in price relative to the percentage change in quantity supplied", "percentage change in quantity supplied relative to a change in income", "ratio of the quantity supplied to the price of the factor inputs", "responsiveness of quantity supplied to a change in the price of the product"],
+            answer: 3,
+            hint: "It's QUANTITY SUPPLIED responding to PRICE — not the other way round (that's option A reversed), and not income or input prices.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: D — responsiveness of quantity supplied to a change in the price of the product</strong></p>
+<ul>
+<li>PES = %ΔQs ÷ %ΔP. Option A reverses the ratio; B mixes in income; C is not an elasticity at all.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>The correct response to this question was Option D; however, many candidates gave Option A as the correct response.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q10a",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 2: Northlisle Airport &amp; Air Madeira</strong></p>
+<p>Northlisle Airport reported a 42% increase in passenger traffic in 2019. Its annual report says this was due to an increase in both the number of different airlines operating from the airport and the total supply of flights available. Together, these affected the market equilibrium price and quantity.</p>
+<p>One new route operated by Air Madeira had proved especially popular. It flew 16 000 passengers between Northlisle and Madeira during 2019, earning a sales revenue of £1 024 000. However, Air Madeira still found it difficult to make a profit on this route.</p>
+<p>The flights to Madeira incurred the following total costs during 2019:</p>
+<ul>
+<li>Costs of flights, including fuel, staff, etc. — £650 000</li>
+<li>Landing fees at both airports — £175 000</li>
+<li>Salaries and wages for staff at both airports — £225 000</li>
+<li>Other costs — £50 000</li>
+</ul>
+<p>The struggle to make a profit was due to competition from other airlines and the costs involved in entering the market. Alex Flandie, the owner of Air Madeira, recently stated that it is essential for Air Madeira to make a profit if it is to continue operating.</p>`,
+            question: "Explain what is meant by 'supply'.",
+            hint: "The full definition: the ability and willingness of firms to provide goods and services AT EACH PRICE in a GIVEN TIME PERIOD. Miss price or time and you drop to 1 mark — and the law of supply gets no credit.",
+            starter: "Supply is the ability and willingness of firms to...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The ability and willingness of firms to provide goods and services at each price in a given time period.</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Give 2 marks for a clear statement of supply.</li>
+<li>Give 1 mark for a limited answer that may ignore 'at each price' or the idea of a time period.</li>
+<li>There is no credit for an answer referring to the law of supply.</li>
+</ul>
+</div>`,
+            modelAnswer: "Supply is the ability and willingness of firms to provide goods and services at each price in a given time period.\n\nFor example, the number of flights airlines are willing and able to offer from Northlisle Airport at each ticket price."
+        },
+        {
+            num: "Q10b",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Explain one cause of an increase in supply.",
+            hint: "Pick ONE shift factor (lower costs, a subsidy, better technology, more producers...) and then EXPLAIN the mechanism — why does it mean more supplied at each price?",
+            starter: "One cause is a fall in production costs, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Fall in production costs</li>
+<li>Reduction in indirect taxation</li>
+<li>Increase in subsidy</li>
+<li>Government regulation which is beneficial to supply</li>
+<li>New/improved technology</li>
+<li>Climate changes which help improve production ability (e.g. agriculture or construction)</li>
+<li>Increase in the number of producers</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Give 1 mark for identifying a factor causing an increase in supply (e.g. lower production costs).</li>
+<li>Give 1 additional mark for an explanation of how it leads to an increase in supply (e.g. producers can supply more for the same cost).</li>
+<li>No reward for simply repeating evidence from the extract about Northlisle Airport, unless it is clearly linked to a theoretical cause of changes in supply.</li>
+</ul>
+</div>`,
+            modelAnswer: "One cause is a fall in production costs, such as cheaper fuel.\n\nLower costs make each unit more profitable to produce, so firms are willing to supply more at every price and the supply curve shifts right."
+        },
+        {
+            num: "Q11",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>The exam paper's diagram showed three upward-sloping straight-line supply curves on one set of Price/Quantity axes: <strong>S1</strong> cutting the vertical (price) axis, <strong>S2</strong> passing through the origin, and <strong>S3</strong> cutting the horizontal (quantity) axis.</p>`,
+            question: "The diagram shows three supply curves. Which of them has a unitary elasticity?",
+            options: ["S1", "S2", "S2 and S3", "S1, S2 and S3"],
+            answer: 1,
+            hint: "The origin rule: ANY straight-line supply curve passing through the ORIGIN has PES = 1, whatever its slope. Which one goes through the origin?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — S2</strong></p>
+<ul>
+<li>Only the straight line through the ORIGIN has unitary PES — along it, the % change in quantity supplied always equals the % change in price.</li>
+<li>A line cutting the price axis (S1) is price elastic; a line cutting the quantity axis (S3) is price inelastic.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q12",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "If supply is price inelastic, the value of price elasticity of supply will be...",
+            options: ["greater than one", "greater than the price elasticity of demand", "infinity", "less than one"],
+            answer: 3,
+            hint: "Inelastic always means the quantity response is proportionally SMALLER than the price change — so the elasticity number is below...?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: D — less than one</strong></p>
+<ul>
+<li>Price inelastic supply: 0 &lt; PES &lt; 1. Greater than one is elastic; infinity is perfectly elastic; PED is a separate measure entirely.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q13",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following will cause the supply curve of carrots to shift to the left?",
+            options: ["A decrease in income tax", "A decrease in the costs of the machinery used to farm carrots", "An increase in the demand for carrots", "An increase in the wages of carrot farmers"],
+            answer: 3,
+            hint: "A LEFT shift needs supplying to get harder or dearer. Cheaper machinery is the opposite, demand doesn't shift supply — what raises the farmers' costs?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: D — An increase in the wages of carrot farmers</strong></p>
+<ul>
+<li>Higher wages are a rise in production costs — less profitable to supply at every price, so the supply curve shifts left.</li>
+<li>B would shift supply RIGHT; C shifts the demand curve; A affects consumers' incomes, not carrot production costs.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q14(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-petterill-railway-ltd",
+            question: "Explain what is meant by 'price elasticity of supply'.",
+            hint: "Mirror the PED definition but for supply: responsiveness (or percentage change) of QUANTITY SUPPLIED to a change in PRICE. The formula alone is worth 1 mark.",
+            starter: "Price elasticity of supply measures the responsiveness of...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The responsiveness of quantity supplied to a change in price.</li>
+<li>The percentage change in quantity supplied relative to a percentage change in price.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark for responsiveness or percentage change.</li>
+<li>1 mark for the fact that it is quantity supplied affected by price (and not vice versa).</li>
+<li>A correct formula on its own is worth 1 mark.</li>
+</ul>
+</div>`,
+            modelAnswer: "Price elasticity of supply measures the responsiveness of quantity supplied to a change in price.\n\nIt is the percentage change in quantity supplied divided by the percentage change in price."
+        },
+        {
+            num: "Q14(ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Draw a diagram to show a price inelastic supply curve.",
+            hint: "Upward sloping and clearly STEEPER than 45° — the examiner must see the inelasticity at a glance. Label the axes and the curve S.",
+            starter: "Sketch it: a steep upward-sloping curve labelled S...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p>The official answer diagram:</p>
+<img src="/images/economics/2-3-inelastic-supply-answer-extracted.png" alt="Official mark scheme diagram: Price and Quantity axes with a single steep upward-sloping supply curve labelled S, clearly steeper than 45 degrees" style="display:block;width:100%;max-width:400px;margin:10px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<ul>
+<li>1 mark for an upward sloping supply curve.</li>
+<li>1 mark for labelling an inelastic supply curve (greater than 45°).</li>
+<li>Allow a perfectly inelastic supply curve.</li>
+<li>Allow an inelastic supply curve which appears to be cutting the vertical axis.</li>
+</ul>
+</div>`,
+            modelAnswer: "Draw a supply curve that slopes upwards and is clearly steeper than 45 degrees, so a large price change causes only a small change in quantity supplied.\n\nLabel the axes Price and Quantity and the curve S."
+        },
+        {
+            num: "Q14(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-2-petterill-railway-ltd",
+            question: "*Evaluate the importance of price elasticity of supply to Petterill Railway Ltd. Use the information given in Extract 2 and your own knowledge.",
+            hint: "PES +0.4 means the railway CAN'T easily respond when demand rises — link that to Jit's advertising campaign. Knowing PES helps him predict problems and plan more carriages. Then weigh it: PES is hard to change or calculate, and whether demand actually rises may matter more. Supported judgement.",
+            starter: "PES is important to Petterill Railway because its supply is price inelastic at +0.4, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Inelastic supply means that the firm will have difficulty responding to increased demand in the short run, thus restricting the number of customers</li>
+<li>This means that although revenue/profits are likely to rise there may be problems with customers</li>
+<li>It might be better to try and make PES more elastic by having more trains/carriages so they can respond quicker to demand changes</li>
+<li>Knowing PES allows the firm to predict the effects of changes in demand</li>
+<li>Knowing PES allows the firm to decide how best to try and meet demand changes</li>
+<li>PES is difficult to change or even to calculate</li>
+<li>Changes in consumer demand may be more important — the success or otherwise of the advertising will depend on whether Jit's forecast about future consumption is correct or not</li>
+<li>More important could be factors such as: providing better facilities; better marketing; focusing on innovative ideas; being aware of competitors; linking with other transport operators and/or the National Park authorities.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application of the likely impact of PES in context; reasonable analysis; good evaluation with a fully supported judgement developed from weighing up both sides; a well-developed, coherent line of reasoning.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation — a judgement may be given but not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited evaluation with unsupported statements.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "PES is important to Petterill Railway because its supply is price inelastic at +0.4, which means it cannot easily run more trains when demand rises. If Jit's airport advertising campaign succeeds in increasing demand from overseas tourists, revenue should rise but carriages could become overcrowded, so knowing the PES helps Jit predict this problem and plan extra carriages in advance.\n\nHowever, PES is difficult to change or even to calculate, and the level of demand may matter more — if Jit's forecast about tourist numbers is wrong, the advertising fails whatever the PES is.\n\nOverall, PES is important because it warns Jit that the railway cannot respond quickly to the rise in demand he is hoping for — but it matters less than whether that rise in demand actually happens."
+        },
+        {
+            num: "Q15",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Supply means the amount producers are willing and able to provide to the market at a given...",
+            options: ["level of consumer income", "price", "quantity demanded", "request by the government"],
+            answer: 1,
+            hint: "Finish the textbook definition: willing and able to provide at a given ______ in a given time period.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: B — price</strong></p>
+<ul>
+<li>Supply, like demand, is always measured at a given PRICE in a given period of time.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>A very high percentage of candidates gave Option B as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q16",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "An upward sloping supply curve is a straight line starting at the origin. This supply curve is...",
+            options: ["price elastic", "price elastic to begin with but becomes price inelastic at higher levels of output", "price inelastic", "unitary price elastic"],
+            answer: 3,
+            hint: "The origin rule again: ANY straight line through the origin has PES = 1 along its whole length — slope is irrelevant.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: D — unitary price elastic</strong></p>
+<ul>
+<li>Along any straight-line supply curve through the origin, the % change in quantity supplied always equals the % change in price — PES = 1 everywhere on it.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Option B provided a distractor and common incorrect response to the correct Option, D, in this question. This is possibly due to a lack of familiarity with the price elasticity of a straight-line supply curve that starts at the origin.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q17",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which one of the following will lead to a shift in the supply curve to the left?",
+            options: ["A fall in demand for the good", "A fall in the price of the good", "A subsidy paid to producers", "A tax placed on the production of the good"],
+            answer: 3,
+            hint: "Left shift = supplying gets dearer or harder. Demand changes and own-price changes never shift supply, and a subsidy shifts it the other way.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: D — A tax placed on the production of the good</strong></p>
+<ul>
+<li>A production tax raises firms' effective costs, so less is supplied at every price — a leftward shift.</li>
+<li>A subsidy (C) shifts supply RIGHT; A shifts the demand curve; B causes a movement along the supply curve.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>A high percentage of candidates gave Option D as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q18(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-the-supply-of-eggs",
+            question: "Explain what is meant by 'the supply of eggs is price elastic'.",
+            hint: "Percentages AND context: the % change in the quantity of EGGS supplied is GREATER than the % change in the price of eggs. A textbook definition with no mention of eggs scored 0 on the real paper.",
+            starter: "The percentage change in the quantity of eggs supplied is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Percentage change in quantity supplied of eggs is greater than the percentage change in price</li>
+<li>If price rises by 10% quantity supplied of eggs will rise by 15%</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Give 2 marks for a clear explanation of price elasticity as applied to egg production/supply.</li>
+<li>Give 1 mark for a basic statement such as 'a lot more eggs are supplied as price rises'.</li>
+<li>Answers MUST be in the context of egg production.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>This question was generally answered rather poorly. Better responses provided a definition such as 'the percentage change in quantity supplied of eggs is greater than the percentage change in price of eggs'.</p>
+<p>To be given any marks, candidates had to answer in the context of the production or supply of eggs. Common errors included a failure to refer to percentage changes, or providing the formula for price elasticity of supply with no reference to the supply or price of eggs.</p>
+</div>`,
+            modelAnswer: "The percentage change in the quantity of eggs supplied is greater than the percentage change in the price of eggs.\n\nFor example, if the price of a dozen eggs rises by 10%, the quantity of eggs supplied to the farm shop rises by more than 10%."
+        },
+        {
+            num: "Q18(ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p>Using the information in Extract 3 (the eggs table), draw a supply curve showing the supply of eggs to the farm shop on the grid (sketch it on paper).</p>
+<img src="/images/economics/2-3-eggs-grid-extracted.png" alt="The blank grid from the exam paper: Price (£) from 0 to 3 on the vertical axis, Quantity (dozens per week) from 0 to 120 on the horizontal axis" style="display:block;width:100%;max-width:460px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "Using the information in Extract 3, draw a supply curve showing the supply of eggs to the farm shop.",
+            hint: "Six points: (20, £1.60), (30, £1.80), (45, £2.00), (60, £2.20), (85, £2.40), (115, £2.60). Plot each exactly and JOIN them — one wrong point or unjoined points cap you at 1 mark.",
+            starter: "Sketch it: plot the six points from the table and join them...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p>The official answer diagram:</p>
+<img src="/images/economics/2-3-eggs-answer-extracted.png" alt="Official mark scheme diagram: the six points joined into a shallow upward-sloping supply curve from (20, £1.60) to (115, £2.60)" style="display:block;width:100%;max-width:440px;margin:10px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<ul>
+<li>Give 2 marks for accurately drawing the supply curve.</li>
+<li>Maximum 1 mark if the points are not joined up.</li>
+<li>Maximum 1 mark if any one point is incorrect.</li>
+<li>The information in Extract 3 must be used for marks to be gained.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>There were many accurately drawn diagrams. However, a significant number of candidates were not given both marks because they either did not plot all the points correctly or did not join all the points up accurately.</p>
+<p><strong>Assessment for learning:</strong> marks are rewarded for accurate plotting of the data provided and for joining the points up accurately — not for using a line of best fit.</p>
+</div>`,
+            modelAnswer: "Plot the six points from the table: 20 dozen at £1.60 up to 115 dozen at £2.60.\n\nJoin the points accurately — the flat, elastic supply curve shows how strongly egg supply responds to small price rises."
+        },
+        {
+            num: "Q18(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-3-the-supply-of-eggs",
+            question: "*Evaluate the importance of price elasticity of supply for the consumers of Calwith Farmers' products. Use the information given in Extract 3 and your own knowledge.",
+            hint: "For the CONSUMERS, not the firm! Elastic supply → eggs are readily available when demand rises, and prices stay stable. Don't argue 'consumers can't calculate PES so it doesn't matter' — it affects them anyway. Weigh: degree of elasticity, other factors like income/tastes, the reliance on other farms. Judgement.",
+            starter: "Because the supply of eggs is price elastic, a small rise in demand or price leads to a large rise in the quantity of eggs available, which means consumers...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>As it is price elastic then small changes in demand/price will lead to large changes in quantity of eggs available — so consumers will have ready access to eggs</li>
+<li>Although quantity supplied may change considerably, price will be more stable — which will help with consumers' budgeting in the future</li>
+<li>If demand/price falls, it may be more difficult to obtain eggs</li>
+<li>Large consumers of eggs (such as producers or supermarkets) know that by offering a higher price they will get a lot more</li>
+<li>Allow any other valid suggestion including any which consider inelastic supply.</li>
+</ul>
+<p><strong>Evaluation may include:</strong></p>
+<ul>
+<li>The degree of price elasticity will be important. A highly price elastic supply will keep the prices of eggs much more constant.</li>
+<li>Other factors may be more important such as the level of demand due to factors such as income or tastes.</li>
+</ul>
+<p>NB: Answer must refer to consumers (but allow reference to business 'consumers').</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application of the likely importance of PES for consumers; reasonable analysis; good evaluation with a fully supported judgement developed from weighing up some of the arguments.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation — a judgement may be given but not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited evaluation with unsupported statements.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+<p>N.B. Any other relevant points and/or evidence of learners' understanding of the connections between the various topics of both components to be credited.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Candidates seemed to struggle with this question. One main reason was a failure to recognise that it asks about the importance of PES to the CONSUMERS of Calwith Farmers' products and not to the firm itself.</p>
+<p>Some commented that consumers cannot calculate PES and so it cannot be important — not recognising that the magnitude of PES has key implications for consumers' ability to get hold of products they want. Others wrote about shifts in supply, not recognising that PES is relevant only once demand has shifted.</p>
+<p>Better responses developed clear chains of reasoning about how the elastic supply meant consumers would find it easier to obtain the eggs they wanted when demand increased, followed by fully supported judgements.</p>
+</div>`,
+            modelAnswer: "Because the supply of eggs is price elastic, a small rise in demand or price leads to a large rise in the quantity of eggs available — the table shows supply jumping from 85 to 115 dozen a week when the price rises just 20p. This means consumers have ready access to eggs when they want more, and prices stay more stable, which helps consumers budget.\n\nHowever, other factors may matter more to consumers than PES, such as their income and tastes, and part of the extra supply depends on the other farms, which Alex cannot control.\n\nOverall, the elastic supply is genuinely important for consumers because it keeps eggs available at steady prices whenever demand changes — a benefit shoppers rely on without ever calculating it."
+        },
+        {
+            num: "Q19",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The market supply curve for goods and services normally slopes upwards. Which of the following best explains the reason for this?",
+            options: ["Average costs of production fall as output increases", "Higher prices attract new firms to the market", "Opportunity costs of not producing rise as output increases", "Production costs fall as output increases so profits rise"],
+            answer: 1,
+            hint: "Why would MORE be supplied at HIGHER prices? Think about what a higher price does to firms currently outside the market.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: B — Higher prices attract new firms to the market</strong></p>
+<ul>
+<li>At higher prices, production is profitable for more firms, so new entrants add to market supply — one of the key reasons behind the law of supply.</li>
+<li>A and D describe falling costs, which would shift the curve, not explain its slope.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Most candidates gave Option B as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q20(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-periff-construction-ltd",
+            question: "Using the information in Extract 1 draw a supply curve showing the supply of equipment at the next auction.",
+            hint: "Use the NEXT auction column: (5, £1000), (6, £2000), (8, £3000), (12, £4000), (20, £5000). Watch the scale, plot exactly, join point-to-point (the curve bends) — more than one wrong point scores 0.",
+            starter: "Sketch it: plot the five next-auction points and join them...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p>The official answer diagram:</p>
+<img src="/images/economics/2-3-periff-answer-extracted.png" alt="Official mark scheme diagram: the five points joined into a supply curve rising steeply at first then flattening, from (5, £1000) to (20, £5000)" style="display:block;width:100%;max-width:420px;margin:10px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<ul>
+<li>2 marks for correctly plotting the supply curve: 1 mark for correctly plotting the points + 1 mark for joining them up (either with a ruler or freehand).</li>
+<li>Maximum 1 mark if the points are not joined up.</li>
+<li>Maximum 1 mark if any one point is plotted incorrectly.</li>
+<li>Zero marks if more than one point is plotted incorrectly.</li>
+<li>The information in Extract 1 must be used for any marks to be gained. Ignore any extensions (e.g. to zero).</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Most diagrams were accurately plotted and drawn. However, a few candidates were confused by the scale of the grid and plotted one or more points in the wrong place. Some plotted the points correctly but then did not join them accurately or at all, plotting a line of 'best fit'. Some simply drew an upward-sloping straight line with no points plotted.</p>
+<p><strong>Assessment for learning:</strong> check any data provided and the scales on the axes carefully — marks can easily be gained, but just as easily lost.</p>
+</div>`,
+            modelAnswer: "Plot the five next-auction points: 5 units at £1,000, 6 at £2,000, 8 at £3,000, 12 at £4,000 and 20 at £5,000.\n\nJoin the points — the supply curve rises steeply at first, then flattens as higher prices bring much more equipment to auction."
+        },
+        {
+            num: "Q20(ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Explain one way in which a business could increase productivity.",
+            hint: "Productivity = output per worker (or per hour), NOT just total output — 'employ more workers' is the classic wrong answer. Training, new technology, better equipment, motivation... pick one and explain WHY output per worker rises.",
+            starter: "One way is to train workers, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Increase the specialisation of workers / employ more specialists / division of labour</li>
+<li>Improve workers' skills by training</li>
+<li>Investment in new technology</li>
+<li>Increase in the use of capital equipment</li>
+<li>Improve employee motivation by: team building activities; increasing employee rewards, e.g. performance related pay/bonuses</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Give 1 mark for stating a way to improve productivity.</li>
+<li>Give 1 mark for a clear explanation.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>This question was well answered in the main, with correct identification of an appropriate way which was then developed into an explanation.</p>
+<p>However, there was some confusion between productivity and production, by suggesting that firms could employ more workers to increase output.</p>
+</div>`,
+            modelAnswer: "One way is to train workers to improve their skills.\n\nBetter-trained workers can produce more output in the same time, so output per worker — productivity — rises."
+        },
+        {
+            num: "Q20(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-periff-construction-ltd",
+            question: "*Evaluate the likely effect of increased competition on Periff Construction Ltd. Use the information given in Extract 1 and your own knowledge.",
+            hint: "Two sides: competition could cut Periff's prices and profits AND raise its costs (dearer auction equipment, scarcer specialist labour) — but it could also push Periff to innovate and raise productivity, and the tax cuts may grow the whole market. Judgement: it depends on how Periff responds.",
+            starter: "Increased competition could force Periff to lower its prices, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Lower prices thus decrease in profits</li>
+<li>Reduced sales so lower profits</li>
+<li>Try to increase productivity/efficiency</li>
+<li>Look to innovate</li>
+<li>Look to introduce new technology/ways of working</li>
+<li>May be driven out of the market by more efficient competitors</li>
+<li>If resources are in short supply, e.g. specialist labour, then may have to pay higher wages</li>
+<li>More competition at auction could lead to higher prices</li>
+</ul>
+<p><strong>Evaluation may include:</strong></p>
+<ul>
+<li>Could result in lower profits due to lower prices/sales</li>
+<li>Could lead to higher profits due to increased efficiency etc.</li>
+<li>Competition could lead to the growth of the construction sector so that sales/prices increase leading to higher profits</li>
+<li>Competition could drive Periff out of business if it cannot keep up with competitor(s)</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application of the likely effect of competition on Periff; reasonable analysis; good evaluation with a fully supported judgement developed from weighing up both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation — a judgement may be given but not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited evaluation with unsupported statements.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+<p>N.B. Any other relevant points and/or evidence of learners' understanding of the connections between the various topics of both components to be credited.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question is looking for an analysis of the possible effects of increased competition on Periff Construction — some positive, some negative — with valid attempts to evaluate what these might mean for the business. Some candidates followed the route of more firms entering the market; others the link to the auction for second-hand equipment; and some considered both.</p>
+<p>Good answers explained that Periff needed to lower prices, innovate and reduce costs, e.g. by raising productivity through buying new equipment. However, there was some confusion between increased market supply because of increased competition and increased supply of houses by Periff.</p>
+<p>Evaluation was often missing or simply related to Periff making lower profits or closing down.</p>
+<p><strong>Assessment for learning:</strong> with 30% of the paper's marks awarded for AO3, candidates need to be able to differentiate between the skills of analysis and evaluation, and practise both.</p>
+</div>`,
+            modelAnswer: "Increased competition could force Periff to lower its prices to keep winning housebuilding work, which means less profit on each job. It could also raise Periff's costs — more competitors bidding at the auction pushes up equipment prices, and specialist construction workers may demand higher wages.\n\nHowever, competition can also push Periff to improve. To keep up, Alex and Zayn plan to raise output and productivity, and if the income tax cuts grow the whole construction market, Periff's sales could rise even with more rivals around.\n\nOverall, the effect depends on how Periff responds: if it raises productivity as Alex intends, it can protect its profits — but if it cannot keep up with more efficient competitors, it risks being driven out of the market."
+        },
+        {
+            num: "Q21(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-mia-and-her-pay",
+            question: "Using the information in Extract 2, calculate Mia's gross wage for her first year at Ricomo Ltd. Show your working.",
+            hint: "Three parts: the £30,000 starting wage + £200 for EACH of 12 months + a bonus of 10% of the STARTING wage (not of £3,000!). Show every step for the Own Figure Rule.",
+            starter: "£30,000 + (£200 × 12) + 10% of £30,000 = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Working:</strong></p>
+<ul>
+<li>£30 000 + [200 × 12] + 10% of 30 000 [1]</li>
+<li>£30 000 + £2,400 + £3 000 = <strong>£35 400</strong> [1]</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Give 2 marks for the correct answer (with or without workings).</li>
+<li>Give 1 mark for the correct calculation of either £2,400 or £3,000.</li>
+<li>Own Figure Rule applies for a maximum of 1 mark — e.g. £30,000 + £2,400 + £300 (decimal slip) = £32,700 gains 1 mark under OFR.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Most candidates found this calculation quite straightforward. Where candidates arrived at an incorrect answer, they often made one error visible in their working and could still gain 1 mark under the Own Figure Rule — highlighting the importance of always showing working.</p>
+<p>Common errors were the incorrect calculation of the bonus (either the monthly or the annual bonuses).</p>
+</div>`,
+            modelAnswer: "£30,000 starting wage + £200 × 12 months = £2,400 + a bonus of 10% of £30,000 = £3,000.\n\nGross wage = £30,000 + £2,400 + £3,000 = £35,400."
+        },
+        {
+            num: "Q21(ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p>Ricomo Ltd's owners claim that their products have a perfectly price elastic supply.</p>`,
+            question: "Explain, using an example, how the total revenue of a firm could be increased if its supply curve was perfectly price elastic.",
+            hint: "Perfectly elastic supply = the price NEVER changes, however much is demanded (horizontal curve). So revenue rises when DEMAND rises — quantity up, price constant. Give an example: advertising shifting demand right, or numbers (sell 1,000 at £5 instead of 800).",
+            starter: "Perfectly price elastic supply means the price stays the same however much is sold, so if demand increases...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Perfectly elastic supply means that for any shift in demand, price stays the same</li>
+<li>By increasing demand, Q increases while P is the same, leading to a greater total revenue</li>
+<li>A valid numerical or diagrammatic example</li>
+<li>A valid example of a shift in demand to the right, e.g. advertising</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Give 2 marks for a clear example showing how a perfectly elastic supply curve means that any increase in demand will lead to an increase in TR because price is constant. Examples can be numerical, diagrammatic or descriptive of a cause of demand shifting right.</li>
+<li>Give 1 mark for a limited example with some validity.</li>
+<li>Give 1 mark for a clear explanation without an example.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Very few candidates scored full marks because they did not understand what perfectly price elastic supply was, often assuming the firm could reduce price and sell more. Those who did understand sometimes missed the second mark by not giving an example of what would increase demand, e.g. advertising.</p>
+<p>Many did not realise that price would not change if supply was perfectly price elastic, and confused perfectly price inelastic with price inelastic supply; price elastic with price inelastic; and price (in)elastic demand with price (in)elastic supply.</p>
+</div>`,
+            modelAnswer: "Perfectly price elastic supply means the firm can supply any quantity at one constant price.\n\nSo if Ricomo increases demand by advertising, it sells a larger quantity at the same price — for example 1,000 units at £5 instead of 800 — and total revenue rises from £4,000 to £5,000."
+        },
+        {
+            num: "Q21(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-2-mia-and-her-pay",
+            question: "*Evaluate the extent to which an increase in total revenue will lead to more profit. Use the information given in Extract 2 and your own knowledge.",
+            hint: "The key line: profit = total revenue − total costs. Revenue up only means profit up if costs rise by LESS. Use Mia's £35,400 pay as a cost from the extract. 'The extent to which' means your judgement must say WHEN it does and doesn't hold.",
+            starter: "An increase in total revenue only leads to more profit if costs rise by less, because profit is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>If costs are constant and TR increases, then so will profit</li>
+<li>If TR increases by more than the increase in TC, then profit will rise</li>
+<li>Increase in TR could mean more money for inventions/innovations leading to more profit and/or supply</li>
+</ul>
+<p><strong>Evaluation [NB: the extent to which]:</strong></p>
+<ul>
+<li>Increasing TR will only lead to greater profits if it rises more than or faster than TC</li>
+<li>Increasing TR may come about through higher prices which may in the long-term lead to lower sales and TR</li>
+<li>Increasing TR from more demand requires more supply, but PES may be inelastic</li>
+<li>Inventions and innovations may not be successful, so supply does not increase</li>
+<li>Greater profits may be used to pay shareholders and not for investment</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application of the extent to which more revenue leads to more profit; reasonable analysis; good evaluation with a fully supported judgement developed from weighing up both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation — a judgement may be given but not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited evaluation with unsupported statements.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most successful responses showed that profit is total revenue (TR) minus total costs (TC) and that, therefore, a rise in TR does not automatically lead to a rise in profit — for example, higher TR only leads to higher profit if TR rises by more than or faster than TC.</p>
+<p>However, many candidates assumed that a rise in TR meant a rise in profit, with little discussion of why TR may have risen or the possible impact on costs. Some answers contained excellent analysis but little or no evaluation, restricting their marks.</p>
+<p><strong>Misconception:</strong> revenue and profit are not the same. Within some responses these terms were incorrectly used interchangeably.</p>
+</div>`,
+            modelAnswer: "An increase in total revenue only leads to more profit if costs rise by less, because profit is total revenue minus total costs. If Ricomo sells more products while its costs stay constant, the extra revenue becomes extra profit, which could fund innovations that raise profit further.\n\nHowever, more revenue usually comes with more costs — employing Mia costs £35,400 in her first year, and supplying more products means buying more materials. If total costs rise faster than revenue, profit actually falls.\n\nOverall, higher revenue leads to more profit only to the extent that it grows faster than total costs — revenue and profit are not the same thing, and treating them as interchangeable is exactly the mistake Ricomo's owners should avoid."
+        },
+        {
+            num: "Q22",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<img src="/images/economics/2-3-supply-elasticity-wxyz-extracted.png" alt="Four supply diagrams from the OCR exam paper, each with P and Q axes: W is a steep line cutting the quantity axis, X is a shallow line cutting the price axis, Y is a horizontal line, Z is a straight line through the origin" style="display:block;width:100%;max-width:560px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "Which of the diagrams shows a supply curve with a unitary elasticity of supply?",
+            options: ["W", "X", "Y", "Z"],
+            answer: 3,
+            hint: "The origin rule one more time: the unitary supply curve is the straight line through the ORIGIN — whatever its slope.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: D — Z</strong></p>
+<ul>
+<li>Z is the straight line through the origin — unitary PES along its whole length.</li>
+<li>W (cuts the quantity axis) is inelastic; X (cuts the price axis) is elastic; Y (horizontal) is perfectly elastic.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Most candidates gave Option D as the correct response to this question. Note, those candidates who wrote 'Z' as their answer were credited with 1 mark.</p>
+</div>`,
+            modelAnswer: ""
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

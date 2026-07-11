@@ -20,6 +20,14 @@
 --   flow_post_seconds    pause after answering before Next unlocks, so
 --                        blitz-guessing doesn't pay. Default 10,
 --                        0 disables.
+--   flow_activity_timers per-ACTIVITY overrides of the two timers above.
+--                        A jsonb object keyed by section name (learn, mcq,
+--                        match, fib, misc, tips, flashcards, tf, exam); each
+--                        value is {"pre": int, "post": int} with either or
+--                        both keys present. A missing section, or a missing
+--                        pre/post within a section, falls back to the
+--                        class-wide flow_pre_seconds/flow_post_seconds.
+--                        Default '{}' = no overrides (class-wide everywhere).
 --
 -- Enforced client-side only (script.js "GUIDED STUDENT FLOW") — like
 -- sequential topic access, this is pacing, not security. Settings reach
@@ -30,7 +38,9 @@
 -- ⚠️ This is a FULL re-declaration (create or replace) of the same
 -- function topic-access-schema.sql already defines — not additive. This
 -- file's copy must always be a superset of that one's fields (currently:
--- mode, allow_requests, hidden, granted, requests, flow). If
+-- mode, allow_requests, hidden, granted, requests, flow — where `flow`
+-- itself carries activity_order, focus_mode, pre_seconds, post_seconds and
+-- activity_timers). If
 -- topic-access-schema.sql ever gains a new field, copy it in here too,
 -- then re-run THIS file last — whichever of the two ran most recently
 -- wins, in full.
@@ -51,6 +61,11 @@ alter table classes add column if not exists flow_pre_seconds int not null defau
     check (flow_pre_seconds between 0 and 120);
 alter table classes add column if not exists flow_post_seconds int not null default 10
     check (flow_post_seconds between 0 and 120);
+-- Per-activity timer overrides: { "<section>": {"pre": int, "post": int}, … }.
+-- Keys are section names (learn, mcq, match, fib, misc, tips, flashcards, tf,
+-- exam); either/both of pre/post may be present; anything missing falls back
+-- to the class-wide flow_pre_seconds/flow_post_seconds above. '{}' = none.
+alter table classes add column if not exists flow_activity_timers jsonb not null default '{}'::jsonb;
 
 -- ── get_my_topic_settings(p_subject) ── (same as topic-access-schema.sql, plus `flow`)
 drop function if exists get_my_topic_settings();
@@ -72,10 +87,11 @@ begin
     if v_class_id is not null then
         select c.topic_access_mode, c.topic_access_allow_requests,
                jsonb_build_object(
-                   'activity_order', c.flow_activity_order,
-                   'focus_mode',     c.flow_focus_mode,
-                   'pre_seconds',    c.flow_pre_seconds,
-                   'post_seconds',   c.flow_post_seconds
+                   'activity_order',  c.flow_activity_order,
+                   'focus_mode',      c.flow_focus_mode,
+                   'pre_seconds',     c.flow_pre_seconds,
+                   'post_seconds',    c.flow_post_seconds,
+                   'activity_timers', c.flow_activity_timers
                )
         into v_mode, v_allow_requests, v_flow
         from classes c where c.id = v_class_id;
@@ -110,7 +126,8 @@ begin
             'activity_order', 'open',
             'focus_mode', true,
             'pre_seconds', 10,
-            'post_seconds', 10
+            'post_seconds', 10,
+            'activity_timers', '{}'::jsonb
         ))
     );
 end;

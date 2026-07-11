@@ -133,6 +133,7 @@
     <div style="display:flex; gap:10px; align-items:center;">
       <span class="timer-pill hidden" id="timerPill">--:--</span>
       <a class="nav-link" href="dashboard.html" id="exitLink">Save &amp; exit</a>
+      <span class="gcse-account-bar" id="accountBar" style="display:inline-flex;align-items:center;gap:10px;"></span>
     </div>
   </div>
 </header>
@@ -189,6 +190,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="tasks-shared.js"></script>
+<script src="/account-cluster.js"></script>
 <script>
 'use strict';
 const esc = taskEscapeHtml;
@@ -220,6 +222,14 @@ function elapsedKey() { return 'gcse_task_elapsed_' + attempt.id; }
 async function init() {
   auth = await tasksAuthInit('student');
   if (!auth) return;
+  // Shared avatar + "Hi, name" dropdown (account-cluster.js), same as every
+  // other page's header. The 🔔 bell (notifications-shared.js) mounts into
+  // the cluster's #gcseNotifSlot instead of floating bottom-right.
+  if (typeof _gcseInjectAccountBar === 'function') {
+    window._gcseProfile = window._gcseProfile || { username: auth.username, role: auth.role };
+    window._gcseSupabaseClient = window._gcseSupabaseClient || auth.client;
+    _gcseInjectAccountBar();
+  }
   if (!TASK_ID) { $('loading').textContent = 'No task specified.'; return; }
 
   const [{ data: tasks }, { data: asg }, { data: atts }, { data: qs, error: qErr }] = await Promise.all([

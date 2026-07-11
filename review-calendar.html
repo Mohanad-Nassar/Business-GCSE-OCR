@@ -26,13 +26,13 @@
 
     /* ── Header (mirrors daily-revise) ── */
     header {
-      background: var(--ink); border-bottom: 3px solid var(--accent);
-      padding: 28px 40px 24px; position: relative; overflow: hidden;
-    }
-    header::before {
-      content:''; position:absolute; top:-50px; right:-50px;
-      width:220px; height:220px; border-radius:50%;
-      background:var(--accent); opacity:.14; pointer-events:none;
+      background-color: var(--ink); border-bottom: 3px solid var(--accent);
+      /* Decorative circle as a background so the header needs no
+         overflow:hidden that would clip the account dropdown / bell panel. */
+      background-image: radial-gradient(circle 110px at calc(100% - 60px) 60px,
+        rgba(122,92,158,.14) 0, rgba(122,92,158,.14) 109px, transparent 110px);
+      background-repeat: no-repeat;
+      padding: 28px 40px 24px; position: relative;
     }
     .header-inner { position:relative; z-index:1; display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; }
     .header-badge {
@@ -208,6 +208,11 @@
 <body>
 
 <header>
+  <nav class="site-band" aria-label="Site">
+    <a class="sb-brand" href="/index.html"><span aria-hidden="true">🏡</span> All Topics</a>
+    <a class="nav-link" id="srDashLink" href="dashboard.html">📊 My Progress</a>
+    <span class="gcse-account-bar" id="accountBar"></span>
+  </nav>
   <div class="header-inner">
     <div>
       <div class="header-badge" id="srSubjectBadge">Review Calendar</div>
@@ -215,11 +220,9 @@
       <p>Spaced-out reviews — each topic comes back after 1 day, 1 week and 4 weeks. Pass a short quiz to tick one off.</p>
     </div>
     <div class="header-links">
-      <a class="nav-link" id="srDashLink" href="dashboard.html">← Dashboard</a>
       <a class="nav-link" id="srDailyLink" href="daily-revise.html">🎯 Daily Revise</a>
     </div>
   </div>
-  <div class="gcse-account-bar" id="accountBar" style="padding:0 40px 4px;"></div>
 </header>
 
 <main>
@@ -259,6 +262,8 @@
 <script>subjectLoaderInit({ mode: 'single' });</script>
 <script src="progress-shared.js"></script>
 <script src="tasks-shared.js"></script>
+<script src="/account-cluster.js"></script>
+<script src="/notifications-shared.js"></script>
 <script src="gamification.js"></script>
 <script src="spaced-repetition.js"></script>
 <script src="review-calendar.js"></script>

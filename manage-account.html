@@ -20,13 +20,13 @@
     :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
 
     header {
-      background: var(--ink); border-bottom: 3px solid var(--accent);
-      padding: 28px 40px 24px; position: relative; overflow: hidden;
-    }
-    header::before {
-      content:''; position:absolute; top:-50px; right:-50px;
-      width:220px; height:220px; border-radius:50%;
-      background:var(--accent); opacity:.14; pointer-events:none;
+      background-color: var(--ink); border-bottom: 3px solid var(--accent);
+      /* Decorative circle as a background so the header needs no
+         overflow:hidden that would clip the account dropdown / bell panel. */
+      background-image: radial-gradient(circle 110px at calc(100% - 60px) 60px,
+        rgba(122,92,158,.14) 0, rgba(122,92,158,.14) 109px, transparent 110px);
+      background-repeat: no-repeat;
+      padding: 28px 40px 24px; position: relative;
     }
     .header-inner { position:relative; z-index:1; display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; }
     .header-badge {
@@ -106,17 +106,18 @@
 <body>
 
 <header>
+  <nav class="site-band" aria-label="Site">
+    <a class="sb-brand" href="/index.html"><span aria-hidden="true">🏡</span> All Topics</a>
+    <a class="nav-link" id="backToDashboardLink" href="dashboard.html">📊 Dashboard</a>
+    <span class="gcse-account-bar" id="accountBar"></span>
+  </nav>
   <div class="header-inner">
     <div>
       <div class="header-badge">OCR GCSE Business Studies · J204</div>
       <h1>⚙ Manage Account</h1>
       <p>Your account details and login</p>
     </div>
-    <div class="header-links">
-      <a class="nav-link" id="backToDashboardLink" href="dashboard.html">← Dashboard</a>
-    </div>
   </div>
-  <div class="gcse-account-bar" id="accountBar" style="padding:0 40px 4px;"></div>
 </header>
 
 <main>
@@ -127,9 +128,37 @@
     </div>
 
     <div class="tab-panel active" id="panelAccount">
-      <div class="detail-row"><span class="l">Username</span><span class="v" id="acctUsername">—</span></div>
+      <div class="detail-row" id="usernameDisplayRow"><span class="l">Username</span><span class="v" id="acctUsername">—</span></div>
       <div class="detail-row"><span class="l">Role</span><span class="v" id="acctRole">—</span></div>
       <div class="detail-row"><span class="l">Member since</span><span class="v" id="acctSince">—</span></div>
+
+      <!-- Teachers only — a student's username is their login (the local
+           part of their auth email, see login.html) and can't be
+           self-changed here; a teacher's is a free-text display label
+           only, so it's safe to edit directly. Hidden by default; shown
+           by initAuth() for role === 'teacher'. -->
+      <form id="usernameForm" class="hidden" style="margin-top:16px;">
+        <div>
+          <label for="newUsername">Display name <span style="text-transform:none; font-weight:400;">(shown as "Logged in as…" and to your students)</span></label>
+          <input type="text" id="newUsername" maxlength="60" required/>
+        </div>
+        <div class="msg" id="usernameMsg"></div>
+        <button type="submit" id="usernameSubmit">Save display name</button>
+      </form>
+
+      <!-- Teachers only — this IS their login identifier, unlike the
+           display name above, so Supabase requires confirming it via a
+           link sent to the new address before the change actually takes
+           effect (nothing here updates until then). -->
+      <form id="emailForm" class="hidden" style="margin-top:16px;">
+        <div>
+          <label for="newEmail">Login email</label>
+          <input type="email" id="newEmail" required/>
+        </div>
+        <div class="hint" id="emailHint" style="margin-top:6px;">Changing this sends a confirmation link to the new address — the change won't take effect until you click it.</div>
+        <div class="msg" id="emailMsg"></div>
+        <button type="submit" id="emailSubmit">Change email</button>
+      </form>
 
       <h3 class="subhead" id="acctClassesLabel">My Classes</h3>
       <div id="acctClasses"><div class="empty">Loading…</div></div>
@@ -160,6 +189,7 @@
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/account-cluster.js"></script>
 <script>
   // Keep these in sync with the constants at the top of script.js.
   const SUPABASE_URL = 'https://eaohjlyiotyqhvsizcpw.supabase.co';
@@ -206,19 +236,35 @@
       expires_at: data.session.expires_at, role: cached.role, username: cached.username,
     }));
 
-    document.getElementById('accountBar').innerHTML =
-      `<span>Logged in as <strong>${cached.username || 'you'}</strong></span>
-       <button type="button" class="nav-link" id="logoutBtn">Log out</button>`;
-    document.getElementById('logoutBtn').addEventListener('click', async () => {
-      await supabaseClient.auth.signOut();
-      localStorage.removeItem(GCSE_SESSION_KEY);
-      location.replace('login.html');
-    });
+    // Same shared avatar + dropdown cluster as every other page (script.js).
+    if (typeof _gcseInjectAccountBar === 'function') {
+      window._gcseProfile = window._gcseProfile || { username: cached.username, role: cached.role };
+      window._gcseSupabaseClient = window._gcseSupabaseClient || supabaseClient;
+      _gcseInjectAccountBar();
+    } else {
+      const escName = String(cached.username || 'you').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+      document.getElementById('accountBar').innerHTML =
+        `<span>Logged in as <strong id="acctBarName">${escName}</strong></span>
+         <button type="button" class="nav-link" id="logoutBtn">Log out</button>`;
+      document.getElementById('logoutBtn').addEventListener('click', async () => {
+        await supabaseClient.auth.signOut();
+        localStorage.removeItem(GCSE_SESSION_KEY);
+        location.replace('login.html');
+      });
+    }
 
     document.getElementById('acctUsername').textContent = cached.username || '—';
     document.getElementById('acctRole').textContent = currentRole === 'teacher' ? 'Teacher' : 'Student';
     document.getElementById('backToDashboardLink').href = currentRole === 'teacher' ? 'teacher-dashboard.html' : 'dashboard.html';
     document.getElementById('acctClassesLabel').textContent = currentRole === 'teacher' ? 'Your Classes' : 'My Classes';
+
+    if (currentRole === 'teacher') {
+      document.getElementById('usernameDisplayRow').classList.add('hidden');
+      document.getElementById('usernameForm').classList.remove('hidden');
+      document.getElementById('newUsername').value = (cached.username && cached.username !== currentSession.user.email) ? cached.username : '';
+      document.getElementById('emailForm').classList.remove('hidden');
+      document.getElementById('newEmail').value = currentSession.user.email || '';
+    }
     return true;
   }
 
@@ -316,6 +362,81 @@
     document.getElementById('passwordForm').reset();
     showMsg(msg, 'Password changed — use it next time you log in.', true);
   });
+
+  // ── change display name (teachers only): a plain profiles.username
+  // update — teachers log in by email (see login.html), so unlike a
+  // student's username this is never part of an auth identifier and is
+  // safe to self-edit directly, same trust pattern as the class-rename
+  // control on teacher-dashboard.html. ──
+  const usernameFormEl = document.getElementById('usernameForm');
+  if (usernameFormEl) {
+    usernameFormEl.addEventListener('submit', async e => {
+      e.preventDefault();
+      const msg = document.getElementById('usernameMsg');
+      const submitBtn = document.getElementById('usernameSubmit');
+      const name = document.getElementById('newUsername').value.trim();
+      clearMsg(msg);
+
+      if (!name) return showMsg(msg, 'Enter a display name.', false);
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Saving…';
+      const { error } = await supabaseClient.from('profiles')
+        .update({ username: name }).eq('id', currentSession.user.id);
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Save display name';
+
+      if (error) {
+        const taken = error.code === '23505'; // unique_violation on profiles.username
+        return showMsg(msg, taken ? 'That display name is already taken — try another.' : (error.message || 'Could not save your display name. Try again.'), false);
+      }
+
+      // Keep every other page's "Logged in as …" in sync without a reload.
+      const stillCached = readGcseSession();
+      if (stillCached) {
+        stillCached.username = name;
+        localStorage.setItem(GCSE_SESSION_KEY, JSON.stringify(stillCached));
+      }
+      document.getElementById('acctUsername').textContent = name;
+      const barName = document.getElementById('acctBarName');
+      if (barName) barName.textContent = name;
+      showMsg(msg, 'Display name saved.', true);
+    });
+  }
+
+  // ── change login email (teachers only): auth.updateUser({email}) queues
+  // a confirmation email rather than changing anything immediately — same
+  // self-service, session-scoped call as the password form above, just a
+  // different field. Nothing local is updated on "success" here since the
+  // email hasn't actually changed yet; it only does once the teacher clicks
+  // the confirmation link (at which point their next login reflects it). ──
+  const emailFormEl = document.getElementById('emailForm');
+  if (emailFormEl) {
+    emailFormEl.addEventListener('submit', async e => {
+      e.preventDefault();
+      const msg = document.getElementById('emailMsg');
+      const submitBtn = document.getElementById('emailSubmit');
+      const email = document.getElementById('newEmail').value.trim();
+      clearMsg(msg);
+
+      if (!email) return showMsg(msg, 'Enter an email address.', false);
+      if (currentSession && email.toLowerCase() === (currentSession.user.email || '').toLowerCase()) {
+        return showMsg(msg, "That's already your email.", false);
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      const { error } = await supabaseClient.auth.updateUser({ email });
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Change email';
+
+      if (error) {
+        const taken = /already registered|already exists|already in use/i.test(error.message || '');
+        return showMsg(msg, taken ? 'That email is already in use by another account.' : (error.message || 'Could not start the email change. Try again.'), false);
+      }
+      showMsg(msg, `Check ${email} for a confirmation link — your login email won't change until you click it.`, true);
+    });
+  }
 
   initAuth().then(ok => { if (ok) loadAccountDetails(); });
 </script>

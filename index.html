@@ -74,35 +74,19 @@
 
     /* ── HERO ── */
     .hero {
-      background: var(--ink);
+      background-color: var(--ink);
+      /* Both decorative circles painted as backgrounds so the hero needs
+         no overflow:hidden (which would clip the injected account dropdown
+         / notification bell panel). */
+      background-image:
+        radial-gradient(circle 170px at calc(100% - 90px) 90px,
+          rgba(122,92,158,.12) 0, rgba(122,92,158,.12) 169px, transparent 170px),
+        radial-gradient(circle 110px at calc(30% + 110px) calc(100% - 50px),
+          rgba(212,168,67,.08) 0, rgba(212,168,67,.08) 109px, transparent 110px);
+      background-repeat: no-repeat;
       color: var(--paper);
       padding: 48px 48px 40px;
       position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -80px;
-      right: -80px;
-      width: 340px;
-      height: 340px;
-      border-radius: 50%;
-      background: var(--accent);
-      opacity: .12;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -60px;
-      left: 30%;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: var(--gold);
-      opacity: .08;
     }
 
     .hero-inner {
@@ -396,6 +380,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
   <script src="/subjects-index.js"></script>
+  <script src="/account-cluster.js"></script>
   <script>
     // Keep these in sync with the constants at the top of script.js.
     const SUPABASE_URL = 'https://eaohjlyiotyqhvsizcpw.supabase.co';
@@ -467,7 +452,15 @@
     async function hubInitAccountBar(cached, supabaseClient) {
       const bar = document.getElementById('accountBar');
       if (!bar) return;
-      bar.innerHTML = `<span style="font-size:13px;color:rgba(255,255,255,.75);">Hi, <strong>${cached.username || 'you'}</strong></span>
+      // Same shared avatar + dropdown cluster as every other page (script.js).
+      if (typeof _gcseInjectAccountBar === 'function') {
+        window._gcseProfile = window._gcseProfile || { username: cached.username, role: cached.role };
+        window._gcseSupabaseClient = window._gcseSupabaseClient || supabaseClient;
+        _gcseInjectAccountBar();
+        return;
+      }
+      const escName = String(cached.username || 'you').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+      bar.innerHTML = `<span style="font-size:13px;color:rgba(255,255,255,.75);">Hi, <strong>${escName}</strong></span>
         <a href="/manage-account.html" id="manageAccountLink">⚙ <span>Manage Account</span></a>
         <a href="#" id="homeLogoutLink">↪ <span>Log out</span></a>`;
       document.getElementById('homeLogoutLink').addEventListener('click', async (e) => {

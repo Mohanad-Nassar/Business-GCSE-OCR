@@ -7,10 +7,10 @@ or Netlify accounts). Follow these steps in order.
 ## 1. Create the Supabase project
 
 1. Go to [supabase.com](https://supabase.com), sign in, and create a new project (free tier is fine).
-2. Once it's ready, go to **Project Settings â†’ API**. You'll need three values from this page:
+2. Once it's ready, go to **Project Settings → API**. You'll need three values from this page:
    - **Project URL** (e.g. `https://abcdxyz.supabase.co`)
    - **anon public** key (safe to expose in the browser) 
-   - **service_role** key (**secret** â€” never put this in any `.html`/`.js` file, only in Netlify's environment variables in step 4)
+   - **service_role** key (**secret** — never put this in any `.html`/`.js` file, only in Netlify's environment variables in step 4)
 
 ## 2. Run the database schema (fresh project — run in this exact order)
 
@@ -137,16 +137,16 @@ In each one, find:
 const SUPABASE_URL = 'https://eaohjlyiotyqhvsizcpw.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhb2hqbHlpb3R5cWh2c2l6Y3B3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNzUzMDksImV4cCI6MjA5ODc1MTMwOX0.lHF4OUiTT3G_fzlXvXI_4QMu48o6eEnq0hWw6K1uBAk';
 ```
-and replace with your actual Project URL and anon key from step 1. (Find-and-replace across the repo works fine â€” the placeholder text is identical everywhere.)
+and replace with your actual Project URL and anon key from step 1. (Find-and-replace across the repo works fine — the placeholder text is identical everywhere.)
 
 ## 5. Enable Netlify Functions + set the service-role key
 
-1. In your Netlify site's dashboard: **Site configuration â†’ Environment variables**, add:
+1. In your Netlify site's dashboard: **Site configuration → Environment variables**, add:
    - `SUPABASE_URL` = your Project URL
-   - `SUPABASE_SERVICE_ROLE_KEY` = your service_role key (the secret one â€” this is what lets the teacher-dashboard create/delete/reset student logins)
+   - `SUPABASE_SERVICE_ROLE_KEY` = your service_role key (the secret one — this is what lets the teacher-dashboard create/delete/reset student logins)
 2. Commit and push these code changes, or trigger a redeploy. Netlify will detect `netlify.toml` and `package.json`, install `@supabase/supabase-js`, and deploy the functions in `netlify/functions/` automatically.
-3. Confirm it worked: **Site â†’ Functions** in the Netlify dashboard should list `teacher-signup`, `generate-students`, `delete-student`, `reset-student-password`, `weekly-retry-tasks`, and `suggest-marks`.
-4. `weekly-retry-tasks` is a **scheduled function** (see the `schedule = "@weekly"` entry in `netlify.toml`) â€” it runs on its own every week with no one visiting the site, building/topping-up each student's "questions to review" task from their recent wrong answers. It needs `tasks-retry-schema.sql` (step 2.7 above) to already be run, and uses the same `SUPABASE_SERVICE_ROLE_KEY` as the other functions. Before trusting the weekly schedule, trigger it once manually from **Site â†’ Functions â†’ weekly-retry-tasks â†’ Trigger function** in the Netlify dashboard and check the response/logs.
+3. Confirm it worked: **Site → Functions** in the Netlify dashboard should list `teacher-signup`, `generate-students`, `delete-student`, `reset-student-password`, `weekly-retry-tasks`, and `suggest-marks`.
+4. `weekly-retry-tasks` is a **scheduled function** (see the `schedule = "@weekly"` entry in `netlify.toml`) — it runs on its own every week with no one visiting the site, building/topping-up each student's "questions to review" task from their recent wrong answers. It needs `tasks-retry-schema.sql` (step 2.7 above) to already be run, and uses the same `SUPABASE_SERVICE_ROLE_KEY` as the other functions. Before trusting the weekly schedule, trigger it once manually from **Site → Functions → weekly-retry-tasks → Trigger function** in the Netlify dashboard and check the response/logs.
 
 ## 6. Create your own teacher account
 
@@ -160,14 +160,14 @@ and replace with your actual Project URL and anon key from step 1. (Find-and-rep
 2. Click into it, generate a couple of students (e.g. 2), and note the username/password pairs shown (or download the CSV).
 3. Open a private/incognito browser window, go to `login.html`, and log in as one of the generated students.
 4. Answer a few questions on any topic page.
-5. Back in the Teacher Dashboard, click "View" next to that student â€” you should see their per-topic completion and a timestamped log of the answers you just gave.
+5. Back in the Teacher Dashboard, click "View" next to that student — you should see their per-topic completion and a timestamped log of the answers you just gave.
 6. Try "Reset Password" and "Remove" on a test student to confirm those work too.
 
 ## 8. Try the Tasks feature
 
-1. In the Teacher Dashboard, open a class and click the **ðŸ“‹ Tasks** tab, then **+ New Task** (this opens `teacher-tasks.html`, the Task Manager).
-2. Fill in the settings (due date, late policy, attempts, which attempt counts, optional time limit and timer-on-leave behaviour). The "AI suggestions" radio is informational only â€” Gemini-powered mark suggestions for written answers are available in every task's Marking queue regardless of which one is picked (see step 9 below); marking itself always stays manual until you click **Save mark**.
-3. In step 2 pick topics and question types â€” exam practice, MCQs, True/False, Key-Learning reading checks, misconception checks, exam-tip checks, fill-in-the-blanks and key-term matching â€” either **Random** (give a number) or **Manual** (tick exact questions). The **preview pane on the right** shows every question; âš  "Used before" flags questions a selected student has already had, and â­¯ Replace swaps one out.
+1. In the Teacher Dashboard, open a class and click the **📋 Tasks** tab, then **+ New Task** (this opens `teacher-tasks.html`, the Task Manager).
+2. Fill in the settings (due date, late policy, attempts, which attempt counts, optional time limit and timer-on-leave behaviour). The "AI suggestions" radio is informational only — Gemini-powered mark suggestions for written answers are available in every task's Marking queue regardless of which one is picked (see step 9 below); marking itself always stays manual until you click **Save mark**.
+3. In step 2 pick topics and question types — exam practice, MCQs, True/False, Key-Learning reading checks, misconception checks, exam-tip checks, fill-in-the-blanks and key-term matching — either **Random** (give a number) or **Manual** (tick exact questions). The **preview pane on the right** shows every question; ⚠ "Used before" flags questions a selected student has already had, and ⭯ Replace swaps one out.
 4. Assign students (with optional per-student deadline override / extra time), then **Save draft** (invisible to students) or **Publish**.
 5. Students see the task, notifications and results on their dashboard (`dashboard.html`) and sit it at `task.html`. You mark written answers in the task's **Marking queue** tab; **Analytics** has per-student and per-question breakdowns plus CSV export.
 
@@ -184,41 +184,41 @@ Existing tasks are unaffected by rebuilds (each task snapshots its questions in 
 ## 9. Turn on AI marking suggestions (optional)
 
 1. Get a Gemini API key from [Google AI Studio](https://aistudio.google.com/apikey).
-2. Add it in two places (never in any `.html`/`.js` file that ships to the browser â€” only the
+2. Add it in two places (never in any `.html`/`.js` file that ships to the browser — only the
    Netlify function reads it, via `process.env`):
-   - **Netlify (production):** Site configuration â†’ Environment variables â†’ add `GEMINI_API_KEY` =
+   - **Netlify (production):** Site configuration → Environment variables → add `GEMINI_API_KEY` =
      your key (same screen as `SUPABASE_SERVICE_ROLE_KEY` in step 5). Redeploy after adding.
    - **Local dev:** put `GEMINI_API_KEY=...` in a `.env` file at the repo root (already gitignored,
-     see `.env.example`) â€” `netlify dev` picks it up automatically.
+     see `.env.example`) — `netlify dev` picks it up automatically.
 3. Run `supabase/ai-marking.sql` (step 2.12 above) if you haven't already.
-4. That's it â€” no further code changes needed. In a task's **âœï¸ Marking queue** tab, click
-   **âœ¨ Suggest marks** to have Gemini pre-mark unmarked written answers (a mark, student-facing
+4. That's it — no further code changes needed. In a task's **✏️ Marking queue** tab, click
+   **✨ Suggest marks** to have Gemini pre-mark unmarked written answers (a mark, student-facing
    feedback, teacher-facing reasoning and a confidence score per answer). Nothing is saved as a real
    mark until you click **Use this** on a suggestion (copies it into the mark/feedback boxes) and
-   then **Save mark** â€” exactly like marking manually.
+   then **Save mark** — exactly like marking manually.
 5. Cost note: each suggested answer is one Gemini API call; at current pricing that's a small
-   fraction of a penny per answer. Nothing runs automatically or on a schedule â€” you control spend
+   fraction of a penny per answer. Nothing runs automatically or on a schedule — you control spend
    entirely by choosing when to click the button, and a single click processes at most 20 answers
    (click again to top up a longer queue).
 6. If the Marking queue shows "Add GEMINI_API_KEY in Netlify", the key isn't set in Netlify's
-   environment variables yet â€” see step 2 above.
+   environment variables yet — see step 2 above.
 
 ## 10. Notifications bell, onboarding tour & Manage Account
 
-1. Run `supabase/student-account.sql` (step 2.13 above) if you haven't already â€” needed for the
+1. Run `supabase/student-account.sql` (step 2.13 above) if you haven't already — needed for the
    "My Classes" list on the new Manage Account page.
-2. No other setup â€” these three pieces are pure front-end + the RPC above:
-   - **Notification bell** (`notifications-shared.js`): a ðŸ”” in the site nav / account bar (fixed
+2. No other setup — these three pieces are pure front-end + the RPC above:
+   - **Notification bell** (`notifications-shared.js`): a 🔔 in the site nav / account bar (fixed
      bottom-right on `task.html`) on every student-facing page. Shows the same "task assigned /
      due soon / overdue / marked" notices that used to only appear on `dashboard.html`'s "My Tasks"
-     list (that list still works too â€” both read the same `task_notification_reads` table, so
+     list (that list still works too — both read the same `task_notification_reads` table, so
      dismissing one dismisses it everywhere).
    - **Onboarding tour** (`onboarding-tour.js`, `index.html` only): a 5-step guided walkthrough shown
      automatically the first time a student account loads the home page on a given browser
-     (`localStorage` flag `gcse_onboarding_tour_seen_v1`). A "â“ Take the tour" link next to
+     (`localStorage` flag `gcse_onboarding_tour_seen_v1`). A "❓ Take the tour" link next to
      "My Progress" replays it any time.
    - **Manage Account** (`manage-account.html`): account details (username, member-since, classes +
-     teacher) and a password-change form (calls Supabase's own `auth.updateUser()` directly â€” no new
+     teacher) and a password-change form (calls Supabase's own `auth.updateUser()` directly — no new
      Netlify function). Linked from the account bar/site nav on every student page.
 3. Test as a student: confirm the bell shows a badge after a teacher assigns/marks a task, the tour
    appears once on a fresh browser profile then not again, and a password change round-trips (log
@@ -226,6 +226,6 @@ Existing tasks are unaffected by rebuilds (each task snapshots its questions in 
 
 ## Notes
 
-- **Google/Microsoft login**: not built yet, by design (you asked for username/password first). When you're ready, enable the providers under **Authentication â†’ Providers** in Supabase and add sign-in buttons to `login.html` â€” no schema or backend changes needed.
-- **Local testing**: `netlify dev` (via the Netlify CLI) will run the functions locally against your real Supabase project if you set the same environment variables in a local `.env` file â€” useful before deploying changes to the functions.
+- **Google/Microsoft login**: not built yet, by design (you asked for username/password first). When you're ready, enable the providers under **Authentication → Providers** in Supabase and add sign-in buttons to `login.html` — no schema or backend changes needed.
+- **Local testing**: `netlify dev` (via the Netlify CLI) will run the functions locally against your real Supabase project if you set the same environment variables in a local `.env` file — useful before deploying changes to the functions.
 - **Correctness tracking**: the answer log records *which question* a student answered and *when*, always. Whether it was *correct* is only captured today for the "quick check" quizzes embedded in the Key Learning cards (they already carry a `correct` flag); MCQ/True-False/Fill-in-the-blank answers are logged but `is_correct` is left blank for now. Extending that is a small, contained follow-up if you want it.

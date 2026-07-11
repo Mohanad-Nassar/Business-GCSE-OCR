@@ -559,6 +559,53 @@
      display: grid;
      grid-template-columns: 1fr 1fr;
      gap: 12px 24px;
+     position: relative; /* containing block for the match-lines SVG overlay */
+ }
+
+ /* SVG overlay that draws connecting lines between solved matching pairs.
+    Absolutely positioned over the whole grid; never intercepts clicks. */
+ .match-lines-svg {
+     position: absolute;
+     inset: 0;
+     width: 100%;
+     height: 100%;
+     pointer-events: none;
+     overflow: visible;
+     z-index: 4;
+ }
+
+ .match-lines-svg line {
+     stroke-width: 2.5px;
+     stroke-linecap: round;
+     opacity: .55; /* keep the underlying text readable */
+ }
+
+ .match-lines-svg line.match-lines-ok {
+     stroke: var(--success, #2d7a4f);
+ }
+
+ .match-lines-svg line.match-lines-eventual {
+     stroke: #b8860b;
+ }
+
+ /* Draw-in animation, applied only to freshly created lines (pathLength=1
+    normalises the geometry so one keyframe fits every length). */
+ @keyframes match-lines-draw {
+     from { stroke-dashoffset: 1; }
+     to   { stroke-dashoffset: 0; }
+ }
+
+ .match-lines-svg line.match-lines-anim {
+     stroke-dasharray: 1;
+     animation: match-lines-draw .4s ease forwards;
+ }
+
+ @media (prefers-reduced-motion: reduce) {
+     .match-lines-svg line.match-lines-anim {
+         animation: none;
+         stroke-dasharray: none;
+         stroke-dashoffset: 0;
+     }
  }
 
  .match-col {
@@ -1318,6 +1365,132 @@
  }
 
  .ep-popup.show {
+     display: block;
+ }
+
+ /* ── Exam-practice self-marking panel ──
+    Appears under the mark scheme once it's revealed; mirrors the teacher
+    marking-queue layout (mark field + reflection + save) in topic-page
+    tokens so it works on both light and dark subject palettes. */
+ .ep-self {
+     margin-top: 14px;
+     background: var(--cream);
+     border: 1.5px solid var(--border);
+     border-radius: 8px;
+     padding: 14px 16px;
+ }
+
+ .ep-self-head {
+     font-family: 'DM Mono', monospace;
+     font-size: 11px;
+     letter-spacing: 2px;
+     text-transform: uppercase;
+     font-weight: 600;
+     color: var(--accent);
+     margin-bottom: 4px;
+ }
+
+ .ep-self-hint {
+     font-size: 12.5px;
+     line-height: 1.55;
+     color: var(--mid);
+     margin-bottom: 12px;
+ }
+
+ .ep-self-field {
+     display: flex;
+     flex-direction: column;
+     gap: 4px;
+     margin-bottom: 10px;
+ }
+
+ .ep-self-field label {
+     font-family: 'DM Mono', monospace;
+     font-size: 10px;
+     letter-spacing: 1px;
+     text-transform: uppercase;
+     color: var(--mid);
+ }
+
+ .ep-self-mark {
+     width: 110px;
+     background: var(--card-bg);
+     border: 1.5px solid var(--border);
+     border-radius: 6px;
+     padding: 8px 10px;
+     font-family: 'DM Sans', sans-serif;
+     font-size: 13.5px;
+     color: var(--ink);
+     outline: none;
+     transition: border-color .15s;
+ }
+
+ .ep-self-reflect {
+     width: 100%;
+     min-height: 70px;
+     background: var(--card-bg);
+     border: 1.5px solid var(--border);
+     border-radius: 6px;
+     padding: 10px 12px;
+     font-family: 'DM Sans', sans-serif;
+     font-size: 13px;
+     line-height: 1.6;
+     resize: vertical;
+     outline: none;
+     transition: border-color .15s;
+     color: var(--ink);
+     margin-bottom: 10px;
+ }
+
+ .ep-self-mark:focus,
+ .ep-self-reflect:focus {
+     border-color: var(--accent);
+ }
+
+ .ep-btn.ep-self-save {
+     border-color: var(--success);
+     color: var(--success);
+ }
+
+ .ep-btn.ep-self-save:hover {
+     background: var(--success);
+     color: #fff;
+     border-color: var(--success);
+ }
+
+ /* Completed state: chip replaces the save button; inputs lock */
+ .ep-self-done {
+     display: inline-block;
+     background: #d4edda;
+     border: 1.5px solid var(--success);
+     color: var(--success);
+     border-radius: 7px;
+     padding: 9px 18px;
+     font-family: 'DM Mono', monospace;
+     font-size: 11px;
+     letter-spacing: 1px;
+     font-weight: 600;
+ }
+
+ .ep-self.locked .ep-self-mark,
+ .ep-self.locked .ep-self-reflect,
+ .ep-answer-area:disabled {
+     opacity: .7;
+     cursor: not-allowed;
+ }
+
+ /* Inline validation message — same visual language as .q-feedback.no */
+ .ep-self-msg {
+     display: none;
+     margin-top: 10px;
+     padding: 10px 14px;
+     border-radius: 6px;
+     font-size: 13px;
+     background: #fde8e5;
+     color: #8b2317;
+ }
+
+ .ep-self-msg.show {
      display: block;
  }
 

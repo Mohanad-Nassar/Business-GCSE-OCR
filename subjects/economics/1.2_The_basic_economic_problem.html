@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Economics — Unit 1: Introduction to Economics</div>
             <h1>1.2 The Basic Economic Problem</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 1.2 The Basic Economic Problem — placeholder, content not yet written
+    //  DATA: 1.2 The Basic Economic Problem
     // ══════════════════════════════════════
     const pageMeta = {
             id: '1-2-the-basic-economic-problem',
@@ -268,21 +268,1607 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>1.2 The Basic Economic Problem</strong> will appear here soon.</p>`
+            title: "Needs, wants and scarce resources",
+            tag: "Key concept",
+            content: `<h4>Needs</h4>
+<ul>
+<li>The things required to survive — food, water, shelter, warmth, basic clothing.</li>
+<li>Imagine packing for a 3-day camping trip with limited car space: a tent, warm clothes, food and water, and a first aid kit are needs.</li>
+</ul>
+<h4>Wants</h4>
+<ul>
+<li>Everything beyond basic survival — and wants are effectively <strong>unlimited</strong>.</li>
+<li>A phone might feel essential to you, but in economics it is a want, because it goes beyond basic survival needs.</li>
+<li>Wants also change over time as tastes, fashion and technology change — 20 years ago no one "wanted" a smartphone, because it didn't exist.</li>
+</ul>
+<h4>Scarce resources</h4>
+<ul>
+<li>Resources — land, labour, capital and enterprise — are <strong>finite</strong>: there is only a limited amount of them.</li>
+<li>A resource is scarce when there is not enough of it to satisfy all wants.</li>
+<li>Scarcity applies at every stage of production. A pair of trainers needs leather, cotton and rubber (land), plus labour and capital to make, market and deliver it.</li>
+</ul>`,
+            readCheck: {
+                q: "In economics, which of the following is classed as a NEED?",
+                opts: ["A mobile phone", "Branded trainers", "Shelter", "A holiday"],
+                ans: 2,
+                explain: "Needs are the things required to survive — food, water, shelter, warmth and basic clothing. Everything beyond that, including a phone, is a want."
+            }
+        },
+        {
+            title: "The basic economic problem and the three questions",
+            tag: "Key concept",
+            content: `<h4>The basic economic problem</h4>
+<ul>
+<li>Wants are <strong>unlimited</strong>, but the resources available to supply them are <strong>scarce</strong>.</li>
+<li>So the basic economic problem is: <strong>how do we best satisfy society's unlimited wants using limited resources?</strong></li>
+<li>Because of scarcity, <strong>choices</strong> have to be made about how to use resources — and every choice has an opportunity cost.</li>
+</ul>
+<h4>The three questions every economy must answer</h4>
+<ul>
+<li><strong>What</strong> should be produced?</li>
+<li><strong>How</strong> should it be produced?</li>
+<li><strong>For whom</strong> should it be produced?</li>
+</ul>
+<h4>Types of economy — a spectrum, not a label</h4>
+<ul>
+<li><strong>Market economy:</strong> resources allocated by the market forces of demand and supply — prices and incentives guide producers.</li>
+<li><strong>Planned economy:</strong> resources allocated by the state.</li>
+<li><strong>Mixed economy:</strong> a combination of both — and in reality, <strong>every real country is a mixed economy</strong>, sitting somewhere on the spectrum between the two extremes.</li>
+<li>The UK leans market-based, but the government still intervenes (NHS, schools, defence). China is largely state-controlled, but has many private businesses.</li>
+</ul>
+<h4>How the UK's mixed economy answers the three questions</h4>
+<ul>
+<li><strong>What:</strong> mostly whatever is profitable — success gives firms more resources to keep producing. But the government steps in for things society needs, like health, education and defence.</li>
+<li><strong>How:</strong> competition pushes firms to produce efficiently and keep costs down, while the government enforces product standards and health and safety rules.</li>
+<li><strong>For whom:</strong> mainly "user pays" — goods go to those who can afford them — but taxes and benefits redistribute money to those in need, and some services (like the NHS) are free to use.</li>
+</ul>`,
+            readCheck: {
+                q: "The government decides to spend more money on health instead of education. Which of the three key economic questions is it answering?",
+                opts: ["What should be produced?", "How should it be produced?", "For whom should it be produced?", "Where should it be produced?"],
+                ans: 0,
+                explain: "Choosing to put resources into health rather than education is deciding WHAT gets produced. (This exact scenario appeared as a real OCR exam question — and only a few candidates got it right.)"
+            }
+        },
+        {
+            title: "Opportunity cost",
+            tag: "Key concept",
+            content: `<h4>The definition</h4>
+<ul>
+<li><strong>Opportunity cost is the next best alternative given up when making a choice.</strong></li>
+<li>It exists because resources are scarce — if you could have everything, nothing would need to be given up.</li>
+</ul>
+<h4>The crucial exam skill: link it to the scarce resource</h4>
+<ul>
+<li>Weak answer: "If I buy a drink instead of a chocolate bar, the chocolate is the opportunity cost."</li>
+<li>Strong answer: "I want both, but I only have enough <strong>money</strong> for one — so buying the drink means the chocolate is the opportunity cost."</li>
+<li>The scarce resource is usually money, but it can be time, land, labour or capital.</li>
+</ul>
+<h4>Opportunity cost applies to every economic group</h4>
+<ul>
+<li><strong>Consumers:</strong> spending now means giving up the interest you could have earned by saving.</li>
+<li><strong>Producers:</strong> a firm that can afford new machinery OR a new outlet, but not both, gives up one to get the other.</li>
+<li><strong>Government:</strong> spending more on education means less for something else in the budget — or a bigger deficit, which has to be repaid later with interest.</li>
+</ul>
+<h4>Related ideas: trade-offs and satisfaction</h4>
+<ul>
+<li>People choose the option that gives them the most satisfaction (economists call this <em>utility</em>) for the money they have available.</li>
+<li>A <strong>trade-off</strong> is choosing one option above all the alternatives — opportunity cost measures the benefit lost from the next best one.</li>
+</ul>`,
+            readCheck: {
+                q: "A firm can afford to buy new machinery OR open a new outlet, but not both. It chooses the machinery. What is the opportunity cost?",
+                opts: ["The price paid for the machinery", "The benefit it would have got from the new outlet", "The profit made from the machinery", "There is no opportunity cost for firms"],
+                ans: 1,
+                explain: "Opportunity cost is the benefit of the next best alternative given up — here, what the new outlet would have brought in. It is not the money paid for the option you chose."
+            }
+        },
+        {
+            title: "Evaluating economic choices: the three sustainabilities",
+            tag: "Key concept",
+            content: `<p>Every economic choice has costs and benefits. The exam wants you to weigh them up using three types of <strong>sustainability</strong>:</p>
+<h4>1. Economic sustainability</h4>
+<ul>
+<li>Is this the best use of scarce resources so that growth can continue over time?</li>
+<li>Think: costs now and in the future, jobs created, effect on employment and growth.</li>
+</ul>
+<h4>2. Social sustainability</h4>
+<ul>
+<li>How does the choice affect people's <strong>quality of life</strong> — and is it <strong>fair for everyone</strong>, now and in the future?</li>
+</ul>
+<h4>3. Environmental sustainability</h4>
+<ul>
+<li>The impact on the environment: are renewable resources used at a rate they can be replaced, are non-renewable resources used efficiently, and what happens to pollution?</li>
+</ul>
+<h4>Worked example: the Elizabeth line (Crossrail)</h4>
+<ul>
+<li><strong>Economic:</strong> cost over £19 billion (a big opportunity cost) and hurt some businesses during construction — but created thousands of construction jobs and made it easier for workers to travel.</li>
+<li><strong>Social:</strong> easier commuting and less congestion — but people near the works were disturbed for years, and it is funded by national taxes while the benefits mostly go to London. Is that fair?</li>
+<li><strong>Environmental:</strong> may cut road traffic and pollution — but tunnelling used enormous amounts of energy, and more people might simply choose to travel more.</li>
+</ul>
+<p><strong>Exam practice idea:</strong> apply the same three-way framework to HS2 or a third runway at Heathrow — sustainability questions often use an unfamiliar case study, and this structure works on any of them.</p>`,
+            readCheck: {
+                q: "The government rebuilds a dangerous main road so it is safer and closer to a village. Which type of sustainability is this an example of?",
+                opts: ["Economic", "Environmental", "Renewable", "Social"],
+                ans: 3,
+                explain: "Making the road safer and closer improves the community's quality of life — that is social sustainability. (This is a real OCR exam question; 'renewable' isn't a type of sustainability at all.)"
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Which of these best describes the basic economic problem?",
+            opts: ["Prices are always rising", "Unlimited wants but scarce resources", "Governments spend too much money", "Some countries are richer than others"],
+            ans: 1,
+            explain: "The basic economic problem is that resources are limited (scarce) while wants are unlimited — so choices have to be made."
+        },
+        {
+            q: "Warm clothing, food and shelter are examples of...",
+            opts: ["Wants", "Needs", "Luxuries", "Scarce resources"],
+            ans: 1,
+            explain: "These are needs — the minimum required to survive. Everything beyond them is a want."
+        },
+        {
+            q: "Why are wants described as 'unlimited'?",
+            opts: ["Because everyone wants the same things", "Because people always desire more goods and services than they can have", "Because wants never change over time", "Because all wants are essential for survival"],
+            ans: 1,
+            explain: "There is no end to what people would like to have — as soon as one want is satisfied, another appears, and new products create new wants."
+        },
+        {
+            q: "The three key questions every economy must answer are: what to produce, how to produce it, and...",
+            opts: ["When to produce it", "Where to produce it", "For whom to produce it", "Why to produce it"],
+            ans: 2,
+            explain: "The three questions are what, how, and for whom goods and services should be produced."
+        },
+        {
+            q: "In a market economy, resources are allocated by...",
+            opts: ["The government", "The forces of demand and supply", "A vote among consumers", "International organisations"],
+            ans: 1,
+            explain: "In a market economy, prices set by demand and supply act as signals and incentives that decide where resources go."
+        },
+        {
+            q: "The UK is best described as which type of economy?",
+            opts: ["A pure free market economy", "A planned economy", "A mixed economy", "A barter economy"],
+            ans: 2,
+            explain: "The UK leans market-based but the government intervenes in areas like health and education — so it's a mixed economy, like every real country."
+        },
+        {
+            q: "A student has £5 and buys a cinema ticket instead of a pizza. The opportunity cost is...",
+            opts: ["The £5 spent", "The cinema ticket", "The pizza given up", "Both the ticket and the pizza"],
+            ans: 2,
+            explain: "Opportunity cost is the next best alternative given up. The scarce resource (£5) forced a choice, and the pizza is what was sacrificed."
+        },
+        {
+            q: "The government increases spending on the NHS, which means less money for road building. This shows that government choices...",
+            opts: ["Have no opportunity cost", "Always make everyone better off", "Involve an opportunity cost", "Only affect producers"],
+            ans: 2,
+            explain: "The budget is a scarce resource — more for one area means less for another. The roads given up are the opportunity cost of the extra NHS spending."
+        },
+        {
+            q: "A new bypass improves residents' quality of life but cost £50 million that could have been spent elsewhere. Which TWO ideas does this show?",
+            opts: ["Social sustainability and opportunity cost", "Environmental sustainability and profit", "Unlimited wants and specialisation", "Needs and the product market"],
+            ans: 0,
+            explain: "Better quality of life = social sustainability; the £50 million given up from other uses = opportunity cost."
+        },
+        {
+            q: "Which of these is a question about ENVIRONMENTAL sustainability?",
+            opts: ["Will the project create jobs?", "Is the project fair to all taxpayers?", "Are renewable resources being used at a rate they can be replaced?", "Will the project make a profit?"],
+            ans: 2,
+            explain: "Environmental sustainability is about the impact on the environment — resource use and pollution. Jobs and growth are economic; fairness and quality of life are social."
+        }
+    ];
+
+    const matchData = [
+        { term: "Need", def: "Something required to survive, such as food, water or shelter" },
+        { term: "Want", def: "Something desired but not essential for survival" },
+        { term: "Scarce resource", def: "A resource where there is not enough to satisfy all wants" },
+        { term: "Unlimited wants", def: "The infinite desire people have for goods and services" },
+        { term: "The basic economic problem", def: "How to satisfy unlimited wants with limited resources" },
+        { term: "Opportunity cost", def: "The next best alternative given up when making a choice" },
+        { term: "Market economy", def: "An economy where resources are allocated by the forces of demand and supply" },
+        { term: "Planned economy", def: "An economy where resources are allocated by the state" },
+        { term: "Mixed economy", def: "An economy combining market forces with government intervention" },
+        { term: "Economic sustainability", def: "Whether a choice is the best use of resources to allow growth over time" },
+        { term: "Social sustainability", def: "The impact of a choice on a community's quality of life and fairness" },
+        { term: "Environmental sustainability", def: "The impact of a choice on resource use and pollution" }
+    ];
+
+    const fibData = [
+        {
+            display: "Needs are the things required to _____, while wants are effectively _____.",
+            blanks: { B1: "survive", B2: "unlimited" }
+        },
+        {
+            display: "The basic economic problem is how best to satisfy unlimited wants with _____ resources.",
+            blanks: { B1: "scarce" }
+        },
+        {
+            display: "Every economy must answer three questions: _____ to produce, _____ to produce it, and for _____ to produce it.",
+            blanks: { B1: "what", B2: "how", B3: "whom" }
+        },
+        {
+            display: "Opportunity cost is the next best _____ given up when making a choice.",
+            blanks: { B1: "alternative" }
+        },
+        {
+            display: "The three types of sustainability are economic, _____ and _____.",
+            blanks: { B1: "social", B2: "environmental" }
+        },
+        {
+            display: "Countries like the UK and China are both _____ economies, sitting between the market and planned extremes.",
+            blanks: { B1: "mixed" }
+        }
+    ];
+    const fibWords = ["survive", "unlimited", "scarce", "what", "how", "whom", "alternative", "social", "environmental", "mixed"];
+
+    const tfData = [
+        {
+            statement: "In economics, a mobile phone is classed as a need.",
+            answer: false,
+            explanation: "A phone might feel essential, but needs are only the things required for basic survival — a phone is a want."
+        },
+        {
+            statement: "Wants are unlimited.",
+            answer: true,
+            explanation: "People always desire more goods and services — as tastes and technology change, new wants keep appearing."
+        },
+        {
+            statement: "The UK is a pure free market economy.",
+            answer: false,
+            explanation: "The UK is a mixed economy — it leans market-based, but the government intervenes in areas like health, education and defence."
+        },
+        {
+            statement: "Opportunity cost only applies to decisions about money.",
+            answer: false,
+            explanation: "Opportunity cost exists wherever any scarce resource forces a choice — money, time, land, labour or capital."
+        },
+        {
+            statement: "The basic economic problem exists because resources are limited but wants are not.",
+            answer: true,
+            explanation: "That's exactly it — finite resources meeting unlimited wants creates scarcity, so choices must be made."
+        },
+        {
+            statement: "In a planned economy, resources are allocated by the state.",
+            answer: true,
+            explanation: "Correct — in a planned economy the state decides what, how and for whom to produce, instead of market forces."
+        },
+        {
+            statement: "Social sustainability is about a decision's impact on a community's quality of life and whether it is fair for everyone.",
+            answer: true,
+            explanation: "That's the definition — economic sustainability covers growth and resources, environmental covers pollution and resource use."
+        },
+        {
+            statement: "If the government spends more on education, there is no opportunity cost because education is a need.",
+            answer: false,
+            explanation: "Every choice has an opportunity cost — money spent on education can't be spent on something else, however worthwhile education is."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "'Needs' and 'wants' mean the same thing, so it doesn't matter which word I use.",
+            correct: "Examiners want the distinction stated explicitly: needs are required for survival (food, water, shelter, warmth); wants are everything beyond that — and wants are unlimited. Mixing the words up costs marks in definition questions.",
+            readCheck: {
+                q: "Which sentence uses the terms correctly?",
+                opts: ["\"Everyone needs a games console\"", "\"Water is a want because people enjoy drinking it\"", "\"Shelter is a need; a bigger house in a nicer area is a want\"", "\"Needs are unlimited but wants are scarce\""],
+                ans: 2,
+                explain: "Shelter is required for survival (a need); upgrading beyond that is desire (a want). And it's WANTS that are unlimited, while RESOURCES are scarce."
+            }
+        },
+        {
+            wrong: "The UK is a free market economy and China is a planned economy.",
+            correct: "Both are mixed economies. The UK leans market-based but the government intervenes (NHS, schools, defence); China is largely state-controlled but has many private businesses. The exam skill is placing countries on a SPECTRUM between the two extremes, not labelling them as pure opposites.",
+            readCheck: {
+                q: "What is the most accurate way to describe the UK and China?",
+                opts: ["The UK is purely free market; China is purely planned", "Both are mixed economies at different points on the market–planned spectrum", "Both are planned economies", "Neither has any government intervention"],
+                ans: 1,
+                explain: "No real country is a pure example of either extreme — both the UK and China combine market forces with state intervention, just in different proportions."
+            }
+        },
+        {
+            wrong: "For opportunity cost, it's enough to say: 'I bought a drink instead of a chocolate bar, so the chocolate is the opportunity cost.'",
+            correct: "That answer misses the link to the SCARCE RESOURCE that forced the choice, and mark schemes also refuse the definition mark when 'given up' or 'foregone' is missing. Level 0 answer: \"Opportunity cost is the cost of an opportunity.\" Level 1 answer: the drink/chocolate sentence above. Full-marks answer: \"I want both, but I only have enough MONEY for one — so buying the drink means giving up the chocolate, which is the opportunity cost.\" The difference: the good answer names the scarce resource and uses 'giving up'.",
+            readCheck: {
+                q: "A 2-mark question says: \"Using an example from Extract 2, explain what is meant by opportunity cost.\" What earns full marks?",
+                opts: ["A perfect textbook definition on its own", "A definition plus any example you can think of", "A definition plus an example taken from Extract 2", "Just naming an example from Extract 2"],
+                ans: 2,
+                explain: "The real OCR mark scheme gave no reward for a purely theoretical answer or for examples not from the extract — you need the definition AND an example from the source given."
+            }
+        },
+        {
+            wrong: "The factor market is the same as the primary sector, and the product market is the same as the secondary/tertiary sector.",
+            correct: "These are different ideas. The FACTOR market is where factors of production (like labour) are bought and sold — a farmer hiring workers is in the factor market. The PRODUCT market is where finished goods and services are sold to consumers. Sectors (primary/secondary/tertiary) describe types of production, not markets. This confusion comes straight from a real OCR examiner report — most candidates mixed them up.",
+            readCheck: {
+                q: "A farmer hires two extra fruit pickers. Which market is this happening in?",
+                opts: ["The product market", "The factor market", "The primary sector market", "The stock market"],
+                ans: 1,
+                explain: "Hiring workers is buying labour — a factor of production — so it happens in the factor market. Selling the fruit to shoppers would happen in the product market."
+            }
+        },
+        {
+            wrong: "\"Elon Musk\" or \"Amazon\" is a good example of enterprise.",
+            correct: "Enterprise is the factor of production that takes a RISK in organising the other factors — so the example must show the risk-taking activity, not just name a famous person or company. Level 0 answer: \"Elon Musk.\" Level 1 answer: \"Enterprise is taking a risk to organise production\" (definition, no example). Full-marks answer: \"Enterprise is the factor that takes a risk organising the other factors of production — for example, borrowing £500,000 to set up a hotel.\" This comes from a real examiner report: naming Musk, Gates or Amazon without showing the enterprise activity earned no example mark.",
+            readCheck: {
+                q: "Which of these would earn the example mark for 'enterprise'?",
+                opts: ["\"Jeff Bezos\"", "\"Amazon is a big company\"", "\"Taking the risk of setting up a new coffee shop\"", "\"Enterprise means being enterprising\""],
+                ans: 2,
+                explain: "The example must show risk-taking and organising factors of production in action. Naming a person or company on its own shows nothing about enterprise itself."
+            }
+        },
+        {
+            wrong: "Economic, social and environmental sustainability are basically the same thing, so any of them can be used in an answer.",
+            correct: "They are three different tests, and the exam names WHICH one it wants. Economic = best use of resources for growth over time. Social = quality of life and fairness. Environmental = resource use and pollution. In a real exam, candidates asked about ECONOMIC sustainability who wrote about the environment scored poorly — the examiner report says you must be able to clearly tell them apart.",
+            readCheck: {
+                q: "A question asks about the effect of a choice on a café's ECONOMIC sustainability. Which point is on-topic?",
+                opts: ["The café's new furniture is made from recycled wood", "The loan repayments may leave too little money for the business to keep growing", "The café's carbon footprint will fall", "The village will look prettier"],
+                ans: 1,
+                explain: "Economic sustainability is about whether the choice lets the business keep using its resources to grow over time — loans, costs and revenue. Recycling and carbon are environmental; village appearance is social."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "explain",
+            title: "2-mark questions: from 0 to full marks",
+            pills: ["AO1", "AO2", "2 marks"],
+            content: `<p>Here is the same answer to <em>"Explain, using an example, what is meant by 'opportunity cost'"</em> at every level:</p>
+
+<p><strong>❌ 0 marks:</strong> "Opportunity cost is the cost of an opportunity."</p>
+<ul>
+<li>This just repeats the question in different words (examiners call it a tautology). No economics shown.</li>
+</ul>
+
+<p><strong>⚠️ 1 mark:</strong> "Opportunity cost is the next best alternative you give up when making a choice."</p>
+<ul>
+<li>A correct definition — but the question said "using an example" and there isn't one. The second mark is gone.</li>
+</ul>
+
+<p><strong>✅ 2 marks:</strong> "Opportunity cost is the next best alternative given up when making a choice. For example, a farmer who uses his land to grow beans gives up the chance to grow other crops on it."</p>
+<ul>
+<li>Definition (1 mark) + a specific example (1 mark). Two sentences. Done.</li>
+</ul>
+
+<p><strong>Extra traps from real mark schemes:</strong></p>
+<ul>
+<li>Leaving out "given up" / "foregone" from the definition loses the definition mark.</li>
+<li>If the question says "using an example <em>from Extract 2</em>", an example from anywhere else scores nothing.</li>
+</ul>`,
+            readCheck: {
+                q: "Why does a perfect definition with no example only score 1 out of 2 when the question says 'using an example'?",
+                opts: ["Because definitions never earn marks", "Because the second mark is specifically for the example the question asked for", "Because the answer is too short", "Because examples always come first"],
+                ans: 1,
+                explain: "The 2 marks are split: 1 for the definition, 1 for the example. Miss the example and that mark is simply unavailable — this is the single most common way students drop marks on 2-markers."
+            }
+        },
+        {
+            type: "tip",
+            title: "Calculation questions: from 0 to full marks",
+            pills: ["AO2", "2 marks", "Show working"],
+            content: `<p>This topic's real exam paper had THREE calculation questions. Here's the ladder, using <em>"Calculate the average cost of destroying the Asian Hornet in France, Italy and the UK"</em> (£10.5m + £8m + £7.6m):</p>
+
+<p><strong>❌ 0 marks:</strong> "£12m" (wrong answer, no working shown)</p>
+<ul>
+<li>With no working, a wrong answer has nothing to rescue it.</li>
+</ul>
+
+<p><strong>⚠️ 1 mark:</strong> "£8.7"</p>
+<ul>
+<li>The maths is right but the units are missing — real candidates lost a mark for writing 8.7 and forgetting the <strong>million</strong>.</li>
+<li>Also 1 mark: stopping at £26.1m (added but didn't divide by 3).</li>
+</ul>
+
+<p><strong>✅ 2 marks:</strong> "£10.5m + £8m + £7.6m = £26.1m. £26.1m ÷ 3 = <strong>£8.7 million</strong>"</p>
+
+<p><strong>Two safety nets to remember:</strong></p>
+<ul>
+<li><strong>Always show working.</strong> Under the Own Figure Rule (OFR), if you make a slip early but your method afterwards is correct, you can still get a mark.</li>
+<li><strong>Always write the units</strong> — £, %, million. The number alone is not the answer.</li>
+</ul>`,
+            readCheck: {
+                q: "A student's first step in a calculation is wrong, but they carry the wrong number through the correct method. What happens under the Own Figure Rule?",
+                opts: ["They score 0 — the answer is wrong", "They can still earn a mark for the correct method", "They get full marks anyway", "The examiner corrects the first step for them"],
+                ans: 1,
+                explain: "OFR protects the method: a slip early on doesn't wipe out everything after it — but only if the working is on the page. That's why you always show working."
+            }
+        },
+        {
+            type: "evaluate",
+            title: "6-mark 'Evaluate' questions: from Level 0 to Level 3",
+            pills: ["AO2", "AO3a", "AO3b", "6 marks"],
+            content: `<p>Using the real question <em>"Evaluate the costs of the economic choices that Nina and Leo must make on their economic sustainability"</em>:</p>
+
+<p><strong>❌ Level 0 (0 marks):</strong> writes about how the café should recycle and cut its carbon footprint.</p>
+<ul>
+<li>That's ENVIRONMENTAL sustainability. The question asked about ECONOMIC sustainability. Real candidates did exactly this and scored nothing.</li>
+</ul>
+
+<p><strong>⚠️ Level 1 (1–2 marks):</strong> "The £10,000 loan must be repaid within a year with interest that could rise from 2.5% to 3.5%, which means less money for running the café, which could stop it growing."</p>
+<ul>
+<li>Good analysis — but no other side, no weighing up, no judgement. The examiner's report says candidates with strong analysis but zero evaluation could not get more than 1 mark out of 6.</li>
+</ul>
+
+<p><strong>⚠️ Level 2 (3–4 marks):</strong> the same analysis, plus "However, the improvements might attract new customers", ending with "In conclusion, there are costs and benefits."</p>
+<ul>
+<li>Both sides are there, but the conclusion just summarises. The examiner's report: "many limited responses ended with a conclusion that was a summary rather than a supported judgement."</li>
+</ul>
+
+<p><strong>✅ Level 3 (5–6 marks):</strong> both sides, PLUS a judgement that answers the question with a reason:</p>
+<ul>
+<li>"Overall, the choices are only economically sustainable if the improvements win enough new customers to cover the loan repayments and interest."</li>
+<li>The judgement says <em>under what conditions</em> — that's what "fully supported" means.</li>
+</ul>
+
+<p><strong>One more trap:</strong> on "evaluate the extent to which..." questions, the mark scheme caps evaluation marks unless you directly address <em>the extent</em> — how big, how likely, what it depends on.</p>`,
+            readCheck: {
+                q: "A student writes brilliant analysis of the costs but never weighs anything up or gives a judgement. What does the real mark scheme cap them at?",
+                opts: ["6 out of 6 — analysis is what matters", "4 out of 6", "1–2 out of 6", "0 — analysis earns nothing"],
+                ans: 2,
+                explain: "On an Evaluate question, evaluation IS the main skill — examiners reported strong-analysis-no-evaluation answers stuck at the bottom of the mark range. Every point needs a paired 'However...' and the answer needs a supported judgement."
+            }
+        },
+        {
+            type: "tip",
+            title: "Analyse vs Evaluate — and know your three sustainabilities",
+            pills: ["AO3a", "AO3b", "Exam patterns"],
+            content: `<p><strong>Analyse</strong> (like "Analyse the benefits of economic sustainability for CDS"):</p>
+<ul>
+<li>Explain with chains of reasoning: "this means... therefore... resulting in..."</li>
+<li><strong>No judgement or conclusion needed.</strong> Don't waste time writing one.</li>
+</ul>
+
+<p><strong>Evaluate</strong> (like "Evaluate the costs... on their economic sustainability"):</p>
+<ul>
+<li>Analyse + weigh both sides + a supported judgement.</li>
+<li>A judgement without a reason is capped at 5/6.</li>
+</ul>
+
+<p><strong>The three sustainabilities keep appearing in this topic's exams — one question of each type has really been asked:</strong></p>
+<ul>
+<li><strong>Economic</strong> — best use of resources so growth can continue (Nina and Leo's café; CDS)</li>
+<li><strong>Social</strong> — quality of life and fairness (the Asian Hornet's effect on the UK; the Carwod road)</li>
+<li><strong>Environmental</strong> — resource use and pollution (free range farming at Calwith Farmers)</li>
+</ul>
+
+<p><strong>Before writing, underline which sustainability the question names</strong> — then check every sentence of your answer talks about that one.</p>`,
+            readCheck: {
+                q: "A 6-mark question starts with 'Analyse...'. Should your answer end with an overall judgement?",
+                opts: ["Yes — every 6-marker needs a conclusion", "No — Analyse needs chains of reasoning, not a judgement", "Only if you have spare time", "Yes, but only one sentence"],
+                ans: 1,
+                explain: "Judgements belong to Evaluate questions. Analyse questions are marked on knowledge, application and chains of reasoning — a conclusion earns nothing extra (real OCR commentary confirms none is required)."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Need", def: "Something required to survive, such as food, water or shelter" },
+        { term: "Want", def: "Something desired but not essential for survival — wants are unlimited" },
+        { term: "Scarcity", def: "Not enough resources to satisfy all wants" },
+        { term: "Scarce resource", def: "A resource with an insufficient amount to satisfy all wants, e.g. crude oil" },
+        { term: "Unlimited wants", def: "The infinite desire for goods and services" },
+        { term: "The basic economic problem", def: "How to satisfy unlimited wants with limited (scarce) resources" },
+        { term: "The three questions", def: "What to produce, how to produce it, and for whom to produce it" },
+        { term: "Opportunity cost", def: "The next best alternative given up when making a choice" },
+        { term: "Trade-off", def: "Choosing one option above all the other alternatives" },
+        { term: "Utility", def: "The satisfaction gained from consuming a good or service" },
+        { term: "Market economy", def: "Resources allocated by the market forces of demand and supply" },
+        { term: "Planned economy", def: "Resources allocated by the state" },
+        { term: "Mixed economy", def: "Market forces plus government intervention — every real country is one" },
+        { term: "Economic sustainability", def: "Whether a choice is the best use of resources to allow growth over time" },
+        { term: "Social sustainability", def: "A choice's impact on quality of life and fairness for all" },
+        { term: "Environmental sustainability", def: "A choice's impact on resource use and pollution" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "Q1a",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 2 — Farming in Rwanda</strong></p><p>Rwanda is an African country where about 90% of the population is involved in agriculture. The majority of farms are small and the owners use simple tools to produce a variety of crops demanded by the local economy. Despite such a large primary sector, Rwanda does not produce enough food for the population. The economy relies on imports to meet demand for food.</p><p>The government believes that specialisation in the crops that are produced will bring benefits to the economy. A new scheme has been introduced that will give farmers access to better technology and machinery, as long as the farmers specialise in the production of crops.</p><p>However, many farmers argue against this scheme. For years they have farmed using their knowledge of the land and local community. Specialising in one type of crop, such as beans, means that their income is based on world-wide demand, which can change. There are also concerns that specialisation may reduce the quality of the soil. This could have a negative impact on the productivity of the farms and damage the environment.</p><p>The Rwandan government believes that the proposals will allow for more modern technology to be used in farming and will increase the use of scarce resources in the Rwandan economy.</p>`,
+            question: "State what is meant by 'the basic economic problem'.",
+            hint: "Two halves needed: something about resources being limited/finite, AND something about wants being unlimited/competing.",
+            starter: "The basic economic problem is that...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>There is only a limited / finite number / volume of resources (such as land / labour) in an economy / world</li>
+<li>These must be allocated among competing / unlimited wants / uses</li>
+</ul>
+<p>Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark for a reference to finite / limited</li>
+<li>1 mark for a reference to competing / unlimited wants / uses</li>
+</ul>
+</div>`,
+            modelAnswer: "There is only a limited amount of resources, such as land and labour, in the world.\n\nThese have to be shared out between wants that are unlimited."
+        },
+        {
+            num: "Q1b",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Explain, using an example, what is meant by 'opportunity cost'.",
+            hint: "Definition first (don't forget 'given up' or 'foregone'), then a specific example — you could use the Rwandan farmers from the extract.",
+            starter: "Opportunity cost is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Opportunity cost is the value of the next best alternative that has been forgone</li>
+<li>Any correct example (e.g. a firm investing in machinery rather than labour)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark for a correct definition</li>
+<li>1 mark for a correct example</li>
+</ul>
+</div>`,
+            modelAnswer: "Opportunity cost is the value of the next best alternative that is given up when making a choice.\n\nFor example, a Rwandan farmer who uses his land to grow only beans gives up the chance to grow other crops on that land."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "An opportunity cost of a car manufacturing firm deciding to increase its labour force would be...",
+            options: ["The benefits of increasing the size of its labour force", "The benefits that could have been received by investing in machinery", "The increase in the amount of profit made by the firm", "The increase in the amount spent on wages"],
+            answer: 1,
+            hint: "Opportunity cost is the benefit of the NEXT BEST ALTERNATIVE given up — not the cost of the option chosen, and not its benefits.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — The benefits that could have been received by investing in machinery</strong></p>
+<ul>
+<li>Opportunity cost is the benefit of the next best alternative given up.</li>
+<li>The money spent on extra workers could have bought machinery instead — the machinery's benefits are what's sacrificed.</li>
+<li>Wages (D) are the money cost of the choice, not the opportunity cost.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q3i",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 3 — The Asian Hornet</strong></p><p>The Asian Hornet is an insect first found in France in 2004. It has spread to many other European countries and has now reached the UK.</p><p>The Asian Hornet has a negative impact because it destroys honeybees and many other insects which pollinate plants, damaging the primary sector. This causes a fall in the level of production of most fruit and vegetable crops, leading to economic losses. This has already happened in Spain, France, Italy, and Portugal.</p><p>The Asian Hornet is very aggressive and can affect consumers and producers. The hornet's sting can cause a severe reaction and in extreme cases leads to death. The annual cost of destroying the nests to get rid of the Asian Hornet is estimated to be £10.5 million for France, £8 million for Italy, and £7.6 million for the UK.</p><p>Overall, the Asian Hornet will have a negative effect on the quality of life and wellbeing in the UK, unless it can be destroyed.</p>`,
+            question: "Using the information in Extract 3, calculate the average cost of destroying the Asian Hornet in France, Italy, and the UK. Show your working.",
+            hint: "Add the three costs, divide by 3 — and don't forget the units ('million'). Real candidates lost a mark for writing 8.7 without it.",
+            starter: "£10.5m + £8m + £7.6m = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>£10.5m + £8m + £7.6m = £26.1m (1)</strong></p>
+<p><strong>£26.1m ÷ 3 = £8.7m (1)</strong></p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 2 marks for the correct answer (with or without workings) — £8 700 000 is also correct</li>
+<li>Award 1 mark for £26.1m <strong>or</strong> £8.7 (no units)</li>
+<li>Own Figure Rule applies for a maximum of 1 mark</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates correctly identified the average cost as £8.7 million, but some of them gained just 1 mark because although they correctly calculated the 8.7, they forgot to add million to the answer.</p>
+</div>`,
+            modelAnswer: "£10.5m + £8m + £7.6m = £26.1m\n\n£26.1m ÷ 3 = £8.7 million"
+        },
+        {
+            num: "Q3ii",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Explain how the Asian Hornet can affect the interdependence of the factor and product markets.",
+            hint: "The factor market is where things like LABOUR are bought and sold; the product market is where finished goods are sold. Show how a change in one flows into the other.",
+            starter: "Because the Hornet cuts crop production, ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers might include:</strong></p>
+<ul>
+<li>Interdependence is the effect/response of one market on/to the other</li>
+<li>Producers will need fewer workers</li>
+<li>Consumers are often workers so have less income</li>
+<li>Consumers buy fewer products from the producers</li>
+<li>Agricultural products are the components of many manufactured goods so prices may increase</li>
+<li>If workers get stung then fewer workers so less production</li>
+</ul>
+<p>Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 1 mark for a basic statement</li>
+<li>Award 1 additional mark for development of this statement, showing the interdependence</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates did not understand what was meant by the factor or the product markets. The former was often confused with the primary sector.</p>
+<p>Although 'interdependence' is in the Specification this was also not understood.</p>
+<p><strong>Misconception:</strong> Factor Market is not the same as Primary Sector. Product Market is not the same as Secondary/Tertiary Sector.</p>
+</div>`,
+            modelAnswer: "Because the Hornet cuts crop production, farmers need fewer workers, so demand in the factor market falls.\n\nThose workers are also consumers, so with less income they buy fewer goods — meaning demand in the product market falls too."
+        },
+        {
+            num: "Q3iii",
+            marks: 6,
+            type: "written",
+            caseStudy: "",
+            question: "Evaluate the extent to which the Asian Hornet will have a negative effect on the social sustainability of the UK. Use the information given in Extract 3 and your own knowledge.",
+            hint: "Social sustainability = quality of life and wellbeing. Use the UK data from the extract (the sting, the £7.6 million). Then evaluate: what does the extent of the damage DEPEND on? Finish with a judgement that answers 'the extent to which'.",
+            starter: "The Asian Hornet could damage the UK's social sustainability because...\n\nHowever, the extent depends on...\n\nOverall, ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2 ×1, AO3a ×2, AO3b ×3)</h5>
+<p><strong>NB:</strong> There are 1 Application mark, 2 Analysis marks and 3 Evaluation marks available. There are <strong>no Knowledge marks</strong>.</p>
+<p><strong>Social sustainability</strong> — the impact of development or growth that promotes an improvement in quality of life for all, now and into the future.</p>
+<p><strong>Application might include:</strong></p>
+<ul>
+<li>The hornet's sting can cause a severe reaction and in extreme cases leads to death</li>
+<li>The annual cost of destroying the nests is estimated to be £7.6 million for the UK (must be UK)</li>
+<li>Destroys honeybees and many other insects which pollinate plants</li>
+<li>Fall in the level of production of most fruit and vegetable crops</li>
+</ul>
+<p><strong>Analysis might include (negative effects):</strong></p>
+<ul>
+<li>Fall in quality of life — especially in the countryside</li>
+<li>Decline in economic sustainability / higher prices</li>
+<li>Decline in quality of life and wellbeing</li>
+<li>Decline in environmental sustainability</li>
+<li>Fewer renewable resources</li>
+<li>Cost of losses and dealing with it, including opportunity cost</li>
+</ul>
+<p><strong>Evaluation:</strong></p>
+<ul>
+<li>Depends on whether the Asian Hornet gets a foothold in the UK</li>
+<li>Depends on actions by UK Government, including the size of the opportunity cost of expenditure and its impact and/or sources of finance for this spending</li>
+<li>May depend on whether firms are capital or labour intensive</li>
+<li>Could be positive as control might lead to other benefits e.g. overall better pest control / innovations in farming</li>
+<li>May lead to more imports</li>
+<li>Comparison with France etc.</li>
+</ul>
+<p><strong>NB:</strong> 'the extent to which' and 'social sustainability' must be directly addressed for more than 2 Evaluation marks.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong></p>
+<ul>
+<li>Good application of knowledge in the context of the scenario, with good understanding of all its relevant elements</li>
+<li>Reasonable analysis — correct analysis, largely single effects, addressing the question</li>
+<li>Good evaluation with a fully supported judgement, developed from weighing up both sides</li>
+</ul>
+<p><strong>Level 2 (3–4 marks):</strong></p>
+<ul>
+<li>Good application of knowledge in the context of the scenario</li>
+<li>Limited analysis — an attempt, with a single effect linked to the question</li>
+<li>Reasonable evaluation considering both sides — a judgement (if given) not fully supported</li>
+</ul>
+<p><strong>Level 1 (1–2 marks):</strong></p>
+<ul>
+<li>No application — only an attempt to use the terms in context</li>
+<li>Limited analysis — a single effect with some link to the question</li>
+<li>Limited evaluation — an incomplete attempt at both sides, with unsupported statements</li>
+</ul>
+<p><strong>0 marks:</strong> Response is not worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>There were some very good answers to this question. Many of the candidates clearly understood what was meant by the term 'social sustainability'.</p>
+<p>Application marks were gained in terms of the impact of the hornet's sting or the lack of produce and the annual cost to the UK government of destroying the nests.</p>
+<p>Analysis usually referred to the existence of higher prices and the decline in the quality of life, while evaluation was often in relation to the existence of opportunity cost in terms of expenditure by the UK government or to the possible need to bring in imports from different countries.</p>
+</div>`,
+            modelAnswer: "The Asian Hornet could damage the UK's social sustainability, which is about people's quality of life. Its sting can cause a severe reaction and in extreme cases death, which directly harms wellbeing. It also destroys the bees that pollinate fruit and vegetable crops, so there would be less produce and higher prices, lowering the quality of life — especially in the countryside.\n\nHowever, the extent depends on whether the Hornet actually gets a foothold in the UK. The government is spending an estimated £7.6 million a year destroying nests, and if this works, the damage to daily life could stay small — though that money has an opportunity cost, as it could have been spent on other services.\n\nOverall, the Hornet will have some negative effect on social sustainability, but a large one only if it spreads faster than the government can destroy the nests."
+        },
+        {
+            num: "Q4",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "The government allocates scarce resources between many uses. When they decide to spend more money on health instead of education, the government is answering a key economic question.",
+            question: "What is the key economic question?",
+            options: ["Are the needs of health more than the wants of education?", "For whom should health be produced?", "How should health be produced?", "What should be produced?"],
+            answer: 3,
+            hint: "The three key questions are WHAT, HOW and FOR WHOM. Choosing health over education is a decision about which one?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: D — What should be produced?</strong></p>
+<ul>
+<li>Choosing to put resources into health instead of education is deciding WHAT gets produced with the scarce budget.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Only a few candidates have the correct answer D, showing that the concept of 'key economic question' is not well understood.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q5",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "A shop owner decides to close their shop for two weeks to go on holiday. As a result, they will lose £2000 in revenue.",
+            question: "This is an example of...",
+            options: ["Gross pay", "Market forces", "Opportunity cost", "The economic problem"],
+            answer: 2,
+            hint: "The £2000 is what the owner GIVES UP by choosing the holiday — what concept is that?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: C — Opportunity cost</strong></p>
+<ul>
+<li>The £2000 of revenue is the next best alternative given up by choosing the holiday — a textbook opportunity cost.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most of the candidates gave C as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q6",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "What is meant by scarce resources?",
+            options: ["Economic choice means that resources are used in the best way possible", "Resources must not be overused so they can be replaced", "The existence of finite resources and the need to choose between uses", "Where there are insufficient resources to satisfy all wants"],
+            answer: 3,
+            hint: "Scarcity is about there not being ENOUGH to satisfy ALL wants — be careful, one of the wrong options describes sustainability instead.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: D — Where there are insufficient resources to satisfy all wants</strong></p>
+<ul>
+<li>Scarcity means there is not enough of a resource to satisfy all wants.</li>
+<li>Option B describes sustainability, not scarcity — a common mix-up.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates gave the correct answer D, but too many lacked understanding of scarcity, with many choosing C.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q7",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "The government has decided to rebuild the main road near Carwod, as the present road is too dangerous. The new road will be nearer to the village of Carwod.",
+            question: "This is an example of which type of sustainability?",
+            options: ["Economic", "Environmental", "Renewable", "Social"],
+            answer: 3,
+            hint: "The reason for the project is SAFETY and convenience for the villagers — which sustainability is about quality of life?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: D — Social</strong></p>
+<ul>
+<li>Rebuilding a dangerous road improves the community's safety and quality of life — that is social sustainability.</li>
+<li>'Renewable' is not a type of sustainability at all.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A high percentage of candidates gave Option D as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q8a",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 3 — The Celandine Hotel</strong></p><p>The Celandine Hotel won the 'Business Enterprise of 2022 Award' for the county of Cummorland. Although there are many hotels in Cummorland, The Celandine has increased its number of customers. This has been achieved by hosting a wide range of events including conferences, lunches for local businesses, murder mystery evenings, and weddings. This has helped to change the demand for its services from being price elastic to price inelastic.</p><p>Ben and Eve, the owners, are concerned by recent increases in the rate of interest. Five years ago they borrowed £500 000 to help them buy the hotel. At that time, they were paying 3% interest which was £1250 a month. The bank has told them from the start of next month they need to pay 7.5% interest.</p><p>Eve has suggested that they could save money on wages if she gave up her teaching job. She could then manage the business finances and run some of the hotel's events. Ben wondered whether a better option would be to specialise in weddings and conferences in the future.</p>`,
+            question: "Explain, using an example, what is meant by enterprise.",
+            hint: "Enterprise = the factor of production that takes a RISK organising the other factors. Your example must show that activity — naming a famous entrepreneur like Elon Musk earns nothing.",
+            starter: "Enterprise is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The factor that takes a risk in organising the other factors of production</li>
+<li>E.g. setting up a new business</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 1 mark for a reference to risk and/or organising/bringing factors of production together</li>
+<li>Award 1 mark for a correct example</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>The responses to this question were, in the main, less successful. This was due to the inability of most candidates to provide a response that included a suitable example of enterprise.</p>
+<p>The main issue was an apparent confusion between 'enterprise' and 'entrepreneurs'. This led to many candidates including either the names of individual entrepreneurs such as Elon Musk, Bill Gates or Jeff Bezos, or the names of individual business organisations such as Tesla, Microsoft or Amazon, rather than providing an example of how they demonstrate enterprise.</p>
+<p>Better responses referred to enterprise as a factor of production that takes a risk in organising the other factors of production, and supported this with a simple example, such as setting up a coffee shop.</p>
+<p>It is worth noting that this question had one of the highest 'No response' figures for this paper.</p>
+</div>`,
+            modelAnswer: "Enterprise is the factor of production that takes a risk in organising the other factors of production.\n\nFor example, Ben and Eve took a risk by borrowing £500,000 to set up their hotel business."
+        },
+        {
+            num: "Q8bi",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Calculate how much interest per month Ben and Eve will be paying after the interest rate increases. Show your working.",
+            hint: "Work out the YEARLY interest at 7.5% on £500,000 first, then divide by 12 for the monthly figure — that last step is where real candidates lost the mark.",
+            starter: "£500,000 × 7.5% = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>£500,000 × 7.5% = £37,500 (1)</strong></p>
+<p><strong>£37,500 ÷ 12 = £3,125 (1)</strong></p>
+<p>Or: £500,000 × 3% = £15,000; £15,000 ÷ 12 = £1,250; £1,250 ÷ 3 = £416.67; £416.67 × 7.5 = £3,125 (2 marks)</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>A correct answer of £3,125 (with or without workings) is 2 marks</li>
+<li>Award 1 mark for the correct calculation of the yearly interest payment</li>
+<li>Own Figure Rule: if the result of the initial calculation is incorrect, but this is then correctly divided by 12, 1 mark can be awarded</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates were given both marks for this question.</p>
+<p>Where full marks were not given, this was mainly due to the failure of some candidates to work out the monthly interest payment as opposed to the total of interest yearly.</p>
+</div>`,
+            modelAnswer: "£500,000 × 7.5% = £37,500 a year\n\n£37,500 ÷ 12 = £3,125 a month"
+        },
+        {
+            num: "Q8bii",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Explain what the opportunity cost will be if Eve decides to \"manage the business finances and run some of the hotel's events.\"",
+            hint: "What does Eve have to GIVE UP to do this? Use the context — a theoretical definition alone only gets 1 mark.",
+            starter: "The opportunity cost for Eve is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The next best alternative given up</li>
+<li>Eve would give up teaching, so loss of her salary</li>
+<li>Actual cost would depend if Eve's doing the finances saved on someone else's cost</li>
+</ul>
+<p>Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 2 marks for a clear explanation of the opportunity cost involved, making clear use of the context</li>
+<li>Award 1 mark for a theoretical answer</li>
+<li>Award 1 mark if the answer is just 'Eve's teacher's salary', i.e. no explanation</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Less successful responses to this question did not seem to understand the term 'opportunity cost' and/or did not identify that Eve would lose her teaching salary if she took on the specified roles in the hotel.</p>
+<p>The best responses provided a clear definition of the term and linked their understanding to the loss of pay.</p>
+</div>`,
+            modelAnswer: "The opportunity cost is the next best alternative Eve gives up.\n\nTo manage the finances and run events, she has to give up her teaching job — so the opportunity cost is her teaching salary."
+        },
+        {
+            num: "Q8biii",
+            marks: 6,
+            type: "written",
+            caseStudy: "",
+            question: "Evaluate the benefits of increased specialisation for The Celandine Hotel. Use the information given in Extract 3 and your own knowledge.",
+            hint: "Pick benefits and develop them in context (inelastic demand → can raise prices; reputation; staff get better at events). Then pair each with a limit ('depends on what other hotels do...'). End with a supported judgement.",
+            starter: "One benefit of specialising is...\n\nHowever, the benefits depend on...\n\nOverall, ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2 ×1, AO3a ×2, AO3b ×3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Made demand more inelastic so can raise price to increase revenue</li>
+<li>Could increase demand as the hotel gains a reputation</li>
+<li>Higher productivity of the workforce</li>
+<li>Time saved not trying to provide a wide range of services</li>
+<li>Higher output of their services</li>
+<li>Service offered may be of a higher quality attracting even more demand</li>
+<li>Economies of scale</li>
+</ul>
+<p><strong>Evaluation may include:</strong></p>
+<ul>
+<li>Benefits may depend on what other hotels do</li>
+<li>Providing fewer services may not benefit them if the market changes</li>
+<li>Problems of knowing the value of PED — how inelastic is it?</li>
+</ul>
+<p>Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong></p>
+<ul>
+<li>Good application of knowledge of the likely benefits of specialisation for the hotel, in the context of the scenario</li>
+<li>Reasonable analysis — correct analysis, largely single effects, addressing the question</li>
+<li>Good evaluation with a fully supported judgement, developed from weighing up both sides</li>
+</ul>
+<p><strong>Level 2 (3–4 marks):</strong></p>
+<ul>
+<li>Good application of knowledge in the context of the scenario</li>
+<li>Limited analysis — a single effect with some link to the question</li>
+<li>Reasonable evaluation considering both sides — a judgement (if given) not fully supported</li>
+</ul>
+<p><strong>Level 1 (1–2 marks):</strong></p>
+<ul>
+<li>No application — only an attempt to use the terms in context</li>
+<li>Limited analysis — a single effect with some link to the question</li>
+<li>Limited evaluation — incomplete consideration of both sides, with unsupported statements</li>
+</ul>
+<p><strong>0 marks:</strong> No work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Of the three (d)(iii) questions on this paper, this was probably the most accessible for candidates and many seemed well prepared. There were many responses referring to higher quality, improved worker productivity, lower average costs, increased reputation, demotivated workers and overdependence.</p>
+<p>Many candidates found it far easier to gain marks for evaluation here — although in some cases this did not progress beyond the 'boredom' factor and what this meant for the hotel.</p>
+<p>Less successful responses did not relate points back to the context of Extract 3, and some focused on the benefits of specialisation for the workers themselves rather than the hotel.</p>
+<p>Many limited responses ended with a conclusion that was a summary rather than a supported judgement.</p>
+</div>`,
+            modelAnswer: "Specialising in weddings and conferences could give The Celandine a strong reputation for these events, increasing demand. Staff would also get better at running them, so productivity and quality rise, attracting even more bookings. Since demand for the hotel is now price inelastic, Ben and Eve could also raise prices without losing many customers, increasing revenue.\n\nHowever, the benefits depend on what the other hotels in Cummorland do — if they specialise in the same events, the advantage shrinks. Offering fewer services is also risky if the market changes and demand for weddings falls.\n\nOverall, specialisation is likely to benefit the hotel, but only if demand for weddings and conferences stays strong enough to replace the events they give up."
+        },
+        {
+            num: "Q9i",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 2 — Nina and Leo's café</strong></p><p>Nina and Leo run a successful café in the town centre of Voreda. They are concerned by the number of new cafés which have opened in the past year. These cafés will provide far more competition for them. This is likely to affect the prices Nina and Leo can charge by changing the equilibrium price and quantity. Nina claims, however, that demand for their products is price inelastic.</p><p>Leo thinks they have enough money to improve the business either by repainting the outside of the café or by replacing their old tables and chairs with new ones. Nina has suggested another option which is to expand their outdoor seating area. Leo says he has done some research into borrowing money from a bank. They could get a £10 000 loan for one year, at a fixed interest rate of 2.5%. However, this rate is likely to rise very soon to 3.5%. This loan would enable them to carry out two of their ideas to improve the business. Nina and Leo both wonder what effect these choices will have on their economic sustainability.</p>`,
+            question: "Using an example from Extract 2, explain what is meant by opportunity cost.",
+            hint: "The example MUST come from the extract (repainting / new tables and chairs / outdoor seating). A definition with an example from anywhere else scores 0 for the example.",
+            starter: "Opportunity cost is... For example, if Nina and Leo choose to...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The next best alternative given up/foregone (when making a choice)</li>
+<li>Extract 2 mentions: repaint the outside of the café; replace the tables and chairs; and expand the outdoor eating area</li>
+</ul>
+<p>Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 2 marks for a correct explanation of opportunity cost with a correct example <strong>from Extract 2</strong></li>
+<li>Award 1 mark for an example from Extract 2</li>
+<li><strong>NB:</strong> No reward for a purely theoretical answer or an example not from Extract 2</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates were given 2 marks for providing a suitable definition and example from Extract 2.</p>
+<p>However, there was some evidence of parts of the definition being missed out — for example, reference to 'foregone' or 'given up' was omitted.</p>
+<p>Some candidates did not read the question carefully enough and provided examples that did not come from Extract 2.</p>
+</div>`,
+            modelAnswer: "Opportunity cost is the next best alternative given up when making a choice.\n\nFor example, if Nina and Leo spend their money on repainting the outside of the café, they give up replacing the old tables and chairs."
+        },
+        {
+            num: "Q9ii",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Calculate the effect on the interest payment if Nina and Leo pay 3.5% interest instead of 2.5% on a £10 000 loan. Show your working.",
+            hint: "You only need the DIFFERENCE — that's 1% of £10,000. Or work out both amounts and subtract.",
+            starter: "1% of £10,000 = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Either:</strong> 1% of £10,000 (1) = £100 (1)</p>
+<p><strong>Or:</strong> 3.5% of £10,000 = £350; 2.5% of £10,000 = £250 (1); difference £100 (1)</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 2 marks for the correct answer (with or without workings)</li>
+<li>Own Figure Rule applies for a maximum of 1 mark</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question proved to be quite straightforward for most candidates, who were able to provide the correct response of £100.</p>
+<p>Occasionally, candidates made errors by selecting the wrong rates of interest or by making calculation errors — for example, a small percentage got the decimal point in the wrong place. Where the working was logical, they could still gain 1 mark under the Own Figure Rule.</p>
+</div>`,
+            modelAnswer: "1% of £10,000 = £100\n\nSo paying 3.5% instead of 2.5% costs an extra £100 a year."
+        },
+        {
+            num: "Q9iii",
+            marks: 6,
+            type: "written",
+            caseStudy: "",
+            question: "Evaluate the costs of the economic choices that Nina and Leo must make on their economic sustainability. Use the information given in Extract 2 and your own knowledge.",
+            hint: "ECONOMIC sustainability — can the café keep using its resources to grow over time? Identify the costs (loan, interest, reserves), analyse their consequences, then weigh up whether the improvements are worth it. End with a supported judgement.",
+            starter: "One cost is...\n\nHowever, there is no guarantee that...\n\nOverall, the choices are only economically sustainable if...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2 ×1, AO3a ×2, AO3b ×3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Economic sustainability of an economic choice ensures the best use of resources so that Nina and Leo's café can continue to grow over time</li>
+</ul>
+<p><strong>Costs:</strong></p>
+<ul>
+<li>£10,000 loan and the interest payable / time scale of repayment</li>
+<li>Use of their reserves of money</li>
+<li>Cost of either painting or replacing tables/chairs or expanding outdoor area</li>
+<li>How much might this enable them to increase prices to consumers?</li>
+</ul>
+<p><strong>Evaluation:</strong></p>
+<ul>
+<li>No guarantee that any improvements will bring in more customers or retain existing ones, especially with more cafés opening</li>
+<li>Monetary costs involved may outweigh any increase in revenue</li>
+<li>Will any changes at least meet what the competition is offering?</li>
+<li>Would it be better to improve the value of what they offer as against cosmetic changes?</li>
+<li>How economically sustainable are the choices?</li>
+</ul>
+<p>Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong></p>
+<ul>
+<li>Good application of knowledge of the costs of the economic choices on economic sustainability, in the context of the scenario</li>
+<li>Reasonable analysis — correct analysis, largely single effects, addressing the question</li>
+<li>Good evaluation of the costs in relation to economic sustainability, with a fully supported judgement developed from weighing up both sides</li>
+</ul>
+<p><strong>Level 2 (3–4 marks):</strong></p>
+<ul>
+<li>Good application of knowledge in the context of the scenario</li>
+<li>Limited analysis — a single effect with some link to the question</li>
+<li>Reasonable evaluation considering both sides — a judgement (if given) not fully supported</li>
+</ul>
+<p><strong>Level 1 (1–2 marks):</strong></p>
+<ul>
+<li>No application — only an attempt to use the terms in context</li>
+<li>Limited analysis — a single effect with some link to the question</li>
+<li>Limited evaluation — incomplete consideration of both sides, with unsupported statements</li>
+</ul>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>The key factor in determining the success of candidates in this question was whether they knew and understood the term 'economic sustainability'. There were candidates who either did not attempt this question or who answered in terms of environmental sustainability.</p>
+<p>To answer successfully, candidates needed to start by identifying one or more costs from the choices in Extract 2 — the loan, the interest payable and time scale; using their own reserves of money; and the costs of painting, replacing furniture or expanding the outdoor area. Then they needed to analyse the consequences of these costs and evaluate them in terms of the effects on the economic sustainability of the business.</p>
+<p>A general concern is that many candidates were unable to evaluate the analysis they had provided — which in some cases was strong — and therefore were unable to be given more than 1 mark out of 6.</p>
+<p><strong>Knowing the different forms of sustainability:</strong> economic, social and environmental sustainability all appear in the specification. Candidates need to be able to answer a question on any of them and clearly differentiate between them.</p>
+</div>`,
+            modelAnswer: "Economic sustainability means using resources so the café can keep growing over time. One cost is the £10,000 loan — Nina and Leo would have to repay it within a year plus interest, which could rise from 2.5% to 3.5%. This means less money left for running the business. The improvements also use up their reserves, whether they repaint, buy new furniture or expand the outdoor seating.\n\nHowever, there is no guarantee the improvements will bring in more customers, especially with more cafés opening in Voreda, so the costs may outweigh any extra revenue.\n\nOverall, the choices are only economically sustainable if the improvements win enough new customers to cover the loan repayments and the interest."
+        },
+        {
+            num: "Q10",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "For most of 2021 the world supply of computer chips did not satisfy the demand for them.",
+            question: "This is an example of...",
+            options: ["Economies of scale", "Oligopoly collusion", "Scarce resources", "Unlimited wants"],
+            answer: 2,
+            hint: "Not enough supply to satisfy demand = not enough of the resource to go around. Which term is that?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: C — Scarce resources</strong></p>
+<ul>
+<li>There was not enough supply of chips to satisfy demand — the definition of a scarce resource.</li>
+<li>'Unlimited wants' (D) describes the demand side in general, but the situation described is the shortage itself.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>The correct response to this question was Option C; however, many candidates gave Option D as the correct response.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q11i",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 1 — UK housing market</strong></p><p>There was a large increase in the demand for housing in the UK in 2020 and 2021. This led to a considerable rise in house prices, with more resources being allocated to house building. However, some consumer groups accused house builders of failing to supply enough new and suitable properties. In reply, the house builders said that local government planning rules slowed down growth in the housing market.</p><p>Recently, Plumgarth council rejected a plan by Holoss Builders for a development of new houses, as the house types did not meet the council's strategic plan requirements.</p>
+<img src="/images/economics/1-1-house-prices-chart-extracted.png" alt="Line chart from the OCR exam paper showing the annual percentage change in UK house prices from October 2020 to September 2021, rising from about 4.5% to a peak of 13.5% in June 2021" style="display:block;width:100%;max-width:560px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "i. Explain one factor that may cause more resources to be allocated to a particular market.",
+            hint: "Give a factor (e.g. rising prices, higher profits, more demand), then explain HOW that factor leads producers to put more resources into that market.",
+            starter: "One factor that can cause more resources to be allocated to a market is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>What consumers are willing and able to buy</li>
+<li>The forces of supply and demand</li>
+<li>Higher prices</li>
+<li>Government intervention/policy</li>
+<li>Higher profits — leading to producers expanding or new firms entering the market</li>
+<li>Increased competition</li>
+</ul>
+<p>Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 2 marks for explanation of a correct factor</li>
+<li>Award 1 mark for a correct factor only, without development</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates were able to correctly identify an appropriate factor, which often related to greater demand or higher prices, and so were given 1 mark.</p>
+<p>However, of these, many could not build on this and explain how this factor led to more resource allocation.</p>
+</div>`,
+            modelAnswer: "One factor is higher prices.\n\nIf demand for housing rises, house prices rise, so building houses becomes more profitable. This gives producers a reason to move more resources — land, workers and materials — into that market."
+        },
+        {
+            num: "Q11ii",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "ii. Explain how house builders act as producers in the housing market.",
+            hint: "Don't just say 'they build houses' — that's too basic on its own. Explain what CHOICES house builders make as producers (what to build, how much, what quality).",
+            starter: "House builders act as producers because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Producers supply goods and services</li>
+<li>House builders are the people who supply new houses</li>
+<li>They make choices about what houses to supply and how to build them</li>
+<li>They exercise influence over quantity, price and quality of the houses</li>
+</ul>
+<p>Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 2 marks for an answer that recognises that house builders supply new houses AND decide what to supply, quality, etc.</li>
+<li>Award 1 mark for an answer which does not go beyond simply supplying houses</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was not answered particularly well, with many candidates providing a tautological response such as "house builders are producers as they build houses."</p>
+<p>More successful responses identified that a market requires a supply and a demand, and explained how house builders supply and sell houses for consumers to buy.</p>
+<p>Alternatively, some more successful responses explained the role of producers in bringing factors of production together to generate a supply for consumers to purchase.</p>
+</div>`,
+            modelAnswer: "House builders act as producers because they supply new houses for consumers to buy.\n\nThey also make the producer's choices — what type of houses to build, how many, and what quality — based on what consumers want."
+        },
+        {
+            num: "Q11iii",
+            marks: 6,
+            type: "written",
+            caseStudy: "",
+            question: "iii. Evaluate the extent to which consumers, producers and the government are interdependent in the housing market. Use the information given in Extract 1 and your own knowledge.",
+            hint: "Cover more than one group-to-group link. For each one, explain HOW one group responds to another, then evaluate — is that link strong or limited? Finish with an overall judgement on how interdependent they really are.",
+            starter: "Consumers, producers and the government are interdependent in the housing market because...\n\nHowever, this dependence is limited because...\n\nOverall, ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2 ×1, AO3a ×2, AO3b ×3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>This is where one group responds to the actions of another</li>
+<li>Consumers respond to what properties house builders are building, the quality, the location, and the price</li>
+<li>Producers respond to consumer demands and to requirements of governments</li>
+<li>Producers respond to local government development plans</li>
+<li>Governments respond to demands by consumers and those of producers</li>
+<li>Governments may have plans (for new towns/green zones etc.) which affect where consumers can live, and where producers build</li>
+</ul>
+<p><strong>Evaluation may include (NB: "the extent to which"):</strong></p>
+<ul>
+<li>In the UK, governments cannot force consumers to buy certain types of properties or producers to build</li>
+<li>Consumers and producers are also affected by economic forces such as the supply of workers</li>
+<li>Producers who do not build what consumers want will not last very long</li>
+<li>Consumers may depend on government to ensure houses are built where they are needed</li>
+</ul>
+<p>Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong></p>
+<ul>
+<li>Good application of knowledge of the likely effect of interdependence on the three economic groups, used in the context of the scenario</li>
+<li>Reasonable analysis of the extent of interdependence — correct analysis, mostly single effects, addressing the question</li>
+<li>Good evaluation with a fully supported judgement, developed from weighing up both sides</li>
+</ul>
+<p><strong>Level 2 (3–4 marks):</strong></p>
+<ul>
+<li>Good application of knowledge in the context of the scenario</li>
+<li>Limited analysis — an attempt at analysis, with a single effect linked to the question</li>
+<li>Reasonable evaluation, considering both sides — a judgement (if given) is not fully supported</li>
+</ul>
+<p><strong>Level 1 (1–2 marks):</strong></p>
+<ul>
+<li>No application of knowledge — only an attempt to use the terms in context</li>
+<li>Limited analysis — a single effect with some link to the question</li>
+<li>Limited evaluation — an incomplete attempt at both sides, with unsupported statements</li>
+</ul>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This proved a difficult question for many candidates, as many were unable to explain how the actions of one group impacted on others.</p>
+<p>Most could not get beyond the fact that consumers buy houses from building firms and firms need permission from the government to be allowed to build them.</p>
+<p>Any evaluation was often lacking or somewhat limited, with few candidates including any relevant analysis on which to base it.</p>
+<p>The most successful responses realised that consumers and producers were very interdependent, but that beyond planning permission and building standards the government played a lesser role. Some strong responses drew on the contextual information contained within Extract 1.</p>
+</div>
+<div class="marks-section">
+<h5>Assessment for learning</h5>
+<p>As the skills of analysis and evaluation (AO3) comprise 30% of the total marks available for this paper, it is important that candidates are regularly exposed to discussions, exercises and past-paper questions that allow them to develop and practise these skills.</p>
+</div>`,
+            modelAnswer: "Consumers and producers depend on each other in the housing market. House builders respond to what consumers want — the location, quality and price of homes — because if they build houses consumers do not want, they will not sell them. Producers also depend on the government, as councils can reject planning applications. This is shown in Extract 1, where Plumgarth council rejected Holoss Builders' plan because it did not meet the council's strategic plan.\n\nHowever, this dependence has limits. The government cannot force consumers to buy certain properties or force producers to build them. Both groups are also affected by other things, such as the supply of building workers.\n\nOverall, consumers and producers are very interdependent, but beyond planning rules and building standards the government plays a smaller role."
+        },
+        {
+            num: "Q12a",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 1 — Coom Delivery Service (CDS)</strong></p><p>Coom Delivery Service (CDS) is a delivery business operating in northwest England and southwest Scotland. It has recently bought more land for its growing number of delivery vehicles. Although most of these are powered by petrol, the aim is to have half of the vehicles to be electric powered by 2024. This is because Natan, the owner of CDS, is aware of the need to reduce the use of scarce resources to help achieve economic sustainability.</p><p>Natan has investigated the prices of CDS's competitors. He thinks that if CDS could reduce its prices for next day delivery by either 10% or 20%, it would make considerable gains in the quantity of parcels delivered, as well as total revenue. He has set this out in the table below.</p>
+<table class="case-table"><tr><th>Price</th><th>Quantity of parcels per week</th></tr><tr><td>£25.00</td><td>300</td></tr><tr><td>£22.50</td><td>350</td></tr><tr><td>£20.00</td><td>450</td></tr></table>`,
+            question: "Explain one way the government may encourage a reduction in the use of scarce resources.",
+            hint: "Think of a government tool — a tax, a subsidy, promoting new technology — then develop HOW it cuts the use of scarce resources. A definition of scarce resources earns nothing here.",
+            starter: "The government could...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>By government reallocation to prevent over-use of scarce resources</li>
+<li>By imposing a higher price (price controls) so that demand falls</li>
+<li>By encouraging/subsidising more efficient forms of production to reduce use of raw materials/energy</li>
+<li>Promoting new forms of technology which make less use of scarce resources</li>
+<li>Increasing taxes so that consumer demand falls</li>
+</ul>
+<p>Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Give 2 marks for a clear idea of how scarce resources could be conserved/reduced by the government</li>
+<li>Give 1 mark if there is just a statement, or statements, but no development</li>
+<li>No mark for a definition of scarce resources</li>
+</ul>
+</div>`,
+            modelAnswer: "The government could put a tax on products that use a lot of scarce resources, such as petrol.\n\nThis raises the price, so consumer demand falls and fewer of the scarce resources get used up."
+        },
+        {
+            num: "Q12b",
+            marks: 6,
+            type: "written",
+            caseStudy: "",
+            question: "Analyse the benefits of economic sustainability for CDS.",
+            hint: "This is ANALYSE, not evaluate — no judgement needed. Two developed chains of reasoning ('this means... therefore...'), applied to CDS (electric vehicles, growth, brand image).",
+            starter: "One benefit for CDS is...\n\nEconomic sustainability could also...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a ×1, AO2 ×2, AO3a ×3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Gives the best and most responsible use of resources</li>
+<li>Allows CDS to continue to grow in the future</li>
+<li>Reduction in costs of production or the price paid by consumers</li>
+<li>Improve brand image</li>
+<li>Increase competitiveness</li>
+<li>Make CDS more attractive for workers</li>
+</ul>
+<p><strong>NB:</strong> Any references to environmental or social sustainability should only be credited if clearly linked to economic sustainability.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong></p>
+<ul>
+<li>Reasonable knowledge and understanding — all terms/theoretical concepts explicitly or implicitly understood</li>
+<li>Reasonable application of the likely benefits of economic sustainability in the context of the scenario</li>
+<li>Good analysis — correct analysis in the form of developed links, built into a chain of reasoning which addresses the question</li>
+</ul>
+<p><strong>Level 2 (3–4 marks):</strong></p>
+<ul>
+<li>Reasonable knowledge and understanding — most terms understood</li>
+<li>Limited application — an attempt to use the terms in context</li>
+<li>Reasonable analysis — correct analysis, largely single effects, addressing the question but not developed into a clear chain of reasoning</li>
+</ul>
+<p><strong>Level 1 (1–2 marks):</strong></p>
+<ul>
+<li>Reasonable knowledge and understanding — some terms understood</li>
+<li>No application of knowledge to the likely benefits</li>
+<li>Limited analysis — an attempt which may include a single effect with some link to the question</li>
+</ul>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "Economic sustainability means CDS makes the best and most responsible use of its resources, which allows the business to keep growing in the future. For example, switching half its delivery vehicles to electric power could cut fuel costs, meaning lower costs of production. This means CDS could lower its prices, win customers from competitors and increase its revenue.\n\nBeing economically sustainable could also improve CDS's brand image. Customers increasingly prefer responsible firms, so this could increase demand — and it may make CDS more attractive to workers, reducing recruitment costs."
+        },
+        {
+            num: "Q13",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Opportunity cost can be defined as...",
+            options: ["The loss as a result of missing a bargain", "The minimum average cost of producing a good", "The price of a good or service", "The sacrifice of the most desired alternative"],
+            answer: 3,
+            hint: "Look for the option about SACRIFICING an ALTERNATIVE — not about prices or production costs.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: D — The sacrifice of the most desired alternative</strong></p>
+<ul>
+<li>Opportunity cost is what you give up — the next best alternative sacrificed when a choice is made.</li>
+<li>It is not a price, a production cost, or a missed bargain.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q14",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "A feature of an efficient market is that...",
+            options: ["Any costs of environmental damage are met equally by all consumers", "Firms are unable to make any profit", "The prices of products are set at a level that all consumers can afford", "The prices of products reflect the worth of resources used in their production"],
+            answer: 3,
+            hint: "In an efficient market, what should prices actually TELL you about the product?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: D — The prices of products reflect the worth of resources used in their production</strong></p>
+<ul>
+<li>In an efficient market, prices signal the true value of the scarce resources used up in making the product.</li>
+<li>Efficiency does not mean everyone can afford everything, or that firms make no profit.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q15i",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 3 — The price of oil and petrol</strong></p>
+<table class="case-table"><caption>Table 1: Petrol prices</caption><tr><th>Year</th><th>Price per litre [pence]</th></tr><tr><td>2013</td><td>138.9</td></tr><tr><td>2014</td><td>130.9</td></tr><tr><td>2015</td><td>109.9</td></tr><tr><td>2016</td><td>103.9</td></tr><tr><td>2017</td><td>117.9</td></tr></table>
+<p>Oil and petrol are both obtained from 'crude oil' which is found deep under the earth's surface. Crude oil is a scarce resource.</p><p>Market forces have affected the price of oil and petrol. Two of the more significant market forces recently have been an increase in the production of oil and petrol since 2013 and a growth in demand, especially from developing countries.</p><p>High oil and petrol prices are likely to cause:</p><ul><li>suppliers to produce more</li><li>the development of cleaner and more sustainable energy sources</li><li>consumers to switch from the use of petrol cars to electric cars.</li></ul>`,
+            question: "Explain what is meant by a 'scarce resource'.",
+            hint: "Two ideas needed: not enough of it ('insufficient amount') + can't satisfy all wants.",
+            starter: "A scarce resource is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>When there is an insufficient amount of the resource to satisfy all wants/demands</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark for the idea of 'insufficient amount'</li>
+<li>1 mark for the idea of 'to satisfy all wants'</li>
+</ul>
+</div>`,
+            modelAnswer: "A scarce resource is one where there is not enough of it to satisfy all wants.\n\nFor example, crude oil is scarce because the amount under the earth is limited but demand for it keeps growing."
+        },
+        {
+            num: "Q15ii",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Explain how scarce resources may affect consumers.",
+            hint: "Make a statement about the effect on CONSUMERS (not firms or the economy), then develop it — e.g. what happens to what they can get, and what they pay.",
+            starter: "Because resources are scarce, consumers...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Unable to get as much of a good/service as they want</li>
+<li>Having to pay higher prices</li>
+<li>Having to wait before getting the good/service, e.g. NHS waiting lists</li>
+<li>Needing to choose which goods/services to spend money on</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>2 marks for a basic statement which is then developed, e.g. "Consumers are unable to get as much of a good as they want and thus have to either wait for more or go without"</li>
+<li>1 mark for a basic statement, e.g. "Consumers have to pay higher prices"</li>
+<li>Answers which are not applied to consumers have a maximum of 1 mark</li>
+</ul>
+</div>`,
+            modelAnswer: "Consumers cannot get as much of a good as they want, so they may have to wait for it or go without.\n\nScarcity also pushes prices up, so consumers have to pay more — like when petrol prices rise."
+        },
+        {
+            num: "Q15iii",
+            marks: 6,
+            type: "written",
+            caseStudy: "",
+            question: "Evaluate the costs and benefits of the economic choices faced by consumers if they switch from using petrol cars to electric cars. Use the information given in Extract 3 and your own knowledge.",
+            hint: "Costs AND benefits for CONSUMERS — running costs, purchase price, opportunity cost, air quality, charging points. Weigh them up and finish with a supported judgement.",
+            starter: "One benefit for consumers is...\n\nHowever, one cost is...\n\nOverall, ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2 ×1, AO3a ×2, AO3b ×3)</h5>
+<p><strong>Benefits may include:</strong></p>
+<ul>
+<li>Reduction in air pollution</li>
+<li>Increase in economic sustainability</li>
+<li>Improvement of quality of life for those living near roads/in towns</li>
+<li>Improvement to the environment</li>
+<li>Electric cars could be cheaper to run</li>
+<li>Consumers (as workers) employed to make electric cars</li>
+</ul>
+<p><strong>Costs may include:</strong></p>
+<ul>
+<li>If electric cars are more expensive then reduction in ability to buy other goods/services (opportunity cost)</li>
+<li>Reduced ability for those in rural areas to be mobile if charging points are limited</li>
+<li>Possible reduced standard of living depending on assumptions</li>
+<li>Need to generate more electricity for recharging</li>
+<li>Unemployment for consumers who are car workers or work in filling stations if demand falls</li>
+<li>Cost of providing recharging points may be passed on to consumers</li>
+<li>Loss of value of existing petrol cars if demand falls</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong></p>
+<ul>
+<li>Good application of knowledge of the likely impact of switching to electric cars, in the context of the scenario</li>
+<li>Reasonable analysis of the costs and benefits for consumers — correct analysis, largely single effects, addressing the question</li>
+<li>Good evaluation with a fully supported judgement, developed from weighing up both sides</li>
+</ul>
+<p><strong>Level 2 (3–4 marks):</strong></p>
+<ul>
+<li>Good application of knowledge in the context of the scenario</li>
+<li>Limited analysis — a single effect with some link to the question</li>
+<li>Reasonable evaluation considering both sides — a judgement (if given) not fully supported</li>
+</ul>
+<p><strong>Level 1 (1–2 marks):</strong></p>
+<ul>
+<li>No application — only an attempt to use the terms in context</li>
+<li>Limited analysis — a single effect with some link to the question</li>
+<li>Limited evaluation — incomplete consideration of both sides, with unsupported statements</li>
+</ul>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "One benefit for consumers is that electric cars could be cheaper to run than petrol cars, especially when petrol prices are high, leaving more money to spend on other things. Air pollution would also fall, improving the quality of life for people living near busy roads.\n\nHowever, electric cars are more expensive to buy, so there is an opportunity cost — consumers give up other goods and services they could have bought with the difference. Drivers in rural areas may also struggle if there are few charging points near them.\n\nOverall, switching is likely to benefit consumers in the long run through lower running costs and cleaner air, but the benefits depend on how far the purchase price of electric cars falls."
+        },
+        {
+            num: "Q16",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "All production decisions have an opportunity cost.",
+            question: "This means that when something is produced...",
+            options: ["An identical alternative is given up", "The least valuable alternative is given up", "The next best alternative is given up", "There is no other alternative"],
+            answer: 2,
+            hint: "The definition always says the NEXT BEST alternative — not identical, not least valuable.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: C — The next best alternative is given up</strong></p>
+<ul>
+<li>Opportunity cost is always the NEXT BEST alternative foregone — that exact phrase is what mark schemes look for.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q17",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following is not a scarce resource?",
+            options: ["Air", "Buildings", "Labour", "Machinery"],
+            answer: 0,
+            hint: "A resource is scarce when there isn't enough to satisfy all wants. Which one is there (basically) an unlimited free supply of?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: A — Air</strong></p>
+<ul>
+<li>Air is freely available to everyone — there is enough to satisfy all wants, so it is not scarce.</li>
+<li>Buildings, labour and machinery are all limited and have competing uses.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A very high percentage of candidates gave Option A as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q18",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 2 — Muncaster United</strong></p><p>Arin and Fara own Muncaster United, a small football club. They are considering whether to spend £1m on new players to try and win promotion and to increase the number of supporters, or to increase the club's savings for future use. The opportunity cost of increasing savings could be a failure to win matches. The rate of interest available for any savings depends on how much is saved.</p>
+<img src="/images/economics/1-2-savings-interest-chart-extracted.png" alt="Bar chart from the OCR exam paper showing the rate of interest (%) available at different amounts of savings, rising from 3% at £100,000 to 10% at £1,000,000" style="display:block;width:100%;max-width:560px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>Arin and Fara know that the transfer market for players is very competitive. This means that they need to be both more efficient in finding the right players and better at marketing the club to these potential players. However, the market for attracting the good players that they want, is more like an oligopoly.</p>`,
+            question: "State what is meant by 'opportunity cost'.",
+            hint: "Both parts of the definition matter: 'next best' AND 'given up when making a choice'. Missing 'next best' drops you to 1 mark.",
+            starter: "Opportunity cost is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The (cost of the) next best opportunity forgone/given up when making a decision/choice</li>
+<li>What is given up when making a decision on the use of scarce resources</li>
+</ul>
+<p>Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Give 2 marks for a clear definition along the lines given</li>
+<li>Give 1 mark for an answer which omits 'next best' or only gives an example</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates were able to provide a clear definition of the term 'opportunity cost', such as 'the next best alternative given up when making a choice'.</p>
+<p>However, while recognising the relevance of the next best alternative foregone, some weaker responses made no reference to the fact that this only occurs when a decision or choice is made.</p>
+</div>`,
+            modelAnswer: "Opportunity cost is the next best alternative given up when making a choice.\n\nFor Arin and Fara, spending £1m on new players means giving up the interest the club could have earned by saving that money."
+        },
+        {
+            num: "Q19",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 3 — The Supply of Eggs</strong></p><p>Calwith Farmers is a producer of eggs, laid by free range chickens (where chickens are kept outdoors), which are sold in its own farm shop. The shop also sells produce from surrounding farms. Calwith Farmers has relied on gaining economies of scale and making a good profit from a high quantity of sales.</p><p>Twenty years ago, the owners of Calwith Farmers decided that keeping free range chickens was more environmentally sustainable. This specialisation has resulted in considerable benefits, but also some costs.</p><p>Alex, who is in charge of egg production, assumes that the supply of eggs is price elastic. He knows that while this allows him greater flexibility in responding to changes in demand, it does make him partly dependent on the other farms for the extra supply.</p><p>Alex keeps a careful record of the quantity of eggs supplied to the farm shop (by both Calwith Farmers and the other farms) and the price he can charge.</p>
+<table class="case-table"><tr><th>Price of eggs per dozen (£)</th><th>Dozens of eggs supplied (per week)</th></tr><tr><td>1.60</td><td>20</td></tr><tr><td>1.80</td><td>30</td></tr><tr><td>2.00</td><td>45</td></tr><tr><td>2.20</td><td>60</td></tr><tr><td>2.40</td><td>85</td></tr><tr><td>2.60</td><td>115</td></tr></table>`,
+            question: "Explain one benefit to a firm of choosing to be environmentally sustainable.",
+            hint: "The benefit must go to THE FIRM — not to consumers or the country. Think sales, reputation, competition.",
+            starter: "One benefit to the firm is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Increased sales to environmentally conscious consumers</li>
+<li>Increased reputation as being 'green'</li>
+<li>National recognition</li>
+<li>Keeps up with the competition</li>
+</ul>
+<p>Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Give 2 marks for a suitable benefit explained</li>
+<li>Give 1 mark if there is a suitable benefit identified, but it lacks valid development</li>
+<li><strong>NB:</strong> Only reward answers that clearly show a benefit <strong>to a firm</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was generally answered rather poorly. This was partly caused by the failure of some candidates to recognise that the question asked for one benefit to a firm, while they answered in terms of one benefit to either the consumer or the country.</p>
+<p>Good responses often recognised that being 'environmentally sustainable' meant that a firm might be able to increase sales, as consumers might choose to purchase from firms that are helping to protect the environment.</p>
+</div>`,
+            modelAnswer: "Being environmentally sustainable can increase a firm's sales, because consumers who care about the environment choose to buy from green firms.\n\nFor example, Calwith Farmers' free range eggs may attract customers who care about how the chickens are kept."
+        },
+        {
+            num: "Q20",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "A market system allocates scarce resources through...",
+            options: ["Government taxes and subsidies", "Prices and incentives", "The allocation of state benefit payments", "The control of wages"],
+            answer: 1,
+            hint: "In a MARKET system (not a planned one), what guides producers and consumers to decide where resources go?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: B — Prices and incentives</strong></p>
+<ul>
+<li>In a market system, rising and falling prices act as signals and incentives that direct resources to where they are most wanted.</li>
+<li>Taxes, subsidies and benefits are government tools — they belong to the planned/intervention side of the spectrum.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q21",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "What is meant by unlimited wants?",
+            options: ["Goods which do not have an opportunity cost", "Resources which are essential for survival", "The ability to buy whatever is required", "The infinite desire for goods and services"],
+            answer: 3,
+            hint: "'Unlimited' = infinite. Which option is about desire that never ends?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: D — The infinite desire for goods and services</strong></p>
+<ul>
+<li>Unlimited wants means people's desire for goods and services has no end.</li>
+<li>Resources essential for survival (B) describes needs, not wants.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A very high percentage of candidates gave Option D as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

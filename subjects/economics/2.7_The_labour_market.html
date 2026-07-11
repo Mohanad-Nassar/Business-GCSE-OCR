@@ -703,6 +703,41 @@
         { term: "Gross income", def: "All income before deductions — wages PLUS non-wage income like savings interest or rent." }
     ];
 
+    const EXAM_CASE_STUDIES = {
+      "extract-3-production-productivity-and-specialisa": `<p><strong>Extract 3: Production, productivity and specialisation in Oxbria</strong></p>
+<p>Anika and Ben are economists. They have been asked to advise Oxbria Economic Development Forum (OEDF) about production, productivity and worker specialisation. OEDF is an organisation where businesses, trade unions and politicians meet to try to improve the economy of the county of Oxbria in the UK. The following is a summary of Anika and Ben&#39;s presentation to the OEDF.</p>
+<ul>
+<li>OEDF should aim to increase both productivity and production.</li>
+<li>Increased production could lead to a rise in demand for labour.</li>
+<li>Higher productivity would benefit workers, employers and the local economy.</li>
+<li>At present, labour mobility is very low in Oxbria.</li>
+<li>Oxbria would benefit from improving the opportunities for workers to change jobs.</li>
+<li>Unemployment levels are quite high in Oxbria and a recent survey about the level of job satisfaction showed workers to be generally unhappy in their jobs.</li>
+<li>Greater specialisation by workers would increase the attractiveness of the Oxbria economy to businesses from other parts of the UK.</li>
+</ul>
+<p>They also showed a diagram showing the percentage growth in output per worker for the UK and selected European countries for 2018.</p>
+<img src="/images/economics/2-6-oxbria-productivity-chart-extracted.png" alt="Bar chart from the OCR exam paper titled 'Growth in output per worker (%)': Western Europe average about 1.5, UK about 1.7, Sweden 1.4, Malta 3.2, Luxembourg 2.1, Greece 2.4, Germany 1.2, France 1.3, Finland 1.1" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+      "extract-1-ssa-ltd": `<p><strong>Extract 1: SSA Ltd</strong></p>
+<p>SSA Ltd makes computer equipment for aeroplanes. Jessica, the owner, knows that increased competition in the industry offers both opportunities and threats for the company.</p>
+<p>She believes that it is vital for the company to respond to the competition and that economies of scale might be important for SSA Ltd. In addition, she wants to improve how the firm uses its resources, especially its skilled labour. Jessica thinks that greater competition in the industry is likely to lead to a large increase in the gross pay of her workers.</p>
+<p>Mark, SSA Ltd&#39;s Finance Director, has given Jessica the following information for the previous month:</p>
+<ul>
+<li>Output = 200 units</li>
+<li>Total Cost = &pound;400 000</li>
+<li>Total Revenue = &pound;500 000</li>
+</ul>`,
+      "extract-3-wages-and-productivity": `<p><strong>Extract 3: Wages and productivity</strong></p>
+<p>One problem for the UK&#39;s labour market has been that many workers find it difficult to move to new jobs, even when they are available. Eilidh and Toni of Crotay Ltd, manufacturers of specialist car tyres, have been discussing this, as they have regular problems with finding enough qualified workers.</p>
+<p>As part of this discussion, they have been considering whether they can afford to increase the wages of their employees by more than 2% this year. The chart below shows the wage rises at Crotay Ltd over the last six years.</p>
+<img src="/images/economics/2-7-crotay-wage-increases-chart-extracted.png" alt="Bar chart from the OCR exam paper titled 'Wage increases at Crotay Ltd', in %: 2013 about +0.5, 2014 about -1, 2015 +1, 2016 +1.5, 2017 +2, 2018 +2" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>Eilidh has said that low wage increases in the UK economy are damaging Crotay&#39;s performance in the product market. Toni, however, feels they cannot afford to give higher pay rises, as Crotay&#39;s productivity levels are lower than their rivals, which is causing falling sales.</p>
+<p>In 2016, UK productivity per hour worked was 15% lower than the world&#39;s top six industrial countries and 25% lower than in Germany.</p>`,
+      "extract-2-mia-and-her-pay": `<p><strong>Extract 2: Mia and her pay</strong></p>
+<p>Mia is looking for her first job, having just gained a good degree in Economics. Layla, her Economics tutor, has explained that the labour market lacks perfect mobility and that Mia will be part of a factor market. With the current low demand for and high supply of labour, Layla has told Mia that she should not expect to earn as much as someone similar did last year.</p>
+<p>Mia has told Layla that she has already been offered a job by Ricomo Ltd. Mia will receive a starting wage of &pound;30 000 a year, plus an extra &pound;200 for each month she stays with the firm. She will also receive an extra 10% of her starting wage, as a bonus, at the end of her first year.</p>
+<p>Mia says that this wage package is because Ricomo&#39;s Ltd owners think that employing her will lead to an increase in total revenue. This will enable the business to gain more profit and to supply more products to the market. This is because the owners claim that their products have a perfectly price elastic supply.</p>`
+    };
+
     const examQuestions = [
         {
             num: "Q1",
@@ -900,19 +935,7 @@
             num: "Q10(a)",
             marks: 2,
             type: "written",
-            caseStudy: `<p><strong>Extract 3: Production, productivity and specialisation in Oxbria</strong></p>
-<p>Anika and Ben are economists. They have been asked to advise Oxbria Economic Development Forum (OEDF) about production, productivity and worker specialisation. OEDF is an organisation where businesses, trade unions and politicians meet to try to improve the economy of the county of Oxbria in the UK. The following is a summary of Anika and Ben&#39;s presentation to the OEDF.</p>
-<ul>
-<li>OEDF should aim to increase both productivity and production.</li>
-<li>Increased production could lead to a rise in demand for labour.</li>
-<li>Higher productivity would benefit workers, employers and the local economy.</li>
-<li>At present, labour mobility is very low in Oxbria.</li>
-<li>Oxbria would benefit from improving the opportunities for workers to change jobs.</li>
-<li>Unemployment levels are quite high in Oxbria and a recent survey about the level of job satisfaction showed workers to be generally unhappy in their jobs.</li>
-<li>Greater specialisation by workers would increase the attractiveness of the Oxbria economy to businesses from other parts of the UK.</li>
-</ul>
-<p>They also showed a diagram showing the percentage growth in output per worker for the UK and selected European countries for 2018.</p>
-<img src="/images/economics/2-6-oxbria-productivity-chart-extracted.png" alt="Bar chart from the OCR exam paper titled 'Growth in output per worker (%)': Western Europe average about 1.5, UK about 1.7, Sweden 1.4, Malta 3.2, Luxembourg 2.1, Greece 2.4, Germany 1.2, France 1.3, Finland 1.1" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            caseId: "extract-3-production-productivity-and-specialisa",
             question: "Explain one way an increase in production could lead to a rise in demand for labour.",
             hint: "One way + development: producing more OUTPUT needs more resources including labour — or more output brings more profit, so the firm expands and hires more. Derived demand.",
             starter: "Producing more output requires more resources, including labour, so...",
@@ -939,19 +962,7 @@
             num: "Q10(b)",
             marks: 6,
             type: "written",
-            caseStudy: `<p><strong>Extract 3: Production, productivity and specialisation in Oxbria</strong></p>
-<p>Anika and Ben are economists. They have been asked to advise Oxbria Economic Development Forum (OEDF) about production, productivity and worker specialisation. OEDF is an organisation where businesses, trade unions and politicians meet to try to improve the economy of the county of Oxbria in the UK. The following is a summary of Anika and Ben&#39;s presentation to the OEDF.</p>
-<ul>
-<li>OEDF should aim to increase both productivity and production.</li>
-<li>Increased production could lead to a rise in demand for labour.</li>
-<li>Higher productivity would benefit workers, employers and the local economy.</li>
-<li>At present, labour mobility is very low in Oxbria.</li>
-<li>Oxbria would benefit from improving the opportunities for workers to change jobs.</li>
-<li>Unemployment levels are quite high in Oxbria and a recent survey about the level of job satisfaction showed workers to be generally unhappy in their jobs.</li>
-<li>Greater specialisation by workers would increase the attractiveness of the Oxbria economy to businesses from other parts of the UK.</li>
-</ul>
-<p>They also showed a diagram showing the percentage growth in output per worker for the UK and selected European countries for 2018.</p>
-<img src="/images/economics/2-6-oxbria-productivity-chart-extracted.png" alt="Bar chart from the OCR exam paper titled 'Growth in output per worker (%)': Western Europe average about 1.5, UK about 1.7, Sweden 1.4, Malta 3.2, Luxembourg 2.1, Greece 2.4, Germany 1.2, France 1.3, Finland 1.1" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            caseId: "extract-3-production-productivity-and-specialisa",
             question: "Other than an increase in demand for labour, analyse why an increase in production could be important for the economy of Oxbria.",
             hint: "The labour-demand point is EXCLUDED — don't lead with it. Credited routes: higher profits → investment and higher incomes → more consumption (the multiplier); economies of scale; economic growth; higher living standards in Oxbria. Two developed chains, no conclusion.",
             starter: "One reason is that higher production increases firms' profits, which means...",
@@ -981,19 +992,7 @@
             num: "Q10c(i)",
             marks: 2,
             type: "written",
-            caseStudy: `<p><strong>Extract 3: Production, productivity and specialisation in Oxbria</strong></p>
-<p>Anika and Ben are economists. They have been asked to advise Oxbria Economic Development Forum (OEDF) about production, productivity and worker specialisation. OEDF is an organisation where businesses, trade unions and politicians meet to try to improve the economy of the county of Oxbria in the UK. The following is a summary of Anika and Ben&#39;s presentation to the OEDF.</p>
-<ul>
-<li>OEDF should aim to increase both productivity and production.</li>
-<li>Increased production could lead to a rise in demand for labour.</li>
-<li>Higher productivity would benefit workers, employers and the local economy.</li>
-<li>At present, labour mobility is very low in Oxbria.</li>
-<li>Oxbria would benefit from improving the opportunities for workers to change jobs.</li>
-<li>Unemployment levels are quite high in Oxbria and a recent survey about the level of job satisfaction showed workers to be generally unhappy in their jobs.</li>
-<li>Greater specialisation by workers would increase the attractiveness of the Oxbria economy to businesses from other parts of the UK.</li>
-</ul>
-<p>They also showed a diagram showing the percentage growth in output per worker for the UK and selected European countries for 2018.</p>
-<img src="/images/economics/2-6-oxbria-productivity-chart-extracted.png" alt="Bar chart from the OCR exam paper titled 'Growth in output per worker (%)': Western Europe average about 1.5, UK about 1.7, Sweden 1.4, Malta 3.2, Luxembourg 2.1, Greece 2.4, Germany 1.2, France 1.3, Finland 1.1" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            caseId: "extract-3-production-productivity-and-specialisa",
             question: "Explain how the UK's productivity compares with other European countries.",
             hint: "COMPARE, don't recite: the UK (~1.7%) is above the Western Europe average and above Germany and France — but only 4th of 8, and the three above it are much smaller economies. Simple repetition scores nothing.",
             starter: "The UK's growth in output per worker is above the Western Europe average...",
@@ -1021,19 +1020,7 @@
             num: "Q10c(ii)",
             marks: 2,
             type: "written",
-            caseStudy: `<p><strong>Extract 3: Production, productivity and specialisation in Oxbria</strong></p>
-<p>Anika and Ben are economists. They have been asked to advise Oxbria Economic Development Forum (OEDF) about production, productivity and worker specialisation. OEDF is an organisation where businesses, trade unions and politicians meet to try to improve the economy of the county of Oxbria in the UK. The following is a summary of Anika and Ben&#39;s presentation to the OEDF.</p>
-<ul>
-<li>OEDF should aim to increase both productivity and production.</li>
-<li>Increased production could lead to a rise in demand for labour.</li>
-<li>Higher productivity would benefit workers, employers and the local economy.</li>
-<li>At present, labour mobility is very low in Oxbria.</li>
-<li>Oxbria would benefit from improving the opportunities for workers to change jobs.</li>
-<li>Unemployment levels are quite high in Oxbria and a recent survey about the level of job satisfaction showed workers to be generally unhappy in their jobs.</li>
-<li>Greater specialisation by workers would increase the attractiveness of the Oxbria economy to businesses from other parts of the UK.</li>
-</ul>
-<p>They also showed a diagram showing the percentage growth in output per worker for the UK and selected European countries for 2018.</p>
-<img src="/images/economics/2-6-oxbria-productivity-chart-extracted.png" alt="Bar chart from the OCR exam paper titled 'Growth in output per worker (%)': Western Europe average about 1.5, UK about 1.7, Sweden 1.4, Malta 3.2, Luxembourg 2.1, Greece 2.4, Germany 1.2, France 1.3, Finland 1.1" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            caseId: "extract-3-production-productivity-and-specialisa",
             question: "Explain how Oxbria would benefit from improving the opportunities for workers to change jobs.",
             hint: "Link mobility to the extract's problems: workers who can move to jobs they prefer are happier and MORE PRODUCTIVE; mobility cuts Oxbria's high unemployment and fills shortages in expanding firms. Must be in context.",
             starter: "If workers could change jobs more easily, unhappy workers could move to jobs they prefer, which means...",
@@ -1063,19 +1050,7 @@
             num: "Q10c(iii)",
             marks: 6,
             type: "written",
-            caseStudy: `<p><strong>Extract 3: Production, productivity and specialisation in Oxbria</strong></p>
-<p>Anika and Ben are economists. They have been asked to advise Oxbria Economic Development Forum (OEDF) about production, productivity and worker specialisation. OEDF is an organisation where businesses, trade unions and politicians meet to try to improve the economy of the county of Oxbria in the UK. The following is a summary of Anika and Ben&#39;s presentation to the OEDF.</p>
-<ul>
-<li>OEDF should aim to increase both productivity and production.</li>
-<li>Increased production could lead to a rise in demand for labour.</li>
-<li>Higher productivity would benefit workers, employers and the local economy.</li>
-<li>At present, labour mobility is very low in Oxbria.</li>
-<li>Oxbria would benefit from improving the opportunities for workers to change jobs.</li>
-<li>Unemployment levels are quite high in Oxbria and a recent survey about the level of job satisfaction showed workers to be generally unhappy in their jobs.</li>
-<li>Greater specialisation by workers would increase the attractiveness of the Oxbria economy to businesses from other parts of the UK.</li>
-</ul>
-<p>They also showed a diagram showing the percentage growth in output per worker for the UK and selected European countries for 2018.</p>
-<img src="/images/economics/2-6-oxbria-productivity-chart-extracted.png" alt="Bar chart from the OCR exam paper titled 'Growth in output per worker (%)': Western Europe average about 1.5, UK about 1.7, Sweden 1.4, Malta 3.2, Luxembourg 2.1, Greece 2.4, Germany 1.2, France 1.3, Finland 1.1" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            caseId: "extract-3-production-productivity-and-specialisa",
             question: "*Evaluate the extent to which specialisation would benefit workers in Oxbria. Use the information given in Extract 3 and your own knowledge.",
             hint: "Benefits for the WORKERS (not firms!): more skilled, doing what they're best at, more job satisfaction (currently low), better living standards. Issues: repetitive boredom, deskilling, unemployment if demand for their specialism falls — risky where unemployment is already high. Judge the EXTENT.",
             starter: "Specialisation would benefit Oxbria's workers because repeating a task builds skills, which means...",
@@ -1148,15 +1123,7 @@
             num: "Q13(a)",
             marks: 2,
             type: "written",
-            caseStudy: `<p><strong>Extract 1: SSA Ltd</strong></p>
-<p>SSA Ltd makes computer equipment for aeroplanes. Jessica, the owner, knows that increased competition in the industry offers both opportunities and threats for the company.</p>
-<p>She believes that it is vital for the company to respond to the competition and that economies of scale might be important for SSA Ltd. In addition, she wants to improve how the firm uses its resources, especially its skilled labour. Jessica thinks that greater competition in the industry is likely to lead to a large increase in the gross pay of her workers.</p>
-<p>Mark, SSA Ltd&#39;s Finance Director, has given Jessica the following information for the previous month:</p>
-<ul>
-<li>Output = 200 units</li>
-<li>Total Cost = &pound;400 000</li>
-<li>Total Revenue = &pound;500 000</li>
-</ul>`,
+            caseId: "extract-1-ssa-ltd",
             question: "Explain what is meant by 'gross pay'.",
             hint: "The examiner-critical word is 'deductions'. Gross pay is what an employee earns BEFORE any deductions are made.",
             starter: "Gross pay is the amount of money an employee earns before...",
@@ -1180,15 +1147,7 @@
             num: "Q13(b)",
             marks: 6,
             type: "written",
-            caseStudy: `<p><strong>Extract 1: SSA Ltd</strong></p>
-<p>SSA Ltd makes computer equipment for aeroplanes. Jessica, the owner, knows that increased competition in the industry offers both opportunities and threats for the company.</p>
-<p>She believes that it is vital for the company to respond to the competition and that economies of scale might be important for SSA Ltd. In addition, she wants to improve how the firm uses its resources, especially its skilled labour. Jessica thinks that greater competition in the industry is likely to lead to a large increase in the gross pay of her workers.</p>
-<p>Mark, SSA Ltd&#39;s Finance Director, has given Jessica the following information for the previous month:</p>
-<ul>
-<li>Output = 200 units</li>
-<li>Total Cost = &pound;400 000</li>
-<li>Total Revenue = &pound;500 000</li>
-</ul>`,
+            caseId: "extract-1-ssa-ltd",
             question: "Using a diagram, analyse how greater competition may lead to a large increase in the gross pay of the workers at SSA Ltd.",
             hint: "Draw a LABOUR diagram (axis = Wages!). Competition means rivals want the same SKILLED workers → supply of labour to SSA stays inelastic or even shifts left, while demand for skilled labour rises (D to D1). Because skilled-labour supply is inelastic, the wage rises a LOT (w to w1) for only a small rise in quantity. Cap 4/6 with no correct diagram.",
             starter: "Greater competition raises the demand for SSA's skilled workers, shifting the demand for labour right from D to D1...",
@@ -1239,12 +1198,7 @@
             num: "Q15(a)",
             marks: 2,
             type: "written",
-            caseStudy: `<p><strong>Extract 3: Wages and productivity</strong></p>
-<p>One problem for the UK&#39;s labour market has been that many workers find it difficult to move to new jobs, even when they are available. Eilidh and Toni of Crotay Ltd, manufacturers of specialist car tyres, have been discussing this, as they have regular problems with finding enough qualified workers.</p>
-<p>As part of this discussion, they have been considering whether they can afford to increase the wages of their employees by more than 2% this year. The chart below shows the wage rises at Crotay Ltd over the last six years.</p>
-<img src="/images/economics/2-7-crotay-wage-increases-chart-extracted.png" alt="Bar chart from the OCR exam paper titled 'Wage increases at Crotay Ltd', in %: 2013 about +0.5, 2014 about -1, 2015 +1, 2016 +1.5, 2017 +2, 2018 +2" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
-<p>Eilidh has said that low wage increases in the UK economy are damaging Crotay&#39;s performance in the product market. Toni, however, feels they cannot afford to give higher pay rises, as Crotay&#39;s productivity levels are lower than their rivals, which is causing falling sales.</p>
-<p>In 2016, UK productivity per hour worked was 15% lower than the world&#39;s top six industrial countries and 25% lower than in Germany.</p>`,
+            caseId: "extract-3-wages-and-productivity",
             question: "State what is meant by the 'labour market'.",
             hint: "Two halves: workers/households SUPPLY (sell) labour, and firms/employers DEMAND (buy) it — with wages set by their interaction.",
             starter: "The labour market is where workers supply their labour and firms...",
@@ -1272,12 +1226,7 @@
             num: "Q15(b)",
             marks: 2,
             type: "written",
-            caseStudy: `<p><strong>Extract 3: Wages and productivity</strong></p>
-<p>One problem for the UK&#39;s labour market has been that many workers find it difficult to move to new jobs, even when they are available. Eilidh and Toni of Crotay Ltd, manufacturers of specialist car tyres, have been discussing this, as they have regular problems with finding enough qualified workers.</p>
-<p>As part of this discussion, they have been considering whether they can afford to increase the wages of their employees by more than 2% this year. The chart below shows the wage rises at Crotay Ltd over the last six years.</p>
-<img src="/images/economics/2-7-crotay-wage-increases-chart-extracted.png" alt="Bar chart from the OCR exam paper titled 'Wage increases at Crotay Ltd', in %: 2013 about +0.5, 2014 about -1, 2015 +1, 2016 +1.5, 2017 +2, 2018 +2" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
-<p>Eilidh has said that low wage increases in the UK economy are damaging Crotay&#39;s performance in the product market. Toni, however, feels they cannot afford to give higher pay rises, as Crotay&#39;s productivity levels are lower than their rivals, which is causing falling sales.</p>
-<p>In 2016, UK productivity per hour worked was 15% lower than the world&#39;s top six industrial countries and 25% lower than in Germany.</p>`,
+            caseId: "extract-3-wages-and-productivity",
             question: "Explain one reason why workers may find it difficult to move between jobs.",
             hint: "Pick occupational OR geographical immobility, then DEVELOP with an example: workers may lack the specific skills a new job needs (so they can't switch sectors), or be tied to an area by family or the cost of moving.",
             starter: "One reason is that workers may lack the skills a new job needs, so...",
@@ -1307,12 +1256,7 @@
             num: "Q15(c)",
             marks: 6,
             type: "written",
-            caseStudy: `<p><strong>Extract 3: Wages and productivity</strong></p>
-<p>One problem for the UK&#39;s labour market has been that many workers find it difficult to move to new jobs, even when they are available. Eilidh and Toni of Crotay Ltd, manufacturers of specialist car tyres, have been discussing this, as they have regular problems with finding enough qualified workers.</p>
-<p>As part of this discussion, they have been considering whether they can afford to increase the wages of their employees by more than 2% this year. The chart below shows the wage rises at Crotay Ltd over the last six years.</p>
-<img src="/images/economics/2-7-crotay-wage-increases-chart-extracted.png" alt="Bar chart from the OCR exam paper titled 'Wage increases at Crotay Ltd', in %: 2013 about +0.5, 2014 about -1, 2015 +1, 2016 +1.5, 2017 +2, 2018 +2" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
-<p>Eilidh has said that low wage increases in the UK economy are damaging Crotay&#39;s performance in the product market. Toni, however, feels they cannot afford to give higher pay rises, as Crotay&#39;s productivity levels are lower than their rivals, which is causing falling sales.</p>
-<p>In 2016, UK productivity per hour worked was 15% lower than the world&#39;s top six industrial countries and 25% lower than in Germany.</p>`,
+            caseId: "extract-3-wages-and-productivity",
             question: "Using a diagram, analyse the possible effect of low business profits on wages.",
             hint: "Draw a LABOUR diagram (axis = Wages!). Low profits → firms invest and expand less → DEMAND for labour falls (D to D1) → the wage falls (w to w1) AND employment falls (q to q1). Do NOT say wages are 'paid out of profit' — route it through the demand-for-labour shift. Cap 4/6 with no correct diagram.",
             starter: "Low profits deter firms from investing and expanding, so the demand for labour shifts left from D to D1...",
@@ -1349,12 +1293,7 @@
             num: "Q15d(i)",
             marks: 2,
             type: "written",
-            caseStudy: `<p><strong>Extract 3: Wages and productivity</strong></p>
-<p>One problem for the UK&#39;s labour market has been that many workers find it difficult to move to new jobs, even when they are available. Eilidh and Toni of Crotay Ltd, manufacturers of specialist car tyres, have been discussing this, as they have regular problems with finding enough qualified workers.</p>
-<p>As part of this discussion, they have been considering whether they can afford to increase the wages of their employees by more than 2% this year. The chart below shows the wage rises at Crotay Ltd over the last six years.</p>
-<img src="/images/economics/2-7-crotay-wage-increases-chart-extracted.png" alt="Bar chart from the OCR exam paper titled 'Wage increases at Crotay Ltd', in %: 2013 about +0.5, 2014 about -1, 2015 +1, 2016 +1.5, 2017 +2, 2018 +2" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
-<p>Eilidh has said that low wage increases in the UK economy are damaging Crotay&#39;s performance in the product market. Toni, however, feels they cannot afford to give higher pay rises, as Crotay&#39;s productivity levels are lower than their rivals, which is causing falling sales.</p>
-<p>In 2016, UK productivity per hour worked was 15% lower than the world&#39;s top six industrial countries and 25% lower than in Germany.</p>`,
+            caseId: "extract-3-wages-and-productivity",
             question: "Explain what happened to wages at Crotay Ltd between 2013 and 2018.",
             hint: "Describe the PATTERN, don't list figures: wages rose 0.5%, then FELL in 2014, then rose at an increasing rate up to 2%. Overall wages increased over the period. The chart shows the RATE of increase, so a negative bar is a real fall.",
             starter: "Wages increased by 0.5% in 2013, then fell in 2014, before rising...",
@@ -1384,12 +1323,7 @@
             num: "Q15d(ii)",
             marks: 2,
             type: "written",
-            caseStudy: `<p><strong>Extract 3: Wages and productivity</strong></p>
-<p>One problem for the UK&#39;s labour market has been that many workers find it difficult to move to new jobs, even when they are available. Eilidh and Toni of Crotay Ltd, manufacturers of specialist car tyres, have been discussing this, as they have regular problems with finding enough qualified workers.</p>
-<p>As part of this discussion, they have been considering whether they can afford to increase the wages of their employees by more than 2% this year. The chart below shows the wage rises at Crotay Ltd over the last six years.</p>
-<img src="/images/economics/2-7-crotay-wage-increases-chart-extracted.png" alt="Bar chart from the OCR exam paper titled 'Wage increases at Crotay Ltd', in %: 2013 about +0.5, 2014 about -1, 2015 +1, 2016 +1.5, 2017 +2, 2018 +2" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
-<p>Eilidh has said that low wage increases in the UK economy are damaging Crotay&#39;s performance in the product market. Toni, however, feels they cannot afford to give higher pay rises, as Crotay&#39;s productivity levels are lower than their rivals, which is causing falling sales.</p>
-<p>In 2016, UK productivity per hour worked was 15% lower than the world&#39;s top six industrial countries and 25% lower than in Germany.</p>`,
+            caseId: "extract-3-wages-and-productivity",
             question: "Explain how low wage increases in the UK economy could damage Crotay Ltd's performance in the product market.",
             hint: "The chain is about CONSUMERS' income, not Crotay's workers! Low pay across the UK → consumers have less disposable income → they buy fewer products, including Crotay's tyres → lower demand for Crotay's product. Answers about worker morale score 0.",
             starter: "Low wage increases mean UK consumers have less disposable income, so...",
@@ -1420,12 +1354,7 @@
             num: "Q15d(iii)",
             marks: 6,
             type: "written",
-            caseStudy: `<p><strong>Extract 3: Wages and productivity</strong></p>
-<p>One problem for the UK&#39;s labour market has been that many workers find it difficult to move to new jobs, even when they are available. Eilidh and Toni of Crotay Ltd, manufacturers of specialist car tyres, have been discussing this, as they have regular problems with finding enough qualified workers.</p>
-<p>As part of this discussion, they have been considering whether they can afford to increase the wages of their employees by more than 2% this year. The chart below shows the wage rises at Crotay Ltd over the last six years.</p>
-<img src="/images/economics/2-7-crotay-wage-increases-chart-extracted.png" alt="Bar chart from the OCR exam paper titled 'Wage increases at Crotay Ltd', in %: 2013 about +0.5, 2014 about -1, 2015 +1, 2016 +1.5, 2017 +2, 2018 +2" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
-<p>Eilidh has said that low wage increases in the UK economy are damaging Crotay&#39;s performance in the product market. Toni, however, feels they cannot afford to give higher pay rises, as Crotay&#39;s productivity levels are lower than their rivals, which is causing falling sales.</p>
-<p>In 2016, UK productivity per hour worked was 15% lower than the world&#39;s top six industrial countries and 25% lower than in Germany.</p>`,
+            caseId: "extract-3-wages-and-productivity",
             question: "*Evaluate the importance of productivity for the UK economy. Use the information given in Extract 3 and your own knowledge.",
             hint: "Route productivity through LOWER AVERAGE COSTS → competitiveness → exports, growth, higher wages/profits. Use the extract's gap (15%/25% below rivals). Weigh downsides: capital replacing labour → unemployment; environmental strain; workers demanding the pay gains back. Judge the importance.",
             starter: "Productivity is important because higher output per worker lowers average costs, which means...",
@@ -1549,10 +1478,7 @@
             num: "Q20(a)",
             marks: 2,
             type: "written",
-            caseStudy: `<p><strong>Extract 2: Mia and her pay</strong></p>
-<p>Mia is looking for her first job, having just gained a good degree in Economics. Layla, her Economics tutor, has explained that the labour market lacks perfect mobility and that Mia will be part of a factor market. With the current low demand for and high supply of labour, Layla has told Mia that she should not expect to earn as much as someone similar did last year.</p>
-<p>Mia has told Layla that she has already been offered a job by Ricomo Ltd. Mia will receive a starting wage of &pound;30 000 a year, plus an extra &pound;200 for each month she stays with the firm. She will also receive an extra 10% of her starting wage, as a bonus, at the end of her first year.</p>
-<p>Mia says that this wage package is because Ricomo&#39;s Ltd owners think that employing her will lead to an increase in total revenue. This will enable the business to gain more profit and to supply more products to the market. This is because the owners claim that their products have a perfectly price elastic supply.</p>`,
+            caseId: "extract-2-mia-and-her-pay",
             question: "Explain one way in which a labour market may lack perfect mobility.",
             hint: "One reason + development: workers may be too specialised to move between sectors (occupational), or unable/unwilling to relocate (geographical). Give an example.",
             starter: "Workers may be specialised, so they are unable to move between jobs in different sectors because...",
@@ -1584,10 +1510,7 @@
             num: "Q20(b)",
             marks: 2,
             type: "written",
-            caseStudy: `<p><strong>Extract 2: Mia and her pay</strong></p>
-<p>Mia is looking for her first job, having just gained a good degree in Economics. Layla, her Economics tutor, has explained that the labour market lacks perfect mobility and that Mia will be part of a factor market. With the current low demand for and high supply of labour, Layla has told Mia that she should not expect to earn as much as someone similar did last year.</p>
-<p>Mia has told Layla that she has already been offered a job by Ricomo Ltd. Mia will receive a starting wage of &pound;30 000 a year, plus an extra &pound;200 for each month she stays with the firm. She will also receive an extra 10% of her starting wage, as a bonus, at the end of her first year.</p>
-<p>Mia says that this wage package is because Ricomo&#39;s Ltd owners think that employing her will lead to an increase in total revenue. This will enable the business to gain more profit and to supply more products to the market. This is because the owners claim that their products have a perfectly price elastic supply.</p>`,
+            caseId: "extract-2-mia-and-her-pay",
             question: "Explain how Mia, looking for her first job, will be part of a factor market.",
             hint: "Define it AND link it: a factor market is where the services of factors of production are bought and sold — Mia is SELLING her labour (a factor of production) and a firm is BUYING it. Just naming labour as a factor is only 1 mark.",
             starter: "A factor market is where factors of production are bought and sold. Mia is part of it because...",
@@ -1615,10 +1538,7 @@
             num: "Q20(c)",
             marks: 6,
             type: "written",
-            caseStudy: `<p><strong>Extract 2: Mia and her pay</strong></p>
-<p>Mia is looking for her first job, having just gained a good degree in Economics. Layla, her Economics tutor, has explained that the labour market lacks perfect mobility and that Mia will be part of a factor market. With the current low demand for and high supply of labour, Layla has told Mia that she should not expect to earn as much as someone similar did last year.</p>
-<p>Mia has told Layla that she has already been offered a job by Ricomo Ltd. Mia will receive a starting wage of &pound;30 000 a year, plus an extra &pound;200 for each month she stays with the firm. She will also receive an extra 10% of her starting wage, as a bonus, at the end of her first year.</p>
-<p>Mia says that this wage package is because Ricomo&#39;s Ltd owners think that employing her will lead to an increase in total revenue. This will enable the business to gain more profit and to supply more products to the market. This is because the owners claim that their products have a perfectly price elastic supply.</p>`,
+            caseId: "extract-2-mia-and-her-pay",
             question: "Using a diagram, analyse why Mia 'should not expect to earn as much as someone similar did last year'.",
             hint: "Draw a LABOUR diagram (axis = Wages!). The extract gives BOTH forces: high supply of labour (supply RIGHT, S to S1) and/or low demand for labour (demand LEFT, D to D1) — either lowers the wage from w to w1. Link the words to the diagram. NOT about Mia's inexperience! Cap 4/6 with no correct diagram.",
             starter: "There is a high supply of and low demand for labour like Mia's, so on the diagram the wage falls from w to w1...",
@@ -1653,10 +1573,7 @@
             num: "Q20d(i)",
             marks: 2,
             type: "written",
-            caseStudy: `<p><strong>Extract 2: Mia and her pay</strong></p>
-<p>Mia is looking for her first job, having just gained a good degree in Economics. Layla, her Economics tutor, has explained that the labour market lacks perfect mobility and that Mia will be part of a factor market. With the current low demand for and high supply of labour, Layla has told Mia that she should not expect to earn as much as someone similar did last year.</p>
-<p>Mia has told Layla that she has already been offered a job by Ricomo Ltd. Mia will receive a starting wage of &pound;30 000 a year, plus an extra &pound;200 for each month she stays with the firm. She will also receive an extra 10% of her starting wage, as a bonus, at the end of her first year.</p>
-<p>Mia says that this wage package is because Ricomo&#39;s Ltd owners think that employing her will lead to an increase in total revenue. This will enable the business to gain more profit and to supply more products to the market. This is because the owners claim that their products have a perfectly price elastic supply.</p>`,
+            caseId: "extract-2-mia-and-her-pay",
             question: "Using the information in Extract 2, calculate Mia's gross wage for her first year at Ricomo Ltd. Show your working.",
             hint: "Three parts: £30,000 + (£200 × 12 months) + 10% of the £30,000 STARTING wage. Show each step so the Own Figure Rule can rescue a slip.",
             starter: "£30,000 + (£200 × 12) + 10% of £30,000 = ...",
@@ -1684,10 +1601,7 @@
             num: "Q20d(ii)",
             marks: 2,
             type: "written",
-            caseStudy: `<p><strong>Extract 2: Mia and her pay</strong></p>
-<p>Mia is looking for her first job, having just gained a good degree in Economics. Layla, her Economics tutor, has explained that the labour market lacks perfect mobility and that Mia will be part of a factor market. With the current low demand for and high supply of labour, Layla has told Mia that she should not expect to earn as much as someone similar did last year.</p>
-<p>Mia has told Layla that she has already been offered a job by Ricomo Ltd. Mia will receive a starting wage of &pound;30 000 a year, plus an extra &pound;200 for each month she stays with the firm. She will also receive an extra 10% of her starting wage, as a bonus, at the end of her first year.</p>
-<p>Mia says that this wage package is because Ricomo&#39;s Ltd owners think that employing her will lead to an increase in total revenue. This will enable the business to gain more profit and to supply more products to the market. This is because the owners claim that their products have a perfectly price elastic supply.</p>`,
+            caseId: "extract-2-mia-and-her-pay",
             question: "Explain, using an example, how the total revenue of a firm could be increased if its supply curve was perfectly price elastic.",
             hint: "Perfectly price elastic supply = a horizontal supply curve: the price stays the SAME however much is sold. So anything that raises demand (e.g. advertising) sells more units at the same price — quantity up, price constant, so TR rises. The example is required for the second mark!",
             starter: "With perfectly elastic supply the price stays the same whatever the quantity, so if the firm advertises and demand rises...",
@@ -1717,10 +1631,7 @@
             num: "Q20d(iii)",
             marks: 6,
             type: "written",
-            caseStudy: `<p><strong>Extract 2: Mia and her pay</strong></p>
-<p>Mia is looking for her first job, having just gained a good degree in Economics. Layla, her Economics tutor, has explained that the labour market lacks perfect mobility and that Mia will be part of a factor market. With the current low demand for and high supply of labour, Layla has told Mia that she should not expect to earn as much as someone similar did last year.</p>
-<p>Mia has told Layla that she has already been offered a job by Ricomo Ltd. Mia will receive a starting wage of &pound;30 000 a year, plus an extra &pound;200 for each month she stays with the firm. She will also receive an extra 10% of her starting wage, as a bonus, at the end of her first year.</p>
-<p>Mia says that this wage package is because Ricomo&#39;s Ltd owners think that employing her will lead to an increase in total revenue. This will enable the business to gain more profit and to supply more products to the market. This is because the owners claim that their products have a perfectly price elastic supply.</p>`,
+            caseId: "extract-2-mia-and-her-pay",
             question: "*Evaluate the extent to which an increase in total revenue will lead to more profit. Use the information given in Extract 2 and your own knowledge.",
             hint: "Start from profit = TR − TC: more revenue only means more profit if TR rises MORE than costs. Ask how the TR rose (higher price may cut future sales; more output means more variable costs — like Mia's £35,400 wage). 'The extent to which' must anchor the judgement. Revenue ≠ profit!",
             starter: "Profit is total revenue minus total costs, so more revenue only means more profit if...",

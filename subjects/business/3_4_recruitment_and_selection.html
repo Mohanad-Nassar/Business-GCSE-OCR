@@ -715,6 +715,10 @@
   ];
 
   // ── EXAM PRACTICE DATA ──────────────────────────────────────
+  const EXAM_CASE_STUDIES = {
+    "clarks": `<strong>Clarks</strong> is a successful UK footwear brand with ranges for children, women, and men. Their market is very competitive. Clarks employs specialist designers who create new shoe styles in response to fast-changing fashion trends. The designers work closely with employees from other functional areas of the business — including marketing, finance and retail — to ensure new shoe styles meet customers' needs profitably. Clarks works hard to retain its team of designers, as they are central to its success. However, Clarks sometimes needs to recruit new designers and uses several selection methods to help find the best person.`
+  };
+
   const examQuestions = [
     {
       num: "QUESTION 01",
@@ -751,7 +755,7 @@
       num: "QUESTION 03",
       marks: 3,
       type: "extended",
-      caseStudy: `<strong>Clarks</strong> is a successful UK footwear brand with ranges for children, women, and men. Their market is very competitive. Clarks employs specialist designers who create new shoe styles in response to fast-changing fashion trends. The designers work closely with employees from other functional areas of the business — including marketing, finance and retail — to ensure new shoe styles meet customers' needs profitably. Clarks works hard to retain its team of designers, as they are central to its success. However, Clarks sometimes needs to recruit new designers and uses several selection methods to help find the best person.`,
+      caseId: "clarks",
       question: "Analyse one advantage for Clarks of using interviews to select new designers. [3 marks]",
       hint: "Think: What specifically can an interview reveal that other methods cannot? Then link it to the specific context of Clarks and designers.",
       starter: "One advantage for Clarks of using interviews is that...\nThis is particularly important because Clarks designers...\nAs a result, Clarks could...",
@@ -766,7 +770,7 @@
       num: "QUESTION 04",
       marks: 3,
       type: "extended",
-      caseStudy: `<strong>Clarks</strong> is a successful UK footwear brand (see case study above). Clarks sometimes needs to recruit new designers.`,
+      caseId: "clarks",
       question: "Analyse one advantage for Clarks of using references to select new designers. [3 marks]",
       hint: "A reference comes from a third party — a previous employer. What can it confirm or reveal that an interview might not?",
       starter: "One advantage of using references for Clarks is that...\nThis is relevant to Clarks because...\nTherefore...",
@@ -781,7 +785,7 @@
       num: "QUESTION 05",
       marks: 3,
       type: "extended",
-      caseStudy: `<strong>Clarks</strong> is a successful UK footwear brand. Clarks sometimes needs to recruit new specialist designers.`,
+      caseId: "clarks",
       question: "Recommend whether using interviews or references is likely to be more effective for selecting new designers. Give a reason for your answer. [3 marks]",
       hint: "Make a clear decision — don't sit on the fence. Then explain why your chosen method is BETTER THAN the other for this specific business. A comparison must be made.",
       starter: "I recommend that Clarks uses [interviews/references] because...\nIn contrast, [the other method]...",

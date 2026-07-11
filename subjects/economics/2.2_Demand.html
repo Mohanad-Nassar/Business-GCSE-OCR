@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Economics — Unit 2: The Role of Markets and Money</div>
             <h1>2.2 Demand</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide · Demand curves, shifts &amp; movements, and price elasticity of demand</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 2.2 Demand — placeholder, content not yet written
+    //  DATA: 2.2 Demand
     // ══════════════════════════════════════
     const pageMeta = {
             id: '2-2-demand',
@@ -268,21 +268,2014 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>2.2 Demand</strong> will appear here soon.</p>`
+            title: "What is demand?",
+            tag: "Willing AND able",
+            content: `<p><strong>Demand</strong> is the <strong>willingness and ability</strong> of consumers to buy a good or service <strong>at a given price, in a given period of time</strong>.</p>
+<h4>All four parts of the definition earn marks</h4>
+<ul>
+<li><strong>Willing</strong> — you actually want it.</li>
+<li><strong>Able</strong> — you can afford to pay for it. Wanting a Ferrari is not demand!</li>
+<li><strong>At a given price</strong> — demand is always measured at a specific price.</li>
+<li><strong>In a given period of time</strong> — e.g. per week or per month. Examiners take a mark off if you miss price or time.</li>
+</ul>
+<h4>Individual, market and derived demand</h4>
+<ul>
+<li><strong>Individual demand</strong> — the demand of one single consumer.</li>
+<li><strong>Market demand</strong> — <strong>all the individual demands added together</strong>. If Consumer A buys 3 and Consumer B buys 5 at £10, market demand at £10 is 8.</li>
+<li><strong>Derived demand</strong> — demand that comes from the demand for something else. Builders are demanded because <em>houses</em> are demanded; workers are demanded because the <em>products they make</em> are demanded.</li>
+</ul>
+<h4>The law of demand and the demand curve</h4>
+<ul>
+<li>As <strong>price falls, quantity demanded rises</strong> (and vice versa) — price and quantity demanded are <strong>inversely related</strong>.</li>
+<li>The demand curve slopes <strong>downwards from left to right</strong>.</li>
+<li>Always label it: <strong>Price</strong> on the vertical axis, <strong>Quantity</strong> on the horizontal axis, and <strong>D</strong> on the curve. An unlabelled diagram scores no marks.</li>
+</ul>`,
+            readCheck: {
+                q: "Market demand is found by...",
+                opts: ["Adding together all the individual demands", "Taking the biggest individual demand", "Multiplying price by quantity", "Asking producers how much they want to sell"],
+                ans: 0,
+                explain: "Market demand = all individual demands added together at each price. That's why Diagram Z (Consumers A+B) in the real exam shows the two individual curves combined."
+            }
+        },
+        {
+            title: "Movements along vs shifts of the demand curve",
+            tag: "The most-tested distinction",
+            content: `<p>This is one of the most heavily tested ideas in the whole course. The rule is simple:</p>
+<h4>Movement ALONG the curve — caused ONLY by the good's own price</h4>
+<ul>
+<li>Price falls → quantity demanded rises → movement <strong>down</strong> the curve. This is an <strong>expansion</strong> (or extension) of demand.</li>
+<li>Price rises → quantity demanded falls → movement <strong>up</strong> the curve. This is a <strong>contraction</strong> of demand.</li>
+<li>The curve itself <strong>does not move</strong>.</li>
+</ul>
+<h4>SHIFT of the whole curve — caused by anything EXCEPT the good's own price</h4>
+<p>More demanded at <em>every</em> price = shift <strong>right</strong> (outward). Less at every price = shift <strong>left</strong> (inward). Learn the shift factors:</p>
+<ul>
+<li><strong>Income</strong> — more income usually means more demand.</li>
+<li><strong>Marketing / advertising</strong> — successful campaigns shift demand right.</li>
+<li><strong>Taste and fashion</strong> — trends change what people want.</li>
+<li><strong>Price of substitutes</strong> — goods that replace each other (apples and plums). If the price of apples <em>rises</em>, demand for plums shifts <em>right</em>.</li>
+<li><strong>Price of complements</strong> — goods bought together (consoles and games). If the price of consoles <em>rises</em>, demand for games shifts <em>left</em>.</li>
+<li><strong>Population</strong> — more (or different) people, more demand.</li>
+<li><strong>Government policies</strong> — taxes, subsidies and rules change demand.</li>
+<li><strong>The economic situation</strong> — booms raise demand, recessions cut it.</li>
+<li><strong>Price expectations</strong> — if people expect prices to rise, they buy now.</li>
+</ul>
+<h4>Consequences for consumers and producers</h4>
+<ul>
+<li>Demand shifts right → price AND quantity rise → producers earn more revenue; consumers pay more.</li>
+<li>Demand shifts left → price and quantity fall → revenue and profits fall; some firms may leave the market.</li>
+<li>A <strong>movement along</strong> the demand curve can only be caused by a <strong>shift of the supply curve</strong> changing the price.</li>
+</ul>`,
+            readCheck: {
+                q: "The price of raspberries rises. What happens in the market for strawberries (a substitute)?",
+                opts: ["The demand curve for strawberries shifts right", "The demand curve for strawberries shifts left", "There is a movement along the strawberry demand curve", "Nothing happens"],
+                ans: 0,
+                explain: "Raspberries are now dearer, so some shoppers switch to strawberries — more strawberries are demanded at every price, shifting the strawberry demand curve right."
+            }
+        },
+        {
+            title: "Price elasticity of demand (PED)",
+            tag: "The formula and the curves",
+            content: `<p><strong>PED measures the responsiveness of quantity demanded to a change in price.</strong></p>
+<h4>The formula</h4>
+<ul>
+<li><strong>PED = % change in quantity demanded ÷ % change in price</strong></li>
+<li>The answer is negative (price up, quantity down), so we usually <strong>ignore the minus sign</strong> and compare the size to 1.</li>
+</ul>
+<h4>The five results</h4>
+<ul>
+<li><strong>Price elastic (PED &gt; 1)</strong> — quantity responds MORE than price. Drawn as a <strong>flat</strong> curve. E.g. price falls 20%, quantity rises 50% → PED = 2.5.</li>
+<li><strong>Price inelastic (PED &lt; 1)</strong> — quantity responds LESS than price. Drawn as a <strong>steep</strong> curve. E.g. price falls 25%, quantity rises 15% → PED = 0.6.</li>
+<li><strong>Unitary (PED = 1)</strong> — quantity changes by exactly the same % as price, so total spending stays the same.</li>
+<li><strong>Perfectly price inelastic (PED = 0)</strong> — a <strong>vertical</strong> line: price changes have no effect at all on quantity.</li>
+<li><strong>Perfectly price elastic (PED = ∞)</strong> — a <strong>horizontal</strong> line: consumers buy any amount at one price only.</li>
+</ul>
+<h4>What makes demand elastic or inelastic?</h4>
+<ul>
+<li><strong>Substitutes</strong> — lots of close substitutes → elastic; few → inelastic.</li>
+<li><strong>Necessity vs luxury</strong> — necessities (fuel, medicine) → inelastic; non-essentials → more elastic.</li>
+<li><strong>Time</strong> — demand gets MORE elastic over time as people find alternatives.</li>
+<li><strong>Share of income</strong> — cheap items (chewing gum) → inelastic; expensive items → elastic.</li>
+</ul>
+<p><strong>Drawing tip:</strong> elastic and inelastic curves must have clearly different slopes (flat vs steep) and be labelled — two parallel lines score nothing.</p>`,
+            readCheck: {
+                q: "A fishmonger cuts the price of haddock by 20% and sales rise from 20 to 30 pieces (+50%). Demand is...",
+                opts: ["Price elastic", "Price inelastic", "Perfectly price inelastic", "Unitary price elastic"],
+                ans: 0,
+                explain: "PED = 50% ÷ 20% = 2.5, which is bigger than 1 — price elastic. This exact calculation appeared as a real exam MCQ."
+            }
+        },
+        {
+            title: "Why PED matters — the revenue rule",
+            tag: "Evaluate for consumers & producers",
+            content: `<p><strong>Total revenue = price × quantity sold.</strong> PED tells a business what happens to revenue when it changes price — that is why examiners love it.</p>
+<h4>The revenue rule</h4>
+<ul>
+<li><strong>Demand elastic → CUT the price.</strong> The % rise in quantity is bigger than the % fall in price, so revenue rises.</li>
+<li><strong>Demand inelastic → RAISE the price.</strong> Quantity barely falls, so revenue rises.</li>
+</ul>
+<h4>Worked example — the muffin stall</h4>
+<ul>
+<li>Selling 100 muffins at £1 each = £100 revenue.</li>
+<li>If demand is <strong>elastic</strong> (PED = 2): cut the price 10% to 90p → quantity rises 20% to 120 → revenue = £108. ✔</li>
+<li>If demand is <strong>inelastic</strong> (PED = 0.5): raise the price 10% to £1.10 → quantity falls only 5% to 95 → revenue = £104.50. ✔</li>
+</ul>
+<h4>Who uses PED in the real world?</h4>
+<ul>
+<li><strong>Businesses</strong> — set the price that earns the most revenue, and use <strong>price discrimination</strong> (different prices for different groups — peak vs off-peak train tickets, student discounts) when groups have different PEDs.</li>
+<li><strong>Farmers</strong> — demand for food is inelastic, so a bumper crop (big rise in supply) crashes the price and can cut farm incomes.</li>
+<li><strong>Government</strong> — taxes goods with inelastic demand (fuel, cigarettes, alcohol) because people keep buying, so tax revenue is reliable.</li>
+<li><strong>Consumers</strong> — PED matters most to buyers who choose on price; someone who cares more about quality than price will barely respond to price changes.</li>
+</ul>
+<h4>But be ready to evaluate</h4>
+<ul>
+<li>PED estimates come from guesses or small surveys — <strong>how reliable is the data?</strong></li>
+<li>Is revenue the business's main objective, or does it want market share?</li>
+<li>Competitors can react and change the picture; PED also changes over time.</li>
+</ul>`,
+            readCheck: {
+                q: "Demand for a firm's product is price inelastic. Which statement MUST be true?",
+                opts: ["An increase in price will increase revenue", "A decrease in price will lead to excess supply", "An increase in price will decrease profits", "A decrease in price will reduce the quantity sold"],
+                ans: 0,
+                explain: "Inelastic demand means quantity barely responds, so a price rise raises total revenue. This is a real exam MCQ — and the heart of the revenue rule."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Which of the following is the correct definition of demand?",
+            opts: ["The desire to own a good or service", "The willingness and ability to buy a good or service at a given price in a given time period", "The amount of a good producers offer for sale", "The total money spent on a good"],
+            ans: 1,
+            explain: "Demand needs BOTH willingness and ability, at a given price, in a given time period. Desire alone is not demand — you must be able to pay."
+        },
+        {
+            q: "Which of the following causes a movement ALONG the demand curve for chocolate (not a shift)?",
+            opts: ["A rise in consumers' incomes", "A successful advertising campaign", "A fall in the price of chocolate itself", "A health scare about sugar"],
+            ans: 2,
+            explain: "Only a change in the good's OWN price causes a movement along the curve. Income, advertising and tastes all shift the whole curve."
+        },
+        {
+            q: "Consumers' incomes rise. What happens in the market for cinema tickets (a normal good)?",
+            opts: ["Demand shifts right", "Demand shifts left", "A movement down the demand curve", "The supply curve shifts right"],
+            ans: 0,
+            explain: "Higher incomes mean people can afford more trips to the cinema at every price — the whole demand curve shifts right."
+        },
+        {
+            q: "A firm raises its price by 10% and quantity demanded falls by 5%. PED (ignoring the sign) is...",
+            opts: ["2, so demand is price elastic", "0.5, so demand is price inelastic", "0.5, so demand is price elastic", "15, so demand is perfectly elastic"],
+            ans: 1,
+            explain: "PED = %ΔQd ÷ %ΔP = 5 ÷ 10 = 0.5. Less than 1 means quantity responds less than price — price inelastic."
+        },
+        {
+            q: "Demand for a product is price elastic. To increase total revenue the business should...",
+            opts: ["Raise the price", "Cut the price", "Keep the price the same", "Reduce output"],
+            ans: 1,
+            explain: "With elastic demand, cutting the price wins proportionally MORE customers, so total revenue (price × quantity) rises."
+        },
+        {
+            q: "Petrol and electric cars are substitutes. A large rise in the price of petrol is most likely to...",
+            opts: ["Shift the demand curve for electric cars right", "Shift the demand curve for electric cars left", "Cause a movement along the electric car demand curve", "Shift the supply of electric cars left"],
+            ans: 0,
+            explain: "When one substitute gets dearer, buyers switch to the other — demand for electric cars rises at every price, a rightward shift."
+        },
+        {
+            q: "Printers and ink cartridges are complements. If the price of printers falls sharply, demand for ink cartridges will...",
+            opts: ["Shift right", "Shift left", "Stay exactly the same", "Become perfectly inelastic"],
+            ans: 0,
+            explain: "Cheaper printers → more printers bought → more ink needed at every price. Complements move together, so cartridge demand shifts right."
+        },
+        {
+            q: "A perfectly price inelastic demand curve is drawn as...",
+            opts: ["A vertical line", "A horizontal line", "A 45-degree line", "An upward-sloping line"],
+            ans: 0,
+            explain: "Perfectly inelastic (PED = 0) means quantity never changes whatever the price — a vertical line. Perfectly elastic is the horizontal one."
+        },
+        {
+            q: "Governments put high taxes on cigarettes and fuel mainly because demand for them is...",
+            opts: ["Price elastic, so people stop buying", "Price inelastic, so people keep buying and tax revenue is reliable", "Perfectly elastic, so firms pay the tax", "Unitary, so revenue never changes"],
+            ans: 1,
+            explain: "Few substitutes make demand inelastic — quantity barely falls when tax raises the price, so the government collects reliable revenue."
+        },
+        {
+            q: "Which of the following is the best example of derived demand?",
+            opts: ["Demand for bricklayers rising because demand for new houses has risen", "Demand for ice cream rising in summer", "Demand for plums rising when apples get dearer", "Demand for luxury goods rising with incomes"],
+            ans: 0,
+            explain: "Derived demand is demand that comes FROM the demand for something else — workers are wanted because the products they make are wanted."
+        }
+    ];
+
+    const matchData = [
+        { term: "Demand", def: "The willingness and ability to buy a good or service at a given price in a given time period" },
+        { term: "Market demand", def: "All the individual demands for a product added together" },
+        { term: "Derived demand", def: "Demand for one thing (like workers) that comes from demand for something else (the product they make)" },
+        { term: "Movement along the demand curve", def: "Caused only by a change in the price of the good itself" },
+        { term: "Shift of the demand curve", def: "Caused by a non-price factor such as income, fashion or advertising" },
+        { term: "Expansion of demand", def: "A rise in quantity demanded caused by a fall in price" },
+        { term: "Contraction of demand", def: "A fall in quantity demanded caused by a rise in price" },
+        { term: "Substitute goods", def: "Products that can replace each other, like apples and plums" },
+        { term: "Complementary goods", def: "Products bought and used together, like consoles and games" },
+        { term: "Price elasticity of demand", def: "Percentage change in quantity demanded divided by percentage change in price" },
+        { term: "Price elastic demand", def: "Quantity demanded changes by a bigger percentage than price — drawn as a flat curve" },
+        { term: "Price inelastic demand", def: "Quantity demanded changes by a smaller percentage than price — drawn as a steep curve" },
+        { term: "Total revenue", def: "Price multiplied by quantity sold" }
+    ];
+
+    const fibData = [
+        {
+            display: "Demand is the willingness and ___B1___ of consumers to buy a good at a given ___B2___ in a given period of time.",
+            blanks: { B1: "ability", B2: "price" }
+        },
+        {
+            display: "A change in the price of the good itself causes a ___B1___ along the demand curve. A change in any other factor causes a ___B2___ of the whole curve.",
+            blanks: { B1: "movement", B2: "shift" }
+        },
+        {
+            display: "Market demand is found by ___B1___ together all the individual demands. The demand for workers is called ___B2___ demand because it comes from demand for the products they make.",
+            blanks: { B1: "adding", B2: "derived" }
+        },
+        {
+            display: "PED = percentage change in quantity demanded ÷ percentage change in ___B1___. If the answer (ignoring the minus sign) is greater than 1, demand is price ___B2___.",
+            blanks: { B1: "price", B2: "elastic" }
+        },
+        {
+            display: "If demand is price inelastic, a business can raise its price and total ___B1___ will rise. Governments tax goods like fuel and cigarettes because demand for them is ___B2___.",
+            blanks: { B1: "revenue", B2: "inelastic" }
+        },
+        {
+            display: "A rise in the price of a ___B1___ (like apples for plums) shifts demand for the other good to the right. A rise in the price of a ___B2___ (like games consoles for games) shifts it to the left.",
+            blanks: { B1: "substitute", B2: "complement" }
+        }
+    ];
+    const fibWords = ["ability", "price", "movement", "shift", "adding", "derived", "elastic", "inelastic", "revenue", "substitute", "complement", "supply", "profit", "willingness"];
+
+    const tfData = [
+        {
+            statement: "Demand simply means wanting a good or service.",
+            answer: false,
+            explanation: "Demand is the willingness AND ability to buy, at a given price, in a given time period. Wanting something you cannot afford is not demand."
+        },
+        {
+            statement: "A fall in the price of a good causes its demand curve to shift to the right.",
+            answer: false,
+            explanation: "A change in the good's own price causes a MOVEMENT ALONG the curve (an expansion), not a shift. Only non-price factors shift the curve."
+        },
+        {
+            statement: "Market demand is found by adding together all the individual demands.",
+            answer: true,
+            explanation: "Correct — at each price, add up what every consumer would buy. The real exam showed this as Diagram Z: Consumers A+B combined."
+        },
+        {
+            statement: "If PED is greater than 1 (ignoring the minus sign), demand is price elastic.",
+            answer: true,
+            explanation: "PED > 1 means the % change in quantity demanded is bigger than the % change in price — that is the definition of price elastic."
+        },
+        {
+            statement: "If demand is price inelastic, a firm can increase its total revenue by raising its price.",
+            answer: true,
+            explanation: "Quantity barely falls when price rises, so price × quantity goes up. This is the revenue rule — inelastic → raise price."
+        },
+        {
+            statement: "A steep demand curve shows price elastic demand.",
+            answer: false,
+            explanation: "It's the other way round: steep = inelastic (quantity barely responds), flat = elastic. Perfectly inelastic is vertical; perfectly elastic is horizontal."
+        },
+        {
+            statement: "An increase in advertising is likely to shift the market demand curve to the right.",
+            answer: true,
+            explanation: "Successful marketing makes more people want the product at every price — a rightward shift. This was a real exam MCQ about breakfast cereals."
+        },
+        {
+            statement: "A perfectly price inelastic demand curve is horizontal.",
+            answer: false,
+            explanation: "Perfectly INELASTIC is vertical (quantity never changes). The horizontal curve is perfectly ELASTIC. The real exam asked exactly this with four diagrams."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "\"The price of the good went up, so its demand curve shifts to the left.\"",
+            correct: "A change in the good's OWN price never shifts its demand curve — it causes a movement ALONG the curve (a contraction if price rises, an expansion if it falls). The curve only shifts when a NON-price factor changes: income, marketing, taste and fashion, prices of substitutes and complements, population, government policy, the economic situation or price expectations. This is one of the most heavily tested distinctions on the whole paper — and one OCR examiners see mixed up every single year.",
+            readCheck: {
+                q: "The price of restaurant meals falls. What happens to the demand curve for restaurant meals?",
+                opts: ["There is a movement down along the curve", "It shifts right", "It shifts left", "It becomes steeper"],
+                ans: 0,
+                explain: "Own price changed → movement along the curve, never a shift. A rise in consumer incomes is what would shift it right (the real Q1 answer)."
+            }
+        },
+        {
+            wrong: "\"Demand is when people buy things.\"",
+            correct: "Examiners award the definition marks for four specific parts: WILLING and ABLE to buy, AT A GIVEN PRICE, IN A GIVEN TIME PERIOD. On the real 'Explain what is meant by demand' 2-marker, candidates who missed price and/or time period were capped at 1 mark, and vague constructions like 'when people buy things' scored 0. Learn the full sentence word-for-word — it is free marks.",
+            readCheck: {
+                q: "Which answer would score full marks for 'Explain what is meant by demand'?",
+                opts: ["The willingness and ability to buy a good at a given price in a given time period", "When consumers buy goods and services", "How much of a good people want", "The amount of money spent in shops"],
+                ans: 0,
+                explain: "The real OCR mark scheme awards 2 marks only when willing + able + price + time are all there. The examiner report said exactly this."
+            }
+        },
+        {
+            wrong: "\"The dresses are elastic.\" / \"Haddock is inelastic.\"",
+            correct: "Goods are not elastic — DEMAND for them is price elastic or price inelastic. OCR put an 'Assessment for Learning' warning in a real mark scheme about this exact sloppiness: candidates who wrote 'dresses are elastic' or 'demand falls a lot' instead of 'demand for dresses is price elastic, so a price rise causes a proportionally larger fall in quantity demanded' lost credit. Always name the concept in full: <em>demand for X is price elastic/inelastic</em>.",
+            readCheck: {
+                q: "Which sentence uses the terminology correctly?",
+                opts: ["Demand for the dresses is price elastic", "The dresses are elastic", "Dresses stretch when prices change", "The elasticity of dresses is high"],
+                ans: 0,
+                explain: "It's the DEMAND that is elastic, not the product. OCR flagged this exact error in the published mark scheme for the charity-shop question."
+            }
+        },
+        {
+            wrong: "\"Price inelastic means nobody stops buying when the price goes up.\"",
+            correct: "That describes PERFECTLY price inelastic demand (PED = 0, a vertical curve) — a different thing. Ordinary price inelastic demand means quantity demanded DOES fall when price rises, just by a SMALLER percentage than the price change. On the real 2-marker 'Explain what is meant by demand is price inelastic', answers describing perfectly inelastic demand were capped at 1 mark, and answers with no reference to percentage changes usually got 1. The full-mark sentence: <em>the percentage change in quantity demanded is less than the percentage change in price</em>.",
+            readCheck: {
+                q: "Demand for a good is price inelastic (PED = 0.4). The price rises 10%. Quantity demanded...",
+                opts: ["Falls by about 4%", "Does not change at all", "Falls by more than 10%", "Rises by 4%"],
+                ans: 0,
+                explain: "Inelastic means a smaller response, not NO response — 0.4 × 10% = 4% fall. 'No change at all' is perfectly inelastic."
+            }
+        },
+        {
+            wrong: "\"Putting the price up always brings in more money.\"",
+            correct: "It depends entirely on PED. If demand is INELASTIC, yes — quantity barely falls, so revenue rises (that is why Kasia and Ben's window-cleaning PED of −0.2 meant they should raise price). But if demand is ELASTIC, a price rise loses proportionally MORE customers and revenue FALLS — the right move is to CUT the price, like CDS cutting delivery from £25 to £20 and gaining £1,500 a week. Always work out the elasticity first, then apply the revenue rule.",
+            readCheck: {
+                q: "Demand is price elastic. The business wants more revenue. It should...",
+                opts: ["Cut its price", "Raise its price", "Leave the price alone", "Reduce the quantity supplied"],
+                ans: 0,
+                explain: "Elastic → cut price → quantity rises by a bigger % than the price fell → total revenue rises. Inelastic is the opposite."
+            }
+        },
+        {
+            wrong: "\"To show elastic and inelastic demand, draw two demand curves side by side.\"",
+            correct: "Two PARALLEL demand curves show a shift in demand, not different elasticities — and OCR's examiner report said candidates who drew parallel curves for the Celandine Hotel question lost marks. Elastic and inelastic curves must have clearly DIFFERENT slopes: the elastic curve is FLAT (flatter than 45°), the inelastic curve is STEEP, and they are usually drawn crossing each other. Then label each one — 'D1 elastic', 'D2 inelastic' — because a diagram the examiner has to guess at scores nothing.",
+            readCheck: {
+                q: "How should you draw an elastic and an inelastic demand curve on one diagram?",
+                opts: ["One flat curve and one steep curve, crossing, each labelled", "Two parallel downward lines", "One upward and one downward line", "Two vertical lines"],
+                ans: 0,
+                explain: "Different slopes show different elasticities. Parallel curves show a shift — a different concept — and the examiner report flagged this exact mistake."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "definitions",
+            title: "The 2-markers: learn the two-part definitions word-for-word",
+            pills: ["Explain what is meant by...", "2 marks", "AO1"],
+            content: `<p>This topic's real papers asked for the same definitions again and again. Learn them exactly:</p>
+<ul>
+<li><strong>Demand</strong> — the willingness and ability to buy a good or service <em>at a given price, in a given period of time</em>.</li>
+<li><strong>PED</strong> — the responsiveness of quantity demanded to a change in price (1 mark for <em>responsiveness</em>, 1 mark for it being <em>quantity demanded responding to price</em> — not the other way round).</li>
+<li><strong>Price inelastic</strong> — the <em>percentage</em> change in quantity demanded is less than the <em>percentage</em> change in price.</li>
+</ul>
+<h4>How real answers scored</h4>
+<p>❌ <strong>0 marks:</strong> "Demand is when people buy things." — vague, no price, no time.</p>
+<p>⚠️ <strong>1 mark:</strong> "Demand is the willingness and ability to buy a good." — good start, but price and time period are missing.</p>
+<p>✅ <strong>2 marks:</strong> "Demand is the willingness and ability to buy a good or service at a given price in a given period of time."</p>
+<p>The examiner report said candidates who had learned the definition reproduced it for 2 marks; those who tried to construct one on the spot usually got 0.</p>`,
+            readCheck: {
+                q: "In the PED definition, what responds to what?",
+                opts: ["Quantity demanded responds to a change in price", "Price responds to a change in quantity", "Supply responds to demand", "Revenue responds to costs"],
+                ans: 0,
+                explain: "The real mark scheme gives the second mark specifically for saying quantity demanded is affected by price 'and not vice versa'."
+            }
+        },
+        {
+            type: "diagrams",
+            title: "Drawing questions: label everything or score nothing",
+            pills: ["Draw and label...", "2 marks", "AO2"],
+            content: `<p>This paper has FOUR drawing questions. The mark schemes are brutal about labels:</p>
+<ul>
+<li>A demand curve that is <strong>unlabelled or slopes upwards scores no marks</strong> (garden business question).</li>
+<li>Elastic vs inelastic curves need clearly <strong>different slopes</strong> — flat for elastic, steep for inelastic — plus labels like "D1 elastic / D2 inelastic". Parallel curves lost marks (Celandine Hotel).</li>
+<li>Plotting from a table? <strong>Join the points</strong> — unjoined points were capped at 1 mark, and one wrongly plotted point also capped at 1 (charity-shop dresses).</li>
+<li>Shifting demand? Draw <strong>both</strong> curves and mark the direction — D then D1 to the right.</li>
+</ul>
+<h4>The 30-second checklist before you move on</h4>
+<ul>
+<li>Axes labelled <strong>Price</strong> and <strong>Quantity</strong>?</li>
+<li>Every curve labelled (D, D1, S...)?</li>
+<li>Downward slope for demand?</li>
+<li>Shift direction / slope difference obvious at a glance?</li>
+</ul>`,
+            readCheck: {
+                q: "You draw two perfect demand curves showing a rightward shift but forget to label them. The mark scheme says...",
+                opts: ["Only 1 of the 2 marks", "Full marks anyway", "Zero automatically", "The examiner asks you"],
+                ans: 0,
+                explain: "The Celandine mark scheme: two correct curves with no appropriate labels = 1 mark. Labels are half the marks on most drawing questions."
+            }
+        },
+        {
+            type: "calculation",
+            title: "Calculations: total revenue, PED and the Own Figure Rule",
+            pills: ["Calculate... Show your working", "2 marks", "Quantitative skills"],
+            content: `<p>Three calculation types appear in this topic's real papers:</p>
+<ul>
+<li><strong>Total revenue</strong> = price × quantity. CDS: at £25 revenue is £25 × 300 = £7,500; at £20 it is £20 × 450 = £9,000; the change is <strong>+£1,500</strong>.</li>
+<li><strong>Interest changes</strong> — 3.5% of £10,000 is £350, 2.5% is £250, so the payment rises £100.</li>
+<li><strong>PED from percentages</strong> — price cut 20%, quantity up 50% → PED = 50 ÷ 20 = 2.5 → elastic.</li>
+</ul>
+<h4>Why you ALWAYS show working</h4>
+<p>OCR uses the <strong>Own Figure Rule</strong>: if you make one slip (say, a decimal point) but your method is right, you still get 1 of the 2 marks — but only if your working is on the page.</p>
+<p>Then link the number to the revenue rule: elastic → cutting price RAISES revenue; inelastic → raising price RAISES revenue. The 6-markers expect you to USE the calculation you just did.</p>`,
+            readCheck: {
+                q: "You misplace a decimal but show correct working. Under the Own Figure Rule you get...",
+                opts: ["1 of the 2 marks", "Both marks", "No marks", "Half a mark"],
+                ans: 0,
+                explain: "The real mark scheme states: 'OFR applies for a maximum of 1 mark' — but only if the examiner can see your method."
+            }
+        },
+        {
+            type: "sixmarker",
+            title: "The 6-markers: use the case study, and evaluate means judge",
+            pills: ["Analyse... / Evaluate...", "6 marks", "Levels of response"],
+            content: `<p>This topic's 6-markers split into <strong>Analyse</strong> (chains of reasoning, no conclusion needed) and <strong>Evaluate</strong> (both sides + a supported judgement). The examiner reports show exactly where candidates lose marks:</p>
+<h4>How real answers scored</h4>
+<p>❌ <strong>Level 0–1 (1–2 marks):</strong> A pre-prepared answer about competition in general, never mentioning gardens, cafés or delivery parcels. "Many candidates could not access more than three marks as they included no link to the extract."</p>
+<p>⚠️ <strong>Level 2 (3–4 marks):</strong> Correct single effects — "revenue falls, profits fall" — but not developed into a chain, or strong analysis with NO evaluation. One report warned that good analysis with no evaluation could only be given 1 mark out of 6 on an Evaluate question.</p>
+<p>✅ <strong>Level 3 (5–6 marks):</strong> Chains of reasoning built on the case study's own numbers ("cutting the price from £25 to £20 raises revenue by £1,500...") plus, for Evaluate, a judgement that takes a side and supports it ("Overall, PED matters most here because...").</p>
+<h4>Two topic-specific traps</h4>
+<ul>
+<li>"Using a diagram" means it — answers with <strong>no correct diagram are capped at 4/6</strong>.</li>
+<li>A <strong>movement along the demand curve</strong> can only happen after the <strong>supply curve shifts</strong> — many candidates missed this on the Plumwith Holidays question.</li>
+</ul>`,
+            readCheck: {
+                q: "An Evaluate 6-marker answer has two brilliant chains of analysis but no judgement or counter-view. Its likely score is...",
+                opts: ["1–2 marks", "5 marks", "6 marks", "4 marks guaranteed"],
+                ans: 0,
+                explain: "The examiner report: candidates 'unable to evaluate the analysis they had provided... were unable to be given more than 1 mark out of 6'. Evaluation is not optional."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Demand", def: "The willingness and ability to buy a good or service at a given price in a given period of time." },
+        { term: "Market demand", def: "All the individual demands added together at each price." },
+        { term: "Individual demand", def: "The demand of one single consumer." },
+        { term: "Derived demand", def: "Demand that comes from the demand for something else — e.g. builders are demanded because houses are demanded." },
+        { term: "The law of demand", def: "As price falls, quantity demanded rises (and vice versa) — price and quantity demanded are inversely related." },
+        { term: "Expansion (extension) of demand", def: "A rise in quantity demanded caused by a FALL in the good's own price — a movement DOWN the demand curve." },
+        { term: "Contraction of demand", def: "A fall in quantity demanded caused by a RISE in the good's own price — a movement UP the demand curve." },
+        { term: "Shift of the demand curve", def: "The whole curve moves because a non-price factor changed: income, marketing, taste/fashion, substitutes, complements, population, government policy, the economy, price expectations." },
+        { term: "Substitute goods", def: "Goods that replace each other (apples/plums). A price RISE in one shifts demand for the other RIGHT." },
+        { term: "Complementary goods", def: "Goods bought together (console/games). A price RISE in one shifts demand for the other LEFT." },
+        { term: "Price elasticity of demand (PED)", def: "The responsiveness of quantity demanded to a change in price: % change in quantity demanded ÷ % change in price." },
+        { term: "Price elastic demand (PED > 1)", def: "Quantity changes by a BIGGER % than price. Flat curve. To raise revenue: CUT the price." },
+        { term: "Price inelastic demand (PED < 1)", def: "Quantity changes by a SMALLER % than price. Steep curve. To raise revenue: RAISE the price." },
+        { term: "Unitary price elasticity (PED = 1)", def: "Quantity changes by exactly the same % as price, so total spending on the good stays the same." },
+        { term: "Perfectly price inelastic (PED = 0)", def: "A VERTICAL demand curve — quantity demanded never changes whatever the price." },
+        { term: "Perfectly price elastic (PED = ∞)", def: "A HORIZONTAL demand curve — consumers buy any amount at one price only." },
+        { term: "Total revenue", def: "Price × quantity sold. PED tells a firm whether a price change raises or lowers it." },
+        { term: "Price discrimination", def: "Charging different groups different prices for the same product because their PEDs differ — e.g. peak vs off-peak tickets." }
+    ];
+
+    const EXAM_CASE_STUDIES = {
+      "extract-1-kasia-and-ben-s-window-cleaning-busine": `<p><strong>Extract 1: Kasia and Ben's window cleaning business</strong> — a monopoly in their own village; two rival businesses in the next village they are thinking of entering.</p>
+<table style="width:100%;max-width:420px;margin:10px auto;border-collapse:collapse;text-align:center;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Price (£)</th><th style="padding:6px;">Demand (units)</th><th style="padding:6px;">Supply (units)</th></tr>
+<tr><td style="padding:6px;">10</td><td>100</td><td>20</td></tr>
+<tr><td style="padding:6px;">20</td><td>80</td><td>40</td></tr>
+<tr><td style="padding:6px;">30</td><td>60</td><td>60</td></tr>
+<tr><td style="padding:6px;">40</td><td>40</td><td>80</td></tr>
+<tr><td style="padding:6px;">50</td><td>20</td><td>100</td></tr>
+</table>`,
+      "extract-2-a-garden-business": `<p><strong>Extract 2 — A garden business</strong></p>
+<p>Amir and Nina run a business which designs and builds gardens. Nina is responsible for the design work, and Amir organises the building work. This is an example of division of labour. They have recently been asked by the Hesthwaite Trust, a local charity, to redesign and build five gardens. The Trust will pay a fixed price of £8000 for each garden. Nina has calculated the total design and plant costs to be £11 400. In addition, she has estimated the costs of the building work for each garden.</p>
+<table style="width:100%;max-width:380px;margin:10px auto;border-collapse:collapse;text-align:center;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">Cost of building work (£)</th></tr>
+<tr><td style="padding:6px;">Gardens 1 and 4</td><td>2000 each</td></tr>
+<tr><td style="padding:6px;">Gardens 2 and 3</td><td>4500 each</td></tr>
+<tr><td style="padding:6px;">Garden 5</td><td>11750</td></tr>
+</table>
+<p>Amir and Nina realise how important it is that they earn a profit on the work, especially as they operate in the product market. They expect that if people visiting the gardens like their work this will change their demand. This would mean they could compete more effectively with their rivals.</p>`,
+      "extract-2-nina-and-leo-s-caf": `<p><strong>Extract 2 — Nina and Leo's café</strong></p>
+<p>Nina and Leo run a successful café in the town centre of Voreda. They are concerned by the number of new cafés which have opened in the past year. These cafés will provide far more competition for them. This is likely to affect the prices Nina and Leo can charge by changing the equilibrium price and quantity. Nina claims, however, that demand for their products is price inelastic.</p>
+<p>Leo thinks they have enough money to improve the business either by repainting the outside of the café or by replacing their old tables and chairs with new ones. Nina has suggested another option which is to expand their outdoor seating area. Leo says he has done some research into borrowing money from a bank. They could get a £10 000 loan for one year, at a fixed interest rate of 2.5%. However, this rate is likely to rise very soon to 3.5%. This loan would enable them to carry out two of their ideas to improve the business. Nina and Leo both wonder what effect these choices will have on their economic sustainability.</p>`,
+      "extract-1-coom-delivery-service-cds": `<p><strong>Extract 1: Coom Delivery Service (CDS)</strong></p>
+<p>Coom Delivery Service (CDS) is a delivery business operating in northwest England and southwest Scotland. It has recently bought more land for its growing number of delivery vehicles. Although most of these are powered by petrol, the aim is to have half of the vehicles to be electric powered by 2024. This is because Natan, the owner of CDS, is aware of the need to reduce the use of scarce resources to help achieve economic sustainability.</p>
+<p>Natan has investigated the prices of CDS's competitors. He thinks that if CDS could reduce its prices for next day delivery by either 10% or 20%, it would make considerable gains in the quantity of parcels delivered, as well as total revenue. He has set this out in the table below.</p>
+<table style="width:100%;max-width:380px;margin:10px auto;border-collapse:collapse;text-align:center;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Price</th><th style="padding:6px;">Quantity of parcels per week</th></tr>
+<tr><td style="padding:6px;">£25.00</td><td>300</td></tr>
+<tr><td style="padding:6px;">£22.50</td><td>350</td></tr>
+<tr><td style="padding:6px;">£20.00</td><td>450</td></tr>
+</table>`,
+      "extract-2-charity-shop-prices": `<p><strong>Extract 2: Charity shop prices</strong></p>
+<p>Amyn and Sophia were discussing the difference between the price of a product and its worth. Sophia mentioned she had bought a new dress in a charity shop, but thought it was worth a lot more than she had paid. Amyn said that the price Sophia had paid was the result of market forces. He explained the effects of competition between charity shops on the prices of their products.</p>
+<p>Sophia produced a table showing the demand by her friends for dresses from charity shops.</p>
+<table style="width:100%;max-width:300px;margin:10px auto;border-collapse:collapse;text-align:center;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Price</th><th style="padding:6px;">Quantity</th></tr>
+<tr><td style="padding:6px;">30</td><td>2</td></tr>
+<tr><td style="padding:6px;">25</td><td>3</td></tr>
+<tr><td style="padding:6px;">20</td><td>5</td></tr>
+<tr><td style="padding:6px;">15</td><td>10</td></tr>
+<tr><td style="padding:6px;">10</td><td>20</td></tr>
+</table>
+<p>Both Amyn and Sophia realised that consumer demand was price elastic. They wondered, however, how important this was for Sophia's friends, especially as Sophia said that she was far more interested in the quality of the dress than the price.</p>`
+    };
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which one of the following causes an outward shift of the demand curve for restaurant meals?",
+            options: ["A fall in the price of restaurant meals", "A rise in incomes of consumers", "A rise in the price of restaurant meals", "A rise in the wages of restaurant staff"],
+            answer: 1,
+            hint: "An OUTWARD (rightward) shift needs a NON-price factor. Two options are the meal's own price (movement along), and one affects SUPPLY. What's left?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — A rise in incomes of consumers</strong></p>
+<ul>
+<li>Higher incomes mean more meals demanded at every price — the whole curve shifts outward (right).</li>
+<li>A and C are changes in the meal's own price: movements along the curve, not shifts.</li>
+<li>D raises restaurants' costs — that affects the supply curve, not demand.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<img src="/images/economics/2-2-demand-curve-q2-extracted.png" alt="A demand curve from the OCR exam paper: Price on the vertical axis, Quantity on the horizontal axis, with a straight line labelled D sloping downwards from left to right" style="display:block;width:100%;max-width:420px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "This demand curve shows that...",
+            options: ["as consumers get better off, they buy more", "if consumers buy more, the price will rise", "if the price falls, consumers buy more", "if the price rises, producers will sell more"],
+            answer: 2,
+            hint: "The curve links the good's own PRICE to QUANTITY demanded — nothing else. Which option only talks about those two things, in the right direction?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1 1b)</h5>
+<p><strong>Answer: C — if the price falls, consumers buy more</strong></p>
+<ul>
+<li>The downward slope IS the law of demand: lower price, higher quantity demanded.</li>
+<li>A is about income (a shift factor, not shown here); B reverses cause and effect; D describes supply behaviour.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q3a",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-kasia-and-ben-s-window-cleaning-busine",
+            question: "State one characteristic of each of the following: a competitive market; a monopolistic market.",
+            hint: "Think about the NUMBER of sellers in each, or how easy it is to enter, or who controls the price. One short line for each market is enough — 'State' means no explanation needed.",
+            starter: "A competitive market has... A monopolistic market has...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>A competitive market — answers may include:</strong></p>
+<ul>
+<li>many sellers</li>
+<li>few barriers to entry / easier to enter the market</li>
+<li>homogenous goods / substitutes</li>
+<li>less control over price.</li>
+</ul>
+<p><strong>A monopolistic market — answers may include:</strong></p>
+<ul>
+<li>only one seller</li>
+<li>large barriers to entry / very difficult to enter the market</li>
+<li>lack of substitutes</li>
+<li>more control over price.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark for a correct characteristic of a competitive market.</li>
+<li>1 mark for a correct characteristic of a monopolistic market.</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>`,
+            modelAnswer: "A competitive market has many sellers competing with each other.\n\nA monopolistic market has only one seller."
+        },
+        {
+            num: "Q3b",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Table 1: Price, demand and supply for Kasia and Ben's window cleaning business</strong></p>
+<table style="width:100%;max-width:420px;margin:10px auto;border-collapse:collapse;text-align:center;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Price (£)</th><th style="padding:6px;">Demand (units)</th><th style="padding:6px;">Supply (units)</th></tr>
+<tr><td style="padding:6px;">10</td><td>100</td><td>20</td></tr>
+<tr><td style="padding:6px;">20</td><td>80</td><td>40</td></tr>
+<tr><td style="padding:6px;">30</td><td>60</td><td>60</td></tr>
+<tr><td style="padding:6px;">40</td><td>40</td><td>80</td></tr>
+<tr><td style="padding:6px;">50</td><td>20</td><td>100</td></tr>
+</table>
+<p>Using the information in Table 1, draw and label a supply and demand diagram for Kasia and Ben's window cleaning business on the grid below (sketch it on paper).</p>
+<img src="/images/economics/2-2-window-cleaning-grid-extracted.png" alt="The blank grid from the exam paper: Price (£) from 0 to 60 on the vertical axis, Quantity (units) from 0 to 120 on the horizontal axis" style="display:block;width:100%;max-width:480px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "Using the information in Table 1, draw and label a supply and demand diagram for Kasia and Ben's window cleaning business.",
+            hint: "Two lines from the table's numbers: demand falls as price rises, supply rises as price rises. Plot the points, join each set, and LABEL both curves — D and S.",
+            starter: "Sketch it: demand from (100 units, £10) down to... supply from (20 units, £10) up to...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p>The official answer diagram:</p>
+<img src="/images/economics/2-2-window-cleaning-answer-extracted.png" alt="Official mark scheme diagram: on the same grid, a demand line labelled D falling from (20, £50) to (100, £10) and a supply line labelled S rising from (20, £10) to (100, £50), crossing at 60 units and £30" style="display:block;width:100%;max-width:480px;margin:10px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<ul>
+<li>1 mark for correctly drawing and labelling the demand curve.</li>
+<li>1 mark for correctly drawing and labelling the supply curve.</li>
+</ul>
+</div>`,
+            modelAnswer: "Plot the demand figures and join them — a straight line falling from 100 units at £10 to 20 units at £50 — and label it D.\n\nPlot the supply figures rising from 20 units at £10 to 100 units at £50 and label it S. The two lines cross at £30 and 60 units, the equilibrium."
+        },
+        {
+            num: "Q3c",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-kasia-and-ben-s-window-cleaning-busine",
+            question: "Kasia and Ben are thinking about offering their window cleaning services in the next village. Analyse factors that Kasia and Ben would need to consider when making this decision.",
+            hint: "In their own village they are a MONOPOLY. In the next village there are already TWO rivals. What changes about setting prices, winning customers, quality and advertising? Build two developed chains — Analyse questions need no conclusion.",
+            starter: "One factor is that Kasia and Ben would no longer be a monopoly, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Unlike current market, they would not be able to set price</li>
+<li>Would have to set price at / close to market price</li>
+<li>Amount sold would be dependent on market demand and supply</li>
+<li>Would possibly need to give more attention to the quality of the product</li>
+<li>May need to advertise (more).</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><em>All level descriptors describe the TOP of the level — best fit approach.</em></p>
+<p><strong>Level 3 (5–6 marks):</strong></p>
+<ul>
+<li>Reasonable knowledge and understanding — all terms/concepts understood</li>
+<li>Reasonable application to the scenario of Kasia and Ben</li>
+<li>Good analysis — developed links built into a chain of reasoning which addresses the question; any relevant diagrams predominantly correct and linked to the analysis</li>
+</ul>
+<p><strong>Level 2 (3–4 marks):</strong></p>
+<ul>
+<li>Reasonable knowledge and understanding — most terms/concepts understood</li>
+<li>Limited application to the scenario</li>
+<li>Reasonable analysis — correct but largely single effects, not developed into a clear chain of reasoning</li>
+</ul>
+<p><strong>Level 1 (1–2 marks):</strong></p>
+<ul>
+<li>Some terms/concepts understood</li>
+<li>No application to the scenario</li>
+<li>Limited analysis — an attempt which may include a single effect with some link to the question</li>
+</ul>
+<p><strong>0 marks:</strong> No response or no response worthy of credit.</p>
+<p>N.B. Any other relevant points and/or evidence of learners' understanding of the connections between the various topics of both components to be credited.</p>
+</div>`,
+            modelAnswer: "One factor is that Kasia and Ben would no longer be a monopoly. In the next village there are already two other window cleaning businesses, which means they could not set their own price and would have to charge at or close to the price their rivals charge. This could mean earning less for each house cleaned than they do in their own village.\n\nAnother factor is how they would win customers from the existing businesses. They may need to advertise and give more attention to the quality of their service, and this means extra costs, so they would need to consider whether the extra sales would be worth more than the extra costs."
+        },
+        {
+            num: "Q3d(i)",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Explain what is meant by 'price elasticity of demand'.",
+            hint: "Two parts, two marks: the word 'responsiveness', and being clear that it is QUANTITY DEMANDED responding to a change in PRICE — not the other way round.",
+            starter: "Price elasticity of demand measures the responsiveness of...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The responsiveness of quantity demanded to a change in price.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark for responsiveness.</li>
+<li>1 mark for the fact that it is quantity demanded affected by price (and not vice versa).</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>`,
+            modelAnswer: "Price elasticity of demand measures the responsiveness of quantity demanded to a change in price.\n\nIt is the percentage change in quantity demanded divided by the percentage change in price."
+        },
+        {
+            num: "Q3d(ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p>If Kasia and Ben increase the price of window cleaning services from £10 to £20 then they estimate a price elasticity of demand of <strong>−0.2</strong>.</p>`,
+            question: "Explain to Kasia and Ben what this estimate of price elasticity of demand means.",
+            hint: "−0.2 is less than 1 (ignoring the sign) — what type of response is that? The price is DOUBLING (+100%), so by how much would quantity demanded fall (100% × 0.2)? And what does that mean for their revenue?",
+            starter: "A PED of −0.2 means demand is... so the 100% price rise would only...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>−0.2 = inelastic response</li>
+<li>The price has gone up by 100% and the demand should only decrease by 20%</li>
+<li>Therefore Kasia and Ben should increase the price.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark for interpretation of −0.2 as being an inelastic response to a price rise.</li>
+<li>1 further mark for explanation that this means Kasia and Ben would gain more revenue from this price rise.</li>
+</ul>
+</div>`,
+            modelAnswer: "A PED of −0.2 means demand is price inelastic — the 100% price rise from £10 to £20 should only cut the quantity demanded by 20%.\n\nThis means Kasia and Ben would gain more revenue by putting the price up."
+        },
+        {
+            num: "Q3d(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-kasia-and-ben-s-window-cleaning-busine",
+            question: "Evaluate the importance of price elasticity of demand to Kasia and Ben's business. Use the information given in Extract 1 and in Table 1 and your own knowledge.",
+            hint: "Work out revenue at each price in Table 1 (price × demand): £10→£1,000, £20→£1,600, £30→£1,800, £40→£1,600... Which price earns most? Then evaluate: is revenue their only goal? How reliable is the estimate? Finish with a supported 'Overall...' judgement.",
+            starter: "PED is important because it tells Kasia and Ben what happens to revenue when they change price. Table 1 shows...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Analysis may include:</strong></p>
+<ul>
+<li>If PED is inelastic, then a price increase raises revenue (as sales volume drops less than proportionately)</li>
+<li>A price decrease, however, decreases revenue (as sales volume increases less than proportionately)</li>
+<li>In this case the PED gets more elastic as the price increases</li>
+<li>The optimum price is £30 as this brings in the highest revenue.</li>
+</ul>
+<p><strong>Evaluation may include:</strong></p>
+<ul>
+<li>Is revenue / profit the most important objective for Kasia and Ben?</li>
+<li>With possible expansion into the next village, do Kasia and Ben want to increase sales even if revenue decreases?</li>
+<li>Would the price changes be short term or long term?</li>
+<li>Are there economies of scale that may not be reflected in the PED figures?</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong></p>
+<ul>
+<li>Good application to the scenario of Kasia and Ben — good understanding of all relevant elements</li>
+<li>Reasonable analysis of the effect of PED on the business</li>
+<li>Good evaluation with a fully supported judgement, developed from weighing up arguments / both sides / comparing alternatives</li>
+<li>A well-developed, coherent and logically structured line of reasoning; information entirely relevant and substantiated</li>
+</ul>
+<p><strong>Level 2 (3–4 marks):</strong></p>
+<ul>
+<li>Good application to the scenario</li>
+<li>Limited analysis — perhaps a single effect with some link to the question</li>
+<li>Reasonable evaluation considering both sides; a judgement may be given but not fully supported</li>
+</ul>
+<p><strong>Level 1 (1–2 marks):</strong></p>
+<ul>
+<li>No application to the scenario</li>
+<li>Limited analysis</li>
+<li>Limited evaluation — incomplete consideration of both sides with unsupported statements</li>
+</ul>
+<p><strong>0 marks:</strong> No response or no response worthy of credit.</p>
+<p>N.B. Any other relevant points and/or evidence of learners' understanding of the connections between the various topics of both components to be credited.</p>
+</div>`,
+            modelAnswer: "PED is important because it tells Kasia and Ben what happens to their revenue when they change price. Their estimate of −0.2 is inelastic, so raising the price from £10 increases revenue — Table 1 shows revenue is highest at £30, where 60 households pay £1,800 in total.\n\nHowever, revenue may not be their only objective. If they want to expand into the next village, keeping the price lower might win more customers even if revenue falls, and their PED estimate may not stay reliable once they face two competitors who could undercut them.\n\nOverall, PED matters most for setting the price in their own village, where they are a monopoly and £30 earns the most revenue — but it is less useful in the new village, where the market price will be set by competition."
+        },
+        {
+            num: "Q4",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The demand for a product is more inelastic...",
+            options: ["the greater the time period under consideration", "the larger the number of substitutes available to consumers", "the more elastic the supply for this product", "the smaller the effect of a price change on the quantity demanded"],
+            answer: 3,
+            hint: "Inelastic literally means quantity demanded barely responds to price. Which option SAYS that? (Time and substitutes both make demand MORE elastic.)",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1 1b)</h5>
+<p><strong>Answer: D — the smaller the effect of a price change on the quantity demanded</strong></p>
+<ul>
+<li>Inelastic demand = quantity demanded responds only a little to price changes — exactly what D describes.</li>
+<li>More time (A) and more substitutes (B) make demand MORE elastic; supply elasticity (C) is a separate concept.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q5",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "What will happen to the price and quantity of most goods due to a movement along the demand curve?",
+            options: ["price and quantity will change in opposite directions", "price and quantity will change in the same direction", "price will change, but quantity will stay the same", "quantity will change, but price will stay the same"],
+            answer: 0,
+            hint: "The demand curve slopes DOWNWARDS. Moving along it, when price goes up, what happens to quantity demanded?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — price and quantity will change in opposite directions</strong></p>
+<ul>
+<li>Moving along a downward-sloping demand curve: price up → quantity demanded down, and vice versa — opposite directions.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Most of the candidates gave A as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q6",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "What is the price elasticity of demand, if a price decrease leads to an increase in total revenue?",
+            options: ["Perfectly price inelastic", "Price elastic", "Price inelastic", "Unitary price elastic"],
+            answer: 1,
+            hint: "Revenue rose even though each unit now sells for LESS — so the quantity sold must have risen by a BIGGER percentage than the price fell. What is that called?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: B — Price elastic</strong></p>
+<ul>
+<li>Cutting price only raises total revenue when the % rise in quantity beats the % fall in price — that is elastic demand (PED &gt; 1). This is the revenue rule.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Most of the candidates gave B as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q7",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>A farmer sells bags of carrots. When the price is reduced from £2.00 per bag to £1.50, the quantity sold increases by 15%.</p>`,
+            question: "The demand for carrots is...",
+            options: ["perfectly price inelastic", "price elastic", "price inelastic", "unitary price elastic"],
+            answer: 2,
+            hint: "Work out the % price change first: 50p off £2.00 = 25%. Quantity rose only 15%. PED = 15 ÷ 25 = 0.6. Bigger or smaller than 1?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: C — price inelastic</strong></p>
+<ul>
+<li>Price falls 25% (£2.00 → £1.50) but quantity rises only 15%.</li>
+<li>PED = 15% ÷ 25% = 0.6 — less than 1, so demand is price inelastic.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Nearly half of the candidates gave the correct answer C with many thinking it was elastic while A and D also received support.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q8",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<img src="/images/economics/2-2-individual-market-demand-extracted.png" alt="Three demand diagrams from the OCR exam paper. Diagram X: a steep demand curve for Consumer A. Diagram Y: a flat demand curve for Consumer B. Diagram Z: a combined demand curve for Consumers A+B" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "What does Diagram Z show?",
+            options: ["Changes in tastes of consumers", "Market demand of consumers", "Perfectly inelastic demand", "Shift in the demand curve"],
+            answer: 1,
+            hint: "Look at the labels underneath: Consumer A, Consumer B... and Consumers A+B. What do you get when you ADD individual demands together?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — Market demand of consumers</strong></p>
+<ul>
+<li>Diagram Z is labelled "Consumers A+B" — the individual demands of A and B added together, which is the definition of market demand.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Most of the candidates gave B as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q9",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>Apples and plums are substitute goods.</p>`,
+            question: "The demand curve for plums will shift to the right if there is...",
+            options: ["a fall in the price of apples", "a fall in the price of plums", "a rise in the price of apples", "a rise in the price of plums"],
+            answer: 2,
+            hint: "Two rules: plums' OWN price can never shift the plum demand curve (that's a movement along), and buyers switch to plums when the SUBSTITUTE gets dearer.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: C — a rise in the price of apples</strong></p>
+<ul>
+<li>Dearer apples push shoppers towards the substitute — more plums demanded at every price, shifting the plum demand curve right.</li>
+<li>B and D are plums' own price (movements along the curve); A would shift plum demand LEFT.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>A high percentage of candidates gave Option C as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q10(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-a-garden-business",
+            question: "Explain why Amir and Nina's business is part of the product market.",
+            hint: "Define the product market first (where FINAL goods and services are sold to buyers), then link it: what do Amir and Nina sell, and who buys it?",
+            starter: "The product market is where... Amir and Nina are part of it because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Market where (final) goods and services are offered to the consumer [businesses and the public sector]</li>
+<li>Amir and Nina sell final goods/services to the buyer</li>
+<li>Households, other firms, and the public sector are the buyers</li>
+<li>Hesthwaite Trust is buying a final good/service</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 2 marks if there is a clear understanding of what a product market is and why Amir and Nina's business is part of it.</li>
+<li>Award 1 mark if there is some understanding of what a product market is and why Amir and Nina's business is part of it.</li>
+<li>Or: award 1 mark if there is a clear idea of a product market, but this is not linked to Amir and Nina's business.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Candidates who clearly understood that the product market is where final goods and services are offered to consumers and how Amir and Nina's business is a part of it were able to score full marks.</p>
+<p>However, a significant number of candidates did not appear to understand what a product market is and offered rather vague responses relating to the production of goods and/or services, or did not include reference to consumers or buyers.</p>
+</div>`,
+            modelAnswer: "The product market is where final goods and services are sold to buyers.\n\nAmir and Nina are part of it because they sell finished gardens to consumers such as the Hesthwaite Trust."
+        },
+        {
+            num: "Q10(ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p>"They expect that if people visiting the gardens like their work this will change their demand."</p>`,
+            question: "Draw and label a diagram showing this change in demand for Amir and Nina's business.",
+            hint: "If visitors LIKE the work, demand INCREASES — which way does the whole curve move? You need TWO curves (D and D1), both labelled, on Price/Quantity axes.",
+            starter: "Sketch it: two downward-sloping curves, the new one to the...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p>The official answer diagram:</p>
+<img src="/images/economics/2-2-demand-shift-answer-extracted.png" alt="Official mark scheme diagram: Price and Quantity axes with two downward-sloping demand curves, D and D1, D1 shifted to the right of D" style="display:block;width:100%;max-width:420px;margin:10px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<ul>
+<li>Give 2 marks for correctly drawing and labelling two demand curves and indicating the shift to the right (by labelling is enough).</li>
+<li>Give 1 mark if only one demand curve is correctly drawn and labelled.</li>
+<li>If the demand curve is shifted to the left, then 1 mark for a correctly drawn and labelled original line.</li>
+<li>No marks if the demand curve is unlabelled or slopes upwards.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>While this question proved to be quite straightforward to the majority of candidates, there were some instances where candidates drew and labelled two demand curves but indicated that demand would shift left.</p>
+<p>While in a very small number of cases candidates thought that demand curves sloped upwards from left to right.</p>
+</div>`,
+            modelAnswer: "Draw two downward-sloping demand curves on Price/Quantity axes and label them D and D1.\n\nPut D1 to the right of D — if visitors like their work, more gardens are demanded at every price, so the whole curve shifts right."
+        },
+        {
+            num: "Q10(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-2-a-garden-business",
+            question: "Evaluate why it would be important for Amir and Nina to compete more effectively with their rivals. Use the information given in Extract 2 and your own knowledge.",
+            hint: "The question is WHY competing effectively matters, not HOW to compete. Benefits: more demand, market share, profit, long-term future. Then the other side: what happens if they DON'T compete effectively? Anchor everything in gardens, and end with a supported 'Overall...'.",
+            starter: "Competing more effectively is important because it could increase demand for Amir and Nina's gardens, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Lead to increase in demand</li>
+<li>Enable them to reduce costs per unit</li>
+<li>Lead to increase in profit</li>
+<li>Greater market share</li>
+<li>Successful businesses more likely to attract scarce resources.</li>
+</ul>
+<p><strong>Evaluation may include [NB: why it would be important]:</strong></p>
+<ul>
+<li>If they do not compete effectively, they could be forced out of business / lose market share</li>
+<li>More effective competition will increase their market share at the expense of competitors, which could improve their long-term financial future.</li>
+</ul>
+<p>NB: the focus of an answer should be about 'effective competition'. Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong></p>
+<ul>
+<li>Good application — responses include actual reference to gardens/garden services (designing and/or building) or other aspects of the scenario</li>
+<li>Reasonable analysis, largely in the form of single effects addressing the question</li>
+<li>Good evaluation with a fully supported judgement developed from weighing up arguments / both sides / comparing alternatives</li>
+<li>A well-developed and detailed line of reasoning which is coherent and logically structured</li>
+</ul>
+<p><strong>Level 2 (3–4 marks):</strong></p>
+<ul>
+<li>Good application to the scenario</li>
+<li>Limited analysis — perhaps a single effect with some link to the question</li>
+<li>Reasonable evaluation considering both sides; a judgement may be given but not fully supported</li>
+</ul>
+<p><strong>Level 1 (1–2 marks):</strong></p>
+<ul>
+<li>No application to the scenario</li>
+<li>Limited analysis and limited evaluation with unsupported statements</li>
+</ul>
+<p><strong>0 marks:</strong> No work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question is asking for evaluation of WHY it would be important for the owners of a business to compete more effectively — the ability to grow and gain economies of scale, the potential for increased profitability, improving their long-term viability as a business.</p>
+<p>Less successful responses often seemed pre-prepared on the topic of competition and its impact, or focused heavily on HOW to compete rather than why it is important.</p>
+<p>Once again, many candidates could not access any more than three marks out of the six marks available as they included no link to the contextual information within Extract 2.</p>
+</div>`,
+            modelAnswer: "Competing more effectively is important because it could increase the demand for Amir and Nina's gardens. If visitors like their work, demand shifts right, which means they can win more contracts like the Hesthwaite Trust's five gardens and increase their profit and market share.\n\nHowever, the bigger reason is what happens if they do not compete effectively. Garden design is a market with rivals, so a business that customers do not choose loses market share and could eventually be forced out of business altogether.\n\nOverall, competing effectively is vital because their survival depends on it — winning work at the expense of rivals protects their long-term financial future, while standing still would slowly hand their customers to competitors."
+        },
+        {
+            num: "Q11",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 3 — The Celandine Hotel</strong></p>
+<p>The Celandine Hotel won the 'Business Enterprise of 2022 Award' for the county of Cummorland. Although there are many hotels in Cummorland, The Celandine has increased its number of customers. This has been achieved by hosting a wide range of events including conferences, lunches for local businesses, murder mystery evenings, and weddings. This has helped to change the demand for its services from being price elastic to price inelastic.</p>
+<p>Ben and Eve, the owners, are concerned by recent increases in the rate of interest. Five years ago they borrowed £500 000 to help them buy the hotel. At that time, they were paying 3% interest which was £1250 a month. The bank has told them from the start of next month they need to pay 7.5% interest.</p>
+<p>Eve has suggested that they could save money on wages if she gave up her teaching job. She could then manage the business finances and run some of the hotel's events. Ben wondered whether a better option would be to specialise in weddings and conferences in the future.</p>`,
+            question: "Draw and label a diagram showing the original price elastic demand curve and the new price inelastic demand curve for The Celandine Hotel.",
+            hint: "Elastic = FLAT curve. Inelastic = STEEP curve. Draw them crossing, with clearly different slopes, and label which is which — parallel curves or missing labels lose marks.",
+            starter: "Sketch it: one flat curve labelled elastic, one steep curve labelled inelastic, crossing...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p>The official answer diagram:</p>
+<img src="/images/economics/2-2-elastic-inelastic-answer-extracted.png" alt="Official mark scheme diagram: Price and Quantity axes with a flat demand curve labelled D1/elastic and a steep demand curve labelled D2/inelastic crossing each other" style="display:block;width:100%;max-width:420px;margin:10px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<ul>
+<li>Award 1 mark for correctly drawing and labelling an elastic demand curve.</li>
+<li>Award 1 mark for correctly drawing and labelling an inelastic demand curve.</li>
+<li>Allow 'original' and 'new' for the labels. Allow D and D1, or D0 and D1, or D1 and D2, as the question asks for the two demand curves in this order.</li>
+<li>If two correct demand curves are drawn, but with no appropriate labels, award 1 mark.</li>
+<li>N.B. There was no need for a supply curve to be drawn or for the equilibrium price and quantity to be shown on the diagram.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>While a large majority of candidates gained two marks for their response to this question, it was evident that some candidates may not have understood either the question or the concepts involved as they either drew and labelled two parallel demand curves or drew two demand curves and left them unlabelled.</p>
+<p>It is important that candidates leave no doubt in the mind of the examiner as to which demand curve is which by clear and appropriate labels being included in their response.</p>
+</div>`,
+            modelAnswer: "Draw a flat demand curve for the original price elastic demand and label it D1 (elastic).\n\nThen draw a much steeper curve crossing it, labelled D2 (inelastic), for the new demand. The slopes must be clearly different — two parallel curves would score only 1 mark at most."
+        },
+        {
+            num: "Q12(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-nina-and-leo-s-caf",
+            question: "Using an example from Extract 2, explain what is meant by opportunity cost.",
+            hint: "Definition (the next best alternative GIVEN UP when making a choice) + an example that must come from the extract: repainting, new tables and chairs, or the outdoor seating area.",
+            starter: "Opportunity cost is the next best alternative given up... For example, if Nina and Leo choose...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The next best alternative given up/foregone (when making a choice)</li>
+<li>Extract 2 mentions: repaint the outside of the café; replace the tables and chairs; and expand the outdoor eating area</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 2 marks for a correct explanation of opportunity cost with a correct example from Extract 2.</li>
+<li>Award 1 mark for an example from Extract 2.</li>
+<li>NB: No reward for a purely theoretical answer or an example not from Extract 2.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Most candidates were given 2 marks for providing a suitable definition and example from Extract 2.</p>
+<p>However, there was some evidence of parts of the definition being missed out — for example, reference to 'foregone' or 'given up' was omitted — while some candidates did not read the question carefully enough and provided examples that did not come from Extract 2.</p>
+</div>`,
+            modelAnswer: "Opportunity cost is the next best alternative given up when making a choice.\n\nFor example, if Nina and Leo choose to repaint the outside of the café, the opportunity cost could be replacing the old tables and chairs."
+        },
+        {
+            num: "Q12(ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p>Nina and Leo could get a £10 000 loan for one year, at a fixed interest rate of 2.5%. However, this rate is likely to rise very soon to 3.5%.</p>`,
+            question: "Calculate the effect on the interest payment if Nina and Leo pay 3.5% interest instead of 2.5% on a £10 000 loan. Show your working.",
+            hint: "Either work out both payments (3.5% and 2.5% of £10,000) and find the difference, or spot the shortcut: the rate rises by exactly 1%.",
+            starter: "3.5% of £10,000 = ... and 2.5% of £10,000 = ... so the difference is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Either:</strong></p>
+<ul>
+<li>1% of £10,000 [1] = £100 [1]</li>
+</ul>
+<p><strong>Or:</strong></p>
+<ul>
+<li>3.5% of £10,000 = £350; 2.5% of £10,000 = £250 [1]. Difference £100 [1]</li>
+</ul>
+<p>Own Figure Rule applies.</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 2 marks for the correct answer (with or without workings).</li>
+<li>Own Figure Rule applies for a maximum of 1 mark.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>This question proved to be quite straightforward for most candidates, who were able to provide the correct response of £100.</p>
+<p>Occasionally, candidates made errors by selecting the wrong rates of interest or by making errors in their calculations despite including all the relevant information correctly. For example, a small percentage of candidates got the decimal point in the wrong place, so, although the working was logical, the response was wrong. However, they could still gain 1 mark under the Own Figure Rule.</p>
+</div>`,
+            modelAnswer: "3.5% of £10,000 = £350 and 2.5% of £10,000 = £250.\n\nThe interest payment rises by £350 − £250 = £100."
+        },
+        {
+            num: "Q12(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-2-nina-and-leo-s-caf",
+            question: "Evaluate the costs of the economic choices that Nina and Leo must make on their economic sustainability. Use the information given in Extract 2 and your own knowledge.",
+            hint: "ECONOMIC sustainability = using resources so the business can keep going and grow over time (not environmental!). Costs: the loan + rising interest, using reserves, cost of the improvements. Evaluate: will the improvements actually bring in customers? Do costs outweigh extra revenue? End with a judgement.",
+            starter: "One cost is the £10,000 loan. Nina and Leo would have to pay interest of at least 2.5%, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Economic sustainability of an economic choice ensures the best use of resources so that Nina and Leo's café can continue to grow over time</li>
+</ul>
+<p><strong>Costs:</strong></p>
+<ul>
+<li>£10,000 loan and the interest payable / time scale of repayment</li>
+<li>Use of their reserves of money</li>
+<li>Cost of either painting or replacing tables/chairs or expanding outdoor area</li>
+<li>How much might this enable them to increase prices to consumers?</li>
+</ul>
+<p><strong>Evaluation:</strong></p>
+<ul>
+<li>No guarantee that any improvements will bring in more customers or retain existing ones, especially with more cafés opening</li>
+<li>Monetary costs involved may outweigh any increase in revenue</li>
+<li>Will any changes at least meet what the competition is offering?</li>
+<li>Would it be better to improve the value of what they offer as against cosmetic changes?</li>
+<li>How economically sustainable are the choices?</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong></p>
+<ul>
+<li>Good application of knowledge of the costs of the economic choices on economic sustainability</li>
+<li>Reasonable analysis, largely in the form of single effects addressing the question</li>
+<li>Good evaluation with a fully supported judgement developed from weighing up arguments / both sides / comparing alternatives</li>
+</ul>
+<p><strong>Level 2 (3–4 marks):</strong></p>
+<ul>
+<li>Good application to the scenario</li>
+<li>Limited analysis — perhaps a single effect with some link to the question</li>
+<li>Reasonable evaluation considering both sides; a judgement may be given but not fully supported</li>
+</ul>
+<p><strong>Level 1 (1–2 marks):</strong></p>
+<ul>
+<li>No application to the scenario</li>
+<li>Limited analysis and limited evaluation with unsupported statements</li>
+</ul>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>The key factor in determining the success of candidates in this question was whether they knew and understood the term 'economic sustainability'. There were candidates who either did not attempt this question or who answered in terms of environmental sustainability.</p>
+<p>To answer successfully, candidates needed to identify one or more costs from the choices in Extract 2 (the loan, the interest payable and time scale; using their own reserves; the costs of painting, replacing tables/chairs or expanding the outdoor area), analyse the consequences of these costs, and evaluate them in terms of the effects on the economic sustainability of the business.</p>
+<p>A general concern is that many candidates were unable to evaluate the analysis they had provided, which in some cases was strong, and therefore were unable to be given more than 1 mark out of 6.</p>
+<p><strong>Assessment for learning:</strong> there are different forms of sustainability in the specification — economic, social and environmental. Candidates need to be able to answer questions on any of these and clearly differentiate between them.</p>
+</div>`,
+            modelAnswer: "One cost is the £10,000 loan. Nina and Leo would have to pay interest of at least 2.5%, and this rate is likely to rise to 3.5%, meaning higher repayments which reduce the money available to keep the café growing over time.\n\nHowever, the improvements could bring in more customers, which matters because far more cafés have opened nearby. There is no guarantee of this — the money spent on repainting or new tables may outweigh any extra revenue it brings in.\n\nOverall, the choices are probably economically sustainable because the interest cost is small compared with the possible gain in customers, but only if the improvements at least match what the new competition is offering — otherwise the costs would weaken the café's long-term future."
+        },
+        {
+            num: "Q13",
+            marks: 6,
+            type: "written",
+            caseStudy: `<p><strong>Extract 3 — Summary of Professor Taylor's talk</strong></p>
+<p>This is a summary made by Professor Taylor to a meeting of the Westumbria Small Business Association.</p>
+<ul>
+<li>Prices act as a signalling mechanism.</li>
+<li>She explained how a free market may typically respond to excess supply.</li>
+<li>A fall in demand in the last two years has seen business profits fall.</li>
+<li>The price elasticity of supply may differ between businesses (see table).</li>
+<li>Small businesses may gain benefits by specialising but may also experience costs.</li>
+<li>Small businesses are very important for increasing employment and total production in the economy.</li>
+</ul>
+<table style="width:100%;max-width:480px;margin:10px auto;border-collapse:collapse;text-align:center;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Price (£)</th><th style="padding:6px;">Quantity supplied by Firm A</th><th style="padding:6px;">Quantity supplied by Firm B</th></tr>
+<tr><td style="padding:6px;">20</td><td>10</td><td>10</td></tr>
+<tr><td style="padding:6px;">50</td><td>30</td><td>20</td></tr>
+<tr><td style="padding:6px;">80</td><td>50</td><td>30</td></tr>
+</table>`,
+            question: "Analyse the consequences for small businesses in Westumbria of a fall in demand.",
+            hint: "Focus on BOTH parts: 'a FALL in demand' and 'SMALL businesses'. Chain 1: less sold → lower revenue → lower profits (the extract says profits already fell). Chain 2: why is this worse for SMALL firms? Low financial reserves → risk of leaving the market. A diagram is not needed for full marks.",
+            starter: "A fall in demand means small businesses in Westumbria will be selling less output, so...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Reduction in sales and thus in revenue and profit</li>
+<li>Could result in some small businesses leaving the market</li>
+<li>This could lead to a competitive market becoming an oligopoly (possibly a monopoly)</li>
+<li>For those surviving this might be greater control over prices or possibility of collusion</li>
+<li>Reduction in economies of scale leading to higher prices/higher average costs</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+<p>NB: A diagram is not necessary to gain full marks.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong></p>
+<ul>
+<li>Reasonable knowledge and understanding — all terms/concepts understood</li>
+<li>Reasonable application of the effect of a fall in demand on small businesses</li>
+<li>Good analysis — developed links built through a chain of reasoning which addresses the question</li>
+</ul>
+<p><strong>Level 2 (3–4 marks):</strong></p>
+<ul>
+<li>Most terms/concepts understood</li>
+<li>Limited application to the scenario</li>
+<li>Reasonable analysis — correct but largely single effects, not developed into a clear chain of reasoning</li>
+</ul>
+<p><strong>Level 1 (1–2 marks):</strong></p>
+<ul>
+<li>Some terms/concepts understood</li>
+<li>No application; limited analysis — a single effect with some link to the question</li>
+</ul>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>It is essential that candidates pay full attention to the wording of all questions. In this case, many candidates did not focus on 'small businesses', often just generalising on all businesses, while others ignored 'a fall in demand' and wrote about a rise in demand.</p>
+<p>Most candidates reached Level 2, but there were few responses that developed beyond analysing that falling demand leads to lower prices, loss of sales, lower revenue and profits.</p>
+<p>More successful responses clearly looked at 'consequences', 'small businesses' and 'a fall in demand'. These responses often drew a supply and demand diagram and used it as the focus of analysis, even though this was not a requirement.</p>
+<p>To reach Level 3, candidates had to apply their knowledge and write about the consequences of lower demand for a SMALL business — such as low financial reserves, and so the possibility of going bankrupt.</p>
+</div>`,
+            modelAnswer: "A fall in demand means small businesses in Westumbria will be selling less output, so their sales revenue will fall. Because profits have already fallen over the last two years, this means some businesses may no longer be able to cover their costs, resulting in some leaving the market altogether.\n\nThis is more serious for small businesses because they usually have low financial reserves, so they are less able to survive a period of losses than large firms, and therefore the fall in demand could lead to bankruptcy. For the small businesses that survive, there would be fewer competitors left in the market, which might give them slightly more control over their prices."
+        },
+        {
+            num: "Q14",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>A fishmonger reduces the price of haddock by 20%. As a result of this they sell 30 pieces of haddock instead of 20.</p>`,
+            question: "This suggests that the demand for haddock is...",
+            options: ["perfectly price elastic", "perfectly price inelastic", "price elastic", "unitary price elastic"],
+            answer: 2,
+            hint: "Sales rose from 20 to 30 — that's +50%. Price fell 20%. PED = 50 ÷ 20 = 2.5. Bigger than 1 means...?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: C — price elastic</strong></p>
+<ul>
+<li>Quantity rises 50% (20 → 30 pieces) for a 20% price cut.</li>
+<li>PED = 50% ÷ 20% = 2.5 — greater than 1, so demand is price elastic.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Most candidates gave Option C as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q15",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 1 — UK housing market</strong></p>
+<p>There was a large increase in the demand for housing in the UK in 2020 and 2021. This led to a considerable rise in house prices, with more resources being allocated to house building. However, some consumer groups accused house builders of failing to supply enough new and suitable properties. In reply, the house builders said that local government planning rules slowed down growth in the housing market.</p>
+<p>Recently, Plumgarth council rejected a plan by Holoss Builders for a development of new houses, as the house types did not meet the council's strategic plan requirements.</p>
+<img src="/images/economics/1-1-house-prices-chart-extracted.png" alt="Line chart from the OCR exam paper titled 'Annual change in UK house prices', showing the percentage change rising from about 4.5% in October 2020 to a peak of about 13.5% in June 2021, dipping to about 7.5% in July and rising to about 12.5% by September 2021" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "Explain what is meant by demand.",
+            hint: "The full definition has FOUR parts: willing, able, at a given price, in a given period of time. Miss price or time and you drop to 1 mark.",
+            starter: "Demand is the willingness and ability to...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The willingness and ability to purchase a good or service (or good on its own or product on its own) at the given price in a given period of time.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 2 marks if the answer mentions: willing and able; at the given/market price; and has the idea of time.</li>
+<li>Award 1 mark if reference to either price or time is missing.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>There were many candidates who had learned a clear definition of the term 'demand' and were able to reproduce that for 2 marks.</p>
+<p>Those who were only given 1 mark did not include reference to 'price' and/or 'a period of time'. Candidates who had not learned the appropriate definition, or parts of it, often tried to construct a response that gained 0 marks.</p>
+</div>`,
+            modelAnswer: "Demand is the willingness and ability of consumers to buy a good or service at a given price in a given period of time.\n\nBoth parts matter — wanting a house is not demand unless you are also able to pay for it."
+        },
+        {
+            num: "Q16",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-nina-and-leo-s-caf",
+            question: "Explain what is meant by demand is price inelastic.",
+            hint: "The full-mark version uses PERCENTAGES: the % change in quantity demanded is LESS than the % change in price. Don't describe perfectly inelastic (no change at all) — that's capped at 1.",
+            starter: "Demand is price inelastic when the percentage change in quantity demanded is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Quantity demanded is relatively unresponsive to a change in price</li>
+<li>Percentage change in quantity demanded is less than the percentage change in price</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 2 marks for an accurate explanation (definition) of price inelastic demand.</li>
+<li>Award 1 mark for a partially correct explanation.</li>
+<li>Award 1 mark for an answer which refers to perfectly/completely inelastic demand or just gives a numerical answer, e.g. PED is less than −1.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Two marks could only be given where there was an accurate explanation or definition, such as 'where the percentage change in quantity demanded of a product is less than the percentage change in price of that product'.</p>
+<p>Many candidates were unable to express their response as clearly as this, often by excluding any reference to percentage changes, so were given 1 mark for less precise responses referring to 'the change in demand being less than the change in price'.</p>
+<p>Some candidates were confused over price inelastic demand and supply, possibly because of references to price elasticity of supply in the data extract.</p>
+</div>`,
+            modelAnswer: "Demand is price inelastic when quantity demanded is relatively unresponsive to a change in price.\n\nThe percentage change in quantity demanded is smaller than the percentage change in price."
+        },
+        {
+            num: "Q17(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-coom-delivery-service-cds",
+            question: "Calculate the change in total revenue if Natan reduces the price from £25 to £20. Show your working.",
+            hint: "Total revenue = price × quantity. Work it out at £25 (× 300) and at £20 (× 450), then subtract. Show every step — the Own Figure Rule can rescue a mark.",
+            starter: "TR at £25 = £25 × 300 = ... TR at £20 = £20 × 450 = ... Change = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Working:</strong></p>
+<ul>
+<li>TR at £25 is £25 × 300 = £7500. TR at £20 is £20 × 450 = £9000.</li>
+<li>Change in TR = £9000 − £7500 = <strong>£1500</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark for correctly calculating either £7500 or £9000 (with working).</li>
+<li>1 mark for correct answer.</li>
+<li>2 marks for an answer of £1500.</li>
+</ul>
+</div>`,
+            modelAnswer: "Total revenue at £25 = £25 × 300 = £7,500. Total revenue at £20 = £20 × 450 = £9,000.\n\nChange in total revenue = £9,000 − £7,500 = £1,500 increase."
+        },
+        {
+            num: "Q17(ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Draw and label a diagram showing a price elastic demand curve.",
+            hint: "Elastic = FLAT. The mark scheme literally checks the line is flatter than 45°. Label the axes Price and Quantity and the curve D or Demand.",
+            starter: "Sketch it: a demand curve clearly flatter than 45 degrees, labelled...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p>The official answer diagram:</p>
+<img src="/images/economics/2-2-price-elastic-answer-extracted.png" alt="Official mark scheme diagram: Price and Quantity axes with a single flat downward-sloping curve labelled Demand" style="display:block;width:100%;max-width:420px;margin:10px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<ul>
+<li>Give 1 mark for drawing a price elastic demand curve (ensure the line is flatter than a 45° line or that any labelling on the axes suggests this).</li>
+<li>Give 1 mark for correctly labelling it D or demand.</li>
+</ul>
+</div>`,
+            modelAnswer: "Draw a demand curve that is clearly flatter than 45 degrees, so a small price change causes a big change in quantity demanded.\n\nLabel the axes Price and Quantity and label the curve D — an unlabelled curve loses a mark."
+        },
+        {
+            num: "Q17(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-coom-delivery-service-cds",
+            question: "*Evaluate the importance of price elasticity of demand for CDS. Use the information given in Extract 1 and your own knowledge.",
+            hint: "Use your Q17(i) answer — the £1,500 revenue gain shows demand is elastic, so PED tells Natan to CUT prices. Then question it: how reliable is Natan's table? Could competitors react? Is price what delivery customers care about most? Supported judgement to finish. (The * means quality of written communication is assessed.)",
+            starter: "PED is important for CDS because demand for next day delivery is price elastic — cutting the price from £25 to £20...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Could increase revenue by cutting prices if PED is price elastic (reference could be made to the calculation which shows demand is price elastic) — Own Figure Rule</li>
+<li>Could calculate the effect on quantity demanded of a change in price</li>
+<li>Can CDS accurately calculate PED? How reliable is the data produced by Natan? Where has it come from?</li>
+<li>Use price discrimination if different groups of customers have different price elasticities</li>
+<li>Would customers be happy if they know they are paying a different price compared to another customer?</li>
+<li>Is a fall in price more important to CDS and its customers than, for example, a better quality service?</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong></p>
+<ul>
+<li>Good application of knowledge of the importance of PED for producers, in the context of the scenario</li>
+<li>Reasonable analysis, largely in the form of single effects addressing the question</li>
+<li>Good evaluation with a fully supported judgement developed from weighing up arguments / both sides / comparing alternatives</li>
+<li>A well-developed and detailed line of reasoning which is coherent and logically structured</li>
+</ul>
+<p><strong>Level 2 (3–4 marks):</strong></p>
+<ul>
+<li>Good application to the scenario</li>
+<li>Limited analysis — perhaps a single effect with some link to the question</li>
+<li>Reasonable evaluation considering both sides; a judgement may be given but not fully supported</li>
+</ul>
+<p><strong>Level 1 (1–2 marks):</strong></p>
+<ul>
+<li>No application to the scenario</li>
+<li>Limited analysis and limited evaluation with unsupported statements</li>
+</ul>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+<p>N.B. Any other relevant points and/or evidence of learners' understanding of the connections between the various topics of both components to be credited.</p>
+</div>`,
+            modelAnswer: "PED is important for CDS because demand for next day delivery is price elastic — cutting the price from £25 to £20 raises the quantity from 300 to 450 parcels a week and increases total revenue by £1,500. Knowing the PED lets Natan choose the price that earns the most revenue.\n\nHowever, this depends on how reliable Natan's figures are. His table is only an estimate of what customers would do, and competitors could also cut their prices, which would change the result completely.\n\nOverall, PED is very important to CDS because the delivery market is competitive and customers clearly respond to price, but Natan should treat his estimates with caution and consider whether a better quality service might matter more to customers than a lower price."
+        },
+        {
+            num: "Q18",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The demand for a firm's product is price inelastic. Which of the following statements must be true?",
+            options: ["A decrease in price will lead to excess supply", "A decrease in price will reduce the quantity sold", "An increase in price will decrease profits", "An increase in price will increase revenue"],
+            answer: 3,
+            hint: "The revenue rule: inelastic demand means quantity barely falls when price rises — so what MUST happen to price × quantity?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: D — An increase in price will increase revenue</strong></p>
+<ul>
+<li>With inelastic demand the % fall in quantity is smaller than the % rise in price, so total revenue must rise.</li>
+<li>B contradicts the law of demand; A and C do not follow from inelasticity.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q19",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<table style="width:100%;max-width:340px;margin:10px auto;border-collapse:collapse;text-align:center;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Price (£)</th><th style="padding:6px;">Quantity demanded (units)</th></tr>
+<tr><td style="padding:6px;">10</td><td>80</td></tr>
+<tr><td style="padding:6px;">20</td><td>70</td></tr>
+<tr><td style="padding:6px;">30</td><td>60</td></tr>
+<tr><td style="padding:6px;">40</td><td>50</td></tr>
+</table>`,
+            question: "The table shows the relationship between the price of a good and the quantity demanded. Which of the following statements is correct?",
+            options: ["It shows that less is demanded when incomes rise", "It shows that price and quantity demanded are inversely related", "It shows that price elasticity of demand is equal to 1", "It shows that the equilibrium price must be £20"],
+            answer: 1,
+            hint: "As price goes UP the column, quantity goes DOWN. What is that relationship called? (There's no income or supply data, so two options are impossible.)",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2, Quantitative skills)</h5>
+<p><strong>Answer: B — It shows that price and quantity demanded are inversely related</strong></p>
+<ul>
+<li>Every £10 price rise cuts quantity demanded — price up, quantity down: an inverse relationship (the law of demand).</li>
+<li>There is no income data (A), the % changes are not equal so PED ≠ 1 (C), and equilibrium needs a supply schedule too (D).</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q20",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The demand for apples is the amount of them that consumers are willing and able to buy at a given...",
+            options: ["cost", "income", "price", "supply"],
+            answer: 2,
+            hint: "Finish the textbook definition: willing and able to buy at a given ______ in a given time period.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: C — price</strong></p>
+<ul>
+<li>The definition of demand: the amount consumers are willing and able to buy at a given PRICE, in a given period of time.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q21",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following is likely to lead to an increase in the demand for air travel?",
+            options: ["A fall in consumer incomes", "A fall in the price of cars", "An increase in the price of air travel", "An increase in the popularity of overseas holidays"],
+            answer: 3,
+            hint: "Overseas holidays and air travel are bought together — complements. And remember, air travel's OWN price can't shift its demand curve.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: D — An increase in the popularity of overseas holidays</strong></p>
+<ul>
+<li>Overseas holidays are a complement to air travel — more holidays demanded means more flights demanded at every price.</li>
+<li>Lower incomes (A) and cheaper substitutes (B) would cut demand; C is air travel's own price — a movement along, not an increase in demand.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q22",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<img src="/images/economics/2-2-elasticity-curves-wxyz-extracted.png" alt="Four diagrams from the OCR exam paper, each with Price and Quantity axes: W is a downward-sloping line, X is a horizontal line, Y is an upward-sloping line, Z is a vertical line" style="display:block;width:100%;max-width:560px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "Which of the diagrams above shows a demand curve which is perfectly price elastic?",
+            options: ["W", "X", "Y", "Z"],
+            answer: 1,
+            hint: "Perfectly ELASTIC = horizontal (any quantity at one price). Perfectly INELASTIC = vertical. Don't mix them up!",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b, Quantitative skills)</h5>
+<p><strong>Answer: B — X</strong></p>
+<ul>
+<li>A perfectly price elastic demand curve is horizontal — consumers will buy any amount at that one price, and nothing at any higher price.</li>
+<li>Z (vertical) is perfectly INELASTIC; W is an ordinary demand curve; Y slopes upwards like a supply curve.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q23",
+            marks: 6,
+            type: "written",
+            caseStudy: `<p><strong>Extract 2: Petterill Railway Ltd</strong></p>
+<p>Petterill Railway Ltd operates rail services to the Petterill Valley which is situated in a National Park, an area of outstanding natural beauty in the UK. It is a popular destination for both local visitors and tourists from overseas.</p>
+<p>Jit Acharya, the Managing Director, has been considering how best to make use of the capital he has available. He wants to know whether Petterill Railway Ltd is focused on the correct market. At present, half of Petterill Railway Ltd's consumers are local families and the other half are overseas tourists. Jit expects the number of overseas tourists to increase in the next couple of years. If this turns out to be correct, then his new advertising campaign at the local airport should increase the demand for Petterill Railway Ltd's train services.</p>
+<p>Jit is concerned, however, that the supply of services provided by Petterill Railway Ltd is price inelastic. He has calculated that the price elasticity of supply for the railway engines and carriages is +0.4.</p>`,
+            question: "Analyse the consequences for Petterill Railway Ltd of an increase in demand for its train services.",
+            hint: "Chain 1: more demand → more tickets sold → higher revenue and profit → what could they afford? Chain 2 (use the extract): supply is price INELASTIC (+0.4) — trains can't easily be added — so what happens to crowding, staff and customer satisfaction?",
+            starter: "An increase in demand means Petterill Railway will sell more train tickets, so...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Consequences may include:</strong></p>
+<ul>
+<li>Greater revenue leading to higher profits</li>
+<li>Able to afford more staff and equipment and/or improve facilities</li>
+<li>More pressure on staff and capital equipment leading to stress for employees and breakdown of engines etc.</li>
+<li>Need to find the money to purchase more trains/carriages etc.</li>
+<li>Consumer dissatisfaction if trains breakdown or there is overcrowding. This could lead to lower profits.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong></p>
+<ul>
+<li>Reasonable knowledge and understanding — all terms/concepts understood</li>
+<li>Reasonable application of the likely impact of an increase in demand on Petterill Railway</li>
+<li>Good analysis — developed links built through a chain of reasoning which addresses the question; any relevant diagrams predominantly correct and linked</li>
+</ul>
+<p><strong>Level 2 (3–4 marks):</strong></p>
+<ul>
+<li>Most terms/concepts understood</li>
+<li>Limited application to the scenario</li>
+<li>Reasonable analysis — correct but largely single effects, not developed into a clear chain of reasoning</li>
+</ul>
+<p><strong>Level 1 (1–2 marks):</strong></p>
+<ul>
+<li>Some terms/concepts understood</li>
+<li>No application; limited analysis — a single effect with some link to the question</li>
+</ul>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "An increase in demand means Petterill Railway will sell more train tickets, so its revenue will rise, which means higher profits that could pay for more staff, better facilities and eventually more carriages.\n\nHowever, Jit has calculated that the supply of services is price inelastic at +0.4, which means Petterill cannot easily run more trains when demand rises. This could result in overcrowded carriages and more pressure on staff and engines, therefore some consumers may become dissatisfied and stop travelling, which would reduce profits in the future."
+        },
+        {
+            num: "Q24",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "A market starts in equilibrium and then demand falls. Which of the following is most likely to happen?",
+            options: ["A higher equilibrium price and equilibrium quantity", "A higher equilibrium price and lower equilibrium quantity", "A lower equilibrium price and equilibrium quantity", "A lower equilibrium price and higher equilibrium quantity"],
+            answer: 2,
+            hint: "Picture the diagram: demand shifts LEFT along an unchanged supply curve. The new crossing point is lower and further left — so price and quantity both...?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: C — A lower equilibrium price and equilibrium quantity</strong></p>
+<ul>
+<li>A leftward demand shift moves the equilibrium down the supply curve: both price and quantity fall.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q25",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>Raspberries and strawberries are substitute goods.</p>`,
+            question: "The demand curve for strawberries will shift to the left if there is...",
+            options: ["a fall in the price of raspberries", "a fall in the price of strawberries", "a rise in the price of raspberries", "a rise in the price of strawberries"],
+            answer: 0,
+            hint: "Strawberries' own price can never SHIFT the strawberry demand curve. For a LEFT shift, buyers must be lured away — what makes raspberries more tempting?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: A — a fall in the price of raspberries</strong></p>
+<ul>
+<li>Cheaper raspberries pull shoppers away from strawberries — fewer strawberries demanded at every price, shifting the curve left.</li>
+<li>B and D are strawberries' own price (movements along); C would shift strawberry demand RIGHT.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q26",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "What will usually lead to a shift in the demand curve to the right?",
+            options: ["An increase in consumers' incomes", "A technological improvement which reduces the costs of production", "The government introduces a tax on the product", "The supply curve shifts to the right"],
+            answer: 0,
+            hint: "Three of these change SUPPLY (costs, tax, the supply curve itself). Only one is a demand-side factor.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — An increase in consumers' incomes</strong></p>
+<ul>
+<li>Higher incomes mean more demanded at every price — a rightward demand shift.</li>
+<li>B, C and D all act on the supply side; a supply shift moves the market ALONG the demand curve.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>A very high percentage of candidates gave Option A as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q27",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following will occur if there is a large increase in the demand for housing?",
+            options: ["A leftward shift in the demand curve for builders", "A leftward shift in the supply curve of builders", "A rightward shift in the demand curve for builders", "A rightward shift in the supply curve of builders"],
+            answer: 2,
+            hint: "Builders are wanted BECAUSE houses are wanted — derived demand. More houses demanded means what for the demand for builders?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: C — A rightward shift in the demand curve for builders</strong></p>
+<ul>
+<li>The demand for builders is DERIVED from the demand for housing — more houses wanted means more builders demanded at every wage.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>A very high percentage of candidates gave Option C as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q28",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<img src="/images/economics/2-2-rented-accommodation-extracted.png" alt="Diagram from the OCR exam paper: the market for rented accommodation with a downward-sloping demand curve D, a vertical supply curve S, and a price r marked with a dashed line below the point where the curves cross" style="display:block;width:100%;max-width:460px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "The diagram shows the market for rented accommodation. Which of the following statements about the diagram is correct?",
+            options: ["A price of r is above the market price of rented accommodation", "As the price of rented accommodation increases supply will increase", "If r is the current price of rented accommodation some people will not be able to rent any accommodation", "The supply of rented accommodation is price elastic"],
+            answer: 2,
+            hint: "r sits BELOW the equilibrium — so demand exceeds the fixed (vertical = perfectly inelastic) supply. What does excess demand mean for some would-be renters?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: C — If r is the current price of rented accommodation some people will not be able to rent any accommodation</strong></p>
+<ul>
+<li>At price r (below equilibrium) quantity demanded exceeds the fixed supply — excess demand — so some renters go without.</li>
+<li>The vertical supply curve is perfectly INELASTIC, so B and D are wrong; r is BELOW the market price, so A is wrong.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>A majority of candidates gave Option C as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q29",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<img src="/images/economics/2-2-total-spending-area-extracted.png" alt="Diagram from the OCR exam paper: a demand curve falling from point E on the price axis to point D on the quantity axis, with price A marked, meeting the curve at point B above quantity C, and the origin labelled O" style="display:block;width:100%;max-width:420px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "The diagram shows the demand curve for a good. Which area represents the total amount paid by consumers when the price is A?",
+            options: ["AEB", "OABC", "OABD", "OEBC"],
+            answer: 1,
+            hint: "Total spending = price × quantity = the RECTANGLE with height OA (the price) and width OC (the quantity bought at that price).",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2, Quantitative skills)</h5>
+<p><strong>Answer: B — OABC</strong></p>
+<ul>
+<li>Total spending = price × quantity: the rectangle from the origin O up to price A, across to point B on the curve, and down to quantity C.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>A very high percentage of candidates gave Option B as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q30",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The price elasticity of demand for a good is unitary. What will happen if prices rise?",
+            options: ["Expenditure on the good will fall", "Expenditure on the good will rise", "The quantity demanded will fall", "The quantity demanded will rise"],
+            answer: 2,
+            hint: "Unitary means the % fall in quantity exactly matches the % rise in price — so total spending stays the SAME. What does still change?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: C — The quantity demanded will fall</strong></p>
+<ul>
+<li>With unitary PED, expenditure stays constant when price changes (A and B wrong) — but the law of demand still applies: a price rise cuts quantity demanded.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>A high percentage of candidates gave Option C as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q31",
+            marks: 6,
+            type: "written",
+            caseStudy: `<p><strong>Extract 1: The Music Shop</strong></p>
+<p>Eileen and Jean own and run The Music Shop, selling CDs, DVDs, musical instruments, sheet music and other music-related goods.</p>
+<p>They have recently discussed their plans for the future of the business. Jean wondered whether there was any point in accepting cash, as nearly all their consumers use credit cards or phone apps to pay for purchases. Eileen, however, believes that money is still important as a medium of exchange.</p>
+<p>Eileen is not sure exactly what the effects of changes in consumer demand will be for their sales. She is concerned, however, that the supply of musical instruments is price inelastic.</p>
+<p>They have recently received a letter from their bank notifying them of an increase in the interest rate, from 5% to 6%, on their £500 000 loan. Jean recognises that the products they sell are nonessential. She worries what effect higher interest rates will have on the business, but thinks that this will depend on what happens to the income of consumers and whether they use credit cards for purchases.</p>`,
+            question: "Using a diagram, analyse the consequences of a fall in demand for the goods sold in The Music Shop.",
+            hint: "Draw demand shifting LEFT (D to D1) against the extract's price INELASTIC supply curve — that makes the price fall LARGE and the quantity fall small. Then chain it: lower price and fewer sales → lower revenue → lower profits → what about the £500,000 loan? No correct diagram = capped at 4/6.",
+            starter: "A fall in demand shifts the demand curve left from D to D1, as shown in the diagram. Because supply is price inelastic...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Change in demand is a movement along the supply curve</li>
+<li>A fall in demand is likely to lead to a large change in price, but a small change in quantity sold</li>
+<li>Change in quantity supplied will move in the same direction as price</li>
+<li>If price falls profits are likely to fall</li>
+<li>This may lead to firms exiting the market</li>
+</ul>
+<p>The official mark scheme diagram:</p>
+<img src="/images/economics/2-2-music-shop-fall-demand-ms-extracted.png" alt="Official mark scheme diagram: a steep (price inelastic) supply curve S with demand shifting left from D to D1, price falling from p to p1 and quantity falling only slightly from q to q1" style="display:block;width:100%;max-width:440px;margin:10px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p><strong>A maximum of 4 marks if no correct diagram.</strong></p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong></p>
+<ul>
+<li>Reasonable knowledge demonstrated</li>
+<li>Reasonable application of the likely impact of a fall in demand on price, quantity, profits and survival</li>
+<li>Good analysis — developed links in a chain of reasoning; the diagram predominantly correct and linked to the analysis</li>
+</ul>
+<p><strong>Level 2 (3–4 marks):</strong></p>
+<ul>
+<li>Reasonable knowledge demonstrated</li>
+<li>Limited application to the scenario</li>
+<li>Reasonable analysis — largely single effects; the diagram, if present, may be improperly labelled or not linked to the analysis</li>
+</ul>
+<p><strong>Level 1 (1–2 marks):</strong></p>
+<ul>
+<li>Reasonable knowledge demonstrated</li>
+<li>No application; limited analysis — diagrams (if present) unlikely to be correct</li>
+</ul>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question saw candidates given marks across the full range available with the majority in the middle of the range. Most candidates were able to draw a correct diagram showing a fall in demand and then show the effects of this on the price and quantity of goods sold in the shop.</p>
+<p>A minority included a price inelastic supply curve as mentioned in the case study and were then able to use this to analyse the outcomes on price and quantity.</p>
+<p>Better answers then progressed on to the effects of these changes on revenue and profits and, as a result, the future existence of the shop.</p>
+</div>`,
+            modelAnswer: "A fall in demand shifts the demand curve for the shop's goods left from D to D1, as shown in the diagram. Because the supply of musical instruments is price inelastic, the fall in demand causes a large fall in price from p to p1 but only a small fall in the quantity sold.\n\nSelling fewer goods at a lower price means The Music Shop's revenue will fall, and since their products are non-essential the fall could be large. Lower revenue means lower profits, and if this continues Eileen and Jean may struggle to repay the interest on their £500,000 loan, which could threaten the shop's future existence."
+        },
+        {
+            num: "Q32(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-charity-shop-prices",
+            question: "Explain what Sophia means by 'the demand by her friends'.",
+            hint: "The demand definition (willing + able + price + time period) — but it MUST be in context: dresses, charity shops, her friends. A purely theoretical answer scores 0 here.",
+            starter: "Demand means her friends are willing and able to buy dresses from charity shops at...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Demand is the willingness and ability to purchase a good or service at the given price in a given time period</li>
+<li>Demand for dresses in charity shops at present, relative to the price being charged.</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Give 2 marks for an answer which includes the ideas of able and willing to buy at the price stated and that this concerns dresses in charity shops.</li>
+<li>Answers MUST be in context.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>This question was generally well answered for one mark. In order to be given any marks, candidates had to answer in the context of the question — correct understanding of what demand means with reference to charity shop(s), dresses and/or her friends.</p>
+<p>Better answers were able to link the willingness and ability to purchase dresses from charity shops at given prices in a given time period and so score two marks.</p>
+</div>`,
+            modelAnswer: "Demand means her friends are willing and able to buy dresses from charity shops at each given price in a given time period.\n\nFor example, at a price of £10 her friends are willing and able to buy 20 dresses."
+        },
+        {
+            num: "Q32(ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p>Using the information in Extract 2 (the table of prices and quantities), draw a demand curve showing the demand by Sophia's friends for dresses on the grid (sketch it on paper).</p>
+<img src="/images/economics/2-2-dresses-grid-extracted.png" alt="The blank grid from the exam paper: Price (£) from 0 to 35 on the vertical axis, Quantity (units) from 0 to 25 on the horizontal axis" style="display:block;width:100%;max-width:440px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "Using the information in Extract 2, draw a demand curve showing the demand by Sophia's friends for dresses.",
+            hint: "Plot all five points exactly — (2, £30), (3, £25), (5, £20), (10, £15), (20, £10) — then JOIN them. Unjoined points, a straight 'line of best fit', or one wrong point all cap you at 1 mark.",
+            starter: "Sketch it: plot the five points from the table and join them...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p>The official answer diagram:</p>
+<img src="/images/economics/2-2-dresses-answer-extracted.png" alt="Official mark scheme diagram: the five points plotted and joined, forming a demand curve falling steeply from (2, £30) and flattening out to (20, £10)" style="display:block;width:100%;max-width:440px;margin:10px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<ul>
+<li>2 marks for correctly drawing the demand curve.</li>
+<li>Maximum 1 mark if the points are not joined up.</li>
+<li>Maximum 1 mark if any one point is incorrect.</li>
+<li>The information in Extract 2 must be used for marks to be gained.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>This question was generally answered well for two marks. A small minority of candidates did not join up the points on the diagram or drew a straight line as a line of best fit or plotted a point in an incorrect place and were given one mark.</p>
+</div>`,
+            modelAnswer: "Plot the five points from the table: 2 dresses at £30, 3 at £25, 5 at £20, 10 at £15 and 20 at £10.\n\nJoin the points together — the curve slopes downwards and gets flatter as the price falls. Leaving the points unjoined caps the answer at 1 mark."
+        },
+        {
+            num: "Q32(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-2-charity-shop-prices",
+            question: "*Evaluate the importance of price elasticity of demand for Sophia's friends. Use the information given in Extract 2 and your own knowledge.",
+            hint: "Point: demand IS elastic — use the table's numbers (10 → 20 dresses when price falls £15 → £10). However: Sophia cares about QUALITY more than price, and is a table of what friends SAY reliable? Judgement: PED matters for price-driven friends, much less for quality-driven ones.",
+            starter: "PED is important for Sophia's friends because their demand is price elastic — the table shows...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Any change in price will lead to a larger relative change in demand</li>
+<li>The table tends to indicate that as price falls Sophia's friends buy far more dresses, but is this all friends or just a few who buy more?</li>
+<li>Does the type/style of dress matter?</li>
+<li>Price elasticity of demand may vary over time or the seasons of the year</li>
+</ul>
+<p><strong>Evaluation may include:</strong></p>
+<ul>
+<li>Depends on whether price is more important than what the dress is like — evidence in extract is that quality is more important than price</li>
+<li>Depends on the motives of consumers — do they purchase from charity shops because of lower prices or because of the benefits to the wider community?</li>
+<li>How reliable is the table, where did it come from — in theory (when Sophia asks them) they might say they buy more, but do they in practice?</li>
+<li>Accept any other reasonable answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong></p>
+<ul>
+<li>Good application of knowledge of the likely importance of PED, in the context of the scenario</li>
+<li>Reasonable analysis, largely in the form of single effects addressing the question</li>
+<li>Good evaluation with a fully supported judgement developed from weighing up arguments / both sides / comparing alternatives</li>
+</ul>
+<p><strong>Level 2 (3–4 marks):</strong></p>
+<ul>
+<li>Good application to the scenario</li>
+<li>Limited analysis — perhaps a single effect with some link to the question</li>
+<li>Reasonable evaluation considering both sides; a judgement may be given but not fully supported</li>
+</ul>
+<p><strong>Level 1 (1–2 marks):</strong></p>
+<ul>
+<li>No application to the scenario</li>
+<li>Limited analysis and limited evaluation with unsupported statements</li>
+</ul>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Candidates seemed to struggle with answering this question. Some reasons include an incorrect understanding of what price elasticity of demand means; an incorrect understanding of the term 'price elastic' and therefore an incorrect application to Sophia's friends; and a lack of understanding as to how views on quality might affect the reaction of Sophia's friends to a change in the price of dresses.</p>
+<p>Better answers brought in the issue of price versus quality, as well as the time of year it was, the effect of changes in fashion and the reliability of the data. Better answers were able to develop clear chains of reasoning and use these to reach fully supported judgements.</p>
+<p><strong>Assessment for learning:</strong> it is important that candidates use the terminology contained within the case study correctly. The case study states that 'consumer demand was price elastic'. This does not mean it is correct to paraphrase this as 'dresses are elastic' or that 'demand for dresses falls a lot if price rises'.</p>
+</div>`,
+            modelAnswer: "PED is important for Sophia's friends because their demand is price elastic — the table shows that when the price falls from £15 to £10, the quantity they buy doubles from 10 to 20 dresses. This means lower charity shop prices let them buy far more dresses with the same money.\n\nHowever, price may not be what really matters. Sophia says she cares far more about the quality of the dress than the price, and the table may not be reliable — what friends say they would buy is not always what they actually buy.\n\nOverall, PED is only important for the friends who choose mainly on price. For friends like Sophia who value quality, a change in price will make little difference to what they buy."
+        },
+        {
+            num: "Q33",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "A flower seller increases her prices by 10% and finds that it has no effect on the amount that she sells. This suggests that demand for the flowers is...",
+            options: ["perfectly price elastic", "perfectly price inelastic", "price inelastic", "unitary price elastic"],
+            answer: 1,
+            hint: "NO effect at all — quantity doesn't change even slightly. That's stronger than ordinary inelastic (a small change). PED = 0 ÷ 10 = 0.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — perfectly price inelastic</strong></p>
+<ul>
+<li>Zero change in quantity for a 10% price rise means PED = 0 — PERFECTLY price inelastic (a vertical demand curve).</li>
+<li>Ordinary price inelastic (C) would still show a small fall in sales.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q34",
+            marks: 6,
+            type: "written",
+            caseStudy: `<p><strong>Extract 1: Plumwith Holidays</strong></p>
+<p>Cressida and Ulrika have started a travel business, Plumwith Holidays. They have decided to specialise in art, music and cultural holidays. Cressida wants to arrange a cultural holiday to Italy. Ulrika is not sure what the equilibrium price and quantity will be, due to competition. However, Cressida says that she is sure that demand for this holiday would be price elastic, so any movement along the demand curve would benefit them.</p>
+<p>To help them make a decision, Cressida has produced forecast costs and revenues for the Italian cultural holiday.</p>
+<table style="width:100%;max-width:460px;margin:10px auto;border-collapse:collapse;text-align:center;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Number of holidays sold</th><th style="padding:6px;">Total cost (£)</th><th style="padding:6px;">Total revenue (£)</th></tr>
+<tr><td style="padding:6px;">2</td><td>10000</td><td>24000</td></tr>
+<tr><td style="padding:6px;">4</td><td>18000</td><td>46000</td></tr>
+<tr><td style="padding:6px;">6</td><td>24000</td><td>60000</td></tr>
+<tr><td style="padding:6px;">8</td><td>28000</td><td>68000</td></tr>
+<tr><td style="padding:6px;">10</td><td>40000</td><td>70000</td></tr>
+</table>
+<p>Ulrika reminds Cressida that while the business exists to provide the service of holidays, they need to ensure that they are able to charge a high enough price to make a profit.</p>`,
+            question: "Using a diagram, analyse the consequences of a movement along the demand curve for Plumwith Holidays.",
+            hint: "Key insight most candidates missed: a movement ALONG demand can only happen after the SUPPLY curve shifts. Draw S shifting to S1: price falls p → p1, quantity rises q → q1 down the demand curve. Then use the extract — demand is price ELASTIC, so what happens to revenue? Cap of 4/6 with no correct diagram.",
+            starter: "A movement along the demand curve can only happen after the supply curve shifts. If supply increases from S to S1...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>An increase in supply is a movement along the demand curve</li>
+<li>An increase in supply will lead to a fall in price, but an increase in quantity demanded</li>
+<li>Change in quantity demanded will move in the opposite direction to price</li>
+<li>If demand is price elastic the increase in supply will lead to a larger rise in demand than the fall in price, increasing revenue and possibly profits</li>
+<li>Consumers will be able to afford more/longer holidays</li>
+</ul>
+<p>The official mark scheme diagram:</p>
+<img src="/images/economics/2-2-plumwith-supply-shift-ms-extracted.png" alt="Official mark scheme diagram: a flat (price elastic) demand curve D with supply shifting right from S to S1, price falling from p to p1 and quantity rising from q to q1 — a movement down along the demand curve" style="display:block;width:100%;max-width:440px;margin:10px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p><strong>NB: A maximum of 4 marks if there is no correct diagram or no reference made to the diagram.</strong> Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong></p>
+<ul>
+<li>Reasonable knowledge and understanding — all terms/concepts understood</li>
+<li>Reasonable application of the likely impact of an increase in supply on price, quantity and revenue/profits</li>
+<li>Good analysis — developed links in a chain of reasoning; the diagram predominantly correct and linked to the analysis</li>
+</ul>
+<p><strong>Level 2 (3–4 marks):</strong></p>
+<ul>
+<li>Most terms/concepts understood</li>
+<li>Limited application to the scenario</li>
+<li>Reasonable analysis — largely single effects; the diagram, if present, may be improperly labelled or not linked</li>
+</ul>
+<p><strong>Level 1 (1–2 marks):</strong></p>
+<ul>
+<li>Some terms/concepts understood</li>
+<li>No application; limited analysis — diagrams (if present) unlikely to be correct</li>
+</ul>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates did not recognise that a movement along the demand curve can only occur after there has been a shift of the firm's supply curve.</p>
+<p>Despite this, many candidates were then able to analyse how a rise and/or fall in market price for the firm could affect its sales, revenue and profit.</p>
+<p>Better responses used the reference in the scenario to price elastic demand to good effect when analysing the effect of changing prices on the firm's revenue.</p>
+</div>`,
+            modelAnswer: "A movement along the demand curve can only happen after the supply curve shifts. If supply increases from S to S1, as shown in the diagram, the price falls from p to p1 and there is a movement down the demand curve, so the quantity demanded rises from q to q1.\n\nCressida says demand for the Italian holiday is price elastic, which means the rise in quantity demanded is proportionally bigger than the fall in price, therefore Plumwith's total revenue would rise. Selling more holidays at slightly lower prices could also increase their profit, as long as the extra revenue is greater than the extra cost of providing the holidays."
+        },
+        {
+            num: "Q35",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Demand is defined as...",
+            options: ["the desire to purchase a good or service over time", "the relationship between the quantity of a good or service sold and consumer incomes", "the relationship between the total revenue a firm receives and the price", "the willingness and ability to purchase a good or service"],
+            answer: 3,
+            hint: "Desire alone is NOT demand — you must also be able to pay. Which option has both halves?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: D — the willingness and ability to purchase a good or service</strong></p>
+<ul>
+<li>Demand needs BOTH willingness AND ability to pay. A is desire only; B and C describe different relationships entirely.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q36",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following is the most likely effect of an increase in advertising on the market for breakfast cereals?",
+            options: ["The market demand curve shifts to the left", "The market demand curve shifts to the right", "The market supply curve shifts to the left", "The market supply curve shifts to the right"],
+            answer: 1,
+            hint: "Advertising is one of the classic demand shift factors — it makes MORE people want cereal at every price.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: B — The market demand curve shifts to the right</strong></p>
+<ul>
+<li>Successful advertising raises willingness to buy at every price — a rightward shift of market demand. It acts on buyers, not on production costs, so supply is unaffected.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q37",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Excess demand is corrected in a market by changes in...",
+            options: ["price", "quantity", "resource allocation", "taxes"],
+            answer: 0,
+            hint: "Too many buyers chasing too few goods — what rises to ration the shortage and signal producers to supply more?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — price</strong></p>
+<ul>
+<li>Excess demand pushes the price UP, which chokes off some demand and encourages more supply until the market clears — the price mechanism at work.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Most candidates gave Option A as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q38",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Market demand is the total demand for goods and services as a result of...",
+            options: ["adding together all individual demand", "adding together direct and indirect demand", "changes in prices at each quantity", "consumers' willingness and ability to buy"],
+            answer: 0,
+            hint: "Market demand = every consumer's demand summed up. One option says exactly that.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — adding together all individual demand</strong></p>
+<ul>
+<li>Market demand is the sum of all individual demands at each price — the Diagram Z idea from earlier in this paper.</li>
+<li>D describes demand itself, not how MARKET demand is built from individual demands.</li>
+</ul>
+<h5>Examiner's Comments</h5>
+<p>Many candidates gave Option A as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

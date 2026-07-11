@@ -118,7 +118,12 @@ const ONBOARDING_STEPS = [
     },
     {
         page: 'topic',
-        target: () => document.querySelector('.site-nav .sn-link[href="manage-account.html"]') || document.getElementById('manageAccountLink'),
+        // Account management now lives in the avatar dropdown (the shared
+        // cluster from account-cluster.js) — spotlight its button; the old
+        // nav-link selectors are kept as fallbacks for the minimal bars.
+        target: () => document.querySelector('#gcseProfileCluster .gcse-profile-btn')
+            || document.querySelector('.site-nav .sn-link[href="manage-account.html"]')
+            || document.getElementById('manageAccountLink'),
         title: 'You’re all set!',
         body: 'You can manage your account and change your password any time from here. Happy revising!',
     },

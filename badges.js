@@ -17,18 +17,27 @@ async function init() {
   if (!auth) return;
   bdgClient = auth.client;
 
-  document.getElementById('accountBar').innerHTML =
-    `<span>Logged in as <strong>${esc(auth.username || 'you')}</strong></span>
-     <button type="button" class="nav-link" id="logoutBtn">Log out</button>`;
-  document.getElementById('logoutBtn').addEventListener('click', async () => {
-    await bdgClient.auth.signOut();
-    localStorage.removeItem('gcse_session_v1');
-    location.replace('login.html');
-  });
+  // Shared avatar + "Hi, name" dropdown (account-cluster.js) so this page's
+  // header matches every other page; minimal escaped bar as a fallback.
+  if (typeof _gcseInjectAccountBar === 'function') {
+    window._gcseProfile = window._gcseProfile || { username: auth.username, role: auth.role };
+    window._gcseSupabaseClient = window._gcseSupabaseClient || bdgClient;
+    _gcseInjectAccountBar();
+  } else {
+    document.getElementById('accountBar').innerHTML =
+      `<span>Logged in as <strong>${esc(auth.username || 'you')}</strong></span>
+       <button type="button" class="nav-link" id="logoutBtn">Log out</button>`;
+    document.getElementById('logoutBtn').addEventListener('click', async () => {
+      await bdgClient.auth.signOut();
+      localStorage.removeItem('gcse_session_v1');
+      location.replace('login.html');
+    });
+  }
 
-  const [streak, drStats] = await Promise.all([
+  const [streak, drStats, reviewStats] = await Promise.all([
     typeof gamificationRefreshStreak === 'function' ? gamificationRefreshStreak(bdgClient) : 0,
     typeof gamificationRefreshDailyReviseStats === 'function' ? gamificationRefreshDailyReviseStats(bdgClient) : { correctCount: 0, masteredCount: 0 },
+    typeof gamificationRefreshReviewStats === 'function' ? gamificationRefreshReviewStats(bdgClient) : { completed: 0 },
   ]);
   // Pulls this student's full per-topic progress over from the server and
   // merges it with whatever's in this device's localStorage — same
@@ -40,7 +49,7 @@ async function init() {
   }
 
   const progress = typeof _gamProgressData === 'function' ? _gamProgressData() : {};
-  const stats = computeGamificationStats(progress, streak, drStats);
+  const stats = computeGamificationStats(progress, streak, drStats, reviewStats);
   render(stats);
   if (typeof gamificationCheckNewBadges === 'function') gamificationCheckNewBadges(stats);
 }

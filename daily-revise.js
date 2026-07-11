@@ -113,14 +113,22 @@ async function init() {
   if (!auth) return;
   drClient = auth.client;
 
-  document.getElementById('accountBar').innerHTML =
-    `<span>Logged in as <strong>${esc(auth.username || 'you')}</strong></span>
-     <button type="button" class="nav-link" id="logoutBtn">Log out</button>`;
-  document.getElementById('logoutBtn').addEventListener('click', async () => {
-    await drClient.auth.signOut();
-    localStorage.removeItem('gcse_session_v1');
-    location.replace('login.html');
-  });
+  // Shared avatar + "Hi, name" dropdown (account-cluster.js) so this page's
+  // header matches every other page; minimal escaped bar as a fallback.
+  if (typeof _gcseInjectAccountBar === 'function') {
+    window._gcseProfile = window._gcseProfile || { username: auth.username, role: auth.role };
+    window._gcseSupabaseClient = window._gcseSupabaseClient || drClient;
+    _gcseInjectAccountBar();
+  } else {
+    document.getElementById('accountBar').innerHTML =
+      `<span>Logged in as <strong>${esc(auth.username || 'you')}</strong></span>
+       <button type="button" class="nav-link" id="logoutBtn">Log out</button>`;
+    document.getElementById('logoutBtn').addEventListener('click', async () => {
+      await drClient.auth.signOut();
+      localStorage.removeItem('gcse_session_v1');
+      location.replace('login.html');
+    });
+  }
 
   await refreshLive();
 }

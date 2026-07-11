@@ -87,7 +87,13 @@
         // otherwise send a student on a confusing hop backwards one topic
         // at a time instead of straight to the one they actually need.
         for (const pid of priorIds) {
-          const sections = pageSectionTotals(pid, progressByPage[pid] || {}).filter(s => s.total > 0);
+          // Flashcards are excluded from the completion test, matching both
+          // hasGradableContent() above and the in-page activity flow (where
+          // the flashcards tab is optional and never gates the next tab).
+          // Requiring every card green here made topics effectively
+          // impossible to complete under the daily flashcard review cap.
+          const sections = pageSectionTotals(pid, progressByPage[pid] || {})
+            .filter(s => s.total > 0 && s.key !== 'flashcards');
           const complete = sections.length > 0 && sections.every(s => s.done >= s.total);
           if (!complete) { blockerPage = pagesById[pid]; break; }
         }

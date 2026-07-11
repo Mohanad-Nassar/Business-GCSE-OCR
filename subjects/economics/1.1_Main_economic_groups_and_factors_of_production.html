@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Economics — Unit 1: Introduction to Economics</div>
             <h1>1.1 Main Economic Groups and Factors of Production</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 1.1 Main Economic Groups and Factors of Production — placeholder, content not yet written
+    //  DATA: 1.1 Main Economic Groups and Factors of Production
     // ══════════════════════════════════════
     const pageMeta = {
             id: '1-1-main-economic-groups-and-factors-of-production',
@@ -268,21 +268,923 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>1.1 Main Economic Groups and Factors of Production</strong> will appear here soon.</p>`
+            title: "The three main economic groups",
+            tag: "Key concept",
+            content: `<p>Every economy is made up of three main groups. Each plays a different role, but they all rely on each other.</p>
+<h4>Consumers</h4>
+<ul>
+<li>People who buy goods and services for their own personal use.</li>
+<li>The test is: <strong>is this purchase for personal use, or for running a business?</strong></li>
+<li>A hairdresser buying shampoo to use on customers is not acting as a consumer — that purchase is for the business.</li>
+</ul>
+<h4>Producers</h4>
+<ul>
+<li>Anyone who supplies goods or services — from a market stallholder to a multinational like Unilever.</li>
+<li>Producers take the factors of production and turn them into output (the finished good or service).</li>
+</ul>
+<h4>Government</h4>
+<ul>
+<li>Raises money mainly through taxes.</li>
+<li>Spends it on public services like the NHS and schools.</li>
+<li>Makes and enforces the rules everyone has to follow — like speed limits and health and safety law.</li>
+</ul>
+<h4>Interdependence — how the groups rely on each other</h4>
+<ul>
+<li><strong>Consumers ↔ producers:</strong> consumers buy what producers supply, and producers pay the wages that give consumers money to spend.</li>
+<li><strong>Government ↔ producers:</strong> government buys from firms, sets rules on things like working conditions, taxes business profits, and can subsidise industries it wants to support.</li>
+<li><strong>Government ↔ consumers:</strong> consumers pay taxes, and the government funds public services and passes laws that protect consumers.</li>
+</ul>
+<h4>Worked example: the UK sugar tax</h4>
+<ul>
+<li>The government is worried about child obesity…</li>
+<li>…so it puts a tax on producers of sugary drinks.</li>
+<li>Sugary drinks become more expensive to make.</li>
+<li>Producers change their recipes to cut sugar and avoid paying the tax.</li>
+<li>Consumers end up buying and drinking less sugar.</li>
+<li>Over time, the government may need to spend less on NHS treatment for obesity.</li>
+</ul>
+<p>One change touches all three groups — that is what interdependence means.</p>`,
+            readCheck: {
+                q: "A hairdresser buys a bottle of shampoo to use on customers in the salon. In this transaction, the hairdresser is acting as a...",
+                opts: ["Consumer, because they are buying something", "Producer, because the purchase is for running the business", "Government, because they will charge VAT on it", "None of the three economic groups"],
+                ans: 1,
+                explain: "The test is whether the purchase is for personal use or for the business. Buying stock or supplies to run the business is a producer action, even though the hairdresser is personally a consumer in other parts of their life."
+            }
+        },
+        {
+            title: "The factors of production",
+            tag: "Key concept",
+            content: `<p>Producers need inputs to create their output. These inputs are called the <strong>factors of production</strong>, and there are four of them:</p>
+<table class="case-table">
+<tr><th>Factor</th><th>What it covers</th><th>Reward for its use</th></tr>
+<tr><td><strong>Land</strong></td><td>All natural resources: farmland, oil, coal, minerals, fish stocks, forests</td><td>Rent</td></tr>
+<tr><td><strong>Labour</strong></td><td>The physical and mental effort of the workforce — their skills, qualifications and experience are sometimes called their <em>human capital</em></td><td>Wages</td></tr>
+<tr><td><strong>Capital</strong></td><td>Man-made aids to production: machinery, tools, factory buildings, vehicles, IT equipment (NOT money itself — see the misconception below)</td><td>Interest</td></tr>
+<tr><td><strong>Enterprise</strong></td><td>The risk-taking of the entrepreneur, who combines the other three factors to produce a good or service</td><td>Profit</td></tr>
+</table>
+<h4>Inputs become outputs</h4>
+<ul>
+<li>The factors of production are also called <strong>factor inputs</strong>.</li>
+<li>Producers combine them and add value, creating a new product — the <strong>factor output</strong>.</li>
+<li>Example: land (trees) + labour (carpenters) + capital (saws and machinery), organised by an entrepreneur's enterprise, become a wooden table worth more than the raw inputs.</li>
+</ul>
+<h4>Why profit is different from the other rewards</h4>
+<ul>
+<li>Rent, wages and interest are agreed payments.</li>
+<li><strong>Profit is not guaranteed</strong> — it is what is left over once every other cost has been paid.</li>
+<li>A business can just as easily make a loss. That is why profit is the reward for taking a risk.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the reward for the factor of production called capital?",
+                opts: ["Rent", "Wages", "Interest", "Profit"],
+                ans: 2,
+                explain: "Capital earns interest — the payment made for the use of money-funded, man-made aids to production such as machinery and premises."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "A market stallholder selling fruit and vegetables is an example of a...",
+            opts: ["Consumer", "Producer", "Government body", "Factor of production"],
+            ans: 1,
+            explain: "The stallholder supplies goods to customers, so they are a producer — producers range from a single market stall to a multinational company."
+        },
+        {
+            q: "Which of these is the reward for the factor of production 'labour'?",
+            opts: ["Rent", "Wages", "Interest", "Profit"],
+            ans: 1,
+            explain: "Labour is rewarded with wages, paid by the producer to the worker for their effort."
+        },
+        {
+            q: "Which of these is the reward for the factor of production 'land'?",
+            opts: ["Rent", "Wages", "Interest", "Profit"],
+            ans: 0,
+            explain: "Land is rewarded with rent, paid to the owner of the land for allowing its use."
+        },
+        {
+            q: "Which of these is the reward for the factor of production 'enterprise'?",
+            opts: ["Rent", "Wages", "Interest", "Profit"],
+            ans: 3,
+            explain: "Enterprise is rewarded with profit — what's left over from revenue once every other cost has been paid, which is why it's not guaranteed."
+        },
+        {
+            q: "A fleet of delivery vans owned by a courier company is an example of which factor of production?",
+            opts: ["Land", "Labour", "Capital", "Enterprise"],
+            ans: 2,
+            explain: "Vans are a man-made aid to production, so they count as capital, not land or labour."
+        },
+        {
+            q: "Coal, farmland and fishing grounds are all examples of which factor of production?",
+            opts: ["Land", "Labour", "Capital", "Enterprise"],
+            ans: 0,
+            explain: "These are all natural resources, so they fall under land — even coal, which is under the earth, still counts."
+        },
+        {
+            q: "The skills, effort and health of the workforce are all part of which factor of production?",
+            opts: ["Land", "Labour", "Capital", "Enterprise"],
+            ans: 1,
+            explain: "This describes labour — the human effort, physical and mental, used in production."
+        },
+        {
+            q: "Which economic group raises most of its money through taxation, then spends it on public services?",
+            opts: ["Consumers", "Producers", "The government", "Entrepreneurs"],
+            ans: 2,
+            explain: "The government collects tax revenue and uses it to fund services like the NHS and education, and to run the country."
+        },
+        {
+            q: "Why did drink manufacturers reformulate their recipes to cut sugar after the UK sugar tax was introduced?",
+            opts: ["To avoid paying the tax on sugary drinks", "To increase the price they could charge", "To reduce how much they paid their staff", "Because it was a legal requirement for all soft drinks"],
+            ans: 0,
+            explain: "The tax was based on sugar content, so cutting sugar let producers avoid or reduce the tax they had to pay — a good example of government policy affecting producer behaviour."
+        },
+        {
+            q: "Which of the following best describes 'enterprise' as a factor of production?",
+            opts: ["The natural resources used in production", "The physical effort and skill of the workforce", "The risk-taking that combines land, labour and capital", "The money used to start up a business"],
+            ans: 2,
+            explain: "Enterprise is the risk-taking of the entrepreneur who organises the other three factors of production to create output."
+        }
+    ];
+
+    const matchData = [
+        { term: "Consumer", def: "A person who buys goods or services for their own personal use" },
+        { term: "Producer", def: "An individual or organisation that supplies goods or services" },
+        { term: "Government", def: "Elected representatives who make laws, collect taxes and provide public services" },
+        { term: "Land", def: "Natural resources used in production, such as farmland, oil and fish stocks" },
+        { term: "Labour", def: "The physical and mental effort of the workforce used in production" },
+        { term: "Capital", def: "Man-made aids to production, such as machinery, tools and factory buildings" },
+        { term: "Enterprise", def: "The risk-taking that combines land, labour and capital to create a good or service" },
+        { term: "Rent", def: "The reward paid to the owner of land for its use" },
+        { term: "Wages", def: "The reward paid to workers for their labour" },
+        { term: "Interest", def: "The reward paid for the use of capital" },
+        { term: "Profit", def: "The reward that goes to the entrepreneur for taking a risk" },
+        { term: "Human capital", def: "The value of a worker's skills, qualifications and experience" }
+    ];
+
+    const fibData = [
+        {
+            display: "The three main economic groups are _____, _____ and the _____.",
+            blanks: { B1: "consumers", B2: "producers", B3: "government" }
+        },
+        {
+            display: "The four factors of production are _____, _____, _____ and _____.",
+            blanks: { B1: "land", B2: "labour", B3: "capital", B4: "enterprise" }
+        },
+        {
+            display: "The reward for land is _____, the reward for labour is _____, the reward for capital is _____ and the reward for enterprise is _____.",
+            blanks: { B1: "rent", B2: "wages", B3: "interest", B4: "profit" }
+        },
+        {
+            display: "Because the actions of the three economic groups affect each other, we say they are _____.",
+            blanks: { B1: "interdependent" }
+        }
+    ];
+    const fibWords = ["consumers", "producers", "government", "land", "labour", "capital", "enterprise", "rent", "wages", "interest", "profit", "interdependent"];
+
+    const tfData = [
+        {
+            statement: "Capital as a factor of production means the same thing as money.",
+            answer: false,
+            explanation: "Capital means the physical, man-made aids to production, like machinery and buildings — not money itself."
+        },
+        {
+            statement: "A sole trader buying stock for their shop is acting as a producer, not a consumer, in that transaction.",
+            answer: true,
+            explanation: "The purchase is for running the business, so it's a producer action, even though the same person is a consumer in their personal life."
+        },
+        {
+            statement: "The government is not one of the three main economic groups.",
+            answer: false,
+            explanation: "The government IS one of the three main economic groups, alongside consumers and producers."
+        },
+        {
+            statement: "Enterprise is the risk-taking that combines land, labour and capital to create output.",
+            answer: true,
+            explanation: "That's exactly what enterprise means — the entrepreneur organises the other three factors and takes on the risk."
+        },
+        {
+            statement: "The reward for labour is called interest.",
+            answer: false,
+            explanation: "The reward for labour is wages. Interest is the reward for capital."
+        },
+        {
+            statement: "Farmland, coal and fishing grounds are all examples of land as a factor of production.",
+            answer: true,
+            explanation: "All natural resources, whether on, under or above the earth, count as land."
+        },
+        {
+            statement: "Producers are always large companies.",
+            answer: false,
+            explanation: "A producer can be anyone who supplies a good or service, from a market stallholder to a multinational."
+        },
+        {
+            statement: "Because the three economic groups affect each other's decisions, they are described as interdependent.",
+            answer: true,
+            explanation: "Correct — interdependence means one group's actions have knock-on effects on the others."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Capital means money.",
+            correct: "Capital means the physical, man-made aids to production — machinery, tools and factory buildings. Money used to buy those things is different from capital as a factor of production itself.",
+            readCheck: {
+                q: "A firm borrows £50,000 from the bank and uses it to buy a new delivery van. Which part of this is capital as a factor of production?",
+                opts: ["The £50,000 loan itself", "The delivery van", "The bank that lent the money", "The interest rate on the loan"],
+                ans: 1,
+                explain: "The van is the man-made aid to production — that's capital. The £50,000 is money used to buy it, not capital itself."
+            }
+        },
+        {
+            wrong: "Producers are always big companies like supermarkets or manufacturers.",
+            correct: "A producer is anyone who supplies a good or service — that includes a market stallholder, a self-employed hairdresser, or a one-person online business, not just large firms.",
+            readCheck: {
+                q: "A student sells hand-made friendship bracelets to classmates at breaktime. Are they a producer?",
+                opts: ["Yes — they are supplying a good, however small the business", "No — only registered companies can be producers", "No — they are still a consumer while doing this", "Only if they make a profit"],
+                ans: 0,
+                explain: "Size doesn't matter for the definition — anyone supplying a good or service is a producer."
+            }
+        },
+        {
+            wrong: "A business owner is always acting as a consumer.",
+            correct: "A business owner is only a consumer when they buy something for personal use. When they buy stock or equipment for the business, they're acting as a producer.",
+            readCheck: {
+                q: "A café owner buys a coffee machine for the café, and later buys a coffee machine as a birthday present for a friend. Which purchase makes them a consumer?",
+                opts: ["Only the coffee machine for the café", "Only the coffee machine bought as a gift", "Both purchases", "Neither purchase"],
+                ans: 1,
+                explain: "The gift is for personal, non-business use, so that purchase is as a consumer. The café machine is for the business, so that's a producer action."
+            }
+        },
+        {
+            wrong: "Profit is a guaranteed reward for running a business, just like wages are guaranteed for working.",
+            correct: "Profit is not guaranteed — it's what's left over after all costs are paid, and a business can just as easily make a loss. That's why profit is the reward for risk-taking (enterprise), unlike wages, which are agreed and paid whether or not the business does well.",
+            readCheck: {
+                q: "Why is profit described as the reward for enterprise rather than a guaranteed payment?",
+                opts: ["Because it is paid before wages", "Because a business can make a loss instead of a profit", "Because only large firms can earn it", "Because it is set by the government"],
+                ans: 1,
+                explain: "Profit depends on revenue being higher than costs — it isn't fixed or guaranteed like wages, rent or interest, which is exactly why it rewards risk."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "explain",
+            title: "'Explain' questions (1-2 marks)",
+            pills: ["AO1", "1-2 marks"],
+            content: `<p>'Explain' means state a definition or make a point — then develop it.</p>
+
+<p><strong>Structure for 2 marks:</strong></p>
+<ul>
+<li>Sentence 1 — state the term or point <strong>(1 mark)</strong></li>
+<li>Sentence 2 — develop it, or give the example if the question asks for one <strong>(1 mark)</strong></li>
+</ul>
+
+<p><strong>Worked example:</strong> "Explain, using an example, what is meant by 'land'."</p>
+<ul>
+<li>"Land is the factor of production covering natural resources" (1 mark)</li>
+<li>"…for example, farmland used to grow crops" (1 mark)</li>
+</ul>
+
+<p><strong>The most common lost mark:</strong> forgetting the example when the question says "using an example".</p>
+
+<p>Real full-mark answers are only 1–2 sentences — about 25–45 words. Then stop.</p>`,
+            readCheck: {
+                q: "A question is worth 2 marks and starts with 'Explain, using an example...'. What must your answer include to get both marks?",
+                opts: ["Two separate definitions", "A definition AND a specific example", "Just a long, detailed definition", "A diagram"],
+                ans: 1,
+                explain: "2-mark 'explain, using an example' questions are usually split 1 mark for the definition/statement and 1 mark for a correct, specific example."
+            }
+        },
+        {
+            type: "evaluate",
+            title: "'Evaluate' questions (6 marks) — like the interdependence question",
+            pills: ["AO2", "AO3a", "AO3b", "6 marks"],
+            content: `<p>'Evaluate' means explain + analyse + weigh up both sides + reach a judgement.</p>
+
+<p>Real full-mark answers are only about <strong>120–160 words</strong>. Longer is not better — focused is better.</p>
+
+<p><strong>Structure that scores 6/6 in real exams:</strong></p>
+<ul>
+<li><strong>Point:</strong> one way the groups depend on each other, applied to the case study — use the names and any data given</li>
+<li><strong>However:</strong> a limit to <em>that same point</em> — not a random new point</li>
+<li><strong>Overall:</strong> a judgement that answers "the extent to which…", with a reason</li>
+</ul>
+
+<p><strong>Sentence starters real top students use:</strong></p>
+<ul>
+<li>"One reason is that…"</li>
+<li>"However, this depends on…"</li>
+<li>"On the other hand…"</li>
+<li>"Overall, … but …"</li>
+</ul>
+
+<p><strong>Common mistake:</strong> a good point followed by an unrelated bad point is not evaluation.</p>
+
+<p>The "However" must be about the same point, and the judgement must give a reason — a judgement with no reason is capped at 5/6.</p>`,
+            readCheck: {
+                q: "In an 'Evaluate' answer, what is a 'good point followed by a bad point that has no connection to it' an example of?",
+                opts: ["Good evaluation", "Not evaluation at all — evaluation needs paired, connected points", "Analysis, but not application", "A diagram substitute"],
+                ans: 1,
+                explain: "Real evaluation pairs an idea with a genuine limitation of THAT idea (or a contrasting factor it depends on) — two disconnected points don't count as evaluation."
+            }
+        },
+        {
+            type: "tip",
+            title: "Common exam angles for this topic",
+            pills: ["Exam patterns"],
+            content: `<p>Based on real OCR papers, this topic keeps being tested in the same few ways:</p>
+
+<ul>
+<li>Classify a scenario as a consumer, producer or government action</li>
+<li>Match each factor of production to its reward (rent / wages / interest / profit)</li>
+<li>Spot the odd one out in a list mixing real factors of production with distractors like money or output</li>
+<li>A short "explain" question using the case study — apply the definition to the business in the text, don't just repeat the textbook definition</li>
+<li>A 6-mark "evaluate the extent of interdependence" question, based on a case study</li>
+</ul>
+
+<p><strong>Watch out:</strong> questions asking "NOT" or "incorrect" flip the logic.</p>
+
+<p>Read them twice — the answer is the odd one out (often money, which students confuse with capital).</p>`,
+            readCheck: {
+                q: "A question asks: 'Which of the following is NOT a factor of production?' What should you do first?",
+                opts: ["Pick the first correct-sounding factor of production", "Notice the word 'NOT' and look for the one item that ISN'T a factor of production", "Skip the question", "Assume it's a trick with no right answer"],
+                ans: 1,
+                explain: "'NOT' questions flip the usual logic — three options will be genuine factors of production and one will be the odd one out (often money, which is commonly confused with capital)."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Consumer", def: "A person who buys goods or services for their own personal use" },
+        { term: "Producer", def: "An individual or organisation that supplies goods or services" },
+        { term: "Government", def: "Elected representatives who make laws, collect taxes and provide public services" },
+        { term: "Land", def: "Natural resources used in production, such as farmland, oil and fish stocks" },
+        { term: "Labour", def: "The physical and mental effort of the workforce used in production" },
+        { term: "Capital", def: "Man-made aids to production, such as machinery, tools and factory buildings" },
+        { term: "Enterprise", def: "The risk-taking that combines land, labour and capital to create a good or service" },
+        { term: "Rent", def: "The reward paid to the owner of land for its use" },
+        { term: "Wages", def: "The reward paid to workers for their labour" },
+        { term: "Interest", def: "The reward paid for the use of capital" },
+        { term: "Profit", def: "The reward that goes to the entrepreneur for taking a risk — not guaranteed, unlike wages" },
+        { term: "Human capital", def: "The value of a worker's skills, qualifications and experience" },
+        { term: "Interdependence", def: "When the actions of one economic group affect the decisions of the others" },
+        { term: "Factor inputs", def: "The factors of production (land, labour, capital, enterprise) that go into making a product" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which one of the following is not a factor of production?",
+            options: ["Capital", "Labour", "Land", "Money"],
+            answer: 3,
+            hint: "Three of these are the four factors of production you've just learned. Money on its own isn't one of them — it's used to buy capital, but it isn't capital itself.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: D — Money</strong></p>
+<ul>
+<li>Money is not itself a factor of production.</li>
+<li>It can be used to buy capital (machinery, tools, buildings), but capital and money are not the same thing.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q2",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 3 — The Asian Hornet</strong></p><p>The Asian Hornet is an insect first found in France in 2004. It has spread to many other European countries and has now reached the UK.</p><p>The Asian Hornet has a negative impact because it destroys honeybees and many other insects which pollinate plants, damaging the primary sector. This causes a fall in the level of production of most fruit and vegetable crops, leading to economic losses. This has already happened in Spain, France, Italy, and Portugal.</p><p>The Asian Hornet is very aggressive and can affect consumers and producers. The hornet's sting can cause a severe reaction and in extreme cases leads to death. The annual cost of destroying the nests to get rid of the Asian Hornet is estimated to be £10.5 million for France, £8 million for Italy, and £7.6 million for the UK.</p><p>Overall, the Asian Hornet will have a negative effect on the quality of life and wellbeing in the UK, unless it can be destroyed.</p>`,
+            question: "Explain how the Asian Hornet can affect the producer's role in the economy.",
+            hint: "Focus only on PRODUCERS, not workers or revenue. Say what happens to what they supply, then develop it with 'which means...' or 'this could lead to...'.",
+            starter: "The Asian Hornet could affect producers by...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers might include:</strong></p>
+<ul>
+<li>Reduce the output they supply</li>
+<li>May deter people from being (primary) producers</li>
+<li>May lead them to raise prices</li>
+</ul>
+<p>Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 1 mark for a basic statement, e.g. including an explanation of the role of the producer</li>
+<li>Award 1 additional mark for development of this statement</li>
+<li>No credit for change in revenue</li>
+<li><strong>NB</strong> — the question is about producers' role, <strong>not</strong> workers</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates realised that it would reduce producers' ability to supply but found it difficult to go further, although some did talk about rising prices.</p>
+<p>Those who talked about falling revenue or profit were not credited, because lower output could lead to higher prices and increased revenue if demand is price inelastic.</p>
+</div>`,
+            modelAnswer: "The Asian Hornet destroys the bees that pollinate fruit and vegetable crops, so producers cannot supply as much.\n\nThis fall in output may also put people off becoming producers, because farming becomes riskier and more costly."
+        },
+        {
+            num: "Q3",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "One factor of production is labour.",
+            question: "The quantity of labour in an economy depends on the...",
+            options: ["Ability of entrepreneurs to organise it", "Amount of land able to support people", "Availability of human resources", "Provision of education"],
+            answer: 2,
+            hint: "'Quantity' means how much labour there IS — not how skilled it is (that's quality, linked to education). Which option is about the number of people available to work?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: C — Availability of human resources</strong></p>
+<ul>
+<li>The quantity of labour depends on how many people are available and willing to work.</li>
+<li>Provision of education affects the <em>quality</em> of labour, not the quantity.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>While most candidates correctly gave C as the answer, there was a lot of support for A and D, showing misconceptions about the quantity of labour.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q4",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "Kai had an idea to set up a printing business. They rented a shop, employed staff and bought some printing equipment.",
+            question: "As a producer, what is Kai not responsible for?",
+            options: ["Adding efficiency to the firm", "Deciding how much VAT to pay", "Making economic choices about production", "Making use of scarce resources"],
+            answer: 1,
+            hint: "VAT is set by the government, not by the business owner. Which option is something Kai has no control over?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — Deciding how much VAT to pay</strong></p>
+<ul>
+<li>VAT rates are set by the government, not by individual producers.</li>
+<li>Kai, as a producer, IS responsible for efficiency, economic choices about production, and the use of scarce resources.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A very high percentage of candidates gave Option B as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q5",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which group would not be classed as producers?",
+            options: ["Factory workers", "Self-employed individuals", "Small firms", "The government"],
+            answer: 0,
+            hint: "Think about who actually SUPPLIES the good or service, versus who works for the business that supplies it.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — Factory workers</strong></p>
+<ul>
+<li>Factory workers are part of the labour factor of production — they are employed BY a producer, but they are not producers themselves.</li>
+<li>Self-employed individuals, small firms and the government can all supply goods and services, so they ARE producers.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>The correct response to this question was Option A.</p>
+<p>Incorrect responses frequently gave Option D or, to a lesser extent, Option B, and indicated a lack of knowledge and understanding of what constitutes a producer.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q6",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "You are the economist for a timber merchant and have been asked to advise your team leader about factors of production.",
+            question: "Which of these is an example of capital?",
+            options: ["A computer monitor", "The business owner", "The company's shares", "The trees owned by the company"],
+            answer: 0,
+            hint: "Capital means man-made equipment used in production. Which option is a piece of equipment, not a person, a financial asset, or a natural resource?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: A — A computer monitor</strong></p>
+<ul>
+<li>A computer monitor is a man-made aid to production, so it counts as capital.</li>
+<li>The business owner is enterprise.</li>
+<li>The company's shares are a financial asset — not a factor of production.</li>
+<li>The trees are land (a natural resource) — even though this is a timber merchant.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates gave Option A as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q7",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "Too few resources would be allocated to certain products if left to the market.",
+            question: "Which of these is most likely to be provided by the government?",
+            options: ["Capital goods", "Electric cars", "Social media", "Vaccinations"],
+            answer: 3,
+            hint: "Think about which of these products benefits society as a whole, not just the person who buys it — the free market tends to under-supply things like this.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: D — Vaccinations</strong></p>
+<ul>
+<li>Vaccinations benefit the whole of society (they reduce the spread of disease), not just the person vaccinated.</li>
+<li>The free market tends to under-supply products like this, so governments often step in to provide or fund them.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates gave Option D as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q8i",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 1 — UK housing market</strong></p><p>There was a large increase in the demand for housing in the UK in 2020 and 2021. This led to a considerable rise in house prices, with more resources being allocated to house building. However, some consumer groups accused house builders of failing to supply enough new and suitable properties. In reply, the house builders said that local government planning rules slowed down growth in the housing market.</p><p>Recently, Plumgarth council rejected a plan by Holoss Builders for a development of new houses, as the house types did not meet the council's strategic plan requirements.</p>
+<img src="/images/economics/1-1-house-prices-chart-extracted.png" alt="Line chart from the OCR exam paper showing the annual percentage change in UK house prices from October 2020 to September 2021, rising from about 4.5% to a peak of 13.5% in June 2021" style="display:block;width:100%;max-width:560px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "i. Explain one factor that may cause more resources to be allocated to a particular market.",
+            hint: "Give a factor (e.g. rising prices, higher profits, more demand), then explain HOW that factor leads producers to put more resources into that market.",
+            starter: "One factor that can cause more resources to be allocated to a market is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>What consumers are willing and able to buy</li>
+<li>The forces of supply and demand</li>
+<li>Higher prices</li>
+<li>Government intervention/policy</li>
+<li>Higher profits — leading to producers expanding or new firms entering the market</li>
+<li>Increased competition</li>
+</ul>
+<p>Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 2 marks for explanation of a correct factor</li>
+<li>Award 1 mark for a correct factor only, without development</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates were able to correctly identify an appropriate factor, which often related to greater demand or higher prices, and so were given 1 mark.</p>
+<p>However, of these, many could not build on this and explain how this factor led to more resource allocation.</p>
+</div>`,
+            modelAnswer: "One factor is higher prices.\n\nIf demand for housing rises, house prices rise, so building houses becomes more profitable. This gives producers a reason to move more resources — land, workers and materials — into that market."
+        },
+        {
+            num: "Q8ii",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "ii. Explain how house builders act as producers in the housing market.",
+            hint: "Don't just say 'they build houses' — that's too basic on its own. Explain what CHOICES house builders make as producers (what to build, how much, what quality).",
+            starter: "House builders act as producers because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Producers supply goods and services</li>
+<li>House builders are the people who supply new houses</li>
+<li>They make choices about what houses to supply and how to build them</li>
+<li>They exercise influence over quantity, price and quality of the houses</li>
+</ul>
+<p>Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 2 marks for an answer that recognises that house builders supply new houses AND decide what to supply, quality, etc.</li>
+<li>Award 1 mark for an answer which does not go beyond simply supplying houses</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was not answered particularly well, with many candidates providing a tautological response such as "house builders are producers as they build houses."</p>
+<p>More successful responses identified that a market requires a supply and a demand, and explained how house builders supply and sell houses for consumers to buy.</p>
+<p>Alternatively, some more successful responses explained the role of producers in bringing factors of production together to generate a supply for consumers to purchase.</p>
+</div>`,
+            modelAnswer: "House builders act as producers because they supply new houses for consumers to buy.\n\nThey also make the producer's choices — what type of houses to build, how many, and what quality — based on what consumers want."
+        },
+        {
+            num: "Q8iii",
+            marks: 6,
+            type: "written",
+            caseStudy: "",
+            question: "iii. Evaluate the extent to which consumers, producers and the government are interdependent in the housing market. Use the information given in Extract 1 and your own knowledge.",
+            hint: "Cover more than one group-to-group link. For each one, explain HOW one group responds to another, then evaluate — is that link strong or limited? Finish with an overall judgement on how interdependent they really are.",
+            starter: "Consumers, producers and the government are interdependent in the housing market because...\n\nHowever, this dependence is limited because...\n\nOverall, ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2 ×1, AO3a ×2, AO3b ×3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>This is where one group responds to the actions of another</li>
+<li>Consumers respond to what properties house builders are building, the quality, the location, and the price</li>
+<li>Producers respond to consumer demands and to requirements of governments</li>
+<li>Producers respond to local government development plans</li>
+<li>Governments respond to demands by consumers and those of producers</li>
+<li>Governments may have plans (for new towns/green zones etc.) which affect where consumers can live, and where producers build</li>
+</ul>
+<p><strong>Evaluation may include (NB: "the extent to which"):</strong></p>
+<ul>
+<li>In the UK, governments cannot force consumers to buy certain types of properties or producers to build</li>
+<li>Consumers and producers are also affected by economic forces such as the supply of workers</li>
+<li>Producers who do not build what consumers want will not last very long</li>
+<li>Consumers may depend on government to ensure houses are built where they are needed</li>
+</ul>
+<p>Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong></p>
+<ul>
+<li>Good application of knowledge of the likely effect of interdependence on the three economic groups, used in the context of the scenario</li>
+<li>Reasonable analysis of the extent of interdependence — correct analysis, mostly single effects, addressing the question</li>
+<li>Good evaluation with a fully supported judgement, developed from weighing up both sides</li>
+</ul>
+<p><strong>Level 2 (3–4 marks):</strong></p>
+<ul>
+<li>Good application of knowledge in the context of the scenario</li>
+<li>Limited analysis — an attempt at analysis, with a single effect linked to the question</li>
+<li>Reasonable evaluation, considering both sides — a judgement (if given) is not fully supported</li>
+</ul>
+<p><strong>Level 1 (1–2 marks):</strong></p>
+<ul>
+<li>No application of knowledge — only an attempt to use the terms in context</li>
+<li>Limited analysis — a single effect with some link to the question</li>
+<li>Limited evaluation — an incomplete attempt at both sides, with unsupported statements</li>
+</ul>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This proved a difficult question for many candidates, as many were unable to explain how the actions of one group impacted on others.</p>
+<p>Most could not get beyond the fact that consumers buy houses from building firms and firms need permission from the government to be allowed to build them.</p>
+<p>Any evaluation was often lacking or somewhat limited, with few candidates including any relevant analysis on which to base it.</p>
+<p>The most successful responses realised that consumers and producers were very interdependent, but that beyond planning permission and building standards the government played a lesser role. Some strong responses drew on the contextual information contained within Extract 1.</p>
+</div>
+<div class="marks-section">
+<h5>Assessment for learning</h5>
+<p>As the skills of analysis and evaluation (AO3) comprise 30% of the total marks available for this paper, it is important that candidates are regularly exposed to discussions, exercises and past-paper questions that allow them to develop and practise these skills.</p>
+</div>`,
+            modelAnswer: "Consumers and producers depend on each other in the housing market. House builders respond to what consumers want — the location, quality and price of homes — because if they build houses consumers do not want, they will not sell them. Producers also depend on the government, as councils can reject planning applications. This is shown in Extract 1, where Plumgarth council rejected Holoss Builders' plan because it did not meet the council's strategic plan.\n\nHowever, this dependence has limits. The government cannot force consumers to buy certain properties or force producers to build them. Both groups are also affected by other things, such as the supply of building workers.\n\nOverall, consumers and producers are very interdependent, but beyond planning rules and building standards the government plays a smaller role."
+        },
+        {
+            num: "Q9",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 1 — Coom Delivery Service (CDS)</strong></p><p>Coom Delivery Service (CDS) is a delivery business operating in northwest England and southwest Scotland. It has recently bought more land for its growing number of delivery vehicles. Although most of these are powered by petrol, the aim is to have half of the vehicles to be electric powered by 2024. This is because Natan, the owner of CDS, is aware of the need to reduce the use of scarce resources to help achieve economic sustainability.</p><p>Natan has investigated the prices of CDS's competitors. He thinks that if CDS could reduce its prices for next day delivery by either 10% or 20%, it would make considerable gains in the quantity of parcels delivered, as well as total revenue. He has set this out in the table below.</p>
+<table class="case-table"><tr><th>Price</th><th>Quantity of parcels per week</th></tr><tr><td>£25.00</td><td>300</td></tr><tr><td>£22.50</td><td>350</td></tr><tr><td>£20.00</td><td>450</td></tr></table>`,
+            question: "Explain, using an example, what is meant by 'land'.",
+            hint: "Give the definition first, then back it up with a specific example — not just 'fields', something more precise like 'farmland' or 'oil reserves'.",
+            starter: "Land is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The factor of production that is concerned with the natural resources of an economy</li>
+<li>Examples: farmland, coal, trees, the sea, etc.</li>
+</ul>
+<p>Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Give 1 mark for a reference to natural resources</li>
+<li>Give 1 mark for an acceptable example</li>
+</ul>
+</div>`,
+            modelAnswer: "Land is the factor of production covering the natural resources of an economy.\n\nFor example, farmland used to grow crops, or the land CDS has bought for its delivery vehicles."
+        },
+        {
+            num: "Q10",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "In a market system, decisions about what to produce are determined by the interdependence of...",
+            options: ["Consumers and government", "Consumers and producers", "Government and workers", "Producers and workers"],
+            answer: 1,
+            hint: "In a market economy, which two groups interact directly through buying and selling to decide what gets made?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: B — Consumers and producers</strong></p>
+<ul>
+<li>In a market system, what gets produced is decided by the interaction of consumer demand and producer supply.</li>
+<li>Government and workers do not directly decide what is produced in a market system.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q11",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 2 — Petterill Railway Ltd</strong></p><p>Petterill Railway Ltd operates rail services to the Petterill Valley which is situated in a National Park, an area of outstanding natural beauty in the UK. It is a popular destination for both local visitors and tourists from overseas.</p><p>Jit Acharya, the Managing Director, has been considering how best to make use of the capital he has available. He wants to know whether Petterill Railway Ltd is focused on the correct market. At present, half of Petterill Railway Ltd's consumers are local families and the other half are overseas tourists. Jit expects the number of overseas tourists to increase in the next couple of years. If this turns out to be correct, then his new advertising campaign at the local airport should increase the demand for Petterill Railway Ltd's train services.</p><p>Jit is concerned, however, that the supply of services provided by Petterill Railway Ltd is price inelastic. He has calculated that the price elasticity of supply for the railway engines and carriages is +0.4.</p>`,
+            question: "Explain, using an example, what is meant by 'capital'.",
+            hint: "Give the definition, then a specific example from the text or your own knowledge — not just 'machinery' on its own, but a named piece of equipment.",
+            starter: "Capital is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The factor of production which relates to the human-made aids to production</li>
+<li>Inputs used to produce more goods and services</li>
+<li>Human-made resources used as inputs</li>
+<li>Machinery, tools, factory buildings, transport, etc.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark for a correct definition of capital</li>
+<li>1 mark for a correct example — do <strong>NOT</strong> accept 'money'</li>
+<li>2 marks for an answer such as "inputs like machinery and tools used to produce more goods and services"</li>
+</ul>
+</div>`,
+            modelAnswer: "Capital is the factor of production made up of the human-made aids used to produce goods and services.\n\nFor example, Petterill Railway Ltd's railway engines and carriages."
+        },
+        {
+            num: "Q12",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following lists contains only factors of production?",
+            options: ["Capital, government, money and suppliers", "Land, labour, capital and enterprise", "Land, labour, capital and money", "Machinery, buildings, output and profits"],
+            answer: 1,
+            hint: "There's only one option where all four items are genuine factors of production, with nothing else mixed in.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: B — Land, labour, capital and enterprise</strong></p>
+<ul>
+<li>These are the four factors of production.</li>
+<li>The other options mix in things that are NOT factors of production — government, money, suppliers, output and profits.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q13",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Factors of production are combined to produce...",
+            options: ["Consumer wants", "Opportunity costs", "Output", "Resources"],
+            answer: 2,
+            hint: "What is the actual THING that comes out at the end of the production process?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: C — Output</strong></p>
+<ul>
+<li>Producers combine land, labour, capital and enterprise (the factor inputs) to create output — the goods and services that get sold.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q14",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following is a factor of production?",
+            options: ["A credit card", "A household's washing machine", "A one pound coin", "A piece of spare land"],
+            answer: 3,
+            hint: "Three of these belong to a household and are used for personal consumption, not production. Which one could actually be used by a business to produce something?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: D — A piece of spare land</strong></p>
+<ul>
+<li>Land is a factor of production.</li>
+<li>A credit card and a one pound coin are forms of money.</li>
+<li>A household's washing machine is a consumer good, not capital used in production.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A very high percentage of candidates gave Option D as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q15",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 1 — The Music Shop</strong></p><p>Eileen and Jean own and run The Music Shop, selling CDs, DVDs, musical instruments, sheet music and other music-related goods.</p><p>They have recently discussed their plans for the future of the business. Jean wondered whether there was any point in accepting cash, as nearly all their consumers use credit cards or phone apps to pay for purchases. Eileen, however, believes that money is still important as a medium of exchange.</p><p>Eileen is not sure exactly what the effects of changes in consumer demand will be for their sales. She is concerned, however, that the supply of musical instruments is price inelastic.</p><p>They have recently received a letter from their bank notifying them of an increase in the interest rate, from 5% to 6%, on their £500,000 loan. Jean recognises that the products they sell are nonessential. She worries what effect higher interest rates will have on the business, but thinks that this will depend on what happens to the income of consumers and whether they use credit cards for purchases.</p>`,
+            question: "Explain the role of consumers.",
+            hint: "Give two separate elements of what consumers do — one alone (like 'they buy things') will only get you 1 mark.",
+            starter: "The role of consumers is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Buy goods and services for their personal use</li>
+<li>Create demand for goods and services</li>
+<li>The end user of a good or service</li>
+<li>Make choices and thus influence what, and how much, is produced</li>
+</ul>
+<p>Accept any other reasonable answer.</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Give 2 marks for a clear idea of the role of consumers which should include <strong>two elements</strong></li>
+<li>Give 1 mark if only one element (e.g. "buy goods and services") is given</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates were given one mark for this question, often through recognition of consumers as the end-user of a product or the purchasers of goods or services.</p>
+<p>Better answers went on to link these two aspects or to provide another element to the answer, such as the creation of demand.</p>
+</div>`,
+            modelAnswer: "Consumers buy goods and services for their own personal use, like the customers buying CDs and instruments from The Music Shop.\n\nBy making these choices they create demand, which influences what producers like The Music Shop decide to supply."
+        },
+        {
+            num: "Q16",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following is an incorrect statement about consumers?",
+            options: ["Goods and services are bought for personal use", "They compare the satisfaction of consumption against the price when making a purchase", "They decide what goods and services will be produced", "They have little power in the market"],
+            answer: 2,
+            hint: "This asks for the INCORRECT statement. Consumers influence production through demand, but do they directly decide what gets made?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: C — They decide what goods and services will be produced</strong></p>
+<ul>
+<li>This statement is incorrect: consumers influence production through their demand, but it is producers who decide what to actually supply.</li>
+<li>The other statements are correct: consumers buy for personal use, weigh up satisfaction against price, and often have little power in the market.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q17",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Enterprise requires the individual concerned to organise the...",
+            options: ["Factors of production to minimise the opportunity cost", "Market for the factors of production", "Production and to bear the risks of the project", "Risk involved in borrowing the necessary finance"],
+            answer: 2,
+            hint: "Enterprise is about combining the OTHER factors of production and taking on risk — which option describes exactly that?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: C — Production and to bear the risks of the project</strong></p>
+<ul>
+<li>Enterprise is the risk-taking that combines land, labour and capital to organise production.</li>
+<li>The entrepreneur bears the risk of the whole project — not just financing risk or minimising opportunity cost.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>The correct response to this question is Option C.</p>
+<p>Incorrect responses ranged across the other three options and indicated a common misunderstanding of what enterprise is.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q18",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following refers to the role of the consumer?",
+            options: ["Acts as the end-user of a good or service", "Acts to protect buyers of goods and services", "Can decide what goods and services to supply", "Can introduce regulations about goods and services"],
+            answer: 0,
+            hint: "Which option describes something the CONSUMER themselves does, rather than something the government does to protect or regulate them?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — Acts as the end-user of a good or service</strong></p>
+<ul>
+<li>Consumers are the end-users of goods and services.</li>
+<li>Protecting buyers, deciding what to supply and introducing regulations are roles of the government or producers, not consumers.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A very high percentage of candidates gave Option A as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

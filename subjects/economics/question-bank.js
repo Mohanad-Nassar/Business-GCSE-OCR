@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-11T04:09:01Z · 823 questions
+// Generated: 2026-07-11T08:12:28Z · 916 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -16221,6 +16221,1833 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 0,
    "explain": "“Factor market” means: The market where the factors of production, like labour, are bought and sold"
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:6e5b08fe",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q1",
+  "question": "Which one of the following is the most likely effect if interest rates rise in the UK?",
+  "options": [
+   "A decrease in investment",
+   "An increase in national income",
+   "Households will borrow more",
+   "Households will save less"
+  ],
+  "hint": "Higher interest rates make borrowing dearer and saving more rewarding. Which option follows from that?",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: A — A decrease in investment</strong></p>\n<ul>\n<li>Higher interest rates raise the cost of borrowing, so firms invest less. The other options describe effects of a FALL in interest rates (more borrowing, less saving) or are unrelated.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:fbca30ab",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q2(a)",
+  "question": "Explain what 'interest rates' are.",
+  "caseStudy": "<p><strong>Extract 3: Financial services and pharmaceutical companies in the UK</strong></p>\n<p>Pharmaceutical companies develop, produce and sell medication. Medications can take many years to develop before they can be sold. This process involves testing and trialling medications before they can be judged as being safe for use.</p>\n<p>SANEC is a UK pharmaceutical company, whose customers include the National Health Service (NHS) and private hospitals.</p>\n<p>SANEC has a loan of £2 million with a bank that it is required to pay back in one year. The annual interest rate is 5% on the whole amount. This is just one way in which SANEC uses the financial services sector.</p>\n<p>The UK financial services sector plays a critical role in supporting UK businesses and enabling the UK&#39;s economy to grow. It is responsible for almost 10% of national output, adds nearly £150 billion to the UK economy and employs around 1.2 million people. The UK is the world&#39;s largest exporter of financial services.</p>",
+  "hint": "Interest rates work two ways: they are the cost of borrowing AND the reward for lending/saving. Give both for 2 marks.",
+  "starter": "Interest rates are the cost of borrowing money, meaning...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1b)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>The cost of borrowing money</li>\n<li>The return for lending money</li>\n<li>Accept any other reasonable answer.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>How the marks are given</h5>\n<ul>\n<li>1 mark for an explanation that interest rates are the cost of borrowing.</li>\n<li>1 mark for understanding that interest rates are the return for lending/saving money.</li>\n</ul>\n</div>",
+   "modelAnswer": "An interest rate is the cost of borrowing money, usually shown as a percentage charged per year — for example, SANEC pays 5% a year on its £2 million loan.\n\nIt is also the reward paid to savers for lending their money to a bank."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:e1093f56",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q2(b)",
+  "question": "Calculate the increase in the annual amount of interest paid by SANEC if the bank were to increase the rate of interest on the loan to 6% per year. Show your working.",
+  "caseStudy": "<p><strong>Extract 3: Financial services and pharmaceutical companies in the UK</strong></p>\n<p>SANEC is a UK pharmaceutical company, whose customers include the National Health Service (NHS) and private hospitals. SANEC has a loan of £2 million with a bank that it is required to pay back in one year. The annual interest rate is 5% on the whole amount.</p>",
+  "hint": "Work out 6% of £2 million and 5% of £2 million, then find the difference.",
+  "starter": "6% of £2 000 000 = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>£120 000 – £100 000 = £20 000</strong></p>\n<ul>\n<li>1 mark for correct working.</li>\n<li>1 mark for the correct answer.</li>\n<li>The correct answer on its own is worth 2 marks.</li>\n</ul>\n</div>",
+   "modelAnswer": "At 6%: 0.06 × £2 000 000 = £120 000 a year.\nAt 5%: 0.05 × £2 000 000 = £100 000 a year.\n\nIncrease = £120 000 − £100 000 = £20 000."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:8c2a3792",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q2(c)",
+  "question": "Analyse the likely impact of an increase in the rate of interest on the level of investment within an economy.",
+  "caseStudy": "<p><strong>Extract 3: Financial services and pharmaceutical companies in the UK</strong></p>\n<p>SANEC is a UK pharmaceutical company. It has a loan of £2 million with a bank at an annual interest rate of 5%. The UK financial services sector is responsible for almost 10% of national output, adds nearly £150 billion to the UK economy and employs around 1.2 million people.</p>",
+  "hint": "Build a chain: higher rates → dearer borrowing → firms need a higher return to justify investing → fewer projects go ahead. A second chain can run through demand: mortgage-holders spend less → firms see lower demand → invest less.",
+  "starter": "One likely impact is that firms become less willing to invest, because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Firms are less likely to invest as the cost of borrowing funds for investment has increased</li>\n<li>Returns from investment will need to be higher to cover the increased cost of borrowing</li>\n<li>Some consumers (e.g. those with mortgages) will have less money to spend and are likely to buy fewer goods and services: as demand decreases, investment will decrease</li>\n<li>Some consumers (e.g. those with savings) are likely to have more money to spend and may buy more goods and services</li>\n<li>Some reallocation of resources.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis with developed chains of reasoning that address the question.</p>\n<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects.</p>\n<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis with a single linked effect.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>",
+   "modelAnswer": "One likely impact is that firms invest less. A higher rate of interest raises the cost of borrowing the funds needed to buy machinery or expand, so the return a project must earn to be worthwhile rises too. Some planned projects will no longer cover this higher cost, therefore fewer investments go ahead and total investment in the economy falls.\n\nA second chain runs through demand. Households with mortgages now pay more each month, leaving them less to spend on goods and services. As consumer demand falls, firms see less reason to expand capacity, so they cut investment further. The effect could be smaller if firms have their own savings to fund investment rather than borrowing."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:41ec21aa",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q2d(i)",
+  "question": "Give two examples of financial institutions other than banks.",
+  "caseStudy": "<p><strong>Extract 3: Financial services and pharmaceutical companies in the UK</strong></p>\n<p>SANEC is a UK pharmaceutical company that uses the financial services sector, including a £2 million bank loan. The UK financial services sector adds nearly £150 billion to the UK economy and employs around 1.2 million people.</p>",
+  "hint": "Not banks — think of firms that insure, that lend for houses, or that invest people's money.",
+  "starter": "One example is...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Insurance companies</li>\n<li>Building societies</li>\n<li>Investment companies</li>\n<li>Accept any other reasonable answer.</li>\n</ul>\n<p>1 mark for each correct example, up to a maximum of 2 marks.</p>\n</div>",
+   "modelAnswer": "1. Insurance companies.\n2. Building societies."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:2890dcb4",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q2d(ii)",
+  "question": "Explain the role of the financial sector in the UK economy.",
+  "caseStudy": "<p><strong>Extract 3: Financial services and pharmaceutical companies in the UK</strong></p>\n<p>The UK financial services sector plays a critical role in supporting UK businesses and enabling the UK&#39;s economy to grow. It is responsible for almost 10% of national output, adds nearly £150 billion to the UK economy and employs around 1.2 million people.</p>",
+  "hint": "Its core job is moving money from savers to borrowers so firms and households can spend and invest. Give two clear points.",
+  "starter": "The financial sector links savers and borrowers, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Primarily involves lending and borrowing</li>\n<li>This is accomplished through banks and other financial institutions</li>\n<li>Provides a link between households, firms and governments in transferring funds from savers to borrowers, for consumption and investment purposes</li>\n<li>Enables people to save / borrow money</li>\n<li>Provides advice</li>\n<li>Facilitates the exchange of goods and services.</li>\n</ul>\n<p>1 mark for each correct point of explanation, up to a maximum of 2 marks.</p>\n</div>",
+   "modelAnswer": "The financial sector transfers funds from savers to borrowers, so households and firms can borrow to spend and invest even when they do not have the cash themselves.\n\nIt also allows people to save safely and provides services such as insurance and payments that make exchanging goods and services easier."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:95d43d5b",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q2d(iii)",
+  "question": "Evaluate the importance of the financial sector to pharmaceutical companies in the UK. Use the information given in Extract 3 and your own knowledge.",
+  "caseStudy": "<p><strong>Extract 3: Financial services and pharmaceutical companies in the UK</strong></p>\n<p>Pharmaceutical companies develop, produce and sell medication. Medications can take many years to develop before they can be sold. SANEC is a UK pharmaceutical company whose customers include the NHS and private hospitals. It has a £2 million bank loan at 5% interest. The UK financial services sector is responsible for almost 10% of national output and employs around 1.2 million people.</p>",
+  "hint": "Argue why finance matters to a pharma firm (loans to fund long, expensive development; insurance to cover risky research), then weigh it against what it depends on (demand, the state of the economy, other sources of finance such as subsidies or charities) before judging.",
+  "starter": "The financial sector is very important to pharmaceutical companies because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Banking / building societies:</strong></p>\n<ul>\n<li>To move money between producers and consumers</li>\n<li>To lend money to consumers, allowing the purchase of products/services — including healthcare in many economies</li>\n<li>To lend money to producers for the development and production of products, especially important in pharmaceuticals with long development times</li>\n<li>As a source of employment in the economy.</li>\n</ul>\n<p><strong>Insurance:</strong></p>\n<ul>\n<li>To mitigate against losses that might be incurred, protecting firms and encouraging risky developments</li>\n<li>To increase consumer confidence, making them more likely to purchase goods</li>\n<li>In many economies, insurance companies are the customer of pharmaceutical businesses via healthcare insurance.</li>\n</ul>\n<p><strong>Evaluation may include:</strong> depends on demand for certain products; the rate of interest has a major impact on the cost of finance; availability of alternative forms of finance; the general state of the economy; other factors such as subsidies for R&amp;D or support from charities.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement developed from weighing up both sides.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation but the judgement is not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>",
+   "modelAnswer": "The financial sector is very important to pharmaceutical firms like SANEC. Medications take many years and a lot of money to develop before they can be sold, so firms rely on bank loans — such as SANEC's £2 million — to fund this long process before any revenue comes in. Insurance is also important because it covers the risk of unforeseen side-effects, which encourages firms to take on risky research they might otherwise avoid.\n\nHowever, its importance depends on other factors. The rate of interest has a major impact on the cost of that finance, so a rise makes borrowing much dearer. Demand for the products, the general state of the economy, and alternative finance such as government subsidies for research or support from charities all matter too. Overall the sector is very important, because without affordable finance and insurance the long, costly development of new medicines simply could not happen — but how important depends heavily on the cost of borrowing at the time."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:9d2f2f8f",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q3(a)",
+  "question": "Explain one other way banks can help Letusprovide Ltd to grow.",
+  "caseStudy": "<p><strong>Extract 1: Letusprovide Ltd</strong></p>\n<p>Layla and Leo run Letusprovide Ltd, a food supply firm. Layla was delighted to hear that their local roads were to be improved, leading to an external economy of scale for the business. She was further pleased when a letter from their bank said that interest rates were being reduced. The fall from 6% to 5% will allow the business to borrow £10 000 more cheaply. This will help them to grow the business.</p>\n<p>Leo has heard that the government has blocked the two largest food supply firms from joining together. This will mean Letusprovide Ltd can compete fairly with the other food supply businesses. Leo says this will be good both for the business and the consumers.</p>\n<p>Layla reminded Leo that competition was not always positive for consumers, as smaller firms might not be able to gain the same economies of scale as large firms.</p>\n<p>Letusprovide Ltd wants to borrow money from its bank.</p>",
+  "hint": "The question excludes lending/borrowing — pick a DIFFERENT service (overdraft, advice, insurance, interest on deposits, foreign exchange, cards) and develop how it aids growth.",
+  "starter": "One other way is that the bank could provide an overdraft, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>Answers might include:</strong></p>\n<ul>\n<li>Provide overdrafts</li>\n<li>Offer advice</li>\n<li>Offer services e.g. insurance</li>\n<li>Pay interest on deposits/savings</li>\n<li>Foreign exchange service</li>\n<li>Issue credit/debit cards</li>\n<li>Accept any other reasonable answer.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>How the marks are given</h5>\n<ul>\n<li>Award 1 mark for a way.</li>\n<li>Award 1 additional mark for some development of this re growth.</li>\n<li>A list of possible ways is only worth 1 mark.</li>\n<li>No reward for: a simple reference to 'borrowing' (excluded in the question); investment; or cutting interest rates to help expenditure.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>The most common correct responses referred to depositing savings and overdrafts. Too many had not read 'one other way' and talked about loans. Some candidates incorrectly believed that banks provide subsidies to businesses.</p>\n</div>",
+   "modelAnswer": "The bank could give Letusprovide Ltd an overdraft facility.\n\nThis lets the firm keep paying suppliers and wages during months when money coming in is low, so it can keep trading smoothly and grow without running out of cash."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:f9000efc",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q3(b)",
+  "question": "Analyse the effect of a reduction in interest rates on Letusprovide Ltd.",
+  "caseStudy": "<p><strong>Extract 1: Letusprovide Ltd</strong></p>\n<p>Layla and Leo run Letusprovide Ltd, a food supply firm. A letter from their bank said that interest rates were being reduced. The fall from 6% to 5% will allow the business to borrow £10 000 more cheaply. This will help them to grow the business.</p>",
+  "hint": "Chain it: rates fall 6%→5% → cheaper to borrow the £10 000 → lower opportunity cost of investing rather than saving → firm invests, raises output, may gain internal economies of scale and cut prices. You could add that consumers may also demand more food.",
+  "starter": "A cut in interest rates lowers the cost of borrowing, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>\n<p><strong>Knowledge might include:</strong> interest rates are the cost of borrowing and/or reward for saving; loans/overdrafts are cheaper.</p>\n<p><strong>Application might include:</strong> allows the business to borrow £10 000 more cheaply; interest rates fell from 6% to 5%; helps them to grow the business.</p>\n<p><strong>Analysis might include:</strong></p>\n<ul>\n<li>Lower opportunity cost of investing rather than saving</li>\n<li>Consumers may demand more food products</li>\n<li>Invest more leading to an increase in output</li>\n<li>Invest in internal economies of scale</li>\n<li>Lower the firm's costs/prices they charge</li>\n<li>Interest rate cut may not be enough, so little/no effect</li>\n<li>Consumers lack confidence so no rise in demand</li>\n<li>Investment depends on return compared to interest rates</li>\n<li>Earn less interest so have less for investment.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis with developed chains of reasoning.</p>\n<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis in single effects.</p>\n<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis.</p>\n<p><strong>0 marks:</strong> Response is not worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>There were a number of good answers. Most candidates showed relevant knowledge of what an interest rate is, with good application to the size of the reduction. Analysis often related to opportunity cost or to internal economies of scale, or that cheaper loans could be used to employ more workers, advertise or buy capital equipment, all making Letusprovide more competitive.</p>\n</div>",
+   "modelAnswer": "A cut in interest rates from 6% to 5% lowers the cost of borrowing, so Letusprovide can take on its £10 000 loan more cheaply. This reduces the opportunity cost of investing rather than saving, because the firm gives up less interest by using the money, so it is more likely to go ahead and invest.\n\nInvesting this money could raise the firm's output and let it gain internal economies of scale, lowering its average costs. It could then charge lower prices and compete more strongly with other food supply businesses. Lower rates may also leave consumers with more to spend, raising demand for food. However, if the 1% cut is too small, or consumers lack confidence, the effect on the firm could be limited."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:727a87ff",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q3c(i)",
+  "question": "Calculate the saving that Letusprovide Ltd will make if it borrows £10 000 at a 5% rate of interest instead of 6%. Show your working.",
+  "caseStudy": "<p><strong>Extract 1: Letusprovide Ltd</strong></p>\n<p>A letter from their bank said that interest rates were being reduced. The fall from 6% to 5% will allow the business to borrow £10 000 more cheaply.</p>",
+  "hint": "Interest at 6% minus interest at 5% on £10 000.",
+  "starter": "6% of £10 000 = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>£600 − £500 = £100</strong></p>\n<ul>\n<li>Award 2 marks for the correct answer (with or without workings).</li>\n<li>OFR applies for a maximum of 1 mark.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>While most candidates gave the correct answer of £100, some could not manage percentages or made arithmetic errors.</p>\n</div>",
+   "modelAnswer": "At 6%: 0.06 × £10 000 = £600.\nAt 5%: 0.05 × £10 000 = £500.\n\nSaving = £600 − £500 = £100."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:3b403052",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q3c(ii)",
+  "question": "State two reasons why businesses compete.",
+  "caseStudy": "<p><strong>Extract 1: Letusprovide Ltd</strong></p>\n<p>The government has blocked the two largest food supply firms from joining together. This will mean Letusprovide Ltd can compete fairly with the other food supply businesses.</p>",
+  "hint": "Think about what firms are trying to win: customers, sales, profit, market share, survival.",
+  "starter": "One reason is...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers might include:</strong></p>\n<ul>\n<li>To enter a market</li>\n<li>To survive in a market</li>\n<li>To increase revenue/sales/reputation/recognition</li>\n<li>To make a profit / profit maximisation</li>\n<li>To increase market share / gain customers / build loyalty</li>\n<li>To become a monopoly / force competitors out</li>\n</ul>\n<p>Award 1 mark for each correct reason, up to 2 marks. No marks for just stating: market share, revenue, profit, etc. without development into a reason.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates correctly stated two reasons, such as to enter a market, to make a profit or to gain customers. A small number had the right idea but gave answers such as 'profit' without any development.</p>\n</div>",
+   "modelAnswer": "1. To gain more customers and increase their market share.\n2. To make a higher profit and survive in the market."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:656adebc",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q3c(iii)",
+  "question": "Evaluate the extent to which competition is beneficial for consumers. Use the information given in Extract 1 and your own knowledge.",
+  "caseStudy": "<p><strong>Extract 1: Letusprovide Ltd</strong></p>\n<p>Leo has heard that the government has blocked the two largest food supply firms from joining together. This will mean Letusprovide Ltd can compete fairly with the other food supply businesses. Leo says this will be good both for the business and the consumers. Layla reminded Leo that competition was not always positive for consumers, as smaller firms might not be able to gain the same economies of scale as large firms.</p>",
+  "hint": "Focus on the CONSUMER, not Letusprovide. Benefits: lower prices, better quality, more choice, innovation. Then weigh against: misleading marketing, hidden costs, cut corners, or that big firms' economies of scale might mean lower prices than lots of small competitors. Address the 'extent'.",
+  "starter": "Competition is beneficial for consumers because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><em>The question is about the consumer, not Letusprovide Ltd or producers.</em></p>\n<p><strong>Application might include:</strong> fair competition/not unfair; more choice; smaller firms might not gain the same economies of scale as large firms.</p>\n<p><strong>Analysis might include:</strong> fall in prices; improved quality; improved consumer service; innovation/invention; greater choice; greater consumer sovereignty; improved standard of living.</p>\n<p><strong>Evaluation might include:</strong> advertising/marketing may persuade consumers to buy products they do not need; low prices may disguise hidden costs; lower quality/cut corners; may lead to dangerous products; whether disadvantages outweigh benefits; whether increased choice exceeds potential higher costs; whether competition proves destructive; monopolies may sometimes be better for consumers. The 'extent to which' must be addressed for more than 2 evaluation marks.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation but judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>\n<p><strong>0 marks:</strong> Response is not worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Application was often related to more choice, while analysis included lower prices, improved quality and a better standard of living. Good evaluation referred to marketing persuading consumers to buy things they did not need, or firms cutting corners and reducing quality. Some candidates answered in terms of advantages to Letusprovide and not the consumer, which could not be credited.</p>\n</div>",
+   "modelAnswer": "Competition benefits consumers in several ways. When firms compete for customers they cut prices to win business, so consumers pay less. They also try to attract buyers by improving quality and service and by innovating, and because there are more firms consumers enjoy greater choice and more say over what is produced. This raises their standard of living.\n\nHowever, competition is not always positive. Firms may use heavy marketing to persuade consumers to buy products they do not really need, and low advertised prices can hide extra costs or come from cutting corners, reducing quality or even safety. As Layla points out, small firms may not gain the economies of scale that a large firm has, so intense competition between small firms could actually leave prices higher than a bigger firm would charge. Overall, competition is largely beneficial for consumers through lower prices and more choice, but the extent depends on whether firms compete honestly and on quality rather than misleading consumers."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:2117703c",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q4",
+  "question": "What would an economist consider to be the best example of money?",
+  "options": [
+   "A cheque",
+   "A credit card",
+   "A fifty-pound note",
+   "A mobile phone pay app"
+  ],
+  "hint": "Money is what is generally accepted as a means of payment in itself — not a way of accessing or promising money held elsewhere.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 2,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: C — A fifty-pound note</strong></p>\n<ul>\n<li>Cash is money itself and is generally accepted as a means of payment. A cheque, credit card or pay app are only ways of transferring or accessing money held elsewhere.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most of the candidates gave C as the correct response to this question.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:80a7cd98",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q5",
+  "question": "The Bank of England has announced a large increase in the rate of interest. What is the most likely effect on consumers?",
+  "options": [
+   "Additional spending",
+   "Decreased borrowing",
+   "Increased demand for labour",
+   "Increased investment"
+  ],
+  "hint": "For consumers, a higher interest rate makes loans and credit dearer. What do they do less of?",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 1,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: B — Decreased borrowing</strong></p>\n<ul>\n<li>Dearer credit means consumers borrow less. Extra spending and investment are effects of a FALL in rates; demand for labour is a decision for firms, not consumers.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A very high percentage of candidates gave Option B as the correct response to this question.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:d887cc84",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q6",
+  "question": "A large firm wants to expand its output. It needs to borrow £100 000 for 10 years. Which financial institution is the firm most likely to go to for this loan?",
+  "options": [
+   "A commercial bank",
+   "An insurance company",
+   "The central bank",
+   "The local building society"
+  ],
+  "hint": "Which institution makes business loans to firms? (The central bank deals with government and other banks, not ordinary firms.)",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: A — A commercial bank</strong></p>\n<ul>\n<li>Commercial banks make loans to businesses. Insurance companies and building societies do not typically fund business expansion, and the central bank does not lend to individual firms.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A high percentage of candidates gave Option A as the correct response. However, Option C was popular and showed a misunderstanding of the role of the central bank.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:ae34dc4f",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q7(i)",
+  "question": "Calculate how much interest per month Ben and Eve will be paying after the interest rate increases. Show your working.",
+  "caseStudy": "<p><strong>Extract 3: The Celandine Hotel</strong></p>\n<p>The Celandine Hotel won the &#39;Business Enterprise of 2022 Award&#39; for the county of Cummorland. Although there are many hotels in Cummorland, The Celandine has increased its number of customers. This has been achieved by hosting a wide range of events including conferences, lunches for local businesses, murder mystery evenings, and weddings. This has helped to change the demand for its services from being price elastic to price inelastic.</p>\n<p>Ben and Eve, the owners, are concerned by recent increases in the rate of interest. Five years ago they borrowed £500 000 to help them buy the hotel. At that time, they were paying 3% interest which was £1250 a month. The bank has told them from the start of next month they need to pay 7.5% interest.</p>\n<p>Eve has suggested that they could save money on wages if she gave up her teaching job. She could then manage the business finances and run some of the hotel&#39;s events. Ben wondered whether a better option would be to specialise in weddings and conferences in the future.</p>",
+  "hint": "Find the yearly interest at 7.5% on £500 000, then divide by 12 for the monthly amount.",
+  "starter": "£500 000 × 7.5% = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>£500 000 × 7.5% = £37 500 per year → £37 500 ÷ 12 = £3 125 per month</strong></p>\n<ul>\n<li>A correct answer of £3 125 (with or without workings) is 2 marks.</li>\n<li>Award 1 mark for the correct calculation of the yearly interest payment (£37 500).</li>\n<li>OFR: if the initial calculation is incorrect but is then correctly divided by 12, 1 mark can be awarded.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates were given both marks. Where full marks were not given, this was mainly due to the failure of some candidates to work out the monthly interest payment as opposed to the total yearly interest.</p>\n</div>",
+   "modelAnswer": "Yearly interest = 0.075 × £500 000 = £37 500.\n\nMonthly interest = £37 500 ÷ 12 = £3 125."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:b7acc905",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q7(ii)",
+  "question": "Explain what the opportunity cost will be if Eve decides to, 'manage the business finances and run some of the hotel's events.'",
+  "caseStudy": "<p><strong>Extract 3: The Celandine Hotel</strong></p>\n<p>Eve has suggested that they could save money on wages if she gave up her teaching job. She could then manage the business finances and run some of the hotel&#39;s events.</p>",
+  "hint": "Opportunity cost = the next best alternative given up. What does Eve give up to work in the hotel?",
+  "starter": "Opportunity cost is the next best alternative given up, so for Eve...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>The next best alternative given up</li>\n<li>Eve would give up teaching, so a loss of her salary</li>\n<li>The actual cost would depend on whether Eve doing the finances saved someone else's cost.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>How the marks are given</h5>\n<ul>\n<li>Award 2 marks for a clear explanation of the opportunity cost involved, making clear use of the context.</li>\n<li>Award 1 mark for a theoretical answer, or if the answer is just 'Eve's teacher's salary' with no explanation.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Less successful responses did not understand 'opportunity cost' and/or did not identify that Eve would lose her teaching salary. The best responses defined the term and linked it to the loss of pay.</p>\n</div>",
+   "modelAnswer": "Opportunity cost is the next best alternative that is given up when a choice is made.\n\nIf Eve manages the hotel's finances and events, the alternative she gives up is her teaching job, so the opportunity cost is the teaching salary she would no longer earn."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:364be9bd",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q7(iii)",
+  "question": "Evaluate the benefits of increased specialisation for The Celandine Hotel.",
+  "caseStudy": "<p><strong>Extract 3: The Celandine Hotel</strong></p>\n<p>The Celandine Hotel has increased its number of customers by hosting a wide range of events including conferences, lunches for local businesses, murder mystery evenings, and weddings. This has helped to change the demand for its services from being price elastic to price inelastic. Ben wondered whether a better option would be to specialise in weddings and conferences in the future.</p>",
+  "hint": "Benefits: specialising in weddings/conferences could make demand more inelastic (raise price to boost revenue), build reputation, raise productivity and quality, gain economies of scale. Weigh against: depends on what rival hotels do; dropping other services is risky if the market changes; how inelastic is demand really?",
+  "starter": "One benefit of specialising is that demand may become more price inelastic, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Made demand more inelastic so can raise price to increase revenue</li>\n<li>Could increase demand as the hotel gains a reputation</li>\n<li>Higher productivity of the workforce</li>\n<li>Time saved not trying to provide a wide range of services</li>\n<li>Higher output of their services</li>\n<li>Service offered may be of a higher quality, attracting even more demand</li>\n<li>Economies of scale.</li>\n</ul>\n<p><strong>Evaluation may include:</strong> benefits may depend on what other hotels do; providing fewer services may not benefit them if the market changes; problems of knowing the value of PED — how inelastic is it?</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>\n<p><strong>0 marks:</strong> No work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Many candidates seemed well prepared, referring to higher quality, improved productivity, lower average costs and increased reputation. Many found it easy to evaluate, though sometimes this did not progress beyond the 'boredom' factor. Less successful responses did not relate points back to Extract 3, focused on benefits for the workers, or ended with a summary rather than a supported judgement.</p>\n</div>",
+   "modelAnswer": "One benefit of specialising in weddings and conferences is that demand for these services may become even more price inelastic, as the extract says has already happened. If so, the hotel could raise its prices without losing many customers, increasing its revenue. Concentrating on fewer services can also raise staff productivity and the quality of what they offer, building the hotel's reputation and attracting even more custom.\n\nHowever, the benefits depend on what rival hotels in Cummorland do — if they specialise too, The Celandine may not stand out. Dropping other events is also risky: if demand for weddings falls, the hotel has given up the variety that helped it grow. It is also hard to know exactly how inelastic demand is. Overall, specialisation is likely to benefit The Celandine through higher revenue and reputation, but only if demand for weddings and conferences stays strong and inelastic."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:dc361129",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q8",
+  "question": "Money is widely accepted as a means of buying and selling products. In this situation, money is acting as a",
+  "options": [
+   "factor of production",
+   "medium of exchange",
+   "source of income",
+   "type of credit"
+  ],
+  "hint": "When money is used to buy and sell goods, which function of money is that?",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 1,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: B — medium of exchange</strong></p>\n<ul>\n<li>Using money to buy and sell goods is its role as a medium of exchange. It is not a factor of production, and being accepted for exchange is not the same as credit or income.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A very high percentage of candidates gave Option B as the correct response to this question.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:08cc953b",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q9",
+  "question": "What is a function of the Bank of England?",
+  "options": [
+   "Issuing bank notes",
+   "Making business loans",
+   "Offering savings accounts",
+   "Regulating the stock market"
+  ],
+  "hint": "Which of these is a job for the central bank, rather than a commercial bank or another regulator?",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: A — Issuing bank notes</strong></p>\n<ul>\n<li>Issuing notes is a central-bank function. Business loans and savings accounts are provided by commercial banks; regulating the stock market is done by other regulators.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Many candidates gave Option A as the correct response to this question.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:a4b15af1",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q10",
+  "question": "The financial sector allows consumers and producers to manage imbalances between income and expenditure by",
+  "options": [
+   "making loans and overdrafts available",
+   "providing savings and investments",
+   "rationing the available liquidity",
+   "setting suitable interest rates"
+  ],
+  "hint": "An imbalance means spending more than income right now. Which service bridges that gap?",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: A — making loans and overdrafts available</strong></p>\n<ul>\n<li>Loans and overdrafts let people spend when expenditure temporarily exceeds income. Savings/investments handle surpluses, not shortfalls.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:1d9869b1",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q11",
+  "question": "A company will need to use the services of different financial institutions. Which of the following financial institutions is the company most unlikely to use?",
+  "options": [
+   "Building society",
+   "Central bank",
+   "Commercial bank",
+   "Insurance company"
+  ],
+  "hint": "The central bank deals with the government and other banks — not with ordinary companies.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 1,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: B — Central bank</strong></p>\n<ul>\n<li>A company would use commercial banks, building societies and insurers, but not deal directly with the central bank, which serves the government and the banking system.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:07f02274",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q12",
+  "question": "If interest rates rise",
+  "options": [
+   "consumers pay less for credit",
+   "firms can invest more cheaply",
+   "people will save less",
+   "the government pays more to fund its debt"
+  ],
+  "hint": "Higher rates make ALL borrowing dearer — including the government's borrowing.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 3,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: D — the government pays more to fund its debt</strong></p>\n<ul>\n<li>Higher rates raise the cost of all borrowing, so the government pays more on its debt. The other options are effects of a FALL in interest rates.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:238ef5be",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q13",
+  "question": "Money is different from other assets because it",
+  "options": [
+   "can be stored by banks",
+   "is convenient to carry",
+   "is generally acceptable as a medium of exchange",
+   "is made of durable metal"
+  ],
+  "hint": "What makes money special is not how it is stored or carried, but that everyone will accept it in payment.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 2,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: C — is generally acceptable as a medium of exchange</strong></p>\n<ul>\n<li>The defining feature of money is that it is generally accepted in exchange for goods and services. Other assets are not.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:d00124dd",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q14",
+  "question": "Alpha Company borrows £1000 at 5% interest for a year. How much will Alpha Company have to pay back at the end of the year?",
+  "options": [
+   "£5",
+   "£50",
+   "£500",
+   "£1050"
+  ],
+  "hint": "Pay back the amount borrowed PLUS the interest: £1000 + 5% of £1000.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 3,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: D — £1050</strong></p>\n<ul>\n<li>Interest = 5% of £1000 = £50, so the total repaid is £1000 + £50 = £1050. (£50 is only the interest, not the total.)</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:1932f7bb",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q15",
+  "question": "Which of the following is not a financial institution?",
+  "options": [
+   "A bank",
+   "A building society",
+   "An insurance company",
+   "The government"
+  ],
+  "hint": "Three of these provide financial services (lending, saving, insuring). Which one does not?",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 3,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: D — The government</strong></p>\n<ul>\n<li>Banks, building societies and insurance companies are financial institutions. The government is not, even though it borrows and taxes.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:a59d029c",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q16",
+  "question": "You put £100 into a bank account at the start of the year. One year later your account is worth £105. What is the interest rate you have received?",
+  "options": [
+   "0.5%",
+   "5%",
+   "10%",
+   "15%"
+  ],
+  "hint": "The £5 gain as a percentage of the £100 you put in.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 1,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: B — 5%</strong></p>\n<ul>\n<li>Interest earned = £5 on £100 = 5/100 = 5%.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:41183ec7",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q17",
+  "question": "The government decides to lower the rate of interest in the economy. Which of the following groups is most likely to be made worse off by this decision?",
+  "options": [
+   "Borrowers",
+   "Large firms",
+   "Savers",
+   "Small firms"
+  ],
+  "hint": "A lower rate helps borrowers but reduces the reward for one group. Who earns less?",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 2,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — Savers</strong></p>\n<ul>\n<li>Lower interest rates mean savers earn a smaller return, so they are made worse off. Borrowers and firms generally benefit from cheaper borrowing.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:299e61d8",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q18(a)",
+  "question": "State what is meant by money as 'a medium of exchange'.",
+  "caseStudy": "<p><strong>Extract 1: The Music Shop</strong></p>\n<p>Eileen and Jean own and run The Music Shop, selling CDs, DVDs, musical instruments, sheet music and other music-related goods.</p>\n<p>They have recently discussed their plans for the future of the business. Jean wondered whether there was any point in accepting cash, as nearly all their consumers use credit cards or phone apps to pay for purchases. Eileen, however, believes that money is still important as a medium of exchange.</p>\n<p>Eileen is not sure exactly what the effects of changes in consumer demand will be for their sales. She is concerned, however, that the supply of musical instruments is price inelastic.</p>\n<p>They have recently received a letter from their bank notifying them of an increase in the interest rate, from 5% to 6%, on their £500 000 loan. Jean recognises that the products they sell are non-essential. She worries what effect higher interest rates will have on the business, but thinks that this will depend on what happens to the income of consumers and whether they use credit cards for purchases.</p>",
+  "hint": "It is something that sets a standard of value and is accepted by everyone in a transaction — it removes the need for barter.",
+  "starter": "Money as a medium of exchange means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Anything that sets the standard of value (1) of goods and services acceptable to all parties (1) involved in a transaction.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>How the marks are given</h5>\n<ul>\n<li>Give 2 marks for a precise answer, as shown.</li>\n<li>Give 1 mark for a less precise answer such as 'standard of value used in an exchange', or reference to avoiding the 'double coincidence of wants'.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Many candidates were unable to answer this successfully. Many focused on the uses of money without considering the specific attributes a medium of exchange requires, i.e. setting the standard of value and being acceptable to all parties. Credit was given to answers recognising that money avoids the need for barter or the 'double coincidence of wants'.</p>\n</div>",
+   "modelAnswer": "Money as a medium of exchange is anything that sets a standard of value for goods and services and is accepted by all parties in a transaction.\n\nThis means people can buy and sell using money instead of having to barter one good directly for another."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:5eee7bf5",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q18b(i)",
+  "question": "Explain one way in which a rise in interest rates could affect The Music Shop.",
+  "caseStudy": "<p><strong>Extract 1: The Music Shop</strong></p>\n<p>Eileen and Jean sell CDs, DVDs and musical instruments — products Jean recognises are non-essential. They have received a letter from their bank notifying them of an increase in the interest rate, from 5% to 6%, on their £500 000 loan.</p>",
+  "hint": "Answer MUST be about The Music Shop. Either: higher cost of borrowing on the £500 000 loan leaves less money for stock; OR consumers save more / cannot afford the non-essential goods, so demand falls.",
+  "starter": "A rise in interest rates could affect The Music Shop because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Fall in demand as consumers prefer to save or cannot afford the non-essential goods sold by The Music Shop</li>\n<li>Higher interest payments on the loan leave Eileen and Jean with less money to buy stock</li>\n<li>It may encourage them to try to reduce their £500 000 loan</li>\n<li>It may prevent further investment as they are unlikely to want to increase the £500 000 loan</li>\n<li>Higher costs may lead to lower profits, cost savings elsewhere, or price increases.</li>\n</ul>\n<p>Give 2 marks for a precise answer; 1 mark for a statement without development. Any answer MUST be in the context of The Music Shop.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>To gain marks, candidates had to answer in the context of The Music Shop. Many referred to the higher interest rate on the shop's loan, though some incorrectly said this would increase the loan repayments rather than the cost of borrowing on the £500 000 loan. Good answers referred to consumers saving more and spending less on non-essential products.</p>\n</div>",
+   "modelAnswer": "A rise in interest rates from 5% to 6% raises the cost of borrowing on The Music Shop's £500 000 loan.\n\nThis leaves Eileen and Jean with less money to buy stock, and because higher rates also make consumers save more and spend less on the non-essential goods the shop sells, its demand and profits could fall."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:481eee7e",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q18b(ii)",
+  "question": "Calculate the amount of interest which Eileen and Jean must pay each month to the bank when the rate of interest rises to 6%. Show your working.",
+  "caseStudy": "<p><strong>Extract 1: The Music Shop</strong></p>\n<p>Eileen and Jean have received a letter from their bank notifying them of an increase in the interest rate, from 5% to 6%, on their £500 000 loan.</p>",
+  "hint": "Work out 6% of £500 000 for the year, then divide by 12. Remember the £ sign.",
+  "starter": "£500 000 × 6% = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>£500 000 × 0.06 = £30 000 (1 mark) → £30 000 ÷ 12 = £2 500 (1 mark)</strong></p>\n<ul>\n<li>2 marks for correct working + correct answer (including the £ sign).</li>\n<li>2 marks for the correct answer on its own, which must include the £ sign.</li>\n<li>1 mark for correct working but incorrect answer.</li>\n<li>Correct answer without the £ sign is worth 1 mark only. Award 1 mark for an answer of £30 000. OFR applies.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A minority of candidates provided the correct answer of £2 500 per month. Common mistakes were to calculate the new yearly interest (£30 000) or the increase in yearly interest (£5 000), or to omit the £ sign.</p>\n</div>",
+   "modelAnswer": "Yearly interest = 0.06 × £500 000 = £30 000.\n\nMonthly interest = £30 000 ÷ 12 = £2 500."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:0e5e9342",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q18b(iii)",
+  "question": "*Evaluate the importance of the financial sector for The Music Shop's consumers. Use the information given in Extract 1 and your own knowledge.",
+  "caseStudy": "<p><strong>Extract 1: The Music Shop</strong></p>\n<p>Jean wondered whether there was any point in accepting cash, as nearly all their consumers use credit cards or phone apps to pay for purchases. Eileen believes money is still important as a medium of exchange. The products they sell (CDs, DVDs, musical instruments) are non-essential and can be expensive, and consumers increasingly pay by credit card or phone app.</p>",
+  "hint": "Focus on the CONSUMERS, not the shop. Advantages: credit/debit cards and phone apps let them buy without cash; credit and overdrafts bridge income and spending; savings let them afford expensive instruments. Disadvantages: interest costs, debt, fraud/identity theft, or that younger buyers may just use cash. Judge what it depends on (age, income, attitude to risk).",
+  "starter": "The financial sector is important for The Music Shop's consumers because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Advantages may include:</strong></p>\n<ul>\n<li>Provision of credit/debit cards, so customers do not have to rely on having cash</li>\n<li>Mortgages allow customers not to have money tied up in property, so they can spend more</li>\n<li>Overdraft facilities help overcome imbalances between income and expenditure</li>\n<li>Allows customers to save for more expensive goods such as musical instruments.</li>\n</ul>\n<p><strong>Disadvantages may include:</strong> businesses are charged for consumers using credit cards, so may be reluctant to accept them; consumers who pay off cards monthly may not risk greater spending; younger consumers rely on cash not financial 'products'; overdrafts may be called in; interest rates can vary; risks of online identity theft and fraud.</p>\n<p><strong>Evaluation may include:</strong> importance depends on the age of consumers, attitude to risk, attitude to borrowing/saving, level of motivation (e.g. desire to buy a first house), consumer income, and the state of the economy and confidence.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Better answers used the contextual data — the high cost of new instruments, the use of credit cards or phone apps, and the loan at its higher rate — to analyse and evaluate the importance of the financial sector for consumers. Those who did not spot that the question referred to the consumers of The Music Shop, and not the shop or its owners, often gained no marks.</p>\n</div>",
+   "modelAnswer": "The financial sector is important for The Music Shop's consumers. Because instruments can be expensive and most customers pay by credit card or phone app, the sector lets them buy without carrying cash, and credit and overdrafts help them spend even when income and expenditure are out of balance. Savings accounts also let customers put money aside to afford a costly instrument they could not buy outright.\n\nHowever, its importance has limits. Credit can leave consumers paying interest or falling into debt, card and app payments carry a risk of fraud or identity theft, and some younger buyers may simply use cash and not need these 'products' at all. How important the sector is really depends on the individual consumer — their income, age and attitude to borrowing. Overall it is important for most of The Music Shop's consumers because it makes buying expensive, non-essential goods far easier, but it matters more to those who rely on credit than to those who pay with their own money."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:c2789a09",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q19(a)",
+  "question": "Explain how the rate of interest payable to Muncaster United varies with the amount of savings.",
+  "caseStudy": "<p><strong>Extract 2: Muncaster United</strong></p>\n<p>Arin and Fara own Muncaster United, a small football club. They are considering whether to spend £1 m on new players to try and win promotion and to increase the number of supporters, or to increase the club&#39;s savings for future use. The opportunity cost of increasing savings could be a failure to win matches. The rate of interest available for any savings depends on how much is saved.</p>\n<img src=\"/images/economics/2-8-muncaster-savings-interest-chart-extracted.png\" alt=\"Bar chart from the OCR exam paper titled 'Rate of Interest (%)' against 'Amount of Savings (£)': £100 000 gives 3%, £200 000 gives 3.5%, £400 000 gives 4%, £600 000 gives 5%, £800 000 gives 7%, £1 000 000 gives 10%\" style=\"display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p>Arin and Fara know that the transfer market for players is very competitive. This means that they need to be both more efficient in finding the right players and better at marketing the club to these potential players. However, the market for attracting the good players that they want, is more like an oligopoly.</p>",
+  "hint": "Use the chart specifically. Note it rises SLOWLY up to about £400 000 (3% to 4%), then rises much more RAPIDLY after that (5%, 7%, 10%). A simple 'more savings, higher rate' only gets 1 mark.",
+  "starter": "As the amount saved rises, the rate of interest rises — but the chart shows that...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>The rate of interest increases slowly with the rise in savings up to £400 000, but then increases more rapidly.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>How the marks are given</h5>\n<ul>\n<li>Give 2 marks for a clear explanation of the link as shown, with reference to both the rise and the increase in the rate of rise — allow reference to £600 000 as well as £400 000.</li>\n<li>Give 1 mark for a basic idea that the relationship is positive: 'As the amount of saving increases so does the rate of interest.'</li>\n<li>The question requires specific use of the chart.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates identified that the rate of interest rose as more saving took place, and were given one mark. However, very few recognised that the rate rises slowly up to £400 000 and then more quickly at higher levels of savings, between £400 000 and £1 000 000.</p>\n</div>",
+   "modelAnswer": "The rate of interest rises as the amount saved rises. Up to about £400 000 it goes up only slowly, from 3% to 4%.\n\nAfter that it rises much more rapidly — reaching 5% at £600 000, 7% at £800 000 and 10% at £1 000 000."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:78659ce8",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q19(b)",
+  "question": "Analyse how an increase in the rate of interest could affect Arin and Fara's decision whether to invest in buying new players or to increase the club's savings for future use.",
+  "caseStudy": "<p><strong>Extract 2: Muncaster United</strong></p>\n<p>Arin and Fara are considering whether to spend £1 m on new players to try and win promotion and increase supporters, or to increase the club&#39;s savings for future use. The opportunity cost of increasing savings could be a failure to win matches. The rate of interest available for savings depends on how much is saved.</p>\n<img src=\"/images/economics/2-8-muncaster-savings-interest-chart-extracted.png\" alt=\"Bar chart from the OCR exam paper titled 'Rate of Interest (%)' against 'Amount of Savings (£)': £100 000 gives 3%, £200 000 gives 3.5%, £400 000 gives 4%, £600 000 gives 5%, £800 000 gives 7%, £1 000 000 gives 10%\" style=\"display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />",
+  "hint": "Chain it: a higher rate of interest raises the reward for saving, so the opportunity cost of spending £1m on players rises — saving looks more attractive. Use the chart: larger sums earn much higher rates. But it also depends on whether the new players would bring promotion and more supporters.",
+  "starter": "A higher rate of interest raises the reward for saving, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>An increase in the rate of interest encourages higher savings</li>\n<li>Reference to the chart in Extract 2 showing this</li>\n<li>Depends on the cost of a new player — the chart shows that small sums only attract low rates, so a cheap player has a low opportunity cost</li>\n<li>Depends on whether new player(s) are likely to bring about promotion / prevent relegation</li>\n<li>The opportunity cost of spending goes up as the rate of interest increases.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis with developed chains of reasoning.</p>\n<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis in single effects.</p>\n<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Better responses extracted relevant issues from the scenario to support their analysis of how a higher interest rate might affect the two owners, including the club's objectives and the usefulness of opportunity cost. Less developed responses focused only on the rewards for saving without analysing what the club is trying to achieve, such as winning promotion.</p>\n</div>",
+   "modelAnswer": "An increase in the rate of interest raises the reward Muncaster United would earn by saving. The chart shows that a large sum like the £1 m earns a much higher rate (10%) than smaller sums, so saving becomes more attractive. This raises the opportunity cost of spending the money on new players, because Arin and Fara would be giving up a larger amount of interest to buy them.\n\nAs a result, a higher interest rate makes them more likely to choose saving over investing in players. However, the decision also depends on what the players would achieve: if new players are likely to win promotion and attract more supporters, the extra revenue and success could outweigh the interest given up. So the higher rate pushes the decision towards saving, but only if the players are not expected to bring a big enough return on the pitch."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:262449a0",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q20",
+  "question": "When a society does not use money to exchange goods and services it is called",
+  "options": [
+   "a barter economy",
+   "a market economy",
+   "equilibrium",
+   "specialisation in production"
+  ],
+  "hint": "Swapping goods directly for other goods, without money, has a specific name.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: A — a barter economy</strong></p>\n<ul>\n<li>Barter is the direct exchange of goods and services without money.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:a964ed20",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q21",
+  "question": "Traditionally, the main function of a building society is to",
+  "options": [
+   "help the government to fund any shortage in tax receipts",
+   "insure properties against damage",
+   "provide funds for individuals to purchase a house",
+   "provide funds for industry to invest"
+  ],
+  "hint": "The clue is in the name — building societies were set up to help people with one particular purchase.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 2,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: C — provide funds for individuals to purchase a house</strong></p>\n<ul>\n<li>Building societies traditionally provide mortgages to help individuals buy homes. Insuring property is for insurers; funding government or industry is not their main role.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:4d49b2cc",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q22",
+  "question": "When is a cut in the rate of interest most likely to lead to an increase in investment?",
+  "options": [
+   "When consumer confidence is low",
+   "When firms do not expect an increase in demand",
+   "When firms know that there is a lack of available credit",
+   "When there is an increase in exports"
+  ],
+  "hint": "Cheaper borrowing only boosts investment if firms also expect to sell more. Which option means rising demand?",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 3,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: D — When there is an increase in exports</strong></p>\n<ul>\n<li>Rising exports mean more demand, so cheaper borrowing is more likely to be used to invest. The other options describe conditions where firms would not want to expand.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A high percentage of candidates gave Option D as the correct response to this question.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:aa749b4a",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q23(a)",
+  "question": "State what is meant by 'money'.",
+  "caseStudy": "<p><strong>Extract 3: Tom's baked potato business</strong></p>\n<p>Tom owns and runs a baked potato business from a mobile unit in the main street of Voreda. Consumers can buy the potatoes with a variety of fillings, in exchange for money. Each morning, Tom transports his equipment and food by car and trailer which are insured with Durdar Insurance. He also has a life insurance policy with the same firm.</p>\n<p>Demand for Tom&#39;s food varies a lot, although he has many regular customers. There has been an increase in the number of cafes and food takeaway shops within a short distance of his site.</p>\n<p>Last year, Tom closed a savings account with RNC Bank and moved it to Voreda Building Society (VBS), to gain a higher return. VBS has also agreed to provide Tom with an overdraft facility, similar to the one he had with RNC Bank.</p>\n<table style=\"width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Financial institution</th><th style=\"padding:6px;\">Value of savings (£)</th><th style=\"padding:6px;\">Rate of interest (%)</th></tr>\n<tr><td style=\"padding:6px;\">RNC Bank</td><td style=\"padding:6px;\">1 or more</td><td style=\"padding:6px;\">0.01</td></tr>\n<tr><td style=\"padding:6px;\">VBS</td><td style=\"padding:6px;\">1 to 999</td><td style=\"padding:6px;\">0.10</td></tr>\n<tr><td style=\"padding:6px;\">VBS</td><td style=\"padding:6px;\">1000 to 4999</td><td style=\"padding:6px;\">0.15</td></tr>\n<tr><td style=\"padding:6px;\">VBS</td><td style=\"padding:6px;\">5000 or more</td><td style=\"padding:6px;\">0.20</td></tr>\n</table>",
+  "hint": "Money is anything generally accepted as a means of payment for goods and services.",
+  "starter": "Money is...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Money is anything that is generally accepted as a means of payment for goods and services</li>\n<li>Money consists of notes, coins and bank deposits (both current and savings)</li>\n<li>Money eliminates the need for barter</li>\n<li>Money is the medium of exchange that is used.</li>\n</ul>\n<p>Give 2 marks for a clear statement along these lines; 1 mark for a general idea, e.g. 'a form of payment'.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Many candidates were unable to provide a clear definition of 'money'. There were frequent references to 'a medium of exchange'. Answers about an exchange rather than a payment for goods and services, or giving examples of currency rather than notes and coins, were not credited. Successful responses explained that money is anything generally accepted as a means of payment for goods and services.</p>\n</div>",
+   "modelAnswer": "Money is anything that is generally accepted as a means of payment for goods and services.\n\nIt includes notes, coins and bank deposits, and it removes the need for barter."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:b76991fe",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q23(b)",
+  "question": "Explain why people have a life insurance policy.",
+  "caseStudy": "<p><strong>Extract 3: Tom's baked potato business</strong></p>\n<p>Each morning, Tom transports his equipment and food by car and trailer which are insured with Durdar Insurance. He also has a life insurance policy with the same firm.</p>",
+  "hint": "Life insurance pays out on death — think about who it protects and how (replacing lost income for the family), or as a form of saving.",
+  "starter": "People take out life insurance to...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1b)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>To provide money for the family (when they die) to replace loss of income</li>\n<li>As a form of saving</li>\n<li>Accept any other reasonable answer.</li>\n</ul>\n<p>Give 2 marks for a suitable reason explained; 1 mark if there is a reason but it lacks valid development.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>While a few candidates understood insurance, they often described health, accident or motor insurance rather than life insurance, and some confused it with a will. Better responses correctly explained that life insurance provides money to the family to replace a loss of income after the death of a family member. Reference to a lump sum to pay debts or funeral costs was also credited.</p>\n</div>",
+   "modelAnswer": "People take out life insurance so that if they die, a sum of money is paid to their family.\n\nThis replaces the income the family has lost, helping them to cope financially and pay any debts or costs left behind."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:cad45983",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q23c(i)",
+  "question": "Tom has £6000 in another savings account with RNC Bank. Using the information in Extract 3, calculate the increase in interest he would receive by moving this money from RNC Bank to VBS. Show your working.",
+  "caseStudy": "<p><strong>Extract 3: Tom's baked potato business</strong></p>\n<p>Last year, Tom closed a savings account with RNC Bank and moved it to Voreda Building Society (VBS), to gain a higher return.</p>\n<table style=\"width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Financial institution</th><th style=\"padding:6px;\">Value of savings (£)</th><th style=\"padding:6px;\">Rate of interest (%)</th></tr>\n<tr><td style=\"padding:6px;\">RNC Bank</td><td style=\"padding:6px;\">1 or more</td><td style=\"padding:6px;\">0.01</td></tr>\n<tr><td style=\"padding:6px;\">VBS</td><td style=\"padding:6px;\">1 to 999</td><td style=\"padding:6px;\">0.10</td></tr>\n<tr><td style=\"padding:6px;\">VBS</td><td style=\"padding:6px;\">1000 to 4999</td><td style=\"padding:6px;\">0.15</td></tr>\n<tr><td style=\"padding:6px;\">VBS</td><td style=\"padding:6px;\">5000 or more</td><td style=\"padding:6px;\">0.20</td></tr>\n</table>",
+  "hint": "These are percentages, so divide by 100. RNC pays 0.01% on £6000; VBS pays 0.20% on £6000 (as it is 5000 or more). Find each, then the difference. Watch the % sign!",
+  "starter": "RNC: 0.01% of £6000 = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>RNC = 0.01% of £6000 = £0.60 (60p) · VBS = 0.20% of £6000 = £12 · Increase = £12 − £0.60 = £11.40</strong></p>\n<ul>\n<li>Give 2 marks for the correct answer (with or without workings).</li>\n<li>Give 1 mark for the correct calculation of either 60p or £12.</li>\n<li>OFR applies for a max of 1 mark (e.g. omitting the % gives £60 and £1200 → increase £1140, worth 1 mark under OFR).</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>The correct answer is £11.40 (£12 − £0.60). A regular omission of the percentage sign — a failure to divide by 100 — meant many candidates answered £1140 (£1200 − £60). The OFR was more likely to help candidates who showed their working.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Assessment for learning</h5>\n<p>It is useful to develop the skill of estimation. For example, 1% of £6000 is £60, so 0.2% must be much smaller (£12). If working produces £1200, this does not fit the estimate and the method should be refined.</p>\n</div>",
+   "modelAnswer": "RNC Bank: 0.01% of £6000 = 0.0001 × £6000 = £0.60 (60p).\nVBS: 0.20% of £6000 = 0.002 × £6000 = £12.\n\nIncrease in interest = £12 − £0.60 = £11.40."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:79e3c978",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q23c(ii)",
+  "question": "Explain why an overdraft facility might be useful for Tom.",
+  "caseStudy": "<p><strong>Extract 3: Tom's baked potato business</strong></p>\n<p>Demand for Tom&#39;s food varies a lot, although he has many regular customers. VBS has agreed to provide Tom with an overdraft facility, similar to the one he had with RNC Bank.</p>",
+  "hint": "Answer MUST be in Tom's context. An overdraft lets him keep paying costs (potatoes, insurance) when demand — and so income — is low, not to buy equipment and expand.",
+  "starter": "An overdraft would be useful for Tom because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Allows Tom to buy supplies (baked potatoes, etc.) without having the money in his account</li>\n<li>Allows Tom to pay bills (rent for his street location, etc.) without having the money in his account</li>\n<li>Provides a lifeline when demand is low but expenses do not fall / he still has to pay costs such as insurance for his mobile unit.</li>\n</ul>\n<p>Give 2 marks for a clear explanation with contextual reference(s); 1 mark for a basic contextual reference. Answers MUST be in context.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates did not understand the purpose of an overdraft, often confusing it with a savings account or a bank loan. Instead of using an overdraft to cover delays in income while payments had to be made, many suggested Tom would use it to buy equipment and expand, which is not the function of an overdraft. Full marks required an answer in Tom's context.</p>\n</div>",
+   "modelAnswer": "Demand for Tom's food varies a lot, so on slow days his income may not cover his costs.\n\nAn overdraft would let him keep buying potatoes and paying bills such as his insurance even when there is not enough money in his account, tiding him over until demand and income pick up again."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:2276a722",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q23c(iii)",
+  "question": "*Evaluate the importance of the financial sector for small producers, such as Tom. Use the information given in Extract 3 and your own knowledge.",
+  "caseStudy": "<p><strong>Extract 3: Tom's baked potato business</strong></p>\n<p>Tom runs a baked potato business from a mobile unit. His car and trailer are insured with Durdar Insurance and he also has a life insurance policy. Demand varies a lot. He moved his savings from RNC Bank to VBS to gain a higher return, and VBS provides him with an overdraft facility. His business deals mainly in cash.</p>",
+  "hint": "Note 'importance of'. Argue how the sector helps Tom (overdraft for cash-flow, insurance for his car/equipment and life, higher-return savings, safe keeping of money) and then weigh how important each really is (his insurance is vital to keep working; the savings rate matters; but as he deals in cash, credit provision for customers is not important). Reach a supported judgement.",
+  "starter": "The financial sector is important for a small producer like Tom because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Provision of loans to Tom so he can buy equipment</li>\n<li>Provision of credit to Tom's customers</li>\n<li>Offer overdrafts to tide Tom over periods when costs exceed revenue</li>\n<li>Insurance of property and equipment</li>\n<li>Safe keeping of his revenue/money</li>\n<li>Can help Tom's savings increase.</li>\n</ul>\n<p><strong>Evaluation (note 'importance of') could include:</strong> the rate of interest on his savings is very important; insurance for his car etc. allows him to drive and work, so is very important; life insurance provides future security, so of some importance; provision of loans may have been important initially but less important now; as his business deals in cash, credit provision for customers is not important.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing arguments for as well as at least one issue.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>There were some very good responses where candidates understood the different ways a small business uses the financial sector. The best gave clear points in context with some analysis and then evaluated the point straight away, including limitations such as the difficulty small firms have getting loans or the high cost of loans. Some candidates focused on analysis rather than the evaluative nature of the question.</p>\n</div>",
+   "modelAnswer": "The financial sector is important for a small producer like Tom in several ways. Because his demand varies, the overdraft from VBS tides him over when costs exceed revenue. Insurance on his car and trailer lets him transport his equipment and keep working, and moving his savings to VBS earns him a higher return. Banks and building societies also keep his takings safe.\n\nHowever, how important each service is varies. His insurance is arguably the most important, because without it he could not drive and trade at all. The overdraft matters a lot given his changeable demand, and the savings rate matters too. In contrast, because his business deals mainly in cash, credit provision for his customers is not really important to him, and the loans that may have helped him start are less important now. Overall the financial sector is very important to Tom, but mainly for insurance and cash-flow support rather than for lending to his customers."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:exam:bffe05fb",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q24",
+  "question": "Medium of exchange refers to anything that sets the",
+  "options": [
+   "cost of goods and services acceptable to all parties in a transaction",
+   "payment of goods and services acceptable to all parties in a transaction",
+   "price of goods and services acceptable to all parties in a transaction",
+   "standard of value of goods and services acceptable to all parties involved in a transaction"
+  ],
+  "hint": "A medium of exchange sets a common measure that everyone accepts — the 'standard of value'.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 3,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: D — the standard of value of goods and services acceptable to all parties involved in a transaction</strong></p>\n<ul>\n<li>A medium of exchange sets a standard of value accepted by all parties. This is the precise definition used in the specification.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A high percentage of candidates gave Option D as the correct response to this question.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:mcq:f72fdea4",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Money is best defined as...",
+  "options": [
+   "Anything generally accepted as a means of payment for goods and services",
+   "Only the notes and coins issued by the Royal Mint",
+   "Any item that can be swapped in a barter deal",
+   "The savings held by the Bank of England"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Money is anything generally accepted as a means of payment — notes, coins and bank deposits. It is more than just cash, and barter is what money replaces."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:mcq:54e2209a",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which of the following is NOT money itself?",
+  "options": [
+   "A credit card",
+   "A ten-pound note",
+   "A one-pound coin",
+   "Money in a current account"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A credit card just accesses money you can borrow or hold — it is not money itself. Notes, coins and bank deposits are money."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:mcq:37a16874",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The problem with barter that money removes is the...",
+  "options": [
+   "Double coincidence of wants",
+   "Law of diminishing returns",
+   "Free-rider problem",
+   "Diseconomy of scale"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Barter needs each trader to want exactly what the other offers — the double coincidence of wants. Money lets exchange happen without that match."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:mcq:06773ec8",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which of these is a function of the Bank of England?",
+  "options": [
+   "Issuing banknotes and setting the bank rate",
+   "Offering current accounts to the public",
+   "Providing mortgages to first-time buyers",
+   "Selling car insurance to households"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The central bank issues notes and sets the bank rate. Accounts, mortgages and insurance come from commercial banks, building societies and insurers."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:mcq:79af8f29",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A building society differs from a commercial bank mainly because it is...",
+  "options": [
+   "A mutual, owned by its members",
+   "Owned by the government",
+   "Not allowed to offer mortgages",
+   "The bank that sets interest rates"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Building societies are mutuals owned by their members; commercial banks are owned by shareholders. Both can offer mortgages and savings."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:mcq:78fee4f9",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A firm needs to borrow £100,000 for ten years. Which institution is it LEAST likely to use?",
+  "options": [
+   "The central bank",
+   "A commercial bank",
+   "A building society",
+   "An investment bank"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The central bank does not lend to ordinary firms — it is the bank for banks and government. Businesses borrow from commercial or investment banks."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:mcq:07b2c282",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "If the rate of interest rises, the level of saving is most likely to...",
+  "options": [
+   "Rise, because saving is more rewarding",
+   "Fall, because saving is less rewarding",
+   "Stay exactly the same",
+   "Fall, because borrowing is cheaper"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A higher rate raises the reward for saving, so saving tends to rise while borrowing and investment fall."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:mcq:7bd03db6",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A cut in interest rates is most likely to increase...",
+  "options": [
+   "Borrowing and investment",
+   "Saving and the reward for savers",
+   "The cost of business loans",
+   "The amount the government pays on its debt"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Cheaper borrowing encourages firms and households to borrow, invest and spend. The other options are effects of a RISE in rates."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:mcq:60bfeeb4",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A firm borrows £2,000 at 5% interest for one year. How much must it repay in total?",
+  "options": [
+   "£2,100",
+   "£100",
+   "£2,005",
+   "£2,500"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Interest = 5% of £2,000 = £100. Total repaid = £2,000 + £100 = £2,100. (£100 is only the interest.)"
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:mcq:7a5b1cc9",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Traditionally, the main service a building society provides is...",
+  "options": [
+   "Mortgages so individuals can buy a house",
+   "Loans to fund government spending",
+   "Insurance against property damage",
+   "Setting the country's base interest rate"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Building societies traditionally provide mortgages to help members buy homes, alongside savings products."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:tf:76d49a63",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A cheque is an example of money.",
+  "key": {
+   "answer": false,
+   "explain": "A cheque is not money — it is just a way of accessing money held in the bank. Money is notes, coins and bank deposits."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:tf:3d6aeaa1",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Money removes the barter problem known as the double coincidence of wants.",
+  "key": {
+   "answer": true,
+   "explain": "Money lets people exchange goods that are not of equal value without needing a matching want on both sides."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:tf:1f7811ec",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The Bank of England provides loans and current accounts to ordinary businesses.",
+  "key": {
+   "answer": false,
+   "explain": "The central bank is the 'bank for banks' and banker to government — commercial banks serve ordinary firms and households."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:tf:5625084a",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A building society is owned by its shareholders.",
+  "key": {
+   "answer": false,
+   "explain": "A building society is a MUTUAL, owned by its members (savers and borrowers). It is commercial banks that are owned by shareholders."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:tf:845e2afd",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A rise in interest rates tends to reduce borrowing and investment.",
+  "key": {
+   "answer": true,
+   "explain": "Dearer borrowing and a higher opportunity cost of spending mean firms and households borrow, invest and spend less."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:tf:72878356",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Insurance companies provide compensation for a specified loss in return for a premium.",
+  "key": {
+   "answer": true,
+   "explain": "Policyholders pay a regular premium; the insurer pays out if the insured event (theft, damage, death) happens."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:tf:85610163",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "When interest rates fall, savers earn a higher return on their savings.",
+  "key": {
+   "answer": false,
+   "explain": "Lower rates mean a SMALLER reward for saving, so savers are worse off. Borrowers gain from cheaper loans."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:tf:ad9a8628",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "As a medium of exchange, money sets a standard of value that all parties in a transaction accept.",
+  "key": {
+   "answer": true,
+   "explain": "That is the precise definition the exam wants — a standard of value AND acceptable to all parties."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:learn:f7b34044",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Money and the medium of exchange",
+  "reading": "<p><strong>Money is anything that is generally accepted as a means of payment for goods and services.</strong> It includes notes, coins and money held in the bank (current and savings accounts). Cheques, debit and credit cards are <strong>NOT money</strong> — they are just convenient ways of accessing money you already hold.</p>\n<h4>The problem money solves: barter</h4>\n<ul>\n<li><strong>Barter</strong> is the direct swapping of one good or service for another, without money.</li>\n<li>Its big weakness is the <strong>double coincidence of wants</strong>: for a swap to happen, each person must want exactly what the other is offering AND be willing to give up what the other wants — a hard condition to meet.</li>\n<li><strong>Money removes this problem.</strong> A farmer with a cow worth far more than some groceries can sell the cow for money, then spend just a small part of that money on the groceries — no matching want is needed on both sides.</li>\n</ul>\n<h4>Medium of exchange — learn the precise wording</h4>\n<ul>\n<li>As a <strong>medium of exchange</strong>, money is <strong>anything that sets a standard of value for goods and services that all parties in a transaction accept.</strong></li>\n<li>The examiner report is blunt: vague answers about \"using money to buy things\" miss the two attributes needed — <strong>setting the standard of value</strong> and being <strong>acceptable to all parties</strong>. Reference to avoiding barter / the double coincidence of wants also earns credit.</li>\n</ul>\n<h4>Exam scope — don't over-answer</h4>\n<ul>\n<li>This specification only requires <strong>money as a medium of exchange</strong>. Other \"functions of money\" (store of value, unit of account, standard of deferred payment) are useful background but are <strong>not on this spec</strong> — the real mark scheme refused to credit them.</li>\n</ul>",
+  "question": "Which is the best definition of money as a 'medium of exchange'?",
+  "options": [
+   "Something that sets a standard of value accepted by all parties in a transaction",
+   "Any notes and coins printed by the government",
+   "A credit card used to pay in shops",
+   "The total savings held in a bank account"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The precise wording the exam wants: sets a standard of value AND is acceptable to all parties. Cards are not money; notes/coins are only examples."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:learn:c888d17c",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "The financial sector and its institutions",
+  "reading": "<p>The <strong>financial sector</strong> is made up of financial organisations and their products. The four you must know are the <strong>Bank of England, commercial banks, building societies and insurance companies</strong>.</p>\n<h4>The Bank of England (the central bank)</h4>\n<ul>\n<li><strong>Issues banknotes</strong> in England and Wales (coins are made by the Royal Mint) and keeps currency secure, e.g. polymer notes.</li>\n<li><strong>Sets the bank rate</strong> (base interest rate) as part of monetary policy — this influences the rates people pay on loans and earn on savings.</li>\n<li><strong>Provides stability</strong> through regulation (tightened after the 2008 financial crisis) and acts as the <strong>\"bank for banks\"</strong> and banker to the government (managing government bonds and foreign reserves).</li>\n<li>Crucially, it does <strong>NOT</strong> run accounts for ordinary people or lend to individual firms.</li>\n</ul>\n<h4>Commercial banks</h4>\n<ul>\n<li>Accept <strong>deposits</strong> (paying interest a little below the bank rate) and keep money safe.</li>\n<li>Make <strong>payments</strong> for customers (cards, cheques, direct debits, phone apps).</li>\n<li>Provide <strong>loans</strong> (interest above the bank rate) and <strong>overdrafts</strong>, plus services like safe deposit boxes.</li>\n</ul>\n<h4>Building societies</h4>\n<ul>\n<li><strong>Mutual institutions</strong> — owned by their members (savers and borrowers), not by shareholders, and run for members' benefit.</li>\n<li>Specialise in <strong>savings</strong> and <strong>mortgages</strong> — traditionally, providing funds for individuals to buy a house.</li>\n</ul>\n<h4>Insurance companies</h4>\n<ul>\n<li>Provide <strong>compensation</strong> if a specified event happens (car, home, life insurance) in return for a regular payment called a <strong>premium</strong>.</li>\n<li><strong>Life insurance</strong> pays a sum to the family to replace lost income when the policyholder dies.</li>\n</ul>",
+  "question": "What makes a building society different from a commercial bank?",
+  "options": [
+   "It is a mutual, owned by its members rather than shareholders",
+   "It is owned and run by the government",
+   "It sets the country's base interest rate",
+   "It is the only institution that offers loans"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Building societies are mutuals owned by their members; commercial banks are owned by shareholders. Setting the base rate is the Bank of England's job."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:learn:eba85ca9",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What the financial sector does — and why it matters",
+  "reading": "<p>The financial sector's core job is to <strong>channel funds from savers to borrowers</strong>, so households, firms and government can spend and invest even when they do not hold the cash themselves. Boiled down, it provides three things:</p>\n<ul>\n<li><strong>Credit</strong> — the ability to borrow money you do not currently have.</li>\n<li><strong>Liquidity</strong> — the ability to turn assets into cash.</li>\n<li><strong>Risk management</strong> — tools such as insurance to handle different risks.</li>\n</ul>\n<h4>Importance for consumers</h4>\n<ul>\n<li>Cards and apps let people pay without cash; credit lets them buy expensive items now and pay later; overdrafts bridge gaps between income and spending; savings help them afford costly goods; insurance protects against loss.</li>\n</ul>\n<h4>Importance for producers</h4>\n<ul>\n<li>Loans fund investment and expansion; overdrafts smooth cash flow when income dips; insurance covers property and risky projects; banks keep takings safe and pay interest on savings.</li>\n</ul>\n<h4>Importance for government</h4>\n<ul>\n<li>The financial sector is <strong>almost always important</strong> to government, so questions usually ask about the effect of a specific action on a <strong>macro target</strong> (economic growth, low inflation, low unemployment) rather than \"is it important?\".</li>\n</ul>\n<h4>The golden rule: context decides importance</h4>\n<ul>\n<li>The same service is not equally important to everyone. A cash-only market stall barely needs customer credit, but a car maker's customers rely on it. <strong>Always match the service to the specific business or consumer</strong> — that is where the application marks are won.</li>\n</ul>",
+  "question": "In an evaluate question, what earns the application (AO2) marks about the financial sector?",
+  "options": [
+   "Matching a specific service to the particular business or consumer in the case",
+   "Listing every service the financial sector provides",
+   "Stating that the financial sector is always important",
+   "Defining what a bank is"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Importance depends on context — a cash-only trader barely needs customer credit, while a car maker's buyers rely on it. Match the service to the case."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:learn:1f88c9f8",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Interest rates: saving, borrowing and investment",
+  "reading": "<p>An <strong>interest rate</strong> is both the <strong>cost of borrowing</strong> money and the <strong>reward for saving</strong> it. The Bank of England sets the <strong>bank rate</strong>, which influences the rates across the whole economy.</p>\n<h4>When interest rates RISE</h4>\n<ul>\n<li><strong>Saving rises</strong> — the reward for saving is higher.</li>\n<li><strong>Borrowing falls</strong> — loans and credit cost more.</li>\n<li><strong>Investment falls</strong> — borrowing to invest is dearer, and a project must now earn a higher return to be worthwhile; the opportunity cost of spending rather than saving also rises.</li>\n<li>Mortgage-holders have less to spend, <strong>savers are better off</strong>, and the government pays more to fund its debt.</li>\n</ul>\n<h4>When interest rates FALL</h4>\n<ul>\n<li><strong>Saving falls, borrowing rises, investment rises.</strong> A chain: the Bank of England cuts the rate → borrowing is cheaper → firms invest and expand → they hire more workers → those workers spend more, raising demand.</li>\n<li>But it may not work if firms lack confidence or expect no rise in demand — a cut only boosts investment when firms also expect to sell more.</li>\n</ul>\n<h4>The calculations — get these exactly right</h4>\n<ul>\n<li><strong>Interest = rate × amount.</strong> 5% of a £2,000 loan for a year = 0.05 × £2,000 = £100.</li>\n<li><strong>A percentage means ÷ 100.</strong> 0.2% of £6,000 = 0.002 × £6,000 = £12 (NOT £1,200).</li>\n<li><strong>Monthly interest = yearly ÷ 12.</strong> £30,000 a year ÷ 12 = £2,500 a month.</li>\n<li><strong>Total repaid = amount borrowed + interest.</strong> £1,000 + £50 = £1,050.</li>\n<li>Always <strong>include the £ sign</strong> and <strong>show your working</strong> so the Own Figure Rule can rescue a slip.</li>\n</ul>",
+  "question": "The Bank of England raises the bank rate. What is the most likely effect?",
+  "options": [
+   "Saving rises, while borrowing and investment fall",
+   "Saving falls, while borrowing and investment rise",
+   "Saving, borrowing and investment all rise",
+   "Nothing changes for households or firms"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Higher rates reward saving and make borrowing dearer, so saving rises while borrowing and investment fall. A CUT would do the opposite."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:misc:50faa26b",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"A credit card or a cheque is money, and money is just notes and coins.\"</p><p><strong>✅ The correct idea:</strong> Money is anything GENERALLY ACCEPTED AS A MEANS OF PAYMENT for goods and services — that includes notes, coins AND money in bank accounts. Cheques, debit cards and credit cards are NOT money: they are just convenient ways of accessing money you already hold or can borrow. On the real paper, the 'best example of money' was a fifty-pound note, not a cheque, a credit card or a pay app. So money is broader than cash (bank deposits count) but narrower than 'anything you can pay with' (cards and cheques don't count).</p>",
+  "question": "Which is the best example of money?",
+  "options": [
+   "A fifty-pound note",
+   "A cheque",
+   "A credit card",
+   "A mobile phone pay app"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Cash is money itself. A cheque, card or app only transfers or accesses money held elsewhere, so none of them is money."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:misc:b3ba3dc9",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"'Medium of exchange' just means you use money to buy things.\"</p><p><strong>✅ The correct idea:</strong> That vague answer scores poorly. The mark scheme wants the precise definition: a medium of exchange sets a STANDARD OF VALUE (1) that is ACCEPTABLE TO ALL PARTIES (1) in a transaction. The examiner report said many candidates described the uses of money without naming these two attributes. Credit is also given for recognising that money avoids barter or the double coincidence of wants. Learn the two components — 'standard of value' and 'accepted by all parties' — not a loose 'used to buy things'.</p>",
+  "question": "For full marks, 'money as a medium of exchange' must be defined as something that sets a...",
+  "options": [
+   "Standard of value accepted by all parties in a transaction",
+   "Price that the government fixes for goods",
+   "Cost that only the seller has to accept",
+   "Value that changes with every purchase"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The two attributes examiners want: sets a standard of value, and is acceptable to ALL parties. 'Used to buy things' alone is not enough."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:misc:1ccd2d4f",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"The Bank of England and commercial banks do basically the same job.\"</p><p><strong>✅ The correct idea:</strong> They are very different. The Bank of England is the CENTRAL bank: it issues banknotes, sets the bank rate, regulates the system and acts as the bank for other banks and the government. It does NOT run accounts for the public or lend to individual firms. So a company needing a £100,000 loan goes to a COMMERCIAL bank — it is the institution a firm is MOST UNLIKELY to use out of a list containing a bank, a building society, an insurer and the central bank. On the real paper, choosing the central bank for a business loan was the popular wrong answer.</p>",
+  "question": "A company will use several financial institutions. Which is it most UNLIKELY to use?",
+  "options": [
+   "The central bank",
+   "A commercial bank",
+   "A building society",
+   "An insurance company"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The central bank serves banks and government, not ordinary firms. Companies use commercial banks, building societies and insurers."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:misc:3d6c94ec",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"An overdraft is a good way to buy new equipment and expand the business.\"</p><p><strong>✅ The correct idea:</strong> No — that is what a LOAN is for. An overdraft is a short-term cash-flow tool: it lets a business keep paying its costs (stock, rent, insurance) when income is temporarily low, then be repaid when money comes in. On Tom's baked-potato question the examiner report said most candidates wrongly used the overdraft to 'buy equipment and expand and pay it back later', which is not its function. And the answer must be in context — for Tom, whose demand varies a lot, an overdraft covers the quiet days.</p>",
+  "question": "Why is an overdraft useful for a trader like Tom, whose demand varies?",
+  "options": [
+   "It covers costs on quiet days when income is temporarily low",
+   "It funds buying a bigger van to expand",
+   "It pays a guaranteed return like a savings account",
+   "It replaces the need to ever take a loan"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "An overdraft is a cash-flow lifeline for the quiet days, not a way to fund expansion — that is a loan's job."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:misc:03422293",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"0.2% of £6,000 is £1,200, so moving savings gains over a thousand pounds.\"</p><p><strong>✅ The correct idea:</strong> This is the single biggest calculation error on the topic. A percentage means DIVIDE BY 100: 0.2% = 0.002, so 0.2% of £6,000 = £12, not £1,200. Forgetting the ÷100 turned the real answer of £11.40 into a wildly wrong £1,140. Use estimation to check: 1% of £6,000 is £60, so 0.2% must be much SMALLER than that — around £12. If your working ever gives £1,200 from a sub-1% rate, you have dropped the percentage sign.</p>",
+  "question": "What is 0.2% of £6,000?",
+  "options": [
+   "£12",
+   "£120",
+   "£1,200",
+   "£60"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "0.2% = 0.002, and 0.002 × £6,000 = £12. Dropping the ÷100 is what produces the wrong £1,200."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:tips:36286de9",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "definition — Definitions: give the precise wording for money and exchange",
+  "reading": "<p>The short definition questions on this topic are easy marks IF you use the exact phrasing the mark scheme rewards — and a graveyard if you are vague.</p>\n<ul>\n<li><strong>Money</strong> = \"anything generally accepted as a means of PAYMENT for goods and services\". Answers about an \"exchange\" rather than a payment, or that just list currency examples, were not credited.</li>\n<li><strong>Medium of exchange</strong> = \"something that sets a STANDARD OF VALUE (1) acceptable to ALL PARTIES (1) in a transaction\". Naming both attributes gets 2 marks; a loose \"used to buy things\" gets 0.</li>\n<li>Mentioning that money removes <strong>barter</strong> / the <strong>double coincidence of wants</strong> also earns credit.</li>\n</ul>",
+  "question": "For 'state what is meant by money', which answer earns the marks?",
+  "options": [
+   "Anything generally accepted as a means of payment for goods and services",
+   "Any coins and banknotes you can hold",
+   "Something you exchange for other goods",
+   "A card used to pay in shops"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The mark scheme wants 'generally accepted means of payment'. Currency examples, 'exchange' wording, or cards were not credited."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:tips:fb5dc9d2",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "calculation — Interest calculations: ÷100, ÷12, and the £ sign",
+  "reading": "<p>Every interest sum on this topic uses the same simple rules — the marks are lost on carelessness, not difficulty:</p>\n<ul>\n<li><strong>Interest = rate × amount.</strong> 6% of a £2 million loan = £120,000; the increase from 5% to 6% is £120,000 − £100,000 = £20,000.</li>\n<li><strong>A percentage means ÷ 100.</strong> 0.2% of £6,000 = £12, not £1,200 — the most common slip on the paper.</li>\n<li><strong>Monthly = yearly ÷ 12.</strong> £500,000 at 7.5% = £37,500 a year ÷ 12 = £3,125 a month; at 6% it is £30,000 ÷ 12 = £2,500.</li>\n<li><strong>Total repaid = amount + interest</strong> (£1,000 + £50 = £1,050).</li>\n<li>Always <strong>include the £ sign</strong> (a bare number is capped) and <strong>show your working</strong> so the Own Figure Rule can save a slip.</li>\n</ul>",
+  "question": "A £500,000 loan is charged 6% a year. What is the monthly interest?",
+  "options": [
+   "£2,500",
+   "£30,000",
+   "£5,000",
+   "£250"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "6% of £500,000 = £30,000 a year; ÷ 12 = £2,500 a month. Giving the yearly £30,000 or omitting the £ sign loses a mark."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:tips:ca291f2f",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "analysis — Analyse: build the interest-rate chain of reasoning",
+  "reading": "<p>Interest-rate 6-markers want a developed CHAIN, not a list. Pick a direction and follow it right through, using the figures in the case.</p>\n<ul>\n<li><strong>Rate rises</strong> → borrowing is dearer → a project must earn a higher return to be worth it → fewer investments go ahead. Also: the opportunity cost of spending rather than saving rises, so saving is more attractive.</li>\n<li><strong>Rate falls</strong> → borrowing is cheaper → firms invest and expand → hire more workers → those workers spend more → demand rises (a multiplier).</li>\n<li><strong>Weigh a limit</strong>: a small cut may not be enough, or firms lacking confidence / expecting no rise in demand may not invest at all.</li>\n</ul>\n<p>Use the context — \"the fall from 6% to 5% lets Letusprovide borrow its £10,000 more cheaply\" beats a generic \"borrowing is cheaper\".</p>",
+  "question": "Why might a cut in interest rates FAIL to raise a firm's investment?",
+  "options": [
+   "Firms may lack confidence or expect no rise in demand",
+   "Borrowing automatically becomes more expensive",
+   "Savers always start spending less",
+   "The Bank of England blocks new loans"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Cheaper borrowing only boosts investment if firms also expect to sell more. Low confidence or flat expected demand can stop it working."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:tips:47c03d04",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "evaluate — Evaluate the 'importance of the financial sector': answer in context",
+  "reading": "<p>The big Evaluates ask about the importance of the financial sector for a named group — and the marks turn on context and a genuine judgement.</p>\n<ul>\n<li><strong>Answer for the stated stakeholder.</strong> \"For The Music Shop's CONSUMERS\" is about card/credit access and saving for pricey instruments — NOT about the shop itself. Answers aimed at the wrong group scored 0.</li>\n<li><strong>Match services to the case and weigh their importance.</strong> For Tom, insurance is vital (he cannot work without his insured van) but customer credit is unimportant because he deals in cash.</li>\n<li><strong>Weigh a downside</strong>: credit brings debt, cards bring fraud risk, and importance depends on age, income and attitude to risk.</li>\n<li><strong>Meet the \"importance of\" frame</strong> with a supported judgement: \"Overall it is very important, mainly for insurance and cash flow, but less so for lending to his cash-paying customers.\"</li>\n</ul>",
+  "question": "A question asks about the financial sector's importance for The Music Shop's CONSUMERS. A strong answer focuses on...",
+  "options": [
+   "How cards, credit and saving help consumers buy the goods",
+   "How the shop repays its £500,000 loan",
+   "The owners' profit margins",
+   "The wages the shop pays its staff"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "It is about the consumers, not the shop or its owners. Answers aimed at the wrong stakeholder scored no marks in the real report."
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:fib:e7e74cae",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "Money is anything generally accepted as a means of ___B1___ for goods and services; a credit card is not money because it only ___B2___ money held elsewhere.",
+  "blankOptions": {
+   "B1": [
+    "payment",
+    "2100",
+    "mortgage",
+    "fall"
+   ],
+   "B2": [
+    "accesses",
+    "premium",
+    "fall",
+    "banknotes"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "payment",
+    "B2": "accesses"
+   }
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:fib:84a3ce24",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "Barter suffers from the double ___B1___ of wants, which money removes by acting as a ___B2___ of exchange.",
+  "blankOptions": {
+   "B1": [
+    "bank",
+    "2100",
+    "coincidence",
+    "rise"
+   ],
+   "B2": [
+    "medium",
+    "premium",
+    "2100",
+    "rise"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "coincidence",
+    "B2": "medium"
+   }
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:fib:761b0e91",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "A ___B1___ society is a mutual owned by its members, while a commercial ___B2___ is owned by shareholders.",
+  "blankOptions": {
+   "B1": [
+    "mortgage",
+    "100",
+    "building",
+    "accesses"
+   ],
+   "B2": [
+    "bank",
+    "medium",
+    "payment",
+    "coincidence"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "building",
+    "B2": "bank"
+   }
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:fib:dcd9dad4",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The Bank of England issues ___B1___ and sets the ___B2___ rate.",
+  "blankOptions": {
+   "B1": [
+    "medium",
+    "saving",
+    "banknotes",
+    "mortgage"
+   ],
+   "B2": [
+    "bank",
+    "building",
+    "premium",
+    "2100"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "banknotes",
+    "B2": "bank"
+   }
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:fib:6a5ba082",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "When interest rates ___B1___, saving becomes more rewarding and borrowing tends to ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "bank",
+    "100",
+    "payment",
+    "rise"
+   ],
+   "B2": [
+    "saving",
+    "banknotes",
+    "fall",
+    "100"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "rise",
+    "B2": "fall"
+   }
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:fib:64a8a664",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "Interest of 5% on a £2,000 loan for one year is £___B1___, so the total repaid is £___B2___.",
+  "blankOptions": {
+   "B1": [
+    "100",
+    "premium",
+    "banknotes",
+    "medium"
+   ],
+   "B2": [
+    "mortgage",
+    "2100",
+    "saving",
+    "banknotes"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "100",
+    "B2": "2100"
+   }
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:match:49d66d95",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Money”?",
+  "options": [
+   "Something that sets a standard of value accepted by all parties in a transaction",
+   "Anything generally accepted as a means of payment for goods and services",
+   "The direct exchange of goods and services without using money",
+   "Both traders must want exactly what the other is offering"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Money” means: Anything generally accepted as a means of payment for goods and services"
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:match:a16d7157",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Medium of exchange”?",
+  "options": [
+   "The direct exchange of goods and services without using money",
+   "Both traders must want exactly what the other is offering",
+   "Something that sets a standard of value accepted by all parties in a transaction",
+   "The institutions and products that move money from savers to borrowers"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Medium of exchange” means: Something that sets a standard of value accepted by all parties in a transaction"
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:match:7120f142",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Barter”?",
+  "options": [
+   "Both traders must want exactly what the other is offering",
+   "The direct exchange of goods and services without using money",
+   "The institutions and products that move money from savers to borrowers",
+   "The UK central bank — issues notes and sets the bank rate"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Barter” means: The direct exchange of goods and services without using money"
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:match:e17f318c",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Double coincidence of wants”?",
+  "options": [
+   "The institutions and products that move money from savers to borrowers",
+   "The UK central bank — issues notes and sets the bank rate",
+   "Both traders must want exactly what the other is offering",
+   "Takes deposits and makes loans and overdrafts to households and firms"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Double coincidence of wants” means: Both traders must want exactly what the other is offering"
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:match:b09f8973",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Financial sector”?",
+  "options": [
+   "The UK central bank — issues notes and sets the bank rate",
+   "Takes deposits and makes loans and overdrafts to households and firms",
+   "The institutions and products that move money from savers to borrowers",
+   "A mutual owned by its members, providing savings and mortgages"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Financial sector” means: The institutions and products that move money from savers to borrowers"
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:match:6076cc1d",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Bank of England”?",
+  "options": [
+   "Takes deposits and makes loans and overdrafts to households and firms",
+   "A mutual owned by its members, providing savings and mortgages",
+   "Provides compensation for a specified loss in return for a premium",
+   "The UK central bank — issues notes and sets the bank rate"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Bank of England” means: The UK central bank — issues notes and sets the bank rate"
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:match:316d503d",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Commercial bank”?",
+  "options": [
+   "A mutual owned by its members, providing savings and mortgages",
+   "Takes deposits and makes loans and overdrafts to households and firms",
+   "Provides compensation for a specified loss in return for a premium",
+   "The cost of borrowing money and the reward for saving it"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Commercial bank” means: Takes deposits and makes loans and overdrafts to households and firms"
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:match:8f926488",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Building society”?",
+  "options": [
+   "Provides compensation for a specified loss in return for a premium",
+   "The cost of borrowing money and the reward for saving it",
+   "The base interest rate set by the Bank of England",
+   "A mutual owned by its members, providing savings and mortgages"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Building society” means: A mutual owned by its members, providing savings and mortgages"
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:match:af2c5487",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Insurance company”?",
+  "options": [
+   "Provides compensation for a specified loss in return for a premium",
+   "The cost of borrowing money and the reward for saving it",
+   "The base interest rate set by the Bank of England",
+   "An agreed facility to withdraw more than the account balance"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Insurance company” means: Provides compensation for a specified loss in return for a premium"
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:match:6006f248",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Interest rate”?",
+  "options": [
+   "The base interest rate set by the Bank of England",
+   "An agreed facility to withdraw more than the account balance",
+   "The regular payment made in return for insurance cover",
+   "The cost of borrowing money and the reward for saving it"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Interest rate” means: The cost of borrowing money and the reward for saving it"
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:match:e2e903a9",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Bank rate”?",
+  "options": [
+   "An agreed facility to withdraw more than the account balance",
+   "The base interest rate set by the Bank of England",
+   "The regular payment made in return for insurance cover",
+   "Anything generally accepted as a means of payment for goods and services"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Bank rate” means: The base interest rate set by the Bank of England"
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:match:596b1ad1",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Overdraft”?",
+  "options": [
+   "The regular payment made in return for insurance cover",
+   "Anything generally accepted as a means of payment for goods and services",
+   "An agreed facility to withdraw more than the account balance",
+   "Something that sets a standard of value accepted by all parties in a transaction"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Overdraft” means: An agreed facility to withdraw more than the account balance"
+  }
+ },
+ {
+  "id": "economics:2-8-the-role-of-money-and-financial-markets:match:dc74c525",
+  "pageId": "economics:2-8-the-role-of-money-and-financial-markets",
+  "pageName": "2.8 The Role of Money and Financial Markets",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Premium”?",
+  "options": [
+   "The regular payment made in return for insurance cover",
+   "Anything generally accepted as a means of payment for goods and services",
+   "Something that sets a standard of value accepted by all parties in a transaction",
+   "The direct exchange of goods and services without using money"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Premium” means: The regular payment made in return for insurance cover"
   }
  }
 ];

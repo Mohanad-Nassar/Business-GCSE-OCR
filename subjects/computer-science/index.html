@@ -47,13 +47,14 @@
     .hero :focus-visible { outline-color: var(--gold); }
 
     .hero {
-      background: var(--ink); color: var(--paper);
-      padding: 48px 48px 40px; position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: ''; position: absolute; top: -80px; right: -80px;
-      width: 340px; height: 340px; border-radius: 50%;
-      background: var(--accent); opacity: .12;
+      background-color: var(--ink); color: var(--paper);
+      /* Decorative circle as a background so the hero needs no
+         overflow:hidden (which would clip the injected account dropdown
+         / notification bell panel). */
+      background-image: radial-gradient(circle 170px at calc(100% - 90px) 90px,
+        rgba(122,92,158,.12) 0, rgba(122,92,158,.12) 169px, transparent 170px);
+      background-repeat: no-repeat;
+      padding: 48px 48px 40px; position: relative;
     }
     .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
     .hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
@@ -191,6 +192,7 @@
   <script src="/subject-home.js"></script>
   <script>renderSubjectHome(document.getElementById('topicsMount'));</script>
   <script src="/progress-shared.js"></script>
+  <script src="/account-cluster.js"></script>
   <script src="/gamification.js"></script>
   <script>
     const SUPABASE_URL = 'https://eaohjlyiotyqhvsizcpw.supabase.co';
@@ -219,16 +221,24 @@
 
       const bar = document.getElementById('accountBar');
       if (!bar) return;
-      bar.innerHTML = `<span style="font-size:13px;color:rgba(255,255,255,.75);">Hi, <strong>${cached.username || 'teacher'}</strong></span>
-        ${cached.role === 'teacher' ? '<a href="/teacher-dashboard.html">🧑‍🏫 <span>Teacher Dashboard</span></a>' : ''}
-        <a href="/manage-account.html" id="manageAccountLink">⚙ <span>Manage Account</span></a>
-        <a href="#" id="homeLogoutLink">↪ <span>Log out</span></a>`;
-      document.getElementById('homeLogoutLink').addEventListener('click', async (e) => {
-        e.preventDefault();
-        await supabaseClient.auth.signOut();
-        localStorage.removeItem(GCSE_SESSION_KEY);
-        location.replace('/login.html');
-      });
+      // Same shared avatar + dropdown cluster as every other page
+      // (account-cluster.js); minimal escaped bar as a fallback.
+      if (typeof _gcseInjectAccountBar === 'function') {
+        window._gcseProfile = window._gcseProfile || { username: cached.username, role: cached.role };
+        _gcseInjectAccountBar();
+      } else {
+        const escName = String(cached.username || 'you').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        bar.innerHTML = `<span style="font-size:13px;color:rgba(255,255,255,.75);">Hi, <strong>${escName}</strong></span>
+          ${cached.role === 'teacher' ? '<a href="/teacher-dashboard.html">🧑‍🏫 <span>Teacher Dashboard</span></a>' : ''}
+          <a href="/manage-account.html" id="manageAccountLink">⚙ <span>Manage Account</span></a>
+          <a href="#" id="homeLogoutLink">↪ <span>Log out</span></a>`;
+        document.getElementById('homeLogoutLink').addEventListener('click', async (e) => {
+          e.preventDefault();
+          await supabaseClient.auth.signOut();
+          localStorage.removeItem(GCSE_SESSION_KEY);
+          location.replace('/login.html');
+        });
+      }
 
       if (cached.role === 'student') {
         if (typeof gamificationRefreshStreak === 'function') gamificationRefreshStreak(supabaseClient);

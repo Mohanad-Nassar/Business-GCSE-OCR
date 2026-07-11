@@ -26,7 +26,13 @@ const GAMIFICATION_CATEGORY_KEYS = ['learn', 'mcq', 'match', 'fib', 'misc', 'tip
 const BADGE_DEFS = [
   { id: 'first-steps',    icon: '🥉', label: 'First Steps',     desc: 'Answer your first question',              group: 'Progress', test: s => s.totalDone >= 1 },
   { id: 'century',        icon: '💯', label: 'Century',          desc: 'Answer 100 questions',                     group: 'Progress', test: s => s.totalDone >= 100 },
+  { id: 'half-thousand',  icon: '🎓', label: 'Half-Thousand Club',desc: 'Answer 500 questions',                    group: 'Progress', test: s => s.totalDone >= 500 },
+  { id: 'question-machine',icon:'🧠', label: 'Question Machine', desc: 'Answer 1,000 questions',                  group: 'Progress', test: s => s.totalDone >= 1000 },
+  { id: 'relentless',     icon: '🦾', label: 'Relentless',       desc: 'Answer 2,500 questions',                   group: 'Progress', test: s => s.totalDone >= 2500 },
   { id: 'getting-serious',icon: '🚀', label: 'Getting Serious',  desc: 'Reach 500 XP',                             group: 'Progress', test: s => s.xp >= 500 },
+  { id: 'rising-star',    icon: '⭐', label: 'Rising Star',      desc: 'Reach Level 5',                            group: 'Progress', test: s => s.level >= 5 },
+  { id: 'veteran-scholar',icon: '🎖️', label: 'Veteran Scholar', desc: 'Reach Level 10',                           group: 'Progress', test: s => s.level >= 10 },
+  { id: 'elite-scholar',  icon: '💠', label: 'Elite Scholar',    desc: 'Reach Level 15',                           group: 'Progress', test: s => s.level >= 15 },
   { id: 'topic-master',   icon: '🏆', label: 'Topic Master',     desc: 'Fully complete one topic',                 group: 'Progress', test: s => s.topicsComplete >= 1 },
   { id: 'on-a-roll',      icon: '🏅', label: 'On a Roll',        desc: 'Fully complete 5 topics',                  group: 'Progress', test: s => s.topicsComplete >= 5 },
   { id: 'unit-champion',  icon: '🌟', label: 'Unit Champion',    desc: 'Fully complete every topic in one unit',   group: 'Progress', test: s => s.unitComplete },
@@ -41,9 +47,15 @@ const BADGE_DEFS = [
   { id: 'exam-ready',     icon: '📝', label: 'Exam Ready',       desc: 'Complete Exam Practice in 5 topics',       group: 'Categories', test: s => s.byCategory.exam >= 5 },
   { id: 'on-fire',        icon: '🔥', label: 'On Fire',          desc: '3-day answering streak',                   group: 'Streaks', test: s => s.streak >= 3 },
   { id: 'unstoppable',    icon: '🔥', label: 'Unstoppable',      desc: '7-day answering streak',                   group: 'Streaks', test: s => s.streak >= 7 },
+  { id: 'two-week-streak',icon: '⚡', label: 'Two-Week Streak',  desc: '14-day answering streak',                  group: 'Streaks', test: s => s.streak >= 14 },
+  { id: 'monthly-streak', icon: '🌋', label: 'Monthly Streak',   desc: '30-day answering streak',                  group: 'Streaks', test: s => s.streak >= 30 },
+  { id: 'century-streak', icon: '💎', label: 'Century Streak',   desc: '100-day answering streak',                 group: 'Streaks', test: s => s.streak >= 100 },
   { id: 'daily-starter',  icon: '🎯', label: 'Daily Habit',      desc: 'Answer 20 Daily Revise questions correctly', group: 'Daily Revise', test: s => s.drCorrect >= 20 },
   { id: 'daily-sharp',    icon: '🥈', label: 'Getting Sharp',    desc: 'Master 25 questions in Daily Revise',      group: 'Daily Revise', test: s => s.drMastered >= 25 },
   { id: 'daily-pro',      icon: '🥇', label: 'Daily Revise Pro', desc: 'Master 100 questions in Daily Revise',     group: 'Daily Revise', test: s => s.drMastered >= 100 },
+  { id: 'first-review',   icon: '🔁', label: 'First Review',     desc: 'Complete your first Review Calendar review', group: 'Review Calendar', test: s => s.reviewsCompleted >= 1 },
+  { id: 'review-regular', icon: '🗓️', label: 'Review Regular',  desc: 'Complete 10 Review Calendar reviews',      group: 'Review Calendar', test: s => s.reviewsCompleted >= 10 },
+  { id: 'retention-master',icon:'🧲', label: 'Retention Master', desc: 'Complete 30 Review Calendar reviews',      group: 'Review Calendar', test: s => s.reviewsCompleted >= 30 },
 ];
 
 function gamificationLevelFromXp(xp) {
@@ -65,10 +77,12 @@ function _gamHasGradableContent(pageId) {
 // with the same merged {pageId:{section:{done,total}}} progress object
 // the dashboards already build, plus a streak count (0 if unknown yet) and
 // (optionally) this student's lifetime Daily Revise stats — see
-// gamificationRefreshDailyReviseStats(); defaults to the last-fetched cache
-// so existing call sites that don't pass it keep working unchanged.
-function computeGamificationStats(progress, streak, drStats) {
+// gamificationRefreshDailyReviseStats()/gamificationRefreshReviewStats();
+// both default to their last-fetched cache so existing call sites that
+// don't pass them keep working unchanged.
+function computeGamificationStats(progress, streak, drStats, reviewStats) {
   drStats = drStats || _gamDrStats;
+  reviewStats = reviewStats || _gamReviewStats;
   let xp = 0, topicsComplete = 0, totalDone = 0, totalTopics = 0, unitCompleteAny = false;
   const byCategory = {};
   GAMIFICATION_CATEGORY_KEYS.forEach(k => { byCategory[k] = 0; });
@@ -108,12 +122,18 @@ function computeGamificationStats(progress, streak, drStats) {
   xp += drCorrect * GAMIFICATION_XP_PER_QUESTION;
   xp += drMastered * GAMIFICATION_CATEGORY_BONUS;
 
+  // Review Calendar — a count of ticked-off review sessions, not individual
+  // question answers (those are already folded into drCorrect/drMastered
+  // above, since a review quiz answer is graded via record_mastery_answer
+  // same as Daily Revise). Purely a badge-test signal, so it doesn't feed XP.
+  const reviewsCompleted = (reviewStats && reviewStats.completed) || 0;
+
   const lvl = gamificationLevelFromXp(xp);
   return {
     xp, level: lvl.level, xpIntoLevel: lvl.xpIntoLevel, xpForNextLevel: lvl.xpForNextLevel,
     topicsComplete, totalDone, totalTopics, byCategory,
     unitComplete: unitCompleteAny, streak: streak || 0,
-    drCorrect, drMastered,
+    drCorrect, drMastered, reviewsCompleted,
   };
 }
 
@@ -291,6 +311,30 @@ async function gamificationRefreshDailyReviseStats(client) {
   return _gamDrStats;
 }
 
+// ── Review Calendar lifetime stats (see supabase/spaced-repetition.sql) —
+// topic_reviews carries a student-only SELECT policy (student_id = auth.uid()),
+// so this is a direct table read, same as daily_revise_stats above, no RPC
+// needed. Counts completed_at across every stage/topic/subject. Reset to
+// zero on every page load; computeGamificationStats() falls back to this
+// cache when no reviewStats argument is passed. ──
+
+let _gamReviewStats = { completed: 0 };
+async function gamificationRefreshReviewStats(client) {
+  try {
+    if (!client) return _gamReviewStats;
+    _gamLastClient = client;
+    const { data: { user } = {} } = await client.auth.getUser();
+    if (!user) return _gamReviewStats;
+    const { data, error } = await client.from('topic_reviews')
+      .select('completed_at').eq('student_id', user.id);
+    if (!error && data) {
+      _gamReviewStats = { completed: data.filter(r => r.completed_at).length };
+      if (typeof _gamUpdateHud === 'function') _gamUpdateHud();
+    }
+  } catch (e) {}
+  return _gamReviewStats;
+}
+
 // ── Daily goal (device-local, display-only — XP stays pure) ──
 // Gives the day-streak something visible to chase: answer N questions
 // today. Counted locally per calendar day; old keys are pruned as we go.
@@ -329,8 +373,11 @@ function _gamBumpDaily() {
 
 // ── Flashcard daily review cap (separate from the daily goal above —
 // flashcards are deliberately excluded from that counter/streak, since this
-// one caps volume to enforce spaced repetition rather than reward it). ──
-const FC_DAILY_CAP = 20;
+// one caps volume to enforce spaced repetition rather than reward it).
+// 60/day lets a student finish one full deck (~18 cards) plus a couple of
+// review-wrong rounds — the old cap of 20 blocked completing even a single
+// deck with its review pass. ──
+const FC_DAILY_CAP = 60;
 
 function _fcDailyKey() {
   const d = new Date();

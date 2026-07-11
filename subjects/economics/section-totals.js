@@ -5,7 +5,7 @@
 // independent of any student's progress — used to fix progress
 // stats so a topic a student has engaged with counts ALL of its
 // sections' totals, not just the ones they've personally started.
-// Generated: 2026-07-11T04:09:01Z
+// Generated: 2026-07-11T08:12:28Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS = {
  "economics:1-1-main-economic-groups-and-factors-of-production": {
@@ -106,5 +106,16 @@ window.SECTION_TOTALS = {
   "fib": 6,
   "match": 13,
   "flashcards": 18
+ },
+ "economics:2-8-the-role-of-money-and-financial-markets": {
+  "exam": 43,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 4,
+  "misc": 5,
+  "tips": 4,
+  "fib": 6,
+  "match": 13,
+  "flashcards": 19
  }
 };

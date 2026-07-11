@@ -42,27 +42,69 @@
      min-height: 100vh;
  }
 
+ /* ── SITE BAND — the shared top row inside every standalone page header:
+    [🏡 All Topics] ..................... [page links] [🔔] [Hi, name ▾]
+    Matches the .site-nav band script.js injects on topic pages. The
+    account cluster itself (avatar + dropdown + #gcseNotifSlot) is
+    injected into #accountBar by account-cluster.js. ── */
+ .site-band {
+     flex-basis: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: flex-end;
+     gap: 10px;
+     flex-wrap: wrap;
+     margin-bottom: 14px;
+     position: relative;
+ }
+
+ .site-band .sb-brand {
+     margin-right: auto;
+     display: inline-flex;
+     align-items: center;
+     gap: 8px;
+     color: var(--paper);
+     text-decoration: none;
+     font-family: 'DM Mono', monospace;
+     font-size: 12.5px;
+     letter-spacing: .08em;
+     padding: 7px 0;
+ }
+
+ .site-band .sb-brand:hover {
+     color: var(--gold);
+ }
+
+ .site-band .gcse-account-bar {
+     display: inline-flex;
+     align-items: center;
+     gap: 10px;
+ }
+
+ /* With the band on its own row, the page's hero content (badge/h1/links)
+    takes the full next row. */
+ header > .header-inner {
+     flex: 1 1 100%;
+ }
+
  header {
-     background: var(--ink);
+     background-color: var(--ink);
+     /* Decorative accent circle as a background so the header needs no
+        overflow:hidden (which would clip the injected profile dropdown /
+        notification panel). */
+     background-image: radial-gradient(circle 100px at calc(100% - 60px) 60px,
+         rgba(122, 92, 158, .18) 0, rgba(122, 92, 158, .18) 99px, transparent 100px);
+     background-repeat: no-repeat;
      color: var(--paper);
      padding: 28px 40px 24px;
      display: flex;
      align-items: flex-end;
      gap: 20px;
+     row-gap: 16px;
+     /* Wrap so the .site-band top row can take a full row of its own
+        (mirrors the header rule in style.css). */
+     flex-wrap: wrap;
      position: relative;
-     overflow: hidden;
- }
-
- header::before {
-     content: '';
-     position: absolute;
-     top: -40px;
-     right: -40px;
-     width: 200px;
-     height: 200px;
-     border-radius: 50%;
-     background: var(--accent);
-     opacity: .18;
  }
 
  header .badge {
@@ -116,19 +158,16 @@
  .tab-bar {
      background: var(--ink);
      display: flex;
-     overflow-x: auto;
+     /* Wrap onto multiple rows instead of horizontal scrolling so every
+        tab stays visible on smaller screens (kept in sync with style.css). */
+     flex-wrap: wrap;
      border-bottom: 2px solid var(--accent);
      padding: 0 40px;
-     scrollbar-width: none;
 
      /* --- NEW CODE TO MAKE IT STICKY --- */
      position: sticky;
      top: 0;
      z-index: 100;
- }
-
- .tab-bar::-webkit-scrollbar {
-     display: none;
  }
 
  .tab-btn {

@@ -19,15 +19,13 @@
           "id": "1-1-main-economic-groups-and-factors-of-production",
           "name": "1.1 Main Economic Groups and Factors of Production",
           "sub": "Introduction to Economics",
-          "file": "1.1_Main_economic_groups_and_factors_of_production.html",
-          "noQuestions": true
+          "file": "1.1_Main_economic_groups_and_factors_of_production.html"
         },
         {
           "id": "1-2-the-basic-economic-problem",
           "name": "1.2 The Basic Economic Problem",
           "sub": "Introduction to Economics",
-          "file": "1.2_The_basic_economic_problem.html",
-          "noQuestions": true
+          "file": "1.2_The_basic_economic_problem.html"
         }
       ]
     },
@@ -41,57 +39,49 @@
           "id": "2-1-the-role-of-markets",
           "name": "2.1 The Role of Markets",
           "sub": "The Role of Markets and Money",
-          "file": "2.1_The_role_of_markets.html",
-          "noQuestions": true
+          "file": "2.1_The_role_of_markets.html"
         },
         {
           "id": "2-2-demand",
           "name": "2.2 Demand",
           "sub": "The Role of Markets and Money",
-          "file": "2.2_Demand.html",
-          "noQuestions": true
+          "file": "2.2_Demand.html"
         },
         {
           "id": "2-3-supply",
           "name": "2.3 Supply",
           "sub": "The Role of Markets and Money",
-          "file": "2.3_Supply.html",
-          "noQuestions": true
+          "file": "2.3_Supply.html"
         },
         {
           "id": "2-4-price",
           "name": "2.4 Price",
           "sub": "The Role of Markets and Money",
-          "file": "2.4_Price.html",
-          "noQuestions": true
+          "file": "2.4_Price.html"
         },
         {
           "id": "2-5-competition",
           "name": "2.5 Competition",
           "sub": "The Role of Markets and Money",
-          "file": "2.5_Competition.html",
-          "noQuestions": true
+          "file": "2.5_Competition.html"
         },
         {
           "id": "2-6-production",
           "name": "2.6 Production",
           "sub": "The Role of Markets and Money",
-          "file": "2.6_Production.html",
-          "noQuestions": true
+          "file": "2.6_Production.html"
         },
         {
           "id": "2-7-the-labour-market",
           "name": "2.7 The Labour Market",
           "sub": "The Role of Markets and Money",
-          "file": "2.7_The_labour_market.html",
-          "noQuestions": true
+          "file": "2.7_The_labour_market.html"
         },
         {
           "id": "2-8-the-role-of-money-and-financial-markets",
           "name": "2.8 The Role of Money and Financial Markets",
           "sub": "The Role of Markets and Money",
-          "file": "2.8_The_role_of_money_and_financial_markets.html",
-          "noQuestions": true
+          "file": "2.8_The_role_of_money_and_financial_markets.html"
         }
       ]
     },

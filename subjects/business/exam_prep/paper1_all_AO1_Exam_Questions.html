@@ -294,18 +294,19 @@
             gap: 8px;
         }
 
-        .mcq-opt {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 10px 14px;
-            border: 1.5px solid var(--border);
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            transition: all 0.15s;
-            user-select: none;
-            background: var(--surface);
-        }
+    .mcq-opt {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.15s;
+    -webkit-user-select: none;
+    user-select: none;
+    background: var(--surface);
+}
 
         .mcq-opt:hover {
             border-color: var(--accent);
@@ -2306,6 +2307,37 @@
 
         render();
         updateStats();
+
+        // ── Paste guard — same rule as the shared one in
+        // /notifications-shared.js (which this standalone page doesn't
+        // load): no pasting into written answers. This page has no login
+        // or Supabase, so the attempt is blocked and warned but not
+        // logged to the teacher dashboard.
+        (function () {
+            let warnTimer = null;
+            function blockPaste(e) {
+                const ta = e.target && e.target.closest && e.target.closest('.qer-area textarea');
+                if (!ta) return;
+                e.preventDefault();
+                let el = document.getElementById('gcsePasteWarn');
+                if (!el) {
+                    const s = document.createElement('style');
+                    s.textContent = `#gcsePasteWarn{position:fixed;top:18px;left:50%;transform:translateX(-50%) translateY(-8px);max-width:min(440px,92vw);z-index:9999;background:#c84b31;color:#fff;font-family:inherit;font-size:13.5px;line-height:1.45;font-weight:600;padding:12px 18px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;text-align:center;}
+#gcsePasteWarn.show{opacity:1;transform:translateX(-50%) translateY(0);}`;
+                    document.head.appendChild(s);
+                    el = document.createElement('div');
+                    el.id = 'gcsePasteWarn';
+                    el.setAttribute('role', 'alert');
+                    el.textContent = '🚫 Copying and pasting is not allowed here — exam answers must be typed in your own words.';
+                    document.body.appendChild(el);
+                }
+                el.classList.add('show');
+                clearTimeout(warnTimer);
+                warnTimer = setTimeout(() => el.classList.remove('show'), 5000);
+            }
+            document.addEventListener('paste', blockPaste, true);
+            document.addEventListener('drop', blockPaste, true);
+        })();
     </script>
 </body>
 

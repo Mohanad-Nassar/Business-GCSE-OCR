@@ -130,7 +130,7 @@ async function gcseInitAuth() {
         }
     });
 
-    _gcseInjectAccountBar();
+    _gcseAccountBarWhenReady(); // cluster lives in account-cluster.js (loaded near the top of this file)
     await gcseFlushQueuedProgress();
     gcseHydrateFromServer();
     gcseRefreshFlowSettings();
@@ -153,12 +153,28 @@ async function gcseInitAuth() {
 // the per-question UI. The log for one page is small and indexed
 // (student+page+section).
 
+// Per-SECTION reset tombstones — same idea as the per-page
+// 'gcse_page_reset_' key below, but for one activity: written by
+// _fullResetSection when a student resets a single section, so hydration
+// doesn't resurrect answers from before that reset.
+function _gcseSectionResetMap(pageId) {
+    try { return JSON.parse(localStorage.getItem('gcse_section_reset_' + pageId) || '{}') || {}; } catch (e) { return {}; }
+}
+function _gcseTombstoneSection(pageId, section) {
+    const map = _gcseSectionResetMap(pageId);
+    map[section] = Date.now();
+    try { localStorage.setItem('gcse_section_reset_' + pageId, JSON.stringify(map)); } catch (e) {}
+}
+
 // Pure merge: newest server event per (section, question_id), with any
 // locally stored answer taking precedence (this device may be ahead).
 function _gcseMergeServerAnswers(pageId, events) {
+    const sectionResets = _gcseSectionResetMap(pageId);
     const bySection = {};
     (events || []).forEach(ev => {
         if (!ev.section || ev.question_id == null) return;
+        const sectionResetTs = sectionResets[ev.section] || 0;
+        if (sectionResetTs && new Date(ev.answered_at).getTime() <= sectionResetTs) return;
         (bySection[ev.section] = bySection[ev.section] || {})[ev.question_id] = ev.answer;
     });
     let changed = false;
@@ -196,14 +212,17 @@ async function gcseHydrateFromServer() {
         events = data;
     } catch (e) { return; }
 
-    // Matching has no per-answer log — merge its summary rollup directly.
+    // Matching also merges its summary rollup directly (older accounts may
+    // have a summary but no per-pair answer log).
     let matchChanged = false;
     try {
         const { data: sums } = await _gcseSupabaseClient.from('progress_summary')
             .select('done, total, updated_at')
             .eq('page_id', pageId).eq('section', 'match');
+        const matchResetTs = _gcseSectionResetMap(pageId)['match'] || 0;
         (sums || []).forEach(row => {
             if (resetTs && new Date(row.updated_at).getTime() <= resetTs) return;
+            if (matchResetTs && new Date(row.updated_at).getTime() <= matchResetTs) return;
             const local = ProgressStore.get(pageId, 'match');
             if ((row.done || 0) > (local.done || 0)) {
                 ProgressStore.save(pageId, 'match', row.done, Math.max(row.total || 0, local.total || 0));
@@ -242,170 +261,28 @@ function _gcseApplyHydration() {
     if (wasInteractive) setTimeout(() => { _flowInteractive = true; }, 600);
 }
 
-// HTML-escape any user-supplied text (usernames are chosen by users, so
-// anything rendered via innerHTML must go through this).
-function gcseEscapeHtml(str) {
-    return String(str ?? '').replace(/[&<>"']/g, c => (
-        { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
-    ));
-}
+// ══════════════════════════════════════════════════════════════
+// ACCOUNT CLUSTER — gcseEscapeHtml / _gcseInjectAccountBarStyles /
+// _gcseInjectAccountBar / gcseLogout moved to /account-cluster.js so the
+// standalone pages (dashboard, index, badges, daily-revise, review-
+// calendar, task, manage-account, subject indexes) can reuse the exact
+// same cluster without loading all of script.js. Topic page HTML is never
+// edited, so this file loads it dynamically instead of via a script tag.
+// ══════════════════════════════════════════════════════════════
+(function _gcseLoadAccountCluster() {
+    if (typeof _gcseInjectAccountBar === 'function') return; // already present
+    if (document.querySelector('script[src$="account-cluster.js"]')) return;
+    const s = document.createElement('script');
+    s.src = '/account-cluster.js';
+    document.head.appendChild(s);
+})();
 
-function _gcseInjectAccountBarStyles() {
-    if (document.getElementById('gcse-account-bar-styles')) return;
-    const style = document.createElement('style');
-    style.id = 'gcse-account-bar-styles';
-    style.textContent = `
-        .gcse-profile-cluster{display:inline-flex;align-items:center;gap:10px;position:relative;font-family:'DM Sans',sans-serif;}
-        .gcse-notif-slot{display:inline-flex;align-items:center;}
-        .gcse-profile-btn{display:inline-flex;align-items:center;gap:9px;cursor:pointer;
-            background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);
-            border-radius:99px;padding:4px 14px 4px 5px;color:inherit;font-family:inherit;
-            transition:border-color .15s,background .15s;}
-        .gcse-profile-btn:hover,.gcse-profile-btn[aria-expanded="true"]{background:rgba(255,255,255,.16);border-color:var(--gold,#d4a843);}
-        .gcse-avatar{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;
-            width:30px;height:30px;border-radius:50%;
-            background:linear-gradient(135deg,#d4a843,#b8860b);color:#1a2332;
-            font-weight:700;font-size:13.5px;line-height:1;text-transform:uppercase;}
-        .gcse-profile-name{font-family:'DM Mono',monospace;font-size:11.5px;color:rgba(245,240,232,.9);white-space:nowrap;}
-        .gcse-profile-caret{font-size:9px;color:rgba(245,240,232,.6);transition:transform .15s;}
-        .gcse-profile-btn[aria-expanded="true"] .gcse-profile-caret{transform:rotate(180deg);}
-        .gcse-profile-menu{position:absolute;top:calc(100% + 10px);right:0;min-width:230px;z-index:502;
-            background:var(--card-bg,#fffcf6);border:1px solid var(--border,#c9bfaa);border-radius:12px;
-            box-shadow:0 16px 44px rgba(0,0,0,.28);padding:6px;display:none;color:var(--ink,#1a2332);}
-        .gcse-profile-menu.show{display:block;}
-        .gcse-profile-menu .gpm-head{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid var(--border,#c9bfaa);margin-bottom:5px;}
-        .gcse-profile-menu .gpm-head .gcse-avatar{width:36px;height:36px;font-size:16px;}
-        .gcse-profile-menu .gpm-who{min-width:0;}
-        .gcse-profile-menu .gpm-name{font-weight:700;font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-        .gcse-profile-menu .gpm-role{font-family:'DM Mono',monospace;font-size:10px;color:var(--mid,#5a6e7f);text-transform:capitalize;}
-        .gcse-profile-menu a.gpm-item,.gcse-profile-menu button.gpm-item{display:flex;align-items:center;gap:9px;width:100%;
-            padding:9px 12px;border:none;background:none;border-radius:8px;cursor:pointer;text-align:left;
-            font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink,#1a2332);text-decoration:none;}
-        .gcse-profile-menu a.gpm-item:hover,.gcse-profile-menu button.gpm-item:hover{background:var(--cream,#ede7d9);}
-        .gcse-profile-menu .gpm-divider{border-top:1px solid var(--border,#c9bfaa);margin:5px 0;}
-        .gcse-profile-menu button.gpm-logout{color:#c84b31;font-weight:600;}
-        @media (max-width:520px){
-            .gcse-profile-name{display:none;}
-            .gcse-profile-btn{padding:4px 10px 4px 5px;}
-            .gcse-profile-menu{position:fixed;top:auto;bottom:0;left:0;right:0;border-radius:14px 14px 0 0;min-width:0;}
-        }
-    `;
-    document.head.appendChild(style);
-}
-
-// One grouped, premium account cluster used on EVERY page: a notification
-// slot + an avatar "Hi, name" button that opens a dropdown with the
-// role-appropriate links and Log out. Mounts into (in order of
-// preference): an existing #accountBar (dashboard / manage-account /
-// index), the injected #siteNav (topic pages), or the page header.
-function _gcseInjectAccountBar() {
-    if (!_gcseProfile) return;
-    if (document.getElementById('gcseProfileCluster')) return;
-    const mount = document.getElementById('accountBar')
-        || document.getElementById('siteNav')
-        || document.querySelector('header');
-    if (!mount) {
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', _gcseInjectAccountBar);
-        }
-        return;
-    }
-    // Auth can resolve before DOMContentLoaded builds #siteNav — if only
-    // the raw header exists so far, wait for the nav to get the right spot.
-    if (mount.tagName === 'HEADER' && document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', _gcseInjectAccountBar);
-        return;
-    }
-    _gcseInjectAccountBarStyles();
-
-    const name = _gcseProfile.username || (_gcseProfile.role === 'teacher' ? 'teacher' : 'student');
-    const safeName = gcseEscapeHtml(name);
-    const initial = gcseEscapeHtml((name.trim()[0] || '?'));
-    const role = _gcseProfile.role === 'teacher' ? 'teacher' : 'student';
-
-    const items = role === 'teacher'
-        ? `<a class="gpm-item" href="/teacher-dashboard.html"><span aria-hidden="true">🧑‍🏫</span> Teacher Dashboard</a>
-           <a class="gpm-item" href="/teacher-tasks.html"><span aria-hidden="true">📋</span> Tasks &amp; Worksheets</a>
-           <a class="gpm-item" href="/teacher-analytics.html"><span aria-hidden="true">📈</span> Analytics</a>
-           <a class="gpm-item" href="/manage-account.html"><span aria-hidden="true">⚙️</span> Manage account</a>`
-        : `<a class="gpm-item" href="/dashboard.html"><span aria-hidden="true">📊</span> My Progress</a>
-           <a class="gpm-item" href="/index.html"><span aria-hidden="true">🏡</span> All Topics</a>
-           <a class="gpm-item" href="/manage-account.html"><span aria-hidden="true">⚙️</span> Manage account</a>`;
-
-    const cluster = document.createElement('span');
-    cluster.id = 'gcseProfileCluster';
-    cluster.className = 'gcse-profile-cluster';
-    cluster.innerHTML = `
-        <span class="gcse-notif-slot" id="gcseNotifSlot"></span>
-        <button type="button" class="gcse-profile-btn" aria-haspopup="true" aria-expanded="false">
-            <span class="gcse-avatar" aria-hidden="true">${initial}</span>
-            <span class="gcse-profile-name">Hi, <strong>${safeName}</strong></span>
-            <span class="gcse-profile-caret" aria-hidden="true">▼</span>
-        </button>
-        <div class="gcse-profile-menu" role="menu" aria-label="Account">
-            <div class="gpm-head">
-                <span class="gcse-avatar" aria-hidden="true">${initial}</span>
-                <div class="gpm-who">
-                    <div class="gpm-name">${safeName}</div>
-                    <div class="gpm-role">${role}</div>
-                </div>
-            </div>
-            ${items}
-            <div class="gpm-divider" role="separator"></div>
-            <button type="button" class="gpm-item gpm-logout gcse-logout-btn"><span aria-hidden="true">↪</span> Log out</button>
-        </div>`;
-    mount.appendChild(cluster);
-
-    const btn = cluster.querySelector('.gcse-profile-btn');
-    const menu = cluster.querySelector('.gcse-profile-menu');
-    btn.addEventListener('click', e => {
-        e.stopPropagation();
-        const willShow = !menu.classList.contains('show');
-        menu.classList.toggle('show', willShow);
-        btn.setAttribute('aria-expanded', String(willShow));
-    });
-    document.addEventListener('click', e => {
-        if (!cluster.contains(e.target)) {
-            menu.classList.remove('show');
-            btn.setAttribute('aria-expanded', 'false');
-        }
-    });
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') {
-            menu.classList.remove('show');
-            btn.setAttribute('aria-expanded', 'false');
-        }
-    });
-    cluster.querySelector('.gcse-logout-btn').addEventListener('click', gcseLogout);
-
-    // The sound toggle joins the dropdown so the header stays uncluttered —
-    // and the nav-level copy (added by initSiteNav for logged-out visitors)
-    // is removed so there is only ever one.
-    if (typeof gamificationCreateSoundButton === 'function' && !menu.querySelector('.gpm-sound')) {
-        try {
-            const navSound = document.querySelector('#siteNav > button[title="Toggle sound effects"]');
-            if (navSound) navSound.remove();
-            const soundBtn = gamificationCreateSoundButton('gpm-item gpm-sound');
-            const lbl = document.createElement('span');
-            lbl.textContent = ' Sound effects';
-            soundBtn.appendChild(lbl);
-            // Re-append the label after each toggle repaint (paint() replaces textContent)
-            soundBtn.addEventListener('click', () => {
-                if (!soundBtn.querySelector('span')) {
-                    const l = document.createElement('span');
-                    l.textContent = ' Sound effects';
-                    soundBtn.appendChild(l);
-                }
-            });
-            menu.insertBefore(soundBtn, menu.querySelector('.gpm-divider'));
-        } catch (e) {}
-    }
-}
-
-async function gcseLogout() {
-    try { if (_gcseSupabaseClient) await _gcseSupabaseClient.auth.signOut(); } catch (e) {}
-    _gcseWriteSession(null);
-    location.replace(LOGIN_PAGE);
+// Auth resolves after a network round-trip, so account-cluster.js is
+// almost certainly parsed by then — but "almost" isn't a guarantee, so
+// retry briefly instead of assuming.
+function _gcseAccountBarWhenReady(tries = 0) {
+    if (typeof _gcseInjectAccountBar === 'function') { _gcseInjectAccountBar(); return; }
+    if (tries < 50) setTimeout(() => _gcseAccountBarWhenReady(tries + 1), 100);
 }
 
 // ── Offline-safe sync of per-question answers to Supabase ──
@@ -853,7 +730,10 @@ function initTabProgress() {
 // Teachers and previews always keep the classic everything-visible view.
 // ═══════════════════════════════════════════════════════════════
 const GCSE_FLOW_KEY = 'gcse_flow_settings_v1';
-const GCSE_FLOW_DEFAULTS = { activity_order: 'open', focus_mode: true, pre_seconds: 10, post_seconds: 10 };
+// activity_timers: per-section overrides, e.g. { learn: {pre:30, post:5} } —
+// keyed by the section names in ACTIVITY_ORDER. A missing section, or a
+// missing pre/post within one, falls back to the class-wide pre/post_seconds.
+const GCSE_FLOW_DEFAULTS = { activity_order: 'open', focus_mode: true, pre_seconds: 10, post_seconds: 10, activity_timers: {} };
 
 let _flowSettings = (() => {
     try {
@@ -863,8 +743,30 @@ let _flowSettings = (() => {
     return Object.assign({}, GCSE_FLOW_DEFAULTS);
 })();
 
-function _flowPreMs()  { return Math.max(0, (+_flowSettings.pre_seconds  || 0) * 1000); }
-function _flowPostMs() { return Math.max(0, (+_flowSettings.post_seconds || 0) * 1000); }
+// Per-section override lookup. Returns the override seconds for a field
+// ('pre'/'post') of a given section, or null to fall back to class-wide.
+// Only a real finite number counts — a missing key, a bad type, or NaN
+// falls through; an explicit 0 is a valid override and must win over the
+// fallback (hence the `!= null` checks in the getters below, not `|| `).
+function _flowSectionSecs(section, field) {
+    if (!section) return null;
+    const t = _flowSettings.activity_timers;
+    if (!t || typeof t !== 'object') return null;
+    const o = t[section];
+    if (!o || typeof o !== 'object') return null;
+    const v = o[field];
+    return (typeof v === 'number' && isFinite(v)) ? v : null;
+}
+function _flowPreMs(section)  {
+    const ov = _flowSectionSecs(section, 'pre');
+    const secs = ov != null ? ov : (+_flowSettings.pre_seconds  || 0);
+    return Math.max(0, secs * 1000);
+}
+function _flowPostMs(section) {
+    const ov = _flowSectionSecs(section, 'post');
+    const secs = ov != null ? ov : (+_flowSettings.post_seconds || 0);
+    return Math.max(0, secs * 1000);
+}
 
 // Fresh settings from the server (students only) — reconciles the page
 // if the teacher's choices differ from what the cache applied.
@@ -1065,6 +967,7 @@ function notifySectionComplete(section) {
     // moment — if it's up, its own Next button is the CTA.
     setTimeout(() => {
         if (document.getElementById('sharedCelebCard')) return;
+        if (document.getElementById('matchCelebOverlay')) return; // match celebration has its own Next CTA
         if (document.getElementById('flowCompleteToast')) return;
         injectFlowStyles();
         const next = nextActivityAfter(section);
@@ -1107,7 +1010,10 @@ const FOCUS_SECTIONS = [
     { section: 'tf', wrapId: 'tfWrap', itemSel: '.tf-card',
       done: el => !!el.dataset.answered, gate: 'Answer to unlock' },
     { section: 'exam', wrapId: 'epList', itemSel: '.ep-card',
-      done: el => !!el.dataset.epRevealed || !!el.dataset.epAnswered, gate: 'Attempt + check the mark scheme' },
+      // Written questions are done only once SELF-MARKED (not merely revealed);
+      // MCQs are done when answered. Legacy reveal-only restores also set
+      // epSelfMarked so old data isn't suddenly blocked.
+      done: el => !!el.dataset.epSelfMarked || !!el.dataset.epAnswered, gate: 'Answer, check the scheme & mark yourself' },
 ];
 
 const _focusState = {};
@@ -1118,15 +1024,15 @@ function _focusItems(def) {
     return wrap ? Array.from(wrap.querySelectorAll(def.itemSel)) : [];
 }
 
-function _focusCooldownRemaining(el) {
+function _focusCooldownRemaining(el, section) {
     const at = parseInt(el.dataset.gcseDoneAt || '0', 10);
     if (!at) return 0;
-    return Math.max(0, _flowPostMs() - (Date.now() - at));
+    return Math.max(0, _flowPostMs(section) - (Date.now() - at));
 }
 
 // Reading time left before the current item may be answered.
-function _focusReadRemaining(el) {
-    const pre = _flowPreMs();
+function _focusReadRemaining(el, section) {
+    const pre = _flowPreMs(section);
     if (!pre) return 0;
     const at = parseInt(el.dataset.gcseShownAt || '0', 10);
     if (!at) return 0;
@@ -1137,7 +1043,11 @@ function _focusReadRemaining(el) {
 // reading time is blocked with a "slow down" nudge. Anything already
 // answered (reviewing feedback, popups) is left alone.
 function _focusPreGuard(e) {
-    if (!_flowSettings.focus_mode || !_flowPreMs()) return;
+    // Note: no global `_flowPreMs()` short-circuit here — reading time can
+    // be off class-wide yet set for one section via an activity override, so
+    // the per-item `_focusReadRemaining(cur, def.section)` below is what
+    // actually decides whether this section is currently gated.
+    if (!_flowSettings.focus_mode) return;
     if (!e.target || !e.target.closest) return;
     const control = e.target.closest('button, select, input');
     if (!control) return;
@@ -1149,7 +1059,7 @@ function _focusPreGuard(e) {
         if (!wrap || !wrap.contains(e.target)) continue;
         const cur = _focusItems(def)[st.idx];
         if (!cur || !cur.contains(e.target) || def.done(cur)) return;
-        const remain = _focusReadRemaining(cur);
+        const remain = _focusReadRemaining(cur, def.section);
         if (remain > 0) {
             e.preventDefault();
             e.stopPropagation();
@@ -1166,7 +1076,7 @@ function _focusMove(def, delta) {
     const target = st.idx + delta;
     if (target < 0 || target >= items.length) return;
     const cur = items[st.idx];
-    if (delta > 0 && cur && (!def.done(cur) || _focusCooldownRemaining(cur) > 0)) return;
+    if (delta > 0 && cur && (!def.done(cur) || _focusCooldownRemaining(cur, def.section) > 0)) return;
     st.idx = target;
     _focusTick();
     const el = items[st.idx];
@@ -1204,10 +1114,10 @@ function _focusTick() {
         const last = st.idx === items.length - 1;
         if (!def.done(cur)) {
             nextBtn.disabled = true;
-            const readRemain = cur.dataset.gcseShownUndone === '1' ? Math.ceil(_focusReadRemaining(cur) / 1000) : 0;
+            const readRemain = cur.dataset.gcseShownUndone === '1' ? Math.ceil(_focusReadRemaining(cur, def.section) / 1000) : 0;
             nextBtn.textContent = readRemain > 0 ? `📖 Read carefully… ${readRemain}s` : '🔒 ' + def.gate;
         } else {
-            const remain = Math.ceil(_focusCooldownRemaining(cur) / 1000);
+            const remain = Math.ceil(_focusCooldownRemaining(cur, def.section) / 1000);
             if (remain > 0) {
                 nextBtn.disabled = true;
                 nextBtn.textContent = `⏳ Next in ${remain}s`;
@@ -1262,8 +1172,8 @@ function initFocusMode() {
 
 // Teacher-configured cooldown for standalone "next step" buttons
 // (e.g. Matching round 2)
-function _applyButtonCooldown(btn, readyHtml, thing) {
-    const ms = _flowPostMs();
+function _applyButtonCooldown(btn, readyHtml, thing, section) {
+    const ms = _flowPostMs(section);
     if (!ms) return;
     btn.disabled = true;
     const start = Date.now();
@@ -1299,6 +1209,9 @@ function applyFlowSettings() {
     if (gcseIsStudent() && _flowSettings.focus_mode) initFocusMode();
     else teardownFocusMode();
     updateExpandAllControlsVisibility();
+    // Case study shows per-question in focus mode, once-per-run in the
+    // scroll-through view — re-evaluate whenever the mode changes.
+    if (typeof updateExamCaseStudyGrouping === 'function') updateExamCaseStudyGrouping();
 }
 
 function initStudentFlow() {
@@ -1897,6 +1810,8 @@ function showMatchCelebration() {
     const perfect = matchMistakes.size === 0;
     const r1 = getMatchRoundData(1).length;
     const r2 = getMatchRoundData(2).length;
+    // Guide the student onward — same CTA the shared celebration modal has.
+    const next = typeof nextActivityAfter === 'function' ? nextActivityAfter('match') : null;
     card.innerHTML = `
         <div style="font-size:52px;margin-bottom:12px;animation:celebFloat 1.8s ease-in-out infinite;">🎉</div>
         <div style="font-family:'Merriweather',serif;font-size:22px;font-weight:700;color:${T.accentHl};margin-bottom:8px;">
@@ -1911,7 +1826,8 @@ function showMatchCelebration() {
             ${r1} pairs · Round 1 &nbsp;+&nbsp; ${r2} pairs · Round 2
         </div>
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-            <button id="celebDismiss" style="background:${T.accent};color:${T.accentText};border:none;border-radius:8px;padding:10px 22px;font-family:'DM Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.06em;">✓ Done</button>
+            ${next ? `<button id="celebNext" style="background:linear-gradient(135deg,#d4a843,#b8860b);color:#fff;border:none;border-radius:8px;padding:10px 22px;font-family:'DM Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.06em;">${next.icon} Next: ${next.label} →</button>` : ''}
+            <button id="celebDismiss" style="background:${next ? 'transparent' : T.accent};color:${next ? T.textDim : T.accentText};border:${next ? '1.5px solid var(--border)' : 'none'};border-radius:8px;padding:10px 22px;font-family:'DM Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.06em;">✓ Done</button>
             <button id="celebReset" style="background:transparent;color:${T.textDim};border:1.5px solid var(--border);border-radius:8px;padding:10px 22px;font-family:'DM Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.06em;">🔄 Play Again</button>
         </div>
     `;
@@ -1924,8 +1840,12 @@ function showMatchCelebration() {
         overlay.style.transition = 'opacity .3s'; overlay.style.opacity = '0';
         setTimeout(() => { card.remove(); overlay.remove(); }, 320);
     };
+    const nextBtn = document.getElementById('celebNext');
+    if (nextBtn) nextBtn.addEventListener('click', () => { dismiss(); setTimeout(() => goToActivity(next.tabId), 340); });
     document.getElementById('celebDismiss').addEventListener('click', dismiss);
-    document.getElementById('celebReset').addEventListener('click', () => { dismiss(); setTimeout(resetMatch, 340); });
+    // Play Again is a real reset — with per-pair persistence, a bare board
+    // rebuild would just restore the finished state.
+    document.getElementById('celebReset').addEventListener('click', () => { dismiss(); setTimeout(() => _fullResetSection('match'), 340); });
     overlay.addEventListener('click', dismiss);
 }
 
@@ -1970,17 +1890,59 @@ function buildMatchRound(round) {
         right.appendChild(el);
     });
 
+    // Restore pairs already matched (saved per pair as pair_<term> the moment
+    // they're solved) — work from an earlier session stays done, so a student
+    // mid-round-2 never has to replay round 1.
+    const matched = _matchSavedKeys();
+    if (matched.size) {
+        [left, right].forEach(col => col.querySelectorAll('.match-item').forEach(el => {
+            if (matched.has(el.dataset.key)) el.classList.add('matched-ok');
+        }));
+    }
+
     left.addEventListener('click', handleMatch);
     right.addEventListener('click', handleMatch);
+
+    // Clear any leftover lines from a previous round, then (re)install the
+    // redraw hooks and draw for whatever is matched now (restored pairs
+    // included — the drawing derives from the classes set above).
+    _matchClearLines();
+    _matchRedrawLines();
+    updateMatchProgress(1);
+    updateMatchProgress(2);
+}
+
+// Terms whose pair is already solved, from the per-pair answer log.
+function _matchSavedKeys() {
+    const saved = ProgressStore.getAnswers(getPageId(), 'match') || {};
+    const keys = new Set();
+    Object.keys(saved).forEach(k => { if (k.indexOf('pair_') === 0) keys.add(k.slice(5)); });
+    return keys;
 }
 
 function buildMatch() {
-    matchScore = 0; matchRound = 1; matchRoundScores = [0, 0];
-    document.getElementById('matchScore').textContent = 0;
-    buildMatchRound(1);
+    matchRoundScores = [0, 0];
+    // Resume where they left off: round 1 until every round-1 pair is solved,
+    // then round 2; a fully solved deck shows the finished round-2 board with
+    // the "next activity" bar instead of replaying anything.
+    const matched = _matchSavedKeys();
+    matchScore = matchData.filter(m => matched.has(m.term)).length;
+    matchRound = getMatchRoundData(1).every(m => matched.has(m.term)) && getMatchRoundData(2).length ? 2 : 1;
+    document.getElementById('matchScore').textContent = matchScore;
+    buildMatchRound(matchRound);
     injectMatchSizePicker();
     injectMatchHeader();
     ProgressStore.saveTotal(getPageId(), 'match', matchData.length);
+    // The header is injected after the round build, so paint it now.
+    const label = document.getElementById('matchRoundLabel');
+    if (label) label.textContent = `Currently on Round ${matchRound} of 2`;
+    if (matchRound === 2) {
+        const bar2 = document.getElementById('matchBar2');
+        if (bar2) bar2.style.opacity = '1';
+    }
+    updateMatchProgress(1);
+    updateMatchProgress(2);
+    if (matchData.length && matchScore >= matchData.length) _matchShowCompleteBar();
 }
 
 function handleMatch(e) {
@@ -2000,6 +1962,7 @@ function handleMatch(e) {
         if (a.dataset.key === b.dataset.key) {
             const cls = matchMistakes.has(a.dataset.key) ? 'matched-eventual' : 'matched-ok';
             a.classList.add(cls); b.classList.add(cls);
+            _matchRedrawLines(); // draw the connecting line for this solved pair
             matchScore++; matchRoundScores[matchRound - 1]++;
             document.getElementById('matchScore').textContent = matchScore;
             updateMatchProgress(matchRound);
@@ -2048,25 +2011,170 @@ function onRoundComplete() {
         grid.parentElement.insertBefore(btn, grid.nextSibling);
         // Students get the same 20s "no blitzing" cooldown as everywhere else
         if (typeof gcseIsStudent === 'function' && gcseIsStudent()) {
-            _applyButtonCooldown(btn, '✅ Round 1 complete — Start Round 2 →', 'Round 2');
+            _applyButtonCooldown(btn, '✅ Round 1 complete — Start Round 2 →', 'Round 2', 'match');
         }
     } else {
         updateMatchProgress(2);
+        _matchShowCompleteBar();
         setTimeout(showMatchCelebration, 400);
     }
 }
 
+// Persistent "you're done" strip under the board — the celebration modal is
+// transient, this stays so the student always has the route onward.
+function _matchShowCompleteBar() {
+    if (document.getElementById('matchCompleteBar')) return;
+    const left = document.getElementById('matchLeft');
+    if (!left) return;
+    const grid = left.closest('.match-grid') || left.parentElement;
+    injectFlowStyles(); // .flow-toast-next
+    const next = typeof nextActivityAfter === 'function' ? nextActivityAfter('match') : null;
+    const bar = document.createElement('div');
+    bar.id = 'matchCompleteBar';
+    bar.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:16px;padding:14px 18px;border:1.5px solid var(--gold);border-radius:10px;background:rgba(212,168,67,.12);font-size:14px;';
+    bar.innerHTML = `<span>✅ <strong>Matching complete — both rounds done!</strong>${next ? ' Carry on to the next activity.' : ''}</span>
+        ${next ? `<button type="button" class="flow-toast-next">${next.icon} Next: ${next.label} →</button>` : ''}`;
+    grid.parentElement.insertBefore(bar, grid.nextSibling);
+    const nb = bar.querySelector('.flow-toast-next');
+    if (nb) nb.addEventListener('click', () => goToActivity(next.tabId));
+}
+
+// Rebuild the board from saved state (round + solved pairs re-derived) —
+// does NOT clear progress; _fullResetSection('match') is the real reset.
 function resetMatch() {
-    matchScore = 0; matchSelected = null; matchLocked = false;
-    matchRound = 1; matchRoundScores = [0, 0];
+    matchSelected = null; matchLocked = false;
     matchMistakes.clear();
-    document.getElementById('matchScore').textContent = 0;
     document.getElementById('matchLeft').innerHTML = '';
     document.getElementById('matchRight').innerHTML = '';
     const old = document.getElementById('matchNextRoundBtn');
     if (old) old.remove();
-    buildMatchRound(1);
+    const doneBar = document.getElementById('matchCompleteBar');
+    if (doneBar) doneBar.remove();
     rebuildMatchHeader();
+    buildMatch();
+}
+
+// ── Match connecting lines ────────────────────────────────────
+// SVG overlay on .match-grid that draws a line between the two halves of
+// every solved pair. Source of truth is the DOM: items carrying
+// .matched-ok / .matched-eventual plus their data-key — no separate
+// bookkeeping array that could drift. Lines are cleared and fully
+// recomputed on every redraw (cheap: ≤ ~15 lines).
+
+const _MATCH_SVG_NS = 'http://www.w3.org/2000/svg';
+let _matchLinesRO = null;          // ResizeObserver on the grid
+let _matchLinesGlobalHooks = false; // window resize + font-load hooks bound once
+let _matchLinesRafId = 0;          // rAF throttle for redraw storms
+
+// Pure geometry — unit-testable. Given the bounding rects of a matched
+// left item, its right partner, and the grid container, return the line
+// endpoints in grid-local coordinates: right edge of the left item to
+// left edge of the right item, each vertically centred.
+function _matchLineCoords(leftRect, rightRect, gridRect) {
+    return {
+        x1: leftRect.right - gridRect.left,
+        y1: leftRect.top + leftRect.height / 2 - gridRect.top,
+        x2: rightRect.left - gridRect.left,
+        y2: rightRect.top + rightRect.height / 2 - gridRect.top
+    };
+}
+
+function _matchLinesGrid() {
+    const left = document.getElementById('matchLeft');
+    return left ? (left.closest('.match-grid') || left.parentElement) : null;
+}
+
+function _matchLinesSvg(grid, create) {
+    let svg = grid.querySelector(':scope > .match-lines-svg');
+    if (!svg && create) {
+        svg = document.createElementNS(_MATCH_SVG_NS, 'svg');
+        svg.setAttribute('class', 'match-lines-svg');
+        svg.setAttribute('aria-hidden', 'true');
+        grid.appendChild(svg);
+    }
+    return svg;
+}
+
+function _matchClearLines() {
+    const grid = _matchLinesGrid();
+    if (!grid) return;
+    const svg = _matchLinesSvg(grid, false);
+    if (svg) while (svg.firstChild) svg.removeChild(svg.firstChild);
+}
+
+function _matchScheduleLinesRedraw() {
+    if (_matchLinesRafId) return;
+    _matchLinesRafId = requestAnimationFrame(() => {
+        _matchLinesRafId = 0;
+        _matchRedrawLines();
+    });
+}
+
+function _matchInitLinesObservers(grid) {
+    if (!_matchLinesGlobalHooks) {
+        _matchLinesGlobalHooks = true;
+        window.addEventListener('resize', _matchScheduleLinesRedraw);
+        // Web-font swap changes item heights after first paint
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(_matchScheduleLinesRedraw).catch(() => {});
+        }
+    }
+    // ResizeObserver also catches column reflow and content above the grid
+    // changing the grid's own box (e.g. drawer/header height changes).
+    if (typeof ResizeObserver !== 'undefined') {
+        if (!_matchLinesRO) _matchLinesRO = new ResizeObserver(_matchScheduleLinesRedraw);
+        _matchLinesRO.observe(grid); // idempotent for an already-observed node
+    }
+}
+
+// Recompute every line from current DOM state. Called after each successful
+// match, after every round build (buildMatchRound), and on resize/reflow.
+function _matchRedrawLines() {
+    const grid  = _matchLinesGrid();
+    const left  = document.getElementById('matchLeft');
+    const right = document.getElementById('matchRight');
+    if (!grid || !left || !right) return;
+
+    const svg = _matchLinesSvg(grid, true);
+    _matchInitLinesObservers(grid);
+
+    // Remember which pairs already have a line so only NEW lines animate
+    // (resize redraws must not re-trigger the draw-in effect).
+    const prevKeys = new Set();
+    svg.querySelectorAll('line').forEach(l => prevKeys.add(l.getAttribute('data-key')));
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+    // One-column layout (matches the 640px .match-grid media query in
+    // style.css): items stack vertically, lines are meaningless — skip.
+    // The computed template has one track when collapsed ("none" when the
+    // section is hidden), two when side-by-side.
+    const cols = getComputedStyle(grid).gridTemplateColumns.trim().split(/\s+/).length;
+    if (cols < 2) return;
+
+    const gridRect = grid.getBoundingClientRect();
+    if (!gridRect.width || !gridRect.height) return; // hidden — RO redraws on reveal
+
+    const rightByKey = new Map();
+    right.querySelectorAll('.match-item.matched-ok, .match-item.matched-eventual')
+        .forEach(el => rightByKey.set(el.dataset.key, el));
+
+    left.querySelectorAll('.match-item.matched-ok, .match-item.matched-eventual')
+        .forEach(li => {
+            const key = li.dataset.key;
+            const ri  = rightByKey.get(key);
+            if (!ri) return; // half-matched key (shouldn't happen) — skip gracefully
+            const c = _matchLineCoords(li.getBoundingClientRect(), ri.getBoundingClientRect(), gridRect);
+            const line = document.createElementNS(_MATCH_SVG_NS, 'line');
+            line.setAttribute('x1', c.x1); line.setAttribute('y1', c.y1);
+            line.setAttribute('x2', c.x2); line.setAttribute('y2', c.y2);
+            line.setAttribute('pathLength', '1'); // normalise for the dash draw-in
+            line.setAttribute('data-key', key);
+            const eventual = li.classList.contains('matched-eventual') || ri.classList.contains('matched-eventual');
+            let lineCls = eventual ? 'match-lines-eventual' : 'match-lines-ok';
+            if (!prevKeys.has(key)) lineCls += ' match-lines-anim';
+            line.setAttribute('class', lineCls);
+            svg.appendChild(line);
+        });
 }
 
 
@@ -2206,7 +2314,15 @@ function showCelebration({ title, subtitle, extra = '', onReset, section }) {
         setTimeout(() => { card.remove(); overlay.remove(); }, 320);
     };
     document.getElementById('sharedCelebDismiss').addEventListener('click', dismiss);
-    document.getElementById('sharedCelebReset').addEventListener('click', () => { dismiss(); if (onReset) setTimeout(onReset, 340); });
+    // "Try Again" clears the section for real where a full reset exists —
+    // the bare onReset rebuild would restore the saved answers straight back.
+    document.getElementById('sharedCelebReset').addEventListener('click', () => {
+        dismiss();
+        setTimeout(() => {
+            if (section && typeof SECTION_RESET_DEFS !== 'undefined' && SECTION_RESET_DEFS[section]) _fullResetSection(section);
+            else if (onReset) onReset();
+        }, 340);
+    });
     const nextBtn = document.getElementById('sharedCelebNext');
     if (nextBtn) nextBtn.addEventListener('click', () => { dismiss(); setTimeout(() => goToActivity(ctaNext.tabId), 340); });
     const redoBtn = document.getElementById('sharedCelebRedo');
@@ -2383,6 +2499,25 @@ function injectProgressStyles() {
         }
         .read-check-wrap[data-answered] .read-check-label {
             color: ${T.accent};
+        }
+        /* Quick Check inside a .misc-card: the card itself has NO side
+           padding (only its .wrong-view/.correct-view children do), so
+           give the injected block the same 20px inset the views use —
+           in BOTH the unanswered and the answered [data-answered] state
+           (whose shorthand padding + negative side margins would
+           otherwise pull it back to the card edges). Mirrored in
+           style.css; duplicated here because this injected <style> is
+           appended after the stylesheet and would win otherwise. */
+        .misc-card > .read-check-wrap {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 16px;
+        }
+        .misc-card > .read-check-wrap[data-answered] {
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 20px;
+            padding-right: 20px;
         }
         .read-check-label {
             font-family: 'DM Mono', monospace;
@@ -3209,13 +3344,23 @@ function buildExamPractice() {
     epRevealed = Object.keys(savedEP).length;
     examQuestions.forEach((q, qi) => {
         const card = document.createElement('div'); card.className = 'ep-card';
+        // Resolve the extract text: a question may either carry its own inline
+        // caseStudy (a scenario unique to that question) OR reference a shared
+        // extract by caseId (several questions about the same extract point at
+        // one entry in EXAM_CASE_STUDIES, so editing it once updates them all).
+        const caseText = _epResolveCase(q);
+        // Stamp a grouping key so updateExamCaseStudyGrouping() can show a
+        // shared extract once per run of questions in the scroll-through view.
+        // Keyed by caseId when present so it groups by identity, not by exact
+        // text; otherwise by the inline text itself.
+        card.dataset.caseKey = q.caseId ? ('id:' + q.caseId) : (caseText || '');
         // Case studies come in two flavours: plain text (Business) that uses
         // newlines for paragraph/bullet breaks, and full HTML (Economics) with
         // <p>/<ul>/<table> where the newlines are just formatting between tags.
         // Collapse newlines that sit BETWEEN tags first (so we don't inject
         // stray <br>s — including ones the parser hoists above a <table>),
         // then turn any remaining (plain-text) newlines into <br>.
-        const caseHtml = q.caseStudy ? `<div class="ep-case">${q.caseStudy.replace(/>\s*\n\s*</g,'><').replace(/\n/g,'<br>')}</div>` : '';
+        const caseHtml = caseText ? `<div class="ep-case">${caseText.replace(/>\s*\n\s*</g,'><').replace(/\n/g,'<br>')}</div>` : '';
         let interactiveHtml = '';
         if (q.type === 'mcq') {
             interactiveHtml = `<div class="ep-mcq-opts">${q.options.map((o, oi) => `<button class="ep-opt" data-qi="${qi}" data-oi="${oi}"><strong>${String.fromCharCode(65+oi)}.</strong> ${o}</button>`).join('')}</div>`;
@@ -3258,6 +3403,29 @@ ${q.modelAnswer ? `<div class="marks-section"><h5>✓ Model Answer</h5><div clas
                     if (allOpts[savedOi]) allOpts[savedOi].classList.add(savedOi === q.answer ? 'ep-correct' : 'ep-wrong');
                     if (savedOi !== q.answer && allOpts[q.answer]) allOpts[q.answer].classList.add('ep-correct');
                 }
+            } else {
+                // Written question: scheme was revealed before, so show the
+                // self-assessment panel too.
+                const entry = savedEP[qi];
+                const panel = _epInsertSelfPanel(card, qi);
+                // Both branches set epSelfMarked: a saved entry is already
+                // COUNTED (it's in epRevealed above), so focus mode must not
+                // re-block it — legacy reveal-only users included.
+                card.dataset.epSelfMarked = '1';
+                if (entry.selfMark !== undefined && entry.selfMark !== null) {
+                    // Fully self-marked: restore their answer + mark, locked.
+                    const ta = document.getElementById(`epTextarea-${qi}`);
+                    if (ta) { ta.value = entry.answerText || ''; ta.disabled = true; }
+                    if (panel) {
+                        panel.querySelector('.ep-self-mark').value = entry.selfMark;
+                        panel.querySelector('.ep-self-reflect').value = entry.reflection || '';
+                        _epLockSelfPanel(panel, entry.selfMark, entry.selfMax != null ? entry.selfMax : q.marks);
+                    }
+                }
+                // Legacy `{revealed:true}` entries (pre-self-marking): still
+                // counted as attempted; the panel stays UNLOCKED so they can
+                // self-mark — saving then must not double-count (the save
+                // handler checks card.dataset.epRevealed).
             }
         }
     });
@@ -3281,6 +3449,65 @@ ${q.modelAnswer ? `<div class="marks-section"><h5>✓ Model Answer</h5><div clas
     updateProgressBar('ep', epRevealed, examQuestions.length);
     ProgressStore.saveTotal(getPageId(), 'exam', examQuestions.length);
     ProgressStore.saveTotal(getPageId(), 'exam', examQuestions.length);
+    updateExamCaseStudyGrouping();
+}
+
+// ── Shared exam case studies (single source per extract) ──
+// Several questions can be about the SAME extract. Rather than each carrying
+// its own copy (which drifts when edited), a question may set `caseId` and the
+// page defines the text once in EXAM_CASE_STUDIES = { id: "<html>" }. Every
+// question with that id shows the one shared extract, so an edit updates them
+// all. Questions with their own unique scenario keep using inline `caseStudy`.
+function _epExamCaseStudies() {
+    if (typeof EXAM_CASE_STUDIES !== 'undefined' && EXAM_CASE_STUDIES) return EXAM_CASE_STUDIES;
+    if (typeof window !== 'undefined' && window.EXAM_CASE_STUDIES) return window.EXAM_CASE_STUDIES;
+    return null;
+}
+function _epResolveCase(q) {
+    if (q && q.caseId) {
+        const map = _epExamCaseStudies();
+        if (map && map[q.caseId] != null) return map[q.caseId];
+    }
+    return (q && q.caseStudy) || '';
+}
+
+// ── Case-study display mode ──
+// One-at-a-time (focus) view: every exam question keeps its own copy of the
+// case study, because the student only ever sees one card. All-at-once
+// (scroll-through) view: the same extract shared by a run of consecutive
+// questions is shown once — on the first of the run — so it isn't repeated
+// down the whole list. Toggling the teacher's setting just re-runs this;
+// no rebuild needed (the case study stays in the DOM, we only hide/show it).
+function _epExamFocusActive() {
+    return typeof gcseIsStudent === 'function' && gcseIsStudent()
+        && typeof _flowSettings !== 'undefined' && !!_flowSettings.focus_mode;
+}
+
+function _injectExamCaseStyles() {
+    if (document.getElementById('epCaseGroupStyles')) return;
+    const s = document.createElement('style');
+    s.id = 'epCaseGroupStyles';
+    s.textContent = '.ep-case.ep-case-dup{display:none !important;}';
+    document.head.appendChild(s);
+}
+
+function updateExamCaseStudyGrouping() {
+    const list = document.getElementById('epList');
+    if (!list) return;
+    _injectExamCaseStyles();
+    const perQuestion = _epExamFocusActive();
+    let prevKey = null;
+    list.querySelectorAll('.ep-card').forEach(card => {
+        const caseEl = card.querySelector('.ep-case');
+        const key = card.dataset.caseKey || '';
+        if (caseEl) {
+            // Hide only when this question's extract repeats the immediately
+            // preceding question's AND we're in the scroll-through view.
+            const isDuplicate = !perQuestion && key !== '' && key === prevKey;
+            caseEl.classList.toggle('ep-case-dup', isDuplicate);
+        }
+        prevKey = key;
+    });
 }
 function togglePop(qi, type) {
     const hint    = document.getElementById(`epHint-${qi}`);
@@ -3291,15 +3518,100 @@ function togglePop(qi, type) {
     else if (type === 'marks')  {
         const wasHidden = !marks.classList.contains('show');
         marks.classList.toggle('show');
-        // Count as attempted the first time the mark scheme is revealed
+        // Revealing the mark scheme no longer counts the question — students
+        // must mark their own answer first (_epSaveSelfMark does the counting
+        // and persistence). The first reveal just adds the self-assessment
+        // panel below the popup; it stays put when the popup is re-hidden.
         const card = marks.closest('.ep-card');
-        if (wasHidden && !card.dataset.epRevealed) {
-            card.dataset.epRevealed = 1;
-            epRevealed++; updateEPProgress();
-            ProgressStore.save(getPageId(), 'exam', epRevealed, examQuestions.length);
-            ProgressStore.saveAnswers(getPageId(), 'exam', qi, { revealed: true });
+        if (wasHidden && examQuestions[qi] && examQuestions[qi].type !== 'mcq') {
+            _epInsertSelfPanel(card, qi);
         }
     }
+}
+
+// ── EXAM PRACTICE SELF-MARKING ──
+// After seeing the mark scheme, students award themselves a mark (0–q.marks)
+// and write a short reflection. Only THEN does the question count as
+// attempted. Mirrors the teacher marking-queue controls in teacher-tasks.html.
+function _epInsertSelfPanel(card, qi) {
+    const existing = document.getElementById(`epSelf-${qi}`);
+    if (existing) return existing;
+    const q = examQuestions[qi];
+    const panel = document.createElement('div');
+    panel.className = 'ep-self';
+    panel.id = `epSelf-${qi}`;
+    panel.innerHTML = `<div class="ep-self-head">🖊️ Mark your own answer</div>
+<div class="ep-self-hint">Compare your answer with the mark scheme, then award yourself a mark and say why.</div>
+<div class="ep-self-field">
+<label for="epSelfMark-${qi}">My marks (0–${q.marks})</label>
+<input type="number" class="ep-self-mark" id="epSelfMark-${qi}" min="0" max="${q.marks}" step="0.5">
+</div>
+<textarea class="ep-self-reflect" id="epSelfReflect-${qi}" placeholder="Why did you give yourself this mark? e.g. which mark-scheme points did you hit or miss?"></textarea>
+<button type="button" class="ep-btn ep-self-save">💾 Save my mark</button>
+<div class="ep-self-msg" id="epSelfMsg-${qi}"></div>`;
+    const marksPop = document.getElementById(`epMarks-${qi}`);
+    if (marksPop && marksPop.parentNode) marksPop.insertAdjacentElement('afterend', panel);
+    else card.querySelector('.ep-body').appendChild(panel);
+    panel.querySelector('.ep-self-save').addEventListener('click', () => _epSaveSelfMark(qi));
+    return panel;
+}
+
+function _epSaveSelfMark(qi) {
+    const q = examQuestions[qi];
+    const panel = document.getElementById(`epSelf-${qi}`);
+    if (!panel || !q) return;
+    const card = panel.closest('.ep-card');
+    const markInp = panel.querySelector('.ep-self-mark');
+    const reflectTa = panel.querySelector('.ep-self-reflect');
+    const msg = panel.querySelector('.ep-self-msg');
+    const mark = parseFloat(markInp.value);
+    if (isNaN(mark) || mark < 0 || mark > Number(q.marks)) {
+        msg.textContent = `Enter a mark between 0 and ${q.marks}.`;
+        msg.classList.add('show');
+        return;
+    }
+    const reflection = reflectTa.value.trim();
+    if (!reflection) {
+        msg.textContent = 'Add a sentence explaining your mark.';
+        msg.classList.add('show');
+        return;
+    }
+    msg.textContent = ''; msg.classList.remove('show');
+    // Lock their written answer so the self-mark stays honest. answerText may
+    // be empty (some students answer on paper) — saved but never required.
+    const ansTa = document.getElementById(`epTextarea-${qi}`);
+    const answerText = ansTa ? ansTa.value.trim() : '';
+    if (ansTa) ansTa.disabled = true;
+    // Legacy reveal-only entries were already counted on restore
+    // (card.dataset.epRevealed set) — don't double-increment for those.
+    const alreadyCounted = !!card.dataset.epRevealed;
+    card.dataset.epRevealed = '1';
+    card.dataset.epSelfMarked = '1';
+    if (!alreadyCounted) {
+        epRevealed++; updateEPProgress();
+        ProgressStore.save(getPageId(), 'exam', epRevealed, examQuestions.length);
+    }
+    // No `correct` key on purpose: a self-award isn't verified right/wrong,
+    // so correctness stays null for the XP hook (_gcseExtractCorrectness).
+    ProgressStore.saveAnswers(getPageId(), 'exam', qi, { revealed: true, selfMark: mark, selfMax: q.marks, reflection, answerText });
+    _epLockSelfPanel(panel, mark, q.marks);
+}
+
+function _epLockSelfPanel(panel, mark, max) {
+    panel.classList.add('locked');
+    const markInp = panel.querySelector('.ep-self-mark');
+    const reflectTa = panel.querySelector('.ep-self-reflect');
+    if (markInp) markInp.disabled = true;
+    if (reflectTa) reflectTa.disabled = true;
+    const btn = panel.querySelector('.ep-self-save');
+    if (btn) {
+        const chip = document.createElement('span');
+        chip.className = 'ep-self-done';
+        chip.textContent = `✓ Self-marked: ${mark}/${max}`;
+        btn.replaceWith(chip);
+    }
+    const msg = panel.querySelector('.ep-self-msg');
+    if (msg) { msg.textContent = ''; msg.classList.remove('show'); }
 }
 
 // ── SCROLL TO TOP ──
@@ -3327,24 +3639,63 @@ function showDoubleClickHint() {
     toastTimeout = setTimeout(() => toastEl.classList.remove('show'), 3000);
 }
 
-// ── RANDOMISE BUTTONS ──
-function injectRandomiseButtons() {
-    document.querySelectorAll('.reset-btn').forEach(resetBtn => {
-        if (resetBtn.previousElementSibling && resetBtn.previousElementSibling.classList.contains('random-btn')) return;
-        const oc = resetBtn.getAttribute('onclick') || '';
-        let logic = null;
-        if (oc.includes('resetMCQ'))        logic = () => { mcqData.sort(() => Math.random()-.5); resetMCQ(); };
-        else if (oc.includes('resetMatch')) logic = () => { matchData.sort(() => Math.random()-.5); resetMatch(); };
-        else if (oc.includes('resetFIB'))   logic = () => { fibData.sort(() => Math.random()-.5); resetFIB(); };
-        else if (oc.includes('resetFlash')) logic = () => { flashcards.sort(() => Math.random()-.5); resetFlashcards(); };
-        else if (oc.includes('resetTF'))    logic = () => { tfData.sort(() => Math.random()-.5); resetTF(); };
-        if (logic) {
-            const rndBtn = document.createElement('button');
-            rndBtn.className = 'reset-btn random-btn'; rndBtn.innerHTML = '🔀 RANDOMISE';
-            rndBtn.style.marginLeft = 'auto'; resetBtn.style.marginLeft = '0';
-            rndBtn.addEventListener('click', logic);
-            resetBtn.parentNode.insertBefore(rndBtn, resetBtn);
+// ── SECTION RESET (score-bar RESET buttons) ──
+// A RESET used to just rebuild the DOM — but every build restores the saved
+// answers straight back, so to a student the button looked broken. Now it
+// genuinely clears that one section (answers + summary, locally and on the
+// server) so they can practise it again, and shuffles the questions for the
+// retake. First attempts always run in the authored order — the separate
+// 🔀 RANDOMISE button is gone, the shuffle simply happens on reset.
+const SECTION_RESET_DEFS = {
+    mcq:        { data: () => typeof mcqData    !== 'undefined' ? mcqData    : null, total: () => mcqData.length,    rebuild: () => resetMCQ() },
+    match:      { data: () => typeof matchData  !== 'undefined' ? matchData  : null, total: () => matchData.length,  rebuild: () => resetMatch() },
+    fib:        { data: () => typeof fibData    !== 'undefined' ? fibData    : null, total: () => typeof fibCorrectTotal !== 'undefined' ? fibCorrectTotal : 0, rebuild: () => resetFIB() },
+    flashcards: { data: () => typeof flashcards !== 'undefined' ? flashcards : null, total: () => flashcards.length, rebuild: () => resetFlashcards() },
+    tf:         { data: () => typeof tfData     !== 'undefined' ? tfData     : null, total: () => tfData.length,     rebuild: () => resetTF() },
+};
+
+function _fullResetSection(section) {
+    const def = SECTION_RESET_DEFS[section];
+    if (!def) return;
+    const pid = getPageId();
+    ProgressStore.setAnswersBulk(pid, section, {});
+    // Tombstone locally, and wipe the server copy (fire-and-forget — until
+    // supabase/section-reset.sql is run, the tombstone alone still stops
+    // THIS device re-hydrating the cleared answers).
+    _gcseTombstoneSection(pid, section);
+    try {
+        if (_gcseSupabaseClient && _gcseProfile && _gcseProfile.role === 'student') {
+            _gcseSupabaseClient.rpc('reset_my_section_progress', { p_page_id: pid, p_section: section })
+                .then(() => {}, e => console.error('reset_my_section_progress', e));
         }
+    } catch (e) {}
+    // Retakes come in a fresh order (question ids are stable, so a shuffle
+    // can never misalign future saved answers).
+    const data = def.data();
+    if (data) data.sort(() => Math.random() - .5);
+    ProgressStore.save(pid, section, 0, def.total());
+    def.rebuild();
+    if (typeof _gamUpdateHud === 'function') _gamUpdateHud();
+}
+
+function confirmResetSection(section) {
+    if (!confirm('Practise this activity again?\n\nYour answers for it will be cleared and the questions will come back in a new order.')) return;
+    _fullResetSection(section);
+}
+
+// Rewire each score-bar RESET button from "rebuild" to the real reset above.
+// The inline onclick is removed so the old rebuild can't also fire; on any
+// page where this doesn't find a button, the inline fallback still works.
+function upgradeResetButtons() {
+    const byFn = [['resetMCQ', 'mcq'], ['resetMatch', 'match'], ['resetFIB', 'fib'], ['resetFlashcards', 'flashcards'], ['resetTF', 'tf']];
+    document.querySelectorAll('.reset-btn').forEach(btn => {
+        if (btn.dataset.fullReset) return;
+        const oc = btn.getAttribute('onclick') || '';
+        const hit = byFn.find(([fn]) => oc.includes(fn));
+        if (!hit) return;
+        btn.dataset.fullReset = '1';
+        btn.removeAttribute('onclick');
+        btn.addEventListener('click', () => confirmResetSection(hit[1]));
     });
 }
 
@@ -3388,17 +3739,9 @@ function restoreProgress() {
             if (map.tot)   { const el = document.getElementById(map.tot);   if (el) el.textContent = total; }
         }
 
-        // ── Update matching header bars if they exist
-        if (section === 'match') {
-            const bar1 = document.getElementById('matchBar1');
-            const lbl1 = document.getElementById('matchBarLabel1');
-            const ov   = document.getElementById('matchBarOverall');
-            const ovL  = document.getElementById('matchOverallLabel');
-            if (bar1) bar1.style.width = total ? (done/total*100)+'%' : '0%';
-            if (lbl1) lbl1.textContent = `${done}/${total}`;
-            if (ov)   ov.style.width   = total ? (done/total*100)+'%' : '0%';
-            if (ovL)  ovL.textContent  = `${done} / ${total}`;
-        }
+        // (Matching's header bars are painted by buildMatch itself, which
+        // restores the exact per-round state — the summary rollup here can't
+        // split done across the two rounds.)
 
         // ── Update lesson ring
         updateLessonRing(section, done, total);
@@ -3626,7 +3969,7 @@ function initCourseSidebar() {
                 html += `
                     <div class="sb-parent ${pActive} ${expanded}">
                         <a href="${link.url}" class="sb-link sb-link-parent ${pActive}">${link.label}</a>
-                        <button class="sb-chevron" aria-label="Expand" onclick="this.closest('.sb-parent').classList.toggle('open');event.preventDefault();event.stopPropagation();">â–¾</button>
+                        <button class="sb-chevron" aria-label="Expand" onclick="this.closest('.sb-parent').classList.toggle('open');event.preventDefault();event.stopPropagation();">▾</button>
                     </div>
                     <div class="sb-children ${expanded}">`;
                 link.children.forEach(child => {
@@ -3720,8 +4063,10 @@ document.addEventListener('DOMContentLoaded', () => {
     buildTF();
     buildExamPractice();
     initScrollToTop();
-    injectRandomiseButtons();
     injectRedoWrongButtons();
+    // Must run AFTER injectRedoWrongButtons/injectMatchSizePicker — both
+    // locate the reset buttons via the inline onclick this removes.
+    upgradeResetButtons();
     injectFIBAdvancedToggle();
     restoreProgress();
     initStudentFlow();
