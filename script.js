@@ -143,6 +143,7 @@ async function gcseInitAuth() {
     if (cached.role === 'student' && typeof gamificationRefreshReviewStats === 'function') {
         gamificationRefreshReviewStats(_gcseSupabaseClient);
     }
+    if (cached.role === 'student') _gcseLoadContentProtect();
 }
 
 // ── Cross-device sync ──
@@ -283,6 +284,18 @@ function _gcseApplyHydration() {
 function _gcseAccountBarWhenReady(tries = 0) {
     if (typeof _gcseInjectAccountBar === 'function') { _gcseInjectAccountBar(); return; }
     if (tries < 50) setTimeout(() => _gcseAccountBarWhenReady(tries + 1), 100);
+}
+
+// Content-protection deterrents (copy/selection blocking, per-user
+// watermark, print notice) live in /content-protect.js — injected only for
+// student sessions once auth resolves, the same dynamic-load approach as
+// account-cluster.js above, because topic page HTML is never edited.
+function _gcseLoadContentProtect() {
+    if (window.__gcseContentProtectLoaded) return; // already running
+    if (document.querySelector('script[src$="content-protect.js"]')) return;
+    const s = document.createElement('script');
+    s.src = '/content-protect.js';
+    document.head.appendChild(s);
 }
 
 // ── Offline-safe sync of per-question answers to Supabase ──

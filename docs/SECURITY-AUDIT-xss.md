@@ -26,7 +26,7 @@ titles, question text, mark schemes) is out of scope here — it's covered by th
 
 | # | Sev | File:line | Note |
 |---|-----|-----------|------|
-| X3 | Low (self-XSS) | teacher-dashboard.html:769 | Fallback account bar renders the teacher's OWN `cached.username` via innerHTML unescaped. Exploit requires a teacher to have set their own username to markup, so impact is self-only; the primary (non-fallback) path uses the escaped account cluster. Left untouched to avoid colliding with the concurrent anti-copy edit to this file — fold `gcseEscapeHtml`/`taskEscapeHtml` around `cached.username` in a follow-up. |
+| X3 | Low (self-XSS) | teacher-dashboard.html:769 | **FIXED** (WP-A8 commit, once the file lane was free) — wrapped the fallback account bar's `cached.username` in the page's existing `escapeHtml()`. Impact was self-only (a teacher would have had to set their own username to markup) and the primary path already used the escaped account cluster. |
 | X4 | Low | teacher-dashboard.html:1642 | The generated-students CSV (`username,password`) is assembled by hand, bypassing `toCsv`, so the injection guard doesn't cover it. Values are system-generated (safe charset: slug usernames, random passwords) so risk is minimal; route it through `toCsv` in a follow-up for consistency. |
 
 Author-controlled generated content rendered raw (topic titles in the sidebar,

@@ -2359,3 +2359,62 @@ body.sidebar-mobile-open .sidebar-overlay {
 .cat-item.cat-popin { animation: cat-popin 0.22s ease forwards; }
 
 .cat-action { text-align: center; padding: 8px 0 16px; }
+
+/* ══════════════════════════════════════════════════════════════
+   CONTENT PROTECTION (WP-A8) — selection + print deterrents.
+   Only active once content-protect.js has added `gcse-protected` to the
+   body (student content pages, student sessions, flag on). Teacher pages
+   never load content-protect.js, so they never get the class and are
+   completely unaffected — teacher worksheets keep printing normally.
+   Answer boxes stay fully selectable; the watermark is drawn by
+   content-protect.js (aria-hidden, pointer-events:none).
+   ══════════════════════════════════════════════════════════════ */
+.gcse-protected .topic-content,
+.gcse-protected .case-study,
+.gcse-protected .case-study-box,
+.gcse-protected .case-study-text,
+.gcse-protected .qtext,
+.gcse-protected .reading-card,
+.gcse-protected .fc-front,
+.gcse-protected .fc-back {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/* Students must still type and (where the exam paste-guard allows) paste
+   into their OWN answer boxes — keep those selectable. */
+.gcse-protected input,
+.gcse-protected textarea,
+.gcse-protected select,
+.gcse-protected [contenteditable] {
+    -webkit-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+.gcse-print-notice { display: none; }
+
+@media print {
+    /* Hide the study content and show the notice instead. Scoped to
+       .gcse-protected so it can never touch a teacher worksheet. */
+    .gcse-protected main,
+    .gcse-protected .tab-panel,
+    .gcse-protected .topic-content,
+    .gcse-protected .case-study,
+    .gcse-protected .case-study-box,
+    .gcse-protected .case-study-text,
+    .gcse-protected .qtext,
+    .gcse-protected .reading-card,
+    .gcse-protected .flashcard,
+    .gcse-protected .fc-front,
+    .gcse-protected .fc-back {
+        display: none !important;
+    }
+    body.gcse-protected .gcse-print-notice {
+        display: block !important;
+        margin: 48px auto;
+        max-width: 40em;
+        text-align: center;
+        font: 600 16px/1.6 'DM Sans', sans-serif;
+        color: #000;
+    }
+}

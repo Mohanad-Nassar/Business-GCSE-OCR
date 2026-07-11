@@ -311,7 +311,7 @@
            class has at least one, and until supabase/integrity-events.sql
            has been run. -->
       <div class="panel hidden" id="pasteAlertsPanel">
-        <h3 class="subhead">🚫 Copy-paste alerts <span class="muted">— students who tried to paste into a written exam answer. The paste itself was blocked; this is the log of attempts.</span></h3>
+        <h3 class="subhead">🚫 Integrity alerts <span class="muted">— blocked copy-paste attempts in written answers, copying of protected study content, and browser dev-tools opens. Each was blocked or logged; this is the record of attempts.</span></h3>
         <table>
           <thead><tr><th>Student</th><th>Attempts</th><th>Last attempt</th><th>Where</th></tr></thead>
           <tbody id="pasteAlertsBody"></tbody>
@@ -766,7 +766,7 @@ async function init() {
   }));
 
   document.getElementById('accountBar').innerHTML =
-    `<span>Logged in as <strong>${cached.username || 'teacher'}</strong></span>
+    `<span>Logged in as <strong>${escapeHtml(cached.username || 'teacher')}</strong></span>
      <a class="nav-link" href="manage-account.html">⚙ Manage Account</a>
      <button type="button" class="nav-link" id="logoutBtn">Log out</button>`;
   document.getElementById('logoutBtn').addEventListener('click', async () => {
@@ -1292,10 +1292,19 @@ function renderPasteAlerts() {
     }).join('');
 }
 
+// Friendlier wording for the machine contexts content-protect.js logs.
+// The paste-guard's own contexts ('exam q3', 'task written answer', …) are
+// already human-readable and fall through unchanged.
+const INTEGRITY_CONTEXT_LABELS = {
+  copy_blocked: 'tried to copy protected content',
+  devtools_opened: 'opened browser dev-tools',
+};
+
 // Human-readable location for one integrity event.
 function pasteWhere(ev) {
   const topic = ev.page_id && ev.page_id.startsWith('task:') ? 'Assigned task' : pageTitle(ev.page_id);
-  return ev.context ? `${topic} (${ev.context})` : topic;
+  const label = INTEGRITY_CONTEXT_LABELS[ev.context] || ev.context;
+  return label ? `${topic} (${label})` : topic;
 }
 
 
@@ -1896,7 +1905,7 @@ async function viewStudent(studentId, name) {
     (gamStats ? tile('Lv ' + gamStats.level, gamStats.xp.toLocaleString() + ' XP') +
       tile('🔥 ' + _streak, 'Day streak') +
       tile(gamificationEarnedBadges(gamStats).length + '/' + BADGE_DEFS.length, 'Badges earned') : '') +
-    (pasteAttempts ? tile('🚫 ' + pasteAttempts, 'Copy-paste attempts') : '');
+    (pasteAttempts ? tile('🚫 ' + pasteAttempts, 'Integrity flags') : '');
   // Practice-calendar heatmap — same shared widget the student sees on their
   // own dashboard, fed this student's per-day slice (subject-scoped, loaded
   // with the class). Empty array is fully supported (renders an empty grid).
