@@ -140,6 +140,9 @@ async function gcseInitAuth() {
     if (cached.role === 'student' && typeof gamificationRefreshDailyReviseStats === 'function') {
         gamificationRefreshDailyReviseStats(_gcseSupabaseClient);
     }
+    if (cached.role === 'student' && typeof gamificationRefreshReviewStats === 'function') {
+        gamificationRefreshReviewStats(_gcseSupabaseClient);
+    }
 }
 
 // ── Cross-device sync ──
@@ -239,54 +242,164 @@ function _gcseApplyHydration() {
     if (wasInteractive) setTimeout(() => { _flowInteractive = true; }, 600);
 }
 
+// HTML-escape any user-supplied text (usernames are chosen by users, so
+// anything rendered via innerHTML must go through this).
+function gcseEscapeHtml(str) {
+    return String(str ?? '').replace(/[&<>"']/g, c => (
+        { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+    ));
+}
+
 function _gcseInjectAccountBarStyles() {
     if (document.getElementById('gcse-account-bar-styles')) return;
     const style = document.createElement('style');
     style.id = 'gcse-account-bar-styles';
     style.textContent = `
-        .gcse-account-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;font-family:'DM Mono',monospace;font-size:11px;position:relative;z-index:1;}
-        .gcse-account-user{color:rgba(245,240,232,.75);}
-        .gcse-account-bar .nav-link,.gcse-logout-btn{cursor:pointer;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:inherit;padding:6px 14px;border-radius:6px;font-family:inherit;font-size:11px;text-decoration:none;}
-        .gcse-account-bar .nav-link:hover,.gcse-logout-btn:hover{background:rgba(255,255,255,.18);}
+        .gcse-profile-cluster{display:inline-flex;align-items:center;gap:10px;position:relative;font-family:'DM Sans',sans-serif;}
+        .gcse-notif-slot{display:inline-flex;align-items:center;}
+        .gcse-profile-btn{display:inline-flex;align-items:center;gap:9px;cursor:pointer;
+            background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);
+            border-radius:99px;padding:4px 14px 4px 5px;color:inherit;font-family:inherit;
+            transition:border-color .15s,background .15s;}
+        .gcse-profile-btn:hover,.gcse-profile-btn[aria-expanded="true"]{background:rgba(255,255,255,.16);border-color:var(--gold,#d4a843);}
+        .gcse-avatar{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;
+            width:30px;height:30px;border-radius:50%;
+            background:linear-gradient(135deg,#d4a843,#b8860b);color:#1a2332;
+            font-weight:700;font-size:13.5px;line-height:1;text-transform:uppercase;}
+        .gcse-profile-name{font-family:'DM Mono',monospace;font-size:11.5px;color:rgba(245,240,232,.9);white-space:nowrap;}
+        .gcse-profile-caret{font-size:9px;color:rgba(245,240,232,.6);transition:transform .15s;}
+        .gcse-profile-btn[aria-expanded="true"] .gcse-profile-caret{transform:rotate(180deg);}
+        .gcse-profile-menu{position:absolute;top:calc(100% + 10px);right:0;min-width:230px;z-index:502;
+            background:var(--card-bg,#fffcf6);border:1px solid var(--border,#c9bfaa);border-radius:12px;
+            box-shadow:0 16px 44px rgba(0,0,0,.28);padding:6px;display:none;color:var(--ink,#1a2332);}
+        .gcse-profile-menu.show{display:block;}
+        .gcse-profile-menu .gpm-head{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid var(--border,#c9bfaa);margin-bottom:5px;}
+        .gcse-profile-menu .gpm-head .gcse-avatar{width:36px;height:36px;font-size:16px;}
+        .gcse-profile-menu .gpm-who{min-width:0;}
+        .gcse-profile-menu .gpm-name{font-weight:700;font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+        .gcse-profile-menu .gpm-role{font-family:'DM Mono',monospace;font-size:10px;color:var(--mid,#5a6e7f);text-transform:capitalize;}
+        .gcse-profile-menu a.gpm-item,.gcse-profile-menu button.gpm-item{display:flex;align-items:center;gap:9px;width:100%;
+            padding:9px 12px;border:none;background:none;border-radius:8px;cursor:pointer;text-align:left;
+            font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink,#1a2332);text-decoration:none;}
+        .gcse-profile-menu a.gpm-item:hover,.gcse-profile-menu button.gpm-item:hover{background:var(--cream,#ede7d9);}
+        .gcse-profile-menu .gpm-divider{border-top:1px solid var(--border,#c9bfaa);margin:5px 0;}
+        .gcse-profile-menu button.gpm-logout{color:#c84b31;font-weight:600;}
+        @media (max-width:520px){
+            .gcse-profile-name{display:none;}
+            .gcse-profile-btn{padding:4px 10px 4px 5px;}
+            .gcse-profile-menu{position:fixed;top:auto;bottom:0;left:0;right:0;border-radius:14px 14px 0 0;min-width:0;}
+        }
     `;
     document.head.appendChild(style);
 }
 
+// One grouped, premium account cluster used on EVERY page: a notification
+// slot + an avatar "Hi, name" button that opens a dropdown with the
+// role-appropriate links and Log out. Mounts into (in order of
+// preference): an existing #accountBar (dashboard / manage-account /
+// index), the injected #siteNav (topic pages), or the page header.
 function _gcseInjectAccountBar() {
     if (!_gcseProfile) return;
-    // Preferred spot: the unified site nav cluster (topic pages).
-    const nav = document.getElementById('siteNav');
-    if (!nav && document.readyState === 'loading') {
-        // Auth can resolve before DOMContentLoaded builds the nav — retry then.
+    if (document.getElementById('gcseProfileCluster')) return;
+    const mount = document.getElementById('accountBar')
+        || document.getElementById('siteNav')
+        || document.querySelector('header');
+    if (!mount) {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', _gcseInjectAccountBar);
+        }
+        return;
+    }
+    // Auth can resolve before DOMContentLoaded builds #siteNav — if only
+    // the raw header exists so far, wait for the nav to get the right spot.
+    if (mount.tagName === 'HEADER' && document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', _gcseInjectAccountBar);
         return;
     }
-    if (nav) {
-        if (nav.querySelector('.gcse-logout-btn')) return;
-        const wrap = document.createElement('span');
-        wrap.style.cssText = 'display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;';
-        wrap.innerHTML = `
-            <span class="sn-user">Hi, <strong>${_gcseProfile.username || 'teacher'}</strong></span>
-            ${_gcseProfile.role === 'teacher' ? '<a href="/teacher-dashboard.html" class="sn-link"><span aria-hidden="true">🧑‍🏫</span> <span class="sn-label">Teacher Dashboard</span></a>' : '<a href="/manage-account.html" class="sn-link"><span aria-hidden="true">⚙</span> <span class="sn-label">Manage Account</span></a>'}
-            <button type="button" class="sn-btn gcse-logout-btn"><span aria-hidden="true">↪</span> <span class="sn-label">Log out</span></button>`;
-        nav.appendChild(wrap);
-        wrap.querySelector('.gcse-logout-btn').addEventListener('click', gcseLogout);
-        return;
-    }
-    // Fallback for pages without the injected nav (e.g. auth resolved
-    // before DOMContentLoaded): the old header account bar.
-    const header = document.querySelector('header');
-    if (!header) return;
     _gcseInjectAccountBarStyles();
-    const bar = document.createElement('div');
-    bar.className = 'gcse-account-bar';
-    bar.innerHTML = `
-        <span class="gcse-account-user">Logged in as <strong>${_gcseProfile.username || 'teacher'}</strong></span>
-        ${_gcseProfile.role === 'teacher' ? '<a href="/teacher-dashboard.html" class="nav-link">Teacher Dashboard</a>' : '<a href="/manage-account.html" class="nav-link">⚙ Manage Account</a>'}
-        <button type="button" class="nav-link gcse-logout-btn">Log out</button>
-    `;
-    header.appendChild(bar);
-    bar.querySelector('.gcse-logout-btn').addEventListener('click', gcseLogout);
+
+    const name = _gcseProfile.username || (_gcseProfile.role === 'teacher' ? 'teacher' : 'student');
+    const safeName = gcseEscapeHtml(name);
+    const initial = gcseEscapeHtml((name.trim()[0] || '?'));
+    const role = _gcseProfile.role === 'teacher' ? 'teacher' : 'student';
+
+    const items = role === 'teacher'
+        ? `<a class="gpm-item" href="/teacher-dashboard.html"><span aria-hidden="true">🧑‍🏫</span> Teacher Dashboard</a>
+           <a class="gpm-item" href="/teacher-tasks.html"><span aria-hidden="true">📋</span> Tasks &amp; Worksheets</a>
+           <a class="gpm-item" href="/teacher-analytics.html"><span aria-hidden="true">📈</span> Analytics</a>
+           <a class="gpm-item" href="/manage-account.html"><span aria-hidden="true">⚙️</span> Manage account</a>`
+        : `<a class="gpm-item" href="/dashboard.html"><span aria-hidden="true">📊</span> My Progress</a>
+           <a class="gpm-item" href="/index.html"><span aria-hidden="true">🏡</span> All Topics</a>
+           <a class="gpm-item" href="/manage-account.html"><span aria-hidden="true">⚙️</span> Manage account</a>`;
+
+    const cluster = document.createElement('span');
+    cluster.id = 'gcseProfileCluster';
+    cluster.className = 'gcse-profile-cluster';
+    cluster.innerHTML = `
+        <span class="gcse-notif-slot" id="gcseNotifSlot"></span>
+        <button type="button" class="gcse-profile-btn" aria-haspopup="true" aria-expanded="false">
+            <span class="gcse-avatar" aria-hidden="true">${initial}</span>
+            <span class="gcse-profile-name">Hi, <strong>${safeName}</strong></span>
+            <span class="gcse-profile-caret" aria-hidden="true">▼</span>
+        </button>
+        <div class="gcse-profile-menu" role="menu" aria-label="Account">
+            <div class="gpm-head">
+                <span class="gcse-avatar" aria-hidden="true">${initial}</span>
+                <div class="gpm-who">
+                    <div class="gpm-name">${safeName}</div>
+                    <div class="gpm-role">${role}</div>
+                </div>
+            </div>
+            ${items}
+            <div class="gpm-divider" role="separator"></div>
+            <button type="button" class="gpm-item gpm-logout gcse-logout-btn"><span aria-hidden="true">↪</span> Log out</button>
+        </div>`;
+    mount.appendChild(cluster);
+
+    const btn = cluster.querySelector('.gcse-profile-btn');
+    const menu = cluster.querySelector('.gcse-profile-menu');
+    btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const willShow = !menu.classList.contains('show');
+        menu.classList.toggle('show', willShow);
+        btn.setAttribute('aria-expanded', String(willShow));
+    });
+    document.addEventListener('click', e => {
+        if (!cluster.contains(e.target)) {
+            menu.classList.remove('show');
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            menu.classList.remove('show');
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+    cluster.querySelector('.gcse-logout-btn').addEventListener('click', gcseLogout);
+
+    // The sound toggle joins the dropdown so the header stays uncluttered —
+    // and the nav-level copy (added by initSiteNav for logged-out visitors)
+    // is removed so there is only ever one.
+    if (typeof gamificationCreateSoundButton === 'function' && !menu.querySelector('.gpm-sound')) {
+        try {
+            const navSound = document.querySelector('#siteNav > button[title="Toggle sound effects"]');
+            if (navSound) navSound.remove();
+            const soundBtn = gamificationCreateSoundButton('gpm-item gpm-sound');
+            const lbl = document.createElement('span');
+            lbl.textContent = ' Sound effects';
+            soundBtn.appendChild(lbl);
+            // Re-append the label after each toggle repaint (paint() replaces textContent)
+            soundBtn.addEventListener('click', () => {
+                if (!soundBtn.querySelector('span')) {
+                    const l = document.createElement('span');
+                    l.textContent = ' Sound effects';
+                    soundBtn.appendChild(l);
+                }
+            });
+            menu.insertBefore(soundBtn, menu.querySelector('.gpm-divider'));
+        } catch (e) {}
+    }
 }
 
 async function gcseLogout() {
@@ -1890,10 +2003,19 @@ function handleMatch(e) {
             matchScore++; matchRoundScores[matchRound - 1]++;
             document.getElementById('matchScore').textContent = matchScore;
             updateMatchProgress(matchRound);
-            ProgressStore.save(getPageId(), 'match', matchScore, matchData.length);
-            // Matching saves summary counts only (no per-answer log), so the
-            // gamification hook in saveAnswers never fires — call it here.
-            if (typeof gamificationOnAnswer === 'function') gamificationOnAnswer(true, 'match');
+            // The match game restarts from 0 every visit, but the recorded
+            // summary is "best ever" — otherwise the first pair of a new
+            // session would overwrite a finished 13/13 with 1/13 (locally
+            // AND on the server, since record_progress overwrites done).
+            const prevMatchDone = ProgressStore.get(getPageId(), 'match').done || 0;
+            const bestMatchDone = Math.min(Math.max(matchScore, prevMatchDone), matchData.length);
+            ProgressStore.save(getPageId(), 'match', bestMatchDone, matchData.length);
+            // Mirror the pair to the server as a per-answer event (keyed by
+            // the term text, which is stable across shuffles) — without this
+            // the teacher dashboard always showed matching as 0, because
+            // only saveAnswers() reaches progress_summary. saveAnswers also
+            // fires the gamification hook, so no manual call is needed here.
+            ProgressStore.saveAnswers(getPageId(), 'match', 'pair_' + a.dataset.key, { correct: true });
             const left = document.getElementById('matchLeft');
             const total = left.querySelectorAll('.match-item').length;
             const done  = left.querySelectorAll('.matched-ok, .matched-eventual').length;
@@ -2630,8 +2752,9 @@ function injectFCAmberUI() {
 }
 
 function updateFCProgress() {
-    // Only Green counts toward mastery progress (Red/Amber still need review).
-    updateProgressBar('fc', greenCards.length, activeDeck.length);
+    // Only Green counts toward mastery progress (Red/Amber still need
+    // review) — always measured against the FULL deck, not a review subset.
+    updateProgressBar('fc', greenCards.length, flashcards.length);
 }
 
 function initFlashcards() {
@@ -2639,7 +2762,8 @@ function initFlashcards() {
     activeDeck = [...flashcards];
     injectFCProgressBar();
     injectFCAmberUI();
-    ProgressStore.saveTotal(getPageId(), 'flashcards', activeDeck.length);
+    // Total registered against the FULL deck, never a review subset.
+    ProgressStore.saveTotal(getPageId(), 'flashcards', flashcards.length);
 
     // Restore each card's previously graded Red/Amber/Green verdict —
     // keyed by the card's stable id so shuffles/randomise can't misalign
@@ -2661,7 +2785,7 @@ function initFlashcards() {
         document.getElementById('fcSummaryArea').style.display = 'none';
         document.getElementById('fcActiveArea').style.display = 'block';
         document.getElementById('fcScoreBar').style.display = 'flex';
-        updateProgressBar('fc', greenCards.length, activeDeck.length);
+        updateProgressBar('fc', greenCards.length, flashcards.length);
         renderFC(); updateFCScore();
         // Show how far they got without losing progress
     } else {
@@ -2673,10 +2797,10 @@ function resetFlashcardsState() {
     document.getElementById('fcSummaryArea').style.display = 'none';
     document.getElementById('fcActiveArea').style.display = 'block';
     document.getElementById('fcScoreBar').style.display = 'flex';
-    updateProgressBar('fc', greenCards.length, activeDeck.length);
+    updateProgressBar('fc', greenCards.length, flashcards.length);
     renderFC(); updateFCScore();
 }
-function resetFlashcards() { activeDeck = [...flashcards]; redCards = []; amberCards = []; greenCards = []; updateProgressBar("fc", 0, activeDeck.length); resetFlashcardsState(); }
+function resetFlashcards() { activeDeck = [...flashcards]; redCards = []; amberCards = []; greenCards = []; updateProgressBar("fc", 0, flashcards.length); resetFlashcardsState(); }
 function reviewWrong() {
     const toReview = [...redCards, ...amberCards];
     if (!toReview.length) return;
@@ -2734,6 +2858,13 @@ function markCard(status) {
         return;
     }
     const card = activeDeck[fcIndex];
+    // Re-grading a card (e.g. in a "review wrong" round) must MOVE it, not
+    // duplicate it — otherwise greenCards accumulates copies across review
+    // rounds and the recorded "done" climbs past the deck size (19/12).
+    [redCards, amberCards, greenCards].forEach(arr => {
+        const ix = arr.indexOf(card);
+        if (ix !== -1) arr.splice(ix, 1);
+    });
     if (normalized === 'green') greenCards.push(card);
     else if (normalized === 'amber') amberCards.push(card);
     else redCards.push(card);
@@ -2743,7 +2874,9 @@ function markCard(status) {
     // object — reading it directly is safer than re-deriving an index here,
     // since activeDeck may be a shuffled/filtered subset of `flashcards`.
     const key = card && card._qi != null ? card._qi : fcIndex;
-    ProgressStore.save(getPageId(), 'flashcards', greenCards.length, activeDeck.length);
+    // Total is ALWAYS the full deck — activeDeck may be a review subset,
+    // and saving its length made totals flip (16 → 12) between rounds.
+    ProgressStore.save(getPageId(), 'flashcards', greenCards.length, flashcards.length);
     ProgressStore.saveAnswers(getPageId(), 'flashcards', 'progress', { index: fcIndex + 1, done: greenCards.length });
     ProgressStore.saveAnswers(getPageId(), 'flashcards', key, { status: normalized });
     if (typeof _fcBumpDaily === 'function') _fcBumpDaily();
@@ -3076,7 +3209,13 @@ function buildExamPractice() {
     epRevealed = Object.keys(savedEP).length;
     examQuestions.forEach((q, qi) => {
         const card = document.createElement('div'); card.className = 'ep-card';
-        const caseHtml = q.caseStudy ? `<div class="ep-case">${q.caseStudy.replace(/\n/g,'<br>')}</div>` : '';
+        // Case studies come in two flavours: plain text (Business) that uses
+        // newlines for paragraph/bullet breaks, and full HTML (Economics) with
+        // <p>/<ul>/<table> where the newlines are just formatting between tags.
+        // Collapse newlines that sit BETWEEN tags first (so we don't inject
+        // stray <br>s — including ones the parser hoists above a <table>),
+        // then turn any remaining (plain-text) newlines into <br>.
+        const caseHtml = q.caseStudy ? `<div class="ep-case">${q.caseStudy.replace(/>\s*\n\s*</g,'><').replace(/\n/g,'<br>')}</div>` : '';
         let interactiveHtml = '';
         if (q.type === 'mcq') {
             interactiveHtml = `<div class="ep-mcq-opts">${q.options.map((o, oi) => `<button class="ep-opt" data-qi="${qi}" data-oi="${oi}"><strong>${String.fromCharCode(65+oi)}.</strong> ${o}</button>`).join('')}</div>`;
@@ -3452,13 +3591,27 @@ function initCourseSidebar() {
     sidebar.id = 'course-sidebar';
     sidebar.className = 'course-sidebar';
 
+    // Subject-aware topic tree: subject pages declare their own tree via
+    // page-groups.js (window.PAGE_GROUPS / window.SUBJECT). Business keeps
+    // the hand-curated nested courseData below (PAGE_GROUPS is flat and
+    // would lose the 2.4.x sub-page nesting).
+    let sections = courseData;
+    let homeHref = '/index.html';
+    if (window.PAGE_GROUPS && window.SUBJECT && window.SUBJECT.slug !== 'business') {
+        sections = window.PAGE_GROUPS.map(g => ({
+            title: g.title,
+            links: g.pages.map(p => ({ url: p.href, label: p.name }))
+        }));
+        homeHref = '/subjects/' + window.SUBJECT.slug + '/index.html';
+    }
+
     let html = `
         <div class="sb-header">
-            <a href="/index.html">← All Lessons</a>
+            <a href="${homeHref}">← All Lessons</a>
             <button class="mobile-close-btn" id="mobileCloseBtn">✕ Close</button>
         </div>`;
 
-    courseData.forEach(section => {
+    sections.forEach(section => {
         html += `<div class="sb-section">${section.title}</div>`;
         section.links.forEach(link => {
             const isActive = currentPath.includes(link.url) ? 'active' : '';
@@ -4064,6 +4217,10 @@ const ProgressStore = (() => {
     // ── Public API ──
     function save(pageId, section, done, total) {
         if (!pageId) return;
+        // A section can never be more complete than its own total — clamping
+        // here protects every caller (and the teacher dashboard) from
+        // overcounted summaries like "18/12".
+        if (typeof total === 'number' && total > 0 && typeof done === 'number' && done > total) done = total;
         const key = `${pageId}__${section}`;
         _backend.set(key, { done, total, ts: Date.now() });
         _notifyDashboard(pageId, section, done, total);
