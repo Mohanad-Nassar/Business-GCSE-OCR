@@ -167,6 +167,19 @@ function _notifEsc(str) {
             }
         });
         panel.addEventListener('click', async e => {
+            // "Mark all read" — dismiss everything in one click.
+            if (e.target.closest('.gcse-notif-clearall')) {
+                const keys = _items.map(n => n.key);
+                _items = [];
+                render(wrap);
+                if (_client && _uid && keys.length) {
+                    try {
+                        await _client.from('task_notification_reads')
+                            .upsert(keys.map(k => ({ student_id: _uid, note_key: k })));
+                    } catch (err) { console.error('task_notification_reads upsert', err); }
+                }
+                return;
+            }
             const dismissBtn = e.target.closest('.gcse-notif-dismiss');
             if (!dismissBtn) return;
             const key = dismissBtn.closest('.gcse-notif-row').dataset.key;
@@ -185,15 +198,30 @@ function _notifEsc(str) {
         const panel = wrap.querySelector('.gcse-notif-panel');
         badge.textContent = _items.length > 9 ? '9+' : String(_items.length);
         badge.classList.toggle('show', _items.length > 0);
-        panel.innerHTML = _items.length ? _items.map(n => `
+        const head = _items.length
+            ? `<div class="gcse-notif-head" style="display:flex;align-items:center;justify-content:space-between;padding:8px 8px 6px;border-bottom:1px solid var(--border,#c9bfaa);">
+                 <strong style="font-size:12px;">Notifications (${_items.length})</strong>
+                 <button type="button" class="gcse-notif-clearall" style="background:none;border:none;cursor:pointer;font-size:11px;color:var(--accent,#4a6fa5);font-weight:600;">Mark all read</button>
+               </div>`
+            : '';
+        panel.innerHTML = head + (_items.length ? _items.map(n => `
             <div class="gcse-notif-row" data-key="${_notifEsc(n.key)}">
                 <span class="gcse-notif-icon" aria-hidden="true">${n.icon}</span>
                 <span class="gcse-notif-text">${_notifEsc(n.text)}<a class="gcse-notif-open" href="/task.html?id=${encodeURIComponent(n.taskId)}">Open →</a></span>
                 <button type="button" class="gcse-notif-dismiss" title="Dismiss" aria-label="Dismiss notification">✕</button>
-            </div>`).join('') : '<div class="gcse-notif-empty">No new notifications.</div>';
+            </div>`).join('') : '<div class="gcse-notif-empty">No new notifications.</div>');
     }
 
-    function mountBell(wrap) {
+    function mountBell(wrap, tries) {
+        // Preferred home: the slot inside the shared profile cluster
+        // (script.js), so the bell sits beside the avatar on EVERY page.
+        // The cluster is injected after auth resolves, so poll briefly —
+        // the old behaviour of falling straight back to a floating
+        // bottom-right button made the header inconsistent across pages.
+        tries = tries || 0;
+        const slot = document.getElementById('gcseNotifSlot');
+        if (slot) { slot.appendChild(wrap); return; }
+        if (tries < 25) { setTimeout(() => mountBell(wrap, tries + 1), 200); return; }
         const siteNav = document.getElementById('siteNav');
         if (siteNav) { siteNav.appendChild(wrap); return; }
         const accountBar = document.getElementById('accountBar');
@@ -276,4 +304,107 @@ function _notifEsc(str) {
     } else {
         boot();
     }
+})();
+
+// ══════════════════════════════════════════════════════════════
+// PASTE GUARD — written exam-answer boxes.
+// Students shouldn't be able to paste a Googled/AI answer into an
+// exam-style answer box, so paste and text drag-drop are blocked in the
+// two shared written-answer textareas (.ep-answer-area on topic pages,
+// .answer-box on task.html). The student sees a warning toast and every
+// blocked attempt is logged via record_integrity_event()
+// (supabase/integrity-events.sql), which the teacher dashboard reads.
+// Lives in this file because it's the one shared script every
+// student-facing page already loads — topic HTMLs are never edited.
+// ══════════════════════════════════════════════════════════════
+(function () {
+    const GUARD_SELECTOR = 'textarea.ep-answer-area, textarea.answer-box';
+    let _lastLoggedAt = 0;
+    let _warnTimer = null;
+
+    function _guardRole() {
+        try {
+            const s = JSON.parse(localStorage.getItem(NOTIF_SESSION_KEY) || 'null');
+            return s ? s.role : null;
+        } catch (e) { return null; }
+    }
+
+    // Same id the page's own progress writes use, so the teacher sees one
+    // consistent topic name; task.html has no getPageId(), so its attempts
+    // log as 'task:<uuid>'.
+    function _guardPageId() {
+        if (typeof getPageId === 'function') {
+            try { return getPageId(); } catch (e) {}
+        }
+        if (location.pathname.endsWith('/task.html')) {
+            const m = location.search.match(/[?&]id=([^&]+)/);
+            if (m) return 'task:' + decodeURIComponent(m[1]);
+        }
+        return location.pathname.split('/').pop().replace('.html', '') || 'unknown';
+    }
+
+    function _guardContext(ta) {
+        const m = (ta.id || '').match(/^epTextarea-(\d+)$/);
+        if (m) return 'exam q' + (parseInt(m[1], 10) + 1);
+        if (ta.id === 'writtenAnswer') return 'task written answer';
+        return ta.id || 'answer box';
+    }
+
+    function _guardShowWarning(alerted) {
+        let el = document.getElementById('gcsePasteWarn');
+        if (!el) {
+            const s = document.createElement('style');
+            s.textContent = `
+#gcsePasteWarn{position:fixed;top:18px;left:50%;transform:translateX(-50%) translateY(-8px);
+  max-width:min(440px,92vw);z-index:9999;background:var(--wrong,#c84b31);color:#fff;
+  font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:1.45;font-weight:600;
+  padding:12px 18px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.35);
+  opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;text-align:center;}
+#gcsePasteWarn.show{opacity:1;transform:translateX(-50%) translateY(0);}`;
+            document.head.appendChild(s);
+            el = document.createElement('div');
+            el.id = 'gcsePasteWarn';
+            el.setAttribute('role', 'alert');
+            document.body.appendChild(el);
+        }
+        el.textContent = '🚫 Copying and pasting is not allowed here — exam answers must be typed in your own words.'
+            + (alerted ? ' Your teacher has been alerted.' : '');
+        el.classList.add('show');
+        clearTimeout(_warnTimer);
+        _warnTimer = setTimeout(() => el.classList.remove('show'), 5000);
+    }
+
+    function _guardLog(ta, chars) {
+        const client = window._gcseSupabaseClient;
+        if (!client) return false; // logged out — still blocked, just nothing to log
+        const now = Date.now();
+        if (now - _lastLoggedAt < 4000) return true; // one row per burst of retries
+        _lastLoggedAt = now;
+        try {
+            client.rpc('record_integrity_event', {
+                p_page_id: _guardPageId(),
+                p_context: _guardContext(ta),
+                p_detail: { chars: chars || 0 },
+            }).then(({ error }) => { if (error) console.error('record_integrity_event', error); });
+        } catch (e) {}
+        return true;
+    }
+
+    function _guardHandler(e) {
+        const ta = e.target && e.target.closest && e.target.closest(GUARD_SELECTOR);
+        if (!ta) return;
+        if (_guardRole() === 'teacher') return; // a teacher previewing isn't policed
+        e.preventDefault();
+        let chars = 0;
+        try {
+            const dt = e.clipboardData || e.dataTransfer;
+            chars = dt ? String(dt.getData('text') || '').length : 0;
+        } catch (err) {}
+        const alerted = _guardLog(ta, chars);
+        _guardShowWarning(alerted);
+    }
+
+    // Capture phase so the block runs before any per-textarea listeners.
+    document.addEventListener('paste', _guardHandler, true);
+    document.addEventListener('drop', _guardHandler, true);
 })();
