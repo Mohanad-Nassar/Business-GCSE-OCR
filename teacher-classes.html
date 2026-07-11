@@ -41,6 +41,19 @@
   .class-card { background:#fff; border:1px solid var(--border); border-radius:10px; padding:16px 16px 14px; display:flex; flex-direction:column; gap:8px; }
   .class-card h3 { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:var(--ink); margin:0; }
   .class-card .meta { font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); }
+  .jc-block { border-top:1px dashed var(--border); padding-top:10px; margin-top:2px; display:flex; flex-direction:column; gap:7px; }
+  .jc-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .jc-code { font-family:'DM Mono',monospace; font-size:16px; letter-spacing:.18em; font-weight:600;
+    background:var(--cream); border:1px solid var(--border); border-radius:6px; padding:5px 10px; }
+  .jc-none { font-size:12px; color:var(--mid); font-style:italic; }
+  .jc-btn { background:#fff; border:1px solid var(--border); border-radius:6px; padding:5px 10px;
+    font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--ink); cursor:pointer; }
+  .jc-btn:hover { border-color:var(--accent); }
+  .jc-btn.danger { color:#c84b31; }
+  .jc-meta { font-size:11px; color:var(--mid); line-height:1.5; }
+  .jc-exp { font-size:11px; color:var(--mid); display:inline-flex; align-items:center; gap:5px; }
+  .jc-exp select { border:1px solid var(--border); border-radius:5px; padding:3px 6px; font-size:11.5px; background:#fff; }
   .subj-chip { display:inline-block; font-family:'DM Mono',monospace; font-size:10.5px; padding:2px 9px; border-radius:99px; align-self:flex-start; }
   .card-links { display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; padding-top:10px; border-top:1px solid var(--border); }
   .card-links a { font-family:'DM Mono',monospace; font-size:11px; text-decoration:none; color:var(--ink); border:1px solid var(--border); border-radius:6px; padding:5px 9px; white-space:nowrap; }
@@ -109,6 +122,7 @@ let auth = null;
 let classes = [];        // all classes for this teacher (active + archived)
 let counts = {};         // classId -> student count
 let subjectsList = [];   // [{id, slug, name, colour, icon}]
+let joinCodes = {};      // classId -> active class_join_codes row (WP-A2)
 let currentTab = 'active';
 
 function hexTriplet(hex) {
@@ -152,7 +166,50 @@ async function loadClasses() {
     const { data: cs } = await auth.client.from('class_students').select('class_id');
     (cs || []).forEach(r => { counts[r.class_id] = (counts[r.class_id] || 0) + 1; });
   } catch (e) {}
+  // Active join codes (RLS scopes this to my classes). Table may not exist
+  // until supabase/join-codes.sql has been run — fail quiet, hide the UI.
+  joinCodes = {};
+  try {
+    const { data: jcs, error: jcErr } = await auth.client
+      .from('class_join_codes').select('*').eq('revoked', false);
+    if (!jcErr) (jcs || []).forEach(r => { joinCodes[r.class_id] = r; });
+    window._jcTableReady = !jcErr;
+  } catch (e) { window._jcTableReady = false; }
   render();
+}
+
+function jcMetaLabel(jc) {
+  const uses = `Used ${jc.use_count}×${jc.max_uses ? ` of ${jc.max_uses}` : ''}`;
+  const exp = jc.expires_at
+    ? `expires ${new Date(jc.expires_at).toLocaleDateString(undefined, { day: 'numeric', month: 'short' })}`
+    : 'never expires';
+  return `${uses} · ${exp} · students enter it on the Join page after logging in`;
+}
+
+function jcBlockHtml(c) {
+  if (currentTab === 'archived' || !window._jcTableReady) return '';
+  const jc = joinCodes[c.id];
+  const expSelect = `<label class="jc-exp">Expires:
+      <select data-expsel="${esc(c.id)}">
+        <option value="30" selected>in 30 days</option>
+        <option value="7">in 7 days</option>
+        <option value="90">in 90 days</option>
+        <option value="">never</option>
+      </select></label>`;
+  return `<div class="jc-block">
+    <div class="jc-row">
+      ${jc ? `<span class="jc-code">${esc(jc.code)}</span>
+              <button type="button" class="jc-btn" data-copy="${esc(jc.code)}">Copy</button>
+              <button type="button" class="jc-btn danger" data-revoke="${esc(c.id)}">Remove</button>`
+           : `<span class="jc-none">No join code</span>`}
+    </div>
+    <div class="jc-row">
+      ${expSelect}
+      <button type="button" class="jc-btn" data-gen="${esc(c.id)}">${jc ? '↻ New code' : '➕ Create join code'}</button>
+    </div>
+    <div class="jc-meta">${jc ? jcMetaLabel(jc)
+      : 'A join code lets any student account join this class from the Join page — including students who signed up themselves or study your other subjects.'}</div>
+  </div>`;
 }
 
 function render() {
@@ -178,9 +235,49 @@ function render() {
       ${subjChip(c.subjects)}
       <div class="meta">👥 ${n} student${n === 1 ? '' : 's'}</div>
       <div class="card-links">${links}</div>
+      ${jcBlockHtml(c)}
     </div>`;
   }).join('');
 }
+
+// Join-code actions — one delegated listener survives every re-render.
+$('classGrid').addEventListener('click', async (e) => {
+  const copyBtn = e.target.closest('[data-copy]');
+  if (copyBtn) {
+    try {
+      await navigator.clipboard.writeText(copyBtn.dataset.copy);
+      copyBtn.textContent = 'Copied ✓';
+      setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1600);
+    } catch (err) {
+      prompt('Copy this class code:', copyBtn.dataset.copy);
+    }
+    return;
+  }
+  const genBtn = e.target.closest('[data-gen]');
+  if (genBtn) {
+    const classId = genBtn.dataset.gen;
+    if (joinCodes[classId] &&
+        !confirm('Generate a new code? The old one stops working immediately.')) return;
+    const sel = document.querySelector(`[data-expsel="${classId}"]`);
+    const days = sel && sel.value ? parseInt(sel.value, 10) : null;
+    genBtn.disabled = true;
+    const { error } = await auth.client.rpc('generate_join_code',
+      { p_class_id: classId, p_expires_days: days, p_max_uses: null });
+    genBtn.disabled = false;
+    if (error) { alert('Could not create the code: ' + error.message); return; }
+    await loadClasses();
+    return;
+  }
+  const revokeBtn = e.target.closest('[data-revoke]');
+  if (revokeBtn) {
+    if (!confirm('Remove this join code? Students who already joined stay in the class.')) return;
+    revokeBtn.disabled = true;
+    const { error } = await auth.client.rpc('revoke_join_code', { p_class_id: revokeBtn.dataset.revoke });
+    revokeBtn.disabled = false;
+    if (error) { alert('Could not remove the code: ' + error.message); return; }
+    await loadClasses();
+  }
+});
 
 $('tabActive').addEventListener('click', () => setTab('active'));
 $('tabArchived').addEventListener('click', () => setTab('archived'));

@@ -441,7 +441,8 @@
       grid.classList.remove('hub-loading');
       if (!rows.length) {
         grid.innerHTML = `<div class="hub-empty">You're not enrolled in any class yet, so there's nothing to show
-          here. Ask your teacher to add you to a class, then refresh this page.</div>`;
+          here. Got a class code from your teacher? <a href="/join.html" style="font-weight:600;">Join your class →</a><br/>
+          No code yet? Ask your teacher for one, then come back.</div>`;
         return;
       }
       grid.innerHTML = rows.map(s => subjectCardHtml(s, {
