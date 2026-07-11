@@ -95,6 +95,8 @@
     end;
     $$;
     grant execute on function generate_join_code(uuid, int, int) to authenticated;
+    revoke execute on function generate_join_code(uuid, int, int) from public;
+    revoke execute on function generate_join_code(uuid, int, int) from anon;
 
     -- ── revoke_join_code ──
     create or replace function revoke_join_code(p_class_id uuid) returns void
@@ -108,6 +110,8 @@
     end;
     $$;
     grant execute on function revoke_join_code(uuid) to authenticated;
+    revoke execute on function revoke_join_code(uuid) from public;
+    revoke execute on function revoke_join_code(uuid) from anon;
 
     -- ── redeem_join_code ──
     -- Student-only. Errors are stable slugs the UI maps to friendly text:
@@ -175,3 +179,5 @@
     end;
     $$;
     grant execute on function redeem_join_code(text) to authenticated;
+    revoke execute on function redeem_join_code(text) from public;
+    revoke execute on function redeem_join_code(text) from anon;

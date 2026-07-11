@@ -67,6 +67,8 @@ language sql stable security definer set search_path = public as $$
     select has_subject_access(auth.uid(), p_subject);
 $$;
 grant execute on function my_subject_access(text) to authenticated;
+revoke execute on function my_subject_access(text) from public;
+revoke execute on function my_subject_access(text) from anon;
 
 -- One round trip for the Edge gate: both verdicts at once.
 --   allow_content — may load this subject's topic pages / assets
@@ -83,6 +85,10 @@ language sql stable security definer set search_path = public as $$
     );
 $$;
 grant execute on function edge_gate_check(text) to authenticated;
+-- definer functions default EXECUTE to PUBLIC — anon calls are harmless
+-- here (auth.uid() null → false) but pointless; deny them anyway (WP-A9).
+revoke execute on function edge_gate_check(text) from public;
+revoke execute on function edge_gate_check(text) from anon;
 
 -- UI helper: the subjects this account may access, with the reason —
 -- feeds hub cards, the account-menu subject switcher and empty states.
@@ -109,3 +115,5 @@ language sql stable security definer set search_path = public as $$
     end;
 $$;
 grant execute on function get_my_entitlements() to authenticated;
+revoke execute on function get_my_entitlements() from public;
+revoke execute on function get_my_entitlements() from anon;
