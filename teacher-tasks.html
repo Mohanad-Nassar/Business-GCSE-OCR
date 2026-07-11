@@ -648,7 +648,7 @@ async function selectClass(classId) {
     .from('class_students').select('profiles!inner(id, username)')
     .eq('class_id', activeClassId);
   roster = (members || []).map(m => ({ id: m.profiles.id, username: m.profiles.username }))
-    .sort((a, b) => a.username.localeCompare(b.username));
+    .sort((a, b) => a.username.localeCompare(b.username, undefined, { numeric: true }));
   edRosterCache.set(activeClassId, roster);
 
   await loadClassTasks();
@@ -1256,7 +1256,7 @@ async function getRosterForClass(classId) {
     .from('class_students').select('profiles!inner(id, username)')
     .eq('class_id', classId);
   const list = (members || []).map(m => ({ id: m.profiles.id, username: m.profiles.username }))
-    .sort((a, b) => a.username.localeCompare(b.username));
+    .sort((a, b) => a.username.localeCompare(b.username, undefined, { numeric: true }));
   edRosterCache.set(classId, list);
   return list;
 }
@@ -2300,6 +2300,7 @@ function renderDetailQuestions() {
 
 init();
 </script>
+<script src="teacher-nav.js"></script>
 <script src="footer-legal.js"></script>
 </body>
 </html>

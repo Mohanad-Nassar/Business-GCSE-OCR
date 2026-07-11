@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Calendar — Teacher · GCSE Business Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@300;400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="business-style.css"/>
+<style>
+  html, body { display:block !important; grid-template-columns:none !important; grid-template-rows:none !important; grid-template-areas:none !important; }
+  header, main { grid-area:unset !important; }
+  body { background:var(--paper); color:var(--ink); }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
+
+  header { background:var(--ink); border-bottom:3px solid var(--accent); padding:24px 40px 20px; }
+  .header-inner { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+  .header-badge { display:inline-block; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:10px; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:700; color:var(--paper); margin-bottom:4px; }
+  header p { font-size:13px; color:rgba(245,240,232,.6); }
+  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--paper); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
+  .nav-link:hover { background:rgba(255,255,255,.18); }
+
+  main { padding:26px 40px 80px; max-width:1150px; margin:0 auto; }
+  .panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:20px 22px; margin-bottom:18px; }
+  .muted { color:var(--mid); font-size:12px; }
+  .field { display:flex; flex-direction:column; gap:5px; min-width:0; }
+  .field label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); }
+  .field select { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:13.5px; font-family:'DM Sans',sans-serif; background:#fff; }
+  .btn { background:transparent; border:1px solid var(--border); color:var(--ink); font-family:'DM Mono',monospace; font-size:12px; padding:8px 14px; border-radius:6px; cursor:pointer; }
+  .btn:hover { border-color:var(--accent); color:var(--accent); }
+
+  .cal-toolbar { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:16px; }
+  .cal-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; min-width:190px; }
+  .cal-spacer { margin-left:auto; }
+
+  .cal-grid { display:grid; grid-template-columns:repeat(7, 1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+  .cal-dow { background:var(--cream); font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); text-align:center; padding:8px 4px; }
+  .cal-cell { background:var(--card-bg); min-height:104px; padding:6px 7px; display:flex; flex-direction:column; gap:4px; }
+  .cal-cell.other-month { background:#faf7f0; }
+  .cal-cell.other-month .cal-daynum { color:var(--border); }
+  .cal-daynum { font-family:'DM Mono',monospace; font-size:12px; color:var(--mid); align-self:flex-end; }
+  .cal-cell.today { outline:2px solid var(--accent); outline-offset:-2px; }
+  .cal-cell.today .cal-daynum { color:var(--accent); font-weight:700; }
+  .cal-task { display:block; text-decoration:none; font-size:11px; line-height:1.25; padding:3px 6px; border-radius:5px;
+    border-left:3px solid var(--accent); background:var(--cream); color:var(--ink);
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .cal-task:hover { filter:brightness(.96); }
+  .cal-task .ct-time { font-family:'DM Mono',monospace; font-size:9.5px; color:var(--mid); }
+  .cal-empty { padding:40px; text-align:center; color:var(--mid); font-style:italic; }
+
+  .legend { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+  .legend span { display:inline-flex; align-items:center; gap:6px; font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); }
+  .legend i { width:11px; height:11px; border-radius:3px; display:inline-block; }
+
+  @media (max-width:640px){
+    main { padding:18px 12px 60px; }
+    .cal-cell { min-height:72px; padding:4px; }
+    .cal-task .ct-time { display:none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="header-badge">OCR GCSE Business Studies · J204</div>
+      <h1>🗓️ Calendar</h1>
+      <p>Every task deadline across your classes, laid out by the day it's due.</p>
+    </div>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <a class="nav-link" href="teacher-tasks.html">📋 Task Manager</a>
+      <a class="nav-link" href="index.html">Site Home</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="cal-toolbar">
+    <button type="button" class="btn" id="prevBtn" aria-label="Previous month">←</button>
+    <div class="cal-title" id="calTitle">…</div>
+    <button type="button" class="btn" id="nextBtn" aria-label="Next month">→</button>
+    <button type="button" class="btn" id="todayBtn">Today</button>
+    <div class="cal-spacer"></div>
+    <div class="field">
+      <label for="classFilter">Class</label>
+      <select id="classFilter"><option value="">All classes</option></select>
+    </div>
+  </div>
+
+  <div class="panel" style="padding:14px;">
+    <div class="cal-grid" id="calGrid"><div class="cal-empty" style="grid-column:1/-1;">Loading…</div></div>
+    <div class="legend" id="legend"></div>
+  </div>
+  <p class="muted">Only <strong>published</strong> tasks with a due date appear here. Draft tasks show up once you publish them. Click any task to open it in the Task Manager.</p>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="tasks-shared.js"></script>
+<script>
+'use strict';
+const esc = taskEscapeHtml;
+const $ = id => document.getElementById(id);
+let auth = null;
+let classesById = {};    // id -> { name, colour }
+let tasks = [];          // published tasks with a due_at
+let viewYear, viewMonth; // month currently shown (0-based month)
+
+const DOW = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'];
+
+// A stable, readable colour per class (used for the left border + legend) so
+// several classes' deadlines stay visually distinct on the same day. Prefer
+// the class's subject colour; fall back to a hashed hue when none is set.
+function classColour(id) {
+  const c = classesById[id];
+  if (c && c.colour) return c.colour;
+  let h = 0;
+  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) % 360;
+  return `hsl(${h}, 45%, 42%)`;
+}
+
+async function init() {
+  auth = await tasksAuthInit('teacher');
+  if (!auth) return;
+
+  const [{ data: cls }, { data: tk }] = await Promise.all([
+    auth.client.from('classes').select('id, name, archived, subjects(colour)').order('created_at'),
+    auth.client.from('tasks').select('id, class_id, title, due_at, status'),
+  ]);
+
+  (cls || []).forEach(c => { classesById[c.id] = { name: c.name, colour: (c.subjects && c.subjects.colour) || null, archived: !!c.archived }; });
+  tasks = (tk || []).filter(t => t.status === 'published' && t.due_at);
+
+  const sel = $('classFilter');
+  sel.innerHTML = '<option value="">All classes</option>' +
+    (cls || []).filter(c => !c.archived).map(c => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');
+  // Preserve a class context arrived at via ?class=<id>.
+  const wantClass = new URLSearchParams(location.search).get('class');
+  if (wantClass && classesById[wantClass]) sel.value = wantClass;
+  sel.addEventListener('change', render);
+
+  const now = new Date();
+  viewYear = now.getFullYear();
+  viewMonth = now.getMonth();
+  render();
+}
+
+$('prevBtn').addEventListener('click', () => { if (--viewMonth < 0) { viewMonth = 11; viewYear--; } render(); });
+$('nextBtn').addEventListener('click', () => { if (++viewMonth > 11) { viewMonth = 0; viewYear++; } render(); });
+$('todayBtn').addEventListener('click', () => { const n = new Date(); viewYear = n.getFullYear(); viewMonth = n.getMonth(); render(); });
+
+function ymd(d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+
+function render() {
+  $('calTitle').textContent = MONTHS[viewMonth] + ' ' + viewYear;
+  const filterClass = $('classFilter').value;
+
+  // Bucket the visible tasks by local calendar day.
+  const byDay = {};
+  tasks.forEach(t => {
+    if (filterClass && t.class_id !== filterClass) return;
+    const d = new Date(t.due_at);
+    (byDay[ymd(d)] = byDay[ymd(d)] || []).push(t);
+  });
+
+  // Grid starts on the Monday on/before the 1st and runs full weeks.
+  const first = new Date(viewYear, viewMonth, 1);
+  const startOffset = (first.getDay() + 6) % 7; // 0 = Monday
+  const start = new Date(viewYear, viewMonth, 1 - startOffset);
+  const todayStr = ymd(new Date());
+
+  let html = DOW.map(d => `<div class="cal-dow">${d}</div>`).join('');
+  const cells = [];
+  for (let i = 0; i < 42; i++) {
+    const d = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i);
+    cells.push(d);
+    // Stop after the last full week that contains a day of this month.
+    if (i >= 34 && d.getMonth() !== viewMonth && ((i + 1) % 7 === 0)) break;
+  }
+
+  cells.forEach(d => {
+    const key = ymd(d);
+    const inMonth = d.getMonth() === viewMonth;
+    const dayTasks = (byDay[key] || []).slice().sort((a, b) => new Date(a.due_at) - new Date(b.due_at));
+    const chips = dayTasks.map(t => {
+      const col = classColour(t.class_id);
+      const time = new Date(t.due_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const cname = (classesById[t.class_id] || {}).name || '';
+      return `<a class="cal-task" style="border-left-color:${esc(col)};" title="${esc(t.title)} — ${esc(cname)}, due ${esc(time)}"
+        href="teacher-tasks.html?class=${esc(t.class_id)}&task=${esc(t.id)}">${esc(t.title)} <span class="ct-time">${esc(time)}</span></a>`;
+    }).join('');
+    html += `<div class="cal-cell${inMonth ? '' : ' other-month'}${key === todayStr ? ' today' : ''}">
+      <span class="cal-daynum">${d.getDate()}</span>${chips}</div>`;
+  });
+
+  $('calGrid').innerHTML = html;
+
+  // Legend: which colour is which class, for classes with a deadline this view.
+  const seen = {};
+  tasks.forEach(t => { if (!filterClass || t.class_id === filterClass) seen[t.class_id] = true; });
+  const legendIds = Object.keys(seen);
+  $('legend').innerHTML = legendIds.length
+    ? legendIds.map(id => `<span><i style="background:${esc(classColour(id))}"></i>${esc((classesById[id] || {}).name || 'Class')}</span>`).join('')
+    : '';
+}
+
+init();
+</script>
+<script src="teacher-nav.js"></script>
+<script src="footer-legal.js"></script>
+</body>
+</html>

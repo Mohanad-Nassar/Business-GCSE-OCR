@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>My Classes — Teacher · GCSE Business Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@300;400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="business-style.css"/>
+<style>
+  html, body { display:block !important; grid-template-columns:none !important; grid-template-rows:none !important; grid-template-areas:none !important; }
+  header, main { grid-area:unset !important; }
+  body { background:var(--paper); color:var(--ink); }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
+
+  header { background:var(--ink); border-bottom:3px solid var(--accent); padding:24px 40px 20px; }
+  .header-inner { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+  .header-badge { display:inline-block; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:10px; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:700; color:var(--paper); margin-bottom:4px; }
+  header p { font-size:13px; color:rgba(245,240,232,.6); }
+  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--paper); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
+  .nav-link:hover { background:rgba(255,255,255,.18); }
+
+  main { padding:26px 40px 80px; max-width:1150px; margin:0 auto; }
+  .panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:20px 22px; margin-bottom:18px; }
+  .section-label { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--mid); margin:6px 0 12px; }
+  .muted { color:var(--mid); font-size:12px; }
+  .empty { padding:22px; text-align:center; color:var(--mid); font-size:13px; font-style:italic; }
+  .mono { font-family:'DM Mono',monospace; }
+
+  .subtab { background:transparent; border:1px solid var(--border); color:var(--mid); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.04em; padding:8px 16px; border-radius:7px; cursor:pointer; white-space:nowrap; }
+  .subtab:hover { border-color:var(--accent); color:var(--accent); }
+  .subtab.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+
+  .btn { background:var(--ink); color:var(--paper); border:none; padding:10px 18px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
+  .btn:hover { background:#1c2c3d; }
+  .btn.small { padding:6px 12px; font-size:11.5px; }
+
+  .class-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:14px; margin-bottom:16px; }
+  .class-card { background:#fff; border:1px solid var(--border); border-radius:10px; padding:16px 16px 14px; display:flex; flex-direction:column; gap:8px; }
+  .class-card h3 { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:var(--ink); margin:0; }
+  .class-card .meta { font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); }
+  .subj-chip { display:inline-block; font-family:'DM Mono',monospace; font-size:10.5px; padding:2px 9px; border-radius:99px; align-self:flex-start; }
+  .card-links { display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; padding-top:10px; border-top:1px solid var(--border); }
+  .card-links a { font-family:'DM Mono',monospace; font-size:11px; text-decoration:none; color:var(--ink); border:1px solid var(--border); border-radius:6px; padding:5px 9px; white-space:nowrap; }
+  .card-links a:hover { border-color:var(--accent); color:var(--accent); }
+  .card-links a.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .card-links a.primary:hover { background:#c39a34; color:#fff; }
+
+  .inline-form { display:flex; gap:12px; flex-wrap:wrap; align-items:flex-end; }
+  .field { display:flex; flex-direction:column; gap:5px; min-width:0; }
+  .field label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); }
+  .field input, .field select { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:13.5px; font-family:'DM Sans',sans-serif; background:#fff; }
+  .msg { font-family:'DM Mono',monospace; font-size:12px; margin-top:10px; min-height:16px; }
+  .msg.ok { color:#2d7a4f; }
+  .msg.err { color:var(--wrong); }
+  .hidden { display:none !important; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="header-badge">OCR GCSE Business Studies · J204</div>
+      <h1>📚 My Classes</h1>
+      <p>Every class you teach, in one place — open a class, jump to its tasks, Daily Revise or calendar.</p>
+    </div>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <a class="nav-link" href="index.html">Site Home</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div style="display:flex; gap:8px; margin-bottom:14px;">
+    <button type="button" class="subtab active" id="tabActive">📚 My Classes</button>
+    <button type="button" class="subtab" id="tabArchived">📦 Archived</button>
+  </div>
+
+  <div class="panel">
+    <div class="class-grid" id="classGrid"><div class="empty">Loading…</div></div>
+
+    <form class="inline-form" id="newClassForm">
+      <div class="field">
+        <label for="newClassName">New class name</label>
+        <input type="text" id="newClassName" placeholder="e.g. Year 10 Business" required/>
+      </div>
+      <div class="field">
+        <label for="newClassSubject">Subject</label>
+        <select id="newClassSubject"><option value="">Business (default)</option></select>
+      </div>
+      <button type="submit" class="btn">+ Create Class</button>
+    </form>
+    <div class="msg" id="classMsg"></div>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="tasks-shared.js"></script>
+<script src="/subjects-index.js"></script>
+<script src="/page-groups-all.js"></script>
+<script>
+'use strict';
+const esc = taskEscapeHtml;
+const $ = id => document.getElementById(id);
+let auth = null;
+let classes = [];        // all classes for this teacher (active + archived)
+let counts = {};         // classId -> student count
+let subjectsList = [];   // [{id, slug, name, colour, icon}]
+let currentTab = 'active';
+
+function hexTriplet(hex) {
+  const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex || '');
+  return m ? [parseInt(m[1], 16), parseInt(m[2], 16), parseInt(m[3], 16)] : [122, 92, 158];
+}
+function subjChip(subj) {
+  if (!subj) return '';
+  const [r, g, b] = hexTriplet(subj.colour);
+  const colour = subj.colour || '#7a5c9e';
+  return `<span class="subj-chip" style="background:rgba(${r},${g},${b},.12); color:${esc(colour)}; border:1px solid rgba(${r},${g},${b},.35);">${subj.icon ? esc(subj.icon) + ' ' : ''}${esc(subj.name || '')}</span>`;
+}
+
+async function init() {
+  auth = await tasksAuthInit('teacher');
+  if (!auth) return;
+  await Promise.all([loadClasses(), loadSubjects()]);
+}
+
+async function loadSubjects() {
+  try {
+    const { data } = await auth.client.from('subjects').select('id, slug, name, colour, icon').eq('active', true).order('sort_order');
+    subjectsList = data || [];
+  } catch (e) { subjectsList = []; }
+  const sel = $('newClassSubject');
+  if (!subjectsList.length) return;
+  sel.innerHTML = subjectsList.map(s => {
+    const hasContent = !!(window.PAGE_GROUPS_ALL && (window.PAGE_GROUPS_ALL[s.slug] || []).length);
+    const label = (s.icon ? s.icon + ' ' : '') + s.name + (hasContent ? '' : ' (content coming soon)');
+    return `<option value="${esc(s.id)}"${s.slug === 'business' ? ' selected' : ''}>${esc(label)}</option>`;
+  }).join('');
+}
+
+async function loadClasses() {
+  const { data, error } = await auth.client.from('classes').select('*, subjects(slug, name, colour, icon)').order('created_at');
+  if (error) { $('classGrid').innerHTML = '<div class="empty">Couldn\'t load classes.</div>'; return; }
+  classes = data || [];
+  // Student head-counts in one query.
+  counts = {};
+  try {
+    const { data: cs } = await auth.client.from('class_students').select('class_id');
+    (cs || []).forEach(r => { counts[r.class_id] = (counts[r.class_id] || 0) + 1; });
+  } catch (e) {}
+  render();
+}
+
+function render() {
+  const grid = $('classGrid');
+  const shown = classes.filter(c => !!c.archived === (currentTab === 'archived'));
+  if (!shown.length) {
+    grid.innerHTML = currentTab === 'archived'
+      ? '<div class="empty">No archived classes.</div>'
+      : '<div class="empty">No classes yet — create one below to get going 👇</div>';
+    return;
+  }
+  grid.innerHTML = shown.map(c => {
+    const n = counts[c.id] || 0;
+    const q = '?class=' + encodeURIComponent(c.id);
+    const links = currentTab === 'archived'
+      ? `<a class="primary" href="teacher-dashboard.html${q}">Open &amp; manage →</a>`
+      : `<a class="primary" href="teacher-dashboard.html${q}">Open →</a>
+         <a href="teacher-tasks.html${q}">📋 Tasks</a>
+         <a href="teacher-analytics.html${q}">🎯 Daily Revise</a>
+         <a href="teacher-calendar.html${q}">🗓️ Calendar</a>`;
+    return `<div class="class-card">
+      <h3>${esc(c.name)}</h3>
+      ${subjChip(c.subjects)}
+      <div class="meta">👥 ${n} student${n === 1 ? '' : 's'}</div>
+      <div class="card-links">${links}</div>
+    </div>`;
+  }).join('');
+}
+
+$('tabActive').addEventListener('click', () => setTab('active'));
+$('tabArchived').addEventListener('click', () => setTab('archived'));
+function setTab(tab) {
+  currentTab = tab;
+  $('tabActive').classList.toggle('active', tab === 'active');
+  $('tabArchived').classList.toggle('active', tab === 'archived');
+  $('newClassForm').classList.toggle('hidden', tab !== 'active');
+  render();
+}
+
+$('newClassForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = $('newClassName').value.trim();
+  if (!name) return;
+  const msg = $('classMsg');
+  const payload = { name, teacher_id: auth.session.user.id };
+  const subjectId = $('newClassSubject').value;
+  if (subjectId) payload.subject_id = subjectId;
+  const { error } = await auth.client.from('classes').insert(payload);
+  if (error) { msg.className = 'msg err'; msg.textContent = error.message; return; }
+  $('newClassName').value = '';
+  msg.className = 'msg ok';
+  msg.textContent = 'Class created.';
+  await loadClasses();
+});
+
+init();
+</script>
+<script src="teacher-nav.js"></script>
+<script src="footer-legal.js"></script>
+</body>
+</html>

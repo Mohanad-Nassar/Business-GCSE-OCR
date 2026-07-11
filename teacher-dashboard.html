@@ -66,6 +66,24 @@
   .empty { padding:24px; text-align:center; color:var(--mid); font-size:13px; font-style:italic; }
   .struggle-badge { display:inline-block; font-family:'DM Mono',monospace; font-size:10px; padding:2px 9px; border-radius:99px; background:rgba(200,75,49,.1); color:var(--wrong); border:1px solid rgba(200,75,49,.3); margin-left:6px; white-space:nowrap; cursor:help; }
 
+  /* Freeze header row + first (student-name) column, and click-to-sort
+     column headers — same pattern as the Daily Revise Analytics page's
+     Usage table / Class matrix. One scroll container provides both
+     scrollbars, so `position:sticky` on top/left works for both axes at
+     once; the corner cell needs the highest z-index since it's sticky on
+     BOTH axes and must stay above cells only sticky on one. */
+  .leaderboard-table-wrap { overflow:auto; max-height:70vh; border:1px solid var(--border); border-radius:8px; }
+  .leaderboard-table-wrap table { display:table; width:100%; margin-top:0; overflow:visible; }
+  .leaderboard-table-wrap thead th { position:sticky; top:0; z-index:2; background:var(--cream); box-shadow:0 1px 0 var(--border); }
+  .leaderboard-table-wrap th:first-child, .leaderboard-table-wrap td:first-child {
+    position:sticky; left:0; z-index:1; background:var(--card-bg); box-shadow:1px 0 0 var(--border);
+  }
+  .leaderboard-table-wrap thead th:first-child { z-index:3; }
+  th.sortable { cursor:pointer; -webkit-user-select:none; user-select:none; }
+  th.sortable:hover { color:var(--ink); }
+  th.sortable.sorted { color:var(--accent); }
+  .sort-arrow { display:inline-block; margin-left:4px; font-size:9px; }
+
   .chip { display:inline-block; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.05em; padding:3px 10px; border-radius:99px; white-space:nowrap; }
   .chip.pending { background:rgba(122,92,158,.1); color:#6a4f8c; border:1px solid rgba(122,92,158,.3); }
   .chip.ontime { background:rgba(45,122,79,.1); color:#2d7a4f; border:1px solid rgba(45,122,79,.3); }
@@ -173,6 +191,22 @@
   .flow-timers input[type="number"], .flow-timers select { padding:8px 10px; border:1px solid var(--border); border-radius:6px; font-size:14px; font-family:'DM Sans',sans-serif; }
   .flow-timers input[type="number"] { width:84px; }
   .flow-timers select { width:130px; }
+  /* Advanced per-activity timers (collapsed disclosure inside the timers row) */
+  .flow-advanced { margin-top:16px; }
+  .flow-advanced > summary { cursor:pointer; font-size:13px; font-weight:600; color:var(--ink); list-style:none; padding:4px 0; user-select:none; }
+  .flow-advanced > summary::-webkit-details-marker { display:none; }
+  .flow-advanced > summary::before { content:'▸ '; color:var(--mid); }
+  .flow-advanced[open] > summary::before { content:'▾ '; }
+  .flow-adv-grid { margin-top:10px; display:flex; flex-direction:column; gap:7px; max-width:430px; }
+  .flow-adv-row { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .flow-adv-label { font-size:13px; }
+  .flow-adv-fields { display:flex; align-items:center; gap:8px; }
+  .flow-adv-fields input[type="number"] { width:60px; padding:6px 8px; border:1px solid var(--border); border-radius:6px; font-size:13px; font-family:'DM Sans',sans-serif; text-align:center; }
+  .flow-adv-clear { width:24px; background:none; border:none; color:var(--mid); cursor:pointer; font-size:13px; padding:2px; line-height:1; }
+  .flow-adv-clear:hover { color:var(--ink); }
+  .flow-adv-head { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--mid); }
+  .flow-adv-head .flow-adv-fields span { width:60px; text-align:center; }
+  .flow-adv-head .flow-adv-fields span.spacer { width:24px; }
   /* ── Getting-started guide ── */
   .guide-panel { margin-bottom:22px; border-left:4px solid var(--gold); }
   .guide-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
@@ -272,6 +306,18 @@
     <!-- ═══ VIEW: CLASS PROGRESS ═══ -->
     <div id="classProgressView">
       <p class="muted" style="margin-bottom:12px;">Everything updates by itself as students answer questions — no marking needed here. An <span class="mono" style="font-size:11px;">⚠ needs attention</span> badge appears next to anyone falling behind on tasks.</p>
+
+      <!-- Blocked copy-paste attempts (integrity_events) — hidden until the
+           class has at least one, and until supabase/integrity-events.sql
+           has been run. -->
+      <div class="panel hidden" id="pasteAlertsPanel">
+        <h3 class="subhead">🚫 Copy-paste alerts <span class="muted">— students who tried to paste into a written exam answer. The paste itself was blocked; this is the log of attempts.</span></h3>
+        <table>
+          <thead><tr><th>Student</th><th>Attempts</th><th>Last attempt</th><th>Where</th></tr></thead>
+          <tbody id="pasteAlertsBody"></tbody>
+        </table>
+      </div>
+
       <div class="panel">
         <div class="tiles" id="classTiles"></div>
         <div style="display:flex; gap:10px; flex-wrap:wrap; margin:6px 0 18px;">
@@ -281,10 +327,20 @@
 
         <div id="progStudentsPane">
           <h3 class="subhead">Students <span class="muted">— click a student to open their full dashboard</span></h3>
-          <table id="leaderboardTable">
-            <thead><tr><th>Username</th><th>Level</th><th>Overall progress</th><th>🔥 Streak</th><th>🏅 Badges</th><th>Answers logged</th><th></th></tr></thead>
-            <tbody id="leaderboardBody"><tr><td colspan="7" class="empty">Loading…</td></tr></tbody>
-          </table>
+          <div class="leaderboard-table-wrap" id="leaderboardTableWrap">
+            <table id="leaderboardTable">
+              <thead><tr>
+                <th class="sortable" data-sort="name">Username</th>
+                <th class="sortable" data-sort="level">Level</th>
+                <th class="sortable" data-sort="progress">Overall progress</th>
+                <th class="sortable" data-sort="streak">🔥 Streak</th>
+                <th class="sortable" data-sort="badges">🏅 Badges</th>
+                <th class="sortable" data-sort="answers">Answers logged</th>
+                <th></th>
+              </tr></thead>
+              <tbody id="leaderboardBody"><tr><td colspan="7" class="empty">Loading…</td></tr></tbody>
+            </table>
+          </div>
         </div>
 
         <div id="progWholeClassPane" class="hidden">
@@ -518,6 +574,16 @@
               <input type="number" id="flowPostSecondsCustom" min="0" max="120" step="1" class="hidden" style="width:84px;">
               <span class="muted">so the feedback sinks in.</span></div>
           </div>
+          <details class="flow-advanced" id="flowAdvancedTimers">
+            <summary>⚙️ Advanced — set different timers per activity</summary>
+            <p class="muted" style="margin:8px 0 4px;font-size:12px;">Leave a box blank to use the class-wide times above (shown greyed as the placeholder). Type a number (0–120s) to override just that activity; clear both boxes to remove the override.</p>
+            <div class="flow-adv-grid" id="flowAdvGrid">
+              <div class="flow-adv-row flow-adv-head">
+                <span class="flow-adv-label"></span>
+                <span class="flow-adv-fields"><span>📖 Read</span><span>⏳ Pause</span><span class="spacer"></span></span>
+              </div>
+            </div>
+          </details>
         </div>
         <div style="margin-top:10px;"><button type="button" class="btn small" id="flowFocusUpdateBtn">💾 Update</button></div>
         <div class="msg" id="flowFocusMsg"></div>
@@ -721,6 +787,31 @@ async function init() {
   loadSubjectsList(); // fire-and-forget — populates the class-creation subject picker
   refreshGuideCounts();
   refreshPendingCounts();
+
+  // Deep-link support: the standalone My Classes page (and the account
+  // dropdown) link here as teacher-dashboard.html?class=<id>#<subtab>, so a
+  // class — and optionally one of its sub-views — can open directly. Runs
+  // after loadClasses() so the class exists to select.
+  await openFromDeepLink();
+}
+
+// ?class=<id> auto-opens that class; an optional #hash then switches to a
+// specific sub-view (mirrors the tab buttons' own click handlers so the
+// per-view loaders — tasks/topic access/daily revise — still fire).
+async function openFromDeepLink() {
+  const wantClass = new URLSearchParams(location.search).get('class');
+  if (!wantClass || !classes.some(c => c.id === wantClass)) return;
+  await selectClass(wantClass);
+  const hash = (location.hash || '').replace('#', '').toLowerCase();
+  const btnByHash = {
+    progress: 'tabProgress', tasks: 'tabTasks',
+    'topic-access': 'tabTopicAccess', topicaccess: 'tabTopicAccess',
+    'daily-revise': 'tabDailyRevise', dailyrevise: 'tabDailyRevise',
+    settings: 'tabStudents', students: 'tabStudents',
+  };
+  const btnId = btnByHash[hash];
+  if (btnId) document.getElementById(btnId).click();
+  document.getElementById('classDetail').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 async function callFunction(name, body) {
@@ -1028,6 +1119,14 @@ let classSummaries = [];  // raw progress_summary rows for every student in the 
 let classStreaks = {};    // studentId -> { current, longest } (get_class_streaks)
 let classActivityDays = {}; // studentId -> [{ day:'YYYY-MM-DD', count }] (get_class_activity_days), for the practice heatmap
 let classTaskRowsByStudent = {}; // studentId -> [{ task, assignment, attempts }], for struggling-flag detection
+let classIntegrityEvents = [];   // recent integrity_events rows (blocked copy-paste attempts) for this class
+let _leaderboardGamById = {}; // studentId -> gamification stats, cached by renderClassProgress() so a re-sort doesn't recompute it
+// Sort state for the Students leaderboard. dir=1 is each column's natural
+// first-click order — descending ("highest to lowest") for every numeric
+// column, A→Z for Username — clicking the SAME header again flips it.
+// Default (progress, dir=1) matches the table's original hardcoded sort.
+let leaderboardSortKey = 'progress';
+let leaderboardSortDir = 1;
 let tvOpenGroups = new Set(); // curriculum group ids currently expanded in the Topic Access tab's visibility list
 let drOpenGroups = new Set(); // same, for the Daily Revise topic-filter list
 
@@ -1146,9 +1245,57 @@ async function loadClassData() {
     } catch (e) {}
   }
 
+  // Blocked copy-paste attempts for the whole class (integrity_events —
+  // supabase/integrity-events.sql). A project where that file hasn't been
+  // run yet just gets an error here, so the panel silently stays hidden.
+  classIntegrityEvents = [];
+  if (ids.length) {
+    try {
+      const { data: ie, error: ieErr } = await supabaseClient
+        .from('integrity_events')
+        .select('student_id, page_id, context, created_at')
+        .in('student_id', ids)
+        .order('created_at', { ascending: false })
+        .limit(300);
+      if (!ieErr) classIntegrityEvents = ie || [];
+    } catch (e) {}
+  }
+
   await loadStrugglingFlags(ids);
   renderClassProgress();
   renderRoster();
+  renderPasteAlerts();
+}
+
+// One row per student who has tried to paste, worst offenders first.
+function renderPasteAlerts() {
+  const panel = document.getElementById('pasteAlertsPanel');
+  panel.classList.toggle('hidden', !classIntegrityEvents.length);
+  if (!classIntegrityEvents.length) return;
+  const byStudent = {};
+  classIntegrityEvents.forEach(ev => {
+    (byStudent[ev.student_id] = byStudent[ev.student_id] || []).push(ev);
+  });
+  document.getElementById('pasteAlertsBody').innerHTML = Object.keys(byStudent)
+    .sort((a, b) => byStudent[b].length - byStudent[a].length)
+    .map(sid => {
+      const evs = byStudent[sid]; // newest first (query order)
+      const student = classStudents.find(s => s.id === sid);
+      const places = [...new Set(evs.map(pasteWhere))];
+      const shown = places.slice(0, 3).join(', ') + (places.length > 3 ? ` +${places.length - 3} more` : '');
+      return `<tr>
+        <td class="mono">${escapeHtml(student ? student.username : 'Unknown student')}</td>
+        <td class="mono">⚠ ${evs.length}</td>
+        <td class="mono">${fmtDateTime(evs[0].created_at)}</td>
+        <td>${escapeHtml(shown)}</td>
+      </tr>`;
+    }).join('');
+}
+
+// Human-readable location for one integrity event.
+function pasteWhere(ev) {
+  const topic = ev.page_id && ev.page_id.startsWith('task:') ? 'Assigned task' : pageTitle(ev.page_id);
+  return ev.context ? `${topic} (${ev.context})` : topic;
 }
 
 
@@ -1196,15 +1343,24 @@ function progressForStudent(studentId) {
   return prog;
 }
 
-// Sum every student's progress into one object (whole-class totals).
+// Class-average progress: each ring shows the AVERAGE done across the
+// whole roster against the single-page total. (The old version summed
+// every student's done but kept a one-student total, so a 12-blank
+// activity showed impossible rings like "18/12" as soon as two students
+// had worked on it.)
 function aggregateClassProgress() {
   const prog = {};
   classSummaries.forEach(s => {
     if (!prog[s.page_id]) prog[s.page_id] = {};
     if (!prog[s.page_id][s.section]) prog[s.page_id][s.section] = { done: 0, total: 0 };
     prog[s.page_id][s.section].done += s.done;
-    prog[s.page_id][s.section].total += s.total;
+    prog[s.page_id][s.section].total = Math.max(prog[s.page_id][s.section].total, s.total || 0);
   });
+  const n = classStudents.length || 1;
+  Object.values(prog).forEach(page => Object.values(page).forEach(d => {
+    d.done = Math.round(d.done / n);
+    if (d.total > 0 && d.done > d.total) d.done = d.total;
+  }));
   return prog;
 }
 
@@ -1239,14 +1395,14 @@ function renderClassProgress() {
   const n = classStudents.length;
   const canGam = typeof computeGamificationStats === 'function';
   let classDone = 0, classTotal = 0, activeCount = 0, classXp = 0;
-  const gamById = {};
+  _leaderboardGamById = {};
   classStudents.forEach(s => {
     const t = studentTotals(s.id);
     classDone += t.done; classTotal += t.total;
     if (t.done > 0) activeCount++;
     if (canGam) {
-      gamById[s.id] = studentGamStats(s.id);
-      if (gamById[s.id]) classXp += gamById[s.id].xp;
+      _leaderboardGamById[s.id] = studentGamStats(s.id);
+      if (_leaderboardGamById[s.id]) classXp += _leaderboardGamById[s.id].xp;
     }
   });
   const pct = classTotal ? Math.round(classDone / classTotal * 100) : 0;
@@ -1256,22 +1412,65 @@ function renderClassProgress() {
     tile(activeCount, 'Started working') + tile(classDone, 'Activities done') +
     (canGam ? tile('⚡ ' + classXp.toLocaleString(), 'Class XP') : '');
 
-  renderProgressGrid(document.getElementById('classGridView'), aggregateClassProgress());
+  const gridView = document.getElementById('classGridView');
+  renderProgressGrid(gridView, aggregateClassProgress());
+  // Make the grid's meaning explicit — these rings are class AVERAGES.
+  if (gridView && !document.getElementById('classGridCaption')) {
+    const cap = document.createElement('p');
+    cap.id = 'classGridCaption';
+    cap.style.cssText = "font-family:'DM Mono',monospace;font-size:11px;color:var(--mid);margin:0 0 8px;";
+    cap.textContent = 'Rings show the class average per activity (average completed ÷ activity size). Click a student in the roster for their individual grid.';
+    gridView.parentElement.insertBefore(cap, gridView);
+  }
+  renderLeaderboardBody();
+}
 
+// Column value for sorting -- null means "no data for this student", which
+// always sinks to the bottom of the sort regardless of direction, matching
+// the '-' shown in that cell rather than being mistaken for a real low
+// score (e.g. a 0-day streak and "streaks aren't installed yet" both show
+// '-', so both sort as null).
+function leaderboardValueFor(row, key) {
+  const g = _leaderboardGamById[row.s.id];
+  if (key === 'level') return g ? g.level : null;
+  if (key === 'progress') return row.t.total ? row.t.pct : null;
+  if (key === 'streak') return ((classStreaks[row.s.id] || {}).current || 0) || null;
+  if (key === 'badges') return g ? gamificationEarnedBadges(g).length : null;
+  if (key === 'answers') return row.t.done; // always a real number, 0 included
+  return null;
+}
+function leaderboardComparator(key, dir) {
+  return (a, b) => {
+    // { numeric: true } gives natural sort ("S9…" before "S32…" instead of
+    // after, since '9' < '3' as plain characters but 9 < 32 as numbers) —
+    // matters here because usernames from the custom-prefix generator
+    // (S1<code>, S2<code>, … S32<code>) are exactly this pattern.
+    if (key === 'name') return ((a.s.username || '').localeCompare(b.s.username || '', undefined, { numeric: true })) * dir;
+    const va = leaderboardValueFor(a, key), vb = leaderboardValueFor(b, key);
+    if (va == null && vb == null) return 0;
+    if (va == null) return 1;
+    if (vb == null) return -1;
+    return (vb - va) * dir;
+  };
+}
+
+function renderLeaderboardBody() {
   const body = document.getElementById('leaderboardBody');
-  if (!n) {
-    body.innerHTML = `<tr><td colspan="7" class="empty">No students yet — open the <strong>👥 Students &amp; Logins</strong> tab above to create logins in two clicks.</td></tr>`;
+  if (!classStudents.length) {
+    body.innerHTML = `<tr><td colspan="7" class="empty">No students yet -- open the <strong>👥 Students &amp; Logins</strong> tab above to create logins in two clicks.</td></tr>`;
+    updateLeaderboardSortIndicators();
     return;
   }
-  const rows = classStudents.map(s => ({ s, t: studentTotals(s.id) })).sort((a, b) => b.t.pct - a.t.pct);
+  const rows = classStudents.map(s => ({ s, t: studentTotals(s.id) }))
+    .sort(leaderboardComparator(leaderboardSortKey, leaderboardSortDir));
   body.innerHTML = rows.map(({ s, t }) => {
     const struggle = computeStrugglingFlag(classTaskRowsByStudent[s.id] || []);
-    const g = gamById[s.id];
+    const g = _leaderboardGamById[s.id];
     const streak = (classStreaks[s.id] || {}).current || 0;
     const longest = (classStreaks[s.id] || {}).longest || 0;
     return `
     <tr class="clickable-row" data-id="${s.id}" data-name="${escapeHtml(s.username)}">
-      <td class="mono">${escapeHtml(s.username)}${struggle.flag ? `<span class="struggle-badge" title="${escapeHtml(struggle.reason)}">âš  needs attention</span>` : ''}</td>
+      <td class="mono">${escapeHtml(s.username)}${struggle.flag ? `<span class="struggle-badge" title="${escapeHtml(struggle.reason)}">⚠ needs attention</span>` : ''}</td>
       <td class="mono" title="${g ? g.xp.toLocaleString() + ' XP' : ''}">${g ? 'Lv ' + g.level : '–'}</td>
       <td><span class="pct-bar-wrap"><span class="pct-bar-fill" style="width:${t.pct}%"></span></span>${t.total ? t.pct + '%' : '–'}</td>
       <td class="mono" title="Longest ever: ${longest} day${longest === 1 ? '' : 's'}">${streak ? '🔥 ' + streak : '–'}</td>
@@ -1280,7 +1479,29 @@ function renderClassProgress() {
       <td><span class="muted">View →</span></td>
     </tr>`;
   }).join('');
+  updateLeaderboardSortIndicators();
 }
+
+// Cache each header's plain label ONCE, before any arrow is ever injected --
+// updateLeaderboardSortIndicators re-renders from this, not from the live
+// textContent, since that would already include a previous arrow's text and
+// double up on every subsequent render.
+document.querySelectorAll('#leaderboardTableWrap th.sortable').forEach(th => { th.dataset.label = th.textContent.trim(); });
+
+function updateLeaderboardSortIndicators() {
+  document.querySelectorAll('#leaderboardTableWrap th.sortable').forEach(th => {
+    const active = th.dataset.sort === leaderboardSortKey;
+    th.classList.toggle('sorted', active);
+    const arrow = active ? `<span class="sort-arrow">${leaderboardSortDir === 1 ? '▼' : '▲'}</span>` : '';
+    th.innerHTML = th.dataset.label + arrow;
+  });
+}
+document.querySelectorAll('#leaderboardTableWrap th.sortable').forEach(th => th.addEventListener('click', () => {
+  const key = th.dataset.sort;
+  if (leaderboardSortKey === key) leaderboardSortDir *= -1;
+  else { leaderboardSortKey = key; leaderboardSortDir = 1; }
+  renderLeaderboardBody();
+}));
 
 document.getElementById('leaderboardBody').addEventListener('click', e => {
   const row = e.target.closest('tr[data-id]');
@@ -1448,7 +1669,7 @@ function renderRoster() {
     const t = studentTotals(s.id);
     const struggle = computeStrugglingFlag(classTaskRowsByStudent[s.id] || []);
     return `<tr>
-      <td class="mono">${escapeHtml(s.username)}${struggle.flag ? `<span class="struggle-badge" title="${escapeHtml(struggle.reason)}">âš  needs attention</span>` : ''}</td>
+      <td class="mono">${escapeHtml(s.username)}${struggle.flag ? `<span class="struggle-badge" title="${escapeHtml(struggle.reason)}">⚠ needs attention</span>` : ''}</td>
       <td>${new Date(s.joined_at).toLocaleDateString()}</td>
       <td><span class="pct-bar-wrap"><span class="pct-bar-fill" style="width:${t.pct}%"></span></span>${t.total ? t.pct + '%' : '–'}</td>
       <td class="actions-cell">
@@ -1668,12 +1889,14 @@ async function viewStudent(studentId, name) {
   // their own dashboard.
   const _streak = (classStreaks[studentId] || {}).current || 0;
   const gamStats = studentGamStats(studentId);
+  const pasteAttempts = classIntegrityEvents.filter(ev => ev.student_id === studentId).length;
   document.getElementById('studentTiles').innerHTML =
     tile(totals.pct + '%', 'Overall') + tile(totals.grandDone, 'Activities done') +
     tile(totals.pagesStarted, 'Topics started') +
     (gamStats ? tile('Lv ' + gamStats.level, gamStats.xp.toLocaleString() + ' XP') +
       tile('🔥 ' + _streak, 'Day streak') +
-      tile(gamificationEarnedBadges(gamStats).length + '/' + BADGE_DEFS.length, 'Badges earned') : '');
+      tile(gamificationEarnedBadges(gamStats).length + '/' + BADGE_DEFS.length, 'Badges earned') : '') +
+    (pasteAttempts ? tile('🚫 ' + pasteAttempts, 'Copy-paste attempts') : '');
   // Practice-calendar heatmap — same shared widget the student sees on their
   // own dashboard, fed this student's per-day slice (subject-scoped, loaded
   // with the class). Empty array is fully supported (renders an empty grid).
@@ -1733,7 +1956,7 @@ async function loadClassTasksSummary() {
         <td>${t.status === 'draft' ? '📝 Draft' : '✅ Published'}</td>
         <td class="mono">${t.due_at ? fmtDateTime(t.due_at) : '—'}</td>
         <td class="mono">${stats.submitted}/${stats.assigned}</td>
-        <td class="mono">${stats.toMark ? 'âš  ' + stats.toMark : '0'}</td>
+        <td class="mono">${stats.toMark ? '⚠ ' + stats.toMark : '0'}</td>
         <td class="mono">${stats.avgTrue != null ? stats.avgTrue + '%' : '—'}${stats.avgMarked != null && stats.avgMarked !== stats.avgTrue ? `<br><span class="muted" style="font-size:10px;">marked only: ${stats.avgMarked}%</span>` : ''}</td>
       </tr>`;
     }).join('');
@@ -1782,6 +2005,96 @@ function _readTimerControl(selectId, customId) {
   return parseInt(select.value, 10) || 0;
 }
 
+// ── Advanced per-activity timers ──
+// The class-wide pre/post pair above applies to every activity unless the
+// teacher opens "Advanced" and types a different pre/post for a specific
+// one. Each row's two number inputs are BLANK when there's no override
+// (their placeholder shows the current class-wide value); a typed value
+// overrides just that field for just that activity. Stored as
+// classes.flow_activity_timers jsonb: { "<section>": {"pre": n, "post": n} }
+// with only the fields the teacher actually typed. Section keys match
+// script.js's ACTIVITY_ORDER.
+const FLOW_ACTIVITIES = [
+  { section: 'learn',      label: '📚 Key Learning' },
+  { section: 'mcq',        label: '❓ MCQ Quiz' },
+  { section: 'match',      label: '🔗 Matching' },
+  { section: 'fib',        label: '✏️ Fill the Blanks' },
+  { section: 'misc',       label: '⚠️ Misconceptions' },
+  { section: 'tips',       label: '🎯 Exam Tips' },
+  { section: 'flashcards', label: '🃏 Flashcards' },
+  { section: 'tf',         label: '✅ True / False' },
+  { section: 'exam',       label: '📝 Exam Practice' },
+];
+function _buildActivityTimerRows() {
+  const grid = document.getElementById('flowAdvGrid');
+  if (!grid || grid.dataset.built) return;
+  grid.dataset.built = '1';
+  FLOW_ACTIVITIES.forEach(a => {
+    const row = document.createElement('div');
+    row.className = 'flow-adv-row';
+    row.dataset.section = a.section;
+    row.innerHTML = `
+      <span class="flow-adv-label">${a.label}</span>
+      <span class="flow-adv-fields">
+        <input type="number" class="flow-adv-pre" min="0" max="120" step="1" aria-label="${a.label} reading seconds">
+        <input type="number" class="flow-adv-post" min="0" max="120" step="1" aria-label="${a.label} pause seconds">
+        <button type="button" class="flow-adv-clear" title="Clear override" aria-label="Clear ${a.label} override">✕</button>
+      </span>`;
+    grid.appendChild(row);
+  });
+  // A row's ✕ clears both boxes (= remove the override on next Update).
+  grid.addEventListener('click', e => {
+    const btn = e.target.closest('.flow-adv-clear');
+    if (!btn) return;
+    const row = btn.closest('.flow-adv-row');
+    row.querySelector('.flow-adv-pre').value = '';
+    row.querySelector('.flow-adv-post').value = '';
+  });
+}
+// Placeholders mirror the current class-wide pre/post so a teacher sees what
+// a blank box will inherit; re-synced whenever those class-wide controls move.
+function _syncActivityPlaceholders() {
+  const preF = _readTimerControl('flowPreSeconds', 'flowPreSecondsCustom');
+  const postF = _readTimerControl('flowPostSeconds', 'flowPostSecondsCustom');
+  document.querySelectorAll('#flowAdvGrid .flow-adv-row[data-section]').forEach(row => {
+    row.querySelector('.flow-adv-pre').placeholder = String(preF);
+    row.querySelector('.flow-adv-post').placeholder = String(postF);
+  });
+}
+function _populateActivityTimers(timers, preFallback, postFallback) {
+  _buildActivityTimerRows();
+  timers = (timers && typeof timers === 'object') ? timers : {};
+  const preF = preFallback != null ? preFallback : 10;
+  const postF = postFallback != null ? postFallback : 10;
+  let hasAny = false;
+  document.querySelectorAll('#flowAdvGrid .flow-adv-row[data-section]').forEach(row => {
+    const o = timers[row.dataset.section];
+    const pre = (o && typeof o === 'object' && typeof o.pre === 'number') ? o.pre : null;
+    const post = (o && typeof o === 'object' && typeof o.post === 'number') ? o.post : null;
+    const preInput = row.querySelector('.flow-adv-pre');
+    const postInput = row.querySelector('.flow-adv-post');
+    preInput.placeholder = String(preF);
+    postInput.placeholder = String(postF);
+    preInput.value = pre != null ? pre : '';
+    postInput.value = post != null ? post : '';
+    if (pre != null || post != null) hasAny = true;
+  });
+  // Auto-expand only when this class already has at least one override.
+  document.getElementById('flowAdvancedTimers').open = hasAny;
+}
+function _readActivityTimers() {
+  const out = {};
+  document.querySelectorAll('#flowAdvGrid .flow-adv-row[data-section]').forEach(row => {
+    const preRaw = row.querySelector('.flow-adv-pre').value.trim();
+    const postRaw = row.querySelector('.flow-adv-post').value.trim();
+    const o = {};
+    if (preRaw !== '') o.pre = Math.max(0, Math.min(120, parseInt(preRaw, 10) || 0));
+    if (postRaw !== '') o.post = Math.max(0, Math.min(120, parseInt(postRaw, 10) || 0));
+    if ('pre' in o || 'post' in o) out[row.dataset.section] = o;
+  });
+  return out;
+}
+
 // Every control below stages its change locally (radios/inputs just update
 // their own display state) and only writes to the database when that
 // section's own "💾 Update" button is clicked — nothing here reaches a
@@ -1800,6 +2113,7 @@ async function loadTopicAccessView() {
   document.getElementById('flowTimersRow').classList.toggle('hidden', !focusOn);
   _setTimerControl('flowPreSeconds', 'flowPreSecondsCustom', cls.flow_pre_seconds, 10);
   _setTimerControl('flowPostSeconds', 'flowPostSecondsCustom', cls.flow_post_seconds, 10);
+  _populateActivityTimers(cls.flow_activity_timers, cls.flow_pre_seconds, cls.flow_post_seconds);
 
   await Promise.all([loadTopicVisibilityState(), renderTopicRequests()]);
   renderTopicVisibility();
@@ -1879,13 +2193,17 @@ document.getElementById('flowFocusCards').addEventListener('change', (e) => {
   document.getElementById(id).addEventListener('change', (e) => {
     document.getElementById(id + 'Custom').classList.toggle('hidden', e.target.value !== 'custom');
     if (e.target.value === 'custom') document.getElementById(id + 'Custom').focus();
+    _syncActivityPlaceholders();
   });
+  // Typing an exact custom class-wide value should refresh the placeholders too.
+  document.getElementById(id + 'Custom').addEventListener('input', _syncActivityPlaceholders);
 });
 document.getElementById('flowFocusUpdateBtn').addEventListener('click', () => {
   const focusOn = document.querySelector('input[name="flowFocus"]:checked')?.value !== 'all';
   const pre = _readTimerControl('flowPreSeconds', 'flowPreSecondsCustom');
   const post = _readTimerControl('flowPostSeconds', 'flowPostSecondsCustom');
-  saveClassFlow({ flow_focus_mode: focusOn, flow_pre_seconds: pre, flow_post_seconds: post }, 'flowFocusMsg');
+  const activityTimers = _readActivityTimers();
+  saveClassFlow({ flow_focus_mode: focusOn, flow_pre_seconds: pre, flow_post_seconds: post, flow_activity_timers: activityTimers }, 'flowFocusMsg');
 });
 
 // ── Daily Revise settings (schema: supabase/daily-revise-class-settings.sql) ──
@@ -2206,6 +2524,7 @@ function escapeHtml(str) {
 
 init();
 </script>
+<script src="teacher-nav.js"></script>
 <script src="footer-legal.js"></script>
 </body>
 </html>

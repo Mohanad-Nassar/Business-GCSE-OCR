@@ -167,6 +167,7 @@
 
 <main>
   <div class="toolbar">
+    <select id="classPicker" title="Choose a class" aria-label="Choose a class" style="padding:8px 12px; border:1px solid var(--border); border-radius:7px; font-size:13px; font-family:'DM Sans',sans-serif; background:#fff; margin-right:6px;"></select>
     <button type="button" class="subtab active" data-atab="usage">📊 Usage</button>
     <button type="button" class="subtab" data-atab="overview">👥 Student overview</button>
     <button type="button" class="subtab" data-atab="questions">❓ Question analysis</button>
@@ -293,8 +294,24 @@ async function init() {
   auth = await tasksAuthInit('teacher');
   if (!auth) return;
   classId = new URLSearchParams(location.search).get('class');
+
+  // Class picker — lets this page stand on its own (reachable straight from
+  // the teacher nav's "Daily Revise" link) instead of only being openable
+  // with a ?class= already in the URL. Switching classes just reloads with
+  // the new ?class=, reusing the existing single-class load path below.
+  const { data: myClasses } = await auth.client
+    .from('classes').select('id, name, archived').eq('archived', false).order('created_at');
+  const picker = $('classPicker');
+  picker.innerHTML = '<option value="">— choose a class —</option>' +
+    (myClasses || []).map(c => `<option value="${esc(c.id)}"${c.id === classId ? ' selected' : ''}>${esc(c.name)}</option>`).join('');
+  picker.addEventListener('change', () => {
+    location.search = picker.value ? '?class=' + encodeURIComponent(picker.value) : '';
+  });
+
   if (!classId) {
-    document.querySelector('main').innerHTML = '<div class="panel"><div class="empty">No class selected — open this page from the Teacher Dashboard.</div></div>';
+    // No class yet — keep the picker usable, blank out the tab panels.
+    document.querySelectorAll('.toolbar .subtab, #anaFilterToggleBtn').forEach(b => { b.disabled = true; b.style.opacity = '.5'; });
+    $('atab-usage').innerHTML = '<div class="empty">Pick a class above to see its Daily Revise usage, mastery and question performance.</div>';
     return;
   }
 
@@ -303,7 +320,10 @@ async function init() {
     auth.client.from('class_students').select('profiles!inner(id, username)').eq('class_id', classId),
   ]);
   if (cls) $('headerSub').textContent = `${cls.name} — Daily Revise usage, mastery and question performance`;
-  roster = (members || []).map(m => m.profiles).sort((a, b) => (a.username || '').localeCompare(b.username || ''));
+  // { numeric: true } -> natural sort ("S9…" before "S32…" instead of
+  // after) since usernames from the custom-prefix generator are exactly
+  // S1<code>, S2<code>, … S32<code>.
+  roster = (members || []).map(m => m.profiles).sort((a, b) => (a.username || '').localeCompare(b.username || '', undefined, { numeric: true }));
   const byId = {};
   roster.forEach(s => { byId[s.id] = s.username; });
   nameOf = id => byId[id] || id.slice(0, 8);
@@ -397,7 +417,7 @@ function renderUsage() {
     if (sort === 'last') return (new Date(b.last_revised_at || 0) - new Date(a.last_revised_at || 0)) * dir;
     if (sort === 'accuracy') return (acc(b) - acc(a)) * dir;
     if (sort === 'mastered') return (b.mastered - a.mastered) * dir;
-    return nameOf(a.student_id).localeCompare(nameOf(b.student_id)) * dir;
+    return nameOf(a.student_id).localeCompare(nameOf(b.student_id), undefined, { numeric: true }) * dir;
   });
   $('usageBody').innerHTML = rows.map(r => `<tr>
     <td class="mono">${esc(nameOf(r.student_id))}</td>
@@ -441,7 +461,7 @@ async function loadOverview() {
     $('ovRows').innerHTML = `<div class="empty">Couldn't load — has supabase/daily-revise-analytics.sql been run? (${esc(error.message)})</div>`;
     return;
   }
-  const rows = (data || []).sort((a, b) => nameOf(a.student_id).localeCompare(nameOf(b.student_id)));
+  const rows = (data || []).sort((a, b) => nameOf(a.student_id).localeCompare(nameOf(b.student_id), undefined, { numeric: true }));
 
   const totals = rows.reduce((t, r) => ({
     attempts: t.attempts + r.attempts, correct: t.correct + r.correct, mastered: t.mastered + r.mastered,
@@ -575,7 +595,7 @@ function matrixTopicPct(studentId, pageId) {
 }
 function matrixComparator(key, dir) {
   return (a, b) => {
-    if (key === 'name') return ((a.username || '').localeCompare(b.username || '')) * dir;
+    if (key === 'name') return ((a.username || '').localeCompare(b.username || '', undefined, { numeric: true })) * dir;
     const va = key === 'mastered' ? matrixOverallMasteredPct(a.id) : matrixTopicPct(a.id, key);
     const vb = key === 'mastered' ? matrixOverallMasteredPct(b.id) : matrixTopicPct(b.id, key);
     if (va == null && vb == null) return 0;
@@ -664,6 +684,7 @@ $('matrixWrap').addEventListener('click', (e) => {
 
 init();
 </script>
+<script src="teacher-nav.js"></script>
 <script src="footer-legal.js"></script>
 </body>
 </html>

@@ -51,20 +51,19 @@
 
     /* ── HEADER ── */
     header {
-      background: var(--ink);
+      background-color: var(--ink);
+      /* Both decorative circles painted as backgrounds so the header needs
+         no overflow:hidden (which would clip the injected account dropdown
+         / notification bell panel). */
+      background-image:
+        radial-gradient(circle 110px at calc(100% - 60px) 60px,
+          rgba(122,92,158,.14) 0, rgba(122,92,158,.14) 109px, transparent 110px),
+        radial-gradient(circle 60px at 80px calc(100% - 30px),
+          rgba(212,168,67,.07) 0, rgba(212,168,67,.07) 59px, transparent 60px);
+      background-repeat: no-repeat;
       border-bottom: 3px solid var(--accent);
       padding: 28px 40px 24px;
-      position: relative; overflow: hidden;
-    }
-    header::before {
-      content:''; position:absolute; top:-50px; right:-50px;
-      width:220px; height:220px; border-radius:50%;
-      background:var(--accent); opacity:.14; pointer-events:none;
-    }
-    header::after {
-      content:''; position:absolute; bottom:-30px; left:20px;
-      width:120px; height:120px; border-radius:50%;
-      background:var(--gold); opacity:.07; pointer-events:none;
+      position: relative;
     }
     .header-inner {
       position:relative; z-index:1;
@@ -266,6 +265,10 @@
 <a class="skip-link" href="#dashContent">Skip to progress tables</a>
 
 <header>
+  <nav class="site-band" aria-label="Site">
+    <a class="sb-brand" href="/index.html"><span aria-hidden="true">🏡</span> All Topics</a>
+    <span class="gcse-account-bar" id="accountBar"></span>
+  </nav>
   <div class="header-inner">
     <div class="header-left">
       <div class="header-badge">OCR GCSE Business Studies · J204</div>
@@ -274,10 +277,8 @@
     </div>
     <div class="header-links">
       <span id="subjectSwitcherMount"></span>
-      <a class="nav-link" href="index.html">← Home</a>
     </div>
   </div>
-  <div class="gcse-account-bar" id="accountBar" style="padding:0 40px 4px;"></div>
 </header>
 
 <div class="summary-strip">
@@ -378,6 +379,7 @@
 <script>subjectLoaderInit({ mode: 'single' });</script>
 <script src="progress-shared.js"></script>
 <script src="tasks-shared.js"></script>
+<script src="/account-cluster.js"></script>
 <script src="notifications-shared.js"></script>
 <script src="onboarding-tour.js"></script>
 <script src="gamification.js"></script>
@@ -418,15 +420,25 @@ async function initDashboardAuth() {
     expires_at: data.session.expires_at, role: cached.role, username: cached.username,
   }));
 
-  document.getElementById('accountBar').innerHTML =
-    `<span>Logged in as <strong>${cached.username || 'you'}</strong></span>
-     <a class="nav-link" href="manage-account.html">⚙ Manage Account</a>
-     <button type="button" class="nav-link" id="logoutBtn">Log out</button>`;
-  document.getElementById('logoutBtn').addEventListener('click', async () => {
-    await supabaseClient.auth.signOut();
-    localStorage.removeItem(GCSE_SESSION_KEY);
-    location.replace('login.html');
-  });
+  // The shared profile cluster (script.js) renders the avatar + "Hi, name"
+  // dropdown into #accountBar so this page's header matches every other
+  // page. Fall back to a minimal escaped bar only if script.js is absent.
+  if (typeof _gcseInjectAccountBar === 'function') {
+    window._gcseProfile = window._gcseProfile || { username: cached.username, role: cached.role };
+    window._gcseSupabaseClient = window._gcseSupabaseClient || supabaseClient;
+    _gcseInjectAccountBar();
+  } else {
+    const escName = String(cached.username || 'you').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    document.getElementById('accountBar').innerHTML =
+      `<span>Logged in as <strong>${escName}</strong></span>
+       <a class="nav-link" href="manage-account.html">⚙ Manage Account</a>
+       <button type="button" class="nav-link" id="logoutBtn">Log out</button>`;
+    document.getElementById('logoutBtn').addEventListener('click', async () => {
+      await supabaseClient.auth.signOut();
+      localStorage.removeItem(GCSE_SESSION_KEY);
+      location.replace('login.html');
+    });
+  }
   return true;
 }
 
@@ -665,7 +677,7 @@ async function renderDashboard(){
         ${makeRing(gDone,gTotal,38,`${group.title} overall`)}
         <span class="group-pct" aria-hidden="true">${gTotal?gPct+'%':'–'}</span>
       </div>
-      <span class="group-chevron" aria-hidden="true">â–¾</span>`;
+      <span class="group-chevron" aria-hidden="true">▾</span>`;
     groupEl.appendChild(groupHeader);
 
     const tableWrap=document.createElement('div');
@@ -893,6 +905,20 @@ function renderMyTasks() {
   }).join('');
 
   renderScoreHistory();
+  maybeScrollToHash();
+}
+
+// Deep-link support: the account dropdown's "Tasks" item points at
+// dashboard.html#tasksSection, but that section starts hidden and only
+// appears once loadMyTasks resolves — so a plain anchor jump on load would
+// land on nothing. Re-run the scroll once the section is actually rendered.
+function maybeScrollToHash() {
+  const id = (location.hash || '').replace('#', '');
+  if (!id) return;
+  const el = document.getElementById(id);
+  if (el && el.style.display !== 'none') {
+    requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  }
 }
 
 // ── Score history: every marked attempt, oldest first ──
@@ -1080,6 +1106,7 @@ initDashboardAuth().then(async ok => {
   if (!ok) return;
   if (typeof gamificationRefreshStreak === 'function') dashStreak = await gamificationRefreshStreak(supabaseClient);
   if (typeof gamificationRefreshDailyReviseStats === 'function') await gamificationRefreshDailyReviseStats(supabaseClient);
+  if (typeof gamificationRefreshReviewStats === 'function') await gamificationRefreshReviewStats(supabaseClient);
   initSubjectSwitcher();
   renderDashboard(); loadMyTasks(); loadWeakTopics();
   refreshReviewCalendarCard();
