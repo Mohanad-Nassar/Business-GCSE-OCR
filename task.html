@@ -537,7 +537,7 @@ function renderQuestion() {
     const parts = snap.question.split(/_{3,}/);
     let html = '<div class="fib-text">';
     parts.forEach((part, pi) => {
-      html += esc(part);
+      html += taskRichText(part);
       if (pi < parts.length - 1 && pi < keys.length) {
         const k = keys[pi];
         html += `<input type="text" class="fib-input" data-bk="${k}" value="${esc(vals[k] || '')}" autocomplete="off" spellcheck="false" aria-label="Blank ${pi + 1}"/>`;
@@ -547,8 +547,8 @@ function renderQuestion() {
     inputHtml = html;
   } else {
     inputHtml = `<textarea class="answer-box" id="writtenAnswer" placeholder="Type your answer here… (${q.marks} marks — aim for ${q.marks >= 6 ? 'a developed, structured answer' : q.marks >= 3 ? 'developed points' : 'clear, precise points'})">${esc(a.value || '')}</textarea>
-      ${snap.hint ? `<details class="helper"><summary>💡 Hint</summary><div>${esc(snap.hint)}</div></details>` : ''}
-      ${snap.starter ? `<details class="helper"><summary>✏️ Sentence starter</summary><div>${esc(snap.starter)}</div></details>` : ''}`;
+      ${snap.hint ? `<details class="helper"><summary>💡 Hint</summary><div>${taskRichText(snap.hint)}</div></details>` : ''}
+      ${snap.starter ? `<details class="helper"><summary>✏️ Sentence starter</summary><div>${taskRichText(snap.starter)}</div></details>` : ''}`;
   }
 
   $('questionPanel').innerHTML = `
@@ -557,9 +557,9 @@ function renderQuestion() {
       <span class="chip info">${QTYPE_LABELS[q.qtype] || q.qtype}</span>
       <span class="qmarks">[${q.marks} mark${Number(q.marks) === 1 ? '' : 's'}]</span>
     </div>
-    ${snap.caseStudy ? `<div class="case-study"><strong>Case study:</strong>\n${esc(snap.caseStudy)}</div>` : ''}
+    ${snap.caseStudy ? `<div class="case-study"><strong>Case study:</strong>\n${taskRichText(snap.caseStudy)}</div>` : ''}
     ${snap.reading ? `<div><div class="reading-lbl">📖 Read this first${snap.readingTitle ? ' — ' + esc(snap.readingTitle) : ''}</div><div class="reading-card">${snap.reading}</div></div>` : ''}
-    ${q.qtype === 'fib' ? '' : `<div class="qtext">${esc(snap.question)}</div>`}
+    ${q.qtype === 'fib' ? '' : `<div class="qtext">${taskRichText(snap.question)}</div>`}
     ${inputHtml}`;
 
   $('prevBtn').disabled = curIdx === 0;
@@ -806,7 +806,7 @@ async function showResults() {
       if (q.qtype === 'mcq' && key.answer != null) keyHtml += `<div class="banner good" style="margin:8px 0;">Correct answer: <strong>${String.fromCharCode(65 + key.answer)}. ${esc((snap.options || [])[key.answer] ?? '')}</strong></div>`;
       if (q.qtype === 'tf' && key.answer != null) keyHtml += `<div class="banner good" style="margin:8px 0;">Correct answer: <strong>${key.answer ? 'True' : 'False'}</strong></div>`;
       if (q.qtype === 'fib' && key.blanks && !counted) keyHtml += `<div class="banner good" style="margin:8px 0;">Answers: ${fibBlankKeys(q).map((k, bi) => `<strong>${bi + 1}.</strong> ${esc(key.blanks[k] ?? '')}`).join(' · ')}</div>`;
-      if (key.explain) keyHtml += `<details class="ms"><summary>Explanation</summary><div>${esc(key.explain)}</div></details>`;
+      if (key.explain) keyHtml += `<details class="ms"><summary>Explanation</summary><div>${taskRichText(key.explain)}</div></details>`;
       if (key.markScheme) keyHtml += `<details class="ms"><summary>Mark scheme</summary><div>${key.markScheme}</div></details>`;
       if (key.modelAnswer) keyHtml += `<details class="ms"><summary>Model answer</summary><div>${key.modelAnswer}</div></details>`;
     }
@@ -818,9 +818,9 @@ async function showResults() {
         ${stateChip}
         ${a ? `<span class="muted" style="margin-left:auto;">⏱ ${fmtDuration(a.time_spent_seconds)}</span>` : ''}
       </div>
-      ${snap.caseStudy ? `<details class="ms"><summary>Case study</summary><div>${esc(snap.caseStudy)}</div></details>` : ''}
+      ${snap.caseStudy ? `<details class="ms"><summary>Case study</summary><div>${taskRichText(snap.caseStudy)}</div></details>` : ''}
       ${snap.reading ? `<details class="ms"><summary>📖 Reading${snap.readingTitle ? ' — ' + esc(snap.readingTitle) : ''}</summary><div>${snap.reading}</div></details>` : ''}
-      <div style="font-size:14px; font-weight:600; margin:6px 0;">${esc(snap.question)}</div>
+      <div style="font-size:14px; font-weight:600; margin:6px 0;">${taskRichText(snap.question)}</div>
       ${q.qtype === 'mcq' && !counted ? `<ol class="opts" type="A" style="font-size:13px; padding-left:20px;">${(snap.options || []).map(o => `<li>${esc(o)}</li>`).join('')}</ol>` : ''}
       ${yourAnswerHtml}
       ${a && a.feedback ? `<div class="feedback-box"><div class="fl">${a.marked_by === 'ai' ? '🤖 AI feedback' : '👩‍🏫 Teacher feedback'}</div>${esc(a.feedback)}</div>` : ''}

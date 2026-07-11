@@ -750,7 +750,7 @@ function _gamUpdateHud(stats) {
         if (href) {
           const nameEl = nextCard.querySelector('.gam-nav-name');
           show = true;
-          nextBtn.innerHTML = href === '/dashboard.html'
+          nextBtn.innerHTML = href.indexOf('/dashboard.html') === 0
             ? '🎉 Topic done — see my progress →'
             : `▶ Next lesson: 📚 ${nameEl ? nameEl.textContent : 'Next topic'} →`;
           nextBtn.dataset.href = href;
@@ -838,7 +838,7 @@ function _gamShowTopicCelebration() {
   const name = (typeof pageTitle === 'function' && _gamHudPageId) ? pageTitle(_gamHudPageId) : 'this topic';
   const nextCard = document.getElementById('gamNavNextCard');
   const nextHref = nextCard ? nextCard.getAttribute('href') : '/dashboard.html';
-  const nextLabel = nextCard && nextCard.getAttribute('href') !== '/dashboard.html' ? 'Next topic →' : 'See my progress →';
+  const nextLabel = nextCard && nextCard.getAttribute('href').indexOf('/dashboard.html') !== 0 ? 'Next topic →' : 'See my progress →';
 
   const overlay = document.createElement('div');
   overlay.className = 'gam-celeb-overlay';
@@ -1052,6 +1052,12 @@ function _gamInjectTopicNav(pages, idx) {
          <span class="gam-nav-name">${prev.name}</span></a>`
     : `<span class="gam-nav-card gam-nav-spacer" aria-hidden="true"></span>`;
 
+  // Keep the student inside the subject they're working in — topic pages
+  // always have window.SUBJECT (set by the directory's page-groups.js).
+  const navSlug = (window.SUBJECT && window.SUBJECT.slug) || null;
+  const navQ = navSlug ? '?subject=' + encodeURIComponent(navSlug) : '';
+  const homeHref = navSlug ? '/subjects/' + encodeURIComponent(navSlug) + '/index.html' : '/index.html';
+
   let nextHtml;
   if (next) {
     const potXp = _gamPagePotentialXp(next.id);
@@ -1060,13 +1066,13 @@ function _gamInjectTopicNav(pages, idx) {
         <span class="gam-nav-name">${next.name}</span>
         ${potXp ? `<span class="gam-nav-xp">⚡ up to ${potXp} XP waiting</span>` : ''}</a>`;
   } else {
-    nextHtml = `<a class="gam-nav-card gam-nav-next" id="gamNavNextCard" href="/dashboard.html" style="--gam-accent:var(--gold,#d4a843)">
+    nextHtml = `<a class="gam-nav-card gam-nav-next" id="gamNavNextCard" href="/dashboard.html${navQ}" style="--gam-accent:var(--gold,#d4a843)">
         <span class="gam-nav-dir">Course end →</span>
         <span class="gam-nav-name">See your progress &amp; badges</span></a>`;
   }
 
   nav.innerHTML = prevHtml +
-    `<a class="gam-nav-card gam-nav-home" href="/index.html"><span aria-hidden="true">🏡</span><span>All topics</span></a>` +
+    `<a class="gam-nav-card gam-nav-home" href="${homeHref}"><span aria-hidden="true">🏡</span><span>All topics</span></a>` +
     nextHtml;
   main.appendChild(nav);
 }

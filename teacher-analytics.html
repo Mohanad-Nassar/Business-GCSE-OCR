@@ -549,7 +549,7 @@ function qaCardHtml(q) {
       </div>`;
   }
   return `<div class="qa-card">
-    <div class="qa-q">${esc(snap.question || q.question_key)}</div>
+    <div class="qa-q">${taskRichText(snap.question || q.question_key)}</div>
     <div class="qa-meta">${esc(q.page_name)} · ${q.students_attempted} student${q.students_attempted === 1 ? '' : 's'} attempted · ${q.pct}% correct</div>
     ${dist}
   </div>`;

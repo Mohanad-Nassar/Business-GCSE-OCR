@@ -467,9 +467,14 @@ function initSiteNav() {
     nav.id = 'siteNav';
     nav.className = 'site-nav';
     nav.setAttribute('aria-label', 'Site');
+    // Topic pages always know their subject (window.SUBJECT comes from the
+    // directory's generated page-groups.js) — carry it on both links so the
+    // student stays in this subject instead of falling back to business.
+    const snSlug = (window.SUBJECT && window.SUBJECT.slug) || null;
+    const snQ = snSlug ? '?subject=' + encodeURIComponent(snSlug) : '';
     nav.innerHTML = `
-        <a class="sn-brand" href="/index.html"><span aria-hidden="true">🏡</span> All Topics</a>
-        <a class="sn-link" href="/dashboard.html"><span aria-hidden="true">📊</span> <span class="sn-label">My Progress</span></a>`;
+        <a class="sn-brand" href="${snSlug ? '/subjects/' + encodeURIComponent(snSlug) + '/index.html' : '/index.html'}"><span aria-hidden="true">🏡</span> All Topics</a>
+        <a class="sn-link" href="/dashboard.html${snQ}"><span aria-hidden="true">📊</span> <span class="sn-label">My Progress</span></a>`;
     if (typeof gamificationCreateSoundButton === 'function') {
         nav.appendChild(gamificationCreateSoundButton('sn-btn'));
     }

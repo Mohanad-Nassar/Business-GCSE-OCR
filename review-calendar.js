@@ -441,7 +441,7 @@ function renderQuizQuestion() {
       <button type="button" class="sr-mode-btn" id="srqFibModeBtn">${useDropdown ? '🔥 Switch to typing' : '🔽 Switch to dropdowns'}</button>
     </div><div class="fib-text" id="srqFib">`;
     parts.forEach((part, pi) => {
-      html += esc(part);
+      html += taskRichText(part);
       if (pi < parts.length - 1 && pi < keys.length) {
         const key = keys[pi];
         if (useDropdown && blankOptions[key]) {
@@ -471,9 +471,9 @@ function renderQuizQuestion() {
       <span class="chip">${esc(q.page_name || topicName)}</span>
       <span>[${q.marks} mark${Number(q.marks) === 1 ? '' : 's'}]</span>
     </div>
-    ${snap.caseStudy ? `<div class="case-study"><strong>Case study:</strong>\n${esc(snap.caseStudy)}</div>` : ''}
+    ${snap.caseStudy ? `<div class="case-study"><strong>Case study:</strong>\n${taskRichText(snap.caseStudy)}</div>` : ''}
     ${snap.reading ? `<div class="case-study">${snap.readingTitle ? `<strong>${esc(snap.readingTitle)}</strong><br>` : ''}${snap.reading}</div>` : ''}
-    ${q.qtype === 'fib' ? '' : `<div class="qtext">${esc(snap.question)}</div>`}
+    ${q.qtype === 'fib' ? '' : `<div class="qtext">${taskRichText(snap.question)}</div>`}
     ${inputHtml}
     <div class="dr-feedback" id="srqFeedback"></div>
     <div class="sr-actions">
@@ -582,9 +582,12 @@ function applyQuizFeedback(q, result) {
   }
 
   const fb = document.getElementById('srqFeedback');
+  // explain is plain text but the markScheme fallback is site-generated
+  // HTML (<p>/<strong>/tables with classes) — escaping it showed literal
+  // tags. Render it the same way daily-revise.js's applyFeedback does.
   const explain = answerKey.explain || answerKey.markScheme || '';
   fb.className = `dr-feedback show ${correct ? 'm3' : 'm0'}`;
-  fb.innerHTML = (correct ? '✓ Correct! ' : '✗ Not quite. ') + esc(explain);
+  fb.innerHTML = (correct ? '✓ Correct! ' : '✗ Not quite. ') + explain;
 
   // Gamification — identical to daily-revise. XP was already durably credited
   // server-side via the mastery path, so the toast is real.

@@ -643,7 +643,7 @@ function categoryRow(page, sourceDef, questions, pageCfg) {
         <input type="checkbox" data-qid="${q.id}" ${inTask.has(q.id) ? 'checked' : ''}/>
         <span class="qbody">
           <span class="mono" style="color:#8f6d19">[${q.marks} mk]</span>
-          ${esc(q.question.length > 160 ? q.question.slice(0, 160) + '…' : q.question)}
+          ${(t => esc(t.length > 160 ? t.slice(0, 160) + '…' : t))(taskStripTags(q.question))}
           <button type="button" class="btn icon-btn" data-preview="${q.id}">👁 Preview</button>
         </span>
       </label>`).join('');
@@ -715,15 +715,15 @@ function updatePickSummary() {
 }
 
 function questionBodyHtml(q, { truncateCase, openMarkScheme } = {}) {
-  const caseText = q.caseStudy ? (truncateCase && q.caseStudy.length > 260 ? esc(q.caseStudy.slice(0, 260)) + '…' : esc(q.caseStudy)) : '';
+  const caseText = q.caseStudy ? (truncateCase && q.caseStudy.length > 260 ? esc(taskStripTags(q.caseStudy).slice(0, 260)) + '…' : taskRichText(q.caseStudy)) : '';
   return `
     ${q.caseStudy ? `<div class="case">${caseText}</div>` : ''}
     ${q.reading ? `<details class="ms"><summary>📖 Reading shown with this question${q.readingTitle ? ' — ' + esc(q.readingTitle) : ''}</summary><div class="reading-preview">${q.reading}</div></details>` : ''}
-    <div class="qtext">${esc(q.question)}</div>
+    <div class="qtext">${taskRichText(q.question)}</div>
     ${q.options ? `<ol class="opts" type="A">${q.options.map(o => `<li>${esc(o)}</li>`).join('')}</ol>` : ''}
     ${q.type === 'fib' && q.key && q.key.blanks ? `<details class="ms"><summary>Blank answers</summary><div>${Object.entries(q.key.blanks).map(([k, v]) => `<span class="mono">${esc(k)}:</span> ${esc(v)}`).join(' · ')}</div></details>` : ''}
-    ${q.key && (q.key.markScheme || q.key.explain) ? `<details class="ms" ${openMarkScheme ? 'open' : ''}><summary>Mark scheme / answer</summary><div>${q.key.markScheme || esc(q.key.explain || '')}</div></details>` : ''}
-    ${q.key && q.key.modelAnswer ? `<details class="ms"><summary>Model answer</summary><div>${esc(q.key.modelAnswer)}</div></details>` : ''}`;
+    ${q.key && (q.key.markScheme || q.key.explain) ? `<details class="ms" ${openMarkScheme ? 'open' : ''}><summary>Mark scheme / answer</summary><div>${q.key.markScheme || taskRichText(q.key.explain || '')}</div></details>` : ''}
+    ${q.key && q.key.modelAnswer ? `<details class="ms"><summary>Model answer</summary><div>${taskRichText(q.key.modelAnswer)}</div></details>` : ''}`;
 }
 
 function openPreview(q) {
@@ -1049,17 +1049,17 @@ function renderWorksheetQuestion(it, opts) {
   let body = '';
 
   if (q.type === 'mcq') {
-    body = `<div>${esc(q.question)}</div>${renderMcqOptions(q, opts)}`;
+    body = `<div>${taskRichText(q.question)}</div>${renderMcqOptions(q, opts)}`;
   } else if (q.type === 'tf') {
-    body = `<div style="display:flex; align-items:baseline;"><span style="flex:1;">${esc(q.question)}</span><span class="ws-tf">TRUE / FALSE</span></div>`;
+    body = `<div style="display:flex; align-items:baseline;"><span style="flex:1;">${taskRichText(q.question)}</span><span class="ws-tf">TRUE / FALSE</span></div>`;
   } else if (q.type === 'fib') {
     body = renderFibText(q, opts);
   } else { // written
     let text = q.question;
     if (opts.showMarks) text = text.replace(/\s*\[\d+\s*marks?\]\s*$/i, '');
-    const starter = opts.sentenceStarters && q.starter ? `<div class="ws-starter">${esc(q.starter)}</div>` : '';
+    const starter = opts.sentenceStarters && q.starter ? `<div class="ws-starter">${taskRichText(q.starter)}</div>` : '';
     const lines = Math.max(2, Math.ceil(q.marks * opts.linesPerMark));
-    body = `<div>${esc(text)}</div>${starter}${answerLines(lines)}`;
+    body = `<div>${taskRichText(text)}</div>${starter}${answerLines(lines)}`;
   }
 
   const marks = it.kind === 'match' ? it.marks : q.marks;
@@ -1082,7 +1082,7 @@ function renderFibText(q, opts) {
   const multi = keys.length > 1;
   let out = '';
   for (let i = 0; i < parts.length; i++) {
-    out += esc(parts[i]);
+    out += taskRichText(parts[i]);
     if (i >= parts.length - 1) break;
     const key = keys[Math.min(i, keys.length - 1)];
     const word = key ? String(q.key.blanks[key]) : '';
@@ -1121,7 +1121,7 @@ function renderMixedItems(items, opts) {
       let j = i;
       while (j + 1 < items.length && items[j + 1].kind === 'q' && items[j + 1].q.caseStudy === it.q.caseStudy) j++;
       const range = j > i ? `questions ${it.num}–${items[j].num}` : `question ${it.num}`;
-      html += `<div class="ws-case"><div class="ws-case-lbl">📋 Case study — read it, then answer ${esc(range)}.</div>${esc(it.q.caseStudy)}</div>`;
+      html += `<div class="ws-case"><div class="ws-case-lbl">📋 Case study — read it, then answer ${esc(range)}.</div>${taskRichText(it.q.caseStudy)}</div>`;
       for (let k = i; k <= j; k++) html += renderWorksheetQuestion(items[k], opts);
       i = j + 1;
       continue;
@@ -1189,12 +1189,12 @@ function keyEntry(it, opts) {
   const q = it.q;
   if (q.type === 'mcq') {
     let s = `<div class="ws-key-item"><strong>${it.num}.</strong> ${String.fromCharCode(65 + ((q.key && typeof q.key.answer === 'number') ? q.key.answer : 0))}`;
-    if (detailed && q.key && q.key.explain) s += `<div class="expl">${esc(q.key.explain)}</div>`;
+    if (detailed && q.key && q.key.explain) s += `<div class="expl">${taskRichText(q.key.explain)}</div>`;
     return s + '</div>';
   }
   if (q.type === 'tf') {
     let s = `<div class="ws-key-item"><strong>${it.num}.</strong> ${q.key && q.key.answer ? 'TRUE' : 'FALSE'}`;
-    if (detailed && q.key && q.key.explain) s += `<div class="expl">${esc(q.key.explain)}</div>`;
+    if (detailed && q.key && q.key.explain) s += `<div class="expl">${taskRichText(q.key.explain)}</div>`;
     return s + '</div>';
   }
   if (q.type === 'fib') {
@@ -1206,7 +1206,7 @@ function keyEntry(it, opts) {
   // written
   let body;
   if (detailed && q.key && q.key.markScheme) body = q.key.markScheme; // trusted site-generated HTML
-  else if (q.key && q.key.modelAnswer) body = `<div class="expl">${esc(q.key.modelAnswer)}</div>`;
+  else if (q.key && q.key.modelAnswer) body = `<div class="expl">${taskRichText(q.key.modelAnswer)}</div>`;
   else if (q.key && q.key.markScheme) body = q.key.markScheme;
   else body = '<div class="expl">(teacher judgement)</div>';
   return `<div class="ws-key-item"><strong>${it.num}.</strong> <em>Written — ${q.marks} mark${q.marks === 1 ? '' : 's'}</em>${body}</div>`;

@@ -114,6 +114,19 @@ function _gcseInjectAccountBar() {
     const initial = gcseEscapeHtml((name.trim()[0] || '?'));
     const role = profile.role === 'teacher' ? 'teacher' : 'student';
 
+    // Student links must carry the subject the student is currently working
+    // in — a bare /daily-revise.html silently falls back to business, which
+    // served economics students the wrong subject's questions. Topic pages
+    // set window.SUBJECT from their own page-groups.js; root pages set it
+    // via subject-loader.js; and we persist it here too so subject-less
+    // pages (badges, manage-account, task) still link back correctly.
+    let subjSlug = (window.SUBJECT && window.SUBJECT.slug) || null;
+    try {
+        if (subjSlug) localStorage.setItem('gcse_last_subject', subjSlug);
+        else subjSlug = localStorage.getItem('gcse_last_subject');
+    } catch (e) {}
+    const subjQ = subjSlug ? '?subject=' + encodeURIComponent(subjSlug) : '';
+
     const items = role === 'teacher'
         ? `<a class="gpm-item" href="/teacher-dashboard.html"><span aria-hidden="true">🧑‍🏫</span> Teacher Dashboard</a>
            <a class="gpm-item" href="/teacher-classes.html"><span aria-hidden="true">📚</span> My Classes</a>
@@ -121,11 +134,12 @@ function _gcseInjectAccountBar() {
            <a class="gpm-item" href="/teacher-tasks.html"><span aria-hidden="true">📋</span> Tasks &amp; Worksheets</a>
            <a class="gpm-item" href="/teacher-calendar.html"><span aria-hidden="true">🗓️</span> Calendar</a>
            <a class="gpm-item" href="/manage-account.html"><span aria-hidden="true">⚙️</span> Manage account</a>`
-        : `<a class="gpm-item" href="/dashboard.html"><span aria-hidden="true">📊</span> My Progress</a>
-           <a class="gpm-item" href="/index.html"><span aria-hidden="true">🏡</span> All Topics</a>
-           <a class="gpm-item" href="/daily-revise.html"><span aria-hidden="true">🎯</span> Daily Revise</a>
-           <a class="gpm-item" href="/dashboard.html#tasksSection"><span aria-hidden="true">📋</span> Tasks</a>
-           <a class="gpm-item" href="/review-calendar.html"><span aria-hidden="true">🗓️</span> Calendar</a>
+        : `<a class="gpm-item" href="/dashboard.html${subjQ}"><span aria-hidden="true">📊</span> My Progress</a>
+           <a class="gpm-item" href="${subjSlug ? '/subjects/' + encodeURIComponent(subjSlug) + '/index.html' : '/index.html'}"><span aria-hidden="true">🏡</span> All Topics</a>
+           <a class="gpm-item" href="/index.html"><span aria-hidden="true">🗂️</span> My Subjects</a>
+           <a class="gpm-item" href="/daily-revise.html${subjQ}"><span aria-hidden="true">🎯</span> Daily Revise</a>
+           <a class="gpm-item" href="/dashboard.html${subjQ}#tasksSection"><span aria-hidden="true">📋</span> Tasks</a>
+           <a class="gpm-item" href="/review-calendar.html${subjQ}"><span aria-hidden="true">🗓️</span> Calendar</a>
            <a class="gpm-item" href="/manage-account.html"><span aria-hidden="true">⚙️</span> Manage account</a>`;
 
     const cluster = document.createElement('span');

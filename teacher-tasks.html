@@ -1072,7 +1072,7 @@ function categoryRow(page, sourceDef, questions, pageCfg) {
         <span class="qbody">
           <span class="mono" style="color:#8f6d19">[${q.marks} mk]</span>
           ${usedForSelection(q.id) ? '<span class="chip used">⚠ Used before</span>' : ''}
-          ${esc(q.question.length > 160 ? q.question.slice(0, 160) + '…' : q.question)}
+          ${(t => esc(t.length > 160 ? t.slice(0, 160) + '…' : t))(taskStripTags(q.question))}
           <button type="button" class="btn icon-btn" data-preview="${q.id}">👁 Preview</button>
         </span>
       </label>`).join('');
@@ -1155,15 +1155,15 @@ function updatePickSummary() {
 // Full question content (case study, reading, text, options, mark scheme) —
 // shared by the review cards and the picker's preview modal.
 function questionBodyHtml(q, { truncateCase, openMarkScheme } = {}) {
-  const caseText = q.caseStudy ? (truncateCase && q.caseStudy.length > 260 ? esc(q.caseStudy.slice(0, 260)) + '…' : esc(q.caseStudy)) : '';
+  const caseText = q.caseStudy ? (truncateCase && q.caseStudy.length > 260 ? esc(taskStripTags(q.caseStudy).slice(0, 260)) + '…' : taskRichText(q.caseStudy)) : '';
   return `
     ${q.caseStudy ? `<div class="case">${caseText}</div>` : ''}
     ${q.reading ? `<details class="ms"><summary>📖 Reading shown with this question${q.readingTitle ? ' — ' + esc(q.readingTitle) : ''}</summary><div class="reading-preview">${q.reading}</div></details>` : ''}
-    <div class="qtext">${esc(q.question)}</div>
+    <div class="qtext">${taskRichText(q.question)}</div>
     ${q.options ? `<ol class="opts" type="A">${q.options.map(o => `<li>${esc(o)}</li>`).join('')}</ol>` : ''}
     ${q.type === 'fib' && q.key && q.key.blanks ? `<details class="ms"><summary>Blank answers</summary><div>${Object.entries(q.key.blanks).map(([k, v]) => `<span class="mono">${esc(k)}:</span> ${esc(v)}`).join(' · ')}</div></details>` : ''}
-    ${q.key && (q.key.markScheme || q.key.explain) ? `<details class="ms" ${openMarkScheme ? 'open' : ''}><summary>Mark scheme / answer</summary><div>${q.key.markScheme || esc(q.key.explain || '')}</div></details>` : ''}
-    ${q.key && q.key.modelAnswer ? `<details class="ms"><summary>Model answer</summary><div>${esc(q.key.modelAnswer)}</div></details>` : ''}`;
+    ${q.key && (q.key.markScheme || q.key.explain) ? `<details class="ms" ${openMarkScheme ? 'open' : ''}><summary>Mark scheme / answer</summary><div>${q.key.markScheme || taskRichText(q.key.explain || '')}</div></details>` : ''}
+    ${q.key && q.key.modelAnswer ? `<details class="ms"><summary>Model answer</summary><div>${taskRichText(q.key.modelAnswer)}</div></details>` : ''}`;
 }
 
 // ── Question preview modal (used from both the picker and the review list) ──
@@ -2288,13 +2288,13 @@ function renderDetailQuestions() {
         <span class="marks">[${q.marks} mark${Number(q.marks) === 1 ? '' : 's'}]</span>
         <span class="muted">${esc(q.snapshot.pageName || q.page_id)}</span>
       </div>
-      ${q.snapshot.caseStudy ? `<details class="ms"><summary>Case study</summary><div>${esc(q.snapshot.caseStudy)}</div></details>` : ''}
+      ${q.snapshot.caseStudy ? `<details class="ms"><summary>Case study</summary><div>${taskRichText(q.snapshot.caseStudy)}</div></details>` : ''}
       ${q.snapshot.reading ? `<details class="ms"><summary>📖 Reading${q.snapshot.readingTitle ? ' — ' + esc(q.snapshot.readingTitle) : ''}</summary><div class="reading-preview">${q.snapshot.reading}</div></details>` : ''}
-      <div class="qtext">${esc(q.snapshot.question)}</div>
+      <div class="qtext">${taskRichText(q.snapshot.question)}</div>
       ${q.snapshot.options ? `<ol class="opts" type="A">${q.snapshot.options.map(o => `<li>${esc(o)}</li>`).join('')}</ol>` : ''}
       ${q.qtype === 'fib' && q.answer_key.blanks ? `<details class="ms"><summary>Blank answers</summary><div>${Object.entries(q.answer_key.blanks).map(([k, v]) => `<span class="mono">${esc(k)}:</span> ${esc(v)}`).join(' · ')}</div></details>` : ''}
       ${q.answer_key.markScheme ? `<details class="ms"><summary>Mark scheme</summary><div>${q.answer_key.markScheme}</div></details>` : ''}
-      ${q.answer_key.explain ? `<details class="ms"><summary>Answer explanation</summary><div>${esc(q.answer_key.explain)}</div></details>` : ''}
+      ${q.answer_key.explain ? `<details class="ms"><summary>Answer explanation</summary><div>${taskRichText(q.answer_key.explain)}</div></details>` : ''}
     </div>`).join('') || '<div class="empty">No questions.</div>';
 }
 

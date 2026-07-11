@@ -337,7 +337,7 @@ function renderQuestion() {
       <button type="button" class="dr-filter-toggle" id="drFibModeBtn">${useDropdown ? '🔥 Switch to typing' : '🔽 Switch to dropdowns'}</button>
     </div><div class="fib-text" id="drFib">`;
     parts.forEach((part, pi) => {
-      html += esc(part);
+      html += taskRichText(part);
       if (pi < parts.length - 1 && pi < keys.length) {
         const key = keys[pi];
         if (useDropdown && blankOptions[key]) {
@@ -361,9 +361,9 @@ function renderQuestion() {
       <span class="chip">${esc(q.page_name)}</span>
       <span>[${q.marks} mark${Number(q.marks) === 1 ? '' : 's'}]</span>
     </div>
-    ${snap.caseStudy ? `<div class="case-study"><strong>Case study:</strong>\n${esc(snap.caseStudy)}</div>` : ''}
+    ${snap.caseStudy ? `<div class="case-study"><strong>Case study:</strong>\n${taskRichText(snap.caseStudy)}</div>` : ''}
     ${snap.reading ? `<div class="case-study">${snap.readingTitle ? `<strong>${esc(snap.readingTitle)}</strong><br>` : ''}${snap.reading}</div>` : ''}
-    ${q.qtype === 'fib' ? '' : `<div class="qtext">${esc(snap.question)}</div>`}
+    ${q.qtype === 'fib' ? '' : `<div class="qtext">${taskRichText(snap.question)}</div>`}
     ${inputHtml}
     <div class="dr-feedback" id="drFeedback"></div>
     <div class="dr-actions">

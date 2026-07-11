@@ -347,6 +347,31 @@ function taskEscapeHtml(str) {
   return String(str ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
+// Bank-question content fields (question, caseStudy, explain, hint, starter,
+// modelAnswer) may carry simple formatting HTML authored by the content build
+// (<strong>, <em>, <p>, <ul>, <table>…) — rendering them through
+// taskEscapeHtml alone shows the tags as literal text. Escape everything,
+// then restore ONLY bare whitelisted formatting tags: a tag with any
+// attribute stays escaped (inert text), so nothing scriptable survives.
+// `reading` and `markScheme` are richer site-generated HTML (classes,
+// images, inline styles) and are rendered as-is by the pages — do not route
+// them through here or their attributes would be destroyed.
+// Inter-tag newlines are collapsed so `white-space:pre-wrap` containers
+// don't add blank gaps between block elements (same idea as the exam tab's
+// case-study handling in script.js).
+function taskRichText(str) {
+  return taskEscapeHtml(str)
+    .replace(/&lt;(\/?)(p|ul|ol|li|strong|em|b|i|u|br|hr|table|thead|tbody|tr|th|td|caption|sup|sub|h[3-6]|blockquote)\s*\/?&gt;/gi, '<$1$2>')
+    .replace(/>\s*\n\s*</g, '><');
+}
+
+// One-line previews (e.g. the 160-char truncated question in the task and
+// worksheet pickers) can cut a tag in half, so restoring tags is wrong
+// there — strip them entirely instead, THEN let the caller escape/slice.
+function taskStripTags(str) {
+  return String(str ?? '').replace(/<\/?[a-z][^>]*>/gi, ' ').replace(/\s{2,}/g, ' ').trim();
+}
+
 // ── CSV export ──
 
 function toCsv(rows) {

@@ -318,7 +318,7 @@
   <h2 class="section-label">🎯 Daily Revise</h2>
   <div class="tasks-panel" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
     <p class="muted" style="font-size:13px; margin:0; max-width:480px;">Short, spaced-out practice across every topic — answer a question right three times running and it's mastered.</p>
-    <a class="task-open-btn" href="daily-revise.html">Start today's questions →</a>
+    <a class="task-open-btn" id="dailyReviseLink" href="daily-revise.html">Start today's questions →</a>
   </div>
 
   <h2 class="section-label">Review Calendar 🗓️</h2>
@@ -500,6 +500,10 @@ function initReviewCalendarCard() {
   const slug = activeSubjectSlug();
   const link = document.getElementById('reviewCalendarLink');
   if (link) link.href = 'review-calendar.html?subject=' + encodeURIComponent(slug);
+  // Daily Revise CTA must carry the subject too — a bare daily-revise.html
+  // falls back to business and served economics students the wrong bank.
+  const drLink = document.getElementById('dailyReviseLink');
+  if (drLink) drLink.href = 'daily-revise.html?subject=' + encodeURIComponent(slug);
 
   const badgeEl = document.getElementById('reviewCalendarBadge');
   if (!badgeEl) return;

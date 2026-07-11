@@ -42,10 +42,18 @@ function subjectLoaderInit(opts) {
   }
 
   // mode: 'single'
-  var slug = 'business';
+  // Subject resolution order: explicit ?subject= wins, then the subject the
+  // student last worked in (persisted below — so an economics student who
+  // opens a bare daily-revise.html link doesn't silently get business
+  // questions), then business as the final fallback.
+  var slug = null;
   try {
-    slug = new URLSearchParams(location.search).get('subject') || opts.defaultSubject || 'business';
-  } catch (e) { /* very old browser — keep the default */ }
+    slug = new URLSearchParams(location.search).get('subject');
+  } catch (e) { /* very old browser — fall through */ }
+  if (!slug) {
+    try { slug = localStorage.getItem('gcse_last_subject'); } catch (e) {}
+  }
+  slug = slug || opts.defaultSubject || 'business';
 
   var subject = null;
   for (var i = 0; i < subjects.length; i++) {
@@ -61,6 +69,13 @@ function subjectLoaderInit(opts) {
 
   window.SUBJECT = subject;
   window.PAGE_GROUPS = (subject && groupsAll[subject.slug]) || [];
+  // Remember the resolved subject so bare links (no ?subject=) keep the
+  // student in the subject they were last working in. Topic pages persist
+  // the same key via account-cluster.js (they set window.SUBJECT from their
+  // own page-groups.js instead of running this loader).
+  if (subject) {
+    try { localStorage.setItem('gcse_last_subject', subject.slug); } catch (e) {}
+  }
   if (subject && !(subject.slug in groupsAll)) {
     console.error('subject-loader: no page-groups entry for "' + subject.slug + '" (placeholder subject with no content yet?)');
   }
