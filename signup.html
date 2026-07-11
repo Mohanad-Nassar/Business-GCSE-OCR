@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Create account — Revision Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink:#0f1923; --paper:#f5f0e8; --cream:#ede7d9; --accent:#4a6fa5;
+    --gold:#d4a843; --mid:#5a6e7f; --border:#c9bfaa; --card-bg:#fffcf6; --wrong:#c84b31;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:24px;}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px;}
+  .card{width:100%;max-width:420px;background:var(--card-bg);border:1px solid var(--border);
+    border-radius:12px;padding:36px 32px;box-shadow:0 12px 32px rgba(15,25,35,.08);}
+  .badge{display:inline-block;background:var(--accent);color:#fff;font-family:'DM Mono',monospace;
+    font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:3px;margin-bottom:14px;}
+  h1{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:6px;}
+  .sub{font-size:13px;color:var(--mid);margin-bottom:24px;}
+  form{display:flex;flex-direction:column;gap:14px;}
+  label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--mid);display:block;margin-bottom:6px;}
+  input{width:100%;padding:11px 13px;border:1px solid var(--border);border-radius:7px;
+    font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:var(--ink);}
+  input:focus{border-color:var(--accent);}
+  button[type=submit]{margin-top:6px;background:var(--ink);color:var(--paper);border:none;
+    padding:12px;border-radius:7px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;
+    cursor:pointer;transition:background .15s;}
+  button[type=submit]:hover{background:#1c2c3d;}
+  button[type=submit]:disabled{opacity:.6;cursor:default;}
+  .msg{font-size:12.5px;padding:10px 12px;border-radius:6px;display:none;line-height:1.5;}
+  .msg.show{display:block;}
+  .msg.error{background:rgba(200,75,49,.1);color:var(--wrong);border:1px solid rgba(200,75,49,.25);}
+  .msg.ok{background:rgba(45,122,79,.1);color:#2d7a4f;border:1px solid rgba(45,122,79,.25);}
+  .foot-link{margin-top:18px;text-align:center;font-size:12.5px;color:var(--mid);}
+  .foot-link a{color:var(--accent);text-decoration:none;font-weight:500;}
+  .foot-link a:hover{text-decoration:underline;}
+  .pw-wrap{position:relative;}
+  .pw-wrap input{padding-right:64px;}
+  .pw-toggle{position:absolute;right:6px;top:50%;transform:translateY(-50%);
+    background:none;border:none;color:var(--mid);cursor:pointer;
+    font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.05em;
+    text-transform:uppercase;padding:6px 8px;border-radius:5px;}
+  .pw-toggle:hover{color:var(--ink);background:var(--cream);}
+  .hint{font-size:11.5px;color:var(--mid);line-height:1.5;background:var(--cream);
+    border:1px solid var(--border);border-radius:7px;padding:9px 12px;}
+  .success-state{display:none;text-align:center;padding:12px 0;}
+  .success-state.show{display:block;}
+  .success-state .emoji{font-size:40px;margin-bottom:10px;}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <span class="badge">Revision Platform</span>
+  <h1>Create your account</h1>
+  <p class="sub">Sign up, then join your class with the code your teacher gives you.</p>
+
+  <form id="signupForm">
+    <div class="hint">🎒 Already given a username like <strong>swift-fox-42</strong> by your teacher?
+      You don't need a new account — <a href="login.html">log in with it here</a>.</div>
+    <div>
+      <label for="suName">First name (shown to your teacher)</label>
+      <input type="text" id="suName" autocomplete="given-name" maxlength="40" placeholder="e.g. Priya"/>
+    </div>
+    <div>
+      <label for="suEmail">Email</label>
+      <input type="email" id="suEmail" autocomplete="email" required/>
+    </div>
+    <div>
+      <label for="suPassword">Password (at least 8 characters)</label>
+      <div class="pw-wrap">
+        <input type="password" id="suPassword" autocomplete="new-password" required minlength="8"/>
+        <button type="button" class="pw-toggle" data-for="suPassword" aria-label="Show password">Show</button>
+      </div>
+    </div>
+    <div>
+      <label for="suPassword2">Repeat password</label>
+      <div class="pw-wrap">
+        <input type="password" id="suPassword2" autocomplete="new-password" required minlength="8"/>
+        <button type="button" class="pw-toggle" data-for="suPassword2" aria-label="Show password">Show</button>
+      </div>
+    </div>
+    <div class="msg" id="suMsg"></div>
+    <button type="submit" id="suSubmit">Create account</button>
+    <div id="oauthMount"></div>
+    <div class="foot-link">Already have an account? <a href="login.html">Log in</a><br/>
+      Teacher with an invite code? <a href="teacher-signup.html">Teacher sign-up</a></div>
+  </form>
+
+  <div class="success-state" id="successState">
+    <div class="emoji">📬</div>
+    <h1 style="font-size:20px;">Check your email</h1>
+    <p class="sub" style="margin:10px 0 0;">We sent a confirmation link to <strong id="sentTo"></strong>.
+      Click it to finish creating your account — then you'll be signed in automatically.</p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="auth-shared.js"></script>
+<script>
+  const form = document.getElementById('signupForm');
+  const msg = document.getElementById('suMsg');
+  const submitBtn = document.getElementById('suSubmit');
+
+  function showMsg(text, ok) {
+    msg.textContent = text;
+    msg.className = 'msg show ' + (ok ? 'ok' : 'error');
+  }
+
+  document.querySelectorAll('.pw-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const input = document.getElementById(btn.dataset.for);
+      const show = input.type === 'password';
+      input.type = show ? 'text' : 'password';
+      btn.textContent = show ? 'Hide' : 'Show';
+      btn.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+      input.focus();
+    });
+  });
+
+  // OAuth buttons (shared markup + wiring)
+  const mount = document.getElementById('oauthMount');
+  mount.innerHTML = vidyaOAuthButtonsHtml();
+  vidyaWireOAuthButtons(mount, null, t => showMsg(t, false));
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('suName').value.trim();
+    const email = document.getElementById('suEmail').value.trim();
+    const password = document.getElementById('suPassword').value;
+    const password2 = document.getElementById('suPassword2').value;
+    msg.className = 'msg';
+
+    if (password.length < 8) { showMsg('Password needs at least 8 characters.', false); return; }
+    if (password !== password2) { showMsg("Those passwords don't match.", false); return; }
+    if (email.toLowerCase().endsWith('@students.local')) {
+      showMsg('That looks like a teacher-issued username, not an email — log in with it instead.', false); return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Creating account…';
+    const { data, error } = await vidyaAuthClient().auth.signUp({
+      email, password,
+      options: {
+        data: name ? { display_name: name } : undefined,
+        emailRedirectTo: location.origin + '/auth-callback.html',
+      },
+    });
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Create account';
+
+    if (error) {
+      showMsg(error.message.includes('already registered')
+        ? 'There is already an account with that email — try logging in instead.'
+        : 'Could not create the account: ' + error.message, false);
+      return;
+    }
+
+    if (data.session) {
+      // Email confirmations are off — signed in immediately.
+      const err = await vidyaFinishLogin(vidyaAuthClient(), data.session, null);
+      if (err) showMsg(err, false);
+      return;
+    }
+
+    // Confirmation email flow
+    document.getElementById('sentTo').textContent = email;
+    form.style.display = 'none';
+    document.getElementById('successState').classList.add('show');
+  });
+
+  // Already signed in? Straight through.
+  if (localStorage.getItem('gcse_session_v1')) location.replace('index.html');
+</script>
+<script src="footer-legal.js"></script>
+</body>
+</html>

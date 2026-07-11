@@ -37,6 +37,10 @@ async function gcseLogout() {
         if (typeof _gcseWriteSession === 'function') _gcseWriteSession(null);
         else localStorage.removeItem('gcse_session_v1');
     } catch (e) {}
+    // Clear the WP-A3 gate cookie + per-tab enrollment flag (auth-shared.js
+    // isn't loaded on every page, so clear inline).
+    try { document.cookie = 'vidya_at=; Path=/; Max-Age=0'; } catch (e) {}
+    try { sessionStorage.removeItem('vidya_has_subjects'); } catch (e) {}
     location.replace(typeof LOGIN_PAGE === 'string' ? LOGIN_PAGE : '/login.html');
 }
 

@@ -378,3 +378,86 @@ language sql security definer stable set search_path = public as $$
     order by s.sort_order, s.slug;
 $$;
 grant execute on function get_my_subjects() to authenticated;
+
+
+-- ══════════════════════════════════════════════════════════════
+-- AUTH V2 (WP-A1, 2026-07-11) — self-signup accounts via email /
+-- Google / Microsoft (Supabase Auth providers). Safe to re-run.
+--
+-- Teacher-generated students are untouched: generate-students.js keeps
+-- creating their profiles rows itself (service key), and the trigger
+-- below deliberately skips their synthetic '@students.local' emails.
+--
+-- Owner prerequisites (Supabase dashboard):
+--   Auth → Providers: enable Google + Azure (client ids/secrets from a
+--   Google Cloud OAuth app and a Microsoft Entra app registration, both
+--   with redirect https://<project-ref>.supabase.co/auth/v1/callback).
+--   Auth → URL configuration: add the production domain and
+--   http://localhost:8888 to the redirect allowlist.
+-- ══════════════════════════════════════════════════════════════
+
+alter table profiles
+  add column if not exists account_type text not null default 'class_student'
+    check (account_type in ('class_student', 'self_signup', 'teacher', 'owner')),
+  add column if not exists email text,
+  add column if not exists is_owner boolean not null default false;
+
+-- Backfill: rows that predate these columns are teacher-generated students
+-- or invite-code teachers; both are identifiable by role.
+update profiles set account_type = 'teacher'
+  where role = 'teacher' and account_type = 'class_student';
+
+-- Auto-provision a profile for every NEW auth user that signed up itself
+-- (email/password or OAuth). Generated students are skipped (their profile
+-- is created by generate-students.js with a chosen username); a second
+-- run for the same user is a no-op (on conflict do nothing).
+create or replace function handle_new_user() returns trigger
+language plpgsql security definer set search_path = public as $$
+declare
+  base_name text;
+  candidate text;
+  n int := 0;
+begin
+  if new.email is null or new.email like '%@students.local' then
+    return new;
+  end if;
+
+  -- Display name from OAuth metadata / signup form, else the email's
+  -- local part. Squashed to the site's username style: lowercase,
+  -- letters/digits/hyphens only, max 24 chars.
+  base_name := coalesce(
+    nullif(trim(new.raw_user_meta_data ->> 'display_name'), ''),
+    nullif(trim(new.raw_user_meta_data ->> 'full_name'), ''),
+    nullif(trim(new.raw_user_meta_data ->> 'name'), ''),
+    split_part(new.email, '@', 1)
+  );
+  base_name := lower(regexp_replace(base_name, '[^a-zA-Z0-9]+', '-', 'g'));
+  base_name := trim(both '-' from substr(base_name, 1, 24));
+  if base_name = '' then base_name := 'student'; end if;
+
+  -- Usernames are unique — suffix with a short random tag on collision.
+  candidate := base_name;
+  loop
+    begin
+      insert into profiles (id, role, username, account_type, email)
+      values (new.id, 'student', candidate, 'self_signup', new.email)
+      on conflict (id) do nothing;
+      exit;
+    exception when unique_violation then
+      n := n + 1;
+      if n > 5 then
+        -- Give up on a pretty name; uuid tail is always unique.
+        candidate := base_name || '-' || substr(replace(new.id::text, '-', ''), 1, 6);
+      else
+        candidate := base_name || '-' || substr(md5(random()::text), 1, 4);
+      end if;
+    end;
+  end loop;
+  return new;
+end;
+$$;
+
+drop trigger if exists on_auth_user_created on auth.users;
+create trigger on_auth_user_created
+  after insert on auth.users
+  for each row execute function handle_new_user();

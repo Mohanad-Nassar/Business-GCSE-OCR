@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Log In — GCSE Business Studies</title>
+<title>Log In — Revision Platform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
@@ -66,13 +66,13 @@
 <body>
 
 <div class="card">
-  <span class="badge">OCR GCSE Business Studies · J204</span>
+  <span class="badge">Revision Platform</span>
   <h1>Welcome back</h1>
   <p class="sub">Log in to track your revision progress.</p>
 
   <div class="tabs" role="tablist">
-    <button type="button" class="tab-btn active" id="tabStudentBtn" role="tab" aria-selected="true">Student</button>
-    <button type="button" class="tab-btn" id="tabTeacherBtn" role="tab" aria-selected="false">Teacher</button>
+    <button type="button" class="tab-btn active" id="tabStudentBtn" role="tab" aria-selected="true">Class login</button>
+    <button type="button" class="tab-btn" id="tabTeacherBtn" role="tab" aria-selected="false">Email</button>
   </div>
 
   <form id="studentForm" class="active">
@@ -106,11 +106,14 @@
     </div>
     <div class="msg" id="teacherMsg"></div>
     <button type="submit" id="teacherSubmit">Log In</button>
-    <div class="foot-link">New teacher? <a href="teacher-signup.html">Sign up with your invite code</a></div>
+    <div id="oauthMount"></div>
+    <div class="foot-link">New here? <a href="signup.html">Create an account</a> ·
+      Teacher with an invite code? <a href="teacher-signup.html">Teacher sign-up</a></div>
   </form>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="auth-shared.js"></script>
 <script>
   // Keep these in sync with the constants at the top of script.js.
   const SUPABASE_URL = 'https://eaohjlyiotyqhvsizcpw.supabase.co';
@@ -162,12 +165,9 @@
   }
 
   async function completeLogin(session, role, username) {
-    localStorage.setItem(GCSE_SESSION_KEY, JSON.stringify({
-      access_token: session.access_token,
-      refresh_token: session.refresh_token,
-      expires_at: session.expires_at,
-      role, username,
-    }));
+    // Same localStorage shape as always, plus the vidya_at cookie the
+    // WP-A3 content gate reads (auth-shared.js owns both).
+    vidyaWriteSession(session, role, username);
     redirectAfterLogin();
   }
 
@@ -194,6 +194,9 @@
     await completeLogin(data.session, 'student', username);
   });
 
+  // Email login — teachers AND self-signup students (WP-A1). Routing,
+  // profile lookup, session + cookie writes all live in auth-shared.js's
+  // vidyaFinishLogin so login/signup/OAuth-callback behave identically.
   teacherForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const msg = document.getElementById('teacherMsg');
@@ -213,18 +216,23 @@
       return;
     }
 
-    const { data: profile, error: profileError } = await supabaseClient
-      .from('profiles').select('role, username').eq('id', data.session.user.id).single();
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Log In';
-
-    if (profileError || !profile || profile.role !== 'teacher') {
-      await supabaseClient.auth.signOut();
-      showMsg(msg, 'This account is not set up as a teacher.', false);
-      return;
+    const params = new URLSearchParams(location.search);
+    const finishErr = await vidyaFinishLogin(supabaseClient, data.session, params.get('redirect'));
+    if (finishErr) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Log In';
+      showMsg(msg, finishErr, false);
     }
-    await completeLogin(data.session, 'teacher', profile.username || email);
   });
+
+  // OAuth buttons (Google / Microsoft) on the email tab.
+  const oauthMount = document.getElementById('oauthMount');
+  if (oauthMount) {
+    oauthMount.innerHTML = vidyaOAuthButtonsHtml();
+    const redirectTarget = new URLSearchParams(location.search).get('redirect');
+    vidyaWireOAuthButtons(oauthMount, redirectTarget,
+      t => showMsg(document.getElementById('teacherMsg'), t, false));
+  }
 
   // If we already hold a cached session, skip straight through.
   if (localStorage.getItem(GCSE_SESSION_KEY)) redirectAfterLogin();

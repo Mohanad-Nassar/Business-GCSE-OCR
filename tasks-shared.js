@@ -43,6 +43,40 @@ async function tasksAuthInit(requiredRole) {
     access_token: data.session.access_token, refresh_token: data.session.refresh_token,
     expires_at: data.session.expires_at, role: cached.role, username: cached.username,
   }));
+  // The WP-A3 content gate reads the access token from a cookie (set at
+  // login by auth-shared.js); refresh the copy here too so generated-login
+  // students and long-lived sessions always carry a current token.
+  try {
+    const secure = location.protocol === 'https:' ? '; Secure' : '';
+    document.cookie = 'vidya_at=' + data.session.access_token + '; Path=/; SameSite=Lax' + secure + '; Max-Age=604800';
+  } catch (e) {}
+
+  // Brand-new self-signup students (WP-A1) have no class yet, so every
+  // student page would be empty — send them to the join page instead.
+  // Checked once per tab-session (sessionStorage flag set the first time
+  // get_my_subjects returns rows, and by join.html when a code is
+  // redeemed). Pages a classless account must still reach are exempt.
+  // Any RPC failure fails OPEN — never lock a student out of their page.
+  if (cached.role === 'student') {
+    let hasSubjects = false;
+    try { hasSubjects = sessionStorage.getItem('vidya_has_subjects') === '1'; } catch (e) {}
+    const page = (location.pathname.split('/').pop() || '').toLowerCase();
+    const exempt = page === 'join.html' || page === 'manage-account.html';
+    if (!hasSubjects && !exempt) {
+      try {
+        const { data: subs, error: subsErr } = await client.rpc('get_my_subjects');
+        if (!subsErr && Array.isArray(subs)) {
+          if (subs.length > 0) {
+            try { sessionStorage.setItem('vidya_has_subjects', '1'); } catch (e) {}
+          } else {
+            location.replace('join.html');
+            return null;
+          }
+        }
+      } catch (e) {}
+    }
+  }
+
   // Let gamification.js learn about this page's client (it stashes it for
   // the practice-heatmap poller and refreshes the streak cache). Fire and
   // forget — never awaited, never affects this function's return value.

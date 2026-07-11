@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Signing you in…</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+<style>
+  :root { --ink:#0f1923; --paper:#f5f0e8; --mid:#5a6e7f; --border:#c9bfaa; --card-bg:#fffcf6; --accent:#4a6fa5; --wrong:#c84b31; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;
+    display:flex;align-items:center;justify-content:center;padding:24px;}
+  .card{width:100%;max-width:420px;background:var(--card-bg);border:1px solid var(--border);
+    border-radius:12px;padding:40px 32px;text-align:center;box-shadow:0 12px 32px rgba(15,25,35,.08);}
+  h1{font-family:'Playfair Display',serif;font-size:22px;margin:14px 0 8px;}
+  p{font-size:13.5px;color:var(--mid);line-height:1.6;}
+  .spinner{width:34px;height:34px;border:3px solid var(--border);border-top-color:var(--accent);
+    border-radius:50%;margin:0 auto;animation:spin .8s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @media (prefers-reduced-motion: reduce){.spinner{animation:none;}}
+  a{color:var(--accent);font-weight:600;text-decoration:none;}
+  .error .spinner{display:none;}
+</style>
+</head>
+<body>
+<div class="card" id="card">
+  <div class="spinner" aria-hidden="true"></div>
+  <h1 id="title">Signing you in…</h1>
+  <p id="detail">One moment — finishing up with your sign-in provider.</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="auth-shared.js"></script>
+<script>
+  // Lands here from: OAuth redirects (Google/Microsoft) and the signup
+  // confirmation email link. supabase-js's detectSessionInUrl consumes the
+  // code/hash automatically when the client is created; we just wait for
+  // the session to materialise, then run the shared finish/route step.
+  (async () => {
+    const client = vidyaAuthClient();
+
+    function fail(text) {
+      const card = document.getElementById('card');
+      card.classList.add('error');
+      document.getElementById('title').textContent = 'Sign-in didn’t complete';
+      document.getElementById('detail').innerHTML =
+        text + '<br/><br/><a href="login.html">Back to log in</a>';
+    }
+
+    // The URL can carry an explicit error from the provider (e.g. the user
+    // cancelled the consent screen).
+    const params = new URLSearchParams(location.search);
+    const hashParams = new URLSearchParams((location.hash || '').replace(/^#/, ''));
+    const providerError = params.get('error_description') || hashParams.get('error_description');
+    if (providerError) { fail(providerError); return; }
+
+    // Wait for detectSessionInUrl to finish (it fires SIGNED_IN), with a
+    // getSession fast-path and an 8s timeout.
+    const session = await new Promise(resolve => {
+      let done = false;
+      const finish = s => { if (!done) { done = true; resolve(s); } };
+      client.auth.getSession().then(({ data }) => { if (data && data.session) finish(data.session); });
+      const { data: sub } = client.auth.onAuthStateChange((event, s) => {
+        if (s && (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED' || event === 'INITIAL_SESSION')) finish(s);
+      });
+      setTimeout(() => finish(null), 8000);
+    });
+
+    if (!session) {
+      fail('We didn’t get a valid session back. If you opened the email link on a different device or browser, open it on the one you signed up from — or just log in normally.');
+      return;
+    }
+
+    let target = null;
+    try {
+      target = localStorage.getItem('vidya_post_auth_redirect');
+      localStorage.removeItem('vidya_post_auth_redirect');
+    } catch (e) {}
+
+    const err = await vidyaFinishLogin(client, session, target);
+    if (err) fail(err);
+  })();
+</script>
+</body>
+</html>

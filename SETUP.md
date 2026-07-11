@@ -224,6 +224,32 @@ Existing tasks are unaffected by rebuilds (each task snapshots its questions in 
    appears once on a fresh browser profile then not again, and a password change round-trips (log
    out, log back in with the new password).
 
+## 11. Self-signup accounts — email, Google, Microsoft (WP-A1)
+
+Students can now create their own accounts on `signup.html` (or the OAuth
+buttons on `login.html`'s Email tab) and then join a class with a code
+(`join.html`, WP-A2). Teacher-generated class logins are unchanged.
+
+1. Re-run `supabase/schema.sql` (its new "AUTH V2" tail adds
+   `profiles.account_type/email/is_owner` and the `on_auth_user_created`
+   trigger that auto-creates a profile for self-signups; generated
+   `@students.local` accounts are skipped).
+2. **Google:** Google Cloud Console → APIs & Services → Credentials → Create
+   OAuth client ID (Web application). Authorized redirect URI:
+   `https://eaohjlyiotyqhvsizcpw.supabase.co/auth/v1/callback`. Copy client
+   id + secret into Supabase → Authentication → Providers → Google.
+3. **Microsoft:** entra.microsoft.com → App registrations → New registration
+   (supported account types: personal + work/school). Redirect URI (Web):
+   the same Supabase callback URL. Create a client secret. Copy application
+   (client) id + secret into Supabase → Providers → Azure.
+4. Supabase → Authentication → URL Configuration: Site URL = the production
+   domain; add `http://localhost:8888` (netlify dev) to Redirect URLs.
+5. Supabase → Authentication → Email: keep "Confirm email" ON. (Default
+   SMTP is fine for testing; switch to a real sender — e.g. Resend — before
+   inviting many students, see the master plan's G1.)
+6. Until a provider is configured, its button shows a friendly "not
+   switched on yet" message — nothing breaks.
+
 ## Notes
 
 - **Google/Microsoft login**: not built yet, by design (you asked for username/password first). When you're ready, enable the providers under **Authentication → Providers** in Supabase and add sign-in buttons to `login.html` — no schema or backend changes needed.
