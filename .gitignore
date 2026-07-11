@@ -5,3 +5,9 @@ node_modules/
 !.env.example
 .claude/settings.local.json
 tools/__pycache__/
+
+# Source materials (OCR PDFs, video notes, drafts) — local reference only.
+# Never commit or deploy exam-board copyright material.
+eco resources/
+resources/
+source-materials/

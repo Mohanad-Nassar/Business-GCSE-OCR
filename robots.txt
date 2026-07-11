@@ -1,0 +1,13 @@
+# Private study platform for our school (free access year 2026-27).
+# Course content is not for search indexing; the public landing page
+# (added in WP-A6) will be allowed explicitly when it exists.
+User-agent: *
+Disallow: /subjects/
+Disallow: /images/
+Disallow: /dashboard.html
+Disallow: /daily-revise.html
+Disallow: /review-calendar.html
+Disallow: /task.html
+Disallow: /badges.html
+Disallow: /teacher-
+Disallow: /manage-account.html
