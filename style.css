@@ -48,8 +48,33 @@
      min-height: 100vh;
  }
 
+ /* ══════════════════════════════════════════════════════════════
+    Z-INDEX LADDER (topic pages — keep these relationships intact)
+    ── low ───────────────────────────────────────────────► high ──
+      0      page content + in-flow header/hero
+      100    sticky .tab-bar  (scrolls under everything above it)
+      490    gamification toasts (.gam-*-toast)
+      495    .flow-toast (activity-complete banner)
+      501    notification bell panel (.gcse-notif-panel)
+      502    profile dropdown (.gcse-profile-menu)
+      9998+  sidebar overlay / progress drawer / modals / celebrations
+      10005  .quick-toast (transient lock hints — above all)
+    The header and the injected .site-nav deliberately do NOT set a
+    z-index, so they create NO stacking context. That lets the
+    absolutely-positioned panels injected inside them (bell panel,
+    profile dropdown) escape to the root stacking context and paint
+    ABOVE the sticky tab-bar and toasts — instead of being trapped
+    below them. overflow is left visible so nothing is clipped.
+    ══════════════════════════════════════════════════════════════ */
  header {
-     background: var(--ink);
+     background-color: var(--ink);
+     /* Decorative accent circle painted directly onto the header
+        background, so the header no longer needs overflow:hidden —
+        which previously CLIPPED the injected profile dropdown and the
+        notification bell panel. */
+     background-image: radial-gradient(circle 100px at calc(100% - 60px) 60px,
+         rgba(122, 92, 158, .18) 0, rgba(122, 92, 158, .18) 99px, transparent 100px);
+     background-repeat: no-repeat;
      color: var(--paper);
      padding: 20px 40px 24px;
      display: flex;
@@ -58,7 +83,6 @@
      row-gap: 16px;
      flex-wrap: wrap;
      position: relative;
-     overflow: hidden;
  }
 
  /* ── SITE NAV (injected by script.js — one predictable cluster for
@@ -71,8 +95,9 @@
      justify-content: flex-end;
      gap: 8px;
      flex-wrap: wrap;
-     position: relative;
-     z-index: 10;
+     /* No z-index here on purpose: a stacking context would trap the
+        injected profile dropdown / bell panel below the sticky tab-bar.
+        The circle is now a background, so nav content sits above it. */
  }
 
  .site-nav .sn-brand {
@@ -136,17 +161,8 @@
      display: none;
  }
 
- header::before {
-     content: '';
-     position: absolute;
-     top: -40px;
-     right: -40px;
-     width: 200px;
-     height: 200px;
-     border-radius: 50%;
-     background: var(--accent);
-     opacity: .18;
- }
+ /* (The decorative circle now lives in header's background-image above,
+    so no clipping wrapper / overflow:hidden is needed.) */
 
  header .badge {
      background: var(--accent);
@@ -199,19 +215,18 @@
  .tab-bar {
      background: var(--ink);
      display: flex;
-     overflow-x: auto;
+     /* Wrap onto multiple rows instead of horizontal scrolling, so every
+        activity tab (incl. ✅ True/False and 📝 Exam Practice) is visible
+        on smaller laptop screens without scrolling them out of view. */
+     flex-wrap: wrap;
      border-bottom: 2px solid var(--accent);
      padding: 0 40px;
-     scrollbar-width: none;
 
-     /* --- NEW CODE TO MAKE IT STICKY --- */
+     /* Sticky under the header; z-index kept below the injected panels
+        (see the z-index ladder above). */
      position: sticky;
      top: 0;
      z-index: 100;
- }
-
- .tab-bar::-webkit-scrollbar {
-     display: none;
  }
 
  .tab-btn {
@@ -707,6 +722,27 @@
      background: #d4edda;
      border-left: 5px solid var(--success);
      padding: 16px 20px;
+ }
+
+ /* The injected "🧠 Quick Check" block (.read-check-wrap) is appended
+    straight into a .misc-card, which has no side padding of its own — so
+    without this it hugs the card's left/right edges. Give it the same
+    comfortable 20px inset the wrong/correct views use. These selectors are
+    more specific than script.js's injected .read-check-wrap rules (which
+    otherwise win by source order), and cover both the unanswered state and
+    the answered [data-answered] state (whose shorthand padding + negative
+    side margins would otherwise re-expose the edges). */
+ .misc-card > .read-check-wrap {
+     padding-left: 20px;
+     padding-right: 20px;
+     padding-bottom: 16px;
+ }
+
+ .misc-card > .read-check-wrap[data-answered] {
+     margin-left: 0;
+     margin-right: 0;
+     padding-left: 20px;
+     padding-right: 20px;
  }
 
  .misc-tag {
@@ -1349,6 +1385,10 @@
 
  .ep-case ul {
      margin: 6px 0;
+     /* Indent bullets in from the case-study edge, matching the mark
+        scheme (.marks-section ul), so the • markers don't hang against
+        the accent border. */
+     padding-left: 20px;
  }
 
  .ep-case table {
@@ -1773,7 +1813,9 @@
 
      header {
          grid-area: header;
-         z-index: 10;
+         /* No z-index: keeping the header out of its own stacking context
+            lets the injected dropdown / bell panel escape above the
+            sticky tab-bar (see the z-index ladder near the top). */
      }
 
      .tab-bar {
@@ -1851,27 +1893,24 @@
     /* Darkens slightly when hovered */
 }
 
-/* 2. Dark Sidebar Scrollbar (For .course-sidebar and .tab-bar) */
-.course-sidebar::-webkit-scrollbar,
-.tab-bar::-webkit-scrollbar {
+/* 2. Dark Sidebar Scrollbar (For .course-sidebar — the .tab-bar wraps
+   now instead of scrolling, so it no longer needs scrollbar styling) */
+.course-sidebar::-webkit-scrollbar {
     width: 6px;
     /* Even thinner for the tight sidebar space */
 }
 
-.course-sidebar::-webkit-scrollbar-track,
-.tab-bar::-webkit-scrollbar-track {
+.course-sidebar::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.course-sidebar::-webkit-scrollbar-thumb,
-.tab-bar::-webkit-scrollbar-thumb {
+.course-sidebar::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.15);
     /* Subtle transparent white */
     border-radius: 10px;
 }
 
-.course-sidebar::-webkit-scrollbar-thumb:hover,
-.tab-bar::-webkit-scrollbar-thumb:hover {
+.course-sidebar::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.3);
     /* Brightens when hovered */
 }
