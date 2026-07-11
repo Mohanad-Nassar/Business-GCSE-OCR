@@ -1125,7 +1125,7 @@
      border-radius: 0 6px 6px 0;
      padding: 14px 16px;
      font-size: 13.5px;
-     line-height: 1.75;
+     line-height: 1.55;
      color: #2a3a46;
      margin-bottom: 16px;
  }
@@ -1307,6 +1307,65 @@
 
  .marks-section ul {
      padding-left: 18px;
+ }
+
+ /* The global `* { margin: 0 }` reset leaves long mark schemes, exam tips
+    and learning-card notes rendering as one solid block. Students skip
+    walls of text, so give every paragraph and bullet inside these content
+    containers its own breathing room. */
+ .marks-section p,
+ .tip-card p,
+ .topic-content p,
+ .misc-card p {
+     margin-bottom: 9px;
+ }
+
+ .marks-section li,
+ .tip-card li,
+ .topic-content li {
+     margin-bottom: 6px;
+ }
+
+ .marks-section ul,
+ .tip-card ul,
+ .topic-content ul {
+     margin-bottom: 10px;
+ }
+
+ /* Exam-question case studies are verbatim source extracts — keep them
+    tight so paragraphs/bullets/tables don't sprawl into big empty boxes.
+    Only enough gap to separate paragraphs, nothing more. */
+ .ep-case p {
+     margin-bottom: 7px;
+ }
+
+ .ep-case p:last-child {
+     margin-bottom: 0;
+ }
+
+ .ep-case li {
+     margin-bottom: 1px;
+ }
+
+ .ep-case ul {
+     margin: 6px 0;
+ }
+
+ .ep-case table {
+     line-height: 1.3;
+ }
+
+ .marks-section p:last-child,
+ .tip-card p:last-child,
+ .topic-content p:last-child,
+ .misc-card p:last-child {
+     margin-bottom: 0;
+ }
+
+ .topic-content h4 {
+     font-size: 14px;
+     margin: 14px 0 6px;
+     color: var(--ink);
  }
 
  .model-answer {
