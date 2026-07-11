@@ -15,7 +15,7 @@
 // ══════════════════════════════════════════════════════════════
 
 (function () {
-  const NO_GUARD_FILES = ['index.html', 'login.html', 'teacher-signup.html', 'dashboard.html', 'teacher-dashboard.html', ''];
+  const NO_GUARD_FILES = ['index.html', 'hub.html', 'login.html', 'teacher-signup.html', 'dashboard.html', 'teacher-dashboard.html', ''];
   function currentFile() { return location.pathname.split('/').pop() || ''; }
   if (NO_GUARD_FILES.includes(currentFile())) return;
 

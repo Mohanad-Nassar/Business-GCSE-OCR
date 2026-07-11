@@ -141,8 +141,8 @@ function _gcseInjectAccountBar() {
            <a class="gpm-item" href="/teacher-calendar.html"><span aria-hidden="true">🗓️</span> Calendar</a>
            <a class="gpm-item" href="/manage-account.html"><span aria-hidden="true">⚙️</span> Manage account</a>`
         : `<a class="gpm-item" href="/dashboard.html${subjQ}"><span aria-hidden="true">📊</span> My Progress</a>
-           <a class="gpm-item" href="${subjSlug ? '/subjects/' + encodeURIComponent(subjSlug) + '/index.html' : '/index.html'}"><span aria-hidden="true">🏡</span> All Topics</a>
-           <a class="gpm-item" href="/index.html"><span aria-hidden="true">🗂️</span> My Subjects</a>
+           <a class="gpm-item" href="${subjSlug ? '/subjects/' + encodeURIComponent(subjSlug) + '/index.html' : '/hub.html'}"><span aria-hidden="true">🏡</span> All Topics</a>
+           <a class="gpm-item" href="/hub.html"><span aria-hidden="true">🗂️</span> My Subjects</a>
            <a class="gpm-item" href="/daily-revise.html${subjQ}"><span aria-hidden="true">🎯</span> Daily Revise</a>
            <a class="gpm-item" href="/dashboard.html${subjQ}#tasksSection"><span aria-hidden="true">📋</span> Tasks</a>
            <a class="gpm-item" href="/review-calendar.html${subjQ}"><span aria-hidden="true">🗓️</span> Calendar</a>

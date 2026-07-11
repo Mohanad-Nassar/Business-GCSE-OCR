@@ -348,7 +348,7 @@ function _tourDetectPageKind() {
     if (document.getElementById('tabBar')) return 'topic';
     const file = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
     if (file === 'dashboard.html') return 'dashboard';
-    if (file === '' || file === 'index.html') return 'index';
+    if (file === '' || file === 'index.html' || file === 'hub.html') return 'index';
     return null;
 }
 

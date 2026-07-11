@@ -161,7 +161,7 @@
   function redirectAfterLogin() {
     const params = new URLSearchParams(location.search);
     const target = params.get('redirect');
-    location.replace(target && target.startsWith('/') === false && !target.includes('://') ? target : 'index.html');
+    location.replace(target && target.startsWith('/') === false && !target.includes('://') ? target : 'hub.html');
   }
 
   async function completeLogin(session, role, username) {

@@ -17,6 +17,10 @@
     }
     header, main { grid-area: unset !important; }
     body { background: var(--paper); color: var(--ink); min-height: 100vh; }
+    /* Role-gated elements toggle this class (teacher-only display-name and
+       login-email forms; the read-only username row for teachers). Without a
+       definition it was a no-op, so students saw the teacher-only forms. */
+    .hidden { display: none !important; }
     :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
 
     header {
@@ -107,7 +111,7 @@
 
 <header>
   <nav class="site-band" aria-label="Site">
-    <a class="sb-brand" href="/index.html"><span aria-hidden="true">🏡</span> All Topics</a>
+    <a class="sb-brand" href="/hub.html"><span aria-hidden="true">🏡</span> All Topics</a>
     <a class="nav-link" id="backToDashboardLink" href="dashboard.html">📊 Dashboard</a>
     <span class="gcse-account-bar" id="accountBar"></span>
   </nav>

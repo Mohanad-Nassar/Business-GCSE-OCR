@@ -1,587 +1,297 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Your subjects hub — interactive OCR GCSE revision guides with notes, quizzes, flashcards and exam practice.">
-  <title>My Subjects – Study Guide</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
-    rel="stylesheet">
-  <style>
-    :root {
-      --ink: #0f1923;
-      --paper: #f5f0e8;
-      --cream: #ede7d9;
-      --accent: #4a6fa5;
-      --gold: #d4a843;
-      --teal: #1a6b6b;
-      --mid: #5a6e7f;
-      --border: #c9bfaa;
-      --success: #2d7a4f;
-      --card-bg: #fffcf6;
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--paper);
-      color: var(--ink);
-      min-height: 100vh;
-      line-height: 1.5;
-    }
-
-    /* Skip link for keyboard users */
-    .skip-link {
-      position: absolute;
-      left: 12px;
-      top: -60px;
-      z-index: 100;
-      background: var(--ink);
-      color: var(--paper);
-      padding: 10px 18px;
-      border-radius: 0 0 8px 8px;
-      font-weight: 600;
-      font-size: 14px;
-      text-decoration: none;
-      transition: top .15s;
-    }
-
-    .skip-link:focus {
-      top: 0;
-    }
-
-    /* Visible keyboard focus everywhere */
-    :focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 2px;
-      border-radius: 4px;
-    }
-
-    .hero :focus-visible {
-      outline-color: var(--gold);
-    }
-
-    /* ── HERO ── */
-    .hero {
-      background-color: var(--ink);
-      /* Both decorative circles painted as backgrounds so the hero needs
-         no overflow:hidden (which would clip the injected account dropdown
-         / notification bell panel). */
-      background-image:
-        radial-gradient(circle 170px at calc(100% - 90px) 90px,
-          rgba(122,92,158,.12) 0, rgba(122,92,158,.12) 169px, transparent 170px),
-        radial-gradient(circle 110px at calc(30% + 110px) calc(100% - 50px),
-          rgba(212,168,67,.08) 0, rgba(212,168,67,.08) 109px, transparent 110px);
-      background-repeat: no-repeat;
-      color: var(--paper);
-      padding: 48px 48px 40px;
-      position: relative;
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .hero-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .badge {
-      background: var(--accent);
-      color: #fff;
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 2px;
-      padding: 4px 10px;
-      border-radius: 3px;
-      text-transform: uppercase;
-    }
-
-    .badge.gold {
-      background: var(--gold);
-      color: var(--ink);
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(30px, 5vw, 58px);
-      line-height: 1.05;
-      margin-bottom: 14px;
-      max-width: 720px;
-    }
-
-    .hero p {
-      font-size: 15px;
-      color: #c3ccd4;
-      max-width: 560px;
-      line-height: 1.7;
-      margin-bottom: 8px;
-    }
-
-    .hero-nav {
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .hero-nav a,
-    .hero-nav button {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255, 255, 255, .08);
-      border: 1px solid rgba(255, 255, 255, .25);
-      color: var(--paper);
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      letter-spacing: .06em;
-      padding: 9px 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background .15s, border-color .15s;
-    }
-
-    .hero-nav a:hover,
-    .hero-nav button:hover {
-      background: rgba(255, 255, 255, .16);
-      border-color: var(--gold);
-    }
-
-    /* ── MAIN ── */
-    .content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 36px 48px 80px;
-    }
-
-    .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--mid);
-      margin-bottom: 18px;
-    }
-
-    .hub-loading {
-      color: var(--mid);
-      font-size: 14px;
-      padding: 20px 0;
-    }
-
-    .hub-empty {
-      background: var(--card-bg);
-      border: 1.5px dashed var(--border);
-      border-radius: 10px;
-      padding: 24px 26px;
-      color: var(--mid);
-      font-size: 14px;
-      line-height: 1.6;
-      max-width: 620px;
-    }
-
-    /* ── SUBJECT CARDS ── */
-    .topic-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-
-    .topic-card {
-      background: var(--card-bg);
-      border: 1.5px solid var(--border);
-      border-radius: 10px;
-      padding: 20px 22px 18px;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      position: relative;
-      overflow: hidden;
-      transition: box-shadow .22s, transform .22s, border-color .22s;
-    }
-
-    .topic-card::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      border-radius: 4px 0 0 4px;
-      background: var(--accent);
-      transition: width .22s;
-    }
-
-    .topic-card:hover {
-      box-shadow: 0 8px 28px rgba(0, 0, 0, .13);
-      transform: translateY(-3px);
-      border-color: #b0a490;
-    }
-
-    .topic-card:hover::before {
-      width: 6px;
-    }
-
-    .topic-card .code {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 2px;
-      color: var(--mid);
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .topic-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px;
-      line-height: 1.35;
-      color: var(--ink);
-      margin-bottom: 10px;
-    }
-
-    .topic-card .card-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      color: var(--mid);
-      font-family: 'DM Mono', monospace;
-    }
-
-    .topic-card:focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 3px;
-      box-shadow: 0 8px 28px rgba(0, 0, 0, .13);
-      transform: translateY(-3px);
-    }
-
-    .topic-card .arrow {
-      margin-left: auto;
-      font-size: 14px;
-      color: var(--mid);
-      transition: transform .22s, color .22s;
-    }
-
-    .topic-card:hover .arrow {
-      transform: translateX(4px);
-      color: var(--ink);
-    }
-
-    .topic-card .subject-icon {
-      font-size: 26px;
-      margin-bottom: 10px;
-      display: block;
-    }
-
-    /* Sibling of .topic-card (not nested inside it — nested <a> elements
-       are invalid HTML), so it's styled off .subject-card-wrap instead. */
-    .subject-card-wrap {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .subject-card-wrap .subject-secondary {
-      margin-top: 8px;
-      font-size: 11px;
-      font-family: 'DM Mono', monospace;
-      color: var(--accent);
-      text-decoration: underline;
-      display: inline-block;
-    }
-
-    /* WP-A4: per-subject quick actions under each enrolled subject card.
-       Sibling of the card <a> for the same nested-anchor reason above. */
-    .subject-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
-    }
-
-    .subject-actions a {
-      flex: 1 1 auto;
-      text-align: center;
-      font-family: 'DM Mono', monospace;
-      font-size: 10.5px;
-      letter-spacing: .04em;
-      color: var(--ink);
-      background: var(--card-bg, #fffcf6);
-      border: 1px solid var(--border);
-      border-radius: 99px;
-      padding: 6px 10px;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: border-color .15s, background .15s;
-    }
-
-    .subject-actions a:hover,
-    .subject-actions a:focus-visible {
-      border-color: var(--accent);
-      background: #fff;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 700px) {
-      .hero {
-        padding: 32px 24px 28px;
-      }
-
-      .content {
-        padding: 24px 20px 60px;
-      }
-
-      .topic-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-nav {
-        position: static;
-        margin-bottom: 16px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-
-      *,
-      *::before,
-      *::after {
-        animation: none !important;
-        transition: none !important;
-      }
-
-      .topic-card:hover,
-      .topic-card:focus-visible {
-        transform: none;
-      }
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vidya — revision that comes back until it sticks</title>
+<meta name="description" content="Interactive GCSE revision: spaced repetition, daily practice, teacher tasks with AI-assisted marking, and progress analytics — for Business, Economics and Computer Science."/>
+<script>
+  // Logged-in visitors go straight to their subjects hub — before paint.
+  try { if (localStorage.getItem('gcse_session_v1')) location.replace('/hub.html'); } catch (e) {}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="landing.css"/>
 </head>
-
 <body>
 
-  <a class="skip-link" href="#mainContent">Skip to subjects</a>
+<a class="skip-link" href="#features" style="position:absolute;left:-999px;top:8px;background:#fff;padding:8px 14px;border-radius:8px;z-index:99;">Skip to content</a>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-inner">
-      <nav class="hero-nav" aria-label="Site">
-        <span id="accountBar" style="display:inline-flex;align-items:center;gap:10px;"></span>
-      </nav>
-      <div class="hero-eyebrow">
-        <span class="badge">OCR GCSE</span>
-        <span class="badge gold">Study Guides</span>
-      </div>
-      <h1>My Subjects</h1>
-      <p id="hubIntro">Interactive revision guides with notes, quizzes, flashcards and exam practice — pick a
-        subject to get started.</p>
+<!-- ── NAV ── -->
+<nav class="nav" aria-label="Site">
+  <a class="nav-logo" href="/">Vidya<em>.</em></a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#subjects">Subjects</a>
+    <a href="#schools">For schools</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <div class="nav-cta">
+    <a class="btn btn-ghost" href="/login.html">Log in</a>
+    <a class="btn btn-solid" href="/signup.html">Get started</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<header class="hero">
+  <div>
+    <span class="hero-eyebrow mono rv rv-in">GCSE revision, engineered</span>
+    <h1 class="rv rv-in">Revision that <span class="hl">comes back</span> until it sticks.</h1>
+    <p class="hero-sub rv rv-in rv-d1">Interactive topics, daily retrieval practice and a spaced-repetition
+      calendar that reschedules every topic after 1 day, 1 week and 4 weeks — with teacher tasks,
+      AI-assisted marking and live progress analytics on top.</p>
+    <div class="hero-ctas rv rv-in rv-d2">
+      <a class="btn btn-solid btn-big" href="/signup.html">Get started</a>
+      <a class="btn btn-ghost btn-big" href="/login.html">I have a class login</a>
     </div>
-  </header>
+    <p class="hero-note rv rv-in rv-d3">Got a class code from your teacher? Create an account, then join in one step.</p>
+  </div>
 
-  <!-- MAIN CONTENT -->
-  <main class="content" id="mainContent">
-    <h2 class="section-label" id="hubSectionLabel">Subjects</h2>
-    <div id="hubGrid" class="hub-loading">Loading your subjects…</div>
-  </main>
+  <div class="hero-stage" aria-hidden="true">
+    <div class="mock mock-q" data-plx="-0.06">
+      <div class="m-label">Daily Revise · Rule of 3</div>
+      <div class="m-q">Which factor shifts the demand curve to the right?</div>
+      <div class="m-mastery"><i class="on1"></i><i class="on2"></i><i class="on3"></i><i></i></div>
+      <div class="m-opts">
+        <div class="m-opt">A rise in the price of the good</div>
+        <div class="m-opt sel">A successful advertising campaign</div>
+        <div class="m-opt">A fall in consumer incomes</div>
+      </div>
+    </div>
+    <div class="mock mock-streak" data-plx="0.05">
+      <div class="m-label">Your streak</div>
+      <div class="m-streak-big">🔥 14 days</div>
+      <div class="m-xp"><i></i></div>
+      <div class="m-xp-cap">Level 7 · 680 XP to next</div>
+    </div>
+    <div class="mock mock-cal" data-plx="0.1">
+      <div class="m-label">This week</div>
+      <div class="m-week">
+        <span class="m-day">M</span><span class="m-day">T</span><span class="m-day">W</span>
+        <span class="m-day">T</span><span class="m-day">F</span><span class="m-day">S</span><span class="m-day">S</span>
+        <div class="m-cell"><span class="m-chip rev">1.2 review</span></div>
+        <div class="m-cell"></div>
+        <div class="m-cell"><span class="m-chip task">Task due</span></div>
+        <div class="m-cell"><span class="m-chip rev">2.1 review</span></div>
+        <div class="m-cell"></div>
+        <div class="m-cell"><span class="m-chip rev">2.4 review</span><span class="m-chip task">Quiz</span></div>
+        <div class="m-cell"></div>
+      </div>
+    </div>
+  </div>
+</header>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-  <script src="/subjects-index.js"></script>
-  <script src="/account-cluster.js"></script>
-  <script>
-    // Keep these in sync with the constants at the top of script.js.
-    const SUPABASE_URL = 'https://eaohjlyiotyqhvsizcpw.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhb2hqbHlpb3R5cWh2c2l6Y3B3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNzUzMDksImV4cCI6MjA5ODc1MTMwOX0.lHF4OUiTT3G_fzlXvXI_4QMu48o6eEnq0hWw6K1uBAk';
-    const GCSE_SESSION_KEY = 'gcse_session_v1';
+<!-- ── STATS ── -->
+<section class="stats" aria-label="Platform in numbers">
+  <div class="stats-inner">
+    <div class="rv"><div class="stat-num" data-stat="topics" data-count="70" data-suffix="+">70+</div><div class="stat-cap">interactive topic lessons</div></div>
+    <div class="rv rv-d1"><div class="stat-num" data-stat="subjects" data-count="3">3</div><div class="stat-cap">GCSE subjects</div></div>
+    <div class="rv rv-d2"><div class="stat-num" data-count="9">9</div><div class="stat-cap">activity types per topic</div></div>
+    <div class="rv rv-d3"><div class="stat-num">1·7·28</div><div class="stat-cap">days — the review cycle that beats forgetting</div></div>
+  </div>
+</section>
 
-    // Non-redirecting read of the cached session — unlike tasksAuthInit()
-    // (tasks-shared.js) / the old per-page login guards, this hub must
-    // stay reachable by logged-out visitors, so it only ever *reads* the
-    // cache here and decides which view to render; it never redirects to
-    // login.html on its own.
-    function hubReadSession() {
-      try { return JSON.parse(localStorage.getItem(GCSE_SESSION_KEY) || 'null'); } catch (e) { return null; }
-    }
+<!-- ── FEATURES ── -->
+<main class="features" id="features">
+  <div class="sec-head rv">
+    <span class="mono" style="color:var(--marigold-dark);">What's inside</span>
+    <h2>Built around how memory actually works</h2>
+    <p>Every topic is a full interactive lesson — and everything you practise is scheduled to come back
+      right before you'd forget it.</p>
+  </div>
 
-    // Note: the optional "My Progress" secondary link is rendered as a
-    // sibling of the card <a>, not nested inside it — nested <a> elements
-    // are invalid HTML and browsers silently break out of the outer
-    // anchor when they hit one, which would make the card's own link
-    // target unpredictable.
-    function subjectCardHtml(subject, opts) {
-      opts = opts || {};
-      const href = opts.href || `/subjects/${subject.slug}/index.html`;
-      const accent = subject.colour ? ` style="--accent:${subject.colour}"` : '';
-      const examBoard = subject.examBoard || subject.exam_board || 'OCR';
-      const specCode = subject.specCode || subject.spec_code || '';
-      const level = subject.level || '';
-      const card = `<a class="topic-card" href="${href}"${accent}>
-          <span class="subject-icon" aria-hidden="true">${subject.icon || '📘'}</span>
-          <span class="code">${examBoard}${specCode ? ' · ' + specCode : ''}</span>
-          <h3>${subject.name}</h3>
-          <div class="card-meta">
-            <span>${level}${opts.tag ? ' · ' + opts.tag : ''}</span>
-            <span class="arrow" aria-hidden="true">→</span>
-          </div>
-        </a>`;
-      if (opts.actions) return `<div class="subject-card-wrap">${card}${subjectActionsHtml(subject.slug)}</div>`;
-      if (!opts.secondaryHref) return `<div class="subject-card-wrap">${card}</div>`;
-      return `<div class="subject-card-wrap">${card}<a class="subject-secondary" href="${opts.secondaryHref}">📊 My Progress →</a></div>`;
-    }
+  <div class="frow">
+    <div class="f-visual rv" aria-hidden="true">
+      <div class="fv-row"><span class="fv-pill" style="background:rgba(199,127,31,.14); color:var(--marigold-dark);">🎯 Daily Revise</span></div>
+      <div class="fv-line w80"></div>
+      <div class="fv-line w60"></div>
+      <div class="fv-row"><span style="font-size:12px; color:var(--mid); min-width:88px;">Mastery</span><span class="fv-seg"><i style="background:#c84b31"></i><i style="background:#d4832b"></i><i style="background:var(--gold)"></i><i></i></span></div>
+      <div class="fv-row"><span style="font-size:12px; color:var(--mid); min-width:88px;">3 in a row</span><div class="fv-bar" style="flex:1"><i style="width:66%; background:var(--eco)"></i></div></div>
+    </div>
+    <div class="f-copy rv rv-d1">
+      <span class="f-kicker mono">Daily Revise</span>
+      <h3>Short daily practice with a "rule of 3"</h3>
+      <p>A fresh queue of questions every day, drawn from every topic you've studied. Answer a question
+        correctly three times in a row and it's mastered — get it wrong and it starts over.</p>
+      <ul>
+        <li><strong>Smart scheduling</strong> brings back what you're weakest on first</li>
+        <li><strong>Teachers control the topics</strong> and pace per class — or hand control to students</li>
+        <li>Answers are graded on the server, so the correct answer never hides in the page</li>
+      </ul>
+    </div>
+  </div>
 
-    // WP-A4: every feature reachable per subject straight from the hub.
-    // The card itself opens the topic list; these pills deep-link the rest.
-    function subjectActionsHtml(slug) {
-      const s = encodeURIComponent(slug);
-      return `<div class="subject-actions" role="group" aria-label="Quick links">
-        <a href="/dashboard.html?subject=${s}">📊 Dashboard</a>
-        <a href="/daily-revise.html?subject=${s}">🎯 Daily Revise</a>
-        <a href="/dashboard.html?subject=${s}#tasksSection">📋 Tasks</a>
-        <a href="/review-calendar.html?subject=${s}">🗓️ Calendar</a>
-      </div>`;
-    }
+  <div class="frow">
+    <div class="f-visual rv" aria-hidden="true">
+      <div class="fv-chiprow">
+        <span class="fv-chip on">All subjects</span><span class="fv-chip">🔁 Reviews</span><span class="fv-chip on">📋 Tasks</span>
+      </div>
+      <div class="fv-row" style="margin-top:6px;"><span class="fv-pill" style="background:var(--cream); border:1px dashed var(--border); color:var(--mid);">2.2 Demand — 1 week review</span></div>
+      <div class="fv-row"><span class="fv-pill" style="background:var(--eco); color:#fff;">📋 Break-even quiz — due Fri</span></div>
+      <div class="fv-row"><span class="fv-pill" style="background:var(--cream); border:1px dashed var(--border); color:var(--mid);">1.4 Networks — 4 week review</span></div>
+    </div>
+    <div class="f-copy rv rv-d1">
+      <span class="f-kicker mono">Review Calendar</span>
+      <h3>1 day. 1 week. 4 weeks. Automatically.</h3>
+      <p>The first time you practise a topic, three reviews are scheduled at the exact intervals that
+        defeat the forgetting curve. Tick each one off by passing a short quiz — fail it and the cycle
+        restarts. Teacher-set task deadlines share the same calendar, colour-coded and filterable.</p>
+    </div>
+  </div>
 
-    // Logged-out (or role-less/corrupted session) view: every subject in
-    // the registry, Business real, the rest clearly tagged so nobody
-    // mistakes a placeholder for finished content.
-    function renderPublicSubjectsHub() {
-      document.getElementById('hubSectionLabel').textContent = 'Subjects';
-      const subjects = window.SUBJECTS || [];
-      const grid = document.getElementById('hubGrid');
-      grid.classList.remove('hub-loading');
-      grid.innerHTML = subjects.map(s => subjectCardHtml(s, { tag: s.slug === 'business' ? '' : 'Coming soon' })).join('');
-    }
+  <div class="frow">
+    <div class="f-visual rv" aria-hidden="true">
+      <div class="fv-row"><span class="fv-pill" style="background:rgba(45,122,79,.12); color:var(--eco);">✍️ 9-mark answer submitted</span></div>
+      <div class="fv-line w80"></div>
+      <div class="fv-line w60"></div>
+      <div class="fv-row"><span class="fv-pill" style="background:rgba(199,127,31,.14); color:var(--marigold-dark);">✨ AI suggests: 6/9 + feedback</span></div>
+      <div class="fv-row"><span class="fv-pill" style="background:var(--cream); color:var(--mid);">Teacher reviews → releases mark</span></div>
+    </div>
+    <div class="f-copy rv rv-d1">
+      <span class="f-kicker mono">Tasks &amp; marking</span>
+      <h3>Set it Monday, marked by Tuesday</h3>
+      <p>Teachers build tasks from a bank of thousands of questions in seconds — or generate printable
+        worksheets with answer keys. Written answers get AI-suggested marks and feedback that the
+        teacher reviews and releases, so students get fast feedback and teachers keep the final say.</p>
+    </div>
+  </div>
 
-    // Logged-in student view: only the subjects get_my_subjects() returns
-    // (their own classes) — a subject a student isn't enrolled in is
-    // fully hidden here, not shown as "coming soon" clutter.
-    function renderStudentSubjectsHub(rows) {
-      document.getElementById('hubSectionLabel').textContent = 'Your Subjects';
-      const grid = document.getElementById('hubGrid');
-      grid.classList.remove('hub-loading');
-      if (!rows.length) {
-        grid.innerHTML = `<div class="hub-empty">You're not enrolled in any class yet, so there's nothing to show
-          here. Got a class code from your teacher? <a href="/join.html" style="font-weight:600;">Join your class →</a><br/>
-          No code yet? Ask your teacher for one, then come back.</div>`;
-        return;
-      }
-      grid.innerHTML = rows.map(s => subjectCardHtml(s, { actions: true })).join('');
-      // WP-A5: one calendar across every subject (reviews + task deadlines,
-      // filterable there) — only worth surfacing for multi-subject students.
-      if (rows.length > 1) {
-        grid.insertAdjacentHTML('beforeend',
-          `<div class="subject-card-wrap"><a class="topic-card" href="/review-calendar.html?subject=all" style="--accent:var(--gold)">
-            <span class="subject-icon" aria-hidden="true">🗓️</span>
-            <span class="code">ALL SUBJECTS</span>
-            <h3>Combined Calendar</h3>
-            <div class="card-meta"><span>Reviews + task deadlines in one view</span><span class="arrow" aria-hidden="true">→</span></div>
-          </a></div>`);
-      }
-    }
+  <div class="frow">
+    <div class="f-visual rv" aria-hidden="true">
+      <div class="fv-row"><span style="font-size:26px;">🏅</span><div><b style="font-size:14px;">Badge unlocked — Comeback</b><div style="font-size:12px; color:var(--mid);">Mastered a question you'd got wrong twice</div></div></div>
+      <div class="fv-row"><span style="font-size:26px;">🔥</span><div class="fv-bar" style="flex:1"><i style="width:78%; background:linear-gradient(90deg, var(--gold), var(--marigold));"></i></div></div>
+      <div class="fv-row"><span style="font-size:26px;">⚡</span><div><b style="font-size:14px;">+10 XP</b> <span style="font-size:12px; color:var(--mid);">every server-verified correct answer</span></div></div>
+    </div>
+    <div class="f-copy rv rv-d1">
+      <span class="f-kicker mono">Momentum</span>
+      <h3>Streaks, XP and badges that mean something</h3>
+      <p>Every point of XP corresponds to a real, verified answer — no idle rewards. Day streaks,
+        levels, badge collections and optional class leaderboards turn showing up daily into the habit
+        that carries you to the exam.</p>
+    </div>
+  </div>
 
-    async function hubInitAccountBar(cached, supabaseClient) {
-      const bar = document.getElementById('accountBar');
-      if (!bar) return;
-      // Same shared avatar + dropdown cluster as every other page (script.js).
-      if (typeof _gcseInjectAccountBar === 'function') {
-        window._gcseProfile = window._gcseProfile || { username: cached.username, role: cached.role };
-        window._gcseSupabaseClient = window._gcseSupabaseClient || supabaseClient;
-        _gcseInjectAccountBar();
-        return;
-      }
-      const escName = String(cached.username || 'you').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-      bar.innerHTML = `<span style="font-size:13px;color:rgba(255,255,255,.75);">Hi, <strong>${escName}</strong></span>
-        <a href="/manage-account.html" id="manageAccountLink">⚙ <span>Manage Account</span></a>
-        <a href="#" id="homeLogoutLink">↪ <span>Log out</span></a>`;
-      document.getElementById('homeLogoutLink').addEventListener('click', async (e) => {
-        e.preventDefault();
-        await supabaseClient.auth.signOut();
-        localStorage.removeItem(GCSE_SESSION_KEY);
-        location.reload();
-      });
-    }
+  <div class="frow">
+    <div class="f-visual rv" aria-hidden="true">
+      <div class="fv-row"><span style="font-size:12px; color:var(--mid); min-width:110px;">Class average</span><div class="fv-bar" style="flex:1"><i style="width:64%; background:var(--biz)"></i></div><b style="font-size:12px;">64%</b></div>
+      <div class="fv-row"><span style="font-size:12px; color:var(--mid); min-width:110px;">2.3 Supply</span><div class="fv-bar" style="flex:1"><i style="width:41%; background:#c84b31"></i></div><b style="font-size:12px;">41%</b></div>
+      <div class="fv-row"><span style="font-size:12px; color:var(--mid); min-width:110px;">🛫 Flight path</span><div class="fv-bar" style="flex:1"><i style="width:82%; background:var(--eco)"></i></div><b style="font-size:12px;">on track</b></div>
+    </div>
+    <div class="f-copy rv rv-d1">
+      <span class="f-kicker mono">Teacher analytics</span>
+      <h3>See the gap before the mock does</h3>
+      <p>Per-class dashboards show exactly which topics and which questions a class is getting wrong,
+        who's falling behind their flight path, and who hasn't practised this week — with CSV exports
+        for department meetings.</p>
+    </div>
+  </div>
 
-    async function hubInit() {
-      const cached = hubReadSession();
+  <div class="frow">
+    <div class="f-visual rv" aria-hidden="true">
+      <div class="fv-row"><span class="fv-pill" style="background:var(--ink); color:#fff;">🔑 K7RQ2WXN</span><span style="font-size:12.5px; color:var(--mid);">join code — one per class</span></div>
+      <div class="fv-chiprow"><span class="fv-chip on">📈 Economics</span><span class="fv-chip on">💼 Business</span><span class="fv-chip">💻 Computer Science</span></div>
+      <div class="fv-row"><span style="font-size:12.5px; color:var(--mid);">One account, every subject you study.</span></div>
+    </div>
+    <div class="f-copy rv rv-d1">
+      <span class="f-kicker mono">Multi-subject</span>
+      <h3>One account. Every subject. One code to join.</h3>
+      <p>Sign up with email or Google, enter the class code your teacher gives you, and you're in.
+        Studying more than one subject here? Join each class with its code — your dashboards, daily
+        practice and calendar keep every subject organised side by side.</p>
+    </div>
+  </div>
+</main>
 
-      // No session, or a corrupted/role-less cache — public hub.
-      if (!cached || !cached.access_token) {
-        renderPublicSubjectsHub();
-        return;
-      }
+<!-- ── SUBJECTS ── -->
+<section class="subjects" id="subjects">
+  <div class="sec-head rv">
+    <span class="mono" style="color:var(--marigold-dark);">Subjects</span>
+    <h2>Deep, exam-focused subject guides</h2>
+    <p>Every topic: key learning, quizzes, matching, fill-the-blanks, misconceptions, exam tips,
+      flashcards, true/false and full exam practice.</p>
+  </div>
+  <div class="subjects-grid" id="subjectsGrid">
+    <!-- rendered from the live registry; static fallback below -->
+    <div class="subj-card rv" style="--sc:#7a5c9e;"><span class="s-icon">💼</span><h3>Business</h3><div class="s-meta">GCSE</div><p>From enterprise to break-even — with real exam-style practice throughout.</p></div>
+    <div class="subj-card rv rv-d1" style="--sc:#2d7a4f;"><span class="s-icon">📈</span><h3>Economics</h3><div class="s-meta">GCSE</div><p>Markets, money and the global economy, taught for the exam you'll sit.</p></div>
+    <div class="subj-card rv rv-d2" style="--sc:#1a6b6b;"><span class="s-icon">💻</span><h3>Computer Science</h3><div class="s-meta">GCSE</div><p>Systems, networks and computational thinking — growing through the year.</p></div>
+  </div>
+</section>
 
-      // Teachers manage their subjects/classes from the teacher dashboard,
-      // not this student-facing hub — send them straight there (mirrors
-      // dashboard.html's initDashboardAuth(), which does the same before
-      // it ever touches student-only data).
-      if (cached.role === 'teacher') {
-        location.replace('/teacher-dashboard.html');
-        return;
-      }
+<!-- ── FOR SCHOOLS ── -->
+<section class="schools" id="schools">
+  <div class="schools-inner rv">
+    <div>
+      <span class="mono" style="color:var(--gold);">For schools</span>
+      <h2>Run it like a classroom, not an app</h2>
+      <p>Teachers get real controls: class join codes or generated logins, topic gating,
+        pacing rules, task deadlines with adjusted-time overrides, marking queues and analytics.
+        Currently in use with our own students — school enquiries welcome.</p>
+    </div>
+    <div class="schools-list">
+      <div><b>🔑</b><span>Class join codes and teacher-generated logins — whichever fits your safeguarding setup</span></div>
+      <div><b>🔒</b><span>Content is locked to enrolled students; answer keys never reach the browser before submission</span></div>
+      <div><b>🎛️</b><span>Per-class topic access, daily-practice caps and pacing controls</span></div>
+      <div><b>🖨️</b><span>Printable worksheets with word banks and answer keys, built from the same question bank</span></div>
+    </div>
+  </div>
+</section>
 
-      if (cached.role !== 'student') {
-        renderPublicSubjectsHub();
-        return;
-      }
+<!-- ── FAQ ── -->
+<section class="faq" id="faq">
+  <div class="sec-head rv">
+    <span class="mono" style="color:var(--marigold-dark);">FAQ</span>
+    <h2>Good questions</h2>
+  </div>
+  <details class="rv"><summary>How do I join my class?</summary><div class="a">Create an account (email or Google), then enter the 8-character class code your teacher gives you. Studying more than one subject here? Redeem one code per subject.</div></details>
+  <details class="rv"><summary>Is it free?</summary><div class="a">For the 2026–27 year the platform is provided free to our school's students. School enquiries are welcome via the contact details in the footer.</div></details>
+  <details class="rv"><summary>How does the spaced repetition work?</summary><div class="a">The first time you practise a topic, reviews are scheduled after 1 day, 1 week and 4 weeks. Each review is a short quiz — pass it and the topic is ticked off until its next stage; fail and the cycle restarts. It's the pattern memory research keeps landing on.</div></details>
+  <details class="rv"><summary>Can I cheat by peeking at the answers?</summary><div class="a">No — practice questions are graded on the server and the correct answer only comes back after you've submitted. (We're teachers. We thought of it.)</div></details>
+  <details class="rv"><summary>Does it work on my phone?</summary><div class="a">Yes — every page is responsive, including the calendar and daily practice. A laptop is comfier for long written answers.</div></details>
+  <details class="rv"><summary>What happens to my data?</summary><div class="a">Progress data is stored securely and used only to power your revision and your teacher's view of it. See the privacy policy linked below for the full picture.</div></details>
+</section>
 
-      const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-      window._gcseSupabaseClient = supabaseClient;
-      const { data, error } = await supabaseClient.auth.setSession({
-        access_token: cached.access_token, refresh_token: cached.refresh_token,
-      });
-      if (error || !data.session) {
-        localStorage.removeItem(GCSE_SESSION_KEY);
-        renderPublicSubjectsHub();
-        return;
-      }
-      localStorage.setItem(GCSE_SESSION_KEY, JSON.stringify({
-        access_token: data.session.access_token, refresh_token: data.session.refresh_token,
-        expires_at: data.session.expires_at, role: cached.role, username: cached.username,
-      }));
+<!-- ── FINAL CTA ── -->
+<section class="cta-band">
+  <h2 class="rv">Your future self keeps the marks.</h2>
+  <p class="rv rv-d1">Set up in two minutes — practise for ten a day.</p>
+  <div class="rv rv-d2"><a class="btn btn-solid btn-big" href="/signup.html">Create your account</a></div>
+</section>
 
-      hubInitAccountBar(cached, supabaseClient);
-      document.getElementById('hubIntro').textContent =
-        'Pick up where you left off, or jump into a subject to browse every topic.';
+<footer class="landing-foot">
+  <div id="footerLegalMount"></div>
+  <p class="disclaimer">Designed to support OCR GCSE specifications (J204 Business, J205 Economics, J277 Computer Science).
+    Not endorsed by or affiliated with OCR.</p>
+</footer>
 
-      try {
-        const { data: subjects, error: subjectsErr } = await supabaseClient.rpc('get_my_subjects');
-        if (subjectsErr) { console.error('get_my_subjects', subjectsErr); renderStudentSubjectsHub([]); return; }
-        renderStudentSubjectsHub(subjects || []);
-      } catch (e) {
-        console.error('get_my_subjects', e);
-        renderStudentSubjectsHub([]);
-      }
-    }
-
-    hubInit();
-  </script>
-<script src="notifications-shared.js"></script>
-<script src="onboarding-tour.js"></script>
+<script src="/subjects-index.js"></script>
+<script src="/page-groups-all.js"></script>
+<script>
+  // Render the subjects grid from the live registry (falls back to the
+  // static cards above if the generated file is missing).
+  (function () {
+    try {
+      var subjects = window.SUBJECTS || [];
+      if (!subjects.length) return;
+      var blurbs = {
+        business: 'From enterprise to break-even — with real exam-style practice throughout.',
+        economics: 'Markets, money and the global economy, taught for the exam you\'ll sit.',
+        'computer-science': 'Systems, networks and computational thinking — growing through the year.',
+      };
+      var delays = ['', ' rv-d1', ' rv-d2', ' rv-d3'];
+      document.getElementById('subjectsGrid').innerHTML = subjects.map(function (s, i) {
+        var esc = function (t) { return String(t == null ? '' : t).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+        return '<div class="subj-card rv' + delays[i % delays.length] + '" style="--sc:' + esc(s.colour || '#c77f1f') + ';">' +
+          '<span class="s-icon">' + esc(s.icon || '📘') + '</span>' +
+          '<h3>' + esc(s.name || s.slug) + '</h3>' +
+          '<div class="s-meta">' + esc(s.level || 'GCSE') + (s.examBoard ? ' · ' + esc(s.examBoard) : '') + (s.specCode ? ' ' + esc(s.specCode) : '') + '</div>' +
+          '<p>' + (blurbs[s.slug] || 'Interactive topics, quizzes, flashcards and exam practice.') + '</p></div>';
+      }).join('');
+    } catch (e) { /* static fallback stays */ }
+  })();
+</script>
+<script src="landing.js"></script>
 <script src="footer-legal.js"></script>
 </body>
-
 </html>

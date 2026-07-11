@@ -473,7 +473,7 @@ function initSiteNav() {
     const snSlug = (window.SUBJECT && window.SUBJECT.slug) || null;
     const snQ = snSlug ? '?subject=' + encodeURIComponent(snSlug) : '';
     nav.innerHTML = `
-        <a class="sn-brand" href="${snSlug ? '/subjects/' + encodeURIComponent(snSlug) + '/index.html' : '/index.html'}"><span aria-hidden="true">🏡</span> All Topics</a>
+        <a class="sn-brand" href="${snSlug ? '/subjects/' + encodeURIComponent(snSlug) + '/index.html' : '/hub.html'}"><span aria-hidden="true">🏡</span> All Topics</a>
         <a class="sn-link" href="/dashboard.html${snQ}"><span aria-hidden="true">📊</span> <span class="sn-label">My Progress</span></a>`;
     if (typeof gamificationCreateSoundButton === 'function') {
         nav.appendChild(gamificationCreateSoundButton('sn-btn'));
@@ -3944,7 +3944,7 @@ function initCourseSidebar() {
     // the hand-curated nested courseData below (PAGE_GROUPS is flat and
     // would lose the 2.4.x sub-page nesting).
     let sections = courseData;
-    let homeHref = '/index.html';
+    let homeHref = '/subjects/business/index.html';
     if (window.PAGE_GROUPS && window.SUBJECT && window.SUBJECT.slug !== 'business') {
         sections = window.PAGE_GROUPS.map(g => ({
             title: g.title,

@@ -179,6 +179,6 @@ async function vidyaFinishLogin(client, session, preferredRedirect) {
     hasSubjects = Array.isArray(subjects) && subjects.length > 0;
   } catch (e) {}
   try { if (hasSubjects) sessionStorage.setItem('vidya_has_subjects', '1'); } catch (e) {}
-  location.replace(hasSubjects ? 'index.html' : 'join.html');
+  location.replace(hasSubjects ? 'hub.html' : 'join.html');
   return null;
 }

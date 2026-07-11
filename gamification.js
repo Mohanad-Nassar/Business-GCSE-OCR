@@ -1056,7 +1056,7 @@ function _gamInjectTopicNav(pages, idx) {
   // always have window.SUBJECT (set by the directory's page-groups.js).
   const navSlug = (window.SUBJECT && window.SUBJECT.slug) || null;
   const navQ = navSlug ? '?subject=' + encodeURIComponent(navSlug) : '';
-  const homeHref = navSlug ? '/subjects/' + encodeURIComponent(navSlug) + '/index.html' : '/index.html';
+  const homeHref = navSlug ? '/subjects/' + encodeURIComponent(navSlug) + '/index.html' : '/hub.html';
 
   let nextHtml;
   if (next) {
