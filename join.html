@@ -144,13 +144,21 @@
     btn.disabled = false;
     btn.textContent = 'Join class';
 
+    // redeem_join_code returns { ok:false, error:<slug> } for expected
+    // failures (so the throttle can count them) and only THROWS for the
+    // rare auth/role guards (students_only / not_authenticated) or a real
+    // network error — handle both.
     if (error) {
       const m = String(error.message || '');
-      if (m.startsWith('subject_taken:')) {
-        showMsg(`You're already in <strong>${esc(m.slice('subject_taken:'.length))}</strong> for that subject. Your teacher can move you between classes if needed.`, false);
+      const slug = Object.keys(FRIENDLY).find(k => m.includes(k));
+      showMsg(slug ? FRIENDLY[slug] : 'Could not join: ' + esc(m), false);
+      return;
+    }
+    if (data && data.ok === false) {
+      if (data.error === 'subject_taken') {
+        showMsg(`You're already in <strong>${esc(data.class_name || 'a class')}</strong> for that subject. Your teacher can move you between classes if needed.`, false);
       } else {
-        const slug = Object.keys(FRIENDLY).find(k => m.includes(k));
-        showMsg(slug ? FRIENDLY[slug] : 'Could not join: ' + esc(m), false);
+        showMsg(FRIENDLY[data.error] || 'Could not join: ' + esc(data.error || 'unknown error'), false);
       }
       return;
     }

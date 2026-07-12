@@ -115,8 +115,19 @@
 
     -- ── redeem_join_code ──
     -- Student-only. Errors are stable slugs the UI maps to friendly text:
-    --   too_many_attempts · code_invalid · code_expired · code_full ·
-    --   subject_taken:<existing class name> · students_only
+    -- Returns jsonb ALWAYS (it does NOT raise for the expected failures) —
+    -- shape:
+    --   success:  { ok:true,  already:bool, class_name, subject_slug, subject_name, subject_icon }
+    --   failure:  { ok:false, error:<slug> [, class_name for subject_taken] }
+    --   error slugs: too_many_attempts · code_invalid · code_expired ·
+    --                code_full · subject_taken
+    -- WHY return-not-raise: the failure-throttle counts rows in
+    -- join_code_attempts, but a `raise exception` ROLLS BACK this function's
+    -- own INSERT, so raised failures were never recorded and the throttle
+    -- never fired (fixed WP-A9). Returning a value lets the failed-attempt
+    -- row persist, so repeated bad codes actually accumulate toward the cap.
+    -- Only the pre-attempt auth/role guards still raise (they short-circuit
+    -- before any insert and never occur in the normal UI flow).
     -- Joining a class you're already in is a SUCCESS (already=true), not an
     -- error — refreshing the page after joining must not scare anyone.
     create or replace function redeem_join_code(p_code text) returns jsonb
@@ -138,24 +149,33 @@
         select count(*) into failed_attempts from join_code_attempts
         where student_id = uid and not success
         and attempted_at > now() - interval '1 hour';
-        if failed_attempts >= 10 then raise exception 'too_many_attempts'; end if;
+        -- Return (don't raise) BEFORE inserting, so a throttled call doesn't
+        -- itself inflate the counter.
+        if failed_attempts >= 10 then
+            return jsonb_build_object('ok', false, 'error', 'too_many_attempts');
+        end if;
 
+        -- Record this attempt up front (success=false). Because the failure
+        -- branches below RETURN rather than raise, this row survives to be
+        -- counted next time.
         insert into join_code_attempts (student_id) values (uid)
         returning id into attempt_id;
 
         select * into jc from class_join_codes
         where code = upper(trim(p_code)) and not revoked;
-        if not found then raise exception 'code_invalid'; end if;
-        if jc.expires_at is not null and jc.expires_at < now() then raise exception 'code_expired'; end if;
-        if jc.max_uses is not null and jc.use_count >= jc.max_uses then raise exception 'code_full'; end if;
+        if not found then return jsonb_build_object('ok', false, 'error', 'code_invalid'); end if;
+        if jc.expires_at is not null and jc.expires_at < now() then
+            return jsonb_build_object('ok', false, 'error', 'code_expired'); end if;
+        if jc.max_uses is not null and jc.use_count >= jc.max_uses then
+            return jsonb_build_object('ok', false, 'error', 'code_full'); end if;
 
         select * into cls from classes where id = jc.class_id and not archived;
-        if not found then raise exception 'code_invalid'; end if;
+        if not found then return jsonb_build_object('ok', false, 'error', 'code_invalid'); end if;
         select * into subj from subjects where id = cls.subject_id;
 
         if exists (select 1 from class_students where class_id = cls.id and student_id = uid) then
             update join_code_attempts set success = true where id = attempt_id;
-            return jsonb_build_object('already', true, 'class_name', cls.name,
+            return jsonb_build_object('ok', true, 'already', true, 'class_name', cls.name,
                 'subject_slug', subj.slug, 'subject_name', subj.name, 'subject_icon', subj.icon);
         end if;
 
@@ -167,14 +187,14 @@
         where cs.student_id = uid and c2.subject_id = cls.subject_id and not c2.archived
         limit 1;
         if existing_name is not null then
-            raise exception 'subject_taken:%', existing_name;
+            return jsonb_build_object('ok', false, 'error', 'subject_taken', 'class_name', existing_name);
         end if;
 
         insert into class_students (class_id, student_id) values (cls.id, uid);
         update class_join_codes set use_count = use_count + 1 where code = jc.code;
         update join_code_attempts set success = true where id = attempt_id;
 
-        return jsonb_build_object('already', false, 'class_name', cls.name,
+        return jsonb_build_object('ok', true, 'already', false, 'class_name', cls.name,
             'subject_slug', subj.slug, 'subject_name', subj.name, 'subject_icon', subj.icon);
     end;
     $$;

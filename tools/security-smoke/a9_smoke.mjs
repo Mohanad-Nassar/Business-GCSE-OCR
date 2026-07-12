@@ -179,16 +179,22 @@ async function main() {
       gate2.status === 200 && gate2.body && gate2.body.allow_bank === false, JSON.stringify(gate2.body));
 
     // ── join-code redemption: error slugs + failure throttle ──
+    // redeem_join_code returns { ok:false, error } for expected failures
+    // (status 200) so the throttle can count them — see the WP-A9 fix.
     const bad = await rpc(jwt, 'redeem_join_code', { p_code: 'AAAAAAAA' });
-    record('redeem_join_code invalid code → code_invalid',
-      bad.status >= 400 && JSON.stringify(bad.body).includes('code_invalid'),
+    record('redeem_join_code invalid code → {ok:false, error:code_invalid}',
+      bad.body && bad.body.ok === false && bad.body.error === 'code_invalid',
       `status ${bad.status}, body ${JSON.stringify(bad.body).slice(0, 220)}`);
-    let throttled = false;
-    for (let i = 0; i < 12 && !throttled; i++) {
-      const r = await rpc(jwt, 'redeem_join_code', { p_code: 'BBBBBBB' + (i % 10) });
-      if (JSON.stringify(r.body).includes('too_many_attempts')) throttled = true;
+    let throttled = false, attempts = 0;
+    // 1 failure already logged above; the cap is 10 failures/hour, so this
+    // must trip within ~12 more tries.
+    for (let i = 0; i < 14 && !throttled; i++) {
+      attempts++;
+      const r = await rpc(jwt, 'redeem_join_code', { p_code: 'BADCODE' + (i % 10) });
+      if (r.body && r.body.error === 'too_many_attempts') throttled = true;
     }
-    record('redeem_join_code throttles after 10 failures/hour', throttled);
+    record('redeem_join_code throttles after 10 failures/hour', throttled,
+      throttled ? `tripped after ${attempts} more tries` : `never tripped in ${attempts} tries`);
 
     // ── integrity logging works with a student JWT ──
     const integ = await rpc(jwt, 'record_integrity_event', {

@@ -3,28 +3,26 @@
 Run 2026-07-11 against the working tree at commit `7485072` (WP-A8), using
 `netlify dev` locally + the live Supabase project. Phase B stays PARKED.
 
-## ⛔ Blocker for sign-off — run the WP-A7 SQL
+## Status — WP-A7 SQL applied; escalation closed
 
-The live-database security smoke (`tools/security-smoke/a9_smoke.mjs`) proved
-that **the self-escalation → question-bank-leak exploit is currently live**: a
-throwaway student account successfully ran `update profiles set is_owner = true`
-and its `edge_gate_check.allow_bank` flipped to `true`. The fix exists in the
-repo (`supabase/schema.sql` privilege-change trigger) but has **not been applied
-to the database yet** — the SQL the operator ran earlier predates WP-A7.
+The operator re-ran the WP-A7 SQL (2026-07-12). The live security smoke now
+passes **20/21**, and the critical checks are green: the self-escalation →
+question-bank-leak exploit is **closed** (`update profiles set is_owner=true`
+now returns 400 and the role/is_owner stay put; `edge_gate_check` still denies),
+`task_effective_due` is revoked, the daily answer cap is live, and anonymous
+`edge_gate_check` is refused (401).
 
-**Before Phase A is signed off (and ideally before the next deploy), re-run in
-the Supabase SQL editor (all re-run-safe, any order):**
+### One follow-up SQL re-run (join-code throttle fix, WP-A9)
 
-1. `supabase/schema.sql` — `_profiles_block_privilege_change` trigger (the HIGH fix)
-2. `supabase/entitlements.sql` — `daily_answer_cap` seed + anon/public `revoke`s
-3. `supabase/daily-revise-functions.sql` — per-student daily answer cap
-4. `supabase/tasks-schema.sql` — `task_effective_due` revoke
-5. `supabase/join-codes.sql` — anon/public `revoke`s
+The smoke caught a genuine WP-A2 bug: `redeem_join_code` logged each attempt
+then **`raise`d** for a bad code — but a raised exception rolls back the
+function's own INSERT, so failed attempts never persisted and the
+10-failures/hour throttle was dead code. Fixed by returning `{ok:false,error}`
+for the expected failures instead of raising (the attempt row now survives to
+be counted); `join.html` reads the new shape. **Re-run `supabase/join-codes.sql`
+once** (re-run-safe), then `node tools/security-smoke/a9_smoke.mjs` → 21/21.
 
-Then re-run `node tools/security-smoke/a9_smoke.mjs` — it self-diagnoses this
-exact condition and should go green (21/21).
-
-Also set the Netlify env var **`CRON_SECRET`** (WP-A7) before/at deploy.
+Still to do at deploy: set the Netlify env var **`CRON_SECRET`** (WP-A7).
 
 ## Automated results
 
