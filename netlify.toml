@@ -35,6 +35,17 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
+# WP-C6 caching — images only. They're re-fetched on every page yet rarely
+# change, so cache for a day then serve-stale-while-revalidating for a week
+# (a changed chart shows within a day; no full re-download in between).
+# Deliberately NOT applied to HTML/JS: those aren't content-hashed, so a
+# long cache would serve stale code after a deploy — Netlify's default
+# ETag revalidation already keeps them cheap (304s) without that risk.
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+
 # WP-A3 content gate: every request under /subjects/ must carry a valid
 # session whose account may access that subject — course content is no
 # longer publicly fetchable. question-bank.js is teacher-only on top.
