@@ -514,6 +514,19 @@ function applyFeedback(q, result) {
   fb.innerHTML = `<span class="dr-mastery-chip m${tier}">${DR_MASTERY_LABELS[tier]}</span><br>`
     + (correct ? '✓ Correct! ' : '✗ Not quite. ') + explain;
 
+  // "Report a problem" (WP-C5) — only once the answer's marked, so the
+  // student can judge whether it's actually wrong. Optional feature: no-op
+  // if question-report.js isn't loaded.
+  if (typeof gcseQuestionReportButton === 'function') {
+    const row = document.createElement('div');
+    row.style.marginTop = '8px';
+    row.appendChild(gcseQuestionReportButton({
+      client: drClient, questionKey: q.question_key, pageId: q.page_id,
+      subject: drSubjectSlug(), activity: 'daily-revise',
+    }));
+    fb.appendChild(row);
+  }
+
   const isLast = qIdx >= queue.length - 1;
   const readyLabel = isLast ? 'Finish' : 'Next →';
   const actions = document.querySelector('.dr-actions');

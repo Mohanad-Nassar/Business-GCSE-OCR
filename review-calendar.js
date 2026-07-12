@@ -855,6 +855,18 @@ function applyQuizFeedback(q, result) {
   fb.className = `dr-feedback show ${correct ? 'm3' : 'm0'}`;
   fb.innerHTML = (correct ? '✓ Correct! ' : '✗ Not quite. ') + explain;
 
+  // "Report a problem" (WP-C5) — appended once the answer's marked. Optional:
+  // no-op if question-report.js isn't loaded.
+  if (typeof gcseQuestionReportButton === 'function') {
+    const row = document.createElement('div');
+    row.style.marginTop = '8px';
+    row.appendChild(gcseQuestionReportButton({
+      client: srClient, questionKey: q.question_key, pageId: quizPageId,
+      subject: srSlug(), activity: 'review',
+    }));
+    fb.appendChild(row);
+  }
+
   // Gamification — identical to daily-revise. XP was already durably credited
   // server-side via the mastery path, so the toast is real.
   if (typeof gamificationPlaySound === 'function') gamificationPlaySound(correct ? 'correct' : 'wrong');

@@ -318,6 +318,18 @@
         </table>
       </div>
 
+      <!-- Question reports (WP-C5) — problems students flagged with specific
+           questions. Cross-class (about content, not a class), so it loads
+           independently of the selected class. Hidden until there's an open
+           report, and until supabase/question-reports.sql has been run. -->
+      <div class="panel hidden" id="questionReportsPanel">
+        <h3 class="subhead">🚩 Question reports <span class="muted">— problems students flagged with a specific question (wrong answer, typo, confusing…). Fix the content via the build pipeline, then mark each one handled here.</span></h3>
+        <table>
+          <thead><tr><th>Question</th><th>Problem</th><th>Student</th><th>When</th><th></th></tr></thead>
+          <tbody id="questionReportsBody"></tbody>
+        </table>
+      </div>
+
       <div class="panel">
         <div class="tiles" id="classTiles"></div>
         <div style="display:flex; gap:10px; flex-wrap:wrap; margin:6px 0 18px;">
@@ -787,6 +799,7 @@ async function init() {
   loadSubjectsList(); // fire-and-forget — populates the class-creation subject picker
   refreshGuideCounts();
   refreshPendingCounts();
+  loadQuestionReports(); // fire-and-forget — cross-class content-quality queue (WP-C5)
 
   // Deep-link support: the standalone My Classes page (and the account
   // dropdown) link here as teacher-dashboard.html?class=<id>#<subtab>, so a
@@ -1299,6 +1312,61 @@ const INTEGRITY_CONTEXT_LABELS = {
   copy_blocked: 'tried to copy protected content',
   devtools_opened: 'opened browser dev-tools',
 };
+
+// ── Question reports (WP-C5) — content-quality queue ──
+// Cross-class: get_question_reports() returns every open report from a
+// student this teacher teaches. A project where question-reports.sql hasn't
+// been run just errors here and the panel stays hidden.
+let questionReports = [];
+const QR_REASON_LABELS = {
+  wrong_answer: 'Answer looks wrong', typo: 'Typo / mistake',
+  confusing: 'Confusing', technical: 'Technical', other: 'Other',
+};
+async function loadQuestionReports() {
+  try {
+    const { data, error } = await supabaseClient.rpc('get_question_reports', { p_status: 'open' });
+    if (error) { document.getElementById('questionReportsPanel').classList.add('hidden'); return; }
+    questionReports = data || [];
+  } catch (e) { return; }
+  renderQuestionReports();
+}
+function renderQuestionReports() {
+  const panel = document.getElementById('questionReportsPanel');
+  panel.classList.toggle('hidden', !questionReports.length);
+  if (!questionReports.length) return;
+  document.getElementById('questionReportsBody').innerHTML = questionReports.map(r => {
+    const q = r.question_text || r.question_key || r.page_id || '(question)';
+    const detail = r.detail
+      ? `<div class="muted" style="margin-top:3px;">“${escapeHtml(String(r.detail).slice(0, 200))}”</div>` : '';
+    const where = [r.subject_slug, r.activity].filter(Boolean).map(escapeHtml).join(' · ');
+    return `<tr>
+      <td style="max-width:340px;">
+        <div>${escapeHtml(String(q).slice(0, 180))}</div>
+        <div class="muted mono" style="font-size:10.5px;">${where}</div>${detail}</td>
+      <td class="mono">${escapeHtml(QR_REASON_LABELS[r.reason] || r.reason)}</td>
+      <td class="mono">${escapeHtml(r.reporter_username || '?')}</td>
+      <td class="mono">${fmtDateTime(r.created_at)}</td>
+      <td style="white-space:nowrap;">
+        <button type="button" class="btn small" data-qr-resolve="${r.id}">✓ Fixed</button>
+        <button type="button" class="btn small secondary" data-qr-dismiss="${r.id}">Dismiss</button>
+      </td></tr>`;
+  }).join('');
+}
+// Delegated resolve/dismiss — the tbody is static markup so one listener is enough.
+document.getElementById('questionReportsBody').addEventListener('click', async (e) => {
+  const btn = e.target.closest('[data-qr-resolve],[data-qr-dismiss]');
+  if (!btn) return;
+  const id = Number(btn.dataset.qrResolve || btn.dataset.qrDismiss);
+  const status = btn.dataset.qrResolve ? 'resolved' : 'dismissed';
+  btn.disabled = true;
+  try {
+    const { error } = await supabaseClient.rpc('resolve_question_report',
+      { p_id: id, p_status: status, p_note: null });
+    if (error) { alert('Could not update the report: ' + error.message); btn.disabled = false; return; }
+    questionReports = questionReports.filter(r => r.id !== id);
+    renderQuestionReports();
+  } catch (err) { btn.disabled = false; }
+});
 
 // Human-readable location for one integrity event.
 function pasteWhere(ev) {
