@@ -216,12 +216,41 @@ function render() {
   const grid = $('classGrid');
   const shown = classes.filter(c => !!c.archived === (currentTab === 'archived'));
   if (!shown.length) {
-    grid.innerHTML = currentTab === 'archived'
-      ? '<div class="empty">No archived classes.</div>'
-      : '<div class="empty">No classes yet — create one below to get going 👇</div>';
+    if (currentTab === 'archived') {
+      grid.innerHTML = '<div class="empty">No archived classes.</div>';
+      return;
+    }
+    // First-time empty state (WP-C6/G10): offer a one-click demo class so a
+    // new teacher can explore a populated dashboard before setting up a real
+    // one. Only shown when the teacher has NO classes at all (active or not).
+    const totallyEmpty = !classes.length;
+    grid.innerHTML = '<div class="empty">No classes yet — create one below to get going 👇'
+      + (totallyEmpty
+          ? '<div style="margin-top:14px;">or <button type="button" class="btn" id="demoClassBtn" style="cursor:pointer;">✨ Create a demo class to explore</button>'
+            + '<div class="meta" style="margin-top:6px;">A sample class with a few students and some progress — delete it any time.</div>'
+            + '<div class="msg" id="demoMsg" style="display:none; margin-top:8px;"></div></div>'
+          : '')
+      + '</div>';
+    const demoBtn = $('demoClassBtn');
+    if (demoBtn) demoBtn.addEventListener('click', createDemoClass);
     return;
   }
-  grid.innerHTML = shown.map(c => {
+  // One-time demo-login banner (WP-C6/G10) — shown after a demo class is
+  // created, cleared on dismiss.
+  let demoBanner = '';
+  try {
+    const hint = JSON.parse(sessionStorage.getItem('vidya_demo_hint') || 'null');
+    if (hint && hint.students && hint.students.length) {
+      demoBanner = `<div class="msg ok" id="demoHintBanner" style="display:block; margin-bottom:14px;">
+        <strong>Your demo class is ready.</strong> Want to see the student side? Log out and sign in as any demo student
+        (e.g. <span class="mono">${esc(hint.students[0])}</span>) with the password
+        <span class="mono">${esc(hint.password)}</span>. Delete the class any time to remove them.
+        <button type="button" id="demoHintDismiss" style="margin-left:8px; cursor:pointer;">Got it ✕</button>
+      </div>`;
+    }
+  } catch (e) {}
+
+  grid.innerHTML = demoBanner + shown.map(c => {
     const n = counts[c.id] || 0;
     const q = '?class=' + encodeURIComponent(c.id);
     const links = currentTab === 'archived'
@@ -238,6 +267,49 @@ function render() {
       ${jcBlockHtml(c)}
     </div>`;
   }).join('');
+
+  const dismiss = $('demoHintDismiss');
+  if (dismiss) dismiss.addEventListener('click', () => {
+    try { sessionStorage.removeItem('vidya_demo_hint'); } catch (e) {}
+    const b = $('demoHintBanner'); if (b) b.remove();
+  });
+}
+
+// One-click demo class (WP-C6/G10) — calls the seed-demo-class function
+// with the teacher's own token; on success reloads so the new class (and
+// its populated dashboard) appears.
+async function createDemoClass() {
+  const btn = $('demoClassBtn');
+  const msg = $('demoMsg');
+  if (btn) { btn.disabled = true; btn.textContent = 'Setting up your demo class…'; }
+  const show = (t, ok) => { if (msg) { msg.style.display = 'block'; msg.className = 'msg ' + (ok ? 'ok' : 'err'); msg.textContent = t; } };
+  try {
+    const res = await fetch('/.netlify/functions/seed-demo-class', {
+      method: 'POST',
+      headers: { 'Authorization': 'Bearer ' + auth.session.access_token, 'Content-Type': 'application/json' },
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.ok) {
+      show((data && data.error) || 'Could not create the demo class — please try again.', false);
+      if (btn) { btn.disabled = false; btn.textContent = '✨ Create a demo class to explore'; }
+      return;
+    }
+    show('✓ Demo class ready — loading…', true);
+    // Demo students share one password — stash the logins so the banner in
+    // render() can show them after the reload (teacher can sign in as one to
+    // see the student side). Skipped when the class already existed.
+    if (data.password && data.students && !data.alreadyExists) {
+      try {
+        sessionStorage.setItem('vidya_demo_hint', JSON.stringify({
+          password: data.password, students: data.students.map(s => s.username),
+        }));
+      } catch (e) {}
+    }
+    await loadClasses();
+  } catch (e) {
+    show('Could not reach the server — check your connection and try again.', false);
+    if (btn) { btn.disabled = false; btn.textContent = '✨ Create a demo class to explore'; }
+  }
 }
 
 // Join-code actions — one delegated listener survives every re-render.
