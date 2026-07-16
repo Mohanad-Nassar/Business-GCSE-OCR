@@ -26,14 +26,42 @@
 # rely on all three; tightening below this WILL break the site. Vendoring the
 # CDN so 'unsafe-inline'/jsdelivr can be dropped is a separate, DEFERRED work
 # package. connect-src pins the app's own Supabase project origin.
+# 'wasm-unsafe-eval' + jsDelivr in connect-src: the CS Practice Lab runs
+# Pyodide (Python) and sql.js (SQL) as WebAssembly loaded from jsDelivr —
+# WASM compilation needs the former; their stdlib/.wasm fetches need the
+# latter. See CS-CONTENT-PLAN.md §7.2.
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com 'self'; img-src 'self' data:; connect-src 'self' https://eaohjlyiotyqhvsizcpw.supabase.co; frame-ancestors 'none'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com 'self'; img-src 'self' data: https://eaohjlyiotyqhvsizcpw.supabase.co; connect-src 'self' https://eaohjlyiotyqhvsizcpw.supabase.co https://cdn.jsdelivr.net; frame-ancestors 'none'"
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cross-origin isolation for the CS Practice Lab ONLY. The Python Lab lets
+# students type into the console mid-run: Python's input() is synchronous, so
+# the Pyodide Web Worker blocks on Atomics.wait against a SharedArrayBuffer
+# while the main thread collects a typed line. SharedArrayBuffer is only
+# available in a cross-origin-isolated context (COOP: same-origin + COEP).
+# COEP=credentialless (not require-corp) is used so cross-origin no-cors
+# subresources — Google Fonts especially — keep loading without needing CORP
+# headers; jsDelivr (Pyodide/CodeMirror/sql.js) already sends CORP cross-origin
+# and CORS, and Supabase is a CORS API, so both work under isolation.
+# Scoped to /subjects/computer-science/* and /cs-lab/* so nothing else on the
+# site (Business/Economics, the hub, teacher pages) is affected. If a browser
+# doesn't support isolation, py-runner.js falls back to pre-supplied inputs.
+[[headers]]
+  for = "/subjects/computer-science/*"
+  [headers.values]
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Embedder-Policy = "credentialless"
+
+[[headers]]
+  for = "/cs-lab/*"
+  [headers.values]
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Embedder-Policy = "credentialless"
 
 # WP-C6 caching — images only. They're re-fetched on every page yet rarely
 # change, so cache for a day then serve-stale-while-revalidating for a week
@@ -51,6 +79,16 @@
 # longer publicly fetchable. question-bank.js is teacher-only on top.
 # Kill switch: set env var CONTENT_GATE_DISABLED=true and redeploy.
 # See netlify/edge-functions/content-gate.ts + supabase/entitlements.sql.
+#
+# If /subjects/* ever 500s locally with "There was an error with an Edge
+# Function", the cause is almost certainly netlify's cached Deno binary, NOT
+# this config or content-gate.ts. Netlify keeps it in
+# %APPDATA%\netlify\Config\deno-cli\ and trusts version.txt without checking
+# that deno.exe actually exists — a failed download leaves a 0-byte
+# deno-cli-latest.zip and no binary, and it then crash-loops ("Invalid
+# Version" / "deno.exe is not recognized") instead of re-downloading. Fix:
+# delete that whole deno-cli folder and restart `netlify dev`. Do NOT disable
+# this block to work around it — that ships course content ungated.
 [[edge_functions]]
   path = "/subjects/*"
   function = "content-gate"
