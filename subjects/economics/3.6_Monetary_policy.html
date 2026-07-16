@@ -291,8 +291,8 @@ const topics = [
 </ul>`,
         readCheck: {
             q: "Who is responsible for setting the UK's base rate of interest?",
-            opts: ["The Prime Minister", "The Chancellor of the Exchequer directly", "Each high street bank sets its own base rate", "The Bank of England's Monetary Policy Committee (MPC)"],
-            ans: 3,
+            opts: ["The Chancellor of the Exchequer directly", "The Bank of England's Monetary Policy Committee (MPC)", "The Prime Minister", "Each high street bank sets its own base rate"],
+            ans: 1,
             explain: "The MPC — 9 members including the Governor and four external members — sets the base rate independently of government. This independence is meant to stop rates being set for short-term political reasons."
         }
     },
@@ -315,7 +315,7 @@ const topics = [
 </ul>`,
         readCheck: {
             q: "The Bank of England raises the base rate. What is the most likely DIRECT effect on firms' investment?",
-            opts: ["It falls, because borrowing to invest becomes more expensive", "It rises, because banks are more willing to lend when rates are high", "It rises, because firms can now earn higher returns", "It is unaffected, since investment doesn't depend on interest rates"],
+            opts: ["It falls, because borrowing to invest becomes more expensive", "It rises, because firms can now earn higher returns", "It is unaffected, since investment doesn't depend on interest rates", "It rises, because banks are more willing to lend when rates are high"],
             ans: 0,
             explain: "Higher rates raise the cost of borrowing to invest, so investment falls. Confusing this with firms earning higher RETURNS (which applies to saving money, not investing it) is a real examiner-flagged misconception."
         }
@@ -346,8 +346,8 @@ const topics = [
 </ul>`,
         readCheck: {
             q: "Quantitative easing is most likely to be used when...",
-            opts: ["Interest rates are very high and need to come down gradually", "Inflation is far above target and needs to fall quickly", "Interest rates are already very low and cutting them further would have little effect", "The government wants to raise more tax revenue"],
-            ans: 2,
+            opts: ["The government wants to raise more tax revenue", "Interest rates are already very low and cutting them further would have little effect", "Inflation is far above target and needs to fall quickly", "Interest rates are very high and need to come down gradually"],
+            ans: 1,
             explain: "QE is the Bank's tool for when conventional rate cuts have run out of road — it creates money to buy assets and raise the money supply directly, as it did after the 2009 crisis and at the start of the pandemic."
         }
     },
@@ -377,7 +377,7 @@ const topics = [
 </ul>`,
         readCheck: {
             q: "Which factor is arguably the single biggest determinant of whether a change in interest rates has the effect economic theory predicts?",
-            opts: ["How many MPC members voted for the change", "Consumer and business confidence", "The rate of UK population growth", "The total value of UK exports that year"],
+            opts: ["The total value of UK exports that year", "Consumer and business confidence", "The rate of UK population growth", "How many MPC members voted for the change"],
             ans: 1,
             explain: "If confidence is low, expected effects can fail to materialise — people may keep saving despite a rate cut, or firms may not invest even when borrowing is cheap. Confidence shapes whether the textbook chain actually happens."
         }
@@ -393,55 +393,55 @@ const mcqData = [
     },
     {
         q: "The UK government's inflation target is...",
-        opts: ["5%, to encourage spending", "10%, to match average wage growth", "0%, i.e. no inflation at all", "2%, with a margin of 1% either way"],
-        ans: 3,
+        opts: ["2%, with a margin of 1% either way", "5%, to encourage spending", "10%, to match average wage growth", "0%, i.e. no inflation at all"],
+        ans: 0,
         explain: "The target is 2%, and the Bank is content with inflation anywhere between 1% and 3% either side of it."
     },
     {
         q: "If the Bank of England raises the base rate, what is the most likely direct effect on firms' investment?",
-        opts: ["It rises, because firms earn higher returns on investment", "It stays the same, because investment doesn't depend on interest rates", "It falls, because borrowing to invest becomes more expensive", "It rises, because banks lend more when rates are high"],
+        opts: ["It rises, because banks lend more when rates are high", "It rises, because firms earn higher returns on investment", "It falls, because borrowing to invest becomes more expensive", "It stays the same, because investment doesn't depend on interest rates"],
         ans: 2,
         explain: "Higher rates raise the cost of borrowing, so fewer investment projects remain profitable. A common exam mistake is to say investment rises because of 'higher returns' — that confuses investing with saving."
     },
     {
         q: "Higher UK interest rates (relative to other countries) tend to cause the pound to...",
-        opts: ["Depreciate, because exports become cheaper", "Stay the same, because interest rates don't affect exchange rates", "Depreciate, as UK residents buy more imports", "Appreciate, as foreign investors buy pounds for the better return"],
+        opts: ["Stay the same, because interest rates don't affect exchange rates", "Depreciate, because exports become cheaper", "Depreciate, as UK residents buy more imports", "Appreciate, as foreign investors buy pounds for the better return"],
         ans: 3,
         explain: "Higher UK rates attract foreign savers/investors, raising demand for pounds (or reducing their supply), so the pound appreciates."
     },
     {
         q: "Which of these is a tool of monetary policy, not fiscal policy?",
-        opts: ["Raising income tax", "Increasing government spending on the NHS", "Cutting VAT", "Quantitative easing"],
-        ans: 3,
+        opts: ["Increasing government spending on the NHS", "Quantitative easing", "Raising income tax", "Cutting VAT"],
+        ans: 1,
         explain: "Monetary policy (interest rates, money supply, exchange rates) is controlled by the Bank of England. Fiscal policy (tax and spending) is controlled by the government."
     },
     {
         q: "Quantitative easing is most likely to be used when...",
-        opts: ["Interest rates are very high and need to come down gradually", "Inflation is far above target and needs to fall quickly", "Interest rates are already very low and cutting them further would have little effect", "The government wants to raise more tax revenue"],
-        ans: 2,
+        opts: ["The government wants to raise more tax revenue", "Interest rates are already very low and cutting them further would have little effect", "Inflation is far above target and needs to fall quickly", "Interest rates are very high and need to come down gradually"],
+        ans: 1,
         explain: "QE creates money to buy assets and raise the money supply, used when rates are already near zero and can't usefully be cut further — as in 2009 and during the pandemic."
     },
     {
         q: "A cut in the base rate is most likely to lead to...",
-        opts: ["No change in demand, only in prices", "Lower consumer spending and higher unemployment", "Higher consumer spending and lower unemployment", "Higher saving and lower borrowing"],
+        opts: ["Lower consumer spending and higher unemployment", "Higher saving and lower borrowing", "Higher consumer spending and lower unemployment", "No change in demand, only in prices"],
         ans: 2,
         explain: "Cheaper borrowing and less reward for saving raise total demand, so firms raise output and take on more workers — higher spending, lower unemployment."
     },
     {
         q: "Which group is most directly and consistently affected by changes in the interest rate paid on savings?",
-        opts: ["Firms with no bank loans", "Pensioners who rely on savings income", "Students with no savings", "Tourists visiting the UK"],
-        ans: 1,
+        opts: ["Students with no savings", "Firms with no bank loans", "Pensioners who rely on savings income", "Tourists visiting the UK"],
+        ans: 2,
         explain: "Pensioners often depend on income from savings to live, so they are directly and consistently exposed to changes in the savings rate, unlike the other groups listed."
     },
     {
         q: "For a 6-mark 'Analyse' question on monetary policy, which skill is NOT required or rewarded?",
-        opts: ["A weighed, supported evaluative judgement", "Correct use of economic terminology", "Reference to the extract or context", "A developed chain of reasoning"],
-        ans: 0,
+        opts: ["A developed chain of reasoning", "Correct use of economic terminology", "Reference to the extract or context", "A weighed, supported evaluative judgement"],
+        ans: 3,
         explain: "Examiners have explicitly said evaluative comments are 'not a skill required (nor rewardable)' on an Analyse question — save judgement for questions marked with an asterisk that say 'Evaluate'."
     },
     {
         q: "The single biggest factor in whether a change in interest rates has the effect economic theory predicts is often...",
-        opts: ["The total value of UK exports", "The number of MPC members who voted for the change", "The rate of UK population growth", "Consumer and business confidence"],
+        opts: ["The number of MPC members who voted for the change", "The total value of UK exports", "The rate of UK population growth", "Consumer and business confidence"],
         ans: 3,
         explain: "Low confidence can stop the textbook chain from playing out — for example, people may keep saving despite a rate cut, or firms may not invest even when borrowing is cheap."
     }
@@ -540,7 +540,7 @@ const miscData = [
         correct: "This is a real, examiner-flagged trap. On the real paper's Q3(i), 'most candidates identified that investment expenditure would fall because of increased cost/risk. However, a common mistake was that it would increase because of higher returns.' The confusion is between two DIFFERENT decisions: the reward a firm earns by SAVING spare cash (which does rise with rates) versus the COST of BORROWING to invest in machinery or buildings (which also rises with rates, and is what dominates the investment decision). Higher rates make investment MORE expensive to fund, so investment falls — not rises.",
         readCheck: {
             q: "Interest rates rise. What is the most likely effect on firms' investment expenditure?",
-            opts: ["It rises, because banks want to lend more", "It rises, because firms can now earn higher returns on investment", "It stays exactly the same", "It falls, because it costs more to borrow to fund investment"],
+            opts: ["It stays exactly the same", "It rises, because banks want to lend more", "It rises, because firms can now earn higher returns on investment", "It falls, because it costs more to borrow to fund investment"],
             ans: 3,
             explain: "Examiners specifically flagged 'it would increase because of higher returns' as a common mistake. The rising COST of borrowing to invest is what matters, and that makes investment fall."
         }
@@ -550,7 +550,7 @@ const miscData = [
         correct: "Be precise about which market curve actually moves. The mark scheme's primary route is that DEMAND for pounds rises, because foreign investors move their funds INTO the UK to take advantage of the better return. There is also an accepted alternate route — that SUPPLY of pounds FALLS, because British savers stop exchanging pounds for other currencies. The real paper noted: 'Some candidates confused the increase with saving and less supply of pounds in the foreign exchange market' — muddling which side of the market is shifting. A small number of sophisticated answers correctly reasoned that falling consumption might reduce imports and therefore reduce supply too, which the examiners praised as 'a sophisticated and logical point.'",
         readCheck: {
             q: "Higher UK interest rates most directly raise the value of the pound because...",
-            opts: ["The Bank of England prints fewer pounds", "Government spending on imports falls", "UK exports automatically become cheaper", "Demand for pounds rises, as foreign investors move funds into the UK for the better return"],
+            opts: ["Government spending on imports falls", "UK exports automatically become cheaper", "The Bank of England prints fewer pounds", "Demand for pounds rises, as foreign investors move funds into the UK for the better return"],
             ans: 3,
             explain: "The main accepted route is rising DEMAND for pounds from foreign investors seeking the higher return. A less common but valid alternative is falling SUPPLY of pounds from UK savers who stop exchanging them for other currencies."
         }
@@ -560,8 +560,8 @@ const miscData = [
         correct: "On the real paper's Q1(a), a 6-mark 'analyse' question, the examiners wrote: 'Some candidates demonstrated evaluative skills in their answers, which is not a skill required (nor rewardable) for a six-mark analyse question.' Analyse questions are marked on AO1a (knowledge), AO2 (application) and AO3a (analysis/developed chains of reasoning) — there is no AO3b (evaluation) credit available. Save your weighing-up-both-sides judgement for questions that start with an asterisk (*) and the word 'Evaluate'.",
         readCheck: {
             q: "A 6-mark question asks you to 'Analyse how a cut in interest rates can affect UK economic growth.' What should your answer focus on?",
-            opts: ["Describing the extract without adding any economics", "A fully supported judgement weighing costs against benefits", "A short definition and nothing else", "Developed chains of reasoning, with no judgement needed"],
-            ans: 3,
+            opts: ["Developed chains of reasoning, with no judgement needed", "A short definition and nothing else", "Describing the extract without adding any economics", "A fully supported judgement weighing costs against benefits"],
+            ans: 0,
             explain: "Analyse questions reward knowledge, application and developed chains of reasoning (AO1a/AO2/AO3a) — not evaluation. Adding a judgement here is wasted effort."
         }
     },
@@ -570,8 +570,8 @@ const miscData = [
         correct: "On the real paper's Q3(iii), which asked candidates to evaluate the impact of higher interest rates on UK HOUSEHOLDS, the examiners noted: 'Some candidates did not read the question fully and wrote about effects on firms or generally on the wider economy, rather than households as required.' Always check exactly which group, or groups, the question names — an otherwise excellent answer about the wrong group scores very little, because the mark scheme rewards points that are clearly linked BACK to the named group.",
         readCheck: {
             q: "A question asks you to 'evaluate the impact of higher interest rates on UK households.' What is the safest approach?",
-            opts: ["Focus mainly on the effect on firms' investment", "Keep every point explicitly linked back to households, not firms or the whole economy", "Any correct economics about interest rates will score full marks", "Write generally about the whole economy, since households are part of it"],
-            ans: 1,
+            opts: ["Keep every point explicitly linked back to households, not firms or the whole economy", "Any correct economics about interest rates will score full marks", "Write generally about the whole economy, since households are part of it", "Focus mainly on the effect on firms' investment"],
+            ans: 0,
             explain: "Examiners specifically penalised candidates who drifted into writing about firms or the wider economy instead of the named group. Read the question and keep every point linked back to it."
         }
     },
@@ -580,8 +580,8 @@ const miscData = [
         correct: "On the real paper's Q5, the examiners wrote: 'Using the context of the extract and question are important components in a question, but theory is needed, on top of direct quotes, to be able to access marks in all the 6 mark questions.' A quote alone earns little — you must add the ECONOMIC THEORY that explains why the data matters. The same question also flagged a second trap: 'Care was needed regarding the difference between real and nominal.' Their advice: 'Practise writing about the impact of inflation on the value of saving, debts and purchasing power,' using words like 'real', 'nominal', 'relative' or 'in comparison' to be precise.",
         readCheck: {
             q: "For a 6-mark question that gives you a data extract, what do examiners say is needed on top of quoting the data?",
-            opts: ["Economic theory that explains why the data matters", "A second, unrelated example", "A longer, more detailed quote", "A conclusion restating the question"],
-            ans: 0,
+            opts: ["A conclusion restating the question", "A second, unrelated example", "A longer, more detailed quote", "Economic theory that explains why the data matters"],
+            ans: 3,
             explain: "The examiners were explicit that context/quotes alone are not enough — candidates need theory as well to access marks on 6-mark questions."
         }
     }
@@ -601,8 +601,8 @@ const examTips = [
 </ul>`,
         readCheck: {
             q: "On 'state and briefly explain the impact of higher interest rates on firms' investment', what is required to access ANY marks?",
-            opts: ["A clear statement that investment will fall/decrease", "A comparison with another country", "A calculation of the exact fall in investment", "A diagram showing the investment curve"],
-            ans: 0,
+            opts: ["A calculation of the exact fall in investment", "A comparison with another country", "A diagram showing the investment curve", "A clear statement that investment will fall/decrease"],
+            ans: 3,
             explain: "The mark scheme says rewardable responses MUST state investment will fall/decrease — the explanation only earns the second mark once the direction is correct."
         }
     },
@@ -618,8 +618,8 @@ const examTips = [
 </ul>`,
         readCheck: {
             q: "On a diagram question about a fall in interest rates and the exchange rate, what happens if you write a correct analysis but include no diagram?",
-            opts: ["You automatically score 0", "You still qualify for full marks", "The diagram is optional and has no mark impact", "You are capped at a maximum of 4 out of 6 marks"],
-            ans: 3,
+            opts: ["You automatically score 0", "You are capped at a maximum of 4 out of 6 marks", "You still qualify for full marks", "The diagram is optional and has no mark impact"],
+            ans: 1,
             explain: "The mark scheme explicitly caps marks at 4/6 without a correct diagram, even if the written analysis is otherwise strong — the diagram is not optional here."
         }
     },
@@ -635,8 +635,8 @@ const examTips = [
 <p>The mark scheme is explicit: <strong>"explaining these two features should be awarded 2 marks."</strong> A single statement like "the rate fell" only ever scores 1.</p>`,
         readCheck: {
             q: "For 'explain the trends in the UK rate of interest shown in the chart', what earns full marks?",
-            opts: ["Stating only that the rate fell overall", "Describing what caused the change", "Identifying both the sharp initial fall AND the long stable period that followed", "Naming the exact date of every change"],
-            ans: 2,
+            opts: ["Identifying both the sharp initial fall AND the long stable period that followed", "Stating only that the rate fell overall", "Describing what caused the change", "Naming the exact date of every change"],
+            ans: 0,
             explain: "The mark scheme rewards two distinct features: the sharp six-stage fall in the first 14 months, and the long stable period at a low rate afterwards."
         }
     },
@@ -654,8 +654,8 @@ const examTips = [
 </ul>`,
         readCheck: {
             q: "A 6-mark question asks you to analyse how monetary policy protected BOTH savers and consumers. What happens if your answer only covers consumers?",
-            opts: ["It makes no difference to your mark", "You get full marks as long as consumers are covered well", "You automatically fail the whole question", "You are capped below the top level (Level 3)"],
-            ans: 3,
+            opts: ["You are capped below the top level (Level 3)", "You get full marks as long as consumers are covered well", "You automatically fail the whole question", "It makes no difference to your mark"],
+            ans: 0,
             explain: "The mark scheme states candidates are capped at a maximum of 5 marks (below Level 3) if both named groups are not addressed — you must link your answer to every group the question names."
         }
     }

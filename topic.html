@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Loading… – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <script>
+        // Site theme bootstrap (same guarded loader as teacher-nav.js —
+        // footer-legal.js re-runs it harmlessly later).
+        (function () {
+            try {
+                var t = localStorage.getItem('gcse_theme') || 'aurora';
+                if (t !== 'classic') document.documentElement.setAttribute('data-theme', t);
+                var b = localStorage.getItem('gcse_bg');
+                if (b && b !== 'none') document.documentElement.setAttribute('data-bg', b);
+            } catch (e) { }
+        })();
+    </script>
+</head>
+
+<!-- ════════════════════════════════════════════════════════════════
+  DYNAMIC TOPIC PAGE — teacher-authored subjects (docs/TEACHER-SUBJECTS-SPEC.md)
+
+  This page is a 1:1 clone of the static platform topic pages
+  (subjects/economics/*.html etc.): the SAME skeleton, driven by the SAME
+  engine (/script.js + progress-shared + gamification + …), so tabs, XP,
+  streaks, per-section progress, focus mode and server progress sync are
+  identical to Business/Economics/CS lessons.
+
+  The only difference: instead of inline `const pageMeta = …` data baked
+  into a static file, the loader at the bottom fetches the teacher's topic
+  (custom_topics.sections jsonb) via Supabase RLS, converts it into the
+  exact same globals (pageMeta, topics, mcqData, matchData, fibData,
+  fibWords, tfData, miscData, examTips, flashcards, examQuestions,
+  SUBJECT, PAGE_GROUPS, SECTION_TOTALS), removes the tabs for activities
+  the teacher opted out of, THEN loads the standard script chain and
+  re-fires DOMContentLoaded (the chain loads after the real one has
+  already happened).
+
+  URL: /topic.html?s=<subject-slug>&t=<topic-slug>
+═════════════════════════════════════════════════════════════════ -->
+
+<body>
+    <header>
+        <div>
+            <div class="badge">Loading…</div>
+            <h1>Loading topic…</h1>
+            <p>Interactive revision guide</p>
+        </div>
+        <a href="/hub.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="/rich-editor.js"></script>
+    <script>
+        (async function () {
+            'use strict';
+            const SUPABASE_URL = 'https://eaohjlyiotyqhvsizcpw.supabase.co';
+            const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhb2hqbHlpb3R5cWh2c2l6Y3B3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNzUzMDksImV4cCI6MjA5ODc1MTMwOX0.lHF4OUiTT3G_fzlXvXI_4QMu48o6eEnq0hWw6K1uBAk';
+
+            const esc = RichText.escapeHtml;
+            const san = RichText.sanitize;
+
+            function showMessage(title, body, linkHref, linkText) {
+                document.querySelector('header h1').textContent = title;
+                document.querySelector('header .badge').textContent = 'Teacher-made subject';
+                document.getElementById('tabBar').style.display = 'none';
+                document.querySelector('main').innerHTML =
+                    `<div style="max-width:560px;margin:60px auto;text-align:center;font-size:14.5px;line-height:1.7;color:var(--mid,#5a6e7f);">
+                       <p>${esc(body)}</p>
+                       ${linkHref ? `<p style="margin-top:16px;"><a href="${esc(linkHref)}" style="font-weight:600;">${esc(linkText)}</a></p>` : ''}
+                     </div>`;
+            }
+
+            const qp = new URLSearchParams(location.search);
+            const sSlug = qp.get('s'), tSlug = qp.get('t');
+            if (!sSlug || !tSlug) { location.replace('/hub.html'); return; }
+
+            // ── Session (mirrors tasksAuthInit, without role routing) ──
+            let cached = null;
+            try { cached = JSON.parse(localStorage.getItem('gcse_session_v1') || 'null'); } catch (e) { }
+            const toLogin = () => location.replace('/index.html?redirect=' + encodeURIComponent(location.pathname + location.search));
+            if (!cached || !cached.access_token) { toLogin(); return; }
+            const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            const { data: authData, error: authErr } = await client.auth.setSession({
+                access_token: cached.access_token, refresh_token: cached.refresh_token,
+            });
+            if (authErr || !authData.session) { localStorage.removeItem('gcse_session_v1'); toLogin(); return; }
+            localStorage.setItem('gcse_session_v1', JSON.stringify({
+                access_token: authData.session.access_token, refresh_token: authData.session.refresh_token,
+                expires_at: authData.session.expires_at, role: cached.role, username: cached.username,
+            }));
+            try {
+                const secure = location.protocol === 'https:' ? '; Secure' : '';
+                document.cookie = 'vidya_at=' + authData.session.access_token + '; Path=/; SameSite=Lax' + secure + '; Max-Age=604800';
+            } catch (e) { }
+            const uid = authData.session.user.id;
+
+            // ── Load the subject + its topic list + this topic's content ──
+            const { data: subj, error: subjErr } = await client.from('subjects')
+                .select('*').eq('slug', sSlug).maybeSingle();
+            if (subjErr && subjErr.code === '42P01') {
+                showMessage('Setup needed', 'Teacher subjects aren’t switched on yet — the site owner needs to run supabase/teacher-subjects.sql once.', '/hub.html', 'Back to My Subjects →');
+                return;
+            }
+            if (subjErr || !subj) {
+                showMessage('Subject not found', 'This subject doesn’t exist, or you don’t have access to it.', '/hub.html', 'Back to My Subjects →');
+                return;
+            }
+            const isOwner = !!(subj.created_by && subj.created_by === uid);
+
+            const { data: topicRows, error: listErr } = await client.from('custom_topics')
+                .select('id, slug, section, title, sort_order, status')
+                .eq('subject_id', subj.id).order('sort_order');
+            if (listErr) {
+                showMessage('Could not load this subject', listErr.message || 'Unknown error.', '/hub.html', 'Back to My Subjects →');
+                return;
+            }
+            const currentRow = (topicRows || []).find(r => r.slug === tSlug);
+            if (!currentRow) {
+                showMessage('Topic not available', isOwner
+                    ? 'This topic doesn’t exist in this subject.'
+                    : 'This topic doesn’t exist, or your teacher hasn’t published it yet.',
+                    '/subject-view.html?id=' + encodeURIComponent(subj.id), 'All topics in this subject →');
+                return;
+            }
+            const { data: full, error: contentErr } = await client.from('custom_topics')
+                .select('sections, status').eq('id', currentRow.id).single();
+            if (contentErr || !full) {
+                showMessage('Could not load this topic', (contentErr && contentErr.message) || 'Unknown error.', '/subject-view.html?id=' + encodeURIComponent(subj.id), 'All topics in this subject →');
+                return;
+            }
+
+            // ════════════════════════════════════════════════════════
+            // ADAPTER — sections jsonb → the platform page's globals.
+            // Escaping map (matches how script.js renders each field):
+            //  · innerHTML sinks (mcq q/opts, tf statement/explanation,
+            //    readCheck q/opts/explain, misconception wrong/correct,
+            //    learn/tips titles) → esc()
+            //  · textContent sinks (flashcard + matching term/def) → raw
+            //  · teacher-authored rich HTML (notes, learn/tips content,
+            //    mark schemes) → RichText.sanitize()
+            // ════════════════════════════════════════════════════════
+            const S = full.sections || {};
+            const on = k => !!(S[k] && S[k].enabled !== false);
+            const arr = (k, prop) => on(k) ? (S[k][prop] || []) : [];
+            const adaptCheck = c => (c && c.question)
+                ? { q: esc(c.question), opts: (c.options || []).map(esc), ans: (c.answer | 0), explain: esc(c.explain || '') }
+                : null;
+
+            window.SUBJECT = {
+                slug: subj.slug, name: subj.name, colour: subj.colour, icon: subj.icon,
+                keyStage: subj.key_stage, level: subj.level || '', examBoard: subj.exam_board || '', specCode: subj.spec_code || '',
+            };
+
+            // Sidebar lesson tree (same shape page-groups.js generates).
+            const groups = [], byName = new Map();
+            (topicRows || []).forEach(r => {
+                const key = r.section || 'Topics';
+                let g = byName.get(key);
+                if (!g) {
+                    g = { id: key.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'topics', title: key, sub: '', colour: subj.colour, pages: [] };
+                    byName.set(key, g); groups.push(g);
+                }
+                g.pages.push({
+                    id: subj.slug + ':' + r.slug,
+                    name: r.title + (isOwner && r.status !== 'published' ? ' (draft)' : ''),
+                    sub: key,
+                    href: '/topic.html?s=' + encodeURIComponent(subj.slug) + '&t=' + encodeURIComponent(r.slug),
+                });
+            });
+            window.PAGE_GROUPS = groups;
+
+            window.pageMeta = {
+                id: currentRow.slug,
+                badge: esc(subj.name) + (currentRow.section ? ' — ' + esc(currentRow.section) : ''),
+                title: currentRow.title,
+                subtitle: 'Interactive revision guide',
+                subject: subj.slug,
+            };
+
+            // ── learn (reading notes become the first card) ──
+            // Wrap authored HTML in .rt-content so the teacher's tables,
+            // callout boxes, highlights etc. get the shared content styles on
+            // the real lesson page. The reading card carries its optional
+            // quick-check MCQ (reading.check) so it behaves like any other
+            // learn card in "one question at a time" mode.
+            const rt = html => '<div class="rt-content">' + san(html || '') + '</div>';
+            const topicsArr = [];
+            const readingHasText = on('reading') && (S.reading.html || '').replace(/<[^>]+>/g, '').trim();
+            if (readingHasText || (on('reading') && S.reading.check)) {
+                topicsArr.push({
+                    title: '📖 Topic notes', tag: 'Notes',
+                    content: rt(S.reading.html || ''), readCheck: adaptCheck(S.reading.check),
+                });
+            }
+            arr('learn', 'items').forEach(it => {
+                topicsArr.push({
+                    title: esc(it.title || 'Key idea'), tag: 'Key concept',
+                    content: rt(it.html || ''), readCheck: adaptCheck(it.check),
+                });
+            });
+            window.topics = topicsArr;
+
+            window.mcqData = arr('mcq', 'questions').map(q => ({
+                q: esc(q.question), opts: (q.options || []).map(esc), ans: (q.answer | 0), explain: esc(q.explain || ''),
+            }));
+
+            // terms drive BOTH matching and flashcards (textContent sinks → raw)
+            const pairs = arr('terms', 'pairs').filter(p => p.term);
+            window.matchData = pairs.map(p => ({ term: p.term, def: p.definition || '' }));
+            window.flashcards = pairs.map(p => ({ term: p.term, def: p.definition || '' }));
+
+            // fib: "[answer]" brackets → display + blanks {B1: …}
+            const fibWordSet = [];
+            window.fibData = arr('fib', 'questions').map(q => {
+                const blanks = {}; let n = 0;
+                const display = String(q.text || '').replace(/\[([^\[\]]+)\]/g, (m, word) => {
+                    n++; const w = word.trim();
+                    blanks['B' + n] = w;
+                    if (fibWordSet.indexOf(w) === -1) fibWordSet.push(w);
+                    return '_____';
+                });
+                return n ? { display: esc(display), blanks } : null;
+            }).filter(Boolean);
+            window.fibWords = fibWordSet;
+
+            window.tfData = arr('tf', 'questions').map(q => ({
+                statement: esc(q.statement), answer: !!q.answer, explanation: esc(q.explain || ''),
+            }));
+
+            window.miscData = arr('misc', 'items').map(i => ({
+                wrong: esc(i.myth), correct: esc(i.truth || ''), readCheck: adaptCheck(i.check),
+            }));
+
+            window.examTips = arr('tips', 'items').map(i => ({
+                type: 'general', title: esc(i.title || 'Exam tip'), pills: [],
+                content: rt(i.html || ''), readCheck: adaptCheck(i.check),
+            }));
+
+            window.examQuestions = arr('exam', 'questions').map((q, i) => ({
+                num: 'Q' + (i + 1), marks: Math.max(1, q.marks | 0), type: 'written', caseStudy: '',
+                question: esc(q.question), hint: esc(q.hint || ''), starter: '',
+                markScheme: san(q.markScheme || ''), modelAnswer: '',
+            }));
+
+            // Per-page totals (same shape section-totals.js generates) — only
+            // sections that exist, so the lesson bar doesn't show 0/0 rows.
+            const pid = subj.slug + ':' + currentRow.slug;
+            const totals = {
+                learn: topicsArr.length, mcq: mcqData.length, match: matchData.length,
+                fib: fibData.length, misc: miscData.length, tips: examTips.length,
+                flashcards: flashcards.length, tf: tfData.length, exam: examQuestions.length,
+            };
+            window.SECTION_TOTALS = {};
+            window.SECTION_TOTALS[pid] = {};
+            Object.keys(totals).forEach(k => { if (totals[k] > 0) window.SECTION_TOTALS[pid][k] = totals[k]; });
+
+            // ── Hide activities this topic doesn't use ──
+            // Remove the tab BUTTON but keep the panel in the DOM: several
+            // script.js builders touch their panel's mounts without guards
+            // (e.g. buildMatch → #matchTotal), and one throw would abort the
+            // whole engine boot. Empty data + a hidden panel is safe.
+            const TAB_DATA = {
+                learn: topicsArr.length, mcq: mcqData.length, matching: matchData.length,
+                fib: fibData.length, misconceptions: miscData.length, examtips: examTips.length,
+                flashcards: flashcards.length, truefalse: tfData.length, exampractice: examQuestions.length,
+            };
+            let anyTab = false;
+            Object.keys(TAB_DATA).forEach(tabId => {
+                if (TAB_DATA[tabId] > 0) { anyTab = true; return; }
+                const btn = document.querySelector(`.tab-btn[onclick*="'${tabId}'"]`);
+                const panel = document.getElementById('tab-' + tabId);
+                if (btn) btn.remove();
+                if (panel) {
+                    panel.classList.remove('active');
+                    panel.style.display = 'none';
+                    panel.setAttribute('aria-hidden', 'true');
+                }
+            });
+            if (!anyTab) {
+                showMessage(currentRow.title, isOwner
+                    ? 'This topic is empty — write it in the builder.'
+                    : 'Your teacher is still writing this topic — check back soon.',
+                    isOwner ? 'teacher-subjects.html?subject=' + encodeURIComponent(subj.id) + '&step=3&topic=' + encodeURIComponent(currentRow.id) : '/subject-view.html?id=' + encodeURIComponent(subj.id),
+                    isOwner ? '✏️ Write it now →' : 'All topics →');
+                return;
+            }
+            // Keep exactly one active tab (learn may have been removed) —
+            // activate the first REMAINING button and its own panel.
+            if (!document.querySelector('.tab-btn.active')) {
+                const firstBtn = document.querySelector('.tab-btn');
+                if (firstBtn) {
+                    firstBtn.classList.add('active');
+                    const m = (firstBtn.getAttribute('onclick') || '').match(/'([a-z]+)'/);
+                    const panel = m && document.getElementById('tab-' + m[1]);
+                    if (panel) panel.classList.add('active');
+                }
+            }
+
+            RichText.injectContentStyles(); // teacher notes use .rt-content boxes/tables
+
+            // ── Load the platform engine (exactly the static pages' chain) ──
+            function loadScript(src) {
+                return new Promise((resolve, reject) => {
+                    const s = document.createElement('script');
+                    s.src = src;
+                    s.onload = resolve;
+                    s.onerror = () => reject(new Error('Failed to load ' + src));
+                    document.body.appendChild(s);
+                });
+            }
+
+            try {
+                await loadScript('/script.js');
+                // Placeholder-question injector is for scaffolded subjects — a
+                // teacher topic without check questions must NOT gain fake ones.
+                window.injectExampleReadChecks = function () { };
+                await loadScript('/progress-shared.js');
+                await loadScript('/gamification.js');
+                await loadScript('/topic-guard.js');
+                await loadScript('/notifications-shared.js');
+                await loadScript('/onboarding-tour.js');
+                await loadScript('/footer-legal.js');
+            } catch (e) {
+                console.error(e);
+                showMessage('Something went wrong', 'Part of the page failed to load — refresh to try again.');
+                return;
+            }
+
+            // The chain loaded after the real DOMContentLoaded — re-fire it for
+            // script.js's main boot (every other script in the chain boots
+            // directly when the DOM is already ready, so nothing double-runs).
+            document.dispatchEvent(new Event('DOMContentLoaded', { bubbles: true }));
+
+            // ── Post-boot patches ──
+            // 1. Custom subjects have no static /subjects/<slug>/index.html —
+            //    point "All Topics"/home links at the subject's topic list page.
+            const indexHref = '/subjects/' + subj.slug + '/index.html';
+            const customIndex = '/subject-view.html?id=' + encodeURIComponent(subj.id);
+            document.querySelectorAll('a').forEach(a => {
+                const href = a.getAttribute('href') || '';
+                if (href === indexHref || href === encodeURI(indexHref)) a.setAttribute('href', customIndex);
+            });
+            // 2. Owner affordances: edit link + draft banner (students never see
+            //    drafts — RLS filters them before this page renders).
+            if (isOwner) {
+                const bar = document.createElement('div');
+                bar.style.cssText = 'position:fixed;bottom:18px;right:18px;z-index:60;display:flex;gap:8px;';
+                const editUrl = 'teacher-subjects.html?subject=' + encodeURIComponent(subj.id) + '&step=3&topic=' + encodeURIComponent(currentRow.id);
+                bar.innerHTML = `<a href="${esc(editUrl)}" style="background:var(--accent,#4a6fa5);color:#fff;font-family:'DM Sans',sans-serif;font-weight:600;font-size:13px;padding:10px 16px;border-radius:8px;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25);">✏️ Edit this topic</a>`;
+                if (full.status !== 'published') {
+                    bar.insertAdjacentHTML('afterbegin',
+                        `<span style="background:#c84b31;color:#fff;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;padding:10px 14px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.25);">DRAFT — students can't see this yet</span>`);
+                }
+                document.body.appendChild(bar);
+            }
+        })();
+    </script>
+</body>
+
+</html>

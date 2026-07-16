@@ -422,8 +422,9 @@ guards (they already auth-check — verify), `docs/QA-CHECKLIST.md`.
    - Subject slug = first path segment after /subjects/. Call PostgREST
      `rpc/has_subject_access` with the user's own JWT (one fetch, ~30ms, cache
      result in a per-isolate Map with 60s TTL keyed sub+subject).
-   - Fail → 302 to `/login.html?redirect=<path>` (no JWT) or
-     `/join.html?subject=<slug>` (JWT but no access).
+   - Fail → 302 to `/index.html?redirect=<path>` (no JWT — landing page,
+     which forwards ?redirect= on to login.html) or `/join.html?subject=<slug>`
+     (JWT but no access).
    - **`question-bank.js` gets a stricter rule:** teachers only (it contains
      answers inline — students must never fetch it; teacher-tasks loads it).
 4. Keep `topic-guard.js` for the in-page locked-topic UX (sequential unlocks) —

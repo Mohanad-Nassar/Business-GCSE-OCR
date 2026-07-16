@@ -288,8 +288,8 @@
 </ul>`,
             readCheck: {
                 q: "Which of these best states the PURPOSE of the CPU?",
-                opts: ["It displays images on the screen", "It connects the computer to the internet", "It stores all the user's files and programs", "It fetches, decodes and executes instructions"],
-                ans: 3,
+                opts: ["It fetches, decodes and executes instructions", "It stores all the user's files and programs", "It connects the computer to the internet", "It displays images on the screen"],
+                ans: 0,
                 explain: "The CPU is the processor — it works through program instructions using the fetch–decode–execute cycle. Storing files is the job of storage, not the CPU."
             }
         },
@@ -338,8 +338,8 @@
 </ul>`,
             readCheck: {
                 q: "A computer program needs to check whether one number is bigger than another. Which CPU component carries out this comparison?",
-                opts: ["The ALU", "The program counter", "The control unit", "The cache"],
-                ans: 0,
+                opts: ["The control unit", "The program counter", "The cache", "The ALU"],
+                ans: 3,
                 explain: "Comparisons are logical operations, and the ALU performs all mathematical calculations and logical operations. The CU decodes and coordinates; it doesn't do the comparison itself."
             }
         },
@@ -364,8 +364,8 @@
 </ul>`,
             readCheck: {
                 q: "Which pair of registers store an ADDRESS rather than data?",
-                opts: ["Program counter and MAR", "MDR and accumulator", "Accumulator and program counter", "MDR and MAR"],
-                ans: 0,
+                opts: ["MDR and MAR", "Accumulator and program counter", "Program counter and MAR", "MDR and accumulator"],
+                ans: 2,
                 explain: "PC and MAR hold addresses (locations in memory). The MDR holds the data/instruction itself, and the accumulator holds the results of ALU calculations."
             }
         },
@@ -389,8 +389,8 @@
 </ul>`,
             readCheck: {
                 q: "Why does cache memory speed up the CPU?",
-                opts: ["It permanently stores the operating system", "It adds more storage space for the user's files", "It increases the clock speed of the CPU", "It stores frequently used instructions that can be accessed faster than fetching them from RAM"],
-                ans: 3,
+                opts: ["It adds more storage space for the user's files", "It stores frequently used instructions that can be accessed faster than fetching them from RAM", "It permanently stores the operating system", "It increases the clock speed of the CPU"],
+                ans: 1,
                 explain: "Cache holds the instructions and data the CPU uses most, inside the CPU itself — so they can be accessed far faster than going out to RAM. It doesn't change the clock speed or store files."
             }
         }
@@ -399,7 +399,7 @@
     const mcqData = [
         {
             q: "What is the purpose of the CPU?",
-            opts: ["To provide power to the computer", "To store the user's documents", "To fetch, decode and execute instructions", "To display graphics on the monitor"],
+            opts: ["To provide power to the computer", "To display graphics on the monitor", "To fetch, decode and execute instructions", "To store the user's documents"],
             ans: 2,
             explain: "The CPU processes instructions by running the fetch–decode–execute cycle continuously. Storage, power and display are handled by other components."
         },
@@ -411,62 +411,62 @@
         },
         {
             q: "Which CPU component performs mathematical calculations and logical operations?",
-            opts: ["Program counter", "Cache", "Control unit", "ALU"],
-            ans: 3,
+            opts: ["Program counter", "Cache", "ALU", "Control unit"],
+            ans: 2,
             explain: "The ALU (Arithmetic Logic Unit) does all the maths and logic — comparisons, additions, AND/OR operations. The CU coordinates; it doesn't calculate."
         },
         {
             q: "Which CPU component decodes instructions and coordinates the actions of the processor?",
-            opts: ["The control unit", "The MDR", "The ALU", "The accumulator"],
-            ans: 0,
+            opts: ["The ALU", "The control unit", "The MDR", "The accumulator"],
+            ans: 1,
             explain: "The control unit decodes each instruction and sends signals to synchronise and direct the other components. Remember: it directs the work, the ALU does the maths."
         },
         {
             q: "What does the program counter store?",
-            opts: ["The address of the next instruction to be fetched", "The number of programs currently running", "The result of the last calculation", "The data fetched from memory"],
-            ans: 0,
+            opts: ["The data fetched from memory", "The address of the next instruction to be fetched", "The result of the last calculation", "The number of programs currently running"],
+            ans: 1,
             explain: "The PC stores the ADDRESS of the next instruction and increments each cycle. It counts nothing — despite the name."
         },
         {
             q: "Data has just been fetched from main memory. Which register is it now sitting in?",
-            opts: ["MDR", "Program counter", "MAR", "Accumulator"],
-            ans: 0,
+            opts: ["Program counter", "MAR", "Accumulator", "MDR"],
+            ans: 3,
             explain: "The MDR (Memory Data Register) holds the data or instruction just fetched from memory. The MAR held the address it came from."
         },
         {
             q: "The ALU has just added two numbers. Where is the result stored?",
-            opts: ["In cache", "In the MAR", "In the program counter", "In the accumulator"],
-            ans: 3,
+            opts: ["In the program counter", "In the MAR", "In the accumulator", "In cache"],
+            ans: 2,
             explain: "The accumulator stores the results of ALU calculations. The MAR and PC only ever hold addresses."
         },
         {
             q: "Which TWO registers store addresses rather than data?",
-            opts: ["MDR and accumulator", "Accumulator and program counter", "MAR and MDR", "Program counter and MAR"],
-            ans: 3,
+            opts: ["Accumulator and program counter", "Program counter and MAR", "MAR and MDR", "MDR and accumulator"],
+            ans: 1,
             explain: "PC and MAR hold locations in memory (addresses); MDR holds the data/instruction itself and the accumulator holds calculation results."
         },
         {
             q: "What is cache?",
-            opts: ["The part of the CPU that performs calculations", "Slow memory outside the CPU used for long-term storage", "A register that stores one address", "A small amount of fast memory inside the CPU storing frequently used instructions"],
+            opts: ["Slow memory outside the CPU used for long-term storage", "A register that stores one address", "The part of the CPU that performs calculations", "A small amount of fast memory inside the CPU storing frequently used instructions"],
             ans: 3,
             explain: "Cache is small, very fast memory inside the CPU holding frequently used instructions and data — so the CPU avoids waiting for RAM."
         },
         {
             q: "A register is best described as...",
-            opts: ["A small, very fast storage location inside the CPU holding one piece of data or one address", "A large memory store for running programs", "A type of secondary storage", "A unit that decodes instructions"],
+            opts: ["A small, very fast storage location inside the CPU holding one piece of data or one address", "A large memory store for running programs", "A unit that decodes instructions", "A type of secondary storage"],
             ans: 0,
             explain: "Registers are tiny storage locations inside the CPU — each holds a single value or address the CPU is using right now."
         },
         {
             q: "During one fetch–execute cycle, which of these events happens?",
-            opts: ["The operating system restarts", "The hard drive is defragmented", "The RAM is wiped clean", "The program counter is incremented"],
-            ans: 3,
+            opts: ["The program counter is incremented", "The RAM is wiped clean", "The operating system restarts", "The hard drive is defragmented"],
+            ans: 0,
             explain: "Each cycle: an instruction is fetched, decoded, executed — and the program counter increments so the CPU knows where the next instruction is."
         },
         {
             q: "Why can the CPU access an instruction in cache faster than the same instruction in RAM?",
-            opts: ["Cache is bigger than RAM", "Cache instructions are pre-executed", "RAM only works when the computer is off", "Cache is inside (or right next to) the CPU, so there is less distance and delay"],
-            ans: 3,
+            opts: ["Cache is bigger than RAM", "Cache is inside (or right next to) the CPU, so there is less distance and delay", "RAM only works when the computer is off", "Cache instructions are pre-executed"],
+            ans: 1,
             explain: "Cache sits inside the CPU and is built from faster memory, so frequently used instructions don't have to make the slower trip from RAM."
         }
     ];
@@ -567,8 +567,8 @@
             correct: "The program counter stores the ADDRESS of the next instruction to be fetched from memory, and it increments during each fetch–execute cycle. It is a signpost, not a tally. If your answer to any PC question doesn't contain the word 'address', it is almost certainly wrong.",
             readCheck: {
                 q: "Which answer would earn the mark for 'state the purpose of the program counter'?",
-                opts: ["It counts the number of fetch–execute cycles", "It counts the programs that are open", "It stores the address of the next instruction to be fetched", "It stores the instructions that are running"],
-                ans: 2,
+                opts: ["It stores the address of the next instruction to be fetched", "It counts the number of fetch–execute cycles", "It counts the programs that are open", "It stores the instructions that are running"],
+                ans: 0,
                 explain: "Only the address answer scores. Counting programs or cycles is the classic misconception, and 'stores the instructions' confuses the PC with the MDR."
             }
         },
@@ -587,8 +587,8 @@
             correct: "Registers STORE; they don't fetch, take or retrieve. Mark schemes explicitly refuse purposes written as actions. Level 0: 'the MAR fetches data'. Level 1: 'the MAR stores an address'. Full marks: 'the MAR stores the address of the data or instruction that is to be fetched from, or written to, memory.' Always start a register's purpose with 'stores...'.",
             readCheck: {
                 q: "A question asks for the purpose of the MDR. Which answer style earns the mark?",
-                opts: ["\"The MDR is a register in the CPU\"", "\"The MDR moves data around the CPU\"", "\"The MDR stores the data or instruction fetched from memory\"", "\"The MDR fetches the data from RAM\""],
-                ans: 2,
+                opts: ["\"The MDR stores the data or instruction fetched from memory\"", "\"The MDR moves data around the CPU\"", "\"The MDR is a register in the CPU\"", "\"The MDR fetches the data from RAM\""],
+                ans: 0,
                 explain: "Registers store. Answers built on fetches/moves/takes describe actions the register doesn't perform, and 'it is a register' just restates the question."
             }
         },
@@ -597,7 +597,7 @@
             correct: "The address/data split is the whole game: PC and MAR store ADDRESSES (locations in memory); MDR and accumulator store DATA (the instruction/data itself, or a result). A typical error chain in table questions: writing MAR where PC belongs, then 'using up' MDR on the next row too. Check the definition for the word 'address' before you commit a register name.",
             readCheck: {
                 q: "A definition in an exam table reads: 'Stores the address of the next instruction to be fetched. Increments during each cycle.' Which register is it?",
-                opts: ["Program counter", "MDR", "Accumulator", "MAR"],
+                opts: ["Program counter", "MAR", "MDR", "Accumulator"],
                 ans: 0,
                 explain: "'Address of the NEXT INSTRUCTION' plus 'increments' can only be the program counter. The MAR stores the address currently being fetched from — no incrementing."
             }
@@ -607,8 +607,8 @@
             correct: "The mark is for the idea of the cores working AT THE SAME TIME: each core can execute a separate instruction (or a different part of the program) simultaneously — that's parallel processing. 'It runs more instructions per second' on its own could just describe a faster clock. And be ready for the twist: some software can't be split across cores, so performance doesn't always double.",
             readCheck: {
                 q: "Which sentence correctly explains why a dual-core CPU can improve performance?",
-                opts: ["\"Two cores mean twice the cache\"", "\"Each core can execute a different instruction at the same time\"", "\"Two cores double the clock speed\"", "\"It can run more instructions per second\""],
-                ans: 1,
+                opts: ["\"Two cores mean twice the cache\"", "\"It can run more instructions per second\"", "\"Each core can execute a different instruction at the same time\"", "\"Two cores double the clock speed\""],
+                ans: 2,
                 explain: "The winning idea is simultaneous execution — parallel processing. Doubling clock speed or cache isn't what a second core does, and 'more instructions per second' misses the 'at the same time' requirement."
             }
         }
@@ -646,8 +646,8 @@
 </ul>`,
             readCheck: {
                 q: "Why does \"the MAR fetches data from memory\" score 0?",
-                opts: ["MAR should be written in full", "A register's purpose is to STORE — describing it as performing an action is wrong", "The MAR doesn't exist", "It's too short"],
-                ans: 1,
+                opts: ["The MAR doesn't exist", "It's too short", "A register's purpose is to STORE — describing it as performing an action is wrong", "MAR should be written in full"],
+                ans: 2,
                 explain: "Registers are storage locations. The fetching is done by the CPU as a whole during the cycle — the register just holds the address or data involved."
             }
         },
@@ -675,8 +675,8 @@
 </ul>`,
             readCheck: {
                 q: "\"More cache improves performance\" scores 1 out of 2. What's missing?",
-                opts: ["The chain: cache stores frequently used instructions which are accessed faster than from RAM", "The brand of CPU", "The exact size of the cache in GB", "A diagram"],
-                ans: 0,
+                opts: ["The brand of CPU", "A diagram", "The exact size of the cache in GB", "The chain: cache stores frequently used instructions which are accessed faster than from RAM"],
+                ans: 3,
                 explain: "The second mark is for developing the point: WHAT cache stores and WHY that speeds things up (faster access than RAM). Assertions about performance without the mechanism stay on 1 mark."
             }
         },
@@ -708,8 +708,8 @@
 </ul>`,
             readCheck: {
                 q: "In a tick-grid question, a student ticks the two correct boxes in a row PLUS one extra box. What happens?",
-                opts: ["They get 2 out of 3 for the row", "They score 0 for that row — extra ticks void it", "They lose 1 mark from their total", "The examiner ignores the extra tick"],
-                ans: 1,
+                opts: ["The examiner ignores the extra tick", "They get 2 out of 3 for the row", "They score 0 for that row — extra ticks void it", "They lose 1 mark from their total"],
+                ans: 2,
                 explain: "Rows are all-or-nothing: right ticks with any extra tick scores 0 for that row. Tick with intent, not with hope."
             }
         }

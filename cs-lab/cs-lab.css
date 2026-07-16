@@ -1,0 +1,224 @@
+/* ══════════════════════════════════════════════════════════════
+   CS PRACTICE LAB — shared styles (injected by cs-lab.js)
+   Site CSS variables only, so all 7 themes (incl. both darks) work.
+   Tool-specific styles live in each tool module's own <style>,
+   prefixed .cslab-<tool>.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Page width note: topic pages give `main` one constant wide width
+   (style.css) shared by every tab, Practice Lab included. It was briefly
+   set per-tab here via :has(), but a per-tab width makes the page visibly
+   resize when switching tabs — do not reintroduce that. */
+
+.cslab-launcher {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+}
+
+.cslab-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    text-align: left;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 16px 16px;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--ink);
+    transition: transform .12s, box-shadow .12s, border-color .12s;
+}
+
+.cslab-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+}
+
+.cslab-card-icon { font-size: 26px; line-height: 1; }
+
+.cslab-card-title { font-weight: 600; font-size: 15px; }
+
+.cslab-card-blurb { font-size: 13px; color: var(--mid); line-height: 1.4; }
+
+.cslab-card-done {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--success);
+}
+
+.cslab-card.done .cslab-card-done { display: block; }
+.cslab-card.done { border-color: var(--success); }
+
+.cslab-toolhead {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.cslab-toolhead h3 { margin: 0; font-size: 19px; }
+
+.cslab-back {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--mid);
+    padding: 6px 12px;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.cslab-back:hover { color: var(--ink); border-color: var(--accent); }
+
+.cslab-btn {
+    background: var(--accent);
+    color: var(--paper);
+    border: none;
+    border-radius: 8px;
+    padding: 9px 16px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cslab-btn:hover { filter: brightness(1.1); }
+
+.cslab-btn:disabled { opacity: .5; cursor: not-allowed; }
+
+.cslab-btn.secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--border);
+    font-weight: 500;
+}
+
+.cslab-feedback { font-size: 14px; font-weight: 600; margin: 8px 0; }
+.cslab-feedback.ok { color: var(--success); }
+.cslab-feedback.no { color: #c0392b; }
+
+.cslab-loading { color: var(--mid); font-style: italic; }
+
+.cslab-error {
+    color: #c0392b;
+    background: color-mix(in srgb, #c0392b 8%, var(--card-bg));
+    border: 1px solid color-mix(in srgb, #c0392b 30%, var(--border));
+    border-radius: 8px;
+    padding: 12px 14px;
+}
+
+/* Monospace editor / output primitives for code-ish tools */
+.cslab-code, .cslab-output {
+    font-family: 'DM Mono', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    background: var(--cream);
+    color: var(--ink);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    tab-size: 4;
+}
+
+textarea.cslab-code {
+    min-height: 200px;
+    padding: 12px;
+    resize: vertical;
+    white-space: pre;
+    overflow-x: auto;
+}
+
+.cslab-output {
+    padding: 12px;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    min-height: 44px;
+}
+
+@media (max-width: 700px) {
+    .cslab-launcher { grid-template-columns: 1fr; }
+}
+
+/* ── Real code editor (CodeMirror 5, cs-lab.js ui.mountCodeEditor) ──
+   Palette built entirely from the site's own theme variables (--ink,
+   --accent, --success, --gold, --teal, --mid, --wrong via color-mix) so
+   syntax colours stay legible across all 7 themes, including both darks,
+   without a separate dark-mode override block. */
+.cm-s-cslab.CodeMirror {
+    background: var(--card-bg);
+    color: var(--ink);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: 'DM Mono', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.55;
+    height: auto;
+}
+
+.cm-s-cslab .CodeMirror-gutters {
+    background: var(--cream);
+    border-right: 1px solid var(--border);
+    border-radius: 8px 0 0 8px;
+}
+
+.cm-s-cslab .CodeMirror-linenumber { color: var(--mid); }
+.cm-s-cslab .CodeMirror-cursor { border-left: 2px solid var(--ink); }
+.cm-s-cslab .CodeMirror-activeline-background { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.cm-s-cslab .CodeMirror-selected { background: color-mix(in srgb, var(--accent) 25%, transparent); }
+.cm-s-cslab .CodeMirror-matchingbracket { color: var(--success); font-weight: 700; }
+
+.cm-s-cslab .cm-keyword { color: var(--accent); font-weight: 600; }
+.cm-s-cslab .cm-def { color: var(--teal); font-weight: 600; }
+.cm-s-cslab .cm-variable, .cm-s-cslab .cm-variable-2, .cm-s-cslab .cm-property { color: var(--ink); }
+.cm-s-cslab .cm-string, .cm-s-cslab .cm-string-2 { color: var(--success); }
+.cm-s-cslab .cm-number { color: var(--gold); }
+.cm-s-cslab .cm-comment { color: var(--mid); font-style: italic; }
+.cm-s-cslab .cm-operator { color: var(--ink); }
+.cm-s-cslab .cm-builtin { color: color-mix(in srgb, var(--accent) 55%, var(--teal) 45%); }
+.cm-s-cslab .cm-atom { color: var(--gold); }
+.cm-s-cslab .cm-error { color: var(--wrong); }
+
+/* Fallback editor (plain textarea + synced gutter) used only if the
+   CodeMirror CDN is unreachable — same visual language as the real editor. */
+.cslab-editor-fallback {
+    display: flex;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--card-bg);
+}
+
+.cslab-editor-gutter {
+    flex: 0 0 auto;
+    padding: 12px 10px 12px 12px;
+    background: var(--cream);
+    border-right: 1px solid var(--border);
+    color: var(--mid);
+    font-family: 'DM Mono', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.55;
+    text-align: right;
+    overflow: hidden;
+    -webkit-user-select: none;
+    user-select: none;
+    min-width: 2.5em;
+}
+
+.cslab-editor-fallback-ta {
+    flex: 1;
+    border: none;
+    border-radius: 0;
+    min-height: 220px;
+}

@@ -35,6 +35,15 @@
 
 const esc = taskEscapeHtml;
 
+// Teacher-authored bank HTML (reading/markScheme) is rendered raw into
+// innerHTML below, so it must pass the RichText allowlist sanitiser at the
+// render sink (the editor-time sanitise is bypassable via the REST API).
+// rich-editor.js is loaded on this page, so RichText is always present; the
+// guard only degrades to raw on trusted static pages that omit it.
+function _safeHtml(x) {
+  return (typeof RichText !== 'undefined' && RichText.sanitize) ? RichText.sanitize(x || '') : (x || '');
+}
+
 let drClient = null;
 let drSettings = { topic_mode: 'teacher_controlled', active_page_ids: [], weekly_cap: null, pre_seconds: 5, post_seconds: 5 };
 let selectedPageIds = []; // [] = no filter (show everything the mode allows)
@@ -112,6 +121,14 @@ async function init() {
   const auth = await tasksAuthInit('student');
   if (!auth) return;
   drClient = auth.client;
+
+  // Teacher-authored subject? subject-loader.js registered a provisional
+  // entry (the static registries don't know it) — upgrade it now that a
+  // client exists, so the header, topic names and queue all resolve.
+  if (window.SUBJECT && window.SUBJECT.provisional && typeof loadCustomSubjectBank === 'function') {
+    try { await loadCustomSubjectBank(window.SUBJECT.slug); }
+    catch (e) { console.error('custom subject hydrate', e); }
+  }
 
   // Shared avatar + "Hi, name" dropdown (account-cluster.js) so this page's
   // header matches every other page; minimal escaped bar as a fallback.
@@ -327,27 +344,25 @@ function renderQuestion() {
       <label class="opt" data-val="false"><input type="radio" name="drOpt" value="false"/> ✘ False</label>
     </div>`;
   } else if (q.qtype === 'fib') {
-    const gaps = (snap.question.match(/_{3,}/g) || []).length;
-    const n = Math.max(gaps, Math.round(Number(q.marks)) || 1);
-    const keys = Array.from({ length: n }, (_, i) => 'B' + (i + 1));
-    const parts = snap.question.split(/_{3,}/);
+    // fibBlankTokens (tasks-shared.js) understands both marker styles — the
+    // positional `_____` and the named `___B1___` the Economics bank uses.
+    const tokens = fibBlankTokens(snap.question);
     const blankOptions = snap.blankOptions || {};
     const useDropdown = !isAdvancedFIB;
     let html = `<div style="margin-bottom:10px;">
       <button type="button" class="dr-filter-toggle" id="drFibModeBtn">${useDropdown ? '🔥 Switch to typing' : '🔽 Switch to dropdowns'}</button>
     </div><div class="fib-text" id="drFib">`;
-    parts.forEach((part, pi) => {
-      html += taskRichText(part);
-      if (pi < parts.length - 1 && pi < keys.length) {
-        const key = keys[pi];
-        if (useDropdown && blankOptions[key]) {
-          const opts = ['— choose —', ...blankOptions[key]];
-          html += `<select class="blank-select" data-bk="${key}" aria-label="Blank ${pi + 1}">` +
-            opts.map(o => `<option value="${o === '— choose —' ? '' : esc(o)}">${esc(o)}</option>`).join('') +
-            `</select>`;
-        } else {
-          html += `<input type="text" class="fib-input" data-bk="${key}" autocomplete="off" spellcheck="false" aria-label="Blank ${pi + 1}"/>`;
-        }
+    let bn = 0;
+    tokens.forEach(t => {
+      if (t.blank == null) { html += taskRichText(t.text); return; }
+      const key = t.blank; bn++;
+      if (useDropdown && blankOptions[key]) {
+        const opts = ['— choose —', ...blankOptions[key]];
+        html += `<select class="blank-select" data-bk="${esc(key)}" aria-label="Blank ${bn}">` +
+          opts.map(o => `<option value="${o === '— choose —' ? '' : esc(o)}">${esc(o)}</option>`).join('') +
+          `</select>`;
+      } else {
+        html += `<input type="text" class="fib-input" data-bk="${esc(key)}" autocomplete="off" spellcheck="false" aria-label="Blank ${bn}"/>`;
       }
     });
     html += '</div>';
@@ -362,7 +377,7 @@ function renderQuestion() {
       <span>[${q.marks} mark${Number(q.marks) === 1 ? '' : 's'}]</span>
     </div>
     ${snap.caseStudy ? `<div class="case-study"><strong>Case study:</strong>\n${taskRichText(snap.caseStudy)}</div>` : ''}
-    ${snap.reading ? `<div class="case-study">${snap.readingTitle ? `<strong>${esc(snap.readingTitle)}</strong><br>` : ''}${snap.reading}</div>` : ''}
+    ${snap.reading ? `<div class="case-study">${snap.readingTitle ? `<strong>${esc(snap.readingTitle)}</strong><br>` : ''}${_safeHtml(snap.reading)}</div>` : ''}
     ${q.qtype === 'fib' ? '' : `<div class="qtext">${taskRichText(snap.question)}</div>`}
     ${inputHtml}
     <div class="dr-feedback" id="drFeedback"></div>

@@ -5,9 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Vidya — revision that comes back until it sticks</title>
 <meta name="description" content="Interactive GCSE revision: spaced repetition, daily practice, teacher tasks with AI-assisted marking, and progress analytics — for Business, Economics and Computer Science."/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48 32x32 16x16"/>
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Vidya"/>
+<meta property="og:title" content="Vidya — revision that comes back until it sticks"/>
+<meta property="og:description" content="Interactive GCSE revision: spaced repetition, daily practice, teacher tasks with AI-assisted marking, and progress analytics — for Business, Economics and Computer Science."/>
+<meta property="og:url" content="https://business-mr-nassar.netlify.app/"/>
+<meta property="og:image" content="https://business-mr-nassar.netlify.app/images/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://business-mr-nassar.netlify.app/images/og-image.png"/>
 <script>
-  // Logged-in visitors go straight to their subjects hub — before paint.
-  try { if (localStorage.getItem('gcse_session_v1')) location.replace('/hub.html'); } catch (e) {}
+  // A guarded page with no session bounces here with ?redirect=<path> so
+  // this landing page can send the visitor onward once they pick Log in
+  // or Get started — same-site relative paths only, mirrors auth-shared.js
+  // vidyaSafeRedirect().
+  (function () {
+    var target = new URLSearchParams(location.search).get('redirect');
+    var safe = target && target.startsWith('/') && !target.startsWith('//') ? target : null;
+
+    // Logged-in visitors go straight back to where they were headed (or
+    // their subjects hub) — before paint.
+    try {
+      if (localStorage.getItem('gcse_session_v1')) location.replace(safe || '/hub.html');
+    } catch (e) {}
+
+    if (!safe) return;
+    document.addEventListener('DOMContentLoaded', function () {
+      var suffix = '?redirect=' + encodeURIComponent(safe);
+      ['navLoginLink', 'heroLoginLink'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.href = '/login.html' + suffix;
+      });
+    });
+  })();
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -28,7 +62,7 @@
     <a href="#faq">FAQ</a>
   </div>
   <div class="nav-cta">
-    <a class="btn btn-ghost" href="/login.html">Log in</a>
+    <a class="btn btn-ghost" href="/login.html" id="navLoginLink">Log in</a>
     <a class="btn btn-solid" href="/signup.html">Get started</a>
   </div>
 </nav>
@@ -43,7 +77,7 @@
       AI-assisted marking and live progress analytics on top.</p>
     <div class="hero-ctas rv rv-in rv-d2">
       <a class="btn btn-solid btn-big" href="/signup.html">Get started</a>
-      <a class="btn btn-ghost btn-big" href="/login.html">I have a class login</a>
+      <a class="btn btn-ghost btn-big" href="/login.html" id="heroLoginLink">I have a class login</a>
     </div>
     <p class="hero-note rv rv-in rv-d3">Got a class code from your teacher? Create an account, then join in one step.</p>
   </div>
@@ -189,7 +223,7 @@
 
   <div class="frow">
     <div class="f-visual rv" aria-hidden="true">
-      <div class="fv-row"><span class="fv-pill" style="background:var(--ink); color:#fff;">🔑 K7RQ2WXN</span><span style="font-size:12.5px; color:var(--mid);">join code — one per class</span></div>
+      <div class="fv-row"><span class="fv-pill" style="background:var(--chrome, var(--ink)); color:#fff;">🔑 K7RQ2WXN</span><span style="font-size:12.5px; color:var(--mid);">join code — one per class</span></div>
       <div class="fv-chiprow"><span class="fv-chip on">📈 Economics</span><span class="fv-chip on">💼 Business</span><span class="fv-chip">💻 Computer Science</span></div>
       <div class="fv-row"><span style="font-size:12.5px; color:var(--mid);">One account, every subject you study.</span></div>
     </div>

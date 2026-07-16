@@ -94,12 +94,102 @@ function _notifEsc(str) {
     return String(str ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
+// ── Teacher notifications (derived — no cron needed) ──
+// Async: fetches everything currently needing the teacher's attention and
+// returns [{ key, icon, text, href, at, kind }] newest-first, UNFILTERED
+// (callers apply their own read / snooze / done state). Reused by the bell
+// (below) AND the full teacher to-do page (teacher-notifications.html), so
+// both stay in sync. `kind` is 'action' for items the teacher must DO;
+// there's room for 'info' items later.
+async function deriveTeacherNotifications(client, uid) {
+    const notes = [];
+    if (!client || !uid) return notes;
+    const pageName = (pageId) => {
+        const bySlug = window.PAGE_GROUPS_ALL || {};
+        for (const slug of Object.keys(bySlug)) {
+            for (const g of bySlug[slug]) {
+                for (const p of (g.pages || [])) {
+                    if (p.id === pageId) return p.name;
+                    for (const c of (p.children || [])) if (c.id === pageId) return c.name;
+                }
+            }
+        }
+        return pageId;
+    };
+    try {
+        const [{ data: tasks }, { data: classes }] = await Promise.all([
+            client.from('tasks').select('id, title, class_id, status').eq('status', 'published'),
+            client.from('classes').select('id, name'),
+        ]);
+        const className = {};
+        (classes || []).forEach(c => { className[c.id] = c.name; });
+
+        // ✍️ Submissions waiting to be marked, grouped per task.
+        const taskIds = (tasks || []).map(t => t.id);
+        if (taskIds.length) {
+            const { data: atts } = await client.from('task_attempts')
+                .select('task_id, submitted_at')
+                .in('task_id', taskIds)
+                .eq('status', 'submitted').eq('marking_complete', false);
+            const byTask = {};
+            (atts || []).forEach(a => {
+                const b = byTask[a.task_id] = byTask[a.task_id] || { n: 0, at: 0 };
+                b.n++;
+                const t = new Date(a.submitted_at || 0).getTime();
+                if (t > b.at) b.at = t;
+            });
+            Object.entries(byTask).forEach(([taskId, b]) => {
+                const task = (tasks || []).find(t => t.id === taskId);
+                if (!task) return;
+                const cls = className[task.class_id] || '';
+                notes.push({
+                    key: `mark:${taskId}:${b.n}`, icon: '✍️', kind: 'action', at: b.at || Date.now(),
+                    href: `/teacher-tasks.html?class=${encodeURIComponent(task.class_id)}&task=${encodeURIComponent(taskId)}`,
+                    text: `${b.n} submission${b.n === 1 ? '' : 's'} waiting to be marked — “${task.title}”${cls ? ' (' + cls + ')' : ''}`,
+                });
+            });
+        }
+
+        // 🙋 Pending topic-access requests.
+        try {
+            const { data: reqs } = await client.from('topic_access_requests')
+                .select('id, page_id, class_id, requested_at, status, profiles!topic_access_requests_student_id_fkey(username)')
+                .eq('status', 'pending');
+            (reqs || []).forEach(r => {
+                const who = (r.profiles && r.profiles.username) || 'A student';
+                const cls = className[r.class_id] || '';
+                notes.push({
+                    key: `req:${r.id}`, icon: '🙋', kind: 'action', at: new Date(r.requested_at || 0).getTime(),
+                    href: `/teacher-dashboard.html?class=${encodeURIComponent(r.class_id)}#topic-access`,
+                    text: `${who} asked to open “${pageName(r.page_id)}”${cls ? ' (' + cls + ')' : ''}`,
+                });
+            });
+        } catch (e) { /* topic-access schema not installed — skip */ }
+
+        // 🧑‍🏫 Pending co-teacher invites (supabase/class-teachers.sql). Links to
+        // My Classes, where the accept/decline banner lives.
+        try {
+            const { data: invs } = await client.rpc('get_my_pending_class_invites');
+            (invs || []).forEach(iv => {
+                notes.push({
+                    key: `classinvite:${iv.id}`, icon: '🧑‍🏫', kind: 'action',
+                    at: new Date(iv.created_at || 0).getTime(),
+                    href: '/teacher-classes.html',
+                    text: `${iv.invited_by || 'A teacher'} invited you to co-teach “${iv.class_name}” — open My Classes to accept`,
+                });
+            });
+        } catch (e) { /* class-teachers.sql not installed — skip */ }
+    } catch (e) { /* tasks schema not installed yet, or offline */ }
+    return notes.sort((a, b) => b.at - a.at);
+}
+
 // ── Bell UI (self-invoking; everything below is private to this IIFE) ──
 (function () {
     const REFRESH_INTERVAL_MS = 5 * 60 * 1000; // conservative backstop poll
     let _client = null;
     let _uid = null;
     let _items = [];
+    let _role = 'student'; // set by boot(); teachers get their own derivation
 
     function injectStyles() {
         if (document.getElementById('gcseNotifStyles')) return;
@@ -110,9 +200,9 @@ function _notifEsc(str) {
 .gcse-notif-wrap.gcse-notif-fixed{position:fixed;bottom:20px;right:20px;z-index:500;}
 .gcse-notif-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;
   width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.25);color:var(--paper,#f5f0e8);font-size:16px;cursor:pointer;
+  border:1px solid rgba(255,255,255,.25);color:var(--chrome-text, var(--paper,#f5f0e8));font-size:16px;cursor:pointer;
   font-family:inherit;line-height:1;padding:0;transition:border-color .15s,background .15s;}
-.gcse-notif-wrap.gcse-notif-fixed .gcse-notif-btn{background:var(--ink,#0f1923);
+.gcse-notif-wrap.gcse-notif-fixed .gcse-notif-btn{background:var(--chrome, var(--ink,#0f1923));
   border-color:rgba(255,255,255,.3);box-shadow:0 4px 14px rgba(0,0,0,.35);}
 .gcse-notif-btn:hover{border-color:var(--gold,#d4a843);background:rgba(255,255,255,.18);}
 .gcse-notif-badge{position:absolute;top:-3px;right:-3px;background:var(--wrong,#c84b31);
@@ -198,18 +288,22 @@ function _notifEsc(str) {
         const panel = wrap.querySelector('.gcse-notif-panel');
         badge.textContent = _items.length > 9 ? '9+' : String(_items.length);
         badge.classList.toggle('show', _items.length > 0);
+        // Full-history / to-do page: students → notifications.html,
+        // teachers → their task-management page.
+        const viewAllHref = _role === 'teacher' ? '/teacher-notifications.html' : '/notifications.html';
+        const viewAll = `<a href="${viewAllHref}" style="font-size:11px;color:var(--accent,#4a6fa5);font-weight:600;text-decoration:none;">View all →</a>`;
         const head = _items.length
-            ? `<div class="gcse-notif-head" style="display:flex;align-items:center;justify-content:space-between;padding:8px 8px 6px;border-bottom:1px solid var(--border,#c9bfaa);">
+            ? `<div class="gcse-notif-head" style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 8px 6px;border-bottom:1px solid var(--border,#c9bfaa);">
                  <strong style="font-size:12px;">Notifications (${_items.length})</strong>
-                 <button type="button" class="gcse-notif-clearall" style="background:none;border:none;cursor:pointer;font-size:11px;color:var(--accent,#4a6fa5);font-weight:600;">Mark all read</button>
+                 <span style="display:inline-flex;gap:12px;align-items:center;">${viewAll}<button type="button" class="gcse-notif-clearall" style="background:none;border:none;cursor:pointer;font-size:11px;color:var(--accent,#4a6fa5);font-weight:600;">Mark all read</button></span>
                </div>`
             : '';
         panel.innerHTML = head + (_items.length ? _items.map(n => `
             <div class="gcse-notif-row" data-key="${_notifEsc(n.key)}">
                 <span class="gcse-notif-icon" aria-hidden="true">${n.icon}</span>
-                <span class="gcse-notif-text">${_notifEsc(n.text)}<a class="gcse-notif-open" href="/task.html?id=${encodeURIComponent(n.taskId)}">Open →</a></span>
+                <span class="gcse-notif-text">${_notifEsc(n.text)}<a class="gcse-notif-open" href="${_notifEsc(n.href || ('/task.html?id=' + encodeURIComponent(n.taskId)))}">Open →</a></span>
                 <button type="button" class="gcse-notif-dismiss" title="Dismiss" aria-label="Dismiss notification">✕</button>
-            </div>`).join('') : '<div class="gcse-notif-empty">No new notifications.</div>');
+            </div>`).join('') : `<div class="gcse-notif-empty">No new notifications.<br><br>${viewAll}</div>`);
     }
 
     function mountBell(wrap, tries) {
@@ -283,10 +377,60 @@ function _notifEsc(str) {
         } catch (e) { /* tasks schema not installed yet, or offline — leave as-is */ }
     }
 
+    // ── Teacher notifications (derived) — see deriveTeacherNotifications()
+    // above (top-level, shared with teacher-notifications.html). Keys embed
+    // the moving parts (pending count / request id) so dismissing one stays
+    // dismissed until something genuinely new happens, which re-alerts.
+    async function loadAndRenderTeacher(wrap) {
+        if (!_uid) {
+            try {
+                const { data } = await _client.auth.getSession();
+                _uid = data && data.session && data.session.user && data.session.user.id;
+            } catch (e) { return; }
+        }
+        if (!_uid) return;
+        try {
+            // Derivation shared with the full to-do page (deriveTeacherNotifications).
+            // The bell hides items the teacher has dismissed or SNOOZED on that
+            // page (teacher_notif_state); dismissals still also land in
+            // task_notification_reads (the bell's own ✕ writes there), so both
+            // sources are honoured.
+            const [notes, { data: reads }, snoozed] = await Promise.all([
+                deriveTeacherNotifications(_client, _uid),
+                _client.from('task_notification_reads').select('note_key').eq('student_id', _uid),
+                _teacherNotifState(_client, _uid),
+            ]);
+            const read = new Set((reads || []).map(r => r.note_key));
+            const now = Date.now();
+            _items = notes.filter(n => {
+                if (read.has(n.key)) return false;
+                const st = snoozed[n.key];
+                if (st && st.done) return false;
+                if (st && st.snooze_until && new Date(st.snooze_until).getTime() > now) return false;
+                return true;
+            });
+            render(wrap);
+        } catch (e) { /* tasks schema not installed yet, or offline — leave as-is */ }
+    }
+
+    // Snooze/done state for derived items, from the teacher to-do page's table.
+    // Best-effort: if the table isn't installed yet, everything is "active".
+    async function _teacherNotifState(client, uid) {
+        try {
+            const { data, error } = await client.from('teacher_notif_state')
+                .select('note_key, snooze_until, done').eq('teacher_id', uid);
+            if (error) return {};
+            const m = {};
+            (data || []).forEach(r => { m[r.note_key] = r; });
+            return m;
+        } catch (e) { return {}; }
+    }
+
     async function boot() {
         let cached;
         try { cached = JSON.parse(localStorage.getItem(NOTIF_SESSION_KEY) || 'null'); } catch (e) { cached = null; }
-        if (!cached || cached.role !== 'student') return;
+        if (!cached || (cached.role !== 'student' && cached.role !== 'teacher')) return;
+        _role = cached.role;
 
         injectStyles();
         const wrap = buildBell();
@@ -294,9 +438,10 @@ function _notifEsc(str) {
 
         _client = await getClient();
         if (!_client) return;
-        loadAndRender(wrap);
-        document.addEventListener('visibilitychange', () => { if (!document.hidden) loadAndRender(wrap); });
-        setInterval(() => loadAndRender(wrap), REFRESH_INTERVAL_MS);
+        const refresh = () => (_role === 'teacher' ? loadAndRenderTeacher(wrap) : loadAndRender(wrap));
+        refresh();
+        document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
+        setInterval(refresh, REFRESH_INTERVAL_MS);
     }
 
     if (document.readyState === 'loading') {

@@ -14,20 +14,20 @@
   body { background:var(--paper); color:var(--ink); }
   :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
 
-  header { background:var(--ink); border-bottom:3px solid var(--accent); padding:18px 32px; position:sticky; top:0; z-index:20; }
+  header { background:var(--chrome, var(--ink)); border-bottom:3px solid var(--accent); padding:18px 32px; position:sticky; top:0; z-index:20; }
   .header-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
-  header h1 { font-family:'Playfair Display',serif; font-size:clamp(16px,2.6vw,22px); font-weight:700; color:var(--paper); }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(16px,2.6vw,22px); font-weight:700; color:var(--chrome-text, var(--paper)); }
   header .sub { font-family:'DM Mono',monospace; font-size:10.5px; color:rgba(245,240,232,.6); margin-top:2px; }
-  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--paper); font-family:'DM Mono',monospace; font-size:11px; padding:7px 14px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
+  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--chrome-text, var(--paper)); font-family:'DM Mono',monospace; font-size:11px; padding:7px 14px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
   .nav-link:hover { background:rgba(255,255,255,.18); }
-  .timer-pill { font-family:'DM Mono',monospace; font-size:14px; font-weight:500; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); color:var(--paper); padding:8px 16px; border-radius:99px; }
+  .timer-pill { font-family:'DM Mono',monospace; font-size:14px; font-weight:500; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); color:var(--chrome-text, var(--paper)); padding:8px 16px; border-radius:99px; }
   .timer-pill.low { background:rgba(200,75,49,.35); border-color:var(--wrong); animation:pulse 1s infinite alternate; }
   .timer-pill.paused { opacity:.7; }
   @keyframes pulse { from { opacity:1; } to { opacity:.65; } }
 
   main { padding:26px 32px 80px; max-width:900px; margin:0 auto; }
   .panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:20px 22px; margin-bottom:16px; }
-  .btn { background:var(--ink); color:var(--paper); border:none; padding:11px 20px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13.5px; cursor:pointer; }
+  .btn { background:var(--chrome, var(--ink)); color:var(--chrome-text, var(--paper)); border:none; padding:11px 20px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13.5px; cursor:pointer; }
   .btn:hover { background:#1c2c3d; }
   .btn:disabled { opacity:.5; cursor:default; }
   .btn.accent { background:var(--accent); }
@@ -58,7 +58,7 @@
 
   /* palette */
   .palette { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px; }
-  .pal-btn { width:38px; height:38px; border-radius:8px; border:1.5px solid var(--border); background:#fff; font-family:'DM Mono',monospace; font-size:12px; cursor:pointer; }
+  .pal-btn { width:38px; height:38px; border-radius:8px; border:1.5px solid var(--border); background:var(--card-bg); font-family:'DM Mono',monospace; font-size:12px; cursor:pointer; }
   .pal-btn.answered { background:rgba(45,122,79,.12); border-color:#2d7a4f; color:#2d7a4f; font-weight:700; }
   .pal-btn.current { border-color:var(--accent); box-shadow:0 0 0 2px rgba(74,111,165,.3); }
 
@@ -71,18 +71,18 @@
   .reading-lbl { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
   .qtext { font-size:16px; line-height:1.6; font-weight:600; margin-bottom:14px; }
   .fib-text { font-size:15.5px; line-height:2.2; font-weight:500; }
-  .fib-input { display:inline-block; width:130px; padding:6px 10px; border:1.5px solid var(--accent); border-radius:6px; font-size:14px; font-family:'DM Sans',sans-serif; margin:0 3px; background:#fff; }
+  .fib-input { display:inline-block; width:130px; padding:6px 10px; border:1.5px solid var(--accent); border-radius:6px; font-size:14px; font-family:'DM Sans',sans-serif; margin:0 3px; background:var(--card-bg); }
   .fib-input:focus { outline:none; box-shadow:0 0 0 2px rgba(74,111,165,.25); }
 
   .wordbank-bar { margin-bottom:14px; }
   .wordbank-toggle { background:rgba(122,92,158,.1); border:1px solid rgba(122,92,158,.35); color:#6a4f8c; font-family:'DM Mono',monospace; font-size:11.5px; padding:8px 16px; border-radius:99px; cursor:pointer; }
   .wordbank-toggle:hover { background:rgba(122,92,158,.18); }
   .wordbank-panel { display:flex; flex-wrap:wrap; gap:8px; background:var(--cream); border:1px solid var(--border); border-radius:8px; padding:12px 14px; margin-top:8px; }
-  .wb-word { font-family:'DM Sans',sans-serif; font-size:13px; background:#fff; border:1.5px solid rgba(122,92,158,.4); color:var(--ink); padding:6px 12px; border-radius:99px; cursor:pointer; user-select:none; transition:opacity .12s, border-color .12s; }
+  .wb-word { font-family:'DM Sans',sans-serif; font-size:13px; background:var(--card-bg); border:1.5px solid rgba(122,92,158,.4); color:var(--ink); padding:6px 12px; border-radius:99px; cursor:pointer; user-select:none; transition:opacity .12s, border-color .12s; }
   .wb-word:hover { border-color:#6a4f8c; }
   .wb-word.struck { text-decoration:line-through; opacity:.45; border-style:dashed; }
 
-  .opt { display:flex; gap:10px; align-items:flex-start; border:1.5px solid var(--border); border-radius:8px; padding:12px 14px; margin-bottom:8px; cursor:pointer; font-size:14px; background:#fff; transition:border-color .12s, background .12s; }
+  .opt { display:flex; gap:10px; align-items:flex-start; border:1.5px solid var(--border); border-radius:8px; padding:12px 14px; margin-bottom:8px; cursor:pointer; font-size:14px; background:var(--card-bg); transition:border-color .12s, background .12s; }
   .opt:hover { border-color:var(--accent); }
   .opt.selected { border-color:var(--accent); background:rgba(74,111,165,.07); }
   .opt input { margin-top:3px; }
@@ -101,7 +101,7 @@
   .score-hero { text-align:center; padding:22px; }
   .score-hero .big-score { font-family:'Playfair Display',serif; font-size:44px; font-weight:700; color:var(--accent); }
   .score-hero .pct { font-family:'DM Mono',monospace; font-size:15px; color:var(--mid); margin-top:4px; }
-  .r-q { border:1px solid var(--border); border-radius:9px; padding:14px 16px; margin-bottom:12px; background:#fff; }
+  .r-q { border:1px solid var(--border); border-radius:9px; padding:14px 16px; margin-bottom:12px; background:var(--card-bg); }
   .r-q.correct { border-left:4px solid #2d7a4f; }
   .r-q.wrong { border-left:4px solid var(--wrong); }
   .r-q.pending-mark { border-left:4px solid #7a5c9e; }
@@ -190,10 +190,16 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="tasks-shared.js"></script>
+<script src="/rich-editor.js"></script>
 <script src="/account-cluster.js"></script>
 <script>
 'use strict';
 const esc = taskEscapeHtml;
+// Teacher-authored bank HTML (reading/markScheme/modelAnswer) is rendered raw
+// into innerHTML below, so it must pass the RichText allowlist sanitiser at the
+// render sink (editor-time sanitise is bypassable via the REST API).
+// rich-editor.js is loaded above, so RichText is always present here.
+const _safeHtml = x => (typeof RichText !== 'undefined' && RichText.sanitize) ? RichText.sanitize(x || '') : (x || '');
 const $ = id => document.getElementById(id);
 
 let auth = null;
@@ -435,9 +441,14 @@ function answerHasContent(v) {
 }
 
 // The blank keys for a fib question, in display order (B1, B2, …).
+// fibBlankTokens (tasks-shared.js) reads both marker styles: the positional
+// `_____` and the named `___B1___` the Economics bank uses. Counting raw `___`
+// runs instead (as this used to) double-counts every named marker — a 2-blank
+// question became 4 inputs keyed B1..B4, so B3/B4 could never be marked right.
 function fibBlankKeys(q) {
-  const gaps = (q.snapshot.question.match(/_{3,}/g) || []).length;
-  const n = Math.max(gaps, Math.round(Number(q.marks)) || 1);
+  const keys = fibBlankTokens(q.snapshot.question).filter(t => t.blank != null).map(t => t.blank);
+  if (keys.length) return keys;
+  const n = Math.max(1, Math.round(Number(q.marks)) || 1); // no markers at all
   return Array.from({ length: n }, (_, i) => 'B' + (i + 1));
 }
 
@@ -533,15 +544,12 @@ function renderQuestion() {
   } else if (q.qtype === 'fib') {
     // Rebuild the sentence with an input box in each gap.
     const vals = (a.value && typeof a.value === 'object') ? a.value : {};
-    const keys = fibBlankKeys(q);
-    const parts = snap.question.split(/_{3,}/);
     let html = '<div class="fib-text">';
-    parts.forEach((part, pi) => {
-      html += taskRichText(part);
-      if (pi < parts.length - 1 && pi < keys.length) {
-        const k = keys[pi];
-        html += `<input type="text" class="fib-input" data-bk="${k}" value="${esc(vals[k] || '')}" autocomplete="off" spellcheck="false" aria-label="Blank ${pi + 1}"/>`;
-      }
+    let bn = 0;
+    fibBlankTokens(snap.question).forEach(t => {
+      if (t.blank == null) { html += taskRichText(t.text); return; }
+      const k = t.blank; bn++;
+      html += `<input type="text" class="fib-input" data-bk="${esc(k)}" value="${esc(vals[k] || '')}" autocomplete="off" spellcheck="false" aria-label="Blank ${bn}"/>`;
     });
     html += '</div><div class="muted" style="margin-top:10px;">One mark per blank — spelling matters, capitals don\'t.</div>';
     inputHtml = html;
@@ -558,7 +566,7 @@ function renderQuestion() {
       <span class="qmarks">[${q.marks} mark${Number(q.marks) === 1 ? '' : 's'}]</span>
     </div>
     ${snap.caseStudy ? `<div class="case-study"><strong>Case study:</strong>\n${taskRichText(snap.caseStudy)}</div>` : ''}
-    ${snap.reading ? `<div><div class="reading-lbl">📖 Read this first${snap.readingTitle ? ' — ' + esc(snap.readingTitle) : ''}</div><div class="reading-card">${snap.reading}</div></div>` : ''}
+    ${snap.reading ? `<div><div class="reading-lbl">📖 Read this first${snap.readingTitle ? ' — ' + esc(snap.readingTitle) : ''}</div><div class="reading-card">${_safeHtml(snap.reading)}</div></div>` : ''}
     ${q.qtype === 'fib' ? '' : `<div class="qtext">${taskRichText(snap.question)}</div>`}
     ${inputHtml}`;
 
@@ -807,8 +815,8 @@ async function showResults() {
       if (q.qtype === 'tf' && key.answer != null) keyHtml += `<div class="banner good" style="margin:8px 0;">Correct answer: <strong>${key.answer ? 'True' : 'False'}</strong></div>`;
       if (q.qtype === 'fib' && key.blanks && !counted) keyHtml += `<div class="banner good" style="margin:8px 0;">Answers: ${fibBlankKeys(q).map((k, bi) => `<strong>${bi + 1}.</strong> ${esc(key.blanks[k] ?? '')}`).join(' · ')}</div>`;
       if (key.explain) keyHtml += `<details class="ms"><summary>Explanation</summary><div>${taskRichText(key.explain)}</div></details>`;
-      if (key.markScheme) keyHtml += `<details class="ms"><summary>Mark scheme</summary><div>${key.markScheme}</div></details>`;
-      if (key.modelAnswer) keyHtml += `<details class="ms"><summary>Model answer</summary><div>${key.modelAnswer}</div></details>`;
+      if (key.markScheme) keyHtml += `<details class="ms"><summary>Mark scheme</summary><div>${_safeHtml(key.markScheme)}</div></details>`;
+      if (key.modelAnswer) keyHtml += `<details class="ms"><summary>Model answer</summary><div>${_safeHtml(key.modelAnswer)}</div></details>`;
     }
 
     return `<div class="r-q ${stateClass}">
@@ -819,7 +827,7 @@ async function showResults() {
         ${a ? `<span class="muted" style="margin-left:auto;">⏱ ${fmtDuration(a.time_spent_seconds)}</span>` : ''}
       </div>
       ${snap.caseStudy ? `<details class="ms"><summary>Case study</summary><div>${taskRichText(snap.caseStudy)}</div></details>` : ''}
-      ${snap.reading ? `<details class="ms"><summary>📖 Reading${snap.readingTitle ? ' — ' + esc(snap.readingTitle) : ''}</summary><div>${snap.reading}</div></details>` : ''}
+      ${snap.reading ? `<details class="ms"><summary>📖 Reading${snap.readingTitle ? ' — ' + esc(snap.readingTitle) : ''}</summary><div>${_safeHtml(snap.reading)}</div></details>` : ''}
       <div style="font-size:14px; font-weight:600; margin:6px 0;">${taskRichText(snap.question)}</div>
       ${q.qtype === 'mcq' && !counted ? `<ol class="opts" type="A" style="font-size:13px; padding-left:20px;">${(snap.options || []).map(o => `<li>${esc(o)}</li>`).join('')}</ol>` : ''}
       ${yourAnswerHtml}

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Worksheets — Teacher · GCSE Business Studies</title>
+<title>Worksheets — Teacher</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@300;400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
@@ -14,12 +14,12 @@
   body { background:var(--paper); color:var(--ink); }
   :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
 
-  header { background:var(--ink); border-bottom:3px solid var(--accent); padding:24px 40px 20px; }
+  header { background:var(--chrome, var(--ink)); border-bottom:3px solid var(--accent); padding:24px 40px 20px; }
   .header-inner { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; }
   .header-badge { display:inline-block; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:10px; }
-  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:700; color:var(--paper); margin-bottom:4px; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:700; color:var(--chrome-text, var(--paper)); margin-bottom:4px; }
   header p { font-size:13px; color:rgba(245,240,232,.6); }
-  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--paper); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
+  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--chrome-text, var(--paper)); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
   .nav-link:hover { background:rgba(255,255,255,.18); }
 
   main { padding:28px 40px 80px; max-width:1150px; margin:0 auto; }
@@ -28,8 +28,8 @@
   .section-label:first-child { margin-top:0; }
 
   .panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:20px 22px; margin-bottom:18px; }
-  .btn { background:var(--ink); color:var(--paper); border:none; padding:10px 18px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
-  .btn:hover { background:#1c2c3d; }
+  .btn { background:var(--chrome, var(--ink)); color:var(--chrome-text, var(--paper)); border:none; padding:10px 18px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
+  .btn:hover { filter:brightness(1.3); }
   .btn:disabled { opacity:.5; cursor:default; }
   .btn.secondary { background:transparent; border:1px solid var(--border); color:var(--ink); }
   .btn.secondary:hover { border-color:var(--accent); color:var(--accent); }
@@ -47,7 +47,7 @@
 
   .field { display:flex; flex-direction:column; gap:5px; min-width:0; }
   .field label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); }
-  .field input, .field select, .field textarea { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:13.5px; font-family:'DM Sans',sans-serif; background:#fff; }
+  .field input, .field select, .field textarea { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:13.5px; font-family:'DM Sans',sans-serif; background:var(--card-bg); }
   .field textarea { resize:vertical; min-height:64px; }
   .form-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; }
   .check-row { display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer; }
@@ -112,12 +112,12 @@
   /* question preview modal */
   .qp-overlay { position:fixed; inset:0; background:rgba(20,20,25,.55); display:flex; align-items:flex-start; justify-content:center; padding:5vh 16px; z-index:200; overflow-y:auto; }
   .qp-overlay.hidden { display:none; }
-  .qp-modal { background:#fff; border-radius:10px; max-width:640px; width:100%; padding:20px 22px; box-shadow:0 20px 60px rgba(0,0,0,.35); }
+  .qp-modal { background:var(--card-bg); border-radius:10px; max-width:640px; width:100%; padding:20px 22px; box-shadow:0 20px 60px rgba(0,0,0,.35); }
   .qp-modal-top { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; }
   .qp-modal-top .chips { flex:1; display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
   .qp-close { background:transparent; border:none; font-size:20px; line-height:1; cursor:pointer; color:var(--mid); padding:0 2px; }
   .qp-close:hover { color:var(--ink); }
-  .qcard { border:1px solid var(--border); border-radius:8px; padding:12px 14px; margin-bottom:10px; background:#fff; }
+  .qcard { border:1px solid var(--border); border-radius:8px; padding:12px 14px; margin-bottom:10px; background:var(--card-bg); }
   .qcard.just-added { border-color:var(--gold); background:linear-gradient(rgba(212,168,67,.09),rgba(212,168,67,.09)),#fff; box-shadow:0 0 0 1px var(--gold),0 0 14px rgba(212,168,67,.55); }
   .qcard-top { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:6px; }
   .qcard-top .pos { font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); }
@@ -151,6 +151,9 @@
     --ws-answer-line-h: 7.5mm;
     --ws-blank-w: 34mm;
     display:none;
+    /* This is a printable A4 PAPER preview with fixed black ink — it must
+       stay white paper in every theme (an earlier dark-theme sweep wrongly
+       changed #fff to var(--card-bg), which hid the black text on dark). */
     background:#fff; color:#000;
     font-family:var(--ws-font); font-size:var(--ws-base); line-height:var(--ws-line-h);
     max-width:820px; margin:0 auto 50px; padding:15mm 16mm;
@@ -198,6 +201,11 @@
   .ws-blank-lbl { font-weight:700; font-size:.9em; }
   .ws-case, .ws-reading { border:1px solid #555; border-left:3px solid var(--ws-accent); padding:6px 10px; margin:8px 0 7px; font-size:.93em; break-inside:avoid; page-break-inside:avoid; }
   .ws-case-lbl, .ws-reading-lbl { font-weight:700; font-size:.9em; margin-bottom:2px; }
+  /* Tables embedded in a case study / reading (e.g. an exam data table). */
+  .ws-case table, .ws-reading table { border-collapse:collapse; width:auto; max-width:100%; margin:5px 0; font-size:.92em; }
+  .ws-case th, .ws-case td, .ws-reading th, .ws-reading td { border:1px solid #888; padding:3px 7px; text-align:left; vertical-align:top; }
+  .ws-case th, .ws-reading th { font-weight:700; }
+  .ws-case img, .ws-reading img { max-width:100%; height:auto; }
   .ws-wordbank { border:1.6px solid var(--ws-accent); border-radius:4px; padding:6px 10px; margin:5px 0 10px; break-inside:avoid; page-break-inside:avoid; }
   .ws-wordbank-lbl { font-weight:700; font-size:.85em; letter-spacing:.04em; text-transform:uppercase; margin-bottom:3px; }
   .ws-wordbank .words { display:flex; flex-wrap:wrap; gap:3px 14px; }
@@ -220,8 +228,11 @@
 
   @page { margin: 13mm; }
   @media print {
-    header, main, .qp-overlay, .no-print { display:none !important; }
-    body { background:#fff !important; }
+    /* .teacher-nav / .site-band are injected by teacher-nav.js AFTER <header>
+       (siblings, not children), so hiding header alone left the nav bar in
+       the printed PDF — hide them (and the footer) explicitly. */
+    header, main, .qp-overlay, .no-print, .teacher-nav, .site-band, footer, .site-footer { display:none !important; }
+    body { background:var(--card-bg) !important; }
     #printRoot { display:block !important; max-width:none !important; margin:0 !important; padding:0 !important; border:none !important; box-shadow:none !important; }
   }
 
@@ -236,11 +247,6 @@
       <div class="header-badge">OCR GCSE Business Studies · J204</div>
       <h1>🖨️ Worksheet Builder</h1>
       <p>Build printable question sheets from the same bank your online tasks use — answers always land on the final page</p>
-    </div>
-    <div style="display:flex; gap:8px; flex-wrap:wrap;">
-      <a class="nav-link" href="teacher-dashboard.html">← Teacher Dashboard</a>
-      <a class="nav-link" href="teacher-tasks.html">📋 Tasks</a>
-      <a class="nav-link" href="/hub.html">Site Home</a>
     </div>
   </div>
 </header>
@@ -291,7 +297,7 @@
         <div class="form-grid">
           <div class="field" style="grid-column:1/-1;">
             <label for="oTitle">Worksheet title</label>
-            <input type="text" id="oTitle" maxlength="120" value="Business Revision Worksheet"/>
+            <input type="text" id="oTitle" maxlength="120" value="Revision Worksheet"/>
           </div>
           <div class="field" style="grid-column:1/-1;">
             <label for="oInstructions">Instructions to students (optional)</label>
@@ -410,6 +416,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="tasks-shared.js"></script>
+<script src="/rich-editor.js"></script>
 <script src="/subjects-index.js"></script>
 <script src="/page-groups-all.js"></script>
 <script src="/section-totals-all.js"></script>
@@ -422,6 +429,11 @@
 <script>
 'use strict';
 const esc = taskEscapeHtml;
+// Teacher-authored bank HTML (reading/markScheme) is rendered raw into
+// innerHTML below, so it must pass the RichText allowlist sanitiser at the
+// render sink (editor-time sanitise is bypassable via the REST API).
+// rich-editor.js is loaded above, so RichText is always present here.
+const _safeHtml = x => (typeof RichText !== 'undefined' && RichText.sanitize) ? RichText.sanitize(x || '') : (x || '');
 let auth = null;
 
 // Builder state — same variable names as teacher-tasks.html so the picker
@@ -448,10 +460,30 @@ const DRAFT_KEY = 'ws_draft_v1';
 // ══════════ SUBJECT PICKER ══════════
 // Worksheets aren't class-scoped, so (unlike teacher-tasks.html) there's no
 // class to derive the subject from — a plain dropdown, defaulting to business.
-function populateSubjectSelect() {
+async function populateSubjectSelect() {
   const sel = $('subjectSelect');
+  // Teacher-authored subjects (docs/TEACHER-SUBJECTS-SPEC.md) aren't in the
+  // generated /subjects-index.js registry — pull them from the database and
+  // register lightweight entries (custom:true) so they appear alongside the
+  // platform subjects. Choosing one routes loadSubjectBank →
+  // loadCustomSubjectBank, which fills in its topic tree from custom_topics.
+  try {
+    const { data, error } = await auth.client.rpc('get_my_teacher_subjects');
+    if (!error && Array.isArray(data)) {
+      window.SUBJECTS = window.SUBJECTS || [];
+      data.forEach(s => {
+        if (window.SUBJECTS.some(x => x.slug === s.slug)) return;
+        window.SUBJECTS.push({
+          slug: s.slug, name: s.name, colour: s.colour, icon: s.icon,
+          level: s.level || '', examBoard: s.exam_board || '', custom: true,
+        });
+      });
+    }
+  } catch (e) { console.error('populateSubjectSelect: custom subjects', e); }
   const subjects = window.SUBJECTS || [];
-  sel.innerHTML = subjects.map(s => `<option value="${s.slug}">${s.icon ? s.icon + ' ' : ''}${esc(s.name)}</option>`).join('');
+  sel.innerHTML = subjects.map(s =>
+    `<option value="${esc(s.slug)}">${s.icon ? esc(s.icon) + ' ' : ''}${esc(s.name)}${s.custom ? ' · your subject' : ''}</option>`
+  ).join('');
   sel.value = 'business';
 }
 
@@ -476,6 +508,7 @@ async function changeSubject(slug) {
     $('subjectSelect').disabled = false;
     return;
   }
+  syncDefaultTitle(); // retitle for the new subject (unless the teacher edited it)
   renderPicker();
   renderReview();
   updateOptsSummary();
@@ -487,7 +520,7 @@ async function changeSubject(slug) {
 async function init() {
   auth = await tasksAuthInit('teacher');
   if (!auth) return;
-  populateSubjectSelect();
+  await populateSubjectSelect();
   try {
     await loadSubjectBank($('subjectSelect').value);
   } catch (e) {
@@ -495,6 +528,8 @@ async function init() {
     $('pickerContainer').innerHTML = '<div class="empty">Could not load the question bank — try reloading the page.</div>';
     return;
   }
+  syncDefaultTitle(); // title matches the initial subject before any edits
+  $('oTitle').addEventListener('input', () => { titleTouched = true; });
   renderPicker();
   renderReview();
   offerDraft();
@@ -715,14 +750,14 @@ function updatePickSummary() {
 }
 
 function questionBodyHtml(q, { truncateCase, openMarkScheme } = {}) {
-  const caseText = q.caseStudy ? (truncateCase && q.caseStudy.length > 260 ? esc(taskStripTags(q.caseStudy).slice(0, 260)) + '…' : taskRichText(q.caseStudy)) : '';
+  const caseText = q.caseStudy ? (truncateCase && q.caseStudy.length > 260 ? esc(taskStripTags(q.caseStudy).slice(0, 260)) + '…' : caseStudyHtml(q.caseStudy)) : '';
   return `
     ${q.caseStudy ? `<div class="case">${caseText}</div>` : ''}
-    ${q.reading ? `<details class="ms"><summary>📖 Reading shown with this question${q.readingTitle ? ' — ' + esc(q.readingTitle) : ''}</summary><div class="reading-preview">${q.reading}</div></details>` : ''}
+    ${q.reading ? `<details class="ms"><summary>📖 Reading shown with this question${q.readingTitle ? ' — ' + esc(q.readingTitle) : ''}</summary><div class="reading-preview">${_safeHtml(q.reading)}</div></details>` : ''}
     <div class="qtext">${taskRichText(q.question)}</div>
     ${q.options ? `<ol class="opts" type="A">${q.options.map(o => `<li>${esc(o)}</li>`).join('')}</ol>` : ''}
     ${q.type === 'fib' && q.key && q.key.blanks ? `<details class="ms"><summary>Blank answers</summary><div>${Object.entries(q.key.blanks).map(([k, v]) => `<span class="mono">${esc(k)}:</span> ${esc(v)}`).join(' · ')}</div></details>` : ''}
-    ${q.key && (q.key.markScheme || q.key.explain) ? `<details class="ms" ${openMarkScheme ? 'open' : ''}><summary>Mark scheme / answer</summary><div>${q.key.markScheme || taskRichText(q.key.explain || '')}</div></details>` : ''}
+    ${q.key && (q.key.markScheme || q.key.explain) ? `<details class="ms" ${openMarkScheme ? 'open' : ''}><summary>Mark scheme / answer</summary><div>${q.key.markScheme ? _safeHtml(q.key.markScheme) : taskRichText(q.key.explain || '')}</div></details>` : ''}
     ${q.key && q.key.modelAnswer ? `<details class="ms"><summary>Model answer</summary><div>${taskRichText(q.key.modelAnswer)}</div></details>` : ''}`;
 }
 
@@ -805,9 +840,36 @@ $('reviewList').addEventListener('click', e => {
 });
 
 // ══════════ OPTIONS ══════════
+
+// The worksheet header used to hardcode "Business Revision Worksheet" /
+// "OCR GCSE Business Studies (J204)" regardless of the chosen subject.
+// These derive both from window.SUBJECT (set by loadSubjectBank when the
+// subject dropdown changes), so a CS / Economics / teacher-made worksheet
+// is labelled correctly.
+function subjectName() {
+  const s = window.SUBJECT || {};
+  return s.name || 'Revision';
+}
+function defaultWorksheetTitle() {
+  return subjectName() + ' Revision Worksheet';
+}
+function subjectCourseLabel() {
+  const s = window.SUBJECT || {};
+  const board = s.examBoard || s.exam_board || '';
+  const spec = s.specCode || s.spec_code || '';
+  return [board, s.name || 'Worksheet'].filter(Boolean).join(' ') + (spec ? ' (' + spec + ')' : '');
+}
+// Keep the (untouched) title box in step with the chosen subject. Once the
+// teacher edits the title themselves, we stop overwriting it (titleTouched).
+let titleTouched = false;
+function syncDefaultTitle() {
+  if (!titleTouched) $('oTitle').value = defaultWorksheetTitle();
+}
+
 function readOpts() {
   return {
-    title: $('oTitle').value.trim() || 'Business Revision Worksheet',
+    title: $('oTitle').value.trim() || defaultWorksheetTitle(),
+    course: subjectCourseLabel(),
     instructions: $('oInstructions').value.trim(),
     style: $('oStyle').value,                              // 'compact' | 'site'
     size: $('oSize').value,                                // 'std' | 'lg' | 'xl'
@@ -826,7 +888,8 @@ function readOpts() {
 }
 
 function writeOpts(o) {
-  $('oTitle').value = o.title || 'Business Revision Worksheet';
+  $('oTitle').value = o.title || defaultWorksheetTitle();
+  if (o.title) titleTouched = true; // a saved draft's title is a real choice
   $('oInstructions').value = o.instructions || '';
   $('oStyle').value = o.style || 'compact';
   $('oSize').value = o.size || 'std';
@@ -1110,6 +1173,18 @@ function renderMatchItem(it, opts) {
     </div>${marksTag(it.marks, opts)}</div>`;
 }
 
+// A case study is TRUSTED, build-authored HTML — exam extracts, figures and
+// tables that carry attributes (e.g. <table class="case-table">). taskRichText
+// only restores BARE tags, so it left `<table class="case-table">` as literal
+// text and orphaned the <tr>/<td> into a mashed line. Render it raw, exactly
+// like the topic page (script.js) and like `reading`/`markScheme` here — just
+// collapse inter-tag newlines and turn prose newlines into <br>. (Only
+// platform build content ever populates caseStudy; teacher-authored exam
+// questions have caseStudy = '', so no untrusted input reaches this.)
+function caseStudyHtml(s) {
+  return String(s || '').replace(/>\s*\n\s*</g, '><').replace(/\n/g, '<br>');
+}
+
 // Renders the mixed (non-FIB) items, boxing shared case studies / readings
 // once for each consecutive run instead of repeating them per question.
 function renderMixedItems(items, opts) {
@@ -1121,7 +1196,7 @@ function renderMixedItems(items, opts) {
       let j = i;
       while (j + 1 < items.length && items[j + 1].kind === 'q' && items[j + 1].q.caseStudy === it.q.caseStudy) j++;
       const range = j > i ? `questions ${it.num}–${items[j].num}` : `question ${it.num}`;
-      html += `<div class="ws-case"><div class="ws-case-lbl">📋 Case study — read it, then answer ${esc(range)}.</div>${taskRichText(it.q.caseStudy)}</div>`;
+      html += `<div class="ws-case"><div class="ws-case-lbl">📋 Case study — read it, then answer ${esc(range)}.</div>${caseStudyHtml(it.q.caseStudy)}</div>`;
       for (let k = i; k <= j; k++) html += renderWorksheetQuestion(items[k], opts);
       i = j + 1;
       continue;
@@ -1131,7 +1206,7 @@ function renderMixedItems(items, opts) {
       while (j + 1 < items.length && items[j + 1].kind === 'q' && items[j + 1].q.reading
         && items[j + 1].q.readingTitle === it.q.readingTitle) j++;
       const range = j > i ? `questions ${it.num}–${items[j].num}` : `question ${it.num}`;
-      html += `<div class="ws-reading"><div class="ws-reading-lbl">📖 ${esc(it.q.readingTitle || 'Reading')} — read it, then answer ${esc(range)}.</div>${it.q.reading}</div>`;
+      html += `<div class="ws-reading"><div class="ws-reading-lbl">📖 ${esc(it.q.readingTitle || 'Reading')} — read it, then answer ${esc(range)}.</div>${_safeHtml(it.q.reading)}</div>`;
       for (let k = i; k <= j; k++) html += renderWorksheetQuestion(items[k], opts);
       i = j + 1;
       continue;
@@ -1153,7 +1228,7 @@ function renderWordBank(bank) {
 function renderWorksheet(model, opts) {
   let html = `<div class="ws-head">
     <div class="ws-title">${esc(opts.title)}</div>
-    <div class="ws-course">OCR GCSE Business Studies (J204)</div>
+    <div class="ws-course">${esc(opts.course || subjectCourseLabel())}</div>
     ${opts.nameLine ? `<div class="ws-nameline">
       <span>Name: <span class="fill"></span></span>
       <span>Class: <span class="fill short"></span></span>
@@ -1205,9 +1280,9 @@ function keyEntry(it, opts) {
   }
   // written
   let body;
-  if (detailed && q.key && q.key.markScheme) body = q.key.markScheme; // trusted site-generated HTML
+  if (detailed && q.key && q.key.markScheme) body = _safeHtml(q.key.markScheme);
   else if (q.key && q.key.modelAnswer) body = `<div class="expl">${taskRichText(q.key.modelAnswer)}</div>`;
-  else if (q.key && q.key.markScheme) body = q.key.markScheme;
+  else if (q.key && q.key.markScheme) body = _safeHtml(q.key.markScheme);
   else body = '<div class="expl">(teacher judgement)</div>';
   return `<div class="ws-key-item"><strong>${it.num}.</strong> <em>Written — ${q.marks} mark${q.marks === 1 ? '' : 's'}</em>${body}</div>`;
 }
@@ -1303,5 +1378,6 @@ $('docBtn').addEventListener('click', downloadDoc);
 init();
 </script>
 <script src="teacher-nav.js"></script>
+  <script src="searchable-select.js" defer></script>
 </body>
 </html>

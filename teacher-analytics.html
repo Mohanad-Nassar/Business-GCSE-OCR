@@ -14,18 +14,18 @@
   body { background:var(--paper); color:var(--ink); }
   :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
 
-  header { background:var(--ink); border-bottom:3px solid var(--accent); padding:24px 40px 20px; }
+  header { background:var(--chrome, var(--ink)); border-bottom:3px solid var(--accent); padding:24px 40px 20px; }
   .header-inner { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; }
   .header-badge { display:inline-block; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:10px; }
-  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:700; color:var(--paper); margin-bottom:4px; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:700; color:var(--chrome-text, var(--paper)); margin-bottom:4px; }
   header p { font-size:13px; color:rgba(245,240,232,.6); }
-  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--paper); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
+  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--chrome-text, var(--paper)); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
   .nav-link:hover { background:rgba(255,255,255,.18); }
 
   main { padding:28px 40px 80px; max-width:1150px; margin:0 auto; }
   .panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:20px 22px; margin-bottom:18px; }
-  .btn { background:var(--ink); color:var(--paper); border:none; padding:10px 18px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
-  .btn:hover { background:#1c2c3d; }
+  .btn { background:var(--chrome, var(--ink)); color:var(--chrome-text, var(--paper)); border:none; padding:10px 18px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
+  .btn:hover { filter:brightness(1.3); }
   .btn.secondary { background:transparent; border:1px solid var(--border); color:var(--ink); }
   .btn.secondary:hover { border-color:var(--accent); color:var(--accent); }
   .btn.small { padding:6px 12px; font-size:11.5px; }
@@ -41,7 +41,7 @@
 
   .field { display:flex; flex-direction:column; gap:5px; min-width:0; }
   .field label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); }
-  .field select { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:13.5px; font-family:'DM Sans',sans-serif; background:#fff; }
+  .field select { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:13.5px; font-family:'DM Sans',sans-serif; background:var(--card-bg); }
 
   .tiles { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:18px; }
   .tile { flex:1; min-width:110px; background:var(--cream); border:1px solid var(--border); border-radius:9px; padding:12px 14px; }
@@ -80,7 +80,7 @@
   @media (max-width:900px) { .qa-cols { grid-template-columns:1fr; } }
   .qa-col-least { border-left:4px solid var(--wrong); }
   .qa-col-most { border-left:4px solid #2d7a4f; }
-  .qa-card { background:#fff; border:1px solid var(--border); border-radius:8px; padding:12px 14px; margin-bottom:10px; }
+  .qa-card { background:var(--card-bg); border:1px solid var(--border); border-radius:8px; padding:12px 14px; margin-bottom:10px; }
   .qa-card .qa-q { font-size:13px; font-weight:600; margin-bottom:2px; }
   .qa-card .qa-meta { font-family:'DM Mono',monospace; font-size:10.5px; color:var(--mid); margin-bottom:8px; }
   .ans-dist-row { display:flex; align-items:center; gap:8px; font-size:11.5px; margin-bottom:4px; }
@@ -158,16 +158,12 @@
       <h1>📈 Daily Revise Analytics</h1>
       <p id="headerSub">Cross-topic practice — usage, mastery and question performance</p>
     </div>
-    <div style="display:flex; gap:8px; flex-wrap:wrap;">
-      <a class="nav-link" href="teacher-dashboard.html">← Teacher Dashboard</a>
-      <a class="nav-link" href="/hub.html">Site Home</a>
-    </div>
   </div>
 </header>
 
 <main>
   <div class="toolbar">
-    <select id="classPicker" title="Choose a class" aria-label="Choose a class" style="padding:8px 12px; border:1px solid var(--border); border-radius:7px; font-size:13px; font-family:'DM Sans',sans-serif; background:#fff; margin-right:6px;"></select>
+    <select id="classPicker" title="Choose a class" aria-label="Choose a class" style="padding:8px 12px; border:1px solid var(--border); border-radius:7px; font-size:13px; font-family:'DM Sans',sans-serif; background:var(--card-bg); margin-right:6px;"></select>
     <button type="button" class="subtab active" data-atab="usage">📊 Usage</button>
     <button type="button" class="subtab" data-atab="overview">👥 Student overview</button>
     <button type="button" class="subtab" data-atab="questions">❓ Question analysis</button>
@@ -175,18 +171,40 @@
     <button type="button" class="ana-filter-toggle" id="anaFilterToggleBtn" style="margin-left:auto;">🔍 Filter by topic</button>
   </div>
 
-  <div class="filter-backdrop" id="anaFilterBackdrop"></div>
-  <aside class="filter-sidebar" id="anaFilterPanel" aria-label="Filter by topic">
-    <div class="filter-sidebar-head">
-      <strong style="font-size:13px;">Scope this whole page to specific topics</strong>
-      <button type="button" class="filter-sidebar-close" id="anaFilterCloseBtn" aria-label="Close">✕</button>
+  <!-- ⚙️ Daily Revise class settings — the same controls as the Teacher
+       Dashboard's Daily Revise tab (mode / topic scope / cap / timers),
+       editable right here so a teacher never has to hop back. ONE Save
+       button writes everything at once. -->
+  <details class="panel" id="drSettingsPanel" style="display:none;">
+    <summary style="cursor:pointer; font-weight:600; font-size:13.5px;">⚙️ Daily Revise settings for this class <span class="muted">— scope, workload and pacing (click to open)</span></summary>
+    <div style="margin-top:14px;">
+      <div class="field" style="margin-bottom:12px;">
+        <label>Who controls which topics students practise?</label>
+        <div id="drsModeRow" style="display:flex; flex-direction:column; gap:6px; font-size:13px;">
+          <label style="display:flex; gap:8px; align-items:flex-start;"><input type="radio" name="drsMode" value="teacher_controlled"/> <span><strong>🔒 Teacher controlled</strong> <span class="muted">— you pick the active topics below; students can't change it</span></span></label>
+          <label style="display:flex; gap:8px; align-items:flex-start;"><input type="radio" name="drsMode" value="teacher_guided"/> <span><strong>🧭 Teacher guided</strong> <span class="muted">— students filter within the topics you allow below</span></span></label>
+          <label style="display:flex; gap:8px; align-items:flex-start;"><input type="radio" name="drsMode" value="student_controlled"/> <span><strong>🎛️ Student controlled</strong> <span class="muted">— students filter freely</span></span></label>
+        </div>
+      </div>
+      <div id="drsTopicsWrap" style="margin-bottom:12px;">
+        <label style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); display:block; margin-bottom:6px;">Active topics</label>
+        <div id="drsTopicsGrid"></div>
+      </div>
+      <div style="display:flex; gap:18px; flex-wrap:wrap; align-items:flex-end;">
+        <div class="field"><label for="drsWeeklyCap">📅 Weekly cap (questions)</label>
+          <div style="display:flex; gap:8px; align-items:center;">
+            <input type="number" id="drsWeeklyCap" min="1" max="1000" step="1" style="width:90px; padding:8px 10px; border:1px solid var(--border); border-radius:6px;"/>
+            <label style="display:inline-flex; align-items:center; gap:5px; font-size:12.5px;"><input type="checkbox" id="drsUnlimited"/> Unlimited</label>
+          </div></div>
+        <div class="field"><label for="drsPre">📖 Reading time (s)</label>
+          <input type="number" id="drsPre" min="0" max="60" step="1" style="width:80px; padding:8px 10px; border:1px solid var(--border); border-radius:6px;"/></div>
+        <div class="field"><label for="drsPost">⏳ Pause after answer (s)</label>
+          <input type="number" id="drsPost" min="0" max="60" step="1" style="width:80px; padding:8px 10px; border:1px solid var(--border); border-radius:6px;"/></div>
+        <button type="button" class="btn" id="drsSaveBtn">💾 Save all settings</button>
+      </div>
+      <div class="muted" id="drsMsg" style="margin-top:8px; min-height:16px; font-family:'DM Mono',monospace;"></div>
     </div>
-    <p class="muted" id="anaFilterNote" style="margin:6px 0 10px;">Nothing ticked = every topic. Applies to Usage, Student overview, Question analysis and Class matrix together.</p>
-    <div id="anaFilterGroups"></div>
-    <div class="filter-sidebar-foot">
-      <button type="button" class="btn" id="anaFilterUpdateBtn" style="width:100%;">Update</button>
-    </div>
-  </aside>
+  </details>
 
   <!-- Usage -->
   <div id="atab-usage" class="panel">
@@ -261,6 +279,25 @@
   </div>
 </main>
 
+<!-- Filter-by-topic overlay lives at BODY level, NOT inside <main>. As a
+     position:fixed overlay it must never sit inside an element that can gain
+     a transform (main carries the fadeUp page-load animation) — a transformed
+     ancestor becomes the containing block for fixed descendants, which pins
+     the panel to main's box and drops it into the page flow instead of
+     overlaying the viewport. Body-level keeps it viewport-fixed regardless. -->
+<div class="filter-backdrop" id="anaFilterBackdrop"></div>
+<aside class="filter-sidebar" id="anaFilterPanel" aria-label="Filter by topic">
+  <div class="filter-sidebar-head">
+    <strong style="font-size:13px;">Scope this whole page to specific topics</strong>
+    <button type="button" class="filter-sidebar-close" id="anaFilterCloseBtn" aria-label="Close">✕</button>
+  </div>
+  <p class="muted" id="anaFilterNote" style="margin:6px 0 10px;">Nothing ticked = every topic. Applies to Usage, Student overview, Question analysis and Class matrix together.</p>
+  <div id="anaFilterGroups"></div>
+  <div class="filter-sidebar-foot">
+    <button type="button" class="btn" id="anaFilterUpdateBtn" style="width:100%;">Update</button>
+  </div>
+</aside>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/subjects-index.js"></script>
 <script src="/page-groups-all.js"></script>
@@ -305,6 +342,13 @@ async function init() {
   picker.innerHTML = '<option value="">— choose a class —</option>' +
     (myClasses || []).map(c => `<option value="${esc(c.id)}"${c.id === classId ? ' selected' : ''}>${esc(c.name)}</option>`).join('');
   picker.addEventListener('change', () => {
+    // Instant feedback that the switch registered — the actual page swap
+    // gets a native crossfade from the @view-transition rule in
+    // business-style.css where supported; this dim covers the gap
+    // everywhere else instead of an abrupt white flash.
+    picker.disabled = true;
+    document.body.style.transition = 'opacity .15s ease';
+    document.body.style.opacity = '.45';
     location.search = picker.value ? '?class=' + encodeURIComponent(picker.value) : '';
   });
 
@@ -317,7 +361,7 @@ async function init() {
 
   const [{ data: cls }, { data: members }] = await Promise.all([
     auth.client.from('classes').select('name').eq('id', classId).single(),
-    auth.client.from('class_students').select('profiles!inner(id, username)').eq('class_id', classId),
+    auth.client.from('class_students').select('profiles!student_id!inner(id, username)').eq('class_id', classId),
   ]);
   if (cls) $('headerSub').textContent = `${cls.name} — Daily Revise usage, mastery and question performance`;
   // { numeric: true } -> natural sort ("S9…" before "S32…" instead of
@@ -328,9 +372,121 @@ async function init() {
   roster.forEach(s => { byId[s.id] = s.username; });
   nameOf = id => byId[id] || id.slice(0, 8);
 
+  await resolveClassSubject();
   setupTopicFilter();
+  setupDrSettings(); // fire-and-forget — the panel hides itself on error
   loadAll();
 }
+
+// subjectLoaderInit() ran at page load from ?subject=/localStorage — before
+// we knew which class this is — so window.SUBJECT/PAGE_GROUPS may point at
+// the wrong subject (or, for a teacher-authored subject, an empty tree).
+// Re-resolve from the class's REAL subject so the topic-filter grid and
+// question-performance views match it, hydrating a custom subject's tree
+// from the database (docs/TEACHER-SUBJECTS-SPEC.md) when needed.
+async function resolveClassSubject() {
+  try {
+    const { data } = await auth.client.from('classes')
+      .select('subjects(slug, name, colour, icon)').eq('id', classId).single();
+    const embedded = data && data.subjects;
+    const slug = embedded && embedded.slug;
+    if (!slug) return;
+    const knownStatic = (window.SUBJECTS || []).some(s => s.slug === slug && !s.custom) ||
+      (window.PAGE_GROUPS_ALL && window.PAGE_GROUPS_ALL[slug]);
+    if (knownStatic) {
+      window.SUBJECT = (window.SUBJECTS || []).find(s => s.slug === slug) || embedded;
+      window.PAGE_GROUPS = (window.PAGE_GROUPS_ALL && window.PAGE_GROUPS_ALL[slug]) || [];
+    } else if (typeof loadCustomSubjectBank === 'function') {
+      window._tasksClient = window._tasksClient || auth.client;
+      await loadCustomSubjectBank(slug);
+    }
+  } catch (e) { console.error('resolveClassSubject', e); }
+}
+
+// ── ⚙️ Daily Revise class settings (mirrors the Teacher Dashboard's Daily
+// Revise tab; single Save writes the classes patch AND the topic filter). ──
+let drsInactive = new Set();      // page_ids currently deactivated
+let drsOpenGroups = new Set();
+
+async function setupDrSettings() {
+  try {
+    const [{ data: cls, error }, { data: filterRows }] = await Promise.all([
+      auth.client.from('classes').select('*').eq('id', classId).single(),
+      auth.client.from('class_topic_filter_active').select('page_id, active').eq('class_id', classId),
+    ]);
+    if (error || !cls) return;
+    drsInactive = new Set((filterRows || []).filter(r => r.active === false).map(r => r.page_id));
+
+    const mode = cls.daily_revise_topic_mode || 'teacher_controlled';
+    const radio = document.querySelector(`input[name="drsMode"][value="${mode}"]`);
+    if (radio) radio.checked = true;
+    const cap = cls.daily_revise_weekly_cap;
+    $('drsUnlimited').checked = cap == null;
+    $('drsWeeklyCap').value = cap != null ? cap : 100;
+    $('drsWeeklyCap').disabled = cap == null;
+    $('drsPre').value = cls.daily_revise_pre_seconds != null ? cls.daily_revise_pre_seconds : 5;
+    $('drsPost').value = cls.daily_revise_post_seconds != null ? cls.daily_revise_post_seconds : 5;
+
+    renderDrsTopics();
+    updateDrsTopicsVisibility();
+    $('drSettingsPanel').style.display = '';
+  } catch (e) { console.error('setupDrSettings', e); }
+}
+
+function updateDrsTopicsVisibility() {
+  const mode = document.querySelector('input[name="drsMode"]:checked')?.value || 'teacher_controlled';
+  // Same rule as the dashboard: only student_controlled hides the grid.
+  $('drsTopicsWrap').style.display = mode === 'student_controlled' ? 'none' : '';
+}
+
+function renderDrsTopics() {
+  if (typeof renderTopicFilterGrid !== 'function' || typeof PAGE_GROUPS === 'undefined') return;
+  renderTopicFilterGrid($('drsTopicsGrid'), {
+    isChecked: pid => !drsInactive.has(pid),
+    onToggle: (pids, checked) => pids.forEach(pid => checked ? drsInactive.delete(pid) : drsInactive.add(pid)),
+    countLabel: (n, total) => `${n}/${total} active`,
+    bulkButtons: [
+      { label: '✅ Activate all', onClick: all => all.forEach(pid => drsInactive.delete(pid)) },
+      { label: '🚫 Deactivate all', onClick: all => all.forEach(pid => drsInactive.add(pid)) },
+    ],
+    openGroups: drsOpenGroups,
+  });
+}
+
+document.querySelectorAll('input[name="drsMode"]').forEach(r =>
+  r.addEventListener('change', updateDrsTopicsVisibility));
+$('drsUnlimited').addEventListener('change', e => { $('drsWeeklyCap').disabled = e.target.checked; });
+
+$('drsSaveBtn').addEventListener('click', async () => {
+  const msg = $('drsMsg');
+  const mode = document.querySelector('input[name="drsMode"]:checked')?.value || 'teacher_controlled';
+  const unlimited = $('drsUnlimited').checked;
+  const patch = {
+    daily_revise_topic_mode: mode,
+    daily_revise_weekly_cap: unlimited ? null : (parseInt($('drsWeeklyCap').value, 10) || 100),
+    daily_revise_pre_seconds: Math.max(0, Math.min(60, parseInt($('drsPre').value, 10) || 0)),
+    daily_revise_post_seconds: Math.max(0, Math.min(60, parseInt($('drsPost').value, 10) || 0)),
+  };
+  $('drsSaveBtn').disabled = true;
+  try {
+    const { error: clsErr } = await auth.client.from('classes').update(patch).eq('id', classId);
+    if (clsErr) throw clsErr;
+    if (mode !== 'student_controlled') {
+      const all = [];
+      PAGE_GROUPS.forEach(g => flatPages(g).forEach(p => all.push(p.id)));
+      const rows = all.map(pid => ({ class_id: classId, page_id: pid, active: !drsInactive.has(pid) }));
+      const { error: filtErr } = await auth.client.from('class_topic_filter_active').upsert(rows);
+      if (filtErr) throw filtErr;
+    }
+    msg.style.color = '#2d7a4f';
+    msg.textContent = '✓ Saved — applies the next time a student opens Daily Revise.';
+  } catch (e) {
+    msg.style.color = 'var(--wrong)';
+    msg.textContent = e.message || 'Could not save.';
+    console.error('drsSave', e);
+  }
+  $('drsSaveBtn').disabled = false;
+});
 
 function loadAll() {
   loadUsage();
@@ -686,5 +842,6 @@ init();
 </script>
 <script src="teacher-nav.js"></script>
 <script src="footer-legal.js"></script>
+  <script src="searchable-select.js" defer></script>
 </body>
 </html>

@@ -154,10 +154,10 @@ function _tourInjectStyles() {
 .gcse-tour-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;}
 .gcse-tour-skip{background:none;border:none;color:var(--mid,#5a6e7f);font-size:12.5px;cursor:pointer;padding:6px 4px;}
 .gcse-tour-skip:hover{color:var(--ink,#1a2332);text-decoration:underline;}
-.gcse-tour-next{background:var(--ink,#0f1923);color:var(--paper,#f5f0e8);border:none;padding:9px 18px;
+.gcse-tour-next{background:var(--chrome, var(--ink,#0f1923));color:var(--chrome-text, var(--paper,#f5f0e8));border:none;padding:9px 18px;
   border-radius:7px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:13px;cursor:pointer;}
 .gcse-tour-next:hover{background:#1c2c3d;}
-.gcse-tour-replay{background:none;border:1px dashed rgba(255,255,255,.35);color:var(--paper,#f5f0e8);
+.gcse-tour-replay{background:none;border:1px dashed rgba(255,255,255,.35);color:var(--chrome-text, var(--paper,#f5f0e8));
   font-family:'DM Mono',monospace;font-size:11px;padding:6px 12px;border-radius:99px;cursor:pointer;}
 .gcse-tour-replay:hover{border-color:var(--gold,#d4a843);color:var(--gold,#d4a843);}
 @media (max-width:520px){

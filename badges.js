@@ -34,10 +34,11 @@ async function init() {
     });
   }
 
-  const [streak, drStats, reviewStats] = await Promise.all([
+  const [streak, drStats, reviewStats, lbStats] = await Promise.all([
     typeof gamificationRefreshStreak === 'function' ? gamificationRefreshStreak(bdgClient) : 0,
     typeof gamificationRefreshDailyReviseStats === 'function' ? gamificationRefreshDailyReviseStats(bdgClient) : { correctCount: 0, masteredCount: 0 },
     typeof gamificationRefreshReviewStats === 'function' ? gamificationRefreshReviewStats(bdgClient) : { completed: 0 },
+    typeof gamificationRefreshLeaderboardStats === 'function' ? gamificationRefreshLeaderboardStats(bdgClient) : { everTop10: false, everTop3: false, everFirst: false },
   ]);
   // Pulls this student's full per-topic progress over from the server and
   // merges it with whatever's in this device's localStorage — same
@@ -49,7 +50,7 @@ async function init() {
   }
 
   const progress = typeof _gamProgressData === 'function' ? _gamProgressData() : {};
-  const stats = computeGamificationStats(progress, streak, drStats, reviewStats);
+  const stats = computeGamificationStats(progress, streak, drStats, reviewStats, lbStats);
   render(stats);
   if (typeof gamificationCheckNewBadges === 'function') gamificationCheckNewBadges(stats);
 }

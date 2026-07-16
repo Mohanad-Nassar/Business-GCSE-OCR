@@ -14,12 +14,12 @@
   body { background:var(--paper); color:var(--ink); }
   :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
 
-  header { background:var(--ink); border-bottom:3px solid var(--accent); padding:24px 40px 20px; }
+  header { background:var(--chrome, var(--ink)); border-bottom:3px solid var(--accent); padding:24px 40px 20px; }
   .header-inner { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; }
   .header-badge { display:inline-block; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:10px; }
-  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:700; color:var(--paper); margin-bottom:4px; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:700; color:var(--chrome-text, var(--paper)); margin-bottom:4px; }
   header p { font-size:13px; color:rgba(245,240,232,.6); }
-  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--paper); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
+  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--chrome-text, var(--paper)); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
   .nav-link:hover { background:rgba(255,255,255,.18); }
 
   main { padding:28px 40px 80px; max-width:1150px; margin:0 auto; }
@@ -28,8 +28,8 @@
   .section-label:first-child { margin-top:0; }
 
   .panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:20px 22px; margin-bottom:18px; }
-  .btn { background:var(--ink); color:var(--paper); border:none; padding:10px 18px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
-  .btn:hover { background:#1c2c3d; }
+  .btn { background:var(--chrome, var(--ink)); color:var(--chrome-text, var(--paper)); border:none; padding:10px 18px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
+  .btn:hover { filter:brightness(1.3); }
   .btn:disabled { opacity:.5; cursor:default; }
   .btn.secondary { background:transparent; border:1px solid var(--border); color:var(--ink); }
   .btn.secondary:hover { border-color:var(--accent); color:var(--accent); }
@@ -55,7 +55,7 @@
 
   .field { display:flex; flex-direction:column; gap:5px; min-width:0; }
   .field label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); }
-  .field input, .field select, .field textarea { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:13.5px; font-family:'DM Sans',sans-serif; background:#fff; }
+  .field input, .field select, .field textarea { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:13.5px; font-family:'DM Sans',sans-serif; background:var(--card-bg); }
   .field textarea { resize:vertical; min-height:64px; }
   .form-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; }
 
@@ -141,12 +141,12 @@
   /* question preview modal */
   .qp-overlay { position:fixed; inset:0; background:rgba(20,20,25,.55); display:flex; align-items:flex-start; justify-content:center; padding:5vh 16px; z-index:200; overflow-y:auto; }
   .qp-overlay.hidden { display:none; }
-  .qp-modal { background:#fff; border-radius:10px; max-width:640px; width:100%; padding:20px 22px; box-shadow:0 20px 60px rgba(0,0,0,.35); }
+  .qp-modal { background:var(--card-bg); border-radius:10px; max-width:640px; width:100%; padding:20px 22px; box-shadow:0 20px 60px rgba(0,0,0,.35); }
   .qp-modal-top { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; }
   .qp-modal-top .chips { flex:1; display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
   .qp-close { background:transparent; border:none; font-size:20px; line-height:1; cursor:pointer; color:var(--mid); padding:0 2px; }
   .qp-close:hover { color:var(--ink); }
-  .qcard { border:1px solid var(--border); border-radius:8px; padding:12px 14px; margin-bottom:10px; background:#fff; }
+  .qcard { border:1px solid var(--border); border-radius:8px; padding:12px 14px; margin-bottom:10px; background:var(--card-bg); }
   .qcard.used-warn { border-color:rgba(200,75,49,.45); }
   .qcard.just-added { border-color:var(--gold); background:linear-gradient(rgba(212,168,67,.09),rgba(212,168,67,.09)),#fff; box-shadow:0 0 0 1px var(--gold),0 0 14px rgba(212,168,67,.55); animation:qcard-glow-in .9s ease-out; }
   .chip.new-add { background:rgba(212,168,67,.16); color:#8f6d19; border:1px solid rgba(212,168,67,.5); }
@@ -195,7 +195,7 @@
   }
 
   /* marking queue */
-  .mark-card { border:1px solid var(--border); border-radius:9px; margin-bottom:12px; background:#fff; overflow:hidden; }
+  .mark-card { border:1px solid var(--border); border-radius:9px; margin-bottom:12px; background:var(--card-bg); overflow:hidden; }
   .mark-card-header { padding:10px 14px; background:var(--cream); display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
   .mark-card-header .who { font-family:'DM Mono',monospace; font-size:12.5px; font-weight:500; }
   .mark-body { padding:12px 14px; }
@@ -209,12 +209,12 @@
   .ai-suggestion-feedback { margin-bottom:6px; }
 
   /* per-question drill-down + answer distribution */
-  .q-drilldown table { background:#fff; border-radius:6px; overflow:hidden; }
+  .q-drilldown table { background:var(--card-bg); border-radius:6px; overflow:hidden; }
   .ans-dist-legend { font-family:'DM Mono',monospace; font-size:10px; color:var(--mid); margin-bottom:8px; }
   .ans-dist-row { display:flex; align-items:center; gap:8px; font-size:11.5px; margin-bottom:4px; }
   .ans-dist-label { flex:0 0 220px; max-width:220px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-family:'DM Mono',monospace; color:var(--mid); }
   .ans-dist-row.correct .ans-dist-label { color:#2d7a4f; font-weight:600; }
-  .ans-dist-bar-wrap { flex:1; height:14px; background:#fff; border:1px solid var(--border); border-radius:3px; overflow:hidden; }
+  .ans-dist-bar-wrap { flex:1; height:14px; background:var(--card-bg); border:1px solid var(--border); border-radius:3px; overflow:hidden; }
   .ans-dist-bar { display:block; height:100%; border-radius:2px; }
   .ans-dist-row.correct .ans-dist-bar { background:#2d7a4f; }
   .ans-dist-row.mostwrong .ans-dist-bar { background:var(--wrong); }
@@ -232,10 +232,6 @@
       <div class="header-badge">OCR GCSE Business Studies · J204</div>
       <h1>📋 Task Manager</h1>
       <p>Create, assign, mark and analyse question-based tasks</p>
-    </div>
-    <div style="display:flex; gap:8px; flex-wrap:wrap;">
-      <a class="nav-link" href="teacher-dashboard.html">← Teacher Dashboard</a>
-      <a class="nav-link" href="/hub.html">Site Home</a>
     </div>
   </div>
 </header>
@@ -498,6 +494,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="tasks-shared.js"></script>
+<script src="/rich-editor.js"></script>
 <script src="/subjects-index.js"></script>
 <script src="/page-groups-all.js"></script>
 <script src="/section-totals-all.js"></script>
@@ -510,6 +507,11 @@
 <script>
 'use strict';
 const esc = taskEscapeHtml;
+// Teacher-authored bank HTML (reading/markScheme) is rendered raw into
+// innerHTML below, so it must pass the RichText allowlist sanitiser at the
+// render sink (editor-time sanitise is bypassable via the REST API).
+// rich-editor.js is loaded above, so RichText is always present here.
+const _safeHtml = x => (typeof RichText !== 'undefined' && RichText.sanitize) ? RichText.sanitize(x || '') : (x || '');
 let auth = null;
 let classes = [];
 let activeClassId = null;
@@ -614,7 +616,22 @@ async function init() {
     const t = classTasks.find(t => t.id === wantTask);
     if (t) t.status === 'draft' ? openEditor(t) : openDetail(t);
   }
+
+  // ?new=1[&due=YYYY-MM-DD] — arrive from the Calendar's "+" straight into
+  // a fresh task editor, due date prefilled (9am on the clicked day). Only
+  // fires once a class is actually selected; with several classes and no
+  // ?class=, the teacher picks one first and the editor opens right after.
+  if (params.get('new') === '1') {
+    const dueYmd = /^\d{4}-\d{2}-\d{2}$/.test(params.get('due') || '') ? params.get('due') : null;
+    const openNew = async () => {
+      await openEditor(null);
+      if (dueYmd) $('fDue').value = dueYmd + 'T09:00';
+    };
+    if (activeClassId) await openNew();
+    else _pendingNewTask = openNew; // consumed by selectClass below
+  }
 }
+let _pendingNewTask = null;
 
 async function selectClass(classId) {
   activeClassId = classId || null;
@@ -645,7 +662,7 @@ async function selectClass(classId) {
   }
 
   const { data: members } = await auth.client
-    .from('class_students').select('profiles!inner(id, username)')
+    .from('class_students').select('profiles!student_id!inner(id, username)')
     .eq('class_id', activeClassId);
   roster = (members || []).map(m => ({ id: m.profiles.id, username: m.profiles.username }))
     .sort((a, b) => a.username.localeCompare(b.username, undefined, { numeric: true }));
@@ -654,6 +671,10 @@ async function selectClass(classId) {
   await loadClassTasks();
   loadWeakTopics();
   $('newTaskBtn').disabled = false;
+
+  // Calendar "+" flow: a new-task request queued before any class was
+  // selected opens now that the bank/roster are ready.
+  if (_pendingNewTask) { const fn = _pendingNewTask; _pendingNewTask = null; await fn(); }
 }
 
 async function loadWeakTopics() {
@@ -1158,11 +1179,11 @@ function questionBodyHtml(q, { truncateCase, openMarkScheme } = {}) {
   const caseText = q.caseStudy ? (truncateCase && q.caseStudy.length > 260 ? esc(taskStripTags(q.caseStudy).slice(0, 260)) + '…' : taskRichText(q.caseStudy)) : '';
   return `
     ${q.caseStudy ? `<div class="case">${caseText}</div>` : ''}
-    ${q.reading ? `<details class="ms"><summary>📖 Reading shown with this question${q.readingTitle ? ' — ' + esc(q.readingTitle) : ''}</summary><div class="reading-preview">${q.reading}</div></details>` : ''}
+    ${q.reading ? `<details class="ms"><summary>📖 Reading shown with this question${q.readingTitle ? ' — ' + esc(q.readingTitle) : ''}</summary><div class="reading-preview">${_safeHtml(q.reading)}</div></details>` : ''}
     <div class="qtext">${taskRichText(q.question)}</div>
     ${q.options ? `<ol class="opts" type="A">${q.options.map(o => `<li>${esc(o)}</li>`).join('')}</ol>` : ''}
     ${q.type === 'fib' && q.key && q.key.blanks ? `<details class="ms"><summary>Blank answers</summary><div>${Object.entries(q.key.blanks).map(([k, v]) => `<span class="mono">${esc(k)}:</span> ${esc(v)}`).join(' · ')}</div></details>` : ''}
-    ${q.key && (q.key.markScheme || q.key.explain) ? `<details class="ms" ${openMarkScheme ? 'open' : ''}><summary>Mark scheme / answer</summary><div>${q.key.markScheme || taskRichText(q.key.explain || '')}</div></details>` : ''}
+    ${q.key && (q.key.markScheme || q.key.explain) ? `<details class="ms" ${openMarkScheme ? 'open' : ''}><summary>Mark scheme / answer</summary><div>${q.key.markScheme ? _safeHtml(q.key.markScheme) : taskRichText(q.key.explain || '')}</div></details>` : ''}
     ${q.key && q.key.modelAnswer ? `<details class="ms"><summary>Model answer</summary><div>${taskRichText(q.key.modelAnswer)}</div></details>` : ''}`;
 }
 
@@ -1253,7 +1274,7 @@ $('reviewList').addEventListener('click', e => {
 async function getRosterForClass(classId) {
   if (edRosterCache.has(classId)) return edRosterCache.get(classId);
   const { data: members } = await auth.client
-    .from('class_students').select('profiles!inner(id, username)')
+    .from('class_students').select('profiles!student_id!inner(id, username)')
     .eq('class_id', classId);
   const list = (members || []).map(m => ({ id: m.profiles.id, username: m.profiles.username }))
     .sort((a, b) => a.username.localeCompare(b.username, undefined, { numeric: true }));
@@ -2289,11 +2310,11 @@ function renderDetailQuestions() {
         <span class="muted">${esc(q.snapshot.pageName || q.page_id)}</span>
       </div>
       ${q.snapshot.caseStudy ? `<details class="ms"><summary>Case study</summary><div>${taskRichText(q.snapshot.caseStudy)}</div></details>` : ''}
-      ${q.snapshot.reading ? `<details class="ms"><summary>📖 Reading${q.snapshot.readingTitle ? ' — ' + esc(q.snapshot.readingTitle) : ''}</summary><div class="reading-preview">${q.snapshot.reading}</div></details>` : ''}
+      ${q.snapshot.reading ? `<details class="ms"><summary>📖 Reading${q.snapshot.readingTitle ? ' — ' + esc(q.snapshot.readingTitle) : ''}</summary><div class="reading-preview">${_safeHtml(q.snapshot.reading)}</div></details>` : ''}
       <div class="qtext">${taskRichText(q.snapshot.question)}</div>
       ${q.snapshot.options ? `<ol class="opts" type="A">${q.snapshot.options.map(o => `<li>${esc(o)}</li>`).join('')}</ol>` : ''}
       ${q.qtype === 'fib' && q.answer_key.blanks ? `<details class="ms"><summary>Blank answers</summary><div>${Object.entries(q.answer_key.blanks).map(([k, v]) => `<span class="mono">${esc(k)}:</span> ${esc(v)}`).join(' · ')}</div></details>` : ''}
-      ${q.answer_key.markScheme ? `<details class="ms"><summary>Mark scheme</summary><div>${q.answer_key.markScheme}</div></details>` : ''}
+      ${q.answer_key.markScheme ? `<details class="ms"><summary>Mark scheme</summary><div>${_safeHtml(q.answer_key.markScheme)}</div></details>` : ''}
       ${q.answer_key.explain ? `<details class="ms"><summary>Answer explanation</summary><div>${taskRichText(q.answer_key.explain)}</div></details>` : ''}
     </div>`).join('') || '<div class="empty">No questions.</div>';
 }
@@ -2302,5 +2323,6 @@ init();
 </script>
 <script src="teacher-nav.js"></script>
 <script src="footer-legal.js"></script>
+  <script src="searchable-select.js" defer></script>
 </body>
 </html>

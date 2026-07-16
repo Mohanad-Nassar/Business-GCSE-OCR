@@ -12,7 +12,8 @@
     "packageJson": {
       "dependencies": [
         "npm:@supabase/supabase-js@^2.45.4",
-        "npm:netlify-cli@^26.1.0"
+        "npm:netlify-cli@^26.1.0",
+        "npm:sanitize-html@^2.17.6"
       ]
     }
   }

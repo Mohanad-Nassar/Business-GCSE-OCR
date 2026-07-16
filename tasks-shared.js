@@ -24,8 +24,11 @@ const TASKS_SESSION_KEY = 'gcse_session_v1';
 async function tasksAuthInit(requiredRole) {
   let cached = null;
   try { cached = JSON.parse(localStorage.getItem(TASKS_SESSION_KEY) || 'null'); } catch (e) {}
+  // No session → the landing page, not straight to the login form (it
+  // offers both Log in and Get started, and forwards ?redirect= on to
+  // login.html so an existing user still lands back here after logging in).
   const toLogin = () => {
-    location.replace('login.html?redirect=' + encodeURIComponent(location.pathname + location.search));
+    location.replace('/index.html?redirect=' + encodeURIComponent(location.pathname + location.search));
     return null;
   };
   if (!cached) return toLogin();
@@ -85,6 +88,9 @@ async function tasksAuthInit(requiredRole) {
   if (requiredRole === 'student' && typeof gamificationRefreshStreak === 'function') {
     try { gamificationRefreshStreak(client); } catch (e) {}
   }
+  // loadSubjectBank's teacher-authored-subject path needs a client after
+  // page init without threading one through every call site.
+  window._tasksClient = client;
   return { client, session: data.session, role: cached.role, username: cached.username };
 }
 
@@ -194,6 +200,15 @@ function setActiveSubject(slug) {
 // Returns a promise resolving to the subject registry entry (or rejecting
 // on a network/script error — callers should surface that to the teacher).
 function loadSubjectBank(slug) {
+  // Teacher-authored subjects (docs/TEACHER-SUBJECTS-SPEC.md) have no
+  // static /subjects/<slug>/question-bank.js — their bank is built at
+  // runtime from custom_topics (owner-scoped by RLS) via custom-bank.js,
+  // and the subject is registered into the same runtime registries so
+  // every lookup below behaves as if it were a platform subject.
+  const isPlatform = (window.SUBJECTS || []).some(s => s.slug === slug && !s.custom);
+  if (!isPlatform && window._tasksClient) {
+    return loadCustomSubjectBank(slug);
+  }
   const subject = setActiveSubject(slug);
   document.querySelectorAll('script[data-subject-bank]').forEach(el => el.remove());
   // Clear the bank itself while the new one is in flight, so a slow or
@@ -218,6 +233,46 @@ function loadSubjectBank(slug) {
     };
     document.head.appendChild(script);
   });
+}
+
+// The teacher-authored-subject branch of loadSubjectBank: fetch the
+// subject + its topics (RLS scopes both to the owner / enrolled users),
+// let custom-bank.js turn sections jsonb into bank entries, register the
+// subject into SUBJECTS/PAGE_GROUPS_ALL/SECTION_TOTALS_ALL, and swap the
+// live bank exactly like the static-file path does. Draft topics are
+// included — teachers may build a task from content they haven't
+// published yet (the task snapshots questions at publish anyway).
+async function loadCustomSubjectBank(slug) {
+  window.QUESTION_BANK = [];
+  refreshBankCaches();
+  resetBankRankCache();
+  if (!window.CustomBank) {
+    await new Promise((resolve, reject) => {
+      const existing = document.querySelector('script[src="/custom-bank.js"]');
+      if (existing) { existing.addEventListener('load', resolve); existing.addEventListener('error', reject); return; }
+      const s = document.createElement('script');
+      s.src = '/custom-bank.js';
+      s.onload = resolve;
+      s.onerror = () => reject(new Error('Failed to load custom-bank.js'));
+      document.head.appendChild(s);
+    });
+  }
+  const client = window._tasksClient;
+  const { data: subj, error } = await client.from('subjects').select('*').eq('slug', slug).maybeSingle();
+  if (error || !subj) throw new Error('Failed to load subject "' + slug + '"' + (error ? ': ' + error.message : ''));
+  const { data: topics, error: tErr } = await client.from('custom_topics')
+    .select('id, slug, section, title, sort_order, status, sections')
+    .eq('subject_id', subj.id).order('sort_order');
+  if (tErr) throw new Error('Failed to load topics for "' + slug + '": ' + tErr.message);
+  const entry = CustomBank.registerSubject(subj, topics || []);
+  window.QUESTION_BANK = CustomBank.buildBankEntries(subj, topics || []);
+  setActiveSubject(slug);
+  refreshBankCaches();
+  resetBankRankCache();
+  // The subject is confirmed real — safe to remember as the last subject
+  // (subject-loader.js deliberately skips persisting provisional entries).
+  try { localStorage.setItem('gcse_last_subject', slug); } catch (e) {}
+  return entry;
 }
 
 // Sorts a list of bank-entry questions into curriculum order: topic page
@@ -401,9 +456,38 @@ function taskEscapeHtml(str) {
 // case-study handling in script.js).
 function taskRichText(str) {
   return taskEscapeHtml(str)
-    .replace(/&lt;(\/?)(p|ul|ol|li|strong|em|b|i|u|br|hr|table|thead|tbody|tr|th|td|caption|sup|sub|h[3-6]|blockquote)\s*\/?&gt;/gi, '<$1$2>')
+    .replace(/&lt;(\/?)(p|ul|ol|li|strong|em|b|i|u|br|hr|table|thead|tbody|tr|th|td|caption|sup|sub|h[3-6]|blockquote|pre|code)\s*\/?&gt;/gi, '<$1$2>')
     .replace(/&lt;img\b[\s\S]*?&gt;/gi, taskRestoreImg)
     .replace(/>\s*\n\s*</g, '><');
+}
+
+// Split a fill-in-the-blanks sentence into text and blank tokens:
+//   [{ text: 'Demand is the willingness and ' }, { blank: 'B1' }, { text: ' of…' }]
+//
+// TWO marker conventions are in use across the content and BOTH must render:
+//   ___B1___  named      — this gap IS answer B1. Economics pages and every
+//                          `fib` row in supabase/bank-questions-seed/ use this.
+//   _____     positional — gaps are B1, B2, … left to right. Business/CS pages
+//                          and teacher-authored banks (custom-bank.js) use this.
+// Named markers are order-independent, so they're the better convention; the
+// old parsers only knew the positional one and left `___B1___` on screen as
+// literal text. The key returned here must match the answer_key.blanks keys,
+// which is what the grading path looks up (see drGradeFIB / srGradeFIB).
+//
+// Counterpart: replaceFIBBlanks() in script.js does the same job for the topic
+// pages' own FIB tab (they load script.js, not this file) — keep both in sync.
+var FIB_BLANK_RE = /___([A-Za-z][A-Za-z0-9]*)___|_{3,}/g;
+function fibBlankTokens(text) {
+  var s = String(text == null ? '' : text);
+  var out = [], last = 0, positional = 0, m;
+  var re = new RegExp(FIB_BLANK_RE.source, 'g'); // fresh lastIndex per call
+  while ((m = re.exec(s))) {
+    if (m.index > last) out.push({ text: s.slice(last, m.index) });
+    out.push({ blank: m[1] || ('B' + (++positional)) });
+    last = re.lastIndex;
+  }
+  if (last < s.length) out.push({ text: s.slice(last) });
+  return out;
 }
 
 // Restore a single escaped <img> tag produced by taskEscapeHtml. Unescape it

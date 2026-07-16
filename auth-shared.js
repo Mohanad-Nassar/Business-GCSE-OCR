@@ -113,7 +113,7 @@ function vidyaInjectOAuthStyles() {
     .oauth-divider::before,.oauth-divider::after{content:'';flex:1;border-top:1px solid var(--border,#c9bfaa);}
     .oauth-row{display:flex;gap:10px;}
     .oauth-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      background:#fff;border:1px solid var(--border,#c9bfaa);border-radius:7px;padding:10px 12px;
+      background:var(--card-bg,#fffcf6);border:1px solid var(--border,#c9bfaa);border-radius:7px;padding:10px 12px;
       font-family:'DM Sans',sans-serif;font-size:13.5px;font-weight:600;color:var(--ink,#0f1923);cursor:pointer;}
     .oauth-btn:hover{border-color:var(--accent,#4a6fa5);background:var(--cream,#ede7d9);}
     .oauth-btn:disabled{opacity:.6;cursor:default;}`;

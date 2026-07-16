@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Notifications — GCSE Revision</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@300;400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="business-style.css"/>
+<style>
+  html, body { display:block !important; grid-template-columns:none !important; grid-template-rows:none !important; grid-template-areas:none !important; }
+  header, main { grid-area:unset !important; }
+  body { background:var(--paper); color:var(--ink); }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
+
+  header { background:var(--chrome, var(--ink)); border-bottom:3px solid var(--accent); }
+  .site-band { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 40px; border-bottom:1px solid rgba(255,255,255,.1); }
+  .sb-brand { color:var(--chrome-text, var(--paper)); text-decoration:none; font-family:'DM Mono',monospace; font-size:12px; letter-spacing:.04em; }
+  .sb-brand:hover { color:var(--accent); }
+  .header-inner { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; padding:20px 40px 18px; }
+  .header-badge { display:inline-block; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:10px; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:700; color:var(--chrome-text, var(--paper)); margin-bottom:4px; }
+  header p { font-size:13px; color:rgba(245,240,232,.6); }
+  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--chrome-text, var(--paper)); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; }
+  .nav-link:hover { background:rgba(255,255,255,.18); }
+
+  main { padding:26px 40px 80px; max-width:820px; margin:0 auto; }
+  .toolbar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:14px; }
+  .toolbar .count { font-family:'DM Mono',monospace; font-size:12px; color:var(--mid); }
+  .btn { background:transparent; border:1px solid var(--border); color:var(--ink); font-family:'DM Mono',monospace; font-size:11.5px; padding:7px 14px; border-radius:6px; cursor:pointer; }
+  .btn:hover { border-color:var(--accent); color:var(--accent); }
+  .filter-chip { border:1px solid var(--border); background:var(--card-bg); color:var(--mid); border-radius:99px; padding:5px 12px; font-size:12px; font-weight:600; cursor:pointer; }
+  .filter-chip.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+
+  .notif-panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:8px; }
+  .nrow { display:flex; gap:12px; align-items:flex-start; padding:12px 10px; border-bottom:1px solid var(--border); font-size:13.5px; line-height:1.5; }
+  .nrow:last-child { border-bottom:none; }
+  .nrow .ic { flex-shrink:0; font-size:16px; }
+  .nrow .body { flex:1; min-width:0; }
+  .nrow .when { display:block; font-family:'DM Mono',monospace; font-size:10.5px; color:var(--mid); margin-top:2px; }
+  .nrow a.open { color:var(--accent); font-weight:600; text-decoration:none; white-space:nowrap; }
+  .nrow a.open:hover { text-decoration:underline; }
+  .nrow.read { opacity:.55; }
+  .nrow.read .body { text-decoration:none; }
+  .read-box { display:inline-flex; align-items:center; gap:6px; flex-shrink:0; cursor:pointer; -webkit-user-select:none; user-select:none;
+    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--mid); padding-top:2px; }
+  .read-box input { width:16px; height:16px; accent-color:var(--accent); cursor:pointer; }
+  .empty { padding:36px; text-align:center; color:var(--mid); font-size:13px; font-style:italic; }
+  .muted { color:var(--mid); font-size:12px; }
+  @media (max-width:640px){ main { padding:18px 12px 60px; } .read-box span { display:none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="site-band" aria-label="Site">
+    <a class="sb-brand" href="/hub.html"><span aria-hidden="true">🏡</span> All Topics</a>
+    <span class="gcse-account-bar" id="accountBar"></span>
+  </nav>
+  <div class="header-inner">
+    <div>
+      <div class="header-badge">Stay on track</div>
+      <h1><span aria-hidden="true">🔔</span> Notifications</h1>
+      <p>Your latest 100 — new tasks, deadlines, marked work and reviews that are due.</p>
+    </div>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <a class="nav-link" id="backToDash" href="dashboard.html">← My Progress</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="toolbar">
+    <button type="button" class="filter-chip active" data-nfilter="all">All</button>
+    <button type="button" class="filter-chip" data-nfilter="unread">Unread</button>
+    <span class="count" id="notifCount"></span>
+    <button type="button" class="btn" id="markAllBtn" style="margin-left:auto;">✓ Mark all as read</button>
+  </div>
+  <div class="notif-panel" id="notifPanel"><div class="empty">Loading…</div></div>
+  <p class="muted" style="margin-top:12px;">Tick the box on a notification to mark it read (untick to bring it back). Read notifications also stop showing in the 🔔 bell.</p>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/subjects-index.js"></script>
+<script src="/page-groups-all.js"></script>
+<script src="/section-totals-all.js"></script>
+<script src="/subject-loader.js"></script>
+<script>subjectLoaderInit({ mode: 'single' });</script>
+<script src="tasks-shared.js"></script>
+<script src="/account-cluster.js"></script>
+<script src="notifications-shared.js"></script>
+<script src="spaced-repetition.js"></script>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const esc = taskEscapeHtml;
+let auth = null;
+let allNotes = [];        // [{ key, icon, text, at, href, read }] newest first, max 100
+let readSet = new Set();
+let filterMode = 'all';
+
+// Topic name lookup across every subject (reviews can span subjects).
+function pageNameAcrossSubjects(pageId) {
+  const bySlug = window.PAGE_GROUPS_ALL || {};
+  for (const slug of Object.keys(bySlug)) {
+    for (const g of bySlug[slug]) {
+      for (const p of g.pages) {
+        if (p.id === pageId) return p.name;
+        for (const c of (p.children || [])) if (c.id === pageId) return c.name;
+      }
+    }
+  }
+  return pageId;
+}
+
+function fmtWhen(ts) {
+  if (!ts) return '';
+  const d = new Date(ts);
+  const days = Math.floor((Date.now() - d.getTime()) / 86400000);
+  const time = d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+  if (days <= 0) return 'Today ' + time;
+  if (days === 1) return 'Yesterday ' + time;
+  return d.toLocaleDateString(undefined, { day: 'numeric', month: 'short' }) + ' ' + time;
+}
+
+// Review-due notifications from the spaced-repetition schedule, across every
+// subject this student studies (distinct class subjects). Key includes the
+// due date so a completed-then-rescheduled review notifies afresh.
+async function deriveReviewNotifications() {
+  const notes = [];
+  const today = srTodayStr();
+  let slugs = [];
+  try {
+    const { data: cls } = await auth.client.from('classes').select('subjects(slug)');
+    slugs = [...new Set((cls || []).map(c => c.subjects && c.subjects.slug).filter(Boolean))];
+  } catch (e) {}
+  if (!slugs.length) slugs = [(window.SUBJECT && window.SUBJECT.slug) || 'business'];
+
+  for (const slug of slugs) {
+    let rows = [];
+    try { rows = await srFetchSchedule(auth.client, slug) || []; }
+    catch (e) { rows = srCachedSchedule(slug) || []; }
+    rows.forEach(r => {
+      const st = srStatus(r, today);
+      if (st !== 'due' && st !== 'overdue') return;
+      const name = pageNameAcrossSubjects(r.page_id);
+      notes.push({
+        key: `review:${slug}:${r.page_id}:${r.stage}:${r.due_date}`,
+        icon: st === 'overdue' ? '⏰' : '🗓️',
+        at: new Date(r.due_date + 'T08:00:00').getTime(),
+        href: '/review-calendar.html?subject=' + encodeURIComponent(slug),
+        text: st === 'overdue'
+          ? `Review overdue: “${name}” (${srStageLabel(r.stage)}) was due ${new Date(r.due_date).toLocaleDateString(undefined, { day: 'numeric', month: 'short' })}`
+          : `Review due today: “${name}” (${srStageLabel(r.stage)}) — pass a short quiz to tick it off`,
+      });
+    });
+  }
+  return notes;
+}
+
+async function loadAll() {
+  const uid = auth.session.user.id;
+  const [{ data: tasks }, { data: asg }, { data: atts }, { data: reads }] = await Promise.all([
+    auth.client.from('tasks').select('*'),
+    auth.client.from('task_assignments').select('*').eq('student_id', uid),
+    auth.client.from('task_attempts').select('*').eq('student_id', uid),
+    auth.client.from('task_notification_reads').select('note_key').eq('student_id', uid),
+  ]);
+  readSet = new Set((reads || []).map(r => r.note_key));
+  const rows = (asg || []).map(a => {
+    const task = (tasks || []).find(t => t.id === a.task_id);
+    if (!task) return null;
+    return { task, assignment: a, attempts: (atts || []).filter(x => x.task_id === a.task_id) };
+  }).filter(Boolean);
+
+  // Task notifications: derive with NO read filter (pass empty readKeys) so
+  // read ones still show here, greyed with a ticked box — the bell keeps
+  // its own excluding behaviour.
+  const taskNotes = deriveStudentNotifications(rows, []).map(n => ({
+    ...n, href: '/task.html?id=' + encodeURIComponent(n.taskId),
+  }));
+  const reviewNotes = await deriveReviewNotifications();
+
+  allNotes = taskNotes.concat(reviewNotes)
+    .sort((a, b) => b.at - a.at)
+    .slice(0, 100)
+    .map(n => ({ ...n, read: readSet.has(n.key) }));
+  render();
+}
+
+function render() {
+  const shown = filterMode === 'unread' ? allNotes.filter(n => !n.read) : allNotes;
+  const unread = allNotes.filter(n => !n.read).length;
+  $('notifCount').textContent = `${allNotes.length} notification${allNotes.length === 1 ? '' : 's'} · ${unread} unread`;
+  if (!shown.length) {
+    $('notifPanel').innerHTML = `<div class="empty">${filterMode === 'unread' ? 'Nothing unread — you’re all caught up 🎉' : 'No notifications yet — new tasks and due reviews will show up here.'}</div>`;
+    return;
+  }
+  $('notifPanel').innerHTML = shown.map(n => `
+    <div class="nrow${n.read ? ' read' : ''}" data-key="${esc(n.key)}">
+      <span class="ic" aria-hidden="true">${n.icon}</span>
+      <span class="body">${esc(n.text)} <a class="open" href="${esc(n.href)}">Open →</a>
+        <span class="when">${esc(fmtWhen(n.at))}</span>
+      </span>
+      <label class="read-box" title="${n.read ? 'Marked as read — untick to bring it back' : 'Tick to mark as read'}">
+        <input type="checkbox" ${n.read ? 'checked' : ''} aria-label="Mark notification as read"/>
+        <span>read</span>
+      </label>
+    </div>`).join('');
+}
+
+$('notifPanel').addEventListener('change', async e => {
+  const cb = e.target.closest('.read-box input');
+  if (!cb) return;
+  const key = cb.closest('.nrow').dataset.key;
+  const note = allNotes.find(n => n.key === key);
+  if (!note) return;
+  note.read = cb.checked;
+  render();
+  try {
+    if (cb.checked) {
+      await auth.client.from('task_notification_reads').upsert({ student_id: auth.session.user.id, note_key: key });
+    } else {
+      await auth.client.from('task_notification_reads').delete()
+        .eq('student_id', auth.session.user.id).eq('note_key', key);
+    }
+  } catch (err) { console.error('task_notification_reads', err); }
+});
+
+$('markAllBtn').addEventListener('click', async () => {
+  const unread = allNotes.filter(n => !n.read);
+  if (!unread.length) return;
+  unread.forEach(n => { n.read = true; });
+  render();
+  try {
+    await auth.client.from('task_notification_reads')
+      .upsert(unread.map(n => ({ student_id: auth.session.user.id, note_key: n.key })));
+  } catch (err) { console.error('task_notification_reads upsert', err); }
+});
+
+document.querySelectorAll('[data-nfilter]').forEach(b => b.addEventListener('click', () => {
+  filterMode = b.dataset.nfilter;
+  document.querySelectorAll('[data-nfilter]').forEach(x => x.classList.toggle('active', x === b));
+  render();
+}));
+
+(async function init() {
+  auth = await tasksAuthInit('student');
+  if (!auth) return;
+  const slug = (window.SUBJECT && window.SUBJECT.slug) || null;
+  if (slug) $('backToDash').href = 'dashboard.html?subject=' + encodeURIComponent(slug);
+  window._gcseSupabaseClient = auth.client;
+  window._gcseProfile = window._gcseProfile || { username: auth.username, role: auth.role };
+  if (typeof _gcseInjectAccountBar === 'function') _gcseInjectAccountBar();
+  await loadAll();
+})();
+</script>
+<script src="footer-legal.js"></script>
+</body>
+</html>

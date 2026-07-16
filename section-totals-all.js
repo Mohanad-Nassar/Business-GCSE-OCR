@@ -2,7 +2,7 @@
 // ALL SECTION TOTALS — GENERATED FILE, DO NOT EDIT BY HAND
 // Built by tools/build_question_bank.py: every subject's section
 // totals merged into one map keyed by subject-prefixed page id.
-// Generated: 2026-07-11T08:12:28Z
+// Generated: 2026-07-16T17:18:45Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS_ALL = {
  "business:1-1-role-of-business-enterprise": {
@@ -29,8 +29,8 @@ window.SECTION_TOTALS_ALL = {
  },
  "business:1-3-business-ownership": {
   "exam": 23,
-  "mcq": 16,
-  "tf": 13,
+  "mcq": 0,
+  "tf": 0,
   "learn": 8,
   "misc": 10,
   "tips": 5,
@@ -412,6 +412,17 @@ window.SECTION_TOTALS_ALL = {
   "match": 12,
   "flashcards": 15
  },
+ "computer-science:1-1-1-architecture-of-the-cpu": {
+  "exam": 19,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 5,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 13,
+  "flashcards": 16
+ },
  "economics:1-1-main-economic-groups-and-factors-of-production": {
   "exam": 20,
   "mcq": 10,
@@ -513,6 +524,94 @@ window.SECTION_TOTALS_ALL = {
  },
  "economics:2-8-the-role-of-money-and-financial-markets": {
   "exam": 43,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 4,
+  "misc": 5,
+  "tips": 4,
+  "fib": 6,
+  "match": 13,
+  "flashcards": 19
+ },
+ "economics:3-1-economic-growth": {
+  "exam": 41,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 4,
+  "misc": 5,
+  "tips": 4,
+  "fib": 6,
+  "match": 13,
+  "flashcards": 19
+ },
+ "economics:3-2-low-unemployment": {
+  "exam": 44,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 4,
+  "misc": 5,
+  "tips": 4,
+  "fib": 6,
+  "match": 13,
+  "flashcards": 19
+ },
+ "economics:3-3-fair-distribution-of-income": {
+  "exam": 25,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 4,
+  "misc": 5,
+  "tips": 4,
+  "fib": 6,
+  "match": 13,
+  "flashcards": 19
+ },
+ "economics:3-4-price-stability": {
+  "exam": 35,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 4,
+  "misc": 5,
+  "tips": 4,
+  "fib": 6,
+  "match": 13,
+  "flashcards": 19
+ },
+ "economics:3-5-fiscal-policy": {
+  "exam": 45,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 4,
+  "misc": 5,
+  "tips": 4,
+  "fib": 6,
+  "match": 13,
+  "flashcards": 19
+ },
+ "economics:3-6-monetary-policy": {
+  "exam": 24,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 4,
+  "misc": 5,
+  "tips": 4,
+  "fib": 6,
+  "match": 13,
+  "flashcards": 19
+ },
+ "economics:3-7-supply-side-policies": {
+  "exam": 18,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 4,
+  "misc": 5,
+  "tips": 4,
+  "fib": 6,
+  "match": 13,
+  "flashcards": 19
+ },
+ "economics:3-8-limitations-of-markets": {
+  "exam": 33,
   "mcq": 10,
   "tf": 8,
   "learn": 4,

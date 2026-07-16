@@ -34,7 +34,12 @@ const GCSE_SESSION_KEY = 'gcse_session_v1';
 const GCSE_QUEUE_KEY = 'gcse_sync_queue_v1';
 // Root-absolute: topic pages now live at /subjects/<slug>/, so a relative
 // link would resolve inside the subject directory.
-const LOGIN_PAGE = '/login.html';
+// Visitors with no valid session land on the marketing landing page, not
+// straight on the login form — it explains the product and offers both
+// "Log in" and "Get started", which serves a brand-new visitor better than
+// dropping them on a bare credentials form. The landing page forwards
+// ?redirect= on to login.html so existing users still land back here.
+const LOGIN_PAGE = '/index.html';
 // Pages that must stay reachable without a session.
 const GCSE_NO_GUARD_PAGES = ['login.html', 'teacher-signup.html'];
 
@@ -142,6 +147,9 @@ async function gcseInitAuth() {
     }
     if (cached.role === 'student' && typeof gamificationRefreshReviewStats === 'function') {
         gamificationRefreshReviewStats(_gcseSupabaseClient);
+    }
+    if (cached.role === 'student' && typeof gamificationRefreshLeaderboardStats === 'function') {
+        gamificationRefreshLeaderboardStats(_gcseSupabaseClient);
     }
     if (cached.role === 'student') _gcseLoadContentProtect();
 }
@@ -574,6 +582,13 @@ function updateTabIndicator(section, done, total) {
 // only these two sections can hold a persisted wrong answer.
 // ═══════════════════════════════════════════════════════════════
 function _wrongAnswerKeys(section) {
+    // Server-graded mode: answers are keyed by question_key and carry the
+    // SERVER's explicit {correct} verdict, so wrong keys read straight off the
+    // store — no inline data / _qi mapping (which doesn't exist here).
+    if ((section === 'mcq' || section === 'tf') && typeof _serverGradeOn === 'function' && _serverGradeOn()) {
+        const ans = ProgressStore.getAnswers(getPageId(), section) || {};
+        return Object.keys(ans).filter(k => ans[k] && typeof ans[k] === 'object' && ans[k].correct === false);
+    }
     const data = section === 'mcq' ? (typeof mcqData !== 'undefined' ? mcqData : null)
                : section === 'tf' ? (typeof tfData !== 'undefined' ? tfData : null)
                : null;
@@ -602,13 +617,19 @@ function redoWrongAnswers(section) {
         const wrap = document.getElementById('mcqWrap');
         if (wrap) wrap.innerHTML = '';
         buildMCQ(true); // recounts from the remaining (correct) answers, only showing the ones left to retry
-        ProgressStore.save(pid, 'mcq', mcqScore, mcqData.length);
+        // Server mode re-renders asynchronously (mcqScore is still 0 here) and
+        // sets its own totals from the server — skip the stale local write.
+        if (!(typeof _serverGradeOn === 'function' && _serverGradeOn())) {
+            ProgressStore.save(pid, 'mcq', mcqScore, mcqData.length);
+        }
     } else {
         tfScore = 0; tfTotal = 0;
         const wrap = document.getElementById('tfWrap');
         if (wrap) wrap.innerHTML = '';
         buildTF(true);
-        ProgressStore.save(pid, 'tf', tfScore, tfData.length);
+        if (!(typeof _serverGradeOn === 'function' && _serverGradeOn())) {
+            ProgressStore.save(pid, 'tf', tfScore, tfData.length);
+        }
     }
     if (typeof _gamUpdateHud === 'function') _gamUpdateHud();
     updateRedoWrongButtons();
@@ -678,17 +699,25 @@ function updateRedoWrongButtons() {
     [['mcq', 'mcqWrap', 'quiz'], ['tf', 'tfWrap', 'True/False round']].forEach(([section, wrapId, label]) => {
         const btn = document.getElementById('redoWrongBtn_' + section);
         if (!btn) return;
+        const serverMode = typeof _serverGradeOn === 'function' && _serverGradeOn();
         const data = section === 'mcq' ? (typeof mcqData !== 'undefined' ? mcqData : null)
                    : (typeof tfData !== 'undefined' ? tfData : null);
-        if (!data) return;
+        if (!data && !serverMode) return;
+        // ⚠️ REGRESSION WATCH (broken twice): the "redo wrong" nudge must key
+        // off the REAL section total, not the inline array's length. Once P1c
+        // strips the inline arrays, `data.length` is 0 and the "all answered"
+        // check misfires — so read the total from progress_summary
+        // (ProgressStore) whenever the array is empty/absent. See
+        // docs/ARCHITECTURE-SCALE-SECURITY.md §"redo-notice invariant".
+        const total = (data && data.length) || (ProgressStore.get(getPageId(), section).total || 0);
         const wrong = _wrongAnswerKeys(section).length;
         btn.style.display = wrong ? '' : 'none';
         btn.innerHTML = `🔁 REDO ${wrong} WRONG`;
 
-        // Nudge banner once the section is fully attempted but not perfect
+        // Nudge banner ONLY once every question is attempted but not all correct.
         const answered = Object.keys(ProgressStore.getAnswers(getPageId(), section) || {}).length;
         let notice = document.getElementById('redoNotice_' + section);
-        if (wrong > 0 && answered >= data.length) {
+        if (wrong > 0 && total > 0 && answered >= total) {
             const wrap = document.getElementById(wrapId);
             if (!notice && wrap) {
                 notice = document.createElement('div');
@@ -865,7 +894,7 @@ function injectFlowStyles() {
         .tab-lock { margin-left: 6px; font-size: 11px; }
         .quick-toast {
             position: fixed; top: 64px; left: 50%; transform: translateX(-50%) translateY(-8px);
-            z-index: 10005; background: var(--ink); color: var(--paper);
+            z-index: 10005; background: var(--chrome, var(--ink)); color: var(--chrome-text, var(--paper));
             font-family: 'DM Mono', monospace; font-size: 12.5px;
             padding: 10px 20px; border-radius: 99px; border: 1px solid var(--gold);
             box-shadow: 0 10px 28px rgba(0,0,0,.3);
@@ -1507,7 +1536,15 @@ function applyMCQAnswered(block, qi, chosenOi) {
     }
 }
 
+// Dispatcher: server-graded mode (Architecture P1 — answers never reach the
+// browser, grading is server-side) or the legacy inline path. Every caller
+// (boot, rebuildAllActivities, resetMCQ, redo-wrong) routes through here.
 function buildMCQ(retryOnly = false) {
+    if (_serverGradeOn()) { buildMCQServer(retryOnly); return; }
+    buildMCQLocal(retryOnly);
+}
+
+function buildMCQLocal(retryOnly = false) {
     const wrap = document.getElementById('mcqWrap');
     if (!wrap) return;
     const saved = ProgressStore.get(getPageId(), 'mcq');
@@ -1578,6 +1615,191 @@ function resetMCQ() {
     const old = document.getElementById('mcqBarWrap');
     if (old) old.remove();
     buildMCQ();
+}
+
+// ══════════════════════════════════════════════════════════════
+// MCQ — SERVER-GRADED PATH (Architecture P1)
+// Renders from ANSWERLESS snapshots (get_topic_questions) and grades via
+// grade_topic_answer, so correct answers never reach the browser and the score
+// can't be forged. Gated by _serverGradeOn(); the legacy inline path
+// (buildMCQLocal) is untouched until P1c retires it. See
+// docs/ARCHITECTURE-SCALE-SECURITY.md and supabase/topic-grading.sql.
+// ══════════════════════════════════════════════════════════════
+
+// Escape authored snapshot text before it goes into innerHTML. Local + synchronous
+// on purpose: gcseEscapeHtml lives in account-cluster.js which loads asynchronously
+// and is not guaranteed present when these renderers run. See Fix 1 (stored XSS).
+function _sgEsc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+// Rollout flag: ?servergrade=1 forces on / =0 forces off (so this one path can
+// be tested on a live page without affecting other students); otherwise the
+// window.SERVER_GRADED_SUBJECTS allowlist decides. Default: OFF.
+function _serverGradeOn() {
+    try {
+        const p = new URLSearchParams(location.search).get('servergrade');
+        if (p === '1') return true;
+        if (p === '0') return false;   // force-off wins, so a page can still be tested pre-strip
+    } catch (e) {}
+    if (window.SERVER_GRADED === true) return true;   // a page opts in by default (its inline answers are stripped)
+    const subj = (window.SUBJECT && window.SUBJECT.slug)
+        || (typeof pageMeta !== 'undefined' && pageMeta.subject) || '';
+    return Array.isArray(window.SERVER_GRADED_SUBJECTS) && window.SERVER_GRADED_SUBJECTS.indexOf(subj) !== -1;
+}
+
+// The question fetch needs an authenticated session, which resolves after an
+// async round-trip in gcseInitAuth(). Wait (briefly) for the client + profile
+// rather than firing before login is ready.
+function _whenAuthedClient(cb, tries) {
+    tries = tries || 0;
+    if (window._gcseSupabaseClient && window._gcseProfile) { cb(window._gcseSupabaseClient); return; }
+    if (tries < 100) setTimeout(() => _whenAuthedClient(cb, tries + 1), 100);
+}
+
+function buildMCQServer(retryOnly) {
+    const wrap = document.getElementById('mcqWrap');
+    if (!wrap) return;
+    if (!wrap.dataset.sgLoaded) {
+        wrap.innerHTML = '<div class="empty" style="padding:16px;">Loading questions…</div>';
+    }
+    _whenAuthedClient(client => {
+        client.rpc('get_topic_questions', { p_page_id: getPageId(), p_source: 'mcq' })
+            .then(({ data, error }) => {
+                if (error) throw error;
+                const rows = data || [];
+                if (!rows.length) { buildMCQLocal(retryOnly); return; } // no bank for this page → legacy path
+                _renderMCQServer(wrap, rows, retryOnly);
+            })
+            .catch(() => { buildMCQLocal(retryOnly); }); // never strand the student
+    });
+}
+
+function _applyMCQServerAnswered(block, chosenOi, correct, correctOi, explain) {
+    block.dataset.answered = '1';
+    const btns = block.querySelectorAll('.opt-btn');
+    btns.forEach(b => b.disabled = true);
+    const fb = document.getElementById(block.dataset.fbId);
+    if (correct) {
+        if (btns[chosenOi]) btns[chosenOi].classList.add('correct');
+        if (fb) { fb.textContent = '✓ Correct! ' + (explain || ''); fb.className = 'q-feedback show ok'; }
+    } else {
+        if (btns[chosenOi]) btns[chosenOi].classList.add('wrong');
+        if (correctOi != null && btns[correctOi]) btns[correctOi].classList.add('correct');
+        if (fb) { fb.textContent = '✗ ' + (explain || ''); fb.className = 'q-feedback show no'; }
+    }
+}
+
+function _renderMCQServer(wrap, rows, retryOnly) {
+    wrap.dataset.sgLoaded = '1';
+    wrap.innerHTML = '';
+    mcqScore = 0; mcqTotal = 0;
+    const pageId = getPageId();
+    const saved = ProgressStore.getAnswers(pageId, 'mcq') || {};
+
+    rows.forEach((row, qi) => {
+        const snap = row.snapshot || {};
+        const opts = snap.options || [];
+        const key = row.question_key;
+        const prior = saved[key];
+        const answered = prior && typeof prior === 'object' && prior.oi != null;
+        if (answered) {
+            mcqTotal++;
+            if (prior.correct) mcqScore++;
+            if (retryOnly && prior.correct) return; // retry: skip already-correct
+        }
+        const block = document.createElement('div');
+        block.className = 'q-block';
+        block.dataset.fbId = 'qfb-sg-' + qi;
+        // innerHTML of authored snapshot text — same trust model as buildMCQLocal
+        // (bank content is authored by the build pipeline / sanitised custom-bank).
+        block.innerHTML = '<div class="q-num">QUESTION ' + (qi + 1) + '</div>'
+            + '<div class="q-text">' + _sgEsc(snap.question || '') + '</div>'
+            + '<div class="options">' + opts.map((o, oi) =>
+                '<button class="opt-btn" data-key="' + encodeURIComponent(key) + '" data-oi="' + oi + '">' + _sgEsc(o) + '</button>').join('')
+            + '</div><div class="q-feedback" id="qfb-sg-' + qi + '"></div>';
+        wrap.appendChild(block);
+        if (answered) _applyMCQServerAnswered(block, prior.oi, prior.correct, prior.answer, prior.explain);
+    });
+
+    const sEl = document.getElementById('mcqScore'), tEl = document.getElementById('mcqTotal');
+    if (sEl) sEl.textContent = mcqScore;
+    if (tEl) tEl.textContent = mcqTotal;
+
+    if (!wrap.dataset.sgBound) {
+        wrap.dataset.sgBound = '1';
+        wrap.addEventListener('click', _onMCQServerClick);
+    }
+    injectMCQProgressBar();
+    updateProgressBar('mcq', mcqScore, rows.length);
+    ProgressStore.saveTotal(pageId, 'mcq', rows.length);
+}
+
+function _onMCQServerClick(e) {
+    const btn = e.target;
+    if (!btn.classList || !btn.classList.contains('opt-btn')) return;
+    const block = btn.closest('.q-block');
+    if (!block || block.dataset.answered) return;
+    const key = decodeURIComponent(btn.dataset.key);
+    const oi = +btn.dataset.oi;
+    block.querySelectorAll('.opt-btn').forEach(b => b.disabled = true); // optimistic lock
+
+    _whenAuthedClient(client => {
+        client.rpc('grade_topic_answer', { p_question_key: key, p_answer: { value: String(oi) } })
+            .then(({ data, error }) => {
+                if (error) throw error;
+                const res = data || {};
+                const correctOi = res.answer_key && res.answer_key.answer != null ? Number(res.answer_key.answer) : null;
+                const explain = res.answer_key ? (res.answer_key.explain || '') : '';
+                _applyMCQServerAnswered(block, oi, !!res.correct, correctOi, explain);
+
+                // Local DISPLAY cache only. setAnswersBulk has no server mirror and
+                // no XP side-effect: grade_topic_answer already recorded progress
+                // server-side, and using saveAnswers here would double-write AND
+                // re-trust the client — the exact hole we're closing.
+                const pageId = getPageId();
+                const cur = ProgressStore.getAnswers(pageId, 'mcq') || {};
+                cur[key] = { oi, correct: !!res.correct, answer: correctOi, explain };
+                ProgressStore.setAnswersBulk(pageId, 'mcq', cur);
+
+                // Progress from the SERVER's authoritative done/total.
+                if (typeof res.done === 'number' && typeof res.total === 'number') {
+                    mcqScore = res.done;
+                    ProgressStore.save(pageId, 'mcq', res.done, res.total); // local UI only (no server write)
+                    updateProgressBar('mcq', res.done, res.total);
+                    const attempts = Object.keys(cur).length;
+                    const sEl = document.getElementById('mcqScore'), tEl = document.getElementById('mcqTotal');
+                    if (sEl) sEl.textContent = res.done;
+                    if (tEl) tEl.textContent = attempts; // attempts, matches the legacy counter
+                    // Celebrate once EVERY question is answered (not only on a perfect
+                    // score). showCelebration surfaces the prominent "🔁 Redo N wrong"
+                    // popup when there are wrong ones — same as the legacy path, so the
+                    // student can't miss it (no scrolling to an inline banner).
+                    if (res.total > 0 && attempts >= res.total) {
+                        const perfect = res.done === res.total;
+                        setTimeout(() => showCelebration({
+                            title: perfect ? 'Full Marks!' : 'Quiz Complete!',
+                            subtitle: perfect ? 'Every answer correct — excellent work! 🌟'
+                                              : 'You scored ' + res.done + ' out of ' + res.total,
+                            extra: res.total + ' question' + (res.total !== 1 ? 's' : ''),
+                            section: 'mcq', onReset: resetMCQ
+                        }), 400);
+                    }
+                }
+
+                // XP now driven by the SERVER verdict (strictly better than the old
+                // client-trust; the full gamification anti-forgery sweep is P2).
+                if (typeof gamificationOnAnswer === 'function') gamificationOnAnswer(!!res.correct, 'mcq');
+            })
+            .catch(err => {
+                block.querySelectorAll('.opt-btn').forEach(b => b.disabled = false); // allow retry
+                const fb = document.getElementById(block.dataset.fbId);
+                if (fb) {
+                    fb.textContent = (err && err.message && /slow down/i.test(err.message))
+                        ? 'Too fast — please slow down and try again.'
+                        : 'Could not submit — please try again.';
+                    fb.className = 'q-feedback show no';
+                }
+            });
+    });
 }
 
 // ── BUILD MATCHING ──
@@ -2443,13 +2665,13 @@ function injectProgressStyles() {
             font-size: 10px;
             letter-spacing: .1em;
             text-transform: uppercase;
-            color: var(--accent2);
+            color: ${T.accent};
             margin-bottom: 8px;
         }
         .read-check-q {
             font-size: 14px;
             font-weight: 600;
-            color: var(--text);
+            color: ${T.text};
             margin-bottom: 10px;
             line-height: 1.5;
         }
@@ -2460,20 +2682,25 @@ function injectProgressStyles() {
             margin-bottom: 10px;
         }
         .read-check-btn {
-            background: var(--surface2);
-            border: 1.5px solid var(--border);
+            /* appearance:none + interpolated tokens (var(--surface2)/--text
+               are undefined on Business/Economics → native grey button with
+               dark UA text, unreadable on dark themes). */
+            -webkit-appearance: none;
+            appearance: none;
+            background: ${T.surface2};
+            border: 1.5px solid ${T.border};
             border-radius: 7px;
             padding: 9px 14px;
             font-family: 'DM Sans', sans-serif;
             font-size: 13px;
-            color: var(--text);
+            color: ${T.text};
             text-align: left;
             cursor: pointer;
             transition: background .15s, border-color .15s;
         }
         .read-check-btn:hover:not(:disabled) {
-            background: var(--surface);
-            border-color: var(--accent2);
+            background: ${T.surface};
+            border-color: ${T.accent};
         }
         .read-check-btn.rc-correct {
             background: rgba(22,163,74,.2);
@@ -2730,21 +2957,54 @@ function updateFIBProgress() {
     }
 }
 
+// Replace every blank marker in a fib sentence. TWO conventions are in use
+// across the content and BOTH must render:
+//   ___B1___  named      — this gap IS answer B1 (Economics pages).
+//   _____     positional — gaps bind to the blanks keys left to right
+//                          (Business/CS pages).
+// Named markers are order-independent, so they're the better convention; this
+// used to match `/_____/` only, which left Economics showing a literal
+// "___B1___" to students. `render(key)` returns the HTML for one blank.
+// Counterpart: fibBlankTokens() in tasks-shared.js does the same job for the
+// daily-revise / review-calendar pages — keep both in sync.
+const FIB_BLANK_RE = /___([A-Za-z][A-Za-z0-9]*)___|_{3,}/g;
+function replaceFIBBlanks(text, keys, render) {
+    let positional = 0;
+    return String(text == null ? '' : text)
+        .replace(new RegExp(FIB_BLANK_RE.source, 'g'), (m, name) => render(name || keys[positional++]));
+}
+
+// The blanks a sentence will actually render as a gradeable input. Counting
+// declared answers instead is wrong when the content and the sentence disagree:
+// a few pages declare an answer with no gap for it (e.g. 1_2_business_planning
+// declares B2 but writes only one _____), which made the total 2 while only one
+// input existed — so the bar stuck at 1/2 and the section could never complete.
+// A gap with no answer renders "(see above)" and isn't gradeable either.
+function fibGradableKeys(f) {
+    const keys = Object.keys(f.blanks);
+    const out = [];
+    replaceFIBBlanks(f.display, keys, (key) => {
+        if (key != null && f.blanks[key]) out.push(key);
+        return '';
+    });
+    return out;
+}
+
 function buildFIB() {
     const wrap = document.getElementById('fibWrap');
     if (!wrap) return;
-    fibCorrectTotal = fibData.reduce((a, f) => a + Object.keys(f.blanks).filter(k => f.blanks[k] !== '').length, 0);
+    fibCorrectTotal = fibData.reduce((a, f) => a + fibGradableKeys(f).length, 0);
     document.getElementById('fibTotal').textContent = fibCorrectTotal;
     fibData.forEach((f, fi) => {
         const div = document.createElement('div');
         div.className = 'fib-sentence';
-        let html = f.display, bi = 0;
+        const keys = Object.keys(f.blanks);
+        let html = f.display;
         if (!isAdvancedFIB) {
             const correctAnswers = Object.values(f.blanks).filter(v => v !== '');
             const distractors = fibWords.filter(w => !correctAnswers.includes(w)).sort(() => Math.random() - .5).slice(0, 4);
-            html = html.replace(/_____/g, () => {
-                const key = Object.keys(f.blanks)[bi];
-                const ans = f.blanks[key]; bi++;
+            html = replaceFIBBlanks(html, keys, (key) => {
+                const ans = f.blanks[key];
                 if (!ans) return `<em>(see above)</em>`;
                 const opts = [ans, ...distractors.filter(d => d !== ans).slice(0, 3)].sort(() => Math.random() - .5);
                 const optHTML = ['— choose —', ...opts].map(o => `<option value="${o === '— choose —' ? '' : o}">${o}</option>`).join('');
@@ -2752,9 +3012,8 @@ function buildFIB() {
             });
             div.innerHTML = html;
         } else {
-            html = html.replace(/_____/g, () => {
-                const key = Object.keys(f.blanks)[bi];
-                const ans = f.blanks[key]; bi++;
+            html = replaceFIBBlanks(html, keys, (key) => {
+                const ans = f.blanks[key];
                 if (!ans) return `<em>(see above)</em>`;
                 return `<input type="text" class="fib-input" data-fi="${fi}" data-key="${key}" data-ans="${ans}" placeholder="type here...">`;
             });
@@ -3115,7 +3374,13 @@ function applyTFAnswered(card, i, chosenVal) {
     return correct;
 }
 
+// Dispatcher: server-graded mode (Architecture P1) or the legacy inline path.
 function buildTF(retryOnly = false) {
+    if (_serverGradeOn()) { buildTFServer(retryOnly); return; }
+    buildTFLocal(retryOnly);
+}
+
+function buildTFLocal(retryOnly = false) {
     const wrap = document.getElementById('tfWrap');
     if (!wrap) return;
     const savedAnswers = ProgressStore.getAnswers(getPageId(), 'tf');
@@ -3183,6 +3448,141 @@ function resetTF() {
     const old = document.getElementById('tfBarWrap');
     if (old) old.remove();
     buildTF();
+}
+
+// ── TRUE/FALSE — SERVER-GRADED PATH (Architecture P1) ──
+// Mirrors buildMCQServer: answerless snapshots (get_topic_questions source
+// 'tf'), grading via grade_topic_answer, explanation revealed from the server
+// only after answering. Legacy buildTFLocal untouched until P1c strips inline.
+function buildTFServer(retryOnly) {
+    const wrap = document.getElementById('tfWrap');
+    if (!wrap) return;
+    if (!wrap.dataset.sgLoaded) {
+        wrap.innerHTML = '<div class="empty" style="padding:16px;">Loading questions…</div>';
+    }
+    _whenAuthedClient(client => {
+        client.rpc('get_topic_questions', { p_page_id: getPageId(), p_source: 'tf' })
+            .then(({ data, error }) => {
+                if (error) throw error;
+                const rows = data || [];
+                if (!rows.length) { buildTFLocal(retryOnly); return; }
+                _renderTFServer(wrap, rows, retryOnly);
+            })
+            .catch(() => { buildTFLocal(retryOnly); });
+    });
+}
+
+function _applyTFServerAnswered(card, chosenVal, correct, correctVal, explain) {
+    card.dataset.answered = '1';
+    const correctBool = correctVal === true || String(correctVal) === 'true';
+    card.querySelectorAll('.tf-btn').forEach(b => {
+        b.disabled = true;
+        const bVal = b.dataset.val === 'true';
+        if (bVal === chosenVal) b.classList.add(correct ? 'correct' : 'wrong');
+        if (!correct && bVal === correctBool) b.classList.add('correct');
+    });
+    const exp = document.getElementById(card.dataset.expId);
+    if (exp) { exp.textContent = explain || ''; exp.classList.add('show'); }
+}
+
+function _renderTFServer(wrap, rows, retryOnly) {
+    wrap.dataset.sgLoaded = '1';
+    wrap.innerHTML = '';
+    tfScore = 0; tfTotal = 0;
+    const pageId = getPageId();
+    const saved = ProgressStore.getAnswers(pageId, 'tf') || {};
+
+    rows.forEach((row, i) => {
+        const snap = row.snapshot || {};
+        const key = row.question_key;
+        const prior = saved[key];
+        const answered = prior && typeof prior === 'object' && typeof prior.val === 'boolean';
+        if (answered) {
+            tfTotal++;
+            if (prior.correct) tfScore++;
+            if (retryOnly && prior.correct) return;
+        }
+        const card = document.createElement('div'); card.className = 'tf-card';
+        card.dataset.expId = 'tfExp-sg-' + i;
+        // TF bank snapshot field is `question` (not `statement`).
+        card.innerHTML = '<div><div class="tf-text">' + _sgEsc(snap.question || snap.statement || '') + '</div>'
+            + '<div class="tf-explanation" id="tfExp-sg-' + i + '"></div></div>'
+            + '<div class="tf-btns"><button class="tf-btn" data-key="' + encodeURIComponent(key) + '" data-val="true">TRUE</button>'
+            + '<button class="tf-btn" data-key="' + encodeURIComponent(key) + '" data-val="false">FALSE</button></div>';
+        wrap.appendChild(card);
+        if (answered) _applyTFServerAnswered(card, prior.val, prior.correct, prior.answer, prior.explain);
+    });
+
+    const sEl = document.getElementById('tfScore'), tEl = document.getElementById('tfTotal');
+    if (sEl) sEl.textContent = tfScore;
+    if (tEl) tEl.textContent = tfTotal;
+
+    if (!wrap.dataset.sgBound) {
+        wrap.dataset.sgBound = '1';
+        wrap.addEventListener('click', _onTFServerClick);
+    }
+    injectTFProgressBar();
+    updateProgressBar('tf', tfScore, rows.length);
+    ProgressStore.saveTotal(pageId, 'tf', rows.length);
+}
+
+function _onTFServerClick(e) {
+    const btn = e.target.closest('.tf-btn');
+    if (!btn) return;
+    const card = btn.closest('.tf-card');
+    if (!card || card.dataset.answered) return;
+    const key = decodeURIComponent(btn.dataset.key);
+    const chosenVal = btn.dataset.val === 'true';
+    card.querySelectorAll('.tf-btn').forEach(b => b.disabled = true); // optimistic lock
+
+    _whenAuthedClient(client => {
+        client.rpc('grade_topic_answer', { p_question_key: key, p_answer: { value: String(chosenVal) } })
+            .then(({ data, error }) => {
+                if (error) throw error;
+                const res = data || {};
+                const correctVal = res.answer_key ? res.answer_key.answer : null;
+                const explain = res.answer_key ? (res.answer_key.explain || '') : '';
+                _applyTFServerAnswered(card, chosenVal, !!res.correct, correctVal, explain);
+
+                const pageId = getPageId();
+                const cur = ProgressStore.getAnswers(pageId, 'tf') || {};
+                cur[key] = { val: chosenVal, correct: !!res.correct, answer: correctVal, explain };
+                ProgressStore.setAnswersBulk(pageId, 'tf', cur);
+
+                if (typeof res.done === 'number' && typeof res.total === 'number') {
+                    tfScore = res.done;
+                    ProgressStore.save(pageId, 'tf', res.done, res.total);
+                    updateProgressBar('tf', res.done, res.total);
+                    const attempts = Object.keys(cur).length;
+                    const sEl = document.getElementById('tfScore'), tEl = document.getElementById('tfTotal');
+                    if (sEl) sEl.textContent = res.done;
+                    if (tEl) tEl.textContent = attempts; // attempts, matches the legacy counter
+                    // Celebrate once every statement is answered (not only on a perfect
+                    // score) so the prominent "🔁 Redo N wrong" popup always appears.
+                    if (res.total > 0 && attempts >= res.total) {
+                        const perfect = res.done === res.total;
+                        setTimeout(() => showCelebration({
+                            title: perfect ? 'Full Marks!' : 'All Done!',
+                            subtitle: perfect ? 'Every statement answered correctly — brilliant! 🎯'
+                                              : 'You scored ' + res.done + ' out of ' + res.total,
+                            extra: res.total + ' statement' + (res.total !== 1 ? 's' : ''),
+                            section: 'tf', onReset: resetTF
+                        }), 400);
+                    }
+                }
+                if (typeof gamificationOnAnswer === 'function') gamificationOnAnswer(!!res.correct, 'tf');
+            })
+            .catch(err => {
+                card.querySelectorAll('.tf-btn').forEach(b => b.disabled = false);
+                const exp = document.getElementById(card.dataset.expId);
+                if (exp) {
+                    exp.textContent = (err && err.message && /slow down/i.test(err.message))
+                        ? 'Too fast — please slow down and try again.'
+                        : 'Could not submit — please try again.';
+                    exp.classList.add('show');
+                }
+            });
+    });
 }
 
 // ══════════════════════════════════════
@@ -3357,6 +3757,11 @@ function buildTips() {
 function buildExamPractice() {
     const list = document.getElementById('epList');
     if (!list) return;
+    // Mark schemes may be teacher-authored HTML on teacher subjects (topic.html,
+    // which loads rich-editor.js) — sanitise at this render sink. On static
+    // platform topic pages rich-editor.js isn't loaded and the mark scheme is
+    // trusted build output, so the guard degrades to raw only there.
+    const _safeHtml = x => (typeof RichText !== 'undefined' && RichText.sanitize) ? RichText.sanitize(x || '') : (x || '');
     const savedEP = ProgressStore.getAnswers(getPageId(), 'exam') || {};
     // Restore epRevealed count from saved answers
     epRevealed = Object.keys(savedEP).length;
@@ -3401,7 +3806,7 @@ ${q.type !== 'mcq' ? `<button class="ep-btn submit-btn" onclick="togglePop(${qi}
 <div class="ep-popup hint-pop" id="epHint-${qi}"><strong>💡 Hint:</strong> ${q.hint}</div>
 <div class="ep-popup starter-pop" id="epStarter-${qi}"><strong>✍️ Sentence Starter:</strong><br>${q.starter.replace(/\n/g,'<br>')}</div>
 <div class="ep-popup marks-pop" id="epMarks-${qi}">
-${q.markScheme}
+${_safeHtml(q.markScheme)}
 ${q.modelAnswer ? `<div class="marks-section"><h5>✓ Model Answer</h5><div class="model-answer">${q.modelAnswer.replace(/\n/g,'<br>')}</div></div>` : ''}
 </div>
 </div>`;

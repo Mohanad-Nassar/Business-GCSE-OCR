@@ -14,12 +14,12 @@
   body { background:var(--paper); color:var(--ink); }
   :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
 
-  header { background:var(--ink); border-bottom:3px solid var(--accent); padding:24px 40px 20px; }
+  header { background:var(--chrome, var(--ink)); border-bottom:3px solid var(--accent); padding:24px 40px 20px; }
   .header-inner { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; }
   .header-badge { display:inline-block; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:10px; }
-  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:700; color:var(--paper); margin-bottom:4px; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:700; color:var(--chrome-text, var(--paper)); margin-bottom:4px; }
   header p { font-size:13px; color:rgba(245,240,232,.6); }
-  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--paper); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
+  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--chrome-text, var(--paper)); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
   .nav-link:hover { background:rgba(255,255,255,.18); }
 
   main { padding:26px 40px 80px; max-width:1150px; margin:0 auto; }
@@ -33,27 +33,37 @@
   .subtab:hover { border-color:var(--accent); color:var(--accent); }
   .subtab.active { background:var(--accent); border-color:var(--accent); color:#fff; }
 
-  .btn { background:var(--ink); color:var(--paper); border:none; padding:10px 18px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
-  .btn:hover { background:#1c2c3d; }
+  .btn { background:var(--chrome, var(--ink)); color:var(--chrome-text, var(--paper)); border:none; padding:10px 18px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
+  .btn:hover { filter:brightness(1.3); }
   .btn.small { padding:6px 12px; font-size:11.5px; }
 
   .class-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:14px; margin-bottom:16px; }
-  .class-card { background:#fff; border:1px solid var(--border); border-radius:10px; padding:16px 16px 14px; display:flex; flex-direction:column; gap:8px; }
+  /* Whole card is a link now — lift + accent glow on hover, tuned to the theme
+     via --accent + color-mix so it reads on both light and dark themes. */
+  .class-card { position:relative; background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:16px 16px 14px; display:flex; flex-direction:column; gap:8px; text-decoration:none; color:inherit; cursor:pointer;
+    transition:transform .16s ease, box-shadow .2s ease, border-color .2s ease; }
+  .class-card::before { content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none; opacity:0;
+    box-shadow:0 0 0 1px var(--accent), 0 10px 30px -8px color-mix(in srgb, var(--accent) 55%, transparent); transition:opacity .2s ease; }
+  .class-card:hover { transform:translateY(-3px); border-color:color-mix(in srgb, var(--accent) 60%, var(--border)); }
+  .class-card:hover::before { opacity:1; }
+  .class-card:focus-visible { outline:3px solid var(--accent); outline-offset:2px; }
   .class-card h3 { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:var(--ink); margin:0; }
   .class-card .meta { font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); }
+  .card-open { margin-top:auto; padding-top:10px; border-top:1px solid var(--border); font-family:'DM Mono',monospace; font-size:11.5px; font-weight:600; color:var(--accent); letter-spacing:.03em; transition:letter-spacing .18s ease; }
+  .class-card:hover .card-open { letter-spacing:.12em; }
   .jc-block { border-top:1px dashed var(--border); padding-top:10px; margin-top:2px; display:flex; flex-direction:column; gap:7px; }
   .jc-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
   .jc-code { font-family:'DM Mono',monospace; font-size:16px; letter-spacing:.18em; font-weight:600;
     background:var(--cream); border:1px solid var(--border); border-radius:6px; padding:5px 10px; }
   .jc-none { font-size:12px; color:var(--mid); font-style:italic; }
-  .jc-btn { background:#fff; border:1px solid var(--border); border-radius:6px; padding:5px 10px;
+  .jc-btn { background:var(--card-bg); border:1px solid var(--border); border-radius:6px; padding:5px 10px;
     font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase;
     color:var(--ink); cursor:pointer; }
   .jc-btn:hover { border-color:var(--accent); }
   .jc-btn.danger { color:#c84b31; }
   .jc-meta { font-size:11px; color:var(--mid); line-height:1.5; }
   .jc-exp { font-size:11px; color:var(--mid); display:inline-flex; align-items:center; gap:5px; }
-  .jc-exp select { border:1px solid var(--border); border-radius:5px; padding:3px 6px; font-size:11.5px; background:#fff; }
+  .jc-exp select { border:1px solid var(--border); border-radius:5px; padding:3px 6px; font-size:11.5px; background:var(--card-bg); }
   .subj-chip { display:inline-block; font-family:'DM Mono',monospace; font-size:10.5px; padding:2px 9px; border-radius:99px; align-self:flex-start; }
   .card-links { display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; padding-top:10px; border-top:1px solid var(--border); }
   .card-links a { font-family:'DM Mono',monospace; font-size:11px; text-decoration:none; color:var(--ink); border:1px solid var(--border); border-radius:6px; padding:5px 9px; white-space:nowrap; }
@@ -64,11 +74,41 @@
   .inline-form { display:flex; gap:12px; flex-wrap:wrap; align-items:flex-end; }
   .field { display:flex; flex-direction:column; gap:5px; min-width:0; }
   .field label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); }
-  .field input, .field select { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:13.5px; font-family:'DM Sans',sans-serif; background:#fff; }
+  .field input, .field select { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:13.5px; font-family:'DM Sans',sans-serif; background:var(--card-bg); }
   .msg { font-family:'DM Mono',monospace; font-size:12px; margin-top:10px; min-height:16px; }
   .msg.ok { color:#2d7a4f; }
   .msg.err { color:var(--wrong); }
   .hidden { display:none !important; }
+
+  /* ── Class settings modal ── */
+  .cs-backdrop { position:fixed; inset:0; background:rgba(15,25,35,.5); z-index:899; opacity:0; pointer-events:none; transition:opacity .2s; }
+  .cs-backdrop.show { opacity:1; pointer-events:auto; }
+  .cs-modal { position:fixed; top:50%; left:50%; transform:translate(-50%,-46%) scale(.98);
+    width:620px; max-width:94vw; max-height:90vh; overflow-y:auto; background:var(--card-bg);
+    border:1px solid var(--border); border-radius:14px; box-shadow:0 20px 60px rgba(0,0,0,.28);
+    z-index:900; padding:24px 26px; opacity:0; pointer-events:none; transition:opacity .2s, transform .2s; }
+  .cs-modal.show { opacity:1; pointer-events:auto; transform:translate(-50%,-50%) scale(1); }
+  .cs-close { position:absolute; top:12px; right:14px; background:none; border:none; font-size:17px; cursor:pointer; color:var(--mid); padding:4px 8px; border-radius:6px; line-height:1; }
+  .cs-close:hover { background:var(--cream); color:var(--ink); }
+  .cs-modal h2 { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; margin-bottom:2px; }
+  .cs-sub { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--mid); margin:16px 0 9px; display:flex; align-items:center; gap:8px; }
+  .cs-sub::after { content:''; flex:1; height:1px; background:var(--border); }
+  .cs-member { display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:8px 0; border-bottom:1px dashed var(--border); font-size:13px; }
+  .cs-member:last-child { border-bottom:none; }
+  .cs-member .who { font-weight:600; }
+  .cs-member .em { color:var(--mid); font-family:'DM Mono',monospace; font-size:11px; }
+  .cs-badge { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.05em; text-transform:uppercase; border-radius:99px; padding:1px 7px; }
+  .cs-badge.creator { background:var(--accent); color:#fff; }
+  .cs-badge.main { background:var(--gold); color:var(--ink); }
+  .cs-badge.pending { background:var(--cream); color:var(--mid); border:1px solid var(--border); }
+  .cs-main-toggle { display:inline-flex; align-items:center; gap:5px; font-family:'DM Mono',monospace; font-size:10.5px; color:var(--mid); cursor:pointer; }
+  .cs-rm { margin-left:auto; background:none; border:none; color:var(--wrong); cursor:pointer; font-size:11px; font-family:'DM Mono',monospace; }
+  .cs-rm:hover { text-decoration:underline; }
+  .cs-addrow { display:flex; gap:8px; flex-wrap:wrap; align-items:flex-end; margin-top:10px; }
+  .cs-addrow input, .cs-addrow select { padding:8px 10px; border:1px solid var(--border); border-radius:6px; font-size:13px; font-family:'DM Sans',sans-serif; background:var(--card-bg); color:var(--ink); }
+  .cs-note { font-size:11px; color:var(--mid); margin-top:6px; line-height:1.5; }
+  .cs-msg { font-family:'DM Mono',monospace; font-size:11.5px; margin-top:8px; min-height:14px; }
+  .cs-msg.ok { color:#2d7a4f; } .cs-msg.err { color:var(--wrong); }
 </style>
 </head>
 <body>
@@ -80,9 +120,6 @@
       <h1>📚 My Classes</h1>
       <p>Every class you teach, in one place — open a class, jump to its tasks, Daily Revise or calendar.</p>
     </div>
-    <div style="display:flex; gap:8px; flex-wrap:wrap;">
-      <a class="nav-link" href="/hub.html">Site Home</a>
-    </div>
   </div>
 </header>
 
@@ -91,6 +128,13 @@
     <button type="button" class="subtab active" id="tabActive">📚 My Classes</button>
     <button type="button" class="subtab" id="tabArchived">📦 Archived</button>
   </div>
+
+  <!-- Subject filter tabs — injected by renderSubjectTabs() from the subjects
+       the teacher actually has classes in (hidden when there's only one). -->
+  <div id="subjectTabs" style="display:none; gap:8px; margin-bottom:14px; flex-wrap:wrap;" role="tablist" aria-label="Filter classes by subject"></div>
+
+  <!-- Pending co-teacher invites (class-teachers.sql) -->
+  <div id="inviteBanner"></div>
 
   <div class="panel">
     <div class="class-grid" id="classGrid"><div class="empty">Loading…</div></div>
@@ -110,6 +154,13 @@
   </div>
 </main>
 
+<!-- Class settings modal (join code + members) -->
+<div class="cs-backdrop" id="csBackdrop"></div>
+<div class="cs-modal" id="csModal" role="dialog" aria-modal="true" aria-label="Class settings">
+  <button type="button" class="cs-close" id="csClose" aria-label="Close">✕</button>
+  <div id="csBody"></div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="tasks-shared.js"></script>
 <script src="/subjects-index.js"></script>
@@ -124,6 +175,34 @@ let counts = {};         // classId -> student count
 let subjectsList = [];   // [{id, slug, name, colour, icon}]
 let joinCodes = {};      // classId -> active class_join_codes row (WP-A2)
 let currentTab = 'active';
+let currentSubject = 'all'; // subject-filter tab: 'all' or a subject slug
+
+// The distinct subjects the teacher has classes in (from the embedded
+// classes.subjects row) — drives the subject-filter tabs, so custom
+// subjects appear automatically and there are never empty tabs.
+function distinctSubjects() {
+  const map = new Map();
+  classes.forEach(c => {
+    const s = c.subjects;
+    if (s && s.slug && !map.has(s.slug)) map.set(s.slug, s);
+  });
+  return [...map.values()].sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+}
+
+function renderSubjectTabs() {
+  const wrap = $('subjectTabs');
+  const subs = distinctSubjects();
+  // Only worth a filter when the teacher spans two or more subjects.
+  if (subs.length < 2) { wrap.style.display = 'none'; wrap.innerHTML = ''; currentSubject = 'all'; return; }
+  // A filter pointing at a subject the teacher no longer has any class in
+  // (e.g. its last class was deleted) falls back to "All".
+  if (currentSubject !== 'all' && !subs.some(s => s.slug === currentSubject)) currentSubject = 'all';
+  const tab = (slug, label, sel) =>
+    `<button type="button" class="subtab${sel ? ' active' : ''}" role="tab" aria-selected="${sel}" data-subject-tab="${esc(slug)}">${label}</button>`;
+  wrap.innerHTML = tab('all', '🗂️ All subjects', currentSubject === 'all') +
+    subs.map(s => tab(s.slug, (s.icon ? esc(s.icon) + ' ' : '') + esc(s.name), currentSubject === s.slug)).join('');
+  wrap.style.display = 'flex';
+}
 
 function hexTriplet(hex) {
   const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex || '');
@@ -139,20 +218,78 @@ function subjChip(subj) {
 async function init() {
   auth = await tasksAuthInit('teacher');
   if (!auth) return;
-  await Promise.all([loadClasses(), loadSubjects()]);
+  await Promise.all([loadClasses(), loadSubjects(), loadInvites()]);
 }
 
-async function loadSubjects() {
+// ── Pending co-teacher invites TO me (I was invited to co-teach) ──
+async function loadInvites() {
+  let invs = [];
   try {
-    const { data } = await auth.client.from('subjects').select('id, slug, name, colour, icon').eq('active', true).order('sort_order');
+    const { data, error } = await auth.client.rpc('get_my_pending_class_invites');
+    if (!error && Array.isArray(data)) invs = data;
+  } catch (e) { /* class-teachers.sql not installed — no banner */ }
+  const wrap = $('inviteBanner');
+  if (!invs.length) { wrap.innerHTML = ''; return; }
+  wrap.innerHTML = invs.map(iv => `
+    <div class="panel" style="border-left:4px solid var(--gold); display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+      <span style="font-size:20px;">🧑‍🏫</span>
+      <span style="flex:1; min-width:180px; font-size:13.5px;">
+        <strong>${esc(iv.invited_by || 'A teacher')}</strong> invited you to co-teach
+        <strong>${esc(iv.class_name || 'a class')}</strong>.
+      </span>
+      <button type="button" class="btn small" data-acceptinvite="${esc(iv.id)}">Accept</button>
+      <button type="button" class="subtab" data-declineinvite="${esc(iv.id)}">Decline</button>
+    </div>`).join('');
+}
+
+// Accept / decline (delegated — the banner is re-rendered).
+$('inviteBanner').addEventListener('click', async (e) => {
+  const acc = e.target.closest('[data-acceptinvite]');
+  const dec = e.target.closest('[data-declineinvite]');
+  const btn = acc || dec;
+  if (!btn) return;
+  const id = btn.dataset.acceptinvite || btn.dataset.declineinvite;
+  btn.disabled = true;
+  const { error } = await auth.client.rpc('respond_to_class_teacher_invite', { p_invite_id: id, p_accept: !!acc });
+  if (error) { btn.disabled = false; alert('Could not respond: ' + error.message); return; }
+  // Accepting adds the class to my list; refresh both.
+  await Promise.all([loadInvites(), loadClasses()]);
+});
+
+async function loadSubjects() {
+  // The subjects this teacher may actually create a class in — their effective
+  // subject access (school-admin.sql). Falls back to null (= no restriction) if
+  // the entitlements RPC isn't available, so nothing changes pre-migration.
+  let allowedSlugs = null;
+  try {
+    const { data: ents } = await auth.client.rpc('get_my_entitlements');
+    if (Array.isArray(ents)) allowedSlugs = new Set(ents.map(e => e.subject));
+  } catch (e) {}
+  try {
+    // RLS scopes this to platform subjects + the teacher's own creations
+    // (supabase/teacher-subjects.sql) — no client-side filter needed.
+    const { data } = await auth.client.from('subjects').select('id, slug, name, colour, icon, created_by').eq('active', true).order('sort_order');
     subjectsList = data || [];
   } catch (e) { subjectsList = []; }
+  // Only offer subjects the teacher is entitled to (plus any they authored
+  // themselves), so we never present a subject the insert policy will reject.
+  if (allowedSlugs) subjectsList = subjectsList.filter(s => allowedSlugs.has(s.slug) || s.created_by);
   const sel = $('newClassSubject');
   if (!subjectsList.length) return;
+  // ?subject=<uuid> (the "create a class with this subject" link on the
+  // My Content builder's publish step) preselects that subject.
+  const wanted = new URLSearchParams(location.search).get('subject');
+  const preselect = subjectsList.some(s => s.id === wanted) ? wanted
+    : (subjectsList.find(s => s.slug === 'business') || {}).id;
   sel.innerHTML = subjectsList.map(s => {
-    const hasContent = !!(window.PAGE_GROUPS_ALL && (window.PAGE_GROUPS_ALL[s.slug] || []).length);
-    const label = (s.icon ? s.icon + ' ' : '') + s.name + (hasContent ? '' : ' (content coming soon)');
-    return `<option value="${esc(s.id)}"${s.slug === 'business' ? ' selected' : ''}>${esc(label)}</option>`;
+    let label = (s.icon ? s.icon + ' ' : '') + s.name;
+    if (s.created_by) {
+      // teacher-authored (My Content) — distinguish your own from a shared one
+      label += s.created_by === auth.session.user.id ? ' · your subject' : ' · shared with you';
+    } else if (!(window.PAGE_GROUPS_ALL && (window.PAGE_GROUPS_ALL[s.slug] || []).length)) {
+      label += ' (content coming soon)';
+    }
+    return `<option value="${esc(s.id)}"${s.id === preselect ? ' selected' : ''}>${esc(label)}</option>`;
   }).join('');
 }
 
@@ -214,8 +351,19 @@ function jcBlockHtml(c) {
 
 function render() {
   const grid = $('classGrid');
-  const shown = classes.filter(c => !!c.archived === (currentTab === 'archived'));
+  renderSubjectTabs(); // keep the subject filter row in sync with the classes
+  const subjOk = c => currentSubject === 'all' || (c.subjects && c.subjects.slug === currentSubject);
+  const shown = classes.filter(c => !!c.archived === (currentTab === 'archived') && subjOk(c));
   if (!shown.length) {
+    // A subject filter that hides everything (there are classes, just not in
+    // this subject + tab) gets its own message, not the "create your first
+    // class" / demo flow.
+    if (currentSubject !== 'all') {
+      grid.innerHTML = '<div class="empty">No ' + (currentTab === 'archived' ? 'archived ' : '')
+        + 'classes in this subject. Pick <strong>🗂️ All subjects</strong> to see the rest'
+        + (currentTab === 'archived' ? '.' : ', or create one below.') + '</div>';
+      return;
+    }
     if (currentTab === 'archived') {
       grid.innerHTML = '<div class="empty">No archived classes.</div>';
       return;
@@ -253,19 +401,14 @@ function render() {
   grid.innerHTML = demoBanner + shown.map(c => {
     const n = counts[c.id] || 0;
     const q = '?class=' + encodeURIComponent(c.id);
-    const links = currentTab === 'archived'
-      ? `<a class="primary" href="teacher-dashboard.html${q}">Open &amp; manage →</a>`
-      : `<a class="primary" href="teacher-dashboard.html${q}">Open →</a>
-         <a href="teacher-tasks.html${q}">📋 Tasks</a>
-         <a href="teacher-analytics.html${q}">🎯 Daily Revise</a>
-         <a href="teacher-calendar.html${q}">🗓️ Calendar</a>`;
-    return `<div class="class-card">
+    // The whole card is the click target now — it opens the class, where every
+    // setting (join code, teachers, students, tasks…) lives on its own tabs.
+    return `<a class="class-card" href="teacher-dashboard.html${q}">
       <h3>${esc(c.name)}</h3>
       ${subjChip(c.subjects)}
       <div class="meta">👥 ${n} student${n === 1 ? '' : 's'}</div>
-      <div class="card-links">${links}</div>
-      ${jcBlockHtml(c)}
-    </div>`;
+      <span class="card-open">${currentTab === 'archived' ? 'Open &amp; manage' : 'Open class'} →</span>
+    </a>`;
   }).join('');
 
   const dismiss = $('demoHintDismiss');
@@ -312,43 +455,187 @@ async function createDemoClass() {
   }
 }
 
-// Join-code actions — one delegated listener survives every re-render.
-$('classGrid').addEventListener('click', async (e) => {
+// Open class settings from a card's ⚙ Settings link.
+$('classGrid').addEventListener('click', (e) => {
+  const s = e.target.closest('[data-settings]');
+  if (s) { e.preventDefault(); openSettings(s.dataset.settings); }
+});
+
+// ── Class settings modal (join code + members) ──────────────────
+let csClassId = null;
+let csMembers = null;
+
+$('csClose').addEventListener('click', closeSettings);
+$('csBackdrop').addEventListener('click', closeSettings);
+
+function openSettings(classId) {
+  csClassId = classId;
+  csMembers = null;
+  const c = classes.find(x => x.id === classId);
+  if (!c) return;
+  $('csBody').innerHTML = `<h2>${esc(c.name)} — settings</h2><div class="cs-sub">Loading…</div>`;
+  $('csBackdrop').classList.add('show');
+  $('csModal').classList.add('show');
+  loadMembers(classId);
+}
+function closeSettings() {
+  $('csBackdrop').classList.remove('show');
+  $('csModal').classList.remove('show');
+  csClassId = null;
+}
+
+async function loadMembers(classId) {
+  try {
+    const { data, error } = await auth.client.rpc('get_class_members', { p_class_id: classId });
+    if (error) throw error;
+    csMembers = data;
+  } catch (e) {
+    csMembers = { teachers: [], students: [], pending_invites: [], creator_id: null, _err: e.message };
+  }
+  if (csClassId === classId) renderCsBody();
+}
+
+function csMsg(t, ok) { const el = $('csMsg'); if (el) { el.className = 'cs-msg ' + (ok ? 'ok' : 'err'); el.textContent = t; } }
+
+function renderCsBody() {
+  const c = classes.find(x => x.id === csClassId);
+  if (!c) return;
+  const m = csMembers || { teachers: [], students: [], pending_invites: [], creator_id: null };
+  const iAmCreator = m.creator_id === auth.session.user.id;
+  const teachers = m.teachers || [], students = m.students || [], invites = m.pending_invites || [];
+  const sqlMissing = m._err && /get_class_members|Could not find|schema|does not exist/i.test(m._err);
+
+  const teacherRows = teachers.length ? teachers.map(t => `
+    <div class="cs-member">
+      <span class="who">${esc(t.username || t.email || 'Teacher')}</span>
+      ${t.is_creator ? '<span class="cs-badge creator">creator</span>' : ''}
+      <label class="cs-main-toggle" title="Show this teacher to students">
+        <input type="checkbox" data-main="${esc(t.id)}" ${t.is_main ? 'checked' : ''}/> main
+      </label>
+      ${(iAmCreator && !t.is_creator) ? `<button type="button" class="cs-rm" data-rmteacher="${esc(t.id)}">remove</button>` : ''}
+    </div>`).join('') : '<div class="cs-note">No teachers.</div>';
+
+  const inviteRows = invites.map(i => `
+    <div class="cs-member">
+      <span class="who">${esc(i.username || i.email)}</span>
+      <span class="cs-badge pending">invited · pending</span>
+      <button type="button" class="cs-rm" data-cancelinvite="${esc(i.id)}">cancel</button>
+    </div>`).join('');
+
+  const studentRows = students.length ? students.map(s => `
+    <div class="cs-member">
+      <span class="who">${esc(s.username || 'Student')}</span>
+      <span class="em">${esc(s.email || '')}</span>
+      <button type="button" class="cs-rm" data-rmstudent="${esc(s.id)}">remove</button>
+    </div>`).join('') : '<div class="cs-note">No students yet.</div>';
+
+  $('csBody').innerHTML = `
+    <h2>${esc(c.name)} — settings</h2>
+    ${sqlMissing ? '<div class="cs-note" style="color:var(--wrong);">Member management needs <code>supabase/class-teachers.sql</code> to be run. The join code below still works.</div>' : ''}
+    <div class="cs-sub">Join code</div>
+    ${jcBlockHtml(c)}
+    <div class="cs-sub">Teachers</div>
+    ${teacherRows}
+    ${inviteRows}
+    <div class="cs-note">Tick <strong>main</strong> for the teacher(s) shown to students (e.g. “Mr&nbsp;X &amp; Miss&nbsp;Y”). Only the class creator can remove a teacher.</div>
+    <div class="cs-sub">Students</div>
+    ${studentRows}
+    <div class="cs-sub">Add a member by email</div>
+    <div class="cs-addrow">
+      <input type="email" id="csEmail" placeholder="name@school.org" style="flex:1; min-width:180px;"/>
+      <select id="csRole"><option value="student">Student</option><option value="teacher">Teacher</option></select>
+      <button type="button" class="btn small" id="csAddBtn">Add</button>
+    </div>
+    <div class="cs-note">Students are added straight away and notified. Teachers get an invite to accept, and must be in your school.</div>
+    <div class="cs-msg" id="csMsg"></div>`;
+}
+
+async function addMember() {
+  if (!csClassId) return;
+  const email = ($('csEmail').value || '').trim();
+  const role = $('csRole').value;
+  if (!email) { csMsg('Enter an email address.', false); return; }
+  const btn = $('csAddBtn'); if (btn) btn.disabled = true;
+  try {
+    if (role === 'teacher') {
+      const { error } = await auth.client.rpc('invite_teacher_to_class', { p_class_id: csClassId, p_email: email });
+      if (error) throw error;
+      csMsg('If a teacher with that email is in your school, an invite has been sent.', true);
+    } else {
+      const { data, error } = await auth.client.rpc('add_student_to_class', { p_class_id: csClassId, p_email: email });
+      if (error) throw error;
+      if (data && data.ok === false && data.error === 'subject_taken') {
+        csMsg('That student is already in “' + (data.class_name || 'another class') + '” for this subject.', false);
+      } else if (data && data.status === 'already_in_class') {
+        csMsg('That student is already in this class.', true);
+      } else {
+        csMsg('Student added (if the account exists).', true);
+      }
+    }
+    $('csEmail').value = '';
+    await loadClasses();
+    loadMembers(csClassId);
+  } catch (e) {
+    csMsg(e.message || 'Could not add that member.', false);
+  }
+  if (btn) btn.disabled = false;
+}
+
+// One delegated click listener for every action inside the modal.
+$('csBody').addEventListener('click', async (e) => {
   const copyBtn = e.target.closest('[data-copy]');
   if (copyBtn) {
-    try {
-      await navigator.clipboard.writeText(copyBtn.dataset.copy);
-      copyBtn.textContent = 'Copied ✓';
-      setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1600);
-    } catch (err) {
-      prompt('Copy this class code:', copyBtn.dataset.copy);
-    }
+    try { await navigator.clipboard.writeText(copyBtn.dataset.copy); copyBtn.textContent = 'Copied ✓'; setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1600); }
+    catch (err) { prompt('Copy this class code:', copyBtn.dataset.copy); }
     return;
   }
   const genBtn = e.target.closest('[data-gen]');
   if (genBtn) {
     const classId = genBtn.dataset.gen;
-    if (joinCodes[classId] &&
-        !confirm('Generate a new code? The old one stops working immediately.')) return;
+    if (joinCodes[classId] && !confirm('Generate a new code? The old one stops working immediately.')) return;
     const sel = document.querySelector(`[data-expsel="${classId}"]`);
     const days = sel && sel.value ? parseInt(sel.value, 10) : null;
     genBtn.disabled = true;
-    const { error } = await auth.client.rpc('generate_join_code',
-      { p_class_id: classId, p_expires_days: days, p_max_uses: null });
-    genBtn.disabled = false;
+    const { error } = await auth.client.rpc('generate_join_code', { p_class_id: classId, p_expires_days: days, p_max_uses: null });
     if (error) { alert('Could not create the code: ' + error.message); return; }
-    await loadClasses();
+    await loadClasses(); renderCsBody();
     return;
   }
   const revokeBtn = e.target.closest('[data-revoke]');
   if (revokeBtn) {
     if (!confirm('Remove this join code? Students who already joined stay in the class.')) return;
-    revokeBtn.disabled = true;
     const { error } = await auth.client.rpc('revoke_join_code', { p_class_id: revokeBtn.dataset.revoke });
-    revokeBtn.disabled = false;
     if (error) { alert('Could not remove the code: ' + error.message); return; }
-    await loadClasses();
+    await loadClasses(); renderCsBody();
+    return;
   }
+  if (e.target.closest('#csAddBtn')) { addMember(); return; }
+  const ci = e.target.closest('[data-cancelinvite]');
+  if (ci) { await auth.client.rpc('revoke_class_teacher_invite', { p_invite_id: ci.dataset.cancelinvite }).catch(() => {}); loadMembers(csClassId); return; }
+  const rt = e.target.closest('[data-rmteacher]');
+  if (rt) {
+    if (!confirm('Remove this teacher from the class?')) return;
+    const { error } = await auth.client.rpc('remove_class_teacher', { p_class_id: csClassId, p_teacher_id: rt.dataset.rmteacher });
+    if (error) csMsg(error.message, false); else loadMembers(csClassId);
+    return;
+  }
+  const rs = e.target.closest('[data-rmstudent]');
+  if (rs) {
+    if (!confirm('Remove this student from the class?')) return;
+    const { error } = await auth.client.from('class_students').delete().eq('class_id', csClassId).eq('student_id', rs.dataset.rmstudent);
+    if (error) csMsg(error.message, false); else { await loadClasses(); loadMembers(csClassId); }
+  }
+});
+
+// Main-teacher toggles (checkbox 'change') → save the full checked set.
+$('csBody').addEventListener('change', async (e) => {
+  if (!e.target.closest('[data-main]')) return;
+  const ids = [...$('csBody').querySelectorAll('[data-main]:checked')].map(el => el.dataset.main);
+  const { error } = await auth.client.rpc('set_main_teachers', { p_class_id: csClassId, p_teacher_ids: ids });
+  csMsg(error ? error.message : 'Updated who students see.', !error);
+});
+$('csBody').addEventListener('keydown', (e) => {
+  if (e.target.id === 'csEmail' && e.key === 'Enter') { e.preventDefault(); addMember(); }
 });
 
 $('tabActive').addEventListener('click', () => setTab('active'));
@@ -360,6 +647,14 @@ function setTab(tab) {
   $('newClassForm').classList.toggle('hidden', tab !== 'active');
   render();
 }
+
+// Subject-filter tabs — one delegated listener (the buttons are re-rendered).
+$('subjectTabs').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-subject-tab]');
+  if (!b) return;
+  currentSubject = b.dataset.subjectTab;
+  render();
+});
 
 $('newClassForm').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -381,5 +676,6 @@ init();
 </script>
 <script src="teacher-nav.js"></script>
 <script src="footer-legal.js"></script>
+  <script src="searchable-select.js" defer></script>
 </body>
 </html>

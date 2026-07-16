@@ -6,6 +6,13 @@
    Every animation honours prefers-reduced-motion (block at the bottom).
    ══════════════════════════════════════════════════════════════ */
 
+/* Smooths cross-page navigation (browser-native crossfade) in supporting
+   browsers; no-op elsewhere. Needs the same rule on both the outgoing and
+   incoming page, so it's mirrored in style.css/business-style.css. */
+@view-transition {
+  navigation: auto;
+}
+
 :root {
   --ink: #0f1923;
   --ink-2: #1a2532;
@@ -62,7 +69,8 @@ a { color: inherit; }
   transition: background .3s ease, border-color .3s ease, backdrop-filter .3s ease;
 }
 .nav.scrolled {
-  background: rgba(245, 240, 232, .82);
+  /* themed frosted bar — was hardcoded cream, invisible-text on dark themes */
+  background: color-mix(in srgb, var(--paper) 85%, transparent);
   backdrop-filter: blur(10px);
   border-bottom-color: var(--border);
 }
@@ -87,7 +95,7 @@ a { color: inherit; }
   color: #fff; box-shadow: 0 8px 22px rgba(199, 127, 31, .35);
 }
 .btn-solid:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(199, 127, 31, .45); }
-.btn-ghost { border-color: var(--border); color: var(--ink); background: rgba(255, 255, 255, .5); }
+.btn-ghost { border-color: var(--border); color: var(--ink); background: color-mix(in srgb, var(--card) 55%, transparent); }
 .btn-ghost:hover { border-color: var(--marigold); color: var(--marigold-dark); }
 .btn-big { padding: 15px 30px; font-size: 15.5px; }
 
@@ -146,7 +154,7 @@ a { color: inherit; }
 .m-mastery i.on2 { background: #d4832b; }
 .m-mastery i.on3 { background: var(--gold); }
 .m-opts { display: grid; gap: 7px; }
-.m-opt { border: 1px solid var(--border); border-radius: 8px; padding: 8px 11px; font-size: 12.5px; color: var(--mid); background: #fff; }
+.m-opt { border: 1px solid var(--border); border-radius: 8px; padding: 8px 11px; font-size: 12.5px; color: var(--mid); background: var(--card); }
 .m-opt.sel { border-color: var(--eco); color: var(--ink); background: rgba(45, 122, 79, .08); font-weight: 600; }
 .m-streak-big { font-size: 30px; font-weight: 800; font-family: 'Playfair Display', serif; }
 .m-xp { height: 8px; border-radius: 5px; background: var(--cream); overflow: hidden; margin-top: 10px; }
@@ -154,19 +162,19 @@ a { color: inherit; }
 .m-xp-cap { font-size: 11px; color: var(--mid); margin-top: 6px; }
 .m-week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-top: 4px; }
 .m-day { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--mid); text-align: center; }
-.m-cell { height: 34px; border: 1px solid var(--border); border-radius: 6px; background: #fff; position: relative; }
+.m-cell { height: 34px; border: 1px solid var(--border); border-radius: 6px; background: var(--card); position: relative; }
 .m-chip { position: absolute; left: 3px; right: 3px; border-radius: 4px; font-size: 7.5px; padding: 1px 3px; overflow: hidden; white-space: nowrap; }
 .m-chip.rev { top: 3px; border: 1px dashed var(--border); background: var(--cream); color: var(--mid); }
 .m-chip.task { bottom: 3px; background: var(--eco); color: #fff; }
 
 /* ── Stats strip ── */
 .stats {
-  background: var(--ink); color: var(--paper);
+  background: var(--chrome, var(--ink)); color: var(--chrome-text, var(--paper));
   padding: 40px clamp(18px, 5vw, 60px);
 }
 .stats-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 26px; text-align: center; }
 .stat-num { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 44px); font-weight: 800; color: var(--gold); }
-.stat-cap { font-size: 13px; color: rgba(245, 240, 232, .75); margin-top: 4px; }
+.stat-cap { font-size: 13px; color: color-mix(in srgb, var(--chrome-text, var(--paper)) 78%, transparent); margin-top: 4px; }
 
 /* ── Feature rows ── */
 .features { max-width: 1140px; margin: 0 auto; padding: 90px clamp(18px, 5vw, 60px) 30px; }
@@ -200,8 +208,8 @@ a { color: inherit; }
 .fv-line.w60 { width: 60%; }
 .fv-line.w80 { width: 80%; }
 .fv-chiprow { display: flex; gap: 7px; flex-wrap: wrap; }
-.fv-chip { border: 1px solid var(--border); background: #fff; border-radius: 99px; padding: 5px 12px; font-size: 11.5px; font-weight: 600; color: var(--mid); }
-.fv-chip.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+.fv-chip { border: 1px solid var(--border); background: var(--card); border-radius: 99px; padding: 5px 12px; font-size: 11.5px; font-weight: 600; color: var(--mid); }
+.fv-chip.on { background: var(--chrome, var(--ink)); border-color: var(--ink); color: var(--chrome-text, var(--paper)); }
 
 /* ── Subjects ── */
 .subjects { background: var(--cream); padding: 90px clamp(18px, 5vw, 60px); }
@@ -221,7 +229,7 @@ a { color: inherit; }
 /* ── For schools ── */
 .schools { padding: 90px clamp(18px, 5vw, 60px); }
 .schools-inner {
-  max-width: 1000px; margin: 0 auto; background: var(--ink); color: var(--paper);
+  max-width: 1000px; margin: 0 auto; background: var(--chrome, var(--ink)); color: var(--chrome-text, var(--paper));
   border-radius: 22px; padding: clamp(30px, 5vw, 60px);
   display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center;
   position: relative; overflow: hidden;
@@ -231,9 +239,9 @@ a { color: inherit; }
   background: radial-gradient(closest-side, rgba(212, 168, 67, .25), transparent 70%);
 }
 .schools-inner h2 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 3vw, 34px); font-weight: 800; margin: 10px 0 14px; }
-.schools-inner p { color: rgba(245, 240, 232, .78); font-size: 15px; }
+.schools-inner p { color: color-mix(in srgb, var(--chrome-text, var(--paper)) 80%, transparent); font-size: 15px; }
 .schools-list { display: grid; gap: 13px; position: relative; z-index: 1; }
-.schools-list div { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: rgba(245, 240, 232, .9); }
+.schools-list div { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: color-mix(in srgb, var(--chrome-text, var(--paper)) 90%, transparent); }
 .schools-list b { color: var(--gold); }
 
 /* ── FAQ ── */

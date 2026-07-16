@@ -297,8 +297,8 @@
 <p>Salary £45,000 + bonus £5,000 + interest £1,000 = <strong>income £51,000</strong>. Car £15,000 + savings £50,000 + pension fund £125,000 + possessions £10,000 = <strong>wealth £200,000</strong>. Sort the table into flows and stocks before you add anything up.</p>`,
             readCheck: {
                 q: "Heidi earns £20,000 a year and has £50,000 in a bank account paying no interest. Which is true?",
-                opts: ["Her wealth is £50,000", "Her wealth is £70,000", "Her income is £70,000", "Her income is £50,000"],
-                ans: 0,
+                opts: ["Her income is £50,000", "Her wealth is £50,000", "Her income is £70,000", "Her wealth is £70,000"],
+                ans: 1,
                 explain: "The bank balance is a stock of assets = wealth. Her income is the £20,000 she earns; because the account pays no interest, the £50,000 generates no income at all."
             }
         },
@@ -326,8 +326,8 @@
 </ul>`,
             readCheck: {
                 q: "Which statement about the UK is correct?",
-                opts: ["Wealth is distributed even more unequally than income", "Income is distributed more unequally than wealth", "Only wealth is unequally distributed", "Income and wealth are distributed equally"],
-                ans: 0,
+                opts: ["Income and wealth are distributed equally", "Income is distributed more unequally than wealth", "Wealth is distributed even more unequally than income", "Only wealth is unequally distributed"],
+                ans: 2,
                 explain: "The top 10% hold over 48.5% of wealth while the bottom 30% hold about 1%. Every exam extract on this topic states that wealth is more unevenly distributed than income."
             }
         },
@@ -361,8 +361,8 @@
 </ul>`,
             readCheck: {
                 q: "Relative poverty is defined as a household with...",
-                opts: ["Less than 60% of median income", "Below the national minimum wage", "No savings at all", "No food, shelter or clothing"],
-                ans: 0,
+                opts: ["Below the national minimum wage", "No food, shelter or clothing", "No savings at all", "Less than 60% of median income"],
+                ans: 3,
                 explain: "Relative poverty is measured against the typical income in that society (under 60% of median). Lacking basic necessities is ABSOLUTE poverty."
             }
         },
@@ -393,8 +393,8 @@
 <p>Other measures reduce increases in wealth directly — <strong>inheritance tax</strong> breaks up large estates, and taxing interest on savings takes proportionally more from the wealthy who hold most savings.</p>`,
             readCheck: {
                 q: "Why is VAT described as a regressive tax?",
-                opts: ["Only poor people pay it", "It is charged only on luxuries", "It takes a higher proportion of a low earner's income than a high earner's", "The rate rises as income rises"],
-                ans: 2,
+                opts: ["It takes a higher proportion of a low earner's income than a high earner's", "The rate rises as income rises", "It is charged only on luxuries", "Only poor people pay it"],
+                ans: 0,
                 explain: "Everyone pays the same amount of VAT on the same product, but that sum is a much bigger share of a small income — so it hits the poor proportionally harder."
             }
         }
@@ -403,62 +403,62 @@
     const mcqData = [
         {
             q: "Which best describes the difference between income and wealth?",
-            opts: ["Income includes property; wealth includes wages", "They are the same thing measured differently", "Income is a flow received over time; wealth is a stock of assets owned", "Income is a stock; wealth is a flow"],
-            ans: 2,
+            opts: ["They are the same thing measured differently", "Income is a stock; wealth is a flow", "Income includes property; wealth includes wages", "Income is a flow received over time; wealth is a stock of assets owned"],
+            ans: 3,
             explain: "Income FLOWS in over time (wages, rent, interest). Wealth is the STOCK of assets held at a point in time (property, savings, shares)."
         },
         {
             q: "Which option contains ONLY items classified as wealth?",
-            opts: ["Rent, savings, state benefits", "Interest, profit, shares", "Property, savings, shares", "Profit, property, rent"],
-            ans: 2,
+            opts: ["Rent, savings, state benefits", "Profit, property, rent", "Interest, profit, shares", "Property, savings, shares"],
+            ans: 3,
             explain: "All three are assets owned. Interest, profit, rent and state benefits are all flows of INCOME, so the other options each mix the two."
         },
         {
             q: "Nazir saves 10% of his £30,000 income and owns a house worth £200,000. His wealth is...",
-            opts: ["£203,000", "£3,000", "£230,000", "£200,000"],
-            ans: 0,
+            opts: ["£200,000", "£3,000", "£203,000", "£230,000"],
+            ans: 2,
             explain: "Savings = 10% × £30,000 = £3,000, plus the £200,000 house = £203,000. The income itself isn't wealth — only the part saved becomes an asset."
         },
         {
             q: "Trevor has earnings £30,000, a new car £30,000, savings £8,000, interest £40, rent from a holiday home £5,000. His INCOME is...",
-            opts: ["£30,040", "£35,040", "£73,040", "£65,040"],
-            ans: 1,
+            opts: ["£73,040", "£30,040", "£65,040", "£35,040"],
+            ans: 3,
             explain: "Income = earnings £30,000 + interest £40 + rent £5,000 = £35,040. The car and savings are stocks of wealth, not income flows."
         },
         {
             q: "In the UK, the top 10% of wealth holders hold approximately...",
-            opts: ["Under 5% of all wealth", "About 25% of all wealth", "Over 48.5% of all wealth", "About 10% of all wealth"],
-            ans: 2,
+            opts: ["Under 5% of all wealth", "Over 48.5% of all wealth", "About 10% of all wealth", "About 25% of all wealth"],
+            ans: 1,
             explain: "Wealth is far more unequal than income: the top 10% hold over 48.5%, while the bottom 30% hold barely 1% between them."
         },
         {
             q: "Which best explains why wealth generates further inequality?",
-            opts: ["Assets produce extra income through interest, rent and dividends", "Assets always fall in value", "Wealth is taxed more than income", "Wealthy people work longer hours"],
-            ans: 0,
+            opts: ["Assets always fall in value", "Wealthy people work longer hours", "Wealth is taxed more than income", "Assets produce extra income through interest, rent and dividends"],
+            ans: 3,
             explain: "Wealth generates income: savings pay interest, property pays rent, shares pay dividends. So asset owners gain income on top of wages while others rely on wages alone."
         },
         {
             q: "A household in relative poverty has an income of less than...",
-            opts: ["The national minimum wage", "40% of mean income", "The absolute poverty line", "60% of median income"],
-            ans: 3,
+            opts: ["60% of median income", "The national minimum wage", "The absolute poverty line", "40% of mean income"],
+            ans: 0,
             explain: "Relative poverty is measured against the typical income in that society — under 60% of the median. Absolute poverty means lacking basic necessities."
         },
         {
             q: "A more uneven distribution of wealth will be caused by a reduction in...",
-            opts: ["Interest rates", "Wage increases", "Property prices", "Taxes on inheritance"],
-            ans: 3,
+            opts: ["Property prices", "Wage increases", "Taxes on inheritance", "Interest rates"],
+            ans: 2,
             explain: "Inheritance tax breaks up large estates. Cutting it lets wealth pass down intact, concentrating it further across generations."
         },
         {
             q: "Why is VAT considered a regressive tax?",
-            opts: ["The rate rises with income", "Only high earners pay it", "It applies only to essentials", "It takes a larger proportion of income from low earners"],
-            ans: 3,
+            opts: ["Only high earners pay it", "It takes a larger proportion of income from low earners", "The rate rises with income", "It applies only to essentials"],
+            ans: 1,
             explain: "Everyone pays the same amount on the same product, but that amount is a bigger share of a small income — so the burden falls proportionally harder on the poor."
         },
         {
             q: "A worker moves into the 40% higher-rate tax band. This means...",
-            opts: ["Only income above the threshold is taxed at 40%", "They stop paying the basic rate entirely", "All their income is now taxed at 40%", "They will take home less than before"],
-            ans: 0,
+            opts: ["All their income is now taxed at 40%", "They will take home less than before", "Only income above the threshold is taxed at 40%", "They stop paying the basic rate entirely"],
+            ans: 2,
             explain: "Tax bands are marginal — only the slice above each threshold is taxed at the higher rate. Earning more always leaves you with more after tax."
         }
     ];
@@ -556,8 +556,8 @@
             correct: "Salaries are INCOME, not wealth. This single confusion is what the whole topic is built on, and the paper tests it at least four separate ways. Wealth is only the STOCK of assets: for Casey and Taylor that is the motorbike (£4,000) + car (£9,000) + pension fund (£20,000) + exercise machine (£2,200) + savings (£12,400) = £47,600. The two salaries AND the £250 of savings interest are all flows of income and none of them counts. The mirror trap runs the other way: Trevor's 'new car £30,000' and 'savings £8,000' are stocks, so his INCOME is only earnings + interest + rent = £35,040. Sort every table into flows and stocks before you add a single figure.",
             readCheck: {
                 q: "Which items count towards Casey and Taylor's WEALTH?",
-                opts: ["Only the joint savings account", "Everything in the table added together", "Both salaries plus the savings interest", "The motorbike, car, pension fund, exercise machine and savings"],
-                ans: 3,
+                opts: ["The motorbike, car, pension fund, exercise machine and savings", "Only the joint savings account", "Everything in the table added together", "Both salaries plus the savings interest"],
+                ans: 0,
                 explain: "Wealth = assets owned = £47,600. The salaries and the interest are income flows, so they are excluded entirely."
             }
         },
@@ -566,8 +566,8 @@
             correct: "This exact error is named in the examiner's report: 'some confused the 4th fifth with the 2nd fifth and answered 56% incorrectly'. The fifths are counted from the BOTTOM up — bottom fifth (poorest), second fifth, third fifth, fourth fifth, top fifth (richest). So the richest 40% is the TOP fifth plus the FOURTH fifth: 45% + 22% = 67%. The giveaway is that the shares must rise steadily as you move up (7, 11, 15, 22, 45) — if your two 'richest' slices aren't the two biggest, you've picked the wrong ones. The same logic gives the poorest 60% on the UK pie: third + fourth + bottom = 16% + 12% + 6% = 34%.",
             readCheck: {
                 q: "In 2021 Indonesia's fifths were: bottom 7%, second 11%, third 15%, fourth 22%, top 45%. The richest 40% receive...",
-                opts: ["56% (top + second fifths)", "45% (top fifth only)", "67% (top + fourth fifths)", "33% (the rest)"],
-                ans: 2,
+                opts: ["45% (top fifth only)", "56% (top + second fifths)", "33% (the rest)", "67% (top + fourth fifths)"],
+                ans: 3,
                 explain: "Fifths count from the bottom up, so the richest two are the TOP and FOURTH fifths: 45 + 22 = 67%. Picking the 'second fifth' gives the examiner-flagged wrong answer of 56%."
             }
         },
@@ -576,8 +576,8 @@
             correct: "The examiners reported that a significant proportion of candidates did not factor in the £11,850 Personal Allowance at all. Tax bands are MARGINAL: the first £11,850 is taxed at 0%, and only the income ABOVE it is taxed at the basic 20% rate. So the answer is 20% × (£20,000 − £11,850) = 20% × £8,150 = £1,630. (Some candidates who did remember the allowance then used £11,851 by mistake — subtract £11,850.) The same principle kills the classic misconception that moving into the 40% band taxes ALL your income at 40%: it never does, so earning more always leaves you with more.",
             readCheck: {
                 q: "With a £11,850 Personal Allowance and a 20% basic rate, how much income tax does someone earning £20,000 pay?",
-                opts: ["£4,000", "£1,630", "£2,370", "£1,630 plus 40% on the rest"],
-                ans: 1,
+                opts: ["£1,630", "£1,630 plus 40% on the rest", "£2,370", "£4,000"],
+                ans: 0,
                 explain: "20% × (£20,000 − £11,850) = £1,630. Forgetting the Personal Allowance and taxing the whole £20,000 was the flagged error."
             }
         },
@@ -586,8 +586,8 @@
             correct: "The examiners flagged this: a significant proportion identified DIRECT impacts such as 'better health care' — but that is the direct benefit to the person treated, not an externality. An externality is a spillover benefit to THIRD PARTIES who were not part of the transaction. So the credited answers name who else gains and how: vaccinations stop contagious diseases spreading, so even the unvaccinated are safer; education lowers crime, so the whole community benefits; spending on parks improves air quality for everyone nearby. Always finish the sentence with '…so people who weren't directly involved also benefit'.",
             readCheck: {
                 q: "Which is a genuine positive externality of government spending?",
-                opts: ["Pupils at school gain qualifications", "Patients treated by the NHS get better healthcare", "Benefit claimants receive more money", "Vaccinations stop diseases spreading to people who weren't vaccinated"],
-                ans: 3,
+                opts: ["Pupils at school gain qualifications", "Patients treated by the NHS get better healthcare", "Vaccinations stop diseases spreading to people who weren't vaccinated", "Benefit claimants receive more money"],
+                ans: 2,
                 explain: "An externality benefits THIRD parties. The other options are direct benefits to the people receiving the service — the exact error the examiners flagged."
             }
         },
@@ -596,7 +596,7 @@
             correct: "The examiners were blunt about this paper: a significant proportion 'demonstrated relatively little evaluative skill other than an unsubstantiated judgement at the end'. A judgement must be SUPPORTED — it has to follow from the argument you just made and say what it depends on. Compare: 'Overall redistribution is worth accepting, BECAUSE the disincentive effects are modest at basic-rate level where most taxpayers sit — but the extent depends on how high the top rates go, since pushing them too far risks losing revenue through migration.' That earns the AO3b marks; 'redistribution is good' earns none. Signal it ('Overall…'), justify it, and name the condition it depends on.",
             readCheck: {
                 q: "What turns a conclusion into a SUPPORTED judgement?",
-                opts: ["It restates the points already made", "It uses the word 'Overall'", "It lists the advantages one more time", "It gives a reason and says what the answer depends on"],
+                opts: ["It restates the points already made", "It lists the advantages one more time", "It uses the word 'Overall'", "It gives a reason and says what the answer depends on"],
                 ans: 3,
                 explain: "The examiners specifically criticised unsubstantiated judgements. A supported one follows from your argument and states the condition it hinges on."
             }
@@ -617,7 +617,7 @@
 </ul>`,
             readCheck: {
                 q: "Which definition of wealth earns both marks?",
-                opts: ["Everything a person earns and owns", "The money someone receives each year", "The value of assets owned", "A stock of assets owned by a person, group or country"],
+                opts: ["The value of assets owned", "The money someone receives each year", "Everything a person earns and owns", "A stock of assets owned by a person, group or country"],
                 ans: 3,
                 explain: "The mark scheme awards 2 marks for the 'stock of assets' phrasing and only 1 for the looser 'value of assets owned'."
             }
@@ -635,8 +635,8 @@
 </ul>`,
             readCheck: {
                 q: "For a 'total wealth' calculation from a table, you should add...",
-                opts: ["Only the assets — excluding salaries and interest", "Assets plus one year's income", "Only the salaries", "Everything listed in the table"],
-                ans: 0,
+                opts: ["Assets plus one year's income", "Only the salaries", "Only the assets — excluding salaries and interest", "Everything listed in the table"],
+                ans: 2,
                 explain: "Wealth is a stock of assets. Salaries and interest are income flows and must be excluded — this is the paper's most repeated trap."
             }
         },
@@ -652,8 +652,8 @@
 </ul>`,
             readCheck: {
                 q: "Perfect income equality would show what figure in both the 'richest 10%' and 'poorest 10%' columns?",
-                opts: ["10%", "50%", "0%", "100%"],
-                ans: 0,
+                opts: ["0%", "100%", "10%", "50%"],
+                ans: 2,
                 explain: "If income were shared perfectly equally, each 10% of the population would receive exactly 10% of income — which is why Finland (22.4 / 3.9) is closest to equal."
             }
         },
@@ -669,8 +669,8 @@
 </ul>`,
             readCheck: {
                 q: "For 'evaluate the consequences for the ECONOMY of unequal income', which point best targets the question?",
-                opts: ["The rich can afford more luxuries", "Food bank use has risen", "Poor households live in rented housing", "Loss of talent and lower economic growth"],
-                ans: 3,
+                opts: ["Poor households live in rented housing", "The rich can afford more luxuries", "Loss of talent and lower economic growth", "Food bank use has risen"],
+                ans: 2,
                 explain: "The question is about the ECONOMY. Poverty and housing are the mechanism; the economic consequences are lost talent, wasted resources and lower growth."
             }
         }

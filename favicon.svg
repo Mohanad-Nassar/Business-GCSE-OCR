@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Placeholder brand mark: "V." on the Aurora Blue palette.
+       Flat fills and explicit arc paths (no gradients or clip-paths) so
+       the same file rasterises identically for /favicon.ico and
+       /images/apple-touch-icon.png via PyMuPDF. Swap this file and those
+       rasters when the real logo is ready. -->
+  <rect width="64" height="64" rx="14" fill="#1e5fd0"/>
+  <path d="M59.9 4.1 L4.1 59.9 A14 14 0 0 0 14 64 L50 64 A14 14 0 0 0 64 50 L64 14 A14 14 0 0 0 59.9 4.1 Z" fill="#155095"/>
+  <path d="M15 17 L27.5 47 L40 17" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="49.5" cy="43" r="5.5" fill="#9edcff"/>
+</svg>

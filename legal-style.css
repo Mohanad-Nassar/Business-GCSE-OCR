@@ -26,8 +26,8 @@ body.legal-page {
 }
 
 .legal-header {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--chrome, var(--ink));
+  color: var(--chrome-text, var(--paper));
   padding: 28px 24px 22px;
 }
 

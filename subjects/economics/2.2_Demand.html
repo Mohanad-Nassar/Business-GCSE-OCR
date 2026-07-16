@@ -292,7 +292,7 @@
 </ul>`,
             readCheck: {
                 q: "Market demand is found by...",
-                opts: ["Adding together all the individual demands", "Asking producers how much they want to sell", "Multiplying price by quantity", "Taking the biggest individual demand"],
+                opts: ["Adding together all the individual demands", "Taking the biggest individual demand", "Multiplying price by quantity", "Asking producers how much they want to sell"],
                 ans: 0,
                 explain: "Market demand = all individual demands added together at each price. That's why Diagram Z (Consumers A+B) in the real exam shows the two individual curves combined."
             }
@@ -328,8 +328,8 @@
 </ul>`,
             readCheck: {
                 q: "The price of raspberries rises. What happens in the market for strawberries (a substitute)?",
-                opts: ["The demand curve for strawberries shifts left", "Nothing happens", "The demand curve for strawberries shifts right", "There is a movement along the strawberry demand curve"],
-                ans: 2,
+                opts: ["The demand curve for strawberries shifts left", "There is a movement along the strawberry demand curve", "Nothing happens", "The demand curve for strawberries shifts right"],
+                ans: 3,
                 explain: "Raspberries are now dearer, so some shoppers switch to strawberries — more strawberries are demanded at every price, shifting the strawberry demand curve right."
             }
         },
@@ -360,8 +360,8 @@
 <p><strong>Drawing tip:</strong> elastic and inelastic curves must have clearly different slopes (flat vs steep) and be labelled — two parallel lines score nothing.</p>`,
             readCheck: {
                 q: "A fishmonger cuts the price of haddock by 20% and sales rise from 20 to 30 pieces (+50%). Demand is...",
-                opts: ["Price elastic", "Price inelastic", "Unitary price elastic", "Perfectly price inelastic"],
-                ans: 0,
+                opts: ["Perfectly price inelastic", "Price elastic", "Unitary price elastic", "Price inelastic"],
+                ans: 1,
                 explain: "PED = 50% ÷ 20% = 2.5, which is bigger than 1 — price elastic. This exact calculation appeared as a real exam MCQ."
             }
         },
@@ -395,8 +395,8 @@
 </ul>`,
             readCheck: {
                 q: "Demand for a firm's product is price inelastic. Which statement MUST be true?",
-                opts: ["An increase in price will increase revenue", "A decrease in price will lead to excess supply", "An increase in price will decrease profits", "A decrease in price will reduce the quantity sold"],
-                ans: 0,
+                opts: ["A decrease in price will lead to excess supply", "A decrease in price will reduce the quantity sold", "An increase in price will decrease profits", "An increase in price will increase revenue"],
+                ans: 3,
                 explain: "Inelastic demand means quantity barely responds, so a price rise raises total revenue. This is a real exam MCQ — and the heart of the revenue rule."
             }
         }
@@ -405,61 +405,61 @@
     const mcqData = [
         {
             q: "Which of the following is the correct definition of demand?",
-            opts: ["The total money spent on a good", "The amount of a good producers offer for sale", "The desire to own a good or service", "The willingness and ability to buy a good or service at a given price in a given time period"],
-            ans: 3,
+            opts: ["The willingness and ability to buy a good or service at a given price in a given time period", "The total money spent on a good", "The amount of a good producers offer for sale", "The desire to own a good or service"],
+            ans: 0,
             explain: "Demand needs BOTH willingness and ability, at a given price, in a given time period. Desire alone is not demand — you must be able to pay."
         },
         {
             q: "Which of the following causes a movement ALONG the demand curve for chocolate (not a shift)?",
-            opts: ["A rise in consumers' incomes", "A health scare about sugar", "A fall in the price of chocolate itself", "A successful advertising campaign"],
-            ans: 2,
+            opts: ["A fall in the price of chocolate itself", "A successful advertising campaign", "A rise in consumers' incomes", "A health scare about sugar"],
+            ans: 0,
             explain: "Only a change in the good's OWN price causes a movement along the curve. Income, advertising and tastes all shift the whole curve."
         },
         {
             q: "Consumers' incomes rise. What happens in the market for cinema tickets (a normal good)?",
-            opts: ["Demand shifts right", "The supply curve shifts right", "A movement down the demand curve", "Demand shifts left"],
-            ans: 0,
+            opts: ["A movement down the demand curve", "The supply curve shifts right", "Demand shifts right", "Demand shifts left"],
+            ans: 2,
             explain: "Higher incomes mean people can afford more trips to the cinema at every price — the whole demand curve shifts right."
         },
         {
             q: "A firm raises its price by 10% and quantity demanded falls by 5%. PED (ignoring the sign) is...",
-            opts: ["0.5, so demand is price elastic", "15, so demand is perfectly elastic", "2, so demand is price elastic", "0.5, so demand is price inelastic"],
+            opts: ["15, so demand is perfectly elastic", "2, so demand is price elastic", "0.5, so demand is price elastic", "0.5, so demand is price inelastic"],
             ans: 3,
             explain: "PED = %ΔQd ÷ %ΔP = 5 ÷ 10 = 0.5. Less than 1 means quantity responds less than price — price inelastic."
         },
         {
             q: "Demand for a product is price elastic. To increase total revenue the business should...",
-            opts: ["Keep the price the same", "Cut the price", "Raise the price", "Reduce output"],
-            ans: 1,
+            opts: ["Raise the price", "Keep the price the same", "Cut the price", "Reduce output"],
+            ans: 2,
             explain: "With elastic demand, cutting the price wins proportionally MORE customers, so total revenue (price × quantity) rises."
         },
         {
             q: "Petrol and electric cars are substitutes. A large rise in the price of petrol is most likely to...",
-            opts: ["Cause a movement along the electric car demand curve", "Shift the demand curve for electric cars left", "Shift the demand curve for electric cars right", "Shift the supply of electric cars left"],
-            ans: 2,
+            opts: ["Shift the demand curve for electric cars right", "Shift the demand curve for electric cars left", "Cause a movement along the electric car demand curve", "Shift the supply of electric cars left"],
+            ans: 0,
             explain: "When one substitute gets dearer, buyers switch to the other — demand for electric cars rises at every price, a rightward shift."
         },
         {
             q: "Printers and ink cartridges are complements. If the price of printers falls sharply, demand for ink cartridges will...",
-            opts: ["Stay exactly the same", "Shift left", "Shift right", "Become perfectly inelastic"],
-            ans: 2,
+            opts: ["Shift right", "Shift left", "Become perfectly inelastic", "Stay exactly the same"],
+            ans: 0,
             explain: "Cheaper printers → more printers bought → more ink needed at every price. Complements move together, so cartridge demand shifts right."
         },
         {
             q: "A perfectly price inelastic demand curve is drawn as...",
-            opts: ["A horizontal line", "An upward-sloping line", "A 45-degree line", "A vertical line"],
-            ans: 3,
+            opts: ["A horizontal line", "An upward-sloping line", "A vertical line", "A 45-degree line"],
+            ans: 2,
             explain: "Perfectly inelastic (PED = 0) means quantity never changes whatever the price — a vertical line. Perfectly elastic is the horizontal one."
         },
         {
             q: "Governments put high taxes on cigarettes and fuel mainly because demand for them is...",
-            opts: ["Price inelastic, so people keep buying and tax revenue is reliable", "Price elastic, so people stop buying", "Perfectly elastic, so firms pay the tax", "Unitary, so revenue never changes"],
-            ans: 0,
+            opts: ["Price elastic, so people stop buying", "Perfectly elastic, so firms pay the tax", "Price inelastic, so people keep buying and tax revenue is reliable", "Unitary, so revenue never changes"],
+            ans: 2,
             explain: "Few substitutes make demand inelastic — quantity barely falls when tax raises the price, so the government collects reliable revenue."
         },
         {
             q: "Which of the following is the best example of derived demand?",
-            opts: ["Demand for luxury goods rising with incomes", "Demand for ice cream rising in summer", "Demand for bricklayers rising because demand for new houses has risen", "Demand for plums rising when apples get dearer"],
+            opts: ["Demand for plums rising when apples get dearer", "Demand for ice cream rising in summer", "Demand for bricklayers rising because demand for new houses has risen", "Demand for luxury goods rising with incomes"],
             ans: 2,
             explain: "Derived demand is demand that comes FROM the demand for something else — workers are wanted because the products they make are wanted."
         }
@@ -558,8 +558,8 @@
             correct: "A change in the good's OWN price never shifts its demand curve — it causes a movement ALONG the curve (a contraction if price rises, an expansion if it falls). The curve only shifts when a NON-price factor changes: income, marketing, taste and fashion, prices of substitutes and complements, population, government policy, the economic situation or price expectations. This is one of the most heavily tested distinctions on the whole paper — and one OCR examiners see mixed up every single year.",
             readCheck: {
                 q: "The price of restaurant meals falls. What happens to the demand curve for restaurant meals?",
-                opts: ["It becomes steeper", "It shifts right", "There is a movement down along the curve", "It shifts left"],
-                ans: 2,
+                opts: ["There is a movement down along the curve", "It shifts left", "It becomes steeper", "It shifts right"],
+                ans: 0,
                 explain: "Own price changed → movement along the curve, never a shift. A rise in consumer incomes is what would shift it right (the real Q1 answer)."
             }
         },
@@ -568,8 +568,8 @@
             correct: "Examiners award the definition marks for four specific parts: WILLING and ABLE to buy, AT A GIVEN PRICE, IN A GIVEN TIME PERIOD. On the real 'Explain what is meant by demand' 2-marker, candidates who missed price and/or time period were capped at 1 mark, and vague constructions like 'when people buy things' scored 0. Learn the full sentence word-for-word — it is free marks.",
             readCheck: {
                 q: "Which answer would score full marks for 'Explain what is meant by demand'?",
-                opts: ["When consumers buy goods and services", "The willingness and ability to buy a good at a given price in a given time period", "How much of a good people want", "The amount of money spent in shops"],
-                ans: 1,
+                opts: ["The amount of money spent in shops", "How much of a good people want", "The willingness and ability to buy a good at a given price in a given time period", "When consumers buy goods and services"],
+                ans: 2,
                 explain: "The real OCR mark scheme awards 2 marks only when willing + able + price + time are all there. The examiner report said exactly this."
             }
         },
@@ -578,7 +578,7 @@
             correct: "Goods are not elastic — DEMAND for them is price elastic or price inelastic. OCR put an 'Assessment for Learning' warning in a real mark scheme about this exact sloppiness: candidates who wrote 'dresses are elastic' or 'demand falls a lot' instead of 'demand for dresses is price elastic, so a price rise causes a proportionally larger fall in quantity demanded' lost credit. Always name the concept in full: <em>demand for X is price elastic/inelastic</em>.",
             readCheck: {
                 q: "Which sentence uses the terminology correctly?",
-                opts: ["The elasticity of dresses is high", "The dresses are elastic", "Demand for the dresses is price elastic", "Dresses stretch when prices change"],
+                opts: ["The elasticity of dresses is high", "Dresses stretch when prices change", "Demand for the dresses is price elastic", "The dresses are elastic"],
                 ans: 2,
                 explain: "It's the DEMAND that is elastic, not the product. OCR flagged this exact error in the published mark scheme for the charity-shop question."
             }
@@ -588,8 +588,8 @@
             correct: "That describes PERFECTLY price inelastic demand (PED = 0, a vertical curve) — a different thing. Ordinary price inelastic demand means quantity demanded DOES fall when price rises, just by a SMALLER percentage than the price change. On the real 2-marker 'Explain what is meant by demand is price inelastic', answers describing perfectly inelastic demand were capped at 1 mark, and answers with no reference to percentage changes usually got 1. The full-mark sentence: <em>the percentage change in quantity demanded is less than the percentage change in price</em>.",
             readCheck: {
                 q: "Demand for a good is price inelastic (PED = 0.4). The price rises 10%. Quantity demanded...",
-                opts: ["Falls by about 4%", "Falls by more than 10%", "Rises by 4%", "Does not change at all"],
-                ans: 0,
+                opts: ["Does not change at all", "Falls by more than 10%", "Rises by 4%", "Falls by about 4%"],
+                ans: 3,
                 explain: "Inelastic means a smaller response, not NO response — 0.4 × 10% = 4% fall. 'No change at all' is perfectly inelastic."
             }
         },
@@ -598,7 +598,7 @@
             correct: "It depends entirely on PED. If demand is INELASTIC, yes — quantity barely falls, so revenue rises (that is why Kasia and Ben's window-cleaning PED of −0.2 meant they should raise price). But if demand is ELASTIC, a price rise loses proportionally MORE customers and revenue FALLS — the right move is to CUT the price, like CDS cutting delivery from £25 to £20 and gaining £1,500 a week. Always work out the elasticity first, then apply the revenue rule.",
             readCheck: {
                 q: "Demand is price elastic. The business wants more revenue. It should...",
-                opts: ["Leave the price alone", "Raise its price", "Reduce the quantity supplied", "Cut its price"],
+                opts: ["Raise its price", "Leave the price alone", "Reduce the quantity supplied", "Cut its price"],
                 ans: 3,
                 explain: "Elastic → cut price → quantity rises by a bigger % than the price fell → total revenue rises. Inelastic is the opposite."
             }
@@ -608,7 +608,7 @@
             correct: "Two PARALLEL demand curves show a shift in demand, not different elasticities — and OCR's examiner report said candidates who drew parallel curves for the Celandine Hotel question lost marks. Elastic and inelastic curves must have clearly DIFFERENT slopes: the elastic curve is FLAT (flatter than 45°), the inelastic curve is STEEP, and they are usually drawn crossing each other. Then label each one — 'D1 elastic', 'D2 inelastic' — because a diagram the examiner has to guess at scores nothing.",
             readCheck: {
                 q: "How should you draw an elastic and an inelastic demand curve on one diagram?",
-                opts: ["Two parallel downward lines", "One upward and one downward line", "Two vertical lines", "One flat curve and one steep curve, crossing, each labelled"],
+                opts: ["One upward and one downward line", "Two parallel downward lines", "Two vertical lines", "One flat curve and one steep curve, crossing, each labelled"],
                 ans: 3,
                 explain: "Different slopes show different elasticities. Parallel curves show a shift — a different concept — and the examiner report flagged this exact mistake."
             }
@@ -633,8 +633,8 @@
 <p>The examiner report said candidates who had learned the definition reproduced it for 2 marks; those who tried to construct one on the spot usually got 0.</p>`,
             readCheck: {
                 q: "In the PED definition, what responds to what?",
-                opts: ["Supply responds to demand", "Revenue responds to costs", "Quantity demanded responds to a change in price", "Price responds to a change in quantity"],
-                ans: 2,
+                opts: ["Revenue responds to costs", "Supply responds to demand", "Price responds to a change in quantity", "Quantity demanded responds to a change in price"],
+                ans: 3,
                 explain: "The real mark scheme gives the second mark specifically for saying quantity demanded is affected by price 'and not vice versa'."
             }
         },
@@ -658,8 +658,8 @@
 </ul>`,
             readCheck: {
                 q: "You draw two perfect demand curves showing a rightward shift but forget to label them. The mark scheme says...",
-                opts: ["Only 1 of the 2 marks", "Full marks anyway", "The examiner asks you", "Zero automatically"],
-                ans: 0,
+                opts: ["Full marks anyway", "Only 1 of the 2 marks", "Zero automatically", "The examiner asks you"],
+                ans: 1,
                 explain: "The Celandine mark scheme: two correct curves with no appropriate labels = 1 mark. Labels are half the marks on most drawing questions."
             }
         },
@@ -678,7 +678,7 @@
 <p>Then link the number to the revenue rule: elastic → cutting price RAISES revenue; inelastic → raising price RAISES revenue. The 6-markers expect you to USE the calculation you just did.</p>`,
             readCheck: {
                 q: "You misplace a decimal but show correct working. Under the Own Figure Rule you get...",
-                opts: ["1 of the 2 marks", "Half a mark", "No marks", "Both marks"],
+                opts: ["1 of the 2 marks", "No marks", "Half a mark", "Both marks"],
                 ans: 0,
                 explain: "The real mark scheme states: 'OFR applies for a maximum of 1 mark' — but only if the examiner can see your method."
             }
@@ -699,7 +699,7 @@
 </ul>`,
             readCheck: {
                 q: "An Evaluate 6-marker answer has two brilliant chains of analysis but no judgement or counter-view. Its likely score is...",
-                opts: ["6 marks", "1–2 marks", "5 marks", "4 marks guaranteed"],
+                opts: ["5 marks", "1–2 marks", "4 marks guaranteed", "6 marks"],
                 ans: 1,
                 explain: "The examiner report: candidates 'unable to evaluate the analysis they had provided... were unable to be given more than 1 mark out of 6'. Evaluation is not optional."
             }

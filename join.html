@@ -4,6 +4,19 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Join a class — Revision Platform</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48 32x32 16x16"/>
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Vidya"/>
+<meta property="og:title" content="Join your class — Vidya"/>
+<meta property="og:description" content="Got a class code from your teacher? Join your class in one step."/>
+<meta property="og:url" content="https://business-mr-nassar.netlify.app/join.html"/>
+<meta property="og:image" content="https://business-mr-nassar.netlify.app/images/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://business-mr-nassar.netlify.app/images/og-image.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
@@ -26,12 +39,12 @@
     color:var(--mid);display:block;margin-bottom:8px;}
   .code-input{width:100%;padding:16px;border:2px solid var(--border);border-radius:10px;
     font-family:'DM Mono',monospace;font-size:26px;letter-spacing:.35em;text-align:center;
-    text-transform:uppercase;background:#fff;color:var(--ink);}
+    text-transform:uppercase;background:var(--card-bg);color:var(--ink);}
   .code-input:focus{border-color:var(--accent);}
-  button[type=submit]{margin-top:14px;width:100%;background:var(--ink);color:var(--paper);border:none;
+  button[type=submit]{margin-top:14px;width:100%;background:var(--chrome, var(--ink));color:var(--chrome-text, var(--paper));border:none;
     padding:13px;border-radius:8px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14.5px;
     cursor:pointer;transition:background .15s;}
-  button[type=submit]:hover{background:#1c2c3d;}
+  button[type=submit]:hover{filter:brightness(.92);}
   button[type=submit]:disabled{opacity:.6;cursor:default;}
   .msg{font-size:12.5px;padding:10px 12px;border-radius:6px;display:none;margin-top:12px;line-height:1.5;}
   .msg.show{display:block;}
@@ -42,7 +55,7 @@
   .my-subjects{margin-top:22px;border-top:1px solid var(--border);padding-top:16px;}
   .my-subjects h2{font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.1em;
     text-transform:uppercase;color:var(--mid);margin-bottom:10px;}
-  .subj-chip{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border);
+  .subj-chip{display:inline-flex;align-items:center;gap:7px;background:var(--card-bg);border:1px solid var(--border);
     border-radius:99px;padding:7px 14px;margin:0 6px 8px 0;font-size:13px;font-weight:600;text-decoration:none;color:var(--ink);}
   .subj-chip:hover{border-color:var(--accent);}
   .success-actions{display:none;gap:10px;margin-top:14px;flex-wrap:wrap;}

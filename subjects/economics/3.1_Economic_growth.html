@@ -291,8 +291,8 @@
 <p><strong>What UK GDP is made of:</strong> services are roughly <strong>80%</strong> of it — retail, financial services, tourism, education and the creative arts — plus exports such as high-tech aerospace, and smaller older industries like agriculture and mining.</p>`,
             readCheck: {
                 q: "Why is real GDP a better measure of growth than nominal GDP?",
-                opts: ["It only counts exports", "It divides output by the population", "It measures the government's budget", "It strips out inflation, so it shows actual output not just higher prices"],
-                ans: 3,
+                opts: ["It only counts exports", "It measures the government's budget", "It strips out inflation, so it shows actual output not just higher prices", "It divides output by the population"],
+                ans: 2,
                 explain: "Nominal GDP rises when prices rise even if nothing extra is made. Real GDP adjusts for inflation, showing genuine output. Dividing by population gives GDP per capita — a different measure."
             }
         },
@@ -320,8 +320,8 @@
 </ul>`,
             readCheck: {
                 q: "A country's GDP growth is +3.0% in 2014 and +1.65% in 2018. What happened to the LEVEL of GDP?",
-                opts: ["It fell in 2018", "It stayed the same", "It rose in both years, but more slowly in 2018", "It was highest in 2014"],
-                ans: 2,
+                opts: ["It rose in both years, but more slowly in 2018", "It was highest in 2014", "It fell in 2018", "It stayed the same"],
+                ans: 0,
                 explain: "Both figures are positive, so GDP grew both years — just at a slower rate in 2018. GDP is therefore HIGHER in 2018 than 2014. Confusing the rate with the level is the topic's biggest trap."
             }
         },
@@ -391,8 +391,8 @@
 </ul>`,
             readCheck: {
                 q: "Economic growth raises government tax revenue. Why is that a benefit?",
-                opts: ["It means tax rates must rise", "More revenue funds public services like schools and hospitals, which can further raise growth", "It automatically ends inequality", "It reduces the size of the workforce"],
-                ans: 1,
+                opts: ["It means tax rates must rise", "It automatically ends inequality", "More revenue funds public services like schools and hospitals, which can further raise growth", "It reduces the size of the workforce"],
+                ans: 2,
                 explain: "Growth raises revenue WITHOUT raising rates, and that revenue funds healthcare and education — which make workers more productive and drive further growth. Growth does not automatically end inequality; the gains may be shared unevenly."
             }
         }
@@ -401,61 +401,61 @@
     const mcqData = [
         {
             q: "Economic growth is best defined as...",
-            opts: ["A reduction in the level of imports", "An increase in an economy's population", "An increase in an economy's productive capacity", "An increase in the employment level"],
-            ans: 2,
+            opts: ["An increase in the employment level", "An increase in an economy's population", "A reduction in the level of imports", "An increase in an economy's productive capacity"],
+            ans: 3,
             explain: "Long-run economic growth is an increase in the economy's potential productive capacity. Employment and population may accompany growth but do not define it."
         },
         {
             q: "Which formula measures the rate of economic growth?",
-            opts: ["New GDP − Previous GDP", "(Change in GDP ÷ Previous GDP) × 100", "Change in GDP ÷ Change in population", "(Total GDP ÷ Previous GDP) × 100"],
+            opts: ["(Total GDP ÷ Previous GDP) × 100", "(Change in GDP ÷ Previous GDP) × 100", "Change in GDP ÷ Change in population", "New GDP − Previous GDP"],
             ans: 1,
             explain: "Growth is a PERCENTAGE change: the change in GDP as a proportion of the previous GDP, × 100. 'New GDP − Previous GDP' gives only the absolute change, not a rate."
         },
         {
             q: "GDP is £150 billion and the population is 5 million. GDP per capita is...",
-            opts: ["£30,000", "£750,000", "£300,000", "£3,000"],
-            ans: 0,
+            opts: ["£3,000", "£750,000", "£300,000", "£30,000"],
+            ans: 3,
             explain: "GDP per capita = GDP ÷ population = £150bn ÷ 5m = £30,000."
         },
         {
             q: "A country's GDP growth was +2.7%, −1.4%, +2.3% and +1.8% over four years. In which year did output actually FALL?",
-            opts: ["Output never rose", "The year with −1.4%", "The year with +1.8%", "The year with +2.3%"],
-            ans: 1,
+            opts: ["The year with −1.4%", "Output never rose", "The year with +1.8%", "The year with +2.3%"],
+            ans: 0,
             explain: "Only a NEGATIVE growth rate means output fell. A smaller positive figure (+1.8%) still means GDP is rising, just more slowly."
         },
         {
             q: "Real GDP differs from nominal GDP because real GDP...",
-            opts: ["Is adjusted for inflation, showing actual output", "Is divided by the population", "Only counts government spending", "Excludes services"],
-            ans: 0,
+            opts: ["Excludes services", "Is adjusted for inflation, showing actual output", "Only counts government spending", "Is divided by the population"],
+            ans: 1,
             explain: "Nominal GDP is in money terms and rises with prices. Real GDP takes inflation out, so it reflects genuine output."
         },
         {
             q: "In Year 1 real GDP growth is 5% and nominal GDP growth is 5%. What can you conclude?",
-            opts: ["Real GDP fell", "The population fell", "Inflation was 10%", "There was no inflation in Year 1"],
-            ans: 3,
+            opts: ["Real GDP fell", "There was no inflation in Year 1", "The population fell", "Inflation was 10%"],
+            ans: 1,
             explain: "Nominal growth includes price rises. If nominal and real growth are equal, prices did not rise — no inflation."
         },
         {
             q: "Which is a determinant of LONG-RUN economic growth?",
-            opts: ["A rise in the price level", "A short-term rise in consumer spending", "A fall in the exchange rate", "An increase in the quantity or quality of the factors of production"],
-            ans: 3,
+            opts: ["An increase in the quantity or quality of the factors of production", "A rise in the price level", "A short-term rise in consumer spending", "A fall in the exchange rate"],
+            ans: 0,
             explain: "Long-run growth needs greater productive capacity, which comes from more or better land, labour, capital and enterprise. Short-run growth comes from rising aggregate demand."
         },
         {
             q: "Which is most likely to REDUCE economic growth?",
-            opts: ["An increase in exports", "Low interest rates", "High taxes on profits", "A stable price level"],
-            ans: 2,
+            opts: ["An increase in exports", "Low interest rates", "A stable price level", "High taxes on profits"],
+            ans: 3,
             explain: "High profit taxes leave firms less to reinvest and weaken the incentive to expand. The other three support growth."
         },
         {
             q: "Which is normally counted as part of a country's GDP?",
-            opts: ["Investment spending by firms", "Interest rates", "Unpaid domestic work within a family", "Household savings"],
-            ans: 0,
+            opts: ["Household savings", "Investment spending by firms", "Unpaid domestic work within a family", "Interest rates"],
+            ans: 1,
             explain: "Investment is a component of GDP. Savings are income NOT spent, interest rates are a price, and unpaid domestic work is not recorded."
         },
         {
             q: "A country's GDP rises 1.7% but its population rises 2.0%. What happens to GDP per capita?",
-            opts: ["It rises by 3.7%", "It rises by 1.7%", "It falls, because population grew faster than output", "It stays exactly the same"],
+            opts: ["It rises by 1.7%", "It rises by 3.7%", "It falls, because population grew faster than output", "It stays exactly the same"],
             ans: 2,
             explain: "GDP per capita = GDP ÷ population. If the population grows faster than output, each person's share shrinks — so average living standards fall despite positive growth."
         }
@@ -554,8 +554,8 @@
             correct: "This is the single biggest trap in 3.1, and the real mark scheme flags it as a Misconception. A growth-rate chart shows how FAST GDP is rising, not how BIG it is. Because every year from 2010 to 2019 had POSITIVE growth, GDP rose every single year — so the LEVEL was highest in 2019 (the last year) and lowest in 2010 (the first). The 3.0% peak in 2014 was just the fastest growth. Candidates who answered '2014 highest, 2011–12 lowest' were confusing rates of change with absolute values. Rule: positive rate = still rising; only a NEGATIVE bar means the level actually fell.",
             readCheck: {
                 q: "GDP growth is positive every year from 2010 to 2019, peaking at 3.0% in 2014. GDP was highest in...",
-                opts: ["2014", "Cannot be known", "2019", "2010"],
-                ans: 2,
+                opts: ["2014", "Cannot be known", "2010", "2019"],
+                ans: 3,
                 explain: "Positive growth every year means GDP rose every year, so the level is highest at the END (2019). 2014 is only the fastest growth."
             }
         },
@@ -564,7 +564,7 @@
             correct: "The official OCR Misconception box on this paper: candidates confuse GDP per capita as an AVERAGE with wealth or income DISTRIBUTION, which is a completely different concept. GDP per capita is simply total GDP ÷ population — a mathematical average. It tells you nothing about who actually receives the income: a country could have a high GDP per capita while most people are poor and a few are extremely rich. (Distribution is measured differently — see 3.3.) The examiners also report candidates wrongly believing GDP per capita is measured per household, per family or per region. It is per PERSON.",
             readCheck: {
                 q: "What does GDP per capita NOT tell you?",
-                opts: ["Roughly the typical person's income", "How income is distributed between rich and poor", "How the country compares with others over time", "The output of the average person"],
+                opts: ["Roughly the typical person's income", "How income is distributed between rich and poor", "The output of the average person", "How the country compares with others over time"],
                 ans: 1,
                 explain: "It is only an average (GDP ÷ population). Distribution is a separate concept — confusing the two is an official OCR misconception."
             }
@@ -584,8 +584,8 @@
             correct: "The examiners were blunt about this on the Tanzania question. Evaluation is not a list of unconnected good and bad points, and it is not a conclusion that just summarises. A good evaluative point must MATCH the analytical point it answers — it should strengthen, mitigate or contrast with it. So: 'workers gain jobs in multinational factories (analysis) — HOWEVER those same factories out-compete local village producers, so other workers lose their jobs (matching evaluation)'. Exemplar 3 on the real paper made a sensible point about living standards and then evaluated with an unrelated point about structural unemployment — which did not earn the evaluation marks. Pair every point with its own counter.",
             readCheck: {
                 q: "What makes a MATCHING evaluative point?",
-                opts: ["It raises a completely separate disadvantage", "It repeats the analysis in different words", "It strengthens, mitigates or contrasts with the specific point just made", "It summarises all previous points"],
-                ans: 2,
+                opts: ["It repeats the analysis in different words", "It summarises all previous points", "It raises a completely separate disadvantage", "It strengthens, mitigates or contrasts with the specific point just made"],
+                ans: 3,
                 explain: "Evaluation must answer the point it follows. Unconnected lists and summary conclusions score poorly — the examiners said so explicitly."
             }
         },
@@ -594,8 +594,8 @@
             correct: "The chain is missing its first links, and the examiners penalised exactly this. Starting at 'increased spending on health' never connects back to ECONOMIC GROWTH, which is what the question asked about. Include every simple link: growth raises output and incomes → higher incomes and profits mean more tax revenue at the same tax rates → the government can spend more on healthcare and education → life expectancy and future earnings rise. Each link is obvious on its own, but leaving the early ones out breaks the chain and caps your marks. The same discipline rescues the 'education → GDP' chain: more schooling → higher literacy → more productive workers → more output per worker → higher GDP.",
             readCheck: {
                 q: "Why must an analysis chain start from economic growth itself?",
-                opts: ["Because data must be quoted first", "Otherwise the later links don't connect to the question that was asked", "Because you must always define GDP first", "Because examiners want longer answers"],
-                ans: 1,
+                opts: ["Otherwise the later links don't connect to the question that was asked", "Because data must be quoted first", "Because you must always define GDP first", "Because examiners want longer answers"],
+                ans: 0,
                 explain: "The examiners noted responses starting at 'increased spending on health' failed to link back to growth. Include all the simple early links."
             }
         }
@@ -616,8 +616,8 @@
 <p>The UK/Japan question required Japan AND the UK, and GDP AND GDP per capita, to reach Level 3. Tick off each named element before you finish.</p>`,
             readCheck: {
                 q: "A chart shows positive GDP growth every year, peaking in 2014. In which year is the LEVEL of GDP highest?",
-                opts: ["The final year", "The first year", "You cannot tell", "2014"],
-                ans: 0,
+                opts: ["2014", "The first year", "You cannot tell", "The final year"],
+                ans: 3,
                 explain: "Positive growth every year = GDP rising every year, so the level is highest at the end. This exact trap cost candidates marks on the real paper."
             }
         },
@@ -634,8 +634,8 @@
 </ul>`,
             readCheck: {
                 q: "UK GDP in 2011 was £1,797 trillion and 2012 growth was 1.5%. GDP in 2012 was...",
-                opts: ["£26.96 trillion", "£1,823.96 trillion", "£1,823.96 billion", "£1,823.96"],
-                ans: 1,
+                opts: ["£26.96 trillion", "£1,823.96 billion", "£1,823.96", "£1,823.96 trillion"],
+                ans: 3,
                 explain: "£1,797 × 1.015 = £1,823.955. The mark scheme gives only 1 mark if the £ sign or the word 'trillion' is missing."
             }
         },
@@ -653,8 +653,8 @@
 <p>Incomes rise → consumers afford more → demand rises → firms raise output (this IS growth) → producing it pays incomes to others → they spend too → more output again (the multiplier). Then add: extra income for the richest 20% has less effect, because they save more of it.</p>`,
             readCheck: {
                 q: "For a 6-mark 'Analyse' question, what earns the top level?",
-                opts: ["Quoting as much data as possible", "A balanced judgement at the end", "A long list of separate points", "Developed links forming a chain of reasoning that addresses the question"],
-                ans: 3,
+                opts: ["Quoting as much data as possible", "Developed links forming a chain of reasoning that addresses the question", "A long list of separate points", "A balanced judgement at the end"],
+                ans: 1,
                 explain: "Analyse = chains of developed links, no evaluation needed. Lists of single effects sit at Level 2."
             }
         },
@@ -671,8 +671,8 @@
 </ul>`,
             readCheck: {
                 q: "A question asks you to evaluate the benefits of globalisation for WORKERS in Tanzania. Writing about gains to the government...",
-                opts: ["Is fine, as it's still about Tanzania", "Scores nothing — it's the wrong stakeholder", "Earns the evaluation marks", "Is required for Level 3"],
-                ans: 1,
+                opts: ["Is fine, as it's still about Tanzania", "Earns the evaluation marks", "Is required for Level 3", "Scores nothing — it's the wrong stakeholder"],
+                ans: 3,
                 explain: "The examiners reported that answers about other stakeholders, or about problems rather than benefits, did not address the question and were not credited."
             }
         }

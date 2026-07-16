@@ -14,12 +14,12 @@
   body { background:var(--paper); color:var(--ink); }
   :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
 
-  header { background:var(--ink); border-bottom:3px solid var(--accent); padding:24px 40px 20px; }
+  header { background:var(--chrome, var(--ink)); border-bottom:3px solid var(--accent); padding:24px 40px 20px; }
   .header-inner { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; }
   .header-badge { display:inline-block; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:10px; }
-  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:700; color:var(--paper); margin-bottom:4px; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:700; color:var(--chrome-text, var(--paper)); margin-bottom:4px; }
   header p { font-size:13px; color:rgba(245,240,232,.6); }
-  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--paper); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
+  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--chrome-text, var(--paper)); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
   .nav-link:hover { background:rgba(255,255,255,.18); }
 
   main { padding:26px 40px 80px; max-width:1150px; margin:0 auto; }
@@ -27,7 +27,7 @@
   .muted { color:var(--mid); font-size:12px; }
   .field { display:flex; flex-direction:column; gap:5px; min-width:0; }
   .field label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); }
-  .field select { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:13.5px; font-family:'DM Sans',sans-serif; background:#fff; }
+  .field select { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:13.5px; font-family:'DM Sans',sans-serif; background:var(--card-bg); }
   .btn { background:transparent; border:1px solid var(--border); color:var(--ink); font-family:'DM Mono',monospace; font-size:12px; padding:8px 14px; border-radius:6px; cursor:pointer; }
   .btn:hover { border-color:var(--accent); color:var(--accent); }
 
@@ -37,7 +37,16 @@
 
   .cal-grid { display:grid; grid-template-columns:repeat(7, 1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:8px; overflow:hidden; }
   .cal-dow { background:var(--cream); font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); text-align:center; padding:8px 4px; }
-  .cal-cell { background:var(--card-bg); min-height:104px; padding:6px 7px; display:flex; flex-direction:column; gap:4px; }
+  .cal-cell { background:var(--card-bg); min-height:104px; padding:6px 7px; display:flex; flex-direction:column; gap:4px; position:relative; }
+  /* "+" on each day — create a task due that day. Subtle until the cell is hovered/focused. */
+  .cal-add { position:absolute; top:4px; left:5px; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center;
+    border-radius:5px; text-decoration:none; color:var(--mid); font-size:14px; font-weight:600; line-height:1;
+    opacity:0; transition:opacity .12s, background .12s; }
+  .cal-cell:hover .cal-add, .cal-add:focus-visible { opacity:1; }
+  .cal-add:hover { background:var(--cream); color:var(--accent); }
+  @media (hover:none) { .cal-add { opacity:.45; } }
+  .btn-newtask { border-color:var(--accent); color:var(--accent); font-weight:600; }
+  .btn-newtask:hover { background:var(--accent); color:#fff; }
   .cal-cell.other-month { background:#faf7f0; }
   .cal-cell.other-month .cal-daynum { color:var(--border); }
   .cal-daynum { font-family:'DM Mono',monospace; font-size:12px; color:var(--mid); align-self:flex-end; }
@@ -58,7 +67,7 @@
   .filterbar { display:flex; flex-direction:column; gap:8px; margin-bottom:14px; }
   .fgroup { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
   .flabel { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); min-width:64px; }
-  .fchip { border:1px solid var(--border); background:#fff; color:var(--mid); border-radius:99px;
+  .fchip { border:1px solid var(--border); background:var(--card-bg); color:var(--mid); border-radius:99px;
     padding:5px 12px; font-size:12px; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:6px;
     transition:border-color .15s, background .15s, color .15s; }
   .fchip[aria-pressed="true"] { background:var(--chip-accent, var(--accent)); border-color:var(--chip-accent, var(--accent)); color:#fff; }
@@ -80,10 +89,6 @@
       <h1>🗓️ Calendar</h1>
       <p>Every task deadline across your classes, laid out by the day it's due.</p>
     </div>
-    <div style="display:flex; gap:8px; flex-wrap:wrap;">
-      <a class="nav-link" href="teacher-tasks.html">📋 Task Manager</a>
-      <a class="nav-link" href="/hub.html">Site Home</a>
-    </div>
   </div>
 </header>
 
@@ -93,6 +98,7 @@
     <div class="cal-title" id="calTitle">…</div>
     <button type="button" class="btn" id="nextBtn" aria-label="Next month">→</button>
     <button type="button" class="btn" id="todayBtn">Today</button>
+    <a class="btn btn-newtask" id="newTaskBtn" href="teacher-tasks.html?new=1" style="margin-left:auto; text-decoration:none;">＋ New Task</a>
   </div>
   <div class="filterbar" id="filterBar"></div>
 
@@ -247,8 +253,19 @@ $('todayBtn').addEventListener('click', () => { const n = new Date(); viewYear =
 
 function ymd(d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
 
+// New-task links carry the class along when the filter is narrowed to
+// exactly one class — teacher-tasks.html then preselects it. `due` prefills
+// the editor's due date (handled by teacher-tasks.html's ?new=1 support).
+function newTaskHref(dueYmd) {
+  let href = 'teacher-tasks.html?new=1';
+  if (selClasses.size === 1) href += '&class=' + encodeURIComponent([...selClasses][0]);
+  if (dueYmd) href += '&due=' + encodeURIComponent(dueYmd);
+  return href;
+}
+
 function render() {
   $('calTitle').textContent = MONTHS[viewMonth] + ' ' + viewYear;
+  $('newTaskBtn').href = newTaskHref(null);
 
   // Bucket the visible tasks by local calendar day.
   const byDay = {};
@@ -285,6 +302,7 @@ function render() {
         href="teacher-tasks.html?class=${esc(t.class_id)}&task=${esc(t.id)}">${esc(t.title)} <span class="ct-time">${esc(time)}</span></a>`;
     }).join('');
     html += `<div class="cal-cell${inMonth ? '' : ' other-month'}${key === todayStr ? ' today' : ''}">
+      <a class="cal-add" href="${newTaskHref(key)}" title="New task due ${key}" aria-label="Create a new task due ${key}">＋</a>
       <span class="cal-daynum">${d.getDate()}</span>${chips}</div>`;
   });
 

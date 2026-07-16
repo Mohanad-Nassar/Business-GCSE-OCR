@@ -297,8 +297,8 @@
 </ul>`,
             readCheck: {
                 q: "A supply curve shows...",
-                opts: ["The equilibrium price", "The quantity of a product purchased at each price", "The equilibrium level of output", "The quantity of a product for sale at each price"],
-                ans: 3,
+                opts: ["The quantity of a product for sale at each price", "The equilibrium price", "The quantity of a product purchased at each price", "The equilibrium level of output"],
+                ans: 0,
                 explain: "Supply is what producers offer FOR SALE at each price — what is purchased at each price is demand. This exact MCQ opens the real 2.3 exam paper."
             }
         },
@@ -330,8 +330,8 @@
 </ul>`,
             readCheck: {
                 q: "The wages of carrot farmers rise. What happens in the market for carrots?",
-                opts: ["The supply curve shifts right", "The demand curve shifts left", "A movement along the supply curve", "The supply curve shifts left"],
-                ans: 3,
+                opts: ["The demand curve shifts left", "The supply curve shifts right", "The supply curve shifts left", "A movement along the supply curve"],
+                ans: 2,
                 explain: "Higher wages are a rise in production costs — supplying carrots is less profitable at every price, so the whole supply curve shifts left. This is a real exam MCQ."
             }
         },
@@ -359,8 +359,8 @@
 </ul>`,
             readCheck: {
                 q: "A sports venue has a seating capacity of 90,000. The PES of seats at this venue is...",
-                opts: ["Unitary", "Perfectly inelastic", "Perfectly elastic", "Greater than 1"],
-                ans: 1,
+                opts: ["Unitary", "Greater than 1", "Perfectly elastic", "Perfectly inelastic"],
+                ans: 3,
                 explain: "The number of seats cannot change whatever the ticket price — quantity supplied is fixed, PES = 0, a vertical supply curve. This is a real exam MCQ."
             }
         },
@@ -394,8 +394,8 @@
 </ul>`,
             readCheck: {
                 q: "Why do most factories deliberately run below full capacity (around 75–85%)?",
-                opts: ["So they can increase output quickly when prices or demand rise", "Because machines break if used fully", "Because the government requires it", "To keep wages low"],
-                ans: 0,
+                opts: ["Because machines break if used fully", "Because the government requires it", "To keep wages low", "So they can increase output quickly when prices or demand rise"],
+                ans: 3,
                 explain: "Spare capacity makes supply more price elastic — the firm can ramp up production fast and absorb problems without missing deadlines."
             }
         }
@@ -404,62 +404,62 @@
     const mcqData = [
         {
             q: "Which of the following is the correct definition of supply?",
-            opts: ["The total output an economy could produce", "The amount of stock a firm holds in its warehouse", "The amount producers are willing and able to sell at a given price in a given time period", "The amount consumers are willing and able to buy at a given price"],
-            ans: 2,
+            opts: ["The amount producers are willing and able to sell at a given price in a given time period", "The total output an economy could produce", "The amount consumers are willing and able to buy at a given price", "The amount of stock a firm holds in its warehouse"],
+            ans: 0,
             explain: "Supply mirrors the demand definition but for SELLERS: willing AND able to sell, at a given price, in a given time period."
         },
         {
             q: "Which of the following causes a movement ALONG the supply curve for bread (not a shift)?",
-            opts: ["A new tax on baked goods", "A rise in bakers' wages", "A change in the price of bread itself", "A poor wheat harvest"],
-            ans: 2,
+            opts: ["A rise in bakers' wages", "A change in the price of bread itself", "A new tax on baked goods", "A poor wheat harvest"],
+            ans: 1,
             explain: "Only the good's OWN price causes a movement along the curve. Wages, harvests and taxes are non-price factors — they shift the whole curve."
         },
         {
             q: "Bad weather ruins the wheat harvest. What happens in the market for bread?",
-            opts: ["A movement up the supply curve", "The demand curve shifts left", "The supply curve shifts right", "The supply curve shifts left"],
-            ans: 3,
+            opts: ["The supply curve shifts left", "The supply curve shifts right", "The demand curve shifts left", "A movement up the supply curve"],
+            ans: 0,
             explain: "Wheat is an input for bread — the failed harvest raises costs and cuts what bakers can supply at every price: a leftward supply shift."
         },
         {
             q: "A new machine lets a factory produce twice as much at the same cost. The supply curve...",
-            opts: ["Shifts right", "Shifts left", "Stays the same but demand shifts", "Becomes perfectly inelastic"],
-            ans: 0,
+            opts: ["Becomes perfectly inelastic", "Shifts left", "Shifts right", "Stays the same but demand shifts"],
+            ans: 2,
             explain: "Improved technology lowers average costs, so the firm is willing to supply more at every price — a rightward shift."
         },
         {
             q: "The price of a good rises by 10% and quantity supplied rises by 5%. PES is...",
-            opts: ["2, so supply is price elastic", "15, so supply is unitary", "0.5, so supply is price elastic", "0.5, so supply is price inelastic"],
-            ans: 3,
+            opts: ["0.5, so supply is price inelastic", "2, so supply is price elastic", "15, so supply is unitary", "0.5, so supply is price elastic"],
+            ans: 0,
             explain: "PES = %ΔQs ÷ %ΔP = 5 ÷ 10 = 0.5. Less than 1 means supply responds less than price — price inelastic."
         },
         {
             q: "Which product is most likely to have price ELASTIC supply?",
-            opts: ["Gold, which must be discovered, extracted and refined", "Seats at a 90,000-capacity stadium", "Tinned food made in a factory with spare capacity", "Fresh strawberries in mid-winter"],
-            ans: 2,
+            opts: ["Gold, which must be discovered, extracted and refined", "Seats at a 90,000-capacity stadium", "Fresh strawberries in mid-winter", "Tinned food made in a factory with spare capacity"],
+            ans: 3,
             explain: "Easily stored products made with spare capacity can be ramped up quickly when price rises. Gold's long production time and fixed stadium seats make those inelastic."
         },
         {
             q: "The supply of seats for tonight's sold-out concert is best described as...",
-            opts: ["Price elastic", "Perfectly price inelastic", "Unitary", "Perfectly price elastic"],
-            ans: 1,
+            opts: ["Unitary", "Perfectly price elastic", "Price elastic", "Perfectly price inelastic"],
+            ans: 3,
             explain: "The venue's seats are fixed whatever the ticket price — PES = 0, a vertical supply curve."
         },
         {
             q: "The government pays farmers a subsidy for every tonne of vegetables grown. The supply curve for vegetables...",
-            opts: ["Becomes vertical", "Does not move — there is a movement along it", "Shifts left", "Shifts right"],
-            ans: 3,
+            opts: ["Shifts right", "Shifts left", "Does not move — there is a movement along it", "Becomes vertical"],
+            ans: 0,
             explain: "A subsidy effectively lowers the farmer's costs, so more is supplied at every price — a rightward shift."
         },
         {
             q: "Which of the following would IMPROVE a firm's price elasticity of supply?",
-            opts: ["Training each worker for exactly one task", "Cutting all warehouse space", "Selling only perishable goods", "Holding spare production capacity"],
-            ans: 3,
+            opts: ["Training each worker for exactly one task", "Selling only perishable goods", "Holding spare production capacity", "Cutting all warehouse space"],
+            ans: 2,
             explain: "Spare capacity lets the firm ramp output up quickly when price rises. Perishables, no storage and rigid job roles all make supply LESS responsive."
         },
         {
             q: "Aldi and Lidl enter the UK supermarket industry. The market supply curve for groceries...",
-            opts: ["Shifts left", "Stays the same", "Becomes perfectly elastic", "Shifts right"],
-            ans: 3,
+            opts: ["Shifts left", "Shifts right", "Stays the same", "Becomes perfectly elastic"],
+            ans: 1,
             explain: "More producers in the market means more supplied at every price — market supply (the sum of all individual supplies) shifts right."
         }
     ];
@@ -557,8 +557,8 @@
             correct: "Ask the sorting question first: <em>does this change how much producers want to SELL, or how much consumers want to BUY?</em> Wages are a cost of PRODUCTION — they hit the supply side, shifting supply left. The demand-shifter list (income, marketing, tastes, substitutes, complements, population...) and the supply-shifter list (costs, taxes, subsidies, technology, weather, number of producers, regulation) must be learned separately — mixing them up throws away easy MCQ marks every year.",
             readCheck: {
                 q: "Which will shift the SUPPLY curve of carrots to the left?",
-                opts: ["An increase in the wages of carrot farmers", "A decrease in income tax", "An increase in the demand for carrots", "Cheaper farm machinery"],
-                ans: 0,
+                opts: ["A decrease in income tax", "An increase in the wages of carrot farmers", "An increase in the demand for carrots", "Cheaper farm machinery"],
+                ans: 1,
                 explain: "Higher wages = higher production costs = leftward supply shift. Demand changes don't shift supply, and cheaper machinery would shift it RIGHT."
             }
         },
@@ -567,8 +567,8 @@
             correct: "A movement along the supply curve can only be caused by the DEMAND curve shifting. An upwards movement means demand shifted RIGHT: the price rose and the firm supplies more at that higher price — good news, not a glut. In the real Celandine Hotel 6-marker, examiners reported that candidates who drew a supply shift instead of a demand shift got most of their analysis wrong, and some wrongly concluded the firm would make a loss and close down. Start these questions by asking: <em>what must have happened to demand?</em>",
             readCheck: {
                 q: "What causes an upwards movement ALONG a firm's supply curve?",
-                opts: ["The supply curve shifting right", "A fall in production costs", "A government subsidy", "The demand curve shifting right, raising the price"],
-                ans: 3,
+                opts: ["A government subsidy", "The demand curve shifting right, raising the price", "The supply curve shifting right", "A fall in production costs"],
+                ans: 1,
                 explain: "Only a demand shift changes the price along a fixed supply curve. The other three all SHIFT the supply curve itself."
             }
         },
@@ -577,8 +577,8 @@
             correct: "Be precise: a tax raises the firm's effective cost of production, so the whole supply curve SHIFTS LEFT — less is supplied <em>at every price</em>. Saying 'quantity supplied falls' without the shift language reads like a movement along the curve, which is a different concept caused only by the good's own price. The same precision applies in reverse to subsidies: the curve shifts right because costs are effectively lower.",
             readCheck: {
                 q: "A tax is placed on the production of a good. The correct description is...",
-                opts: ["The supply curve becomes steeper", "A movement down the supply curve", "The supply curve shifts to the left", "The demand curve shifts left"],
-                ans: 2,
+                opts: ["The supply curve shifts to the left", "The demand curve shifts left", "A movement down the supply curve", "The supply curve becomes steeper"],
+                ans: 0,
                 explain: "The tax raises costs at every output level, so the whole curve moves left. This is the real exam MCQ answer (Q17: a tax → left shift)."
             }
         },
@@ -587,8 +587,8 @@
             correct: "Ordinary price inelastic supply means quantity supplied changes by a SMALLER PERCENTAGE than price — it still changes! No change at all is PERFECTLY inelastic (PES = 0), and the real ALASA mark scheme capped 'perfectly inelastic' answers at 1 mark because the question said 'their' supply. Examiners also reported candidates answering PES questions in terms of demand, or in terms of elastic — and on the eggs question, definitions with no PERCENTAGES or no CONTEXT scored 0–1. Full-mark sentence: <em>the percentage change in quantity supplied of eggs is greater/less than the percentage change in price</em>.",
             readCheck: {
                 q: "Supply is price inelastic (PES = 0.4). Price rises 10%. Quantity supplied...",
-                opts: ["Does not change at all", "Rises by more than 10%", "Rises by about 4%", "Falls by 4%"],
-                ans: 2,
+                opts: ["Falls by 4%", "Rises by more than 10%", "Does not change at all", "Rises by about 4%"],
+                ans: 3,
                 explain: "Inelastic = smaller response, not NO response: 0.4 × 10% = 4% rise (supply moves the SAME direction as price, unlike demand)."
             }
         },
@@ -597,8 +597,8 @@
             correct: "Steep vs flat works for curves that DON'T pass through the origin — but ANY straight-line supply curve through the origin has UNITARY elasticity (PES = 1), whatever its slope, because the % change in quantity always equals the % change in price along it. OCR's examiner report said many candidates picked 'price elastic' for a straight line from the origin 'possibly due to a lack of familiarity' with this rule. Quick test: cuts the PRICE axis → elastic; cuts the QUANTITY axis → inelastic; through the ORIGIN → unitary.",
             readCheck: {
                 q: "An upward-sloping straight-line supply curve starts at the origin. Its PES is...",
-                opts: ["Unitary (exactly 1)", "Inelastic", "Impossible to say", "Elastic"],
-                ans: 0,
+                opts: ["Elastic", "Inelastic", "Unitary (exactly 1)", "Impossible to say"],
+                ans: 2,
                 explain: "Through the origin = unitary, regardless of slope. Cuts the price axis = elastic; cuts the quantity axis = inelastic."
             }
         },
@@ -632,7 +632,7 @@
 <p>✅ <strong>2 marks:</strong> "The percentage change in the quantity of eggs supplied is greater than the percentage change in the price of eggs."</p>`,
             readCheck: {
                 q: "On the eggs question, a perfect textbook PES definition with NO mention of eggs scored...",
-                opts: ["0 marks — answers had to be in context", "1 mark", "2 marks", "Bonus marks"],
+                opts: ["0 marks — answers had to be in context", "2 marks", "1 mark", "Bonus marks"],
                 ans: 0,
                 explain: "The mark scheme said answers MUST be in the context of egg production. Context isn't decoration — it's the marks."
             }
@@ -655,8 +655,8 @@
 </ul>`,
             readCheck: {
                 q: "You plot all five supply points perfectly, then draw one straight 'line of best fit' through them. You score...",
-                opts: ["Both marks", "1 of the 2 marks", "0 marks", "It depends on neatness"],
-                ans: 1,
+                opts: ["1 of the 2 marks", "0 marks", "Both marks", "It depends on neatness"],
+                ans: 0,
                 explain: "Several real mark schemes: maximum 1 mark for a line of best fit or unjoined points. Join point to point."
             }
         },
@@ -677,8 +677,8 @@
 <p>✅ Demand shift drawn and labelled, movement along S explained, chains about the actual subject of the question, linked back to the diagram.</p>`,
             readCheck: {
                 q: "In the ALASA 6-marker, answers about ticket sales instead of the number of musicians were capped at...",
-                opts: ["Level 2 — 4 marks", "5 marks", "0 marks", "Full marks"],
-                ans: 0,
+                opts: ["0 marks", "Level 2 — 4 marks", "Full marks", "5 marks"],
+                ans: 1,
                 explain: "The examiner report: answers must address the question asked, not the question candidates would have preferred. The extract tells you the subject."
             }
         },
@@ -697,7 +697,7 @@
 <p>Strong analysis with little or no evaluation "restricted their marks" on every single Evaluate question. Weigh both sides, then commit: "Overall, ... because ...".</p>`,
             readCheck: {
                 q: "\"Explain one possible cost FOR A SMALL BUSINESS of specialisation by its workers.\" An answer about workers getting bored (and stopping there) scored...",
-                opts: ["2 marks", "0 marks — it's a cost to the workers, not the business", "Full marks", "1 mark for effort"],
+                opts: ["1 mark for effort", "0 marks — it's a cost to the workers, not the business", "Full marks", "2 marks"],
                 ans: 1,
                 explain: "The real exemplar scored 0. Link it to the BUSINESS: bored workers leave, so the business pays higher recruitment and training costs."
             }

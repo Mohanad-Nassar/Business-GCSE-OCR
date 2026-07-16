@@ -203,13 +203,13 @@ function makeRing(done, total, size = 40, label = '') {
     ? `${label ? label + ': ' : ''}not available`
     : `${label ? label + ': ' : ''}${done} of ${total} complete`;
   return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" role="img" aria-label="${a11y}">
-    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#c9bfaa" stroke-width="${sw}"/>
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="var(--border,#c9bfaa)" stroke-width="${sw}"/>
     <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${col}" stroke-width="${sw}"
       stroke-dasharray="${circ.toFixed(2)}" stroke-dashoffset="${offset.toFixed(2)}"
       stroke-linecap="round" transform="rotate(-90 ${cx} ${cy})"/>
     <text x="${cx}" y="${cy + size * .065}" text-anchor="middle"
       font-family="DM Mono,monospace" font-size="${fs.toFixed(1)}"
-      fill="${tc}" font-weight="500">${lbl}</text>
+      class="gcse-ring-txt" fill="${tc}" font-weight="500">${lbl}</text>
   </svg>`;
 }
 

@@ -56,6 +56,9 @@ const BADGE_DEFS = [
   { id: 'first-review',   icon: '🔁', label: 'First Review',     desc: 'Complete your first Review Calendar review', group: 'Review Calendar', test: s => s.reviewsCompleted >= 1 },
   { id: 'review-regular', icon: '🗓️', label: 'Review Regular',  desc: 'Complete 10 Review Calendar reviews',      group: 'Review Calendar', test: s => s.reviewsCompleted >= 10 },
   { id: 'retention-master',icon:'🧲', label: 'Retention Master', desc: 'Complete 30 Review Calendar reviews',      group: 'Review Calendar', test: s => s.reviewsCompleted >= 30 },
+  { id: 'leaderboard-top10',icon:'📊', label: 'Top of the Class', desc: 'Reach the top 10 of your class leaderboard', group: 'Leaderboard', test: s => s.lbTop10 },
+  { id: 'leaderboard-podium',icon:'🏅',label: 'Podium Finish',    desc: 'Reach the top 3 of your class leaderboard',  group: 'Leaderboard', test: s => s.lbTop3 },
+  { id: 'leaderboard-first',icon:'👑', label: 'Class Champion',   desc: 'Hit #1 on your class leaderboard',           group: 'Leaderboard', test: s => s.lbFirst },
 ];
 
 function gamificationLevelFromXp(xp) {
@@ -80,9 +83,10 @@ function _gamHasGradableContent(pageId) {
 // gamificationRefreshDailyReviseStats()/gamificationRefreshReviewStats();
 // both default to their last-fetched cache so existing call sites that
 // don't pass them keep working unchanged.
-function computeGamificationStats(progress, streak, drStats, reviewStats) {
+function computeGamificationStats(progress, streak, drStats, reviewStats, lbStats) {
   drStats = drStats || _gamDrStats;
   reviewStats = reviewStats || _gamReviewStats;
+  lbStats = lbStats || _gamLbStats;
   let xp = 0, topicsComplete = 0, totalDone = 0, totalTopics = 0, unitCompleteAny = false;
   const byCategory = {};
   GAMIFICATION_CATEGORY_KEYS.forEach(k => { byCategory[k] = 0; });
@@ -128,12 +132,20 @@ function computeGamificationStats(progress, streak, drStats, reviewStats) {
   // same as Daily Revise). Purely a badge-test signal, so it doesn't feed XP.
   const reviewsCompleted = (reviewStats && reviewStats.completed) || 0;
 
+  // Leaderboard tiers reached (see leaderboard.sql / leaderboard_achievements) —
+  // best-ever flags across subjects, purely badge-test signals (no XP: a
+  // relative ranking mustn't inflate an absolute score).
+  const lbTop10 = !!(lbStats && lbStats.everTop10);
+  const lbTop3  = !!(lbStats && lbStats.everTop3);
+  const lbFirst = !!(lbStats && lbStats.everFirst);
+
   const lvl = gamificationLevelFromXp(xp);
   return {
     xp, level: lvl.level, xpIntoLevel: lvl.xpIntoLevel, xpForNextLevel: lvl.xpForNextLevel,
     topicsComplete, totalDone, totalTopics, byCategory,
     unitComplete: unitCompleteAny, streak: streak || 0,
     drCorrect, drMastered, reviewsCompleted,
+    lbTop10, lbTop3, lbFirst,
   };
 }
 
@@ -207,7 +219,7 @@ function _gamEnsureStyles() {
   const style = document.createElement('style');
   style.id = 'gam-toast-styles';
   style.textContent = `
-    .gam-xp-toast{position:fixed;top:18px;right:18px;z-index:490;background:var(--ink,#1a2332);color:#fff;font-family:'DM Mono',monospace;font-size:13px;font-weight:600;padding:8px 16px;border-radius:99px;box-shadow:0 8px 24px rgba(0,0,0,.25);opacity:0;transform:translateY(-10px);transition:opacity .25s,transform .25s;pointer-events:none;}
+    .gam-xp-toast{position:fixed;top:18px;right:18px;z-index:490;background:var(--chrome, var(--ink,#1a2332));color:#fff;font-family:'DM Mono',monospace;font-size:13px;font-weight:600;padding:8px 16px;border-radius:99px;box-shadow:0 8px 24px rgba(0,0,0,.25);opacity:0;transform:translateY(-10px);transition:opacity .25s,transform .25s;pointer-events:none;}
     .gam-xp-toast.show{opacity:1;transform:translateY(0);}
     .gam-badge-toast{position:fixed;top:18px;right:18px;z-index:491;display:flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--gold,#d4a843);color:#1a2332;font-family:'DM Sans',sans-serif;padding:12px 18px;border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.3);opacity:0;transform:translateY(-16px) scale(.95);transition:opacity .3s,transform .3s;max-width:280px;}
     .gam-badge-toast.show{opacity:1;transform:translateY(0) scale(1);}
@@ -333,6 +345,32 @@ async function gamificationRefreshReviewStats(client) {
     }
   } catch (e) {}
   return _gamReviewStats;
+}
+
+// ── Leaderboard achievements (see supabase/leaderboard.sql) — the best-ever
+// tier a student has reached (top 10 / top 3 / #1), rolled up across subjects
+// by get_my_leaderboard_achievements(). Written server-side only (rank is
+// computed there, never trusted from the client), so the three Leaderboard
+// badges these flags unlock are real. Reset to false on every page load, same
+// as the two caches above; computeGamificationStats() falls back to this cache
+// when no lbStats argument is passed. The board page (leaderboard.js) calls
+// this after it has synced the caller's current standing. ──
+
+let _gamLbStats = { everTop10: false, everTop3: false, everFirst: false, bestRank: null };
+async function gamificationRefreshLeaderboardStats(client) {
+  try {
+    if (!client) return _gamLbStats;
+    _gamLastClient = client;
+    const { data, error } = await client.rpc('get_my_leaderboard_achievements');
+    if (!error && data) {
+      _gamLbStats = {
+        everTop10: !!data.ever_top10, everTop3: !!data.ever_top3,
+        everFirst: !!data.ever_first, bestRank: data.best_rank == null ? null : data.best_rank,
+      };
+      if (typeof _gamUpdateHud === 'function') _gamUpdateHud();
+    }
+  } catch (e) {}
+  return _gamLbStats;
 }
 
 // ── Daily goal (device-local, display-only — XP stays pure) ──
@@ -638,7 +676,7 @@ function _gamInjectHudStyles() {
     .gam-hud--hero{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);margin:26px 0 0;position:relative;z-index:1;}
     .gam-hud--hero .gam-hud-xp-lbl{color:#9fb0bd;}
     .gam-hud--hero .gam-hud-xp-track{background:rgba(255,255,255,.16);}
-    .gam-hud--hero .gam-hud-chip{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.2);color:var(--paper,#f5f0e8);}
+    .gam-hud--hero .gam-hud-chip{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.2);color:var(--chrome-text, var(--paper,#f5f0e8));}
     .gam-hud--hero .gam-hud-chip:hover{border-color:var(--gold,#d4a843);background:rgba(255,255,255,.14);}
     .gam-hud--hero .gam-hud-streak{color:var(--gold,#d4a843);}
     /* ── "Continue where you left off" hero card ── */

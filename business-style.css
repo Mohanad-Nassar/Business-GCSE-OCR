@@ -12,6 +12,46 @@
      --card-bg: #fffcf6;
  }
 
+ /* Smooths cross-page navigation (browser-native crossfade) in supporting
+    browsers; no-op elsewhere. Needs the same rule on both the outgoing and
+    incoming page, so it's mirrored in style.css/landing.css. */
+ @view-transition {
+     navigation: auto;
+ }
+
+ /* ── Reveal-on-scroll + hover-lift primitives (site-motion.js flips .rv-in
+    and adds .motion-hover) — same convention as landing.css/landing.js.
+    NOTE: the transition itself is set inline by site-motion.js (and
+    removed again once it finishes) rather than declared here, because
+    several pages already give these same classes their own bespoke
+    `transition` (e.g. teacher-dashboard.html's .class-card/.tile hover
+    polish) — a class-based transition here would fight theirs depending
+    on cascade order. Inline wins cleanly and self-cleans afterward. */
+ .rv {
+     opacity: 0;
+     transform: translateY(18px);
+ }
+
+ .rv.rv-in {
+     opacity: 1;
+     transform: none;
+ }
+
+ .motion-hover {
+     transition: box-shadow .2s, transform .2s;
+ }
+
+ .motion-hover:hover {
+     box-shadow: 0 6px 24px rgba(0, 0, 0, .12);
+     transform: translateY(-2px);
+ }
+
+ @media (prefers-reduced-motion: reduce) {
+     main { animation: none; }
+     .rv { opacity: 1; transform: none; transition: none; }
+     .motion-hover:hover { transform: none; }
+ }
+
  .case-img {
      display: block;
      width: 100%;
@@ -63,7 +103,7 @@
      display: inline-flex;
      align-items: center;
      gap: 8px;
-     color: var(--paper);
+     color: var(--chrome-text, var(--paper));
      text-decoration: none;
      font-family: 'DM Mono', monospace;
      font-size: 12.5px;
@@ -88,14 +128,14 @@
  }
 
  header {
-     background-color: var(--ink);
+     background-color: var(--chrome, var(--ink));
      /* Decorative accent circle as a background so the header needs no
         overflow:hidden (which would clip the injected profile dropdown /
         notification panel). */
      background-image: radial-gradient(circle 100px at calc(100% - 60px) 60px,
          rgba(122, 92, 158, .18) 0, rgba(122, 92, 158, .18) 99px, transparent 100px);
      background-repeat: no-repeat;
-     color: var(--paper);
+     color: var(--chrome-text, var(--paper));
      padding: 28px 40px 24px;
      display: flex;
      align-items: flex-end;
@@ -136,7 +176,7 @@
      margin-left: auto;
      background: rgba(255, 255, 255, .1);
      border: 1px solid rgba(255, 255, 255, .2);
-     color: var(--paper);
+     color: var(--chrome-text, var(--paper));
      font-family: 'DM Mono', monospace;
      font-size: 11px;
      letter-spacing: 1px;
@@ -156,7 +196,7 @@
  }
 
  .tab-bar {
-     background: var(--ink);
+     background: var(--chrome, var(--ink));
      display: flex;
      /* Wrap onto multiple rows instead of horizontal scrolling so every
         tab stays visible on smaller screens (kept in sync with style.css). */
@@ -187,7 +227,7 @@
  }
 
  .tab-btn:hover {
-     color: var(--paper);
+     color: var(--chrome-text, var(--paper));
  }
 
  .tab-btn.active {
@@ -198,7 +238,14 @@
  main {
      padding: 32px 40px 60px;
      max-width: 1100px;
+     /* width:100% is LOAD-BEARING (mirrors style.css): body is a CSS grid
+        on desktop and main is a grid item — auto margins disable stretch,
+        so without an explicit width main shrink-wraps its CONTENT and the
+        page width changes as cards expand/collapse. */
+     width: 100%;
+     box-sizing: border-box;
      margin: 0 auto;
+     animation: fadeUp .5s ease both;
  }
 
  .tab-panel {
@@ -218,7 +265,15 @@
 
      to {
          opacity: 1;
-         transform: translateY(0);
+         /* `none`, not `translateY(0)` — with `main`'s animation-fill-mode:
+            both, whatever this keyframe ends on stays applied to `main`
+            forever after the fade-in finishes. translateY(0) is still a
+            non-`none` transform, which makes `main` a containing block for
+            every `position:fixed` descendant (modals, drawers, the
+            filter-sidebar overlay), breaking them out of viewport-relative
+            positioning. `none` fades in identically but doesn't leave that
+            trap behind. */
+         transform: none;
      }
  }
 
@@ -444,7 +499,14 @@
  }
 
  .opt-btn {
+     /* appearance:none so the themed background/color actually paint — a
+        native <button> lets the OS dark-mode form styling override them,
+        which made options unreadable (light native button, dark UA text)
+        on dark themes. color is explicit because buttons don't inherit it. */
+     -webkit-appearance: none;
+     appearance: none;
      background: var(--cream);
+     color: var(--ink);
      border: 1.5px solid var(--border);
      border-radius: 7px;
      padding: 11px 16px;
@@ -456,7 +518,7 @@
  }
 
  .opt-btn:hover:not(:disabled) {
-     background: #e8e1d3;
+     background: color-mix(in srgb, var(--ink) 12%, var(--cream));
      border-color: var(--mid);
  }
 
@@ -836,8 +898,8 @@
  }
 
  .fc-front {
-     background: var(--ink);
-     color: var(--paper);
+     background: var(--chrome, var(--ink));
+     color: var(--chrome-text, var(--paper));
  }
 
  .fc-front .fc-label {
@@ -882,8 +944,8 @@
  }
 
  .fc-btn {
-     background: var(--ink);
-     color: var(--paper);
+     background: var(--chrome, var(--ink));
+     color: var(--chrome-text, var(--paper));
      border: none;
      border-radius: 7px;
      padding: 10px 22px;
@@ -937,6 +999,11 @@
  }
 
  .tf-btn {
+     /* appearance:none + explicit color: native <button> styling otherwise
+        overrides the themed background and leaves UA-dark text on dark themes */
+     -webkit-appearance: none;
+     appearance: none;
+     color: var(--ink);
      border: 1.5px solid var(--border);
      background: var(--cream);
      border-radius: 6px;
@@ -950,8 +1017,8 @@
  }
 
  .tf-btn:hover:not(:disabled) {
-     background: var(--ink);
-     color: var(--paper);
+     background: var(--chrome, var(--ink));
+     color: var(--chrome-text, var(--paper));
  }
 
  .tf-btn.correct {
@@ -1011,8 +1078,8 @@
  }
 
  .reset-btn:hover {
-     background: var(--ink);
-     color: var(--paper);
+     background: var(--chrome, var(--ink));
+     color: var(--chrome-text, var(--paper));
      border-color: var(--ink);
  }
 
@@ -1030,8 +1097,8 @@
  }
 
  .ep-header {
-     background: var(--ink);
-     color: var(--paper);
+     background: var(--chrome, var(--ink));
+     color: var(--chrome-text, var(--paper));
      padding: 16px 22px;
      display: flex;
      align-items: center;
@@ -1088,6 +1155,11 @@
  }
 
  .ep-opt {
+     /* appearance:none + explicit color: native <button> styling otherwise
+        overrides the themed background and leaves UA-dark text on dark themes */
+     -webkit-appearance: none;
+     appearance: none;
+     color: var(--ink);
      background: var(--cream);
      border: 1.5px solid var(--border);
      border-radius: 6px;
@@ -1159,8 +1231,8 @@
  }
 
  .ep-btn:hover {
-     background: var(--ink);
-     color: var(--paper);
+     background: var(--chrome, var(--ink));
+     color: var(--chrome-text, var(--paper));
      border-color: var(--ink);
  }
 
@@ -1356,8 +1428,8 @@
      position: fixed;
      bottom: 30px;
      right: 30px;
-     background: var(--ink);
-     color: var(--paper);
+     background: var(--chrome, var(--ink));
+     color: var(--chrome-text, var(--paper));
      border: none;
      border-radius: 50px;
      padding: 12px 20px;
@@ -1401,8 +1473,8 @@
      position: fixed;
      bottom: 30px;
      left: 30px;
-     background: var(--ink);
-     color: var(--paper);
+     background: var(--chrome, var(--ink));
+     color: var(--chrome-text, var(--paper));
      padding: 14px 20px;
      border-radius: 8px;
      font-family: 'DM Sans', sans-serif;
@@ -1506,7 +1578,7 @@
  /* ── TOGGLE BUTTON (Now visible on ALL screens) ── */
  .sidebar-toggle-btn {
      background: transparent;
-     color: var(--paper);
+     color: var(--chrome-text, var(--paper));
      border: 1.5px solid rgba(255, 255, 255, 0.3);
      padding: 6px 12px;
      border-radius: 6px;
@@ -1532,7 +1604,7 @@
      /* Hidden off-screen to the left by default */
      width: 280px;
      height: 100vh;
-     background: var(--ink);
+     background: var(--chrome, var(--ink));
      border-right: 2px solid var(--accent);
      overflow-y: auto;
      overflow-x: hidden;
@@ -1555,7 +1627,7 @@
 .sb-header {
     position: sticky;
     top: 0;
-    background: var(--ink);
+    background: var(--chrome, var(--ink));
     /* Solid background prevents text overlap when scrolling */
     z-index: 10;
     /* Keeps it above the scrolling links */
@@ -1605,12 +1677,12 @@
 
  .sb-link:hover {
      background: rgba(255, 255, 255, 0.05);
-     color: var(--paper);
+     color: var(--chrome-text, var(--paper));
  }
 
  .sb-link.active {
      background: rgba(255, 255, 255, 0.08);
-     color: var(--paper);
+     color: var(--chrome-text, var(--paper));
      border-left-color: var(--gold);
      font-weight: 500;
  }
@@ -1806,7 +1878,7 @@ body.sidebar-mobile-open .sidebar-overlay {
 }
 
 .mobile-close-btn:hover {
-    color: var(--paper);
+    color: var(--chrome-text, var(--paper));
     border-color: var(--paper);
 }
 
@@ -1856,8 +1928,8 @@ body.sidebar-mobile-open .sidebar-overlay {
 .fib-check-btn {
     display: inline-block;
     margin-top: 15px;
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--chrome, var(--ink));
+    color: var(--chrome-text, var(--paper));
     border: none;
     border-radius: 6px;
     padding: 8px 16px;
@@ -1963,8 +2035,8 @@ body.sidebar-mobile-open .sidebar-overlay {
 
 /* ── Items ── */
 .cat-item {
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--chrome, var(--ink));
+    color: var(--chrome-text, var(--paper));
     padding: 9px 12px;
     border-radius: 7px;
     font-size: 13px;
@@ -2054,8 +2126,8 @@ body.sidebar-mobile-open .sidebar-overlay {
 #lessonPill:hover { background: var(--cream) !important; border-color: var(--accent) !important; }
 #lessonPill .pill-label { color: var(--mid) !important; }
 #lessonDrawer { background: var(--card-bg) !important; border-left-color: var(--border) !important; }
-.drawer-header { background: var(--ink) !important; border-bottom-color: var(--border) !important; }
-.drawer-header-left h3 { color: var(--paper) !important; font-family: 'Playfair Display', serif !important; }
+.drawer-header { background: var(--chrome, var(--ink)) !important; border-bottom-color: var(--border) !important; }
+.drawer-header-left h3 { color: var(--chrome-text, var(--paper)) !important; font-family: 'Playfair Display', serif !important; }
 .drawer-row:hover { background: var(--cream) !important; }
 .drawer-row-label { color: var(--ink) !important; }
 .drawer-row-count { color: var(--mid) !important; }
@@ -2094,7 +2166,7 @@ body.sidebar-mobile-open .sidebar-overlay {
 
 .sidebar-toggle-btn {
     background: transparent;
-    color: var(--paper);
+    color: var(--chrome-text, var(--paper));
     border: 1.5px solid rgba(255,255,255,.3);
     padding: 6px 12px;
     border-radius: 6px;
@@ -2113,7 +2185,7 @@ body.sidebar-mobile-open .sidebar-overlay {
     top: 0; left: -320px;
     width: 280px;
     height: 100vh;
-    background: var(--ink);
+    background: var(--chrome, var(--ink));
     border-right: 2px solid var(--accent);
     overflow-y: auto;
     overflow-x: hidden;
@@ -2127,7 +2199,7 @@ body.sidebar-mobile-open .course-sidebar { left: 0; }
 .sb-header {
     position: sticky;
     top: 0;
-    background: var(--ink);
+    background: var(--chrome, var(--ink));
     z-index: 10;
     padding: 20px 20px 15px;
     border-bottom: 1px solid rgba(255,255,255,.1);
@@ -2170,10 +2242,10 @@ body.sidebar-mobile-open .course-sidebar { left: 0; }
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.sb-link:hover { background: rgba(255,255,255,.05); color: var(--paper); }
+.sb-link:hover { background: rgba(255,255,255,.05); color: var(--chrome-text, var(--paper)); }
 .sb-link.active {
     background: rgba(255,255,255,.08);
-    color: var(--paper);
+    color: var(--chrome-text, var(--paper));
     border-left-color: var(--gold);
     font-weight: 500;
 }
@@ -2218,8 +2290,8 @@ body.sidebar-mobile-open .course-sidebar { left: 0; }
     color: #999;
     border-left: 2px solid transparent;
 }
-.sb-child:hover { color: var(--paper); background: rgba(255,255,255,.05); }
-.sb-child.active { color: var(--paper); border-left-color: var(--gold); font-weight: 500; }
+.sb-child:hover { color: var(--chrome-text, var(--paper)); background: rgba(255,255,255,.05); }
+.sb-child.active { color: var(--chrome-text, var(--paper)); border-left-color: var(--gold); font-weight: 500; }
 
 /* ── Desktop grid layout ── */
 @media (min-width: 900px) {
@@ -2295,7 +2367,7 @@ body.sidebar-mobile-open .sidebar-overlay { opacity: 1; visibility: visible; }
     cursor: pointer;
     margin-left: auto;
 }
-.mobile-close-btn:hover { color: var(--paper); border-color: var(--paper); }
+.mobile-close-btn:hover { color: var(--chrome-text, var(--paper)); border-color: var(--paper); }
 @media (max-width: 899px) { .mobile-close-btn { display: inline-block; } }
 
 /* ══════════════════════════════════════════════════════════════

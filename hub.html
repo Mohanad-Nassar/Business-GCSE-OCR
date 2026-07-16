@@ -6,6 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Your subjects hub — interactive OCR GCSE revision guides with notes, quizzes, flashcards and exam practice.">
   <title>My Subjects – Study Guide</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48 32x32 16x16">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vidya">
+  <meta property="og:title" content="My Subjects – Study Guide">
+  <meta property="og:description" content="Your subjects hub — interactive OCR GCSE revision guides with notes, quizzes, flashcards and exam practice.">
+  <meta property="og:url" content="https://business-mr-nassar.netlify.app/hub.html">
+  <meta property="og:image" content="https://business-mr-nassar.netlify.app/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://business-mr-nassar.netlify.app/images/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -47,8 +60,8 @@
       left: 12px;
       top: -60px;
       z-index: 100;
-      background: var(--ink);
-      color: var(--paper);
+      background: var(--chrome, var(--ink));
+      color: var(--chrome-text, var(--paper));
       padding: 10px 18px;
       border-radius: 0 0 8px 8px;
       font-weight: 600;
@@ -74,7 +87,7 @@
 
     /* ── HERO ── */
     .hero {
-      background-color: var(--ink);
+      background-color: var(--chrome, var(--ink));
       /* Both decorative circles painted as backgrounds so the hero needs
          no overflow:hidden (which would clip the injected account dropdown
          / notification bell panel). */
@@ -84,7 +97,7 @@
         radial-gradient(circle 110px at calc(30% + 110px) calc(100% - 50px),
           rgba(212,168,67,.08) 0, rgba(212,168,67,.08) 109px, transparent 110px);
       background-repeat: no-repeat;
-      color: var(--paper);
+      color: var(--chrome-text, var(--paper));
       padding: 48px 48px 40px;
       position: relative;
     }
@@ -154,7 +167,7 @@
       gap: 8px;
       background: rgba(255, 255, 255, .08);
       border: 1px solid rgba(255, 255, 255, .25);
-      color: var(--paper);
+      color: var(--chrome-text, var(--paper));
       font-family: 'DM Mono', monospace;
       font-size: 12px;
       letter-spacing: .06em;
@@ -343,7 +356,169 @@
     .subject-actions a:hover,
     .subject-actions a:focus-visible {
       border-color: var(--accent);
-      background: #fff;
+      /* was #fff - with themed (light) text the label vanished on hover in dark themes */
+      background: var(--cream);
+    }
+
+    /* ── HEADER ROW + JOIN-ANOTHER-CLASS ── */
+    .hub-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .hub-header-row .section-label {
+      margin-bottom: 0;
+    }
+
+    .join-class-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: .04em;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: filter .15s;
+    }
+
+    .join-class-btn:hover {
+      filter: brightness(.94);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 25, 35, .55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 60;
+    }
+
+    .modal-overlay[hidden] {
+      display: none;
+    }
+
+    .modal-card {
+      width: 100%;
+      max-width: 420px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 30px 26px 26px;
+      box-shadow: 0 20px 50px rgba(15, 25, 35, .3);
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      line-height: 1;
+      color: var(--mid);
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .modal-close:hover {
+      color: var(--ink);
+    }
+
+    .modal-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      margin-bottom: 8px;
+      padding-right: 20px;
+    }
+
+    .modal-sub {
+      font-size: 12.5px;
+      color: var(--mid);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    #joinClassForm label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--mid);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    #joinClassForm .code-input {
+      width: 100%;
+      padding: 14px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-family: 'DM Mono', monospace;
+      font-size: 22px;
+      letter-spacing: .3em;
+      text-align: center;
+      text-transform: uppercase;
+      background: var(--card-bg);
+      color: var(--ink);
+    }
+
+    #joinClassForm .code-input:focus {
+      border-color: var(--accent);
+    }
+
+    #joinClassForm button[type=submit] {
+      margin-top: 14px;
+      width: 100%;
+      background: var(--chrome, var(--ink));
+      color: var(--chrome-text, var(--paper));
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    #joinClassForm button[type=submit]:disabled {
+      opacity: .6;
+      cursor: default;
+    }
+
+    .join-class-msg {
+      font-size: 12.5px;
+      padding: 10px 12px;
+      border-radius: 6px;
+      display: none;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    .join-class-msg.show {
+      display: block;
+    }
+
+    .join-class-msg.error {
+      background: rgba(200, 75, 49, .1);
+      color: #c84b31;
+      border: 1px solid rgba(200, 75, 49, .25);
+    }
+
+    .join-class-msg.ok {
+      background: rgba(45, 122, 79, .1);
+      color: var(--success);
+      border: 1px solid rgba(45, 122, 79, .25);
     }
 
     /* ── RESPONSIVE ── */
@@ -405,9 +580,29 @@
 
   <!-- MAIN CONTENT -->
   <main class="content" id="mainContent">
-    <h2 class="section-label" id="hubSectionLabel">Subjects</h2>
+    <div class="hub-header-row">
+      <h2 class="section-label" id="hubSectionLabel">Subjects</h2>
+      <button type="button" id="joinClassBtn" class="join-class-btn" hidden>+ Join another class</button>
+    </div>
     <div id="hubGrid" class="hub-loading">Loading your subjects…</div>
   </main>
+
+  <!-- JOIN ANOTHER CLASS MODAL -->
+  <div class="modal-overlay" id="joinModalOverlay" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="joinModalTitle">
+      <button type="button" class="modal-close" id="joinModalClose" aria-label="Close">&times;</button>
+      <h2 id="joinModalTitle">Join another class</h2>
+      <p class="modal-sub">Got a class code from a teacher? You can join one class per subject — this
+        adds a class in a subject you're not already enrolled in.</p>
+      <form id="joinClassForm">
+        <label for="joinCodeInput">Class code</label>
+        <input type="text" id="joinCodeInput" class="code-input" maxlength="8" autocomplete="off"
+               spellcheck="false" autocapitalize="characters" placeholder="········" required />
+        <div class="join-class-msg" id="joinClassMsg"></div>
+        <button type="submit" id="joinClassSubmitBtn">Join class</button>
+      </form>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
   <script src="/subjects-index.js"></script>
@@ -432,25 +627,29 @@
     // are invalid HTML and browsers silently break out of the outer
     // anchor when they hit one, which would make the card's own link
     // target unpredictable.
+    // Names/levels can now be teacher-typed (teacher-authored subjects flow
+    // through get_my_subjects like any other) — escape everything, and only
+    // let the colour into the style attribute when it's a plain hex.
     function subjectCardHtml(subject, opts) {
       opts = opts || {};
+      const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
       const href = opts.href || `/subjects/${subject.slug}/index.html`;
-      const accent = subject.colour ? ` style="--accent:${subject.colour}"` : '';
+      const accent = /^#[0-9a-fA-F]{6}$/.test(subject.colour || '') ? ` style="--accent:${subject.colour}"` : '';
       const examBoard = subject.examBoard || subject.exam_board || 'OCR';
       const specCode = subject.specCode || subject.spec_code || '';
       const level = subject.level || '';
-      const card = `<a class="topic-card" href="${href}"${accent}>
-          <span class="subject-icon" aria-hidden="true">${subject.icon || '📘'}</span>
-          <span class="code">${examBoard}${specCode ? ' · ' + specCode : ''}</span>
-          <h3>${subject.name}</h3>
+      const card = `<a class="topic-card" href="${esc(href)}"${accent}>
+          <span class="subject-icon" aria-hidden="true">${esc(subject.icon || '📘')}</span>
+          <span class="code">${esc(opts.code != null ? opts.code : examBoard + (specCode ? ' · ' + specCode : ''))}</span>
+          <h3>${esc(subject.name)}</h3>
           <div class="card-meta">
-            <span>${level}${opts.tag ? ' · ' + opts.tag : ''}</span>
+            <span>${esc(level + (opts.tag ? (level ? ' · ' : '') + opts.tag : ''))}</span>
             <span class="arrow" aria-hidden="true">→</span>
           </div>
         </a>`;
       if (opts.actions) return `<div class="subject-card-wrap">${card}${subjectActionsHtml(subject.slug)}</div>`;
       if (!opts.secondaryHref) return `<div class="subject-card-wrap">${card}</div>`;
-      return `<div class="subject-card-wrap">${card}<a class="subject-secondary" href="${opts.secondaryHref}">📊 My Progress →</a></div>`;
+      return `<div class="subject-card-wrap">${card}<a class="subject-secondary" href="${esc(opts.secondaryHref)}">📊 My Progress →</a></div>`;
     }
 
     // WP-A4: every feature reachable per subject straight from the hub.
@@ -462,6 +661,7 @@
         <a href="/daily-revise.html?subject=${s}">🎯 Daily Revise</a>
         <a href="/dashboard.html?subject=${s}#tasksSection">📋 Tasks</a>
         <a href="/review-calendar.html?subject=${s}">🗓️ Calendar</a>
+        <a href="/leaderboard.html?subject=${s}">🏆 Leaderboard</a>
       </div>`;
     }
 
@@ -470,6 +670,7 @@
     // fully hidden here, not shown as "coming soon" clutter.
     function renderStudentSubjectsHub(rows) {
       document.getElementById('hubSectionLabel').textContent = 'Your Subjects';
+      document.getElementById('joinClassBtn').hidden = false;
       const grid = document.getElementById('hubGrid');
       grid.classList.remove('hub-loading');
       if (!rows.length) {
@@ -478,7 +679,16 @@
           No code yet? Ask your teacher for one, then come back.</div>`;
         return;
       }
-      grid.innerHTML = rows.map(s => subjectCardHtml(s, { actions: true })).join('');
+      // Teacher-authored subjects (subjects.created_by set) have no static
+      // /subjects/<slug>/ pages, question bank or Daily Revise yet — their
+      // card opens the interactive topic player instead, with no pills.
+      grid.innerHTML = rows.map(s => s.created_by
+        ? subjectCardHtml(s, {
+            href: `/subject-view.html?id=${encodeURIComponent(s.id)}`,
+            code: 'FROM YOUR TEACHER',
+            tag: 'Teacher-made',
+          })
+        : subjectCardHtml(s, { actions: true })).join('');
       // WP-A5: one calendar across every subject (reviews + task deadlines,
       // filterable there) — only worth surfacing for multi-subject students.
       if (rows.length > 1) {
@@ -490,6 +700,99 @@
             <div class="card-meta"><span>Reviews + task deadlines in one view</span><span class="arrow" aria-hidden="true">→</span></div>
           </a></div>`);
       }
+    }
+
+    // Same RPC + friendly-error map as join.html's own form — this is the
+    // "join an additional class" entry point for students who are already
+    // enrolled elsewhere, so it lives on the hub instead of duplicating a
+    // whole page for it.
+    const JOIN_CLASS_ESC = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const JOIN_CLASS_FRIENDLY = {
+      too_many_attempts: 'Too many tries — wait an hour and try again (check the code with your teacher).',
+      code_invalid: "That code doesn't match any class. Check every character — no O/0 or I/1 mix-ups — and ask your teacher if it still won't go.",
+      code_expired: 'That code has expired. Ask your teacher to generate a fresh one.',
+      code_full: 'That code has reached its use limit. Ask your teacher to generate a fresh one.',
+      students_only: 'Join codes are for student accounts.',
+      not_authenticated: 'Your session expired — log in again.',
+    };
+
+    function showJoinClassMsg(text, ok) {
+      const el = document.getElementById('joinClassMsg');
+      el.innerHTML = text;
+      el.className = 'join-class-msg show ' + (ok ? 'ok' : 'error');
+    }
+
+    function openJoinClassModal() {
+      document.getElementById('joinModalOverlay').hidden = false;
+      const msg = document.getElementById('joinClassMsg');
+      msg.className = 'join-class-msg';
+      msg.innerHTML = '';
+      const input = document.getElementById('joinCodeInput');
+      input.value = '';
+      input.focus();
+    }
+
+    function closeJoinClassModal() {
+      document.getElementById('joinModalOverlay').hidden = true;
+    }
+
+    function hubInitJoinModal() {
+      document.getElementById('joinClassBtn').addEventListener('click', openJoinClassModal);
+      document.getElementById('joinModalClose').addEventListener('click', closeJoinClassModal);
+      document.getElementById('joinModalOverlay').addEventListener('click', (e) => {
+        if (e.target.id === 'joinModalOverlay') closeJoinClassModal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !document.getElementById('joinModalOverlay').hidden) closeJoinClassModal();
+      });
+
+      document.getElementById('joinClassForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const client = window._gcseSupabaseClient;
+        if (!client) return;
+        const btn = document.getElementById('joinClassSubmitBtn');
+        const code = document.getElementById('joinCodeInput').value.trim().toUpperCase();
+        if (code.length !== 8) { showJoinClassMsg('Codes are exactly 8 characters.', false); return; }
+
+        btn.disabled = true;
+        btn.textContent = 'Joining…';
+        const { data, error } = await client.rpc('redeem_join_code', { p_code: code });
+        btn.disabled = false;
+        btn.textContent = 'Join class';
+
+        // redeem_join_code returns { ok:false, error:<slug> } for expected
+        // failures (so the throttle can count them) and only THROWS for the
+        // rare auth/role guards or a real network error — handle both,
+        // mirroring join.html's own handler.
+        if (error) {
+          const m = String(error.message || '');
+          const slug = Object.keys(JOIN_CLASS_FRIENDLY).find(k => m.includes(k));
+          showJoinClassMsg(slug ? JOIN_CLASS_FRIENDLY[slug] : 'Could not join: ' + JOIN_CLASS_ESC(m), false);
+          return;
+        }
+        if (data && data.ok === false) {
+          if (data.error === 'subject_taken') {
+            showJoinClassMsg(`You're already in <strong>${JOIN_CLASS_ESC(data.class_name || 'a class')}</strong> for that subject. Your teacher can move you between classes if needed.`, false);
+          } else {
+            showJoinClassMsg(JOIN_CLASS_FRIENDLY[data.error] || 'Could not join: ' + JOIN_CLASS_ESC(data.error || 'unknown error'), false);
+          }
+          return;
+        }
+
+        const icon = data.subject_icon ? data.subject_icon + ' ' : '';
+        showJoinClassMsg(data.already
+          ? `You're already a member of <strong>${JOIN_CLASS_ESC(data.class_name)}</strong> (${icon}${JOIN_CLASS_ESC(data.subject_name)}) — you're all set.`
+          : `🎉 Welcome to <strong>${JOIN_CLASS_ESC(data.class_name)}</strong> (${icon}${JOIN_CLASS_ESC(data.subject_name)})!`, true);
+        try { localStorage.setItem('gcse_last_subject', data.subject_slug); } catch (err) {}
+        try { sessionStorage.setItem('vidya_has_subjects', '1'); } catch (err) {}
+
+        try {
+          const { data: subjects, error: subjectsErr } = await client.rpc('get_my_subjects');
+          if (!subjectsErr) renderStudentSubjectsHub(subjects || []);
+        } catch (err) {}
+
+        setTimeout(closeJoinClassModal, 1400);
+      });
     }
 
     async function hubInitAccountBar(cached, supabaseClient) {
@@ -520,7 +823,7 @@
       // Hub is logged-in only (WP-A6) — the public face of the site is
       // the landing page at / now.
       if (!cached || !cached.access_token) {
-        location.replace('/login.html?redirect=%2Fhub.html');
+        location.replace('/index.html?redirect=%2Fhub.html');
         return;
       }
 
@@ -534,7 +837,7 @@
       }
 
       if (cached.role !== 'student') {
-        location.replace('/login.html?redirect=%2Fhub.html');
+        location.replace('/index.html?redirect=%2Fhub.html');
         return;
       }
 
@@ -545,7 +848,7 @@
       });
       if (error || !data.session) {
         localStorage.removeItem(GCSE_SESSION_KEY);
-        location.replace('/login.html?redirect=%2Fhub.html');
+        location.replace('/index.html?redirect=%2Fhub.html');
         return;
       }
       localStorage.setItem(GCSE_SESSION_KEY, JSON.stringify({
@@ -554,6 +857,7 @@
       }));
 
       hubInitAccountBar(cached, supabaseClient);
+      hubInitJoinModal();
       document.getElementById('hubIntro').textContent =
         'Pick up where you left off, or jump into a subject to browse every topic.';
 

@@ -59,6 +59,20 @@ function subjectLoaderInit(opts) {
   for (var i = 0; i < subjects.length; i++) {
     if (subjects[i].slug === slug) { subject = subjects[i]; break; }
   }
+  if (!subject && slug && slug !== 'all') {
+    // Not in the static registry → most likely a TEACHER-AUTHORED subject
+    // (docs/TEACHER-SUBJECTS-SPEC.md), which only exists in the database.
+    // Register a provisional entry now (synchronously, so the page keeps
+    // its contract) instead of silently falling back to business — pages
+    // that include tasks-shared.js upgrade it after auth via
+    // loadCustomSubjectBank(), which fills the name/colour/topic tree.
+    subject = { slug: slug, name: slug, colour: '#4a6fa5', icon: '📘', custom: true, provisional: true };
+    window.SUBJECT = subject;
+    window.PAGE_GROUPS = [];
+    // Deliberately NOT persisted to gcse_last_subject until the upgrade
+    // confirms the subject is real (loadCustomSubjectBank persists it).
+    return subject;
+  }
   if (!subject) {
     if (slug !== 'business') console.error('subject-loader: unknown subject "' + slug + '" — falling back to business');
     for (var j = 0; j < subjects.length; j++) {

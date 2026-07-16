@@ -12,6 +12,40 @@
      --card-bg: #fffcf6;
  }
 
+ /* Smooths cross-page navigation (browser-native crossfade) in supporting
+    browsers; no-op elsewhere. Needs the same rule on both the outgoing and
+    incoming page, so it's mirrored in business-style.css/landing.css. */
+ @view-transition {
+     navigation: auto;
+ }
+
+ /* ── Reveal-on-scroll + hover-lift primitives (site-motion.js flips .rv-in
+    and adds .motion-hover) — same convention as landing.css/landing.js.
+    NOTE: the transition itself is set inline by site-motion.js (and
+    removed again once it finishes) rather than declared here, because
+    several pages already give these same classes their own bespoke
+    `transition` (e.g. teacher-dashboard.html's .class-card/.tile hover
+    polish) — a class-based transition here would fight theirs depending
+    on cascade order. Inline wins cleanly and self-cleans afterward. */
+ .rv {
+     opacity: 0;
+     transform: translateY(18px);
+ }
+
+ .rv.rv-in {
+     opacity: 1;
+     transform: none;
+ }
+
+ .motion-hover {
+     transition: box-shadow .2s, transform .2s;
+ }
+
+ .motion-hover:hover {
+     box-shadow: 0 6px 24px rgba(0, 0, 0, .12);
+     transform: translateY(-2px);
+ }
+
  .case-img {
      display: block;
      width: 100%;
@@ -67,7 +101,7 @@
     below them. overflow is left visible so nothing is clipped.
     ══════════════════════════════════════════════════════════════ */
  header {
-     background-color: var(--ink);
+     background-color: var(--chrome, var(--ink));
      /* Decorative accent circle painted directly onto the header
         background, so the header no longer needs overflow:hidden —
         which previously CLIPPED the injected profile dropdown and the
@@ -75,7 +109,7 @@
      background-image: radial-gradient(circle 100px at calc(100% - 60px) 60px,
          rgba(122, 92, 158, .18) 0, rgba(122, 92, 158, .18) 99px, transparent 100px);
      background-repeat: no-repeat;
-     color: var(--paper);
+     color: var(--chrome-text, var(--paper));
      padding: 20px 40px 24px;
      display: flex;
      align-items: flex-end;
@@ -105,7 +139,7 @@
      display: inline-flex;
      align-items: center;
      gap: 8px;
-     color: var(--paper);
+     color: var(--chrome-text, var(--paper));
      text-decoration: none;
      font-family: 'DM Mono', monospace;
      font-size: 12.5px;
@@ -124,7 +158,7 @@
      gap: 6px;
      background: rgba(255, 255, 255, .08);
      border: 1px solid rgba(255, 255, 255, .22);
-     color: var(--paper);
+     color: var(--chrome-text, var(--paper));
      font-family: 'DM Mono', monospace;
      font-size: 11.5px;
      padding: 7px 13px;
@@ -193,7 +227,7 @@
      margin-left: auto;
      background: rgba(255, 255, 255, .1);
      border: 1px solid rgba(255, 255, 255, .2);
-     color: var(--paper);
+     color: var(--chrome-text, var(--paper));
      font-family: 'DM Mono', monospace;
      font-size: 11px;
      letter-spacing: 1px;
@@ -213,7 +247,7 @@
  }
 
  .tab-bar {
-     background: var(--ink);
+     background: var(--chrome, var(--ink));
      display: flex;
      /* Wrap onto multiple rows instead of horizontal scrolling, so every
         activity tab (incl. ✅ True/False and 📝 Exam Practice) is visible
@@ -246,7 +280,7 @@
  }
 
  .tab-btn:hover {
-     color: var(--paper);
+     color: var(--chrome-text, var(--paper));
  }
 
  .tab-btn.active {
@@ -256,8 +290,25 @@
 
  main {
      padding: 32px 40px 60px;
-     max-width: 1100px;
+     /* One page width for EVERY tab — full available space with a small
+        side margin (the 40px padding), capped only so ultra-wide monitors
+        don't stretch lines absurdly. Deliberately NOT per-tab: a per-tab
+        width (as the Practice Lab briefly had via :has()) makes the page
+        visibly resize when switching tabs, which reads as broken. */
+     max-width: 1750px;
+     /* width:100% is LOAD-BEARING, not decoration. body is a CSS grid on
+        desktop (sidebar layout below) and main is a grid item — per the
+        grid spec, auto margins DISABLE the default stretch, so with only
+        `margin:0 auto` main gets shrink-to-fit width: the page's width
+        would follow its CONTENT (expanding cards widened the page,
+        collapsing them shrank it, editor tabs resized the editor…).
+        An explicit width makes main fill its track up to max-width, with
+        the auto margins centering the capped box. Same fix exists in
+        business-style.css — keep them together. */
+     width: 100%;
+     box-sizing: border-box;
      margin: 0 auto;
+     animation: fadeUp .5s ease both;
  }
 
  .tab-panel {
@@ -277,7 +328,14 @@
 
      to {
          opacity: 1;
-         transform: translateY(0);
+         /* `none`, not `translateY(0)` — main's animation-fill-mode:both
+            keeps whatever this keyframe ends on applied to `main` forever
+            after the fade-in. translateY(0) is still a non-`none` transform,
+            which makes `main` a containing block for every position:fixed
+            descendant (modals, drawers, filter overlays), breaking them out
+            of viewport-relative positioning. `none` fades in identically
+            without leaving that trap behind. */
+         transform: none;
      }
  }
 
@@ -503,7 +561,14 @@
  }
 
  .opt-btn {
+     /* appearance:none so the themed background/color actually paint — a
+        native <button> lets the OS dark-mode form styling override them,
+        which made options unreadable (light native button, dark UA text)
+        on dark themes. color is explicit because buttons don't inherit it. */
+     -webkit-appearance: none;
+     appearance: none;
      background: var(--cream);
+     color: var(--ink);
      border: 1.5px solid var(--border);
      border-radius: 7px;
      padding: 11px 16px;
@@ -515,7 +580,7 @@
  }
 
  .opt-btn:hover:not(:disabled) {
-     background: #e8e1d3;
+     background: color-mix(in srgb, var(--ink) 12%, var(--cream));
      border-color: var(--mid);
  }
 
@@ -606,6 +671,10 @@
          stroke-dasharray: none;
          stroke-dashoffset: 0;
      }
+
+     main { animation: none; }
+     .rv { opacity: 1; transform: none; transition: none; }
+     .motion-hover:hover { transform: none; }
  }
 
  .match-col {
@@ -963,8 +1032,8 @@
  }
 
  .fc-front {
-     background: var(--ink);
-     color: var(--paper);
+     background: var(--chrome, var(--ink));
+     color: var(--chrome-text, var(--paper));
  }
 
  .fc-front .fc-label {
@@ -1009,8 +1078,8 @@
  }
 
  .fc-btn {
-     background: var(--ink);
-     color: var(--paper);
+     background: var(--chrome, var(--ink));
+     color: var(--chrome-text, var(--paper));
      border: none;
      border-radius: 7px;
      padding: 10px 22px;
@@ -1041,7 +1110,7 @@
  }
 
  .fc-btn:disabled:hover {
-     background: var(--ink);
+     background: var(--chrome, var(--ink));
  }
 
  .fc-btn.outline:disabled:hover {
@@ -1077,6 +1146,11 @@
  }
 
  .tf-btn {
+     /* appearance:none + explicit color: native <button> styling otherwise
+        overrides the themed background and leaves UA-dark text on dark themes */
+     -webkit-appearance: none;
+     appearance: none;
+     color: var(--ink);
      border: 1.5px solid var(--border);
      background: var(--cream);
      border-radius: 6px;
@@ -1090,8 +1164,8 @@
  }
 
  .tf-btn:hover:not(:disabled) {
-     background: var(--ink);
-     color: var(--paper);
+     background: var(--chrome, var(--ink));
+     color: var(--chrome-text, var(--paper));
  }
 
  .tf-btn.correct {
@@ -1152,8 +1226,8 @@
  }
 
  .reset-btn:hover {
-     background: var(--ink);
-     color: var(--paper);
+     background: var(--chrome, var(--ink));
+     color: var(--chrome-text, var(--paper));
      border-color: var(--ink);
  }
 
@@ -1171,8 +1245,8 @@
  }
 
  .ep-header {
-     background: var(--ink);
-     color: var(--paper);
+     background: var(--chrome, var(--ink));
+     color: var(--chrome-text, var(--paper));
      padding: 16px 22px;
      display: flex;
      align-items: center;
@@ -1229,6 +1303,11 @@
  }
 
  .ep-opt {
+     /* appearance:none + explicit color: native <button> styling otherwise
+        overrides the themed background and leaves UA-dark text on dark themes */
+     -webkit-appearance: none;
+     appearance: none;
+     color: var(--ink);
      background: var(--cream);
      border: 1.5px solid var(--border);
      border-radius: 6px;
@@ -1300,8 +1379,8 @@
  }
 
  .ep-btn:hover {
-     background: var(--ink);
-     color: var(--paper);
+     background: var(--chrome, var(--ink));
+     color: var(--chrome-text, var(--paper));
      border-color: var(--ink);
  }
 
@@ -1696,8 +1775,8 @@
      display: flex;
      align-items: center;
      justify-content: center;
-     background: var(--ink);
-     color: var(--paper);
+     background: var(--chrome, var(--ink));
+     color: var(--chrome-text, var(--paper));
      border: none;
      border-radius: 50%;
      padding: 0;
@@ -1742,8 +1821,8 @@
      position: fixed;
      bottom: 30px;
      left: 30px;
-     background: var(--ink);
-     color: var(--paper);
+     background: var(--chrome, var(--ink));
+     color: var(--chrome-text, var(--paper));
      padding: 14px 20px;
      border-radius: 8px;
      font-family: 'DM Sans', sans-serif;
@@ -1853,7 +1932,7 @@
  /* ── TOGGLE BUTTON (Now visible on ALL screens) ── */
  .sidebar-toggle-btn {
      background: transparent;
-     color: var(--paper);
+     color: var(--chrome-text, var(--paper));
      border: 1.5px solid rgba(255, 255, 255, 0.3);
      padding: 6px 12px;
      border-radius: 6px;
@@ -1879,7 +1958,7 @@
      /* Hidden off-screen to the left by default */
      width: 280px;
      height: 100vh;
-     background: var(--ink);
+     background: var(--chrome, var(--ink));
      border-right: 2px solid var(--accent);
      overflow-y: auto;
      overflow-x: hidden;
@@ -1902,7 +1981,7 @@
 .sb-header {
     position: sticky;
     top: 0;
-    background: var(--ink);
+    background: var(--chrome, var(--ink));
     /* Solid background prevents text overlap when scrolling */
     z-index: 10;
     /* Keeps it above the scrolling links */
@@ -1952,12 +2031,12 @@
 
  .sb-link:hover {
      background: rgba(255, 255, 255, 0.05);
-     color: var(--paper);
+     color: var(--chrome-text, var(--paper));
  }
 
  .sb-link.active {
      background: rgba(255, 255, 255, 0.08);
-     color: var(--paper);
+     color: var(--chrome-text, var(--paper));
      border-left-color: var(--gold);
      font-weight: 500;
  }
@@ -2152,7 +2231,7 @@ body.sidebar-mobile-open .sidebar-overlay {
 }
 
 .mobile-close-btn:hover {
-    color: var(--paper);
+    color: var(--chrome-text, var(--paper));
     border-color: var(--paper);
 }
 
@@ -2202,8 +2281,8 @@ body.sidebar-mobile-open .sidebar-overlay {
 .fib-check-btn {
     display: inline-block;
     margin-top: 15px;
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--chrome, var(--ink));
+    color: var(--chrome-text, var(--paper));
     border: none;
     border-radius: 6px;
     padding: 8px 16px;
@@ -2309,8 +2388,8 @@ body.sidebar-mobile-open .sidebar-overlay {
 
 /* ── Items ── */
 .cat-item {
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--chrome, var(--ink));
+    color: var(--chrome-text, var(--paper));
     padding: 9px 12px;
     border-radius: 7px;
     font-size: 13px;
@@ -2417,4 +2496,43 @@ body.sidebar-mobile-open .sidebar-overlay {
         font: 600 16px/1.6 'DM Sans', sans-serif;
         color: #000;
     }
+}
+/* ═══════════════════════════════════════════════════════════
+   CS code blocks (CS-CONTENT-PLAN.md §5.3) — ERL/Python dual
+   display on Computer Science pages. Vars only, so all seven
+   themes (incl. both darks) restyle these automatically.
+   ═══════════════════════════════════════════════════════════ */
+.code-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 10px 0;
+}
+
+@media (max-width: 700px) {
+    .code-compare { grid-template-columns: 1fr; }
+}
+
+.code-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin: 0 0 4px;
+}
+
+.code-block {
+    font-family: 'DM Mono', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.55;
+    background: var(--cream);
+    color: var(--ink);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin: 6px 0 10px;
+    overflow-x: auto;
+    white-space: pre;
+    tab-size: 4;
 }

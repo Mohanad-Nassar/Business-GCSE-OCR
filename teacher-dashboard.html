@@ -14,12 +14,14 @@
   body { background:var(--paper); color:var(--ink); }
   :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
 
-  header { background:var(--ink); border-bottom:3px solid var(--accent); padding:28px 40px 24px; position:relative; overflow:hidden; }
+  /* No overflow:hidden here — it would clip the injected account dropdown
+     and notification panel (see the z-index ladder note in style.css). */
+  header { background:var(--chrome, var(--ink)); border-bottom:3px solid var(--accent); padding:28px 40px 24px; position:relative; }
   .header-inner { position:relative; z-index:1; display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; }
   .header-badge { display:inline-block; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:12px; }
-  header h1 { font-family:'Playfair Display',serif; font-size:clamp(22px,3.5vw,32px); font-weight:700; color:var(--paper); line-height:1.15; margin-bottom:5px; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(22px,3.5vw,32px); font-weight:700; color:var(--chrome-text, var(--paper)); line-height:1.15; margin-bottom:5px; }
   header p { font-size:13px; color:rgba(245,240,232,.6); }
-  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--paper); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
+  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--chrome-text, var(--paper)); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
   .nav-link:hover { background:rgba(255,255,255,.18); }
   .account-bar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:12px; font-family:'DM Mono',monospace; font-size:11px; color:rgba(245,240,232,.75); }
 
@@ -41,8 +43,8 @@
   .field input, .field select { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px; font-family:'DM Sans',sans-serif; min-width:0; }
   .field select { background:var(--card-bg); color:var(--ink); min-width:190px; }
   .class-card .subject-chip-row { margin:2px 0 6px; }
-  .btn { background:var(--ink); color:var(--paper); border:none; padding:10px 18px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
-  .btn:hover { background:#1c2c3d; }
+  .btn { background:var(--chrome, var(--ink)); color:var(--chrome-text, var(--paper)); border:none; padding:10px 18px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
+  .btn:hover { filter:brightness(1.3); }
   .btn:disabled { opacity:.55; cursor:default; }
   .btn.secondary { background:transparent; border:1px solid var(--border); color:var(--ink); }
   .btn.secondary:hover { border-color:var(--accent); color:var(--accent); }
@@ -65,6 +67,16 @@
   .pct-bar-fill { height:100%; background:linear-gradient(90deg,var(--accent),var(--gold)); }
   .empty { padding:24px; text-align:center; color:var(--mid); font-size:13px; font-style:italic; }
   .struggle-badge { display:inline-block; font-family:'DM Mono',monospace; font-size:10px; padding:2px 9px; border-radius:99px; background:rgba(200,75,49,.1); color:var(--wrong); border:1px solid rgba(200,75,49,.3); margin-left:6px; white-space:nowrap; cursor:help; }
+  .reviews-overdue { display:inline-block; font-family:'DM Mono',monospace; font-weight:600; padding:2px 9px; border-radius:99px; background:rgba(200,75,49,.1); color:var(--wrong); border:1px solid rgba(200,75,49,.3); white-space:nowrap; cursor:help; }
+  /* Student-profile review-calendar table */
+  .rev-status { font-family:'DM Mono',monospace; font-size:11.5px; white-space:nowrap; }
+  .rev-status.done { color:var(--right,#2f7d54); }
+  .rev-status.overdue { color:var(--wrong,#c84b31); font-weight:600; }
+  .rev-status.due { color:#8f6d19; font-weight:600; }
+  .rev-status.upcoming { color:var(--mid,#5a6e7f); }
+  .rev-check { display:inline-flex; align-items:center; gap:7px; font-size:12px; color:var(--mid); cursor:pointer; white-space:nowrap; }
+  .rev-check input { cursor:pointer; }
+  .rev-check .rev-check-when { font-family:'DM Mono',monospace; font-size:10px; color:var(--mid); }
 
   /* Freeze header row + first (student-name) column, and click-to-sort
      column headers — same pattern as the Daily Revise Analytics page's
@@ -134,8 +146,79 @@
   .class-toolbar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:36px 0 16px; }
   .class-toolbar .section-label { margin:0; flex:1; min-width:180px; }
   .subtab { background:transparent; border:1px solid var(--border); color:var(--mid); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.04em; padding:8px 16px; border-radius:7px; cursor:pointer; white-space:nowrap; }
+  .tab-badge { display:inline-flex; align-items:center; justify-content:center; min-width:16px; height:16px; padding:0 4px; margin-left:6px; border-radius:99px; background:var(--wrong); color:#fff; font-family:'DM Mono',monospace; font-size:9px; font-weight:700; vertical-align:middle; }
+  .subtab.active .tab-badge { background:#fff; color:var(--accent); }
   .subtab:hover { border-color:var(--accent); color:var(--accent); }
   .subtab.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+
+  /* ── Settings sub-tabs + panes (join code, teachers, students, class) ── */
+  .settings-subtabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
+  .set-pane { display:flex; flex-direction:column; gap:16px; }
+  .settings-addrow { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .settings-addrow input { flex:1; min-width:200px; padding:9px 12px; border:1px solid var(--border); border-radius:7px; background:var(--card-bg); color:var(--ink); font-size:13px; font-family:inherit; }
+  .settings-addrow input:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
+
+  /* Teacher/member rows + join-code block (ported from the My-Classes modal) */
+  .cs-member { display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:11px 0; border-bottom:1px dashed var(--border); }
+  .cs-member:last-child { border-bottom:none; }
+  .cs-member .who { font-weight:600; }
+  .cs-member .em { font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); }
+  .cs-badge { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.05em; text-transform:uppercase; padding:2px 8px; border-radius:99px; }
+  .cs-badge.creator { background:var(--accent); color:#fff; }
+  .cs-badge.pending { background:var(--cream); color:var(--mid); border:1px solid var(--border); }
+  .cs-main-toggle { display:inline-flex; align-items:center; gap:6px; font-size:12px; color:var(--mid); cursor:pointer; }
+  .cs-rm { margin-left:auto; background:none; border:1px solid var(--border); border-radius:6px; padding:4px 11px; font-size:11px; color:var(--wrong); cursor:pointer; }
+  .cs-rm:hover { border-color:var(--wrong); }
+  .cs-note { font-size:12px; color:var(--mid); line-height:1.5; }
+  .jc-block { display:flex; flex-direction:column; gap:11px; }
+  .jc-row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .jc-code { font-family:'DM Mono',monospace; font-size:18px; letter-spacing:.18em; font-weight:600; background:var(--cream); border:1px solid var(--border); border-radius:7px; padding:7px 14px; }
+  .jc-none { font-style:italic; color:var(--mid); }
+  .jc-btn { background:var(--card-bg); border:1px solid var(--border); border-radius:6px; padding:6px 12px; font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink); cursor:pointer; transition:border-color .15s, color .15s; }
+  .jc-btn:hover { border-color:var(--accent); color:var(--accent); }
+  .jc-btn.danger { color:var(--wrong); }
+  .jc-btn.danger:hover { border-color:var(--wrong); }
+  .jc-exp { font-size:12px; color:var(--mid); display:inline-flex; align-items:center; gap:6px; }
+  .jc-exp select { border:1px solid var(--border); border-radius:6px; padding:5px 8px; background:var(--card-bg); color:var(--ink); font-family:inherit; }
+  .jc-meta { font-size:12px; color:var(--mid); line-height:1.5; }
+
+  /* ── Theme-adaptive glow + hover pass across the dashboard ──
+     All glows are built from --accent (which each theme redefines) via
+     color-mix, so they recolour automatically for every light/dark theme. */
+  .class-card { transition:transform .16s ease, box-shadow .2s ease, border-color .2s, background .15s; }
+  .class-card:hover { transform:translateY(-3px); border-left-color:var(--accent);
+    box-shadow:0 12px 30px -12px color-mix(in srgb, var(--accent) 55%, transparent), 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent); }
+  .tile { transition:transform .16s ease, box-shadow .2s ease, border-color .2s; }
+  .tile:hover { transform:translateY(-2px); border-color:color-mix(in srgb, var(--accent) 50%, var(--border));
+    box-shadow:0 10px 24px -14px color-mix(in srgb, var(--accent) 55%, transparent); }
+  .subtab { transition:transform .14s ease, box-shadow .18s ease, border-color .18s, color .18s, background .18s; }
+  .subtab:hover { transform:translateY(-1px); box-shadow:0 4px 14px -6px color-mix(in srgb, var(--accent) 50%, transparent); }
+  .subtab.active { box-shadow:0 4px 16px -7px color-mix(in srgb, var(--accent) 60%, transparent); }
+  .btn { transition:transform .14s ease, box-shadow .18s ease, filter .15s; }
+  .btn:hover { transform:translateY(-1px); box-shadow:0 7px 18px -9px color-mix(in srgb, var(--accent) 60%, transparent); }
+  .btn:active { transform:translateY(0); }
+  /* Crisper glow on the two dark themes, where soft transparent shadows fade out. */
+  :root[data-theme="midnight"] .class-card:hover, :root[data-theme="obsidian"] .class-card:hover {
+    box-shadow:0 12px 34px -10px color-mix(in srgb, var(--accent) 75%, transparent), 0 0 0 1px var(--accent); }
+  @media (prefers-reduced-motion: reduce) {
+    .class-card, .tile, .subtab, .btn { transition:none; }
+    .class-card:hover, .tile:hover, .subtab:hover, .btn:hover { transform:none; }
+  }
+
+  /* Focused class mode (?class= in URL): this page IS one class's page. */
+  body.focused-class #guidePanel, body.focused-class #actionStrip, body.focused-class #classesOverview { display:none !important; }
+
+  /* Single-student page: roster sidebar + detail panel side by side. */
+  .student-layout { display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap; }
+  .student-side { flex:0 0 190px; max-height:76vh; overflow-y:auto; position:sticky; top:70px;
+    background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:8px; }
+  .student-side .ss-head { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); padding:6px 8px 8px; }
+  .student-side button.ss-item { display:block; width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    font-family:'DM Mono',monospace; font-size:12px; color:var(--ink); padding:7px 9px; border-radius:6px;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .student-side button.ss-item:hover { background:var(--cream); }
+  .student-side button.ss-item.active { background:var(--accent); color:#fff; font-weight:600; }
+  @media (max-width:840px) { .student-side { flex:1 1 100%; position:static; max-height:180px; } }
 
   /* Stat tiles */
   .tiles { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:22px; }
@@ -175,7 +258,7 @@
   /* ── Topic Access guided steps ── */
   .step-panel { margin-bottom:16px; }
   .step-head { display:flex; gap:14px; align-items:flex-start; margin-bottom:14px; }
-  .step-num { flex-shrink:0; width:30px; height:30px; border-radius:50%; background:var(--ink); color:var(--paper); display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:13px; font-weight:600; }
+  .step-num { flex-shrink:0; width:30px; height:30px; border-radius:50%; background:var(--chrome, var(--ink)); color:var(--chrome-text, var(--paper)); display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:13px; font-weight:600; }
   .step-sub { font-size:12px; margin-top:3px; }
   .choice-cards { display:flex; gap:10px; flex-wrap:wrap; }
   .choice-card { flex:1; min-width:170px; max-width:280px; border:1.5px solid var(--border); border-radius:10px; padding:12px 14px; cursor:pointer; display:flex; flex-direction:column; gap:4px; background:var(--card-bg); transition:border-color .15s, box-shadow .15s, background .15s; position:relative; }
@@ -242,15 +325,15 @@
 <body>
 
 <header>
+  <!-- The site-band (brand + avatar dropdown + 🔔) is injected as this
+       header's first row by teacher-nav.js — same cluster students get. -->
   <div class="header-inner">
     <div>
       <div class="header-badge">OCR GCSE Business Studies · J204</div>
-      <h1>Teacher Dashboard</h1>
-      <p>Classes, student logins, progress, homework and pacing — the guide below walks you through setup.</p>
-      <div class="account-bar" id="accountBar"></div>
-    </div>
-    <div class="header-links">
-      <a class="nav-link" href="/hub.html">← Site Home</a>
+      <!-- dashTitle/dashSubtitle are rewritten to the class name (focused
+           mode) or the student's name (drilled into one) — see setDashHeader. -->
+      <h1 id="dashTitle">Teacher Dashboard</h1>
+      <p id="dashSubtitle">Classes, student logins, progress, homework and pacing — the guide below walks you through setup.</p>
     </div>
   </div>
 </header>
@@ -271,41 +354,50 @@
   <!-- "Needs you today" — filled by renderActionStrip() -->
   <div id="actionStrip" class="hidden"></div>
 
-  <h2 class="section-label">Your Classes <span class="muted" style="font-size:12px; font-weight:400;">— click a class to open it</span></h2>
-  <div style="display:flex; gap:8px; margin-bottom:14px;">
-    <button type="button" class="subtab active" id="classesTabActive">📚 My Classes</button>
-    <button type="button" class="subtab" id="classesTabArchived">📦 Archived Classes</button>
-  </div>
-  <div class="panel">
-    <div class="class-grid" id="classGrid"><div class="empty">Loading…</div></div>
-    <form class="inline-form" id="newClassForm">
-      <div class="field">
-        <label for="newClassName">New class name</label>
-        <input type="text" id="newClassName" placeholder="e.g. Year 10 Business" required/>
-      </div>
-      <div class="field">
-        <label for="newClassSubject">Subject</label>
-        <select id="newClassSubject"></select>
-      </div>
-      <button type="submit" class="btn">+ Create Class</button>
-    </form>
-    <div class="msg" id="classMsg"></div>
+  <!-- The class list + creation form. Hidden entirely in "focused class"
+       mode (?class= in the URL), where the page IS one class's own page. -->
+  <div id="classesOverview">
+    <h2 class="section-label">Your Classes <span class="muted" style="font-size:12px; font-weight:400;">— click a class to open it</span></h2>
+    <div style="display:flex; gap:8px; margin-bottom:14px;">
+      <button type="button" class="subtab active" id="classesTabActive">📚 My Classes</button>
+      <button type="button" class="subtab" id="classesTabArchived">📦 Archived Classes</button>
+    </div>
+    <div class="panel">
+      <div class="class-grid" id="classGrid"><div class="empty">Loading…</div></div>
+      <form class="inline-form" id="newClassForm">
+        <div class="field">
+          <label for="newClassName">New class name</label>
+          <input type="text" id="newClassName" placeholder="e.g. Year 10 Business" required/>
+        </div>
+        <div class="field">
+          <label for="newClassSubject">Subject</label>
+          <select id="newClassSubject"></select>
+        </div>
+        <button type="submit" class="btn">+ Create Class</button>
+      </form>
+      <div class="msg" id="classMsg"></div>
+    </div>
   </div>
 
   <div id="classDetail" class="hidden">
+    <!-- Class name now lives in the page title (setDashHeader), so the old
+         "← All classes" link + class label are gone and the tabs start hard
+         left. Alerts & reports moved out of Progress into their own tab. -->
     <div class="class-toolbar">
-      <h2 class="section-label" id="classDetailLabel">Class</h2>
       <button type="button" class="subtab active" id="tabProgress">📊 Class Progress</button>
       <button type="button" class="subtab" id="tabTasks">📋 Tasks</button>
       <button type="button" class="subtab" id="tabTopicAccess">🔒 Topic Access</button>
       <button type="button" class="subtab" id="tabDailyRevise">🎯 Daily Revise</button>
       <button type="button" class="subtab" id="tabWorksheets">🖨️ Worksheets</button>
+      <button type="button" class="subtab" id="tabAlerts">🚩 Alerts &amp; reports<span class="tab-badge hidden" id="alertsTabBadge">0</span></button>
       <button type="button" class="subtab" id="tabStudents">⚙️ Settings</button>
     </div>
 
-    <!-- ═══ VIEW: CLASS PROGRESS ═══ -->
-    <div id="classProgressView">
-      <p class="muted" style="margin-bottom:12px;">Everything updates by itself as students answer questions — no marking needed here. An <span class="mono" style="font-size:11px;">⚠ needs attention</span> badge appears next to anyone falling behind on tasks.</p>
+    <!-- ═══ VIEW: ALERTS & REPORTS (integrity flags + question reports) ═══
+         Moved out of Class Progress into their own tab. The tab shows a red
+         count badge whenever there's anything to look at. -->
+    <div id="alertsView" class="hidden">
+      <p class="muted" style="margin-bottom:12px;">Monitoring only — nothing to mark here. Integrity flags and student question reports show below when there are any, and a count appears on the tab so you know to look.</p>
 
       <!-- Blocked copy-paste attempts (integrity_events) — hidden until the
            class has at least one, and until supabase/integrity-events.sql
@@ -330,6 +422,16 @@
         </table>
       </div>
 
+      <!-- Shown only when both panels above are empty. -->
+      <div class="panel" id="alertsEmpty">
+        <p class="empty" style="margin:0;">✅ No integrity alerts or question reports — nothing to review right now.</p>
+      </div>
+    </div>
+
+    <!-- ═══ VIEW: CLASS PROGRESS ═══ -->
+    <div id="classProgressView">
+      <p class="muted" style="margin-bottom:12px;">Everything updates by itself as students answer questions — no marking needed here. An <span class="mono" style="font-size:11px;">⚠ needs attention</span> badge appears next to anyone falling behind on tasks. Integrity flags and question reports now live in the <strong>🚩 Alerts &amp; reports</strong> tab.</p>
+
       <div class="panel">
         <div class="tiles" id="classTiles"></div>
         <div style="display:flex; gap:10px; flex-wrap:wrap; margin:6px 0 18px;">
@@ -348,9 +450,10 @@
                 <th class="sortable" data-sort="streak">🔥 Streak</th>
                 <th class="sortable" data-sort="badges">🏅 Badges</th>
                 <th class="sortable" data-sort="answers">Answers logged</th>
+                <th class="sortable" data-sort="reviews" title="Review-calendar tasks past their due date and not yet completed">⏰ Reviews due</th>
                 <th></th>
               </tr></thead>
-              <tbody id="leaderboardBody"><tr><td colspan="7" class="empty">Loading…</td></tr></tbody>
+              <tbody id="leaderboardBody"><tr><td colspan="8" class="empty">Loading…</td></tr></tbody>
             </table>
           </div>
         </div>
@@ -364,24 +467,17 @@
 
     <!-- ═══ VIEW: STUDENTS & LOGINS ═══ -->
     <div id="studentsView" class="hidden">
-      <div class="panel">
-        <h3 class="subhead">Class settings</h3>
-        <div class="field" style="max-width:420px;">
-          <label for="renameClassInput">Class name</label>
-          <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
-            <input type="text" id="renameClassInput" maxlength="80" style="flex:1; min-width:200px;"/>
-            <button type="button" class="btn" id="renameClassBtn">💾 Rename</button>
-          </div>
-        </div>
-        <div class="msg" id="classSettingsMsg"></div>
-        <hr style="border:none; border-top:1px solid var(--border); margin:22px 0 18px;"/>
-        <p class="muted" style="margin-bottom:12px;" id="archiveClassHint">Archiving hides this class from "My Classes" and moves it to "Archived Classes" — nothing is deleted, and you can unarchive it here any time.</p>
-        <button type="button" class="btn secondary" id="archiveClassBtn">📦 Archive this class</button>
-        <hr style="border:none; border-top:1px solid var(--border); margin:22px 0 18px;"/>
-        <p class="muted" style="margin-bottom:12px;">This permanently deletes the class, its tasks, topic-access rules and Daily Revise settings. Students keep their logins unless you choose to delete those too, and can be added to another class — any answers they've already logged stay in their own history regardless.</p>
-        <button type="button" class="btn danger" id="deleteClassBtn">🗑️ Delete this class</button>
+      <!-- Everything to run the class lives here on four focused sub-tabs:
+           students & logins, the join code, co-teachers, and class settings. -->
+      <div class="settings-subtabs" id="settingsSubtabs">
+        <button type="button" class="subtab active" data-setpane="students">👥 Students &amp; logins</button>
+        <button type="button" class="subtab" data-setpane="join">🔑 Join code</button>
+        <button type="button" class="subtab" data-setpane="teachers">👩‍🏫 Teachers</button>
+        <button type="button" class="subtab" data-setpane="class">⚙️ Class settings</button>
       </div>
 
+      <!-- ── Sub-pane: STUDENTS & LOGINS ── -->
+      <div id="setPaneStudents" class="set-pane">
       <div class="panel step-panel">
         <div class="step-head">
           <span class="step-num">1</span>
@@ -459,6 +555,75 @@
           <tbody id="rosterBody"><tr><td colspan="4" class="empty">Loading…</td></tr></tbody>
         </table>
       </div>
+
+      <div class="panel step-panel">
+        <div class="step-head">
+          <span class="step-num">3</span>
+          <div>
+            <h3 class="subhead" style="margin:0;">Already have a student? Add them by email</h3>
+            <p class="muted step-sub">For students who already made their own account — they're added to this class straight away and notified. (New students don't need this: use step 1 above.)</p>
+          </div>
+        </div>
+        <div class="settings-addrow">
+          <input type="email" id="addStudentEmail" placeholder="student@example.com"/>
+          <button type="button" class="btn" id="addStudentBtn">Add student</button>
+        </div>
+        <div class="msg" id="addStudentMsg"></div>
+      </div>
+      </div><!-- /setPaneStudents -->
+
+      <!-- ── Sub-pane: JOIN CODE ── -->
+      <div id="setPaneJoin" class="set-pane hidden">
+        <div class="panel step-panel">
+          <div class="step-head">
+            <span class="step-num">🔑</span>
+            <div>
+              <h3 class="subhead" style="margin:0;">Let students join with a code</h3>
+              <p class="muted step-sub">Share one code and any student can add themselves to this class from the Join page — handy for students who signed up on their own or study your other subjects. You can revoke or refresh it any time.</p>
+            </div>
+          </div>
+          <div id="joinCodeBlock"><div class="empty">Loading…</div></div>
+        </div>
+      </div>
+
+      <!-- ── Sub-pane: TEACHERS ── -->
+      <div id="setPaneTeachers" class="set-pane hidden">
+        <div class="panel">
+          <h3 class="subhead">Teachers of this class</h3>
+          <p class="muted" style="margin-bottom:12px;">Every teacher here has full access to run the class. Tick <strong>main</strong> for the teacher(s) shown to students (e.g. "Mr&nbsp;X &amp; Miss&nbsp;Y"). Only the class creator can remove a teacher.</p>
+          <div id="teachersBlock"><div class="empty">Loading…</div></div>
+        </div>
+        <div class="panel step-panel">
+          <h3 class="subhead" style="margin-bottom:4px;">Invite a co-teacher</h3>
+          <p class="muted" style="margin-bottom:12px;">They must already have a teacher account in your school. They'll get an invite to accept before they appear above.</p>
+          <div class="settings-addrow">
+            <input type="email" id="addTeacherEmail" placeholder="colleague@school.org"/>
+            <button type="button" class="btn" id="addTeacherBtn">Send invite</button>
+          </div>
+          <div class="msg" id="addTeacherMsg"></div>
+        </div>
+      </div>
+
+      <!-- ── Sub-pane: CLASS SETTINGS (moved here) ── -->
+      <div id="setPaneClass" class="set-pane hidden">
+        <div class="panel">
+          <h3 class="subhead">Class settings</h3>
+          <div class="field" style="max-width:420px;">
+            <label for="renameClassInput">Class name</label>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+              <input type="text" id="renameClassInput" maxlength="80" style="flex:1; min-width:200px;"/>
+              <button type="button" class="btn" id="renameClassBtn">💾 Rename</button>
+            </div>
+          </div>
+          <div class="msg" id="classSettingsMsg"></div>
+          <hr style="border:none; border-top:1px solid var(--border); margin:22px 0 18px;"/>
+          <p class="muted" style="margin-bottom:12px;" id="archiveClassHint">Archiving hides this class from "My Classes" and moves it to "Archived Classes" — nothing is deleted, and you can unarchive it here any time.</p>
+          <button type="button" class="btn secondary" id="archiveClassBtn">📦 Archive this class</button>
+          <hr style="border:none; border-top:1px solid var(--border); margin:22px 0 18px;"/>
+          <p class="muted" style="margin-bottom:12px;">This permanently deletes the class, its tasks, topic-access rules and Daily Revise settings. Students keep their logins unless you choose to delete those too, and can be added to another class — any answers they've already logged stay in their own history regardless.</p>
+          <button type="button" class="btn danger" id="deleteClassBtn">🗑️ Delete this class</button>
+        </div>
+      </div>
     </div>
 
     <!-- ═══ VIEW: TASKS ═══ -->
@@ -482,10 +647,20 @@
 
     <!-- ═══ VIEW: TOPIC ACCESS + LEARNING FLOW ═══ -->
     <div id="topicAccessView" class="hidden">
-      <p class="muted" style="margin-bottom:14px;">Three quick settings that shape how this class studies. Nothing takes effect for students until you click <strong>Update</strong> on that section.</p>
+      <p class="muted" style="margin-bottom:10px;">Three quick settings that shape how this class studies. Each step has ONE <strong>Update</strong> that saves everything in it — or use <strong>Update all steps</strong>.</p>
+
+      <!-- Steps as tabs (they used to stack; each now shows on its own) -->
+      <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:14px;">
+        <button type="button" class="subtab active" data-tastep="1">1️⃣ Topics</button>
+        <button type="button" class="subtab" data-tastep="2">2️⃣ Activity order</button>
+        <button type="button" class="subtab" data-tastep="3">3️⃣ Question display</button>
+        <button type="button" class="subtab" data-tastep="req">🙋 Requests</button>
+        <button type="button" class="btn small" id="taUpdateAllBtn" style="margin-left:auto;">💾 Update all steps</button>
+        <span class="msg" id="taUpdateAllMsg" style="margin:0;"></span>
+      </div>
 
       <!-- Step 1: whole-topic locking -->
-      <div class="panel step-panel">
+      <div class="panel step-panel ta-step" id="taStep1">
         <div class="step-head">
           <span class="step-num">1</span>
           <div>
@@ -515,18 +690,19 @@
               <span class="cc-desc">No request option — it stays locked until you open it yourself</span></label>
           </div>
         </div>
-        <div style="margin-top:10px;"><button type="button" class="btn small" id="topicModeUpdateBtn">💾 Update</button></div>
-        <div class="msg" id="topicModeMsg"></div>
         <div class="hidden" id="manualVisibilityPanel" style="margin-top:14px;">
           <p class="muted" style="margin-bottom:8px;">Unticked topics are locked for the whole class (approved requests below can still unlock one topic for one student):</p>
           <div id="topicVisibilityContainer"></div>
-          <div style="margin-top:10px;"><button type="button" class="btn small" id="topicVisibilityUpdateBtn">💾 Update</button></div>
           <div class="msg" id="topicVisibilityMsg"></div>
         </div>
+        <!-- ONE update for the whole step — saves the mode, the requests
+             policy AND (in "I choose" mode) the ticked topics together. -->
+        <div style="margin-top:12px;"><button type="button" class="btn small" id="topicModeUpdateBtn">💾 Update this step</button></div>
+        <div class="msg" id="topicModeMsg"></div>
       </div>
 
       <!-- Step 2: activity order inside a topic -->
-      <div class="panel step-panel">
+      <div class="panel step-panel ta-step hidden" id="taStep2">
         <div class="step-head">
           <span class="step-num">2</span>
           <div>
@@ -547,7 +723,7 @@
       </div>
 
       <!-- Step 3: one-at-a-time + timers -->
-      <div class="panel step-panel">
+      <div class="panel step-panel ta-step hidden" id="taStep3">
         <div class="step-head">
           <span class="step-num">3</span>
           <div>
@@ -601,7 +777,7 @@
         <div class="msg" id="flowFocusMsg"></div>
       </div>
 
-      <div class="panel">
+      <div class="panel ta-step hidden" id="taStepReq">
         <h3 class="subhead">Access requests <span class="muted" id="requestsCount"></span></h3>
         <p class="muted" style="margin-bottom:10px;">Students on a locked topic can ask you to open it — approving unlocks that one topic for just that student, in any mode.</p>
         <table>
@@ -678,11 +854,18 @@
 
     <!-- ═══ VIEW: SINGLE STUDENT DASHBOARD ═══ -->
     <div id="studentDetail" class="hidden">
+      <!-- Student's name now lives in the page title (setDashHeader). -->
       <div class="class-toolbar">
-        <h2 class="section-label" id="studentDetailLabel">Student</h2>
         <button type="button" class="subtab" id="backToClassBtn">← Back to class</button>
+        <span style="flex:1;"></span>
+        <button type="button" class="subtab" id="prevStudentBtn" title="Previous student">← Previous</button>
+        <button type="button" class="subtab" id="nextStudentBtn" title="Next student">Next →</button>
       </div>
-      <div class="panel">
+      <!-- Roster sidebar: every student in the class, click to switch — the
+           same page becomes each student's own page (?class=&student=). -->
+      <div class="student-layout">
+        <aside class="student-side" id="studentRosterSide" aria-label="Students in this class"></aside>
+        <div class="panel" style="flex:1; min-width:0;">
         <div class="tiles" id="studentTiles"></div>
 
         <h3 class="subhead">Practice calendar <span class="muted">— days this student practised this subject, over the last year</span></h3>
@@ -694,6 +877,12 @@
           <tbody id="studentTasksBody"><tr><td colspan="7" class="empty">Loading…</td></tr></tbody>
         </table>
 
+        <h3 class="subhead">Review calendar <span class="muted">— this student's spaced-repetition reviews; tick ✓ Checked once you've confirmed one was done</span></h3>
+        <table id="studentReviewsTable">
+          <thead><tr><th>Topic</th><th>Review</th><th>Due</th><th>Status</th><th>✓ Checked by you</th></tr></thead>
+          <tbody id="studentReviewsBody"><tr><td colspan="5" class="empty">Loading…</td></tr></tbody>
+        </table>
+
         <h3 class="subhead">Progress by topic &amp; activity</h3>
         <div id="studentGridView"><div class="empty">Loading…</div></div>
 
@@ -702,7 +891,8 @@
           <thead><tr><th>When</th><th>Topic</th><th>Section</th><th>Question</th><th>Correct</th></tr></thead>
           <tbody id="logBody"></tbody>
         </table>
-      </div>
+        </div><!-- /.panel -->
+      </div><!-- /.student-layout -->
     </div>
   </div>
 </main>
@@ -737,6 +927,9 @@
 <script src="progress-shared.js"></script>
 <script src="tasks-shared.js"></script>
 <script src="gamification.js"></script>
+<!-- Review Calendar shared engine — srStatus/srCounts/srStageLabel/srTodayStr,
+     reused here to count overdue reviews and label review stages. -->
+<script src="spaced-repetition.js"></script>
 <script>
 // PAGE_GROUPS, SECTIONS, makeRing, renderProgressGrid, computeTotals and
 // pageTitle() all come from progress-shared.js (included above).
@@ -757,7 +950,7 @@ function readSession() {
   try { return JSON.parse(localStorage.getItem(GCSE_SESSION_KEY) || 'null'); } catch (e) { return null; }
 }
 function redirectToLogin() {
-  location.replace('login.html?redirect=' + encodeURIComponent(location.pathname));
+  location.replace('/index.html?redirect=' + encodeURIComponent(location.pathname));
 }
 
 async function init() {
@@ -777,15 +970,10 @@ async function init() {
     expires_at: data.session.expires_at, role: cached.role, username: cached.username,
   }));
 
-  document.getElementById('accountBar').innerHTML =
-    `<span>Logged in as <strong>${escapeHtml(cached.username || 'teacher')}</strong></span>
-     <a class="nav-link" href="manage-account.html">⚙ Manage Account</a>
-     <button type="button" class="nav-link" id="logoutBtn">Log out</button>`;
-  document.getElementById('logoutBtn').addEventListener('click', async () => {
-    await supabaseClient.auth.signOut();
-    localStorage.removeItem(GCSE_SESSION_KEY);
-    location.replace('login.html');
-  });
+  // Header account cluster comes from teacher-nav.js (shared avatar
+  // dropdown) — expose the authed client so its Log out signs out
+  // server-side too, and so the 🔔 bell reuses this session.
+  window._gcseSupabaseClient = supabaseClient;
 
   const loginLinkEl = document.getElementById('studentLoginLink');
   if (loginLinkEl) loginLinkEl.textContent = studentLoginUrl();
@@ -812,14 +1000,31 @@ async function init() {
 // specific sub-view (mirrors the tab buttons' own click handlers so the
 // per-view loaders — tasks/topic access/daily revise — still fire).
 async function openFromDeepLink() {
-  const wantClass = new URLSearchParams(location.search).get('class');
+  const params = new URLSearchParams(location.search);
+  const wantClass = params.get('class');
   if (!wantClass || !classes.some(c => c.id === wantClass)) return;
+
+  // "Focused class" mode — with ?class= in the URL this page IS that
+  // class's own page: the getting-started guide, action strip and class
+  // grid disappear, and "← All classes" appears instead. The body class
+  // (matched by CSS) survives the loadClasses() re-renders.
+  document.body.classList.add('focused-class');
+
   await selectClass(wantClass);
+
+  // Optional ?student= → open straight onto that student's own page.
+  const wantStudent = params.get('student');
+  if (wantStudent) {
+    const s = classStudents.find(x => x.id === wantStudent);
+    if (s) { viewStudent(s.id, s.username); return; }
+  }
+
   const hash = (location.hash || '').replace('#', '').toLowerCase();
   const btnByHash = {
     progress: 'tabProgress', tasks: 'tabTasks',
     'topic-access': 'tabTopicAccess', topicaccess: 'tabTopicAccess',
     'daily-revise': 'tabDailyRevise', dailyrevise: 'tabDailyRevise',
+    alerts: 'tabAlerts', reports: 'tabAlerts', integrity: 'tabAlerts',
     settings: 'tabStudents', students: 'tabStudents',
   };
   const btnId = btnByHash[hash];
@@ -900,7 +1105,9 @@ function renderClassCards() {
     card.type = 'button';
     card.className = 'class-card' + (c.id === activeClassId ? ' active' : '');
     card.innerHTML = `<h3>${escapeHtml(c.name)}</h3>${subjectChipHtml(c.subjects)}<div class="meta">${bits.join(' · ')}</div>`;
-    card.addEventListener('click', () => selectClass(c.id));
+    // Each class opens as its own page (?class= = focused mode) rather than
+    // expanding in place — the URL is shareable/bookmarkable per class.
+    card.addEventListener('click', () => { location.href = 'teacher-dashboard.html?class=' + encodeURIComponent(c.id); });
     grid.appendChild(card);
   });
 }
@@ -1129,10 +1336,14 @@ document.getElementById('guideToggle').addEventListener('click', () => {
 // State for the currently open class.
 let classStudents = [];   // [{ id, username, joined_at }]
 let classSummaries = [];  // raw progress_summary rows for every student in the class
+// Whole-class completion grid: view mode + which unit groups are expanded.
+let wcMode = (() => { try { return localStorage.getItem('gcse_wc_mode') || 'completed'; } catch (e) { return 'completed'; } })();
+let wcOpenGroups = new Set();
 let classStreaks = {};    // studentId -> { current, longest } (get_class_streaks)
 let classActivityDays = {}; // studentId -> [{ day:'YYYY-MM-DD', count }] (get_class_activity_days), for the practice heatmap
 let classTaskRowsByStudent = {}; // studentId -> [{ task, assignment, attempts }], for struggling-flag detection
 let classIntegrityEvents = [];   // recent integrity_events rows (blocked copy-paste attempts) for this class
+let classReviews = {};    // studentId -> [{ page_id, stage, due_date, completed_at, teacher_checked_at }] (get_class_review_overview), for the ⏰ Reviews due column + student profile
 let _leaderboardGamById = {}; // studentId -> gamification stats, cached by renderClassProgress() so a re-sort doesn't recompute it
 // Sort state for the Students leaderboard. dir=1 is each column's natural
 // first-click order — descending ("highest to lowest") for every numeric
@@ -1153,10 +1364,30 @@ let drOpenGroups = new Set(); // same, for the Daily Revise topic-filter list
 // loadClasses() above (an object, not an array, since it's many-to-one).
 // Falls back to Business if the embed is missing for any reason (e.g. a
 // pre-migration classes row, or the query briefly failing).
-function setActiveSubjectForClass(cls) {
+async function setActiveSubjectForClass(cls) {
   const embedded = cls && cls.subjects;
   const slug = (embedded && embedded.slug) || 'business';
   const subjects = window.SUBJECTS || [];
+  const knownStatic = subjects.some(s => s.slug === slug && !s.custom) ||
+    (window.PAGE_GROUPS_ALL && window.PAGE_GROUPS_ALL[slug]);
+
+  // Teacher-authored subject (docs/TEACHER-SUBJECTS-SPEC.md): its topic tree
+  // + section totals live in the database, not the generated
+  // page-groups-all.js / section-totals-all.js. Hydrate them so the
+  // whole-class completion and per-topic/per-activity grids have topics to
+  // render (loadCustomSubjectBank registers PAGE_GROUPS_ALL[slug] +
+  // SECTION_TOTALS_ALL and sets window.SUBJECT / window.PAGE_GROUPS).
+  if (!knownStatic && typeof loadCustomSubjectBank === 'function') {
+    window._tasksClient = window._tasksClient || supabaseClient;
+    try {
+      await loadCustomSubjectBank(slug);
+      return;
+    } catch (e) {
+      console.error('setActiveSubjectForClass: custom subject hydrate failed', e);
+      // fall through to the static resolution below
+    }
+  }
+
   const subject = subjects.find(s => s.slug === slug) || embedded ||
     subjects.find(s => s.slug === 'business') || subjects[0] || null;
   window.SUBJECT = subject;
@@ -1171,8 +1402,8 @@ async function selectClass(classId) {
   drOpenGroups = new Set();
   await loadClasses(); // refresh active highlight
   const cls = classes.find(c => c.id === classId);
-  setActiveSubjectForClass(cls); // must run before showClassSubView/loadClassData below, which render against window.PAGE_GROUPS
-  document.getElementById('classDetailLabel').textContent = cls ? cls.name : 'Class';
+  await setActiveSubjectForClass(cls); // must run before showClassSubView/loadClassData below, which render against window.PAGE_GROUPS
+  setDashHeader(cls ? cls.name : 'Class', CLASS_SUBTITLE);
   document.getElementById('classDetail').classList.remove('hidden');
   document.getElementById('openTaskManagerLink').href = 'teacher-tasks.html?class=' + classId;
   document.getElementById('newTaskLink').href = 'teacher-tasks.html?class=' + classId;
@@ -1188,6 +1419,7 @@ function showClassSubView(which) {
   const isStudent = which === 'student';
   const wasStudent = !document.getElementById('studentDetail').classList.contains('hidden');
   document.getElementById('classProgressView').classList.toggle('hidden', which !== 'progress');
+  document.getElementById('alertsView').classList.toggle('hidden', which !== 'alerts');
   document.getElementById('studentsView').classList.toggle('hidden', which !== 'students');
   document.getElementById('classTasksView').classList.toggle('hidden', which !== 'tasks');
   document.getElementById('topicAccessView').classList.toggle('hidden', which !== 'topicAccess');
@@ -1196,6 +1428,7 @@ function showClassSubView(which) {
   // Hide the main Progress/Students toolbar while drilled into one student.
   document.querySelector('#classDetail > .class-toolbar').classList.toggle('hidden', isStudent);
   document.getElementById('tabProgress').classList.toggle('active', which === 'progress');
+  document.getElementById('tabAlerts').classList.toggle('active', which === 'alerts');
   document.getElementById('tabStudents').classList.toggle('active', which === 'students');
   document.getElementById('tabTasks').classList.toggle('active', which === 'tasks');
   document.getElementById('tabTopicAccess').classList.toggle('active', which === 'topicAccess');
@@ -1207,6 +1440,7 @@ function showClassSubView(which) {
     if (renameInput && cls) renameInput.value = cls.name;
     document.getElementById('classSettingsMsg').className = 'msg';
     updateArchiveClassButton(cls);
+    showSettingsPane('students'); // always land on the first sub-tab
   }
   // Only jump to the top for a real context change (drilling into a
   // student's own dashboard, or coming back from one) — switching between
@@ -1218,7 +1452,10 @@ function showClassSubView(which) {
 async function loadClassData() {
   const { data: members, error } = await supabaseClient
     .from('class_students')
-    .select('joined_at, profiles!inner(id, username)')
+    // profiles!student_id disambiguates the embed: class_students now has TWO
+    // FKs to profiles (student_id and added_by, from class-teachers.sql), so a
+    // bare profiles!inner is ambiguous and errors out (roster shows empty).
+    .select('joined_at, profiles!student_id!inner(id, username)')
     .eq('class_id', activeClassId)
     .order('joined_at');
   classStudents = error ? [] : (members || []).map(m => ({
@@ -1274,6 +1511,22 @@ async function loadClassData() {
     } catch (e) {}
   }
 
+  // Review-calendar schedule for the whole class, scoped to this class's
+  // subject (get_class_review_overview — supabase/spaced-repetition.sql). Also
+  // lazily seeds any missing reviews server-side, so overdue counts are right
+  // even for a student who has never opened their own calendar. A class before
+  // that SQL is run just gets an error here, so ⏰ Reviews due shows "–".
+  classReviews = {};
+  if (ids.length) {
+    try {
+      const p_subject = (window.SUBJECT && window.SUBJECT.slug) || null;
+      const { data: rv, error: rvErr } = await supabaseClient.rpc('get_class_review_overview', { p_class_id: activeClassId, p_subject: p_subject });
+      if (!rvErr) (rv || []).forEach(r => {
+        (classReviews[r.student_id] = classReviews[r.student_id] || []).push(r);
+      });
+    } catch (e) {}
+  }
+
   await loadStrugglingFlags(ids);
   renderClassProgress();
   renderRoster();
@@ -1284,6 +1537,7 @@ async function loadClassData() {
 function renderPasteAlerts() {
   const panel = document.getElementById('pasteAlertsPanel');
   panel.classList.toggle('hidden', !classIntegrityEvents.length);
+  updateAlertsBadge();
   if (!classIntegrityEvents.length) return;
   const byStudent = {};
   classIntegrityEvents.forEach(ev => {
@@ -1325,7 +1579,7 @@ const QR_REASON_LABELS = {
 async function loadQuestionReports() {
   try {
     const { data, error } = await supabaseClient.rpc('get_question_reports', { p_status: 'open' });
-    if (error) { document.getElementById('questionReportsPanel').classList.add('hidden'); return; }
+    if (error) { document.getElementById('questionReportsPanel').classList.add('hidden'); updateAlertsBadge(); return; }
     questionReports = data || [];
   } catch (e) { return; }
   renderQuestionReports();
@@ -1333,6 +1587,7 @@ async function loadQuestionReports() {
 function renderQuestionReports() {
   const panel = document.getElementById('questionReportsPanel');
   panel.classList.toggle('hidden', !questionReports.length);
+  updateAlertsBadge();
   if (!questionReports.length) return;
   document.getElementById('questionReportsBody').innerHTML = questionReports.map(r => {
     const q = r.question_text || r.question_key || r.page_id || '(question)';
@@ -1420,26 +1675,6 @@ function progressForStudent(studentId) {
   return prog;
 }
 
-// Class-average progress: each ring shows the AVERAGE done across the
-// whole roster against the single-page total. (The old version summed
-// every student's done but kept a one-student total, so a 12-blank
-// activity showed impossible rings like "18/12" as soon as two students
-// had worked on it.)
-function aggregateClassProgress() {
-  const prog = {};
-  classSummaries.forEach(s => {
-    if (!prog[s.page_id]) prog[s.page_id] = {};
-    if (!prog[s.page_id][s.section]) prog[s.page_id][s.section] = { done: 0, total: 0 };
-    prog[s.page_id][s.section].done += s.done;
-    prog[s.page_id][s.section].total = Math.max(prog[s.page_id][s.section].total, s.total || 0);
-  });
-  const n = classStudents.length || 1;
-  Object.values(prog).forEach(page => Object.values(page).forEach(d => {
-    d.done = Math.round(d.done / n);
-    if (d.total > 0 && d.done > d.total) d.done = d.total;
-  }));
-  return prog;
-}
 
 function studentTotals(studentId) {
   // Routed through computeTotals() so a topic the student has engaged with
@@ -1489,17 +1724,185 @@ function renderClassProgress() {
     tile(activeCount, 'Started working') + tile(classDone, 'Activities done') +
     (canGam ? tile('⚡ ' + classXp.toLocaleString(), 'Class XP') : '');
 
-  const gridView = document.getElementById('classGridView');
-  renderProgressGrid(gridView, aggregateClassProgress());
-  // Make the grid's meaning explicit — these rings are class AVERAGES.
-  if (gridView && !document.getElementById('classGridCaption')) {
-    const cap = document.createElement('p');
-    cap.id = 'classGridCaption';
-    cap.style.cssText = "font-family:'DM Mono',monospace;font-size:11px;color:var(--mid);margin:0 0 8px;";
-    cap.textContent = 'Rings show the class average per activity (average completed ÷ activity size). Click a student in the roster for their individual grid.';
-    gridView.parentElement.insertBefore(cap, gridView);
-  }
+  renderWholeClassGrid();
   renderLeaderboardBody();
+}
+
+// ══════════════════════════════════════════════════════════════
+// WHOLE-CLASS COMPLETION GRID
+// Three views of the same data, toggled at the top of the grid:
+//   • completed — how many of the N students have FULLY completed each
+//     activity (e.g. 5/25), the headline "are they done?" view.
+//   • percent   — the same, shown as a rounded % (20%).
+//   • avg       — the class AVERAGE completed ÷ activity size (4/6), the
+//     old view (kept because it captures depth / near-completion).
+// Every ring's hover tooltip shows the not-started / in-progress /
+// completed split (with a "nearly done" ≥80% count), so a teacher can see
+// who to chase without leaving the whole-class view. Built here rather than
+// via the shared renderProgressGrid() because that one forces each cell's
+// denominator to the activity size (can't show "/25").
+// ══════════════════════════════════════════════════════════════
+
+const WC_NEAR_FRAC = 0.8; // ≥80% of an activity counts as "nearly done"
+
+function injectWcStyles() {
+  if (document.getElementById('wc-grid-styles')) return;
+  const s = document.createElement('style');
+  s.id = 'wc-grid-styles';
+  s.textContent = `
+    .wc-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 0 8px;}
+    .wc-bar-lbl{font-family:'DM Mono',monospace;font-size:11px;color:var(--mid);margin-right:2px;}
+    .wc-mode{font-family:'DM Mono',monospace;font-size:11px;padding:6px 12px;border:1px solid var(--border);border-radius:7px;background:transparent;color:var(--mid);cursor:pointer;}
+    .wc-mode:hover{border-color:var(--accent);color:var(--accent);}
+    .wc-mode.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+    .wc-explain{font-family:'DM Mono',monospace;font-size:11px;color:var(--mid);margin:0 0 10px;line-height:1.5;}
+    #classGridView .pg-ring[title]{cursor:help;}`;
+  document.head.appendChild(s);
+}
+
+// Per-student done, indexed page_id -> section -> studentId -> done.
+function wcDoneIndex() {
+  const m = {};
+  classSummaries.forEach(r => {
+    (m[r.page_id] = m[r.page_id] || {});
+    (m[r.page_id][r.section] = m[r.page_id][r.section] || {});
+    m[r.page_id][r.section][r.student_id] = r.done || 0;
+  });
+  return m;
+}
+
+// Stats for one (page, section) across the whole class.
+function wcSectionStats(pageId, sectionKey, doneMap, n) {
+  const trueTotal = trueSectionTotal(pageId, sectionKey, 0);
+  const per = (doneMap[pageId] && doneMap[pageId][sectionKey]) || {};
+  const nearThresh = Math.max(1, Math.ceil(trueTotal * WC_NEAR_FRAC));
+  let completed = 0, nearDone = 0, started = 0, sumDone = 0;
+  classStudents.forEach(s => {
+    const d = per[s.id] || 0;
+    sumDone += d;
+    if (d > 0) started++;
+    if (trueTotal > 0 && d >= trueTotal) completed++;
+    else if (trueTotal > 0 && d >= nearThresh) nearDone++;
+  });
+  return {
+    trueTotal, n, completed, nearDone, started,
+    notStarted: n - started, inProgress: started - completed,
+    avgDone: n ? Math.min(trueTotal, Math.round(sumDone / n)) : 0,
+  };
+}
+
+// One ring with a custom centre label + hover tooltip (based on makeRing).
+function wcRing(filled, total, size, center, tip) {
+  const r = size * .37, circ = 2 * Math.PI * r, cx = size / 2, cy = size / 2;
+  const p = total > 0 ? filled / total : 0, offset = circ - p * circ, sw = size * .09;
+  const col = total === 0 ? '#c9bfaa' : filled >= total ? '#d4a843' : filled > 0 ? '#7a5c9e' : '#c9bfaa';
+  const tc = total === 0 ? '#5a6e7f' : filled >= total ? '#8f6d19' : filled > 0 ? '#6a4f8c' : '#767676';
+  const fs = center.length > 4 ? size * .135 : size * .165;
+  return `<span class="pg-ring" title="${escapeHtml(tip)}"><svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" role="img" aria-label="${escapeHtml(tip)}">
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="var(--border,#c9bfaa)" stroke-width="${sw}"/>
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${col}" stroke-width="${sw}"
+      stroke-dasharray="${circ.toFixed(2)}" stroke-dashoffset="${offset.toFixed(2)}" stroke-linecap="round" transform="rotate(-90 ${cx} ${cy})"/>
+    <text x="${cx}" y="${cy + size * .065}" text-anchor="middle" font-family="DM Mono,monospace" font-size="${fs.toFixed(1)}" fill="${tc}" font-weight="500">${escapeHtml(center)}</text>
+  </svg></span>`;
+}
+
+// Turn a set of accumulated counts into a ring for the current mode.
+// `stats` needs { trueTotal, n, completed, nearDone, notStarted, inProgress, avgDone }.
+function wcRingFor(stats, size, label) {
+  const { trueTotal, n, completed, nearDone, notStarted, inProgress, avgDone } = stats;
+  if (trueTotal <= 0) return wcRing(0, 0, size, '–', `${label}: not part of this topic`);
+  const tip = `${label}\n${notStarted} not started · ${inProgress} in progress · ${completed} completed`
+    + (nearDone ? `\n(${nearDone} nearly done — ≥${Math.round(WC_NEAR_FRAC * 100)}%)` : '');
+  if (wcMode === 'avg') {
+    return wcRing(avgDone, trueTotal, size, `${avgDone}/${trueTotal}`, tip + `\nActivity size: ${trueTotal}`);
+  }
+  if (wcMode === 'percent') {
+    return wcRing(completed, n, size, (n ? Math.round(completed / n * 100) : 0) + '%', tip);
+  }
+  return wcRing(completed, n, size, `${completed}/${n}`, tip); // 'completed'
+}
+
+// Sum an array of section stats into one aggregate (for the Total column /
+// group header). Only sections that exist for the topic (trueTotal>0) count
+// toward the denominator, matching "carry the same per-section logic summed".
+function wcSum(statsList) {
+  const acc = { trueTotal: 0, n: 0, completed: 0, nearDone: 0, started: 0, notStarted: 0, inProgress: 0, avgDone: 0 };
+  statsList.forEach(st => {
+    if (st.trueTotal <= 0) return;
+    acc.trueTotal += st.trueTotal; acc.n += st.n; acc.completed += st.completed;
+    acc.nearDone += st.nearDone; acc.started += st.started; acc.notStarted += st.notStarted;
+    acc.inProgress += st.inProgress; acc.avgDone += st.avgDone;
+  });
+  return acc;
+}
+
+function wcPageRow(page, doneMap, n, isChild) {
+  const secStats = SECTIONS.map(sec => wcSectionStats(page.id, sec.key, doneMap, n));
+  const cells = secStats.map((st, i) =>
+    `<td>${wcRingFor(st, isChild ? 30 : 34, SECTIONS[i].label)}</td>`).join('');
+  const totalCell = `<td>${wcRingFor(wcSum(secStats), isChild ? 34 : 38, page.name + ' — total')}</td>`;
+  return `<tr><td class="pg-topic${isChild ? ' pg-indent' : ''}">${isChild ? '↳ ' : ''}${escapeHtml(page.name)}</td>${cells}${totalCell}</tr>`;
+}
+
+function renderWholeClassGrid() {
+  const host = document.getElementById('classGridView');
+  if (!host) return;
+  if (typeof _injectGridStyles === 'function') _injectGridStyles(); // shared pg-* CSS
+  injectWcStyles();
+  const n = classStudents.length;
+
+  if (!n) {
+    host.innerHTML = `<div class="empty">No students yet — create logins in the <strong>⚙️ Settings</strong> tab to see class completion.</div>`;
+    return;
+  }
+  const doneMap = wcDoneIndex();
+
+  const modeBtns = [['completed', '✓ Completed'], ['percent', '% Completed'], ['avg', 'Ø Average']]
+    .map(([m, l]) => `<button type="button" class="wc-mode${wcMode === m ? ' active' : ''}" data-wc="${m}">${l}</button>`).join('');
+  const explain = wcMode === 'completed'
+    ? `Each ring = how many of your <strong>${n}</strong> student${n === 1 ? '' : 's'} have <strong>fully completed</strong> that activity. Hover a ring for the not-started / in-progress / completed split.`
+    : wcMode === 'percent'
+      ? `Each ring = the <strong>percentage</strong> of your <strong>${n}</strong> student${n === 1 ? '' : 's'} who have fully completed that activity. Hover for the full split.`
+      : `Each ring = the <strong>class average</strong> completed ÷ activity size (captures partial progress). Hover for the completion split.`;
+
+  let html = `<div class="wc-bar no-print"><span class="wc-bar-lbl">Show:</span>${modeBtns}</div><p class="wc-explain">${explain}</p>`;
+
+  PAGE_GROUPS.forEach(group => {
+    const pages = [];
+    group.pages.forEach(p => { pages.push([p, false]); (p.children || []).forEach(c => pages.push([c, true])); });
+    const groupStats = wcSum(pages.flatMap(([p]) => SECTIONS.map(sec => wcSectionStats(p.id, sec.key, doneMap, n))));
+    const open = wcOpenGroups.has(group.id);
+    const headMetric = wcMode === 'avg'
+      ? (groupStats.trueTotal ? Math.round(groupStats.avgDone / groupStats.trueTotal * 100) + '%' : '–')
+      : (groupStats.n ? Math.round(groupStats.completed / groupStats.n * 100) + '%' : '–');
+
+    html += `<section class="pg-group${open ? '' : ' collapsed'}" data-gid="${escapeHtml(group.id)}">
+      <button type="button" class="pg-group-header" style="border-left-color:${escapeHtml(group.colour || 'var(--accent)')}">
+        <div style="flex:1"><div class="pg-group-title">${escapeHtml(group.title)}</div><div class="pg-group-sub">${escapeHtml(group.sub || '')}</div></div>
+        ${wcRingFor(groupStats, 34, group.title + ' — overall')}
+        <span class="pg-pct">${headMetric}</span>
+        <span class="pg-chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="pg-table-wrap"><table class="pg-table">
+        <thead><tr><th class="pg-topic">Topic</th>${SECTIONS.map(s => `<th><span aria-hidden="true">${s.icon}</span><br><span style="font-size:8px">${s.label}</span></th>`).join('')}<th>Total</th></tr></thead>
+        <tbody>${pages.map(([p, isChild]) => wcPageRow(p, doneMap, n, isChild)).join('')}</tbody>
+      </table></div>
+    </section>`;
+  });
+
+  host.innerHTML = html;
+
+  host.querySelectorAll('[data-wc]').forEach(b => b.addEventListener('click', () => {
+    wcMode = b.dataset.wc;
+    try { localStorage.setItem('gcse_wc_mode', wcMode); } catch (e) {}
+    renderWholeClassGrid();
+  }));
+  host.querySelectorAll('.pg-group-header').forEach(h => h.addEventListener('click', () => {
+    const g = h.closest('.pg-group');
+    g.classList.toggle('collapsed');
+    const id = g.dataset.gid;
+    if (g.classList.contains('collapsed')) wcOpenGroups.delete(id); else wcOpenGroups.add(id);
+  }));
 }
 
 // Column value for sorting -- null means "no data for this student", which
@@ -1514,7 +1917,18 @@ function leaderboardValueFor(row, key) {
   if (key === 'streak') return ((classStreaks[row.s.id] || {}).current || 0) || null;
   if (key === 'badges') return g ? gamificationEarnedBadges(g).length : null;
   if (key === 'answers') return row.t.done; // always a real number, 0 included
+  if (key === 'reviews') return reviewsOverdueFor(row.s.id); // null when reviews aren't installed / no schedule
   return null;
+}
+
+// Overdue reviews for one student: scheduled reviews past their due date and
+// not yet completed (srStatus/srCounts from spaced-repetition.js). Returns null
+// — sorts/renders as "–" — when the student has no schedule at all (SQL not run
+// yet, or a student who's never opened a topic), distinct from a real 0.
+function reviewsOverdueFor(studentId) {
+  const rows = classReviews[studentId];
+  if (!rows || !rows.length || typeof srCounts !== 'function') return null;
+  return srCounts(rows, srTodayStr()).overdue;
 }
 function leaderboardComparator(key, dir) {
   return (a, b) => {
@@ -1534,7 +1948,7 @@ function leaderboardComparator(key, dir) {
 function renderLeaderboardBody() {
   const body = document.getElementById('leaderboardBody');
   if (!classStudents.length) {
-    body.innerHTML = `<tr><td colspan="7" class="empty">No students yet -- open the <strong>👥 Students &amp; Logins</strong> tab above to create logins in two clicks.</td></tr>`;
+    body.innerHTML = `<tr><td colspan="8" class="empty">No students yet -- open the <strong>⚙️ Settings</strong> tab above to create logins in two clicks.</td></tr>`;
     updateLeaderboardSortIndicators();
     return;
   }
@@ -1553,6 +1967,7 @@ function renderLeaderboardBody() {
       <td class="mono" title="Longest ever: ${longest} day${longest === 1 ? '' : 's'}">${streak ? '🔥 ' + streak : '–'}</td>
       <td class="mono">${g ? gamificationEarnedBadges(g).length + '/' + BADGE_DEFS.length : '–'}</td>
       <td>${t.done}</td>
+      <td class="mono">${(() => { const o = reviewsOverdueFor(s.id); return o == null ? '–' : o > 0 ? `<span class="reviews-overdue" title="${o} review${o === 1 ? '' : 's'} past due and not completed">⏰ ${o}</span>` : '0'; })()}</td>
       <td><span class="muted">View →</span></td>
     </tr>`;
   }).join('');
@@ -1586,13 +2001,232 @@ document.getElementById('leaderboardBody').addEventListener('click', e => {
 });
 
 // Sub-view tabs + management toggle (static elements, safe to wire once).
+// ── The page title reflects the current context: the class name when a class
+// is open (focused mode), the student's name when drilled into one. This
+// replaces the old "← All classes" link + small class label in the toolbar. ──
+const CLASS_SUBTITLE = 'Class dashboard — live progress, tasks, worksheets, pacing and settings.';
+const STUDENT_SUBTITLE = 'Student dashboard — progress, tasks, practice calendar and recent answers.';
+function setDashHeader(title, subtitle) {
+  const h = document.getElementById('dashTitle');
+  if (h) h.textContent = title;
+  if (subtitle != null) {
+    const p = document.getElementById('dashSubtitle');
+    if (p) p.textContent = subtitle;
+  }
+  document.title = title + ' — Teacher Dashboard';
+}
+function classNameById(id) {
+  const c = classes.find(x => x.id === id);
+  return c ? c.name : 'Class';
+}
+
+// Red count badge on the 🚩 Alerts & reports tab + empty-state inside it.
+function updateAlertsBadge() {
+  const pasteStudents = new Set((classIntegrityEvents || []).map(e => e.student_id)).size;
+  const n = pasteStudents + ((typeof questionReports !== 'undefined' && questionReports) ? questionReports.length : 0);
+  const badge = document.getElementById('alertsTabBadge');
+  if (badge) { badge.textContent = n; badge.classList.toggle('hidden', n === 0); }
+  const empty = document.getElementById('alertsEmpty');
+  if (empty) {
+    const anyPanel = !document.getElementById('pasteAlertsPanel').classList.contains('hidden')
+                  || !document.getElementById('questionReportsPanel').classList.contains('hidden');
+    empty.classList.toggle('hidden', anyPanel);
+  }
+}
+
 document.getElementById('tabProgress').addEventListener('click', () => showClassSubView('progress'));
 document.getElementById('tabStudents').addEventListener('click', () => showClassSubView('students'));
 document.getElementById('tabTasks').addEventListener('click', () => { showClassSubView('tasks'); loadClassTasksSummary(); });
 document.getElementById('tabTopicAccess').addEventListener('click', () => { showClassSubView('topicAccess'); loadTopicAccessView(); });
 document.getElementById('tabDailyRevise').addEventListener('click', () => { showClassSubView('dailyRevise'); loadDailyReviseView(); });
+document.getElementById('tabAlerts').addEventListener('click', () => showClassSubView('alerts'));
 document.getElementById('tabWorksheets').addEventListener('click', () => { location.href = 'teacher-worksheets.html'; });
-document.getElementById('backToClassBtn').addEventListener('click', () => showClassSubView('progress'));
+document.getElementById('backToClassBtn').addEventListener('click', () => {
+  activeStudentId = null;
+  _setStudentUrlParam(null); // drop ?student= so a refresh lands on the class
+  setDashHeader(classNameById(activeClassId), CLASS_SUBTITLE); // title back to the class
+  showClassSubView('progress');
+});
+
+// ══════════════════════════════════════════════════════════════
+// SETTINGS SUB-TABS — students & logins · join code · teachers · class.
+// The join-code + co-teacher management here is ported from the old
+// My-Classes settings modal (teacher-classes.html); keep the two in sync if
+// either side changes. Uses the same RPCs (generate_join_code / revoke_join_code
+// / get_class_members / invite_teacher_to_class / add_student_to_class /
+// remove_class_teacher / set_main_teachers / revoke_class_teacher_invite).
+// ══════════════════════════════════════════════════════════════
+function showSettingsPane(which) {
+  ['Students', 'Join', 'Teachers', 'Class'].forEach(p => {
+    const pane = document.getElementById('setPane' + p);
+    if (pane) pane.classList.toggle('hidden', p.toLowerCase() !== which);
+  });
+  document.querySelectorAll('#settingsSubtabs .subtab').forEach(b =>
+    b.classList.toggle('active', b.dataset.setpane === which));
+  if (which === 'join') loadJoinCodePane();
+  if (which === 'teachers') loadTeachersPane();
+}
+document.getElementById('settingsSubtabs').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-setpane]');
+  if (b) showSettingsPane(b.dataset.setpane);
+});
+
+// ── Join code ──
+async function loadJoinCodePane() {
+  const block = document.getElementById('joinCodeBlock');
+  try {
+    const { data, error } = await supabaseClient
+      .from('class_join_codes').select('*')
+      .eq('class_id', activeClassId).eq('revoked', false)
+      .order('created_at', { ascending: false }).limit(1);
+    if (error) throw error;
+    renderJoinCodePane((data && data[0]) || null);
+  } catch (e) {
+    block.innerHTML = `<div class="cs-note">Join codes need <code>supabase/join-codes.sql</code> to be run in Supabase.</div>`;
+  }
+}
+function renderJoinCodePane(jc) {
+  const meta = jc
+    ? `Used ${jc.use_count}×${jc.max_uses ? ' of ' + jc.max_uses : ''} · ${jc.expires_at ? 'expires ' + new Date(jc.expires_at).toLocaleDateString(undefined, { day: 'numeric', month: 'short' }) : 'never expires'} · students enter it on the Join page after logging in`
+    : 'A join code lets any student account add themselves to this class from the Join page.';
+  document.getElementById('joinCodeBlock').innerHTML = `<div class="jc-block">
+    <div class="jc-row">
+      ${jc ? `<span class="jc-code">${escapeHtml(jc.code)}</span>
+        <button type="button" class="jc-btn" data-jccopy="${escapeHtml(jc.code)}">Copy</button>
+        <button type="button" class="jc-btn danger" data-jcrevoke="1">Remove</button>`
+        : `<span class="jc-none">No join code yet.</span>`}
+    </div>
+    <div class="jc-row">
+      <label class="jc-exp">Expires:
+        <select id="jcExpSel">
+          <option value="30" selected>in 30 days</option>
+          <option value="7">in 7 days</option>
+          <option value="90">in 90 days</option>
+          <option value="">never</option>
+        </select></label>
+      <button type="button" class="jc-btn" data-jcgen="1">${jc ? '↻ New code' : '➕ Create join code'}</button>
+    </div>
+    <div class="jc-meta">${meta}</div>
+    <div class="msg" id="jcMsg"></div>
+  </div>`;
+}
+document.getElementById('joinCodeBlock').addEventListener('click', async (e) => {
+  const copyBtn = e.target.closest('[data-jccopy]');
+  if (copyBtn) {
+    try { await navigator.clipboard.writeText(copyBtn.dataset.jccopy); copyBtn.textContent = 'Copied ✓'; setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1600); }
+    catch (err) { prompt('Copy this class code:', copyBtn.dataset.jccopy); }
+    return;
+  }
+  const gen = e.target.closest('[data-jcgen]');
+  if (gen) {
+    if (document.querySelector('#joinCodeBlock .jc-code') && !confirm('Generate a new code? The old one stops working immediately.')) return;
+    const sel = document.getElementById('jcExpSel');
+    const days = sel && sel.value ? parseInt(sel.value, 10) : null;
+    gen.disabled = true;
+    const { error } = await supabaseClient.rpc('generate_join_code', { p_class_id: activeClassId, p_expires_days: days, p_max_uses: null });
+    if (error) { showMsg(document.getElementById('jcMsg'), 'Could not create the code: ' + error.message, false); gen.disabled = false; return; }
+    loadJoinCodePane();
+    return;
+  }
+  const rev = e.target.closest('[data-jcrevoke]');
+  if (rev) {
+    if (!confirm('Remove this join code? Students who already joined stay in the class.')) return;
+    const { error } = await supabaseClient.rpc('revoke_join_code', { p_class_id: activeClassId });
+    if (error) { showMsg(document.getElementById('jcMsg'), 'Could not remove the code: ' + error.message, false); return; }
+    loadJoinCodePane();
+  }
+});
+
+// ── Teachers / co-teachers ──
+let _classMembers = null;
+async function loadTeachersPane() {
+  const block = document.getElementById('teachersBlock');
+  try {
+    const { data, error } = await supabaseClient.rpc('get_class_members', { p_class_id: activeClassId });
+    if (error) throw error;
+    _classMembers = data;
+    renderTeachersPane();
+  } catch (e) {
+    block.innerHTML = `<div class="cs-note" style="color:var(--wrong);">Teacher management needs <code>supabase/class-teachers.sql</code> to be run in Supabase.</div>`;
+  }
+}
+function renderTeachersPane() {
+  const m = _classMembers || { teachers: [], pending_invites: [], creator_id: null };
+  const myId = currentSession && currentSession.user && currentSession.user.id;
+  const iAmCreator = m.creator_id === myId;
+  const teachers = m.teachers || [], invites = m.pending_invites || [];
+  const teacherRows = teachers.length ? teachers.map(t => `
+    <div class="cs-member">
+      <span class="who">${escapeHtml(t.username || t.email || 'Teacher')}</span>
+      ${t.is_creator ? '<span class="cs-badge creator">creator</span>' : ''}
+      <label class="cs-main-toggle" title="Show this teacher to students">
+        <input type="checkbox" data-main="${escapeHtml(t.id)}" ${t.is_main ? 'checked' : ''}/> main
+      </label>
+      ${(iAmCreator && !t.is_creator) ? `<button type="button" class="cs-rm" data-rmteacher="${escapeHtml(t.id)}">remove</button>` : ''}
+    </div>`).join('') : '<div class="cs-note">No teachers.</div>';
+  const inviteRows = invites.map(i => `
+    <div class="cs-member">
+      <span class="who">${escapeHtml(i.username || i.email)}</span>
+      <span class="cs-badge pending">invited · pending</span>
+      <button type="button" class="cs-rm" data-cancelinvite="${escapeHtml(i.id)}">cancel</button>
+    </div>`).join('');
+  document.getElementById('teachersBlock').innerHTML = teacherRows + inviteRows + '<div class="msg" id="teachersMsg" style="margin-top:10px;"></div>';
+}
+document.getElementById('teachersBlock').addEventListener('click', async (e) => {
+  const rt = e.target.closest('[data-rmteacher]');
+  if (rt) {
+    if (!confirm('Remove this teacher from the class?')) return;
+    const { error } = await supabaseClient.rpc('remove_class_teacher', { p_class_id: activeClassId, p_teacher_id: rt.dataset.rmteacher });
+    if (error) showMsg(document.getElementById('teachersMsg'), error.message, false); else loadTeachersPane();
+    return;
+  }
+  const ci = e.target.closest('[data-cancelinvite]');
+  if (ci) { await supabaseClient.rpc('revoke_class_teacher_invite', { p_invite_id: ci.dataset.cancelinvite }).catch(() => {}); loadTeachersPane(); }
+});
+document.getElementById('teachersBlock').addEventListener('change', async (e) => {
+  if (!e.target.closest('[data-main]')) return;
+  const ids = [...document.querySelectorAll('#teachersBlock [data-main]:checked')].map(el => el.dataset.main);
+  const { error } = await supabaseClient.rpc('set_main_teachers', { p_class_id: activeClassId, p_teacher_ids: ids });
+  showMsg(document.getElementById('teachersMsg'), error ? error.message : 'Updated who students see.', !error);
+});
+
+// ── Add a student / invite a teacher by email ──
+document.getElementById('addStudentBtn').addEventListener('click', async () => {
+  const input = document.getElementById('addStudentEmail');
+  const msg = document.getElementById('addStudentMsg');
+  const email = (input.value || '').trim();
+  if (!email) { showMsg(msg, 'Enter an email address.', false); return; }
+  const btn = document.getElementById('addStudentBtn'); btn.disabled = true;
+  try {
+    const { data, error } = await supabaseClient.rpc('add_student_to_class', { p_class_id: activeClassId, p_email: email });
+    if (error) throw error;
+    if (data && data.ok === false && data.error === 'subject_taken') {
+      showMsg(msg, 'That student is already in "' + (data.class_name || 'another class') + '" for this subject.', false);
+    } else if (data && data.status === 'already_in_class') {
+      showMsg(msg, 'That student is already in this class.', true);
+    } else {
+      showMsg(msg, 'Student added (if the account exists).', true);
+      input.value = '';
+      await loadClasses(); await loadClassData();
+    }
+  } catch (e) { showMsg(msg, e.message || 'Could not add that student.', false); }
+  btn.disabled = false;
+});
+document.getElementById('addTeacherBtn').addEventListener('click', async () => {
+  const input = document.getElementById('addTeacherEmail');
+  const msg = document.getElementById('addTeacherMsg');
+  const email = (input.value || '').trim();
+  if (!email) { showMsg(msg, 'Enter an email address.', false); return; }
+  const btn = document.getElementById('addTeacherBtn'); btn.disabled = true;
+  try {
+    const { error } = await supabaseClient.rpc('invite_teacher_to_class', { p_class_id: activeClassId, p_email: email });
+    if (error) throw error;
+    showMsg(msg, 'If a teacher with that email is in your school, an invite has been sent.', true);
+    input.value = '';
+    loadTeachersPane();
+  } catch (e) { showMsg(msg, e.message || 'Could not send the invite.', false); }
+  btn.disabled = false;
+});
 
 // Inner toggle inside Class Progress: switch between the Students leaderboard
 // and the whole-class completion grid (both stay filled by renderClassProgress).
@@ -1793,7 +2427,7 @@ document.getElementById('renameClassBtn').addEventListener('click', async (e) =>
   try {
     const { error } = await supabaseClient.from('classes').update({ name: newName }).eq('id', activeClassId);
     if (error) throw error;
-    document.getElementById('classDetailLabel').textContent = newName;
+    setDashHeader(newName, CLASS_SUBTITLE); // title follows the rename
     await loadClasses(); // re-render the class card grid with the new name
     showMsg(msg, 'Class renamed.', true);
     setTimeout(() => { msg.className = 'msg'; }, 4000);
@@ -1951,9 +2585,53 @@ document.getElementById('deleteClassConfirmBtn').addEventListener('click', async
 });
 
 // ── Single student dashboard (full ring grid + recent answer log) ──
+// Behaves as the student's own page: the roster sidebar switches between
+// students, Prev/Next walk the class in roster order, and the URL carries
+// ?class=&student= so it can be refreshed/shared.
+let activeStudentId = null;
+
+function renderStudentSidebar() {
+  const side = document.getElementById('studentRosterSide');
+  if (!side) return;
+  side.innerHTML = `<div class="ss-head">👥 Students (${classStudents.length})</div>` +
+    classStudents.map(s => `
+      <button type="button" class="ss-item${s.id === activeStudentId ? ' active' : ''}" data-sid="${escapeHtml(s.id)}" title="${escapeHtml(s.username)}">${escapeHtml(s.username)}</button>`).join('');
+  const idx = classStudents.findIndex(s => s.id === activeStudentId);
+  const prev = document.getElementById('prevStudentBtn');
+  const next = document.getElementById('nextStudentBtn');
+  if (prev) prev.disabled = idx <= 0;
+  if (next) next.disabled = idx < 0 || idx >= classStudents.length - 1;
+}
+document.getElementById('studentRosterSide').addEventListener('click', e => {
+  const btn = e.target.closest('button[data-sid]');
+  if (!btn) return;
+  const s = classStudents.find(x => x.id === btn.dataset.sid);
+  if (s) viewStudent(s.id, s.username);
+});
+function stepStudent(delta) {
+  const idx = classStudents.findIndex(s => s.id === activeStudentId);
+  const s = classStudents[idx + delta];
+  if (s) viewStudent(s.id, s.username);
+}
+document.getElementById('prevStudentBtn').addEventListener('click', () => stepStudent(-1));
+document.getElementById('nextStudentBtn').addEventListener('click', () => stepStudent(1));
+
+function _setStudentUrlParam(studentId) {
+  try {
+    const url = new URL(location.href);
+    if (studentId) url.searchParams.set('student', studentId);
+    else url.searchParams.delete('student');
+    if (!url.searchParams.get('class') && activeClassId) url.searchParams.set('class', activeClassId);
+    history.replaceState(null, '', url);
+  } catch (e) {}
+}
+
 async function viewStudent(studentId, name) {
+  activeStudentId = studentId;
+  _setStudentUrlParam(studentId);
   showClassSubView('student');
-  document.getElementById('studentDetailLabel').textContent = name;
+  renderStudentSidebar();
+  setDashHeader(name, STUDENT_SUBTITLE);
   document.getElementById('studentGridView').innerHTML = `<div class="empty">Loading…</div>`;
   document.getElementById('logBody').innerHTML = `<tr><td colspan="5" class="empty">Loading…</td></tr>`;
   loadStudentTasks(studentId); // async, fills its own table
@@ -1967,13 +2645,16 @@ async function viewStudent(studentId, name) {
   const _streak = (classStreaks[studentId] || {}).current || 0;
   const gamStats = studentGamStats(studentId);
   const pasteAttempts = classIntegrityEvents.filter(ev => ev.student_id === studentId).length;
+  const _reviewsOverdue = reviewsOverdueFor(studentId); // null if no schedule / SQL not run
   document.getElementById('studentTiles').innerHTML =
     tile(totals.pct + '%', 'Overall') + tile(totals.grandDone, 'Activities done') +
     tile(totals.pagesStarted, 'Topics started') +
     (gamStats ? tile('Lv ' + gamStats.level, gamStats.xp.toLocaleString() + ' XP') +
       tile('🔥 ' + _streak, 'Day streak') +
       tile(gamificationEarnedBadges(gamStats).length + '/' + BADGE_DEFS.length, 'Badges earned') : '') +
+    (_reviewsOverdue ? tile('⏰ ' + _reviewsOverdue, 'Reviews overdue') : '') +
     (pasteAttempts ? tile('🚫 ' + pasteAttempts, 'Integrity flags') : '');
+  renderStudentReviews(studentId);
   // Practice-calendar heatmap — same shared widget the student sees on their
   // own dashboard, fed this student's per-day slice (subject-scoped, loaded
   // with the class). Empty array is fully supported (renders an empty grid).
@@ -2004,6 +2685,82 @@ async function viewStudent(studentId, name) {
       </tr>`).join('');
   }
 }
+
+// ══════════ REVIEW CALENDAR (teacher oversight) ══════════
+
+const _REV_STATUS_META = {
+  completed: { cls: 'done',     label: '✓ Completed' },
+  overdue:   { cls: 'overdue',  label: '⏰ Overdue' },
+  due:       { cls: 'due',      label: '● Due today' },
+  upcoming:  { cls: 'upcoming', label: 'Upcoming' },
+};
+
+function _revDueLabel(dueStr) {
+  // dueStr is 'YYYY-MM-DD'. Parse the parts directly (not new Date(str), which
+  // treats a bare date as UTC) so the day never shifts, then show it long-form.
+  const [y, m, d] = String(dueStr || '').split('-').map(Number);
+  if (!y) return escapeHtml(String(dueStr || ''));
+  return new Date(y, m - 1, d).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+// The student's review schedule (loaded with the class in classReviews) as a
+// table, with a teacher-check box per review. Completed reviews sink to the
+// bottom so the ones needing attention (overdue / due) are up top.
+function renderStudentReviews(studentId) {
+  const body = document.getElementById('studentReviewsBody');
+  if (!body) return;
+  const rows = (classReviews[studentId] || []).slice();
+  if (!rows.length || typeof srStatus !== 'function') {
+    body.innerHTML = `<tr><td colspan="5" class="empty">No reviews scheduled yet — reviews appear here once this student has started a topic. (If no student ever shows reviews, run <span class="mono">supabase/spaced-repetition.sql</span>.)</td></tr>`;
+    return;
+  }
+  const today = srTodayStr();
+  const order = { overdue: 0, due: 1, upcoming: 2, completed: 3 };
+  rows.sort((a, b) => {
+    const sa = srStatus(a, today), sb = srStatus(b, today);
+    if (order[sa] !== order[sb]) return order[sa] - order[sb];
+    return String(a.due_date).localeCompare(String(b.due_date)); // then chronological
+  });
+  body.innerHTML = rows.map(r => {
+    const st = srStatus(r, today);
+    const meta = _REV_STATUS_META[st] || _REV_STATUS_META.upcoming;
+    const checked = !!r.teacher_checked_at;
+    const when = checked ? `<span class="rev-check-when">${_revDueLabel(srTodayStr(new Date(r.teacher_checked_at)))}</span>` : '';
+    return `<tr>
+      <td>${escapeHtml(srPageName(r.page_id))}</td>
+      <td class="mono">${escapeHtml(srStageLabel(r.stage))}</td>
+      <td class="mono">${_revDueLabel(r.due_date)}</td>
+      <td><span class="rev-status ${meta.cls}">${meta.label}</span></td>
+      <td><label class="rev-check"><input type="checkbox" data-page="${escapeHtml(r.page_id)}" data-stage="${r.stage}" ${checked ? 'checked' : ''}> Checked ${when}</label></td>
+    </tr>`;
+  }).join('');
+}
+
+// Toggle the teacher's confirmation on one review (set_review_teacher_check).
+// Delegated on the tbody, which survives re-renders. On success we update the
+// in-memory row so the "when" label and checked state persist without a reload;
+// on failure we revert the box and surface why.
+document.getElementById('studentReviewsBody').addEventListener('change', async e => {
+  const box = e.target.closest('input[type="checkbox"][data-page]');
+  if (!box || !activeStudentId) return;
+  const pageId = box.dataset.page;
+  const stage = parseInt(box.dataset.stage, 10);
+  const checked = box.checked;
+  box.disabled = true;
+  try {
+    const { error } = await supabaseClient.rpc('set_review_teacher_check', {
+      p_student_id: activeStudentId, p_page_id: pageId, p_stage: stage, p_checked: checked,
+    });
+    if (error) throw error;
+    const row = (classReviews[activeStudentId] || []).find(r => r.page_id === pageId && r.stage === stage);
+    if (row) row.teacher_checked_at = checked ? new Date().toISOString() : null;
+    renderStudentReviews(activeStudentId); // refresh the "when" label
+  } catch (err) {
+    box.checked = !checked; // revert the optimistic toggle
+    box.disabled = false;
+    alert('Could not save that check: ' + (err.message || err));
+  }
+});
 
 // ══════════ TASKS INTEGRATION (helpers from tasks-shared.js) ══════════
 
@@ -2177,6 +2934,7 @@ function _readActivityTimers() {
 // section's own "💾 Update" button is clicked — nothing here reaches a
 // student's account until the teacher explicitly confirms it.
 async function loadTopicAccessView() {
+  showTaStep('1'); // always land on step 1 when the tab opens
   const cls = classes.find(c => c.id === activeClassId) || {};
   const mode = cls.topic_access_mode || 'open';
   _checkRadio('topicMode', mode);
@@ -2245,20 +3003,66 @@ document.getElementById('allowRequestsCards').addEventListener('change', (e) => 
   if (e.target.name !== 'allowRequests') return;
   _checkRadio('allowRequests', e.target.value);
 });
-document.getElementById('topicModeUpdateBtn').addEventListener('click', () => {
+// ── Topic Access step tabs + one-Update-per-step ──
+// The three steps used to stack down the page, and step 1 had TWO separate
+// Update buttons (mode + ticked topics). Each step is now its own tab and
+// each step has ONE saver that writes everything in it; "Update all steps"
+// runs all three.
+function showTaStep(which) {
+  document.querySelectorAll('[data-tastep]').forEach(b =>
+    b.classList.toggle('active', b.dataset.tastep === which));
+  const byStep = { '1': 'taStep1', '2': 'taStep2', '3': 'taStep3', 'req': 'taStepReq' };
+  document.querySelectorAll('#topicAccessView .ta-step').forEach(p =>
+    p.classList.toggle('hidden', p.id !== byStep[which]));
+}
+document.querySelectorAll('[data-tastep]').forEach(b =>
+  b.addEventListener('click', () => showTaStep(b.dataset.tastep)));
+
+// Step 1 = mode + requests policy + (manual mode) the ticked topics, in one go.
+async function saveTaStep1() {
   const mode = document.querySelector('input[name="topicMode"]:checked')?.value || 'open';
   const allowRequests = document.querySelector('input[name="allowRequests"]:checked')?.value !== 'no';
-  saveClassFlow({ topic_access_mode: mode, topic_access_allow_requests: allowRequests }, 'topicModeMsg');
+  const ok = await saveClassFlow({ topic_access_mode: mode, topic_access_allow_requests: allowRequests }, 'topicModeMsg');
+  if (!ok) return false;
+  if (mode === 'manual') {
+    const visOk = await saveTopicVisibilityRows();
+    if (!visOk) return false;
+    showMsg(document.getElementById('topicModeMsg'), 'Saved — mode, requests policy and ticked topics all updated.', true);
+  }
+  return true;
+}
+async function saveTaStep2() {
+  const val = document.querySelector('input[name="flowOrder"]:checked')?.value || 'open';
+  return saveClassFlow({ flow_activity_order: val }, 'flowOrderMsg');
+}
+async function saveTaStep3() {
+  const focusOn = document.querySelector('input[name="flowFocus"]:checked')?.value !== 'all';
+  const pre = _readTimerControl('flowPreSeconds', 'flowPreSecondsCustom');
+  const post = _readTimerControl('flowPostSeconds', 'flowPostSecondsCustom');
+  const activityTimers = _readActivityTimers();
+  return saveClassFlow({ flow_focus_mode: focusOn, flow_pre_seconds: pre, flow_post_seconds: post, flow_activity_timers: activityTimers }, 'flowFocusMsg');
+}
+
+document.getElementById('topicModeUpdateBtn').addEventListener('click', saveTaStep1);
+
+document.getElementById('taUpdateAllBtn').addEventListener('click', async () => {
+  const btn = document.getElementById('taUpdateAllBtn');
+  const msg = document.getElementById('taUpdateAllMsg');
+  btn.disabled = true;
+  const ok1 = await saveTaStep1();
+  const ok2 = await saveTaStep2();
+  const ok3 = await saveTaStep3();
+  btn.disabled = false;
+  showMsg(msg, (ok1 && ok2 && ok3)
+    ? '✓ All three steps saved.'
+    : 'Some steps could not save — open each tab to see the details.', ok1 && ok2 && ok3);
 });
 
 document.getElementById('flowOrderCards').addEventListener('change', (e) => {
   if (e.target.name !== 'flowOrder') return;
   _checkRadio('flowOrder', e.target.value);
 });
-document.getElementById('flowOrderUpdateBtn').addEventListener('click', () => {
-  const val = document.querySelector('input[name="flowOrder"]:checked')?.value || 'open';
-  saveClassFlow({ flow_activity_order: val }, 'flowOrderMsg');
-});
+document.getElementById('flowOrderUpdateBtn').addEventListener('click', saveTaStep2);
 
 document.getElementById('flowFocusCards').addEventListener('change', (e) => {
   if (e.target.name !== 'flowFocus') return;
@@ -2275,13 +3079,7 @@ document.getElementById('flowFocusCards').addEventListener('change', (e) => {
   // Typing an exact custom class-wide value should refresh the placeholders too.
   document.getElementById(id + 'Custom').addEventListener('input', _syncActivityPlaceholders);
 });
-document.getElementById('flowFocusUpdateBtn').addEventListener('click', () => {
-  const focusOn = document.querySelector('input[name="flowFocus"]:checked')?.value !== 'all';
-  const pre = _readTimerControl('flowPreSeconds', 'flowPreSecondsCustom');
-  const post = _readTimerControl('flowPostSeconds', 'flowPostSecondsCustom');
-  const activityTimers = _readActivityTimers();
-  saveClassFlow({ flow_focus_mode: focusOn, flow_pre_seconds: pre, flow_post_seconds: post, flow_activity_timers: activityTimers }, 'flowFocusMsg');
-});
+document.getElementById('flowFocusUpdateBtn').addEventListener('click', saveTaStep3);
 
 // ── Daily Revise settings (schema: supabase/daily-revise-class-settings.sql) ──
 // The topic-filter grid is shown for BOTH teacher_controlled (where the
@@ -2500,15 +3298,18 @@ function renderTopicVisibility() {
   });
 }
 
-document.getElementById('topicVisibilityUpdateBtn').addEventListener('click', async () => {
+// Writes the ticked-topics state; no button of its own any more — step 1's
+// single Update (saveTaStep1) calls this when the mode is "I choose".
+async function saveTopicVisibilityRows() {
   const msg = document.getElementById('topicVisibilityMsg');
   const all = [];
   PAGE_GROUPS.forEach(g => flatPages(g).forEach(p => all.push(p.id)));
   const rows = all.map(pid => ({ class_id: activeClassId, page_id: pid, visible: !tvHidden.has(pid) }));
   const { error } = await supabaseClient.from('class_topic_visibility').upsert(rows);
-  if (error) { showMsg(msg, error.message, false); console.error('class_topic_visibility update', error); return; }
+  if (error) { showMsg(msg, error.message, false); console.error('class_topic_visibility update', error); return false; }
   showMsg(msg, 'Saved — applies the next time a student opens a topic page.', true);
-});
+  return true;
+}
 
 // Access-request queue: pending requests need action; resolved ones show
 // as history underneath.
@@ -2603,5 +3404,6 @@ init();
 </script>
 <script src="teacher-nav.js"></script>
 <script src="footer-legal.js"></script>
+  <script src="searchable-select.js" defer></script>
 </body>
 </html>

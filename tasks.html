@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>My Tasks — GCSE Revision</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@300;400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="business-style.css"/>
+<style>
+  html, body { display:block !important; grid-template-columns:none !important; grid-template-rows:none !important; grid-template-areas:none !important; }
+  header, main { grid-area:unset !important; }
+  body { background:var(--paper); color:var(--ink); }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
+
+  header { background:var(--chrome, var(--ink)); border-bottom:3px solid var(--accent); }
+  .site-band { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 40px; border-bottom:1px solid rgba(255,255,255,.1); }
+  .sb-brand { color:var(--chrome-text, var(--paper)); text-decoration:none; font-family:'DM Mono',monospace; font-size:12px; letter-spacing:.04em; }
+  .sb-brand:hover { color:var(--accent); }
+  .header-inner { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; padding:20px 40px 18px; }
+  .header-badge { display:inline-block; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:10px; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:700; color:var(--chrome-text, var(--paper)); margin-bottom:4px; }
+  header p { font-size:13px; color:rgba(245,240,232,.6); }
+  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--chrome-text, var(--paper)); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; }
+  .nav-link:hover { background:rgba(255,255,255,.18); }
+
+  main { padding:26px 40px 80px; max-width:1000px; margin:0 auto; }
+  .section-label { display:flex; align-items:center; gap:12px; font-family:'DM Mono',monospace; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--mid); margin:4px 0 12px; }
+  .section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+  .tasks-panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:18px 20px; margin-bottom:24px; }
+  .note-row { display:flex; align-items:flex-start; gap:10px; padding:9px 12px; border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:8px; margin-bottom:8px; font-size:13px; background:#fff; }
+  .note-row .note-text { flex:1; line-height:1.5; }
+  .note-dismiss { background:transparent; border:none; color:var(--mid); cursor:pointer; font-size:14px; padding:2px 6px; border-radius:4px; }
+  .note-dismiss:hover { color:var(--wrong); background:rgba(200,75,49,.08); }
+
+  table { width:100%; border-collapse:collapse; min-width:640px; }
+  thead tr { background:var(--cream); border-bottom:2px solid var(--border); }
+  th { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--mid); padding:10px 12px; text-align:center; white-space:nowrap; }
+  th.col-page { text-align:left; padding-left:14px; min-width:180px; }
+  tbody tr { border-bottom:1px solid var(--border); }
+  tbody tr:last-child { border-bottom:none; }
+  tbody tr:hover { background:rgba(122,92,158,.04); }
+  td { padding:12px; text-align:center; vertical-align:middle; }
+  td.col-page { text-align:left; padding-left:14px; }
+
+  .task-chip { display:inline-block; font-family:'DM Mono',monospace; font-size:10px; padding:3px 10px; border-radius:99px; white-space:nowrap; }
+  .task-chip.ontime, .task-chip.submitted { background:rgba(45,122,79,.1); color:#2d7a4f; border:1px solid rgba(45,122,79,.3); }
+  .task-chip.late, .task-chip.overdue { background:rgba(212,168,67,.15); color:#8f6d19; border:1px solid rgba(212,168,67,.4); }
+  .task-chip.locked { background:rgba(200,75,49,.1); color:var(--wrong); border:1px solid rgba(200,75,49,.3); }
+  .task-chip.in_progress, .task-chip.pending { background:rgba(122,92,158,.1); color:#6a4f8c; border:1px solid rgba(122,92,158,.3); }
+  .task-chip.not_started { background:rgba(90,110,127,.1); color:#5a6e7f; border:1px solid rgba(90,110,127,.3); }
+
+  .task-open-btn { background:var(--accent); color:#fff; border:none; padding:7px 14px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:12px; cursor:pointer; text-decoration:none; display:inline-block; }
+  .task-open-btn:hover { background:#3d5d8f; }
+  .task-open-btn.secondary { background:transparent; border:1px solid var(--border); color:var(--ink); }
+  .muted { color:var(--mid); font-size:12px; }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="site-band" aria-label="Site">
+    <a class="sb-brand" href="/hub.html"><span aria-hidden="true">🏡</span> All Topics</a>
+    <span class="gcse-account-bar" id="accountBar"></span>
+  </nav>
+  <div class="header-inner">
+    <div>
+      <div class="header-badge">My Homework</div>
+      <h1><span aria-hidden="true">📋</span> My Tasks</h1>
+      <p>Every task your teacher has set — due dates, status and your scores.</p>
+    </div>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <a class="nav-link" id="backToDash" href="dashboard.html">← My Progress</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <h2 class="section-label">📋 My Tasks <span id="notifBadge" style="display:none; background:var(--wrong); color:#fff; border-radius:99px; padding:1px 9px; font-size:10px;"></span></h2>
+  <div class="tasks-panel">
+    <div id="notifList"></div>
+    <div id="taskSubjectFilterRow" style="display:none; margin:2px 0 12px; gap:8px; flex-wrap:wrap; align-items:center;"></div>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead><tr>
+          <th class="col-page">Task</th><th>Due</th><th>Status</th><th>Attempts</th><th>My score</th><th></th>
+        </tr></thead>
+        <tbody id="tasksBody"><tr><td colspan="6" class="muted" style="text-align:center; padding:22px;">Loading…</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/subjects-index.js"></script>
+<script src="/page-groups-all.js"></script>
+<script src="/section-totals-all.js"></script>
+<script src="/subject-loader.js"></script>
+<script>subjectLoaderInit({ mode: 'single' });</script>
+<script src="tasks-shared.js"></script>
+<script src="/account-cluster.js"></script>
+<script src="notifications-shared.js"></script>
+<script src="student-tasks.js"></script>
+<script>
+'use strict';
+(async function () {
+  const auth = await tasksAuthInit('student');
+  if (!auth) return; // redirects to login when not signed in / wrong role
+
+  // Carry the subject through to the dropdown + "My Progress" link.
+  const slug = (window.SUBJECT && window.SUBJECT.slug) || null;
+  const subjQ = slug ? '?subject=' + encodeURIComponent(slug) : '';
+  const back = document.getElementById('backToDash');
+  if (back) back.href = 'dashboard.html' + subjQ;
+
+  // Shared account cluster + notification bell (same as every student page).
+  window._gcseSupabaseClient = auth.client;
+  window._gcseProfile = window._gcseProfile || { username: auth.username, role: auth.role };
+  if (typeof _gcseInjectAccountBar === 'function') _gcseInjectAccountBar();
+
+  studentTasksConfigure({ client: auth.client, getUid: () => auth.session.user.id });
+  await studentTasksLoad();
+})();
+</script>
+<script src="footer-legal.js"></script>
+</body>
+</html>

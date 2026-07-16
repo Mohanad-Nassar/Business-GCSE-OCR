@@ -9,8 +9,6 @@
 //   • NO DevTools blanking/blurring, NO global keydown traps, nothing
 //     that touches Ctrl+F / arrows / Tab — screen readers and keyboard
 //     navigation keep working.
-//   • The watermark is aria-hidden + pointer-events:none, so it never
-//     reaches the accessibility tree or blocks a click.
 //   • Answer boxes (input/textarea/contenteditable) are always fully
 //     selectable and typeable; the exam paste-guard in
 //     notifications-shared.js still owns paste behaviour there.
@@ -128,49 +126,10 @@
         });
     }
 
-    // ── Watermark CSS (username-driven, so it lives here rather than in the
-    // shared stylesheets which only carry the user-select + print rules).
-    // aria-hidden element, pointer-events:none, ~8% opacity, hidden in
-    // print (print shows the "study on the site" notice instead). ──
-    function injectStyles() {
-        if (document.getElementById('gcseProtectStyles')) return;
-        var s = document.createElement('style');
-        s.id = 'gcseProtectStyles';
-        s.textContent =
-            '.gcse-watermark{position:fixed;inset:0;z-index:9997;pointer-events:none;' +
-            'overflow:hidden;opacity:.08;display:flex;flex-wrap:wrap;align-content:center;' +
-            'justify-content:center;transform:rotate(-28deg) scale(1.4);transform-origin:center;' +
-            '-webkit-user-select:none;user-select:none;}' +
-            '.gcse-watermark span{font:600 20px/1 "DM Sans",sans-serif;color:#7a7266;' +
-            'white-space:nowrap;letter-spacing:.5px;padding:16px 40px;}' +
-            '@media print{.gcse-watermark{display:none !important;}}';
-        document.head.appendChild(s);
-    }
-
-    function buildWatermark() {
-        if (document.getElementById('gcseWatermark')) return;
-        var name = '';
-        try {
-            name = (_session && _session.username) ||
-                   (window._gcseProfile && window._gcseProfile.username) || '';
-        } catch (e) {}
-        name = String(name || 'Vidya student').trim() || 'Vidya student';
-
-        var wm = document.createElement('div');
-        wm.id = 'gcseWatermark';
-        wm.className = 'gcse-watermark';
-        wm.setAttribute('aria-hidden', 'true'); // invisible to the accessibility tree
-
-        var area = 800000;
-        try { area = (window.innerWidth || 1200) * (window.innerHeight || 800); } catch (e) {}
-        var count = Math.min(Math.max(Math.ceil(area / 22000) + 16, 40), 260);
-        for (var i = 0; i < count; i++) {
-            var sp = document.createElement('span');
-            sp.textContent = name; // textContent → no HTML injection
-            wm.appendChild(sp);
-        }
-        document.body.appendChild(wm);
-    }
+    // (The username watermark that used to be built here was removed
+    // 2026-07-12 by request — it competed with the theme backgrounds and
+    // added little: the durable protection remains server-side auth.
+    // deactivate() still removes any #gcseWatermark a cached page built.)
 
     // Print notice element. It is display:none on screen and only shown in
     // @media print (rule lives in style.css / business-style.css, gated on
@@ -227,8 +186,6 @@
         if (_active) return;
         _active = true;
         try { document.body.classList.add('gcse-protected'); } catch (e) {} // gates the stylesheet rules
-        injectStyles();
-        buildWatermark();
         buildPrintNotice();
         bindListeners();
         scheduleDevtoolsCheck();

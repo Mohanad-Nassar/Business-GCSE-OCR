@@ -1,0 +1,1032 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex"/>
+<title>Subject — Study Guide</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@300;400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="business-style.css"/>
+<script>
+  // Site theme bootstrap (same guarded loader as teacher-nav.js /
+  // footer-legal.js — double inclusion is a no-op).
+  (function () {
+    try {
+      var t = localStorage.getItem('gcse_theme') || 'aurora';
+      if (t !== 'classic') document.documentElement.setAttribute('data-theme', t);
+      var b = localStorage.getItem('gcse_bg');
+      if (b && b !== 'none') document.documentElement.setAttribute('data-bg', b);
+    } catch (e) {}
+  })();
+</script>
+<style>
+  /* This is a standalone page — undo business-style.css's desktop grid. */
+  html, body { display:block !important; grid-template-columns:none !important; grid-template-rows:none !important; grid-template-areas:none !important; }
+  header, main { grid-area:unset !important; }
+  body { background:var(--paper); color:var(--ink); min-height:100vh; }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
+  .skip-link { position:absolute; left:12px; top:-60px; z-index:100; background:var(--chrome, var(--ink)); color:var(--chrome-text, var(--paper)); padding:10px 18px; border-radius:0 0 8px 8px; font-weight:600; font-size:14px; text-decoration:none; transition:top .15s; }
+  .skip-link:focus { top:0; }
+
+  header { background:var(--chrome, var(--ink)); border-bottom:3px solid var(--subject-accent, var(--accent)); padding:0 40px 22px; }
+  .header-inner { display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:16px; max-width:1150px; margin:0 auto; padding-top:18px; }
+  .header-badge { display:inline-block; background:var(--subject-accent, var(--accent)); color:#fff; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:10px; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,30px); font-weight:700; color:var(--chrome-text, var(--paper)); margin-bottom:4px; }
+  header h1 .subj-icon { margin-right:8px; }
+  header p { font-size:13px; color:rgba(245,240,232,.65); max-width:640px; }
+  .head-actions { display:flex; gap:8px; flex-wrap:wrap; }
+  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--chrome-text, var(--paper)); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
+  .nav-link:hover { background:rgba(255,255,255,.18); }
+
+  main { padding:26px 40px 90px; max-width:1150px; margin:0 auto; }
+  .layout { display:grid; grid-template-columns:280px 1fr; gap:22px; align-items:start; }
+  @media (max-width:860px) { .layout { grid-template-columns:1fr; } aside { position:static !important; max-height:none !important; } }
+
+  aside { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:14px; position:sticky; top:16px; max-height:calc(100vh - 32px); overflow-y:auto; }
+  .sec-head { font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--mid); margin:14px 4px 6px; }
+  .sec-head:first-child { margin-top:2px; }
+  .topic-btn { display:flex; align-items:center; justify-content:space-between; gap:8px; width:100%; text-align:left; background:transparent; border:1px solid transparent; border-radius:7px; padding:8px 10px; font-family:'DM Sans',sans-serif; font-size:13.5px; color:var(--ink); cursor:pointer; }
+  .topic-btn:hover { background:var(--cream); }
+  .topic-btn.active { background:var(--subject-accent, var(--accent)); color:#fff; }
+  .topic-btn .chip { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; padding:2px 7px; border-radius:99px; border:1px solid var(--border); color:var(--mid); flex:none; }
+  .topic-btn.active .chip { border-color:rgba(255,255,255,.5); color:#fff; }
+  .chip.live { color:var(--success, #2d7a4f); border-color:var(--success, #2d7a4f); }
+
+  .panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:26px 30px; }
+  .topic-head { display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+  .topic-head h2 { font-family:'Playfair Display',serif; font-size:24px; font-weight:700; }
+  .topic-tools { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .btn { background:var(--subject-accent, var(--accent)); color:#fff; border:none; padding:9px 16px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; text-decoration:none; display:inline-block; }
+  .btn:hover { filter:brightness(1.08); }
+  .btn.ghost { background:transparent; color:var(--ink); border:1px solid var(--border); }
+  .btn.ghost:hover { border-color:var(--subject-accent, var(--accent)); color:var(--subject-accent, var(--accent)); filter:none; }
+  .btn:disabled { opacity:.55; cursor:default; }
+  .pill { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; padding:3px 10px; border-radius:99px; border:1px solid var(--border); color:var(--mid); }
+  .pill.live { color:var(--success,#2d7a4f); border-color:var(--success,#2d7a4f); }
+  .pill.draft { color:var(--wrong,#c84b31); border-color:var(--wrong,#c84b31); }
+
+  .pager { display:flex; justify-content:space-between; gap:10px; margin-top:22px; }
+  .pager button { background:transparent; border:1px solid var(--border); border-radius:7px; padding:9px 14px; font-family:'DM Sans',sans-serif; font-size:12.5px; color:var(--ink); cursor:pointer; }
+  .pager button:hover:not(:disabled) { border-color:var(--subject-accent, var(--accent)); color:var(--subject-accent, var(--accent)); }
+  .pager button:disabled { opacity:.4; cursor:default; }
+
+  .msg { font-family:'DM Mono',monospace; font-size:12px; min-height:16px; }
+  .msg.ok { color:var(--success,#2d7a4f); }
+  .msg.err { color:#c84b31; }
+  .empty { padding:34px 20px; text-align:center; color:var(--mid); font-size:13.5px; font-style:italic; }
+  .hidden { display:none !important; }
+
+  .muted { color:var(--mid); font-size:12px; }
+  .mono { font-family:'DM Mono',monospace; }
+  .chip-row { font-size:11px; margin-top:8px; }
+  .save-note { display:block; color:var(--wrong,#c84b31); font-size:11px; margin-top:4px; min-height:14px; }
+
+  /* ── Activity panels ── */
+  #activityStack { display:flex; flex-direction:column; gap:18px; margin-top:18px; }
+  .activity .act-head { display:flex; align-items:flex-start; gap:12px; margin-bottom:16px; }
+  .act-icon { font-size:22px; line-height:1.3; flex:none; }
+  .act-head h3 { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; margin-bottom:2px; }
+  .act-progress { font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); }
+  .prior-note { font-size:12px; color:var(--mid); font-style:italic; margin-bottom:8px; }
+  .summary-box { text-align:center; padding:16px 10px 6px; }
+  .summary-box p { font-family:'Playfair Display',serif; font-size:18px; margin-bottom:14px; }
+  .seq-nav { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:16px; flex-wrap:wrap; }
+
+  .learn-list { display:flex; flex-direction:column; gap:18px; }
+  .learn-item { background:var(--cream); border:1px solid var(--border); border-radius:10px; padding:18px 20px; }
+  .learn-item h4 { font-family:'Playfair Display',serif; font-size:16px; margin-bottom:8px; }
+  .learn-check { margin-top:14px; border-top:1px dashed var(--border); padding-top:14px; }
+  .check-label { margin-bottom:6px; letter-spacing:.08em; text-transform:uppercase; }
+
+  .fib-actions { display:flex; align-items:center; gap:12px; margin-top:14px; flex-wrap:wrap; }
+  .misc-reveal { padding:16px 20px; }
+  .misc-check { margin-top:14px; }
+
+  .tip-toggle { all:unset; box-sizing:border-box; display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%; cursor:pointer; font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--ink); }
+  .tip-toggle .chev { font-size:13px; color:var(--mid); transition:transform .2s ease; flex:none; }
+  .tip-card.open .tip-toggle .chev { transform:rotate(180deg); }
+
+  .mark-picker { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0; }
+  .mark-btn { min-width:34px; height:34px; border:1.5px solid var(--border); border-radius:7px; background:var(--card-bg); color:var(--ink); font-family:'DM Mono',monospace; font-size:12.5px; cursor:pointer; }
+  .mark-btn:hover:not(:disabled) { border-color:var(--accent); }
+  .mark-btn.picked { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .mark-btn:disabled { opacity:.6; cursor:default; }
+
+  .opt-btn:disabled, .tf-btn:disabled, .ep-opt:disabled { cursor:default; opacity:.75; }
+
+  @media (prefers-reduced-motion:reduce) { .fc-inner { transition:none !important; } }
+  @media (max-width:480px) { .fc-nav { flex-wrap:wrap; } }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#topicPane">Skip to topic content</a>
+
+<header>
+  <nav class="site-band" aria-label="Site">
+    <a class="sb-brand" href="/hub.html"><span aria-hidden="true">🏡</span> Site Home</a>
+    <span class="gcse-account-bar" id="accountBar"></span>
+  </nav>
+  <div class="header-inner">
+    <div>
+      <div class="header-badge" id="subjBadge">Loading…</div>
+      <h1 id="subjTitle"><span class="subj-icon" aria-hidden="true">📘</span>Loading…</h1>
+      <p id="subjDesc"></p>
+    </div>
+    <div class="head-actions hidden" id="teacherActions">
+      <a class="nav-link" id="manageLink" href="teacher-subjects.html">⚙ Manage subject</a>
+      <a class="nav-link" id="publishLink" href="teacher-subjects.html">📤 Publish</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <p class="msg" id="pageMsg" aria-live="polite"></p>
+  <div class="layout hidden" id="layout">
+    <aside aria-label="Topics in this subject">
+      <div id="topicNav"></div>
+    </aside>
+
+    <section id="topicPane" aria-live="polite">
+      <div class="panel">
+        <div class="topic-head">
+          <div>
+            <h2 id="topicTitle">Pick a topic</h2>
+            <div class="chip-row mono muted" id="progressChips"></div>
+            <span class="save-note mono" id="saveNote" aria-live="polite"></span>
+          </div>
+          <div class="topic-tools">
+            <span class="pill draft hidden" id="draftPill">Draft — students can’t see this</span>
+            <a class="btn ghost hidden" id="editTopicLink" href="#">✏️ Edit this topic</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="activityStack"></div>
+
+      <div class="pager" id="pager">
+        <button type="button" id="prevBtn" disabled>‹ Previous topic</button>
+        <button type="button" id="nextBtn" disabled>Next topic ›</button>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/tasks-shared.js"></script>
+<script src="/rich-editor.js"></script>
+<script src="/account-cluster.js"></script>
+<script>
+(function () {
+  'use strict';
+  const esc = RichText.escapeHtml;
+  const params = new URLSearchParams(location.search);
+  const subjectId = params.get('id');
+
+  let client = null, uid = null;
+  let subject = null;
+  let topics = [];           // sidebar rows (no content)
+  let current = null;        // { id, title, slug, status, sections }
+  let pageId = null;         // subject.slug + ':' + topic.slug
+  let isOwnerView = false;   // the subject's own creator, previewing — never records
+  let totals = {};           // { section: totalCount }
+  let answered = {};         // { section: Set(question_id) } — persisted-once gate, seeded from restore
+  let restoreCorrect = {};   // 'section:question_id' -> is_correct (informational only)
+
+  const el = id => document.getElementById(id);
+  const pageMsg = (text, isErr) => {
+    el('pageMsg').textContent = text || '';
+    el('pageMsg').className = 'msg' + (isErr ? ' err' : '');
+  };
+  const showSaveNote = msg => { const n = el('saveNote'); if (n) n.textContent = msg || ''; };
+
+  // Exposed for the shared exam-answer paste guard (notifications-shared.js)
+  // — it looks up a bare global `getPageId()` to label integrity-event logs
+  // with the exact subject:topic page, same as the platform topic pages.
+  window.getPageId = () => pageId || '';
+
+  // ── Small helpers ──
+
+  function safeHex(c) { return /^#[0-9a-fA-F]{6}$/.test(c || '') ? c : null; }
+
+  // Strips tags to decide whether a rich-text field carries real content —
+  // an editor can leave behind "<p><br></p>" which still counts as empty.
+  function htmlHasContent(html) {
+    if (!html) return false;
+    const stripped = String(html).replace(/<img\b[^>]*>/gi, 'x').replace(/<[^>]+>/g, '').replace(/&nbsp;/gi, ' ').trim();
+    return stripped.length > 0;
+  }
+
+  // Storage format normalises "answer" to a 0-based number (subject-
+  // template.js's normAnswer), but this is defensive against hand-edited
+  // rows that still carry a letter.
+  function answerIndex(ans) {
+    if (typeof ans === 'number' && isFinite(ans)) return ans;
+    if (typeof ans === 'string') {
+      const idx = 'ABCDEF'.indexOf(ans.trim().toUpperCase());
+      if (idx >= 0) return idx;
+      const n = parseInt(ans, 10);
+      if (!isNaN(n)) return n;
+    }
+    return 0;
+  }
+
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  // Pairs a predicate with the ORIGINAL array index so question ids
+  // (<block>:<index>) stay stable even when some entries are filtered out
+  // as unusable — the same list this builds is reused by computeTotals so
+  // header chips and rendered activities always agree on counts.
+  function usableIndexed(arr, predicate) {
+    return (arr || []).map((item, i) => ({ item, i })).filter(x => predicate(x.item));
+  }
+
+  const PRED = {
+    learnCheck: it => !!(it && it.check && it.check.question && (it.check.options || []).length >= 2),
+    learnItem: it => !!(it && ((it.title && it.title.trim()) || htmlHasContent(it.html) || PRED.learnCheck(it))),
+    pair: p => !!(p && p.term && p.term.trim() && p.definition && p.definition.trim()),
+    mcq: q => !!(q && q.question && (q.options || []).length >= 2),
+    fib: q => !!(q && q.text && /\[[^\]]+\]/.test(q.text)),
+    tf: q => !!(q && q.statement && q.statement.trim()),
+    misc: it => !!(it && ((it.myth && it.myth.trim()) || (it.truth && it.truth.trim()))),
+    tips: it => !!(it && ((it.title && it.title.trim()) || htmlHasContent(it.html))),
+    exam: q => !!(q && q.question && q.question.trim()),
+  };
+
+  const DONE_WORD = { learn:'answered', flashcards:'viewed', mcq:'answered', match:'answered', fib:'checked', tf:'answered', misc:'checked', tips:'expanded', exam:'self-marked' };
+  const CHIP_META = [
+    { key:'learn', label:'Learn' }, { key:'flashcards', label:'Flashcards' },
+    { key:'mcq', label:'MCQ' }, { key:'match', label:'Match' },
+    { key:'fib', label:'Blanks' }, { key:'tf', label:'T/F' },
+    { key:'misc', label:'Misc' }, { key:'tips', label:'Tips' }, { key:'exam', label:'Exam' },
+  ];
+
+  function freshAnsweredSets() {
+    return { learn:new Set(), flashcards:new Set(), mcq:new Set(), match:new Set(), fib:new Set(), tf:new Set(), misc:new Set(), tips:new Set(), exam:new Set() };
+  }
+
+  function computeTotals(sections) {
+    sections = sections || {};
+    const learnEnabled = sections.learn && sections.learn.enabled !== false;
+    const learnItems = learnEnabled ? usableIndexed(sections.learn.items, PRED.learnItem) : [];
+    const termsEnabled = sections.terms && sections.terms.enabled !== false;
+    const pairs = termsEnabled ? usableIndexed(sections.terms.pairs, PRED.pair) : [];
+    const mcqEnabled = sections.mcq && sections.mcq.enabled !== false;
+    const mcqQ = mcqEnabled ? usableIndexed(sections.mcq.questions, PRED.mcq) : [];
+    const fibEnabled = sections.fib && sections.fib.enabled !== false;
+    const fibQ = fibEnabled ? usableIndexed(sections.fib.questions, PRED.fib) : [];
+    const tfEnabled = sections.tf && sections.tf.enabled !== false;
+    const tfQ = tfEnabled ? usableIndexed(sections.tf.questions, PRED.tf) : [];
+    const miscEnabled = sections.misc && sections.misc.enabled !== false;
+    const miscI = miscEnabled ? usableIndexed(sections.misc.items, PRED.misc) : [];
+    const tipsEnabled = sections.tips && sections.tips.enabled !== false;
+    const tipsI = tipsEnabled ? usableIndexed(sections.tips.items, PRED.tips) : [];
+    const examEnabled = sections.exam && sections.exam.enabled !== false;
+    const examQ = examEnabled ? usableIndexed(sections.exam.questions, PRED.exam) : [];
+    return {
+      learn: learnItems.filter(x => PRED.learnCheck(x.item)).length,
+      flashcards: pairs.length,
+      mcq: mcqQ.length,
+      match: pairs.length >= 4 ? pairs.length : 0,
+      fib: fibQ.length,
+      tf: tfQ.length,
+      misc: miscI.length,
+      tips: tipsI.length,
+      exam: examQ.length,
+    };
+  }
+
+  function progressText(section, total) {
+    return answered[section].size + ' of ' + total + ' ' + (DONE_WORD[section] || 'answered');
+  }
+  function refreshActivityProgress() {
+    document.querySelectorAll('[data-prog]').forEach(elp => {
+      const section = elp.getAttribute('data-prog');
+      elp.textContent = progressText(section, totals[section]);
+    });
+  }
+  function renderChips() {
+    const box = el('progressChips');
+    if (!box) return;
+    const parts = CHIP_META.filter(c => totals[c.key] > 0)
+      .map(c => c.label + ' ' + answered[c.key].size + '/' + totals[c.key]);
+    box.textContent = parts.join(' · ');
+  }
+
+  function actHead(icon, title, section, total) {
+    let prog = '';
+    if (section && total) prog = '<div class="act-progress" data-prog="' + section + '">' + progressText(section, total) + '</div>';
+    return '<div class="act-head"><span class="act-icon" aria-hidden="true">' + icon + '</span><div><h3>' + esc(title) + '</h3>' + prog + '</div></div>';
+  }
+
+  // ── Progress recording (students only — never for the owning teacher) ──
+  // Fire-and-forget: the caller has already updated the UI before this runs,
+  // so a slow/failed network call never blocks interaction.
+  function recordProgress(section, qid, answerObj, isCorrect) {
+    if (!answered[section] || answered[section].has(qid)) return; // one attempt recorded, ever
+    answered[section].add(qid);
+    refreshActivityProgress();
+    renderChips();
+    if (isOwnerView) return; // owner preview never persists
+    client.rpc('record_progress', {
+      p_page_id: pageId, p_section: section, p_question_id: qid,
+      p_answer: answerObj == null ? null : answerObj,
+      p_is_correct: isCorrect == null ? null : !!isCorrect,
+      p_done: answered[section].size, p_total: totals[section],
+    }).then(res => {
+      if (res.error) throw res.error;
+      showSaveNote('');
+    }).catch(e => {
+      console.error('record_progress', e);
+      showSaveNote('⚠ Couldn’t save your progress — check your connection.');
+    });
+  }
+
+  // ── Generic single-question choice renderer (MCQ/Matching steps AND the
+  // inline Key-Learning / Misconception checks share this). ──
+  function renderChoiceOptions(container, opts) {
+    const options = opts.options, answerIdx = opts.answerIdx, explain = opts.explain;
+    const qid = opts.qid, section = opts.section, shouldLock = opts.lock !== false, onAnswer = opts.onAnswer;
+    const optsWrap = document.createElement('div');
+    optsWrap.className = 'options';
+    optsWrap.innerHTML = options.map((o, oi) => '<button type="button" class="opt-btn" data-oi="' + oi + '">' + esc(o) + '</button>').join('');
+    const fb = document.createElement('div');
+    fb.className = 'q-feedback';
+    fb.setAttribute('role', 'status');
+    container.appendChild(optsWrap);
+    container.appendChild(fb);
+
+    optsWrap.addEventListener('click', e => {
+      const btn = e.target.closest('.opt-btn');
+      if (!btn || btn.disabled) return;
+      if (shouldLock && optsWrap.dataset.answered) return;
+      optsWrap.dataset.answered = '1';
+      const oi = Number(btn.dataset.oi);
+      const isCorrect = oi === answerIdx;
+      optsWrap.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('correct', 'wrong'));
+      btn.classList.add(isCorrect ? 'correct' : 'wrong');
+      if (!isCorrect) {
+        const rightBtn = optsWrap.querySelector('[data-oi="' + answerIdx + '"]');
+        if (rightBtn) rightBtn.classList.add('correct');
+      }
+      if (explain) { fb.textContent = explain; fb.className = 'q-feedback show ' + (isCorrect ? 'ok' : 'no'); }
+      else { fb.textContent = ''; fb.className = 'q-feedback'; }
+      if (shouldLock) optsWrap.querySelectorAll('.opt-btn').forEach(b => { b.disabled = true; });
+      recordProgress(section, qid, { value: oi }, isCorrect);
+      if (typeof onAnswer === 'function') onAnswer(isCorrect);
+    });
+    return optsWrap;
+  }
+
+  // One-at-a-time quiz walkthrough shared by Quick-fire MCQ and Matching.
+  function buildSequentialQuiz(cfg) {
+    const icon = cfg.icon, title = cfg.title, section = cfg.section, items = cfg.items;
+    if (!items.length) return null;
+    const panel = document.createElement('div');
+    panel.className = 'panel activity';
+    panel.innerHTML = actHead(icon, title, section, items.length);
+    const body = document.createElement('div');
+    panel.appendChild(body);
+
+    let idx = 0, score = 0, attempted = 0;
+
+    function renderStep() {
+      body.innerHTML = '';
+      if (idx >= items.length) {
+        const verdict = score === items.length ? 'Excellent work! 🎉' : (score >= items.length / 2 ? 'Nice work!' : 'Keep practising — you’ll get there.');
+        const box = document.createElement('div');
+        box.className = 'summary-box';
+        box.innerHTML = '<p>' + score + '/' + items.length + ' — ' + verdict + '</p><button type="button" class="btn ghost">↻ Try again</button>';
+        box.querySelector('button').addEventListener('click', () => { idx = 0; score = 0; attempted = 0; renderStep(); });
+        body.appendChild(box);
+        return;
+      }
+      const it = items[idx];
+      const already = answered[section].has(it.qid);
+      const card = document.createElement('div');
+      card.className = 'q-block';
+      card.innerHTML = '<div class="q-num">QUESTION ' + (idx + 1) + ' OF ' + items.length + '</div>' +
+        (already ? '<div class="prior-note">↻ You already answered this — try it again for practice.</div>' : '') +
+        '<div class="q-text">' + it.prompt + '</div>';
+      body.appendChild(card);
+      renderChoiceOptions(card, {
+        options: it.options, answerIdx: it.answerIdx, explain: it.explain, qid: it.qid, section: section, lock: true,
+        onAnswer: isCorrect => {
+          attempted++;
+          if (isCorrect) score++;
+          const nav = document.createElement('div');
+          nav.className = 'seq-nav';
+          nav.innerHTML = '<span class="mono muted">Score: ' + score + '/' + attempted + '</span><button type="button" class="btn ghost">Next ›</button>';
+          nav.querySelector('button').addEventListener('click', () => { idx++; renderStep(); });
+          card.appendChild(nav);
+        },
+      });
+    }
+    renderStep();
+    return panel;
+  }
+
+  // ── Activity builders (return a .panel element, or null to skip) ──
+
+  function buildReading(block) {
+    if (!block || block.enabled === false) return null;
+    const html = block.html ? RichText.sanitize(block.html) : '';
+    if (!htmlHasContent(html)) return null;
+    const panel = document.createElement('div');
+    panel.className = 'panel activity';
+    panel.innerHTML = actHead('📖', 'Notes', '', 0) + '<div class="rt-content">' + html + '</div>';
+    return panel;
+  }
+
+  function buildLearn(block) {
+    if (!block || block.enabled === false) return null;
+    const items = usableIndexed(block.items, PRED.learnItem);
+    if (!items.length) return null;
+    const total = items.filter(x => PRED.learnCheck(x.item)).length;
+    const panel = document.createElement('div');
+    panel.className = 'panel activity';
+    panel.innerHTML = actHead('🎯', 'Key learning', 'learn', total);
+    const list = document.createElement('div');
+    list.className = 'learn-list';
+    panel.appendChild(list);
+    items.forEach(x => {
+      const it = x.item, i = x.i;
+      const card = document.createElement('div');
+      card.className = 'learn-item';
+      card.innerHTML = (it.title ? '<h4>' + esc(it.title) + '</h4>' : '') +
+        (htmlHasContent(it.html) ? '<div class="rt-content">' + RichText.sanitize(it.html) + '</div>' : '');
+      list.appendChild(card);
+      if (PRED.learnCheck(it)) {
+        const qid = 'learn:' + i;
+        const already = answered.learn.has(qid);
+        const checkWrap = document.createElement('div');
+        checkWrap.className = 'learn-check';
+        checkWrap.innerHTML = '<div class="check-label mono muted">🧠 Quick check</div>' +
+          (already ? '<div class="prior-note">↻ Already answered — re-tries are just for practice.</div>' : '') +
+          '<div class="q-text">' + esc(it.check.question) + '</div>';
+        card.appendChild(checkWrap);
+        renderChoiceOptions(checkWrap, {
+          options: it.check.options || [], answerIdx: answerIndex(it.check.answer),
+          explain: it.check.explain || '', qid: qid, section: 'learn', lock: false,
+        });
+      }
+    });
+    return panel;
+  }
+
+  function buildFlashcards(termsBlock) {
+    if (!termsBlock || termsBlock.enabled === false) return null;
+    const pairs = usableIndexed(termsBlock.pairs, PRED.pair).map(x => x.item);
+    if (!pairs.length) return null;
+    const panel = document.createElement('div');
+    panel.className = 'panel activity';
+    panel.innerHTML = actHead('🃏', 'Flashcards', 'flashcards', pairs.length);
+    const container = document.createElement('div');
+    container.className = 'fc-container';
+    container.innerHTML =
+      '<div class="fc-progress" id="fcProg"></div>' +
+      '<div class="flashcard" id="fcCard" tabindex="0" role="button" aria-label="Flip card">' +
+      '<div class="fc-inner"><div class="fc-front"><div class="fc-label">TERM</div><div class="fc-term" id="fcTerm"></div></div>' +
+      '<div class="fc-back"><div class="fc-def" id="fcDef"></div></div></div></div>' +
+      '<div class="fc-nav"><button type="button" class="fc-btn outline" id="fcPrev">‹ Prev</button>' +
+      '<button type="button" class="fc-btn outline" id="fcShuffle">🔀 Shuffle</button>' +
+      '<button type="button" class="fc-btn" id="fcNext">Next ›</button></div>';
+    panel.appendChild(container);
+
+    let order = pairs.map((_, i) => i);
+    let pos = 0, flipped = false;
+    const cardEl = container.querySelector('#fcCard');
+    const progEl = container.querySelector('#fcProg');
+    const termEl = container.querySelector('#fcTerm');
+    const defEl = container.querySelector('#fcDef');
+
+    function renderCard() {
+      const p = pairs[order[pos]];
+      termEl.textContent = p.term;
+      defEl.textContent = p.definition;
+      cardEl.classList.remove('flipped');
+      flipped = false;
+      progEl.textContent = 'Card ' + (pos + 1) + ' of ' + pairs.length;
+    }
+    function flip() {
+      flipped = !flipped;
+      cardEl.classList.toggle('flipped', flipped);
+      if (flipped) recordProgress('flashcards', 'flash:' + order[pos], null, null);
+    }
+    cardEl.addEventListener('click', flip);
+    cardEl.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); flip(); }
+    });
+    container.querySelector('#fcPrev').addEventListener('click', () => { pos = (pos - 1 + pairs.length) % pairs.length; renderCard(); });
+    container.querySelector('#fcNext').addEventListener('click', () => { pos = (pos + 1) % pairs.length; renderCard(); });
+    container.querySelector('#fcShuffle').addEventListener('click', () => { order = shuffle(order); pos = 0; renderCard(); });
+    renderCard();
+    return panel;
+  }
+
+  function buildMCQ(block) {
+    if (!block || block.enabled === false) return null;
+    const qs = usableIndexed(block.questions, PRED.mcq);
+    if (!qs.length) return null;
+    const items = qs.map(x => ({
+      qid: 'mcq:' + x.i,
+      prompt: esc(x.item.question),
+      options: (x.item.options || []).slice(),
+      answerIdx: answerIndex(x.item.answer),
+      explain: x.item.explain || '',
+    }));
+    return buildSequentialQuiz({ icon: '❓', title: 'Quick-fire MCQ', section: 'mcq', items: items });
+  }
+
+  function buildMatching(termsBlock) {
+    if (!termsBlock || termsBlock.enabled === false) return null;
+    const pairs = usableIndexed(termsBlock.pairs, PRED.pair).map(x => x.item);
+    if (pairs.length < 4) return null;
+    const items = pairs.map((p, i) => {
+      const others = pairs.filter((_, j) => j !== i).map(o => o.definition);
+      const distractors = shuffle(others).slice(0, Math.min(3, others.length));
+      const opts = shuffle([p.definition].concat(distractors));
+      return {
+        qid: 'match:' + i,
+        prompt: 'Which definition matches “' + esc(p.term) + '”?',
+        options: opts,
+        answerIdx: opts.indexOf(p.definition),
+        explain: '',
+      };
+    });
+    return buildSequentialQuiz({ icon: '🔗', title: 'Matching', section: 'match', items: shuffle(items) });
+  }
+
+  function buildFIB(block) {
+    if (!block || block.enabled === false) return null;
+    const qs = usableIndexed(block.questions, PRED.fib);
+    if (!qs.length) return null;
+    const pool = [];
+    qs.forEach(x => {
+      (String(x.item.text).match(/\[([^\]]+)\]/g) || []).forEach(m => pool.push(m.slice(1, -1).trim()));
+    });
+    const panel = document.createElement('div');
+    panel.className = 'panel activity';
+    panel.innerHTML = actHead('✏️', 'Fill in the blanks', 'fib', qs.length);
+    const wrap = document.createElement('div');
+    wrap.className = 'fib-wrap';
+    panel.appendChild(wrap);
+
+    qs.forEach(x => {
+      const q = x.item, i = x.i, qid = 'fib:' + i;
+      const already = answered.fib.has(qid);
+      const text = String(q.text || '');
+      const answersArr = (text.match(/\[([^\]]+)\]/g) || []).map(m => m.slice(1, -1).trim());
+      const parts = text.split(/\[[^\]]+\]/);
+      let inner = already ? '<div class="prior-note">↻ Already checked — try it again for practice.</div>' : '';
+      inner += '<div class="fib-line">';
+      parts.forEach((part, pi) => {
+        inner += esc(part);
+        if (pi < answersArr.length) {
+          const correct = answersArr[pi];
+          const seen = {};
+          const distractors = [];
+          shuffle(pool).forEach(w => {
+            const k = w.toLowerCase();
+            if (distractors.length >= 3 || k === correct.toLowerCase() || seen[k]) return;
+            seen[k] = true;
+            distractors.push(w);
+          });
+          const opts = shuffle([correct].concat(distractors));
+          inner += '<span class="blank-select" data-correct="' + esc(correct.toLowerCase()) + '" data-answer="' + esc(correct) + '">' +
+            '<select data-bi="' + pi + '" aria-label="Blank ' + (pi + 1) + '"><option value="">— choose —</option>' +
+            opts.map(o => '<option value="' + esc(o.toLowerCase()) + '">' + esc(o) + '</option>').join('') +
+            '</select></span>';
+        }
+      });
+      inner += '</div><div class="fib-actions"><button type="button" class="btn ghost fib-check">Check</button><span class="fib-result mono muted" role="status"></span></div>';
+      const card = document.createElement('div');
+      card.className = 'fib-sentence';
+      card.innerHTML = inner;
+      wrap.appendChild(card);
+
+      const checkBtn = card.querySelector('.fib-check');
+      const resultEl = card.querySelector('.fib-result');
+      checkBtn.addEventListener('click', () => {
+        if (checkBtn.disabled) return;
+        const selects = [...card.querySelectorAll('select')];
+        let allCorrect = true;
+        const values = [];
+        selects.forEach((sel, si) => {
+          const wrapEl = sel.closest('.blank-select');
+          const ok = sel.value !== '' && sel.value === wrapEl.dataset.correct;
+          wrapEl.classList.add(ok ? 'correct' : 'wrong');
+          sel.disabled = true;
+          values.push(sel.value);
+          if (!ok) {
+            allCorrect = false;
+            const note = document.createElement('span');
+            note.className = 'mono muted';
+            note.style.marginLeft = '6px';
+            note.textContent = '(' + wrapEl.dataset.answer + ')';
+            wrapEl.insertAdjacentElement('afterend', note);
+          }
+        });
+        checkBtn.disabled = true;
+        resultEl.textContent = allCorrect ? '✓ All correct' : '✗ Some were wrong — correct answers shown.';
+        recordProgress('fib', qid, { value: values }, allCorrect);
+      });
+    });
+    return panel;
+  }
+
+  function buildTF(block) {
+    if (!block || block.enabled === false) return null;
+    const qs = usableIndexed(block.questions, PRED.tf);
+    if (!qs.length) return null;
+    const panel = document.createElement('div');
+    panel.className = 'panel activity';
+    panel.innerHTML = actHead('✔️', 'True or false', 'tf', qs.length);
+    const wrap = document.createElement('div');
+    wrap.className = 'tf-wrap';
+    panel.appendChild(wrap);
+    qs.forEach(x => {
+      const q = x.item, i = x.i, qid = 'tf:' + i;
+      const already = answered.tf.has(qid);
+      const correct = !!q.answer;
+      const card = document.createElement('div');
+      card.className = 'tf-card';
+      card.innerHTML =
+        '<div class="tf-text">' + (already ? '<div class="prior-note">↻ Already answered — try again for practice.</div>' : '') + esc(q.statement || '') + '</div>' +
+        '<div class="tf-btns"><button type="button" class="tf-btn" data-v="true">✔ True</button><button type="button" class="tf-btn" data-v="false">✘ False</button></div>' +
+        '<div class="tf-explanation"></div>';
+      wrap.appendChild(card);
+      const explainEl = card.querySelector('.tf-explanation');
+      const btns = [...card.querySelectorAll('.tf-btn')];
+      btns.forEach(btn => btn.addEventListener('click', () => {
+        if (card.dataset.answered) return;
+        card.dataset.answered = '1';
+        const chosen = btn.dataset.v === 'true';
+        const isCorrect = chosen === correct;
+        btns.forEach(b => { b.disabled = true; });
+        btn.classList.add(isCorrect ? 'correct' : 'wrong');
+        if (!isCorrect) {
+          const rightBtn = btns.filter(b => (b.dataset.v === 'true') === correct)[0];
+          if (rightBtn) rightBtn.classList.add('correct');
+        }
+        if (q.explain) { explainEl.textContent = q.explain; explainEl.classList.add('show'); }
+        recordProgress('tf', qid, { value: chosen }, isCorrect);
+      }));
+    });
+    return panel;
+  }
+
+  function buildMisc(block) {
+    if (!block || block.enabled === false) return null;
+    const items = usableIndexed(block.items, PRED.misc);
+    if (!items.length) return null;
+    const panel = document.createElement('div');
+    panel.className = 'panel activity';
+    panel.innerHTML = actHead('⚠️', 'Misconception check', 'misc', items.length);
+    const list = document.createElement('div');
+    list.className = 'misc-list';
+    panel.appendChild(list);
+    items.forEach(x => {
+      const it = x.item, i = x.i, qid = 'misc:' + i;
+      const hasCheck = !!(it.check && it.check.question && (it.check.options || []).length >= 2);
+      const already = answered.misc.has(qid);
+      const card = document.createElement('div');
+      card.className = 'misc-card';
+      card.innerHTML =
+        '<div class="wrong-view"><div class="misc-tag">❌ Lots of people think…</div><p>' + esc(it.myth || '') + '</p></div>' +
+        '<div class="misc-reveal">' +
+        (already ? '<div class="prior-note">↻ Already checked — you can look again any time.</div>' : '') +
+        '<button type="button" class="btn ghost misc-reveal-btn">👁️ Reveal the truth</button></div>';
+      list.appendChild(card);
+      const revealArea = card.querySelector('.misc-reveal');
+      const btn = revealArea.querySelector('.misc-reveal-btn');
+      btn.addEventListener('click', () => {
+        if (btn.disabled) return;
+        btn.disabled = true;
+        const priorNote = revealArea.querySelector('.prior-note');
+        if (priorNote) priorNote.remove();
+        const truthDiv = document.createElement('div');
+        truthDiv.className = 'correct-view';
+        truthDiv.innerHTML = '<div class="misc-tag">✅ The truth</div><p>' + esc(it.truth || '') + '</p>';
+        btn.replaceWith(truthDiv);
+        if (hasCheck) {
+          const checkWrap = document.createElement('div');
+          checkWrap.className = 'misc-check';
+          checkWrap.innerHTML = '<div class="q-text">' + esc(it.check.question) + '</div>';
+          revealArea.appendChild(checkWrap);
+          renderChoiceOptions(checkWrap, {
+            options: it.check.options || [], answerIdx: answerIndex(it.check.answer),
+            explain: it.check.explain || '', qid: qid, section: 'misc', lock: true,
+          });
+        } else {
+          recordProgress('misc', qid, null, null);
+        }
+      });
+    });
+    return panel;
+  }
+
+  function buildTips(block) {
+    if (!block || block.enabled === false) return null;
+    const items = usableIndexed(block.items, PRED.tips);
+    if (!items.length) return null;
+    const panel = document.createElement('div');
+    panel.className = 'panel activity';
+    panel.innerHTML = actHead('💡', 'Exam tips', 'tips', items.length);
+    const grid = document.createElement('div');
+    grid.className = 'tips-grid';
+    panel.appendChild(grid);
+    items.forEach(x => {
+      const it = x.item, i = x.i, qid = 'tips:' + i;
+      const card = document.createElement('div');
+      card.className = 'tip-card';
+      card.innerHTML =
+        '<button type="button" class="tip-toggle"><span>' + esc(it.title || 'Tip') + '</span><span class="chev" aria-hidden="true">▾</span></button>' +
+        '<div class="tip-content">' + (htmlHasContent(it.html) ? RichText.sanitize(it.html) : '') + '</div>';
+      grid.appendChild(card);
+      card.querySelector('.tip-toggle').addEventListener('click', () => {
+        const opening = !card.classList.contains('open');
+        card.classList.toggle('open');
+        if (opening) recordProgress('tips', qid, null, null);
+      });
+    });
+    return panel;
+  }
+
+  function buildExam(block) {
+    if (!block || block.enabled === false) return null;
+    const qs = usableIndexed(block.questions, PRED.exam);
+    if (!qs.length) return null;
+    const panel = document.createElement('div');
+    panel.className = 'panel activity';
+    panel.innerHTML = actHead('📝', 'Exam practice', 'exam', qs.length);
+    const list = document.createElement('div');
+    list.className = 'ep-list';
+    panel.appendChild(list);
+    qs.forEach(x => {
+      const q = x.item, i = x.i, qid = 'exam:' + i;
+      const already = answered.exam.has(qid);
+      const marks = Math.max(1, Math.round(Number(q.marks)) || 1);
+      const card = document.createElement('div');
+      card.className = 'ep-card';
+      card.innerHTML =
+        '<div class="ep-header"><div><div class="ep-num">Q' + (i + 1) + '</div><div class="ep-title">Exam practice</div></div>' +
+        '<div class="ep-marks">[' + marks + ' mark' + (marks > 1 ? 's' : '') + ']</div></div>' +
+        '<div class="ep-body">' +
+        (already ? '<div class="prior-note">↻ Already self-marked — you can redo it for practice.</div>' : '') +
+        '<div class="ep-question">' + esc(q.question || '') + '</div>' +
+        (q.hint ? '<div class="ep-btn-row"><button type="button" class="ep-btn hint-btn">💡 Show hint</button></div><div class="ep-popup hint-pop">' + esc(q.hint) + '</div>' : '') +
+        '<textarea class="ep-answer-area" id="epTextarea-' + i + '" placeholder="Write your answer here…"></textarea>' +
+        '<div class="ep-btn-row"><button type="button" class="ep-btn submit-btn ep-ms-btn" disabled>📋 Show mark scheme</button></div>' +
+        '<div class="ep-popup marks-pop"><div class="marks-section"><h5>Mark scheme</h5>' + RichText.sanitize(q.markScheme || '') + '</div>' +
+        '<div class="mark-picker" role="group" aria-label="Award yourself a mark out of ' + marks + '"></div>' +
+        '<div class="ep-btn-row"><button type="button" class="ep-btn ep-save-btn" disabled>💾 Save my mark</button></div>' +
+        '<div class="mono muted ep-save-msg" role="status"></div></div>' +
+        '</div>';
+      list.appendChild(card);
+
+      const hintBtn = card.querySelector('.hint-btn');
+      if (hintBtn) hintBtn.addEventListener('click', () => card.querySelector('.hint-pop').classList.toggle('show'));
+
+      const ta = card.querySelector('.ep-answer-area');
+      const msBtn = card.querySelector('.ep-ms-btn');
+      const marksPop = card.querySelector('.marks-pop');
+      const picker = card.querySelector('.mark-picker');
+      const saveBtn = card.querySelector('.ep-save-btn');
+      const saveMsg = card.querySelector('.ep-save-msg');
+
+      for (let m = 0; m <= marks; m++) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'mark-btn';
+        b.textContent = String(m);
+        b.dataset.mark = String(m);
+        picker.appendChild(b);
+      }
+      picker.addEventListener('click', e => {
+        const b = e.target.closest('.mark-btn');
+        if (!b || saveBtn.dataset.locked) return;
+        picker.querySelectorAll('.mark-btn').forEach(x2 => x2.classList.remove('picked'));
+        b.classList.add('picked');
+        picker.dataset.picked = b.dataset.mark;
+        saveBtn.disabled = false;
+      });
+
+      ta.addEventListener('input', () => { msBtn.disabled = ta.value.trim().length < 20; });
+      msBtn.addEventListener('click', () => { marksPop.classList.add('show'); });
+      saveBtn.addEventListener('click', () => {
+        if (saveBtn.dataset.locked || picker.dataset.picked == null) return;
+        const mark = Number(picker.dataset.picked);
+        saveBtn.dataset.locked = '1';
+        saveBtn.disabled = true;
+        ta.disabled = true;
+        picker.querySelectorAll('.mark-btn').forEach(x2 => { x2.disabled = true; });
+        saveMsg.textContent = '✓ Self-marked: ' + mark + '/' + marks;
+        recordProgress('exam', qid, { value: ta.value.slice(0, 4000), selfMarks: mark }, mark >= marks / 2);
+      });
+    });
+    return panel;
+  }
+
+  function renderActivities() {
+    const stack = el('activityStack');
+    stack.innerHTML = '';
+    const sections = current.sections || {};
+    const builders = [
+      () => buildReading(sections.reading),
+      () => buildLearn(sections.learn),
+      () => buildFlashcards(sections.terms),
+      () => buildMCQ(sections.mcq),
+      () => buildMatching(sections.terms),
+      () => buildFIB(sections.fib),
+      () => buildTF(sections.tf),
+      () => buildMisc(sections.misc),
+      () => buildTips(sections.tips),
+      () => buildExam(sections.exam),
+    ];
+    let any = false;
+    builders.forEach(fn => {
+      const panel = fn();
+      if (panel) { stack.appendChild(panel); any = true; }
+    });
+    if (!any) {
+      const editHref = 'teacher-subjects.html?subject=' + encodeURIComponent(subject.id) + '&step=3&topic=' + encodeURIComponent(current.id);
+      stack.innerHTML = '<div class="panel"><p class="empty">' + (isOwnerView
+        ? 'This topic is empty — write it in the builder. <a href="' + esc(editHref) + '">Open the builder →</a>'
+        : 'Your teacher is still writing this topic.') + '</p></div>';
+    }
+  }
+
+  // ── Header / nav / topic-head chrome ──
+
+  function renderHeader() {
+    document.title = subject.name + ' — Study Guide';
+    const colour = safeHex(subject.colour);
+    if (colour) document.documentElement.style.setProperty('--subject-accent', colour);
+    const badge = [subject.level, subject.exam_board].filter(Boolean).join(' · ') || 'Teacher-made subject';
+    el('subjBadge').textContent = badge;
+    el('subjTitle').innerHTML = '<span class="subj-icon" aria-hidden="true">' + esc(subject.icon || '📘') + '</span>' + esc(subject.name);
+    el('subjDesc').textContent = subject.description || '';
+    if (isOwnerView) {
+      el('teacherActions').classList.remove('hidden');
+      el('manageLink').href = 'teacher-subjects.html?subject=' + encodeURIComponent(subject.id) + '&step=2';
+      el('publishLink').href = 'teacher-subjects.html?subject=' + encodeURIComponent(subject.id) + '&step=4';
+    }
+  }
+
+  function renderNav() {
+    const nav = el('topicNav');
+    if (!topics.length) {
+      nav.innerHTML = '<p class="empty">' + (isOwnerView
+        ? 'No topics yet — open ⚙ Manage subject to add one.'
+        : 'Your teacher hasn’t published any topics here yet — check back soon.') + '</p>';
+      return;
+    }
+    let html = '', lastSection = null;
+    topics.forEach(t => {
+      const sec = t.section || 'Topics';
+      if (sec !== lastSection) { html += '<div class="sec-head">' + esc(sec) + '</div>'; lastSection = sec; }
+      const active = current && current.id === t.id;
+      const chip = isOwnerView
+        ? (t.status === 'published' ? '<span class="chip live">Live</span>' : '<span class="chip">Draft</span>')
+        : '';
+      html += '<button type="button" class="topic-btn' + (active ? ' active' : '') + '" data-topic="' + esc(t.id) + '"' +
+        (active ? ' aria-current="true"' : '') + '><span>' + esc(t.title) + '</span>' + chip + '</button>';
+    });
+    nav.innerHTML = html;
+    nav.querySelectorAll('[data-topic]').forEach(b =>
+      b.addEventListener('click', () => openTopic(b.getAttribute('data-topic'))));
+  }
+
+  function renderTopicHead() {
+    document.title = current.title + ' — ' + subject.name;
+    el('topicTitle').textContent = current.title;
+    const draftPill = el('draftPill');
+    draftPill.classList.toggle('hidden', !(isOwnerView && current.status === 'draft'));
+    const editLink = el('editTopicLink');
+    if (isOwnerView) {
+      editLink.classList.remove('hidden');
+      editLink.href = 'teacher-subjects.html?subject=' + encodeURIComponent(subject.id) + '&step=3&topic=' + encodeURIComponent(current.id);
+    } else {
+      editLink.classList.add('hidden');
+    }
+  }
+
+  function updatePagerState() {
+    const i = current ? topics.findIndex(t => t.id === current.id) : -1;
+    el('prevBtn').disabled = i <= 0;
+    el('nextBtn').disabled = i < 0 || i >= topics.length - 1;
+  }
+
+  function step(offset) {
+    const i = topics.findIndex(t => current && t.id === current.id);
+    const next = topics[i + offset];
+    if (next) openTopic(next.id);
+  }
+
+  // ── Data ──
+
+  async function loadRestore() {
+    try {
+      const { data, error } = await client.from('progress_events')
+        .select('section, question_id, is_correct')
+        .eq('student_id', uid).eq('page_id', pageId);
+      if (error) throw error;
+      (data || []).forEach(row => {
+        if (answered[row.section]) answered[row.section].add(row.question_id);
+        restoreCorrect[row.section + ':' + row.question_id] = row.is_correct;
+      });
+    } catch (e) {
+      console.warn('progress restore failed — starting fresh', e);
+    }
+  }
+
+  // Topics open in /topic.html — the SAME lesson engine platform subjects
+  // use (tab bar, XP, streaks, focus mode, server progress; see
+  // docs/TEACHER-SUBJECTS-SPEC.md). This page is the subject's topic list.
+  function openTopic(topicId) {
+    const t = topics.find(x => x.id === topicId);
+    if (!t) return;
+    location.href = '/topic.html?s=' + encodeURIComponent(subject.slug) + '&t=' + encodeURIComponent(t.slug);
+  }
+
+  // ── Init ──
+
+  async function init() {
+    RichText.injectContentStyles();
+    if (!subjectId) { location.replace('/hub.html'); return; }
+
+    const auth = await tasksAuthInit();
+    if (!auth) return;
+    client = auth.client;
+    uid = auth.session.user.id;
+
+    window._gcseProfile = window._gcseProfile || { username: auth.username, role: auth.role };
+    window._gcseSupabaseClient = window._gcseSupabaseClient || client;
+    if (typeof window._gcseInjectAccountBar === 'function') window._gcseInjectAccountBar();
+
+    const { data: subj, error: subjErr } = await client.from('subjects')
+      .select('*').eq('id', subjectId).maybeSingle();
+    if (subjErr && subjErr.code === '42P01') {
+      pageMsg('Teacher subjects aren’t switched on yet — the site owner needs to run supabase/teacher-subjects.sql once.', true);
+      return;
+    }
+    if (subjErr || !subj) {
+      pageMsg('This subject doesn’t exist, or you don’t have access to it. ', true);
+      el('pageMsg').insertAdjacentHTML('beforeend', '<a href="/hub.html">Back to My Subjects →</a>');
+      return;
+    }
+    subject = subj;
+    isOwnerView = !!(subject.created_by && subject.created_by === uid);
+    renderHeader();
+
+    const { data: rows, error: topicsErr } = await client.from('custom_topics')
+      .select('id, slug, section, title, sort_order, status')
+      .eq('subject_id', subjectId)
+      .order('sort_order');
+    if (topicsErr) {
+      if (topicsErr.code === '42P01') {
+        pageMsg('Teacher subjects aren’t switched on yet — the site owner needs to run supabase/teacher-subjects.sql once.', true);
+      } else {
+        pageMsg('Could not load topics: ' + (topicsErr.message || ''), true);
+      }
+      return;
+    }
+    topics = rows || [];
+    el('layout').classList.remove('hidden');
+    renderNav();
+
+    // Old ?topic= deep links go straight to the real lesson page.
+    const wanted = params.get('topic');
+    const wt = wanted && topics.find(t => t.id === wanted);
+    if (wt) {
+      location.replace('/topic.html?s=' + encodeURIComponent(subject.slug) + '&t=' + encodeURIComponent(wt.slug));
+      return;
+    }
+
+    el('topicTitle').textContent = topics.length ? 'Pick a topic to start' : 'No topics yet';
+    el('activityStack').innerHTML = '<p class="empty">' + (topics.length
+      ? 'Choose a topic from the list — it opens as a full interactive lesson with quizzes, flashcards, matching and exam practice, just like every other subject.'
+      : (isOwnerView ? 'No topics yet — open the builder to add some.'
+                     : 'Your teacher hasn’t published any topics here yet — check back soon.')) + '</p>';
+    el('pager').classList.add('hidden');
+  }
+
+  init();
+})();
+</script>
+<script src="notifications-shared.js"></script>
+<script src="footer-legal.js"></script>
+  <script src="searchable-select.js" defer></script>
+</body>
+</html>

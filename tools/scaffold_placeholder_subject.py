@@ -53,8 +53,11 @@ def slugify(name: str) -> str:
 # ──────────────────────────────────────────────────────────────────
 # Subject definitions — header + topic tree. Economics numbers/titles are
 # the user-confirmed OCR J205 list (MULTI-SUBJECT-PLAN.md); Computer
-# Science is the standard OCR J277 spec structure, documented there as
-# "proposed, pending passive confirmation."
+# Science is the owner-LOCKED 29-page sub-topic structure of
+# CS-CONTENT-PLAN.md §3 (one page per J277 sub-topic; spec sections are
+# groups, carried as 4-tuples whose third element is the group `sub`
+# label). Filenames are explicit (title, file) pairs — dotted, given
+# verbatim by the owner.
 # ──────────────────────────────────────────────────────────────────
 
 SUBJECTS = {
@@ -66,20 +69,56 @@ SUBJECTS = {
             "colour": "#1a6b6b", "icon": "\U0001F4BB",
         },
         "units": [
-            ("1", "Computer Systems", [
-                "Systems Architecture",
-                "Memory and Storage",
-                "Computer Networks, Connections and Protocols",
-                "Network Security",
-                "Systems Software",
-                "Ethical, Legal, Cultural and Environmental Impacts",
+            ("1.1", "Systems Architecture", "Paper 1 · Computer systems", [
+                ("Architecture of the CPU", "1.1.1-architecture-of-the-cpu.html"),
+                ("CPU Performance", "1.1.2-cpu-performance.html"),
+                ("Embedded Systems", "1.1.3-embedded-systems.html"),
             ]),
-            ("2", "Computational Thinking, Algorithms and Programming", [
-                "Algorithms",
-                "Programming Fundamentals",
-                "Producing Robust Programs",
-                "Boolean Logic",
-                "Programming Languages and IDEs",
+            ("1.2", "Memory and Storage", "Paper 1 · Computer systems", [
+                ("Primary Storage (Memory)", "1.2.1-primary-storage-memory.html"),
+                ("Secondary Storage", "1.2.2-secondary-storage.html"),
+                ("Units", "1.2.3-units.html"),
+                ("Data Storage: Numbers", "1.2.4-data-storage-numbers.html"),
+                ("Data Storage: Characters", "1.2.5-data-storage-characters.html"),
+                ("Data Storage: Images", "1.2.6-data-storage-images.html"),
+                ("Data Storage: Sound", "1.2.7-data-storage-sound.html"),
+                ("Compression", "1.2.8-compression.html"),
+            ]),
+            ("1.3", "Computer Networks, Connections and Protocols", "Paper 1 · Computer systems", [
+                ("Networks and Topologies", "1.3.1-networks-and-topologies.html"),
+                ("Wired and Wireless Networks, Protocols and Layers", "1.3.2-wired-and-wireless-networks-protocols-and-layers.html"),
+            ]),
+            ("1.4", "Network Security", "Paper 1 · Computer systems", [
+                ("Threats to Computer Systems and Networks", "1.4.1-threats-to-computer-systems-and-networks.html"),
+                ("Identifying and Preventing Vulnerabilities", "1.4.2-identifying-and-preventing-vulnerabilities.html"),
+            ]),
+            ("1.5", "Systems Software", "Paper 1 · Computer systems", [
+                ("Operating Systems", "1.5.1-operating-systems.html"),
+                ("Utility Software", "1.5.2-utility-software.html"),
+            ]),
+            ("1.6", "Impacts of Digital Technology", "Paper 1 · Computer systems", [
+                ("Ethical, Legal, Cultural and Environmental Impact", "1.6.1-ethical-legal-cultural-and-environmental-impact.html"),
+            ]),
+            ("2.1", "Algorithms", "Paper 2 · Computational thinking", [
+                ("Computational Thinking", "2.1.1-computational-thinking.html"),
+                ("Designing, Creating and Refining Algorithms", "2.1.2-designing-creating-and-refining-algorithms.html"),
+                ("Searching and Sorting Algorithms", "2.1.3-searching-and-sorting-algorithms.html"),
+            ]),
+            ("2.2", "Programming Fundamentals", "Paper 2 · Computational thinking", [
+                ("Programming Fundamentals", "2.2.1-programming-fundamentals.html"),
+                ("Data Types", "2.2.2-data-types.html"),
+                ("Additional Programming Techniques", "2.2.3-additional-programming-techniques.html"),
+            ]),
+            ("2.3", "Producing Robust Programs", "Paper 2 · Computational thinking", [
+                ("Defensive Design", "2.3.1-defensive-design.html"),
+                ("Testing", "2.3.2-testing.html"),
+            ]),
+            ("2.4", "Boolean Logic", "Paper 2 · Computational thinking", [
+                ("Boolean Logic", "2.4.1-boolean-logic.html"),
+            ]),
+            ("2.5", "Programming Languages and IDEs", "Paper 2 · Computational thinking", [
+                ("Languages", "2.5.1-languages.html"),
+                ("The Integrated Development Environment (IDE)", "2.5.2-the-integrated-development-environment-ide.html"),
             ]),
         ],
     },
@@ -134,7 +173,14 @@ SUBJECTS = {
 def build_manifest(slug):
     spec = SUBJECTS[slug]
     groups = []
-    for unit_num, unit_title, topics in spec["units"]:
+    for unit in spec["units"]:
+        # 3-tuple = (num, title, topics) with "Unit N" sub; 4-tuple adds an
+        # explicit group `sub` label (CS uses paper labels per CS-CONTENT-PLAN §3).
+        if len(unit) == 4:
+            unit_num, unit_title, group_sub, topics = unit
+        else:
+            unit_num, unit_title, topics = unit
+            group_sub = f"Unit {unit_num}"
         pages = []
         for i, entry in enumerate(topics, start=1):
             topic_num = f"{unit_num}.{i}"
@@ -154,8 +200,11 @@ def build_manifest(slug):
             })
         groups.append({
             "id": slugify(f"{unit_num} {unit_title}"),
-            "title": f"{unit_num}. {unit_title}",
-            "sub": f"Unit {unit_num}",
+            # Dotted section numbers ("1.1") read wrong with the legacy
+            # "N. Title" format — they render as "1.1 Title" instead.
+            "title": (f"{unit_num} {unit_title}" if "." in unit_num
+                      else f"{unit_num}. {unit_title}"),
+            "sub": group_sub,
             "colour": spec["header"]["colour"],
             "pages": pages,
         })
@@ -456,7 +505,7 @@ PAGE_TEMPLATE = """<!doctype html>
 <script src="/topic-guard.js"></script>
 <script src="/notifications-shared.js"></script>
 <script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+<script src="/footer-legal.js"></script>{cslab_include}
 </body>
 
 </html>
@@ -659,7 +708,7 @@ INDEX_TEMPLATE = Template("""<!doctype html>
       let session;
       try { session = JSON.parse(localStorage.getItem(GCSE_SESSION_KEY) || 'null'); } catch (e) { session = null; }
       if (!session || !session.access_token) {
-        location.replace('/login.html?redirect=' + encodeURIComponent(location.pathname));
+        location.replace('/index.html?redirect=' + encodeURIComponent(location.pathname));
       }
     })();
   </script>
@@ -687,7 +736,7 @@ INDEX_TEMPLATE = Template("""<!doctype html>
       });
       if (error || !data.session) {
         localStorage.removeItem(GCSE_SESSION_KEY);
-        location.replace('/login.html?redirect=' + encodeURIComponent(location.pathname));
+        location.replace('/index.html?redirect=' + encodeURIComponent(location.pathname));
         return;
       }
       localStorage.setItem(GCSE_SESSION_KEY, JSON.stringify({
@@ -756,10 +805,18 @@ def scaffold_subject(slug, force_pages=False):
             if page_path.exists() and not force_pages:
                 skipped += 1
                 continue
-            badge = f"OCR {manifest['level']} {manifest['name'].replace('GCSE ', '')} — Unit {group['sub'].split(' ')[-1]}: {unit_title_by_group[group['id']]}"
+            if group["sub"].startswith("Unit "):
+                badge = f"OCR {manifest['level']} {manifest['name'].replace('GCSE ', '')} — Unit {group['sub'].split(' ')[-1]}: {unit_title_by_group[group['id']]}"
+            else:
+                # CS-style paper-labelled groups: "… — Paper 1 · 1.1 Systems Architecture"
+                badge = f"OCR {manifest['level']} {manifest['name'].replace('GCSE ', '')} — {group['sub'].split(' · ')[0]} · {group['title']}"
             html = PAGE_TEMPLATE.format(
                 title_tag=page["name"], badge=badge, h1=page["name"],
                 page_id=page["id"], slug=slug,
+                # CS pages get the Practice Lab framework (CS-CONTENT-PLAN §7);
+                # it self-noops on pages with no tools mapped in PAGE_TOOLS.
+                cslab_include=('\n<script src="/cs-lab/cs-lab.js" defer></script>'
+                               if slug == "computer-science" else ""),
             )
             page_path.write_text(html, encoding="utf-8")
             written += 1

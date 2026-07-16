@@ -20,7 +20,7 @@
     :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
 
     header {
-      background-color: var(--ink); border-bottom: 3px solid var(--accent);
+      background-color: var(--chrome, var(--ink)); border-bottom: 3px solid var(--accent);
       /* Decorative circle as a background so the header needs no
          overflow:hidden that would clip the account dropdown / bell panel. */
       background-image: radial-gradient(circle 110px at calc(100% - 60px) 60px,
@@ -34,12 +34,12 @@
       font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em;
       text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:12px;
     }
-    header h1 { font-family:'Playfair Display',serif; font-size:clamp(22px,3.5vw,30px); font-weight:700; color:var(--paper); line-height:1.15; margin-bottom:5px; }
+    header h1 { font-family:'Playfair Display',serif; font-size:clamp(22px,3.5vw,30px); font-weight:700; color:var(--chrome-text, var(--paper)); line-height:1.15; margin-bottom:5px; }
     header p { font-size:13px; color:rgba(245,240,232,.6); }
     .header-links { display:flex; gap:10px; flex-wrap:wrap; align-items:flex-start; }
     .nav-link {
       background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
-      color:var(--paper); font-family:'DM Mono',monospace; font-size:11px;
+      color:var(--chrome-text, var(--paper)); font-family:'DM Mono',monospace; font-size:11px;
       padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap;
       transition:background .15s,border-color .15s;
     }
@@ -59,14 +59,17 @@
     .qhead { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:14px; font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); text-transform:uppercase; letter-spacing:.06em; }
     .chip { display:inline-block; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.05em; padding:3px 10px; border-radius:99px; background:rgba(122,92,158,.1); color:var(--accent); border:1px solid rgba(122,92,158,.3); }
     .qtext { font-size:15px; font-weight:600; line-height:1.55; margin-bottom:16px; }
-    .case-study { background:#f0ece4; border-left:4px solid var(--accent); border-radius:0 6px 6px 0; padding:12px 14px; font-size:13px; line-height:1.7; margin-bottom:14px; white-space:pre-wrap; }
+    /* themed surface + explicit ink: hardcoded #f0ece4 + inherited (themed-light)
+       text left the case study invisible on dark themes — light-on-light. */
+    .case-study { background:var(--cream); color:var(--ink); border-left:4px solid var(--accent); border-radius:0 6px 6px 0; padding:12px 14px; font-size:13px; line-height:1.7; margin-bottom:14px; white-space:pre-wrap; }
 
     .opt {
       display:block; border:1.5px solid var(--border); background:var(--cream);
       border-radius:7px; padding:11px 16px; margin-bottom:9px; cursor:pointer;
       font-size:13.5px; transition:background .15s,border-color .15s;
     }
-    .opt:hover { background:#e8e1d3; border-color:var(--mid); }
+    /* themed hover: #e8e1d3 (light) made option text vanish on hover in dark themes */
+    .opt:hover { background:color-mix(in srgb, var(--ink) 12%, var(--cream)); border-color:var(--mid); }
     .opt input { margin-right:8px; }
     .opt.correct { background:#d4edda; border-color:var(--success); color:var(--success); font-weight:600; }
     .opt.wrong { background:#fde8e5; border-color:var(--wrong); color:var(--wrong); font-weight:600; }
@@ -120,7 +123,7 @@
     .dr-pref-row input { margin-top:3px; }
     .dr-pref-row .dr-pref-hint { display:block; font-size:11.5px; color:var(--mid); }
 
-    .btn { background:var(--ink); color:var(--paper); border:none; padding:11px 20px; border-radius:7px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13.5px; cursor:pointer; transition:background .15s; }
+    .btn { background:var(--chrome, var(--ink)); color:var(--chrome-text, var(--paper)); border:none; padding:11px 20px; border-radius:7px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13.5px; cursor:pointer; transition:background .15s; }
     .btn:hover { background:#1c2c3d; }
     .btn:disabled { opacity:.5; cursor:default; }
     .dr-actions { margin-top:18px; display:flex; justify-content:flex-end; align-items:center; gap:10px; }
@@ -168,40 +171,47 @@
   <div id="drFilterToggleRow" style="display:none; margin-bottom:12px;">
     <button type="button" class="dr-filter-toggle" id="drFilterToggleBtn">🔍 Filters</button>
   </div>
-  <div class="filter-backdrop" id="drFilterBackdrop"></div>
-  <aside class="filter-sidebar" id="drFilterPanel" aria-label="Question filters">
-    <div class="filter-sidebar-head">
-      <strong style="font-size:13px;">Question filters</strong>
-      <button type="button" class="filter-sidebar-close" id="drFilterCloseBtn" aria-label="Close">✕</button>
-    </div>
-    <div style="margin-top:8px;">
-      <label class="dr-pref-row"><input type="checkbox" id="drSmartMode" checked/>
-        <span><strong>Smart mode</strong>
-          <span class="dr-pref-hint">Spaces questions out over time — only asks what's due today. Turn off to practise anything, any time.</span></span>
-      </label>
-      <label class="dr-pref-row"><input type="checkbox" id="drExcludeMastered" checked/>
-        <span><strong>Don't ask mastered questions</strong>
-          <span class="dr-pref-hint">Skips questions you've already answered right three times in a row.</span></span>
-      </label>
-      <label class="dr-pref-row"><input type="checkbox" id="drIncorrectOnly"/>
-        <span><strong>Incorrect only</strong>
-          <span class="dr-pref-hint">Only questions you got wrong last time.</span></span>
-      </label>
-    </div>
-    <div style="margin-top:14px; padding-top:12px; border-top:1px solid var(--border);">
-      <strong style="font-size:13px;">Practise only these topics</strong>
-    </div>
-    <p class="muted" id="drFilterNote" style="margin-top:6px;"></p>
-    <div id="drFilterGroups" style="margin-top:10px;"></div>
-    <div class="filter-sidebar-foot">
-      <button type="button" class="btn" id="drApplyFilterBtn" style="width:100%;">Update</button>
-    </div>
-  </aside>
 
   <div class="panel" id="drPanel">
     <div class="empty" id="drLoading">Loading today's questions…</div>
   </div>
 </main>
+
+<!-- Question-filters overlay lives at BODY level, NOT inside <main>. As a
+     position:fixed overlay it must never sit inside an element that can gain
+     a transform (main carries the fadeUp page-load animation) — a transformed
+     ancestor becomes the containing block for fixed descendants, which pins
+     the panel to main's box and drops it into the page flow instead of
+     overlaying the viewport. Body-level keeps it viewport-fixed regardless. -->
+<div class="filter-backdrop" id="drFilterBackdrop"></div>
+<aside class="filter-sidebar" id="drFilterPanel" aria-label="Question filters">
+  <div class="filter-sidebar-head">
+    <strong style="font-size:13px;">Question filters</strong>
+    <button type="button" class="filter-sidebar-close" id="drFilterCloseBtn" aria-label="Close">✕</button>
+  </div>
+  <div style="margin-top:8px;">
+    <label class="dr-pref-row"><input type="checkbox" id="drSmartMode" checked/>
+      <span><strong>Smart mode</strong>
+        <span class="dr-pref-hint">Spaces questions out over time — only asks what's due today. Turn off to practise anything, any time.</span></span>
+    </label>
+    <label class="dr-pref-row"><input type="checkbox" id="drExcludeMastered" checked/>
+      <span><strong>Don't ask mastered questions</strong>
+        <span class="dr-pref-hint">Skips questions you've already answered right three times in a row.</span></span>
+    </label>
+    <label class="dr-pref-row"><input type="checkbox" id="drIncorrectOnly"/>
+      <span><strong>Incorrect only</strong>
+        <span class="dr-pref-hint">Only questions you got wrong last time.</span></span>
+    </label>
+  </div>
+  <div style="margin-top:14px; padding-top:12px; border-top:1px solid var(--border);">
+    <strong style="font-size:13px;">Practise only these topics</strong>
+  </div>
+  <p class="muted" id="drFilterNote" style="margin-top:6px;"></p>
+  <div id="drFilterGroups" style="margin-top:10px;"></div>
+  <div class="filter-sidebar-foot">
+    <button type="button" class="btn" id="drApplyFilterBtn" style="width:100%;">Update</button>
+  </div>
+</aside>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/subjects-index.js"></script>
@@ -224,6 +234,7 @@
 <script src="/notifications-shared.js"></script>
 <script src="/content-protect.js"></script>
 <script src="/question-report.js"></script>
+<script src="/rich-editor.js"></script>
 <script src="gamification.js"></script>
 <script src="daily-revise.js"></script>
 <script src="footer-legal.js"></script>

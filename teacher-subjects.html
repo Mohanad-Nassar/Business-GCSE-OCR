@@ -1,0 +1,2706 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>My Content — Teacher · GCSE Business Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@300;400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="business-style.css"/>
+<style>
+  html, body { display:block !important; grid-template-columns:none !important; grid-template-rows:none !important; grid-template-areas:none !important; }
+  header, main { grid-area:unset !important; }
+  body { background:var(--paper); color:var(--ink); }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
+
+  header { background:var(--chrome, var(--ink)); border-bottom:3px solid var(--accent); padding:24px 40px 20px; }
+  .header-inner { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+  .header-badge { display:inline-block; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:10px; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:700; color:var(--chrome-text, var(--paper)); margin-bottom:4px; }
+  header p { font-size:13px; color:rgba(245,240,232,.6); }
+
+  main { padding:26px 40px 90px; max-width:1200px; margin:0 auto; }
+  .section-label { font-weight:500; font-family:'DM Mono',monospace; font-size:11px; color:var(--accent); letter-spacing:.14em; text-transform:uppercase; display:flex; align-items:center; gap:10px; margin:30px 0 16px; }
+  .section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+  .section-label:first-child { margin-top:0; }
+  .subhead { font-family:'Playfair Display',serif; font-size:15px; font-weight:700; margin:0 0 10px; }
+
+  .panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:20px 22px; margin-bottom:18px; }
+  .muted { color:var(--mid); font-size:12px; }
+  .empty { padding:22px; text-align:center; color:var(--mid); font-size:13px; font-style:italic; }
+  .mono { font-family:'DM Mono',monospace; }
+  .hidden { display:none !important; }
+
+  .btn { background:var(--chrome, var(--ink)); color:var(--chrome-text, var(--paper)); border:none; padding:10px 18px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
+  .btn:hover { filter:brightness(1.15); }
+  .btn:disabled { opacity:.5; cursor:default; filter:none; }
+  .btn.secondary { background:transparent; border:1px solid var(--border); color:var(--ink); }
+  .btn.secondary:hover { border-color:var(--accent); color:var(--accent); filter:none; }
+  .btn.accent { background:var(--accent); }
+  .btn.small { padding:6px 12px; font-size:11.5px; }
+  .btn.icon-btn { background:transparent; border:1px solid var(--border); color:var(--mid); padding:4px 9px; border-radius:5px; font-size:12px; cursor:pointer; }
+  .btn.icon-btn:hover { border-color:var(--accent); color:var(--accent); }
+  .btn.icon-btn:disabled { opacity:.35; cursor:default; }
+
+  .subtab { background:transparent; border:1px solid var(--border); color:var(--mid); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.04em; padding:8px 16px; border-radius:7px; cursor:pointer; white-space:nowrap; }
+  .subtab:hover { border-color:var(--accent); color:var(--accent); }
+  .subtab.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .subtab.disabled { opacity:.4; cursor:not-allowed; }
+
+  .field { display:flex; flex-direction:column; gap:5px; min-width:0; }
+  .field label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); }
+  .field input, .field select, .field textarea { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:13.5px; font-family:'DM Sans',sans-serif; background:var(--card-bg); color:var(--ink); }
+  .field textarea { resize:vertical; min-height:64px; }
+  .form-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; }
+
+  .msg { font-family:'DM Mono',monospace; font-size:12px; margin-top:10px; min-height:16px; color:var(--mid); transition:opacity .4s ease; }
+  .msg.ok { color:#2d7a4f; }
+  .msg.err { color:var(--wrong); }
+
+  .chip { display:inline-block; font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:.04em; padding:2px 8px; border-radius:99px; white-space:nowrap; flex-shrink:0; }
+  .chip.empty { background:rgba(90,110,127,.06); color:var(--mid); border:1px dashed var(--border); }
+  .chip.draft { background:rgba(90,110,127,.12); color:#5a6e7f; border:1px solid rgba(90,110,127,.3); }
+  .chip.published { background:rgba(45,122,79,.1); color:#2d7a4f; border:1px solid rgba(45,122,79,.3); }
+
+  .sticky-actions { position:sticky; bottom:0; background:var(--paper); border-top:2px solid var(--border); padding:12px 0; display:flex; gap:10px; flex-wrap:wrap; align-items:center; z-index:5; margin-top:8px; }
+
+  .toolbar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:26px 0 14px; }
+  .toolbar .section-label { margin:0; flex:1; min-width:160px; }
+
+  /* ── setup-notice (missing SQL) ── */
+  .setup-notice { border-left:4px solid var(--wrong); }
+  .setup-notice h2 { color:var(--wrong); }
+
+  /* ── manager: how-it-works ── */
+  .how-steps { display:flex; gap:18px; flex-wrap:wrap; list-style:none; padding:0; margin:0; }
+  .how-steps li { display:flex; align-items:center; gap:9px; font-size:13px; color:var(--ink); flex:1; min-width:180px; }
+  .step-num { display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; border-radius:50%; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:12px; flex-shrink:0; }
+
+  /* ── manager: subject cards ── */
+  .subj-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(270px, 1fr)); gap:14px; }
+  .subj-card { background:var(--card-bg); border:1px solid var(--border); border-left:5px solid var(--accent); border-radius:10px; padding:16px; display:flex; flex-direction:column; gap:8px; }
+  .subj-card-top { display:flex; align-items:flex-start; gap:10px; }
+  .subj-icon { font-size:26px; line-height:1; }
+  .subj-card-title { min-width:0; }
+  .subj-card-title h3 { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; margin:0; word-break:break-word; }
+  .subj-card .meta { font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); }
+  .card-links { display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; padding-top:10px; border-top:1px solid var(--border); align-items:center; position:relative; }
+  .card-links .cl-btn { font-family:'DM Mono',monospace; font-size:11px; text-decoration:none; color:var(--ink); border:1px solid var(--border); border-radius:6px; padding:5px 9px; background:none; cursor:pointer; white-space:nowrap; }
+  .card-links .cl-btn:hover { border-color:var(--accent); color:var(--accent); }
+  .card-links .cl-btn.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .card-links .cl-btn.primary:hover { filter:brightness(1.1); color:#fff; }
+  .subj-overflow { position:relative; margin-left:auto; }
+  .subj-overflow summary { list-style:none; }
+  .subj-overflow summary::-webkit-details-marker { display:none; }
+  .subj-menu { position:absolute; right:0; top:calc(100% + 4px); background:var(--card-bg); border:1px solid var(--border); border-radius:8px; box-shadow:0 8px 24px rgba(15,25,35,.18); min-width:150px; z-index:10; display:flex; flex-direction:column; padding:4px; }
+  .subj-menu button { text-align:left; background:none; border:none; padding:8px 10px; font-size:12.5px; font-family:'DM Sans',sans-serif; border-radius:5px; cursor:pointer; color:var(--ink); }
+  .subj-menu button:hover { background:var(--cream); }
+  .subj-menu button.danger { color:var(--wrong); }
+
+  /* ── wizard shell ── */
+  .wizard-steps { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
+  .tpl-toolbar { display:flex; gap:8px; flex-wrap:wrap; margin:0 0 16px; }
+
+  /* ── step 1 ── */
+  .icon-picker { display:flex; flex-wrap:wrap; gap:6px; }
+  .icon-swatch { width:38px; height:38px; font-size:19px; border:1.5px solid var(--border); border-radius:8px; background:var(--card-bg); cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .icon-swatch:hover { border-color:var(--accent); }
+  .icon-swatch.selected { border-color:var(--accent); background:rgba(74,111,165,.1); box-shadow:0 0 0 2px rgba(74,111,165,.2); }
+  .colour-picker { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  .colour-swatch { width:32px; height:32px; border-radius:50%; border:2px solid transparent; cursor:pointer; padding:0; }
+  .colour-swatch.selected { border-color:var(--ink); box-shadow:0 0 0 2px var(--card-bg), 0 0 0 4px var(--ink); }
+  #customColourInput { width:38px; height:32px; border:1px solid var(--border); border-radius:6px; cursor:pointer; padding:2px; background:var(--card-bg); }
+  .preview-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); margin:20px 0 8px; }
+
+  /* ── step 2: structure ── */
+  .struct-section { border:1px solid var(--border); border-radius:9px; padding:12px 14px; margin-bottom:12px; background:rgba(0,0,0,.012); }
+  .struct-section-head { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+  .struct-section-name { flex:1; padding:8px 10px; border:1px solid var(--border); border-radius:6px; font-size:14px; font-weight:600; font-family:'DM Sans',sans-serif; background:var(--card-bg); color:var(--ink); }
+  .struct-topics { display:flex; flex-direction:column; gap:6px; margin-bottom:8px; }
+  .struct-topic-row { display:flex; align-items:center; gap:6px; }
+  .struct-topic-title { flex:1; padding:7px 10px; border:1px solid var(--border); border-radius:6px; font-size:13px; font-family:'DM Sans',sans-serif; background:var(--card-bg); color:var(--ink); }
+
+  /* ── step 3: content ── */
+  .content-cols { display:grid; grid-template-columns:280px minmax(0,1fr); gap:16px; align-items:start; }
+  .content-sidebar { position:sticky; top:14px; max-height:calc(100vh - 28px); overflow-y:auto; }
+  @media (max-width:900px) { .content-cols { grid-template-columns:1fr; } .content-sidebar { position:static; max-height:none; } }
+  .topic-sidebar-group { margin-bottom:14px; }
+  .topic-sidebar-heading { font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); margin-bottom:6px; }
+  .topic-item { display:flex; align-items:center; justify-content:space-between; gap:8px; width:100%; text-align:left; background:none; border:1px solid transparent; border-radius:7px; padding:8px 9px; cursor:pointer; font-family:'DM Sans',sans-serif; font-size:12.5px; color:var(--ink); margin-bottom:2px; }
+  .topic-item:hover { background:var(--cream); }
+  .topic-item.active { background:rgba(74,111,165,.1); border-color:var(--accent); }
+  .topic-item-title { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .content-editor-panel { display:flex; flex-direction:column; min-height:420px; }
+  .content-editor-footer { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:12px; }
+  .content-editor-footer .msg { margin-top:0; }
+
+  /* ── step 3: activity panels ── */
+  .switch { position:relative; display:inline-block; width:38px; height:22px; flex-shrink:0; }
+  .switch input { opacity:0; width:0; height:0; position:absolute; }
+  .switch .slider { position:absolute; inset:0; background:var(--border); border-radius:99px; cursor:pointer; transition:background .15s ease; }
+  .switch .slider::before { content:''; position:absolute; width:16px; height:16px; left:3px; top:3px; background:#fff; border-radius:50%; transition:transform .15s ease; box-shadow:0 1px 3px rgba(0,0,0,.3); }
+  .switch input:checked + .slider { background:var(--accent); }
+  .switch input:checked + .slider::before { transform:translateX(16px); }
+  .switch input:focus-visible + .slider { outline:2px solid var(--accent); outline-offset:2px; }
+
+  .activity-panel { border:1px solid var(--border); border-radius:10px; margin-bottom:12px; background:var(--card-bg); overflow:hidden; }
+  .activity-header { display:flex; align-items:center; gap:10px; padding:12px 14px; cursor:pointer; -webkit-user-select:none; user-select:none; }
+  .activity-header .act-icon { font-size:17px; flex-shrink:0; }
+  .activity-header .act-title { flex:1; min-width:0; font-weight:600; font-size:13.5px; }
+  .activity-header .act-badge { font-family:'DM Mono',monospace; font-size:10.5px; color:var(--mid); white-space:nowrap; }
+  .activity-header .act-chevron { font-size:11px; color:var(--mid); transition:transform .15s ease; flex-shrink:0; display:inline-block; }
+  .activity-panel.open .act-chevron { transform:rotate(90deg); }
+  .activity-guidance { font-size:12px; color:var(--mid); padding:0 14px 12px 41px; margin:-4px 0 0; }
+  .activity-body { display:none; padding:0 14px 16px; border-top:1px solid var(--border); }
+  .activity-panel.open .activity-body { display:block; padding-top:14px; }
+  .activity-body.act-off { opacity:.55; }
+  .act-off-warn { font-size:11.5px; color:var(--wrong); background:rgba(200,75,49,.08); border:1px solid rgba(200,75,49,.25); border-radius:7px; padding:7px 10px; margin-bottom:12px; }
+
+  .item-card { border:1px solid var(--border); border-radius:8px; padding:12px; margin-bottom:10px; background:rgba(0,0,0,.012); }
+  .item-card-head { display:flex; align-items:center; gap:6px; margin-bottom:8px; }
+  .item-card-head .item-num { font-family:'DM Mono',monospace; font-size:10.5px; color:var(--mid); flex:1; }
+  .item-body-grid { display:flex; flex-direction:column; gap:8px; }
+  .opt-row { display:flex; align-items:center; gap:8px; }
+  .opt-row input[type=radio] { flex-shrink:0; }
+  .opt-row input[type=text] { flex:1; }
+  .opt-actions { display:flex; gap:8px; margin-top:2px; align-items:center; flex-wrap:wrap; }
+  .check-subform { border-top:1px dashed var(--border); margin-top:10px; padding-top:10px; }
+  .check-subform-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; gap:8px; }
+  .fib-hint { font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); margin-top:4px; }
+  .fib-hint.warn { color:var(--wrong); }
+  .tf-radios { display:flex; gap:16px; align-items:center; }
+  .tf-radios label { display:flex; align-items:center; gap:5px; font-size:13px; cursor:pointer; }
+  .add-item-row { display:flex; justify-content:center; margin-top:4px; }
+
+  /* ── modals: AI helper / import preview ── */
+  .modal-overlay { position:fixed; inset:0; background:rgba(20,20,25,.55); display:flex; align-items:flex-start; justify-content:center; padding:5vh 16px; z-index:200; overflow-y:auto; }
+  .modal-overlay.hidden { display:none; }
+  .modal-box { background:var(--card-bg); border-radius:10px; max-width:620px; width:100%; padding:22px 24px; box-shadow:0 20px 60px rgba(0,0,0,.35); }
+  .modal-box h3 { font-family:'Playfair Display',serif; font-size:17px; margin-bottom:10px; }
+  .modal-close-row { display:flex; justify-content:flex-end; margin-top:14px; gap:8px; flex-wrap:wrap; }
+  .ai-prompt-box { width:100%; min-height:220px; font-family:'DM Mono',monospace; font-size:11.5px; padding:10px; border:1px solid var(--border); border-radius:7px; background:var(--cream); color:var(--ink); resize:vertical; }
+  .ai-steps { font-size:12.5px; line-height:1.7; padding-left:18px; margin:10px 0; }
+  .import-errors { max-height:220px; overflow-y:auto; border:1px solid rgba(200,75,49,.3); background:rgba(200,75,49,.06); border-radius:8px; padding:10px 14px; margin:10px 0; }
+  .import-errors li { font-size:12px; margin-bottom:4px; }
+  .import-counts { display:grid; grid-template-columns:repeat(auto-fill,minmax(90px,1fr)); gap:8px; margin:12px 0; }
+  .import-counts div { text-align:center; padding:8px; border:1px solid var(--border); border-radius:7px; }
+  .import-counts .n { font-family:'DM Mono',monospace; font-size:17px; font-weight:600; color:var(--accent); }
+  .import-counts .lbl { font-size:10px; color:var(--mid); text-transform:uppercase; letter-spacing:.06em; }
+  .merge-summary { font-size:13px; line-height:1.7; margin:10px 0; }
+
+  /* ── step 4: publish & classes ── */
+  .share-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; align-items:start; }
+  .publish-row { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:8px 4px; border-bottom:1px solid var(--border); font-size:12.5px; }
+  .publish-row:last-child { border-bottom:none; }
+  .class-row { display:flex; align-items:center; justify-content:space-between; gap:8px; padding:8px 4px; border-bottom:1px solid var(--border); font-size:13px; }
+  .class-row:last-child { border-bottom:none; }
+  .finish-bar { display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+
+  @media (max-width:700px) { header, main { padding-left:16px; padding-right:16px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="header-badge">Subjects · Teacher workspace</div>
+      <h1>📚 Subjects</h1>
+      <p>Browse every subject you can use, build your own, and share them with colleagues.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ═══ VIEW: MANAGER ═══ -->
+  <div id="viewManager">
+    <!-- top-level tabs -->
+    <div class="toolbar" style="gap:8px; border-bottom:1px solid var(--border); padding-bottom:10px; margin-top:0;">
+      <button type="button" class="subtab active" data-subjtab="mine">📚 My subjects</button>
+      <button type="button" class="subtab" data-subjtab="platform">🏛️ Platform</button>
+      <button type="button" class="subtab" data-subjtab="shared">🤝 Shared with me</button>
+      <button type="button" class="subtab" data-subjtab="all">🗂️ All</button>
+    </div>
+
+    <!-- PANEL: My subjects -->
+    <div id="panelMine" class="subjtab-panel">
+      <div id="incomingRequests"></div>
+      <div class="panel">
+        <h2 class="section-label">How it works</h2>
+        <ol class="how-steps">
+          <li><span class="step-num">1</span>Name your subject</li>
+          <li><span class="step-num">2</span>Plan sections &amp; topics</li>
+          <li><span class="step-num">3</span>Write the content</li>
+          <li><span class="step-num">4</span>Publish, use &amp; share</li>
+        </ol>
+      </div>
+      <div class="toolbar">
+        <h2 class="section-label">Your subjects</h2>
+        <button type="button" class="subtab active" id="mgrTabActive">Active</button>
+        <button type="button" class="subtab" id="mgrTabArchived">📦 Archived</button>
+        <button type="button" class="btn accent" id="createSubjectBtn">＋ Create a new subject</button>
+      </div>
+      <div class="subj-grid" id="subjGrid"><div class="empty">Loading…</div></div>
+    </div>
+
+    <!-- PANEL: Platform -->
+    <div id="panelPlatform" class="subjtab-panel hidden">
+      <div class="panel"><p class="muted" style="margin:0;">Official platform subjects. Open one to browse it, or assign it to a class from <a href="teacher-classes.html">My Classes</a>.</p></div>
+      <div class="subj-grid" id="platformGrid"><div class="empty">Loading…</div></div>
+    </div>
+
+    <!-- PANEL: Shared with me -->
+    <div id="panelShared" class="subjtab-panel hidden">
+      <div class="panel"><p class="muted" style="margin:0;">Subjects colleagues have shared with you. <strong>Can edit</strong> opens the editor; <strong>Can view</strong> is a read-only preview — use <strong>Request to edit</strong> to ask for edit access.</p></div>
+      <div id="myRequestsStrip"></div>
+      <div class="subj-grid" id="sharedGrid"><div class="empty">Loading…</div></div>
+    </div>
+
+    <!-- PANEL: All -->
+    <div id="panelAll" class="subjtab-panel hidden">
+      <div class="panel"><p class="muted" style="margin:0;">Everything you can open — your own subjects, platform subjects, and subjects shared with you.</p></div>
+      <div class="subj-grid" id="allGrid"><div class="empty">Loading…</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ VIEW: WIZARD ═══ -->
+  <div id="viewWizard" class="hidden">
+    <div class="toolbar">
+      <h2 class="section-label" id="wizardTitle">New subject</h2>
+      <button type="button" class="subtab" id="wizManagerBtn">← Back to My Content</button>
+    </div>
+
+    <div class="wizard-steps" id="wizardSteps">
+      <button type="button" class="subtab active" data-wstep="1">1 · Subject basics</button>
+      <button type="button" class="subtab" data-wstep="2">2 · Structure</button>
+      <button type="button" class="subtab" data-wstep="3">3 · Content</button>
+      <button type="button" class="subtab" data-wstep="4">4 · Publish &amp; classes</button>
+    </div>
+
+    <div class="tpl-toolbar hidden" id="tplToolbar">
+      <div class="field" style="min-width:220px;">
+        <label for="tplScopeSelect">Template scope</label>
+        <select id="tplScopeSelect" aria-label="Template scope"></select>
+      </div>
+      <button type="button" class="btn secondary small" id="tplDownloadBtn">📥 Download template</button>
+      <button type="button" class="btn secondary small" id="tplAiBtn">🤖 AI helper</button>
+      <button type="button" class="btn secondary small" id="tplImportBtn">📤 Import from template</button>
+      <input type="file" id="tplFileInput" accept=".json,.txt" class="hidden" aria-label="Import template file"/>
+      <p class="muted" style="flex-basis:100%; margin:2px 0 0;">Work on your whole course at once, or just one unit / one lesson at a time.</p>
+    </div>
+
+    <!-- STEP 1 · Subject basics -->
+    <div class="panel" id="wStep1">
+      <p class="muted" style="margin-bottom:14px;">Give your subject a name — you can change everything here later.</p>
+      <div class="form-grid">
+        <div class="field" style="grid-column:1/-1;">
+          <label for="f1Name">Subject name *</label>
+          <input type="text" id="f1Name" maxlength="80" placeholder="e.g. Year 9 Geography"/>
+        </div>
+        <div class="field">
+          <label for="f1Level">Level</label>
+          <select id="f1Level">
+            <option>KS3</option><option>GCSE</option><option>A Level</option><option>BTEC</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f1ExamBoard">Exam board (optional)</label>
+          <input type="text" id="f1ExamBoard" maxlength="40" placeholder="e.g. AQA"/>
+        </div>
+        <div class="field" style="grid-column:1/-1;">
+          <label for="f1Description">Short description (optional)</label>
+          <textarea id="f1Description" maxlength="500" placeholder="A sentence or two about this subject…"></textarea>
+        </div>
+        <div class="field" style="grid-column:1/-1;">
+          <label id="iconPickerLabel">Icon</label>
+          <div class="icon-picker" id="iconPicker" role="group" aria-labelledby="iconPickerLabel"></div>
+        </div>
+        <div class="field" style="grid-column:1/-1;">
+          <label id="colourPickerLabel">Colour</label>
+          <div class="colour-picker" id="colourPicker" role="group" aria-labelledby="colourPickerLabel"></div>
+        </div>
+      </div>
+      <div class="preview-label">Preview</div>
+      <div id="step1Preview"></div>
+      <div class="msg" id="step1Msg"></div>
+    </div>
+
+    <!-- STEP 2 · Structure -->
+    <div class="panel hidden" id="wStep2">
+      <p class="muted" style="margin-bottom:14px;">Sections are the big units of your course; topics are the individual pages students open.</p>
+      <div id="structList"></div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
+        <button type="button" class="btn secondary small" id="addSectionBtn">＋ Add section</button>
+        <button type="button" class="btn secondary small" id="loadExampleBtn">✨ Load an example structure</button>
+      </div>
+      <div class="msg" id="step2Msg"></div>
+    </div>
+
+    <!-- STEP 3 · Content -->
+    <div class="hidden" id="wStep3">
+      <div class="content-cols">
+        <div class="panel content-sidebar">
+          <h3 class="subhead">Topics</h3>
+          <div id="topicSidebarList"></div>
+        </div>
+        <div class="panel content-editor-panel">
+          <h3 class="subhead" id="editorTopicTitle">Choose a topic</h3>
+          <div id="editorEmptyState" class="empty">Select a topic on the left to start writing.</div>
+          <div id="noActivitiesHint" class="empty hidden" style="margin-bottom:12px;">👋 Every activity below is switched off — flip a toggle to make it visible to students once it has content.</div>
+          <div id="activitiesRoot" class="hidden"></div>
+          <div id="editorFooter" class="content-editor-footer hidden">
+            <button type="button" class="btn secondary" id="saveTopicBtn">💾 Save topic</button>
+            <button type="button" class="btn accent" id="saveNextTopicBtn">Save &amp; next ›</button>
+            <span class="msg" id="step3Msg"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4 · Publish & classes -->
+    <div class="hidden" id="wStep4">
+      <div class="share-grid">
+        <div class="panel">
+          <h3 class="subhead">What's live <span class="muted" id="publishSummary"></span></h3>
+          <p class="muted" style="margin-bottom:10px;">Students only ever see <strong>Published</strong> topics — drafts stay invisible, even to classes using this subject.</p>
+          <button type="button" class="btn secondary small" id="publishAllBtn">🚀 Publish everything with content</button>
+          <div id="publishList" style="margin-top:12px;"></div>
+          <div class="msg" id="publishMsg"></div>
+        </div>
+        <div class="panel">
+          <h3 class="subhead">Who sees it</h3>
+          <p class="muted" style="margin-bottom:10px;">Students see this subject when they're in a class that uses it. Join codes and student logins work exactly like any other class — manage them on <a href="teacher-classes.html">My Classes</a>.</p>
+          <div id="classListPanel"><div class="empty">Loading…</div></div>
+        </div>
+      </div>
+      <div class="panel finish-bar" id="finishBar"></div>
+    </div>
+
+    <div class="sticky-actions" id="wizFooter">
+      <button type="button" class="btn secondary" id="wizBackBtn">← Back</button>
+      <button type="button" class="btn accent" id="wizContinueBtn">Continue →</button>
+    </div>
+  </div>
+
+</main>
+
+<!-- AI helper modal -->
+<div class="modal-overlay hidden" id="aiModal">
+  <div class="modal-box">
+    <h3>🤖 AI helper</h3>
+    <ol class="ai-steps">
+      <li>Download the template (button above) if you haven't already.</li>
+      <li>Copy the prompt below, paste it into ChatGPT, Claude or Gemini, and attach or paste in the downloaded file.</li>
+      <li>Save its reply as a <span class="mono">.json</span> file and import it below. Always review what an AI wrote before publishing it to students.</li>
+    </ol>
+    <textarea class="ai-prompt-box" id="aiPromptText" readonly aria-label="AI prompt to copy"></textarea>
+    <div class="modal-close-row">
+      <button type="button" class="btn secondary small" id="aiCopyBtn">📋 Copy prompt</button>
+      <button type="button" class="btn secondary small" id="aiCloseBtn">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Import preview modal -->
+<div class="modal-overlay hidden" id="importModal">
+  <div class="modal-box" id="importModalBox"></div>
+</div>
+
+<!-- Share subject modal (Subjects V2 · S1) -->
+<div class="modal-overlay hidden" id="shareModal">
+  <div class="modal-box">
+    <h3>🤝 Share subject</h3>
+    <p class="muted" id="shareSubjName" style="margin-bottom:14px;"></p>
+    <div class="form-grid">
+      <div class="field" style="grid-column:1/-1;">
+        <label for="shareScope">Share with</label>
+        <select id="shareScope">
+          <option value="teacher">A specific teacher in my school</option>
+          <option value="school">My whole school</option>
+          <option value="external">Someone outside my school (needs admin approval)</option>
+        </select>
+      </div>
+      <div class="field" id="shareTeacherField" style="grid-column:1/-1;">
+        <label for="shareTeacher">Teacher</label>
+        <select id="shareTeacher"><option value="">Loading teachers…</option></select>
+      </div>
+      <div id="shareExternalFields" class="hidden" style="grid-column:1/-1; display:contents;">
+        <div class="field" style="grid-column:1/-1;">
+          <label for="shareExtName">Their name</label>
+          <input type="text" id="shareExtName" maxlength="120" placeholder="e.g. Sam Taylor"/>
+        </div>
+        <div class="field" style="grid-column:1/-1;">
+          <label for="shareExtEmail">Their email</label>
+          <input type="email" id="shareExtEmail" maxlength="200" placeholder="teacher@another-school.org"/>
+        </div>
+        <div class="field" style="grid-column:1/-1;">
+          <label for="shareExtReason">Reason (your admin will see this)</label>
+          <textarea id="shareExtReason" maxlength="1000" placeholder="Why you'd like to share outside the school…"></textarea>
+        </div>
+      </div>
+      <div class="field" style="grid-column:1/-1;">
+        <label for="shareAccess">Access level</label>
+        <select id="shareAccess">
+          <option value="view">Can view — read-only preview</option>
+          <option value="edit">Can edit — change the content</option>
+        </select>
+      </div>
+    </div>
+    <div style="margin-top:12px;">
+      <button type="button" class="btn accent small" id="shareSubmitBtn">Share</button>
+      <span class="msg" id="shareMsg" style="margin-left:8px;"></span>
+    </div>
+    <h4 class="subhead" style="margin:18px 0 8px;">Already shared with</h4>
+    <div id="shareList"><div class="empty">Loading…</div></div>
+    <div class="modal-close-row">
+      <button type="button" class="btn secondary small" id="shareCloseBtn">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/tasks-shared.js"></script>
+<script src="/rich-editor.js"></script>
+<script src="/subject-template.js"></script>
+<script src="/custom-bank.js"></script>
+<script>
+'use strict';
+const esc = RichText.escapeHtml;
+const $ = id => document.getElementById(id);
+
+const ICONS = ['📘','📗','📙','📕','🌍','🧪','⚗️','🔬','🧮','📐','🎨','🎭','🎵','⚽','🖥️','🏛️'];
+const COLOURS = ['#4a6fa5','#7a5c9e','#2d7a4f','#1a6b6b','#c84b31','#d4a843','#b8336a','#e07b39'];
+
+// The standard 9-activity structure (docs/TEACHER-SUBJECTS-SPEC.md). Order
+// here is the order panels render in on step 3.
+const ACTIVITY_DEFS = [
+  { key: 'reading', icon: '📖', title: 'Lesson notes', guidance: 'The main revision notes students read first. Use headings, images and tables — or start from the lesson template.' },
+  { key: 'learn', icon: '🎯', title: 'Key learning', guidance: 'Give each point a quick check question so students prove they’ve understood it.' },
+  { key: 'terms', icon: '🃏', title: 'Key terms', guidance: 'Term + definition pairs. These automatically become the flashcards deck AND the matching game — aim for at least 4.' },
+  { key: 'mcq', icon: '❓', title: 'Multiple choice', guidance: 'Quick-fire questions. Make wrong options plausible and always fill in the “why” explanation.' },
+  { key: 'fib', icon: '✏️', title: 'Fill in the blanks', guidance: 'Write a sentence and wrap each missing word in [square brackets] — e.g. “The heart has [four] chambers.” 1–4 blanks per sentence.' },
+  { key: 'tf', icon: '✔️', title: 'True or false', guidance: 'Statements that catch common mix-ups work best.' },
+  { key: 'misc', icon: '⚠️', title: 'Misconceptions', guidance: 'What do students always get wrong? State the mix-up, then put it right.' },
+  { key: 'tips', icon: '💡', title: 'Exam tips', guidance: 'Technique advice: how to answer each question type, command words, mark-grabbing habits.' },
+  { key: 'exam', icon: '📝', title: 'Exam practice', guidance: 'Longer written questions. Students type an answer, then self-mark against your mark scheme.' },
+];
+const MAX_SECTIONS_CHARS = 600000;
+
+let auth = null;
+
+// ── manager state ──
+let subjects = [];           // rows from get_my_teacher_subjects()
+let managerTab = 'active';   // 'active' | 'archived'
+let subjectsTab = 'mine';    // 'mine' | 'platform' | 'shared' | 'all'
+let platformSubjects = [];   // platform (created_by null) subjects
+let sharedSubjects = [];     // rows from get_shared_with_me()
+let myEditRequests = [];     // get_my_edit_requests() — the caller's own requests
+let incomingEditRequests = [];// get_incoming_edit_requests() — awaiting the caller's approval
+let platformEditStatus = {}; // subject_id -> {school_granted, teacher_granted, can_edit} (S4)
+let shareModalSubjectId = null;
+let schoolTeachersCache = null;
+
+// ── wizard state ──
+let wizardSubject = null;    // current subjects row, or null before step 1 is saved
+let wizardStep = 1;
+let currentPickedIcon = '📘';
+let currentPickedColour = '#4a6fa5';
+let wzBasicsDirty = false;
+
+let existingTopics = [];     // flat topic rows: {id, slug, section, title, sort_order, status, sections, hasContent}
+let wzSections = [];         // [{ name, topics:[{id,slug,title,status,hasContent}] }] — in-memory structure model
+let wzStructureDirty = false;
+let wzRemovedTopicIds = new Set(); // existing topic ids confirmed for deletion, applied on persist
+
+let currentTopicId = null;   // topic open in the step-3 editor
+let editor = null;           // RichText instance (Lesson notes / reading block)
+let liveEditors = new Map(); // RichText instances for OTHER html fields (learn point / exam
+                              // tip / exam mark scheme), keyed by ws path — only the currently
+                              // OPEN panel's editors ever live here (see setOpenPanel/renderActivityBody).
+let ws = null;                // working sections state for the open topic (9-activity shape)
+let topicDirty = false;       // any field across the 9 panels changed since load/save
+let openPanelKey = 'reading'; // which activity panel is expanded
+
+let teacherClasses = [];     // classes already using this subject, for step 4
+
+let importParsed = null;     // last successful SubjectTemplate.parse() result, pending Apply
+let scopeOptions = [];       // template-toolbar scope <select> options: [{ type, unit?, topicId?, topicTitle?, label }]
+
+// ══════════════════════════════════════════════════════════════
+// GENERIC HELPERS
+// ══════════════════════════════════════════════════════════════
+
+function isMissingTable(err) { return !!(err && err.code === '42P01'); }
+function isMissingFunction(err) { return !!(err && err.code === '42883'); }
+function isFkViolation(err) { return !!(err && err.code === '23503'); }
+
+function showSqlMissingNotice() {
+  const main = document.querySelector('main');
+  if (!main) return;
+  main.innerHTML = `<div class="panel setup-notice">
+    <h2 class="section-label" style="color:var(--wrong);">Setup needed</h2>
+    <p style="font-size:13.5px; line-height:1.7;">This feature needs its database tables set up first. Run
+    <span class="mono">supabase/teacher-subjects.sql</span> once in the Supabase SQL editor, then reload this page.</p>
+    <p class="muted">(This message is for the site owner — nothing you can fix from here.)</p>
+  </div>`;
+}
+
+function setMsg(el, text, ok) {
+  if (!el) return;
+  el.textContent = text;
+  el.className = 'msg' + (ok === true ? ' ok' : ok === false ? ' err' : '');
+  el.style.opacity = '1';
+}
+function clearMsg(el) { if (el) { el.textContent = ''; el.className = 'msg'; } }
+function fadeMsgLater(el, delay) {
+  if (!el) return;
+  const token = {};
+  el._fadeToken = token;
+  setTimeout(() => {
+    if (el._fadeToken !== token) return;
+    el.style.opacity = '0';
+    setTimeout(() => { if (el._fadeToken === token) clearMsg(el); }, 420);
+  }, delay || 2200);
+}
+function setBusy(ids, busy) { ids.forEach(id => { const el = $(id); if (el) el.disabled = busy; }); }
+
+function showView(view) {
+  $('viewManager').classList.toggle('hidden', view !== 'manager');
+  $('viewWizard').classList.toggle('hidden', view !== 'wizard');
+  window.scrollTo({ top: 0 });
+}
+
+// Small dotted-path get/set used by the step-3 activity forms so one
+// generic input/change handler can bind every field (see step-3 events).
+function getAtPath(obj, path) {
+  return path.split('.').reduce((o, k) => (o == null ? undefined : o[k]), obj);
+}
+function setAtPath(obj, path, value) {
+  const parts = path.split('.');
+  let o = obj;
+  for (let i = 0; i < parts.length - 1; i++) o = o[parts[i]];
+  o[parts[parts.length - 1]] = value;
+}
+
+async function init() {
+  auth = await tasksAuthInit('teacher');
+  if (!auth) return;
+  RichText.injectContentStyles();
+  wireStaticListeners();
+
+  const params = new URLSearchParams(location.search);
+  const qSubject = params.get('subject');
+  const qStepRaw = parseInt(params.get('step'), 10);
+  const qStep = [1, 2, 3, 4].includes(qStepRaw) ? qStepRaw : 2;
+  const qTopic = params.get('topic');
+
+  if (qSubject) await enterWizard(qSubject, qStep, qTopic);
+  else await loadManager();
+}
+
+// ══════════════════════════════════════════════════════════════
+// MANAGER VIEW
+// ══════════════════════════════════════════════════════════════
+
+async function loadManager() {
+  showView('manager');
+  history.replaceState(null, '', location.pathname);
+  $('subjGrid').innerHTML = '<div class="empty">Loading…</div>';
+  // Own subjects (required), platform subjects and shares (best-effort — the
+  // sharing tables/RPCs may not be installed yet, so those degrade to empty).
+  const [mineRes, platRes, sharedRes, myReqRes, inReqRes, editStatusRes] = await Promise.all([
+    auth.client.rpc('get_my_teacher_subjects'),
+    auth.client.from('subjects')
+      .select('id, slug, name, level, exam_board, description, colour, icon')
+      .is('created_by', null).eq('active', true).order('sort_order'),
+    auth.client.rpc('get_shared_with_me'),
+    auth.client.rpc('get_my_edit_requests'),
+    auth.client.rpc('get_incoming_edit_requests'),
+    auth.client.rpc('get_my_platform_edit_status'),
+  ]);
+  if (mineRes.error) {
+    if (isMissingTable(mineRes.error) || isMissingFunction(mineRes.error)) { showSqlMissingNotice(); return; }
+    $('subjGrid').innerHTML = `<div class="empty">Couldn't load your subjects — ${esc(mineRes.error.message)}</div>`;
+    return;
+  }
+  subjects = mineRes.data || [];
+  platformSubjects = platRes.error ? [] : (platRes.data || []);
+  sharedSubjects = sharedRes.error ? [] : (sharedRes.data || []);
+  myEditRequests = myReqRes.error ? [] : (myReqRes.data || []);
+  incomingEditRequests = inReqRes.error ? [] : (inReqRes.data || []);
+  // Platform edit status (S4) — best-effort; missing RPC just means no edit affordance.
+  platformEditStatus = {};
+  if (!editStatusRes.error) (editStatusRes.data || []).forEach(r => { platformEditStatus[r.subject_id] = r; });
+  showSubjectsTab(subjectsTab);
+}
+
+// Subjects the caller has a PENDING edit request for (so the card shows
+// "requested" instead of a fresh button).
+function pendingRequestSubjectIds() {
+  return new Set(myEditRequests.filter(r => r.status === 'pending').map(r => r.subject_id));
+}
+
+function renderIncomingRequests() {
+  const el = $('incomingRequests');
+  if (!el) return;
+  if (!incomingEditRequests.length) { el.innerHTML = ''; return; }
+  el.innerHTML = `<div class="panel" style="border-left:4px solid var(--accent);">
+    <h2 class="section-label" style="margin-top:0;">✋ Requests to edit your subjects</h2>
+    ${incomingEditRequests.map(r => `<div class="publish-row">
+      <span><strong>${esc(r.requester_name || 'A teacher')}</strong> wants to edit <strong>${esc(r.subject_name)}</strong>${r.reason ? ` — <span class="muted">“${esc(r.reason)}”</span>` : ''}</span>
+      <span style="display:flex; gap:6px; flex-shrink:0;">
+        <button type="button" class="btn small accent" data-approve-req="${esc(r.id)}">✓ Approve</button>
+        <button type="button" class="btn small secondary" data-deny-req="${esc(r.id)}">Deny</button>
+      </span>
+    </div>`).join('')}
+  </div>`;
+}
+
+function renderMyRequests() {
+  const el = $('myRequestsStrip');
+  if (!el) return;
+  if (!myEditRequests.length) { el.innerHTML = ''; return; }
+  const chip = s => s === 'approved' ? '<span class="chip published">approved</span>'
+                  : s === 'denied' ? '<span class="chip empty">denied</span>'
+                  : '<span class="chip draft">pending</span>';
+  el.innerHTML = `<div class="panel">
+    <h3 class="subhead" style="margin:0 0 8px;">Your edit requests</h3>
+    ${myEditRequests.map(r => `<div class="publish-row"><span>${esc(r.subject_name)}</span>${chip(r.status)}</div>`).join('')}
+  </div>`;
+}
+
+async function handleRequestEdit(subjectId) {
+  const reason = prompt('Optionally, tell the owner why you need edit access:') ;
+  if (reason === null) return; // cancelled
+  const { error } = await auth.client.rpc('request_subject_edit', { p_subject_id: subjectId, p_reason: reason || null });
+  if (error) {
+    if (isMissingTable(error) || isMissingFunction(error)) { alert('Requests aren\'t set up yet — run supabase/subjects-v2-s2-requests.sql.'); return; }
+    alert('Could not send the request: ' + error.message); return;
+  }
+  await loadManager();
+}
+
+async function handleResolveRequest(requestId, approve) {
+  const { error } = await auth.client.rpc('resolve_subject_edit_request', { p_request_id: requestId, p_approve: approve });
+  if (error) { alert('Could not update the request: ' + error.message); return; }
+  await loadManager();
+}
+
+function showSubjectsTab(tab) {
+  subjectsTab = tab;
+  ['mine', 'platform', 'shared', 'all'].forEach(t =>
+    $('panel' + t.charAt(0).toUpperCase() + t.slice(1)).classList.toggle('hidden', t !== tab));
+  document.querySelectorAll('[data-subjtab]').forEach(b =>
+    b.classList.toggle('active', b.dataset.subjtab === tab));
+  if (tab === 'mine') renderManager();
+  else if (tab === 'platform') renderPlatform();
+  else if (tab === 'shared') renderShared();
+  else renderAll();
+}
+
+function renderPlatform() {
+  $('platformGrid').innerHTML = platformSubjects.length
+    ? platformSubjects.map(platformCardHtml).join('')
+    : '<div class="empty">No platform subjects available.</div>';
+}
+function renderShared() {
+  renderMyRequests();
+  $('sharedGrid').innerHTML = sharedSubjects.length
+    ? sharedSubjects.map(sharedCardHtml).join('')
+    : '<div class="empty">Nothing shared with you yet. When a colleague shares a subject, it appears here.</div>';
+}
+function renderAll() {
+  const cards = [
+    ...subjects.filter(s => s.active).map(subjCardHtml),
+    ...platformSubjects.map(platformCardHtml),
+    ...sharedSubjects.map(sharedCardHtml),
+  ];
+  $('allGrid').innerHTML = cards.length ? cards.join('') : '<div class="empty">No subjects yet.</div>';
+}
+
+function platformCardHtml(s) {
+  const metaLine = [s.level, s.exam_board].filter(Boolean).join(' · ') || 'Platform subject';
+  // Edit affordance (S4): if already granted → editable badge + disabled "coming
+  // soon" (the editor is S5). Else if the school may fork it → request-to-edit
+  // (or "requested" if pending). If the school isn't granted at all → nothing.
+  const st = platformEditStatus[s.id] || {};
+  const hasPending = myEditRequests.some(r => r.subject_id === s.id && r.status === 'pending');
+  let editBadge = '';
+  let editBtn = '';
+  if (st.can_edit) {
+    editBadge = ' <span class="chip published">✏️ Editable · school copy</span>';
+    editBtn = '<button type="button" class="cl-btn" disabled>Editor coming soon</button>';
+  } else if (st.school_granted) {
+    editBtn = hasPending
+      ? '<button type="button" class="cl-btn" disabled>⏳ Edit requested</button>'
+      : `<button type="button" class="cl-btn" data-request-edit="${esc(s.id)}">✋ Request to edit</button>`;
+  }
+  return `<div class="subj-card" style="border-left-color:${esc(s.colour || '#4a6fa5')}">
+    <div class="subj-card-top">
+      <span class="subj-icon" aria-hidden="true">${esc(s.icon || '📘')}</span>
+      <div class="subj-card-title"><h3>${esc(s.name)}</h3><div class="meta">${esc(metaLine)}</div></div>
+    </div>
+    <div class="meta"><span class="chip published">Platform · official</span>${editBadge}</div>
+    <div class="card-links">
+      <a class="cl-btn primary" href="/subjects/${esc(s.slug)}/index.html">📂 Open</a>
+      ${editBtn}
+    </div>
+  </div>`;
+}
+
+function sharedCardHtml(s) {
+  const total = Number(s.total_topics) || 0;
+  const pub = Number(s.published_topics) || 0;
+  const metaLine = [s.level, s.exam_board].filter(Boolean).join(' · ') || '—';
+  const canEdit = s.access === 'edit';
+  const badge = canEdit
+    ? '<span class="chip published">Shared · can edit</span>'
+    : '<span class="chip draft">Shared · can view</span>';
+  const hasPending = myEditRequests.some(r => r.subject_id === s.id && r.status === 'pending');
+  const links = canEdit
+    ? `<button type="button" class="cl-btn primary" data-edit-shared="${esc(s.id)}">✏️ Edit</button>
+       <a class="cl-btn" href="subject-view.html?id=${esc(s.id)}" target="_blank" rel="noopener noreferrer">👁 View</a>`
+    : `<a class="cl-btn primary" href="subject-view.html?id=${esc(s.id)}" target="_blank" rel="noopener noreferrer">👁 View</a>
+       ${hasPending
+          ? '<button type="button" class="cl-btn" disabled>⏳ Edit requested</button>'
+          : `<button type="button" class="cl-btn" data-request-edit="${esc(s.id)}">✋ Request to edit</button>`}`;
+  return `<div class="subj-card" style="border-left-color:${esc(s.colour || '#4a6fa5')}">
+    <div class="subj-card-top">
+      <span class="subj-icon" aria-hidden="true">${esc(s.icon || '📘')}</span>
+      <div class="subj-card-title"><h3>${esc(s.name)}</h3><div class="meta">${esc(metaLine)}</div></div>
+    </div>
+    <div class="meta">by ${esc(s.owner_name || 'a colleague')} · ${pub} of ${total} published &nbsp; ${badge}</div>
+    <div class="card-links">${links}</div>
+  </div>`;
+}
+
+function renderManager() {
+  renderIncomingRequests();
+  const shown = subjects.filter(s => !!s.active !== (managerTab === 'archived'));
+  if (!shown.length) {
+    $('subjGrid').innerHTML = managerTab === 'archived'
+      ? '<div class="empty">No archived subjects.</div>'
+      : '<div class="empty">No subjects yet — click <strong>＋ Create a new subject</strong> above to get started.</div>';
+    return;
+  }
+  $('subjGrid').innerHTML = shown.map(subjCardHtml).join('');
+}
+
+function subjCardHtml(s) {
+  const total = Number(s.total_topics) || 0;
+  const pub = Number(s.published_topics) || 0;
+  const classes = Number(s.class_count) || 0;
+  const metaLine = [s.level, s.exam_board].filter(Boolean).join(' · ') || '—';
+  return `<div class="subj-card" style="border-left-color:${esc(s.colour || '#4a6fa5')}">
+    <div class="subj-card-top">
+      <span class="subj-icon" aria-hidden="true">${esc(s.icon || '📘')}</span>
+      <div class="subj-card-title">
+        <h3>${esc(s.name)}</h3>
+        <div class="meta">${esc(metaLine)}</div>
+      </div>
+    </div>
+    <div class="meta">${pub} of ${total} topic${total === 1 ? '' : 's'} published · used by ${classes} class${classes === 1 ? '' : 'es'}</div>
+    <div class="card-links">
+      <button type="button" class="cl-btn primary" data-edit-subject="${esc(s.id)}">✏️ Edit</button>
+      <a class="cl-btn" href="subject-view.html?id=${esc(s.id)}" target="_blank" rel="noopener noreferrer">👁 View</a>
+      <button type="button" class="cl-btn" data-share-subject="${esc(s.id)}">🤝 Share</button>
+      <details class="subj-overflow">
+        <summary class="cl-btn">⋯</summary>
+        <div class="subj-menu">
+          <button type="button" data-publish-subject="${esc(s.id)}">🚀 Publish</button>
+          <button type="button" data-archive-subject="${esc(s.id)}">${s.active ? '📦 Archive' : '♻️ Restore'}</button>
+          <button type="button" class="danger" data-delete-subject="${esc(s.id)}">🗑 Delete</button>
+        </div>
+      </details>
+    </div>
+  </div>`;
+}
+
+async function handleToggleArchive(id) {
+  const s = subjects.find(x => x.id === id);
+  if (!s) return;
+  const { error } = await auth.client.from('subjects').update({ active: !s.active }).eq('id', id);
+  if (error) { alert('Could not update this subject: ' + error.message); return; }
+  await loadManager();
+}
+
+async function handleDeleteSubject(id) {
+  const s = subjects.find(x => x.id === id);
+  if (!s) return;
+  const total = Number(s.total_topics) || 0;
+  const warn = `Delete "${s.name}"? This permanently removes it and all ${total} topic${total === 1 ? '' : 's'} inside it — this cannot be undone.`;
+  if (!confirm(warn)) return;
+  const { error } = await auth.client.from('subjects').delete().eq('id', id);
+  if (error) {
+    if (isFkViolation(error)) {
+      alert('This subject still has classes attached — archive it instead, or delete/re-subject those classes on My Classes first.');
+      return;
+    }
+    alert('Could not delete this subject: ' + error.message);
+    return;
+  }
+  await loadManager();
+}
+
+// ══════════════════════════════════════════════════════════════
+// WIZARD — shared plumbing
+// ══════════════════════════════════════════════════════════════
+
+async function enterWizard(subjectId, step, topicId) {
+  destroyEditor();
+  currentTopicId = null;
+  wzRemovedTopicIds = new Set();
+  wzStructureDirty = false;
+  wzBasicsDirty = false;
+  importParsed = null;
+
+  if (subjectId) {
+    const { data, error } = await auth.client.from('subjects').select('*').eq('id', subjectId).single();
+    if (error) {
+      if (isMissingTable(error)) { showSqlMissingNotice(); return; }
+      alert('Could not open this subject: ' + error.message);
+      await loadManager();
+      return;
+    }
+    wizardSubject = data;
+  } else {
+    wizardSubject = null;
+  }
+
+  currentPickedIcon = wizardSubject ? wizardSubject.icon : '📘';
+  currentPickedColour = wizardSubject ? wizardSubject.colour : '#4a6fa5';
+  wizardStep = wizardSubject ? (step || 2) : 1;
+
+  showView('wizard');
+  $('wizardTitle').textContent = wizardSubject ? wizardSubject.name : 'New subject';
+  updateStepTabsEnabled();
+
+  if (wizardSubject) await loadTopicsForSubject();
+  else { existingTopics = []; wzSections = []; populateScopeSelect(); }
+
+  goToStep(wizardStep, topicId);
+}
+
+function updateStepTabsEnabled() {
+  document.querySelectorAll('#wizardSteps [data-wstep]').forEach(t => {
+    const step = parseInt(t.dataset.wstep, 10);
+    t.classList.toggle('disabled', !wizardSubject && step !== 1);
+  });
+  $('tplToolbar').classList.toggle('hidden', !wizardSubject);
+}
+
+function updateWizardUrl() {
+  const p = new URLSearchParams();
+  if (wizardSubject) p.set('subject', wizardSubject.id);
+  p.set('step', String(wizardStep));
+  if (wizardStep === 3 && currentTopicId) p.set('topic', currentTopicId);
+  const qs = p.toString();
+  history.replaceState(null, '', location.pathname + (qs ? '?' + qs : ''));
+}
+
+// Confirms discarding unsaved work on the step currently being left. Also
+// performs the discard side-effect (reload / mark clean) so callers can
+// navigate immediately once this resolves true.
+async function confirmLeaveWizard() {
+  if (wizardStep === 2 && wzStructureDirty) {
+    if (!confirm('Discard unsaved changes to your sections and topics?')) return false;
+    wzStructureDirty = false;
+    wzRemovedTopicIds = new Set();
+    await loadTopicsForSubject();
+  }
+  if (wizardStep === 3 && isTopicDirty()) {
+    if (!confirm('Discard unsaved changes to this topic?')) return false;
+    topicDirty = false;
+    if (editor) editor.markClean();
+    liveEditors.forEach(ed => ed.markClean());
+  }
+  return true;
+}
+
+function isTopicDirty() { return topicDirty || (editor && editor.isDirty()); }
+
+function goToStep(n, topicId) {
+  wizardStep = n;
+  if (n === 3 && topicId) currentTopicId = topicId;
+  updateWizardUrl();
+
+  [1, 2, 3, 4].forEach(s => $('wStep' + s).classList.toggle('hidden', s !== n));
+  document.querySelectorAll('#wizardSteps [data-wstep]').forEach(t =>
+    t.classList.toggle('active', parseInt(t.dataset.wstep, 10) === n));
+  $('wizBackBtn').classList.toggle('hidden', n === 1);
+  const labels = { 1: 'Continue to Structure →', 2: 'Continue to Content →', 3: 'Continue to Publish & classes →' };
+  $('wizContinueBtn').classList.toggle('hidden', n === 4);
+  if (labels[n]) $('wizContinueBtn').textContent = labels[n];
+  $('tplToolbar').classList.toggle('hidden', !wizardSubject || n === 1);
+  window.scrollTo({ top: 0 });
+
+  if (n === 1) renderStep1();
+  else if (n === 2) renderStep2();
+  else if (n === 3) renderStep3();
+  else if (n === 4) renderStep4();
+}
+
+async function backToManager() {
+  destroyEditor();
+  wizardSubject = null;
+  await loadManager();
+}
+
+function destroyEditor() {
+  if (editor) { editor.destroy(); editor = null; }
+  liveEditors.forEach(ed => ed.destroy());
+  liveEditors.clear();
+  ws = null;
+  topicDirty = false;
+}
+
+// ══════════════════════════════════════════════════════════════
+// STEP 1 — Subject basics
+// ══════════════════════════════════════════════════════════════
+
+function renderStep1() {
+  const s = wizardSubject;
+  $('f1Name').value = s ? s.name : '';
+  $('f1Level').value = s ? (s.level || 'GCSE') : 'GCSE';
+  $('f1ExamBoard').value = s ? (s.exam_board || '') : '';
+  $('f1Description').value = s ? (s.description || '') : '';
+  renderIconPicker();
+  renderColourPicker();
+  updateStep1Preview();
+  clearMsg($('step1Msg'));
+  wzBasicsDirty = false;
+}
+
+function renderIconPicker() {
+  $('iconPicker').innerHTML = ICONS.map(ic =>
+    `<button type="button" class="icon-swatch${ic === currentPickedIcon ? ' selected' : ''}" data-icon="${esc(ic)}" aria-label="Icon ${esc(ic)}" aria-pressed="${ic === currentPickedIcon}">${esc(ic)}</button>`
+  ).join('');
+}
+
+function renderColourPicker() {
+  $('colourPicker').innerHTML = COLOURS.map(c =>
+    `<button type="button" class="colour-swatch${c.toLowerCase() === currentPickedColour.toLowerCase() ? ' selected' : ''}" data-colour="${c}" style="background:${c}" aria-label="Colour ${c}" aria-pressed="${c.toLowerCase() === currentPickedColour.toLowerCase()}"></button>`
+  ).join('') + `<input type="color" id="customColourInput" value="${esc(currentPickedColour)}" aria-label="Custom colour" title="Custom colour"/>`;
+}
+
+function updateStep1Preview() {
+  const name = $('f1Name').value.trim() || 'Your subject name';
+  const level = $('f1Level').value;
+  const board = $('f1ExamBoard').value.trim();
+  const metaLine = [level, board].filter(Boolean).join(' · ') || '—';
+  $('step1Preview').innerHTML = `<div class="subj-card" style="border-left-color:${esc(currentPickedColour)}; max-width:280px;">
+    <div class="subj-card-top">
+      <span class="subj-icon" aria-hidden="true">${esc(currentPickedIcon)}</span>
+      <div class="subj-card-title"><h3>${esc(name)}</h3><div class="meta">${esc(metaLine)}</div></div>
+    </div>
+    <div class="meta">0 of 0 topics published · used by 0 classes</div>
+  </div>`;
+}
+
+async function saveStep1(nextStep) {
+  const name = $('f1Name').value.trim();
+  if (!name) { setMsg($('step1Msg'), 'Please enter a subject name.', false); $('f1Name').focus(); return; }
+
+  const level = $('f1Level').value;
+  const examBoard = $('f1ExamBoard').value.trim();
+  const description = $('f1Description').value.trim();
+
+  setBusy(['wizContinueBtn', 'wizBackBtn'], true);
+  let result;
+  if (wizardSubject) {
+    // Never send slug or created_by — the DB freezes both after creation.
+    result = await auth.client.from('subjects').update({
+      name, level, exam_board: examBoard, description,
+      colour: currentPickedColour, icon: currentPickedIcon,
+    }).eq('id', wizardSubject.id).select().single();
+  } else {
+    result = await auth.client.rpc('create_teacher_subject', {
+      p_name: name, p_level: level, p_exam_board: examBoard, p_description: description,
+      p_colour: currentPickedColour, p_icon: currentPickedIcon,
+    });
+  }
+  setBusy(['wizContinueBtn', 'wizBackBtn'], false);
+
+  if (result.error) {
+    if (isMissingTable(result.error) || isMissingFunction(result.error)) { showSqlMissingNotice(); return; }
+    setMsg($('step1Msg'), result.error.message, false);
+    return;
+  }
+  wizardSubject = result.data;
+  wzBasicsDirty = false;
+  $('wizardTitle').textContent = wizardSubject.name;
+  updateStepTabsEnabled();
+  if (!existingTopics.length) await loadTopicsForSubject();
+  goToStep(nextStep);
+}
+
+// ══════════════════════════════════════════════════════════════
+// STEP 2 — Structure
+// ══════════════════════════════════════════════════════════════
+
+// One fetch, reused by step 3 (sections jsonb comes along — no per-topic
+// content fetch needed there).
+async function loadTopicsForSubject() {
+  const { data, error } = await auth.client.from('custom_topics')
+    .select('id, slug, section, title, sort_order, status, sections')
+    .eq('subject_id', wizardSubject.id).order('sort_order');
+  if (error) {
+    if (isMissingTable(error)) { showSqlMissingNotice(); return; }
+    existingTopics = [];
+  } else {
+    existingTopics = (data || []).map(t => ({
+      id: t.id, slug: t.slug, section: t.section, title: t.title, sort_order: t.sort_order,
+      status: t.status, sections: t.sections || {}, hasContent: sectionsHaveContent(t.sections),
+    }));
+  }
+  buildSectionsFromTopics();
+  populateScopeSelect();
+}
+
+function buildSectionsFromTopics() {
+  wzSections = [];
+  const bySection = new Map();
+  existingTopics.forEach(t => {
+    let grp = bySection.get(t.section);
+    if (!grp) { grp = { name: t.section, topics: [] }; bySection.set(t.section, grp); wzSections.push(grp); }
+    grp.topics.push({ id: t.id, slug: t.slug, title: t.title, status: t.status, hasContent: t.hasContent });
+  });
+}
+
+function findTopicById(id) {
+  for (const sec of wzSections) { const t = sec.topics.find(x => x.id === id); if (t) return t; }
+  return null;
+}
+function flattenTopics() {
+  const out = [];
+  wzSections.forEach(sec => sec.topics.forEach(t => out.push(t)));
+  return out;
+}
+
+function renderStep2() {
+  renderStructList();
+  clearMsg($('step2Msg'));
+  const hasAny = wzSections.some(s => s.topics.length);
+  $('loadExampleBtn').classList.toggle('hidden', hasAny);
+}
+
+function renderStructList() {
+  $('structList').innerHTML = wzSections.map((sec, si) => structSectionHtml(sec, si)).join('')
+    || '<div class="empty">Start by adding your first unit, then the lessons inside it — or load an example structure below to see how it works.</div>';
+}
+
+function structSectionHtml(sec, si) {
+  const topicsHtml = sec.topics.map((t, ti) => `
+    <div class="struct-topic-row" data-topic="${si}:${ti}">
+      <input type="text" class="struct-topic-title" data-topic-title="${si}:${ti}" value="${esc(t.title)}" placeholder="Topic title" aria-label="Topic title" maxlength="160"/>
+      <button type="button" class="btn icon-btn" data-move-up="${si}:${ti}" ${ti === 0 ? 'disabled' : ''} title="Move up" aria-label="Move topic up">▲</button>
+      <button type="button" class="btn icon-btn" data-move-down="${si}:${ti}" ${ti === sec.topics.length - 1 ? 'disabled' : ''} title="Move down" aria-label="Move topic down">▼</button>
+      <button type="button" class="btn icon-btn" data-remove-topic="${si}:${ti}" title="Remove topic" aria-label="Remove topic">🗑</button>
+    </div>`).join('');
+  const removeSectionBtn = sec.topics.length === 0
+    ? `<button type="button" class="btn icon-btn" data-remove-section="${si}" title="Remove empty section" aria-label="Remove section">🗑</button>` : '';
+  return `<div class="struct-section" data-section="${si}">
+    <div class="struct-section-head">
+      <input type="text" class="struct-section-name" data-section-name="${si}" value="${esc(sec.name)}" placeholder="Section name, e.g. 1 · Introduction" aria-label="Section name" maxlength="120"/>
+      ${removeSectionBtn}
+    </div>
+    <div class="struct-topics">${topicsHtml}</div>
+    <button type="button" class="btn secondary small" data-add-topic="${si}">＋ Add topic</button>
+  </div>`;
+}
+
+function loadExampleStructure() {
+  wzSections = [
+    { name: '1 · Introduction', topics: [
+      { id: null, slug: null, title: 'What is …?', status: 'draft', hasContent: false },
+      { id: null, slug: null, title: 'Key ideas', status: 'draft', hasContent: false },
+      { id: null, slug: null, title: 'Why it matters', status: 'draft', hasContent: false },
+    ] },
+    { name: '2 · Going deeper', topics: [
+      { id: null, slug: null, title: 'Applying the ideas', status: 'draft', hasContent: false },
+      { id: null, slug: null, title: 'Common mistakes', status: 'draft', hasContent: false },
+    ] },
+  ];
+  wzStructureDirty = true;
+  renderStep2();
+}
+
+async function handleRemoveTopic(si, ti) {
+  const topic = wzSections[si].topics[ti];
+  if (topic.id) {
+    const rec = existingTopics.find(x => x.id === topic.id);
+    const title = (rec && rec.title) || topic.title;
+    const hasContent = !!(rec && rec.hasContent);
+    const warn = hasContent
+      ? `Delete "${title}"? It has written content that will be permanently lost.`
+      : `Delete "${title}"? This topic is empty, so nothing will be lost.`;
+    if (!confirm(warn)) return;
+    wzRemovedTopicIds.add(topic.id);
+  }
+  wzSections[si].topics.splice(ti, 1);
+  wzStructureDirty = true;
+  renderStep2();
+}
+
+async function persistStructure() {
+  for (const sec of wzSections) {
+    if (!sec.name.trim() && sec.topics.length) {
+      setMsg($('step2Msg'), 'Every section with topics needs a name.', false);
+      return false;
+    }
+    for (const t of sec.topics) {
+      if (!t.title.trim()) {
+        setMsg($('step2Msg'), 'Every topic needs a title — fill in or remove any blank rows.', false);
+        return false;
+      }
+    }
+  }
+
+  const original = new Map(existingTopics.map(t => [t.id, t]));
+  const takenSlugs = new Set(existingTopics.map(t => t.slug).filter(Boolean));
+  const toInsert = [], toUpdate = [];
+  let order = 10;
+  wzSections.forEach(sec => {
+    const secName = sec.name.trim();
+    sec.topics.forEach(t => {
+      const title = t.title.trim();
+      if (t.id) {
+        const orig = original.get(t.id);
+        if (!orig || orig.section !== secName || orig.title !== title || orig.sort_order !== order) {
+          toUpdate.push({ id: t.id, section: secName, title, sort_order: order });
+        }
+      } else {
+        // Every new topic needs a slug — collision-checked against every
+        // slug already used in this subject (progress is keyed on it).
+        const slug = SubjectTemplate.uniqueSlug(SubjectTemplate.slugify(title), takenSlugs);
+        takenSlugs.add(slug);
+        toInsert.push({ subject_id: wizardSubject.id, slug, section: secName, title, sort_order: order, status: 'draft' });
+      }
+      order += 10;
+    });
+  });
+  const toDeleteIds = [...wzRemovedTopicIds];
+
+  setBusy(['wizContinueBtn', 'wizBackBtn', 'addSectionBtn', 'loadExampleBtn'], true);
+  try {
+    if (toDeleteIds.length) {
+      const { error } = await auth.client.from('custom_topics').delete().in('id', toDeleteIds);
+      if (error) throw error;
+    }
+    for (const u of toUpdate) {
+      const { error } = await auth.client.from('custom_topics')
+        .update({ section: u.section, title: u.title, sort_order: u.sort_order }).eq('id', u.id);
+      if (error) throw error;
+    }
+    if (toInsert.length) {
+      const { error } = await auth.client.from('custom_topics').insert(toInsert);
+      if (error) throw error;
+    }
+  } catch (err) {
+    setBusy(['wizContinueBtn', 'wizBackBtn', 'addSectionBtn', 'loadExampleBtn'], false);
+    if (isMissingTable(err)) { showSqlMissingNotice(); return false; }
+    setMsg($('step2Msg'), err.message, false);
+    return false;
+  }
+  setBusy(['wizContinueBtn', 'wizBackBtn', 'addSectionBtn', 'loadExampleBtn'], false);
+  wzRemovedTopicIds = new Set();
+  wzStructureDirty = false;
+  await loadTopicsForSubject();
+  return true;
+}
+
+// ══════════════════════════════════════════════════════════════
+// STEP 3 — Content: the 9-activity data model
+// (custom_topics.sections jsonb — docs/TEACHER-SUBJECTS-SPEC.md)
+// ══════════════════════════════════════════════════════════════
+
+function emptyCheck() { return { question: '', options: ['', '', '', ''], answer: 0, explain: '' }; }
+function cloneCheck(c) {
+  if (!c) return null;
+  return { question: c.question || '', options: (c.options && c.options.length ? c.options : ['', '', '', '']).slice(), answer: c.answer || 0, explain: c.explain || '' };
+}
+function cloneMcqLike(q) {
+  return { question: (q && q.question) || '', options: (q && q.options && q.options.length ? q.options : ['', '', '', '']).slice(), answer: (q && q.answer) || 0, explain: (q && q.explain) || '' };
+}
+
+// Default (empty, disabled) shape for one block, keyed as in the DB.
+function defaultBlock(key) {
+  switch (key) {
+    case 'reading': return { enabled: false, html: '', check: null };
+    case 'learn': return { enabled: false, items: [] };
+    case 'terms': return { enabled: false, pairs: [] };
+    case 'mcq': return { enabled: false, questions: [] };
+    case 'fib': return { enabled: false, questions: [] };
+    case 'tf': return { enabled: false, questions: [] };
+    case 'misc': return { enabled: false, items: [] };
+    case 'tips': return { enabled: false, items: [] };
+    case 'exam': return { enabled: false, questions: [] };
+    default: return { enabled: false };
+  }
+}
+
+// Item factories for "＋ Add" buttons.
+function emptyLearnItem() { return { title: '', html: '', check: null }; }
+function emptyTermPair() { return { term: '', definition: '' }; }
+function emptyFibQuestion() { return { text: '' }; }
+function emptyTfQuestion() { return { statement: '', answer: true, explain: '' }; }
+function emptyMiscItem() { return { myth: '', truth: '', check: null }; }
+function emptyTipsItem() { return { title: '', html: '' }; }
+function emptyExamQuestion() { return { question: '', marks: 4, hint: '', markScheme: '' }; }
+
+// DB sections jsonb → editable working-state (ws). Every block present,
+// missing blocks default to disabled+empty. HTML-bearing fields (reading
+// notes, learn item text, tips content, exam mark scheme) carry their
+// sanitised html straight through — they're edited with the RichText
+// editor, not a plain-text round trip.
+function normalizeForEdit(sections) {
+  sections = sections || {};
+  const out = {};
+  ACTIVITY_DEFS.forEach(def => {
+    const key = def.key;
+    const raw = sections[key];
+    if (!raw) { out[key] = defaultBlock(key); return; }
+    const enabled = raw.enabled !== false;
+    if (key === 'reading') {
+      out[key] = { enabled, html: raw.html || '', check: cloneCheck(raw.check) };
+    } else if (key === 'learn') {
+      out[key] = { enabled, items: (raw.items || []).map(i => ({ title: i.title || '', html: i.html || '', check: cloneCheck(i.check) })) };
+    } else if (key === 'terms') {
+      out[key] = { enabled, pairs: (raw.pairs || []).map(p => ({ term: p.term || '', definition: p.definition || '' })) };
+    } else if (key === 'mcq') {
+      out[key] = { enabled, questions: (raw.questions || []).map(cloneMcqLike) };
+    } else if (key === 'fib') {
+      out[key] = { enabled, questions: (raw.questions || []).map(q => ({ text: q.text || '' })) };
+    } else if (key === 'tf') {
+      out[key] = { enabled, questions: (raw.questions || []).map(q => ({ statement: q.statement || '', answer: q.answer !== false, explain: q.explain || '' })) };
+    } else if (key === 'misc') {
+      out[key] = { enabled, items: (raw.items || []).map(i => ({ myth: i.myth || '', truth: i.truth || '', check: cloneCheck(i.check) })) };
+    } else if (key === 'tips') {
+      out[key] = { enabled, items: (raw.items || []).map(i => ({ title: i.title || '', html: i.html || '', check: cloneCheck(i.check) })) };
+    } else if (key === 'exam') {
+      out[key] = { enabled, questions: (raw.questions || []).map(q => ({ question: q.question || '', marks: q.marks || 4, hint: q.hint || '', markScheme: q.markScheme || '' })) };
+    }
+  });
+  return out;
+}
+
+function nonBlank(s) { return !!(s && String(s).trim()); }
+function nonBlankHtml(html) { return nonBlank(String(html || '').replace(/<[^>]+>/g, '')); }
+
+// A block "has content" when its primary-field-filled entries are non-empty
+// (used both for the sidebar chip and step 4's "has content" definition).
+// Blank rows a teacher added but never filled in do not count.
+function blockNonEmptyCount(key, block) {
+  if (!block) return 0;
+  switch (key) {
+    case 'reading': return (nonBlankHtml(block.html) || !!(block.check && nonBlank(block.check.question))) ? 1 : 0;
+    case 'learn': return block.items.filter(i => nonBlank(i.title) || nonBlankHtml(i.html)).length;
+    case 'terms': return block.pairs.filter(p => nonBlank(p.term)).length;
+    case 'mcq': return block.questions.filter(q => nonBlank(q.question)).length;
+    case 'fib': return block.questions.filter(q => nonBlank(q.text)).length;
+    case 'tf': return block.questions.filter(q => nonBlank(q.statement)).length;
+    case 'misc': return block.items.filter(i => nonBlank(i.myth)).length;
+    case 'tips': return block.items.filter(i => nonBlank(i.title) || nonBlankHtml(i.html)).length;
+    case 'exam': return block.questions.filter(q => nonBlank(q.question)).length;
+    default: return 0;
+  }
+}
+
+// Cheap has-content check straight from the stored DB jsonb (no ws needed) —
+// used for the topic list (step 2/3 sidebar chip) and step 4's publish list.
+function sectionsHaveContent(sections) {
+  if (!sections) return false;
+  return ACTIVITY_DEFS.some(def => {
+    const b = sections[def.key];
+    if (!b) return false;
+    if (def.key === 'reading') return nonBlank((b.html || '').replace(/<[^>]+>/g, '')) || !!(b.check && b.check.question);
+    const arr = b.items || b.pairs || b.questions || [];
+    return arr.length > 0;
+  });
+}
+
+// ws → sections jsonb for saving. A block is included only when it has at
+// least one non-empty entry — its current enabled flag (true or false) is
+// kept either way, so toggling a filled panel off *keeps* the content
+// (stored as enabled:false) instead of deleting it; only truly empty
+// blocks (nothing ever filled in) are omitted, matching the DB schema's
+// documented dual "opted out" representation (missing key OR enabled:false).
+function buildSectionsForSave() {
+  const out = {};
+  ACTIVITY_DEFS.forEach(def => {
+    const key = def.key;
+    const b = ws[key];
+    if (key === 'reading') {
+      const html = b.html || '';
+      const check = checkForSave(b.check);
+      if (nonBlank(html.replace(/<[^>]+>/g, '')) || /<img/i.test(html) || check) {
+        const block = { enabled: b.enabled, html };
+        if (check) block.check = check;
+        out[key] = block;
+      }
+      return;
+    }
+    if (key === 'learn') {
+      const items = b.items.filter(i => nonBlank(i.title) || nonBlankHtml(i.html)).map(i => ({
+        title: (i.title || '').slice(0, 300), html: i.html || '',
+        check: checkForSave(i.check),
+      }));
+      if (items.length) out[key] = { enabled: b.enabled, items };
+      return;
+    }
+    if (key === 'terms') {
+      const pairs = b.pairs.filter(p => nonBlank(p.term)).map(p => ({ term: p.term.trim(), definition: (p.definition || '').trim() }));
+      if (pairs.length) out[key] = { enabled: b.enabled, pairs };
+      return;
+    }
+    if (key === 'mcq') {
+      const questions = b.questions.filter(q => nonBlank(q.question)).map(mcqForSave);
+      if (questions.length) out[key] = { enabled: b.enabled, questions };
+      return;
+    }
+    if (key === 'fib') {
+      const questions = b.questions.filter(q => nonBlank(q.text)).map(q => ({ text: q.text.trim() }));
+      if (questions.length) out[key] = { enabled: b.enabled, questions };
+      return;
+    }
+    if (key === 'tf') {
+      const questions = b.questions.filter(q => nonBlank(q.statement)).map(q => ({ statement: q.statement.trim(), answer: !!q.answer, explain: (q.explain || '').trim() }));
+      if (questions.length) out[key] = { enabled: b.enabled, questions };
+      return;
+    }
+    if (key === 'misc') {
+      const items = b.items.filter(i => nonBlank(i.myth)).map(i => ({ myth: i.myth.trim(), truth: (i.truth || '').trim(), check: checkForSave(i.check) }));
+      if (items.length) out[key] = { enabled: b.enabled, items };
+      return;
+    }
+    if (key === 'tips') {
+      const items = b.items.filter(i => nonBlank(i.title) || nonBlankHtml(i.html)).map(i => ({ title: (i.title || '').slice(0, 300), html: i.html || '', check: checkForSave(i.check) }));
+      if (items.length) out[key] = { enabled: b.enabled, items };
+      return;
+    }
+    if (key === 'exam') {
+      const questions = b.questions.filter(q => nonBlank(q.question)).map(q => ({
+        question: q.question.trim(), marks: clampMarks(q.marks), hint: (q.hint || '').trim(),
+        markScheme: q.markScheme || '',
+      }));
+      if (questions.length) out[key] = { enabled: b.enabled, questions };
+      return;
+    }
+  });
+  return out;
+}
+
+function clampMarks(n) {
+  n = typeof n === 'string' ? parseInt(n, 10) : n;
+  if (!isFinite(n) || n < 1) return 1;
+  if (n > 25) return 25;
+  return Math.round(n);
+}
+// A teacher who fills only 3 of the 4 option boxes shouldn't ship a blank
+// button to students: drop empty options and shift the correct-answer index
+// down past the removed blanks (it lands on the same option text).
+function cleanOptions(rawOptions, rawAnswer) {
+  const raw = (rawOptions || []).map(o => (o || '').trim());
+  const answerIdx = clampAnswer(rawAnswer, raw.length || 1);
+  const options = raw.filter(nonBlank);
+  const shift = raw.slice(0, answerIdx).filter(o => !nonBlank(o)).length;
+  const answer = nonBlank(raw[answerIdx] || '') ? answerIdx - shift : 0;
+  return { options, answer: clampAnswer(answer, options.length || 1) };
+}
+function checkForSave(check) {
+  if (!check || !nonBlank(check.question)) return null;
+  const c = cleanOptions(check.options, check.answer);
+  if (c.options.length < 2) return null;
+  return { question: check.question.trim(), options: c.options, answer: c.answer, explain: (check.explain || '').trim() };
+}
+function mcqForSave(q) {
+  const c = cleanOptions(q.options, q.answer);
+  return { question: q.question.trim(), options: c.options, answer: c.answer, explain: (q.explain || '').trim() };
+}
+function clampAnswer(idx, len) {
+  idx = Number(idx) || 0;
+  if (idx < 0 || idx >= len) return 0;
+  return idx;
+}
+
+function topicChip(t) {
+  if (t.status === 'published') return { cls: 'published', label: '✅ published' };
+  if (t.hasContent) return { cls: 'draft', label: '📝 draft' };
+  return { cls: 'empty', label: '✏️ empty' };
+}
+
+// ══════════════════════════════════════════════════════════════
+// STEP 3 — Content: topic load / save / sidebar
+// ══════════════════════════════════════════════════════════════
+
+function renderStep3() {
+  renderTopicSidebar();
+  const flat = flattenTopics();
+  const want = currentTopicId || (flat[0] && flat[0].id);
+  if (want) openTopicInEditor(want);
+  else showEditorEmpty('Select a topic on the left to start writing, or add topics in Step 2 · Structure.');
+}
+
+function renderTopicSidebar() {
+  const list = $('topicSidebarList');
+  const groups = wzSections.filter(s => s.topics.length);
+  if (!groups.length) {
+    list.innerHTML = '<div class="empty">No topics yet — add some in Step 2 · Structure.</div>';
+    return;
+  }
+  list.innerHTML = groups.map(sec => `
+    <div class="topic-sidebar-group">
+      <div class="topic-sidebar-heading">${esc(sec.name || 'Untitled section')}</div>
+      ${sec.topics.map(t => {
+        const chip = topicChip(t);
+        const active = t.id === currentTopicId ? ' active' : '';
+        return `<button type="button" class="topic-item${active}" data-open-topic="${esc(t.id)}">
+          <span class="topic-item-title">${esc(t.title)}</span>
+          <span class="chip ${chip.cls}">${chip.label}</span>
+        </button>`;
+      }).join('')}
+    </div>`).join('');
+}
+
+function showEditorEmpty(text) {
+  $('editorTopicTitle').textContent = 'Choose a topic';
+  $('editorEmptyState').textContent = text;
+  $('editorEmptyState').classList.remove('hidden');
+  $('noActivitiesHint').classList.add('hidden');
+  $('activitiesRoot').classList.add('hidden');
+  $('activitiesRoot').innerHTML = '';
+  $('editorFooter').classList.add('hidden');
+}
+
+// Points at the activity toggles when a topic has nothing switched on yet —
+// a common state for a freshly added topic before a teacher has picked
+// which of the nine activities to use.
+function updateNoActivitiesHint() {
+  const hint = $('noActivitiesHint');
+  if (!hint || !ws) return;
+  const anyEnabled = ACTIVITY_DEFS.some(d => ws[d.key].enabled);
+  hint.classList.toggle('hidden', anyEnabled);
+}
+
+async function openTopicInEditor(topicId) {
+  if (currentTopicId === topicId && ws) return;
+  if (isTopicDirty()) {
+    if (!confirm('You have unsaved changes to this topic. Discard them and switch?')) return;
+  }
+  destroyEditor();
+  currentTopicId = topicId;
+  updateWizardUrl();
+
+  const rec = existingTopics.find(x => x.id === topicId);
+  const sideT = findTopicById(topicId);
+  $('editorTopicTitle').textContent = sideT ? sideT.title : '';
+  if (!rec) {
+    $('editorEmptyState').textContent = "Couldn't find this topic.";
+    $('editorEmptyState').classList.remove('hidden');
+    $('noActivitiesHint').classList.add('hidden');
+    renderTopicSidebar();
+    return;
+  }
+
+  ws = normalizeForEdit(rec.sections);
+  openPanelKey = ACTIVITY_DEFS.find(d => blockNonEmptyCount(d.key, ws[d.key]) > 0)?.key || 'reading';
+  topicDirty = false;
+
+  $('editorEmptyState').classList.add('hidden');
+  $('activitiesRoot').classList.remove('hidden');
+  $('editorFooter').classList.remove('hidden');
+  renderActivityPanels();
+  updateNoActivitiesHint();
+  clearMsg($('step3Msg'));
+  renderTopicSidebar();
+}
+
+function topicTitleFor(id) { const t = findTopicById(id); return t ? t.title : 'This topic'; }
+
+async function saveCurrentTopic(andAdvance) {
+  if (!ws || !currentTopicId) return;
+  if (editor) ws.reading.html = editor.getHTML(); // sync the mounted editor back into working state
+  syncLiveEditorsToWs(); // …and every other live editor in the open panel (learn/tips/exam)
+  const sections = buildSectionsForSave();
+  const len = JSON.stringify(sections).length;
+  if (len > MAX_SECTIONS_CHARS) {
+    setMsg($('step3Msg'), 'This topic is too long to save (over 600,000 characters). Split it into two topics or use smaller images.', false);
+    return;
+  }
+  setBusy(['saveTopicBtn', 'saveNextTopicBtn'], true);
+  const { error } = await auth.client.from('custom_topics').update({ sections }).eq('id', currentTopicId);
+  setBusy(['saveTopicBtn', 'saveNextTopicBtn'], false);
+  if (error) {
+    if (isMissingTable(error)) { showSqlMissingNotice(); return; }
+    setMsg($('step3Msg'), error.message, false);
+    return;
+  }
+  topicDirty = false;
+  if (editor) editor.markClean();
+  liveEditors.forEach(ed => ed.markClean());
+  const hasContent = sectionsHaveContent(sections);
+  const t = findTopicById(currentTopicId);
+  if (t) t.hasContent = hasContent;
+  const rec = existingTopics.find(x => x.id === currentTopicId);
+  if (rec) { rec.sections = sections; rec.hasContent = hasContent; }
+  renderTopicSidebar();
+  setMsg($('step3Msg'), 'Saved ✓', true);
+  fadeMsgLater($('step3Msg'));
+  // Content edits to an already-published topic must reach Daily Revise too.
+  if (rec && rec.status === 'published') syncBankAfterPublishChange();
+  if (andAdvance) advanceToNextTopic();
+}
+
+function advanceToNextTopic() {
+  const flat = flattenTopics();
+  const idx = flat.findIndex(t => t.id === currentTopicId);
+  if (idx === -1 || idx === flat.length - 1) return;
+  openTopicInEditor(flat[idx + 1].id);
+}
+
+// ══════════════════════════════════════════════════════════════
+// STEP 3 — Activity panels: shared shell (toggle, badge, guidance)
+// ══════════════════════════════════════════════════════════════
+
+const BADGE_NOUN = { learn: 'point', terms: 'term', mcq: 'question', fib: 'sentence', tf: 'statement', misc: 'point', tips: 'tip', exam: 'question' };
+
+function badgeLabel(key) {
+  const n = blockNonEmptyCount(key, ws[key]);
+  if (key === 'reading') return n ? 'written' : 'empty';
+  const noun = BADGE_NOUN[key] || 'item';
+  return n + ' ' + noun + (n === 1 ? '' : 's');
+}
+
+function activityPanelShellHtml(def) {
+  const open = openPanelKey === def.key;
+  return `<div class="activity-panel${open ? ' open' : ''}" data-panel="${def.key}">
+    <div class="activity-header" data-panel-toggle="${def.key}" role="button" tabindex="0" aria-expanded="${open}">
+      <span class="act-icon" aria-hidden="true">${def.icon}</span>
+      <span class="act-title">${esc(def.title)}</span>
+      <span class="act-badge" id="actBadge_${def.key}"></span>
+      <label class="switch">
+        <input type="checkbox" data-act-enable="${def.key}" ${ws[def.key].enabled ? 'checked' : ''} aria-label="Show ${esc(def.title)} to students"/>
+        <span class="slider"></span>
+      </label>
+      <span class="act-chevron" aria-hidden="true">›</span>
+    </div>
+    <p class="activity-guidance">${esc(def.guidance)}</p>
+    <div class="activity-body" id="actBody_${def.key}"></div>
+  </div>`;
+}
+
+function renderActivityPanels() {
+  const root = $('activitiesRoot');
+  root.innerHTML = ACTIVITY_DEFS.map(activityPanelShellHtml).join('');
+  ACTIVITY_DEFS.forEach(def => { if (def.key === 'reading') initReadingPanel(); else renderActivityBody(def.key); });
+}
+
+function setOpenPanel(key) {
+  if (key === openPanelKey) return;
+  syncLiveEditorsToWs(); // capture in-flight typing in the panel being closed
+  destroyLiveEditorsForKey(openPanelKey);
+  openPanelKey = key;
+  document.querySelectorAll('#activitiesRoot .activity-panel').forEach(p => {
+    const isOpen = p.dataset.panel === key;
+    p.classList.toggle('open', isOpen);
+    const header = p.querySelector('[data-panel-toggle]');
+    if (header) header.setAttribute('aria-expanded', String(isOpen));
+  });
+  if (RT_FIELD_PANELS[key]) mountInlineEditors(key);
+}
+
+function offWarnHtml(key, label) {
+  const b = ws[key];
+  return (!b.enabled && blockNonEmptyCount(key, b) > 0)
+    ? `<div class="act-off-warn">Turned off — students won’t see this. Your ${label} ${label === 'notes' ? 'are' : 'are'} kept.</div>` : '';
+}
+
+function updateBadge(key) { const el = $('actBadge_' + key); if (el) el.textContent = badgeLabel(key); }
+
+function renderActivityBody(key) {
+  const body = $('actBody_' + key);
+  if (!body) return;
+  destroyLiveEditorsForKey(key); // old mount divs are about to be wiped out
+  body.innerHTML = offWarnHtml(key, 'questions') + activityBodyInner(key);
+  body.classList.toggle('act-off', !ws[key].enabled);
+  updateBadge(key);
+  if (key === openPanelKey && RT_FIELD_PANELS[key]) mountInlineEditors(key);
+}
+
+function activityBodyInner(key) {
+  switch (key) {
+    case 'learn': return learnBodyHtml();
+    case 'terms': return termsBodyHtml();
+    case 'mcq': return mcqBodyHtml();
+    case 'fib': return fibBodyHtml();
+    case 'tf': return tfBodyHtml();
+    case 'misc': return miscBodyHtml();
+    case 'tips': return tipsBodyHtml();
+    case 'exam': return examBodyHtml();
+    default: return '';
+  }
+}
+
+// ── Reading panel: hosts the shared RichText editor (mounted once per
+// topic load, never rebuilt by a panel re-render — that would wipe an
+// in-progress edit). Toggling it on/off only touches the chrome around it.
+function readingBodyHtml() {
+  return offWarnHtml('reading', 'notes') +
+    '<div style="margin-bottom:10px;"><button type="button" class="btn secondary small" data-insert-template="1">📄 Insert lesson template</button></div>' +
+    '<div id="rtMount"></div>' +
+    '<p class="muted" style="margin:12px 0 2px;">A quick check lets students answer something on the notes — needed for “one question at a time” mode.</p>' +
+    '<div id="readingCheckWrap">' + checkSubformHtml('reading', ws.reading.check) + '</div>';
+}
+function initReadingPanel() {
+  const body = $('actBody_reading');
+  body.innerHTML = readingBodyHtml();
+  body.classList.toggle('act-off', !ws.reading.enabled);
+  mountReadingEditor();
+  updateBadge('reading');
+}
+function mountReadingEditor() {
+  if (editor) { editor.destroy(); editor = null; }
+  editor = RichText.create($('rtMount'), {
+    client: auth.client, teacherId: auth.session.user.id,
+    placeholder: 'Start writing here — or insert the lesson template above.',
+    onDirty: () => { topicDirty = true; },
+  });
+  editor.setHTML(ws.reading.html || '');
+  editor.markClean();
+}
+function refreshReadingChrome() {
+  const body = $('actBody_reading');
+  if (!body) return;
+  const existingWarn = body.querySelector('.act-off-warn');
+  const shouldWarn = !ws.reading.enabled && blockNonEmptyCount('reading', ws.reading) > 0;
+  if (shouldWarn && !existingWarn) body.insertAdjacentHTML('afterbegin', '<div class="act-off-warn">Turned off — students won’t see this. Your notes are kept.</div>');
+  else if (!shouldWarn && existingWarn) existingWarn.remove();
+  body.classList.toggle('act-off', !ws.reading.enabled);
+  updateBadge('reading');
+}
+// The notes check lives on ws.reading.check directly (not an array item), so
+// it gets its own tiny re-render that only touches #readingCheckWrap — never
+// the mounted notes editor above it (see rerenderAfterStructChange).
+function renderReadingCheckSubform() {
+  const wrap = $('readingCheckWrap');
+  if (wrap) wrap.innerHTML = checkSubformHtml('reading', ws.reading.check);
+}
+function handleInsertTemplate() {
+  if (!editor) return;
+  const isEmpty = !editor.getHTML().trim();
+  if (!isEmpty && !confirm('Insert the lesson template here? It will be added to your existing content.')) return;
+  editor.insertHTML(RichText.lessonTemplate(topicTitleFor(currentTopicId)));
+  topicDirty = true;
+}
+
+// ── Inline RichText editors for the other HTML-bearing fields (Key
+// learning point text, Exam tip content, Exam practice mark scheme).
+// Unlike the notes editor above (always mounted once per topic load), these
+// are mounted ONLY for the currently open panel — tracked in liveEditors
+// (path -> instance) — and destroyed on panel switch / topic switch, so a
+// topic with many items never accumulates dozens of live editors at once.
+const RT_FIELD_PANELS = { learn: 1, tips: 1, exam: 1 };
+const RT_FIELD_PLACEHOLDERS = {
+  learn: 'Explain the idea in a couple of sentences…',
+  tips: 'The advice itself…',
+  exam: 'What a good answer includes — students self-mark against this',
+};
+function mountInlineEditors(key) {
+  const body = $('actBody_' + key);
+  if (!body) return;
+  body.querySelectorAll('[data-rt-field]').forEach(mountEl => {
+    const path = mountEl.dataset.rtField;
+    const ed = RichText.create(mountEl, {
+      client: auth.client, teacherId: auth.session.user.id,
+      placeholder: RT_FIELD_PLACEHOLDERS[key] || 'Write here…',
+      onDirty: () => { topicDirty = true; },
+    });
+    ed.setHTML(getAtPath(ws, path) || '');
+    ed.markClean();
+    liveEditors.set(path, ed);
+  });
+}
+function destroyLiveEditorsForKey(key) {
+  liveEditors.forEach((ed, path) => {
+    if (path.split('.')[0] === key) { ed.destroy(); liveEditors.delete(path); }
+  });
+}
+// Pull every live inline editor's current HTML back into ws. MUST be called
+// before anything that reorders/removes array items (their paths are index-
+// based) and before any rebuild that would otherwise discard unsaved typing.
+function syncLiveEditorsToWs() {
+  if (!ws) return;
+  liveEditors.forEach((ed, path) => setAtPath(ws, path, ed.getHTML()));
+}
+
+// ── Reusable pieces: an options+correct-answer+explain mini-form (used by
+// MCQ questions and by every "check question" sub-form), and item shells.
+function optionsEditorHtml(path, options, answer) {
+  const rows = options.map((opt, oi) => `
+    <div class="opt-row">
+      <input type="radio" name="ans_${esc(path)}" data-path="${esc(path)}.answer" value="${oi}" ${Number(answer) === oi ? 'checked' : ''} aria-label="Option ${String.fromCharCode(65 + oi)} is correct"/>
+      <input type="text" data-path="${esc(path)}.options.${oi}" value="${esc(opt)}" placeholder="Option ${String.fromCharCode(65 + oi)}" maxlength="300" aria-label="Option ${String.fromCharCode(65 + oi)} text"/>
+      <button type="button" class="btn icon-btn" data-remove-item="${esc(path)}.options|${oi}" ${options.length <= 2 ? 'disabled' : ''} title="Remove option" aria-label="Remove option ${String.fromCharCode(65 + oi)}">🗑</button>
+    </div>`).join('');
+  return `<div class="opts-editor">${rows}
+    <div class="opt-actions">
+      <button type="button" class="btn icon-btn" data-add-item="${esc(path)}.options" ${options.length >= 6 ? 'disabled' : ''}>＋ Add option</button>
+      <span class="muted">Pick the circle next to the correct answer.</span>
+    </div>
+  </div>`;
+}
+
+function checkSubformHtml(itemPath, check) {
+  if (!check) {
+    return `<div class="check-subform"><button type="button" class="btn secondary small" data-add-check="${esc(itemPath)}">＋ Add a check question</button></div>`;
+  }
+  const cp = itemPath + '.check';
+  return `<div class="check-subform">
+    <div class="check-subform-head"><strong style="font-size:12px;">Check question</strong>
+      <button type="button" class="btn icon-btn" data-remove-check="${esc(itemPath)}" title="Remove check question" aria-label="Remove check question">🗑</button>
+    </div>
+    <div class="item-body-grid">
+      <input type="text" data-path="${esc(cp)}.question" value="${esc(check.question)}" placeholder="Quick question to check understanding" maxlength="1200" aria-label="Check question"/>
+      ${optionsEditorHtml(cp, check.options, check.answer)}
+      <input type="text" data-path="${esc(cp)}.explain" value="${esc(check.explain)}" placeholder="Why the right answer is right (optional)" maxlength="1200" aria-label="Explanation"/>
+    </div>
+  </div>`;
+}
+
+function itemCardHead(label, movePath, idx, len) {
+  return `<div class="item-card-head">
+    <span class="item-num">${esc(label)}</span>
+    <button type="button" class="btn icon-btn" data-move-up-item="${esc(movePath)}|${idx}" ${idx === 0 ? 'disabled' : ''} title="Move up" aria-label="Move ${esc(label)} up">▲</button>
+    <button type="button" class="btn icon-btn" data-move-down-item="${esc(movePath)}|${idx}" ${idx === len - 1 ? 'disabled' : ''} title="Move down" aria-label="Move ${esc(label)} down">▼</button>
+    <button type="button" class="btn icon-btn" data-remove-item="${esc(movePath)}|${idx}" title="Remove" aria-label="Remove ${esc(label)}">🗑</button>
+  </div>`;
+}
+
+// ── Item factories (＋ Add buttons) ──
+function emptyMcqQuestion() { return { question: '', options: ['', '', '', ''], answer: 0, explain: '' }; }
+const ITEM_FACTORY = {
+  'learn.items': emptyLearnItem, 'terms.pairs': emptyTermPair, 'mcq.questions': emptyMcqQuestion,
+  'fib.questions': emptyFibQuestion, 'tf.questions': emptyTfQuestion, 'misc.items': emptyMiscItem,
+  'tips.items': emptyTipsItem, 'exam.questions': emptyExamQuestion,
+};
+
+// The reading panel's check isn't an array item, so it gets its own tiny
+// re-render (renderReadingCheckSubform) that leaves the mounted notes
+// editor untouched; everything else rebuilds the whole panel body.
+function rerenderAfterStructChange(path) {
+  const key = path.split('.')[0];
+  if (key === 'reading') { renderReadingCheckSubform(); return; }
+  renderActivityBody(key);
+}
+
+function handleAddItem(path) {
+  syncLiveEditorsToWs(); // capture in-flight typing before indices shift
+  const arr = getAtPath(ws, path);
+  if (!Array.isArray(arr)) return;
+  if (path.endsWith('.options')) {
+    if (arr.length >= 6) return;
+    arr.push('');
+  } else {
+    const factory = ITEM_FACTORY[path] || (() => ({}));
+    arr.push(factory());
+  }
+  topicDirty = true;
+  rerenderAfterStructChange(path);
+}
+function handleRemoveItem(spec) {
+  syncLiveEditorsToWs(); // capture in-flight typing before indices shift
+  const sep = spec.lastIndexOf('|');
+  const path = spec.slice(0, sep), idx = Number(spec.slice(sep + 1));
+  const arr = getAtPath(ws, path);
+  if (!Array.isArray(arr)) return;
+  if (path.endsWith('.options') && arr.length <= 2) return;
+  arr.splice(idx, 1);
+  topicDirty = true;
+  rerenderAfterStructChange(path);
+}
+function handleMoveItem(spec, dir) {
+  syncLiveEditorsToWs(); // capture in-flight typing before indices shift
+  const sep = spec.lastIndexOf('|');
+  const path = spec.slice(0, sep), idx = Number(spec.slice(sep + 1));
+  const arr = getAtPath(ws, path);
+  if (!Array.isArray(arr)) return;
+  const j = idx + dir;
+  if (j < 0 || j >= arr.length) return;
+  const tmp = arr[idx]; arr[idx] = arr[j]; arr[j] = tmp;
+  topicDirty = true;
+  rerenderAfterStructChange(path);
+}
+function handleAddCheck(itemPath) {
+  syncLiveEditorsToWs(); // the panel is about to rebuild — keep unsaved typing
+  const item = getAtPath(ws, itemPath);
+  if (!item) return;
+  item.check = emptyCheck();
+  topicDirty = true;
+  rerenderAfterStructChange(itemPath);
+}
+function handleRemoveCheck(itemPath) {
+  syncLiveEditorsToWs(); // the panel is about to rebuild — keep unsaved typing
+  const item = getAtPath(ws, itemPath);
+  if (!item) return;
+  item.check = null;
+  topicDirty = true;
+  rerenderAfterStructChange(itemPath);
+}
+
+function updateFibHint(textareaEl, text) {
+  const card = textareaEl.closest('.item-card');
+  const hintEl = card && card.querySelector('.fib-hint');
+  if (!hintEl) return;
+  const hint = fibHintFor(text);
+  hintEl.textContent = hint.text;
+  hintEl.classList.toggle('warn', hint.warn);
+}
+
+// ══════════════════════════════════════════════════════════════
+// STEP 3 — Activity bodies: Key learning / Key terms / Multiple choice
+// ══════════════════════════════════════════════════════════════
+
+function learnBodyHtml() {
+  const items = ws.learn.items;
+  if (!items.length) return emptyActivityHtml('learn.items', '＋ Add a learning point');
+  return items.map((it, i) => `<div class="item-card">
+      ${itemCardHead('Point ' + (i + 1), 'learn.items', i, items.length)}
+      <div class="item-body-grid">
+        <input type="text" data-path="learn.items.${i}.title" value="${esc(it.title)}" placeholder="Short title (optional)" maxlength="300" aria-label="Point ${i + 1} title"/>
+        <div class="field"><label>Explanation</label><div data-rt-field="learn.items.${i}.html"></div></div>
+        ${checkSubformHtml('learn.items.' + i, it.check)}
+      </div>
+    </div>`).join('') + addItemRow('learn.items', '＋ Add another learning point');
+}
+
+function termsBodyHtml() {
+  const pairs = ws.terms.pairs;
+  if (!pairs.length) return emptyActivityHtml('terms.pairs', '＋ Add a term');
+  return `<div class="item-body-grid">` + pairs.map((p, i) => `<div class="item-card">
+      ${itemCardHead('Term ' + (i + 1), 'terms.pairs', i, pairs.length)}
+      <div class="item-body-grid">
+        <input type="text" data-path="terms.pairs.${i}.term" value="${esc(p.term)}" placeholder="Term" maxlength="300" aria-label="Term ${i + 1}"/>
+        <input type="text" data-path="terms.pairs.${i}.definition" value="${esc(p.definition)}" placeholder="Definition" maxlength="1200" aria-label="Definition ${i + 1}"/>
+      </div>
+    </div>`).join('') + `</div>` + addItemRow('terms.pairs', '＋ Add another term') +
+    (pairs.length && pairs.length < 4 ? '<p class="muted" style="margin-top:8px;">Add at least 4 terms so flashcards and matching work well.</p>' : '');
+}
+
+function mcqBodyHtml() {
+  const qs = ws.mcq.questions;
+  if (!qs.length) return emptyActivityHtml('mcq.questions', '＋ Add a question');
+  return qs.map((q, i) => `<div class="item-card">
+      ${itemCardHead('Question ' + (i + 1), 'mcq.questions', i, qs.length)}
+      <div class="item-body-grid">
+        <input type="text" data-path="mcq.questions.${i}.question" value="${esc(q.question)}" placeholder="Question" maxlength="1200" aria-label="Question ${i + 1} text"/>
+        ${optionsEditorHtml('mcq.questions.' + i, q.options, q.answer)}
+        <input type="text" data-path="mcq.questions.${i}.explain" value="${esc(q.explain)}" placeholder="Why the right answer is right (optional)" maxlength="1200" aria-label="Explanation for question ${i + 1}"/>
+      </div>
+    </div>`).join('') + addItemRow('mcq.questions', '＋ Add another question');
+}
+
+// Shared "nothing here yet" / "add another" rows used by every list-based
+// activity body.
+function emptyActivityHtml(addPath, label) {
+  return `<div class="empty" style="padding:14px;">Nothing here yet.</div>` + addItemRow(addPath, label);
+}
+function addItemRow(addPath, label) {
+  return `<div class="add-item-row"><button type="button" class="btn secondary small" data-add-item="${esc(addPath)}">${esc(label)}</button></div>`;
+}
+
+// ══════════════════════════════════════════════════════════════
+// STEP 3 — Activity bodies: Fill in the blanks / True or false / Misconceptions
+// ══════════════════════════════════════════════════════════════
+
+function fibHintFor(text) {
+  const blanks = (text.match(/\[[^\[\]]+\]/g) || []).length;
+  if (blanks === 0) return { text: 'No blanks found — wrap missing words in [brackets]', warn: true };
+  if (blanks > 4) return { text: blanks + ' blanks found — maximum 4 per sentence', warn: true };
+  return { text: blanks + (blanks === 1 ? ' blank found' : ' blanks found'), warn: false };
+}
+
+function fibBodyHtml() {
+  const qs = ws.fib.questions;
+  if (!qs.length) return emptyActivityHtml('fib.questions', '＋ Add a sentence');
+  return qs.map((q, i) => {
+    const hint = fibHintFor(q.text || '');
+    return `<div class="item-card">
+      ${itemCardHead('Sentence ' + (i + 1), 'fib.questions', i, qs.length)}
+      <div class="item-body-grid">
+        <textarea data-path="fib.questions.${i}.text" placeholder="The [answer] goes in brackets." maxlength="1200" aria-label="Sentence ${i + 1}">${esc(q.text)}</textarea>
+        <div class="fib-hint${hint.warn ? ' warn' : ''}">${esc(hint.text)}</div>
+      </div>
+    </div>`;
+  }).join('') + addItemRow('fib.questions', '＋ Add another sentence');
+}
+
+function tfBodyHtml() {
+  const qs = ws.tf.questions;
+  if (!qs.length) return emptyActivityHtml('tf.questions', '＋ Add a statement');
+  return qs.map((q, i) => `<div class="item-card">
+      ${itemCardHead('Statement ' + (i + 1), 'tf.questions', i, qs.length)}
+      <div class="item-body-grid">
+        <textarea data-path="tf.questions.${i}.statement" placeholder="A statement students decide is true or false" maxlength="1200" aria-label="Statement ${i + 1}">${esc(q.statement)}</textarea>
+        <div class="tf-radios">
+          <label><input type="radio" name="tf_${i}" data-tf-path="tf.questions.${i}.answer" value="true" ${q.answer ? 'checked' : ''}/> True</label>
+          <label><input type="radio" name="tf_${i}" data-tf-path="tf.questions.${i}.answer" value="false" ${!q.answer ? 'checked' : ''}/> False</label>
+        </div>
+        <input type="text" data-path="tf.questions.${i}.explain" value="${esc(q.explain)}" placeholder="Why (optional)" maxlength="1200" aria-label="Explanation for statement ${i + 1}"/>
+      </div>
+    </div>`).join('') + addItemRow('tf.questions', '＋ Add another statement');
+}
+
+function miscBodyHtml() {
+  const items = ws.misc.items;
+  if (!items.length) return emptyActivityHtml('misc.items', '＋ Add a misconception');
+  return items.map((it, i) => `<div class="item-card">
+      ${itemCardHead('Misconception ' + (i + 1), 'misc.items', i, items.length)}
+      <div class="item-body-grid">
+        <textarea data-path="misc.items.${i}.myth" placeholder="What students often get wrong…" maxlength="1200" aria-label="Misconception ${i + 1}">${esc(it.myth)}</textarea>
+        <textarea data-path="misc.items.${i}.truth" placeholder="What's actually correct, and why the mix-up happens…" maxlength="1200" aria-label="Reality for misconception ${i + 1}">${esc(it.truth)}</textarea>
+        ${checkSubformHtml('misc.items.' + i, it.check)}
+      </div>
+    </div>`).join('') + addItemRow('misc.items', '＋ Add another misconception');
+}
+
+// ══════════════════════════════════════════════════════════════
+// STEP 3 — Activity bodies: Exam tips / Exam practice
+// ══════════════════════════════════════════════════════════════
+
+function tipsBodyHtml() {
+  const items = ws.tips.items;
+  if (!items.length) return emptyActivityHtml('tips.items', '＋ Add a tip');
+  return items.map((it, i) => `<div class="item-card">
+      ${itemCardHead('Tip ' + (i + 1), 'tips.items', i, items.length)}
+      <div class="item-body-grid">
+        <input type="text" data-path="tips.items.${i}.title" value="${esc(it.title)}" placeholder="e.g. How to answer “describe” questions" maxlength="300" aria-label="Tip ${i + 1} title"/>
+        <div class="field"><label>Tip content</label><div data-rt-field="tips.items.${i}.html"></div></div>
+        ${checkSubformHtml('tips.items.' + i, it.check)}
+      </div>
+    </div>`).join('') + addItemRow('tips.items', '＋ Add another tip');
+}
+
+function examBodyHtml() {
+  const qs = ws.exam.questions;
+  if (!qs.length) return emptyActivityHtml('exam.questions', '＋ Add a question');
+  return qs.map((q, i) => {
+    const noScheme = !nonBlankHtml(q.markScheme);
+    return `<div class="item-card">
+      ${itemCardHead('Question ' + (i + 1), 'exam.questions', i, qs.length)}
+      <div class="item-body-grid">
+        <textarea data-path="exam.questions.${i}.question" placeholder="A longer written practice question…" maxlength="1200" aria-label="Exam question ${i + 1}">${esc(q.question)}</textarea>
+        <div class="field">
+          <label for="examMarks${i}">Marks</label>
+          <input type="number" id="examMarks${i}" data-path="exam.questions.${i}.marks" value="${esc(q.marks)}" min="1" max="25" step="1" style="max-width:90px;" aria-label="Marks for question ${i + 1}"/>
+        </div>
+        <input type="text" data-path="exam.questions.${i}.hint" value="${esc(q.hint)}" placeholder="Optional hint shown before they answer" maxlength="1200" aria-label="Hint for question ${i + 1}"/>
+        <div class="field"><label>Mark scheme</label><div data-rt-field="exam.questions.${i}.markScheme"></div></div>
+        ${noScheme ? '<p class="muted" style="color:var(--wrong);">A mark scheme is needed before students can self-mark this.</p>' : ''}
+      </div>
+    </div>`;
+  }).join('') + addItemRow('exam.questions', '＋ Add another question');
+}
+
+// ══════════════════════════════════════════════════════════════
+// STEP 3 — Activity panel event delegation (bound once; content inside
+// #activitiesRoot is re-rendered per topic / per structural change)
+// ══════════════════════════════════════════════════════════════
+
+function wireActivitiesEvents() {
+  const root = $('activitiesRoot');
+
+  root.addEventListener('input', (e) => {
+    const el = e.target.closest('[data-path]');
+    if (!el) return;
+    const path = el.dataset.path;
+    setAtPath(ws, path, el.value);
+    topicDirty = true;
+    if (el.tagName === 'TEXTAREA' && /^fib\.questions\.\d+\.text$/.test(path)) updateFibHint(el, el.value);
+  });
+
+  root.addEventListener('change', (e) => {
+    const enableChk = e.target.closest('[data-act-enable]');
+    if (enableChk) {
+      const key = enableChk.dataset.actEnable;
+      syncLiveEditorsToWs(); // this panel may rebuild below — keep unsaved typing
+      ws[key].enabled = enableChk.checked;
+      topicDirty = true;
+      if (key === 'reading') refreshReadingChrome(); else renderActivityBody(key);
+      updateNoActivitiesHint();
+      return;
+    }
+    const radio = e.target.closest('input[type=radio][data-path]');
+    if (radio) { setAtPath(ws, radio.dataset.path, Number(radio.value)); topicDirty = true; return; }
+    const tfRadio = e.target.closest('input[type=radio][data-tf-path]');
+    if (tfRadio) { setAtPath(ws, tfRadio.dataset.tfPath, tfRadio.value === 'true'); topicDirty = true; }
+  });
+
+  root.addEventListener('click', (e) => {
+    if (e.target.closest('.switch')) return; // let the checkbox's own change event handle it
+    const header = e.target.closest('[data-panel-toggle]');
+    if (header) { setOpenPanel(header.dataset.panelToggle); return; }
+    const insertTplBtn = e.target.closest('[data-insert-template]');
+    if (insertTplBtn) { handleInsertTemplate(); return; }
+    const addBtn = e.target.closest('[data-add-item]');
+    if (addBtn) { handleAddItem(addBtn.dataset.addItem); return; }
+    const rmBtn = e.target.closest('[data-remove-item]');
+    if (rmBtn) { handleRemoveItem(rmBtn.dataset.removeItem); return; }
+    const upBtn = e.target.closest('[data-move-up-item]');
+    if (upBtn) { handleMoveItem(upBtn.dataset.moveUpItem, -1); return; }
+    const downBtn = e.target.closest('[data-move-down-item]');
+    if (downBtn) { handleMoveItem(downBtn.dataset.moveDownItem, 1); return; }
+    const addCheckBtn = e.target.closest('[data-add-check]');
+    if (addCheckBtn) { handleAddCheck(addCheckBtn.dataset.addCheck); return; }
+    const rmCheckBtn = e.target.closest('[data-remove-check]');
+    if (rmCheckBtn) { handleRemoveCheck(rmCheckBtn.dataset.removeCheck); }
+  });
+
+  // Space/Enter activates the panel header (role="button").
+  root.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const header = e.target.closest('[data-panel-toggle]');
+    if (!header) return;
+    e.preventDefault();
+    setOpenPanel(header.dataset.panelToggle);
+  });
+}
+
+// ══════════════════════════════════════════════════════════════
+// TEMPLATE DOWNLOAD / AI HELPER / IMPORT (subject-template.js owns the
+// format — this page only drives the file picker, modals and DB writes)
+// ══════════════════════════════════════════════════════════════
+
+// Scope selector: "Whole subject" | one per distinct unit | one per lesson.
+// Options are index-keyed into scopeOptions (not string-encoded) so a unit
+// name containing punctuation can never be mis-parsed back out of the value.
+function populateScopeSelect() {
+  const sel = $('tplScopeSelect');
+  if (!sel) return;
+  const prevIdx = sel.selectedIndex;
+  scopeOptions = [{ type: 'subject', label: 'Whole subject' }];
+  const seenUnits = new Set();
+  existingTopics.forEach(t => {
+    const u = t.section || '';
+    if (u && !seenUnits.has(u)) { seenUnits.add(u); scopeOptions.push({ type: 'unit', unit: u, label: 'This unit: ' + u }); }
+  });
+  existingTopics.forEach(t => {
+    scopeOptions.push({ type: 'lesson', topicId: t.id, topicTitle: t.title, label: 'One lesson: ' + t.title });
+  });
+  sel.innerHTML = scopeOptions.map((o, i) => `<option value="${i}">${esc(o.label)}</option>`).join('');
+  sel.selectedIndex = (prevIdx >= 0 && prevIdx < scopeOptions.length) ? prevIdx : 0;
+}
+
+function currentScope() {
+  const sel = $('tplScopeSelect');
+  const o = (sel && scopeOptions[Number(sel.value)]) || scopeOptions[0] || { type: 'subject' };
+  if (o.type === 'unit') return { type: 'unit', unit: o.unit };
+  if (o.type === 'lesson') return { type: 'lesson', topicId: o.topicId, topicTitle: o.topicTitle };
+  return { type: 'subject' };
+}
+
+function handleDownloadTemplate() {
+  if (!wizardSubject) return;
+  const scope = currentScope();
+  const obj = SubjectTemplate.build(wizardSubject, existingTopics, scope);
+  const blob = new Blob([JSON.stringify(obj, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = SubjectTemplate.fileName(wizardSubject, scope);
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+function openAiModal() {
+  if (!wizardSubject) return;
+  $('aiPromptText').value = SubjectTemplate.aiPrompt(wizardSubject, currentScope());
+  $('aiModal').classList.remove('hidden');
+}
+function closeAiModal() { $('aiModal').classList.add('hidden'); }
+
+async function copyAiPrompt() {
+  const text = $('aiPromptText').value;
+  const btn = $('aiCopyBtn');
+  const original = btn.textContent;
+  try {
+    if (!navigator.clipboard || !navigator.clipboard.writeText) throw new Error('no clipboard API');
+    await navigator.clipboard.writeText(text);
+    btn.textContent = '✅ Copied';
+  } catch (e) {
+    $('aiPromptText').select();
+    btn.textContent = 'Selected — press Ctrl+C';
+  }
+  setTimeout(() => { btn.textContent = original; }, 1800);
+}
+
+function openImportPicker() { $('tplFileInput').value = ''; $('tplFileInput').click(); }
+
+async function handleImportFile(file) {
+  if (!file) return;
+  const text = await file.text();
+  const result = SubjectTemplate.parse(text);
+  importParsed = result.ok ? result : null;
+  renderImportModal(result);
+  $('importModal').classList.remove('hidden');
+}
+
+function computeMergePlan(parsedTopics) {
+  const existingByTitle = new Map(existingTopics.map(t => [t.title.toLowerCase(), t]));
+  let updated = 0, added = 0;
+  parsedTopics.forEach(t => { if (existingByTitle.has(t.title.toLowerCase())) updated++; else added++; });
+  return { updated, added };
+}
+
+const IMPORT_COUNT_LABELS = [
+  ['topics', 'Topics'], ['notes', 'Notes'], ['learn', 'Learn'], ['terms', 'Terms'],
+  ['mcq', 'MCQ'], ['fib', 'Blanks'], ['tf', 'T/F'], ['misc', 'Misconceptions'],
+  ['tips', 'Tips'], ['exam', 'Exam Qs'],
+];
+
+function renderImportModal(result) {
+  const box = $('importModalBox');
+  if (!result.ok) {
+    box.innerHTML = `<h3>Couldn't import this file</h3>
+      <ul class="import-errors">${result.errors.map(e => '<li>' + esc(e) + '</li>').join('')}</ul>
+      <div class="modal-close-row"><button type="button" class="btn secondary small" id="importCloseBtn">Close</button></div>`;
+    return;
+  }
+  const plan = computeMergePlan(result.topics);
+  const c = result.counts;
+  box.innerHTML = `<h3>Import preview</h3>
+    <div class="import-counts">${IMPORT_COUNT_LABELS.map(([key, label]) =>
+      `<div><div class="n">${esc(c[key] || 0)}</div><div class="lbl">${esc(label)}</div></div>`).join('')}</div>
+    <p class="merge-summary">${plan.updated} topic${plan.updated === 1 ? '' : 's'} will be <strong>UPDATED</strong> (matched by title), ${plan.added} will be <strong>ADDED</strong>.</p>
+    <div class="modal-close-row">
+      <button type="button" class="btn secondary small" id="importCancelBtn">Cancel</button>
+      <button type="button" class="btn accent" id="importApplyBtn">Import ${c.topics} topic${c.topics === 1 ? '' : 's'}</button>
+    </div>`;
+}
+
+function closeImportModal() { $('importModal').classList.add('hidden'); $('importModalBox').innerHTML = ''; }
+
+async function applyImport() {
+  if (!importParsed || !importParsed.ok || !wizardSubject) return;
+  setBusy(['importApplyBtn', 'importCancelBtn'], true);
+  const existingByTitle = new Map(existingTopics.map(t => [t.title.toLowerCase(), t]));
+  const takenSlugs = new Set(existingTopics.map(t => t.slug).filter(Boolean));
+  let maxOrder = existingTopics.reduce((m, t) => Math.max(m, t.sort_order || 0), 0);
+  let updated = 0, added = 0;
+  try {
+    for (const t of importParsed.topics) {
+      const match = existingByTitle.get(t.title.toLowerCase());
+      if (match) {
+        const { error } = await auth.client.from('custom_topics').update({
+          section: t.unit, sections: t.sections, status: t.publish ? 'published' : match.status,
+        }).eq('id', match.id);
+        if (error) throw error;
+        updated++;
+      } else {
+        maxOrder += 10;
+        const slug = SubjectTemplate.uniqueSlug(SubjectTemplate.slugify(t.title), takenSlugs);
+        takenSlugs.add(slug);
+        const { error } = await auth.client.from('custom_topics').insert({
+          subject_id: wizardSubject.id, slug, section: t.unit, title: t.title,
+          sort_order: maxOrder, status: t.publish ? 'published' : 'draft', sections: t.sections,
+        });
+        if (error) throw error;
+        added++;
+      }
+    }
+  } catch (err) {
+    setBusy(['importApplyBtn', 'importCancelBtn'], false);
+    if (isMissingTable(err)) { closeImportModal(); showSqlMissingNotice(); return; }
+    alert('Import failed partway through: ' + err.message + '. Some topics may already have been imported — check Step 2 · Structure.');
+    return;
+  }
+  importParsed = null;
+  closeImportModal();
+  await loadTopicsForSubject();
+  goToStep(3);
+  setMsg($('step3Msg'), `Imported: ${updated} updated, ${added} added ✓`, true);
+  fadeMsgLater($('step3Msg'), 4000);
+  syncBankAfterPublishChange(); // imports can publish topics directly
+}
+
+// ══════════════════════════════════════════════════════════════
+// STEP 4 — Publish & classes
+// ══════════════════════════════════════════════════════════════
+
+async function renderStep4() {
+  $('publishList').innerHTML = '<div class="empty">Loading…</div>';
+  $('classListPanel').innerHTML = '<div class="empty">Loading…</div>';
+  await Promise.all([loadTopicsForSubject(), loadClassesForSubject()]);
+  renderPublishPanel();
+  renderClassPanel();
+  renderFinishBar();
+}
+
+async function loadClassesForSubject() {
+  const { data, error } = await auth.client.from('classes')
+    .select('id, name, archived').eq('subject_id', wizardSubject.id).eq('archived', false).order('name');
+  if (error) { if (isMissingTable(error)) { showSqlMissingNotice(); return; } teacherClasses = []; return; }
+  teacherClasses = data || [];
+}
+
+function renderClassPanel() {
+  const createLink = `<a class="btn secondary small" href="teacher-classes.html?subject=${encodeURIComponent(wizardSubject.id)}" style="display:inline-block; margin-top:10px;">＋ ${teacherClasses.length ? 'Create another' : 'Create a'} class with this subject</a>`;
+  if (!teacherClasses.length) {
+    $('classListPanel').innerHTML = '<div class="empty">No classes are using this subject yet.</div>' + createLink;
+    return;
+  }
+  $('classListPanel').innerHTML = teacherClasses.map(c => `<div class="class-row"><span>${esc(c.name)}</span></div>`).join('') + createLink;
+}
+
+function publishToggleLabel(t) {
+  if (t.status === 'published') return '✅ Published — click to unpublish';
+  return (t.hasContent ? '📝 Draft' : '✏️ Empty') + ' — click to publish';
+}
+
+function renderPublishPanel() {
+  const flat = flattenTopics();
+  const total = flat.length;
+  const pub = flat.filter(t => t.status === 'published').length;
+  $('publishSummary').textContent = total ? `— ${pub} of ${total} published` : '';
+  clearMsg($('publishMsg'));
+
+  const groups = wzSections.filter(s => s.topics.length);
+  if (!groups.length) {
+    $('publishList').innerHTML = '<div class="empty">No topics yet — add some in Step 2 · Structure.</div>';
+    return;
+  }
+  $('publishList').innerHTML = groups.map(sec => `
+    <div class="topic-sidebar-heading">${esc(sec.name || 'Untitled section')}</div>
+    ${sec.topics.map(t => `
+      <div class="publish-row">
+        <span>${esc(t.title)}</span>
+        <button type="button" class="btn small" data-toggle-publish="${esc(t.id)}">${esc(publishToggleLabel(t))}</button>
+      </div>`).join('')}
+  `).join('');
+}
+
+async function handleTogglePublish(topicId) {
+  const t = findTopicById(topicId);
+  if (!t) return;
+  const newStatus = t.status === 'published' ? 'draft' : 'published';
+  const { error } = await auth.client.from('custom_topics').update({ status: newStatus }).eq('id', topicId);
+  if (error) { setMsg($('publishMsg'), error.message, false); return; }
+  t.status = newStatus;
+  const rec = existingTopics.find(x => x.id === topicId);
+  if (rec) rec.status = newStatus;
+  renderPublishPanel();
+  syncBankAfterPublishChange();
+}
+
+async function handlePublishAll() {
+  const ids = existingTopics.filter(t => t.status !== 'published' && t.hasContent).map(t => t.id);
+  if (!ids.length) {
+    setMsg($('publishMsg'), 'Nothing to publish — write some content first, or everything is already published.', false);
+    return;
+  }
+  if (!confirm(`Publish ${ids.length} topic${ids.length === 1 ? '' : 's'}? Students in classes using this subject will be able to see ${ids.length === 1 ? 'it' : 'them'} immediately.`)) return;
+  setBusy(['publishAllBtn'], true);
+  const { error } = await auth.client.from('custom_topics').update({ status: 'published' }).in('id', ids);
+  setBusy(['publishAllBtn'], false);
+  if (error) { setMsg($('publishMsg'), error.message, false); return; }
+  ids.forEach(id => {
+    const t = findTopicById(id); if (t) t.status = 'published';
+    const rec = existingTopics.find(x => x.id === id); if (rec) rec.status = 'published';
+  });
+  renderPublishPanel();
+  setMsg($('publishMsg'), `Published ${ids.length} topic${ids.length === 1 ? '' : 's'} ✓`, true);
+  fadeMsgLater($('publishMsg'));
+  syncBankAfterPublishChange();
+}
+
+// ── Daily Revise / Tasks sync ──
+// Whenever what students can see changes (publish/unpublish, publish-all,
+// a published topic's content saved, a template import), rebuild this
+// subject's bank_questions rows so Daily Revise, spaced repetition and
+// the task/worksheet pickers stay in step. Fire-and-forget: a failure
+// never blocks the teacher's action (the next publish change retries).
+//
+// Goes through the /sync-subject-bank Netlify function (NOT the raw
+// sync_teacher_subject_bank RPC, which is no longer client-callable):
+// bank content renders as HTML to students and other teachers, so the
+// function sanitises snapshot.reading / answer_key.markScheme /
+// answer_key.modelAnswer with DOMPurify before it can reach the DB.
+function syncBankAfterPublishChange() {
+  if (!wizardSubject || !window.CustomBank) return;
+  const published = existingTopics.filter(t => t.status === 'published');
+  const rows = CustomBank.buildBankRows(wizardSubject, published);
+  const token = auth && auth.session && auth.session.access_token;
+  if (!token) { console.error('sync-subject-bank: no access token'); return; }
+  fetch('/.netlify/functions/sync-subject-bank', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+    body: JSON.stringify({ subject_id: wizardSubject.id, rows }),
+  })
+    .then(async (res) => {
+      const payload = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(payload.error || ('HTTP ' + res.status));
+      const n = (payload && payload.synced) || 0;
+      const el = $('publishMsg');
+      if (el && el.classList.contains('ok')) {
+        el.textContent += ` · ${n} question${n === 1 ? '' : 's'} synced to Daily Revise & Tasks`;
+      }
+    })
+    .catch(err => console.error('sync-subject-bank', err));
+}
+
+function renderFinishBar() {
+  $('finishBar').innerHTML = `
+    <a class="btn accent" href="subject-view.html?id=${encodeURIComponent(wizardSubject.id)}" target="_blank" rel="noopener noreferrer">🎉 View it as your students will</a>
+    <button type="button" class="btn secondary" data-back-to-manager="1">← Back to My Content</button>`;
+}
+
+// ══════════════════════════════════════════════════════════════
+// STATIC EVENT WIRING (attached once; content inside is re-rendered)
+// ══════════════════════════════════════════════════════════════
+
+// ══════════════════════════════════════════════════════════════
+// SHARE MODAL (Subjects V2 · S1)
+// ══════════════════════════════════════════════════════════════
+async function openShareModal(subjectId) {
+  const s = subjects.find(x => x.id === subjectId);
+  if (!s) return;
+  shareModalSubjectId = subjectId;
+  $('shareSubjName').textContent = '“' + s.name + '”';
+  clearMsg($('shareMsg'));
+  $('shareScope').value = 'teacher';
+  $('shareAccess').value = 'view';
+  $('shareTeacherField').classList.remove('hidden');
+  $('shareExternalFields').classList.add('hidden');
+  $('shareExtName').value = ''; $('shareExtEmail').value = ''; $('shareExtReason').value = '';
+  $('shareModal').classList.remove('hidden');
+  await Promise.all([loadShareTeachers(), loadShareList()]);
+}
+function closeShareModal() { $('shareModal').classList.add('hidden'); shareModalSubjectId = null; }
+
+async function loadShareTeachers() {
+  const sel = $('shareTeacher');
+  if (!schoolTeachersCache) {
+    const { data, error } = await auth.client.rpc('get_my_school_teachers');
+    schoolTeachersCache = error ? [] : (data || []);
+  }
+  sel.innerHTML = schoolTeachersCache.length
+    ? '<option value="">— choose a teacher —</option>' + schoolTeachersCache.map(t =>
+        `<option value="${esc(t.email || '')}">${esc(t.username || t.email || '?')}${t.email ? ' · ' + esc(t.email) : ''}</option>`).join('')
+    : '<option value="">No other teachers in your school</option>';
+}
+
+async function loadShareList() {
+  if (!shareModalSubjectId) return;
+  const { data, error } = await auth.client.rpc('get_shares_for_subject', { p_subject_id: shareModalSubjectId });
+  if (error) { $('shareList').innerHTML = `<div class="empty">${esc(error.message)}</div>`; return; }
+  const rows = data || [];
+  $('shareList').innerHTML = rows.length
+    ? rows.map(r => `<div class="publish-row">
+        <span>${r.scope === 'school' ? '🏫 Whole school' : '👤 ' + esc(r.grantee_name)} — <strong>${esc(r.access)}</strong></span>
+        <button type="button" class="btn icon-btn" data-revoke-share="${esc(r.id)}" title="Revoke share">🗑 Revoke</button>
+      </div>`).join('')
+    : '<div class="empty">Not shared with anyone yet.</div>';
+}
+
+async function submitShare() {
+  const scope = $('shareScope').value;
+  const access = $('shareAccess').value;
+
+  // External = share OUTSIDE the school → an admin-approved request (S3).
+  if (scope === 'external') {
+    const name = $('shareExtName').value.trim();
+    const email = $('shareExtEmail').value.trim();
+    const reason = $('shareExtReason').value.trim();
+    if (!name || !email || !reason) { setMsg($('shareMsg'), 'Name, email and a reason are all required.', false); return; }
+    setBusy(['shareSubmitBtn'], true);
+    const { error } = await auth.client.rpc('request_external_share', {
+      p_subject_id: shareModalSubjectId, p_invitee_name: name, p_invitee_email: email,
+      p_access: access, p_reason: reason,
+    });
+    setBusy(['shareSubmitBtn'], false);
+    if (error) {
+      if (isMissingTable(error) || isMissingFunction(error)) { setMsg($('shareMsg'), 'External sharing isn\'t set up yet — run supabase/subjects-v2-s3-external.sql.', false); return; }
+      setMsg($('shareMsg'), error.message, false); return;
+    }
+    setMsg($('shareMsg'), 'Sent to your school admin for approval ✓', true);
+    $('shareExtName').value = ''; $('shareExtEmail').value = ''; $('shareExtReason').value = '';
+    fadeMsgLater($('shareMsg'), 3500);
+    return;
+  }
+
+  const email = $('shareTeacher').value;
+  if (scope === 'teacher' && !email) { setMsg($('shareMsg'), 'Choose a teacher to share with.', false); return; }
+  setBusy(['shareSubmitBtn'], true);
+  const { error } = await auth.client.rpc('share_subject', {
+    p_subject_id: shareModalSubjectId, p_scope: scope, p_access: access,
+    p_grantee_email: scope === 'teacher' ? email : null,
+  });
+  setBusy(['shareSubmitBtn'], false);
+  if (error) {
+    if (isMissingTable(error) || isMissingFunction(error)) { setMsg($('shareMsg'), 'Sharing isn\'t set up yet — run supabase/subjects-v2.sql.', false); return; }
+    setMsg($('shareMsg'), error.message, false);
+    return;
+  }
+  setMsg($('shareMsg'), 'Shared ✓', true);
+  fadeMsgLater($('shareMsg'));
+  await loadShareList();
+}
+
+async function revokeShareRow(shareId) {
+  const { error } = await auth.client.rpc('revoke_share', { p_share_id: shareId });
+  if (error) { alert('Could not revoke this share: ' + error.message); return; }
+  await loadShareList();
+}
+
+function wireStaticListeners() {
+  // ── subjects tabs ──
+  document.querySelectorAll('[data-subjtab]').forEach(b =>
+    b.addEventListener('click', () => showSubjectsTab(b.dataset.subjtab)));
+
+  // ── shared-with-me + all grids: open an edit-shared subject in the wizard ──
+  ['sharedGrid', 'allGrid'].forEach(gid => $(gid).addEventListener('click', async (e) => {
+    const editShared = e.target.closest('[data-edit-shared]');
+    if (editShared) { await enterWizard(editShared.dataset.editShared, 2); return; }
+    const reqEdit = e.target.closest('[data-request-edit]');
+    if (reqEdit) { await handleRequestEdit(reqEdit.dataset.requestEdit); return; }
+    const shareBtn = e.target.closest('[data-share-subject]');
+    if (shareBtn) { await openShareModal(shareBtn.dataset.shareSubject); }
+  }));
+
+  // ── platform grid: request edit access to a platform subject (S4) ──
+  $('platformGrid').addEventListener('click', async (e) => {
+    const reqEdit = e.target.closest('[data-request-edit]');
+    if (reqEdit) { await handleRequestEdit(reqEdit.dataset.requestEdit); }
+  });
+
+  // ── incoming edit requests (owner approves/denies) ──
+  $('incomingRequests').addEventListener('click', (e) => {
+    const ap = e.target.closest('[data-approve-req]');
+    if (ap) { handleResolveRequest(ap.dataset.approveReq, true); return; }
+    const dn = e.target.closest('[data-deny-req]');
+    if (dn) { handleResolveRequest(dn.dataset.denyReq, false); }
+  });
+
+  // ── share modal ──
+  $('shareCloseBtn').addEventListener('click', closeShareModal);
+  $('shareModal').addEventListener('click', (e) => { if (e.target === $('shareModal')) closeShareModal(); });
+  $('shareScope').addEventListener('change', () => {
+    const v = $('shareScope').value;
+    $('shareTeacherField').classList.toggle('hidden', v !== 'teacher');
+    $('shareExternalFields').classList.toggle('hidden', v !== 'external');
+  });
+  $('shareSubmitBtn').addEventListener('click', submitShare);
+  $('shareList').addEventListener('click', (e) => {
+    const rev = e.target.closest('[data-revoke-share]');
+    if (rev) revokeShareRow(rev.dataset.revokeShare);
+  });
+
+  // ── manager ──
+  $('createSubjectBtn').addEventListener('click', () => enterWizard(null, 1));
+  $('mgrTabActive').addEventListener('click', () => {
+    managerTab = 'active';
+    $('mgrTabActive').classList.add('active'); $('mgrTabArchived').classList.remove('active');
+    renderManager();
+  });
+  $('mgrTabArchived').addEventListener('click', () => {
+    managerTab = 'archived';
+    $('mgrTabArchived').classList.add('active'); $('mgrTabActive').classList.remove('active');
+    renderManager();
+  });
+  $('subjGrid').addEventListener('click', async (e) => {
+    const editBtn = e.target.closest('[data-edit-subject]');
+    if (editBtn) { await enterWizard(editBtn.dataset.editSubject, 2); return; }
+    const shareBtn = e.target.closest('[data-share-subject]');
+    if (shareBtn) { await openShareModal(shareBtn.dataset.shareSubject); return; }
+    const publishBtn = e.target.closest('[data-publish-subject]');
+    if (publishBtn) {
+      const details = publishBtn.closest('details'); if (details) details.open = false;
+      await enterWizard(publishBtn.dataset.publishSubject, 4); return;
+    }
+    const archiveBtn = e.target.closest('[data-archive-subject]');
+    if (archiveBtn) {
+      const details = archiveBtn.closest('details'); if (details) details.open = false;
+      await handleToggleArchive(archiveBtn.dataset.archiveSubject);
+      return;
+    }
+    const deleteBtn = e.target.closest('[data-delete-subject]');
+    if (deleteBtn) {
+      const details = deleteBtn.closest('details'); if (details) details.open = false;
+      await handleDeleteSubject(deleteBtn.dataset.deleteSubject);
+    }
+  });
+
+  // ── wizard shell ──
+  $('wizManagerBtn').addEventListener('click', async () => {
+    if (!(await confirmLeaveWizard())) return;
+    await backToManager();
+  });
+  $('wizardSteps').addEventListener('click', async (e) => {
+    const t = e.target.closest('[data-wstep]');
+    if (!t) return;
+    const target = parseInt(t.dataset.wstep, 10);
+    if (!wizardSubject && target !== 1) return;
+    if (target === wizardStep) return;
+    if (!(await confirmLeaveWizard())) return;
+    goToStep(target);
+  });
+  $('wizBackBtn').addEventListener('click', async () => {
+    if (!(await confirmLeaveWizard())) return;
+    goToStep(wizardStep - 1);
+  });
+  $('wizContinueBtn').addEventListener('click', async () => {
+    if (wizardStep === 1) { await saveStep1(2); return; }
+    if (wizardStep === 2) { const ok = await persistStructure(); if (ok) goToStep(3); return; }
+    if (wizardStep === 3) {
+      if (isTopicDirty()) {
+        if (!confirm('You have unsaved changes to this topic. Continue without saving them?')) return;
+        topicDirty = false;
+        if (editor) editor.markClean();
+        liveEditors.forEach(ed => ed.markClean());
+      }
+      goToStep(4);
+    }
+  });
+  window.addEventListener('beforeunload', (e) => {
+    if (isTopicDirty()) { e.preventDefault(); e.returnValue = ''; }
+  });
+
+  // ── template toolbar ──
+  $('tplDownloadBtn').addEventListener('click', handleDownloadTemplate);
+  $('tplAiBtn').addEventListener('click', openAiModal);
+  $('aiCloseBtn').addEventListener('click', closeAiModal);
+  $('aiCopyBtn').addEventListener('click', copyAiPrompt);
+  $('aiModal').addEventListener('click', (e) => { if (e.target.id === 'aiModal') closeAiModal(); });
+  $('tplImportBtn').addEventListener('click', openImportPicker);
+  $('tplFileInput').addEventListener('change', () => {
+    if ($('tplFileInput').files && $('tplFileInput').files[0]) handleImportFile($('tplFileInput').files[0]);
+  });
+  $('importModalBox').addEventListener('click', (e) => {
+    if (e.target.closest('#importApplyBtn')) { applyImport(); return; }
+    if (e.target.closest('#importCancelBtn') || e.target.closest('#importCloseBtn')) closeImportModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (!$('aiModal').classList.contains('hidden')) closeAiModal();
+    if (!$('importModal').classList.contains('hidden')) closeImportModal();
+  });
+
+  // ── step 1 ──
+  ['f1Name', 'f1Level', 'f1ExamBoard', 'f1Description'].forEach(id => {
+    $(id).addEventListener('input', () => { wzBasicsDirty = true; updateStep1Preview(); });
+  });
+  $('iconPicker').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-icon]');
+    if (!b) return;
+    currentPickedIcon = b.dataset.icon;
+    wzBasicsDirty = true;
+    renderIconPicker();
+    updateStep1Preview();
+  });
+  $('colourPicker').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-colour]');
+    if (!b) return;
+    currentPickedColour = b.dataset.colour;
+    wzBasicsDirty = true;
+    renderColourPicker();
+    updateStep1Preview();
+  });
+  $('colourPicker').addEventListener('change', (e) => {
+    if (e.target.id !== 'customColourInput') return;
+    currentPickedColour = e.target.value;
+    wzBasicsDirty = true;
+    renderColourPicker();
+    updateStep1Preview();
+  });
+
+  // ── step 2 ──
+  $('addSectionBtn').addEventListener('click', () => {
+    wzSections.push({ name: '', topics: [] });
+    wzStructureDirty = true;
+    renderStep2();
+  });
+  $('loadExampleBtn').addEventListener('click', loadExampleStructure);
+  $('structList').addEventListener('input', (e) => {
+    const secName = e.target.closest('[data-section-name]');
+    if (secName) { wzSections[parseInt(secName.dataset.sectionName, 10)].name = secName.value; wzStructureDirty = true; return; }
+    const topicTitle = e.target.closest('[data-topic-title]');
+    if (topicTitle) {
+      const [si, ti] = topicTitle.dataset.topicTitle.split(':').map(Number);
+      wzSections[si].topics[ti].title = topicTitle.value;
+      wzStructureDirty = true;
+    }
+  });
+  $('structList').addEventListener('click', async (e) => {
+    const addTopic = e.target.closest('[data-add-topic]');
+    if (addTopic) {
+      const si = parseInt(addTopic.dataset.addTopic, 10);
+      wzSections[si].topics.push({ id: null, slug: null, title: '', status: 'draft', hasContent: false });
+      wzStructureDirty = true;
+      renderStep2();
+      return;
+    }
+    const removeSection = e.target.closest('[data-remove-section]');
+    if (removeSection) {
+      wzSections.splice(parseInt(removeSection.dataset.removeSection, 10), 1);
+      wzStructureDirty = true;
+      renderStep2();
+      return;
+    }
+    const removeTopic = e.target.closest('[data-remove-topic]');
+    if (removeTopic) {
+      const [si, ti] = removeTopic.dataset.removeTopic.split(':').map(Number);
+      await handleRemoveTopic(si, ti);
+      return;
+    }
+    const moveUp = e.target.closest('[data-move-up]');
+    if (moveUp) {
+      const [si, ti] = moveUp.dataset.moveUp.split(':').map(Number);
+      if (ti > 0) {
+        const arr = wzSections[si].topics;
+        [arr[ti - 1], arr[ti]] = [arr[ti], arr[ti - 1]];
+        wzStructureDirty = true;
+        renderStep2();
+      }
+      return;
+    }
+    const moveDown = e.target.closest('[data-move-down]');
+    if (moveDown) {
+      const [si, ti] = moveDown.dataset.moveDown.split(':').map(Number);
+      const arr = wzSections[si].topics;
+      if (ti < arr.length - 1) {
+        [arr[ti + 1], arr[ti]] = [arr[ti], arr[ti + 1]];
+        wzStructureDirty = true;
+        renderStep2();
+      }
+    }
+  });
+
+  // ── step 3 ──
+  $('topicSidebarList').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-open-topic]');
+    if (b) openTopicInEditor(b.dataset.openTopic);
+  });
+  $('saveTopicBtn').addEventListener('click', () => saveCurrentTopic(false));
+  $('saveNextTopicBtn').addEventListener('click', () => saveCurrentTopic(true));
+  wireActivitiesEvents();
+
+  // ── step 4 ──
+  $('publishAllBtn').addEventListener('click', handlePublishAll);
+  $('publishList').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-toggle-publish]');
+    if (b) handleTogglePublish(b.dataset.togglePublish);
+  });
+  $('finishBar').addEventListener('click', async (e) => {
+    if (e.target.closest('[data-back-to-manager]')) await backToManager();
+  });
+}
+
+init();
+</script>
+<script src="/teacher-nav.js"></script>
+  <script src="searchable-select.js" defer></script>
+</body>
+</html>

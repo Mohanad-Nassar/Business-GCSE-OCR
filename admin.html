@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>School Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@300;400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="business-style.css"/>
+<style>
+  html, body { display:block !important; grid-template-columns:none !important; grid-template-rows:none !important; grid-template-areas:none !important; }
+  header, main { grid-area:unset !important; }
+  body { background:var(--paper); color:var(--ink); overflow-x:hidden; }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
+
+  header { background:var(--chrome, var(--ink)); border-bottom:3px solid var(--accent); padding:26px 40px 22px; position:relative; }
+  .header-inner { position:relative; z-index:1; display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+  .header-badge { display:inline-block; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:12px; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(22px,3.5vw,30px); font-weight:700; color:var(--chrome-text, var(--paper)); line-height:1.15; margin-bottom:5px; }
+  header p { font-size:13px; color:rgba(245,240,232,.6); max-width:60ch; }
+  .school-switch { display:flex; align-items:center; gap:8px; }
+  .school-switch select { background:rgba(255,255,255,.12); color:var(--chrome-text,var(--paper)); border:1px solid rgba(255,255,255,.25); }
+  .school-switch label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:rgba(245,240,232,.7); }
+
+  main { padding:26px 40px 70px; max-width:1080px; margin:0 auto; }
+  .muted { color:var(--mid); font-size:12.5px; line-height:1.6; }
+  .section-label { font-weight:500; font-family:'DM Mono',monospace; font-size:11px; color:var(--accent); letter-spacing:.14em; text-transform:uppercase; display:flex; align-items:center; gap:10px; margin:26px 0 14px; }
+  .section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+  .panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:20px 22px; margin-bottom:16px; }
+  .btn { background:var(--chrome, var(--ink)); color:var(--chrome-text, var(--paper)); border:none; padding:9px 16px; border-radius:7px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
+  .btn:hover { filter:brightness(.92); }
+  .btn.secondary { background:transparent; color:var(--ink); border:1px solid var(--border); }
+  .btn.secondary:hover { background:var(--cream); border-color:var(--accent); }
+  .btn.small { padding:5px 11px; font-size:12px; }
+  .btn.danger { background:transparent; color:var(--wrong); border:1px solid color-mix(in srgb, var(--wrong) 40%, var(--border)); }
+  .btn.danger:hover { background:color-mix(in srgb, var(--wrong) 12%, var(--card-bg)); }
+  .btn.solid-danger { background:var(--wrong); color:#fff; border:none; }
+  .btn[disabled] { opacity:.5; cursor:not-allowed; }
+
+  input, select { background:var(--card-bg); border:1px solid var(--border); border-radius:7px; padding:8px 10px; font-family:'DM Sans',sans-serif; font-size:13px; color:var(--ink); }
+  label.fld { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); display:block; margin-bottom:4px; }
+  .row { display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end; }
+
+  /* Top tabs */
+  .tabs { display:flex; gap:4px; flex-wrap:wrap; border-bottom:2px solid var(--border); margin-bottom:22px; }
+  .tab { background:none; border:none; border-bottom:3px solid transparent; margin-bottom:-2px; padding:11px 16px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13.5px; color:var(--mid); cursor:pointer; display:flex; align-items:center; gap:7px; }
+  .tab:hover { color:var(--ink); }
+  .tab.active { color:var(--accent); border-bottom-color:var(--accent); }
+  .tab .count { font-family:'DM Mono',monospace; font-size:10px; background:var(--cream); border:1px solid var(--border); border-radius:99px; padding:0 6px; }
+  /* Sub tabs */
+  .subtabs { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:16px; }
+  .subtab { background:var(--cream); border:1px solid var(--border); border-radius:99px; padding:6px 14px; font-size:12.5px; font-weight:600; color:var(--mid); cursor:pointer; }
+  .subtab.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+
+  /* Teacher rows */
+  .trow { border:1px solid var(--border); border-radius:10px; margin-bottom:12px; overflow:hidden; }
+  .trow.suspended { border-left:4px solid var(--wrong); }
+  .trow.removed { opacity:.85; border-left:4px solid var(--mid); }
+  .trow-head { display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:14px 18px; background:var(--card-bg); cursor:pointer; }
+  .trow-id { min-width:180px; }
+  .trow-name { font-family:'Playfair Display',serif; font-size:16px; font-weight:600; }
+  .trow-email { font-family:'DM Mono',monospace; font-size:11.5px; color:var(--mid); }
+  .trow-meta { display:flex; gap:16px; flex-wrap:wrap; margin-left:auto; align-items:center; }
+  .stat { text-align:center; }
+  .stat b { display:block; font-family:'Playfair Display',serif; font-size:17px; }
+  .stat span { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.06em; text-transform:uppercase; color:var(--mid); }
+  .badge { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.05em; text-transform:uppercase; padding:2px 8px; border-radius:99px; }
+  .badge.admin { background:var(--accent); color:#fff; }
+  .badge.owner { background:#b8860b; color:#fff; }
+  .badge.susp { background:#fdecea; color:var(--wrong); border:1px solid #f0b3ab; }
+  .badge.rem { background:var(--cream); color:var(--mid); border:1px solid var(--border); }
+  .chev { transition:transform .18s; color:var(--mid); }
+  .trow.open .chev { transform:rotate(90deg); }
+  .trow-body { display:none; padding:16px 18px; border-top:1px solid var(--border); background:var(--paper); }
+  .trow.open .trow-body { display:block; }
+  .actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
+
+  /* Subject grid */
+  .subgrid { display:flex; flex-wrap:wrap; gap:8px; margin:8px 0; }
+  .subchk { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--border); background:var(--card-bg); border-radius:8px; padding:8px 12px; cursor:pointer; font-size:13px; -webkit-user-select:none; user-select:none; }
+  .subchk input { accent-color:var(--accent); }
+  .subchk.on { border-color:var(--accent); background:color-mix(in srgb, var(--accent) 8%, var(--card-bg)); }
+  .subchk.locked { opacity:.45; cursor:not-allowed; }
+
+  /* Codes */
+  .code-row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:9px 0; border-bottom:1px dashed var(--border); }
+  .code-row:last-child { border-bottom:none; }
+  .code-val { font-family:'DM Mono',monospace; font-weight:600; font-size:13.5px; background:var(--cream); padding:3px 9px; border-radius:6px; }
+  .code-meta { font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); }
+  .code-row.revoked .code-val { text-decoration:line-through; opacity:.6; }
+  .copy-btn { background:none; border:none; cursor:pointer; color:var(--accent); font-size:12px; font-family:'DM Mono',monospace; }
+  .copy-btn:hover { text-decoration:underline; }
+  .inline-add { display:flex; gap:8px; flex-wrap:wrap; align-items:flex-end; margin-top:14px; padding-top:14px; border-top:1px solid var(--border); }
+
+  /* Audit */
+  .audit-row { display:grid; grid-template-columns:150px 1fr; gap:12px; padding:9px 0; border-bottom:1px dashed var(--border); font-size:13px; }
+  .audit-when { font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); }
+  .audit-act { font-family:'DM Mono',monospace; font-size:11px; color:var(--accent); }
+
+  .empty { text-align:center; padding:26px 10px; }
+  .empty-emoji { font-size:34px; margin-bottom:8px; }
+
+  /* Modal */
+  .modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:center; justify-content:center; z-index:700; padding:20px; }
+  .modal-backdrop.show { display:flex; }
+  .modal { background:var(--card-bg); border:1px solid var(--border); border-radius:12px; max-width:440px; width:100%; padding:24px; box-shadow:0 20px 60px rgba(0,0,0,.3); }
+  .modal h3 { font-family:'Playfair Display',serif; font-size:19px; margin-bottom:6px; }
+  .modal .opt { display:block; border:1px solid var(--border); border-radius:9px; padding:12px 14px; margin-top:10px; cursor:pointer; }
+  .modal .opt:hover { border-color:var(--accent); }
+  .modal .opt.sel { border-color:var(--accent); background:color-mix(in srgb, var(--accent) 8%, var(--card-bg)); }
+  .modal .opt b { display:block; font-size:14px; }
+  .modal .opt span { font-size:12px; color:var(--mid); }
+  .modal-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:20px; }
+  .modal .warn { font-size:12.5px; color:var(--wrong); margin-top:12px; }
+
+  .toast { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:var(--ink); color:var(--paper); padding:10px 18px; border-radius:8px; font-size:13px; z-index:800; opacity:0; transition:opacity .2s; pointer-events:none; }
+  .toast.show { opacity:1; }
+
+  @media (max-width:600px){ header{padding:22px 18px 18px;} main{padding:20px 14px 60px;} .trow-meta{margin-left:0;width:100%;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="header-badge" id="roleBadge">Admin</div>
+      <h1>🏫 School admin</h1>
+      <p>Manage the teachers in your school — accounts, subject access and invite codes.</p>
+    </div>
+    <div class="school-switch" id="schoolSwitch" style="display:none;">
+      <label for="schoolSelect">School</label>
+      <select id="schoolSelect"></select>
+    </div>
+  </div>
+</header>
+
+<main id="adminMain">
+  <div class="panel"><div class="empty"><div class="empty-emoji">⏳</div><p>Loading…</p></div></div>
+</main>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" id="modal"></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="tasks-shared.js"></script>
+<script src="admin.js"></script>
+<script src="teacher-nav.js"></script>
+<script src="footer-legal.js"></script>
+  <script src="searchable-select.js" defer></script>
+</body>
+</html>

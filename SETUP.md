@@ -41,7 +41,9 @@ functions created by earlier ones).
 16. [`supabase/daily-revise-functions.sql`](supabase/daily-revise-functions.sql) — `get_daily_revise_settings()`, `get_daily_revise_queue()` and `record_mastery_answer()` (must run after steps 13–15).
 17. [`supabase/daily-revise-analytics.sql`](supabase/daily-revise-analytics.sql) — the four teacher-only analytics functions (`get_class_dr_usage/overview/questions/matrix`) behind `teacher-analytics.html`, each scoped to the class's own subject.
 18. [`supabase/spaced-repetition.sql`](supabase/spaced-repetition.sql) — the Review Calendar: `topic_reviews` plus `get_review_schedule()`, `get_topic_review_questions()` and `record_review_answer()`. **Must run after the daily-revise files (steps 13 and 16)** — it reads `bank_questions` / `question_mastery` and delegates grading to `record_mastery_answer()`.
-19. **Seed the question bank** — run:
+19. [`supabase/teacher-subjects.sql`](supabase/teacher-subjects.sql) — **teacher-authored subjects** ("My Content", see [docs/TEACHER-SUBJECTS-SPEC.md](docs/TEACHER-SUBJECTS-SPEC.md)): adds `subjects.created_by` (+`description`) so teachers' own subjects (PE, History, …) are real `subjects` rows — the class-creation picker lists them, classes/join codes/generated logins work as normal, and one teacher's subjects stay invisible to other teachers (a scoped read policy replaces `subjects_read_all`, plus a trigger stops classes pointing at someone else's subject). Also creates `custom_topics` (per-topic 9-activity `sections` jsonb, draft/published), the `create_teacher_subject()` / `get_my_teacher_subjects()` RPCs, and the public `topic-images` storage bucket (2 MB/image, teacher-only uploads into their own folder). Powers `teacher-subjects.html` (builder wizard + template import) and `subject-view.html` (the student activity player, which records progress through the normal `record_progress()`).
+20. [`supabase/teacher-todos.sql`](supabase/teacher-todos.sql) — the **teacher task-management page** (`teacher-notifications.html`): `teacher_todos` (a teacher's own to-do items — title, notes, priority, optional link, done + "remind me in X hours/days/weeks" snooze) and `teacher_notif_state` (snooze/done state for the DERIVED alerts — submissions to mark, topic-access requests — keyed by the same note_key the header bell uses, so acting on the page also quiets the bell). Both per-teacher, RLS-guarded. Optional but needed for snooze/done/own-tasks; without it the page still lists live alerts.
+21. **Seed the question bank** — run:
     ```
     python tools/build_question_bank.py --upload
     ```
@@ -256,8 +258,8 @@ Course content under `/subjects/` is no longer public. A Netlify Edge
 Function (`netlify/edge-functions/content-gate.ts`, mounted in netlify.toml)
 checks every request:
 
-- **Logged out** → topic pages redirect to `login.html?redirect=…`; asset
-  requests get 401.
+- **Logged out** → topic pages redirect to `index.html?redirect=…` (the
+  landing page forwards it on to `login.html`); asset requests get 401.
 - **Logged in, not enrolled in that subject** → redirect to
   `join.html?subject=…`; assets get 403.
 - **`question-bank.js` is teacher-only** (it embeds answers inline) —
@@ -285,6 +287,38 @@ Notes:
   students being locked out of revision is worse than a brief gate outage.
 - Local testing: `netlify dev` runs the edge function; the cookie is set
   without `Secure` on plain-http localhost so the flow works there too.
+- **"Slow down — this looks automated" (429) after leaving a `netlify dev`
+  tab open/idle for a while (e.g. laptop went to sleep):** this is the
+  WP-A8 scrape throttle in `content-gate.ts` (`SCRAPE_LIMIT` = 300 gated
+  requests per rolling 5 minutes, counted **per session token, in one
+  in-memory `Map`**). Two things make this far more likely on localhost
+  than in production:
+  1. **The counter never resets on its own between page loads.** In
+     production, edge isolates recycle often, wiping the `Map`; a local
+     `netlify dev` process is one long-lived isolate for the entire time
+     the CLI is running, so the only resets are the 5-minute rolling
+     window or stopping `netlify dev`.
+  2. **A stale session can put the page into a reload/redirect loop.**
+     Every guarded page re-validates its cached Supabase session on load
+     (`script.js`'s `gcseInitAuth`, `tasksAuthInit`, or a topic page's
+     inline check) and calls `location.replace(...)` back to the login
+     flow if that fails. Supabase access tokens expire (~1h) and refresh
+     tokens are single-use — a tab left open past a token's life, or two
+     tabs racing to refresh the same session, can make every reload fail
+     validation and bounce again. Enough bounces in one 5-minute window
+     (≈300 gated requests ÷ ~3-5 per page ≈ 60+ reloads) trips the
+     throttle, and the resulting 429 page looks like it's "stuck
+     refreshing" because whatever was retrying keeps hitting the same
+     429 until the window clears.
+  - **Fix it now:** stop and restart `netlify dev` (clears the in-memory
+    counter instantly) and hard-refresh the tab (Ctrl+Shift+R) once,
+    rather than letting anything auto-retry. If the page still bounces
+    back to login, log out and in again for a fresh session/cookie.
+  - **If it recurs:** open DevTools → Console/Network *before* refreshing
+    again and see what's actually firing repeatedly — that pinpoints
+    which guard is looping instead of guessing. This is a dev-environment
+    annoyance from the throttle's in-memory design, not a sign the gate
+    is broken; production isolates don't accumulate the same way.
 
 ## Notes
 

@@ -304,6 +304,20 @@ def extract_array(src: str, var_name: str, file: str):
         raise SystemExit(f"ERROR parsing {var_name} in {file}: {e}")
 
 
+def extract_object(src: str, var_name: str, file: str):
+    """Like extract_array but for an object literal (`const X = { … }`) —
+    used for EXAM_CASE_STUDIES, the per-page shared-extract map that exam
+    questions reference by caseId (see script.js's _epResolveCase)."""
+    m = re.search(r"const\s+" + var_name + r"\s*=\s*\{", src)
+    if not m:
+        return None
+    parser = JsLiteralParser(src, m.end() - 1)
+    try:
+        return parser.parse_object()
+    except ValueError as e:
+        raise SystemExit(f"ERROR parsing {var_name} in {file}: {e}")
+
+
 def djb2(text: str) -> str:
     h = 5381
     for ch in text:
@@ -455,6 +469,17 @@ def build_bank(slug, pages):
             seen.add(qid)
             return qid
 
+        # Shared exam extracts (single source per extract): questions may
+        # reference one by caseId instead of inlining caseStudy — resolve it
+        # so the bank snapshot still carries the full extract text.
+        case_studies = extract_object(src, "EXAM_CASE_STUDIES", file) or {}
+
+        def resolve_case(q):
+            cid = q.get("caseId")
+            if cid:
+                return case_studies.get(cid)
+            return q.get("caseStudy")
+
         for q in extract_array(src, "examQuestions", file) or []:
             if not q or not q.get("question"):
                 continue
@@ -469,7 +494,7 @@ def build_bank(slug, pages):
                 "num": q.get("num") or None,
                 "question": q["question"],
                 "options": q.get("options") if is_mcq else None,
-                "caseStudy": q.get("caseStudy") or None,
+                "caseStudy": resolve_case(q) or None,
                 "hint": q.get("hint") or None,
                 "starter": q.get("starter") or None,
                 "key": prune({

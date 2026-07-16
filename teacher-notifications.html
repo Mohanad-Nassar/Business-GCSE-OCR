@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>To-Do &amp; Notifications — Teacher · GCSE Business Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@300;400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="business-style.css"/>
+<style>
+  html, body { display:block !important; grid-template-columns:none !important; grid-template-rows:none !important; grid-template-areas:none !important; }
+  header, main { grid-area:unset !important; }
+  body { background:var(--paper); color:var(--ink); }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
+
+  header { background:var(--chrome, var(--ink)); border-bottom:3px solid var(--accent); padding:24px 40px 20px; }
+  .header-inner { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+  .header-badge { display:inline-block; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:10px; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); font-weight:700; color:var(--chrome-text, var(--paper)); margin-bottom:4px; }
+  header p { font-size:13px; color:rgba(245,240,232,.6); }
+  .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--chrome-text, var(--paper)); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; cursor:pointer; }
+  .nav-link:hover { background:rgba(255,255,255,.18); }
+
+  main { padding:26px 40px 80px; max-width:900px; margin:0 auto; }
+  .panel { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:20px 22px; margin-bottom:18px; }
+  .section-label { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--mid); margin:6px 0 12px; }
+  .muted { color:var(--mid); font-size:12px; }
+  .empty { padding:22px; text-align:center; color:var(--mid); font-size:13px; font-style:italic; }
+  .mono { font-family:'DM Mono',monospace; }
+
+  .subtab { background:transparent; border:1px solid var(--border); color:var(--mid); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.04em; padding:8px 16px; border-radius:7px; cursor:pointer; white-space:nowrap; }
+  .subtab:hover { border-color:var(--accent); color:var(--accent); }
+  .subtab.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .tab-count { font-family:'DM Mono',monospace; opacity:.8; margin-left:4px; }
+
+  .btn { background:var(--chrome, var(--ink)); color:var(--chrome-text, var(--paper)); border:none; padding:10px 18px; border-radius:6px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
+  .btn:hover { filter:brightness(1.3); }
+  .btn:disabled { opacity:.5; cursor:not-allowed; filter:none; }
+  .btn.small { padding:6px 12px; font-size:11.5px; }
+  .btn.ghost { background:transparent; color:var(--ink); border:1px solid var(--border); }
+  .btn.ghost:hover { border-color:var(--accent); color:var(--accent); filter:none; }
+
+  .inline-form { display:flex; gap:12px; flex-wrap:wrap; align-items:flex-end; }
+  .field { display:flex; flex-direction:column; gap:5px; min-width:0; }
+  .field label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); }
+  .field input, .field select, .field textarea { padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:13.5px; font-family:'DM Sans',sans-serif; background:var(--card-bg); }
+  .field textarea { resize:vertical; min-height:56px; font-family:'DM Sans',sans-serif; }
+  .field.grow { flex:2; min-width:200px; }
+  .msg { font-family:'DM Mono',monospace; font-size:12px; margin-top:10px; min-height:16px; }
+  .msg.ok { color:#2d7a4f; }
+  .msg.err { color:var(--wrong); }
+  .hidden { display:none !important; }
+
+  /* ── item list ── */
+  .item-list { display:flex; flex-direction:column; }
+  .item-row { display:flex; gap:12px; align-items:flex-start; padding:14px 4px; border-bottom:1px solid var(--border); }
+  .item-row:last-child { border-bottom:none; }
+  .i-icon { font-size:18px; flex-shrink:0; margin-top:1px; }
+  .i-body { flex:1; min-width:0; }
+  .i-title { font-size:13.5px; line-height:1.5; display:flex; flex-wrap:wrap; align-items:center; gap:8px; color:var(--ink); }
+  .i-notes { font-size:12.5px; color:var(--mid); margin-top:4px; white-space:pre-wrap; }
+  .i-when { font-family:'DM Mono',monospace; font-size:10.5px; color:var(--mid); margin-top:6px; }
+  .i-actions { display:flex; gap:6px; flex-wrap:wrap; margin-top:9px; }
+  .i-actions a.btn.small { text-decoration:none; display:inline-block; }
+
+  .itag, .pchip { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.05em; text-transform:uppercase; padding:2px 8px; border-radius:99px; border:1px solid var(--border); white-space:nowrap; }
+  .itag-task { color:var(--accent); border-color:var(--accent); }
+  .itag-info { color:#4a6fa5; border-color:#4a6fa5; }
+  .pchip-high { color:#fff; background:var(--wrong); border-color:var(--wrong); }
+  .pchip-normal { color:var(--mid); background:var(--cream); }
+  .pchip-low { color:var(--mid); background:transparent; }
+
+  .snooze-row { display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-top:9px; }
+  .snooze-row input[type=number] { width:58px; padding:7px 9px; border:1px solid var(--border); border-radius:6px; font-size:12.5px; background:var(--card-bg); }
+  .snooze-row select { padding:7px 9px; border:1px solid var(--border); border-radius:6px; font-size:12.5px; background:var(--card-bg); }
+
+  @media (max-width:480px){ main { padding:18px 14px 60px; } header { padding:20px 18px 16px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="header-badge">OCR GCSE Business Studies · J204</div>
+      <h1>✅ To-Do &amp; Notifications</h1>
+      <p>Everything needing your attention — system alerts and your own tasks — in one place.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div style="display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;" role="tablist" aria-label="Filter tasks and notifications">
+    <button type="button" class="subtab" data-filter="todo" role="tab">✅ To-do<span class="tab-count" id="cntTodo"></span></button>
+    <button type="button" class="subtab" data-filter="info" role="tab">🔔 Notifications<span class="tab-count" id="cntInfo"></span></button>
+    <button type="button" class="subtab" data-filter="snoozed" role="tab">⏰ Snoozed<span class="tab-count" id="cntSnoozed"></span></button>
+    <button type="button" class="subtab" data-filter="done" role="tab">☑️ Done<span class="tab-count" id="cntDone"></span></button>
+    <button type="button" class="subtab" data-filter="all" role="tab">🗂️ All active<span class="tab-count" id="cntAll"></span></button>
+  </div>
+
+  <div class="panel" id="addPanel">
+    <div class="section-label">＋ Add a task</div>
+    <p class="muted hidden" id="setupNotice" style="margin:0 0 12px;">⚠️ Your own tasks, snooze and done need one extra step — ask the site owner to run <span class="mono">supabase/teacher-todos.sql</span> once. System notifications above still work without it.</p>
+    <form id="addForm" novalidate>
+      <div class="inline-form" style="margin-bottom:12px;">
+        <div class="field grow">
+          <label for="todoTitle">Title</label>
+          <input type="text" id="todoTitle" maxlength="200" required/>
+        </div>
+        <div class="field">
+          <label for="todoKind">Type</label>
+          <select id="todoKind">
+            <option value="action" selected>Task</option>
+            <option value="info">Note</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="todoPriority">Priority</label>
+          <select id="todoPriority">
+            <option value="low">Low</option>
+            <option value="normal" selected>Normal</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="todoDue">Due (optional)</label>
+          <input type="date" id="todoDue"/>
+        </div>
+      </div>
+      <div class="field" style="margin-bottom:12px;">
+        <label for="todoLink">Link (optional)</label>
+        <input type="text" id="todoLink" maxlength="500" placeholder="/teacher-tasks.html or https://…"/>
+      </div>
+      <div class="field" style="margin-bottom:14px;">
+        <label for="todoNotes">Notes (optional)</label>
+        <textarea id="todoNotes" maxlength="2000"></textarea>
+      </div>
+      <button type="submit" class="btn" id="addBtn">＋ Add task</button>
+      <button type="button" class="btn ghost small hidden" id="cancelEditBtn" style="margin-left:8px;">Cancel edit</button>
+      <input type="hidden" id="editingId" value=""/>
+    </form>
+    <div class="msg" id="addMsg"></div>
+  </div>
+
+  <div class="panel">
+    <div class="msg" id="itemMsg"></div>
+    <div class="item-list" id="itemList"><div class="empty">Loading…</div></div>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/subjects-index.js"></script>
+<script src="/page-groups-all.js"></script>
+<script src="/tasks-shared.js"></script>
+<script src="/notifications-shared.js"></script>
+<script>
+'use strict';
+const esc = taskEscapeHtml;
+const $ = id => document.getElementById(id);
+let auth = null;
+
+let derivedNotes = [];   // [{ key, icon, text, href, at, kind }] from deriveTeacherNotifications
+let notifState = {};     // note_key -> teacher_notif_state row
+let todos = [];          // teacher_todos rows
+let tablesReady = true;  // false when teacher_todos / teacher_notif_state don't exist yet (42P01)
+let currentItems = [];   // last buildItems() result, for click-handler lookups
+let currentFilter = 'todo';
+let defaultTabChosen = false;
+
+const SNOOZE_UNIT_MS = { hours: 3600000, days: 86400000, weeks: 604800000 };
+
+const FILTERS = {
+  todo:    { test: it => it.bucket === 'active'  && it.kind === 'action', empty: 'Nothing to do right now 🎉' },
+  info:    { test: it => it.bucket === 'active'  && it.kind === 'info',   empty: 'No notifications.' },
+  snoozed: { test: it => it.bucket === 'snoozed',                        empty: 'Nothing snoozed right now.' },
+  done:    { test: it => it.bucket === 'done',                           empty: 'Nothing done yet.' },
+  all:     { test: it => it.bucket === 'active',                        empty: 'All clear — nothing active 🎉' },
+};
+
+// ── waits briefly for a global defined by a script that may still be
+// loading (script-race guard called out in the spec) ──
+function waitFor(globalName, tries) {
+  return new Promise(resolve => {
+    (function poll(n) {
+      if (typeof window[globalName] === 'function') return resolve(true);
+      if (n <= 0) return resolve(false);
+      setTimeout(() => poll(n - 1), 150);
+    })(tries);
+  });
+}
+
+async function init() {
+  auth = await tasksAuthInit('teacher');
+  if (!auth) return;
+  // Same account-bar wiring as notifications.html — teacher-nav.js also
+  // wires this itself a little later (via its own account-cluster.js load),
+  // but setting the client now lets the 🔔 bell in the header find it
+  // immediately instead of building its own from the cached session.
+  window._gcseSupabaseClient = auth.client;
+  window._gcseProfile = window._gcseProfile || { username: auth.username, role: auth.role };
+  if (typeof _gcseInjectAccountBar === 'function') _gcseInjectAccountBar();
+  await loadAll();
+}
+
+async function loadAll() {
+  const uid = auth.session.user.id;
+  await waitFor('deriveTeacherNotifications', 10);
+  const deriveFn = window.deriveTeacherNotifications;
+
+  const [derived, stateRes, todosRes] = await Promise.all([
+    typeof deriveFn === 'function' ? deriveFn(auth.client, uid) : Promise.resolve([]),
+    auth.client.from('teacher_notif_state').select('*').eq('teacher_id', uid),
+    auth.client.from('teacher_todos').select('*').eq('teacher_id', uid),
+  ]);
+  derivedNotes = derived || [];
+
+  tablesReady = true;
+  notifState = {};
+  if (stateRes && stateRes.error) {
+    if (stateRes.error.code === '42P01') tablesReady = false;
+    else console.error('teacher_notif_state', stateRes.error);
+  } else {
+    (stateRes.data || []).forEach(r => { notifState[r.note_key] = r; });
+  }
+
+  todos = [];
+  if (todosRes && todosRes.error) {
+    if (todosRes.error.code === '42P01') tablesReady = false;
+    else console.error('teacher_todos', todosRes.error);
+  } else {
+    todos = todosRes.data || [];
+  }
+
+  render();
+}
+
+// ── bucketing / merging ──
+
+function computeBucket(done, snoozeUntil) {
+  if (done) return 'done';
+  if (snoozeUntil && new Date(snoozeUntil).getTime() > Date.now()) return 'snoozed';
+  return 'active';
+}
+
+function buildItems() {
+  const items = [];
+  derivedNotes.forEach(n => {
+    const st = notifState[n.key] || {};
+    items.push({
+      source: 'derived', key: n.key, id: n.key,
+      icon: n.icon, title: n.text, notes: '',
+      kind: n.kind || 'action', priority: null,
+      href: n.href || '', at: n.at,
+      bucket: computeBucket(!!st.done, st.snooze_until),
+      snooze_until: st.snooze_until || null,
+      done_at: st.done_at || null,
+    });
+  });
+  todos.forEach(t => {
+    items.push({
+      source: 'todo', key: t.id, id: t.id,
+      icon: t.kind === 'info' ? '🗒️' : '📌',
+      title: t.title, notes: t.notes || '',
+      kind: t.kind, priority: t.priority,
+      href: t.link_href || '', at: new Date(t.created_at).getTime(),
+      bucket: computeBucket(t.status === 'done', t.snooze_until),
+      snooze_until: t.snooze_until || null,
+      done_at: t.done_at || null,
+    });
+  });
+  return items;
+}
+
+function sortItems(list, tab) {
+  if (tab === 'snoozed') {
+    return list.slice().sort((a, b) => new Date(a.snooze_until) - new Date(b.snooze_until));
+  }
+  if (tab === 'done') {
+    return list.slice().sort((a, b) =>
+      (b.done_at ? new Date(b.done_at).getTime() : b.at) - (a.done_at ? new Date(a.done_at).getTime() : a.at));
+  }
+  const rank = { high: 0, normal: 1, low: 2 };
+  return list.slice().sort((a, b) =>
+    (rank[a.priority] ?? 1) - (rank[b.priority] ?? 1) || b.at - a.at);
+}
+
+// A todo link must be same-origin-relative or http(s) — never javascript:
+// or another unsafe scheme. Derived hrefs are build-authored, not user
+// input, so they're trusted as-is (matching notifications.html).
+function safeHref(raw) {
+  if (!raw) return '';
+  if (raw.startsWith('/')) return raw;
+  try {
+    const u = new URL(raw);
+    if (u.protocol === 'http:' || u.protocol === 'https:') return raw;
+  } catch (e) { /* not a valid absolute URL */ }
+  return '';
+}
+
+function fmtRelative(ts) {
+  if (!ts) return '';
+  const diff = Date.now() - (typeof ts === 'number' ? ts : new Date(ts).getTime());
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return 'just now';
+  if (mins < 60) return mins + ' minute' + (mins === 1 ? '' : 's') + ' ago';
+  const hours = Math.floor(mins / 60);
+  if (hours < 24) return hours + ' hour' + (hours === 1 ? '' : 's') + ' ago';
+  const days = Math.floor(hours / 24);
+  if (days < 30) return days + ' day' + (days === 1 ? '' : 's') + ' ago';
+  return new Date(ts).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+function fmtRemindsIn(ts) {
+  if (!ts) return '';
+  const diff = new Date(ts).getTime() - Date.now();
+  if (diff <= 0) return 'reminding now';
+  const mins = Math.round(diff / 60000);
+  if (mins < 60) return `reminds in ${mins} minute${mins === 1 ? '' : 's'}`;
+  const hours = Math.round(diff / 3600000);
+  if (hours < 24) return `reminds in ${hours} hour${hours === 1 ? '' : 's'}`;
+  const days = Math.round(diff / 86400000);
+  return `reminds in ${days} day${days === 1 ? '' : 's'}`;
+}
+
+function kindTag(kind) {
+  return kind === 'info'
+    ? '<span class="itag itag-info">Notification</span>'
+    : '<span class="itag itag-task">Task</span>';
+}
+
+function priorityChip(p) {
+  if (!p) return '';
+  const label = p.charAt(0).toUpperCase() + p.slice(1);
+  return `<span class="pchip pchip-${esc(p)}">${esc(label)}</span>`;
+}
+
+function actionButtonsHtml(item) {
+  const btn = (act, label) => `<button type="button" class="btn small" data-act="${act}">${label}</button>`;
+  if (item.bucket === 'active') {
+    let html = btn('snoozeToggle', '⏰ Remind me') + btn('done', 'Done ✓');
+    if (item.source === 'todo') html += btn('edit', 'Edit') + btn('delete', 'Delete');
+    return html;
+  }
+  if (item.bucket === 'snoozed') {
+    let html = btn('unsnooze', 'Un-snooze');
+    if (item.source === 'todo') html += btn('edit', 'Edit') + btn('delete', 'Delete');
+    return html;
+  }
+  // done
+  let html = btn('reopen', 'Reopen');
+  if (item.source === 'todo') html += btn('delete', 'Delete');
+  return html;
+}
+
+function snoozeRowHtml(item) {
+  if (item.bucket !== 'active') return '';
+  return `<div class="snooze-row hidden">
+    <input type="number" min="1" max="99" value="1" class="snooze-n" aria-label="Snooze amount"/>
+    <select class="snooze-unit" aria-label="Snooze unit">
+      <option value="hours">Hours</option>
+      <option value="days" selected>Days</option>
+      <option value="weeks">Weeks</option>
+    </select>
+    <button type="button" class="btn small" data-act="snoozeApply">Apply</button>
+  </div>`;
+}
+
+function itemRow(item) {
+  const href = item.source === 'derived' ? item.href : safeHref(item.href);
+  const openLink = href ? `<a class="btn small" href="${esc(href)}">Open →</a>` : '';
+  const notesHtml = item.notes ? `<div class="i-notes">${esc(item.notes)}</div>` : '';
+  const whenLabel = item.bucket === 'snoozed' ? fmtRemindsIn(item.snooze_until)
+    : item.bucket === 'done' ? ('done ' + fmtRelative(item.done_at || item.at))
+    : fmtRelative(item.at);
+
+  return `<div class="item-row" data-key="${esc(item.key)}" data-source="${item.source}">
+    <span class="i-icon" aria-hidden="true">${item.icon}</span>
+    <div class="i-body">
+      <div class="i-title">${esc(item.title)} ${kindTag(item.kind)} ${priorityChip(item.priority)}</div>
+      ${notesHtml}
+      <div class="i-when">${esc(whenLabel)}</div>
+      <div class="i-actions">${openLink}${actionButtonsHtml(item)}</div>
+      ${snoozeRowHtml(item)}
+    </div>
+  </div>`;
+}
+
+function chooseDefaultTab(items) {
+  if (defaultTabChosen) return;
+  defaultTabChosen = true;
+  if (FILTERS.todo.test && items.filter(FILTERS.todo.test).length === 0) {
+    const anyOther = Object.keys(FILTERS).some(k => k !== 'todo' && items.filter(FILTERS[k].test).length > 0);
+    if (anyOther) currentFilter = 'all';
+  }
+}
+
+function render() {
+  const items = buildItems();
+  currentItems = items;
+  chooseDefaultTab(items);
+
+  Object.keys(FILTERS).forEach(k => {
+    const n = items.filter(FILTERS[k].test).length;
+    const el = $('cnt' + k.charAt(0).toUpperCase() + k.slice(1));
+    if (el) el.textContent = n ? ` (${n})` : '';
+  });
+  document.querySelectorAll('[data-filter]').forEach(b => {
+    const active = b.dataset.filter === currentFilter;
+    b.classList.toggle('active', active);
+    b.setAttribute('aria-selected', String(active));
+  });
+
+  const f = FILTERS[currentFilter] || FILTERS.todo;
+  const shown = sortItems(items.filter(f.test), currentFilter);
+  $('itemList').innerHTML = shown.length
+    ? shown.map(itemRow).join('')
+    : `<div class="empty">${esc(f.empty)}</div>`;
+
+  $('setupNotice').classList.toggle('hidden', tablesReady);
+  $('addBtn').disabled = !tablesReady;
+}
+
+// ── writes: snooze / done / reopen / delete on both derived + todo items ──
+
+function showItemMsg(text, ok) {
+  const el = $('itemMsg');
+  el.className = 'msg ' + (ok ? 'ok' : 'err');
+  el.textContent = text;
+}
+
+async function applySnooze(item, nRaw, unit) {
+  const unitMs = SNOOZE_UNIT_MS[unit] || SNOOZE_UNIT_MS.days;
+  const n = Math.min(99, Math.max(1, parseInt(nRaw, 10) || 1));
+  const snoozeUntil = new Date(Date.now() + n * unitMs).toISOString();
+  let error;
+  if (item.source === 'derived') {
+    ({ error } = await auth.client.from('teacher_notif_state')
+      .upsert({ teacher_id: auth.session.user.id, note_key: item.key, snooze_until: snoozeUntil, done: false }));
+  } else {
+    ({ error } = await auth.client.from('teacher_todos').update({ snooze_until: snoozeUntil }).eq('id', item.id));
+  }
+  if (error) { showItemMsg('Could not snooze: ' + error.message, false); render(); return; }
+  showItemMsg('Snoozed.', true);
+  await loadAll();
+}
+
+async function unsnooze(item) {
+  let error;
+  if (item.source === 'derived') {
+    ({ error } = await auth.client.from('teacher_notif_state')
+      .upsert({ teacher_id: auth.session.user.id, note_key: item.key, snooze_until: null }));
+  } else {
+    ({ error } = await auth.client.from('teacher_todos').update({ snooze_until: null }).eq('id', item.id));
+  }
+  if (error) { showItemMsg('Could not un-snooze: ' + error.message, false); render(); return; }
+  showItemMsg('Un-snoozed.', true);
+  await loadAll();
+}
+
+async function markDone(item) {
+  let error;
+  if (item.source === 'derived') {
+    ({ error } = await auth.client.from('teacher_notif_state')
+      .upsert({ teacher_id: auth.session.user.id, note_key: item.key, done: true, done_at: new Date().toISOString() }));
+    // Best-effort so the header 🔔 bell (which also honours this table)
+    // clears the item too — never blocks the main write above.
+    try {
+      await auth.client.from('task_notification_reads')
+        .upsert({ student_id: auth.session.user.id, note_key: item.key });
+    } catch (e) { /* best-effort */ }
+  } else {
+    ({ error } = await auth.client.from('teacher_todos')
+      .update({ status: 'done', done_at: new Date().toISOString() }).eq('id', item.id));
+  }
+  if (error) { showItemMsg('Could not mark done: ' + error.message, false); render(); return; }
+  showItemMsg('Marked done.', true);
+  await loadAll();
+}
+
+async function reopen(item) {
+  let error;
+  if (item.source === 'derived') {
+    ({ error } = await auth.client.from('teacher_notif_state')
+      .upsert({ teacher_id: auth.session.user.id, note_key: item.key, done: false }));
+  } else {
+    ({ error } = await auth.client.from('teacher_todos').update({ status: 'open' }).eq('id', item.id));
+  }
+  if (error) { showItemMsg('Could not reopen: ' + error.message, false); render(); return; }
+  showItemMsg('Reopened.', true);
+  await loadAll();
+}
+
+async function deleteTodo(id) {
+  if (!confirm('Delete this task? This cannot be undone.')) return;
+  const { error } = await auth.client.from('teacher_todos').delete().eq('id', id);
+  if (error) { showItemMsg('Could not delete: ' + error.message, false); return; }
+  showItemMsg('Deleted.', true);
+  if ($('editingId').value === id) resetForm();
+  await loadAll();
+}
+
+function findItem(key) {
+  return currentItems.find(it => it.key === key);
+}
+
+// One delegated listener survives every re-render of the item list.
+$('itemList').addEventListener('click', async (e) => {
+  const btn = e.target.closest('button[data-act]');
+  if (!btn) return;
+  const row = btn.closest('.item-row');
+  const key = row && row.dataset.key;
+  const act = btn.dataset.act;
+
+  if (act === 'snoozeToggle') {
+    const sr = row.querySelector('.snooze-row');
+    if (sr) sr.classList.toggle('hidden');
+    return;
+  }
+  const item = findItem(key);
+  if (!item) return;
+
+  if (act === 'snoozeApply') {
+    const sr = row.querySelector('.snooze-row');
+    const n = sr.querySelector('.snooze-n').value;
+    const unit = sr.querySelector('.snooze-unit').value;
+    btn.disabled = true;
+    await applySnooze(item, n, unit);
+    return;
+  }
+  if (act === 'unsnooze') { btn.disabled = true; await unsnooze(item); return; }
+  if (act === 'done') { btn.disabled = true; await markDone(item); return; }
+  if (act === 'reopen') { btn.disabled = true; await reopen(item); return; }
+  if (act === 'edit') {
+    if (item.source !== 'todo') return;
+    const todo = todos.find(t => t.id === item.id);
+    if (todo) startEdit(todo);
+    return;
+  }
+  if (act === 'delete') {
+    if (item.source !== 'todo') return;
+    btn.disabled = true;
+    await deleteTodo(item.id);
+  }
+});
+
+// ── filter tabs ──
+
+document.querySelectorAll('[data-filter]').forEach(b => b.addEventListener('click', () => {
+  currentFilter = b.dataset.filter;
+  render();
+}));
+
+// ── add / edit form ──
+
+function resetForm() {
+  $('addForm').reset();
+  $('editingId').value = '';
+  $('addBtn').textContent = '＋ Add task';
+  $('cancelEditBtn').classList.add('hidden');
+}
+
+function startEdit(todo) {
+  $('todoTitle').value = todo.title;
+  $('todoNotes').value = todo.notes || '';
+  $('todoKind').value = todo.kind;
+  $('todoPriority').value = todo.priority;
+  $('todoLink').value = todo.link_href || '';
+  $('todoDue').value = todo.due_at ? String(todo.due_at).slice(0, 10) : '';
+  $('editingId').value = todo.id;
+  $('addBtn').textContent = 'Save changes';
+  $('cancelEditBtn').classList.remove('hidden');
+  $('todoTitle').focus();
+}
+
+$('cancelEditBtn').addEventListener('click', resetForm);
+
+$('addForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const title = $('todoTitle').value.trim();
+  if (!title) return;
+  const btn = $('addBtn');
+  const msg = $('addMsg');
+  btn.disabled = true;
+  const payload = {
+    title,
+    notes: $('todoNotes').value.trim(),
+    kind: $('todoKind').value,
+    priority: $('todoPriority').value,
+    link_href: $('todoLink').value.trim(),
+    due_at: $('todoDue').value ? new Date($('todoDue').value).toISOString() : null,
+  };
+  const editingId = $('editingId').value;
+  let error;
+  if (editingId) {
+    ({ error } = await auth.client.from('teacher_todos').update(payload).eq('id', editingId));
+  } else {
+    payload.teacher_id = auth.session.user.id;
+    ({ error } = await auth.client.from('teacher_todos').insert(payload));
+  }
+  btn.disabled = !editingId ? tablesReady === false : false;
+  if (error) { msg.className = 'msg err'; msg.textContent = error.message; btn.disabled = !tablesReady; return; }
+  const wasEditing = !!editingId;
+  resetForm();
+  msg.className = 'msg ok';
+  msg.textContent = wasEditing ? 'Task updated.' : 'Task added.';
+  await loadAll();
+});
+
+init();
+</script>
+<script src="teacher-nav.js"></script>
+<script src="footer-legal.js"></script>
+  <script src="searchable-select.js" defer></script>
+</body>
+</html>

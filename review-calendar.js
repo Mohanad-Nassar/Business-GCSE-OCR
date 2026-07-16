@@ -32,6 +32,15 @@
 
 const esc = taskEscapeHtml;
 
+// Teacher-authored bank HTML (reading/markScheme) is rendered raw into
+// innerHTML below, so it must pass the RichText allowlist sanitiser at the
+// render sink (the editor-time sanitise is bypassable via the REST API).
+// rich-editor.js is loaded on this page, so RichText is always present; the
+// guard only degrades to raw on trusted static pages that omit it.
+function _safeHtml(x) {
+  return (typeof RichText !== 'undefined' && RichText.sanitize) ? RichText.sanitize(x || '') : (x || '');
+}
+
 let srClient = null;
 let schedule = [];            // rows from srFetchSchedule()
 
@@ -389,7 +398,8 @@ function renderLegend() {
   if (!el) return;
   el.innerHTML = `
     <span><i class="lg-review"></i> Review (1 day / 1 week / 4 weeks)</span>
-    <span><i class="lg-task"></i> Task deadline set by your teacher</span>`;
+    <span><i class="lg-task"></i> Task deadline set by your teacher</span>
+    <span><i class="lg-locked"></i> Missed / locked task</span>`;
 }
 
 // ── Stats strip ─────────────────────────────────────────────────
@@ -571,12 +581,13 @@ function chipsHtml(reviewRows, taskList, today) {
     i++;
   });
   taskList.forEach(ev => {
-    const done = ev.state === 'submitted' || ev.state === 'locked';
+    const done = ev.state === 'submitted';
+    const locked = ev.state === 'locked';
     const time = ev.due.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     const stateLabel = { submitted: '✓ submitted', locked: 'missed', overdue: 'overdue!',
       in_progress: 'in progress', not_started: 'due ' + time }[ev.state] || 'due ' + time;
     const tip = `${ev.task.title} — task ${stateLabel}`;
-    parts.push(`<a class="sr-chip sr-chip-task${done ? ' is-done' : ''}${i >= 3 ? ' sr-chip-extra' : ''}"
+    parts.push(`<a class="sr-chip sr-chip-task${done ? ' is-done' : ''}${locked ? ' sr-task-locked' : ''}${i >= 3 ? ' sr-chip-extra' : ''}"
         style="--chip-accent:${esc(accentFor(ev.subjectSlug))}" title="${esc(tip)}"
         href="task.html?id=${esc(ev.task.id)}">
         <span class="sr-chip-name">📋 ${iconFor(ev.subjectSlug)}${esc(ev.task.title)}</span>
@@ -697,27 +708,25 @@ function renderQuizQuestion() {
       <label class="opt" data-val="false"><input type="radio" name="srqOpt" value="false"/> ✘ False</label>
     </div>`;
   } else if (q.qtype === 'fib') {
-    const gaps = (String(snap.question || '').match(/_{3,}/g) || []).length;
-    const n = Math.max(gaps, Math.round(Number(q.marks)) || 1);
-    const keys = Array.from({ length: n }, (_, i) => 'B' + (i + 1));
-    const parts = String(snap.question || '').split(/_{3,}/);
+    // fibBlankTokens (tasks-shared.js) understands both marker styles — the
+    // positional `_____` and the named `___B1___` the Economics bank uses.
+    const tokens = fibBlankTokens(snap.question);
     const blankOptions = snap.blankOptions || {};
     const useDropdown = !srAdvancedFIB;
     let html = `<div style="margin-bottom:10px;">
       <button type="button" class="sr-mode-btn" id="srqFibModeBtn">${useDropdown ? '🔥 Switch to typing' : '🔽 Switch to dropdowns'}</button>
     </div><div class="fib-text" id="srqFib">`;
-    parts.forEach((part, pi) => {
-      html += taskRichText(part);
-      if (pi < parts.length - 1 && pi < keys.length) {
-        const key = keys[pi];
-        if (useDropdown && blankOptions[key]) {
-          const opts = ['— choose —', ...blankOptions[key]];
-          html += `<select class="blank-select" data-bk="${key}" aria-label="Blank ${pi + 1}">` +
-            opts.map(o => `<option value="${o === '— choose —' ? '' : esc(o)}">${esc(o)}</option>`).join('') +
-            `</select>`;
-        } else {
-          html += `<input type="text" class="fib-input" data-bk="${key}" autocomplete="off" spellcheck="false" aria-label="Blank ${pi + 1}"/>`;
-        }
+    let bn = 0;
+    tokens.forEach(t => {
+      if (t.blank == null) { html += taskRichText(t.text); return; }
+      const key = t.blank; bn++;
+      if (useDropdown && blankOptions[key]) {
+        const opts = ['— choose —', ...blankOptions[key]];
+        html += `<select class="blank-select" data-bk="${esc(key)}" aria-label="Blank ${bn}">` +
+          opts.map(o => `<option value="${o === '— choose —' ? '' : esc(o)}">${esc(o)}</option>`).join('') +
+          `</select>`;
+      } else {
+        html += `<input type="text" class="fib-input" data-bk="${esc(key)}" autocomplete="off" spellcheck="false" aria-label="Blank ${bn}"/>`;
       }
     });
     html += '</div>';
@@ -738,7 +747,7 @@ function renderQuizQuestion() {
       <span>[${q.marks} mark${Number(q.marks) === 1 ? '' : 's'}]</span>
     </div>
     ${snap.caseStudy ? `<div class="case-study"><strong>Case study:</strong>\n${taskRichText(snap.caseStudy)}</div>` : ''}
-    ${snap.reading ? `<div class="case-study">${snap.readingTitle ? `<strong>${esc(snap.readingTitle)}</strong><br>` : ''}${snap.reading}</div>` : ''}
+    ${snap.reading ? `<div class="case-study">${snap.readingTitle ? `<strong>${esc(snap.readingTitle)}</strong><br>` : ''}${_safeHtml(snap.reading)}</div>` : ''}
     ${q.qtype === 'fib' ? '' : `<div class="qtext">${taskRichText(snap.question)}</div>`}
     ${inputHtml}
     <div class="dr-feedback" id="srqFeedback"></div>

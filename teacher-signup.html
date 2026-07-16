@@ -28,13 +28,13 @@
   label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
     color:var(--mid);display:block;margin-bottom:6px;}
   input{width:100%;padding:11px 13px;border:1px solid var(--border);border-radius:7px;
-    font-family:'DM Sans',sans-serif;font-size:14px;background:#fff;color:var(--ink);}
+    font-family:'DM Sans',sans-serif;font-size:14px;background:var(--card-bg);color:var(--ink);}
   input:focus{border-color:var(--accent);}
   .hint{font-size:11.5px;color:var(--mid);margin-top:4px;}
-  button[type=submit]{margin-top:6px;background:var(--ink);color:var(--paper);border:none;
+  button[type=submit]{margin-top:6px;background:var(--chrome, var(--ink));color:var(--chrome-text, var(--paper));border:none;
     padding:12px;border-radius:7px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;
     cursor:pointer;transition:background .15s;}
-  button[type=submit]:hover{background:#1c2c3d;}
+  button[type=submit]:hover{filter:brightness(.92);}
   button[type=submit]:disabled{opacity:.6;cursor:default;}
 
   .msg{font-size:12.5px;padding:10px 12px;border-radius:6px;display:none;}
@@ -99,6 +99,20 @@
   const msg = document.getElementById('msg');
   const submitBtn = document.getElementById('submitBtn');
 
+  // Subjects-V2 S3: an external-share invite link (?xshare=…) lets an invited
+  // collaborator sign up WITHOUT a staff code — the token stands in for it.
+  const xshare = new URLSearchParams(location.search).get('xshare') || '';
+  if (xshare) {
+    const sub = document.querySelector('.sub');
+    if (sub) sub.textContent = 'You\'ve been invited to collaborate on a subject — create your account to accept. Use the email address the invite was sent to.';
+    const codeField = document.getElementById('inviteCode');
+    if (codeField) {
+      codeField.required = false;
+      const wrap = codeField.closest('div');
+      if (wrap) wrap.style.display = 'none';
+    }
+  }
+
   function showMsg(text, ok) {
     msg.textContent = text;
     msg.className = 'msg show ' + (ok ? 'ok' : 'error');
@@ -119,6 +133,9 @@
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value;
     const invite_code = document.getElementById('inviteCode').value.trim();
+    const payload = { email, password };
+    if (xshare) payload.external_share_token = xshare;
+    else payload.invite_code = invite_code;
 
     submitBtn.disabled = true;
     submitBtn.textContent = 'Creating account…';
@@ -127,7 +144,7 @@
       const res = await fetch('/.netlify/functions/teacher-signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password, invite_code }),
+        body: JSON.stringify(payload),
       });
       const body = await res.json();
       if (!res.ok) {

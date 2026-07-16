@@ -27,7 +27,7 @@
 
     .skip-link {
       position:absolute; left:12px; top:-60px; z-index:100;
-      background:var(--ink); color:var(--paper); padding:10px 18px;
+      background:var(--chrome, var(--ink)); color:var(--chrome-text, var(--paper)); padding:10px 18px;
       border-radius:0 0 8px 8px; font-weight:600; font-size:14px;
       text-decoration:none; transition:top .15s;
     }
@@ -51,7 +51,7 @@
 
     /* ── HEADER ── */
     header {
-      background-color: var(--ink);
+      background-color: var(--chrome, var(--ink));
       /* Both decorative circles painted as backgrounds so the header needs
          no overflow:hidden (which would clip the injected account dropdown
          / notification bell panel). */
@@ -77,13 +77,13 @@
     }
     header h1 {
       font-family:'Playfair Display',serif; font-size:clamp(22px,3.5vw,34px);
-      font-weight:700; color:var(--paper); line-height:1.15; margin-bottom:5px;
+      font-weight:700; color:var(--chrome-text, var(--paper)); line-height:1.15; margin-bottom:5px;
     }
     header p { font-size:13px; color:rgba(245,240,232,.6); }
     .header-links { display:flex; gap:10px; flex-wrap:wrap; align-items:flex-start; }
     .nav-link {
       background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
-      color:var(--paper); font-family:'DM Mono',monospace; font-size:11px;
+      color:var(--chrome-text, var(--paper)); font-family:'DM Mono',monospace; font-size:11px;
       letter-spacing:.06em; padding:8px 16px; border-radius:6px;
       text-decoration:none; white-space:nowrap; transition:background .15s,border-color .15s;
     }
@@ -92,7 +92,7 @@
     /* ── SUBJECT SWITCHER (only shown when a student has >1 subject) ── */
     .subject-switcher select {
       background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
-      color:var(--paper); font-family:'DM Mono',monospace; font-size:11px;
+      color:var(--chrome-text, var(--paper)); font-family:'DM Mono',monospace; font-size:11px;
       letter-spacing:.06em; padding:8px 12px; border-radius:6px; cursor:pointer;
     }
     .subject-switcher select:hover { background:rgba(255,255,255,.18); border-color:var(--gold); }
@@ -231,6 +231,17 @@
     .task-chip.in_progress, .task-chip.pending { background:rgba(122,92,158,.1); color:#6a4f8c; border:1px solid rgba(122,92,158,.3); }
     .task-chip.not_started { background:rgba(90,110,127,.1); color:#5a6e7f; border:1px solid rgba(90,110,127,.3); }
 
+    /* ── DASHBOARD TABS (Overview / Tasks / Insights) ── */
+    .dash-tabs { display:flex; gap:4px; flex-wrap:wrap; margin:0 0 22px; border-bottom:2px solid var(--border); }
+    .dash-tab { background:transparent; border:none; border-bottom:3px solid transparent; margin-bottom:-2px;
+      cursor:pointer; font-family:'DM Mono',monospace; font-size:12.5px; letter-spacing:.03em; color:var(--mid);
+      padding:11px 18px; display:inline-flex; align-items:center; gap:8px; transition:color .15s, border-color .15s; }
+    .dash-tab:hover { color:var(--ink); }
+    .dash-tab.active { color:var(--accent); border-bottom-color:var(--accent); font-weight:600; }
+    .dash-tab .tab-badge { background:var(--wrong); color:#fff; border-radius:99px; padding:1px 8px; font-size:10px; font-weight:600; }
+    .dash-panel.hidden { display:none !important; }
+    #tasksSection .section-label { display:flex; align-items:center; }
+
     /* ── SCORE HISTORY & WEAK TOPICS ── */
     .score-row { display:flex; align-items:center; gap:10px; font-size:12.5px; margin-bottom:7px; }
     .score-row .title { flex:0 0 220px; max-width:220px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
@@ -274,6 +285,7 @@
       <div class="header-badge">OCR GCSE Business Studies · J204</div>
       <h1><span aria-hidden="true">📊</span> Progress Dashboard</h1>
       <p>Track your revision progress across every topic and activity</p>
+      <p id="teacherLine" style="margin-top:4px; display:none;"></p>
     </div>
     <div class="header-links">
       <span id="subjectSwitcherMount"></span>
@@ -312,64 +324,88 @@
 </div>
 
 <main>
+  <!-- "You were added to a class by your teacher" notice (class-teachers.sql) -->
+  <div id="addedNotice"></div>
+
   <!-- "Continue where you left off" — filled by renderDashboard() -->
-  <div id="dashContinueMount" style="margin-bottom:24px;"></div>
+  <div id="dashContinueMount" style="margin-bottom:20px;"></div>
 
-  <h2 class="section-label">🎯 Daily Revise</h2>
-  <div class="tasks-panel" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
-    <p class="muted" style="font-size:13px; margin:0; max-width:480px;">Short, spaced-out practice across every topic — answer a question right three times running and it's mastered.</p>
-    <a class="task-open-btn" id="dailyReviseLink" href="daily-revise.html">Start today's questions →</a>
+  <!-- Tabs: the dashboard's sections used to stack vertically; they're now
+       grouped into Overview / Tasks / Insights so the page isn't one long
+       scroll. Deep-linkable via #tasks / #insights (showDashTab on load). -->
+  <div class="dash-tabs" role="tablist" aria-label="Dashboard sections">
+    <button type="button" class="dash-tab active" data-tab="overview" role="tab" aria-selected="true"><span aria-hidden="true">📊</span> Overview</button>
+    <button type="button" class="dash-tab" data-tab="tasks" role="tab" aria-selected="false"><span aria-hidden="true">📋</span> Tasks <span id="tasksTabBadge" class="tab-badge" style="display:none;"></span></button>
+    <button type="button" class="dash-tab" data-tab="insights" role="tab" aria-selected="false"><span aria-hidden="true">🛫</span> Insights</button>
   </div>
 
-  <h2 class="section-label">Review Calendar 🗓️</h2>
-  <div class="tasks-panel" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
-    <p class="muted" style="font-size:13px; margin:0; max-width:480px;">Topic reviews scheduled 1 day, 1 week and 4 weeks after you first practise them — pass a short quiz to tick each one off.</p>
-    <div style="display:flex; align-items:center; gap:10px;">
-      <span id="reviewCalendarBadge"></span>
-      <a class="task-open-btn" id="reviewCalendarLink" href="review-calendar.html">Open calendar →</a>
+  <!-- ═══ OVERVIEW ═══ -->
+  <section class="dash-panel" id="panel-overview" role="tabpanel">
+    <h2 class="section-label">🎯 Daily Revise</h2>
+    <div class="tasks-panel" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+      <p class="muted" style="font-size:13px; margin:0; max-width:480px;">Short, spaced-out practice across every topic — answer a question right three times running and it's mastered.</p>
+      <a class="task-open-btn" id="dailyReviseLink" href="daily-revise.html">Start today's questions →</a>
     </div>
-  </div>
 
-  <div id="tasksSection" style="display:none;">
-    <h2 class="section-label">📋 My Tasks <span id="notifBadge" style="display:none; background:var(--wrong); color:#fff; border-radius:99px; padding:1px 9px; font-size:10px;"></span></h2>
-    <div class="tasks-panel">
-      <div id="notifList"></div>
-      <div id="taskSubjectFilterRow" style="display:none; margin:2px 0 10px; gap:8px; flex-wrap:wrap; align-items:center;"></div>
-      <div id="tasksTableWrap" style="overflow-x:auto;">
-        <table>
-          <thead><tr>
-            <th class="col-page" style="text-align:left;">Task</th><th>Due</th><th>Status</th><th>Attempts</th><th>My score</th><th></th>
-          </tr></thead>
-          <tbody id="tasksBody"></tbody>
-        </table>
+    <h2 class="section-label">Review Calendar 🗓️</h2>
+    <div class="tasks-panel" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+      <p class="muted" style="font-size:13px; margin:0; max-width:480px;">Topic reviews scheduled 1 day, 1 week and 4 weeks after you first practise them — pass a short quiz to tick each one off.</p>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span id="reviewCalendarBadge"></span>
+        <a class="task-open-btn" id="reviewCalendarLink" href="review-calendar.html">Open calendar →</a>
       </div>
     </div>
-  </div>
 
-  <div id="myInsights" style="display:none;">
-    <h2 class="section-label">🛫 Flight Path</h2>
-    <div class="tasks-panel">
-      <div id="flightPathChart"></div>
+    <h2 class="section-label">Activity Breakdown by Topic</h2>
+    <div class="legend" aria-hidden="true">
+      <div class="legend-item"><div class="legend-dot" style="background:#c9bfaa"></div>Not started</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#7a5c9e"></div>In progress</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#d4a843"></div>Complete ✓</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#c9bfaa;opacity:.4"></div>Not available</div>
     </div>
-    <h2 class="section-label">📈 My Score History</h2>
-    <div class="tasks-panel">
-      <div id="scoreHistoryList"></div>
-    </div>
-    <h2 class="section-label">🎯 Topics to Review</h2>
-    <div class="tasks-panel">
-      <p class="muted" style="margin-bottom:10px; font-size:12px;">Based on your answers across all completed tasks — lowest first.</p>
-      <div id="weakTopicsList"></div>
-    </div>
-  </div>
+    <div id="dashContent"></div>
+  </section>
 
-  <h2 class="section-label">Activity Breakdown by Topic</h2>
-  <div class="legend" aria-hidden="true">
-    <div class="legend-item"><div class="legend-dot" style="background:#c9bfaa"></div>Not started</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#7a5c9e"></div>In progress</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#d4a843"></div>Complete ✓</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#c9bfaa;opacity:.4"></div>Not available</div>
-  </div>
-  <div id="dashContent"></div>
+  <!-- ═══ TASKS (rendered by the shared student-tasks.js — same list as tasks.html) ═══ -->
+  <section class="dash-panel hidden" id="panel-tasks" role="tabpanel">
+    <div id="tasksSection">
+      <h2 class="section-label">📋 My Tasks
+        <span id="notifBadge" style="display:none; background:var(--wrong); color:#fff; border-radius:99px; padding:1px 9px; font-size:10px;"></span>
+        <a class="task-open-btn secondary" href="tasks.html" style="margin-left:auto; padding:5px 12px; font-size:11.5px;">Open full page ↗</a>
+      </h2>
+      <div class="tasks-panel">
+        <div id="notifList"></div>
+        <div id="taskSubjectFilterRow" style="display:none; margin:2px 0 10px; gap:8px; flex-wrap:wrap; align-items:center;"></div>
+        <div id="tasksTableWrap" style="overflow-x:auto;">
+          <table>
+            <thead><tr>
+              <th class="col-page" style="text-align:left;">Task</th><th>Due</th><th>Status</th><th>Attempts</th><th>My score</th><th></th>
+            </tr></thead>
+            <tbody id="tasksBody"><tr><td colspan="6" class="muted" style="text-align:center; padding:22px;">Loading…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ INSIGHTS ═══ -->
+  <section class="dash-panel hidden" id="panel-insights" role="tabpanel">
+    <div id="myInsights">
+      <h2 class="section-label">🛫 Flight Path</h2>
+      <div class="tasks-panel">
+        <div id="flightPathChart"></div>
+      </div>
+      <h2 class="section-label">📈 My Score History</h2>
+      <div class="tasks-panel">
+        <div id="scoreHistoryList"></div>
+      </div>
+      <h2 class="section-label">🎯 Topics to Review</h2>
+      <div class="tasks-panel">
+        <p class="muted" style="margin-bottom:10px; font-size:12px;">Based on your answers across all completed tasks — lowest first.</p>
+        <div id="weakTopicsList"></div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
@@ -382,6 +418,7 @@
 <script src="tasks-shared.js"></script>
 <script src="/account-cluster.js"></script>
 <script src="notifications-shared.js"></script>
+<script src="student-tasks.js"></script>
 <script src="onboarding-tour.js"></script>
 <script src="gamification.js"></script>
 <script src="spaced-repetition.js"></script>
@@ -402,7 +439,7 @@ function readGcseSession() {
 
 async function initDashboardAuth() {
   const cached = readGcseSession();
-  if (!cached) { location.replace('login.html?redirect=' + encodeURIComponent(location.pathname)); return false; }
+  if (!cached) { location.replace('/index.html?redirect=' + encodeURIComponent(location.pathname)); return false; }
   if (cached.role === 'teacher') { location.replace('teacher-dashboard.html'); return false; }
 
   supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -411,7 +448,7 @@ async function initDashboardAuth() {
   });
   if (error || !data.session) {
     localStorage.removeItem(GCSE_SESSION_KEY);
-    location.replace('login.html?redirect=' + encodeURIComponent(location.pathname));
+    location.replace('/index.html?redirect=' + encodeURIComponent(location.pathname));
     return false;
   }
   currentSession = data.session;
@@ -819,187 +856,61 @@ try{
   });
 }catch(e){}
 
-// ══════════ MY TASKS & NOTIFICATIONS ══════════
-// Data model + helpers come from tasks-shared.js. RLS means these selects
-// only ever return this student's own rows / assigned published tasks.
-let myTaskRows = [];   // [{ task, assignment, attempts }]
-let readKeys = [];
-let classSubjects = {};        // class_id -> {slug, name, icon} (WP-A4)
-let taskSubjectView = 'subject'; // 'subject' (this dashboard's subject) | 'all'
-
-async function loadMyTasks() {
-  if (!supabaseClient || !currentSession) return;
-  const uid = currentSession.user.id;
-  try {
-    const [{ data: tasks }, { data: asg }, { data: atts }, { data: reads }, { data: cls }] = await Promise.all([
-      supabaseClient.from('tasks').select('*'),
-      supabaseClient.from('task_assignments').select('*').eq('student_id', uid),
-      supabaseClient.from('task_attempts').select('*').eq('student_id', uid),
-      supabaseClient.from('task_notification_reads').select('note_key').eq('student_id', uid),
-      // The dashboard is a single-subject view, but a student's tasks span
-      // every class they're in — this map lets the table filter by the
-      // task's class's subject (classes_student_select RLS scopes it).
-      supabaseClient.from('classes').select('id, subjects(slug, name, icon)'),
-    ]);
-    readKeys = (reads || []).map(r => r.note_key);
-    classSubjects = {};
-    (cls || []).forEach(c => { if (c.subjects) classSubjects[c.id] = c.subjects; });
-    myTaskRows = (asg || []).map(a => {
-      const task = (tasks || []).find(t => t.id === a.task_id);
-      if (!task) return null;
-      return { task, assignment: a, attempts: (atts || []).filter(x => x.task_id === a.task_id) };
-    }).filter(Boolean);
-  } catch (e) {
-    return; // tasks schema not installed yet — leave the section hidden
-  }
-  renderMyTasks();
-}
-
-// Subject of a task via its class; null when unknown (fail open — an
-// unmapped task must never vanish from every view).
-function taskSubjectSlug(task) {
-  const s = task && task.class_id ? classSubjects[task.class_id] : null;
-  return s ? s.slug : null;
-}
-
-function setTaskSubjectView(view) {
-  taskSubjectView = view;
-  renderMyTasks();
-}
-
-function renderMyTasks() {
-  const section = document.getElementById('tasksSection');
-  if (!myTaskRows.length) { section.style.display = 'none'; document.getElementById('myInsights').style.display = 'none'; return; }
-  section.style.display = '';
-
-  // Notifications
-  const notes = deriveStudentNotifications(myTaskRows, readKeys);
-  const badge = document.getElementById('notifBadge');
-  badge.style.display = notes.length ? '' : 'none';
-  badge.textContent = notes.length ? notes.length + ' new' : '';
-  // n.text embeds the teacher-set task title — escape it (the notification
-  // bell in notifications-shared.js already does; this list didn't).
-  document.getElementById('notifList').innerHTML = notes.map(n => `
-    <div class="note-row" data-key="${taskEscapeHtml(n.key)}">
-      <span aria-hidden="true">${n.icon}</span>
-      <span class="note-text">${taskEscapeHtml(n.text)} <a href="task.html?id=${encodeURIComponent(n.taskId)}" style="color:var(--accent); font-weight:600;">Open →</a></span>
-      <button type="button" class="note-dismiss" title="Dismiss" aria-label="Dismiss notification">✕</button>
-    </div>`).join('');
-
-  // Subject filter chips (WP-A4): shown only when this student's tasks
-  // actually span more than the dashboard's active subject. Default view
-  // is the active subject; "All subjects" tags each row with its subject.
-  const activeSlug = activeSubjectSlug();
-  const spansOtherSubjects = myTaskRows.some(r => {
-    const s = taskSubjectSlug(r.task);
-    return s && s !== activeSlug;
+// ══════════ MY TASKS ══════════
+// The task list, notifications and per-subject filter live in the shared
+// student-tasks.js module (also used by the standalone tasks.html) so the
+// two never drift. The dashboard points the module at our client + user;
+// after each render it rebuilds the Insights tab's Score History and
+// mirrors the unread-notification count onto the Tasks tab.
+function initStudentTasks() {
+  if (typeof studentTasksConfigure !== 'function') return;
+  studentTasksConfigure({
+    client: supabaseClient,
+    getUid: () => currentSession && currentSession.user.id,
+    onAfterRender: () => {
+      renderScoreHistory();
+      const hb = document.getElementById('notifBadge');
+      const tb = document.getElementById('tasksTabBadge');
+      if (tb && hb) {
+        const show = hb.style.display !== 'none' && hb.textContent;
+        tb.style.display = show ? '' : 'none';
+        tb.textContent = show ? hb.textContent : '';
+      }
+    },
   });
-  const filterRow = document.getElementById('taskSubjectFilterRow');
-  if (filterRow) {
-    if (spansOtherSubjects) {
-      const activeSubj = (window.SUBJECT && window.SUBJECT.name) || activeSlug;
-      filterRow.style.display = 'flex';
-      filterRow.innerHTML = `
-        <span style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--mid);">Show tasks:</span>
-        <button type="button" class="task-open-btn${taskSubjectView === 'subject' ? '' : ' secondary'}" style="padding:5px 12px; font-size:11.5px;" data-taskview="subject">${taskEscapeHtml(activeSubj)}</button>
-        <button type="button" class="task-open-btn${taskSubjectView === 'all' ? '' : ' secondary'}" style="padding:5px 12px; font-size:11.5px;" data-taskview="all">All subjects</button>`;
-      filterRow.querySelectorAll('[data-taskview]').forEach(b =>
-        b.addEventListener('click', () => setTaskSubjectView(b.dataset.taskview)));
-    } else {
-      filterRow.style.display = 'none';
-      taskSubjectView = 'subject';
-    }
-  }
-
-  const visibleRows = myTaskRows.filter(r => {
-    if (taskSubjectView === 'all' || !spansOtherSubjects) return true;
-    const s = taskSubjectSlug(r.task);
-    return !s || s === activeSlug; // unknown subject stays visible (fail open)
-  });
-
-  // Task table — nearest deadline first, finished work at the bottom.
-  const order = { in_progress: 0, not_started: 1, overdue: 2, locked: 3, submitted: 4 };
-  const rows = visibleRows.slice().sort((a, b) => {
-    const sa = studentTaskState(a.task, a.assignment, a.attempts);
-    const sb = studentTaskState(b.task, b.assignment, b.attempts);
-    if (order[sa] !== order[sb]) return order[sa] - order[sb];
-    const da = effectiveDue(a.task, a.assignment), db = effectiveDue(b.task, b.assignment);
-    return (da ? da.getTime() : Infinity) - (db ? db.getTime() : Infinity);
-  });
-
-  if (!rows.length) {
-    document.getElementById('tasksBody').innerHTML =
-      `<tr><td colspan="6" style="text-align:center; padding:18px; color:var(--mid); font-size:13px;">
-        No tasks for this subject right now — try “All subjects”.</td></tr>`;
-    renderScoreHistory();
-    maybeScrollToHash();
-    return;
-  }
-
-  document.getElementById('tasksBody').innerHTML = rows.map(({ task, assignment, attempts }) => {
-    const state = studentTaskState(task, assignment, attempts);
-    const counted = countedAttempt(task, attempts);
-    const due = effectiveDue(task, assignment);
-    const subs = submittedAttempts(attempts);
-    let score = '—';
-    if (counted) {
-      score = counted.marking_complete
-        ? `${counted.marks_awarded}/${counted.marks_total} (${attemptPct(counted)}%)`
-        : '✍️ being marked';
-    }
-    let label = { submitted: counted && counted.is_late ? 'Submitted late' : 'Submitted',
-                  in_progress: 'In progress', overdue: 'Overdue', locked: 'Missed',
-                  not_started: 'To do' }[state];
-    const action = state === 'submitted' || state === 'locked'
-      ? `<a class="task-open-btn secondary" href="task.html?id=${task.id}">Results</a>`
-      : `<a class="task-open-btn" href="task.html?id=${task.id}">${state === 'in_progress' ? 'Resume' : 'Start'}</a>`;
-    // Make approaching deadlines impossible to miss
-    let dueStyle = '', dueFlag = '';
-    if (due && (state === 'not_started' || state === 'in_progress')) {
-      const hrs = (due.getTime() - Date.now()) / 36e5;
-      if (hrs <= 24) { dueStyle = 'color:var(--wrong);font-weight:700;'; dueFlag = ' ⏰'; }
-      else if (hrs <= 72) { dueStyle = 'color:#8f6d19;font-weight:600;'; }
-    }
-    // In the all-subjects view every row says which subject it belongs to.
-    const subjInfo = task.class_id ? classSubjects[task.class_id] : null;
-    const subjTag = taskSubjectView === 'all' && spansOtherSubjects && subjInfo
-      ? `<span class="task-chip" style="background:var(--cream); color:var(--ink);" title="Subject">${subjInfo.icon ? subjInfo.icon + ' ' : ''}${taskEscapeHtml(subjInfo.name)}</span>` : '';
-    return `<tr>
-      <td class="col-page" style="text-align:left;"><strong style="font-size:13px;">${taskEscapeHtml(task.title)}</strong>
-        ${subjTag}
-        ${assignment.due_override || assignment.extra_time_minutes ? '<span class="task-chip pending" title="You have an adjusted deadline or extra time">adjusted for you</span>' : ''}</td>
-      <td style="font-family:'DM Mono',monospace; font-size:11.5px; white-space:nowrap;${dueStyle}"${dueFlag ? ' title="Due within 24 hours"' : ''}>${due ? fmtDateTime(due) : '—'}${dueFlag}</td>
-      <td><span class="task-chip ${state}">${label}</span></td>
-      <td style="font-family:'DM Mono',monospace; font-size:12px;">${subs.length}${task.attempts_allowed ? '/' + task.attempts_allowed : ''}</td>
-      <td style="font-family:'DM Mono',monospace; font-size:12px; white-space:nowrap;">${score}</td>
-      <td>${action}</td>
-    </tr>`;
-  }).join('');
-
-  renderScoreHistory();
-  maybeScrollToHash();
+  studentTasksLoad();
 }
 
-// Deep-link support: the account dropdown's "Tasks" item points at
-// dashboard.html#tasksSection, but that section starts hidden and only
-// appears once loadMyTasks resolves — so a plain anchor jump on load would
-// land on nothing. Re-run the scroll once the section is actually rendered.
-function maybeScrollToHash() {
-  const id = (location.hash || '').replace('#', '');
-  if (!id) return;
-  const el = document.getElementById(id);
-  if (el && el.style.display !== 'none') {
-    requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }));
-  }
+// ── Dashboard tabs: Overview / Tasks / Insights ──
+const dashTabButtons = Array.from(document.querySelectorAll('.dash-tab'));
+function showDashTab(name) {
+  dashTabButtons.forEach(b => {
+    const on = b.dataset.tab === name;
+    b.classList.toggle('active', on);
+    b.setAttribute('aria-selected', on ? 'true' : 'false');
+  });
+  document.querySelectorAll('.dash-panel').forEach(p =>
+    p.classList.toggle('hidden', p.id !== 'panel-' + name));
+  try { history.replaceState(null, '', '#' + name); } catch (e) {}
 }
+dashTabButtons.forEach(b => b.addEventListener('click', () => showDashTab(b.dataset.tab)));
+// Deep-link: #tasks / #insights / #overview (and the legacy #tasksSection)
+// open straight to that tab on load.
+(function () {
+  const h = (location.hash || '').replace('#', '').toLowerCase();
+  const map = { overview: 'overview', tasks: 'tasks', tasksection: 'tasks', insights: 'insights' };
+  if (map[h]) showDashTab(map[h]);
+})();
+
+// (My Tasks rendering moved to student-tasks.js — see initStudentTasks above.)
 
 // ── Score history: every marked attempt, oldest first ──
 function renderScoreHistory() {
-  const wrap = document.getElementById('myInsights');
   const container = document.getElementById('scoreHistoryList');
-  wrap.style.display = '';
+  if (!container) return;
   const entries = [];
-  myTaskRows.forEach(({ task, attempts }) => {
+  const rows = (typeof studentTasksRows === 'function') ? studentTasksRows() : [];
+  rows.forEach(({ task, attempts }) => {
     const c = countedAttempt(task, attempts);
     if (c && c.marking_complete && c.marks_total) {
       entries.push({ title: task.title, pct: attemptPct(c), at: c.submitted_at || c.started_at });
@@ -1156,19 +1067,7 @@ function renderFlightPathSVG(snapshots) {
     </svg>`;
 }
 
-document.getElementById('notifList').addEventListener('click', async e => {
-  const btn = e.target.closest('.note-dismiss');
-  if (!btn) return;
-  const row = btn.closest('.note-row');
-  const key = row.dataset.key;
-  row.remove();
-  readKeys.push(key);
-  renderMyTasks();
-  try {
-    await supabaseClient.from('task_notification_reads')
-      .upsert({ student_id: currentSession.user.id, note_key: key });
-  } catch (err) { console.error('task_notification_reads upsert', err); }
-});
+// (Notification-dismiss handling now lives in student-tasks.js.)
 
 // Paint the Review Calendar card's link + cached due-count immediately —
 // doesn't need auth, so it shows up the moment the page loads.
@@ -1176,13 +1075,74 @@ try { initReviewCalendarCard(); } catch (e) { console.error('initReviewCalendarC
 
 initDashboardAuth().then(async ok => {
   if (!ok) return;
+  // Teacher-authored subject? subject-loader.js registered a provisional
+  // entry (static registries don't know it) — upgrade it now that a client
+  // exists, so topic names / section totals / progress maths resolve.
+  if (window.SUBJECT && window.SUBJECT.provisional && typeof loadCustomSubjectBank === 'function') {
+    window._tasksClient = window._tasksClient || supabaseClient;
+    try { await loadCustomSubjectBank(window.SUBJECT.slug); }
+    catch (e) { console.error('custom subject hydrate', e); }
+  }
   if (typeof gamificationRefreshStreak === 'function') dashStreak = await gamificationRefreshStreak(supabaseClient);
   if (typeof gamificationRefreshDailyReviseStats === 'function') await gamificationRefreshDailyReviseStats(supabaseClient);
   if (typeof gamificationRefreshReviewStats === 'function') await gamificationRefreshReviewStats(supabaseClient);
+  if (typeof gamificationRefreshLeaderboardStats === 'function') await gamificationRefreshLeaderboardStats(supabaseClient);
   initSubjectSwitcher();
-  renderDashboard(); loadMyTasks(); loadWeakTopics();
+  renderDashboard(); initStudentTasks(); loadWeakTopics();
   refreshReviewCalendarCard();
+  loadTeacherLine();
 });
+
+// Show the class's main teacher(s) to the student — "Mr X" or "Mr X & Miss Y"
+// (get_my_class_teachers, supabase/class-teachers.sql). Falls back silently if
+// the migration isn't installed or the student has no class for this subject.
+async function loadTeacherLine() {
+  const el = document.getElementById('teacherLine');
+  if (!el || !supabaseClient) return;
+  try {
+    const { data, error } = await supabaseClient.rpc('get_my_class_teachers', { p_subject: activeSubjectSlug() });
+    if (error) return;
+    const names = (data && data.teachers) || [];
+    if (!names.length) return;
+    const joined = names.length === 1 ? names[0]
+      : names.slice(0, -1).join(', ') + ' & ' + names[names.length - 1];
+    el.textContent = '👩‍🏫 Your teacher' + (names.length > 1 ? 's' : '') + ': ' + joined;
+    el.style.display = 'block';
+    if (data.class_id) loadAddedNotice(data.class_id);
+  } catch (e) { /* class-teachers.sql not installed — no line */ }
+}
+
+// If this student was ADDED to their class by a teacher (class_students.added_by
+// set, as opposed to self-joining a code), show a one-time dismissible notice
+// with the option to leave. Dismissal is remembered per class in localStorage.
+async function loadAddedNotice(classId) {
+  const mount = document.getElementById('addedNotice');
+  if (!mount || !supabaseClient || !classId) return;
+  const dismissKey = 'vidya_added_seen_' + classId;
+  try { if (localStorage.getItem(dismissKey) === '1') return; } catch (e) {}
+  try {
+    const { data, error } = await supabaseClient.from('class_students')
+      .select('class_id, added_by').eq('class_id', classId).maybeSingle();
+    if (error || !data || !data.added_by) return; // self-joined or not found → no notice
+  } catch (e) { return; }
+  mount.innerHTML = `<div style="background:color-mix(in srgb, var(--accent) 10%, var(--card-bg)); border:1px solid color-mix(in srgb, var(--accent) 30%, var(--border)); border-radius:10px; padding:12px 16px; margin-bottom:16px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span style="font-size:20px;">🏫</span>
+    <span style="flex:1; min-width:180px; font-size:13.5px;">Your teacher added you to <strong>${(window.SUBJECT && window.SUBJECT.name) ? taskEscapeHtml(window.SUBJECT.name) : 'a class'}</strong>. Welcome!</span>
+    <button type="button" id="addedLeaveBtn" style="background:none; border:1px solid var(--border); color:var(--wrong); border-radius:6px; padding:6px 12px; cursor:pointer; font-family:'DM Mono',monospace; font-size:11.5px;">Leave class</button>
+    <button type="button" id="addedDismissBtn" style="background:var(--accent); border:none; color:#fff; border-radius:6px; padding:6px 12px; cursor:pointer; font-size:12.5px;">Got it</button>
+  </div>`;
+  document.getElementById('addedDismissBtn').addEventListener('click', () => {
+    try { localStorage.setItem(dismissKey, '1'); } catch (e) {}
+    mount.innerHTML = '';
+  });
+  document.getElementById('addedLeaveBtn').addEventListener('click', async () => {
+    if (!confirm('Leave this class? You can rejoin later with a join code from your teacher.')) return;
+    const { error } = await supabaseClient.rpc('leave_class_as_student', { p_class_id: classId });
+    if (error) { alert('Could not leave: ' + error.message); return; }
+    try { localStorage.setItem(dismissKey, '1'); } catch (e) {}
+    location.reload();
+  });
+}
 </script>
 <script src="footer-legal.js"></script>
 </body>

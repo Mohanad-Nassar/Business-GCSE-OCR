@@ -321,8 +321,8 @@
 </ul>`,
             readCheck: {
                 q: "Which is included in the UK's CPI?",
-                opts: ["The price of a machine bought by a company", "The price of exports", "Government spending on education", "The price of children's clothes"],
-                ans: 3,
+                opts: ["The price of exports", "The price of a machine bought by a company", "The price of children's clothes", "Government spending on education"],
+                ans: 2,
                 explain: "CPI tracks the basket bought by typical UK consumers. Exports go to foreigners; government spending and firms' capital machinery aren't household purchases."
             }
         },
@@ -349,8 +349,8 @@
 </ul>`,
             readCheck: {
                 q: "Workers get a 10% pay rise but productivity rises only 6%. The most likely result is...",
-                opts: ["An increase in cost-push inflation", "An increase in consumer debt", "A fall in consumer confidence", "A fall in government tax revenue"],
-                ans: 0,
+                opts: ["A fall in consumer confidence", "An increase in consumer debt", "A fall in government tax revenue", "An increase in cost-push inflation"],
+                ans: 3,
                 explain: "Pay is rising faster than output per worker, so the labour cost of each unit produced rises. Firms pass that on as higher prices — cost-push inflation."
             }
         },
@@ -380,7 +380,7 @@
 <p><strong>The key evaluation lever:</strong> inflation is bad for most people but <strong>worse for some than others</strong>, and it depends on the SIZE of the rate, whether it is positive or negative, and how LONG it lasts.</p>`,
             readCheck: {
                 q: "Why does high inflation tend to widen the gap between rich and poor?",
-                opts: ["Inflation only affects savings", "Rich people pay more tax", "High-skill workers can negotiate above-inflation pay rises; those on benefits cannot", "Prices rise faster for luxuries"],
+                opts: ["Rich people pay more tax", "Inflation only affects savings", "High-skill workers can negotiate above-inflation pay rises; those on benefits cannot", "Prices rise faster for luxuries"],
                 ans: 2,
                 explain: "Workers whose skills are in high demand and short supply can bargain for above-inflation rises. Minimum-wage workers and benefit claimants have no such power, so their real incomes fall further."
             }
@@ -390,62 +390,62 @@
     const mcqData = [
         {
             q: "Inflation is best defined as...",
-            opts: ["An increase in the money supply", "A fall in the value of exports", "A sustained rise in the general level of prices over time", "A rise in the price of one good"],
-            ans: 2,
+            opts: ["A sustained rise in the general level of prices over time", "An increase in the money supply", "A fall in the value of exports", "A rise in the price of one good"],
+            ans: 0,
             explain: "Inflation is a sustained rise in the GENERAL price level, which means the purchasing power of money falls. A single good's price rising is not inflation."
         },
         {
             q: "A nominal value is one which...",
-            opts: ["Has not been adjusted for inflation", "Has not been adjusted for taxation", "Has been adjusted for taxation", "Has been adjusted for inflation"],
-            ans: 0,
+            opts: ["Has been adjusted for inflation", "Has not been adjusted for taxation", "Has not been adjusted for inflation", "Has been adjusted for taxation"],
+            ans: 2,
             explain: "Nominal = the raw money figure. REAL is the one adjusted for inflation to show purchasing power."
         },
         {
             q: "Which is the best definition of price stability?",
-            opts: ["Prices never change at all", "Inflation remains constant", "A sustained rise in the general price level", "Prices increase at an acceptable low rate"],
-            ans: 3,
+            opts: ["Prices never change at all", "Inflation remains constant", "Prices increase at an acceptable low rate", "A sustained rise in the general price level"],
+            ans: 2,
             explain: "Price stability means low, predictable price rises around the 2% target. 'Inflation remains constant' is wrong — it could be constant at 20%, which is not stable prices."
         },
         {
             q: "Nominal interest is 4% and inflation is 2%. The real interest rate is...",
-            opts: ["6%", "4%", "-2%", "2%"],
-            ans: 3,
+            opts: ["2%", "4%", "6%", "-2%"],
+            ans: 0,
             explain: "Real = nominal − inflation = 4 − 2 = 2%. Your savings only grow 2% in terms of what they can actually buy."
         },
         {
             q: "Inflation is 2.6% and the nominal interest rate on debt is 1.6%. The real interest rate is...",
-            opts: ["4.2%", "1%", "-1%", "-4.2%"],
+            opts: ["1%", "-4.2%", "-1%", "4.2%"],
             ans: 2,
             explain: "1.6 − 2.6 = −1%. A NEGATIVE real rate means inflation erodes the debt faster than interest accrues — good news for the borrower."
         },
         {
             q: "Which statement about the CPI is NOT correct?",
-            opts: ["It only measures the price of goods", "It uses a system of weighting", "It measures what an average family spends money on", "It is measured every month"],
-            ans: 0,
+            opts: ["It is measured every month", "It only measures the price of goods", "It uses a system of weighting", "It measures what an average family spends money on"],
+            ans: 1,
             explain: "CPI covers goods AND services. The other three statements are all true of the CPI."
         },
         {
             q: "A £45 monthly contract faces 4% inflation in year one and 5% in year two. Its price at the end is...",
-            opts: ["£47.25", "£49.14", "£46.80", "£49.05"],
-            ans: 1,
+            opts: ["£49.14", "£46.80", "£49.05", "£47.25"],
+            ans: 0,
             explain: "Apply each rate in turn: £45 × 1.04 = £46.80, then £46.80 × 1.05 = £49.14. Adding 9% in one step gives £49.05 — the trap."
         },
         {
             q: "If the rate of inflation is decreasing but still positive, the price level will...",
-            opts: ["Rise", "Fall", "Become negative", "Stay the same"],
-            ans: 0,
+            opts: ["Become negative", "Fall", "Stay the same", "Rise"],
+            ans: 3,
             explain: "A positive rate means prices are still rising — just more slowly than before. Only a NEGATIVE rate makes the price level fall."
         },
         {
             q: "Which is a consequence of inflation for PRODUCERS?",
-            opts: ["An increase in menu costs", "Real incomes may fall", "An increase in shoe leather costs", "An increase in the purchasing power of money"],
+            opts: ["An increase in menu costs", "An increase in the purchasing power of money", "An increase in shoe leather costs", "Real incomes may fall"],
             ans: 0,
             explain: "Menu costs — repeatedly changing price lists — fall on producers. Shoe leather costs and falling real incomes hit consumers, and inflation REDUCES purchasing power."
         },
         {
             q: "Under which circumstances would it be best to be a lender?",
-            opts: ["Nominal interest 7%, inflation 4%", "Nominal interest 0%, inflation 0%", "Nominal interest 2%, inflation 5%", "Nominal interest 5%, inflation 1%"],
-            ans: 3,
+            opts: ["Nominal interest 2%, inflation 5%", "Nominal interest 7%, inflation 4%", "Nominal interest 5%, inflation 1%", "Nominal interest 0%, inflation 0%"],
+            ans: 2,
             explain: "A lender wants the highest REAL return: 5 − 1 = +4%, beating 7 − 4 = +3%. The higher nominal rate is not the better deal — the trap."
         }
     ];
@@ -543,8 +543,8 @@
             correct: "This is the single most-tested trap in 3.4, and it appears in at least four separate questions. A FALLING inflation rate that is still POSITIVE means prices are still RISING — just more slowly. Prices only fall when the rate goes NEGATIVE. On the real paper, only Countries T (−0.5%) and Z (−0.1%) saw the price level decrease; Country W's fall from 8.1% to 0.3% still meant rising prices. The same applies to Q13(a): between August 2013 and February 2015 UK inflation fell towards 0.2%, but the price LEVEL rose the whole time — it just rose at a decreasing rate. The examiners noted candidates 'did not understand the difference between price level and inflation' or answered by describing only the changes in inflation.",
             readCheck: {
                 q: "A country's inflation falls from 8.1% to 0.3%. What happened to its price level?",
-                opts: ["It fell sharply", "It became negative", "It stayed exactly the same", "It rose, but much more slowly"],
-                ans: 3,
+                opts: ["It fell sharply", "It stayed exactly the same", "It rose, but much more slowly", "It became negative"],
+                ans: 2,
                 explain: "0.3% is positive, so prices still rose — just far more slowly. A falling RATE is not falling PRICES. Only a negative rate means the level falls."
             }
         },
@@ -553,7 +553,7 @@
             correct: "These are two different things, and the examiners reported candidates 'were unsure about the difference between price level and inflation rate'. Because Chile's inflation rate is POSITIVE in every year on the chart, prices ROSE every single year — so the price LEVEL was lowest at the very START of the period, in 2006. The CPI rate bottomed out separately, in 2009, when it dipped to about 0.4%. So the answers are: prices lowest = 2006; CPI lowest = 2009. The test: if the rate never goes below zero, the level only ever goes up, so the lowest level is always the first year shown.",
             readCheck: {
                 q: "Chile's inflation is positive every year from 2006–2019, bottoming at 0.4% in 2009. Prices were at their LOWEST level in...",
-                opts: ["2009", "2019", "2014", "2006"],
+                opts: ["2009", "2014", "2019", "2006"],
                 ans: 3,
                 explain: "Positive inflation every year means prices rose every year, so the LEVEL is lowest at the start (2006). 2009 is only where the RATE was lowest."
             }
@@ -563,8 +563,8 @@
             correct: "You cannot add the rates. Each year's inflation applies to the ALREADY-INFLATED price, so you must apply them one after the other. £45 × 1.04 = £46.80 (end of year one), then £46.80 × 1.05 = £49.14 (end of year two). The examiners spelled this out: it 'required candidates completing two steps of calculation'. The difference looks small here (£49.14 vs £49.05) but the method matters — and £49.05 is deliberately offered as option C to catch anyone who adds. The same logic applies to any compounding: rates multiply, they don't add.",
             readCheck: {
                 q: "£45 faces 4% inflation then 5% inflation. The correct answer is...",
-                opts: ["£47.25 — apply 5% only", "£49.05 — add 9% to £45", "£49.14 — apply 4% then 5% to the new figure", "£46.80 — apply 4% only"],
-                ans: 2,
+                opts: ["£49.14 — apply 4% then 5% to the new figure", "£47.25 — apply 5% only", "£46.80 — apply 4% only", "£49.05 — add 9% to £45"],
+                ans: 0,
                 explain: "Inflation compounds: £45 × 1.04 = £46.80, then × 1.05 = £49.14. The second year's 5% applies to £46.80, not to the original £45."
             }
         },
@@ -573,8 +573,8 @@
             correct: "The examiners flagged 'C' (inflation remains constant) as a common misconception on this exact MCQ, and explained why it's wrong: inflation could be CONSTANT at a very high rate — say 20% every year — and that is obviously not stable prices. Price stability means the general price level grows at an ACCEPTABLY LOW rate, such as the UK government's 2% target. A second version of the same error confuses price stability with EQUALITY (a fair distribution of income), which is a completely different macroeconomic objective. And note the third trap: price stability does NOT mean zero inflation — governments deliberately target about 2%, because a little inflation helps firms adjust prices.",
             readCheck: {
                 q: "Why is 'inflation remains constant' a poor definition of price stability?",
-                opts: ["Inflation is never constant", "Constant inflation means prices fall", "It is the definition of deflation", "Inflation could be constant at a very high rate, e.g. 20%"],
-                ans: 3,
+                opts: ["Inflation could be constant at a very high rate, e.g. 20%", "Inflation is never constant", "It is the definition of deflation", "Constant inflation means prices fall"],
+                ans: 0,
                 explain: "The examiners' own explanation: constant inflation at a high rate is not stable prices. Stability means a LOW rate, around the 2% target."
             }
         },
@@ -583,8 +583,8 @@
             correct: "The consequences for government are genuinely MIXED, and the mark scheme rewards both sides. Costs: more spending on index-linked pensions and universal credit, more on public sector wages (it employs over 3.5 million people), and more strikes if it can't agree pay rises. But the gains are real: as a net debtor, inflation cuts the REAL value of the government's debt — the extract itself says it is persistently NEGATIVE inflation that would raise the real value of debt above nominal. Chile's government paid a real interest rate of −1% in 2019, meaning inflation shrank the debt faster than interest accrued. Tax revenue also rises automatically, since VAT and income tax are percentages of prices and wages. Evaluate on how HIGH inflation is, whether it's positive or negative, and how LONG it lasts.",
             readCheck: {
                 q: "Which is a genuine BENEFIT of inflation for a government?",
-                opts: ["Strikes become more likely", "The real value of its debt falls", "Public sector workers demand higher pay", "It spends more on index-linked pensions"],
-                ans: 1,
+                opts: ["The real value of its debt falls", "It spends more on index-linked pensions", "Strikes become more likely", "Public sector workers demand higher pay"],
+                ans: 0,
                 explain: "As a net debtor, the government gains: inflation erodes the real value of its debt, and tax revenue rises automatically. The other three are costs."
             }
         }
@@ -604,8 +604,8 @@
 </ul>`,
             readCheck: {
                 q: "For 'other than price stability, state two macroeconomic objectives', which answer is explicitly NOT accepted?",
-                opts: ["A balanced current account", "Controlling inflation", "Economic growth", "Low unemployment"],
-                ans: 1,
+                opts: ["Low unemployment", "A balanced current account", "Economic growth", "Controlling inflation"],
+                ans: 3,
                 explain: "The mark scheme says: 'Do NOT accept price stability or controlling inflation' — they're the same objective the question excluded."
             }
         },
@@ -639,8 +639,8 @@
 </ul>`,
             readCheck: {
                 q: "For 'what happened to the price level between Aug 2013 and Feb 2015?', what earns both marks?",
-                opts: ["Inflation was low", "It rose because inflation stayed positive, but at a decreasing rate", "Inflation fell from 2.7% to 0.3%", "The price level fell"],
-                ans: 1,
+                opts: ["The price level fell", "Inflation fell from 2.7% to 0.3%", "Inflation was low", "It rose because inflation stayed positive, but at a decreasing rate"],
+                ans: 3,
                 explain: "Describing only the change in inflation misses the question, which asks about the price LEVEL. You need the rise (1) plus the decreasing rate (1)."
             }
         },

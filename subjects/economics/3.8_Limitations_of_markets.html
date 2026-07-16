@@ -287,8 +287,8 @@
 </ul>`,
             readCheck: {
                 q: "A chemical firm dumps toxic waste into a river, killing fish at a nearby fish farm. This is best explained by...",
-                opts: ["The firm's private cost of production is lower than the social cost it creates", "The firm is not maximising profit", "Government regulation is too strict", "The fish farm's private cost is too high"],
-                ans: 0,
+                opts: ["Government regulation is too strict", "The firm's private cost of production is lower than the social cost it creates", "The fish farm's private cost is too high", "The firm is not maximising profit"],
+                ans: 1,
                 explain: "The firm only pays its own PRIVATE cost of production. It doesn't pay for the damage to the fish farm, so the SOCIAL cost (private cost plus the cost to the fish farm) is higher than what the firm actually pays — the classic negative externality gap."
             }
         },
@@ -321,8 +321,8 @@
 </ul>`,
             readCheck: {
                 q: "Indirect taxation corrects a negative externality by working through the...",
-                opts: ["supply curve shifting left, leading to higher prices", "quantity sold decreasing as the demand curve shifts left", "demand curve shifting right as prices increase", "supply curve shifting right as supply decreases"],
-                ans: 0,
+                opts: ["demand curve shifting right as prices increase", "supply curve shifting right as supply decreases", "quantity sold decreasing as the demand curve shifts left", "supply curve shifting left, leading to higher prices"],
+                ans: 3,
                 explain: "A tax raises a firm's costs of production, so the SUPPLY curve shifts left — this raises price and cuts the equilibrium quantity. Demand does not shift at all; that is the most common exam misconception on this topic."
             }
         },
@@ -354,8 +354,8 @@
 </ul>`,
             readCheck: {
                 q: "A government wants to reduce consumption of a good with highly price-inelastic demand. Which policy has the most effect?",
-                opts: ["Taxation", "Legislation", "Information provision", "A subsidy"],
-                ans: 1,
+                opts: ["Information provision", "A subsidy", "Legislation", "Taxation"],
+                ans: 2,
                 explain: "Price-based tools like taxation barely work when quantity demanded won't respond much to price. Legislation removes or restricts the good directly, regardless of how strongly people still want it."
             }
         },
@@ -379,8 +379,8 @@
 </ul>`,
             readCheck: {
                 q: "Why does the government spending more on renewable energy have an opportunity cost?",
-                opts: ["Because the same money could have been spent on other services such as health or education", "Because it will definitely increase the budget deficit", "Because firms will not invest in renewable energy", "Because renewable energy is always more expensive than fossil fuels"],
-                ans: 0,
+                opts: ["Because firms will not invest in renewable energy", "Because renewable energy is always more expensive than fossil fuels", "Because the same money could have been spent on other services such as health or education", "Because it will definitely increase the budget deficit"],
+                ans: 2,
                 explain: "Opportunity cost is about the NEXT BEST ALTERNATIVE use of the same resources — government funds spent on renewables cannot also be spent on health, education or other valued services."
             }
         }
@@ -389,62 +389,62 @@
     const mcqData = [
         {
             q: "An externality is best defined as a cost or benefit of an economic activity that falls on...",
-            opts: ["A third party not involved in the transaction", "The firm producing the good", "The government", "The consumer who pays for the good"],
+            opts: ["A third party not involved in the transaction", "The firm producing the good", "The consumer who pays for the good", "The government"],
             ans: 0,
             explain: "An externality is a spillover effect on someone OUTSIDE the original transaction — not the buyer or seller themselves."
         },
         {
             q: "When the social cost of an activity is greater than its private cost, this is called a...",
-            opts: ["Positive externality", "Public good", "Negative externality", "Merit good"],
-            ans: 2,
+            opts: ["Negative externality", "Public good", "Merit good", "Positive externality"],
+            ans: 0,
             explain: "Social cost greater than private cost means a third party bears costs the producer or consumer never pays for — the definition of a negative externality."
         },
         {
             q: "Which of these is an example of a negative CONSUMPTION externality?",
-            opts: ["A smoker polluting the air in a crowded room", "A firm releasing toxic gas during production", "A factory dumping chemicals into a river", "A construction firm making noise on a building site"],
-            ans: 0,
+            opts: ["A construction firm making noise on a building site", "A smoker polluting the air in a crowded room", "A factory dumping chemicals into a river", "A firm releasing toxic gas during production"],
+            ans: 1,
             explain: "Consumption externalities come from CONSUMERS. The other three options are all caused by producers — negative production externalities."
         },
         {
             q: "A subsidy is best described as...",
-            opts: ["Money paid to a producer to increase the supply of a good", "A tax charged on a good or service", "A government information campaign", "A law that bans a harmful activity"],
-            ans: 0,
+            opts: ["A government information campaign", "A law that bans a harmful activity", "Money paid to a producer to increase the supply of a good", "A tax charged on a good or service"],
+            ans: 2,
             explain: "A subsidy lowers a firm's costs so it can supply more at a lower price — used to correct the underprovision of goods with positive externalities."
         },
         {
             q: "Which policy directly ensures everyone has access to a good regardless of their ability to pay?",
-            opts: ["Information provision", "A subsidy", "Taxation", "State provision"],
-            ans: 3,
+            opts: ["State provision", "Taxation", "Information provision", "A subsidy"],
+            ans: 0,
             explain: "State provision means the government supplies the good itself, e.g. the NHS or state education, guaranteeing access."
         },
         {
             q: "The government wants to reduce cigarette consumption. Why is taxation alone often only partly effective?",
-            opts: ["Demand for cigarettes is perfectly elastic", "Cigarette supply is perfectly elastic", "Cigarettes have no negative externality", "Demand for cigarettes is price inelastic because they are addictive"],
-            ans: 3,
+            opts: ["Cigarettes have no negative externality", "Demand for cigarettes is perfectly elastic", "Demand for cigarettes is price inelastic because they are addictive", "Cigarette supply is perfectly elastic"],
+            ans: 2,
             explain: "Because smoking is addictive, demand barely responds to a higher price — quantity falls only a little even though the price rises."
         },
         {
             q: "What is the free-rider problem?",
-            opts: ["Firms avoiding tax by moving production abroad", "Consumers switching to a cheaper substitute good", "The government running a budget deficit", "People benefiting from a good without paying for it"],
-            ans: 3,
+            opts: ["Firms avoiding tax by moving production abroad", "People benefiting from a good without paying for it", "The government running a budget deficit", "Consumers switching to a cheaper substitute good"],
+            ans: 1,
             explain: "The free-rider problem is why firms won't supply public goods and why positive-externality goods are underprovided — people can enjoy the benefit without paying."
         },
         {
             q: "A government spends £2 million enforcing a ban on a harmful product. What is the opportunity cost of this spending?",
-            opts: ["The tax revenue lost from the ban", "The £2 million itself", "The harm caused by the banned product", "The next best alternative the £2 million could have been spent on"],
-            ans: 3,
+            opts: ["The £2 million itself", "The next best alternative the £2 million could have been spent on", "The tax revenue lost from the ban", "The harm caused by the banned product"],
+            ans: 1,
             explain: "Opportunity cost is always the NEXT BEST ALTERNATIVE forgone, not the spending itself or the problem the policy is trying to solve."
         },
         {
             q: "Vaccination is a real exam example of a...",
-            opts: ["Negative externality", "Public good only", "Positive externality", "Demerit good"],
-            ans: 2,
+            opts: ["Negative externality", "Positive externality", "Demerit good", "Public good only"],
+            ans: 1,
             explain: "If one person is vaccinated, others around them are also less likely to catch the disease — a benefit to third parties who never paid for it."
         },
         {
             q: "Which of these is a genuine limitation of using legislation to correct a negative externality?",
-            opts: ["It has no opportunity cost", "It always creates a black market", "It can be costly and difficult to enforce", "It never changes behaviour"],
-            ans: 2,
+            opts: ["It never changes behaviour", "It can be costly and difficult to enforce", "It always creates a black market", "It has no opportunity cost"],
+            ans: 1,
             explain: "Regulation is only as effective as the government's ability to detect and prosecute breaches — enforcement itself has a real cost."
         }
     ];
@@ -551,8 +551,8 @@
             correct: "The real mark scheme is blunt: 'A maximum of 4 marks if no correct diagram' out of 6 — and application marks can ONLY be rewarded once there is also analysis, i.e. simply labelling a diagram earns nothing on its own. The Examiner's Comments for this exact question were positive: 'Many candidates were able to draw an accurate diagram and write an analysis that drew on the context and impact of taxation... candidates generally had a very good understanding of the implications of inelastic price elasticity of demand.'",
             readCheck: {
                 q: "On a 'using a diagram, analyse the impact of an indirect tax' 6-mark question, what is the maximum mark available with NO correct diagram?",
-                opts: ["6 out of 6", "0 out of 6", "4 out of 6", "2 out of 6"],
-                ans: 2,
+                opts: ["2 out of 6", "6 out of 6", "0 out of 6", "4 out of 6"],
+                ans: 3,
                 explain: "The mark scheme states clearly: 'a maximum of 4 marks if no correct diagram.' The diagram carries real marks, not just presentation credit."
             }
         },
@@ -561,8 +561,8 @@
             correct: "This is the exact misconception the examiners flagged in the mark scheme guidance: 'The most common misconceptions were that indirect taxes would cause demand to shift. Also, several candidates were using a macroeconomic diagram with AD, AS, price level and output which is incorrect.' A tax raises the firm's COST OF PRODUCTION, so it is the SUPPLY curve that shifts left (labelled 'S + tax'); demand is completely unaffected by a tax on the seller.",
             readCheck: {
                 q: "An indirect tax is placed on petrol. What actually shifts on the correct market diagram?",
-                opts: ["Supply shifts left", "Neither curve shifts, only the price label changes", "Demand shifts left", "Both supply and demand shift left"],
-                ans: 0,
+                opts: ["Both supply and demand shift left", "Supply shifts left", "Demand shifts left", "Neither curve shifts, only the price label changes"],
+                ans: 1,
                 explain: "A tax raises the firm's cost of production, so SUPPLY shifts left to 'S + tax'. Demand is not affected by a tax charged to the seller."
             }
         },
@@ -571,8 +571,8 @@
             correct: "The real OCR misconception box for the vaccination-subsidy question is explicit: 'Evaluation is awarded for making a judgement or writing an evaluative point that matches with the preceding point... A common error was that candidates would analyse a benefit such as improved living standards/output in the economy and then attempt evaluation by writing that there is an opportunity cost of government spending WITHOUT LINKING this argument to how it would lower the potential gains.' An unlinked 'however' sentence earns nothing — it must connect directly back to the specific benefit just analysed.",
             readCheck: {
                 q: "According to the OCR mark scheme, when does a 'however' sentence actually earn evaluation marks?",
-                opts: ["Whenever it mentions an opportunity cost", "Only in the final sentence of the answer", "Whenever the answer includes the word 'however'", "When it directly links back to and weighs up the specific point made just before it"],
-                ans: 3,
+                opts: ["When it directly links back to and weighs up the specific point made just before it", "Whenever the answer includes the word 'however'", "Whenever it mentions an opportunity cost", "Only in the final sentence of the answer"],
+                ans: 0,
                 explain: "The mark scheme's own misconception note says evaluation must MATCH the preceding analytical point. An unlinked opportunity-cost point that doesn't weigh against the specific benefit just described earns no evaluation credit."
             }
         },
@@ -581,8 +581,8 @@
             correct: "The real Assessment for Learning note on this exact question says: 'When teaching quantitative skills, make sure students regularly include the full units of measurement.' The mark scheme backs this up: '1 mark only if million metric tons is omitted' — a numerically correct but unit-less answer loses a mark. The flip side is generous, though: '1 mark for OFR (own figure rule) if graph is misread' — showing your working still protects you even if you read the chart wrong.",
             readCheck: {
                 q: "You calculate 58.89 × 9 = 530.01 correctly but write just \"530.01\" with no units. How many of the 2 marks do you get?",
-                opts: ["2 marks, but only if it is rounded to 530", "2 marks — the number is correct", "0 marks — units are always required for any mark at all", "1 mark — the units (million metric tons) are required for the second mark"],
-                ans: 3,
+                opts: ["2 marks, but only if it is rounded to 530", "1 mark — the units (million metric tons) are required for the second mark", "2 marks — the number is correct", "0 marks — units are always required for any mark at all"],
+                ans: 1,
                 explain: "The mark scheme is explicit: '1 mark only if million metric tons is omitted.' The correct number alone is not enough for full marks."
             }
         }
@@ -601,8 +601,8 @@
 </ul>`,
             readCheck: {
                 q: "Which phrase MUST appear in a strong definition of 'externality'?",
-                opts: ["A benefit received by the government", "A cost or benefit affecting a third party outside the transaction", "A tax on a good or service", "A cost paid by the producer"],
-                ans: 1,
+                opts: ["A cost paid by the producer", "A benefit received by the government", "A tax on a good or service", "A cost or benefit affecting a third party outside the transaction"],
+                ans: 3,
                 explain: "The third-party test is the core of the definition — without it, you're just describing a normal private cost or benefit."
             }
         },
@@ -620,8 +620,8 @@
 </ul>`,
             readCheck: {
                 q: "On a 'using a diagram, analyse a tax' 6-marker, which curve should you shift?",
-                opts: ["Supply, to the right", "Supply, to the left", "Demand, to the left", "Demand, to the right"],
-                ans: 1,
+                opts: ["Supply, to the left", "Demand, to the left", "Demand, to the right", "Supply, to the right"],
+                ans: 0,
                 explain: "A tax raises the firm's cost of production, so supply shifts LEFT. This is the single most commonly confused point on this question type."
             }
         },
@@ -637,8 +637,8 @@
 </ul>`,
             readCheck: {
                 q: "What is the strongest way to end a 6-mark Evaluate answer?",
-                opts: ["A definition of the key term used in the question", "A judgement that names the specific factor the outcome depends on", "A list of every point made, restated in order", "A summary that repeats the analysis points already made"],
-                ans: 1,
+                opts: ["A list of every point made, restated in order", "A definition of the key term used in the question", "A summary that repeats the analysis points already made", "A judgement that names the specific factor the outcome depends on"],
+                ans: 3,
                 explain: "A supported judgement names WHAT the outcome depends on (e.g. take-up rate, how the sizes of the costs and benefits compare) — that's what separates Level 3 from Level 2."
             }
         },
@@ -654,8 +654,8 @@
 </ul>`,
             readCheck: {
                 q: "For 2 marks on 'explain an opportunity cost of the government's renewable energy investment', what does the mark scheme require?",
-                opts: ["A correct explanation that names a specific alternative use of the government spending given up", "A list of three different opportunity costs", "Just the definition of opportunity cost", "A calculation showing the exact amount spent"],
-                ans: 0,
+                opts: ["A calculation showing the exact amount spent", "Just the definition of opportunity cost", "A correct explanation that names a specific alternative use of the government spending given up", "A list of three different opportunity costs"],
+                ans: 2,
                 explain: "The mark scheme awards 2 marks only when the answer names an actual alternative (e.g. health or education spending) — generic understanding without specifics is capped at 1 mark."
             }
         }
