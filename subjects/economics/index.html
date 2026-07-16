@@ -37,7 +37,7 @@
 
     .skip-link {
       position: absolute; left: 12px; top: -60px; z-index: 100;
-      background: var(--ink); color: var(--paper); padding: 10px 18px;
+      background: var(--chrome, var(--ink)); color: var(--chrome-text, var(--paper)); padding: 10px 18px;
       border-radius: 0 0 8px 8px; font-weight: 600; font-size: 14px;
       text-decoration: none; transition: top .15s;
     }
@@ -47,7 +47,7 @@
     .hero :focus-visible { outline-color: var(--gold); }
 
     .hero {
-      background-color: var(--ink); color: var(--paper);
+      background-color: var(--chrome, var(--ink)); color: var(--chrome-text, var(--paper));
       /* Decorative circle as a background so the hero needs no
          overflow:hidden (which would clip the injected account dropdown
          / notification bell panel). */
@@ -79,7 +79,7 @@
     .hero-nav a, .hero-nav button {
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.25);
-      color: var(--paper); font-family: 'DM Mono', monospace; font-size: 12px;
+      color: var(--chrome-text, var(--paper)); font-family: 'DM Mono', monospace; font-size: 12px;
       letter-spacing: .06em; padding: 9px 18px; border-radius: 8px;
       text-decoration: none; cursor: pointer; transition: background .15s, border-color .15s;
     }
@@ -182,7 +182,7 @@
       let session;
       try { session = JSON.parse(localStorage.getItem(GCSE_SESSION_KEY) || 'null'); } catch (e) { session = null; }
       if (!session || !session.access_token) {
-        location.replace('/login.html?redirect=' + encodeURIComponent(location.pathname));
+        location.replace('/index.html?redirect=' + encodeURIComponent(location.pathname));
       }
     })();
   </script>
@@ -211,7 +211,7 @@
       });
       if (error || !data.session) {
         localStorage.removeItem(GCSE_SESSION_KEY);
-        location.replace('/login.html?redirect=' + encodeURIComponent(location.pathname));
+        location.replace('/index.html?redirect=' + encodeURIComponent(location.pathname));
         return;
       }
       localStorage.setItem(GCSE_SESSION_KEY, JSON.stringify({

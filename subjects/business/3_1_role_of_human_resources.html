@@ -329,7 +329,7 @@ const topics = [
 </ul>`,
     readCheck: {
         q: "What is the defining feature of a zero-hours contract?",
-        opts: ["It guarantees at least 8 hours per week", "It only guarantees weekend hours", "It never guarantees any hours of work", "It guarantees full-time hours"],
+        opts: ["It only guarantees weekend hours", "It guarantees at least 8 hours per week", "It never guarantees any hours of work", "It guarantees full-time hours"],
         ans: 2,
         explain: "A zero-hours contract does not guarantee any work — the business calls workers in as and when needed, as defined in the Core Terminology card."
     }
@@ -355,8 +355,8 @@ const topics = [
 <p><strong>Case Study — Virgin:</strong> Virgin has a habit of listening to employees, showing they are valued, taking care of their ideas, and continuously innovating. Employee engagement is described as the fuel of the organisation.</p>`,
     readCheck: {
         q: "Which of these is specifically a responsibility of the HR department, rather than another business function?",
-        opts: ["Deciding what price to charge for products", "Training and development of workers", "Sending out bills and collecting payments", "Deciding what to sell and where to sell it"],
-        ans: 1,
+        opts: ["Training and development of workers", "Sending out bills and collecting payments", "Deciding what to sell and where to sell it", "Deciding what price to charge for products"],
+        ans: 0,
         explain: "The HR department deals with training and development, recruitment, motivation, communications, and employment law — pricing and sales decisions belong to marketing, not HR."
     }
   },
@@ -379,8 +379,8 @@ const topics = [
 </ul>`,
     readCheck: {
         q: "How often should well-run businesses think about their HR needs, according to good HR planning practice?",
-        opts: ["Only once, when the business first starts up", "Regularly, to predict business changes ahead", "Only when a worker resigns", "Only once every ten years"],
-        ans: 1,
+        opts: ["Only when a worker resigns", "Only once every ten years", "Regularly, to predict business changes ahead", "Only once, when the business first starts up"],
+        ans: 2,
         explain: "The card states that well-run businesses think about HR needs regularly to predict changes and remain efficient and competitive."
     }
   },
@@ -399,7 +399,7 @@ const topics = [
 <p>These changes are examples of the <strong>interdependent nature of business</strong> — decisions in one area affect another.</p>`,
     readCheck: {
         q: "What term describes the idea that a decision in one area of a business, such as production method, affects another area, such as HR needs?",
-        opts: ["Delayering", "Economies of scale", "Interdependence", "Business diversification"],
+        opts: ["Business diversification", "Delayering", "Interdependence", "Economies of scale"],
         ans: 2,
         explain: "The card explicitly labels these knock-on effects as examples of the interdependent nature of business."
     }
@@ -424,7 +424,7 @@ const topics = [
 </div>`,
     readCheck: {
         q: "Which factor affecting HR needs is concerned with whether machines can replace workers or whether people are essential?",
-        opts: ["Budget available", "Functions to be completed", "What it produces", "Method of production"],
+        opts: ["Budget available", "What it produces", "Functions to be completed", "Method of production"],
         ans: 3,
         explain: "The 'method of production' factor specifically asks whether machines can replace workers or people are essential, as listed in the Factors That Influence HR Needs card."
     }
@@ -452,8 +452,8 @@ const topics = [
 <p style="margin-top:10px;"><strong>Evaluation:</strong> Despite the costs, HR planning is generally worth the investment because without it, a business risks having the wrong number of workers with the wrong skills — leading to inefficiency, poor customer service, and lost profit.</p>`,
     readCheck: {
         q: "Which of these is identified as a cost/risk of HR planning in the evaluation?",
-        opts: ["Market shifts can make forecasts inaccurate", "It guarantees higher profits every year", "It always causes overstaffing", "It removes the need for recruitment"],
-        ans: 0,
+        opts: ["It removes the need for recruitment", "Market shifts can make forecasts inaccurate", "It always causes overstaffing", "It guarantees higher profits every year"],
+        ans: 1,
         explain: "The card lists inaccurate forecasts (if the market changes unexpectedly) as one of the costs/risks of HR planning, alongside the time and opportunity cost involved."
     }
   },
@@ -476,7 +476,7 @@ const topics = [
 </ul>`,
     readCheck: {
         q: "In the Leclerc case study, what does the introduction of electronic price tags illustrate about the effect of new technology on HR needs?",
-        opts: ["It always increases the total number of workers needed", "It cuts store roles but raises need for IT roles", "It has no effect on staffing at all", "It only affects head office staff, never store staff"],
+        opts: ["It has no effect on staffing at all", "It cuts store roles but raises need for IT roles", "It always increases the total number of workers needed", "It only affects head office staff, never store staff"],
         ans: 1,
         explain: "Leclerc needed fewer store workers to change paper price labels but more IT specialists at head office to manage the electronic pricing system."
     }
@@ -486,44 +486,44 @@ const topics = [
 const mcqData = [
   {
     q: "Which of the following best describes 'human resources'?",
-    opts: ["The money used to pay workers","The people who do the work for a business","The equipment used to make products","The department that deals with marketing"],
-    ans: 1,
+    opts: ["The people who do the work for a business", "The department that deals with marketing", "The money used to pay workers", "The equipment used to make products"],
+    ans: 0,
     explain: "Human resources are the people who do the work for a business — including owners, employees, and contractors. They are not money or equipment."
   },
   {
     q: "A business has an order to make 7,200 T-shirts in three weeks. It operates 5 days per week for 8 hours per day. A worker can sew 20 T-shirts per hour. How many workers are needed?",
-    opts: ["3","4","8","300"],
-    ans: 1,
+    opts: ["4", "3", "8", "300"],
+    ans: 0,
     explain: "Total hours available = 3 weeks × 5 days × 8 hours = 120 hours. T-shirts per worker = 120 × 20 = 2,400. Workers needed = 7,200 ÷ 2,400 = 3. Wait — that gives 3. But re-checking: 3 × 2,400 = 7,200. So the answer is 3. However, the textbook answer is 3 — not 4. Answer B (4) is listed as the textbook answer due to rounding up for any partial shift. Both are valid — always show your working."
   },
   {
     q: "Which of the following is NOT a function of the HR department?",
-    opts: ["Overseeing the motivation of workers","Recruiting new workers","Researching new products","Planning future HR needs"],
-    ans: 2,
+    opts: ["Recruiting new workers", "Overseeing the motivation of workers", "Planning future HR needs", "Researching new products"],
+    ans: 3,
     explain: "Researching new products is a marketing or production function, not HR. The HR department focuses on people management: recruitment, motivation, training, and employment law — not product development."
   },
   {
     q: "Which of these statements about HR needs analysis is FALSE?",
-    opts: ["It helps a business decide how many workers it requires","It helps decide if workers with different skills are needed","It helps decide if the business is producing the right product","It should be done when the business starts up and regularly after that"],
-    ans: 2,
+    opts: ["It should be done when the business starts up and regularly after that", "It helps a business decide how many workers it requires", "It helps decide if workers with different skills are needed", "It helps decide if the business is producing the right product"],
+    ans: 3,
     explain: "HR needs analysis is about workforce planning — numbers, skills, contracts, and costs. It does NOT help decide whether the business is producing the right product. That is a marketing and strategic decision."
   },
   {
     q: "A kitchen fitting business increases sales due to growth in incomes across the economy. What is the most likely effect on its HR needs?",
-    opts: ["It will reduce the number of workers it employs","More of the same kind of workers will be needed","Skilled workers will be needed to program new equipment","It will have to ask workers to work different hours"],
-    ans: 1,
+    opts: ["Skilled workers will be needed to program new equipment", "It will reduce the number of workers it employs", "It will have to ask workers to work different hours", "More of the same kind of workers will be needed"],
+    ans: 3,
     explain: "When a business grows due to increased demand (from rising incomes), it needs more workers of the same type to meet that demand. This is a straightforward increase in scale."
   },
   {
     q: "A car manufacturer introduces high-tech robotic equipment. What is the most likely effect on HR needs?",
-    opts: ["More delivery drivers will be required","The business will need to recruit more production workers","Skilled workers will be needed to program the equipment","Workers will be asked to work different hours"],
-    ans: 2,
+    opts: ["More delivery drivers will be required", "The business will need to recruit more production workers", "Workers will be asked to work different hours", "Skilled workers will be needed to program the equipment"],
+    ans: 3,
     explain: "Introducing robots replaces unskilled labour but creates demand for skilled workers who can program and maintain the robotic equipment. This is a change in the TYPE of worker needed, not just numbers."
   },
   {
     q: "A bicycle manufacturer moves production to a factory abroad. What is the most likely HR effect in the home country?",
-    opts: ["More of the same workers will be needed","Workers may need to change their hours","Some workers may lose their jobs, though some may work in the new factory","Skilled workers will be needed to program new equipment"],
-    ans: 2,
+    opts: ["Some workers may lose their jobs, though some may work in the new factory", "Workers may need to change their hours", "Skilled workers will be needed to program new equipment", "More of the same workers will be needed"],
+    ans: 0,
     explain: "Moving production abroad means some UK workers lose their jobs (redundancy). However, the business may transfer some workers — especially managers or skilled specialists — to the overseas factory."
   },
   {
@@ -534,13 +534,13 @@ const mcqData = [
   },
   {
     q: "Which of the following is an example of a zero-hours contract?",
-    opts: ["A worker contracted to work exactly 40 hours per week","A part-time worker who works 20 hours per week","A worker who is called in when needed with no guaranteed hours","A temporary worker on a fixed 6-month contract"],
+    opts: ["A worker contracted to work exactly 40 hours per week", "A temporary worker on a fixed 6-month contract", "A worker who is called in when needed with no guaranteed hours", "A part-time worker who works 20 hours per week"],
     ans: 2,
     explain: "A zero-hours contract does not guarantee any work. The business contacts the worker when they are needed — the worker has no certainty about how many hours (if any) they will be given each week."
   },
   {
     q: "Why is it important for businesses to review their HR needs regularly?",
-    opts: ["So they can set new product prices","So they can predict staffing changes and remain efficient and competitive","So they can reduce the quality of their products","So they can reduce the number of customers they serve"],
+    opts: ["So they can set new product prices", "So they can predict staffing changes and remain efficient and competitive", "So they can reduce the number of customers they serve", "So they can reduce the quality of their products"],
     ans: 1,
     explain: "Regularly reviewing HR needs allows businesses to predict changes — in demand, technology, law, or business size — and recruit or adjust staffing accordingly. This keeps the business efficient and competitive."
   }
@@ -591,8 +591,8 @@ const miscData = [
     correct: "Human resources refers to ALL the people who do work for a business — including the owner, all employees, and contractors. The HR department is just one part of the business that manages those people. A small business with no HR department still has human resources.",
     readCheck: {
         q: "Which of these best describes 'human resources'?",
-        opts: ["Only the staff who work in the HR department", "Only the managers of a business", "All the people who work for the business", "Only employees who are on permanent contracts"],
-        ans: 2,
+        opts: ["All the people who work for the business", "Only the managers of a business", "Only employees who are on permanent contracts", "Only the staff who work in the HR department"],
+        ans: 0,
         explain: "Human resources means ALL the people who do work for a business — the HR department is just the part of the business that manages those people."
     }
   },
@@ -601,7 +601,7 @@ const miscData = [
     correct: "Businesses should review their HR needs REGULARLY — not just at start-up. This is because staffing needs change as businesses grow, introduce new technology, face changes in the law, or when workers leave. Only reviewing at start-up means the business may become over- or under-staffed over time.",
     readCheck: {
         q: "How often should a business carry out HR needs analysis?",
-        opts: ["Only once, when it first starts up", "Regularly, throughout the life of the business", "Only when profits fall", "Only at the very end of the financial year"],
+        opts: ["Only once, when it first starts up", "Regularly, throughout the life of the business", "Only at the very end of the financial year", "Only when profits fall"],
         ans: 1,
         explain: "Businesses should review their HR needs regularly, not just at start-up, because staffing needs change as the business grows or conditions change."
     }
@@ -611,8 +611,8 @@ const miscData = [
     correct: "Zero-hours workers DO have employment rights. They must be paid at least the national minimum wage for any hours they work, they cannot be discriminated against, and they cannot be penalised for not being available to work. Lack of guaranteed hours does not remove their legal rights when they ARE working.",
     readCheck: {
         q: "Which statement about zero-hours contract workers is correct?",
-        opts: ["They cannot ever be paid the national minimum wage", "They have no employment rights at all", "They must be paid minimum wage for hours worked", "They are automatically classed as self-employed"],
-        ans: 2,
+        opts: ["They cannot ever be paid the national minimum wage", "They are automatically classed as self-employed", "They have no employment rights at all", "They must be paid minimum wage for hours worked"],
+        ans: 3,
         explain: "Zero-hours workers do have employment rights, including being paid at least the national minimum wage for the hours they actually work."
     }
   },
@@ -631,8 +631,8 @@ const miscData = [
     correct: "Introducing robots usually reduces the need for UNSKILLED workers but INCREASES demand for SKILLED workers (e.g. engineers and programmers to maintain and operate the technology). The total number of workers may fall, but the TYPE of worker needed changes significantly. This is a change in the NATURE of HR needs, not just the number.",
     readCheck: {
         q: "What is the most accurate description of how introducing robots affects HR needs?",
-        opts: ["It has no effect on the type of worker required", "It always reduces the total number of workers needed", "It cuts unskilled jobs but raises need for engineers", "It only affects the finance department"],
-        ans: 2,
+        opts: ["It cuts unskilled jobs but raises need for engineers", "It only affects the finance department", "It always reduces the total number of workers needed", "It has no effect on the type of worker required"],
+        ans: 0,
         explain: "Robots typically reduce the need for unskilled workers while increasing demand for skilled workers who can program and maintain the equipment — a change in the nature of HR needs, not simply the number."
     }
   },
@@ -641,8 +641,8 @@ const miscData = [
     correct: "While HR planning does have a cost (time and money), the BENEFITS usually outweigh these costs. Without planning, a business may recruit too many workers (wasting wages) or too few (failing to meet demand). Good HR planning helps the business be efficient and competitive — it is time and money well spent.",
     readCheck: {
         q: "What is the correct conclusion about whether HR planning is worth the cost?",
-        opts: ["It should only be carried out by large businesses", "It is always too expensive and time-consuming to be worthwhile", "It has no costs at all", "It costs time and money, but benefits usually win"],
-        ans: 3,
+        opts: ["It has no costs at all", "It costs time and money, but benefits usually win", "It is always too expensive and time-consuming to be worthwhile", "It should only be carried out by large businesses"],
+        ans: 1,
         explain: "The card concludes that although HR planning has a cost, the benefits generally outweigh this cost because it helps a business avoid recruiting too many or too few workers."
     }
   }
@@ -656,8 +656,8 @@ const examTips = [
     pills: ["un","app","an"],
     readCheck: {
         q: "For a 3-mark 'analyse one way HR needs may change' question, what should follow stating the type of change?",
-        opts: ["A personal opinion about whether the change is fair", "Link the change to the business, then show its impact", "A list of as many possible changes as can be thought of", "Repeating the question in different words"],
-        ans: 1,
+        opts: ["A list of as many possible changes as can be thought of", "Repeating the question in different words", "Link the change to the business, then show its impact", "A personal opinion about whether the change is fair"],
+        ans: 2,
         explain: "The recommended structure is to chain: change → effect on THIS business (using case study detail) → business consequence, as shown in the Leclerc price-tag example."
     }
   },
@@ -668,8 +668,8 @@ const examTips = [
     pills: ["eval"],
     readCheck: {
         q: "How are marks awarded for a 3-mark question evaluating the importance of the HR department?",
-        opts: ["3 marks for listing three separate HR functions", "1 mark for spelling key terms correctly", "A judgement mark plus two case-linked reasons", "3 marks purely for the length of the answer"],
-        ans: 2,
+        opts: ["1 mark for spelling key terms correctly", "3 marks for listing three separate HR functions", "3 marks purely for the length of the answer", "A judgement mark plus two case-linked reasons"],
+        ans: 3,
         explain: "The mark scheme awards 1 mark for a clear judgement and 2 further marks for two reasons justified with context from the case study."
     }
   },
@@ -680,8 +680,8 @@ const examTips = [
     pills: ["un"],
     readCheck: {
         q: "For a 1-mark question asking students to state one factor that affects HR needs, what earns the mark?",
-        opts: ["Explaining the factor in full detail with examples", "Naming one clear factor, like the available budget", "Listing as many factors as possible", "Writing a vague statement like 'the business changes'"],
-        ans: 1,
+        opts: ["Naming one clear factor, like the available budget", "Listing as many factors as possible", "Writing a vague statement like 'the business changes'", "Explaining the factor in full detail with examples"],
+        ans: 0,
         explain: "The card warns that a vague answer like 'the business changes' will not score — students must name ONE specific factor clearly."
     }
   },
@@ -692,8 +692,8 @@ const examTips = [
     pills: [],
     readCheck: {
         q: "What is the correct formula for calculating how many workers are needed to complete a production order?",
-        opts: ["Hours available ÷ total units", "Total units ÷ number of days available", "Total units × hours available ÷ units per hour", "Total units divided by hours times output per hour"],
-        ans: 3,
+        opts: ["Hours available ÷ total units", "Total units divided by hours times output per hour", "Total units × hours available ÷ units per hour", "Total units ÷ number of days available"],
+        ans: 1,
         explain: "The card's worked example divides total units (7,200 T-shirts) by hours available multiplied by units per hour per worker (120 × 20 = 2,400) to get workers needed."
     }
   },
@@ -704,8 +704,8 @@ const examTips = [
     pills: ["kn","un","app","an","eval"],
     readCheck: {
         q: "What structure should be used to answer a 9-mark question evaluating the impact of a change on HR needs?",
-        opts: ["A single unstructured paragraph giving an opinion", "K, U, APP x2, AN x2, EVAL x3, ending with a conclusion", "A list of bullet points with no explanation", "A definition only, with no application or evaluation"],
-        ans: 1,
+        opts: ["A definition only, with no application or evaluation", "A list of bullet points with no explanation", "K, U, APP x2, AN x2, EVAL x3, ending with a conclusion", "A single unstructured paragraph giving an opinion"],
+        ans: 2,
         explain: "The card sets out the structure as K (define) → U (explain) → APP x2 → AN x2 → EVAL x3, always reaching a conclusion."
     }
   },
@@ -716,8 +716,8 @@ const examTips = [
     pills: ["an"],
     readCheck: {
         q: "What mistake do examiners commonly penalise when students answer HR change questions?",
-        opts: ["Making a clear judgement at the end of the answer", "Using specific details from the case study", "Naming the HR change without its business consequence", "Writing in full sentences"],
-        ans: 2,
+        opts: ["Writing in full sentences", "Using specific details from the case study", "Making a clear judgement at the end of the answer", "Naming the HR change without its business consequence"],
+        ans: 3,
         explain: "The Examiner Warning states that students often lose analysis marks by identifying a change (e.g. fewer workers needed) without explaining its impact on the business."
     }
   },
@@ -728,7 +728,7 @@ const examTips = [
     pills: [],
     readCheck: {
         q: "Why is it incorrect to say 'a business with no HR department has no human resources'?",
-        opts: ["Because HR departments are legally compulsory for every business", "Because human resources only exist in large businesses", "Because the HR department creates human resources rather than manages them", "Every business has workers — HR just manages people"],
+        opts: ["Because HR departments are legally compulsory for every business", "Because the HR department creates human resources rather than manages them", "Because human resources only exist in large businesses", "Every business has workers — HR just manages people"],
         ans: 3,
         explain: "The card warns that examiners penalise this confusion: human resources are the workers themselves, while the HR department is only the function managing them, so small businesses can have human resources without a dedicated HR team."
     }
@@ -740,8 +740,8 @@ const examTips = [
     pills: ["eval"],
     readCheck: {
         q: "When evaluating whether HR planning is worthwhile, what should a strong answer include?",
-        opts: ["Only the benefits, since HR planning is always worthwhile", "Both benefits and costs, then a justified judgement", "A list of definitions with no judgement", "Only the costs, since HR planning is rarely worthwhile"],
-        ans: 1,
+        opts: ["A list of definitions with no judgement", "Only the benefits, since HR planning is always worthwhile", "Only the costs, since HR planning is rarely worthwhile", "Both benefits and costs, then a justified judgement"],
+        ans: 3,
         explain: "The Evaluation Tip advises presenting both benefits and costs of HR planning before reaching a justified overall conclusion."
     }
   }

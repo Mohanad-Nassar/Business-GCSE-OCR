@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Economics — Unit 3: Economic Objectives and the Role of Government</div>
             <h1>3.1 Economic Growth</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -268,21 +268,1605 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>3.1 Economic Growth</strong> will appear here soon.</p>`
+            title: "What economic growth is — GDP, real GDP and GDP per capita",
+            tag: "The four definitions that unlock the topic",
+            content: `<p><strong>Economic growth is the growth over time of GDP</strong> — an increase in the value of the goods and services an economy produces. It is normally given as a percentage change per year.</p>
+<h4>The four terms — learn all four</h4>
+<ul>
+<li><strong>GDP (Gross Domestic Product)</strong> — the total value of goods and services produced in a country in a year. This is <strong>nominal GDP</strong>, measured in money terms.</li>
+<li><strong>Real GDP</strong> — GDP adjusted for inflation, so it shows ACTUAL output rather than just rising prices. Real GDP = nominal GDP ÷ the average price level. This is what growth is properly measured by.</li>
+<li><strong>GDP per capita</strong> — GDP ÷ population. The output (and roughly the income) of the average person, so it is the better guide to living standards.</li>
+<li><strong>Negative growth</strong> — when output actually falls. A <strong>recession</strong> is commonly two consecutive quarters of negative growth.</li>
+</ul>
+<h4>Short-run vs long-run growth</h4>
+<ul>
+<li><strong>Short-run growth</strong> — the actual annual percentage change in real national output.</li>
+<li><strong>Long-run growth</strong> — an increase in the economy's <strong>potential productive capacity</strong>. This is the definition the exam wants for "the best definition of economic growth".</li>
+</ul>
+<h4>Why GDP per capita matters</h4>
+<ul>
+<li>A country can have a large total GDP but a low GDP per capita if its population is huge — China's total GDP dwarfs the UK's, but the UK's GDP per capita is higher.</li>
+<li>If population grows FASTER than output, GDP per capita can fall even while GDP rises. This is exactly why the UK's per capita growth (1.10%) is below its GDP growth (1.67%) — its population grows about 0.6% a year.</li>
+</ul>
+<p><strong>What UK GDP is made of:</strong> services are roughly <strong>80%</strong> of it — retail, financial services, tourism, education and the creative arts — plus exports such as high-tech aerospace, and smaller older industries like agriculture and mining.</p>`,
+            readCheck: {
+                q: "Why is real GDP a better measure of growth than nominal GDP?",
+                opts: ["It only counts exports", "It divides output by the population", "It measures the government's budget", "It strips out inflation, so it shows actual output not just higher prices"],
+                ans: 3,
+                explain: "Nominal GDP rises when prices rise even if nothing extra is made. Real GDP adjusts for inflation, showing genuine output. Dividing by population gives GDP per capita — a different measure."
+            }
+        },
+        {
+            title: "Measuring growth — the calculations and reading the data",
+            tag: "The formula, and the rate-vs-level trap",
+            content: `<p>Every 3.1 paper contains calculations and a data question. The maths is simple; the marks are lost through carelessness and through misreading what a chart shows.</p>
+<h4>The formulas</h4>
+<ul>
+<li><strong>Growth rate (%)</strong> = ((GDP this year − GDP last year) ÷ GDP last year) × 100. If GDP was £50bn and is now £55bn, growth = 10%.</li>
+<li><strong>GDP per capita</strong> = GDP ÷ population. £150 billion ÷ 5m = £30,000.</li>
+<li><strong>Real GDP</strong> = nominal GDP ÷ average price level. £10bn with 5% inflation → £9.52bn.</li>
+<li><strong>Applying a growth rate</strong>: £500m growing 4% → £500m × 1.04 = £520m.</li>
+</ul>
+<h4>The single biggest trap: RATE of change vs LEVEL</h4>
+<ul>
+<li>A growth-rate chart shows how FAST GDP is rising, not how BIG it is. <strong>If every year's growth is positive, GDP is rising every year</strong> — so the level is highest in the LAST year and lowest in the FIRST.</li>
+<li>In the real paper, candidates saw the 3.0% peak in 2014 and wrongly answered "GDP was highest in 2014". The correct answers were 2019 (highest) and 2010 (lowest).</li>
+<li>A growth rate that is positive but FALLING (3.0% → 1.65%) means the economy is <strong>still growing, just more slowly</strong>. Saying it "shrank" is a classic error. Only a NEGATIVE figure means output actually fell.</li>
+</ul>
+<h4>Describing data: summarise the pattern</h4>
+<ul>
+<li>Too little: "The trend is upwards." Too much: reading out every value. Aim for the overall shape — "rose steadily to a peak around 2014, then fell away before levelling off".</li>
+<li><strong>Never just re-write the data.</strong> Saying one figure is higher than another is the START of a chain of reasoning, not the analysis itself — you must explain WHY.</li>
+</ul>`,
+            readCheck: {
+                q: "A country's GDP growth is +3.0% in 2014 and +1.65% in 2018. What happened to the LEVEL of GDP?",
+                opts: ["It fell in 2018", "It stayed the same", "It rose in both years, but more slowly in 2018", "It was highest in 2014"],
+                ans: 2,
+                explain: "Both figures are positive, so GDP grew both years — just at a slower rate in 2018. GDP is therefore HIGHER in 2018 than 2014. Confusing the rate with the level is the topic's biggest trap."
+            }
+        },
+        {
+            title: "The determinants of economic growth",
+            tag: "What actually makes an economy grow",
+            content: `<p>Output is made using the <strong>factors of production</strong>, so growth depends on the <strong>quantity and quality</strong> of those factors. In the short run growth comes from rising <strong>aggregate demand</strong> (consumer spending, investment, government spending or exports); in the long run it needs an increase in <strong>productive capacity</strong>.</p>
+<h4>Investment (capital)</h4>
+<ul>
+<li>In economics, investment means <strong>spending on capital equipment</strong> — premises, tools, machinery — NOT buying shares or saving in a bank.</li>
+<li>Better capital raises future capacity: new premises, automating production, better equipment. Lower interest rates and expectations of growth encourage firms to invest.</li>
+</ul>
+<h4>Changes in technology</h4>
+<ul>
+<li>Technology constantly improves, so newer capital is more efficient and produces more than older equipment — a modern smartphone outguns the 1969 Moon-landing computers.</li>
+</ul>
+<h4>Education and training (human capital)</h4>
+<ul>
+<li>Better-educated, better-trained workers are <strong>more productive</strong>, so each worker is worth more to a firm and total output rises. Training targeted at skills shortages moves the economy forward faster.</li>
+</ul>
+<h4>Size of the workforce</h4>
+<ul>
+<li>A bigger workforce raises potential output. The UK has an ageing population — more dependants supported by a relatively smaller working-age group — and <strong>immigration</strong> can help offset this.</li>
+</ul>
+<h4>Availability of natural resources</h4>
+<ul>
+<li>Exploitable resources aid growth: the UK relied on coal and steel, then North Sea oil (now declining), and increasingly renewable energy.</li>
+</ul>
+<h4>Government policies</h4>
+<ul>
+<li><strong>Fiscal policy</strong> — cut taxes (more disposable income and investment) or raise spending (infrastructure, public services).</li>
+<li><strong>Monetary policy</strong> — lower interest rates make saving less attractive and borrowing cheaper, raising consumption and investment.</li>
+<li><strong>Supply-side policy</strong> — training and education, immigration, infrastructure. Poor <strong>infrastructure</strong> (transport, and now broadband) holds economies back.</li>
+</ul>`,
+            readCheck: {
+                q: "In economics, 'investment' as a determinant of growth means...",
+                opts: ["Putting money into a savings account", "Firms spending on capital equipment such as machinery and premises", "The government paying benefits", "Households buying shares on the stock market"],
+                ans: 1,
+                explain: "Investment means spending on capital that raises future productive capacity — not buying shares or saving, which is what 'investment' means in everyday speech."
+            }
+        },
+        {
+            title: "The costs and benefits of economic growth",
+            tag: "Economic, social and environmental sustainability",
+            content: `<p>The spec asks you to <strong>evaluate</strong> growth, including its impact on <strong>economic, social and environmental sustainability</strong>. You need both sides and a supported judgement.</p>
+<h4>Benefits</h4>
+<ul>
+<li><strong>Higher living standards</strong> — if output grows faster than population, GDP per capita rises, so there is more to go around and average wages rise.</li>
+<li><strong>Lower unemployment</strong> — producing extra output needs more workers.</li>
+<li><strong>More tax revenue</strong> — firms sell more and more people work, so income and business tax revenue rises WITHOUT raising tax rates, and less is spent on unemployment benefits.</li>
+<li><strong>Better public services</strong> — that revenue funds hospitals and schools, which then FEED BACK into growth: healthier workers take fewer sick days, better-schooled workers are more productive.</li>
+<li><strong>Reduced poverty</strong> — as average incomes rise, though only if the gains are shared.</li>
+</ul>
+<h4>Costs</h4>
+<ul>
+<li><strong>Negative externalities</strong> — pollution of land, sea and air, noise and congestion. London's Congestion Charge and ULEZ exist to fight vehicle pollution.</li>
+<li><strong>Global warming</strong> — emissions melt ice caps and raise sea levels; the 2016 Paris Accord tried to control this.</li>
+<li><strong>Depletion of non-renewable resources</strong> — mining scars land; palm-oil plantations drive deforestation, cutting the world's capacity to absorb CO₂.</li>
+<li><strong>Inflation</strong> — if demand grows faster than productive capacity, prices rise instead of output.</li>
+<li><strong>Inequality</strong> — the gains are rarely shared evenly; employers may gain far more than workers, and the unemployed depend on the government redistributing.</li>
+<li><strong>Lower quality of life for some</strong> — urbanisation, congestion, housing pressure, and less family time. "More stuff" is not automatically a better life.</li>
+</ul>
+<h4>The three sustainabilities</h4>
+<ul>
+<li><strong>Economic</strong> — can the growth be maintained (or does it cause inflation/debt)? <strong>Social</strong> — does quality of life and fairness improve? <strong>Environmental</strong> — can the planet sustain it?</li>
+<li>A real MCQ: wind farms raise energy prices (economic ↓) and noise (social ↓) but replace fossil fuels (environmental ↑).</li>
+</ul>`,
+            readCheck: {
+                q: "Economic growth raises government tax revenue. Why is that a benefit?",
+                opts: ["It means tax rates must rise", "More revenue funds public services like schools and hospitals, which can further raise growth", "It automatically ends inequality", "It reduces the size of the workforce"],
+                ans: 1,
+                explain: "Growth raises revenue WITHOUT raising rates, and that revenue funds healthcare and education — which make workers more productive and drive further growth. Growth does not automatically end inequality; the gains may be shared unevenly."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Economic growth is best defined as...",
+            opts: ["A reduction in the level of imports", "An increase in an economy's population", "An increase in an economy's productive capacity", "An increase in the employment level"],
+            ans: 2,
+            explain: "Long-run economic growth is an increase in the economy's potential productive capacity. Employment and population may accompany growth but do not define it."
+        },
+        {
+            q: "Which formula measures the rate of economic growth?",
+            opts: ["New GDP − Previous GDP", "(Change in GDP ÷ Previous GDP) × 100", "Change in GDP ÷ Change in population", "(Total GDP ÷ Previous GDP) × 100"],
+            ans: 1,
+            explain: "Growth is a PERCENTAGE change: the change in GDP as a proportion of the previous GDP, × 100. 'New GDP − Previous GDP' gives only the absolute change, not a rate."
+        },
+        {
+            q: "GDP is £150 billion and the population is 5 million. GDP per capita is...",
+            opts: ["£30,000", "£750,000", "£300,000", "£3,000"],
+            ans: 0,
+            explain: "GDP per capita = GDP ÷ population = £150bn ÷ 5m = £30,000."
+        },
+        {
+            q: "A country's GDP growth was +2.7%, −1.4%, +2.3% and +1.8% over four years. In which year did output actually FALL?",
+            opts: ["Output never rose", "The year with −1.4%", "The year with +1.8%", "The year with +2.3%"],
+            ans: 1,
+            explain: "Only a NEGATIVE growth rate means output fell. A smaller positive figure (+1.8%) still means GDP is rising, just more slowly."
+        },
+        {
+            q: "Real GDP differs from nominal GDP because real GDP...",
+            opts: ["Is adjusted for inflation, showing actual output", "Is divided by the population", "Only counts government spending", "Excludes services"],
+            ans: 0,
+            explain: "Nominal GDP is in money terms and rises with prices. Real GDP takes inflation out, so it reflects genuine output."
+        },
+        {
+            q: "In Year 1 real GDP growth is 5% and nominal GDP growth is 5%. What can you conclude?",
+            opts: ["Real GDP fell", "The population fell", "Inflation was 10%", "There was no inflation in Year 1"],
+            ans: 3,
+            explain: "Nominal growth includes price rises. If nominal and real growth are equal, prices did not rise — no inflation."
+        },
+        {
+            q: "Which is a determinant of LONG-RUN economic growth?",
+            opts: ["A rise in the price level", "A short-term rise in consumer spending", "A fall in the exchange rate", "An increase in the quantity or quality of the factors of production"],
+            ans: 3,
+            explain: "Long-run growth needs greater productive capacity, which comes from more or better land, labour, capital and enterprise. Short-run growth comes from rising aggregate demand."
+        },
+        {
+            q: "Which is most likely to REDUCE economic growth?",
+            opts: ["An increase in exports", "Low interest rates", "High taxes on profits", "A stable price level"],
+            ans: 2,
+            explain: "High profit taxes leave firms less to reinvest and weaken the incentive to expand. The other three support growth."
+        },
+        {
+            q: "Which is normally counted as part of a country's GDP?",
+            opts: ["Investment spending by firms", "Interest rates", "Unpaid domestic work within a family", "Household savings"],
+            ans: 0,
+            explain: "Investment is a component of GDP. Savings are income NOT spent, interest rates are a price, and unpaid domestic work is not recorded."
+        },
+        {
+            q: "A country's GDP rises 1.7% but its population rises 2.0%. What happens to GDP per capita?",
+            opts: ["It rises by 3.7%", "It rises by 1.7%", "It falls, because population grew faster than output", "It stays exactly the same"],
+            ans: 2,
+            explain: "GDP per capita = GDP ÷ population. If the population grows faster than output, each person's share shrinks — so average living standards fall despite positive growth."
+        }
+    ];
+
+    const matchData = [
+        { term: "Economic growth", def: "The growth over time of GDP — an increase in the value of output" },
+        { term: "GDP", def: "The total value of goods and services produced in a country in a year" },
+        { term: "Real GDP", def: "GDP adjusted for inflation, so it shows actual output not just higher prices" },
+        { term: "Nominal GDP", def: "GDP expressed in money terms, before adjusting for inflation" },
+        { term: "GDP per capita", def: "GDP divided by the population — the output of the average person" },
+        { term: "Recession", def: "Commonly two consecutive quarters of negative GDP growth" },
+        { term: "Negative growth", def: "When national output actually falls" },
+        { term: "Long-run growth", def: "An increase in the economy's potential productive capacity" },
+        { term: "Investment", def: "Firms spending on capital equipment such as machinery and premises" },
+        { term: "Human capital", def: "The skills, education and training that make workers more productive" },
+        { term: "Infrastructure", def: "Transport, energy and digital networks that let business operate" },
+        { term: "Negative externality", def: "A cost of growth borne by third parties, such as pollution" },
+        { term: "Environmental sustainability", def: "Whether growth can continue without exhausting or damaging the planet" }
+    ];
+
+    const fibData = [
+        {
+            display: "Economic growth is the growth over time of ___B1___, usually measured as the annual percentage change in ___B2___ GDP.",
+            blanks: { B1: "GDP", B2: "real" }
+        },
+        {
+            display: "GDP per ___B1___ is GDP divided by the ___B2___, which makes it a better guide to average living standards.",
+            blanks: { B1: "capita", B2: "population" }
+        },
+        {
+            display: "If a growth rate is positive but falling, the economy is still ___B1___ — only a ___B2___ figure means output actually fell.",
+            blanks: { B1: "growing", B2: "negative" }
+        },
+        {
+            display: "In economics, investment means spending on ___B1___ equipment, which raises the economy's future productive ___B2___.",
+            blanks: { B1: "capital", B2: "capacity" }
+        },
+        {
+            display: "Education and training raise ___B1___ capital, so workers become more ___B2___ and total output rises.",
+            blanks: { B1: "human", B2: "productive" }
+        },
+        {
+            display: "A cost of growth is ___B1___ externalities such as pollution, while a benefit is higher tax ___B2___ to fund public services.",
+            blanks: { B1: "negative", B2: "revenue" }
+        }
+    ];
+    const fibWords = ["GDP", "real", "capita", "population", "growing", "negative", "capital", "capacity", "human", "productive", "revenue", "nominal", "inflation", "recession"];
+
+    const tfData = [
+        {
+            statement: "A falling but still positive growth rate means the economy is shrinking.",
+            answer: false,
+            explanation: "It means the economy is still GROWING, just more slowly. Only a negative growth rate means output actually fell — a classic student error."
+        },
+        {
+            statement: "If a country's GDP growth is positive every year, its level of GDP is highest in the final year.",
+            answer: true,
+            explanation: "Positive growth every year means GDP rose every year, so the LEVEL is highest at the end. The year with the fastest growth is not the year with the most GDP."
+        },
+        {
+            statement: "Real GDP is adjusted for inflation.",
+            answer: true,
+            explanation: "Real GDP = nominal GDP ÷ the average price level, so it shows actual output rather than just rising prices."
+        },
+        {
+            statement: "GDP per capita tells you how income is distributed within a country.",
+            answer: false,
+            explanation: "It is only an AVERAGE (GDP ÷ population). It says nothing about distribution — an official OCR misconception. A country can have a high average with severe inequality."
+        },
+        {
+            statement: "Economic growth can raise government tax revenue without raising tax rates.",
+            answer: true,
+            explanation: "More people in work and higher profits mean more income and business tax is collected at the same rates — plus less is spent on unemployment benefits."
+        },
+        {
+            statement: "In economics, 'investment' means buying shares on the stock market.",
+            answer: false,
+            explanation: "In economics investment means firms spending on CAPITAL — machinery, premises, technology — which raises future productive capacity."
+        },
+        {
+            statement: "GDP per capita can fall even when a country's GDP is rising.",
+            answer: true,
+            explanation: "If the population grows faster than output, each person's share shrinks. This is why the UK's per capita growth (1.10%) is below its GDP growth (1.67%)."
+        },
+        {
+            statement: "Economic growth always makes everyone in a country better off.",
+            answer: false,
+            explanation: "The gains are rarely shared evenly — inequality can widen even as the economy grows. Growth also brings pollution, congestion and resource depletion."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "\"The chart shows growth peaked at 3.0% in 2014, so the UK's GDP was highest in 2014.\"",
+            correct: "This is the single biggest trap in 3.1, and the real mark scheme flags it as a Misconception. A growth-rate chart shows how FAST GDP is rising, not how BIG it is. Because every year from 2010 to 2019 had POSITIVE growth, GDP rose every single year — so the LEVEL was highest in 2019 (the last year) and lowest in 2010 (the first). The 3.0% peak in 2014 was just the fastest growth. Candidates who answered '2014 highest, 2011–12 lowest' were confusing rates of change with absolute values. Rule: positive rate = still rising; only a NEGATIVE bar means the level actually fell.",
+            readCheck: {
+                q: "GDP growth is positive every year from 2010 to 2019, peaking at 3.0% in 2014. GDP was highest in...",
+                opts: ["2014", "Cannot be known", "2019", "2010"],
+                ans: 2,
+                explain: "Positive growth every year means GDP rose every year, so the level is highest at the END (2019). 2014 is only the fastest growth."
+            }
+        },
+        {
+            wrong: "\"GDP per capita of £32,311 means each UK person has £32,311 — so it shows how income is shared out.\"",
+            correct: "The official OCR Misconception box on this paper: candidates confuse GDP per capita as an AVERAGE with wealth or income DISTRIBUTION, which is a completely different concept. GDP per capita is simply total GDP ÷ population — a mathematical average. It tells you nothing about who actually receives the income: a country could have a high GDP per capita while most people are poor and a few are extremely rich. (Distribution is measured differently — see 3.3.) The examiners also report candidates wrongly believing GDP per capita is measured per household, per family or per region. It is per PERSON.",
+            readCheck: {
+                q: "What does GDP per capita NOT tell you?",
+                opts: ["Roughly the typical person's income", "How income is distributed between rich and poor", "How the country compares with others over time", "The output of the average person"],
+                ans: 1,
+                explain: "It is only an average (GDP ÷ population). Distribution is a separate concept — confusing the two is an official OCR misconception."
+            }
+        },
+        {
+            wrong: "\"Uganda's GDP per capita is £506.6 and the UK's is £32,311. That's my analysis done.\"",
+            correct: "The Assessment for Learning note on this paper is explicit: candidates must NOT describe or re-write the data. Stating that one figure is higher or lower than another is only the BEGINNING of an analytical chain of reasoning, not the analysis itself. You must explain WHY: Uganda is a less developed economy whose output is largely low-value primary agriculture, while the UK's comes from high-value manufacturing and services — which is why the gap is roughly sixtyfold. Then go further: Uganda's growth RATE is higher (5.2% vs 2.3%) partly because it starts from such a low base, but its fast population growth means per capita growth is only about 1% a year. Data + reason + consequence = analysis.",
+            readCheck: {
+                q: "You've noted Uganda's GDP per capita is far below the UK's. To turn this into ANALYSIS you must...",
+                opts: ["State which is bigger", "Quote more figures from the table", "Explain WHY — e.g. low-value primary output vs high-value services", "Repeat the numbers in a sentence"],
+                ans: 2,
+                explain: "Re-writing data scores nothing. Comparing figures is the start of a chain; the marks come from explaining the reason and its consequence."
+            }
+        },
+        {
+            wrong: "\"I'll list three benefits of globalisation, then three completely different problems at the end.\"",
+            correct: "The examiners were blunt about this on the Tanzania question. Evaluation is not a list of unconnected good and bad points, and it is not a conclusion that just summarises. A good evaluative point must MATCH the analytical point it answers — it should strengthen, mitigate or contrast with it. So: 'workers gain jobs in multinational factories (analysis) — HOWEVER those same factories out-compete local village producers, so other workers lose their jobs (matching evaluation)'. Exemplar 3 on the real paper made a sensible point about living standards and then evaluated with an unrelated point about structural unemployment — which did not earn the evaluation marks. Pair every point with its own counter.",
+            readCheck: {
+                q: "What makes a MATCHING evaluative point?",
+                opts: ["It raises a completely separate disadvantage", "It repeats the analysis in different words", "It strengthens, mitigates or contrasts with the specific point just made", "It summarises all previous points"],
+                ans: 2,
+                explain: "Evaluation must answer the point it follows. Unconnected lists and summary conclusions score poorly — the examiners said so explicitly."
+            }
+        },
+        {
+            wrong: "\"Growth means more government spending on healthcare, which improves life expectancy.\"",
+            correct: "The chain is missing its first links, and the examiners penalised exactly this. Starting at 'increased spending on health' never connects back to ECONOMIC GROWTH, which is what the question asked about. Include every simple link: growth raises output and incomes → higher incomes and profits mean more tax revenue at the same tax rates → the government can spend more on healthcare and education → life expectancy and future earnings rise. Each link is obvious on its own, but leaving the early ones out breaks the chain and caps your marks. The same discipline rescues the 'education → GDP' chain: more schooling → higher literacy → more productive workers → more output per worker → higher GDP.",
+            readCheck: {
+                q: "Why must an analysis chain start from economic growth itself?",
+                opts: ["Because data must be quoted first", "Otherwise the later links don't connect to the question that was asked", "Because you must always define GDP first", "Because examiners want longer answers"],
+                ans: 1,
+                explain: "The examiners noted responses starting at 'increased spending on health' failed to link back to growth. Include all the simple early links."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "data",
+            title: "Data questions: rate vs level, and never re-write the data",
+            pills: ["Using Extract 1, state/analyse...", "2–6 marks", "AO2"],
+            content: `<p>Every 3.1 paper has a chart or table, and two failures come up again and again in the examiner reports:</p>
+<ul>
+<li><strong>Rate ≠ level.</strong> Positive growth every year means the LEVEL rose every year — highest at the end (2019), lowest at the start (2010). The 3.0% peak in 2014 is the fastest growth, not the biggest GDP. Candidates who answered 2014 lost the marks.</li>
+<li><strong>Don't re-write the data.</strong> "One figure is higher than another" is the START of a chain, not the analysis. Add the reason and the consequence.</li>
+<li><strong>Summarise the pattern</strong>: "rose steadily to a peak around 2014, then fell away and levelled off" beats listing every value.</li>
+</ul>
+<h4>Cover everything the question names</h4>
+<p>The UK/Japan question required Japan AND the UK, and GDP AND GDP per capita, to reach Level 3. Tick off each named element before you finish.</p>`,
+            readCheck: {
+                q: "A chart shows positive GDP growth every year, peaking in 2014. In which year is the LEVEL of GDP highest?",
+                opts: ["The final year", "The first year", "You cannot tell", "2014"],
+                ans: 0,
+                explain: "Positive growth every year = GDP rising every year, so the level is highest at the end. This exact trap cost candidates marks on the real paper."
+            }
+        },
+        {
+            type: "calculation",
+            title: "Calculations: the £ sign, the units, and showing working",
+            pills: ["Calculate... Show your working", "2 marks", "Quantitative skills"],
+            content: `<p>The maths is easy; the marks go on precision. Real examples from this paper:</p>
+<ul>
+<li><strong>Average</strong>: (539 + 552 + 794) ÷ 3 = $628.33 — use the right years. Some candidates picked data from the wrong rows.</li>
+<li><strong>Applying a growth rate</strong>: £1,797 trillion × 1.015 = £1,823.96 trillion. <strong>Omitting the £ or the word "trillion" cost a mark.</strong></li>
+<li><strong>GDP per capita</strong>: £2,055,991.7 million ÷ 65,128,861 = £31,568.1 — watch that GDP is in MILLIONS, and <strong>the £ sign is required for full marks</strong>.</li>
+<li><strong>Show your working</strong> so the Own Figure Rule can rescue a slip — a bare wrong answer scores zero.</li>
+</ul>`,
+            readCheck: {
+                q: "UK GDP in 2011 was £1,797 trillion and 2012 growth was 1.5%. GDP in 2012 was...",
+                opts: ["£26.96 trillion", "£1,823.96 trillion", "£1,823.96 billion", "£1,823.96"],
+                ans: 1,
+                explain: "£1,797 × 1.015 = £1,823.955. The mark scheme gives only 1 mark if the £ sign or the word 'trillion' is missing."
+            }
+        },
+        {
+            type: "analysis",
+            title: "Analyse: build every link in the chain",
+            pills: ["Analyse how/why...", "6 marks", "AO3a"],
+            content: `<p>Analyse questions carry no evaluation marks — spend the time on developed chains instead.</p>
+<ul>
+<li><strong>Include all the simple links.</strong> Education → higher literacy → more productive workers → more output per worker → higher GDP. Skipping the early links breaks the chain.</li>
+<li><strong>Two developed chains beat five one-liners.</strong> Correct analysis "in the form of developed links… through a chain of reasoning" is what Level 3 asks for.</li>
+<li><strong>Apply it</strong> — you cannot get the AO2 marks without referring to the extract, and on some questions "if there is no analysis, application cannot be rewarded".</li>
+</ul>
+<h4>The household-income chain worth memorising</h4>
+<p>Incomes rise → consumers afford more → demand rises → firms raise output (this IS growth) → producing it pays incomes to others → they spend too → more output again (the multiplier). Then add: extra income for the richest 20% has less effect, because they save more of it.</p>`,
+            readCheck: {
+                q: "For a 6-mark 'Analyse' question, what earns the top level?",
+                opts: ["Quoting as much data as possible", "A balanced judgement at the end", "A long list of separate points", "Developed links forming a chain of reasoning that addresses the question"],
+                ans: 3,
+                explain: "Analyse = chains of developed links, no evaluation needed. Lists of single effects sit at Level 2."
+            }
+        },
+        {
+            type: "evaluate",
+            title: "Evaluate: match every point, and answer the exact question",
+            pills: ["Evaluate the extent / costs and benefits...", "6 marks", "AO3b"],
+            content: `<p>The evaluation marks are the ones most often thrown away on this paper.</p>
+<ul>
+<li><strong>Match your points.</strong> Each evaluative comment must strengthen, mitigate or contrast with the point it follows — not raise an unrelated issue. Exemplar 3 lost marks doing exactly that.</li>
+<li><strong>Cover what the question names.</strong> "Costs AND benefits of fiscal policy" needs BOTH for Level 3. "Benefits of globalisation for WORKERS" means workers — not producers or government, which scored nothing.</li>
+<li><strong>Address 'extent'.</strong> Where the question says "the extent to which", weigh HOW MUCH — e.g. it depends on timescale, on how income is distributed, on whether the government passes the benefits on.</li>
+<li><strong>Judge, don't summarise.</strong> Signal it ("Overall…") and support it. A conclusion that merely restates earlier points adds nothing.</li>
+</ul>`,
+            readCheck: {
+                q: "A question asks you to evaluate the benefits of globalisation for WORKERS in Tanzania. Writing about gains to the government...",
+                opts: ["Is fine, as it's still about Tanzania", "Scores nothing — it's the wrong stakeholder", "Earns the evaluation marks", "Is required for Level 3"],
+                ans: 1,
+                explain: "The examiners reported that answers about other stakeholders, or about problems rather than benefits, did not address the question and were not credited."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Economic growth", def: "The growth over time of GDP — an increase in the value of a country's output, usually a % per year." },
+        { term: "GDP", def: "The total value of goods and services produced in a country in a year." },
+        { term: "Nominal GDP", def: "GDP in money terms, before adjusting for inflation." },
+        { term: "Real GDP", def: "GDP adjusted for inflation = nominal GDP ÷ average price level. Shows ACTUAL output." },
+        { term: "GDP per capita", def: "GDP ÷ population — the average person's output/income. An AVERAGE, not a measure of distribution." },
+        { term: "Growth rate formula", def: "((GDP this year − GDP last year) ÷ GDP last year) × 100." },
+        { term: "Negative growth", def: "Output actually falls. A recession = two consecutive quarters of negative growth." },
+        { term: "Rate vs level", def: "Positive growth = level still RISING. A smaller positive figure is slower growth, NOT a fall." },
+        { term: "Short-run growth", def: "The actual annual % change in real national output; driven by aggregate demand." },
+        { term: "Long-run growth", def: "An increase in the economy's potential PRODUCTIVE CAPACITY — the 'best definition'." },
+        { term: "Investment", def: "Firms spending on capital (machinery, premises) — NOT buying shares or saving." },
+        { term: "Human capital", def: "Skills, education and training that make workers more productive and raise output." },
+        { term: "Determinants of growth", def: "Investment, technology, workforce size, education/training, natural resources, government policy, infrastructure." },
+        { term: "Benefits of growth", def: "Higher living standards, lower unemployment, more tax revenue at the same rates, better public services, less poverty." },
+        { term: "Costs of growth", def: "Pollution and congestion, global warming, resource depletion, inflation, worsening inequality." },
+        { term: "The three sustainabilities", def: "Economic (can it last?), social (quality of life/fairness), environmental (can the planet take it?)." },
+        { term: "Negative externality", def: "A cost of growth borne by third parties — pollution, noise, congestion." },
+        { term: "Why GDP per capita can fall", def: "If population grows FASTER than output, each person's share shrinks despite positive growth." },
+        { term: "Fiscal policy for growth", def: "Cut taxes (more disposable income and investment) or raise government spending → higher total demand." }
+    ];
+    // Shared exam extracts — defined ONCE here and referenced by `caseId`
+    // from each question part, so editing an extract updates every question
+    // that uses it. Single-use stimuli keep their own inline `caseStudy`.
+    const EXAM_CASE_STUDIES = {
+        "extract-3-development-in-tanzania-and-globalisat": `<p><strong>Extract 3: Development in Tanzania and Globalisation</strong></p>
+<table style="width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">1990</th><th style="padding:6px;">2000</th><th style="padding:6px;">2010</th></tr>
+<tr><td style="padding:6px;">GDP per capita (US$)</td><td style="padding:6px;">539</td><td style="padding:6px;">552</td><td style="padding:6px;">794</td></tr>
+<tr><td style="padding:6px;">Government expenditure on education (% of GDP)</td><td style="padding:6px;">2.14</td><td style="padding:6px;">3.00</td><td style="padding:6px;">4.54</td></tr>
+<tr><td style="padding:6px;">Primary school enrolment (% of age group)</td><td style="padding:6px;">52.04</td><td style="padding:6px;">53.53</td><td style="padding:6px;">92.20</td></tr>
+</table>
+<p>The above table shows that government spending on Tanzanian schools and teachers affects the number of children attending school. As a result, the adult literacy rate (the percentage of adults who can read and write) has increased from 68% in 2010 to 82% in 2021. The benefits of an educated population, which leads to a more productive workforce, is also demonstrated by the increase in GDP per capita.</p>
+<p>Higher GDP per capita is not only due to education, but also to globalisation. Investment by Chinese multinational companies in Tanzanian industries has helped to increase and diversify its trade. The Tanzanian economy is now less dependent on the widely fluctuating prices of primary agricultural products. Moreover, there is a greater variety of job opportunities.</p>
+<table style="width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">2010</th><th style="padding:6px;">2015</th><th style="padding:6px;">2020</th></tr>
+<tr><td style="padding:6px;">GDP per capita (US$)</td><td style="padding:6px;">794</td><td style="padding:6px;">929</td><td style="padding:6px;">1 028</td></tr>
+<tr><td style="padding:6px;">Exports of goods (US$ million)</td><td style="padding:6px;">4 051</td><td style="padding:6px;">4 834</td><td style="padding:6px;">6 061</td></tr>
+<tr><td style="padding:6px;">E.g. Agricultural raw material exports (% of total)</td><td style="padding:6px;">5.59</td><td style="padding:6px;">3.37</td><td style="padding:6px;">3.30</td></tr>
+<tr><td style="padding:6px;">Imports of goods (US$ million)</td><td style="padding:6px;">8 060</td><td style="padding:6px;">14 768</td><td style="padding:6px;">8 517</td></tr>
+<tr><td style="padding:6px;">E.g. Manufactured imports (% of total)</td><td style="padding:6px;">60.47</td><td style="padding:6px;">42.07</td><td style="padding:6px;">72.32</td></tr>
+</table>`,
+        "extract-1-economic-growth-in-the-uk-and-japan": `<p><strong>Extract 1: Economic Growth in the UK and Japan</strong></p>
+<img src="/images/economics/3-1-uk-gdp-growth-chart-extracted.png" alt="Line chart from the OCR exam paper titled 'United Kingdom GDP growth', showing annual % change on the vertical axis against years 2010 to 2019: about 2.1 in 2010, 1.5 in 2011 and 2012, 1.9 in 2013, a peak of 3.0 in 2014, 2.6 in 2015, 2.25 in 2016, 2.1 in 2017, 1.65 in 2018 and 1.67 in 2019 &mdash; every value stays positive" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>As shown in the above chart, the UK&#39;s rate of growth of gross domestic product (GDP) has remained positive between 2010 and 2019. Also, over the same period of time, the UK&#39;s economic growth rate was higher than in Japan. However, the table below shows that the UK&#39;s GDP per capita growth rate is lower than its economic growth rate, because the UK&#39;s population has increased at an annual rate of about 0.6% during the same period.</p>
+<table style="width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;"></th><th style="padding:6px;">2018</th><th style="padding:6px;">2019</th></tr>
+<tr><td style="padding:6px;" rowspan="2"><strong>United Kingdom</strong></td><td style="padding:6px;">GDP growth (annual %)</td><td style="padding:6px;">1.65</td><td style="padding:6px;">1.67</td></tr>
+<tr><td style="padding:6px;">GDP per capita growth (annual %)</td><td style="padding:6px;">1.04</td><td style="padding:6px;">1.10</td></tr>
+<tr><td style="padding:6px;" rowspan="2"><strong>Japan</strong></td><td style="padding:6px;">GDP growth (annual %)</td><td style="padding:6px;">0.56</td><td style="padding:6px;">0.27</td></tr>
+<tr><td style="padding:6px;">GDP per capita growth (annual %)</td><td style="padding:6px;">0.76</td><td style="padding:6px;">0.48</td></tr>
+</table>
+<p>Higher economic growth rates provide more employment opportunities and higher incomes, which should improve living standards. To encourage a faster rate of economic growth, the government may adopt an expansionary fiscal policy with a budget deficit in order to increase total (aggregate) demand. As total demand increases, more output will improve the employment rate, but there is a risk of inflation, if the economy is near to full employment and productive capacity is insufficient.</p>`,
+        "extract-2-determinants-of-economic-growth-and-fi": `<p><strong>Extract 2: Determinants of Economic Growth and Fiscal Policy</strong></p>
+<table style="width:100%;max-width:560px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">2010</th><th style="padding:6px;">2015</th><th style="padding:6px;">2019</th></tr>
+<tr><td style="padding:6px;" colspan="4"><strong>Burkina Faso</strong></td></tr>
+<tr><td style="padding:6px;">Females in the workforce (% aged 15-64)</td><td style="padding:6px;">61.2</td><td style="padding:6px;">59.8</td><td style="padding:6px;">59.8</td></tr>
+<tr><td style="padding:6px;">Females enrolled in university (% of relevant age group)</td><td style="padding:6px;">2.3</td><td style="padding:6px;">3.5</td><td style="padding:6px;">5.1</td></tr>
+<tr><td style="padding:6px;">Males enrolled in university (% of relevant age group)</td><td style="padding:6px;">4.8</td><td style="padding:6px;">6.6</td><td style="padding:6px;">9.0</td></tr>
+<tr><td style="padding:6px;">GDP per capita growth (annual %)</td><td style="padding:6px;">5.2</td><td style="padding:6px;">0.9</td><td style="padding:6px;">2.7</td></tr>
+<tr><td style="padding:6px;" colspan="4"><strong>China</strong></td></tr>
+<tr><td style="padding:6px;">Females in the workforce (% aged 15-64)</td><td style="padding:6px;">69.8</td><td style="padding:6px;">69.1</td><td style="padding:6px;">68.5</td></tr>
+<tr><td style="padding:6px;">Females enrolled in university (% of relevant age group)</td><td style="padding:6px;">25.0</td><td style="padding:6px;">50.2</td><td style="padding:6px;">59.5</td></tr>
+<tr><td style="padding:6px;">Males enrolled in university (% of relevant age group)</td><td style="padding:6px;">23.5</td><td style="padding:6px;">42.3</td><td style="padding:6px;">48.7</td></tr>
+<tr><td style="padding:6px;">GDP per capita growth (annual %)</td><td style="padding:6px;">10.1</td><td style="padding:6px;">6.5</td><td style="padding:6px;">5.7</td></tr>
+</table>
+<p>The proportion of people, especially females, who have a university education varies considerably across different countries. Knowledge and training improve labour productivity. Education is, therefore, a significant determinant of economic growth. Another important determinant is the size of the workforce. Consequently, when there are more educated women in the workforce, economic growth is higher.</p>
+<p>Percentage gains in real GDP measure economic growth. GDP per capita is an approximate measure of the average income in a country.</p>
+<p>Average years in education is one of the factors that is used to measure social and economic development. Another important factor is life expectancy, which reflects how healthy a country&#39;s population is. When development economists measure social and economic development, they find that the index for China is almost twice that for Burkina Faso.</p>`,
+        "extract-2-gdp-data": `<p><strong>Extract 2: GDP Data</strong></p>
+<p>The GDP growth rate is often used to measure economic growth. Higher GDP per capita indicates that on average people have improved living standards. Higher economic growth is, however, often accompanied by inflation and higher interest rates.</p>
+<p>Concerns have recently been raised about the impact of economic growth on environmental sustainability because industrialisation and vehicles cause pollution and climate change. Therefore, some economists suggest that the focus of growth should be on renewable energy industries and improved rail transport.</p>
+<table style="width:100%;max-width:560px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">UK</th><th style="padding:6px;">2015</th><th style="padding:6px;">2016</th><th style="padding:6px;">2017</th></tr>
+<tr><td style="padding:6px;">GDP (£ million)</td><td style="padding:6px;">2 055 991.7</td><td style="padding:6px;">2 095 791.4</td><td style="padding:6px;">2 133 246.4</td></tr>
+<tr><td style="padding:6px;">GDP growth rate (%)</td><td style="padding:6px;">2.3</td><td style="padding:6px;">1.9</td><td style="padding:6px;">1.8</td></tr>
+<tr><td style="padding:6px;">GDP per capita (£)</td><td style="padding:6px;">-</td><td style="padding:6px;">31 950.2</td><td style="padding:6px;">32 311.0</td></tr>
+<tr><td style="padding:6px;">Population</td><td style="padding:6px;">65 128 861</td><td style="padding:6px;">65 595 565</td><td style="padding:6px;">66 022 273</td></tr>
+</table>
+<table style="width:100%;max-width:560px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Uganda*</th><th style="padding:6px;">2015</th><th style="padding:6px;">2016</th><th style="padding:6px;">2017</th></tr>
+<tr><td style="padding:6px;">GDP growth rate (%)</td><td style="padding:6px;">5.2</td><td style="padding:6px;">4.7</td><td style="padding:6px;">4.0</td></tr>
+<tr><td style="padding:6px;">GDP per capita (£)</td><td style="padding:6px;">497.1</td><td style="padding:6px;">503.4</td><td style="padding:6px;">506.6</td></tr>
+</table>
+<p>* Uganda is a less developed economy, which has implications for its technology, education and life expectancy. Its economy is now benefiting from trade and from better communications and, therefore, is growing at a relatively high rate, because the economic structure is becoming less dependent on agriculture.</p>`,
+    };
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "When national output is falling",
+            options: ["economic growth is negative", "economic growth is strong", "prices tend to increase rapidly", "unemployment falls as well"],
+            answer: 0,
+            hint: "Economic growth IS the change in national output. If output is falling, what sign does growth have?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — economic growth is negative</strong></p>
+<ul>
+<li>Growth measures the change in national output, so falling output means growth is negative. Falling output would tend to RAISE unemployment, not lower it.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<table style="width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">Country A</th><th style="padding:6px;">Country B</th><th style="padding:6px;">Country C</th></tr>
+<tr><td style="padding:6px;">GDP (£)</td><td style="padding:6px;">1000</td><td style="padding:6px;">2000</td><td style="padding:6px;">5000</td></tr>
+<tr><td style="padding:6px;">Number of inhabitants</td><td style="padding:6px;">100</td><td style="padding:6px;">100</td><td style="padding:6px;">1000</td></tr>
+</table>`,
+            question: "Policy makers and producers often decide about investments on the basis of GDP data. Which one of the following statements is correct?",
+            options: ["Country A has the lowest output per capita", "Country A has the same output per capita as country B", "Country B has the highest output per capita", "Country C has five times more output per capita than country A"],
+            answer: 2,
+            hint: "Output per capita = GDP ÷ inhabitants. Work out all three before choosing.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>
+<p><strong>Answer: C — Country B has the highest output per capita</strong></p>
+<ul>
+<li>A = 1000 ÷ 100 = £10; B = 2000 ÷ 100 = £20; C = 5000 ÷ 1000 = £5. So B is highest and C — not A — is lowest.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q3(a)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-development-in-tanzania-and-globalisat",
+            question: "Using Extract 3, calculate the average GDP per capita in US dollars during the period 1990 to 2010. Show your working.",
+            hint: "Use the GDP per capita row from the FIRST table only — the three figures for 1990, 2000 and 2010. Add them and divide by 3.",
+            starter: "(539 + 552 + 794) ÷ 3 = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answer: 628 (or $628.33)</strong></p>
+<ul>
+<li>2 marks for a correct answer (working not required).</li>
+<li>1 mark for correct working, but incorrect answer.</li>
+<li>N.B. No mark lost if the $ sign is omitted, since the question asked "in US dollars".</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was very well answered, however some candidates selected data from the incorrect years.</p>
+</div>`,
+            modelAnswer: "Add the three GDP per capita figures for 1990, 2000 and 2010:\n539 + 552 + 794 = 1885.\n\nDivide by 3: 1885 ÷ 3 = $628.33 (about $628)."
+        },
+        {
+            num: "Q3(b)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-development-in-tanzania-and-globalisat",
+            question: "Using Extract 3, explain two measurements of education for economic development.",
+            hint: "Pick two measures AND quote the figures — a bare statement with no data scores nothing. The adult literacy rate and primary school enrolment are the two the extract gives.",
+            starter: "One measurement is the adult literacy rate, which rose from...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers might include:</strong></p>
+<ul>
+<li>Adult literacy rate increased from 68% to 82%</li>
+<li>Total number of children attending primary school / higher education. Primary attendance increased from 52.84% to 92.2%</li>
+</ul>
+<p><em>⚠️ Note: the mark scheme prints "52.84%", but the table in Extract 3 reads <strong>52.04%</strong>. Use the figure shown in the extract — either will be credited, as the mark is for a clear reference to the data.</em></p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Give 2 marks if there are clear references to the Extract, e.g. figures.</li>
+<li>Give 1 mark if there are 2 statements but no explanation, or 1 statement with explanation.</li>
+<li>No mark for just 1 statement.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This was a well answered question, with many candidates selecting appropriate measures for development.</p>
+</div>`,
+            modelAnswer: "1. The adult literacy rate — the percentage of adults who can read and write — which rose from 68% in 2010 to 82% in 2021.\n\n2. Primary school enrolment as a percentage of the age group, which rose from 52.04% in 1990 to 92.20% in 2010."
+        },
+        {
+            num: "Q3(c)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-3-development-in-tanzania-and-globalisat",
+            question: "Using the information in Extract 3, analyse how an increase in the number of children attending primary school affects the GDP of a country.",
+            hint: "Build a CHAIN, don't just quote data: more schooling → higher literacy → more productive workforce → higher output per worker → higher GDP. A second chain: productive workers attract foreign investment → more jobs → less unemployment → higher GDP. Quoting correlation without the economic logic scores poorly.",
+            starter: "GDP is the total value of goods and services produced in a country in a year. More children at primary school means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Knowledge and understanding (AO1):</strong> GDP is the total value added of goods and services produced in a country in a year.</p>
+<p><strong>Reference to the extract (AO2):</strong> increase in GDP per capita; more productive workforce; attracts investment; increase in job opportunities; quoting statistics e.g. increase to 4.54% of GDP.</p>
+<p><strong>Development of reasoning linking education to GDP (AO3):</strong></p>
+<ul>
+<li>Higher literacy rates increase opportunities for employment in manufacturing and service industries which are likely to pay higher wages</li>
+<li>More productive workforce will increase output per worker, thus increasing GDP</li>
+<li>Productive workers attract foreign investment, generating more jobs</li>
+<li>More job opportunities reduce unemployment, thus increasing GDP</li>
+<li>More people employed in education</li>
+<li>Greater government spending will increase total demand/economic activity</li>
+</ul>
+<p><strong>N.B.</strong> To reach Level 2 there must be reference to the Extract or context. If there is no analysis (AO3a), then application (AO2) cannot be rewarded.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis with developed chains of reasoning.</p>
+<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects.</p>
+<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis.</p>
+<p><strong>0 marks:</strong> Response is not worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates clearly identified elements from the data such as education leading to higher productivity and/or quoting statistics, then developed a coherent chain of reasoning analysing how this is likely to impact GDP. Candidates who scored less well quoted the data and noted correlation, without analysing the economic logic of how education could lead to changing GDP.</p>
+</div>`,
+            modelAnswer: "GDP is the total value of goods and services produced in a country in a year. When more children attend primary school — Tanzanian enrolment rose from 52.04% to 92.20% — more of them learn to read and write, which is why the adult literacy rate climbed from 68% to 82%. A literate workforce is a more productive workforce, so each worker produces more output, and higher output per worker directly raises GDP.\n\nA second chain runs through investment and jobs. Literate, productive workers make the country attractive to foreign firms such as the Chinese multinationals mentioned in the extract. Their investment creates more job opportunities, which reduces unemployment and puts more people into paid work producing goods and services — again raising GDP. This is supported by the data, as GDP per capita rose from $539 to $794 over the same period."
+        },
+        {
+            num: "Q3d(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-development-in-tanzania-and-globalisat",
+            question: "Explain why GDP per capita could be used as a measure for development in a less developed country.",
+            hint: "Define it first (total GDP ÷ population), then develop WHY that helps measure development — average living standards, degree of poverty, comparisons over time and between countries.",
+            starter: "GDP per capita is a country's total GDP divided by its population, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers might include:</strong></p>
+<ul>
+<li>GDP per capita is the total GDP divided by the population</li>
+<li>It is a measure of the standard of living or well-being for the average/typical person</li>
+<li>It can indicate the degree of poverty among the population</li>
+<li>Comparisons may be made over time and between countries to measure whether development goals have been reached</li>
+<li>It can indicate the purchasing power of a typical person</li>
+</ul>
+<p>Give 1 mark for an explanation of GDP + 1 mark for some development; or 2 marks for a statement with further development.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates understood that GDP per capita indicates an 'average' income and linked it to living standards.</p>
+</div>
+<div class="marks-section">
+<h5>Misconception</h5>
+<p>A common misconception is confusion between GDP per capita as an average and wealth or income DISTRIBUTION, which is a different concept. Furthermore, some candidates believed GDP per capita was measured by household, family or region.</p>
+</div>`,
+            modelAnswer: "GDP per capita is a country's total GDP divided by its population, so it shows the output — and roughly the income — of the average person.\n\nThis makes it useful for measuring development because it indicates the typical person's standard of living and purchasing power, and it can be compared over time and between countries to see whether development goals are being reached."
+        },
+        {
+            num: "Q3d(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-development-in-tanzania-and-globalisat",
+            question: "State two benefits of globalisation for Tanzanian producers.",
+            hint: "Benefits to PRODUCERS specifically — not to the economy in general or to workers. Think technology, bigger markets, cheaper resources, diversification.",
+            starter: "One benefit is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers might include:</strong></p>
+<ul>
+<li>Technology transfer</li>
+<li>Wider markets / ability to export more</li>
+<li>Access to cheaper resources</li>
+<li>Opportunities for diversification</li>
+<li>Opportunities to exploit raw materials</li>
+</ul>
+<p>1 mark for each correct answer up to 2 marks. The terminology may be different, but if knowledge is evident the mark should be awarded.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Broadly well answered, with candidates identifying two benefits to producers. Some candidates wrote about benefits to the economy in general or other stakeholders, which was not awardable.</p>
+</div>`,
+            modelAnswer: "1. Technology transfer from Chinese multinational companies investing in Tanzanian industries.\n\n2. Access to wider markets, allowing producers to export more and diversify away from primary agricultural products."
+        },
+        {
+            num: "Q3d(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-3-development-in-tanzania-and-globalisat",
+            question: "Evaluate the benefits of globalisation for workers in Tanzania. Use the information given in Extract 3 and your own knowledge.",
+            hint: "Answer about WORKERS, not producers or the government, and keep to BENEFITS. Crucially, each analytical point needs a MATCHING evaluative counter — e.g. jobs in multinational factories, BUT those factories out-compete local village producers. Finish with a judgement on whether workers gain on balance.",
+            starter: "One benefit for Tanzanian workers is greater employment in factories set up by multinationals, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Reference to Extract 3 or context (AO2):</strong> Tanzania and/or Chinese multinationals; data on manufactured imports; data on per capita GDP growth.</p>
+<p><strong>Benefits (AO3a) vs costs evaluated (AO3b) — note the matching pairs:</strong></p>
+<ul>
+<li>Greater possibility of employment in factories set up by multinationals — <em>however</em> such factories increase competition for local small-scale producers, so workers may lose access to jobs in local villages</li>
+<li>Access to higher skilled jobs using technology brought by multinationals — <em>however</em> such technology may reduce opportunities for unskilled workers, so unemployment rises</li>
+<li>Workers may find opportunities to migrate to jobs overseas — <em>however</em> social and political factors limit the movement of labour, and migrating workers suffer poor conditions and discrimination</li>
+<li>Working households may benefit from lower inflation because of cheaper imports — <em>however</em> there could be downward pressure on wages, and cheaper imports displace locally produced goods</li>
+</ul>
+<p><strong>Final judgement expressed clearly:</strong> whether workers in Tanzania enjoy a net benefit from globalisation.</p>
+<p><strong>N.B.</strong> If there is no analysis/evaluation, application (AO2) cannot be rewarded. To reach Level 2 there must be Application (AO2), Analysis (AO3a) AND Evaluation (AO3b).</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> Response is not worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates found this question very accessible and could equate globalisation with potential benefits to workers. Some candidates did not have MATCHING evaluative points, or summarised previous points in a conclusion, so did not score as highly on evaluation. Some wrote about different stakeholders such as the government, or about problems rather than benefits, and thus did not fully address the question.</p>
+<p><strong>Exemplar 3</strong> is a good example of a candidate developing a sensible analytical point (about standards of living) but not then evaluating it with a matching point (instead writing about structural unemployment) — and framing it as a disadvantage of globalisation, which is not what the question asks.</p>
+</div>`,
+            modelAnswer: "One benefit for Tanzanian workers is employment in the factories set up by multinationals such as the Chinese firms in the extract. These create a greater variety of job opportunities and pay wages that have helped GDP per capita rise from $794 to $1,028. However, those same factories out-compete local small-scale producers, so some workers lose the village jobs that supported their communities.\n\nA second benefit is access to higher-skilled work using technology the multinationals bring in, which raises workers' productivity and earnings. However, that technology can replace unskilled labour, so less-educated Tanzanians may find themselves unemployed. Workers also gain from cheaper manufactured imports (72.32% of imports by 2020) holding down prices, though these imports displace locally made goods and put downward pressure on wages.\n\nOverall, globalisation does benefit Tanzanian workers on balance, because the new jobs, skills and cheaper goods have accompanied a clear rise in average incomes — but the gains go mainly to those educated enough to take the skilled roles, while unskilled village workers may be left worse off."
+        },
+        {
+            num: "Q4",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<table style="width:100%;max-width:360px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">Annual growth in GDP</th></tr>
+<tr><td style="padding:6px;">2021</td><td style="padding:6px;">2.7%</td></tr>
+<tr><td style="padding:6px;">2022</td><td style="padding:6px;">–1.4%</td></tr>
+<tr><td style="padding:6px;">2023</td><td style="padding:6px;">2.3%</td></tr>
+<tr><td style="padding:6px;">2024</td><td style="padding:6px;">1.8%</td></tr>
+</table>`,
+            question: "The table shows the growth in GDP for a country from 2021 to 2024. Which statement is correct?",
+            options: ["The country was in a recession in 2024", "The level of employment is likely to have fallen in 2022", "The level of GDP was at its highest in 2021", "The level of output fell between 2023 and 2024"],
+            answer: 1,
+            hint: "Only 2022 has NEGATIVE growth — that is the year output actually fell. A smaller positive figure (2024) still means GDP is RISING.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — The level of employment is likely to have fallen in 2022</strong></p>
+<ul>
+<li>2022 is the only year with negative growth (–1.4%), so output fell and firms would need fewer workers. GDP is still growing in 2023 and 2024 (positive figures), so output did not fall between 2023 and 2024, and GDP is at its HIGHEST in 2024, not 2021.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates correctly identified the correct answer (B).</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q5",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>A country is seeking economic growth by investing in renewable wind energy. This has led to an increase in energy prices and more noise for households living close to the wind farms.</p>
+<table style="width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">Economic sustainability</th><th style="padding:6px;">Social sustainability</th><th style="padding:6px;">Environmental sustainability</th></tr>
+<tr><td style="padding:6px;">A</td><td style="padding:6px;">Decrease</td><td style="padding:6px;">Decrease</td><td style="padding:6px;">Increase</td></tr>
+<tr><td style="padding:6px;">B</td><td style="padding:6px;">Decrease</td><td style="padding:6px;">Increase</td><td style="padding:6px;">Increase</td></tr>
+<tr><td style="padding:6px;">C</td><td style="padding:6px;">Decrease</td><td style="padding:6px;">Increase</td><td style="padding:6px;">Decrease</td></tr>
+<tr><td style="padding:6px;">D</td><td style="padding:6px;">Increase</td><td style="padding:6px;">Decrease</td><td style="padding:6px;">Increase</td></tr>
+</table>`,
+            question: "How will this affect the sustainability of these households?",
+            options: ["A — Economic: Decrease · Social: Decrease · Environmental: Increase", "B — Economic: Decrease · Social: Increase · Environmental: Increase", "C — Economic: Decrease · Social: Increase · Environmental: Decrease", "D — Economic: Increase · Social: Decrease · Environmental: Increase"],
+            answer: 0,
+            hint: "Take each in turn for the HOUSEHOLDS: higher energy prices (economic?), more noise (social?), wind rather than fossil fuel (environmental?).",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: A — Decrease, Decrease, Increase</strong></p>
+<ul>
+<li>Higher energy prices leave households worse off financially → economic sustainability DECREASES. More noise harms their quality of life → social sustainability DECREASES. Renewable wind replaces polluting fossil fuels → environmental sustainability INCREASES.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates correctly identified the correct answer (A).</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q6",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these is likely to cause a decrease in economic growth?",
+            options: ["A decrease in unemployment", "An increase in infrastructure investment", "Fewer workers coming from the EU", "More government spending on training"],
+            answer: 2,
+            hint: "Three of these ADD to the economy's capacity to produce. Which one shrinks the workforce?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: C — Fewer workers coming from the EU</strong></p>
+<ul>
+<li>A smaller workforce reduces the economy's productive capacity, lowering growth. Lower unemployment, infrastructure investment and training all tend to RAISE growth.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates answered C correctly.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q7",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which statement about GDP per capita is NOT correct?",
+            options: ["It calculates the output per head of a country's population", "It can be used to measure the standard of living between countries", "It represents the average income of each person in a country", "It shows a country is in recession if GDP per capita decreases"],
+            answer: 3,
+            hint: "Read the emboldened NOT carefully. A recession is defined by falling total GDP — could GDP per capita fall while total GDP still rises?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: D — It shows a country is in recession if GDP per capita decreases</strong></p>
+<ul>
+<li>A recession is measured by falling total real GDP, not GDP per capita. GDP per capita can fall while total GDP still grows, if the population grows faster. The other three statements are all correct.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A common misconception was option C, due to not reading the emboldened instruction in the question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q8",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Spain's economy grew by 4.5% in 2021. A cost of this economic growth could be",
+            options: ["a decrease in Spain's rate of inflation", "a decrease in unemployment in Spain", "an increase in jobs across Spain requiring repetitive work", "an increase in the number of UK tourists visiting Spain"],
+            answer: 2,
+            hint: "The question wants a COST, not a benefit. Three options are good things. Which one is a downside for people?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: C — an increase in jobs across Spain requiring repetitive work</strong></p>
+<ul>
+<li>Growth through mass production can create dull, repetitive jobs — a genuine cost. Lower inflation, lower unemployment and more tourists are all benefits.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates correctly answered C.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q9(a)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-economic-growth-in-the-uk-and-japan",
+            question: "Using Extract 1 state in which year the UK's GDP was: 1 highest, 2 lowest.",
+            hint: "Careful — the chart shows the RATE of growth, not the LEVEL of GDP. Because every year's growth is positive, GDP kept rising the whole time. So which year has the highest level?",
+            starter: "1 highest: ... 2 lowest: ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>1. highest — 2019 · 2. lowest — 2010</strong></p>
+<ul>
+<li>1 mark for each correct answer up to a maximum of 2 marks.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant number of candidates identified the correct answers (2019 and 2010 respectively).</p>
+</div>
+<div class="marks-section">
+<h5>Misconception</h5>
+<p>A common misconception was a response of 2014 (highest) and 2011–12 (lowest). This is because candidates confuse RATES OF CHANGE in an economic variable over time with the ABSOLUTE VALUES.</p>
+</div>`,
+            modelAnswer: "1 highest: 2019.\n2 lowest: 2010.\n\nThe chart shows the growth RATE, which stayed positive every year, so the LEVEL of GDP rose throughout — making it lowest at the start (2010) and highest at the end (2019). The 3.0% peak in 2014 is the fastest growth, not the highest GDP."
+        },
+        {
+            num: "Q9(b)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-economic-growth-in-the-uk-and-japan",
+            question: "Using Extract 1 and the information that the UK's GDP in 2011 was £1,797 trillion, calculate the UK's GDP in 2012. Show your working.",
+            hint: "Read the 2012 growth rate off the chart (1.5%), then increase £1,797 trillion by that percentage. Don't forget the £ sign and the word 'trillion'.",
+            starter: "The chart shows 2012 growth of 1.5%, so £1,797 × 1.015 = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>1,797 × 1.015 = 1,823.955 → Answer: £1,823.96 trillion</strong></p>
+<ul>
+<li>2 marks for the correct answer (working not required).</li>
+<li>1 mark for correct working, but incorrect answer.</li>
+<li>1 mark only if the word trillion/trn or the £ is omitted.</li>
+<li>N.B. The answer could be shown as £1,824 trillion or correct to 3 decimal places.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates correctly calculated the value as £1,823.96 trillion, although some omitted the £ sign or wrote millions, billions, or simply wrote £1,823.96.</p>
+</div>`,
+            modelAnswer: "The chart shows GDP growth in 2012 was 1.5%.\n\n£1,797 trillion × 1.015 = £1,823.955 trillion.\n\nAnswer: £1,823.96 trillion."
+        },
+        {
+            num: "Q9(c)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-economic-growth-in-the-uk-and-japan",
+            question: "Using Extract 1 analyse the differences between the growth rates for GDP and for GDP per capita in the case of both the UK and Japan.",
+            hint: "You MUST cover Japan AND the UK, and GDP AND GDP per capita, to reach Level 3. Don't just re-write the data — explain WHY: the UK's population is growing ~0.6% a year so per capita growth is LOWER than GDP growth; Japan's population is shrinking/ageing so its per capita growth is HIGHER than its GDP growth.",
+            starter: "In the UK, GDP growth (1.67% in 2019) is higher than GDP per capita growth (1.10%), because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Differences:</strong></p>
+<ul>
+<li>UK GDP growth (about 1.7%) is HIGHER than its per capita growth (1.1%), whereas in Japan GDP growth (below 0.5%) is LOWER than its per capita growth (over 0.5%)</li>
+<li>The difference is due to different population changes: population growth in the UK is increasing faster than Japan; net migration/birth rates may be higher in the UK</li>
+<li>The improvement in living standards is not as high as suggested by the growth rate in the UK, whereas in Japan living standards improve more than the growth rate suggests</li>
+</ul>
+<p><strong>Other outcomes/reasons:</strong> Japan's low GDP growth may indicate a more highly developed economy and/or a rapidly ageing society; changing population size/structure puts more pressure on health and care services in Japan; differences may also be due to exports, consumption, investment, productivity, government policies, technology or natural resources.</p>
+<p><strong>NB</strong> reference must be made to Japan/UK AND GDP/GDP per capita for Level 3.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis with developed chains of reasoning.</p>
+<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects.</p>
+<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>More successful responses identified the CAUSES for the differences or the consequences. The question asks for Japan and the UK as well as GDP and GDP per capita, so this information was required to attain Level 3.</p>
+</div>
+<div class="marks-section">
+<h5>Assessment for learning</h5>
+<p>When analysing a data set, it is very important that candidates do not describe or re-write the data. Stating that one figure is higher or lower than another is the BEGINNING of an analytical chain of reasoning, not a full analysis in itself. Here, a candidate should analyse the reason for the difference, e.g. changing population sizes.</p>
+</div>`,
+            modelAnswer: "In the UK, GDP growth is higher than GDP per capita growth — 1.67% against 1.10% in 2019. This is because the UK's population is rising at about 0.6% a year, so the extra output has to be shared among more people, leaving each person's share growing more slowly than the economy as a whole. This means UK living standards are improving less than the headline growth rate suggests.\n\nJapan shows the opposite. Its GDP growth of 0.27% in 2019 is LOWER than its GDP per capita growth of 0.48%, because Japan's population is falling and ageing. With fewer people sharing the output, income per person rises faster than total output, so living standards improve by more than the growth rate implies.\n\nThe difference between the two countries is therefore driven mainly by population change: the UK grows its economy faster but also its population, while Japan's shrinking population flatters its per capita figures despite a much weaker economy."
+        },
+        {
+            num: "Q9d(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-economic-growth-in-the-uk-and-japan",
+            question: "State two measures a government uses with fiscal policy.",
+            hint: "Fiscal policy is about the government's own budget — what it takes in and what it pays out.",
+            starter: "1. ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Government expenditure</li>
+<li>Taxes</li>
+<li>Budget deficit / borrowing / surplus</li>
+</ul>
+<p>1 mark for each correct answer up to 2 marks. Relevant examples of government spending/taxation may be used (but only one instance of tax/government spending is rewardable).</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant number of candidates correctly identified government spending (or one type of spending such as a subsidy), taxation (or a specific tax), or running a deficit.</p>
+</div>`,
+            modelAnswer: "1. Government expenditure (spending).\n\n2. Taxation."
+        },
+        {
+            num: "Q9d(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-economic-growth-in-the-uk-and-japan",
+            question: "Explain how one of the measures named in part (i) could be used to achieve economic growth.",
+            hint: "Don't stop at 'more demand leads to growth' — that caps you at 1 mark. Spell out the chain: the measure → higher incomes/consumption/total demand → more goods and services produced → higher GDP growth.",
+            starter: "If the government cuts income tax, disposable incomes rise, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The government increases its spending on infrastructure or public services, which leads to higher incomes, more employment, more capital resources, more consumption and thus higher GDP growth</li>
+<li>Income taxes (or other taxes) are cut so that disposable incomes rise and consumption increases, which leads to the production of more goods and services and higher GDP growth</li>
+<li>The government increases the budget deficit with lower taxes and/or higher spending, which increases total (aggregate) demand along with production and higher GDP growth</li>
+</ul>
+<p>1 mark for some understanding or a statement without linking to how incomes/capital/consumption/total demand rise. 2 marks for a correct explanation ("which leads to / increases…"). Rewardable answers must follow on from the answer in (d)(i).</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates were able to develop their policy from (d)(i). Care should be taken to expand the point and explain how it leads to economic growth. Some candidates limited themselves to one mark by writing 'more demand leads to economic growth'. More successful answers had a full explanation such as 'cutting income tax leads to higher disposable income and increased spending'.</p>
+</div>`,
+            modelAnswer: "The government could cut income tax. This raises households' disposable income, so they can afford to spend more.\n\nHigher consumption increases total demand, which means firms produce more goods and services — and that rise in output is higher GDP growth."
+        },
+        {
+            num: "Q9d(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-economic-growth-in-the-uk-and-japan",
+            question: "Evaluate whether in achieving economic growth the benefits of fiscal policy are greater than the costs. Use the information given in Extract 1 and your own knowledge.",
+            hint: "BOTH costs and benefits must be covered to reach Level 3. Benefits: tax cuts raise disposable income; spending on merit goods; higher demand raises output and employment. Costs: a wider budget deficit and rising debt; inflation if capacity is insufficient (the extract says so); crowding out. Judge what it DEPENDS on — e.g. whether there is spare capacity.",
+            starter: "One benefit of expansionary fiscal policy is that cutting taxes raises disposable incomes, which...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>Higher (disposable) incomes as tax cuts are implemented</li>
+<li>More spending by government on merit goods with positive externalities, such as education, health, public transport</li>
+<li>Higher total (aggregate) demand will increase output, living standards and employment opportunities</li>
+<li>Changing income taxes/transfer payments to redistribute income</li>
+<li>More confidence among consumers and firms, encouraging greater consumption and output (multiplier effects, if explained)</li>
+</ul>
+<p><strong>Costs:</strong></p>
+<ul>
+<li>Higher/wider budget deficit, leading to an increase in government debt and possibly higher interest rates</li>
+<li>Government spending may not be directed towards efficient projects</li>
+<li>Inflation is likely unless the productive capacity of the economy is also improved</li>
+<li>The private sector may be "crowded out" by government</li>
+<li>Politically it may not be acceptable for government to play a larger part in the economy (implicit opportunity costs)</li>
+<li>Policy may be used to further the governing party's popularity rather than for economic reasons</li>
+</ul>
+<p><strong>Evaluation may include:</strong> depends on whether inflation is controlled (was there spare capacity before the expansion?); depends whether public spending projects benefit society; depends on the opportunity cost of government spending; short, medium and long-term effects differ.</p>
+<p><strong>N.B.</strong> Both costs AND benefits need to be covered in order to achieve Level 3.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates identified the link between fiscal policy and economic growth and developed a rewardable chain of reasoning. Some candidates rewrote or simply quoted Extract 1 regarding total demand and inflation and so gained no marks. Good evaluation at the top of Level 3 requires a fully supported judgement. The question asked that costs AND benefits are discussed, so reference to both is required for Level 3.</p>
+</div>
+<div class="marks-section">
+<h5>Assessment for learning</h5>
+<p>When answering an evaluation question, candidates should not produce a list of good/bad points or unconnected advantages/disadvantages. A good evaluative point should strengthen, mitigate or contrast with a key point — e.g. that the effectiveness of cutting income tax depends on the willingness of households to spend rather than save.</p>
+</div>`,
+            modelAnswer: "One benefit of an expansionary fiscal policy is that cutting income tax raises households' disposable income, so consumption rises. This increases total demand, and as the extract says, more output improves the employment rate — giving the higher incomes and living standards that growth is meant to deliver. Government spending on merit goods such as education and health adds further benefits through positive externalities.\n\nHowever, there are real costs. Running a budget deficit increases government debt, which may push interest rates up and burden future taxpayers. The extract itself warns that if the economy is near full employment and productive capacity is insufficient, the extra demand causes inflation rather than extra output. Government spending may also crowd out private investment or be directed at inefficient projects.\n\nOverall, whether the benefits exceed the costs depends chiefly on spare capacity. If the economy is below full employment, expansionary fiscal policy buys real growth cheaply and the benefits outweigh the costs; if it is already near capacity, the same policy mostly produces inflation and debt, and the costs win. It also depends on whether households actually spend their tax cut rather than save it."
+        },
+        {
+            num: "Q10",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Economic growth is measured by",
+            options: ["Change in GDP ÷ Change in population", "(Change in GDP ÷ Previous GDP) × 100", "New GDP − Previous GDP", "(Total GDP ÷ Previous GDP) × 100"],
+            answer: 1,
+            hint: "Growth is expressed as a PERCENTAGE change. Which formula compares the change against the starting value and multiplies by 100?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: B — (Change in GDP ÷ Previous GDP) × 100</strong></p>
+<ul>
+<li>Growth is a percentage change: the change in GDP as a proportion of the previous GDP, × 100. Option C gives only the absolute change (not a %), and D would give an index over 100 rather than the growth rate.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A high percentage of candidates gave Option B as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q11",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 1: The UK unemployment rate 1997-2017</strong></p>
+<img src="/images/economics/3-1-uk-unemployment-chart-extracted.png" alt="Line chart from the OCR exam paper showing the UK unemployment rate (%) from 1997 to 2017: about 7% in 1997, falling to around 5% between 2001 and 2005, rising to a peak of 8.1% in 2011, then falling steadily to 4.4% in 2017" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>The chart shows how the UK&#39;s unemployment rate has changed between 1997 and 2017. The highest unemployment rate for this period was 8.1% in 2011, while the lowest rate was 4.4% in 2017. Economic growth can influence the unemployment rate. In addition, unemployment can have a number of causes and consequences. It can affect the government and regions as well as individuals. One consequence for individuals who become unemployed is that their income is likely to fall significantly.</p>`,
+            question: "Explain, with reference to Extract 1, how economic growth may have influenced the change in unemployment between 2011 and 2017.",
+            hint: "Read the change off the chart first (8.1% down to 4.4% — a fall), then EXPLAIN the link: growth means more output, so firms need more workers, so unemployment falls. A bare 'growth meant less unemployment' only gets 1 mark.",
+            starter: "Between 2011 and 2017 unemployment fell from 8.1% to 4.4%. This is because economic growth means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Economic growth is an increase in output, so extra workers may be needed to produce the extra output, so unemployment falls.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Give 2 marks for a precise answer, as shown.</li>
+<li>Give 1 mark for a less precise answer where some understanding is shown and correctly linked to the fall in unemployment, e.g. a statement that more growth has meant less unemployment but without an explanation.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>The majority of candidates successfully interpreted the data as showing a fall in unemployment. Some candidates then went on to fully answer the question with an accompanying explanation of the link between economic growth and unemployment.</p>
+</div>`,
+            modelAnswer: "Between 2011 and 2017 the UK unemployment rate fell from its peak of 8.1% to 4.4%.\n\nEconomic growth is an increase in output, so to produce that extra output firms needed to take on extra workers. As more people were hired, unemployment fell."
+        },
+        {
+            num: "Q12",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following is usually seen as a benefit of economic growth?",
+            options: ["People migrate towards the large cities", "Pollution levels are stabilised", "The government receives greater tax revenues", "The price level is likely to rise"],
+            answer: 2,
+            hint: "Which option is clearly a GOOD outcome? Growth raises incomes and profits — what happens to what the government collects?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: C — The government receives greater tax revenues</strong></p>
+<ul>
+<li>Growth raises incomes and profits, so tax revenue rises — a clear benefit. Rising prices and migration pressure on cities are costs, and growth tends to raise pollution rather than stabilise it.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A very high percentage of candidates gave Option C as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q13",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "During 2018, a country experienced a rise in economic growth. Which of the following changes in the country may have had this effect?",
+            options: ["A decrease in the literacy rate", "A fall in the level of labour productivity", "An improvement in the quality of capital goods", "An increase in the rate of inflation"],
+            answer: 2,
+            hint: "Which change would raise the economy's ability to PRODUCE? Better machinery makes workers more productive.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: C — An improvement in the quality of capital goods</strong></p>
+<ul>
+<li>Better capital raises productivity and productive capacity, driving growth. Lower literacy and falling productivity would reduce growth; inflation is not a cause of growth.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A high percentage of candidates gave Option C as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q14(a)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-2-determinants-of-economic-growth-and-fi",
+            question: "Using the information in Extract 2, analyse how education is one of the factors determining economic growth in Burkina Faso and China.",
+            hint: "Chain it and COMPARE both countries: education → more skilled workers → higher productivity → more output → growth. Use the data — China's female university enrolment leapt 25.0% → 59.5% alongside strong growth, while Burkina Faso's is only 5.1%. Don't just cite data without the theory.",
+            starter: "Economic growth is an increase in output. Education raises workers' skills, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Knowledge and understanding:</strong> economic growth is an increase in output/income/spending; education increases the skills of workers.</p>
+<p><strong>Reference to the extract:</strong> relevant comparison of data for Burkina Faso and China; use of 'knowledge and training improve labour productivity'.</p>
+<p><strong>Development of reasoning linking education to economic growth:</strong></p>
+<ul>
+<li>Education (of men/women) would create more skilled workers, so increases productivity, so increases potential output</li>
+<li>Attendance at university enables more research, so leads to technological progress, so increases output</li>
+<li>Educated women will increase both the size of the workforce and its productivity, so increases potential output</li>
+<li>More people in education leads to a smaller workforce (in the short run), so may lead to less output</li>
+</ul>
+<p>N.B. Any other relevant points to be credited.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis with developed chains of reasoning.</p>
+<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects.</p>
+<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates were well prepared and could reason a range of points from education to economic growth. Good chains of reasoning made it easy to see how one link progressed to another. Many used links from increased skills to increased output, employment, incomes or spending. Good responses compared the education data with the GDP per capita data for Burkina Faso and China. Less successful responses only cited the data and quotes from the extracts rather than using them alongside theory.</p>
+</div>`,
+            modelAnswer: "Economic growth is an increase in a country's output. Education raises workers' knowledge and training, which improves their labour productivity, so each worker produces more and the economy's potential output rises. China shows this clearly: female university enrolment rose from 25.0% to 59.5% and male enrolment from 23.5% to 48.7%, and China's GDP per capita growth stayed strong at 5.7% even in 2019.\n\nEducating women matters twice over, because it raises both the size and the skill of the workforce. China keeps about 68.5% of women aged 15–64 in work, so its heavy investment in female education feeds directly into output. Burkina Faso, by contrast, had only 5.1% of females enrolled at university by 2019, so its workforce remains far less skilled and its growth is weaker and more erratic — 5.2% in 2010 but only 2.7% by 2019.\n\nUniversity attendance also enables research, which brings technological progress and further raises output — another reason China's much higher enrolment supports faster growth than Burkina Faso's."
+        },
+        {
+            num: "Q14b(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-determinants-of-economic-growth-and-fi",
+            question: "In addition to spending on education and healthcare, state two other ways in which a government could increase the rate of economic growth.",
+            hint: "Education and healthcare are EXCLUDED. Think of other levers: investment, other spending, taxes, interest rates, quantitative easing.",
+            starter: "1. ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Increase investment</li>
+<li>Increase government spending (apart from on education / healthcare)</li>
+<li>Decrease taxes</li>
+<li>Decrease interest rates</li>
+<li>Increase in quantitative easing</li>
+</ul>
+<p>1 mark for each correct answer.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>The best responses were dynamic and gave clear examples of changes in government intervention that could increase the rate of economic growth.</p>
+</div>`,
+            modelAnswer: "1. Cut taxes, such as income tax or corporation tax, to raise disposable incomes and investment.\n\n2. Increase spending on infrastructure, such as roads and railways."
+        },
+        {
+            num: "Q14b(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-determinants-of-economic-growth-and-fi",
+            question: "Explain one way in which government spending on healthcare directly benefits the economy.",
+            hint: "Scale UP from the individual to the ECONOMY — that is the key. Healthier workers → more productive → higher output. Stopping at 'people are healthier' gets 1 mark.",
+            starter: "Healthier workers are more productive, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Healthier workers are more productive, so output rises</li>
+<li>Higher life expectancy, so workers can work for longer, so output is higher</li>
+<li>Better health for the elderly/children, so workers take less time off work to care for them, so output is higher</li>
+<li>More jobs linked to healthcare, e.g. nurses, hospital construction workers, so less unemployment</li>
+</ul>
+<p>2 marks for a correct explanation of a benefit for the economy of healthcare spending. 1 mark for some understanding shown without linking to a benefit for the economy.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many responses were awarded full marks. A key element was to SCALE UP from benefits for the individual to benefits for the economy.</p>
+</div>`,
+            modelAnswer: "Government spending on healthcare means workers are healthier and take fewer days off sick.\n\nHealthier workers are more productive and can work for more years, so the economy's total output is higher."
+        },
+        {
+            num: "Q14b(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-2-determinants-of-economic-growth-and-fi",
+            question: "*Evaluate the extent to which economic growth brings social and economic benefits to a less developed economy. Use the information given in Extract 2 and your own knowledge.",
+            hint: "The word 'extent' must be addressed — stronger judgements weigh HOW MUCH. Build full chains from growth (don't start mid-chain at 'more spending on health'). Benefits: higher GDP per capita → higher incomes and tax revenue → more spending on health/education → longer life expectancy. Then weigh what it depends on: timescale, how income is DISTRIBUTED, pollution, machines replacing workers.",
+            starter: "Economic growth raises GDP per capita, which means average incomes rise, and this...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>Economic growth may lead to increases in per capita GDP, so average incomes may rise</li>
+<li>Increases in income (with tax revenue rising) enable the government / households to spend more on health care / education / nutrition, so increases life expectancy / future earnings</li>
+</ul>
+<p><strong>Evaluation:</strong></p>
+<ul>
+<li>Depends on the timescale</li>
+<li>Depends how increased income is spent</li>
+<li>Depends how increased income is distributed</li>
+<li>Depends on whether harm outweighs benefit, e.g. worse working conditions / increased pollution from increased output / depletion of resources</li>
+<li>Depends how increased output is achieved — if through investment in machines, may lead to increased unemployment</li>
+<li>Comment on a harm that offers an alternative outcome to a benefit in the analysis</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>The use of 'standard of living' proved successful in both analysis and matching evaluation. In analytical chains, it is important to include ALL simple links — responses that start at 'increased spending on health' may not clearly link back to economic growth and the question set. This question required alertness to the exact question: the use of 'extent' was addressed in stronger judgements. Final judgements were usually clearly signalled by words such as 'Overall' or 'In conclusion'. Evaluation was sometimes signalled by 'However', but sometimes proved to be just analysis of a separate unlinked point.</p>
+</div>`,
+            modelAnswer: "Economic growth raises a country's output, and as GDP per capita rises so does the average income — Burkina Faso's grew 2.7% in 2019 and China's 5.7%. Higher incomes let households afford better nutrition and schooling, and because incomes and profits are higher the government collects more tax revenue. It can spend that revenue on healthcare and education, which raises life expectancy and average years in education — the very factors used to measure development, and the reason China's development index is almost twice Burkina Faso's.\n\nHowever, the extent of the benefit depends on several things. It depends on how the extra income is DISTRIBUTED: if growth enriches only a small elite, most people see little gain. It depends on how growth is achieved — if it comes from investing in machines, workers may be displaced and unemployment rises — and on whether pollution and resource depletion from extra output outweigh the gains. It also depends on the government's willingness to pass the benefits on.\n\nOverall, economic growth brings substantial social and economic benefits to a less developed economy, because it is the main way incomes and public services can rise from a low base. But the extent depends heavily on distribution and on the government spending the extra revenue well — growth alone does not guarantee development."
+        },
+        {
+            num: "Q15(a)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-2-gdp-data",
+            question: "Using the information in Extract 2, analyse the differences between Uganda's GDP per capita and the UK's GDP per capita from 2015 to 2017.",
+            hint: "Two differences to explain: (1) LEVEL — Uganda's GDP per capita is roughly 60 times lower than the UK's, because it is a primary/agricultural producer with low value added while the UK is high-value manufacturing and services. (2) GROWTH — Uganda's growth rate is HIGHER, partly because it starts from a much lower base, but its fast population growth means per capita growth is far below its GDP growth.",
+            starter: "Uganda's GDP per capita is far lower than the UK's — £506.6 against £32,311.0 in 2017 — because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Uganda is a less developed country, so its GDP per capita is significantly lower than the UK's — the UK's is about 60 times greater than Uganda's</li>
+<li>Uganda is a primary producer (agriculture) with low value added, while the UK economy is based on high-value added secondary (manufacturing) and increasingly tertiary (services) output</li>
+<li>But from 2015 to 2017 Uganda's economic (real GDP) growth rate is higher than the UK's, partly because it is starting from a much lower level</li>
+<li>Uganda's economy is benefiting from better communications, which enables the transfer of technology</li>
+<li>Improved communications also lead to more trading possibilities</li>
+<li>Compared to the UK, therefore, its economy is growing rapidly and is becoming more manufacturing and services oriented</li>
+<li>Now, however, Uganda's economic growth rate is slowing down from 5.2% to 4%, as it becomes more developed</li>
+<li>Uganda's rate of population growth is higher than the UK's, as life expectancy is rising. Therefore its GDP per capita grows at a much lower rate than its economic growth rate — per capita growth is only around 1% each year</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge of development issues affecting GDP per capita over time; reasonable application; good analysis of differences between countries and over time, with developed chains of reasoning.</p>
+<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects.</p>
+<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "The clearest difference is the LEVEL. In 2017 Uganda's GDP per capita was £506.6 while the UK's was £32,311.0 — the UK's is about sixty times greater. This is because Uganda is a less developed economy that still depends heavily on primary agricultural production, which adds little value, whereas the UK's output comes from high-value manufacturing and, increasingly, services. Uganda's lower technology, education and life expectancy reinforce this gap.\n\nThe second difference is the GROWTH RATE, which runs the other way. Uganda grew at 5.2%, 4.7% and 4.0% while the UK managed only 2.3%, 1.9% and 1.8%. Uganda grows faster partly because it starts from such a low base, and because better communications are transferring technology and opening trading possibilities as it shifts away from agriculture. However, its growth is slowing from 5.2% to 4.0% as it develops.\n\nCrucially, Uganda's population is growing quickly as life expectancy rises, so its GDP per capita rises only about 1% a year (£497.1 to £506.6) — far below its 4–5% GDP growth. So despite growing faster than the UK, Uganda is closing the income gap only very slowly."
+        },
+        {
+            num: "Q15b(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-gdp-data",
+            question: "Explain how economic growth has an impact on the environment.",
+            hint: "State an impact AND explain it — a bare bullet is only 1 mark. Pollution, carbon emissions, using up natural resources, congestion. (You could also note growth can HELP via clean technology.)",
+            starter: "Economic growth based on industrialisation means more factories, which...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Pollution from factories is higher when there is economic growth based on industrialisation</li>
+<li>Carbon emissions from energy use and transportation increase with economic growth</li>
+<li>Natural resources may be used up (e.g. oil, copper)</li>
+<li>Congestion occurs on roads and at ports</li>
+<li>Impact on ecological systems (water, birds etc.) is often adverse</li>
+<li>Better technology from growth could IMPROVE the environment, e.g. new recycling techniques or clean energy methods</li>
+</ul>
+<p>1 mark for a stated bullet point or example. 2 marks for providing an explained bullet point (i.e. words after). Any other reasonable answer to be credited.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This was a very well answered question overall.</p>
+</div>`,
+            modelAnswer: "Economic growth based on industrialisation means more factories producing more output, which raises pollution and carbon emissions from energy use and transport.\n\nThis contributes to climate change and uses up finite natural resources such as oil, damaging environmental sustainability."
+        },
+        {
+            num: "Q15b(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-gdp-data",
+            question: "Explain why economic growth is often considered to be beneficial in the UK.",
+            hint: "Explain a BENEFIT — don't just define economic growth (a common error). Living standards rise, incomes rise with employment, tax revenue rises so government can spend more.",
+            starter: "Economic growth is beneficial because living standards rise, as...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Because living standards rise as more goods and services become available</li>
+<li>Because incomes usually rise as employment increases with economic growth</li>
+<li>Because higher incomes and profits will lead to more tax revenue and lower benefit payments, which should lower government borrowing</li>
+<li>Because more government revenue will enable more spending on public services and environmental protection</li>
+</ul>
+<p>1 mark for a stated bullet point. 2 marks for providing an explained bullet point (i.e. words after). Any other reasonable answer to be credited.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Again a well answered question overall, although some candidates DEFINED economic growth rather than explaining the benefit.</p>
+</div>`,
+            modelAnswer: "Economic growth means more goods and services are produced, so living standards rise — UK GDP per capita rose from £31,950.2 to £32,311.0.\n\nIt also raises employment and incomes, which increases tax revenue and lowers benefit payments, letting the government spend more on public services."
+        },
+        {
+            num: "Q15b(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-2-gdp-data",
+            question: "*Evaluate the costs of economic growth in the UK. Use the information given in Extract 2 and your own knowledge.",
+            hint: "The question is about COSTS, but you still need evaluation — weigh each cost against a benefit or a limitation. Costs: negative externalities and carbon emissions; waste; finite resources; inflation hurting those on fixed incomes; higher interest rates penalising borrowers and deterring investment; more unequal income. Then judge whether the costs really outweigh the gains.",
+            starter: "One cost of economic growth in the UK is the negative externalities from polluting industries, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Costs may include:</strong></p>
+<ul>
+<li>Negative externalities from polluting industries and more travel by car and plane, which increase carbon emissions</li>
+<li>More use of plastic and more waste</li>
+<li>More use of finite resources, especially energy</li>
+<li>Higher inflation, which could affect business confidence and penalise those on fixed incomes or those whose wages do not rise in line with inflation</li>
+<li>Higher interest rates, which would penalise those needing loans for housing and reduce the incentive to invest and so reduce future economic growth</li>
+<li>More unequal income distribution</li>
+</ul>
+<p><strong>Evaluation</strong> should weigh these costs against the benefits (higher living standards, employment, tax revenue) and reach a supported judgement.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application to the scenario of economic growth and its costs; reasonable analysis; good evaluation with a fully supported judgement.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "A major cost of UK economic growth is the environmental damage. As the extract says, industrialisation and vehicles cause pollution and climate change, so growth brings negative externalities — higher carbon emissions, more waste and plastic, and the depletion of finite energy resources. These costs fall on third parties and on future generations rather than on the firms creating them.\n\nA second cost is that growth is often accompanied by inflation and higher interest rates. Inflation penalises people on fixed incomes and those whose wages do not keep pace, while higher interest rates punish households needing mortgages and reduce firms' incentive to invest — which ironically lowers FUTURE growth. Growth can also widen income inequality if the gains go mainly to those who already own capital.\n\nHowever, these costs must be set against real benefits: UK GDP per capita rose to £32,311.0, meaning higher living standards, more employment and more tax revenue for public services and environmental protection. Overall the costs do not outweigh the benefits, provided growth is steered towards the renewable energy and rail transport the extract suggests — the damage comes from the KIND of growth pursued rather than growth itself."
+        },
+        {
+            num: "Q16",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<table style="width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">Real GDP Growth (%)</th><th style="padding:6px;">Nominal GDP Growth (%)</th></tr>
+<tr><td style="padding:6px;">Year 1</td><td style="padding:6px;">5</td><td style="padding:6px;">5</td></tr>
+<tr><td style="padding:6px;">Year 2</td><td style="padding:6px;">4</td><td style="padding:6px;">8</td></tr>
+</table>`,
+            question: "The table shows the growth rate of real GDP and nominal GDP in consecutive years in a country. What can be concluded from this table?",
+            options: ["Real GDP fell in Year 2", "There was no inflation in Year 1", "There was no inflation in Year 2", "There was no real output growth in Year 1"],
+            answer: 1,
+            hint: "Nominal growth minus real growth ≈ inflation. In Year 1 they are equal — what does that tell you?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: B — There was no inflation in Year 1</strong></p>
+<ul>
+<li>Nominal growth includes price rises; real growth strips them out. In Year 1 both are 5%, so prices did not rise — no inflation. In Year 2 the 4-point gap (8% vs 4%) shows inflation of about 4%. Real GDP still GREW 4% in Year 2, so it did not fall.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates answered 'A', showing a misunderstanding of a falling rate of increase.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q17",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<table style="width:100%;max-width:360px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Year</th><th style="padding:6px;">Real GDP (£ millions)</th></tr>
+<tr><td style="padding:6px;">1</td><td style="padding:6px;">100</td></tr>
+<tr><td style="padding:6px;">2</td><td style="padding:6px;">110</td></tr>
+<tr><td style="padding:6px;">3</td><td style="padding:6px;">120</td></tr>
+<tr><td style="padding:6px;">4</td><td style="padding:6px;">125</td></tr>
+</table>`,
+            question: "The table shows how the size of a country's real GDP has been changing over a four-year period. Which statement about the country MUST be true?",
+            options: ["Real GDP increased by more than money GDP between Year 1 and Year 4", "Real GDP increased by 10 percent between Year 2 and Year 3", "The greatest percentage increase in real GDP was between Year 1 and Year 2", "There was an increase in GDP per capita between Year 3 and Year 4"],
+            answer: 2,
+            hint: "Work out each PERCENTAGE increase, not the absolute rise. And note 'must be true' — anything needing population data cannot be certain.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark · Quantitative skills</h5>
+<p><strong>Answer: C — The greatest percentage increase in real GDP was between Year 1 and Year 2</strong></p>
+<ul>
+<li>Year 1→2 = 10/100 = 10%; Year 2→3 = 10/110 = 9.1%; Year 3→4 = 5/120 = 4.2%. So the biggest % rise is Year 1→2 (B is wrong — that rise is 9.1%, not 10%). D cannot be known without population data.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q18(a)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-gdp-data",
+            question: "Explain what is meant by economic growth.",
+            hint: "Two specific links are needed: (1) tie it to the GDP GROWTH RATE, and (2) tie it to more goods and services / output / rising living standards. Naming the time period alone won't earn the second mark.",
+            starter: "Economic growth is usually measured by the GDP growth rate, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Economic growth is usually measured by the GDP growth rate</li>
+<li>When real gross domestic product increases, there are more goods and services. This means that the economy is producing more (households are earning more), so living standards are rising</li>
+<li>The increase/change in GDP (1) over time (1)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark for explaining the link with the <strong>GDP growth rate</strong>.</li>
+<li>1 mark for explaining the link with <strong>goods and services OR output OR living standards</strong>.</li>
+<li>Any other reasonable answer to be credited.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This was a generally well answered question.</p>
+</div>`,
+            modelAnswer: "Economic growth is usually measured by the GDP growth rate — the percentage increase in real GDP over time, such as the UK's 1.8% in 2017.\n\nWhen real gross domestic product increases there are more goods and services available, which means the economy is producing more and households are earning more, so living standards are rising."
+        },
+        {
+            num: "Q18(b)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-gdp-data",
+            question: "Calculate the UK's per capita GDP in 2015. Show your working.",
+            hint: "GDP per capita = GDP ÷ population. Careful — GDP is in £ MILLIONS, so convert it first. And the £ sign is required for full marks.",
+            starter: "GDP per capita = GDP ÷ population = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answer: £31,568.1</strong></p>
+<ul>
+<li>2 marks for the correct answer on its own, which must include the £ sign.</li>
+<li>Correct answer on its own WITHOUT the £ sign is worth 1 mark only.</li>
+<li>1 mark for correct working, but incorrect answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This was a generally well answered question, although some candidates omitted the £ sign.</p>
+</div>`,
+            modelAnswer: "GDP per capita = GDP ÷ population.\n\nGDP in 2015 = £2,055,991.7 million = £2,055,991,700,000.\nPopulation = 65,128,861.\n\n£2,055,991,700,000 ÷ 65,128,861 = £31,568.1"
+        },
+        {
+            num: "Q19",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The best way for a government to quickly increase economic growth is to",
+            options: ["boost private investment", "increase state spending on education", "raise corporation taxes", "sign a free trade agreement"],
+            answer: 0,
+            hint: "The key word is QUICKLY. Education takes years to pay off and trade deals take years to negotiate. Raising taxes would slow growth.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — boost private investment</strong></p>
+<ul>
+<li>Investment raises demand and capacity relatively quickly. Education spending only raises growth over many years, trade agreements take years to negotiate, and higher corporation taxes would REDUCE growth.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q20",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following is normally part of a country's GDP?",
+            options: ["Domestic services performed within a family", "Household savings", "Interest rates", "Investment spending by firms"],
+            answer: 3,
+            hint: "GDP measures spending on newly produced output. Unpaid family work is not traded, savings are not spending, and an interest rate is a price — not output.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: D — Investment spending by firms</strong></p>
+<ul>
+<li>Investment is a component of GDP. Unpaid domestic work is not recorded, savings are income NOT spent, and interest rates are a price rather than a measure of output.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q21",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<img src="/images/economics/3-1-real-national-output-diagram-extracted.png" alt="Diagram from the OCR exam paper showing a country's real national output on the vertical axis against time on the horizontal axis from Year 0 to Year 10: the line rises overall, peaks and dips slightly just after Year 5, then rises again to its highest point at Year 10" style="display:block;width:100%;max-width:480px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "The diagram shows what has happened to a country's real national output over a ten-year period. Which statement MUST be correct?",
+            options: ["Real national output was higher in Year 10 than in Year 0", "Real national output reached its highest in Year 5", "The price level was higher in Year 10 than in Year 0", "Unemployment was less in Year 10 than in Year 5"],
+            answer: 0,
+            hint: "'MUST be correct' — only read what the diagram actually shows. It plots REAL output against time; it says nothing about prices or unemployment.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>
+<p><strong>Answer: A — Real national output was higher in Year 10 than in Year 0</strong></p>
+<ul>
+<li>The line clearly ends higher than it began, so A must be true. Output peaks at Year 10, not Year 5. The diagram shows REAL output, so it tells us nothing about the price level, and nothing about unemployment.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q22",
+            marks: 6,
+            type: "written",
+            caseStudy: `<p><strong>Extract 1: The distribution of income in the UK</strong></p>
+<img src="/images/economics/3-1-income-distribution-pie-extracted.png" alt="Pie chart from the OCR exam paper showing how incomes are shared between UK households: the top 20% receive 40% of total incomes, the second 20% receive 26%, the third 20% receive 16%, the fourth 20% receive 12% and the bottom 20% receive 6%" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>The pie chart shows how incomes are shared out between households in the UK. For example, the top (highest income) 20% of households receive 40% of total incomes. We can, therefore, see that there is an unequal distribution of incomes in the UK.</p>
+<p>If we were to produce a similar chart for the distribution of wealth, we would see that wealth in the UK is more unevenly distributed than income.</p>`,
+            question: "Analyse how a rise in household incomes would be likely to affect economic growth.",
+            hint: "Build the full circular chain: higher incomes → consumers can afford more → demand rises → firms raise output → that pays incomes to the producers → they spend too → more output again. Then use the pie chart: extra income for the RICHEST 20% has less effect because they save more, while poorer households spend most of it.",
+            starter: "A rise in household incomes means consumers can afford to buy more, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Consumer demand is likely to rise as more people can afford to buy</li>
+<li>Output rises to meet the extra demand</li>
+<li>This provides incomes for the producers of the consumer goods and services</li>
+<li>They in turn spend more and further output is required</li>
+<li>Economic growth is growth in the value of output, thus the rise in incomes has led to a rise in economic growth</li>
+</ul>
+<p><strong>References to Extract 1:</strong> increased incomes for the richer 20% of households will see less effect on economic growth; poorer households would spend most of the extra income.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis with developed chains of reasoning.</p>
+<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects.</p>
+<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "A rise in household incomes means consumers can afford to buy more goods and services, so consumer demand rises. Firms increase their output to meet that extra demand, and because economic growth is growth in the value of output, this increase is itself economic growth.\n\nThe process then feeds on itself. Producing the extra goods provides incomes for the workers and firms making them, and they in turn spend more of that income, so still more output is required. This multiplied effect means an initial rise in incomes can generate a larger overall rise in GDP.\n\nHowever, the size of the effect depends on WHO gets the extra income. The pie chart shows the top 20% of households already receive 40% of total incomes; extra income for them is more likely to be saved, so it has less effect on growth. Poorer households — the bottom 20% receive just 6% — would spend most of any extra income, so the same rise given to them would boost demand and growth by more."
+        },
+        {
+            num: "Q23",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these is the best definition of economic growth?",
+            options: ["An increase in an economy's employment level", "An increase in an economy's population", "An increase in an economy's productive capacity", "A reduction in an economy's level of imports"],
+            answer: 2,
+            hint: "Growth is about the economy's ability to PRODUCE more. Employment and population are related but are not the definition.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: C — An increase in an economy's productive capacity</strong></p>
+<ul>
+<li>Growth means the economy can produce more output. Rising employment or population may accompany growth but do not define it, and fewer imports is not growth.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q24",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following is most likely to reduce economic growth?",
+            options: ["An increase in exports", "A stable price level", "High taxes on profits", "Low interest rates"],
+            answer: 2,
+            hint: "Which option discourages firms from investing and expanding?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: C — High taxes on profits</strong></p>
+<ul>
+<li>High profit taxes leave firms less to reinvest and weaken the incentive to expand, reducing growth. Rising exports, stable prices and low interest rates all tend to SUPPORT growth.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

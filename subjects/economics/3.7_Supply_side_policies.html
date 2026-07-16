@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Economics — Unit 3: Economic Objectives and the Role of Government</div>
             <h1>3.7 Supply-Side Policies</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 3.7 Supply-Side Policies — placeholder, content not yet written
+    //  DATA: 3.7 Supply-Side Policies
     // ══════════════════════════════════════
     const pageMeta = {
             id: '3-7-supply-side-policies',
@@ -268,21 +268,911 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>3.7 Supply-Side Policies</strong> will appear here soon.</p>`
+            title: "What is a supply-side policy?",
+            tag: "Boosting the economy's productive capacity, not managing demand",
+            content: `<p><strong>Supply-side policies are government policies that aim to increase an economy's productive capacity</strong> — its ability to produce goods and services — rather than managing the level of demand directly. Contrast this with <strong>fiscal policy</strong> (government spending and taxation) and <strong>monetary policy</strong> (interest rates), which mainly work by shifting <strong>demand</strong>.</p>
+<h4>Why this matters</h4>
+<ul>
+<li>If <strong>aggregate demand</strong> grows but the economy's <strong>capacity to supply</strong> doesn't keep pace, the result is <strong>demand-pull inflation</strong> rather than genuine growth.</li>
+<li>Supply-side policies shift the economy's potential output <strong>outwards</strong>, allowing higher sustainable growth without the extra inflation.</li>
+</ul>
+<h4>The main types — learn to classify a described policy</h4>
+<ul>
+<li><strong>Education and training</strong> — improves the skills and qualifications of the workforce (raises "human capital").</li>
+<li><strong>Infrastructure investment</strong> — transport, energy, broadband; lowers costs and journey times for firms.</li>
+<li><strong>Reducing direct taxes</strong> — lower <strong>income tax</strong> increases the incentive to work; lower <strong>corporation tax</strong> lets firms keep more profit to invest.</li>
+<li><strong>Reducing benefits</strong> — aims to increase the incentive to take a job rather than claim benefits.</li>
+<li><strong>Trade union reform</strong> — restricting union power makes it easier for firms to keep wage costs down.</li>
+<li><strong>Privatisation</strong> — selling state-owned firms into the private sector, where the profit motive is expected to drive efficiency.</li>
+<li><strong>Deregulation</strong> — removing rules that create barriers to entry, opening markets to more competition.</li>
+<li><strong>Promoting competition</strong> — e.g. the <strong>Competition and Markets Authority (CMA)</strong> can block mergers that would reduce competition.</li>
+</ul>
+<h4>Watch the classic MCQ trap</h4>
+<ul>
+<li>A real exam MCQ asked why a £50bn railway line is a supply-side policy. The correct answer was that it <strong>improves journey times for people travelling to work</strong> — the direct productive-capacity effect. Distractors about construction firms' profits, the tax cut it could have funded, or import demand for materials are all <strong>side-effects</strong>, not the supply-side mechanism itself.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is a supply-side policy?",
+                opts: ["Cutting interest rates to encourage borrowing", "Raising taxes to reduce consumer spending", "Increasing government spending on unemployment benefits", "Reducing unemployment benefits to encourage people into work"],
+                ans: 3,
+                explain: "Reducing benefits targets the economy's productive capacity (labour supply) directly. Cutting interest rates is monetary policy; raising taxes to cut spending is fiscal/demand policy."
+            }
+        },
+        {
+            title: "How supply-side policies achieve economic objectives",
+            tag: "Growth, price stability and the balance of payments",
+            content: `<p>The exam expects you to explain the <strong>chain of reasoning</strong> from a named supply-side policy through to a macroeconomic objective. Learn these three chains.</p>
+<h4>Economic growth and employment</h4>
+<ul>
+<li>A better-educated, more skilled workforce → less <strong>occupational/structural unemployment</strong>, because workers' skills better match the jobs available.</li>
+<li>Improved infrastructure (transport, internet) → lower costs for firms → easier to expand production.</li>
+<li>Lower direct taxes → higher after-tax profits → more investment → today's small firms become tomorrow's large employers.</li>
+<li>All of this raises the economy's <strong>productive capacity</strong>, so growth and employment can rise together.</li>
+</ul>
+<h4>Price stability</h4>
+<ul>
+<li>Increased productive capacity → an increase in <strong>supply</strong> → lower costs of production economy-wide → less inflationary pressure, helping keep inflation near the government's <strong>2% target</strong>.</li>
+<li><strong>The exam's favourite contradiction:</strong> cutting direct taxes on workers is meant to raise incentives to work, but it also raises <strong>disposable income</strong> — which can increase demand and cause <strong>demand-pull inflation</strong>. A policy aimed at price stability can end up working against it.</li>
+</ul>
+<h4>The balance of payments</h4>
+<ul>
+<li>Lower costs of production → UK firms can sell at more <strong>competitive prices</strong> internationally, and improved quality also raises demand for UK goods abroad.</li>
+<li>Both effects raise <strong>exports</strong>, which improves the balance of payments (specifically the balance of trade).</li>
+</ul>`,
+            readCheck: {
+                q: "How can education and training help achieve price stability?",
+                opts: ["It directly lowers interest rates", "It raises the exchange rate", "It increases government spending on benefits", "A more productive workforce lets supply keep up with demand, easing inflationary pressure"],
+                ans: 3,
+                explain: "A more productive workforce raises supply so it can keep pace with demand, reducing demand-pull and cost-push inflation — one mark for productivity, one for linking it to inflation/price stability."
+            }
+        },
+        {
+            title: "The benefits of supply-side policies",
+            tag: "Targeting, inflation, jobs, trade — and income distribution",
+            content: `<p>Real exam extracts reward evaluating benefits with <strong>real evidence</strong>, not just generic statements.</p>
+<h4>Targeting specific markets</h4>
+<ul>
+<li>Spending can be aimed precisely — e.g. over <strong>£180 million</strong> was made available to attract trainee teachers in shortage subjects like maths and sciences.</li>
+<li><strong>HS2</strong> is designed to boost growth specifically in the north of England by improving links to the capital.</li>
+</ul>
+<h4>Reducing inflation</h4>
+<ul>
+<li>A rightward shift in supply gives a <strong>lower equilibrium price AND a higher equilibrium quantity</strong> — but only if producers actually pass their lower costs on as lower prices.</li>
+</ul>
+<h4>Employment, growth, and the balance of payments</h4>
+<ul>
+<li>Firms need more workers to raise output to meet expanded demand — though if the extra output comes from <strong>automation</strong> instead, the employment benefit is limited.</li>
+<li>Lower costs and higher quality both raise exports, improving the balance of trade.</li>
+</ul>
+<h4>Income distribution — the exam's data-driven angle</h4>
+<ul>
+<li>A real exam extract compared Argentina and Finland: Finland spends more on education per student (25.8% of GDP per capita vs Argentina's 21.8%) — and Finland's income distribution is far more equal (richest 10% hold 22.4% vs Argentina's 30.3%; poorest 10% hold 3.9% vs Argentina's 1.8%).</li>
+<li>Mechanism: government-funded education benefits ALL students, not just the privately educated, so it raises equality of opportunity and lets skilled workers earn higher wages — narrowing the income gap.</li>
+</ul>
+<h4>Correcting market failure</h4>
+<ul>
+<li>Subsidising a good with <strong>positive externalities</strong> (e.g. vaccinations) encourages producers to supply more and consumers to take up something that benefits third parties too. UK measles vaccination coverage rose from 81% (2004) to over 91% (2023), with almost no deaths since 2013.</li>
+</ul>`,
+            readCheck: {
+                q: "Extract data shows Finland spends more on education than Argentina, and also has a more equal income distribution. What does this suggest?",
+                opts: ["Investment in education is likely to be an important factor behind more equal income distribution", "Argentina's richest 10% pay more tax than Finland's", "Education spending has no effect on income distribution", "Vaccination rates explain the difference"],
+                ans: 0,
+                explain: "The data links higher education spending to a smaller gap between the richest and poorest 10% — because education widens opportunity for all, not just the privately educated."
+            }
+        },
+        {
+            title: "The costs of supply-side policies",
+            tag: "Time, money, opposition, inequality — and the built-in contradictions",
+            content: `<p>Evaluate questions on this topic are almost always about <strong>weighing named costs against named benefits</strong> — learn the costs with real examples.</p>
+<h4>Financial cost and opportunity cost</h4>
+<ul>
+<li>Supply-side projects are expensive: <strong>HS2</strong> is budgeted at roughly £45–55.7bn (up from an initial £32.7bn), and the <strong>Elizabeth Line</strong> cost £18.9bn against an original £14.8bn budget.</li>
+<li>Every pound spent has an <strong>opportunity cost</strong> — it could have funded other services, lower taxes, or reduced government borrowing instead.</li>
+</ul>
+<h4>Time lags</h4>
+<ul>
+<li>Projects like HS2 take well over a decade from announcement to completion. Education and training reforms take years to filter through, because trainees must complete their courses before joining the workforce.</li>
+</ul>
+<h4>Opposition and unintended consequences</h4>
+<ul>
+<li>Reducing benefits faces opposition from charities and groups representing the least well-off, and can genuinely worsen income inequality for the poorest.</li>
+<li>Reducing trade union power can provoke opposition from unions — cracking down too hard can even increase industrial action rather than reduce it.</li>
+<li>Competition policy can be blocked outright: the CMA stopped the proposed <strong>Sainsbury's–Asda merger</strong>.</li>
+<li>Cutting income tax can backfire: some workers may choose to work <strong>fewer</strong> hours for the same take-home pay, rather than more — the opposite of the intended effect on labour supply.</li>
+</ul>
+<h4>Crowding out</h4>
+<ul>
+<li>Large public sector spending can <strong>crowd out</strong> the private sector — though private firms also gain from winning government contracts, so the effect isn't one-sided.</li>
+</ul>
+<h4>The exam's built-in contradiction — learn this one</h4>
+<ul>
+<li>Cutting direct taxes on workers and firms is meant to increase incentives to work and invest — but it also raises disposable income, which <strong>could also lead to rising inflation</strong>, directly undermining the price-stability objective the policy was meant to serve.</li>
+</ul>`,
+            readCheck: {
+                q: "Why might cutting income tax fail to increase the number of hours people work?",
+                opts: ["It automatically raises benefits instead", "Lower income tax reduces the incentive to work at all", "Some workers may choose to work fewer hours for the same take-home pay", "Income tax cuts always increase unemployment"],
+                ans: 2,
+                explain: "If take-home pay rises for the same hours, some workers value extra leisure time and choose to work LESS, not more — the opposite of the policy's intended incentive effect."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Supply-side policies aim primarily to...",
+            opts: ["Fix the exchange rate", "Reduce the money supply", "Increase the economy's productive capacity", "Increase government spending on benefits"],
+            ans: 2,
+            explain: "Supply-side policies raise potential output/productive capacity, unlike fiscal or monetary policy which mainly manage demand."
+        },
+        {
+            q: "Which of these is an example of a supply-side policy?",
+            opts: ["Increasing unemployment benefits", "A rise in government spending on defence", "Investment in infrastructure", "Raising interest rates"],
+            ans: 2,
+            explain: "Infrastructure investment raises firms' productive capacity by lowering costs. Raising rates is monetary policy; the other two do not raise supply."
+        },
+        {
+            q: "How does cutting corporation tax act as a supply-side policy?",
+            opts: ["Firms keep more profit, giving them more finance to invest in productive capacity", "It reduces the level of aggregate demand", "It directly lowers the price of imports", "It increases government spending on infrastructure"],
+            ans: 0,
+            explain: "Lower corporation tax leaves firms with more retained profit, which can fund investment that raises the economy's capacity to produce."
+        },
+        {
+            q: "A cut in income tax is intended to increase the labour supply because...",
+            opts: ["It reduces the cost of imported goods", "It lowers the exchange rate", "Workers keep more of what they earn, incentivising work", "It directly creates new jobs in the public sector"],
+            ans: 2,
+            explain: "In effect, an income tax cut acts like a pay rise without raising costs to firms, incentivising more people to work or work longer hours."
+        },
+        {
+            q: "Reducing the power of trade unions is intended to...",
+            opts: ["Directly increase government tax revenue", "Raise the level of unemployment benefits", "Increase the number of strikes", "Make it easier for firms to keep wages, and therefore costs, down"],
+            ans: 3,
+            explain: "Restricting collective bargaining power makes it easier for firms to hold down real wages, reducing costs and supporting supply."
+        },
+        {
+            q: "Privatisation is expected to increase efficiency mainly because...",
+            opts: ["Government ownership always charges the lowest prices", "The profit motive pushes newly private firms to cut costs and innovate", "It removes all competition from the market", "It increases the size of the public sector"],
+            ans: 1,
+            explain: "Once in the private sector, firms are driven by profit maximisation to cut average costs and innovate to win customers — unlike a state monopoly with no profit incentive."
+        },
+        {
+            q: "Which of the following is the best description of price stability?",
+            opts: ["Interest rates stay the same", "The general price level grows at a low, acceptable rate", "Inflation remains constant, whatever the rate", "The general price level never changes"],
+            ans: 1,
+            explain: "Price stability means low, predictable growth in prices (e.g. the 2% target) — 'inflation remains constant' fails because it could be constant at a very high rate."
+        },
+        {
+            q: "Which is a genuine COST of supply-side policy, rather than a benefit?",
+            opts: ["An improvement in the balance of payments", "A fall in structural unemployment", "The large opportunity cost of financing expensive infrastructure projects", "Lower inflationary pressure"],
+            ans: 2,
+            explain: "The other three are benefits. Expensive projects like HS2 carry a large opportunity cost — the money could have funded other services."
+        },
+        {
+            q: "An increase in the productive capacity of the economy is best shown as...",
+            opts: ["A rightward shift in the economy's aggregate supply / potential output", "A leftward shift in aggregate supply", "A rise in interest rates", "A movement along the demand curve"],
+            ans: 0,
+            explain: "Supply-side policies push the economy's potential output curve outward (to the right), allowing more to be produced at every price level."
+        },
+        {
+            q: "Why can cutting direct taxes on workers increase inflation, even though it is meant to help price stability?",
+            opts: ["It always raises the exchange rate", "It directly increases the price of exports", "It raises disposable income, which can increase demand and cause demand-pull inflation", "It reduces the productive capacity of the economy"],
+            ans: 2,
+            explain: "Higher take-home pay increases spending power. If demand rises faster than the economy's capacity to supply, inflation rises — the exam's classic supply-side contradiction."
+        }
+    ];
+
+    const matchData = [
+        { term: "Supply-side policy", def: "Government policy aimed at increasing the economy's productive capacity, rather than managing demand" },
+        { term: "Human capital", def: "The skills, knowledge and qualifications that make a worker productive" },
+        { term: "Infrastructure", def: "Transport, energy and communication networks that support economic activity" },
+        { term: "Direct tax", def: "A tax on income or profit, such as income tax or corporation tax" },
+        { term: "Corporation tax", def: "A tax on a firm's profits" },
+        { term: "Trade union reform", def: "Policy that restricts unions' power to negotiate pay and conditions" },
+        { term: "Privatisation", def: "Selling a state-owned organisation into the private sector" },
+        { term: "Deregulation", def: "Removing rules and regulations that create barriers to entry in a market" },
+        { term: "Competition and Markets Authority (CMA)", def: "The UK body that can block mergers that would reduce competition" },
+        { term: "Crowding out", def: "Public sector spending reducing the funds or opportunities available to the private sector" },
+        { term: "Opportunity cost", def: "The next best alternative given up when a choice is made" },
+        { term: "Structural unemployment", def: "Unemployment caused by a mismatch between workers' skills and available jobs" },
+        { term: "Positive externality", def: "A benefit to a third party not involved in a transaction, e.g. from vaccination" }
+    ];
+
+    const fibData = [
+        {
+            display: "Supply-side policies aim to increase an economy's ___B1___ capacity, rather than managing ___B2___.",
+            blanks: { B1: "productive", B2: "demand" }
+        },
+        {
+            display: "Lower ___B1___ tax gives workers an incentive to work, while lower ___B2___ tax lets firms keep more profit to invest.",
+            blanks: { B1: "income", B2: "corporation" }
+        },
+        {
+            display: "___B1___ occurs when a state-owned organisation is sold into the ___B2___ sector.",
+            blanks: { B1: "Privatisation", B2: "private" }
+        },
+        {
+            display: "Increased productive capacity leads to an increase in ___B1___, which lowers costs and reduces ___B2___ pressure.",
+            blanks: { B1: "supply", B2: "inflationary" }
+        },
+        {
+            display: "A cut in direct taxes can increase incentives to work, but by raising disposable income it could also lead to rising ___B1___ — a direct ___B2___ with the aim of price stability.",
+            blanks: { B1: "inflation", B2: "contradiction" }
+        },
+        {
+            display: "Every pound the government spends on supply-side policy has an ___B1___ ___B2___ — money that could have funded something else.",
+            blanks: { B1: "opportunity", B2: "cost" }
+        }
+    ];
+    const fibWords = ["productive", "demand", "income", "corporation", "Privatisation", "private", "supply", "inflationary", "inflation", "contradiction", "opportunity", "cost", "monetary", "public"];
+
+    const tfData = [
+        {
+            statement: "Supply-side policies mainly work by managing the level of demand.",
+            answer: false,
+            explanation: "They work by increasing the economy's productive CAPACITY — demand management is the job of fiscal and monetary policy."
+        },
+        {
+            statement: "Cutting income tax can act like a pay rise for workers without raising costs to firms.",
+            answer: true,
+            explanation: "Because it isn't the firm paying more, only the worker keeping more of the same wage — so it increases the incentive to work without adding to production costs."
+        },
+        {
+            statement: "Privatisation always reduces the quality of a service.",
+            answer: false,
+            explanation: "The theory is the opposite: the profit motive is expected to drive newly private firms to cut costs, innovate and better meet consumer needs."
+        },
+        {
+            statement: "A rightward shift in supply gives both a lower price and a higher quantity.",
+            answer: true,
+            explanation: "More is supplied at every price, so the new equilibrium settles at a lower price and higher quantity — assuming firms pass on the lower costs."
+        },
+        {
+            statement: "Supply-side policies always take effect quickly.",
+            answer: false,
+            explanation: "Most take years — education reforms take a generation to reach the workforce, and infrastructure like HS2 takes over a decade to build."
+        },
+        {
+            statement: "Reducing unemployment benefits can never be justified because it always increases inequality.",
+            answer: false,
+            explanation: "It is genuinely mixed: it may increase inequality for those affected, but it can also increase the incentive to work, which examiners expect you to weigh, not just reject."
+        },
+        {
+            statement: "Cutting direct taxes to boost work incentives can also cause demand-pull inflation.",
+            answer: true,
+            explanation: "Higher disposable income can raise demand faster than supply can respond — the exam's classic supply-side contradiction."
+        },
+        {
+            statement: "Government spending on supply-side policy has no opportunity cost, because it grows the economy.",
+            answer: false,
+            explanation: "Every pound spent still has an opportunity cost — it could have funded other services, lower taxes, or less borrowing, whether or not it eventually grows the economy."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "\"Vaccinations are subsidised because they are useful to people.\"",
+            correct: "The examiners were explicit here: 'Most candidates could demonstrate why vaccinations are useful, but did not explicitly state or explain how subsidies work.' Simply saying vaccines are good for health only shows knowledge of the OUTCOME — it doesn't answer 'explain why governments give SUBSIDIES'. The mark scheme wanted the MECHANISM: a subsidy lowers the cost to producers, making it cheaper/more widely available, or it encourages producers to increase output of an expensive vaccine, or it corrects the positive externality by encouraging uptake that would otherwise be too expensive. Always explain the POLICY TOOL asked about, not just the general benefit of the thing it targets.",
+            readCheck: {
+                q: "A question asks 'explain why governments subsidise vaccinations.' Which answer would the examiners mark as INCOMPLETE?",
+                opts: ["A subsidy encourages producers to increase output of an expensive vaccine", "A subsidy lowers the cost to producers, making the vaccine cheaper and more widely available", "A subsidy corrects the positive externality by encouraging take-up", "Vaccines are good because they stop people getting ill"],
+                ans: 3,
+                explain: "'Vaccines are good' describes the benefit of the vaccine itself, not how a SUBSIDY works — the examiners flagged exactly this gap."
+            }
+        },
+        {
+            wrong: "\"I'll analyse a benefit, then evaluate by naming a completely different cost.\"",
+            correct: "This paper's own Misconception box: 'Evaluation is awarded for making a judgement or writing an evaluative point that matches with the preceding point... A common error was that candidates would analyse a benefit... and then attempt evaluation by writing that there is an opportunity cost of government spending WITHOUT LINKING this argument to how it would lower the potential gains.' Evaluation only scores if it directly qualifies the point you just made — e.g. 'vaccinations reduce illness AND free up NHS resources, HOWEVER the financial cost of the subsidy may outweigh those savings.' A random extra cost bolted on at the end, unconnected to your analysis, does not count as evaluation.",
+            readCheck: {
+                q: "According to the examiners, when does an 'evaluation' point actually earn marks?",
+                opts: ["Only when it uses the word 'however'", "When it directly links to and qualifies the analysis point made just before it", "When it introduces any new cost, regardless of the previous point", "When it repeats the analysis point in different words"],
+                ans: 1,
+                explain: "The mark scheme's own Misconception box says evaluation must MATCH the preceding point — an unconnected extra point doesn't count, however negative it sounds."
+            }
+        },
+        {
+            wrong: "\"For the £50bn railway MCQ, the answer must be about the construction firms' profits or the tax cut it could have funded.\"",
+            correct: "Both are real effects, but they are DEMAND-side or opportunity-cost effects, not the reason it counts as a SUPPLY-SIDE policy. The correct answer was 'journey times will be improved for people travelling to work' — because that is what directly raises the economy's productive capacity (workers reach jobs faster, firms move goods faster). Builders' profits are a demand-side effect of the spending; the tax cut foregone is an opportunity cost, not a supply-side mechanism; and demand for imported materials is also a demand-side knock-on. When an MCQ asks WHY something is a supply-side policy, find the option that improves capacity to produce — not the side-effects of the spending.",
+            readCheck: {
+                q: "The government spends £50bn on a new railway line. Why is this a supply-side policy?",
+                opts: ["It raises demand for imported building materials", "Construction companies achieve greater profits", "The money could have funded a tax cut instead", "It improves journey times for people travelling to work"],
+                ans: 3,
+                explain: "Only the journey-time effect directly raises productive capacity. The other three are demand-side or opportunity-cost effects, not the supply-side mechanism the question is asking about."
+            }
+        },
+        {
+            wrong: "\"For 'evaluate the COSTS of supply side policy', I can write mostly about its benefits instead.\"",
+            correct: "The examiners flagged this directly: 'Some candidates used the majority, or all, of their answer to analyse and evaluate the impacts of supply side policy rather than their COSTS' — and separately noted candidates 'found the focus on the costs... more difficult to explain using chains of reasoning' than benefits. If the question asks for costs, every analysis point must BE a cost (financial cost, opportunity cost, cutting work incentives, raising inflation, worsening inequality, industrial disputes) — benefits only belong in your evaluation, as a comment that OFFSETS a cost you've already named, e.g. 'however, this cost may be outweighed by increased consumer confidence from price stability.'",
+            readCheck: {
+                q: "A question asks you to 'evaluate the COSTS of supply-side policy.' What did examiners say some candidates wrongly did?",
+                opts: ["Spent most of their answer analysing the general benefits instead of the costs", "Used too many real-world examples", "Named too many different costs", "Wrote a judgement at the end"],
+                ans: 0,
+                explain: "Examiners explicitly noted candidates who focused on benefits rather than costs — always answer the COMMAND WORD's actual focus, using benefits only to offset a cost in evaluation."
+            }
+        },
+        {
+            wrong: "\"Extract 3(i) just wants me to spot that Finland spends more on education than Argentina.\"",
+            correct: "That's only worth 1 of the 2 marks. The mark scheme is explicit: '1 mark for correctly identifying that Finland spends a greater percentage on education. 2nd mark for CLEARLY LINKING this to the income shares.' The same pattern appears in Extract 3's part (ii): '2 marks for a clear explanation, 1 mark for an answer without an explanatory link e.g. more spending per student / higher salaries for teachers.' Data questions on this topic almost always reward a fact PLUS its consequence — quoting a number from the table is only ever the first half of the answer.",
+            readCheck: {
+                q: "A data question gives 2 marks for using a table. What does the mark scheme usually require for BOTH marks?",
+                opts: ["A comparison with a country not in the table", "Two different data points, unlinked", "A rounded estimate of the data", "The correct data point PLUS an explicit link to what it explains"],
+                ans: 3,
+                explain: "Both mark schemes here (income shares AND GDP per capita) award the 2nd mark only for linking the data to the actual question — a bare fact from the table earns just 1 mark."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "classification",
+            title: "Classifying MCQs: find the supply-side MECHANISM",
+            pills: ["Which of the following is an example of...", "1 mark", "AO1/AO2"],
+            content: `<p>Roughly half the MCQs on this paper are pure classification — and the distractors follow predictable patterns.</p>
+<ul>
+<li><strong>Monetary policy distractors:</strong> "changing/raising interest rates", "encouraging bank lending" — these are Bank of England tools, not government supply-side policy.</li>
+<li><strong>Trade policy distractors:</strong> "imposing taxes/tariffs on imports" — a trade measure, not a productive-capacity measure.</li>
+<li><strong>Outcome, not policy:</strong> "lowering the rate of price rises" or "increase economic growth" describe a GOAL, not the policy tool that achieves it.</li>
+<li><strong>Wrong direction:</strong> "increase unemployment benefits" is the OPPOSITE of the usual supply-side move (which is to REDUCE benefits to raise work incentives).</li>
+</ul>
+<p>Test every option against: "does this directly raise the economy's ability to PRODUCE?"</p>`,
+            readCheck: {
+                q: "Which of these would NOT count as a supply-side policy?",
+                opts: ["Investing in infrastructure", "Reducing corporation tax", "Reducing trade union power", "Raising interest rates to control spending"],
+                ans: 3,
+                explain: "Raising interest rates is a monetary policy tool used to manage demand, not a supply-side measure aimed at productive capacity."
+            }
+        },
+        {
+            type: "definition",
+            title: "'State' and 'explain': know the difference in elements",
+            pills: ["State what is meant by... / Explain how...", "2 marks", "AO1a/AO1b"],
+            content: `<p>Both question types typically carry 2 marks, but they reward different things.</p>
+<ul>
+<li><strong>'State what is meant by price stability'</strong> needs a TWO-ELEMENT definition: the general price level grows at a LOW rate (1), such as the government's 2% target (1). "Prices do not go up" alone is only worth 1.</li>
+<li><strong>'Explain how X policy achieves Y'</strong> needs a MECHANISM plus a LINK: e.g. education and training create a more productive workforce (1), so supply can keep up with demand / cost-push inflation is less likely (2). Just "it improves skills" without the link to the objective is only 1 mark.</li>
+<li>The same pattern applies to 'explain why governments subsidise vaccinations' — state the mechanism (lower cost to producers, or correcting a positive externality), not just that vaccines are useful.</li>
+</ul>`,
+            readCheck: {
+                q: "For 'explain how education and training may help achieve price stability', what earns the SECOND mark?",
+                opts: ["Linking the more productive workforce to reduced cost-push or demand-pull inflation", "Naming a different supply-side policy", "Stating the government's inflation target", "Repeating that education improves skills"],
+                ans: 0,
+                explain: "The first mark is for the mechanism (more productive workforce); the second mark needs that mechanism explicitly LINKED to price stability/inflation."
+            }
+        },
+        {
+            type: "data",
+            title: "Extract tables: quote the figure, then link it",
+            pills: ["Explain, using the table in Extract 3...", "2 marks", "AO2"],
+            content: `<p>Both table-based questions on this paper follow the identical mark scheme structure.</p>
+<ul>
+<li><strong>1st mark:</strong> correctly quote or identify the relevant figures from the table (e.g. "Finland spends 25.8% of GDP per capita on education, more than Argentina's 21.8%").</li>
+<li><strong>2nd mark:</strong> explicitly LINK that figure to what the question actually asks (e.g. "...and Finland's richest 10% hold a smaller income share, 22.4% vs 30.3%").</li>
+<li>Stopping after the first mark is the single most common way to drop marks on data questions — a fact from the table with no explanatory link is capped at 1 mark, however accurate it is.</li>
+</ul>`,
+            readCheck: {
+                q: "A table shows Finland spends more on education than Argentina and has a smaller rich–poor income gap. What earns the SECOND mark?",
+                opts: ["Explicitly linking the higher education spending to the smaller income gap", "Rounding the percentages to whole numbers", "Naming a third country not shown in the table", "Restating the education spending figures a second time"],
+                ans: 0,
+                explain: "The first mark is for correctly reading the data; the second mark requires linking that data explicitly to the actual question asked."
+            }
+        },
+        {
+            type: "evaluate",
+            title: "Evaluate: pair every point, and answer the actual command word",
+            pills: ["* Evaluate the costs/benefits of...", "6 marks", "AO2/AO3a/AO3b"],
+            content: `<p>Every 6-mark question on this paper follows AO2 (1 mark) + AO3a analysis (2 marks) + AO3b evaluation (3 marks), marked by best-fit level.</p>
+<ul>
+<li><strong>Level 3 (5–6):</strong> good application; developed chains of reasoning; a fully supported judgement weighing both sides.</li>
+<li><strong>Level 2 (3–4):</strong> good application; analysis largely in single, undeveloped effects; a judgement that isn't fully supported.</li>
+<li><strong>Level 1 (1–2):</strong> no application; limited analysis; unsupported evaluation.</li>
+<li><strong>Pair every point:</strong> the mark scheme's own Misconception box warns that evaluation only counts if it directly MATCHES the analysis point just made — a random extra point doesn't score.</li>
+<li><strong>Answer the actual focus:</strong> if the question asks for COSTS, every analysis point must be a cost — examiners noted candidates who wrote mostly about benefits instead lost marks. Use benefits only to OFFSET a cost in your evaluation.</li>
+<li>Signal your final judgement clearly, e.g. with "Overall" or "In conclusion".</li>
+</ul>`,
+            readCheck: {
+                q: "In the Level of response mark scheme, what separates Level 3 from Level 2 evaluation?",
+                opts: ["Level 3 has a fully supported judgement weighing both sides; Level 2's judgement is not fully supported", "Level 2 always scores zero for evaluation", "Level 3 does not require a judgement at all", "Level 3 uses more difficult vocabulary"],
+                ans: 0,
+                explain: "Both levels can include a judgement, but only Level 3 develops it from properly weighing up the arguments on both sides."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Supply-side policy", def: "Government policy aimed at raising the economy's productive capacity, not managing demand." },
+        { term: "Human capital", def: "The skills, knowledge and qualifications that make a worker productive." },
+        { term: "Direct tax", def: "A tax on income or profit (e.g. income tax, corporation tax)." },
+        { term: "Corporation tax cut", def: "Leaves firms more profit to invest in productive capacity." },
+        { term: "Income tax cut", def: "Acts like a pay rise without raising firms' costs, incentivising work." },
+        { term: "Trade union reform", def: "Restricts union power so firms find it easier to hold wage costs down." },
+        { term: "Privatisation", def: "Selling a state-owned organisation into the private sector; profit motive expected to raise efficiency." },
+        { term: "Deregulation", def: "Removing rules that create barriers to entry, opening markets to competition." },
+        { term: "Infrastructure investment", def: "Transport/energy/broadband spending that lowers firms' costs." },
+        { term: "Competition and Markets Authority", def: "Can block mergers that would reduce competition, e.g. Sainsbury's–Asda." },
+        { term: "Crowding out", def: "Public sector spending reducing funds/opportunities for the private sector." },
+        { term: "Opportunity cost", def: "The next best alternative given up by a choice, e.g. HS2's cost vs other spending." },
+        { term: "Time lag", def: "Supply-side policies (education, infrastructure) take years to have an effect." },
+        { term: "Structural unemployment", def: "Unemployment from a mismatch between workers' skills and available jobs; education reduces it." },
+        { term: "The exam's contradiction", def: "Cutting direct taxes boosts incentives BUT can also raise demand and cause inflation." },
+        { term: "Positive externality", def: "A benefit to a third party, e.g. vaccination reducing disease spread; justifies a subsidy." },
+        { term: "Income distribution & education", def: "Finland spends more on education than Argentina AND has more equal income shares." },
+        { term: "Rightward shift in supply", def: "Lower equilibrium price + higher equilibrium quantity, IF firms pass on lower costs." },
+        { term: "Balance of payments", def: "Lower costs + higher quality from supply-side policy → more competitive exports." }
+    ];
+    // Shared exam extracts — defined ONCE here and referenced by `caseId`
+    // from each question part, so editing an extract updates every question
+    // that uses it. Single-use stimuli keep their own inline `caseStudy`.
+    const EXAM_CASE_STUDIES = {
+        "extract-1-externalities-and-government-policies": `<p><strong>Extract 1: Externalities and Government Policies</strong></p>
+<img src="/images/economics/3-7-co2-emissions-uk-denmark-2000-2020-extracted.png" alt="Line chart from the OCR exam paper showing CO2 emissions in metric tons per capita for the UK and Denmark from 2000 to 2020. UK: about 9.0 in 2000, 9.0 in 2005, 7.75 in 2010, 6.25 in 2015, falling to about 4.6 in 2020. Denmark: about 9.85 in 2000, 9.3 in 2005, 8.65 in 2010, 5.9 in 2015, falling to about 4.6 in 2020. Both countries show a steady downward trend, converging by 2020" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>Carbon dioxide (CO2) emissions, which arise from the use of petrol, cause climate change. The emissions have a harmful effect on those who are not using cars, which is a negative externality that impacts a third party.</p>
+<p>An indirect tax on petrol should reduce the use of petrol and its emissions. However, when demand for a good is price inelastic, the change in quantity due to a tax or subsidy is less than when demand is price elastic.</p>
+<p>The UK government provides a subsidy for the public provision of vaccines. Until measles vaccinations began in 1968, there were around 500,000 cases of measles every year and many deaths.</p>
+<p>The UK's vaccination coverage rate for measles has grown from 81% in 2004 to over 91% in 2023. There have been almost no deaths, therefore, from measles since 2013.</p>`,
+        "extract-3-economic-policies-and-the-value-of-the": `<p><strong>Extract 3: Economic Policies and the Value of the Pound</strong></p>
+<table style="width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th colspan="4" style="padding:6px;text-align:center;">Supply side spending (selected items) (£ billion)</th></tr>
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Government spending</th><th style="padding:6px;">2001–02</th><th style="padding:6px;">2011–12</th><th style="padding:6px;">2021–22</th></tr>
+<tr><td style="padding:6px;">General public services</td><td style="padding:6px;">44.0</td><td style="padding:6px;">76.8</td><td style="padding:6px;">108.6</td></tr>
+<tr><td style="padding:6px;">Health (NHS)</td><td style="padding:6px;">59.8</td><td style="padding:6px;">121.3</td><td style="padding:6px;">216.8</td></tr>
+<tr><td style="padding:6px;">Education</td><td style="padding:6px;">51.2</td><td style="padding:6px;">86.5</td><td style="padding:6px;">100.3</td></tr>
+<tr><td style="padding:6px;font-style:italic;">.......... Sum of excluded items ..........</td><td style="padding:6px;font-style:italic;">155.0</td><td style="padding:6px;font-style:italic;">284.6</td><td style="padding:6px;font-style:italic;">425.7</td></tr>
+<tr style="border-top:1px solid var(--border);"><td style="padding:6px;font-weight:600;">Total government spending</td><td style="padding:6px;font-weight:600;">384.0</td><td style="padding:6px;font-weight:600;">675.5</td><td style="padding:6px;font-weight:600;">952.3</td></tr>
+</table>
+<p>Government spending on education and health provision allows workers to become more productive, potentially increasing economic output.</p>
+<p>When tax revenue does not increase at the same pace as government spending, the government must borrow to cover its deficit. When government borrowing increases, interest rates may rise. Monetary policy uses interest rates to affect economic growth through their effect on borrowing for investment and consumption.</p>
+<p>When interest rates in the UK are higher than overseas, the international value of the pound increases, which may adversely affect UK exports, but should lower the inflation rate.</p>`,
+        "extract-2-uk-rate-of-inflation-2006-2018": `<p><strong>Extract 2: UK Rate of Inflation 2006–2018</strong></p>
+<img src="/images/economics/3-4-uk-inflation-cpi-2006-2018-chart-extracted.png" alt="Line chart from the OCR exam paper showing the UK rate of inflation (%) measured by CPI from February 2006 to February 2018. It starts around 2%, peaks at 4.8% in September 2008, falls to about 1% in late 2009, rises to about 4.5% in 2011, declines through 2013-2014 to a low of 0.2% in September 2015, then recovers to roughly 2.5-3% by 2018. The rate stays positive throughout" style="display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>The chart shows the UK rate of inflation as measured by the Consumer Prices Index (CPI) between 2006 and 2018. The rate of inflation has varied between a high of 4.8% in Sept 2008 and a low of 0.2% in Sept 2015. Inflation affects various groups in the economy including producers, consumers and savers. The government has an objective of price stability and sets a target rate of inflation of 2% per year. It has various policies which it can use to try to achieve this target, including supply side policies, such as education and training and reducing direct taxes on workers and firms. Supply side policies may, however, have costs as well as benefits. Cuts in direct taxes, for example, may not only encourage more people to work but could also lead to rising inflation.</p>`,
+        "extract-3-data-on-household-income-shares-and-sp": `<p><strong>Extract 3: Data on Household Income Shares and Spending on Education in 2015</strong></p>
+<table style="width:100%;max-width:560px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">Income share held by richest 10% (%)</th><th style="padding:6px;">Income share held by poorest 10% (%)</th><th style="padding:6px;">Govt. spending on education per secondary student (% of GDP per capita)</th></tr>
+<tr><td style="padding:6px;">Argentina</td><td style="padding:6px;">30.3</td><td style="padding:6px;">1.8</td><td style="padding:6px;">21.8</td></tr>
+<tr><td style="padding:6px;">Finland</td><td style="padding:6px;">22.4</td><td style="padding:6px;">3.9</td><td style="padding:6px;">25.8</td></tr>
+<tr><td style="padding:6px;">UK</td><td style="padding:6px;">25.4</td><td style="padding:6px;">2.9</td><td style="padding:6px;">23.1</td></tr>
+<tr><td style="padding:6px;">USA</td><td style="padding:6px;">30.6</td><td style="padding:6px;">1.7</td><td style="padding:6px;">22.1</td></tr>
+</table>
+<p>Income share is the percentage of income that goes to subgroups, ranked from the richest 10% of the population to the poorest 10%. If income were distributed perfectly equally then all the figures in the first two columns of the table would be 10 (%).</p>
+<p>Income shares do not take account of differences in wealth, which includes savings and property ownership. However, income that is generated by wealth does appear in the income share data.</p>
+<p>Government spending on education is a supply-side policy which aims to increase GDP per capita and improve equality of opportunities.</p>`,
+    };
+
+    const examQuestions = [
+        {
+            num: "Q1(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-externalities-and-government-policies",
+            question: "State two goods or services with positive externalities, other than vaccinations.",
+            hint: "Think of things that benefit people OTHER than the buyer: education, street lighting, parks, gyms, libraries, healthcare. Any two clearly justified examples score both marks.",
+            starter: "One example is..., and a second is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Education/schools</li>
+<li>Lighting (e.g. street lighting)</li>
+<li>Parks and gardens</li>
+<li>Gym membership</li>
+<li>Libraries</li>
+<li>Healthcare</li>
+</ul>
+<p>1 mark for each correct answer, up to a total of 2 marks. The terminology may be different, but if knowledge is evident, the mark should be awarded.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was answered very well, with a wide array of relevant goods and services offered.</p>
+</div>`,
+            modelAnswer: "One example is education, because a well-educated population benefits the wider economy through higher productivity and lower crime, not just the student themselves.\n\nA second example is healthcare, such as GP visits — treating illness early benefits other people too, by reducing the spread of disease and keeping the workforce productive."
+        },
+        {
+            num: "Q1(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-externalities-and-government-policies",
+            question: "Explain why governments often give subsidies for the public provision of vaccinations.",
+            hint: "Don't just say vaccines are good for health — that's the OUTCOME. Explain the MECHANISM of the subsidy: it lowers the cost to producers/consumers, encouraging more output or uptake, because vaccinations create a positive externality.",
+            starter: "Governments subsidise vaccinations because they create a positive externality, so a subsidy...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Encourage producers to increase output of expensive vaccinations</li>
+<li>Encourage consumers to take up vaccinations which could be too expensive otherwise</li>
+<li>Vaccinations are seen as a positive externality</li>
+<li>Lower costs to producers to make it cheaper/more widely consumed</li>
+</ul>
+<p>Give 2 marks for one point well explained. Give 1 mark if the candidate just lists points without any real explanation.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates could demonstrate why vaccinations are useful, but did not explicitly state or explain how subsidies work.</p>
+</div>`,
+            modelAnswer: "A subsidy lowers the cost to producers of making vaccines, so they can be sold more cheaply or provided free — encouraging more people to take them up.\n\nBecause vaccinations create a positive externality (protecting people beyond just the person vaccinated), the free market would under-provide them without government support, so the subsidy corrects this market failure."
+        },
+        {
+            num: "Q1(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-externalities-and-government-policies",
+            question: "Evaluate the benefits of a government policy to subsidise vaccinations. Use the information given in Extract 1 and your own knowledge.",
+            hint: "Pair each benefit with a linked evaluation point — the mark scheme's own Misconception box stresses this. E.g. 'fewer illnesses → lower healthcare costs, HOWEVER there's an opportunity cost of the subsidy itself.' Use the extract: measles vaccination coverage rose from 81% to 91%+ with almost no deaths since 2013.",
+            starter: "Subsidising vaccinations leads to fewer cases of illness, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Application:</strong> subsidies are provided for measles vaccinations; with vaccinations, cases of measles have significantly fallen since the 1960s; vaccinations provide positive externalities.</p>
+<p><strong>Answers may include (each benefit should be paired with a linked evaluation point):</strong></p>
+<ul>
+<li>Fewer cases of illness → lower healthcare costs. HOWEVER: opportunity cost of less government spending on other services such as hospitals and education.</li>
+<li>Fewer cases of illness among adults → workforce productivity rises. HOWEVER: adults may be reluctant to be vaccinated because of fake news/conspiracy theories.</li>
+<li>Fewer cases of illness among children → improved school attendance. HOWEVER: some families may not vaccinate their children due to lack of information, causing inequity in provision.</li>
+<li>A healthier, more productive workforce. HOWEVER: this depends on take-up/effectiveness of the vaccination.</li>
+<li>Less pressure on the NHS, freeing up resources. HOWEVER: the financial cost of the subsidy may outweigh the savings to the NHS.</li>
+<li>Lower price and increased availability improve quality of life. HOWEVER: firms may become reliant/inefficient or not pass on lower prices.</li>
+</ul>
+<p><strong>Judgement:</strong> whether the benefits are likely to outweigh the costs, depending on their significance or duration.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis in single effects; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Misconception</h5>
+<p>Evaluation is only awarded for a judgement or point that MATCHES the preceding point. A common error was analysing a benefit (e.g. improved living standards) and then evaluating with an UNCONNECTED point, such as "there is an opportunity cost of government spending," without linking it back to how it would lower the potential gains just described.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates understood the impact of a subsidy and the benefit of vaccinations. Several either wrote a point about a negative impact, or wrote an evaluative point that did not "pair" with the point before.</p>
+</div>`,
+            modelAnswer: "Subsidising vaccinations reduces cases of measles — UK coverage rose from 81% in 2004 to over 91% in 2023, with almost no deaths since 2013. Fewer cases of illness among children improves school attendance, and a healthier adult workforce is more productive. However, this depends heavily on take-up: some adults may be reluctant to vaccinate because of fake news or conspiracy theories, limiting the benefit.\n\nA further benefit is reduced pressure on the NHS, since treating measles and its complications is expensive; freeing up these resources lets the NHS spend more on other conditions. However, the financial cost of the subsidy itself may partly or fully outweigh these savings, particularly if take-up is low.\n\nOverall, the benefits are likely to outweigh the costs, given how cheap vaccination is relative to treating outbreaks and lost productivity from illness — but the SIZE of the benefit depends entirely on how successfully the government also tackles vaccine hesitancy, since a subsidy alone cannot fix low take-up caused by misinformation."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>The government spends £50bn on a new railway line linking some of the country's largest cities.</p>`,
+            question: "Why is this an example of a supply side policy?",
+            options: ["Journey times will be improved for people travelling to work", "Many construction companies will achieve greater profits", "The £50bn could have been used to reduce the level of direct taxation", "There will be an increased demand for imported building materials"],
+            answer: 0,
+            hint: "Find the option that raises the economy's productive CAPACITY. The others are demand-side profits, an opportunity cost, and a knock-on import effect — not the supply-side mechanism itself.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: A — Journey times will be improved for people travelling to work</strong></p>
+<ul>
+<li>Faster journeys directly raise the economy's productive capacity — workers reach jobs faster and firms move goods faster. Builder profits (B) are a demand-side effect of the spending; the foregone tax cut (C) is an opportunity cost, not the mechanism; and import demand (D) is also a demand-side knock-on.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates correctly identified the correct answer (A).</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q3",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-economic-policies-and-the-value-of-the",
+            question: "Explain how an increase in spending on education can lead to a rise in the rate of economic growth.",
+            hint: "Build a chain: more spending on education → higher literacy/skills/specialisation → higher productivity → greater output. Develop it fully for the second mark, don't just state the first link.",
+            starter: "Spending more on education raises workers' skills, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Improves literacy/productivity/specialisation, leading to greater output</li>
+<li>Increases innovation, leading to increased productivity</li>
+<li>Improves ability to handle new technology/adaptability to change, improving efficiency</li>
+<li>Workers can access higher-paying jobs and therefore have more money to spend</li>
+<li>Total demand within the economy increases as a result of higher government spending</li>
+</ul>
+<p>Explanation required for the second mark.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This was very well answered on the whole, with a significant number of candidates writing in real depth and going on to analyse the impact.</p>
+</div>`,
+            modelAnswer: "Spending more on education improves workers' literacy, skills and specialisation, which raises their productivity — each worker can produce more in the same amount of time.\n\nAs firms across the economy benefit from this more productive workforce, total output rises, which is what economic growth measures."
+        },
+        {
+            num: "Q4",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>Amari is unemployed and not looking for a job. He receives £72 a week in benefits. As part of the government's supply side policies, it has announced that unemployment benefits will be reduced.</p>`,
+            question: "Why may this decision encourage Amari to look for a job?",
+            options: ["Amari will have a lower disincentive to work", "Amari will pay less tax if he gets a job", "More job vacancies will be advertised", "Trade union power will decrease"],
+            answer: 0,
+            hint: "Lower benefits shrink the gap between being unemployed and being in work — reducing the DISINCENTIVE to take a job. The other options either don't follow from a benefits cut, or are unrelated policies.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: A — Amari will have a lower disincentive to work</strong></p>
+<ul>
+<li>Cutting benefits narrows the gap between out-of-work income and in-work income, reducing the disincentive to take a job. Tax paid, vacancy numbers, and trade union power are not direct consequences of this specific policy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates correctly answered A.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q5",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "One likely benefit of supply side policy is to improve a country's balance of payments. This is because supply side policy can",
+            options: ["improve the productivity of the UK labour force", "lead to a higher rate of inflation in the UK", "lead to higher consumption by UK consumers", "mean free trade agreements are cancelled"],
+            answer: 0,
+            hint: "Trace the chain to EXPORTS: higher productivity → lower costs → more competitive UK goods abroad → more exports → better balance of payments. Higher inflation would make exports LESS competitive.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — improve the productivity of the UK labour force</strong></p>
+<ul>
+<li>Higher productivity lowers costs, making UK goods more competitive abroad and raising exports. Higher inflation (B) would make exports LESS competitive, not more.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates correctly answered A.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q6(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-uk-rate-of-inflation-2006-2018",
+            question: "State what is meant by 'price stability'.",
+            hint: "Two elements for 2 marks: the general price level grows at a LOW rate, and you can name the government's 2% target. 'Prices do not go up' alone is only worth 1.",
+            starter: "Price stability is when the general price level...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Price stability is when the general price level stays constant over time</li>
+<li>Price stability is when the general price level grows at a low rate, such as the government target of 2% per annum</li>
+</ul>
+<p>Give 2 marks for a correct explanation that includes two elements, such as those shown. Give 1 mark for an explanation which shows some understanding, e.g. 'prices do not go up'.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Candidates who answered this question well had learnt a precise definition, with some enhancing their answer with use of the government target for inflation.</p>
+</div>`,
+            modelAnswer: "Price stability is when the general price level grows only at a low and predictable rate over time, rather than rising quickly.\n\nIn the UK the government sets a target rate of inflation of 2% per year, so keeping inflation close to that target is what counts as price stability."
+        },
+        {
+            num: "Q6(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-uk-rate-of-inflation-2006-2018",
+            question: "Explain how the supply side policy of education and training may help to achieve price stability.",
+            hint: "Chain it: education and training → more productive workforce → costs per unit fall / supply keeps up with demand → less cost-push/demand-pull inflation. Just 'it improves skills' is worth 1 mark.",
+            starter: "Education and training create a more productive workforce, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Education and training can create a more productive workforce, so cost-push/demand-pull inflation is less likely</li>
+<li>Education and training can create a more productive workforce, so supply can keep up with demand</li>
+</ul>
+<p>Give 2 marks for a correct explanation of how education and training can help achieve price stability. Give 1 mark for some understanding of education and training as a supply side policy, e.g. it improves the skills of workers.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates successfully explained the impact of education and training on productivity. Fewer candidates were able to clearly link this to how it might offset inflationary pressure.</p>
+</div>`,
+            modelAnswer: "Education and training create a more productive workforce, so each worker produces more output for the same cost.\n\nThis lowers firms' costs per unit and means supply can keep up with rising demand, so cost-push and demand-pull inflation are both less likely — helping to keep prices stable."
+        },
+        {
+            num: "Q6(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-2-uk-rate-of-inflation-2006-2018",
+            question: "* Evaluate the costs of using supply side policies to achieve price stability. Use the information given in Extract 2 and your own knowledge.",
+            hint: "Answer the actual focus — COSTS, not general benefits (examiners flagged candidates who wrote mostly about benefits here). Use the extract's own policies: education and training, and cutting direct taxes — which the extract itself warns 'could also lead to rising inflation'. Other costs: monetary cost, opportunity cost, cutting work incentives, worsening inequality, industrial disputes.",
+            starter: "One cost is that supply side policies take a long time to work, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Supply side policies in Extract 2:</strong> education and training; reducing direct taxes on workers to increase incentives to work; reducing direct taxes on firms.</p>
+<p><strong>Other supply side policies:</strong> reducing state benefits to increase incentives; reducing trade union power; policy to promote competition; privatisation; infrastructure development. Candidates may limit their answers to the policies in the extract and still access full marks.</p>
+<p><strong>Costs may include:</strong></p>
+<ul>
+<li>Monetary costs can be high, e.g. building a new motorway, so taxes may need to rise to fund it</li>
+<li>Opportunity cost can be high — the government may sacrifice spending on other services or benefits</li>
+<li>Cuts incentive to work: lower direct taxes on workers may lower, not raise, incentives if the same take-home income can be earned with fewer hours worked</li>
+<li>Increases inflation: lower direct taxes raise disposable income, which may increase demand and be inflationary</li>
+<li>Lower standard of living for those affected by benefit cuts, increasing hardship</li>
+<li>Increased inequality between rich and poor if benefits are cut</li>
+<li>Industrial disputes if trade unions oppose measures to reduce their power</li>
+<li>Conflicts with other government objectives, e.g. employment, growth, balance of payments</li>
+</ul>
+<p><strong>Evaluation may include:</strong> benefits of price stability that offset the costs (e.g. increased consumer confidence); benefits of specific policies that offset costs (e.g. more competition lowering prices); time lags before costs are felt; less pressure from trade unions once price stability reduces the need to renegotiate wages; contrasting the SIZE of different costs; contrasting short-run costs with long-run benefits; a judgement on whether costs outweigh benefits.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing up arguments/comparing alternatives.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis in single effects; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates found the focus on the costs of supply side policy more difficult to explain using chains of reasoning, and fewer were able to evaluate these costs with much detail. Some candidates used the majority, or all, of their answer to analyse and evaluate the BENEFITS of supply side policy rather than their costs. Successful technique included analysing a cost and proceeding immediately to evaluation of that same point, and clearly signalling a final judgement with words such as "Overall" or "In conclusion".</p>
+</div>`,
+            modelAnswer: "One cost is that education and training take years to filter through to the workforce, so they cannot control inflation quickly — yet the chart shows UK inflation swinging from 4.8% in 2008 to 0.2% in 2015, a timescale far faster than a training programme can respond to.\n\nThere is also a direct contradiction in the extract's own policies. Cutting direct taxes on workers and firms is meant to increase incentives to work — but as the extract itself warns, it 'could also lead to rising inflation', because lower taxes raise disposable income and total demand. So a policy aimed AT price stability may end up causing demand-pull inflation instead. There is also a large opportunity cost: money spent on education and training cannot fund healthcare or transport.\n\nOverall, the costs are real but worth accepting if inflation needs to be controlled sustainably, because supply side policies raise the economy's capacity permanently rather than just suppressing demand. But it depends on the timescale: if inflation must be brought down quickly, monetary policy is far more effective, and supply side measures work best as a long-run complement rather than an immediate fix."
+        },
+        {
+            num: "Q7",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The government decides to increase spending on public transport. Which of the following could be considered an opportunity cost of this decision?",
+            options: ["A decrease in direct taxation", "A decrease in spending on education", "A decrease in the budget deficit", "A decrease in unemployment"],
+            answer: 1,
+            hint: "Opportunity cost is the next best alternative GIVEN UP. Which option is something the government could have spent that money on instead, but now can't?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: B — A decrease in spending on education</strong></p>
+<ul>
+<li>If the government spends more on transport, it may have less to spend on education instead — the classic opportunity cost. A tax cut, a smaller deficit, and lower unemployment are not things given UP by this decision; they are unrelated or even positive side-effects.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q8",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The government is concerned about the level of monopoly power in the UK social media industry. Any policy introduced to reduce this monopoly power would be an example of",
+            options: ["fiscal policy", "monetary policy", "supply side policy", "trade policy"],
+            answer: 2,
+            hint: "Policies that promote competition and remove barriers to efficient markets are a classic supply-side tool — like the CMA blocking mergers.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: C — supply side policy</strong></p>
+<ul>
+<li>Reducing monopoly power promotes competition, which is a supply-side policy aimed at making markets work more efficiently — not a tax, interest rate, or trade measure.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q9",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these is an example of a supply side policy?",
+            options: ["Changing interest rates", "Encouraging bank lending", "Imposing taxes on imports", "Lowering unemployment benefits"],
+            answer: 3,
+            hint: "Interest rates and bank lending are monetary policy tools; import taxes are trade policy. Only one option changes the incentive to WORK.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: D — Lowering unemployment benefits</strong></p>
+<ul>
+<li>Lower benefits increase the incentive to take a job, raising labour supply — a classic supply-side policy. The other three are monetary or trade policy tools.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q10",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following is an example of supply-side policy?",
+            options: ["Lowering the rate of price rises", "National defence expenditure", "Raising interest rates", "Reducing direct taxes on workers"],
+            answer: 3,
+            hint: "'Lowering the rate of price rises' is an OUTCOME (price stability), not a policy. Raising rates is monetary policy. National defence spending doesn't target productive capacity.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: D — Reducing direct taxes on workers</strong></p>
+<ul>
+<li>Cutting income tax raises the incentive to work, directly targeting labour supply. Option A describes an outcome, not a policy; raising rates is monetary policy; defence spending is not aimed at productive capacity.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q11(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-data-on-household-income-shares-and-sp",
+            question: "Using the table in Extract 3, explain the impact of government spending on education in Argentina and Finland on their related income shares.",
+            hint: "First quote the figures (Finland spends more: 25.8% vs Argentina's 21.8%), THEN link this to the income shares (Finland's richest 10% hold less, 22.4% vs 30.3%; Finland's poorest 10% hold more, 3.9% vs 1.8%). The link is worth the second mark.",
+            starter: "Finland spends a greater percentage of GDP per capita on education than Argentina, which is linked to...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Finland's investment in education per secondary student is higher than Argentina's (25.8% of GDP per capita &gt; 21.8%)</li>
+<li>The richest 10% of Finns hold a lower income share (22.4%) than Argentina (30.3%), and/or the poorest Finns hold a higher income share (3.9%) than Argentina (1.8%)</li>
+</ul>
+<p>1 mark for correctly identifying that Finland spends a greater percentage on education. 2nd mark for clearly linking this to the income shares.</p>
+</div>`,
+            modelAnswer: "The table shows Finland spends 25.8% of GDP per capita on education per secondary student, more than Argentina's 21.8%.\n\nThis higher spending is linked to a more equal income distribution in Finland: its richest 10% hold a smaller income share (22.4% vs Argentina's 30.3%) and its poorest 10% hold a larger share (3.9% vs Argentina's 1.8%)."
+        },
+        {
+            num: "Q11(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-data-on-household-income-shares-and-sp",
+            question: "Explain one way in which spending on education could improve a country's GDP per capita.",
+            hint: "Pick ONE route and develop it: more spending per student → higher skills/productivity → higher output/GDP per capita. A bare fact ('more spending per student') with no explanatory link is only worth 1 mark.",
+            starter: "By spending more per student, the government can raise...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>By the government spending more per student, skills/productivity will improve, which will increase output/GDP per capita</li>
+<li>By increasing teacher salaries, incomes will rise, leading to more consumption, which in turn leads to higher incomes and output (multiplier)</li>
+<li>By building more schools, the construction industry and its workers will make more profit and higher incomes</li>
+</ul>
+<p>2 marks for a clear explanation. 1 mark for an answer without an explanatory link, e.g. simply "more spending per student" / "higher salaries for teachers" / "building more schools".</p>
+</div>`,
+            modelAnswer: "Spending more per student improves the skills and productivity of the future workforce.\n\nA more productive workforce can produce more output for the same number of workers, which raises GDP — and because GDP per capita divides this by population, higher output raises it directly."
+        },
+        {
+            num: "Q11(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-3-data-on-household-income-shares-and-sp",
+            question: "* Evaluate the benefits of supply-side policies for the income distribution of an economy. Use the information given in Extract 3 and your own knowledge.",
+            hint: "Use the extract's own contrast: Finland spends more on education AND has a smaller rich-poor gap than Argentina. Explain the mechanism (education benefits ALL students, raising equality of opportunity), then evaluate: is education really the cause, or could health/disability/regional decline explain the gap too? Consider other supply-side policies too — tax cuts or trade union reform could WIDEN inequality.",
+            starter: "The data suggest that investment in education is linked to a more equal income distribution, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The data suggest investment in education is likely to be an important factor in making income distributions more equal</li>
+<li>When government invests in education, ALL students gain more skills, not just the privately educated</li>
+<li>An educated worker is more productive/skilled, so has a greater choice of available jobs, and more demand from firms means a higher wage</li>
+<li>More investment in education improves equality of opportunity in finding jobs</li>
+<li>Apprenticeship schemes, especially in industries with skill shortages, benefit both income distribution and industrial output</li>
+</ul>
+<p><strong>Other relevant supply-side policies (may be evaluated too):</strong> lower income tax could lead to MORE post-tax inequality, depending on whether cuts make tax more or less progressive; lower corporation tax may raise wages if firms invest more, but the impact is uncertain; privatisation might equalise income since public sector wages are often fixed, though evidence is limited; reducing trade union power could reduce equality within an industry.</p>
+<p><strong>Evaluation may include:</strong> judging whether education, or another factor (poor health, disability, regional decline), is more significant in determining income distribution; noting that lack of education access often accompanies poverty already, making causation hard to isolate; education may only affect income distribution in the LONG term; general growth from supply-side policy could narrow OR widen the gap depending on how that growth is generated.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing up arguments/comparing alternatives, well used to Extract 3's data.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis in single effects; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "The data in Extract 3 suggest investment in education is an important factor behind a more equal income distribution: Finland spends more on education per student (25.8% of GDP per capita) than Argentina (21.8%), and Finland's richest 10% hold a much smaller income share (22.4% vs 30.3%) while its poorest 10% hold a larger share (3.9% vs 1.8%). The mechanism is that government-funded education benefits ALL students, not just those who can already afford private schooling, so it widens equality of opportunity and lets more people compete for higher-paid jobs.\n\nHowever, other supply-side policies point the other way. Cutting income tax mainly benefits higher earners in absolute terms, which could WIDEN the income gap unless the cuts are specifically made more progressive. It's also difficult to isolate education as the true cause: countries with less education spending, like Argentina, may also suffer from poorer health provision or regional unemployment, both of which independently worsen income distribution.\n\nOverall, the UK and USA sit between Finland and Argentina on both education spending and income shares, which supports a genuine link — but the relationship is unlikely to be the ONLY explanation. Education spending is probably a necessary but not sufficient supply-side policy for reducing inequality; it needs to be combined with progressive taxation rather than policies like benefit cuts or trade union reform, which can worsen inequality even while boosting growth."
+        },
+        {
+            num: "Q12",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which one of the following is a supply side policy the UK government could use to boost the economy?",
+            options: ["Increase economic growth", "Increase foreign investment", "Increase investment in infrastructure", "Increase unemployment benefits"],
+            answer: 2,
+            hint: "Growth and foreign investment are OUTCOMES/goals, not policies themselves. Raising benefits works against supply-side aims. Only one option is an actual policy TOOL that raises productive capacity.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: C — Increase investment in infrastructure</strong></p>
+<ul>
+<li>Infrastructure investment is an actual policy tool that lowers costs and raises productive capacity. 'Increase economic growth' and 'increase foreign investment' are outcomes/goals, not policies; raising benefits works against the usual supply-side aim of increasing work incentives.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        }
+    ];
+
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

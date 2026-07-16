@@ -47,14 +47,13 @@
     .hero :focus-visible { outline-color: var(--gold); }
 
     .hero {
-      background-color: var(--ink); color: var(--paper);
-      /* Decorative circle as a background so the hero needs no
-         overflow:hidden (which would clip the injected account dropdown
-         / notification bell panel). */
-      background-image: radial-gradient(circle 170px at calc(100% - 90px) 90px,
-        rgba(122,92,158,.12) 0, rgba(122,92,158,.12) 169px, transparent 170px);
-      background-repeat: no-repeat;
-      padding: 48px 48px 40px; position: relative;
+      background: var(--ink); color: var(--paper);
+      padding: 48px 48px 40px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -80px; right: -80px;
+      width: 340px; height: 340px; border-radius: 50%;
+      background: var(--accent); opacity: .12;
     }
     .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
     .hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
@@ -153,7 +152,7 @@
   <header class="hero">
     <div class="hero-inner">
       <nav class="hero-nav" aria-label="Site">
-        <a href="/hub.html">🏠 <span>All Subjects</span></a>
+        <a href="/index.html">🏠 <span>All Subjects</span></a>
         <a href="/dashboard.html?subject=computer-science">📊 <span>My Progress</span></a>
         <span id="accountBar" style="display:inline-flex;align-items:center;gap:10px;"></span>
       </nav>
@@ -162,7 +161,7 @@
         <span class="badge gold">🚧 Coming Soon</span>
       </div>
       <h1>💻 GCSE Computer Science</h1>
-      <p>OCR J277 · 2 units · 11 topics. Every topic below already has its own page and
+      <p>OCR J277 · 11 units · 29 topics. Every topic below already has its own page and
         full interactive shell (quizzes, flashcards, exam practice) — real notes and questions are being written
         topic by topic. Explore the course structure now, or check back soon.</p>
       <div id="gamHudMount"></div>
@@ -182,7 +181,7 @@
       let session;
       try { session = JSON.parse(localStorage.getItem(GCSE_SESSION_KEY) || 'null'); } catch (e) { session = null; }
       if (!session || !session.access_token) {
-        location.replace('/login.html?redirect=' + encodeURIComponent(location.pathname));
+        location.replace('/index.html?redirect=' + encodeURIComponent(location.pathname));
       }
     })();
   </script>
@@ -192,7 +191,6 @@
   <script src="/subject-home.js"></script>
   <script>renderSubjectHome(document.getElementById('topicsMount'));</script>
   <script src="/progress-shared.js"></script>
-  <script src="/account-cluster.js"></script>
   <script src="/gamification.js"></script>
   <script>
     const SUPABASE_URL = 'https://eaohjlyiotyqhvsizcpw.supabase.co';
@@ -211,7 +209,7 @@
       });
       if (error || !data.session) {
         localStorage.removeItem(GCSE_SESSION_KEY);
-        location.replace('/login.html?redirect=' + encodeURIComponent(location.pathname));
+        location.replace('/index.html?redirect=' + encodeURIComponent(location.pathname));
         return;
       }
       localStorage.setItem(GCSE_SESSION_KEY, JSON.stringify({
@@ -221,24 +219,16 @@
 
       const bar = document.getElementById('accountBar');
       if (!bar) return;
-      // Same shared avatar + dropdown cluster as every other page
-      // (account-cluster.js); minimal escaped bar as a fallback.
-      if (typeof _gcseInjectAccountBar === 'function') {
-        window._gcseProfile = window._gcseProfile || { username: cached.username, role: cached.role };
-        _gcseInjectAccountBar();
-      } else {
-        const escName = String(cached.username || 'you').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-        bar.innerHTML = `<span style="font-size:13px;color:rgba(255,255,255,.75);">Hi, <strong>${escName}</strong></span>
-          ${cached.role === 'teacher' ? '<a href="/teacher-dashboard.html">🧑‍🏫 <span>Teacher Dashboard</span></a>' : ''}
-          <a href="/manage-account.html" id="manageAccountLink">⚙ <span>Manage Account</span></a>
-          <a href="#" id="homeLogoutLink">↪ <span>Log out</span></a>`;
-        document.getElementById('homeLogoutLink').addEventListener('click', async (e) => {
-          e.preventDefault();
-          await supabaseClient.auth.signOut();
-          localStorage.removeItem(GCSE_SESSION_KEY);
-          location.replace('/login.html');
-        });
-      }
+      bar.innerHTML = `<span style="font-size:13px;color:rgba(255,255,255,.75);">Hi, <strong>${cached.username || 'teacher'}</strong></span>
+        ${cached.role === 'teacher' ? '<a href="/teacher-dashboard.html">🧑‍🏫 <span>Teacher Dashboard</span></a>' : ''}
+        <a href="/manage-account.html" id="manageAccountLink">⚙ <span>Manage Account</span></a>
+        <a href="#" id="homeLogoutLink">↪ <span>Log out</span></a>`;
+      document.getElementById('homeLogoutLink').addEventListener('click', async (e) => {
+        e.preventDefault();
+        await supabaseClient.auth.signOut();
+        localStorage.removeItem(GCSE_SESSION_KEY);
+        location.replace('/login.html');
+      });
 
       if (cached.role === 'student') {
         if (typeof gamificationRefreshStreak === 'function') gamificationRefreshStreak(supabaseClient);

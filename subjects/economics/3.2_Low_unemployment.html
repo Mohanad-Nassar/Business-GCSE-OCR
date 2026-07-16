@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Economics — Unit 3: Economic Objectives and the Role of Government</div>
             <h1>3.2 Low Unemployment</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -268,21 +268,1522 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>3.2 Low Unemployment</strong> will appear here soon.</p>`
+            title: "Employment, unemployment and how it is measured",
+            tag: "The definition is narrower than you think",
+            content: `<p><strong>Employment</strong> is the use of labour to produce goods and services. <strong>Unemployment</strong> is NOT simply "not having a job" — in economics it means someone who is <strong>willing and able to work</strong> at current wage rates but <strong>cannot find a job</strong>.</p>
+<h4>Why the definition matters</h4>
+<ul>
+<li>A stay-at-home parent, a retired pensioner and a full-time student are not unemployed — they are <strong>economically inactive</strong>, because they are not able and willing to work.</li>
+<li>A graduate who has just left university and is looking for work IS unemployed — a real exam MCQ.</li>
+</ul>
+<h4>Two ways the UK measures it</h4>
+<ul>
+<li><strong>Claimant count</strong> — the number of people <strong>receiving unemployment benefits</strong> (Jobseeker's Allowance). Simple, but it misses anyone out of work and looking who is not entitled to claim.</li>
+<li><strong>Labour Force Survey (LFS)</strong> — contacts a sample of households and asks whether anyone is willing and able to work but cannot find a job. It generally gives a <strong>higher</strong> figure than the claimant count, and because it uses a standardised international methodology it is the best measure for <strong>comparing countries</strong>.</li>
+</ul>
+<h4>Level vs rate — the crucial distinction</h4>
+<ul>
+<li><strong>Level</strong> = the total NUMBER of people unemployed. <strong>Rate</strong> = the PERCENTAGE of the workforce that is unemployed.</li>
+<li>Country A: 1 million unemployed from a 50 million workforce = <strong>2%</strong>. Country B: 1 million unemployed from a 10 million workforce = <strong>10%</strong>. Same level, wildly different rate — which is why the RATE is far more meaningful.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these people counts as unemployed?",
+                opts: ["A full-time student who sometimes works in a café", "A father who chooses to stay at home to look after a child", "A young adult who has just left university and is looking for a job", "A pensioner who is looking for part-time work"],
+                ans: 2,
+                explain: "Unemployed = of working age, without work, and willing and able to work. The stay-at-home father is inactive by choice, the pensioner is beyond working age, and the student already has some work."
+            }
+        },
+        {
+            title: "Calculating the rate and reading the data",
+            tag: "Divide by the WORKFORCE, and add the % sign",
+            content: `<p>Every 3.2 paper contains a rate calculation and a data question. Both are easy marks — and both have a trap that catches candidates every year.</p>
+<h4>The formula</h4>
+<ul>
+<li><strong>Unemployment rate (%) = (number unemployed ÷ total workforce) × 100</strong></li>
+<li><strong>The denominator is the WORKFORCE</strong> — never the population. Plumrith has 1,000 people but only 800 in the labour force, so 200 unemployed is 200 ÷ 800 = <strong>25%</strong>, not 20%. Papers deliberately give you a population figure and an under-18 figure as distractors.</li>
+<li><strong>Always write the % sign.</strong> The mark scheme docks a mark without it — an easy mark thrown away.</li>
+</ul>
+<h4>Worked examples from the real papers</h4>
+<ul>
+<li>Northern Ireland: 26 ÷ 877 × 100 = <strong>2.96%</strong>.</li>
+<li>2 million unemployed from a 35 million working population: 2 ÷ 35 × 100 = <strong>5.71%</strong>.</li>
+<li>2.52m unemployed from a 31.5m workforce = <strong>8.0%</strong> (ignore the 52.5m population and the 8.5m under-18s).</li>
+</ul>
+<h4>Reading unemployment trends</h4>
+<ul>
+<li><strong>Rising</strong> unemployment signals a slowing economy; staying <strong>high</strong> for a long period suggests a <strong>recession</strong>.</li>
+<li><strong>Falling</strong> unemployment suggests a growing economy; staying <strong>very low</strong> for a long period may suggest a <strong>boom</strong>.</li>
+<li><strong>Explain, don't describe.</strong> "Unemployment rose between 2008 and 2011" is only half the answer — you must add WHY (the financial crisis cut demand, so firms laid workers off).</li>
+</ul>`,
+            readCheck: {
+                q: "A town has a population of 1,000, a labour force of 800, and 200 unemployed. The unemployment rate is...",
+                opts: ["20%", "80%", "25%", "60%"],
+                ans: 2,
+                explain: "200 ÷ 800 × 100 = 25%. Dividing by the population (1,000) gives 20% — the classic trap. Always divide by the WORKFORCE."
+            }
+        },
+        {
+            title: "The four types of unemployment",
+            tag: "Seasonal, frictional, structural, cyclical",
+            content: `<p>Naming the type is worth marks — but the exam wants the <strong>cause</strong> too. Learn each as a matched pair.</p>
+<h4>1. Seasonal — jobs that only exist at certain times of year</h4>
+<ul>
+<li>Theme parks close over winter; ski resorts only run in winter; harvesting needs extra workers only at harvest. Devon and Cornwall see this heavily out of the tourist season.</li>
+</ul>
+<h4>2. Frictional — the temporary gap between jobs</h4>
+<ul>
+<li>Caused by <strong>time lags</strong> as workers move from one job to the next. It is considered <strong>healthy</strong>: it shows workers moving from less productive roles into more productive ones.</li>
+</ul>
+<h4>3. Structural — an industry permanently declines</h4>
+<ul>
+<li><strong>The mark scheme needs BOTH halves:</strong> an industry declines AND that leaves a <strong>mismatch</strong> between workers' skills and the vacancies available. Omitting the mismatch is the commonest error.</li>
+<li>Workers lack <strong>transferable skills</strong> and are often <strong>geographically immobile</strong> — family ties, or property worth too little to fund a move.</li>
+<li><strong>The vicious cycle:</strong> industry declines → local unemployment rises → less local spending → other local firms collapse → those who can, leave → the area becomes deprived → property values fall further.</li>
+<li>UK examples: the North of England and the Welsh valleys after the mining decline of the late 1980s — both still show higher unemployment today.</li>
+</ul>
+<h4>4. Cyclical — a fall in demand across the economy</h4>
+<ul>
+<li>Lower demand → less output needed → fewer workers needed. It has its own vicious circle: more unemployment → less household spending → demand falls further → more lay-offs.</li>
+<li>This is the type the government can fight with expansionary fiscal policy.</li>
+</ul>
+<p><strong>Real situations often combine types.</strong> Blackpool suffers <em>seasonal</em> (summer visitors), <em>cyclical</em> (holidays are the first thing households cut in a downturn) and arguably <em>structural</em> unemployment (holidaymakers switched to the Mediterranean).</p>`,
+            readCheck: {
+                q: "For full marks, explaining structural unemployment needs an industry declining AND...",
+                opts: ["A fall in demand across the whole economy", "Workers waiting to start a new job", "A mismatch between workers' skills and the available vacancies", "Jobs only existing in certain seasons"],
+                ans: 2,
+                explain: "Both halves are needed. The examiners noted several candidates omitted the MISMATCH of skills — which is what makes structural unemployment so long-lasting."
+            }
+        },
+        {
+            title: "Consequences of unemployment — individuals, regions, government",
+            tag: "Including the 'double hit' to the budget",
+            content: `<p>The spec asks you to evaluate consequences for three groups. Know each, and know that unemployment even has some benefits.</p>
+<h4>For individuals</h4>
+<ul>
+<li><strong>Lower income and living standards</strong> — benefits pay less than a job.</li>
+<li><strong>Personal and social strain</strong> — loss of status and self-esteem, problems within families.</li>
+<li><strong>"Excluded workers"</strong> — employers want recent experience, so the long-term unemployed may stop applying altogether and drop out of the workforce.</li>
+<li>Those still IN work pay too: higher taxes/National Insurance to fund benefits, and heavier workloads causing stress.</li>
+</ul>
+<h4>For regions</h4>
+<ul>
+<li>Persistent unemployment creates <strong>depressed areas</strong>: local businesses fail, causing more unemployment; those who can afford to leave do so; house prices fall; crime rates tend to rise.</li>
+<li>Regional data proves it — the North East has 4.22% unemployment vs England's 3.63%, and 25.2% economically inactive vs 21.2%.</li>
+</ul>
+<h4>For government — the "double hit"</h4>
+<ul>
+<li><strong>1. Tax revenue falls</strong> (fewer people earning, so less income tax and NI; less spending, so less VAT).</li>
+<li><strong>2. Spending rises</strong> (more claimants for unemployment benefits).</li>
+<li>Both at once make a <strong>budget deficit</strong> and more borrowing likely. Spending on benefits also has an <strong>opportunity cost</strong> — that money cannot fund schools or hospitals.</li>
+<li><strong>Use the right words:</strong> a smaller/larger <strong>deficit</strong> or a move toward <strong>surplus</strong> — never a "bigger" or "smaller" budget.</li>
+</ul>
+<h4>The benefits (worth an evaluation mark)</h4>
+<ul>
+<li>Frictional unemployment moves workers into more productive industries.</li>
+<li>High unemployment means more competition for each job, which <strong>keeps wages low</strong> — cutting firms' costs, making them more internationally competitive and potentially boosting exports.</li>
+</ul>`,
+            readCheck: {
+                q: "Why is unemployment a 'double hit' to the government's budget?",
+                opts: ["It raises both inflation and interest rates", "It cuts both exports and imports", "It raises wages and prices together", "Tax revenue falls AND benefit spending rises at the same time"],
+                ans: 3,
+                explain: "Fewer earners means less income tax and VAT, while more claimants means more benefit spending. Both sides of the budget worsen together, making a deficit more likely."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "In economics, an unemployed person is someone who...",
+            opts: ["Does not have a paid job for any reason", "Has chosen to stop working", "Is too young or too old to work", "Is willing and able to work at current wage rates but cannot find a job"],
+            ans: 3,
+            explain: "Unemployment requires being willing AND able to work but unable to find a job. People not seeking work are economically inactive, not unemployed."
+        },
+        {
+            q: "The claimant count measures unemployment by counting people who...",
+            opts: ["Are surveyed by the Labour Force Survey", "Are looking for any kind of job", "Do not have a job at all", "Receive unemployment benefits such as Jobseeker's Allowance"],
+            ans: 3,
+            explain: "It counts benefit claimants only, so it misses people who are out of work and looking but not entitled to claim — which is why the LFS gives a higher figure."
+        },
+        {
+            q: "Why is the Labour Force Survey better for comparing unemployment between countries?",
+            opts: ["It only counts benefit claimants", "It always gives a lower figure", "It uses a standardised international methodology", "It is published more often"],
+            ans: 2,
+            explain: "The LFS asks a standard question of a household sample using an internationally agreed method, so the figures are comparable across countries."
+        },
+        {
+            q: "A country has 1 million unemployed and a workforce of 10 million. Its unemployment rate is...",
+            opts: ["100%", "0.1%", "10%", "1%"],
+            ans: 2,
+            explain: "1m ÷ 10m × 100 = 10%. Note another country with the same LEVEL (1m unemployed) but a 50m workforce would have a rate of only 2% — which is why the rate matters more."
+        },
+        {
+            q: "Jane sells ice creams at a seaside resort in summer and is out of work the rest of the year. This is...",
+            opts: ["Structural unemployment", "Frictional unemployment", "Cyclical unemployment", "Seasonal unemployment"],
+            ans: 3,
+            explain: "Her job only exists at a certain time of year — seasonal unemployment, caused by a fall in demand during a particular season."
+        },
+        {
+            q: "Which type of unemployment is generally considered healthy for an economy?",
+            opts: ["Frictional", "Cyclical", "Seasonal", "Structural"],
+            ans: 0,
+            explain: "Frictional unemployment is the short gap between jobs, and it shows workers moving from less productive roles into more productive ones."
+        },
+        {
+            q: "The permanent closure of the UK's coal mines caused which type of unemployment?",
+            opts: ["Frictional", "Cyclical", "Seasonal", "Structural"],
+            ans: 3,
+            explain: "A permanent decline in an industry leaves workers whose skills no longer match available vacancies — structural unemployment."
+        },
+        {
+            q: "Which is most likely to reduce unemployment?",
+            opts: ["Increased government expenditure", "Increased taxes", "Increased imports", "Increased interest rates"],
+            ans: 0,
+            explain: "More government spending raises total demand, so firms produce more and hire more workers. The other three reduce demand for domestic output."
+        },
+        {
+            q: "Unemployment rises. What happens to the government's budget?",
+            opts: ["Tax revenue rises and benefit spending falls", "Both tax revenue and spending fall", "Nothing changes", "Tax revenue falls and benefit spending rises, widening the deficit"],
+            ans: 3,
+            explain: "The 'double hit': fewer earners means less income tax and VAT, while more claimants means more benefit spending — so the deficit widens."
+        },
+        {
+            q: "An increase in the level of unemployment benefit is most likely to...",
+            opts: ["Reduce the quantity of labour supplied", "Increase the quantity of labour supplied", "Increase labour market flexibility", "Have no effect on the labour market"],
+            ans: 0,
+            explain: "Higher benefits narrow the gap between working and not working, reducing the financial incentive to take a job — so fewer people offer themselves for work."
+        }
+    ];
+
+    const matchData = [
+        { term: "Employment", def: "The use of labour to produce goods and services" },
+        { term: "Unemployment", def: "Being willing and able to work but unable to find a job" },
+        { term: "Economically inactive", def: "Of working age but not seeking work, e.g. a full-time carer or student" },
+        { term: "Claimant count", def: "Measures unemployment by counting those receiving Jobseeker's Allowance" },
+        { term: "Labour Force Survey", def: "Surveys households using a standardised international method" },
+        { term: "Level of unemployment", def: "The total number of people unemployed" },
+        { term: "Unemployment rate", def: "The percentage of the workforce that is unemployed" },
+        { term: "Workforce", def: "Everyone able and willing to work — the denominator in the rate" },
+        { term: "Seasonal unemployment", def: "Caused by jobs only existing at certain times of the year" },
+        { term: "Frictional unemployment", def: "The temporary gap while a worker moves between jobs" },
+        { term: "Structural unemployment", def: "An industry declines, leaving a mismatch between skills and vacancies" },
+        { term: "Cyclical unemployment", def: "Caused by a fall in demand across the whole economy" },
+        { term: "Geographical immobility", def: "Workers cannot move to another area to find work" }
+    ];
+
+    const fibData = [
+        {
+            display: "Unemployment means being ___B1___ and able to work but unable to find a ___B2___.",
+            blanks: { B1: "willing", B2: "job" }
+        },
+        {
+            display: "The unemployment ___B1___ is the number unemployed divided by the ___B2___, multiplied by 100.",
+            blanks: { B1: "rate", B2: "workforce" }
+        },
+        {
+            display: "The ___B1___ count measures those receiving benefits, while the Labour Force ___B2___ asks a sample of households.",
+            blanks: { B1: "claimant", B2: "Survey" }
+        },
+        {
+            display: "___B1___ unemployment is the short gap between jobs, while ___B2___ unemployment follows a permanent decline in an industry.",
+            blanks: { B1: "Frictional", B2: "structural" }
+        },
+        {
+            display: "___B1___ unemployment is caused by a fall in ___B2___ across the whole economy.",
+            blanks: { B1: "Cyclical", B2: "demand" }
+        },
+        {
+            display: "When unemployment rises the government suffers a double hit: tax revenue ___B1___ while benefit spending ___B2___.",
+            blanks: { B1: "falls", B2: "rises" }
+        }
+    ];
+    const fibWords = ["willing", "job", "rate", "workforce", "claimant", "Survey", "Frictional", "structural", "Cyclical", "demand", "falls", "rises", "seasonal", "deficit"];
+
+    const tfData = [
+        {
+            statement: "Anyone without a paid job is counted as unemployed.",
+            answer: false,
+            explanation: "Only those willing AND able to work but unable to find a job. Students, carers and pensioners not seeking work are economically inactive, not unemployed."
+        },
+        {
+            statement: "The unemployment rate is calculated as a percentage of the total population.",
+            answer: false,
+            explanation: "It is a percentage of the WORKFORCE. Dividing by the population is the classic exam trap — Plumrith's 200 unemployed out of 800 in the labour force is 25%, not 20%."
+        },
+        {
+            statement: "The Labour Force Survey usually gives a higher figure than the claimant count.",
+            answer: true,
+            explanation: "The LFS captures people who are out of work and looking but not entitled to claim benefits, so it counts more people than the claimant count does."
+        },
+        {
+            statement: "Frictional unemployment is generally seen as healthy for an economy.",
+            answer: true,
+            explanation: "It is the short gap between jobs and shows workers moving from less productive roles into more productive ones."
+        },
+        {
+            statement: "Two countries with the same level of unemployment must have the same unemployment rate.",
+            answer: false,
+            explanation: "1 million unemployed is 2% of a 50m workforce but 10% of a 10m workforce. Same level, very different rate — which is why the rate is the more useful measure."
+        },
+        {
+            statement: "When unemployment falls, the government's budget deficit is likely to shrink.",
+            answer: true,
+            explanation: "More workers means more income tax, NI and VAT revenue, while fewer claimants means less benefit spending — both improve the budget together."
+        },
+        {
+            statement: "High unemployment in a region means employers there have fewer workers available.",
+            answer: false,
+            explanation: "The opposite — high unemployment means a SURPLUS of labour, so employers can recruit more easily and at lower wages. A real exemplar lost marks on this false logic."
+        },
+        {
+            statement: "Cyclical unemployment is caused by a fall in demand across the economy.",
+            answer: true,
+            explanation: "Lower demand means less output is needed, so fewer workers are needed — and the resulting fall in household spending can push demand down further."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "\"Unemployment rose between 2008 and 2011. That answers the question.\"",
+            correct: "This is the flagged Misconception on the real paper. The examiners wrote that although the vast majority of candidates correctly recognised unemployment had increased, many DESCRIBED the trend rather than EXPLAINING it — and the question said 'explain'. Stating the direction earns 1 mark; the second mark needs a REASON. Here: the global financial crisis caused a recession, so total demand fell, firms had fewer orders and laid workers off, leaving fewer vacancies. The habit generalises — whenever a question says 'explain the trend', give direction + cause, never direction alone.",
+            readCheck: {
+                q: "'Explain the trend in unemployment between 2008 and 2011.' What earns the second mark?",
+                opts: ["Describing the shape of the line", "Saying it rose sharply rather than just rose", "A reason — e.g. the financial crisis cut demand so firms laid workers off", "Quoting more figures from the chart"],
+                ans: 2,
+                explain: "Direction alone is 1 mark. The examiners were explicit: many described rather than explained. The reason is what earns the second mark."
+            }
+        },
+        {
+            wrong: "\"Lower unemployment means the government's budget gets smaller.\"",
+            correct: "The Assessment for Learning note on this paper singles this out: a significant number of candidates wrote about the budget becoming 'bigger or smaller', rather than using the correct terms. The budget is the DIFFERENCE between spending and tax revenue, so it isn't 'big' or 'small' — it is in DEFICIT (spending exceeds revenue) or SURPLUS (revenue exceeds spending). When unemployment falls, revenue rises and benefit spending falls, so the correct phrasing is: a SMALLER DEFICIT, a move NEARER TO BALANCE, or a LARGER SURPLUS. Using the right vocabulary is what separates a Level 3 answer here.",
+            readCheck: {
+                q: "Unemployment falls, so tax revenue rises and benefit spending falls. The correct way to describe the budget effect is...",
+                opts: ["The budget disappears", "The budget gets bigger", "A smaller deficit / a move towards surplus", "The budget gets smaller"],
+                ans: 2,
+                explain: "The budget is the difference between spending and revenue, so it moves between deficit and surplus. 'Bigger/smaller budget' was explicitly flagged as the wrong terminology."
+            }
+        },
+        {
+            wrong: "\"To explain how unemployment affected the budget, I'll describe how the government used fiscal policy to cut unemployment.\"",
+            correct: "This is a Misconception the examiners named directly: a reasonable number of candidates misunderstood the question and wrote about how the government ACHIEVED lower unemployment through expansionary fiscal policy. That was not what the question asked. The question runs the other way — unemployment CHANGED (for its own reasons), and you must trace what that change DID to the budget. Direction of causation matters: read whether the policy is the cause or the consequence before you start writing.",
+            readCheck: {
+                q: "'Analyse how changes in unemployment affected the government's budget' is asking you to...",
+                opts: ["Trace what the unemployment change did to tax revenue and spending", "Evaluate whether the policy worked", "Explain how fiscal policy reduced unemployment", "Describe the level of unemployment"],
+                ans: 0,
+                explain: "Unemployment is the CAUSE and the budget is the effect. Writing about fiscal policy reducing unemployment reverses the causation and scores nothing."
+            }
+        },
+        {
+            wrong: "\"The North East has high unemployment, so producers there struggle to find workers.\"",
+            correct: "This is false logic, and the examiners published an exemplar showing exactly it. High unemployment means MORE workers are available, not fewer — the supply of labour exceeds demand for it. That is why one of the credited BENEFITS for North East producers is that they can recruit at lower wage rates, cutting costs and raising profits. The genuine costs run elsewhere: a depressed local economy means less demand and lower revenue, and long-term unemployed workers need retraining, which raises costs. Get the direction right before you evaluate — evaluating a false premise earns nothing.",
+            readCheck: {
+                q: "High regional unemployment means producers there face...",
+                opts: ["A shortage of workers, so they must pay more", "No change to their wage costs", "A surplus of labour, so they can pay lower wages", "Higher productivity automatically"],
+                ans: 2,
+                explain: "High unemployment = labour supply exceeds demand = lower wages. The exemplar that claimed 'fewer workers available' was evaluating false logic and scored nothing."
+            }
+        },
+        {
+            wrong: "\"200 unemployed in a town of 1,000 people — that's a 20% unemployment rate.\"",
+            correct: "The denominator is always the WORKFORCE (labour force), never the population. Plumrith has 1,000 people but only 800 in the labour force, so the rate is 200 ÷ 800 × 100 = 25%. Papers deliberately hand you distractors: one question gives a population of 52.5 million AND 8.5 million under-18s, but the answer uses only the 31.5 million workforce (2.52 ÷ 31.5 = 8.0%). The same discipline applies to the £ and % signs — the mark scheme docks a mark for a bare number, so 2 ÷ 35 × 100 must be written as 5.71%, not 5.71.",
+            readCheck: {
+                q: "Population 52.5m, under-18s 8.5m, workforce 31.5m, unemployed 2.52m. The unemployment rate is...",
+                opts: ["6.3%", "5.7%", "8.0%", "4.8%"],
+                ans: 2,
+                explain: "2.52 ÷ 31.5 × 100 = 8.0%. The population and under-18 figures are deliberate distractors — always divide by the workforce."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "definition",
+            title: "Definitions: the precise words that earn the second mark",
+            pills: ["State/explain what is meant by...", "2 marks", "AO1"],
+            content: `<p>The short questions are free marks IF you use the technical vocabulary. Real examples from this paper:</p>
+<ul>
+<li><strong>Unemployment rate</strong> = "the percentage of the country's WORKFORCE that is unemployed". Examiners noted candidates who said 'population' instead of workforce lost the precision mark.</li>
+<li><strong>Structural unemployment</strong> = an industry declining AND a MISMATCH between skills and vacancies. Several candidates omitted the mismatch — the very thing that defines it.</li>
+<li><strong>Fiscal policy</strong> = government TAXATION (1) and government SPENDING (1). Name both.</li>
+<li><strong>Imports</strong> = goods AND services bought from abroad, with an outflow of money. Saying only "a good from another country" caps you at 1.</li>
+<li><strong>Explain one type of unemployment</strong> = name the type AND its cause, e.g. "cyclical is caused by a lack of demand".</li>
+</ul>`,
+            readCheck: {
+                q: "Which definition of the unemployment rate earns both marks?",
+                opts: ["The number of people without a job", "The percentage of the country's workforce that is unemployed", "The percentage of the population without work", "The people claiming benefits"],
+                ans: 1,
+                explain: "'Workforce' is the technical term examiners wanted, and it must be a percentage. 'Population' and bare 'level' definitions lost marks."
+            }
+        },
+        {
+            type: "calculation",
+            title: "Calculations: workforce denominator, and the % sign",
+            pills: ["Calculate... Show your working", "2 marks", "Quantitative skills"],
+            content: `<p>Two rules cover every calculation on this topic:</p>
+<ul>
+<li><strong>Divide by the WORKFORCE</strong>, never the population. 200 ÷ 800 = 25% (not 200 ÷ 1000 = 20%). 2.52m ÷ 31.5m = 8.0% (ignore the 52.5m population).</li>
+<li><strong>Include the % sign.</strong> "Give 1 mark if the % sign is omitted" appears in the mark scheme. The examiners' own tip: "make sure they include a % sign in percentage answers".</li>
+</ul>
+<h4>The worked ones</h4>
+<p>Northern Ireland: 26 ÷ 877 × 100 = 2.96%. A 35m working population with 2m unemployed: 5.71%. Port Talbot's average: (8.9 + 6.9 + 6.9) ÷ 3 = 7.6% — use only the Port Talbot row, and round as instructed.</p>`,
+            readCheck: {
+                q: "Northern Ireland has 877 thousand economically active and 26 thousand unemployed. The rate is...",
+                opts: ["2.96", "26%", "3.38%", "2.96%"],
+                ans: 3,
+                explain: "26 ÷ 877 × 100 = 2.96%. Without the % sign it is capped at 1 mark — the examiners flagged this exact omission."
+            }
+        },
+        {
+            type: "analysis",
+            title: "Analyse the budget: run BOTH chains, then name the effect",
+            pills: ["Analyse how... the government's budget", "6 marks", "AO3a"],
+            content: `<p>This 6-marker appears twice on this paper. The examiners said the best answers reasoned <strong>both</strong> sides and then stated the budget effect.</p>
+<ul>
+<li><strong>Start with the definition</strong>: the budget is the difference between government spending and tax revenue.</li>
+<li><strong>Use the DIRECTION from the extract</strong> — unemployment falling 2011–2017, rising 2005–2011. The examiners called this "a key to this question".</li>
+<li><strong>Chain 1 (revenue)</strong>: more people in work → more income tax and NI → they spend more → more VAT.</li>
+<li><strong>Chain 2 (spending)</strong>: fewer claimants → less spent on JSA/unemployment benefits.</li>
+<li><strong>Then the effect, in the right words</strong>: a smaller DEFICIT / nearer to balance / a larger SURPLUS.</li>
+</ul>`,
+            readCheck: {
+                q: "What did examiners say the BEST budget answers did?",
+                opts: ["Reasoned both tax revenue AND spending, then showed the effect on the budget", "Focused only on benefit spending", "Explained how fiscal policy cuts unemployment", "Quoted the most data"],
+                ans: 0,
+                explain: "Both chains plus the overall budget effect. Some candidates just stated the outcome without analysing why; others reversed the causation and wrote about fiscal policy."
+            }
+        },
+        {
+            type: "evaluate",
+            title: "Evaluate: match the points and reach a judgement",
+            pills: ["Evaluate the consequences / costs and benefits...", "6 marks", "AO3b"],
+            content: `<p>The examiners were direct: evaluative skill is <strong>NOT</strong> demonstrated by writing a good point and then a bad point.</p>
+<ul>
+<li><strong>Use the case data</strong> — "better answers effectively used the data in the case study to emphasise their points" (North East: 4.2% &gt; 3.6%; inactive 25.2% &gt; 21.2%).</li>
+<li><strong>Answer for the right group.</strong> "Consequences for PRODUCERS" is about costs, revenue and wages — not about how the workers feel.</li>
+<li><strong>Check your logic before evaluating it.</strong> The published exemplar evaluated a false premise (high unemployment = fewer workers) and earned nothing.</li>
+<li><strong>Always finish with a judgement</strong> — that exemplar also had no conclusion at all.</li>
+</ul>
+<h4>The best evaluation lever on this topic</h4>
+<p>Almost every "consequences of unemployment" question turns on <strong>the TYPE of unemployment</strong>: someone frictionally unemployed finds work again quickly and suffers little; someone structurally unemployed may never regain similar work. It also depends on how generous benefits are.</p>`,
+            readCheck: {
+                q: "For 'evaluate the consequences of unemployment for individuals', the strongest evaluative lever is...",
+                opts: ["It depends on the TYPE — frictional is brief, structural can be permanent", "Saying unemployment is always bad", "Listing three costs then three benefits", "Repeating the extract's figures"],
+                ans: 0,
+                explain: "The mark scheme names the type of unemployment (and the level of benefits) as the key evaluation. A list of good/bad points is not evaluation."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Employment", def: "The use of labour to produce goods and services." },
+        { term: "Unemployment", def: "Being WILLING AND ABLE to work at current wages but unable to find a job." },
+        { term: "Economically inactive", def: "Of working age but not seeking work — carers, students, early retirees. NOT unemployed." },
+        { term: "Claimant count", def: "Counts people receiving unemployment benefits (JSA). Misses those who can't claim." },
+        { term: "Labour Force Survey", def: "Surveys households; standardised international method, so best for comparing countries. Gives a HIGHER figure than the claimant count." },
+        { term: "Level of unemployment", def: "The total NUMBER of people unemployed." },
+        { term: "Unemployment rate", def: "The PERCENTAGE of the workforce unemployed = (unemployed ÷ workforce) × 100." },
+        { term: "The rate's denominator", def: "Always the WORKFORCE — never the population. 200 ÷ 800 = 25%, not 20%." },
+        { term: "Seasonal unemployment", def: "Jobs only exist at certain times of year — ski resorts, harvests, seaside resorts." },
+        { term: "Frictional unemployment", def: "The temporary gap between jobs. Considered HEALTHY — workers moving to more productive roles." },
+        { term: "Structural unemployment", def: "An industry permanently declines, leaving a MISMATCH between skills and vacancies. Both halves needed." },
+        { term: "Cyclical unemployment", def: "Caused by a fall in demand across the economy. The type fiscal policy can fight." },
+        { term: "Geographical immobility", def: "Workers can't move areas for work — family ties, or property worth too little to fund a move." },
+        { term: "The structural vicious cycle", def: "Industry declines → local unemployment → less spending → more firms fail → people leave → area deprived." },
+        { term: "Consequences for individuals", def: "Lower income and living standards; loss of self-esteem; family strain; long-term unemployed become 'excluded workers'." },
+        { term: "Consequences for regions", def: "Depressed areas: businesses fail, people leave, house prices fall, crime rises." },
+        { term: "The government's double hit", def: "Tax revenue FALLS and benefit spending RISES together → wider deficit and more borrowing." },
+        { term: "Budget vocabulary", def: "Say smaller/larger DEFICIT or SURPLUS — never a 'bigger' or 'smaller' budget." },
+        { term: "Benefits of unemployment", def: "Frictional moves workers to better roles; surplus labour keeps wages low, cutting firms' costs and aiding exports." }
+    ];
+    // Shared exam extracts — defined ONCE here and referenced by `caseId`
+    // from each question part, so editing an extract updates every question
+    // that uses it. Single-use stimuli keep their own inline `caseStudy`.
+    const EXAM_CASE_STUDIES = {
+        "extract-1-port-talbot": `<p><strong>Extract 1: Port Talbot</strong></p>
+<p>The UK steel industry supported 280,000 jobs in 1970. By the end of 2015 this had reduced to 30,000 jobs. Many of these jobs were in a Welsh town called Port Talbot.</p>
+<p>The unemployment rate for Port Talbot was higher than the UK rate between 2013 and 2015.</p>
+<table style="width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">2013</th><th style="padding:6px;">2014</th><th style="padding:6px;">2015</th></tr>
+<tr><td style="padding:6px;">Port Talbot unemployment rate (%)</td><td style="padding:6px;">8.9</td><td style="padding:6px;">6.9</td><td style="padding:6px;">6.9</td></tr>
+<tr><td style="padding:6px;">UK unemployment rate (%)</td><td style="padding:6px;">7.5</td><td style="padding:6px;">6.2</td><td style="padding:6px;">5.3</td></tr>
+</table>
+<p>At the start of 2016, it was announced that further jobs in the steel industry might be at risk due to the fall in demand for UK steel. This could have serious consequences for the people who live in the town.</p>
+<p>Some economists have suggested that the government should use fiscal policy to reduce unemployment in places like Port Talbot.</p>`,
+        "extract-1-uk-employment-and-unemployment": `<p><strong>Extract 1: UK Employment and Unemployment</strong></p>
+<img src="/images/economics/3-2-uk-employment-unemployment-chart-extracted.png" alt="Line chart from the OCR exam paper titled 'Unemployment rate in the UK: 2000-2021': about 5.3% in 2000, dipping to around 4.8% in 2005, rising sharply after 2008 to a peak of about 8.1% in 2011, then falling steadily to about 3.8% in 2019 before rising to around 4.5% in 2021" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>The unemployment rate has fluctuated with changes in economic growth.</p>
+<p>Due to family demands, workers are often unable to move to another area to find work, leading to regional differences in unemployment. A lack of investment in manufacturing industries and in services reduces job opportunities, which results in long-term, structural unemployment and a fall in living standards. Depressed regions with high unemployment suffer from a lack of demand that leads to shops closing and more unemployment and economically inactive people. Both groups need to be supported with social security benefits. As long as these unemployed people do not lose their skills, employers may be able to offer lower wages because of the surplus labour. To reduce unemployment the government may offer training in new technologies and better infrastructure, such as improved public transport.</p>
+<p><strong>Workforce data: 2022</strong></p>
+<table style="width:100%;max-width:620px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:5px;"></th><th style="padding:5px;">Economically active (thousands)</th><th style="padding:5px;">Employed level (thousands)</th><th style="padding:5px;">Unemployed level (thousands)</th><th style="padding:5px;">Unemployment rate (rate %)</th><th style="padding:5px;">Economically inactive (rate %)</th></tr>
+<tr><td style="padding:5px;">England</td><td style="padding:5px;">28,781</td><td style="padding:5px;">27,736</td><td style="padding:5px;">1,045</td><td style="padding:5px;">3.63</td><td style="padding:5px;">21.2</td></tr>
+<tr><td style="padding:5px;">North East</td><td style="padding:5px;">1,257</td><td style="padding:5px;">1,204</td><td style="padding:5px;">53</td><td style="padding:5px;">4.22</td><td style="padding:5px;">25.2</td></tr>
+<tr><td style="padding:5px;">South East</td><td style="padding:5px;">4,751</td><td style="padding:5px;">4,608</td><td style="padding:5px;">143</td><td style="padding:5px;">3.01</td><td style="padding:5px;">19.4</td></tr>
+<tr><td style="padding:5px;">Wales</td><td style="padding:5px;">1,502</td><td style="padding:5px;">1,448</td><td style="padding:5px;">55</td><td style="padding:5px;">3.65</td><td style="padding:5px;">24.9</td></tr>
+<tr><td style="padding:5px;">Scotland</td><td style="padding:5px;">2,804</td><td style="padding:5px;">2,705</td><td style="padding:5px;">98</td><td style="padding:5px;">3.50</td><td style="padding:5px;">21.9</td></tr>
+<tr><td style="padding:5px;">Northern Ireland</td><td style="padding:5px;">877</td><td style="padding:5px;">851</td><td style="padding:5px;">26</td><td style="padding:5px;">-</td><td style="padding:5px;">27.7</td></tr>
+</table>`,
+        "extract-1-the-uk-unemployment-rate-1997-2017": `<p><strong>Extract 1: The UK unemployment rate 1997-2017</strong></p>
+<img src="/images/economics/3-1-uk-unemployment-chart-extracted.png" alt="Line chart from the OCR exam paper showing the UK unemployment rate (%) from 1997 to 2017: about 7% in 1997, falling to around 5% between 2001 and 2005, rising to a peak of 8.1% in 2011, then falling steadily to 4.4% in 2017" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>The chart shows how the UK&#39;s unemployment rate has changed between 1997 and 2017. The highest unemployment rate for this period was 8.1% in 2011, while the lowest rate was 4.4% in 2017. Economic growth can influence the unemployment rate. In addition, unemployment can have a number of causes and consequences. It can affect the government and regions as well as individuals. One consequence for individuals who become unemployed is that their income is likely to fall significantly.</p>`,
+        "extract-3-the-pound-to-euro-exchange-rate-2008-2": `<p><strong>Extract 3: The Pound (£) to Euro (€) exchange rate 2008–2017</strong></p>
+<p>The UK&#39;s exchange rate is determined by the forces of supply and demand. The exchange rate measures the price of the UK&#39;s currency, the pound (£), in terms of another currency. The table below shows the value of the pound (£) in terms of euros (€) for 2008 to 2017. (The figure given is the average for that year.)</p>
+<table style="width:100%;max-width:340px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Year</th><th style="padding:6px;">Euros (€) to £1</th></tr>
+<tr><td style="padding:6px;">2008</td><td style="padding:6px;">1.26</td></tr>
+<tr><td style="padding:6px;">2009</td><td style="padding:6px;">1.12</td></tr>
+<tr><td style="padding:6px;">2010</td><td style="padding:6px;">1.16</td></tr>
+<tr><td style="padding:6px;">2011</td><td style="padding:6px;">1.15</td></tr>
+<tr><td style="padding:6px;">2012</td><td style="padding:6px;">1.23</td></tr>
+<tr><td style="padding:6px;">2013</td><td style="padding:6px;">1.18</td></tr>
+<tr><td style="padding:6px;">2014</td><td style="padding:6px;">1.24</td></tr>
+<tr><td style="padding:6px;">2015</td><td style="padding:6px;">1.37</td></tr>
+<tr><td style="padding:6px;">2016</td><td style="padding:6px;">1.22</td></tr>
+<tr><td style="padding:6px;">2017</td><td style="padding:6px;">1.14</td></tr>
+</table>
+<p>The euro is the currency used by many European countries including France, Germany, Italy and Spain. Changes in the exchange rate will have effects on exports and imports and the economy in general. Consumers in the UK may be affected by movements in the exchange rate in a number of ways; for example, goods which they buy from abroad may change in price.</p>`,
+    };
+
+    const examQuestions = [
+        {
+            num: "Q1(a)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-port-talbot",
+            question: "Explain two possible economic reasons why there has been a fall in demand for UK steel.",
+            hint: "Two separate ECONOMIC reasons. Think about what happens to demand for a product when foreign rivals are cheaper, when the things made from steel sell less, or when export markets are lost.",
+            starter: "One reason is competition from cheaper imports, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Fall in demand for the products that it produces</li>
+<li>Competition from cheaper imports</li>
+<li>Increase in demand for substitutes</li>
+<li>Decrease in demand for complements</li>
+<li>Loss of markets abroad (i.e. a fall in exports)</li>
+<li>Perception of poor quality UK steel</li>
+</ul>
+<p>1 mark for each valid answer up to a maximum of 2 marks. Any other reasonable answer to be credited.</p>
+</div>`,
+            modelAnswer: "1. Competition from cheaper imports — foreign steel producers can sell at lower prices, so buyers switch away from UK steel.\n\n2. A fall in demand for the products made from steel, such as cars and construction, means less steel is needed as a result."
+        },
+        {
+            num: "Q1(b)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-port-talbot",
+            question: "Calculate the average unemployment rate for Port Talbot between 2013 and 2015. Round to one decimal. Show your working.",
+            hint: "Use the Port Talbot row only — the three rates for 2013, 2014 and 2015. Add them and divide by 3.",
+            starter: "8.9% + 6.9% + 6.9% = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>8.9% + 6.9% + 6.9% = 22.7% → 22.7% ÷ 3 = 7.6%</strong></p>
+<ul>
+<li>1 mark for correct working.</li>
+<li>1 mark for correct answer.</li>
+<li>Correct answer on its own is worth 2 marks.</li>
+</ul>
+</div>`,
+            modelAnswer: "8.9% + 6.9% + 6.9% = 22.7%\n\n22.7% ÷ 3 = 7.6%"
+        },
+        {
+            num: "Q1(c)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-port-talbot",
+            question: "Analyse the likely effects of job losses on the town of Port Talbot.",
+            hint: "Chain it through the local economy: workers lose wages → they spend less in local shops and pubs → those businesses lose income → they lay off staff too → the town becomes 'depressed'. A second chain: falling property prices, out-migration, lower local tax revenue, more social problems.",
+            starter: "When steel workers lose their jobs their incomes fall, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The incomes of local businesses will fall (e.g. shops, pubs)</li>
+<li>This in turn may lead to further unemployment</li>
+<li>There are even less incomes and spending in the community and the area becomes 'depressed'</li>
+<li>There may be external migration</li>
+<li>Property prices are likely to fall</li>
+<li>Social problems may be more likely (e.g. increased crime rates)</li>
+<li>There may be lower investment by firms in the town</li>
+<li>Lower local tax revenues may reduce local government spending on services</li>
+<li>There may be benefits such as less negative externalities, e.g. congestion, pollution</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application to the scenario of Port Talbot; good analysis with developed chains of reasoning.</p>
+<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects.</p>
+<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis.</p>
+<p><strong>0 marks:</strong> No response or no response worthy of credit.</p>
+</div>`,
+            modelAnswer: "When Port Talbot's steel workers lose their jobs their incomes fall sharply, so they cut back on spending. Local businesses such as shops and pubs therefore take less revenue, and because their incomes fall they may lay off their own staff — creating further unemployment in the town. That means even less income and spending circulating locally, so the area becomes 'depressed' in a downward spiral.\n\nA second chain follows from that. As the town declines, people may migrate away to find work elsewhere and property prices are likely to fall. Firms see a shrinking local market so invest less, and lower local tax revenues reduce council spending on services. Social problems such as higher crime may also increase. One limited offset is fewer negative externalities — less congestion and pollution from the works."
+        },
+        {
+            num: "Q1d(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-port-talbot",
+            question: "State two types of unemployment.",
+            hint: "The four standard types: cyclical, frictional, seasonal, structural.",
+            starter: "1. ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Cyclical</li>
+<li>Frictional</li>
+<li>Seasonal</li>
+<li>Structural</li>
+</ul>
+<p>1 mark for each correct answer to a maximum of 2 marks. Any other reasonable answer to be credited.</p>
+</div>`,
+            modelAnswer: "1. Structural unemployment.\n\n2. Cyclical unemployment."
+        },
+        {
+            num: "Q1d(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-port-talbot",
+            question: "Explain what is meant by fiscal policy.",
+            hint: "Two marks, two elements: the government's TAXATION and its SPENDING, used to influence the economy. Name both.",
+            starter: "Fiscal policy is the government's use of...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Government revenue through taxation</li>
+<li>Government spending</li>
+<li>Used to influence the economy</li>
+</ul>
+<p>1 mark for government revenue through taxation. 1 mark for government spending.</p>
+</div>`,
+            modelAnswer: "Fiscal policy is the government's use of taxation to raise revenue and of government spending.\n\nBy changing these it can influence the level of demand and activity in the economy — for example spending more or taxing less to reduce unemployment."
+        },
+        {
+            num: "Q1d(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-port-talbot",
+            question: "Evaluate the costs and benefits of fiscal policy as a means of achieving lower unemployment.",
+            hint: "BOTH costs and benefits needed. Benefits: more government spending creates jobs; lower tax raises spending → demand → firms hire. Costs: borrowing and interest, budget deficit, inflation if near full employment, more imports. Then judge what it depends on — especially the TYPE of unemployment (fiscal policy fixes cyclical, not structural).",
+            starter: "One benefit is that increased government expenditure creates jobs, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Benefits may include:</strong></p>
+<ul>
+<li>Increased government expenditure creates jobs (e.g. spending more on education may provide more teaching jobs and incomes)</li>
+<li>Lower taxation increases the amount of money people can spend (e.g. if income tax is lowered, workers can consume more)</li>
+<li>Higher income leads to a rise in demand in the economy</li>
+<li>Firms increase output and may employ more workers to meet this demand</li>
+<li>These new workers in turn have more to spend</li>
+<li>Fiscal policy may benefit members of low income groups</li>
+<li>It may also have supply-side benefits (e.g. if taxes are reduced this gives greater incentives to work or invest)</li>
+</ul>
+<p><strong>Costs may include:</strong></p>
+<ul>
+<li>The government has to borrow to finance its spending and there is a cost in terms of interest which has to be paid</li>
+<li>It may lead to a budget deficit, which may mean higher taxes later</li>
+<li>If the policy increases demand it may also increase inflation, if general prices rise rather than output</li>
+<li>Inflation is more likely the nearer the economy gets to full employment</li>
+<li>The policy may also raise the demand for imports and increase the current account deficit</li>
+</ul>
+<p><strong>Evaluation may include:</strong> the effect depends on other economic variables such as growth and inflation; short, medium and long term effects are different; depends on the TYPE of unemployment; the overall effect is difficult to discern; difficult to isolate the effects of fiscal policy.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "One benefit is that increased government expenditure directly creates jobs — spending on schools or infrastructure in a town like Port Talbot employs teachers and construction workers, giving them incomes. Cutting income tax works too: workers keep more of their pay, so consumption rises, total demand increases, and firms expand output and hire more workers, who then spend more themselves.\n\nHowever, there are real costs. The government must borrow to fund the spending and pay interest on it, widening the budget deficit and possibly meaning higher taxes later. If the economy is already near full employment, the extra demand raises prices rather than output, causing inflation, and some of the extra spending leaks abroad into imports.\n\nOverall, whether the benefits outweigh the costs depends mainly on the TYPE of unemployment. Port Talbot's job losses are structural — caused by a permanent decline in steel — so simply boosting demand may not help workers whose skills no longer match available jobs; retraining would be needed. Fiscal policy works best against cyclical unemployment when there is spare capacity."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<img src="/images/economics/3-2-eu-unemployment-chart-extracted.png" alt="Line chart from the OCR exam paper titled 'EU Unemployment Rate (%) 2005-2014': about 9.0% in 2005, 8.2% in 2006, 7.2% in 2007, 7.0% in 2008, rising sharply to 9.0% in 2009, then 9.6% in 2010, 9.7% in 2011, 10.5% in 2012, a peak of 10.9% in 2013 and 10.2% in 2014" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "The graph shows that following the Financial Crisis in 2007/8 jobs were cut across the EU. According to the graph, the unemployment rate",
+            options: ["peaked in 2009", "rose most sharply between 2008 and 2009", "was higher at the beginning of the period than at the end", "was never less than 8 %"],
+            answer: 1,
+            hint: "Look for the STEEPEST climb between two consecutive years, then check each of the other statements against the chart.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — rose most sharply between 2008 and 2009</strong></p>
+<ul>
+<li>The rate jumps from about 7.0% to 9.0% — a 2-point rise, the steepest on the chart. It peaked in 2013 (≈10.9%), not 2009; it was LOWER at the start (9.0%) than the end (10.2%); and it fell to about 7.0% in 2008, so it was not always ≥8%.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q3",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which one of the following is most likely to reduce unemployment?",
+            options: ["Increased government expenditure", "Increased imports", "Increased interest rates", "Increased taxes"],
+            answer: 0,
+            hint: "Which option RAISES demand in the economy, so firms need more workers? The other three all reduce demand for UK output.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — Increased government expenditure</strong></p>
+<ul>
+<li>More government spending raises total demand, so firms produce more and hire more workers. Higher imports, interest rates and taxes all reduce demand for domestic output and tend to raise unemployment.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q4",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The claimant count:",
+            options: ["cannot be used to measure the rate of unemployment", "includes people receiving jobseeker's allowance", "measures the different causes of unemployment", "uses the CPI to measure the level of unemployment"],
+            answer: 1,
+            hint: "The claimant count counts people CLAIMING unemployment-related benefits. What benefit is that?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: B — includes people receiving jobseeker's allowance</strong></p>
+<ul>
+<li>The claimant count measures unemployment by counting those claiming JSA. The CPI measures inflation, not unemployment.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates identified the correct answer (B).</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q5",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "What is the most likely cause of structural unemployment?",
+            options: ["Different jobs are available in the summer", "High levels of occupational immobility", "Increased migration into the country", "The closure of some discount food stores"],
+            answer: 1,
+            hint: "Structural unemployment is about a MISMATCH between workers' skills and the jobs available. Which option describes workers unable to move between occupations?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: B — High levels of occupational immobility</strong></p>
+<ul>
+<li>Structural unemployment arises when an industry declines and workers' skills no longer match the vacancies — occupational immobility. Seasonal work (A) causes SEASONAL unemployment.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A relatively common misconception was candidates selecting answer 'D', rather than 'B'.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q6",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "What is NOT a cost of unemployment for individuals?",
+            options: ["Loss of self-esteem", "Lower standard of living", "Higher direct taxes", "Waste of labour resources"],
+            answer: 3,
+            hint: "Three of these are felt by a PERSON. One is a cost to the whole economy/society rather than to an individual.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: D — Waste of labour resources</strong></p>
+<ul>
+<li>Wasted labour is a cost to the ECONOMY as a whole, not to an individual. Loss of self-esteem, a lower standard of living and higher taxes are all borne by individuals.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>There was a wider spread of answers here, indicating that candidates may not have fully understood that the question was about finding the answer that impacted the whole of society/the economy, rather than the individual.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q7(a)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-uk-employment-and-unemployment",
+            question: "Using Extract 1, explain the trend in the UK unemployment rate between 2008 and 2011.",
+            hint: "State the trend (rising) for 1 mark — then you MUST explain WHY for the second. The financial crisis caused a recession: less demand → fewer vacancies → workers laid off. Describing without explaining is the flagged misconception.",
+            starter: "Unemployment was rising between 2008 and 2011, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Unemployment was rising [1] due to: [1]</li>
+<li>Decline in economic growth / a recession</li>
+<li>A lack of (total) demand, which led to fewer job opportunities / vacancies</li>
+<li>When unemployment rose, incomes fell, which led to total demand contracting further and so unemployment continued to rise</li>
+<li>The global financial crisis led to business and consumer confidence falling, so workers were being laid off</li>
+<li>A lack of investment (in manufacturing industries and services) / decline in manufacturing</li>
+</ul>
+<p>1 mark for stating that unemployment was rising. 1 additional mark for one of the bullet points.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments — Misconception</h5>
+<p>Although the vast majority of candidates correctly recognised that unemployment had increased over the period, many DESCRIBED the trend rather than EXPLAINING it. The question asks candidates to explain the trend, which means providing a reason.</p>
+</div>`,
+            modelAnswer: "Between 2008 and 2011 the UK unemployment rate was rising, climbing to a peak of about 8.1%.\n\nThis was because the global financial crisis caused a recession: total demand fell, so firms had fewer orders, cut back production and laid workers off, leaving fewer job vacancies."
+        },
+        {
+            num: "Q7(b)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-uk-employment-and-unemployment",
+            question: "Using Extract 1, calculate the unemployment rate in Northern Ireland. Show your working.",
+            hint: "Unemployment rate = unemployed ÷ economically active × 100. Read both figures off the Northern Ireland row. Don't forget the % sign.",
+            starter: "26 ÷ 877 × 100 = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answer: 2.96446522% OR 2.96%</strong></p>
+<ul>
+<li>2 marks for the correct answer (working not required).</li>
+<li>1 mark for correct working, but incorrect answer.</li>
+<li>1 mark only if the % sign is omitted.</li>
+</ul>
+<p><em>⚠️ Note: the long figure above is printed exactly as the mark scheme gives it, but it contains a typo — 26 ÷ 877 × 100 is actually <strong>2.9646522%</strong>. Either way, the answer you should write is <strong>2.96%</strong>.</em></p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates calculated the correct value (2.96%), but some omitted the % sign.</p>
+</div>`,
+            modelAnswer: "Unemployment rate = (unemployed ÷ economically active) × 100.\n\n26 ÷ 877 × 100 = 2.96%"
+        },
+        {
+            num: "Q7(c)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-uk-employment-and-unemployment",
+            question: "Using the information in Extract 1, analyse how the changes in the UK unemployment rate between 2011 and 2018 might have affected the government's budget.",
+            hint: "The budget = government spending vs tax revenue. Unemployment FELL from 8.1% to about 4% over this period. Build both chains: more people in work → more income tax/NI and more VAT from their spending; and fewer claimants → less spent on benefits. Conclude with the right term — a SMALLER DEFICIT, not a 'smaller budget'.",
+            starter: "The government's budget is the difference between its spending and its tax revenue. Between 2011 and 2018 unemployment fell, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Knowledge and understanding that:</strong></p>
+<ul>
+<li>The budget is calculated by the difference between government spending and tax revenue</li>
+<li>Unemployment occurs when output (GDP) falls</li>
+<li>The unemployment rate is the proportion of the workforce not working</li>
+</ul>
+<p><strong>Development may include:</strong> more people with wages means more revenue from direct taxes / income tax / national insurance; higher incomes mean consumer spending rises so indirect tax / VAT revenue rises; fewer people are eligible for unemployment-related benefits / JSA so government spending falls; overall a smaller budget deficit / larger surplus is likely.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates recognised that unemployment levels were falling and that this would result in higher tax incomes and lower expenditure on benefits, leading to a smaller deficit/surplus. However, some simply stated this was going to happen and did not fully analyse why.</p>
+</div>
+<div class="marks-section">
+<h5>Misconception</h5>
+<p>A reasonable number of candidates misunderstood the question and wrote about how the government ACHIEVED lower unemployment by expansionary fiscal policy. That was not what the question asked.</p>
+</div>
+<div class="marks-section">
+<h5>Assessment for learning</h5>
+<p>A significant number of candidates wrote about the government's budget becoming "bigger or smaller", rather than experiencing a smaller DEFICIT or moving to SURPLUS / nearer to balanced — which are the correct terms to use.</p>
+</div>`,
+            modelAnswer: "The government's budget is the difference between what it spends and the tax revenue it raises. Extract 1 shows unemployment falling from its 2011 peak of about 8.1% to roughly 4% by 2018, and this affects both sides of the budget.\n\nOn the revenue side, more people in work means more workers paying income tax and national insurance, so direct tax revenue rises. Because those workers now have wages, their consumer spending also increases, so the government collects more VAT and other indirect taxes too.\n\nOn the spending side, fewer people are unemployed, so fewer are eligible for unemployment-related benefits such as JSA, and government spending on benefits falls. With tax revenue rising and benefit spending falling at the same time, the government is likely to experience a smaller budget deficit, or move nearer to a balanced budget or into surplus."
+        },
+        {
+            num: "Q7d(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-uk-employment-and-unemployment",
+            question: "Explain what is meant by structural unemployment.",
+            hint: "Two elements needed: an industry/sector DECLINING, and the resulting MISMATCH between workers' skills and the vacancies available. Omitting the mismatch is the common error.",
+            starter: "Structural unemployment happens when an industry declines, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>An industry declining [1] leading to a mismatch between a worker's skills and job vacancies [1] (or vice versa)</li>
+</ul>
+<p><strong>Examples of further development:</strong> geographically immobile workers (cannot move to areas with more opportunities); lack of retraining opportunities; long-term unemployment.</p>
+<p>1 mark for stating a mismatch (or long-term unemployment) AND 1 mark for stating that an industry/sector has declined, OR 1 additional mark for one of the bullet points. Not due to recession or cyclical factors, so long term.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This was generally answered well, although several candidates omitted the MISMATCH of skills that makes structural unemployment so relevant.</p>
+</div>`,
+            modelAnswer: "Structural unemployment occurs when an industry or sector permanently declines, such as UK steel or coal mining.\n\nThe workers who lose their jobs are left with skills that no longer match the vacancies available, so this mismatch means they stay unemployed long-term unless they retrain."
+        },
+        {
+            num: "Q7d(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-uk-employment-and-unemployment",
+            question: "State two other types of unemployment.",
+            hint: "'Other' than structural — so pick from frictional, cyclical, seasonal, technological, voluntary, regional or real-wage.",
+            starter: "1. ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Frictional unemployment</li>
+<li>Cyclical unemployment</li>
+<li>Seasonal unemployment</li>
+<li>Technological unemployment</li>
+<li>Voluntary unemployment</li>
+<li>Regional</li>
+<li>Classical / real-wage</li>
+</ul>
+<p>1 mark for each correct answer up to a total of 2 marks. The terminology may be different, but if knowledge is evident the mark should be awarded.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This was generally answered very well.</p>
+</div>`,
+            modelAnswer: "1. Cyclical unemployment.\n\n2. Frictional unemployment."
+        },
+        {
+            num: "Q7d(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-uk-employment-and-unemployment",
+            question: "Evaluate the consequences of unemployment for producers in the North East of England. Use the information given in Extract 1 and your own knowledge.",
+            hint: "Answer for PRODUCERS, using the North East data (4.22% unemployment vs England's 3.63%; 25.2% economically inactive vs 21.2%). Costs: depressed local demand cuts revenue; retraining long-term unemployed raises costs. Benefits: surplus labour means lower wages and costs. WARNING: high unemployment means MORE workers available, not fewer — a real exemplar failed on that false logic. End with a judgement.",
+            starter: "One consequence for producers is a depressed local economy, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Reference to Extract 1 or context (AO2):</strong> the unemployment rate is higher in the North East than the national average (4.2% &gt; 3.6%); the economically inactive rate is higher than average (25.2% &gt; 21.2%); investment has been lacking; unemployment appears to be structural and long term; manufacturing industries have been declining; workers cannot move easily between regions.</p>
+<p><strong>For producers:</strong></p>
+<ul>
+<li>The presently unemployed will need additional training since their skill set has been lost while unemployed, which increases costs</li>
+<li>A depressed local economy means less demand for goods and services, which reduces revenue/profits</li>
+<li>The economically inactive rate is higher than average (showing many have become discouraged workers outside the workforce), which decreases productivity/output</li>
+</ul>
+<p><strong>But (likely benefits):</strong></p>
+<ul>
+<li>Since there is a relatively high rate of unemployment in the North East, the supply of labour is greater than its demand, so employers may benefit from lower wage rates and lower costs / higher profits</li>
+<li>Government support (training and infrastructure) could generate new opportunities in manufacturing and services and therefore reduce costs / increase profits</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates identified that there would potentially be cost advantages to producers in the North East and/or a fall in demand. Evaluative skills varied and are NOT demonstrated by writing an advantage/good point and then a disadvantage/bad point. Better answers effectively used the data in the case study to emphasise their points.</p>
+<p><strong>Exemplar 1:</strong> a significant number of candidates confused the implications of having higher unemployment with having FEWER workers available. That is evaluating a false logic, so it is not rewardable. Also worth noting is that there is no judgement/conclusion at the end of that answer.</p>
+</div>`,
+            modelAnswer: "One consequence for producers in the North East is weaker local demand. With unemployment at 4.22% — above England's 3.63% — and an economically inactive rate of 25.2% against 21.2%, many people have little income to spend, so the local economy is depressed and producers sell less, reducing their revenue and profits. Because the unemployment is structural and long term, workers' skills have decayed, so firms wanting to hire face extra retraining costs.\n\nHowever, there are offsetting benefits. Precisely because unemployment is high, the supply of labour exceeds demand for it, so employers can recruit at lower wage rates — cutting their costs and raising profits. Government support through training and better infrastructure, as the extract mentions, could also create new opportunities in manufacturing and services and lower firms' costs further.\n\nOverall the consequences are more negative than positive for North East producers, because the lost revenue from a depressed local market and the cost of retraining a long-term unemployed workforce are likely to outweigh the savings on wages — especially as firms selling nationally would not gain much from cheap local labour if demand for their product is falling anyway."
+        },
+        {
+            num: "Q8",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The claimant count measure of unemployment will include",
+            options: ["all individuals receiving jobseeker's allowance", "all individuals who are looking for a job", "all individuals without a job", "only individuals able to start work immediately"],
+            answer: 0,
+            hint: "The clue is in the name — it counts people CLAIMING a benefit, not everyone who is jobless or job-hunting.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: A — all individuals receiving jobseeker's allowance</strong></p>
+<ul>
+<li>The claimant count only counts those actually claiming JSA. Many people looking for work do not claim, and people without a job may not be seeking one — so B and C are wider than the claimant count.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates answered correctly, although a common misconception was B and C.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q9",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "What is most likely to cause frictional unemployment?",
+            options: ["A delay in workers being able to start new jobs", "A high level of occupational mobility", "A permanent decline in one sector of industry", "Fewer jobs are available in the winter"],
+            answer: 0,
+            hint: "Frictional unemployment is the short gap BETWEEN jobs. Which option describes a time lag?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — A delay in workers being able to start new jobs</strong></p>
+<ul>
+<li>Frictional unemployment is caused by time lags as workers move between jobs. A permanent decline in a sector (C) is STRUCTURAL; fewer winter jobs (D) is SEASONAL.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates correctly answered A.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q10",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "What may NOT be a cost of unemployment for a government?",
+            options: ["A budget deficit", "A decrease in revenue from VAT", "A higher level of crime", "A lower rate of inflation"],
+            answer: 3,
+            hint: "Three of these are problems for the government. One is something governments actually WANT.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: D — A lower rate of inflation</strong></p>
+<ul>
+<li>Lower inflation is a government OBJECTIVE, not a cost. A budget deficit, falling VAT revenue and higher crime are all genuine costs of unemployment to the government.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates correctly answered D.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q11",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>In 2022 a country's population was 52.5 million. 8.5 million were under the age of 18 and the workforce was 31.5 million.</p>`,
+            question: "What was the country's unemployment rate if 2.52 million people were unemployed in 2022?",
+            options: ["4.8%", "5.7%", "6.3%", "8.0%"],
+            answer: 3,
+            hint: "The unemployment rate uses the WORKFORCE as the denominator — not the population, and not the over-18s. Which figure is the workforce?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark · Quantitative skills</h5>
+<p><strong>Answer: D — 8.0%</strong></p>
+<ul>
+<li>Unemployment rate = unemployed ÷ workforce × 100 = 2.52m ÷ 31.5m × 100 = 8.0%. The 52.5m population and the 8.5m under-18s are distractors — the rate is always a share of the WORKFORCE.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates correctly answered D.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q12(a)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-the-uk-unemployment-rate-1997-2017",
+            question: "Explain, with reference to Extract 1, how economic growth may have influenced the change in unemployment between 2011 and 2017.",
+            hint: "Read the change off the chart first (8.1% down to 4.4% — a fall), then EXPLAIN the link: growth means more output, so firms need more workers, so unemployment falls. A bare 'growth meant less unemployment' only gets 1 mark.",
+            starter: "Between 2011 and 2017 unemployment fell from 8.1% to 4.4%. This is because economic growth means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Economic growth is an increase in output, so extra workers may be needed to produce the extra output, so unemployment falls.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Give 2 marks for a precise answer, as shown.</li>
+<li>Give 1 mark for a less precise answer where some understanding is shown and correctly linked to the fall in unemployment, e.g. a statement that more growth has meant less unemployment but without an explanation.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>The majority of candidates successfully interpreted the data as showing a fall in unemployment. Some candidates then went on to fully answer the question with an accompanying explanation of the link between economic growth and unemployment.</p>
+</div>`,
+            modelAnswer: "Between 2011 and 2017 the UK unemployment rate fell from its peak of 8.1% to 4.4%.\n\nEconomic growth is an increase in output, so to produce that extra output firms needed to take on extra workers. As more people were hired, unemployment fell."
+        },
+        {
+            num: "Q12(b)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-the-uk-unemployment-rate-1997-2017",
+            question: "Explain one type of unemployment.",
+            hint: "Name the type AND give its cause — both are needed for 2 marks. E.g. cyclical = caused by a lack of demand; structural = a permanent decline in an industry.",
+            starter: "Cyclical unemployment is caused by...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Cyclical unemployment is caused by a lack of demand</li>
+<li>Structural unemployment is caused by a permanent decline in an industry</li>
+<li>Frictional unemployment is caused by time lags when workers move between jobs</li>
+<li>Seasonal unemployment is caused by a fall in demand during a particular season</li>
+</ul>
+<p>Give 2 marks for an explanation of a type of unemployment that includes the type and shows understanding. Give 1 mark for some understanding, e.g. "workers are unemployed when a factory closes".</p>
+</div>`,
+            modelAnswer: "Cyclical unemployment is caused by a lack of total demand in the economy.\n\nDuring a recession consumers buy less, so firms cut back production and lay workers off — which is why UK unemployment rose to 8.1% after the financial crisis."
+        },
+        {
+            num: "Q12(c)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-the-uk-unemployment-rate-1997-2017",
+            question: "Analyse how the changes in the UK's unemployment rate, shown in Extract 1, would be likely to affect the government's budget.",
+            hint: "Use the DIRECTION of change from the chart (falling 1997–2005 and 2011–2017; rising most of 2005–2011). Run both chains — tax revenue (more workers → more income tax/NI → more spending → more VAT) and spending (fewer claimants → less on JSA) — then state the budget effect in the right terms: a smaller DEFICIT or larger SURPLUS.",
+            starter: "The budget is the difference between government spending and tax revenue. Extract 1 shows unemployment falling between 2011 and 2017, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The budget is calculated by the difference between government spending and tax revenue</li>
+<li><strong>Reference to changes in the extract:</strong> Extract 1 shows unemployment falling (e.g. 1997–2005, 2011–2017) and rising (e.g. most of the period 2005–2011)</li>
+</ul>
+<p><strong>Tax revenue reasoning may include:</strong></p>
+<ul>
+<li>More people with wages may mean more tax revenue from direct taxes / income tax / national insurance</li>
+<li>Higher incomes due to employment may mean consumer spending rises so tax revenue from indirect taxes / VAT rises</li>
+</ul>
+<p><strong>Government spending reasoning may include:</strong></p>
+<ul>
+<li>Fewer people need / are eligible for unemployment-related benefits / JSA, so government spending falls</li>
+</ul>
+<p><strong>An overall budget impact:</strong> with rising tax revenue and falling government spending, a smaller budget deficit / larger budget surplus is likely.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A key to this question was the requirement for candidates to use the DIRECTION of changes in unemployment. Most candidates identified that tax revenue and government spending were key to the government's budget. The best answers clearly reasoned both the impact on tax revenue AND government spending, and then went on to clearly show the effect on the government's budget.</p>
+</div>`,
+            modelAnswer: "The government's budget is the difference between its spending and its tax revenue. Extract 1 shows unemployment falling sharply between 2011 and 2017, from 8.1% to 4.4%.\n\nAs unemployment falls, more people are earning wages, so the government collects more direct tax revenue from income tax and national insurance. Those workers also have higher incomes to spend, so consumer spending rises and indirect tax revenue from VAT increases as well — pushing total revenue up on both counts.\n\nAt the same time, fewer people are eligible for unemployment-related benefits such as JSA, so government spending on benefits falls. With revenue rising and spending falling together, the government is likely to run a smaller budget deficit, moving nearer to balance or into surplus. The reverse applied between 2005 and 2011, when rising unemployment cut tax revenue and raised benefit spending, widening the deficit."
+        },
+        {
+            num: "Q12d(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-the-uk-unemployment-rate-1997-2017",
+            question: "State what is meant by 'the unemployment rate'.",
+            hint: "Use the technical term WORKFORCE, not 'population' — that precision is what earns the second mark. And it's a percentage.",
+            starter: "The unemployment rate is the percentage of...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The percentage of the country's workforce that is unemployed</li>
+</ul>
+<p>Give 2 marks for a clear explanation. Give 1 mark for some understanding of unemployment shown, e.g. a definition of the LEVEL of unemployment.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates answered this question well. Some candidates needed to use a technical term, such as WORKFORCE, rather than just population. Some also only used a definition of unemployment.</p>
+</div>`,
+            modelAnswer: "The unemployment rate is the percentage of a country's workforce that is unemployed.\n\nIt is calculated as the number of unemployed people divided by the total workforce, multiplied by 100 — so it is a proportion of those able and willing to work, not of the whole population."
+        },
+        {
+            num: "Q12d(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-the-uk-unemployment-rate-1997-2017",
+            question: "A country has a working population of 35 million and 2 million are unemployed. Calculate the unemployment rate. Show your working.",
+            hint: "Unemployed ÷ working population × 100. Include the % sign — omitting it costs a mark.",
+            starter: "2m ÷ 35m × 100 = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>2m ÷ 35m × 100 = 5.71%</strong></p>
+<ul>
+<li>Give 2 marks for the correct answer.</li>
+<li>Give 1 mark for correct workings but incorrect answer.</li>
+<li>Give 1 mark if the % sign is omitted.</li>
+<li>Correctly rounded answers are acceptable.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Candidates mostly showed understanding of this calculation. A simple technique tip would be to make sure they include a % sign in percentage answers.</p>
+</div>`,
+            modelAnswer: "Unemployment rate = (unemployed ÷ working population) × 100.\n\n2m ÷ 35m × 100 = 5.71%"
+        },
+        {
+            num: "Q12d(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-the-uk-unemployment-rate-1997-2017",
+            question: "*Evaluate the consequences of unemployment for individuals. Use the information given in Extract 1 and your own knowledge.",
+            hint: "The extract says the unemployed person's income falls significantly — start there. Consequences: lower living standards, loss of status/self-esteem and family problems; and for those still IN work, higher taxes and more stress. A few may retrain or start a business. Evaluate on what it DEPENDS: the level of benefits, and the TYPE of unemployment (frictional = brief; structural = long and damaging).",
+            starter: "One consequence is a lower standard of living, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li><strong>Lower living standards:</strong> unemployed individuals lose their wages so are less able to buy goods and services</li>
+<li><strong>Problems within families:</strong> unemployed individuals may suffer from loss of status and self-esteem that may lead to problems within families</li>
+<li><strong>Higher taxes:</strong> individuals still in work may have to pay higher taxes to cover increased government spending, e.g. on benefits such as JSA</li>
+<li><strong>More stress:</strong> individuals still in work may have greater workloads that may lead to stress</li>
+<li><strong>Lower living standards:</strong> the government may have to cut spending on services, e.g. health, to offset increased spending on unemployment benefits / reduced tax revenue</li>
+<li><strong>New jobs:</strong> some individuals may retrain in new skills that give them a different and/or more satisfying and/or better paid job in the future</li>
+<li><strong>More entrepreneurship:</strong> some individuals may be incentivised to use the opportunity of time to set up their own businesses</li>
+</ul>
+<p><strong>Evaluation may include:</strong> the extent to which individual living standards will fall depends upon the level of benefits that the government provides; the TYPE of unemployment — a frictionally unemployed individual can expect new employment soon, while a structurally unemployed individual may find it very difficult to find new work.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "The most direct consequence is a lower standard of living. As the extract says, an unemployed individual's income is likely to fall significantly, so they can afford far fewer goods and services. That loss of earnings is often accompanied by a loss of status and self-esteem, which can create real problems within families.\n\nThe consequences reach people still in work too. Higher unemployment means the government spends more on benefits such as JSA while collecting less tax, so those in work may face higher taxes, or see spending cut on services like health. Remaining workers may also carry heavier workloads, causing stress. Against this, a few individuals use the time to retrain into a more satisfying or better-paid job, or to start their own business.\n\nOverall the consequences are clearly negative for most individuals, but the extent depends on two things. It depends on how generous benefits are, since these cushion the fall in living standards. More importantly it depends on the TYPE of unemployment: someone frictionally unemployed between jobs will find work again quickly and suffer little, whereas someone structurally unemployed — like the steel workers whose industry has gone — may never regain similar work, making the consequences severe and long-lasting."
+        },
+        {
+            num: "Q13(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-the-pound-to-euro-exchange-rate-2008-2",
+            question: "State what is meant by 'imports'.",
+            hint: "Two elements for 2 marks: goods AND services bought from abroad, and the outflow of money in exchange. Saying only 'a good bought from another country' gets 1.",
+            starter: "Imports are goods and services...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Imports are goods and services bought from abroad / overseas / other countries</li>
+<li>There is an outflow of money in exchange for goods or services</li>
+</ul>
+<p>Give 2 marks for a precise definition. Give 1 mark for some understanding shown, e.g. "it is a good bought from another country" (services ignored in this case).</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Candidates mostly answered this question well, with a clear idea of an outflow of money and the inclusion of both goods and services.</p>
+</div>`,
+            modelAnswer: "Imports are goods and services bought from abroad by people and firms in this country.\n\nBuying them creates an outflow of money out of the UK in exchange for those goods and services."
+        },
+        {
+            num: "Q13(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-the-pound-to-euro-exchange-rate-2008-2",
+            question: "Explain how a rise in imports may affect employment in the UK.",
+            hint: "You need a clearly explained REASON linked to an employment change. Standard route: consumers buy fewer UK-made goods → fewer workers needed → employment falls. A valid alternative is MORE jobs handling imports (e.g. transport).",
+            starter: "If imports rise, fewer goods are bought from UK producers, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include — if there is a rise in imports:</strong></p>
+<ul>
+<li>Fewer goods might be bought from UK producers, so fewer workers are needed to make fewer UK goods</li>
+<li>There may be more jobs in the import sector, e.g. because more people are needed in transportation of the imports</li>
+<li>More workers may be needed to produce finished goods using imported inputs</li>
+</ul>
+<p>Give 2 marks for a correct explanation that includes the two elements. Give 1 mark for some understanding shown, e.g. "fewer products are made in the UK". To access the employment change mark, answers must have a clearly explained reason.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Full marks required a clearly explained reason for a correctly linked change in employment. Most candidates used the idea that fewer goods and services might now be bought from UK producers by UK consumers, so employment would fall as fewer UK workers would be required to make this reduced output. Successful alternative answers explained why employment might INCREASE, usually involving jobs in the UK connected with imports, such as their transportation.</p>
+</div>`,
+            modelAnswer: "If imports rise, UK consumers are buying more goods from abroad and therefore fewer goods from UK producers.\n\nBecause UK firms are making less output, they need fewer workers to produce it, so employment in the UK is likely to fall."
+        },
+        {
+            num: "Q13(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-3-the-pound-to-euro-exchange-rate-2008-2",
+            question: "*Evaluate whether the change in the exchange rate between 2015 and 2017 would benefit consumers in the UK. Use the information given in Extract 3 and your own knowledge.",
+            hint: "First identify the change: the pound FELL from 1.37 to 1.14 euros (23 cents in two years). A weaker pound makes imports dearer. Costs to consumers: imports cost more, purchasing power falls, foreign holidays dearer, imported inputs cause inflation. Benefits: UK goods more competitive → firms expand, gain economies of scale, hire more, so incomes rise. Then judge — does the fall get passed on fully?",
+            starter: "Between 2015 and 2017 the pound fell from 1.37 to 1.14 euros, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p>The exchange rate has fallen between 2015 and 2017 from 1.37 to 1.14 euros, leading to:</p>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li><strong>Fewer imported harmful goods:</strong> prices increase of imported goods with negative externalities, e.g. wine, so consumers buy less and have a healthier life</li>
+<li><strong>Lower prices for UK goods:</strong> UK producers will be more internationally competitive, so may expand and benefit from economies of scale, which enables lower prices for their goods for consumers</li>
+<li><strong>Consumers' incomes may rise:</strong> if UK producers become more internationally competitive, they may need more workers to make more output</li>
+</ul>
+<p><strong>Costs:</strong></p>
+<ul>
+<li><strong>Fall in standard of living:</strong> prices of imports rise so consumers cannot afford as much / the purchasing power of their incomes has fallen</li>
+<li>As the price of imported inputs rises, this could lead to further inflation / increased prices of UK goods, harming consumers</li>
+<li><strong>Fewer holidays abroad:</strong> prices of imported services will rise, e.g. tourism abroad, so UK consumers will be less able to afford foreign holidays, leading to lower quality of life</li>
+</ul>
+<p><strong>N.B.</strong> Answers may use either a 'Yes'/'No' approach for reasoning of benefits/costs that are then evaluated.</p>
+<p><strong>Evaluation may include:</strong> whether the fall (in this case 23 cents in two years) is passed on fully in prices.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "Between 2015 and 2017 the pound fell from 1.37 to 1.14 euros — a drop of 23 cents in two years. A weaker pound buys fewer euros, so European imports become more expensive for UK consumers. This is mainly a cost: the purchasing power of their incomes falls, so their standard of living drops, and imported services such as holidays in France or Spain become dearer, reducing their quality of life. Dearer imported inputs can also push up the price of UK-made goods, adding to inflation.\n\nThere are, however, some benefits. A weaker pound makes UK goods more internationally competitive, so UK producers may expand, gain economies of scale and charge consumers lower prices. Expanding firms also need more workers, so some consumers' incomes may rise. Dearer imports of harmful goods such as wine might even mean consumers buy less of them.\n\nOverall the fall is more likely to harm UK consumers than benefit them, because the immediate and certain effect is that everything imported costs more, while the competitiveness gains are indirect and take time to reach consumers. Much depends on whether the 23-cent fall is passed on fully in shop prices — if firms absorb some of it in their margins, consumers will feel less of the loss."
+        },
+        {
+            num: "Q14",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>Jane lives in a UK seaside holiday resort. When the resort is busy, she works selling ice creams on the seafront. The rest of the year she is unemployed.</p>`,
+            question: "This type of unemployment is",
+            options: ["cyclical", "frictional", "seasonal", "structural"],
+            answer: 2,
+            hint: "Her work depends on the time of year — the resort is only busy in summer.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: C — seasonal</strong></p>
+<ul>
+<li>Jane is out of work because demand for ice cream falls outside the holiday season — seasonal unemployment, caused by a fall in demand during a particular season.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q15",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The claimant count is a method of measuring",
+            options: ["distribution of income", "economic growth", "inflation", "unemployment"],
+            answer: 3,
+            hint: "Who are the 'claimants'? What are they claiming, and what does counting them tell you?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: D — unemployment</strong></p>
+<ul>
+<li>The claimant count measures unemployment by counting those claiming unemployment-related benefits. Inflation is measured by the CPI.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q16",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<img src="/images/economics/3-2-italy-uk-female-unemployment-extracted.png" alt="Line chart from the OCR exam paper titled 'Female Unemployment Rates (%) for the United Kingdom and Italy 2006-2019': Italy (dashed line) starts around 8.8% in 2006, dips slightly, then rises to a peak of about 13.5% around 2013-2014 before easing to about 10.5% by 2019; the United Kingdom (solid line) starts around 5%, peaks at about 7.5% around 2011-2012, then falls steadily to about 3.5% by 2019" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "The diagram shows the female unemployment rates in Italy and the UK. Which of the following statements MUST be true?",
+            options: ["Fewer females were unemployed in the UK in 2019 than in 2006", "More females were unemployed in Italy than in the UK between 2006 and 2019", "The UK's female unemployment rate is always higher than Italy's", "The UK's labour market for females has performed better than Italy's"],
+            answer: 3,
+            hint: "'MUST be true' — the chart shows RATES, not numbers of people, so anything about how MANY women were unemployed needs population data you don't have.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: D — The UK's labour market for females has performed better than Italy's</strong></p>
+<ul>
+<li>The UK's rate is below Italy's throughout and ends lower than it started, so its labour market clearly performed better. A and B talk about the NUMBER of women unemployed, which a rate chart cannot tell you without population data. C is the wrong way round — the UK's rate is always LOWER.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q17",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following would be classified as being unemployed?",
+            options: ["A father who chooses to stay at home to look after a child", "A full-time student who sometimes works in a café", "A pensioner who is looking for part-time work", "A young adult who has just left university without a job"],
+            answer: 3,
+            hint: "To be unemployed you must be of working age, WITHOUT work, and actively seeking it. Check each option against all three tests.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: D — A young adult who has just left university without a job</strong></p>
+<ul>
+<li>They are of working age, without work and seeking it. The stay-at-home father is economically inactive by choice, the student already has some work, and a pensioner is beyond working age — none is counted as unemployed.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q18",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>Dylan's job in the Welsh coalmine came to an end when the pit was closed.</p>`,
+            question: "The kind of unemployment he experienced was",
+            options: ["cyclical", "frictional", "seasonal", "structural"],
+            answer: 3,
+            hint: "The pit closed permanently — the industry itself has declined, leaving his mining skills mismatched to available jobs.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: D — structural</strong></p>
+<ul>
+<li>A permanent decline in an industry (coal mining) leaves workers whose skills no longer match the vacancies available — the definition of structural unemployment.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q19",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Rachel loses her job and receives unemployment benefit. As a result it is most likely that",
+            options: ["the claimant count measure of unemployment falls", "the claimant count measure of unemployment rises", "the claimant count measure of unemployment is unaffected", "the level of recorded national output will increase"],
+            answer: 1,
+            hint: "The claimant count counts people receiving unemployment benefit. Rachel has just started receiving it.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: B — the claimant count measure of unemployment rises</strong></p>
+<ul>
+<li>Rachel is now claiming unemployment benefit, so she is added to the claimant count and it rises. Losing a worker would reduce, not increase, national output.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q20",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 1: UK Public Sector Finances</strong></p>
+<p>The UK had a budget deficit in the period April to December 2018. During this time, the public sector borrowed £35.9 billion and central government spent £553.5 billion. Just below two-thirds of the money spent by the central government was spent on health, education and defence. Around one-third was spent on benefits, such as pensions, unemployment payments, child benefit and maternity pay. Since 2012, government spending on unemployment benefits has decreased every year.</p>
+<p>A large part of government spending goes to the National Health Service (NHS). Because health is considered to be a good with positive externalities, its provision through markets would not be ideal. However, since 2012 there has been a policy to encourage private companies to provide some NHS services in order to improve efficiency and innovation.</p>
+<p>Benefits and progressive income taxes are designed to reduce income inequalities, although there are some concerns that incentives might be negatively affected. The table below shows the tax rates for additional income falling within each band.</p>
+<p><strong>UK Progressive Income Tax Rates</strong></p>
+<table style="width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Band</th><th style="padding:6px;">Taxable income</th><th style="padding:6px;">Tax rate</th></tr>
+<tr><td style="padding:6px;">Personal Allowance</td><td style="padding:6px;">Up to £11 850</td><td style="padding:6px;">0%</td></tr>
+<tr><td style="padding:6px;">Basic rate</td><td style="padding:6px;">£11 851 to £46 350</td><td style="padding:6px;">20%</td></tr>
+<tr><td style="padding:6px;">Higher rate</td><td style="padding:6px;">£46 351 to £150 000</td><td style="padding:6px;">40%</td></tr>
+<tr><td style="padding:6px;">Additional rate</td><td style="padding:6px;">Over £150 000</td><td style="padding:6px;">45%</td></tr>
+</table>`,
+            question: "Explain why government spending on unemployment benefits has been falling.",
+            hint: "Give a reason AND develop it. Most obvious: fewer people are unemployed because the economy/GDP is growing. Other credited routes: more zero-hours/part-time work; stricter claiming rules; more people leaving the labour force (discouraged or retired as the population ages).",
+            starter: "Spending has fallen because the number of unemployed people has fallen, which is because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The number of strictly defined unemployed has fallen either because (a) the economy/output/GDP is growing, OR (b) there are more opportunities for working on zero hours contracts or in part time or irregular employment</li>
+<li>The claimant procedure has become stricter and thus payments per person have fallen</li>
+<li>There are more people who have left the labour force either because they are discouraged or because they have retired as the population is ageing</li>
+</ul>
+<p>1 mark for a valid reason + 1 mark for explanation/development.</p>
+</div>`,
+            modelAnswer: "Government spending on unemployment benefits has fallen because the number of people who are unemployed has fallen.\n\nThis is largely because the economy has been growing, so firms have needed more workers to produce the extra output — meaning fewer people are eligible to claim unemployment benefits such as JSA."
+        },
+        {
+            num: "Q21",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Unemployment as a result of a long-term change in technology is called",
+            options: ["cyclical unemployment", "frictional unemployment", "seasonal unemployment", "structural unemployment"],
+            answer: 3,
+            hint: "A long-term technological change permanently alters which skills are needed — leaving a mismatch.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: D — structural unemployment</strong></p>
+<ul>
+<li>Technology permanently changing an industry leaves workers' skills mismatched to the jobs available — structural unemployment. It is long-term, not a temporary gap or a seasonal dip.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q22",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>Plumrith has a population of 1000 of whom 800 people are in the labour force and 200 people are unemployed.</p>`,
+            question: "The unemployment rate is:",
+            options: ["20%", "25%", "60%", "80%"],
+            answer: 1,
+            hint: "Divide by the LABOUR FORCE, not the population. The 1000 is a distractor.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark · Quantitative skills</h5>
+<p><strong>Answer: B — 25%</strong></p>
+<ul>
+<li>200 ÷ 800 × 100 = 25%. Dividing by the population of 1000 gives 20% — the classic trap. The rate is always a share of the labour force.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q23",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "An increase in the level of unemployment benefit is most likely to",
+            options: ["increase labour market flexibility", "increase the quantity of labour supplied", "reduce the quantity of labour supplied", "stabilise the level of demand for goods and services"],
+            answer: 2,
+            hint: "If benefits rise, the gap between not working and working narrows. What does that do to the incentive to take a job?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: C — reduce the quantity of labour supplied</strong></p>
+<ul>
+<li>Higher benefits reduce the financial incentive to take a job, so fewer people offer themselves for work — the supply of labour falls.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q24",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following is the most likely cost to central government of a high level of unemployment?",
+            options: ["Encouraging the unemployed to move", "Higher taxes for those in work", "Increased spending on unemployment-related benefits", "Lower living standards for the workforce"],
+            answer: 2,
+            hint: "The question asks for a cost to CENTRAL GOVERNMENT — money it must pay out. Higher taxes and lower living standards are costs to individuals.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: C — Increased spending on unemployment-related benefits</strong></p>
+<ul>
+<li>More claimants means the government pays out more in benefits — a direct cost to its budget. Higher taxes and lower living standards fall on individuals, not the government.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q25",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>John chose to leave his job as a teacher and could not find another job for two months.</p>`,
+            question: "Which of these statements is true about John during the time he was out of work?",
+            options: ["He was included in the Claimant Count", "He was seasonally unemployed", "He was still part of the workforce", "He was structurally unemployed"],
+            answer: 2,
+            hint: "He is out of work but looking — so he is still able and willing to work. He CHOSE to leave and is between jobs, which is frictional, and we aren't told he claimed anything.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: C — He was still part of the workforce</strong></p>
+<ul>
+<li>John is available for and seeking work, so he remains in the workforce. His is frictional, not seasonal or structural, unemployment — and we are not told he claimed JSA, so A cannot be assumed.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q26",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Most coal mines in the UK have closed down. What type of unemployment has this caused?",
+            options: ["Cyclical", "Frictional", "Seasonal", "Structural"],
+            answer: 3,
+            hint: "The industry has permanently gone — miners' skills no longer match available vacancies.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: D — Structural</strong></p>
+<ul>
+<li>The permanent decline of the coal industry leaves miners with skills that do not match the jobs available — structural unemployment.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q27",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<table style="width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Country</th><th style="padding:6px;">Population</th><th style="padding:6px;">Workforce</th><th style="padding:6px;">Unemployed and claiming benefits</th></tr>
+<tr><td style="padding:6px;">Y</td><td style="padding:6px;">150000</td><td style="padding:6px;">100000</td><td style="padding:6px;">10000</td></tr>
+<tr><td style="padding:6px;">Z</td><td style="padding:6px;">250000</td><td style="padding:6px;">200000</td><td style="padding:6px;">20000</td></tr>
+</table>`,
+            question: "The table gives data for two countries. Which of the following statements about the claimant count measure of unemployment is correct?",
+            options: ["It cannot be calculated without further information", "It is higher in country Y than in country Z", "It is higher in country Z than in country Y", "It is the same in both countries"],
+            answer: 3,
+            hint: "Work out claimants ÷ workforce × 100 for each country. Z has twice the claimants but also twice the workforce.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark · Quantitative skills</h5>
+<p><strong>Answer: D — It is the same in both countries</strong></p>
+<ul>
+<li>Y: 10,000 ÷ 100,000 × 100 = 10%. Z: 20,000 ÷ 200,000 × 100 = 10%. Z has more claimants in absolute terms but the same RATE, because its workforce is twice as large.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

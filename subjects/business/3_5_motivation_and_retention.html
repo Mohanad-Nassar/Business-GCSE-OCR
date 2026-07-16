@@ -640,20 +640,20 @@ Bonus: 15% × £30,000 = £4,500<br>
   const mcqData = [
     {
       q: "A worker is paid £8 per hour for working a 35-hour week. On top of this, the worker is paid a bonus of 10% of their wage for the week. How much did the worker earn in total?",
-      opts: ["£280", "£282.80", "£308", "£420"],
+      opts: ["£280", "£420", "£308", "£282.80"],
       ans: 2,
       explain: "Correct answer: C — £308. Step 1: £8 × 35 = £280 basic wage. Step 2: 10% bonus = £28. Step 3: £280 + £28 = £308. Do not confuse the bonus with overtime — a 10% bonus is added on top of the full week's pay."
     },
     {
       q: "Which of the following is a financial method of motivating workers?",
-      opts: ["Award scheme", "Praise", "A good working environment", "Profit sharing"],
+      opts: ["A good working environment", "Award scheme", "Praise", "Profit sharing"],
       ans: 3,
       explain: "Correct answer: D — Profit sharing. Award schemes, praise, and a good working environment are all non-financial methods. Profit sharing directly involves paying workers a share of the business's money, making it a financial method."
     },
     {
       q: "Which of the following is a disadvantage of a method of motivating workers?",
-      opts: ["An increase in some of the costs of the business", "Increased retention of workers", "Increased productivity of staff", "A reduction in absenteeism"],
-      ans: 0,
+      opts: ["Increased retention of workers", "Increased productivity of staff", "An increase in some of the costs of the business", "A reduction in absenteeism"],
+      ans: 2,
       explain: "Correct answer: A — an increase in costs. Options B, C and D are all benefits of motivation. Increased costs (e.g. bonus payments, pay rises, fringe benefits) is the key disadvantage to the business of using financial motivation methods."
     },
     {
@@ -664,8 +664,8 @@ Bonus: 15% × £30,000 = £4,500<br>
     },
     {
       q: "What is a financial method of motivation that a restaurant manager may use?",
-      opts: ["An award scheme for the chefs to develop low cost meals", "Introduce profit sharing for the chefs", "Make staff pay for any glasses or plates they break", "Praise staff who suggest how the restaurant could save money"],
-      ans: 1,
+      opts: ["Make staff pay for any glasses or plates they break", "An award scheme for the chefs to develop low cost meals", "Introduce profit sharing for the chefs", "Praise staff who suggest how the restaurant could save money"],
+      ans: 2,
       explain: "Correct answer: B — profit sharing. This involves giving workers a share of the business's profits, which is a direct financial payment. A is an award scheme (non-financial). C is a penalty, not motivation. D is praise (non-financial)."
     },
     {
@@ -682,8 +682,8 @@ Bonus: 15% × £30,000 = £4,500<br>
     },
     {
       q: "A business has introduced a bonus scheme based on production targets. Which of the following statements would NOT be true?",
-      opts: ["The bonus scheme is a form of performance-related pay", "The bonus scheme will increase business costs", "Unrealistic targets may lead to lower levels of motivation", "Workers who do not reach the target will have their basic pay reduced"],
-      ans: 3,
+      opts: ["Workers who do not reach the target will have their basic pay reduced", "Unrealistic targets may lead to lower levels of motivation", "The bonus scheme will increase business costs", "The bonus scheme is a form of performance-related pay"],
+      ans: 0,
       explain: "Correct answer: D. A bonus scheme adds extra pay for reaching targets — it does NOT reduce basic pay for those who miss targets. A is true (bonuses are performance-related pay). B is true (bonuses add to costs). C is true (unrealistic targets can demotivate)."
     },
     {
@@ -694,7 +694,7 @@ Bonus: 15% × £30,000 = £4,500<br>
     },
     {
       q: "Which one of the following is NOT a benefit to a business of improving employee retention?",
-      opts: ["Cost saving", "Less time spent on recruitment", "Lower selling price", "Reduced need for training"],
+      opts: ["Less time spent on recruitment", "Cost saving", "Lower selling price", "Reduced need for training"],
       ans: 2,
       explain: "Correct answer: C — lower selling price. This is unrelated to employee retention. Retention reduces recruitment and training costs (A and D), and saves management time spent selecting new workers (B). A lower selling price is a pricing decision, not a retention benefit."
     },
@@ -859,7 +859,7 @@ Bonus: 15% × £30,000 = £4,500<br>
       correct: "Non-financial methods — praise, award schemes, and a positive working environment — can be equally or more effective. Research consistently shows that recognition from a manager can be the highest-ranked motivator. Non-financial methods also tend to produce longer-term benefits and cost the business far less.",
       readCheck: {
         q: "Can non-financial methods like praise be as effective as financial rewards for motivating workers?",
-        opts: ["No — only money motivates workers", "Yes — praise can be a top motivator", "Only for senior managers", "Only in small businesses"],
+        opts: ["Only for senior managers", "Yes — praise can be a top motivator", "No — only money motivates workers", "Only in small businesses"],
         ans: 1,
         explain: "Non-financial methods such as praise and recognition are consistently shown to be highly effective motivators, often producing longer-term benefits than one-off financial rewards, and at a much lower cost to the business."
       }
@@ -869,8 +869,8 @@ Bonus: 15% × £30,000 = £4,500<br>
       correct: "Different workers respond to different motivators based on their personality, life stage, and role. A one-size-fits-all approach is ineffective. Businesses should use a range of financial and non-financial methods to suit all employees.",
       readCheck: {
         q: "Why is a 'one-size-fits-all' approach to motivation often ineffective?",
-        opts: ["It is too expensive to implement", "Workers respond to different things", "It is illegal under employment law", "It only works for full-time staff"],
-        ans: 1,
+        opts: ["Workers respond to different things", "It only works for full-time staff", "It is too expensive to implement", "It is illegal under employment law"],
+        ans: 0,
         explain: "Workers are individuals with different needs and priorities — a company car might motivate one worker but mean nothing to another who doesn't drive. Businesses need a range of methods to motivate everyone effectively."
       }
     },
@@ -879,8 +879,8 @@ Bonus: 15% × £30,000 = £4,500<br>
       correct: "While high retention reduces costs and maintains experience, a modest level of turnover can be advantageous — new staff bring fresh ideas, skills and perspectives. The goal is optimal retention, not zero turnover.",
       readCheck: {
         q: "Is the goal of a business to achieve zero staff turnover?",
-        opts: ["Yes, zero turnover is always the ideal outcome", "No — optimal retention is the goal, not zero turnover", "Yes, but only for management positions", "No, businesses should aim for maximum turnover instead"],
-          ans: 1,
+        opts: ["Yes, zero turnover is always the ideal outcome", "Yes, but only for management positions", "No, businesses should aim for maximum turnover instead", "No — optimal retention is the goal, not zero turnover"],
+          ans: 3,
         explain: "While high retention has clear benefits, a small amount of turnover is healthy — new staff bring fresh perspectives and skills that an unchanging workforce might lack."
       }
     },
@@ -889,8 +889,8 @@ Bonus: 15% × £30,000 = £4,500<br>
       correct: "Bonuses only motivate if the targets are realistic. If targets are seen as unachievable, workers will give up rather than try harder — the bonus actually demotivates. Targets must be challenging but attainable.",
       readCheck: {
         q: "What happens if bonus targets are seen by workers as unachievable?",
-        opts: ["Workers always try even harder to reach them", "Workers give up trying, so the bonus demotivates", "The business must pay the bonus anyway", "Nothing changes in worker behaviour"],
-        ans: 1,
+        opts: ["The business must pay the bonus anyway", "Workers always try even harder to reach them", "Nothing changes in worker behaviour", "Workers give up trying, so the bonus demotivates"],
+        ans: 3,
         explain: "If targets feel impossible, workers lose the incentive to push for them — meaning an unrealistic bonus scheme can actually demotivate staff rather than encourage harder work."
       }
     },
@@ -899,8 +899,8 @@ Bonus: 15% × £30,000 = £4,500<br>
       correct: "Motivation has direct financial consequences: lower absenteeism reduces costs, higher productivity increases output, better quality reduces waste, and improved service grows customer loyalty — all of which improve profitability.",
       readCheck: {
         q: "How does worker motivation actually affect business profits?",
-        opts: ["It doesn't — motivation only affects employee happiness", "Through less absenteeism and higher output overall", "Only through reduced wage costs", "Motivation has no measurable business impact"],
-        ans: 1,
+        opts: ["Through less absenteeism and higher output overall", "It doesn't — motivation only affects employee happiness", "Only through reduced wage costs", "Motivation has no measurable business impact"],
+        ans: 0,
         explain: "Motivation has real financial consequences — it reduces costs (absenteeism, waste) and increases revenue (productivity, customer loyalty), directly affecting the bottom line, not just how workers feel."
       }
     },
@@ -909,7 +909,7 @@ Bonus: 15% × £30,000 = £4,500<br>
       correct: "Profit sharing can actually increase overall profits if it motivates workers to be more efficient and productive. Shareholders may benefit from a larger profit pot even after the workers' share has been distributed.",
       readCheck: {
         q: "Can profit sharing actually increase a business's overall profits?",
-        opts: ["No — sharing profits always reduces total profit", "Yes — efficiency gains can grow the total profit", "Only if the business has fewer than 10 employees", "Profit sharing has no effect on motivation at all"],
+        opts: ["Profit sharing has no effect on motivation at all", "Yes — efficiency gains can grow the total profit", "Only if the business has fewer than 10 employees", "No — sharing profits always reduces total profit"],
         ans: 1,
         explain: "If profit sharing motivates workers to be more productive and efficient, the total profit generated can grow — meaning shareholders may end up with a larger amount even after the workers' share is paid out, as seen in the Delta Airlines example."
       }
@@ -929,8 +929,8 @@ Bonus: 15% × £30,000 = £4,500<br>
       correct: "Fringe benefits are not universally valued. A company car is useless to someone who doesn't drive; childcare vouchers don't benefit workers without children. The right fringe benefit depends on the individual worker's needs and life circumstances.",
       readCheck: {
         q: "Why might a company car fail to motivate a particular worker?",
-        opts: ["Company cars are always too expensive for businesses to offer", "If the worker doesn't drive, the benefit is irrelevant to them", "Company cars are illegal as a fringe benefit", "All workers value a company car equally"],
-        ans: 1,
+        opts: ["Company cars are always too expensive for businesses to offer", "All workers value a company car equally", "If the worker doesn't drive, the benefit is irrelevant to them", "Company cars are illegal as a fringe benefit"],
+        ans: 2,
         explain: "Fringe benefits only motivate when they match a worker's actual needs and circumstances — a company car means nothing to someone who doesn't drive, just as childcare vouchers mean nothing to a worker without children."
       }
     },
@@ -939,8 +939,8 @@ Bonus: 15% × £30,000 = £4,500<br>
       correct: "Neither is automatically better. Salary provides stability and can motivate through promotion prospects. Wages with time-rate pay are simple but don't directly reward high performance. The best system depends on the type of job and what the business wants to incentivise.",
       readCheck: {
         q: "Is a salary always a better motivator than a wage?",
-        opts: ["Yes, salary is always more motivating", "No, the better choice depends on the job itself", "No, wages are always more motivating", "Salary and wages are identical in every way"],
-        ans: 1,
+        opts: ["Salary and wages are identical in every way", "No, wages are always more motivating", "Yes, salary is always more motivating", "No, the better choice depends on the job itself"],
+        ans: 3,
         explain: "Neither system is universally superior. Salary offers stability, while time-rate wages are simple to calculate but don't reward performance directly — the right choice depends on the role and business goals."
       }
     },
@@ -949,8 +949,8 @@ Bonus: 15% × £30,000 = £4,500<br>
       correct: "Praise is important at all levels — even highly paid professional footballers visibly respond to recognition from their managers. The desire to feel valued and appreciated is a universal human need, not limited by income level.",
       readCheck: {
         q: "According to the football case study, does praise only matter to low-paid workers?",
-        opts: ["Yes — high earners don't need recognition", "No — even top footballers respond to praise", "Praise only matters to part-time workers", "Praise has no effect on professional athletes"],
-        ans: 1,
+        opts: ["Yes — high earners don't need recognition", "Praise has no effect on professional athletes", "Praise only matters to part-time workers", "No — even top footballers respond to praise"],
+        ans: 3,
         explain: "The football example shows that even very highly paid professionals respond to genuine praise and recognition — the need to feel valued is universal and not limited to lower-income workers."
       }
     }

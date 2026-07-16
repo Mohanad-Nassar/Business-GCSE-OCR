@@ -47,7 +47,7 @@
 
         /* ── BACK BREADCRUMB ── */
         .breadcrumb-bar {
-            background: var(--ink);
+            background: var(--chrome, var(--ink));
             padding: 0 48px;
         }
 
@@ -83,7 +83,7 @@
         }
 
         .breadcrumb-current {
-            color: var(--paper);
+            color: var(--chrome-text, var(--paper));
             font-family: 'DM Mono', monospace;
             font-size: 11px;
             letter-spacing: 1.5px;
@@ -92,8 +92,8 @@
 
         /* ── HERO ── */
         .hero {
-            background: var(--ink);
-            color: var(--paper);
+            background: var(--chrome, var(--ink));
+            color: var(--chrome-text, var(--paper));
             padding: 44px 48px 48px;
             position: relative;
             overflow: hidden;
@@ -131,7 +131,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 220px;
             font-weight: 900;
-            color: var(--paper);
+            color: var(--chrome-text, var(--paper));
             opacity: .03;
             line-height: 1;
             user-select: none;
@@ -209,7 +209,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 28px;
             line-height: 1;
-            color: var(--paper);
+            color: var(--chrome-text, var(--paper));
         }
 
         .stat-label {

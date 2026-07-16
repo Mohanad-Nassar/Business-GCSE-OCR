@@ -304,8 +304,8 @@
 </ul>`,
             readCheck: {
                 q: "A clothing retailer starts selling its goods to consumers on the internet. To an economist, this is an example of...",
-                opts: ["A market", "The secondary sector", "Division of labour", "A planned economy"],
-                ans: 0,
+                opts: ["A planned economy", "A market", "The secondary sector", "Division of labour"],
+                ans: 1,
                 explain: "A market is anywhere buyers and sellers come together — including online. This is a real OCR exam question, and 'a market' was the answer."
             }
         },
@@ -347,7 +347,7 @@
 </ul>`,
             readCheck: {
                 q: "In which sector would a boat building firm be placed?",
-                opts: ["Primary", "Secondary", "Tertiary", "Free market"],
+                opts: ["Tertiary", "Secondary", "Free market", "Primary"],
                 ans: 1,
                 explain: "Building boats is manufacturing — turning raw materials into a finished good — so it's the secondary sector. (A real OCR exam question.)"
             }
@@ -424,8 +424,8 @@
 </ul>`,
             readCheck: {
                 q: "Two workers ask their employer if they can specialise instead of doing several different jobs. What is the DIRECT benefit for these workers?",
-                opts: ["It creates jobs", "Increased skill", "Less boredom", "Higher profits"],
-                ans: 1,
+                opts: ["Increased skill", "Less boredom", "It creates jobs", "Higher profits"],
+                ans: 0,
                 explain: "Doing one task repeatedly builds expertise — increased skill is the direct benefit to the workers themselves. (A real OCR exam question; specialised work usually means MORE boredom, not less.)"
             }
         }
@@ -434,62 +434,62 @@
     const mcqData = [
         {
             q: "Which of these is NOT a market?",
-            opts: ["An auction website", "A farmers' market", "A stock exchange", "A factory production line"],
-            ans: 3,
+            opts: ["A farmers' market", "A factory production line", "A stock exchange", "An auction website"],
+            ans: 1,
             explain: "A market needs buyers and sellers exchanging something. A production line makes goods — nothing is bought or sold there."
         },
         {
             q: "A fisherman catching fish at sea works in which sector?",
-            opts: ["Primary", "Secondary", "Tertiary", "Financial"],
-            ans: 0,
+            opts: ["Secondary", "Financial", "Primary", "Tertiary"],
+            ans: 2,
             explain: "Fishing extracts natural resources directly, so it's primary sector — the start of the chain of production."
         },
         {
             q: "A hairdresser works in which sector?",
-            opts: ["Primary", "Secondary", "Tertiary", "Manufacturing"],
-            ans: 2,
+            opts: ["Manufacturing", "Tertiary", "Secondary", "Primary"],
+            ans: 1,
             explain: "A haircut is a service (intangible), so hairdressing is tertiary sector."
         },
         {
             q: "Which of these is the best example of the difference between a good and a service?",
-            opts: ["A good is cheap, a service is expensive", "A good is tangible (you can touch it), a service is intangible", "A good is made abroad, a service is made in the UK", "A good is bought by firms, a service by consumers"],
-            ans: 1,
+            opts: ["A good is bought by firms, a service by consumers", "A good is made abroad, a service is made in the UK", "A good is tangible (you can touch it), a service is intangible", "A good is cheap, a service is expensive"],
+            ans: 2,
             explain: "Goods are physical things like cars and phones; services, like education or banking, cannot be touched."
         },
         {
             q: "Wages are set in which market?",
-            opts: ["The product market", "The factor market", "The stock market", "The currency market"],
-            ans: 1,
+            opts: ["The factor market", "The stock market", "The currency market", "The product market"],
+            ans: 0,
             explain: "Labour is a factor of production, so wages — the price of labour — are set in the factor market."
         },
         {
             q: "Demand for delivery drivers rises because more people are ordering takeaway food. This shows that demand for labour is...",
-            opts: ["Unlimited", "Derived from the demand for the product", "Set by the government", "Independent of the product market"],
-            ans: 1,
+            opts: ["Derived from the demand for the product", "Unlimited", "Independent of the product market", "Set by the government"],
+            ans: 0,
             explain: "Drivers aren't demanded for their own sake — the demand comes from (is derived from) demand for the takeaway food they deliver."
         },
         {
             q: "In the circular flow of income, households receive wages from firms and use them to...",
-            opts: ["Buy goods and services from firms", "Pay other households", "Supply raw materials", "Set the equilibrium price"],
+            opts: ["Buy goods and services from firms", "Set the equilibrium price", "Pay other households", "Supply raw materials"],
             ans: 0,
             explain: "Households spend their wages in the product market — and that spending gives firms the income to keep paying wages. That's the circular flow."
         },
         {
             q: "A car factory divides production so each worker does one task — one fits doors, another paints. This is called...",
-            opts: ["Exchange", "Derived demand", "Division of labour", "The price mechanism"],
+            opts: ["Exchange", "The price mechanism", "Division of labour", "Derived demand"],
             ans: 2,
             explain: "Dividing a process into separate tasks with each worker specialising in one part is the division of labour."
         },
         {
             q: "A region that specialises in one industry faces which main risk?",
-            opts: ["Its workers become too skilled", "If demand for that industry falls, unemployment rises across the whole area", "It cannot trade with other regions", "Prices in the region always rise"],
-            ans: 1,
+            opts: ["If demand for that industry falls, unemployment rises across the whole area", "It cannot trade with other regions", "Prices in the region always rise", "Its workers become too skilled"],
+            ans: 0,
             explain: "Specialised regions depend on one industry — when steel or shipbuilding declined, whole towns suffered high unemployment."
         },
         {
             q: "When there is excess supply in a free market, what happens to price and why?",
-            opts: ["It rises, because the product is scarce", "It falls, so that quantity demanded rises until it equals supply", "It stays the same, because the government fixes it", "It falls to zero"],
-            ans: 1,
+            opts: ["It falls, so that quantity demanded rises until it equals supply", "It stays the same, because the government fixes it", "It rises, because the product is scarce", "It falls to zero"],
+            ans: 0,
             explain: "Unsold stock pushes sellers to cut the price; as the price falls, demand rises and supply falls until the market returns to equilibrium."
         }
     ];
@@ -588,8 +588,8 @@
             correct: "The FACTOR market is where inputs (labour, raw materials, capital) are bought and sold. The PRIMARY sector is a type of production — extracting natural resources. A mining company operates in the primary sector, but when it hires miners it is buying labour in the factor market. This confusion comes straight from a real OCR mark scheme misconception box.",
             readCheck: {
                 q: "A supermarket (tertiary sector) hires ten new checkout assistants. Which market is the hiring happening in?",
-                opts: ["The primary sector", "The product market", "The factor market", "The tertiary market"],
-                ans: 2,
+                opts: ["The primary sector", "The product market", "The tertiary market", "The factor market"],
+                ans: 3,
                 explain: "Hiring workers is buying labour, so it happens in the factor market — even though the supermarket itself is a tertiary-sector business. Sector and market are different ideas."
             }
         },
@@ -598,8 +598,8 @@
             correct: "The question always names WHO the benefit is for — the workers, the firm, the region or the country — and answers about the wrong group score NOTHING. In one real exam, 'boredom in workers who only specialise in one trade' was given 0 marks on a question about the cost to the BUSINESS. The fix: chain it to the right group — \"workers get bored, SO more of them leave, SO the business pays higher recruitment and training costs.\"",
             readCheck: {
                 q: "A question asks for one cost TO A SMALL BUSINESS of specialisation by its workers. Which answer earns marks?",
-                opts: ["\"Workers get bored doing the same task\"", "\"Workers get bored, so more leave, and the business faces higher recruitment costs\"", "\"Workers become deskilled\"", "\"Workers may want more pay\""],
-                ans: 1,
+                opts: ["\"Workers become deskilled\"", "\"Workers get bored doing the same task\"", "\"Workers get bored, so more leave, and the business faces higher recruitment costs\"", "\"Workers may want more pay\""],
+                ans: 2,
                 explain: "Only the second answer lands the cost on the BUSINESS. The others stop at the effect on workers — that's the exact mistake that scored 0 in the real exam."
             }
         },
@@ -608,7 +608,7 @@
             correct: "A market is any way of bringing buyers and sellers together — a shop, an auction, a website, a catalogue, or a charity event in a village hall (a real OCR exam example). What makes it a market is the buying and selling, not the location.",
             readCheck: {
                 q: "A beekeeper sells honey at a charity event in the local village hall. The event is an example of...",
-                opts: ["A monopoly", "A market", "Primary sector activity", "A producer"],
+                opts: ["A monopoly", "A market", "A producer", "Primary sector activity"],
                 ans: 1,
                 explain: "Buyers and sellers came together to exchange goods — that's a market, wherever it happens. (A real OCR exam question.)"
             }
@@ -618,7 +618,7 @@
             correct: "Services ARE output. Goods are tangible and services are intangible, but both are products. A teacher's output is education — part of the tertiary sector, which is the biggest part of the UK economy. The real OCR distractor 'output is zero because no goods are produced' catches students who forget this.",
             readCheck: {
                 q: "Which sector does a nurse's output belong to?",
-                opts: ["None — services aren't output", "Primary", "Secondary", "Tertiary"],
+                opts: ["Secondary", "Primary", "None — services aren't output", "Tertiary"],
                 ans: 3,
                 explain: "Healthcare is a service, and services are real output in the tertiary sector."
             }
@@ -628,8 +628,8 @@
             correct: "Equilibrium is where quantity DEMANDED equals quantity SUPPLIED — not where price equals quantity. Level 0 answer: \"it's where price and quantity are equal\" (a real muddle examiners reported). Level 1 answer: \"where the supply and demand curves meet.\" Full-marks answer: \"where quantity supplied exactly matches quantity demanded, so there is no shortage or surplus and no pressure on the price to change.\"",
             readCheck: {
                 q: "What is true at the equilibrium price?",
-                opts: ["Price equals quantity", "Quantity demanded equals quantity supplied", "Supply is always rising", "Firms make no profit"],
-                ans: 1,
+                opts: ["Firms make no profit", "Price equals quantity", "Quantity demanded equals quantity supplied", "Supply is always rising"],
+                ans: 2,
                 explain: "At equilibrium the market clears: everything supplied is demanded, so there's no surplus or shortage and no pressure on price to change."
             }
         },
@@ -638,8 +638,8 @@
             correct: "A market is a single mechanism — one place/way that buyers and sellers of a particular product meet. A market ECONOMY is a whole system where most resources are allocated by market forces. The UK has thousands of individual markets, but as an economy it's mixed, not a pure market economy.",
             readCheck: {
                 q: "Which sentence uses the terms correctly?",
-                opts: ["\"The UK housing market is a mixed economy\"", "\"The market for coffee is one market operating within the UK's mixed economy\"", "\"Every market is an economy\"", "\"A market economy contains no markets\""],
-                ans: 1,
+                opts: ["\"A market economy contains no markets\"", "\"The UK housing market is a mixed economy\"", "\"Every market is an economy\"", "\"The market for coffee is one market operating within the UK's mixed economy\""],
+                ans: 3,
                 explain: "Individual markets (coffee, housing, labour) operate inside a whole economy. The economy is the system; a market is one mechanism within it."
             }
         }
@@ -666,7 +666,7 @@
 <p><strong>The fix:</strong> underline the group named in the question, then make sure your final clause lands on THAT group.</p>`,
             readCheck: {
                 q: "A question asks about the advantages of more production 'for Westumbria' (a region). Your answer is all about the businesses' higher profits. What happens?",
-                opts: ["Full marks — profits help everyone", "Some marks for effort", "Often no marks at all — the question asked about the region", "The examiner rewrites it for you"],
+                opts: ["The examiner rewrites it for you", "Some marks for effort", "Often no marks at all — the question asked about the region", "Full marks — profits help everyone"],
                 ans: 2,
                 explain: "Real examiner comment: 'responses that focused on the advantages to small businesses often were not given any marks at all.' The chain must end on the region — jobs, living standards, attracting firms to the area."
             }
@@ -694,8 +694,8 @@
 <p><strong>The extra trap in the housing question:</strong> it asks why demand growth causes a <strong>LARGE</strong> increase in price. Real candidates who ignored the word "large" couldn't reach the top level. The answer: supply of housing is INELASTIC (steep curve), so a demand shift moves price a lot and quantity only a little.</p>`,
             readCheck: {
                 q: "A 6-mark question says 'Using a diagram, analyse...'. You write a brilliant answer but draw no diagram. What's your maximum mark?",
-                opts: ["6 — the writing is what counts", "5", "4", "2"],
-                ans: 2,
+                opts: ["2", "5", "6 — the writing is what counts", "4"],
+                ans: 3,
                 explain: "The real mark scheme says 'a maximum of 4 marks if no correct diagram'. Always draw it, label it in context, and refer to it in your writing."
             }
         },
@@ -725,8 +725,8 @@
 </ul>`,
             readCheck: {
                 q: "Why did 'a market is where things are sold' score only 1 mark out of 2?",
-                opts: ["It's too short", "It only mentions sellers — a market needs buyers AND sellers", "Markets aren't about selling", "It needed a diagram"],
-                ans: 1,
+                opts: ["It's too short", "It needed a diagram", "It only mentions sellers — a market needs buyers AND sellers", "Markets aren't about selling"],
+                ans: 2,
                 explain: "A market brings together BOTH sides. The real examiner report says candidates lost the second mark by 'only referring to the selling side of the market and not to buying'."
             }
         },
@@ -757,8 +757,8 @@
 <p>Evaluating "in general" instead of within the question's specific requirement is what kept real candidates out of Level 3.</p>`,
             readCheck: {
                 q: "A question says 'Analyse the benefits of specialisation for Calwith Farmers'. Should you also write about the costs?",
-                opts: ["Yes — always give both sides", "No — costs were not relevant to this question, says the real examiner report", "Only in the conclusion", "Yes, but briefly"],
-                ans: 1,
+                opts: ["Yes, but briefly", "Only in the conclusion", "No — costs were not relevant to this question, says the real examiner report", "Yes — always give both sides"],
+                ans: 2,
                 explain: "Analyse questions want developed chains on what was asked — the real examiner report noted that candidates who considered the costs of specialisation were writing material 'not relevant to this question'."
             }
         }

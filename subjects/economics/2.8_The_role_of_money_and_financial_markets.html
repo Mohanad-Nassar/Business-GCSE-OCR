@@ -288,7 +288,7 @@
 </ul>`,
             readCheck: {
                 q: "Which is the best definition of money as a 'medium of exchange'?",
-                opts: ["Something that sets a standard of value accepted by all parties in a transaction", "Any notes and coins printed by the government", "A credit card used to pay in shops", "The total savings held in a bank account"],
+                opts: ["Something that sets a standard of value accepted by all parties in a transaction", "A credit card used to pay in shops", "The total savings held in a bank account", "Any notes and coins printed by the government"],
                 ans: 0,
                 explain: "The precise wording the exam wants: sets a standard of value AND is acceptable to all parties. Cards are not money; notes/coins are only examples."
             }
@@ -322,8 +322,8 @@
 </ul>`,
             readCheck: {
                 q: "What makes a building society different from a commercial bank?",
-                opts: ["It is a mutual, owned by its members rather than shareholders", "It is owned and run by the government", "It sets the country's base interest rate", "It is the only institution that offers loans"],
-                ans: 0,
+                opts: ["It is the only institution that offers loans", "It is owned and run by the government", "It is a mutual, owned by its members rather than shareholders", "It sets the country's base interest rate"],
+                ans: 2,
                 explain: "Building societies are mutuals owned by their members; commercial banks are owned by shareholders. Setting the base rate is the Bank of England's job."
             }
         },
@@ -354,8 +354,8 @@
 </ul>`,
             readCheck: {
                 q: "In an evaluate question, what earns the application (AO2) marks about the financial sector?",
-                opts: ["Matching a specific service to the particular business or consumer in the case", "Listing every service the financial sector provides", "Stating that the financial sector is always important", "Defining what a bank is"],
-                ans: 0,
+                opts: ["Stating that the financial sector is always important", "Defining what a bank is", "Listing every service the financial sector provides", "Matching a specific service to the particular business or consumer in the case"],
+                ans: 3,
                 explain: "Importance depends on context — a cash-only trader barely needs customer credit, while a car maker's buyers rely on it. Match the service to the case."
             }
         },
@@ -395,62 +395,62 @@
     const mcqData = [
         {
             q: "Money is best defined as...",
-            opts: ["Anything generally accepted as a means of payment for goods and services", "Only the notes and coins issued by the Royal Mint", "Any item that can be swapped in a barter deal", "The savings held by the Bank of England"],
-            ans: 0,
+            opts: ["The savings held by the Bank of England", "Anything generally accepted as a means of payment for goods and services", "Only the notes and coins issued by the Royal Mint", "Any item that can be swapped in a barter deal"],
+            ans: 1,
             explain: "Money is anything generally accepted as a means of payment — notes, coins and bank deposits. It is more than just cash, and barter is what money replaces."
         },
         {
             q: "Which of the following is NOT money itself?",
-            opts: ["A credit card", "A ten-pound note", "A one-pound coin", "Money in a current account"],
-            ans: 0,
+            opts: ["Money in a current account", "A credit card", "A one-pound coin", "A ten-pound note"],
+            ans: 1,
             explain: "A credit card just accesses money you can borrow or hold — it is not money itself. Notes, coins and bank deposits are money."
         },
         {
             q: "The problem with barter that money removes is the...",
-            opts: ["Double coincidence of wants", "Law of diminishing returns", "Free-rider problem", "Diseconomy of scale"],
-            ans: 0,
+            opts: ["Law of diminishing returns", "Diseconomy of scale", "Free-rider problem", "Double coincidence of wants"],
+            ans: 3,
             explain: "Barter needs each trader to want exactly what the other offers — the double coincidence of wants. Money lets exchange happen without that match."
         },
         {
             q: "Which of these is a function of the Bank of England?",
-            opts: ["Issuing banknotes and setting the bank rate", "Offering current accounts to the public", "Providing mortgages to first-time buyers", "Selling car insurance to households"],
-            ans: 0,
+            opts: ["Offering current accounts to the public", "Issuing banknotes and setting the bank rate", "Providing mortgages to first-time buyers", "Selling car insurance to households"],
+            ans: 1,
             explain: "The central bank issues notes and sets the bank rate. Accounts, mortgages and insurance come from commercial banks, building societies and insurers."
         },
         {
             q: "A building society differs from a commercial bank mainly because it is...",
-            opts: ["A mutual, owned by its members", "Owned by the government", "Not allowed to offer mortgages", "The bank that sets interest rates"],
-            ans: 0,
+            opts: ["Owned by the government", "The bank that sets interest rates", "A mutual, owned by its members", "Not allowed to offer mortgages"],
+            ans: 2,
             explain: "Building societies are mutuals owned by their members; commercial banks are owned by shareholders. Both can offer mortgages and savings."
         },
         {
             q: "A firm needs to borrow £100,000 for ten years. Which institution is it LEAST likely to use?",
-            opts: ["The central bank", "A commercial bank", "A building society", "An investment bank"],
-            ans: 0,
+            opts: ["A building society", "An investment bank", "A commercial bank", "The central bank"],
+            ans: 3,
             explain: "The central bank does not lend to ordinary firms — it is the bank for banks and government. Businesses borrow from commercial or investment banks."
         },
         {
             q: "If the rate of interest rises, the level of saving is most likely to...",
-            opts: ["Rise, because saving is more rewarding", "Fall, because saving is less rewarding", "Stay exactly the same", "Fall, because borrowing is cheaper"],
-            ans: 0,
+            opts: ["Fall, because saving is less rewarding", "Rise, because saving is more rewarding", "Fall, because borrowing is cheaper", "Stay exactly the same"],
+            ans: 1,
             explain: "A higher rate raises the reward for saving, so saving tends to rise while borrowing and investment fall."
         },
         {
             q: "A cut in interest rates is most likely to increase...",
-            opts: ["Borrowing and investment", "Saving and the reward for savers", "The cost of business loans", "The amount the government pays on its debt"],
-            ans: 0,
+            opts: ["Saving and the reward for savers", "The amount the government pays on its debt", "The cost of business loans", "Borrowing and investment"],
+            ans: 3,
             explain: "Cheaper borrowing encourages firms and households to borrow, invest and spend. The other options are effects of a RISE in rates."
         },
         {
             q: "A firm borrows £2,000 at 5% interest for one year. How much must it repay in total?",
-            opts: ["£2,100", "£100", "£2,005", "£2,500"],
+            opts: ["£2,100", "£2,500", "£100", "£2,005"],
             ans: 0,
             explain: "Interest = 5% of £2,000 = £100. Total repaid = £2,000 + £100 = £2,100. (£100 is only the interest.)"
         },
         {
             q: "Traditionally, the main service a building society provides is...",
-            opts: ["Mortgages so individuals can buy a house", "Loans to fund government spending", "Insurance against property damage", "Setting the country's base interest rate"],
-            ans: 0,
+            opts: ["Loans to fund government spending", "Insurance against property damage", "Setting the country's base interest rate", "Mortgages so individuals can buy a house"],
+            ans: 3,
             explain: "Building societies traditionally provide mortgages to help members buy homes, alongside savings products."
         }
     ];
@@ -548,8 +548,8 @@
             correct: "Money is anything GENERALLY ACCEPTED AS A MEANS OF PAYMENT for goods and services — that includes notes, coins AND money in bank accounts. Cheques, debit cards and credit cards are NOT money: they are just convenient ways of accessing money you already hold or can borrow. On the real paper, the 'best example of money' was a fifty-pound note, not a cheque, a credit card or a pay app. So money is broader than cash (bank deposits count) but narrower than 'anything you can pay with' (cards and cheques don't count).",
             readCheck: {
                 q: "Which is the best example of money?",
-                opts: ["A fifty-pound note", "A cheque", "A credit card", "A mobile phone pay app"],
-                ans: 0,
+                opts: ["A mobile phone pay app", "A fifty-pound note", "A credit card", "A cheque"],
+                ans: 1,
                 explain: "Cash is money itself. A cheque, card or app only transfers or accesses money held elsewhere, so none of them is money."
             }
         },
@@ -558,8 +558,8 @@
             correct: "That vague answer scores poorly. The mark scheme wants the precise definition: a medium of exchange sets a STANDARD OF VALUE (1) that is ACCEPTABLE TO ALL PARTIES (1) in a transaction. The examiner report said many candidates described the uses of money without naming these two attributes. Credit is also given for recognising that money avoids barter or the double coincidence of wants. Learn the two components — 'standard of value' and 'accepted by all parties' — not a loose 'used to buy things'.",
             readCheck: {
                 q: "For full marks, 'money as a medium of exchange' must be defined as something that sets a...",
-                opts: ["Standard of value accepted by all parties in a transaction", "Price that the government fixes for goods", "Cost that only the seller has to accept", "Value that changes with every purchase"],
-                ans: 0,
+                opts: ["Value that changes with every purchase", "Cost that only the seller has to accept", "Price that the government fixes for goods", "Standard of value accepted by all parties in a transaction"],
+                ans: 3,
                 explain: "The two attributes examiners want: sets a standard of value, and is acceptable to ALL parties. 'Used to buy things' alone is not enough."
             }
         },
@@ -568,8 +568,8 @@
             correct: "They are very different. The Bank of England is the CENTRAL bank: it issues banknotes, sets the bank rate, regulates the system and acts as the bank for other banks and the government. It does NOT run accounts for the public or lend to individual firms. So a company needing a £100,000 loan goes to a COMMERCIAL bank — it is the institution a firm is MOST UNLIKELY to use out of a list containing a bank, a building society, an insurer and the central bank. On the real paper, choosing the central bank for a business loan was the popular wrong answer.",
             readCheck: {
                 q: "A company will use several financial institutions. Which is it most UNLIKELY to use?",
-                opts: ["The central bank", "A commercial bank", "A building society", "An insurance company"],
-                ans: 0,
+                opts: ["A commercial bank", "An insurance company", "A building society", "The central bank"],
+                ans: 3,
                 explain: "The central bank serves banks and government, not ordinary firms. Companies use commercial banks, building societies and insurers."
             }
         },
@@ -578,8 +578,8 @@
             correct: "No — that is what a LOAN is for. An overdraft is a short-term cash-flow tool: it lets a business keep paying its costs (stock, rent, insurance) when income is temporarily low, then be repaid when money comes in. On Tom's baked-potato question the examiner report said most candidates wrongly used the overdraft to 'buy equipment and expand and pay it back later', which is not its function. And the answer must be in context — for Tom, whose demand varies a lot, an overdraft covers the quiet days.",
             readCheck: {
                 q: "Why is an overdraft useful for a trader like Tom, whose demand varies?",
-                opts: ["It covers costs on quiet days when income is temporarily low", "It funds buying a bigger van to expand", "It pays a guaranteed return like a savings account", "It replaces the need to ever take a loan"],
-                ans: 0,
+                opts: ["It funds buying a bigger van to expand", "It covers costs on quiet days when income is temporarily low", "It pays a guaranteed return like a savings account", "It replaces the need to ever take a loan"],
+                ans: 1,
                 explain: "An overdraft is a cash-flow lifeline for the quiet days, not a way to fund expansion — that is a loan's job."
             }
         },
@@ -588,8 +588,8 @@
             correct: "This is the single biggest calculation error on the topic. A percentage means DIVIDE BY 100: 0.2% = 0.002, so 0.2% of £6,000 = £12, not £1,200. Forgetting the ÷100 turned the real answer of £11.40 into a wildly wrong £1,140. Use estimation to check: 1% of £6,000 is £60, so 0.2% must be much SMALLER than that — around £12. If your working ever gives £1,200 from a sub-1% rate, you have dropped the percentage sign.",
             readCheck: {
                 q: "What is 0.2% of £6,000?",
-                opts: ["£12", "£120", "£1,200", "£60"],
-                ans: 0,
+                opts: ["£60", "£1,200", "£12", "£120"],
+                ans: 2,
                 explain: "0.2% = 0.002, and 0.002 × £6,000 = £12. Dropping the ÷100 is what produces the wrong £1,200."
             }
         }
@@ -608,8 +608,8 @@
 </ul>`,
             readCheck: {
                 q: "For 'state what is meant by money', which answer earns the marks?",
-                opts: ["Anything generally accepted as a means of payment for goods and services", "Any coins and banknotes you can hold", "Something you exchange for other goods", "A card used to pay in shops"],
-                ans: 0,
+                opts: ["Something you exchange for other goods", "Any coins and banknotes you can hold", "Anything generally accepted as a means of payment for goods and services", "A card used to pay in shops"],
+                ans: 2,
                 explain: "The mark scheme wants 'generally accepted means of payment'. Currency examples, 'exchange' wording, or cards were not credited."
             }
         },
@@ -627,8 +627,8 @@
 </ul>`,
             readCheck: {
                 q: "A £500,000 loan is charged 6% a year. What is the monthly interest?",
-                opts: ["£2,500", "£30,000", "£5,000", "£250"],
-                ans: 0,
+                opts: ["£30,000", "£5,000", "£250", "£2,500"],
+                ans: 3,
                 explain: "6% of £500,000 = £30,000 a year; ÷ 12 = £2,500 a month. Giving the yearly £30,000 or omitting the £ sign loses a mark."
             }
         },
@@ -645,8 +645,8 @@
 <p>Use the context — "the fall from 6% to 5% lets Letusprovide borrow its £10,000 more cheaply" beats a generic "borrowing is cheaper".</p>`,
             readCheck: {
                 q: "Why might a cut in interest rates FAIL to raise a firm's investment?",
-                opts: ["Firms may lack confidence or expect no rise in demand", "Borrowing automatically becomes more expensive", "Savers always start spending less", "The Bank of England blocks new loans"],
-                ans: 0,
+                opts: ["Savers always start spending less", "Borrowing automatically becomes more expensive", "The Bank of England blocks new loans", "Firms may lack confidence or expect no rise in demand"],
+                ans: 3,
                 explain: "Cheaper borrowing only boosts investment if firms also expect to sell more. Low confidence or flat expected demand can stop it working."
             }
         },
@@ -663,8 +663,8 @@
 </ul>`,
             readCheck: {
                 q: "A question asks about the financial sector's importance for The Music Shop's CONSUMERS. A strong answer focuses on...",
-                opts: ["How cards, credit and saving help consumers buy the goods", "How the shop repays its £500,000 loan", "The owners' profit margins", "The wages the shop pays its staff"],
-                ans: 0,
+                opts: ["The wages the shop pays its staff", "How the shop repays its £500,000 loan", "How cards, credit and saving help consumers buy the goods", "The owners' profit margins"],
+                ans: 2,
                 explain: "It is about the consumers, not the shop or its owners. Answers aimed at the wrong stakeholder scored no marks in the real report."
             }
         }

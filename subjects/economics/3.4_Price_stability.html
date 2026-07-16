@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Economics — Unit 3: Economic Objectives and the Role of Government</div>
             <h1>3.4 Price Stability</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -268,21 +268,1271 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>3.4 Price Stability</strong> will appear here soon.</p>`
+            title: "Inflation, price stability, and real vs nominal",
+            tag: "The definitions the exam actually rewards",
+            content: `<p><strong>Inflation is a sustained rise in the general level of prices over time.</strong> As prices rise, a given amount of money buys less — the <strong>purchasing power</strong> of money falls.</p>
+<h4>Price stability — learn the precise wording</h4>
+<ul>
+<li><strong>Price stability is when the general price level grows at a low rate</strong>, such as the UK government's target of <strong>2% per year</strong>. Two elements = 2 marks; "prices don't go up" scores 1.</li>
+<li>Careful: "inflation remains constant" is NOT price stability — inflation could be constant at 20% a year. This is a real MCQ distractor.</li>
+<li>Governments do NOT try to eliminate inflation entirely. A small amount is helpful, because it lets firms adjust their prices over time.</li>
+</ul>
+<h4>Real vs nominal — the distinction the whole topic runs on</h4>
+<ul>
+<li><strong>Nominal</strong> = the actual money figure, <strong>NOT adjusted for inflation</strong>.</li>
+<li><strong>Real</strong> = adjusted for inflation, showing what the money can actually buy.</li>
+<li><strong>Real income:</strong> a 2% pay rise with 4% inflation is a <strong>2% FALL in real income</strong> — prices rose faster than pay.</li>
+<li><strong>Real interest rate = nominal − inflation.</strong> 4% interest with 2% inflation gives a real return of 2%. It can go <strong>negative</strong>: 1.6% nominal with 2.6% inflation = <strong>−1%</strong>.</li>
+</ul>
+<h4>Who wins and who loses</h4>
+<ul>
+<li><strong>Debtors (borrowers) GAIN</strong> — inflation erodes the real value of both what they owe and the interest on it. Caveat: high inflation often brings higher interest rates, which can wipe out the gain for variable-rate mortgage holders.</li>
+<li><strong>Savers LOSE</strong> — the real value of their savings is eroded. Worst for those relying on savings with no new income, e.g. pensioners.</li>
+</ul>`,
+            readCheck: {
+                q: "A worker gets a 2% pay rise when inflation is 4%. What has happened to their real income?",
+                opts: ["It has fallen by about 2%", "It is unchanged", "It has risen by 6%", "It has risen by 2%"],
+                ans: 0,
+                explain: "Real income = nominal adjusted for inflation. Prices rose 4% but pay only 2%, so their money buys about 2% less — a fall in real income despite a nominal rise."
+            }
+        },
+        {
+            title: "Measuring inflation — the CPI",
+            tag: "A weighted basket, surveyed monthly",
+            content: `<p>The UK measures inflation with the <strong>Consumer Price Index (CPI)</strong> — get all three words right; "customer price index" is a real MCQ distractor.</p>
+<h4>How the CPI works</h4>
+<ul>
+<li>It tracks the changing cost of a representative <strong>"basket of goods and services"</strong> that a typical household buys.</li>
+<li>Prices are collected <strong>monthly</strong>, from a variety of store types across roughly <strong>140 UK locations</strong>, plus online and phone — so it reflects prices faced across the country.</li>
+<li>It uses a system of <strong>weighting</strong>, so items households spend more on count for more. Food and non-alcoholic beverages is by far the largest of the 24 categories.</li>
+<li>The basket <strong>changes over time</strong> to track what people actually buy. In 2022 it added meat-free sausages, canned pulses, sports bras and antibacterial wipes — and removed doughnuts, men's suits and coal.</li>
+</ul>
+<h4>What CPI does and does NOT include — all real MCQs</h4>
+<ul>
+<li>✅ Goods <strong>AND services</strong> — saying it "only measures goods" is false.</li>
+<li>✅ Things a household buys, e.g. children's clothes.</li>
+<li>❌ <strong>Exports</strong> — they are bought by foreigners, not UK consumers.</li>
+<li>❌ Government spending, and machinery bought by firms.</li>
+<li>❌ It is a representative BASKET, not "all goods and services in the UK".</li>
+</ul>
+<h4>Applying an inflation rate</h4>
+<ul>
+<li>Apply each year's rate <strong>one after the other</strong>, not added together. £45 with 4% then 5% inflation → £45 × 1.04 = £46.80, then £46.80 × 1.05 = <strong>£49.14</strong>. Adding 9% in one step gives £49.05 — the wrong answer.</li>
+</ul>`,
+            readCheck: {
+                q: "Which is included in the UK's CPI?",
+                opts: ["The price of a machine bought by a company", "The price of exports", "Government spending on education", "The price of children's clothes"],
+                ans: 3,
+                explain: "CPI tracks the basket bought by typical UK consumers. Exports go to foreigners; government spending and firms' capital machinery aren't household purchases."
+            }
+        },
+        {
+            title: "The causes of inflation",
+            tag: "Demand-pull, cost-push, and the wage-price spiral",
+            content: `<p>Two primary causes — you must be able to name and explain both.</p>
+<h4>1. Demand-pull inflation</h4>
+<ul>
+<li>Caused by <strong>excess demand</strong> that supply cannot rise to meet, so prices are bid up.</li>
+<li>More likely when the economy is near <strong>full employment</strong>, because firms cannot easily hire the extra workers needed to supply more.</li>
+<li>Triggers: a rise in C, I, G or (X−M); a fall in interest rates; an increase in the money supply or quantitative easing.</li>
+</ul>
+<h4>2. Cost-push inflation</h4>
+<ul>
+<li>Caused by <strong>rising costs</strong> for firms — raw materials, fuel, power — so they will not supply the same output at the old price.</li>
+<li>Example: the war in Ukraine sharply raised gas, oil and grain prices, and firms passed those costs on.</li>
+<li>Watch for the productivity version: a <strong>10% pay rise with only 6% productivity growth</strong> raises the labour cost of each unit → cost-push inflation.</li>
+</ul>
+<h4>The wage-price spiral — a ready-made analysis chain</h4>
+<ul>
+<li>1. General prices rise, so the cost of living increases → 2. Workers demand higher wages → 3. Firms pay more, so their costs rise → 4. Firms raise prices to cover those costs → 5. Back to step 1.</li>
+<li>Wages are typically a firm's biggest expense, so this vicious cycle can keep generating inflation unless it is brought under control.</li>
+</ul>`,
+            readCheck: {
+                q: "Workers get a 10% pay rise but productivity rises only 6%. The most likely result is...",
+                opts: ["An increase in cost-push inflation", "An increase in consumer debt", "A fall in consumer confidence", "A fall in government tax revenue"],
+                ans: 0,
+                explain: "Pay is rising faster than output per worker, so the labour cost of each unit produced rises. Firms pass that on as higher prices — cost-push inflation."
+            }
+        },
+        {
+            title: "The consequences of inflation",
+            tag: "Consumers, producers, savers and the government",
+            content: `<p>The spec asks you to evaluate consequences for <strong>consumers, producers, savers and the government</strong> — know each group separately, because questions name one.</p>
+<h4>For consumers</h4>
+<ul>
+<li><strong>Real incomes may fall</strong> — most workers get a below-inflation pay rise, so their standard of living drops.</li>
+<li><strong>The rich/poor gap WIDENS</strong> — high-skill workers in short supply can negotiate above-inflation rises; those on the minimum wage or benefits cannot.</li>
+<li><strong>Falling consumer confidence</strong> — uncertainty pushes people to save rather than spend and to delay big purchases.</li>
+<li><strong>Shoe leather costs</strong> — the time and effort spent shopping around comparing prices.</li>
+</ul>
+<h4>For producers</h4>
+<ul>
+<li><strong>Higher input costs → lower profits</strong> — the simplest and strongest chain.</li>
+<li><strong>Menu costs</strong> — repeatedly changing price lists, websites and shelf labels costs staff time and money.</li>
+<li><strong>Falling producer confidence</strong> — firms delay investment. Sellers of big-ticket items (cars, furniture) suffer most as consumers postpone.</li>
+<li><strong>Industrial conflict</strong> — pay disputes lead to strikes; UK inflation drove the most strikes since the 1970s.</li>
+</ul>
+<h4>For the government — genuinely mixed</h4>
+<ul>
+<li><strong>Gains:</strong> as a net debtor, inflation cuts the real value of its debt; and tax revenue rises automatically, since VAT and income tax are percentages of prices and wages.</li>
+<li><strong>Costs:</strong> higher public sector pay (it employs over 3.5 million people); index-linked benefits and the state pension's triple lock; and instability that dries up growth.</li>
+</ul>
+<p><strong>The key evaluation lever:</strong> inflation is bad for most people but <strong>worse for some than others</strong>, and it depends on the SIZE of the rate, whether it is positive or negative, and how LONG it lasts.</p>`,
+            readCheck: {
+                q: "Why does high inflation tend to widen the gap between rich and poor?",
+                opts: ["Inflation only affects savings", "Rich people pay more tax", "High-skill workers can negotiate above-inflation pay rises; those on benefits cannot", "Prices rise faster for luxuries"],
+                ans: 2,
+                explain: "Workers whose skills are in high demand and short supply can bargain for above-inflation rises. Minimum-wage workers and benefit claimants have no such power, so their real incomes fall further."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Inflation is best defined as...",
+            opts: ["An increase in the money supply", "A fall in the value of exports", "A sustained rise in the general level of prices over time", "A rise in the price of one good"],
+            ans: 2,
+            explain: "Inflation is a sustained rise in the GENERAL price level, which means the purchasing power of money falls. A single good's price rising is not inflation."
+        },
+        {
+            q: "A nominal value is one which...",
+            opts: ["Has not been adjusted for inflation", "Has not been adjusted for taxation", "Has been adjusted for taxation", "Has been adjusted for inflation"],
+            ans: 0,
+            explain: "Nominal = the raw money figure. REAL is the one adjusted for inflation to show purchasing power."
+        },
+        {
+            q: "Which is the best definition of price stability?",
+            opts: ["Prices never change at all", "Inflation remains constant", "A sustained rise in the general price level", "Prices increase at an acceptable low rate"],
+            ans: 3,
+            explain: "Price stability means low, predictable price rises around the 2% target. 'Inflation remains constant' is wrong — it could be constant at 20%, which is not stable prices."
+        },
+        {
+            q: "Nominal interest is 4% and inflation is 2%. The real interest rate is...",
+            opts: ["6%", "4%", "-2%", "2%"],
+            ans: 3,
+            explain: "Real = nominal − inflation = 4 − 2 = 2%. Your savings only grow 2% in terms of what they can actually buy."
+        },
+        {
+            q: "Inflation is 2.6% and the nominal interest rate on debt is 1.6%. The real interest rate is...",
+            opts: ["4.2%", "1%", "-1%", "-4.2%"],
+            ans: 2,
+            explain: "1.6 − 2.6 = −1%. A NEGATIVE real rate means inflation erodes the debt faster than interest accrues — good news for the borrower."
+        },
+        {
+            q: "Which statement about the CPI is NOT correct?",
+            opts: ["It only measures the price of goods", "It uses a system of weighting", "It measures what an average family spends money on", "It is measured every month"],
+            ans: 0,
+            explain: "CPI covers goods AND services. The other three statements are all true of the CPI."
+        },
+        {
+            q: "A £45 monthly contract faces 4% inflation in year one and 5% in year two. Its price at the end is...",
+            opts: ["£47.25", "£49.14", "£46.80", "£49.05"],
+            ans: 1,
+            explain: "Apply each rate in turn: £45 × 1.04 = £46.80, then £46.80 × 1.05 = £49.14. Adding 9% in one step gives £49.05 — the trap."
+        },
+        {
+            q: "If the rate of inflation is decreasing but still positive, the price level will...",
+            opts: ["Rise", "Fall", "Become negative", "Stay the same"],
+            ans: 0,
+            explain: "A positive rate means prices are still rising — just more slowly than before. Only a NEGATIVE rate makes the price level fall."
+        },
+        {
+            q: "Which is a consequence of inflation for PRODUCERS?",
+            opts: ["An increase in menu costs", "Real incomes may fall", "An increase in shoe leather costs", "An increase in the purchasing power of money"],
+            ans: 0,
+            explain: "Menu costs — repeatedly changing price lists — fall on producers. Shoe leather costs and falling real incomes hit consumers, and inflation REDUCES purchasing power."
+        },
+        {
+            q: "Under which circumstances would it be best to be a lender?",
+            opts: ["Nominal interest 7%, inflation 4%", "Nominal interest 0%, inflation 0%", "Nominal interest 2%, inflation 5%", "Nominal interest 5%, inflation 1%"],
+            ans: 3,
+            explain: "A lender wants the highest REAL return: 5 − 1 = +4%, beating 7 − 4 = +3%. The higher nominal rate is not the better deal — the trap."
+        }
+    ];
+
+    const matchData = [
+        { term: "Inflation", def: "A sustained rise in the general level of prices over time" },
+        { term: "Price stability", def: "The general price level growing at a low rate, e.g. the 2% target" },
+        { term: "Deflation", def: "A negative inflation rate — the general price level actually falls" },
+        { term: "Purchasing power", def: "How much a given amount of money can actually buy" },
+        { term: "Nominal value", def: "The raw money figure, not adjusted for inflation" },
+        { term: "Real value", def: "A figure adjusted for inflation, showing what it can buy" },
+        { term: "CPI", def: "Consumer Price Index — tracks a weighted basket of goods and services" },
+        { term: "Demand-pull inflation", def: "Excess demand that supply cannot rise to meet bids prices up" },
+        { term: "Cost-push inflation", def: "Rising costs of production are passed on as higher prices" },
+        { term: "Wage-price spiral", def: "Prices rise, wages rise to match, costs rise, prices rise again" },
+        { term: "Menu costs", def: "The cost to producers of repeatedly changing price lists" },
+        { term: "Shoe leather costs", def: "The time and effort spent shopping around comparing prices" },
+        { term: "Real interest rate", def: "The nominal interest rate minus the rate of inflation" }
+    ];
+
+    const fibData = [
+        {
+            display: "Inflation is a sustained rise in the ___B1___ price level, which means the ___B2___ power of money falls.",
+            blanks: { B1: "general", B2: "purchasing" }
+        },
+        {
+            display: "A ___B1___ value has not been adjusted for inflation, while a ___B2___ value has.",
+            blanks: { B1: "nominal", B2: "real" }
+        },
+        {
+            display: "Inflation is measured by the Consumer Price ___B1___, which surveys a weighted ___B2___ of goods and services.",
+            blanks: { B1: "Index", B2: "basket" }
+        },
+        {
+            display: "___B1___-pull inflation comes from excess demand, while ___B2___-push inflation comes from rising costs of production.",
+            blanks: { B1: "Demand", B2: "cost" }
+        },
+        {
+            display: "The real interest rate equals the nominal rate ___B1___ the rate of inflation, so 1.6% with 2.6% inflation gives ___B2___%.",
+            blanks: { B1: "minus", B2: "-1" }
+        },
+        {
+            display: "If the inflation rate is falling but still positive, prices are still ___B1___ — only a ___B2___ rate makes the price level fall.",
+            blanks: { B1: "rising", B2: "negative" }
+        }
+    ];
+    const fibWords = ["general", "purchasing", "nominal", "real", "Index", "basket", "Demand", "cost", "minus", "-1", "rising", "negative", "stability", "weighting"];
+
+    const tfData = [
+        {
+            statement: "If the inflation rate falls from 8% to 0.3%, prices have fallen.",
+            answer: false,
+            explanation: "0.3% is still POSITIVE, so prices are still rising — just far more slowly. Only a negative rate means the price level actually falls."
+        },
+        {
+            statement: "'Inflation remains constant' is a good definition of price stability.",
+            answer: false,
+            explanation: "Inflation could be constant at 20% a year, which is not stable prices at all. Price stability means prices rise at an acceptably LOW rate, around the 2% target."
+        },
+        {
+            statement: "The CPI includes the prices of exports.",
+            answer: false,
+            explanation: "CPI tracks what UK CONSUMERS buy. Exports are bought by foreigners, so they're excluded — as are government spending and firms' machinery."
+        },
+        {
+            statement: "Inflation benefits debtors and harms savers.",
+            answer: true,
+            explanation: "Inflation erodes the real value of what borrowers owe, but also erodes the real value of savings. The caveat: high inflation often brings higher interest rates, which can wipe out the borrower's gain."
+        },
+        {
+            statement: "Governments try to reduce inflation to zero.",
+            answer: false,
+            explanation: "They target about 2%, not zero. A small amount of inflation is helpful because it lets firms adjust prices — and zero inflation usually means the economy isn't growing."
+        },
+        {
+            statement: "A 3% pay rise when inflation is 5% means real income has fallen.",
+            answer: true,
+            explanation: "Prices rose faster than pay, so the money buys less than before. Nominal income rose but REAL income fell by about 2%."
+        },
+        {
+            statement: "Menu costs are a consequence of inflation for consumers.",
+            answer: false,
+            explanation: "Menu costs fall on PRODUCERS, who must keep reprinting price lists and relabelling shelves. Shoe leather costs are the consumer equivalent."
+        },
+        {
+            statement: "Inflation is entirely bad for the government.",
+            answer: false,
+            explanation: "It's mixed. The government gains as a net debtor (inflation cuts the real value of its debt) and collects more VAT and income tax — but pays more on public sector wages and index-linked benefits."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "\"Inflation fell from 8.1% to 0.3%, so prices went down.\"",
+            correct: "This is the single most-tested trap in 3.4, and it appears in at least four separate questions. A FALLING inflation rate that is still POSITIVE means prices are still RISING — just more slowly. Prices only fall when the rate goes NEGATIVE. On the real paper, only Countries T (−0.5%) and Z (−0.1%) saw the price level decrease; Country W's fall from 8.1% to 0.3% still meant rising prices. The same applies to Q13(a): between August 2013 and February 2015 UK inflation fell towards 0.2%, but the price LEVEL rose the whole time — it just rose at a decreasing rate. The examiners noted candidates 'did not understand the difference between price level and inflation' or answered by describing only the changes in inflation.",
+            readCheck: {
+                q: "A country's inflation falls from 8.1% to 0.3%. What happened to its price level?",
+                opts: ["It fell sharply", "It became negative", "It stayed exactly the same", "It rose, but much more slowly"],
+                ans: 3,
+                explain: "0.3% is positive, so prices still rose — just far more slowly. A falling RATE is not falling PRICES. Only a negative rate means the level falls."
+            }
+        },
+        {
+            wrong: "\"The chart shows Chile's inflation was lowest in 2009, so prices were lowest in 2009 too.\"",
+            correct: "These are two different things, and the examiners reported candidates 'were unsure about the difference between price level and inflation rate'. Because Chile's inflation rate is POSITIVE in every year on the chart, prices ROSE every single year — so the price LEVEL was lowest at the very START of the period, in 2006. The CPI rate bottomed out separately, in 2009, when it dipped to about 0.4%. So the answers are: prices lowest = 2006; CPI lowest = 2009. The test: if the rate never goes below zero, the level only ever goes up, so the lowest level is always the first year shown.",
+            readCheck: {
+                q: "Chile's inflation is positive every year from 2006–2019, bottoming at 0.4% in 2009. Prices were at their LOWEST level in...",
+                opts: ["2009", "2019", "2014", "2006"],
+                ans: 3,
+                explain: "Positive inflation every year means prices rose every year, so the LEVEL is lowest at the start (2006). 2009 is only where the RATE was lowest."
+            }
+        },
+        {
+            wrong: "\"£45 with 4% then 5% inflation is £45 plus 9% = £49.05.\"",
+            correct: "You cannot add the rates. Each year's inflation applies to the ALREADY-INFLATED price, so you must apply them one after the other. £45 × 1.04 = £46.80 (end of year one), then £46.80 × 1.05 = £49.14 (end of year two). The examiners spelled this out: it 'required candidates completing two steps of calculation'. The difference looks small here (£49.14 vs £49.05) but the method matters — and £49.05 is deliberately offered as option C to catch anyone who adds. The same logic applies to any compounding: rates multiply, they don't add.",
+            readCheck: {
+                q: "£45 faces 4% inflation then 5% inflation. The correct answer is...",
+                opts: ["£47.25 — apply 5% only", "£49.05 — add 9% to £45", "£49.14 — apply 4% then 5% to the new figure", "£46.80 — apply 4% only"],
+                ans: 2,
+                explain: "Inflation compounds: £45 × 1.04 = £46.80, then × 1.05 = £49.14. The second year's 5% applies to £46.80, not to the original £45."
+            }
+        },
+        {
+            wrong: "\"Price stability means inflation stays constant.\"",
+            correct: "The examiners flagged 'C' (inflation remains constant) as a common misconception on this exact MCQ, and explained why it's wrong: inflation could be CONSTANT at a very high rate — say 20% every year — and that is obviously not stable prices. Price stability means the general price level grows at an ACCEPTABLY LOW rate, such as the UK government's 2% target. A second version of the same error confuses price stability with EQUALITY (a fair distribution of income), which is a completely different macroeconomic objective. And note the third trap: price stability does NOT mean zero inflation — governments deliberately target about 2%, because a little inflation helps firms adjust prices.",
+            readCheck: {
+                q: "Why is 'inflation remains constant' a poor definition of price stability?",
+                opts: ["Inflation is never constant", "Constant inflation means prices fall", "It is the definition of deflation", "Inflation could be constant at a very high rate, e.g. 20%"],
+                ans: 3,
+                explain: "The examiners' own explanation: constant inflation at a high rate is not stable prices. Stability means a LOW rate, around the 2% target."
+            }
+        },
+        {
+            wrong: "\"Inflation is bad for the government — end of story.\"",
+            correct: "The consequences for government are genuinely MIXED, and the mark scheme rewards both sides. Costs: more spending on index-linked pensions and universal credit, more on public sector wages (it employs over 3.5 million people), and more strikes if it can't agree pay rises. But the gains are real: as a net debtor, inflation cuts the REAL value of the government's debt — the extract itself says it is persistently NEGATIVE inflation that would raise the real value of debt above nominal. Chile's government paid a real interest rate of −1% in 2019, meaning inflation shrank the debt faster than interest accrued. Tax revenue also rises automatically, since VAT and income tax are percentages of prices and wages. Evaluate on how HIGH inflation is, whether it's positive or negative, and how LONG it lasts.",
+            readCheck: {
+                q: "Which is a genuine BENEFIT of inflation for a government?",
+                opts: ["Strikes become more likely", "The real value of its debt falls", "Public sector workers demand higher pay", "It spends more on index-linked pensions"],
+                ans: 1,
+                explain: "As a net debtor, the government gains: inflation erodes the real value of its debt, and tax revenue rises automatically. The other three are costs."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "definition",
+            title: "Definitions: two elements, every time",
+            pills: ["State what is meant by...", "2 marks", "AO1"],
+            content: `<p>The examiners were explicit: "candidates who answered this question well had learnt a PRECISE definition." Each of these needs TWO elements:</p>
+<ul>
+<li><strong>Price stability</strong> = the general price level grows at a LOW rate (1) + such as the government's 2% target (1). "Prices do not go up" = 1 mark.</li>
+<li><strong>Inflation</strong> = a sustained rise in the GENERAL price level over time — and it's worth stating in an 'Analyse' answer, since knowledge IS credited there.</li>
+<li><strong>Nominal</strong> = not adjusted for inflation. <strong>Real</strong> = adjusted for inflation.</li>
+<li><strong>Two macroeconomic objectives</strong> (other than price stability): low unemployment, economic growth, balanced current account, stable exchange rate. <strong>Do NOT write "controlling inflation"</strong> — the mark scheme explicitly refuses it.</li>
+</ul>`,
+            readCheck: {
+                q: "For 'other than price stability, state two macroeconomic objectives', which answer is explicitly NOT accepted?",
+                opts: ["A balanced current account", "Controlling inflation", "Economic growth", "Low unemployment"],
+                ans: 1,
+                explain: "The mark scheme says: 'Do NOT accept price stability or controlling inflation' — they're the same objective the question excluded."
+            }
+        },
+        {
+            type: "calculation",
+            title: "Calculations: compound it, and sign it",
+            pills: ["Calculate... Show your working", "1–2 marks", "Quantitative skills"],
+            content: `<p>Three rules cover every calculation here:</p>
+<ul>
+<li><strong>Inflation compounds — apply rates one at a time.</strong> £45 × 1.04 × 1.05 = £49.14, NOT £45 + 9%.</li>
+<li><strong>Real = nominal − inflation.</strong> 1.6% − 2.6% = −1%. The mark scheme gives the 1st mark for '1' and the <strong>2nd mark ONLY if BOTH the negative sign AND the % sign</strong> are present.</li>
+<li><strong>Best deal for a lender</strong> = highest REAL return, not highest nominal. 5% with 1% inflation (+4%) beats 7% with 4% inflation (+3%).</li>
+</ul>`,
+            readCheck: {
+                q: "You calculate a real interest rate of −1%. To get both marks you must include...",
+                opts: ["Only the % sign", "The working, but signs are optional", "Just the figure 1", "Both the negative sign (or word) and the % sign"],
+                ans: 3,
+                explain: "The mark scheme is explicit: 1st mark for '1', then the 2nd mark ONLY if both the negative sign and the percentage sign are given."
+            }
+        },
+        {
+            type: "data",
+            title: "Data questions: separate the RATE from the LEVEL",
+            pills: ["Explain, using the chart...", "2 marks", "AO2"],
+            content: `<p>Every data question on this paper tests one idea — and it is the topic's biggest trap.</p>
+<ul>
+<li><strong>If the rate is positive, the level is RISING.</strong> A falling positive rate = prices rising more slowly. Only a negative rate = prices falling.</li>
+<li><strong>So the price LEVEL is lowest in the FIRST year shown</strong> whenever the rate never goes negative — hence "prices lowest = 2006" while "CPI lowest = 2009".</li>
+<li><strong>Two elements for 2 marks:</strong> "the price level increased (1) because inflation stayed positive, but at a decreasing rate (1)".</li>
+<li><strong>Real value of savings:</strong> falls, because inflation is always positive → purchasing power falls.</li>
+</ul>`,
+            readCheck: {
+                q: "For 'what happened to the price level between Aug 2013 and Feb 2015?', what earns both marks?",
+                opts: ["Inflation was low", "It rose because inflation stayed positive, but at a decreasing rate", "Inflation fell from 2.7% to 0.3%", "The price level fell"],
+                ans: 1,
+                explain: "Describing only the change in inflation misses the question, which asks about the price LEVEL. You need the rise (1) plus the decreasing rate (1)."
+            }
+        },
+        {
+            type: "evaluate",
+            title: "Analyse & Evaluate: keep it simple, name the group",
+            pills: ["Analyse / Evaluate...", "6 marks", "AO3"],
+            content: `<p>The examiners' most useful comment on this paper: <strong>"The strongest answers were often quite SIMPLE and had clear chains of reasoning."</strong></p>
+<ul>
+<li><strong>Analyse inflation → producers:</strong> the winning chain is input prices rise → costs of production rise → profits fall. Add menu costs and shoe leather costs. Complex answers often "missed key links… or did not fully link back to an effect on producers".</li>
+<li><strong>Name the group.</strong> Menu costs = producers. Shoe leather + falling real incomes = consumers. Debt erosion + tax revenue = government. Questions specify one.</li>
+<li><strong>Evaluate consequences for the government:</strong> genuinely two-sided — costs (index-linked benefits, public sector pay) vs gains (real debt falls, tax revenue rises). Judge on how high, how long, and whether positive or negative.</li>
+<li><strong>Evaluate supply-side costs:</strong> use the extract's built-in contradiction — cutting direct taxes boosts incentives BUT "could also lead to rising inflation".</li>
+</ul>`,
+            readCheck: {
+                q: "For 'analyse how inflation may affect producers', the examiners said the strongest answers were...",
+                opts: ["The ones quoting the most data", "The most complex and detailed", "The ones with a balanced conclusion", "Quite simple, with clear chains of reasoning"],
+                ans: 3,
+                explain: "They noted simple, clearly reasoned chains (costs rise → profits fall) beat complex answers that missed links or failed to link back to producers."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Inflation", def: "A sustained rise in the general level of prices over time — so purchasing power falls." },
+        { term: "Price stability", def: "The general price level growing at a LOW rate, e.g. the UK's 2% target. NOT 'constant inflation'." },
+        { term: "Deflation", def: "A negative inflation rate — the price level actually falls." },
+        { term: "Rate vs level", def: "A positive rate = prices STILL RISING. A falling positive rate = rising more slowly. Only negative = falling." },
+        { term: "Nominal value", def: "The raw money figure, NOT adjusted for inflation." },
+        { term: "Real value", def: "Adjusted for inflation — what the money can actually buy." },
+        { term: "Real income", def: "2% pay rise with 4% inflation = a 2% FALL in real income." },
+        { term: "Real interest rate", def: "Nominal − inflation. 1.6% − 2.6% = −1%. Needs BOTH the minus and % signs." },
+        { term: "CPI", def: "Consumer Price Index — a weighted basket of goods AND services, surveyed monthly across ~140 UK locations." },
+        { term: "What CPI excludes", def: "Exports, government spending, firms' machinery. It's a sample basket, not everything." },
+        { term: "Compounding inflation", def: "Apply rates one at a time: £45 × 1.04 × 1.05 = £49.14, NOT £45 + 9%." },
+        { term: "Demand-pull inflation", def: "Excess demand supply can't meet bids prices up. Likelier near full employment." },
+        { term: "Cost-push inflation", def: "Rising costs (fuel, materials, wages) passed on as higher prices." },
+        { term: "Wage-price spiral", def: "Prices rise → workers demand more pay → costs rise → firms raise prices → repeat." },
+        { term: "Menu costs", def: "PRODUCERS' cost of repeatedly changing price lists, labels and websites." },
+        { term: "Shoe leather costs", def: "The time and effort spent shopping around comparing prices." },
+        { term: "Inflation & debtors/savers", def: "Debtors GAIN (real debt shrinks); savers LOSE (real savings eroded). Worst for pensioners." },
+        { term: "Inflation & the government", def: "Mixed: gains from falling real debt + higher VAT/income tax; loses on public pay and index-linked benefits." },
+        { term: "Why not zero inflation?", def: "A little inflation helps firms adjust prices; zero usually means the economy isn't growing." }
+    ];
+    // Shared exam extracts — defined ONCE here and referenced by `caseId`
+    // from each question part, so editing an extract updates every question
+    // that uses it. Single-use stimuli keep their own inline `caseStudy`.
+    const EXAM_CASE_STUDIES = {
+        "extract-2-uk-rate-of-inflation-2006-2018": `<p><strong>Extract 2: UK Rate of Inflation 2006–2018</strong></p>
+<img src="/images/economics/3-4-uk-inflation-cpi-2006-2018-chart-extracted.png" alt="Line chart from the OCR exam paper showing the UK rate of inflation (%) measured by CPI from February 2006 to February 2018. It starts around 2%, peaks at 4.8% in September 2008, falls to about 1% in late 2009, rises to about 4.5% in 2011, declines through 2013-2014 to a low of 0.2% in September 2015, then recovers to roughly 2.5-3% by 2018. The rate stays positive throughout" style="display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>The chart shows the UK rate of inflation as measured by the Consumer Prices Index (CPI) between 2006 and 2018. The rate of inflation has varied between a high of 4.8% in Sept 2008 and a low of 0.2% in Sept 2015. Inflation affects various groups in the economy including producers, consumers and savers. The government has an objective of price stability and sets a target rate of inflation of 2% per year. It has various policies which it can use to try to achieve this target, including supply side policies, such as education and training and reducing direct taxes on workers and firms. Supply side policies may, however, have costs as well as benefits. Cuts in direct taxes, for example, may not only encourage more people to work but could also lead to rising inflation.</p>`,
+        "extract-1-inflation-and-monetary-policy": `<p><strong>Extract 1: Inflation and Monetary Policy</strong></p>
+<img src="/images/economics/3-4-chile-inflation-rate-chart-extracted.png" alt="Line chart from the OCR exam paper titled 'Inflation Rate in Chile', showing annual % from 2006 to 2019: about 3.4% in 2006, rising to a peak of about 8.7% in 2008, falling sharply to a low of about 0.4% in 2009, then about 1.4% in 2010, 3.3% in 2011, 3.0% in 2012, 1.8% in 2013, a second peak of about 4.7% in 2014, then easing to about 2.2% in 2017 and 2.6% by 2019. The rate stays positive throughout" style="display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>The inflation rate is the percentage change in the consumer price index (CPI), which is an indexed measure of expenditure on a basket of goods. Unexpected inflation causes falls in real interest rates and real wages. A zero rate of inflation (complete price stability) usually occurs when an economy is not growing, which is likely to increase unemployment. Recently governments have become worried that inflation rates could become persistently negative, which would raise the real value of government debt above its nominal value.</p>
+<p>Monetary policy is used to stabilise the rate of inflation in Chile. When inflation is more than 1% beyond its target rate the Central Bank of Chile (CBoC) adjusts interest rates to change the level of borrowing and total spending in the economy. The money supply can also be changed by the CBoC. If the rate of inflation is expected to fall below zero, then the CBoC can adopt quantitative easing, which provides more funds to banks for lending to consumers and firms.</p>`,
+        "extract-2-uk-rate-of-interest-january-2008-to-ja": `<p><strong>Extract 2: UK rate of interest - January 2008 to January 2018</strong></p>
+<img src="/images/economics/3-4-uk-interest-rate-2008-2018-chart-extracted.png" alt="Line chart from the OCR exam paper titled 'Interest Rate %', showing the UK base rate from January 2008 to January 2018. It starts at about 5.25%, falls slightly to about 4.5% by January 2009, then drops sharply to about 0.5% during 2009 and stays flat at 0.5% until 2016, dips to about 0.25% in late 2016, and rises back to about 0.5% by January 2018" style="display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>The Bank of England operates monetary policy in the UK to help the government achieve its economic objectives.</p>
+<p>The rate of interest is the main economic component of UK monetary policy. Changes in the rate of interest can affect many other economic variables, including the exchange rate and consumer confidence. Changes in the &#39;base&#39; rate of interest, set by The Bank of England, may affect the interest rates set by the high street banks and credit card companies. These will have an impact on business investment decisions, mortgage rates and household spending.</p>`,
+    };
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<table style="width:100%;max-width:420px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Year</th><th style="padding:6px;">2013</th><th style="padding:6px;">2014</th><th style="padding:6px;">2015</th><th style="padding:6px;">2016</th></tr>
+<tr><td style="padding:6px;">Price index</td><td style="padding:6px;">100</td><td style="padding:6px;">106</td><td style="padding:6px;">120</td><td style="padding:6px;">122</td></tr>
+</table>`,
+            question: "Changes in the price index affect consumption and investment decisions. Which one of the following statements is true?",
+            options: ["The economy experienced inflation in every year", "The highest rate of inflation was in 2016", "The lowest rate of inflation was in 2014", "The price level was highest at the end of 2015"],
+            answer: 0,
+            hint: "The INDEX rises every year, so prices rose every year. Then check the rates: 2014 is +6%, 2015 is +13.2%, 2016 is only +1.7%.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>
+<p><strong>Answer: A — The economy experienced inflation in every year</strong></p>
+<ul>
+<li>The index rises every year (100→106→120→122), so there was inflation each year. The highest RATE was 2015 (+13.2%), not 2016; the lowest was 2016 (+1.7%), not 2014 (+6%); and the price level was highest at the end of 2016 (122), not 2015.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Inflation can be measured using the",
+            options: ["consumer price index", "customer price index", "consumer price interest", "customer price interest"],
+            answer: 0,
+            hint: "CPI — get all three words right. It is about CONSUMERS and it is an INDEX.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: A — consumer price index</strong></p>
+<ul>
+<li>CPI = Consumer Price Index. Not "customer", and not "interest" — the distractors change one word each.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q3",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "A nominal value is one which",
+            options: ["has been adjusted for inflation", "has been adjusted for taxation", "has not been adjusted for inflation", "has not been adjusted for taxation"],
+            answer: 2,
+            hint: "Nominal = the raw money figure. REAL is the one that has been adjusted for inflation.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: C — has not been adjusted for inflation</strong></p>
+<ul>
+<li>Nominal values are in money terms, unadjusted. REAL values are the ones adjusted for inflation. Tax is irrelevant to the distinction.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q4",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "How might an increase in interest rates affect the economy?",
+            options: ["Decrease unemployment", "Improve price stability", "Increase economic growth", "Increase inflation"],
+            answer: 1,
+            hint: "Higher interest rates reduce borrowing and spending, so demand falls. What does that do to the rate of price rises?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: B — Improve price stability</strong></p>
+<ul>
+<li>Higher rates cut borrowing and total spending, easing demand-pull inflation and bringing prices nearer the target — improving price stability. They would tend to RAISE unemployment and REDUCE growth.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates identified the correct answer (B).</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q5",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "What is a definition of price stability?",
+            options: ["A sustained rise in the general price level", "GDP per capita increases gradually", "Inflation remains constant", "Prices increase at an acceptable low rate"],
+            answer: 3,
+            hint: "Careful with 'inflation remains constant' — inflation could be constant at 20% a year, which is not stable prices at all.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: D — Prices increase at an acceptable low rate</strong></p>
+<ul>
+<li>Price stability means prices rise slowly and predictably, around the 2% target. Option A defines INFLATION itself.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion correctly identified D; however a common misconception was 'C', which is incorrect because inflation could be CONSTANT at a very high rate and thus not stable prices.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q6",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The UK uses CPI to measure inflation. Which statement about CPI is correct?",
+            options: ["It does not include the prices of exports", "It measures the prices of all goods and services in the UK", "It only measures the prices of goods", "The letters CPI stand for customer price index"],
+            answer: 0,
+            hint: "CPI measures what UK CONSUMERS buy. Exports are bought by foreigners, so they're excluded. It's also a sample basket, not everything.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: A — It does not include the prices of exports</strong></p>
+<ul>
+<li>CPI tracks what UK consumers buy, so exports are excluded. It measures a representative BASKET, not all goods and services (B); it includes services as well as goods (C); and CPI is the CONSUMER price index (D).</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A pleasing number answered correctly, however a significant number of candidates answered D.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q7",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>The table shows the rate of inflation for 2021 and 2022 in five countries.</p>
+<table style="width:100%;max-width:400px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">2021 (%)</th><th style="padding:6px;">2022 (%)</th></tr>
+<tr><td style="padding:6px;">Country S</td><td style="padding:6px;">4.7</td><td style="padding:6px;">4.1</td></tr>
+<tr><td style="padding:6px;">Country T</td><td style="padding:6px;">–2.4</td><td style="padding:6px;">–0.5</td></tr>
+<tr><td style="padding:6px;">Country V</td><td style="padding:6px;">12.3</td><td style="padding:6px;">3.1</td></tr>
+<tr><td style="padding:6px;">Country W</td><td style="padding:6px;">8.1</td><td style="padding:6px;">0.3</td></tr>
+<tr><td style="padding:6px;">Country Z</td><td style="padding:6px;">8.1</td><td style="padding:6px;">–0.1</td></tr>
+</table>`,
+            question: "In which two countries did the general price level DECREASE between 2021 and 2022?",
+            options: ["Countries S and V", "Countries T and W", "Countries T and Z", "Countries W and Z"],
+            answer: 2,
+            hint: "Prices only FALL when the inflation rate is NEGATIVE. A rate that drops from 8.1% to 0.3% still means prices ROSE, just slowly.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>
+<p><strong>Answer: C — Countries T and Z</strong></p>
+<ul>
+<li>Only a NEGATIVE rate means the price level fell in 2022: T (–0.5%) and Z (–0.1%). Country W's rate fell from 8.1% to 0.3%, but 0.3% is still positive, so its prices ROSE — just much more slowly.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion answered C correctly. It is worth preparing candidates on the implications of ABSOLUTE CHANGES and RATES OF CHANGE.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q8",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "If a group of workers was awarded a 10% pay rise, but their productivity had increased by 6%, then the most likely result would be",
+            options: ["a fall in consumer confidence", "a fall in government tax revenue", "an increase in consumer debt", "an increase in cost-push inflation"],
+            answer: 3,
+            hint: "Pay is rising faster than output per worker, so the labour cost of each unit produced goes UP. What kind of inflation does rising costs cause?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: D — an increase in cost-push inflation</strong></p>
+<ul>
+<li>Wages rise 10% while productivity rises only 6%, so the cost of producing each unit rises. Firms pass the higher costs on as higher prices — cost-push inflation.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q9",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The Consumer Price Index (CPI) is used to measure inflation. Which statement about CPI is NOT correct?",
+            options: ["It is measured every month", "It measures what an average family spends money on", "It only measures the price of goods", "It uses a system of weighting"],
+            answer: 2,
+            hint: "Read the emboldened NOT. Three statements are true of CPI — which one is false? Think about whether CPI covers haircuts and bus fares.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: C — It only measures the price of goods</strong></p>
+<ul>
+<li>CPI covers goods AND services, so C is the false statement. It IS measured monthly, it IS based on an average family's spending, and it DOES use weighting.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>The emboldened word 'not' indicates that only C can be correct (the others are all true).</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q10",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>In 2021 the average monthly mobile phone contract was £45. The rate of inflation was 4% in 2021 and 5% in 2022.</p>`,
+            question: "What was the average monthly mobile phone contract at the end of 2022?",
+            options: ["£46.80", "£47.25", "£49.05", "£49.14"],
+            answer: 3,
+            hint: "Two steps, applied one after the other — not 9% in one go. Add 4% first, then add 5% to THAT new figure.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>
+<p><strong>Answer: D — £49.14</strong></p>
+<ul>
+<li>£45 + 4% = £46.80; £46.80 + 5% = £49.14. Adding 9% in one step gives £49.05 (option C) — the trap, because the second year's inflation applies to the already-inflated price.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion correctly answered D. This required candidates completing TWO steps of calculation (adding 4% to £45 and then a further 5%), i.e. £45 + 4% = £46.80; £46.80 + 5% = £49.14.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q11",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "A period of price stability is most likely if",
+            options: ["prices increase at an acceptably low rate", "real values decrease as nominal values increase", "the rate of inflation is negative", "there is a fair distribution of income"],
+            answer: 0,
+            hint: "Price stability is about the RATE of price rises being low and predictable — not about fairness, and not about prices falling.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — prices increase at an acceptably low rate</strong></p>
+<ul>
+<li>Negative inflation (deflation) is not price stability either — it brings its own problems. Fair income distribution is a different macroeconomic objective entirely.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion correctly answered A, although a common error was to confuse price stability and EQUALITY (giving the incorrect answer D).</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q12",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>The UK's rate of inflation is forecast by some experts to reach 7% during 2023.</p>`,
+            question: "What effect will this have on producers?",
+            options: ["An increase in consumer confidence", "An increase in menu costs", "An increase in shoe leather costs", "An increase in the purchasing power of money"],
+            answer: 1,
+            hint: "The question asks about PRODUCERS. Menu costs are the cost to a FIRM of reprinting price lists; shoe leather costs fall on buyers searching for prices.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: B — An increase in menu costs</strong></p>
+<ul>
+<li>Menu costs are borne by PRODUCERS, who must keep changing their price lists as inflation pushes prices up. Shoe leather costs (C) fall on buyers, and inflation REDUCES the purchasing power of money (D).</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Although a significant proportion correctly answered B (a clear cost on a producer), several answered 'C' (a cost on a buyer/consumer) or 'D' (which is the OPPOSITE of the effect of inflation on purchasing power).</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q13(a)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-uk-rate-of-inflation-2006-2018",
+            question: "Explain, using the chart in Extract 2, what happened to the price level between August 2013 and February 2015.",
+            hint: "This is the rate-vs-level trap. Inflation FELL over this period — but it stayed POSITIVE, so the price LEVEL still rose, just at a decreasing rate. Two elements needed for 2 marks.",
+            starter: "The price level increased, because inflation was positive throughout — but...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The price level increased because inflation is positive</li>
+<li>The price level increased at a decreasing rate</li>
+</ul>
+<p>Give 2 marks for a correct explanation of the price level rising that includes two elements. Give 1 mark for a statement that the price level rose but without further explanation.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Some candidates either did not understand the difference between PRICE LEVEL and INFLATION, or rushed this question, resulting in answers that only described the changes in inflation. Good answers compared the level of inflation at the two given times and related that to the price level.</p>
+</div>`,
+            modelAnswer: "The price level increased between August 2013 and February 2015, because the rate of inflation stayed positive throughout that period.\n\nHowever, it increased at a DECREASING rate — inflation fell from around 2.7% towards 0.3%, so prices were still rising but more and more slowly."
+        },
+        {
+            num: "Q13(b)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-uk-rate-of-inflation-2006-2018",
+            question: "Explain, with reference to the chart in Extract 2, how the real value of savings would have been affected by inflation.",
+            hint: "Inflation is positive across the whole chart, so prices always rise. What does that do to what a fixed pot of savings can buy? Two elements needed.",
+            starter: "The real value of savings would have fallen, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The real value of savings falls because the rate of inflation is always positive</li>
+<li>The real value of savings falls because their purchasing power falls</li>
+</ul>
+<p>Give 2 marks for a correct explanation that shows clear understanding of the real value and includes two elements. Give 1 mark for an explanation that shows some understanding, e.g. a statement that real value falls without explanation.</p>
+</div>`,
+            modelAnswer: "The real value of savings would have fallen, because the chart shows the rate of inflation was positive in every month from 2006 to 2018 — so prices rose continuously.\n\nThat means the purchasing power of savings fell: the same amount of money in the bank could buy fewer goods and services each year."
+        },
+        {
+            num: "Q13(c)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-2-uk-rate-of-inflation-2006-2018",
+            question: "Analyse how inflation may affect producers.",
+            hint: "Start with a quick definition (a sustained rise in the general price level), then build simple, clear chains. Best routes: input prices rise → costs of production rise → profits fall; menu costs of constantly changing price lists; shoe leather costs of researching whether prices are still competitive. Keep linking back to PRODUCERS.",
+            starter: "Inflation is a sustained rise in the general price level. For producers this means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li><strong>Inflation:</strong> a sustained rise in the general price level over time</li>
+<li><strong>Reduced profits:</strong> inflation may increase the price of factor inputs, which would increase costs of production and lower profits</li>
+<li><strong>Menu costs:</strong> producers have to change their price lists as prices increase with inflation</li>
+<li><strong>Shoe leather costs:</strong> firms spend time researching prices of inputs, as it is difficult to know whether prices are still competitive when the general price level rises</li>
+<li><strong>More flexibility in setting prices:</strong> prices can be raised as they are less likely to be noticed by consumers when there is inflation, so may lead to increased total revenue</li>
+<li><strong>Conflicts with workers / trade unions</strong>, which may lead to industrial action / negotiation costs</li>
+<li><strong>Producers as exporters may lose sales:</strong> if inflation is higher than in competitor countries they lose international competitiveness, so overseas consumers may buy lower priced domestic goods</li>
+<li><strong>Producers may lose domestic sales:</strong> if inflation is higher than in competitor countries they lose international competitiveness, so domestic consumers may buy lower priced imports instead</li>
+<li><strong>Producers may reduce investment:</strong> inflation creates uncertainty / a loss of business confidence so producers may be unwilling to invest, leading to less innovation / efficiency</li>
+<li><strong>Producers as debtors/creditors may gain/lose out</strong> (as appropriate), as inflation reduces the real value of loans/debts</li>
+<li><strong>Profit may INCREASE</strong> if prices increase at a faster rate than costs of production (e.g. wages)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis with developed chains of reasoning.</p>
+<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects.</p>
+<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates understood inflation as a sustained increase in the general price level and had a general idea how this might negatively affect producers. <strong>The strongest answers were often quite SIMPLE and had clear chains of reasoning</strong> — frequently focusing on how costs of production increased and therefore reduced profits. A few very good responses used more complex examples fully reasoned and linked back to producers. More often those complex answers, under exam pressure, missed key links, omitted terminology such as real and nominal, or did not fully link back to an effect on producers.</p>
+<p><strong>Exemplar 1</strong> shows part of a successful response: for this 'Analyse' question a definition was a quick starting point for later chains of reasoning — knowledge IS credited in 'Analyse' questions.</p>
+</div>`,
+            modelAnswer: "Inflation is a sustained rise in the general price level over time. Its most direct effect on producers is on their costs. As prices rise across the economy, the factor inputs firms buy — raw materials, energy and labour — become more expensive, so their costs of production increase. Unless they can raise their own prices by just as much, their profits fall.\n\nInflation also creates menu costs. Because prices keep rising, producers must repeatedly update price lists, labels, catalogues and websites. That takes time and money, which again eats into profit.\n\nA third effect is shoe leather costs. When the general price level is changing quickly, firms must spend time researching the prices of their inputs, because it becomes difficult to know whether a supplier's price is still competitive. That research uses resources that could have gone into producing output instead."
+        },
+        {
+            num: "Q13d(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-uk-rate-of-inflation-2006-2018",
+            question: "State what is meant by 'price stability'.",
+            hint: "Two elements for 2 marks. The precise definition: the general price level grows at a LOW rate — and you can name the government's 2% target. 'Prices do not go up' is only worth 1.",
+            starter: "Price stability is when the general price level...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Price stability is when the general price level stays constant over time</li>
+<li>Price stability is when the general price level grows at a low rate, such as the government target of 2% per annum</li>
+</ul>
+<p>Give 2 marks for a correct explanation that includes two elements, such as those shown. Give 1 mark for an explanation which shows some understanding, e.g. 'prices do not go up'.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Candidates who answered this question well had learnt a PRECISE definition.</p>
+</div>`,
+            modelAnswer: "Price stability is when the general price level grows only at a low and predictable rate over time, rather than rising quickly.\n\nIn the UK the government sets a target rate of inflation of 2% per year, so keeping inflation close to that target is what counts as price stability."
+        },
+        {
+            num: "Q13d(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-uk-rate-of-inflation-2006-2018",
+            question: "Explain how the supply side policy of education and training may help to achieve price stability.",
+            hint: "Chain it: education and training → a more productive workforce → costs per unit fall / supply can keep up with demand → so cost-push or demand-pull inflation is less likely. Just saying 'it improves skills' is 1 mark.",
+            starter: "Education and training create a more productive workforce, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Education and training can create a more productive workforce, so cost-push / demand-pull inflation is less likely</li>
+<li>Education and training can create a more productive workforce, so supply can keep up with demand</li>
+</ul>
+<p>Give 2 marks for a correct explanation of how education and training can help to achieve price stability. Give 1 mark for some understanding of education and training as a supply side policy, e.g. it improves skills.</p>
+</div>`,
+            modelAnswer: "Education and training create a more productive workforce, so each worker produces more output for the same cost.\n\nThis lowers firms' costs per unit and means supply can keep up with rising demand, so cost-push and demand-pull inflation are both less likely — helping to keep prices stable."
+        },
+        {
+            num: "Q13d(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-2-uk-rate-of-inflation-2006-2018",
+            question: "*Evaluate the costs of using supply side policies to achieve price stability. Use the information given in Extract 2 and your own knowledge.",
+            hint: "Use the extract's own policies: education and training, and reducing direct taxes on workers and firms. The extract itself warns that tax cuts 'may not only encourage more people to work but could also lead to rising inflation' — a built-in contradiction worth exploiting. Other costs: the opportunity cost and long time lag of education spending. Weigh against the benefits and judge.",
+            starter: "One cost is that supply side policies take a long time to work, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Supply side policies in Extract 2:</strong></p>
+<ul>
+<li>Education and training</li>
+<li>Reducing direct taxes on workers to increase incentives to work</li>
+<li>Reducing direct taxes on firms</li>
+</ul>
+<p><strong>Other supply side policies include:</strong> reducing state benefits to increase incentives; reducing trade union power in labour markets; policy to promote competition; privatisation; development of infrastructure.</p>
+<p><strong>N.B.</strong> Candidates may limit their answers to the policies in the Extract and the full range of marks is available without other policies being included.</p>
+</div>
+<div class="marks-section">
+<h5>Costs of supply side policies</h5>
+<ul>
+<li><strong>Monetary costs can be high</strong>, e.g. to build a new motorway, so taxes may need to be raised to allow government spending</li>
+<li><strong>Opportunity cost can be high</strong>, e.g. the government may have to sacrifice spending on other services or benefits, which can have harmful effects</li>
+<li><strong>Cuts incentive to work:</strong> reduced direct taxes on workers may not raise incentives but LOWER them, if the same take-home income can be achieved with less work — resulting in fewer hours worked and lower supply</li>
+<li><strong>Increases inflation:</strong> reduced direct taxes on workers increases disposable income, which may increase demand and be inflationary</li>
+<li><strong>Lower standard of living:</strong> a policy to reduce benefits to incentivise work could increase hardship for low income groups</li>
+<li><strong>Increased inequality:</strong> the difference in income between rich and poor widens</li>
+<li><strong>Costs linked to industrial disputes:</strong> trade unions may oppose measures to reduce their powers in labour markets, which could lead to industrial disputes</li>
+<li><strong>Conflicts with other government objectives</strong>, e.g. impact on more employment / economic growth / improvement in the balance of payments</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Evaluation may include</h5>
+<ul>
+<li>Comment on benefits of price stability that offset the costs, e.g. increased consumer confidence / reduced uncertainty</li>
+<li>Comment on benefits of specific policies that offset the costs, e.g. increased competition lowers prices so may increase standard of living</li>
+<li><strong>Time lags:</strong> some of the costs can take time to take effect, e.g. the impact of cuts in government spending on other areas</li>
+<li>Less pressure from trade unions, as price stability may reduce the need for wages to be renegotiated</li>
+<li>Contrast between different costs — some are greater than others</li>
+<li>Contrast between costs in the short run and benefits in the long run</li>
+<li>Judgement, e.g. as to whether the costs are likely to outweigh the benefits, or their significance, or duration</li>
+</ul>
+<p><strong>N.B.</strong> Some of the above points may be phrased as either analysis or evaluation.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "A major cost of supply side policies is the time they take. Education and training only raise productivity once students have been through the system, so they do nothing about inflation today — yet the chart shows inflation swinging from 4.8% in 2008 to 0.2% in 2015, which needs a faster response than a decade of schooling can give.\n\nThere is also a direct contradiction in the extract's own policies. Cutting direct taxes on workers and firms is meant to increase incentives to work — but as the extract itself warns, it 'could also lead to rising inflation', because lower taxes raise disposable income and total demand. So a policy aimed AT price stability may end up causing demand-pull inflation instead. Education and training also carry a large opportunity cost: money spent on them cannot fund healthcare or infrastructure.\n\nOverall the costs are real but worth accepting, because supply side policies are the only ones that raise the economy's productive capacity permanently — meaning supply can keep pace with demand without the unemployment that higher interest rates would cause. But it depends on the timescale: if inflation must be controlled quickly, monetary policy is far more effective, and supply side measures should be seen as a long-run complement rather than an immediate fix."
+        },
+        {
+            num: "Q14(a)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-inflation-and-monetary-policy",
+            question: "Using the chart in Extract 1, state in which year: 1 prices were at their lowest level. 2 the CPI was at its lowest level.",
+            hint: "Two different things. Because the inflation rate is positive every year, prices RISE every year — so the price LEVEL is lowest in the first year shown. The CPI rate on the chart bottoms out in a different year entirely.",
+            starter: "1 prices lowest: ... 2 CPI lowest: ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>1. Prices were at their lowest level: 2006</strong></p>
+<p><strong>2. The CPI was at its lowest level: 2009</strong></p>
+<ul>
+<li>1 mark for each correct answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates accessed marks in this response, but some were unsure about the difference between PRICE LEVEL and INFLATION RATE.</p>
+</div>`,
+            modelAnswer: "1. Prices were at their lowest level in 2006.\n\nThe inflation rate is positive in every year on the chart, so prices rose continuously — meaning the price LEVEL was lowest at the very start of the period.\n\n2. The CPI was at its lowest level in 2009, when the rate fell to about 0.4%."
+        },
+        {
+            num: "Q14(b)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-inflation-and-monetary-policy",
+            question: "Using Extract 1, explain what happened to the purchasing power of money in Chile between 2007 and mid-2009.",
+            hint: "Purchasing power FELL, because inflation stayed positive throughout. For the second mark, add that the RATE of the fall declined — inflation dropped sharply from about 8.7% in 2008 towards 0.4% in 2009.",
+            starter: "The purchasing power of money fell, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Purchasing power fell but the rate of falling declined</li>
+<li>Purchasing power fell because inflation is always positive in the data</li>
+</ul>
+<p>1st mark for understanding that the purchasing power of money falls, with no contradictory interpretations of data. THEN 2nd mark for explanation, e.g. stating the rate of fall declines, OR explaining it falls because the inflation data is always positive, OR explaining the impact of reduced purchasing power.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates identified the trend across the whole period specified. Some candidates found it more challenging to understand the impact of falling inflation on purchasing power.</p>
+</div>`,
+            modelAnswer: "The purchasing power of money in Chile fell between 2007 and mid-2009, because the inflation rate stayed positive throughout — so prices kept rising and each peso bought less.\n\nHowever, the RATE at which purchasing power fell declined sharply, because inflation dropped from a peak of about 8.7% in 2008 to roughly 0.4% by 2009."
+        },
+        {
+            num: "Q14c(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-inflation-and-monetary-policy",
+            question: "State two causes of inflation.",
+            hint: "The two headline types are demand-pull and cost-push. You could also name a rise in the money supply / quantitative easing, or a fall in interest rates.",
+            starter: "1. ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Demand-pull inflation</li>
+<li>Cost-push inflation, e.g. wages rose</li>
+<li>C/I/G/(X−M) rose</li>
+<li>Money supply / quantitative easing increased</li>
+<li>Interest rates fell</li>
+</ul>
+<p>1 mark for each correct answer.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was generally well done and identified cost (cost-push) or demand (demand-pull) factors.</p>
+</div>`,
+            modelAnswer: "1. Demand-pull inflation — total demand rises faster than the economy can supply.\n\n2. Cost-push inflation — the costs of production such as wages or raw materials rise, and firms pass this on in higher prices."
+        },
+        {
+            num: "Q14c(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-inflation-and-monetary-policy",
+            question: "In 2019, the inflation rate in Chile was 2.6% and the nominal rate of interest on government debt was 1.6%. Calculate the real rate of interest being paid by the government. Show your working.",
+            hint: "Real rate = nominal rate − inflation. The answer is NEGATIVE — and you only get the second mark if you include BOTH the minus sign (or the word 'negative') AND the % sign.",
+            starter: "Real rate = nominal − inflation = 1.6 − 2.6 = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>1.6 – 2.6 = –1 → Answer: negative 1% or –1%</strong></p>
+<ul>
+<li>2 marks for a correct answer (working not required).</li>
+<li>1st mark for '1'.</li>
+<li>THEN 2nd mark only if BOTH the negative sign (or word) AND the percentage sign (%) are present.</li>
+</ul>
+</div>`,
+            modelAnswer: "Real rate of interest = nominal rate − inflation rate.\n\n1.6% − 2.6% = −1%.\n\nThe government is paying a real rate of −1%, meaning inflation is eroding the debt faster than the interest it pays."
+        },
+        {
+            num: "Q14c(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-inflation-and-monetary-policy",
+            question: "*Evaluate the consequences of inflation for the government. Use the information given in Extract 1 and your own knowledge.",
+            hint: "Both sides exist here. Costs: more spending on index-linked pensions and universal credit, more on public sector wages, possible strikes. Benefits: the REAL value of government debt falls (the extract says persistent negative inflation would RAISE it), and tax revenue rises as VAT and income tax are percentages of prices and wages. Evaluate on whether inflation is high/low, positive/negative, and how long it lasts.",
+            starter: "One consequence for the government is higher spending, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Consequences (of a positive inflation rate):</strong></p>
+<ul>
+<li>More government spending on pensions, universal credit, when index-linked</li>
+<li>More government spending on public sector wages if workers demand and receive higher pay</li>
+<li>Labour market unrest/strikes more likely, and may impact government as employer if it cannot agree wage rises</li>
+<li>Real value of government debt falls, so national debt interest payments may fall</li>
+<li>Tax revenue may rise when VAT and income taxes are percentages of prices and wages</li>
+</ul>
+<p><strong>N.B.</strong> If the focus of the response is on NEGATIVE inflation, the above points will need to be modified.</p>
+<p><strong>Evaluation:</strong> depends on whether inflation is particularly high/low; depends on whether inflation is positive or negative; depends on the duration of inflation; depends on whether a positive consequence is offset by a negative one. Judgement, e.g. as to whether the negative consequences are likely to outweigh the positive.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "Inflation raises government spending. Pensions and universal credit are index-linked, so as prices rise the government must automatically pay out more. Public sector workers also demand higher pay to protect their real wages, and if the government cannot agree wage rises, strikes and labour market unrest become more likely — which is costly for it as an employer.\n\nHowever, inflation also brings real benefits to a government. It erodes the REAL value of government debt: as the extract notes, it is persistently NEGATIVE inflation that would raise the real value of debt above its nominal value, so positive inflation does the opposite. Chile's government in 2019 paid a real interest rate of −1% on its debt, meaning inflation was shrinking the debt faster than the interest accruing on it. Tax revenue also rises automatically, because VAT and income tax are percentages of prices and wages.\n\nOverall, whether inflation helps or harms a government depends chiefly on how high it is and how long it lasts. Low, steady inflation is arguably good for a government — it quietly reduces the debt burden and raises revenue while the extra spending stays manageable. But if inflation becomes high or prolonged, the index-linked spending and wage unrest are likely to outweigh the gains, and the wider economic damage would cost it politically."
+        },
+        {
+            num: "Q15",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>The diagram shows some information on annual changes in the price level for a country.</p>
+<img src="/images/economics/3-4-price-level-change-diagram-extracted.png" alt="Diagram from the OCR exam paper showing the rate of change in price level on the vertical axis against time on the horizontal axis. The curve starts high at Year 0, falls to a minimum at Year 3, then rises again — but it stays ABOVE the horizontal axis throughout, so the rate of change is positive in every year" style="display:block;width:100%;max-width:480px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "It can be seen from the diagram that the country experienced inflation",
+            options: ["in every year", "only from Year 3 onwards", "only until Year 3", "that was negative up to Year 3 and positive afterwards"],
+            answer: 0,
+            hint: "The axis is the RATE OF CHANGE in the price level. The curve dips but never crosses below the horizontal axis — so the rate stays positive the whole time.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: A — in every year</strong></p>
+<ul>
+<li>The curve stays ABOVE the horizontal axis throughout, so the rate of change in the price level is positive every year — meaning inflation every year. The dip to Year 3 is inflation SLOWING, not prices falling. Only a curve going below the axis would show deflation.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q16",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following items is included in the calculation of the UK's Consumer Price Index (CPI)?",
+            options: ["Government spending on education", "The price of children's clothes", "The price of a machine bought by a company", "The price of exports"],
+            answer: 1,
+            hint: "CPI measures what a typical HOUSEHOLD buys. Government spending, firms' machinery and exports are all bought by someone other than UK consumers.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: B — The price of children's clothes</strong></p>
+<ul>
+<li>CPI tracks the basket bought by typical UK consumers, so children's clothes are in it. Government spending, capital machinery bought by firms, and exports (bought by foreigners) are all excluded.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q17",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following is a consequence of inflation for consumers?",
+            options: ["Fall in tax revenue", "Increase in menu costs", "Real incomes may fall", "Savings increase in value"],
+            answer: 2,
+            hint: "The question is about CONSUMERS. Menu costs hit producers, tax revenue is the government's concern — and inflation reduces, not increases, the real value of savings.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: C — Real incomes may fall</strong></p>
+<ul>
+<li>If prices rise faster than wages, consumers' real incomes — what their pay can actually buy — fall. Menu costs fall on producers, tax revenue on government, and inflation REDUCES the real value of savings.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q18",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Under which of the following circumstances would it be best to be a lender?",
+            options: ["The nominal rate of interest is 0 percent and the inflation rate is 0 percent", "The nominal rate of interest is 2 percent and the inflation rate is 5 percent", "The nominal rate of interest is 5 percent and the inflation rate is 1 percent", "The nominal rate of interest is 7 percent and the inflation rate is 4 percent"],
+            answer: 2,
+            hint: "A lender wants the highest REAL return. Work out nominal minus inflation for each option and pick the biggest.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark · Quantitative skills</h5>
+<p><strong>Answer: C — nominal 5%, inflation 1%</strong></p>
+<ul>
+<li>Real rate = nominal − inflation. A: 0 − 0 = 0%. B: 2 − 5 = −3%. C: 5 − 1 = <strong>+4%</strong>. D: 7 − 4 = +3%. The lender gains most in C, even though D has the higher nominal rate — the trap.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q19",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Data is often presented in terms of nominal or real figures. The difference between them takes into account",
+            options: ["direct taxes", "the rate of inflation", "the rate of interest", "wider supply-side policy"],
+            answer: 1,
+            hint: "Real = nominal adjusted for one thing only.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: B — the rate of inflation</strong></p>
+<ul>
+<li>Real values are nominal values adjusted for inflation, so they show purchasing power rather than the raw money amount.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q20",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "How does the consumer price index measure the rate of inflation?",
+            options: ["By using changes in the rate of growth of the money supply", "By using the increase in the annual GDP per capita figures", "Through a process of weighing a range of goods and services", "Through a survey of prices in a typical basket of goods and services"],
+            answer: 3,
+            hint: "Careful with C — CPI does use WEIGHTING, but weighting alone isn't how it measures inflation. What is actually surveyed each month?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: D — Through a survey of prices in a typical basket of goods and services</strong></p>
+<ul>
+<li>CPI surveys the prices of a representative basket each month. Weighting (C) is applied to that basket to reflect how much households spend on each item, but the measurement itself is the price survey.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q21",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>The table shows the rate of inflation for Country A for 2016–2020.</p>
+<table style="width:100%;max-width:340px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Year</th><th style="padding:6px;">Inflation rate %</th></tr>
+<tr><td style="padding:6px;">2016</td><td style="padding:6px;">3.0</td></tr>
+<tr><td style="padding:6px;">2017</td><td style="padding:6px;">2.0</td></tr>
+<tr><td style="padding:6px;">2018</td><td style="padding:6px;">2.0</td></tr>
+<tr><td style="padding:6px;">2019</td><td style="padding:6px;">1.5</td></tr>
+<tr><td style="padding:6px;">2020</td><td style="padding:6px;">2.5</td></tr>
+</table>`,
+            question: "Which of the statements is correct? Prices",
+            options: ["fell from 2016 to 2019 and then increased", "rose only in 2020", "rose throughout the period shown", "were constant in 2017–2018"],
+            answer: 2,
+            hint: "Every figure is POSITIVE, so prices rose every year. A falling rate (3.0 → 1.5) means prices rose more slowly, not that they fell. And 2.0 twice means prices rose by 2% in BOTH years — not that they stayed constant.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark · Quantitative skills</h5>
+<p><strong>Answer: C — rose throughout the period shown</strong></p>
+<ul>
+<li>All five rates are positive, so prices rose every year. Option A confuses a FALLING RATE with falling prices; option D confuses a constant RATE (2.0% in both 2017 and 2018) with constant prices — prices actually rose 2% in each of those years.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q22(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-uk-rate-of-interest-january-2008-to-ja",
+            question: "Explain how monetary policy may affect price stability.",
+            hint: "Two routes work: the Bank of England changes the base rate, which changes borrowing and spending, so demand-pull inflation is controlled; OR the setting of inflation TARGETS tells people what to expect so they plan accordingly. Develop the chain for the second mark.",
+            starter: "The Bank of England sets the base rate of interest, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The setting of inflation targets by the government provides an indication to economic agents about future inflation so they can plan accordingly</li>
+<li>The past record of changes in the rate of interest has shown the effectiveness of the Bank of England in controlling the economy</li>
+<li>Changes in the base rate affect borrowing and spending, and therefore the pressure on prices</li>
+</ul>
+</div>`,
+            modelAnswer: "The Bank of England uses monetary policy by setting the base rate of interest, which influences the rates high street banks charge on loans and mortgages.\n\nIf inflation is too high, raising the base rate makes borrowing dearer, so consumer spending and business investment fall — reducing demand-pull pressure on prices and bringing inflation back towards the 2% target."
+        },
+        {
+            num: "Q22(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-uk-rate-of-interest-january-2008-to-ja",
+            question: "Other than price stability, state two macroeconomic objectives.",
+            hint: "Price stability is EXCLUDED — do not write 'controlling inflation' either, it scores nothing. The others: low unemployment, economic growth, a healthy balance of payments, a stable exchange rate.",
+            starter: "Objective 1: ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>More employment / less unemployment</li>
+<li>Economic growth / standard of living</li>
+<li>A healthy/balanced balance of payments (on current account)</li>
+<li>Stable/strong exchange rate</li>
+<li>Increased levels of development</li>
+</ul>
+<p>1 mark for each of two objectives identified. <strong>Do NOT accept price stability or controlling inflation.</strong></p>
+</div>`,
+            modelAnswer: "Objective 1: Low unemployment (more people in work).\n\nObjective 2: Economic growth — a rising level of real GDP and standard of living."
+        },
+        {
+            num: "Q22(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-2-uk-rate-of-interest-january-2008-to-ja",
+            question: "*Evaluate the effect of falling interest rates on consumer spending. Use the information given in Extract 2 and your own knowledge.",
+            hint: "Use the chart: the base rate collapsed from about 5.25% in 2008 to 0.5% by 2009 and stayed there. Analysis: cheaper borrowing, 'big ticket' items bought on credit, lower mortgage payments leaving more disposable income, and saving being less rewarding. Evaluate on the SIZE of the fall — the huge Oct 2008-March 2009 drop matters far more than the tiny 0.5% to 0.25% dip — plus low consumer confidence, and fixed-term mortgages delaying the effect.",
+            starter: "Falling interest rates make borrowing cheaper, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Monetary policy can encourage more consumer spending by reducing interest rates</li>
+<li>Consumer borrowing will be cheaper and more people will take out loans</li>
+<li>Consumers are more likely to buy 'big ticket' items on credit</li>
+<li>Saving will be less rewarding so consumers may spend more</li>
+<li>Households with mortgages will now have lower monthly payments on mortgage interest, so more disposable income to spend</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Evaluation may include</h5>
+<ul>
+<li>If consumer confidence is low, the fall in interest rates may not encourage much more spending</li>
+<li><strong>The level of the interest rate is relevant</strong>, e.g. the fall from 0.5% to 0.25% was unlikely to have much effect</li>
+<li><strong>The extent of the fall is relevant</strong>, e.g. a large fall in a short time such as between Oct 2008 and March 2009 is likely to have a greater impact than a small change</li>
+<li>Consumers may not base savings decisions on the rate of interest as a major factor (other factors such as level of income are likely to be more important)</li>
+<li>Many households have fixed term mortgages, so the effects on consumer spending may take some time to happen</li>
+<li>Many 'big ticket' purchases are on credit, so cheaper credit could make a significant difference to their demand</li>
+<li>Mortgage interest payments can be a significant proportion of household outgoings, so a reduction in these may lead to a significant rise in consumer spending</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "The chart shows the UK base rate collapsing from about 5.25% in January 2008 to just 0.5% by 2009. Falling rates make consumer borrowing cheaper, so more people take out loans and are more likely to buy 'big ticket' items on credit. Households with mortgages also see lower monthly interest payments, leaving them more disposable income to spend, and because saving becomes less rewarding there is more incentive to spend now rather than save.\n\nHowever, the size of the effect depends heavily on the size of the fall. The huge drop between October 2008 and March 2009 was likely to have a real impact, whereas the later dip from 0.5% to 0.25% was far too small to change much behaviour. Timing matters too: many households are on fixed-term mortgages, so the benefit of lower rates only reaches them when they remortgage — delaying any rise in spending.\n\nOverall, falling rates do raise consumer spending, mainly because mortgage interest is a large share of household outgoings and many big purchases are bought on credit. But it depends on confidence: the rate fell precisely because of the financial crisis, and worried households may save or repay debt regardless — which is why a cut alone was not enough in 2009."
+        },
+        {
+            num: "Q23",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "If the rate of inflation is decreasing, but still positive, the price level will:",
+            options: ["fall", "rise", "stay the same", "become negative"],
+            answer: 1,
+            hint: "This is the single most important distinction in the topic. A positive rate — however small, however much it is shrinking — still means prices are going UP.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: B — rise</strong></p>
+<ul>
+<li>A positive inflation rate means prices are still rising. A DECREASING but positive rate means they are rising more slowly than before — but the price level still goes up. Only a negative rate makes the price level fall.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q24",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "When prices are rising, it is ALWAYS true that:",
+            options: ["most people are becoming richer", "the cost of living is rising", "the level of unemployment is rising", "the standard of living is falling"],
+            answer: 1,
+            hint: "The word is ALWAYS. Rising prices might coincide with the other three, but only one MUST follow by definition. If wages rise faster than prices, is the standard of living really falling?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: B — the cost of living is rising</strong></p>
+<ul>
+<li>Rising prices mean the cost of living rises by definition. The others are only SOMETIMES true: if wages rise faster than prices, real incomes and living standards can still improve, and unemployment need not rise at all.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Economics — Unit 3: Economic Objectives and the Role of Government</div>
             <h1>3.6 Monetary Policy</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 3.6 Monetary Policy — placeholder, content not yet written
+    //  DATA: 3.6 Monetary Policy
     // ══════════════════════════════════════
     const pageMeta = {
             id: '3-6-monetary-policy',
@@ -266,23 +266,1016 @@
             subject: 'economics',
         };
 
-    const topics = [
-        {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>3.6 Monetary Policy</strong> will appear here soon.</p>`
-        }
-    ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+const topics = [
+    {
+        title: "What is monetary policy? The Bank of England and the base rate",
+        tag: "The definitions and mechanism the exam rewards",
+        content: `<p><strong>Monetary policy is the manipulation of interest rates, the money supply and exchange rates to influence the level of economic activity.</strong> Its primary target is a low, stable rate of inflation.</p>
+<h4>Who actually sets UK interest rates — a very common misconception</h4>
+<ul>
+<li>Interest rates are set by the <strong>Bank of England's Monetary Policy Committee (MPC)</strong> — NOT the government. Writing "the government sets interest rates" is a real, frequently-tested error.</li>
+<li>The MPC has <strong>9 members</strong>: the Governor of the Bank of England, three Deputy Governors, the Bank's Chief Economist, and four external members appointed directly by the Chancellor. It meets regularly to set the <strong>base rate</strong>.</li>
+<li>The UK's <strong>inflation target is 2%</strong>, with a margin of <strong>1% either way</strong> — the Bank is content with inflation between 1% and 3%.</li>
+</ul>
+<h4>How the base rate actually works</h4>
+<ul>
+<li>The base rate is the rate at which the <strong>Bank of England lends to commercial banks</strong>.</li>
+<li>High street banks then set their OWN deposit and loan rates relative to it — paying slightly less on deposits and charging slightly more on loans than the base rate, which is part of how banks make their profit.</li>
+</ul>
+<h4>Monetary policy vs fiscal policy — do not confuse them</h4>
+<ul>
+<li><strong>Monetary policy</strong>: interest rates, the money supply and exchange rates, controlled by the <strong>Bank of England</strong>.</li>
+<li><strong>Fiscal policy</strong>: taxation and government spending, controlled by the <strong>government</strong>.</li>
+<li>Why keep the Bank of England independent? It reduces the risk of interest rates being manipulated for short-term political gain (e.g. cutting rates just before an election) rather than sound long-term economic management — a useful evaluative point.</li>
+</ul>`,
+        readCheck: {
+            q: "Who is responsible for setting the UK's base rate of interest?",
+            opts: ["The Prime Minister", "The Chancellor of the Exchequer directly", "Each high street bank sets its own base rate", "The Bank of England's Monetary Policy Committee (MPC)"],
+            ans: 3,
+            explain: "The MPC — 9 members including the Governor and four external members — sets the base rate independently of government. This independence is meant to stop rates being set for short-term political reasons."
+        }
+    },
+    {
+        title: "Raising interest rates — controlling inflation",
+        tag: "Higher rates, less demand, lower inflation — the exam's central chain",
+        content: `<p>Raising the base rate makes <strong>borrowing more expensive</strong> and <strong>saving more rewarding</strong>. Every effect below flows from those two facts.</p>
+<h4>The chain candidates must be able to write out</h4>
+<ul>
+<li><strong>Borrowing:</strong> the cost of borrowing rises, so consumers borrow and spend less (especially on credit and 'big ticket' items), and firms borrow less to invest — firms also face a higher opportunity cost of investing their own retained profit instead of saving it.</li>
+<li><strong>Saving:</strong> the reward for saving increases, so more is saved and less is spent.</li>
+<li><strong>Mortgage holders:</strong> many UK mortgages are on variable rates, so mortgage payments rise, leaving households with less disposable income to spend.</li>
+<li><strong>Asset prices:</strong> saving becomes more attractive relative to assets like housing, which can push house prices down — homeowners feel poorer (a negative wealth effect), further reducing confidence and spending.</li>
+</ul>
+<p>All of this <strong>reduces total demand</strong>, easing <strong>demand-pull inflation</strong> — but it risks slowing economic growth and raising unemployment. This is the core trade-off examiners test again and again.</p>
+<h4>The exchange rate link — a real MCQ trap</h4>
+<ul>
+<li>If UK interest rates rise above rates overseas, foreign savers and investors move funds into the UK for the better return — <strong>demand for the pound rises</strong> (or, on the alternative accepted route, the <strong>supply of pounds falls</strong> as UK residents stop swapping pounds for foreign currency).</li>
+<li>Either way, the pound <strong>appreciates</strong>. That makes imports cheaper, which eases <strong>cost-push inflation</strong> — but it also makes UK exports more expensive and less competitive abroad, which can worsen the trade balance.</li>
+</ul>`,
+        readCheck: {
+            q: "The Bank of England raises the base rate. What is the most likely DIRECT effect on firms' investment?",
+            opts: ["It falls, because borrowing to invest becomes more expensive", "It rises, because banks are more willing to lend when rates are high", "It rises, because firms can now earn higher returns", "It is unaffected, since investment doesn't depend on interest rates"],
+            ans: 0,
+            explain: "Higher rates raise the cost of borrowing to invest, so investment falls. Confusing this with firms earning higher RETURNS (which applies to saving money, not investing it) is a real examiner-flagged misconception."
+        }
+    },
+    {
+        title: "Lowering interest rates, QE, and other objectives",
+        tag: "Cheaper money for growth — and the tools beyond the base rate",
+        content: `<p>Cutting the base rate reverses every channel from the previous topic: cheaper borrowing, less reward for saving, lower mortgage payments, and rising asset prices (a positive wealth effect) all raise demand.</p>
+<h4>The growth and employment chain</h4>
+<ul>
+<li>Rising demand means firms raise output to meet it, which requires <strong>more workers</strong> — supporting both <strong>economic growth</strong> and <strong>lower unemployment</strong>. This is why rate cuts are especially used in a recession or a period of low growth.</li>
+<li>The risk, of course, is that rising demand can fuel <strong>demand-pull inflation</strong> — the mirror image of the trade-off from raising rates.</li>
+</ul>
+<h4>Lower rates and the balance of payments — a genuine two-sided effect</h4>
+<ul>
+<li>Lower UK rates make it less attractive to keep money in UK banks, so funds flow overseas seeking a better return. Less demand for the pound means it <strong>depreciates</strong>.</li>
+<li>A weaker pound makes UK exports cheaper/more competitive and imports dearer, which should <strong>improve the balance of payments</strong>.</li>
+<li><strong>But</strong> dearer imports can also cause inflationary pressure — and if an import is price INELASTIC (e.g. petrol), spending on it can actually RISE even though its price has gone up, worsening the trade position rather than improving it.</li>
+</ul>
+<h4>Quantitative easing (QE) and quantitative tightening (QT)</h4>
+<ul>
+<li><strong>QE</strong> is used when interest rates are already very low and cutting them further would have little extra effect. The Bank of England creates money electronically and uses it to buy assets — mainly government bonds — from the government and financial institutions, raising the money supply and encouraging lending and spending. Used after the <strong>2009 financial crisis</strong> and at the <strong>start of the pandemic</strong>.</li>
+<li><strong>QT</strong> reverses this: the Bank sells bonds, or does not reinvest funds from maturing bonds, reducing the money supply — tending to raise interest rates and cool inflation.</li>
+</ul>
+<h4>Objectives beyond price stability</h4>
+<ul>
+<li>"Other than X, state two macroeconomic objectives" questions want: <strong>low unemployment</strong>, <strong>economic growth</strong>, a <strong>healthy balance of payments</strong>, a <strong>stable exchange rate</strong>. Do NOT write "controlling inflation" if price stability is the objective already excluded — the mark scheme explicitly refuses it.</li>
+</ul>`,
+        readCheck: {
+            q: "Quantitative easing is most likely to be used when...",
+            opts: ["Interest rates are very high and need to come down gradually", "Inflation is far above target and needs to fall quickly", "Interest rates are already very low and cutting them further would have little effect", "The government wants to raise more tax revenue"],
+            ans: 2,
+            explain: "QE is the Bank's tool for when conventional rate cuts have run out of road — it creates money to buy assets and raise the money supply directly, as it did after the 2009 crisis and at the start of the pandemic."
+        }
+    },
+    {
+        title: "Evaluating monetary policy — confidence, size, and who's affected",
+        tag: "The evaluation levers examiners actually reward",
+        content: `<p>Knowing the CHAIN of effects only gets you to Level 2. Reaching Level 3 on an Evaluate question means questioning HOW MUCH the chain actually plays out.</p>
+<h4>The size of the change matters</h4>
+<ul>
+<li>A sharp rise, like the rapid increases seen in 2022, will have a much bigger effect on saving, borrowing and spending decisions than a change of under 1%, which was typical in earlier years.</li>
+</ul>
+<h4>Confidence — arguably the single biggest factor</h4>
+<ul>
+<li><strong>Consumer confidence:</strong> if it's low, people may keep saving despite a rate cut (wanting a financial cushion), or stay reluctant to borrow even as rates fall, worried about future repayments. Mortgage holders may not spend extra disposable income from a rate cut if they're worried about rising prices or future rate rises.</li>
+<li><strong>Business confidence:</strong> low confidence means firms may not invest even at very low rates; high confidence means firms may still invest even at high rates, if they expect strong profits. Banks' own confidence matters too — after the <strong>2009 credit crunch</strong>, rates were very low, but banks, burned by bad loans, were reluctant to lend to new customers, blunting the policy's effect.</li>
+</ul>
+<h4>Not everyone is affected equally</h4>
+<ul>
+<li><strong>Savers:</strong> some save toward a fixed goal (a deposit, a car) and may keep saving regardless of the rate; low-income people, who must spend most of what they earn, often can't save more even when rates rise. <strong>Pensioners</strong> rely on savings income, so they are always directly hit by rate changes.</li>
+<li><strong>Mortgage holders:</strong> roughly <strong>37.5% of the UK population</strong> has a mortgage — worth citing when evaluating how widely a rate change bites. Some can lock in a fixed rate for a period, but are eventually exposed to variable rates.</li>
+<li>A strong evaluation discusses this VARIATION rather than treating "consumers" as one uniform group.</li>
+</ul>
+<h4>Analyse vs Evaluate — a skill examiners explicitly separate</h4>
+<ul>
+<li>A 6-mark <strong>Analyse</strong> question does NOT require or reward a judgement — developed chains of reasoning are what score. Adding an evaluative comment wastes time without extra credit.</li>
+<li>A 6-mark <strong>Evaluate</strong> question (marked with an asterisk *) needs a fully supported judgement that weighs both sides.</li>
+</ul>`,
+        readCheck: {
+            q: "Which factor is arguably the single biggest determinant of whether a change in interest rates has the effect economic theory predicts?",
+            opts: ["How many MPC members voted for the change", "Consumer and business confidence", "The rate of UK population growth", "The total value of UK exports that year"],
+            ans: 1,
+            explain: "If confidence is low, expected effects can fail to materialise — people may keep saving despite a rate cut, or firms may not invest even when borrowing is cheap. Confidence shapes whether the textbook chain actually happens."
+        }
+    }
+];
+
+const mcqData = [
+    {
+        q: "Who is responsible for setting the UK's base rate of interest?",
+        opts: ["The Prime Minister", "The Chancellor of the Exchequer", "The high street banks", "The Bank of England's Monetary Policy Committee"],
+        ans: 3,
+        explain: "The MPC sets the base rate independently of government — a common misconception is that the government sets rates directly."
+    },
+    {
+        q: "The UK government's inflation target is...",
+        opts: ["5%, to encourage spending", "10%, to match average wage growth", "0%, i.e. no inflation at all", "2%, with a margin of 1% either way"],
+        ans: 3,
+        explain: "The target is 2%, and the Bank is content with inflation anywhere between 1% and 3% either side of it."
+    },
+    {
+        q: "If the Bank of England raises the base rate, what is the most likely direct effect on firms' investment?",
+        opts: ["It rises, because firms earn higher returns on investment", "It stays the same, because investment doesn't depend on interest rates", "It falls, because borrowing to invest becomes more expensive", "It rises, because banks lend more when rates are high"],
+        ans: 2,
+        explain: "Higher rates raise the cost of borrowing, so fewer investment projects remain profitable. A common exam mistake is to say investment rises because of 'higher returns' — that confuses investing with saving."
+    },
+    {
+        q: "Higher UK interest rates (relative to other countries) tend to cause the pound to...",
+        opts: ["Depreciate, because exports become cheaper", "Stay the same, because interest rates don't affect exchange rates", "Depreciate, as UK residents buy more imports", "Appreciate, as foreign investors buy pounds for the better return"],
+        ans: 3,
+        explain: "Higher UK rates attract foreign savers/investors, raising demand for pounds (or reducing their supply), so the pound appreciates."
+    },
+    {
+        q: "Which of these is a tool of monetary policy, not fiscal policy?",
+        opts: ["Raising income tax", "Increasing government spending on the NHS", "Cutting VAT", "Quantitative easing"],
+        ans: 3,
+        explain: "Monetary policy (interest rates, money supply, exchange rates) is controlled by the Bank of England. Fiscal policy (tax and spending) is controlled by the government."
+    },
+    {
+        q: "Quantitative easing is most likely to be used when...",
+        opts: ["Interest rates are very high and need to come down gradually", "Inflation is far above target and needs to fall quickly", "Interest rates are already very low and cutting them further would have little effect", "The government wants to raise more tax revenue"],
+        ans: 2,
+        explain: "QE creates money to buy assets and raise the money supply, used when rates are already near zero and can't usefully be cut further — as in 2009 and during the pandemic."
+    },
+    {
+        q: "A cut in the base rate is most likely to lead to...",
+        opts: ["No change in demand, only in prices", "Lower consumer spending and higher unemployment", "Higher consumer spending and lower unemployment", "Higher saving and lower borrowing"],
+        ans: 2,
+        explain: "Cheaper borrowing and less reward for saving raise total demand, so firms raise output and take on more workers — higher spending, lower unemployment."
+    },
+    {
+        q: "Which group is most directly and consistently affected by changes in the interest rate paid on savings?",
+        opts: ["Firms with no bank loans", "Pensioners who rely on savings income", "Students with no savings", "Tourists visiting the UK"],
+        ans: 1,
+        explain: "Pensioners often depend on income from savings to live, so they are directly and consistently exposed to changes in the savings rate, unlike the other groups listed."
+    },
+    {
+        q: "For a 6-mark 'Analyse' question on monetary policy, which skill is NOT required or rewarded?",
+        opts: ["A weighed, supported evaluative judgement", "Correct use of economic terminology", "Reference to the extract or context", "A developed chain of reasoning"],
+        ans: 0,
+        explain: "Examiners have explicitly said evaluative comments are 'not a skill required (nor rewardable)' on an Analyse question — save judgement for questions marked with an asterisk that say 'Evaluate'."
+    },
+    {
+        q: "The single biggest factor in whether a change in interest rates has the effect economic theory predicts is often...",
+        opts: ["The total value of UK exports", "The number of MPC members who voted for the change", "The rate of UK population growth", "Consumer and business confidence"],
+        ans: 3,
+        explain: "Low confidence can stop the textbook chain from playing out — for example, people may keep saving despite a rate cut, or firms may not invest even when borrowing is cheap."
+    }
+];
+
+const matchData = [
+    { term: "Monetary policy", def: "Using interest rates, the money supply and exchange rates to influence economic activity" },
+    { term: "Bank of England", def: "The UK's central bank, which operates monetary policy independently of government" },
+    { term: "Monetary Policy Committee (MPC)", def: "The 9-member Bank of England committee that sets the base rate" },
+    { term: "Base rate", def: "The rate of interest at which the Bank of England lends to commercial banks" },
+    { term: "Inflation target", def: "The UK's target of 2% inflation, with a margin of 1% either way" },
+    { term: "Quantitative easing (QE)", def: "The Bank of England creates money electronically to buy assets and raise the money supply" },
+    { term: "Quantitative tightening (QT)", def: "The Bank of England sells assets, or lets bonds mature, reducing the money supply" },
+    { term: "Demand-pull inflation", def: "The type of inflation that higher interest rates directly ease, by reducing total demand" },
+    { term: "Fiscal policy", def: "Using taxation and government spending, controlled by the government rather than the Bank of England" },
+    { term: "Exchange rate effect", def: "Higher UK interest rates attract foreign funds, so the pound tends to appreciate" },
+    { term: "Balance of payments", def: "Lower interest rates can improve this by making exports cheaper and imports dearer" },
+    { term: "Consumer confidence", def: "How optimistic people feel about the economy; can blunt or boost the effect of a rate change" },
+    { term: "Variable-rate mortgage", def: "A mortgage whose interest payments rise and fall directly with the base rate" }
+];
+
+const fibData = [
+    {
+        display: "Monetary policy is set independently of the ___B1___ by the Bank of England's ___B2___.",
+        blanks: { B1: "government", B2: "MPC" }
+    },
+    {
+        display: "The UK's inflation target is ___B1___%, with a margin of ___B2___% either way.",
+        blanks: { B1: "2", B2: "1" }
+    },
+    {
+        display: "When the base rate rises, borrowing becomes more ___B1___ and saving becomes more ___B2___.",
+        blanks: { B1: "expensive", B2: "rewarding" }
+    },
+    {
+        display: "Higher UK interest rates tend to make the pound ___B1___, which makes imports ___B2___.",
+        blanks: { B1: "appreciate", B2: "cheaper" }
+    },
+    {
+        display: "___B1___ easing is used when interest rates are already very ___B2___ and cutting them further would have little effect.",
+        blanks: { B1: "Quantitative", B2: "low" }
+    },
+    {
+        display: "A cut in interest rates tends to ___B1___ consumer spending, which can help reduce ___B2___.",
+        blanks: { B1: "increase", B2: "unemployment" }
+    }
+];
+const fibWords = ["government", "MPC", "2", "1", "expensive", "rewarding", "appreciate", "cheaper", "Quantitative", "low", "increase", "unemployment", "fiscal", "depreciate", "high", "dearer"];
+
+const tfData = [
+    {
+        statement: "The UK government directly sets the Bank of England's base rate.",
+        answer: false,
+        explanation: "The base rate is set by the Bank of England's Monetary Policy Committee (MPC), which is independent of government — a deliberate design to stop rates being manipulated for short-term political reasons."
+    },
+    {
+        statement: "Raising interest rates is intended to reduce demand-pull inflation.",
+        answer: true,
+        explanation: "Higher rates make borrowing dearer and saving more rewarding, reducing total demand — which directly eases demand-pull inflationary pressure."
+    },
+    {
+        statement: "A cut in interest rates tends to increase unemployment.",
+        answer: false,
+        explanation: "A rate cut raises demand, so firms raise output and take on more workers — lowering, not raising, unemployment."
+    },
+    {
+        statement: "Quantitative easing involves the Bank of England creating money to buy financial assets.",
+        answer: true,
+        explanation: "QE is the Bank creating money electronically to buy assets, mainly government bonds, raising the money supply and encouraging lending and spending."
+    },
+    {
+        statement: "Higher UK interest rates (relative to other countries) tend to make the pound depreciate.",
+        answer: false,
+        explanation: "Higher rates attract foreign savers seeking the better return, raising demand for the pound — so it tends to APPRECIATE, not depreciate."
+    },
+    {
+        statement: "Monetary policy and fiscal policy use exactly the same tools.",
+        answer: false,
+        explanation: "Monetary policy uses interest rates, the money supply and exchange rates, controlled by the Bank of England. Fiscal policy uses tax and government spending, controlled by the government — different tools, different bodies."
+    },
+    {
+        statement: "On a 6-mark 'Analyse' question, adding evaluative comments earns extra credit.",
+        answer: false,
+        explanation: "Examiners have explicitly said evaluation 'is not a skill required (nor rewardable)' on an Analyse question — it wastes time without extra marks."
+    },
+    {
+        statement: "Pensioners are particularly affected by changes in interest rates paid on savings, because they often rely on savings income.",
+        answer: true,
+        explanation: "Unlike many other groups, pensioners frequently depend on savings income to live, so they are directly and consistently exposed to rate changes."
+    }
+];
+
+const miscData = [
+    {
+        wrong: "\"If interest rates rise, firms will invest MORE, because they can earn higher returns.\"",
+        correct: "This is a real, examiner-flagged trap. On the real paper's Q3(i), 'most candidates identified that investment expenditure would fall because of increased cost/risk. However, a common mistake was that it would increase because of higher returns.' The confusion is between two DIFFERENT decisions: the reward a firm earns by SAVING spare cash (which does rise with rates) versus the COST of BORROWING to invest in machinery or buildings (which also rises with rates, and is what dominates the investment decision). Higher rates make investment MORE expensive to fund, so investment falls — not rises.",
+        readCheck: {
+            q: "Interest rates rise. What is the most likely effect on firms' investment expenditure?",
+            opts: ["It rises, because banks want to lend more", "It rises, because firms can now earn higher returns on investment", "It stays exactly the same", "It falls, because it costs more to borrow to fund investment"],
+            ans: 3,
+            explain: "Examiners specifically flagged 'it would increase because of higher returns' as a common mistake. The rising COST of borrowing to invest is what matters, and that makes investment fall."
+        }
+    },
+    {
+        wrong: "\"When UK interest rates rise, the pound's value increases because British savers use LESS foreign currency.\"",
+        correct: "Be precise about which market curve actually moves. The mark scheme's primary route is that DEMAND for pounds rises, because foreign investors move their funds INTO the UK to take advantage of the better return. There is also an accepted alternate route — that SUPPLY of pounds FALLS, because British savers stop exchanging pounds for other currencies. The real paper noted: 'Some candidates confused the increase with saving and less supply of pounds in the foreign exchange market' — muddling which side of the market is shifting. A small number of sophisticated answers correctly reasoned that falling consumption might reduce imports and therefore reduce supply too, which the examiners praised as 'a sophisticated and logical point.'",
+        readCheck: {
+            q: "Higher UK interest rates most directly raise the value of the pound because...",
+            opts: ["The Bank of England prints fewer pounds", "Government spending on imports falls", "UK exports automatically become cheaper", "Demand for pounds rises, as foreign investors move funds into the UK for the better return"],
+            ans: 3,
+            explain: "The main accepted route is rising DEMAND for pounds from foreign investors seeking the higher return. A less common but valid alternative is falling SUPPLY of pounds from UK savers who stop exchanging them for other currencies."
+        }
+    },
+    {
+        wrong: "\"An 'Analyse' 6-mark question should include a supported judgement, just like an 'Evaluate' question.\"",
+        correct: "On the real paper's Q1(a), a 6-mark 'analyse' question, the examiners wrote: 'Some candidates demonstrated evaluative skills in their answers, which is not a skill required (nor rewardable) for a six-mark analyse question.' Analyse questions are marked on AO1a (knowledge), AO2 (application) and AO3a (analysis/developed chains of reasoning) — there is no AO3b (evaluation) credit available. Save your weighing-up-both-sides judgement for questions that start with an asterisk (*) and the word 'Evaluate'.",
+        readCheck: {
+            q: "A 6-mark question asks you to 'Analyse how a cut in interest rates can affect UK economic growth.' What should your answer focus on?",
+            opts: ["Describing the extract without adding any economics", "A fully supported judgement weighing costs against benefits", "A short definition and nothing else", "Developed chains of reasoning, with no judgement needed"],
+            ans: 3,
+            explain: "Analyse questions reward knowledge, application and developed chains of reasoning (AO1a/AO2/AO3a) — not evaluation. Adding a judgement here is wasted effort."
+        }
+    },
+    {
+        wrong: "\"'Evaluate the impact on UK households' — I'll write about the impact on firms instead, since the argument is basically the same.\"",
+        correct: "On the real paper's Q3(iii), which asked candidates to evaluate the impact of higher interest rates on UK HOUSEHOLDS, the examiners noted: 'Some candidates did not read the question fully and wrote about effects on firms or generally on the wider economy, rather than households as required.' Always check exactly which group, or groups, the question names — an otherwise excellent answer about the wrong group scores very little, because the mark scheme rewards points that are clearly linked BACK to the named group.",
+        readCheck: {
+            q: "A question asks you to 'evaluate the impact of higher interest rates on UK households.' What is the safest approach?",
+            opts: ["Focus mainly on the effect on firms' investment", "Keep every point explicitly linked back to households, not firms or the whole economy", "Any correct economics about interest rates will score full marks", "Write generally about the whole economy, since households are part of it"],
+            ans: 1,
+            explain: "Examiners specifically penalised candidates who drifted into writing about firms or the wider economy instead of the named group. Read the question and keep every point linked back to it."
+        }
+    },
+    {
+        wrong: "\"Quoting a fact from the extract is enough on its own to get top marks on a 6-mark question.\"",
+        correct: "On the real paper's Q5, the examiners wrote: 'Using the context of the extract and question are important components in a question, but theory is needed, on top of direct quotes, to be able to access marks in all the 6 mark questions.' A quote alone earns little — you must add the ECONOMIC THEORY that explains why the data matters. The same question also flagged a second trap: 'Care was needed regarding the difference between real and nominal.' Their advice: 'Practise writing about the impact of inflation on the value of saving, debts and purchasing power,' using words like 'real', 'nominal', 'relative' or 'in comparison' to be precise.",
+        readCheck: {
+            q: "For a 6-mark question that gives you a data extract, what do examiners say is needed on top of quoting the data?",
+            opts: ["Economic theory that explains why the data matters", "A second, unrelated example", "A longer, more detailed quote", "A conclusion restating the question"],
+            ans: 0,
+            explain: "The examiners were explicit that context/quotes alone are not enough — candidates need theory as well to access marks on 6-mark questions."
+        }
+    }
+];
+
+const examTips = [
+    {
+        type: "definition",
+        title: "State-and-explain 2-markers: get the direction, then explain it",
+        pills: ["State and briefly explain...", "2 marks", "AO1"],
+        content: `<p>Several 2-mark questions on this paper follow the same pattern, and the mark scheme is unforgiving about the FIRST step:</p>
+<ul>
+<li><strong>State the direction first.</strong> On Q3(i), "rewardable responses must state that investment will fall/decrease" — without that, the explanation alone scores nothing.</li>
+<li><strong>Then explain briefly</strong> — one clear reason is enough for the second mark, e.g. "because it costs more to borrow to invest."</li>
+<li><strong>"Explain what is meant by X"</strong> questions (e.g. 'the rate of interest') want a precise definition with TWO elements: the reward for lending/saving AND the cost of borrowing.</li>
+<li><strong>"Other than X, state two objectives"</strong> questions explicitly refuse the excluded objective — writing "controlling inflation" when price stability is excluded scores nothing.</li>
+</ul>`,
+        readCheck: {
+            q: "On 'state and briefly explain the impact of higher interest rates on firms' investment', what is required to access ANY marks?",
+            opts: ["A clear statement that investment will fall/decrease", "A comparison with another country", "A calculation of the exact fall in investment", "A diagram showing the investment curve"],
+            ans: 0,
+            explain: "The mark scheme says rewardable responses MUST state investment will fall/decrease — the explanation only earns the second mark once the direction is correct."
+        }
+    },
+    {
+        type: "diagram",
+        title: "Diagram questions: name the curve, name the direction",
+        pills: ["Analyse, with the aid of a diagram...", "6 marks", "AO3a"],
+        content: `<p>Q13(c) on this paper asks you to analyse, with a diagram, how a fall in interest rates affects the exchange rate — and the mark scheme is blunt: <strong>"Maximum of 4 marks if no correct diagram."</strong></p>
+<ul>
+<li>The diagram needed is <strong>demand and supply of pounds</strong> against the exchange rate. A fall in interest rates shifts the DEMAND curve for pounds LEFT (D to D1), pulling the exchange rate down from p to p1. A diagram showing supply rising instead is also accepted.</li>
+<li>The vertical axis can show the pound against ANY currency (e.g. $) — that's fine.</li>
+<li>If you can't draw on this site, describe it in words: name the curve that moves, the direction it moves, and the resulting change in the equilibrium price — that is exactly what the diagram is checking for.</li>
+</ul>`,
+        readCheck: {
+            q: "On a diagram question about a fall in interest rates and the exchange rate, what happens if you write a correct analysis but include no diagram?",
+            opts: ["You automatically score 0", "You still qualify for full marks", "The diagram is optional and has no mark impact", "You are capped at a maximum of 4 out of 6 marks"],
+            ans: 3,
+            explain: "The mark scheme explicitly caps marks at 4/6 without a correct diagram, even if the written analysis is otherwise strong — the diagram is not optional here."
+        }
+    },
+    {
+        type: "data",
+        title: "Trend questions: find TWO distinct features, not one",
+        pills: ["Explain the trends shown in Extract...", "2 marks", "AO2"],
+        content: `<p>Q13(b) asks candidates to explain the trend in the UK interest rate chart. The mark scheme rewards TWO separate features, not just "it went down":</p>
+<ul>
+<li><strong>Feature 1:</strong> the rate fell sharply, in six stages, over the first 14 months (5.2% → 0.5%).</li>
+<li><strong>Feature 2:</strong> it then stayed low and stable at 0.5% for over seven years (with a brief dip to 0.25%).</li>
+</ul>
+<p>The mark scheme is explicit: <strong>"explaining these two features should be awarded 2 marks."</strong> A single statement like "the rate fell" only ever scores 1.</p>`,
+        readCheck: {
+            q: "For 'explain the trends in the UK rate of interest shown in the chart', what earns full marks?",
+            opts: ["Stating only that the rate fell overall", "Describing what caused the change", "Identifying both the sharp initial fall AND the long stable period that followed", "Naming the exact date of every change"],
+            ans: 2,
+            explain: "The mark scheme rewards two distinct features: the sharp six-stage fall in the first 14 months, and the long stable period at a low rate afterwards."
+        }
+    },
+    {
+        type: "evaluate",
+        title: "Analyse & Evaluate: name the group, complete the chain, then judge",
+        pills: ["Analyse / *Evaluate...", "6 marks", "AO3"],
+        content: `<p>Every 6-mark question on this paper follows the same AO structure: <strong>AO1a/AO2</strong> for knowledge and application, <strong>AO3a</strong> for analysis, and — on starred (*) questions only — <strong>AO3b</strong> for evaluation.</p>
+<ul>
+<li><strong>Complete the chain.</strong> The examiners' repeated criticism was candidates who "started a point correctly, however, did not always develop a chain of reasoning fully... missing out the middle section."</li>
+<li><strong>Link evaluation points together, don't just list two unrelated ones.</strong> A common error was writing about a fall in costs for producers "but not linking to how this may mitigate or offset the fall in demand (& therefore profit)."</li>
+<li><strong>Name the exact group the question asks about.</strong> "Evaluate the impact on UK households" is not the same question as "on firms" or "on the wider economy" — examiners explicitly penalised drift.</li>
+<li><strong>If a question names TWO groups</strong> (e.g. "savers and consumers"), you are capped below Level 3 unless BOTH are addressed — reference to just one is not enough.</li>
+<li><strong>Judge on extent:</strong> the size of the rate change, how long it lasts, and whether confidence is high or low.</li>
+</ul>`,
+        readCheck: {
+            q: "A 6-mark question asks you to analyse how monetary policy protected BOTH savers and consumers. What happens if your answer only covers consumers?",
+            opts: ["It makes no difference to your mark", "You get full marks as long as consumers are covered well", "You automatically fail the whole question", "You are capped below the top level (Level 3)"],
+            ans: 3,
+            explain: "The mark scheme states candidates are capped at a maximum of 5 marks (below Level 3) if both named groups are not addressed — you must link your answer to every group the question names."
+        }
+    }
+];
+
+const flashcards = [
+    { term: "Monetary policy", def: "Manipulating interest rates, the money supply and exchange rates to influence economic activity." },
+    { term: "Bank of England", def: "The UK's central bank — operates monetary policy independently of the government." },
+    { term: "MPC", def: "Monetary Policy Committee — 9 members, sets the base rate, meets regularly." },
+    { term: "Base rate", def: "The rate at which the Bank of England lends to commercial banks." },
+    { term: "Inflation target", def: "2%, with a margin of 1% either way (Bank content with 1%–3%)." },
+    { term: "Raising rates — the chain", def: "Borrowing dearer + saving more rewarding → demand falls → eases demand-pull inflation, but risks growth/jobs." },
+    { term: "Lowering rates — the chain", def: "Borrowing cheaper + saving less rewarding → demand rises → supports growth/jobs, but risks inflation." },
+    { term: "Quantitative easing (QE)", def: "Bank creates money to buy assets (mainly bonds), raising the money supply. Used in 2009 & the pandemic." },
+    { term: "Quantitative tightening (QT)", def: "Bank sells bonds / doesn't reinvest maturing ones, reducing the money supply." },
+    { term: "Exchange rate & interest rates", def: "Higher UK rates → foreign funds flow in → demand for £ rises → pound APPRECIATES." },
+    { term: "Balance of payments & lower rates", def: "Lower rates → pound depreciates → exports cheaper, imports dearer → should improve the balance — but inelastic imports (e.g. petrol) can cost MORE." },
+    { term: "Fiscal vs monetary policy", def: "Fiscal = tax & spending, set by government. Monetary = rates/money supply/exchange rates, set by the Bank of England." },
+    { term: "Consumer confidence", def: "How optimistic people feel about the economy — can blunt or boost a rate change's effect." },
+    { term: "Business confidence", def: "Low confidence: firms won't invest even at low rates. High confidence: firms may invest even at high rates." },
+    { term: "Savers & pensioners", def: "Pensioners rely on savings income, so are always directly hit by rate changes. Low earners often can't save more even when rates rise." },
+    { term: "Mortgage holders", def: "~37.5% of the UK population has a mortgage; variable-rate holders feel a change immediately." },
+    { term: "Analyse vs Evaluate", def: "Analyse = developed chains of reasoning, NO judgement rewarded. Evaluate (starred *) = needs a supported judgement." },
+    { term: "Size of the rate change", def: "A sharp change (e.g. 2022) has a much bigger effect than a change of under 1%." },
+    { term: "Why the Bank of England is independent", def: "Reduces the risk of rates being set for short-term political gain rather than sound economic management." }
+];
+
+// Shared exam extracts — defined ONCE here and referenced by `caseId`
+// from each question part, so editing an extract updates every question
+// that uses it. Single-use stimuli keep their own inline `caseStudy`.
+const EXAM_CASE_STUDIES = {
+    "extract-3-economic-policies-and-the-value-of-the": `<p><strong>Extract 3: Economic Policies and the Value of the Pound</strong></p>
+<table style="width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:center;font-size:13px;">
+<tr style="border-bottom:1px solid var(--border);"><th colspan="4" style="padding:6px;">Supply side spending (selected items) (£ billion)</th></tr>
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;text-align:left;">Government spending</th><th style="padding:6px;">2001–02</th><th style="padding:6px;">2011–12</th><th style="padding:6px;">2021–22</th></tr>
+<tr><td style="padding:6px;text-align:left;">General public services</td><td style="padding:6px;">44.0</td><td style="padding:6px;">76.8</td><td style="padding:6px;">108.6</td></tr>
+<tr><td style="padding:6px;text-align:left;">Health (NHS)</td><td style="padding:6px;">59.8</td><td style="padding:6px;">121.3</td><td style="padding:6px;">216.8</td></tr>
+<tr><td style="padding:6px;text-align:left;">Education</td><td style="padding:6px;">51.2</td><td style="padding:6px;">86.5</td><td style="padding:6px;">100.3</td></tr>
+<tr><td style="padding:6px;text-align:left;font-style:italic;">.......... Sum of excluded items ..........</td><td style="padding:6px;font-style:italic;">155.0</td><td style="padding:6px;font-style:italic;">284.6</td><td style="padding:6px;font-style:italic;">425.7</td></tr>
+<tr style="border-top:1px solid var(--border);"><td style="padding:6px;text-align:left;font-weight:600;">Total government spending</td><td style="padding:6px;font-weight:600;">384.0</td><td style="padding:6px;font-weight:600;">675.5</td><td style="padding:6px;font-weight:600;">952.3</td></tr>
+</table>
+<p>Government spending on education and health provision allows workers to become more productive, potentially increasing economic output.</p>
+<p>When tax revenue does not increase at the same pace as government spending, the government must borrow to cover its deficit. When government borrowing increases, interest rates may rise. Monetary policy uses interest rates to affect economic growth through their effect on borrowing for investment and consumption.</p>
+<p>When interest rates in the UK are higher than overseas, the international value of the pound increases, which may adversely affect UK exports, but should lower the inflation rate.</p>`,
+    "extract-2-impact-of-exchange-rates-and-interest-": `<p><strong>Extract 2: Impact of Exchange Rates and Interest Rates on the UK Economy</strong></p>
+<img src="/images/economics/3-6-uk-pound-usd-exchange-rate-chart-extracted.png" alt="Line chart from the OCR exam paper titled 'UK Pound against the US Dollar Exchange Rate', showing the price of the pound in dollars from 2008 to 2020. It starts at about $1.84 in 2008, falls sharply to about $1.55 by 2009, stays roughly flat around $1.55-$1.60 from 2009 to 2013, rises slightly to a peak of about $1.65 in 2014, then falls steadily to about $1.35 by 2016, dips further to about $1.29 in 2017, recovers slightly to $1.33 in 2018, then eases to around $1.28 by 2019-2020" style="display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>The exchange rate, which is used for international trade to convert a foreign currency into the domestic currency, or vice versa, specifies in the chart above how many US dollars ($) are needed to buy a pound (£). A fall in the exchange rate affects the price of imported goods and tourism, as well as making exports more competitive.</p>
+<p>The value of the UK pound changes in response to both political and economic factors. The Brexit vote in 2016 and the monetary policy of keeping interest rates low between 2008 and 2021 have both had a significant impact. The economic objective of low interest rates was to encourage firms and households to borrow and spend in order to stimulate economic growth. Since 2022, however, concerns about inflation have led to a policy of increasing interest rates.</p>`,
+    "extract-1-inflation-and-monetary-policy": `<p><strong>Extract 1: Inflation and Monetary Policy</strong></p>
+<img src="/images/economics/3-4-chile-inflation-rate-chart-extracted.png" alt="Line chart from the OCR exam paper titled 'Inflation Rate in Chile', showing annual % from 2006 to 2019: about 3.4% in 2006, rising to a peak of about 8.7% in 2008, falling sharply to a low of about 0.4% in 2009, then about 1.4% in 2010, 3.3% in 2011, 3.0% in 2012, 1.8% in 2013, a second peak of about 4.7% in 2014, then easing to about 2.2% in 2017 and 2.6% by 2019. The rate stays positive throughout" style="display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>The inflation rate is the percentage change in the consumer price index (CPI), which is an indexed measure of expenditure on a basket of goods. Unexpected inflation causes falls in real interest rates and real wages. A zero rate of inflation (complete price stability) usually occurs when an economy is not growing, which is likely to increase unemployment. Recently governments have become worried that inflation rates could become persistently negative, which would raise the real value of government debt above its nominal value.</p>
+<p>Monetary policy is used to stabilise the rate of inflation in Chile. When inflation is more than 1% beyond its target rate the Central Bank of Chile (CBoC) adjusts interest rates to change the level of borrowing and total spending in the economy. The money supply can also be changed by the CBoC. If the rate of inflation is expected to fall below zero, then the CBoC can adopt quantitative easing, which provides more funds to banks for lending to consumers and firms.</p>`,
+    "extract-2-uk-rate-of-interest-january-2008-to-ja": `<p><strong>Extract 2: UK rate of interest - January 2008 to January 2018</strong></p>
+<img src="/images/economics/3-4-uk-interest-rate-2008-2018-chart-extracted.png" alt="Line chart from the OCR exam paper titled 'Interest Rate %', showing the UK base rate from January 2008 to January 2018. It starts at about 5.25%, falls slightly to about 4.5% by January 2009, then drops sharply to about 0.5% during 2009 and stays flat at 0.5% until 2016, dips to about 0.25% in late 2016, and rises back to about 0.5% by January 2018" style="display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>The Bank of England operates monetary policy in the UK to help the government achieve its economic objectives.</p>
+<p>The rate of interest is the main economic component of UK monetary policy. Changes in the rate of interest can affect many other economic variables, including the exchange rate and consumer confidence. Changes in the &#39;base&#39; rate of interest, set by The Bank of England, may affect the interest rates set by the high street banks and credit card companies. These will have an impact on business investment decisions, mortgage rates and household spending.</p>`,
+};
+
+const examQuestions = [
+    {
+        num: "Q1(a)",
+        marks: 6,
+        type: "written",
+        caseId: "extract-3-economic-policies-and-the-value-of-the",
+        question: "Using the information in Extract 3, analyse how a cut in interest rates can affect UK economic growth.",
+        hint: "Build two separate chains from the cut: (1) cheaper borrowing → firms borrow to invest in factories/machinery → higher growth; (2) cheaper borrowing / less reward for saving → consumers borrow and spend more on durables → higher demand and output. This is an ANALYSE question — do not add a judgement, it isn't rewarded here.",
+        starter: "Interest rates are the main tool of monetary policy. When the bank rate is cut, borrowing costs fall, so...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Knowledge and understanding may include:</strong> interest rates are a tool of monetary policy; when rates fall, borrowing becomes cheaper; saving becomes less attractive; investment is inversely related to the rate of interest; economic growth is an increase in (real) GDP.</p>
+<p><strong>Reference to the extract:</strong> UK monetary policy changes the bank/base rate; interest rates are also affected by the public (national) debt; changes in interest rates also affect the exchange rate; interest rates affect borrowing for consumption/investment.</p>
+<p><strong>Development of reasoning may include:</strong></p>
+<ul>
+<li>Bank rate cut → borrowing costs fall → firms borrow to build factories and buy machinery → higher economic growth</li>
+<li>Bank rate cut → borrowing costs fall → consumers borrow to buy durable goods → increase in total demand and higher output</li>
+<li>Bank rate cut → saving less attractive → households consume more, save less → short-run increase in GDP</li>
+<li>Bank rate cut → saving less attractive → fewer funds for banks to lend out → interest rates may rise → lower long-run economic growth</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis with developed chains of reasoning; must reference the extract or context to reach this level.</p>
+<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects.</p>
+<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis.</p>
+<p><strong>0 marks:</strong> No work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates appreciated that a cut in interest rates would stimulate demand in the economy by increasing the ability to borrow at lower costs/disincentive to save or the effect on the value of the pound. A key skill worth developing is completing an analytical chain to include a relevant impact. Some candidates demonstrated evaluative skills, which is not a skill required (nor rewardable) for a six-mark analyse question.</p>
+</div>`,
+        modelAnswer: "Interest rates are the main tool of the Bank of England's monetary policy. When the base rate is cut, the cost of borrowing falls, so firms are more willing to take out loans to build new factories and buy machinery, directly raising investment and therefore economic growth.\n\nA cut also makes saving less rewarding, so households save less and spend more of their income, particularly on durable goods like cars and appliances bought on credit. This rise in consumer spending increases total demand in the economy, so firms raise output to meet it, which requires taking on more workers — a further boost to short-run economic growth."
+    },
+    {
+        num: "Q1b(i)",
+        marks: 2,
+        type: "written",
+        caseId: "extract-3-economic-policies-and-the-value-of-the",
+        question: "Other than economic growth, state two economic objectives that monetary policy can achieve.",
+        hint: "Name TWO from: price stability, a balance/surplus on the balance of payments, low unemployment. Simply writing 'inflation' without more precision is 'too vague' according to examiners.",
+        starter: "1. ... 2. ...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Price stability</li>
+<li>Balance/surplus in the balance of payments</li>
+<li>Low unemployment</li>
+</ul>
+<p>1 mark for each objective, up to a maximum of 2 marks.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was generally answered well, although some candidates simply stated 'inflation' or similar which is 'too vague' due to not being an actual objective.</p>
+</div>`,
+        modelAnswer: "1. Price stability — keeping the general price level rising at a low, predictable rate, close to the government's 2% target.\n\n2. A healthy balance of payments — monetary policy can help exports and imports move towards balance, for example by influencing the exchange rate of the pound."
+    },
+    {
+        num: "Q1b(ii)",
+        marks: 2,
+        type: "written",
+        caseId: "extract-3-economic-policies-and-the-value-of-the",
+        question: "Explain how higher interest rates in the UK may lead to the international value of the pound increasing.",
+        hint: "Two valid routes: DEMAND for pounds rises, because foreign savers move funds into the UK for the better return; OR SUPPLY of pounds falls, because British savers stop swapping pounds for foreign currency. Only one route is needed, but be precise about which curve moves.",
+        starter: "Higher UK interest rates attract foreign savers and investors, because...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may be either one of the two following:</strong></p>
+<ul>
+<li>Demand for the pound rises (shifts right) (1), because international savers/investors take advantage of higher returns in the UK and withdraw their funds from overseas financial markets to exchange for pounds (1)</li>
+<li>OR: Supply of the pound falls (shifts left) (1), because British savers/investors no longer exchange their pounds for other currencies due to higher returns in the UK / fewer imports purchased as consumption falls (1)</li>
+</ul>
+<p>1 mark for a statement without explanation; 2 marks for a correct explanation. Only ONE of the two routes is required.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant number of candidates identified that an increase in interest rates would attract savings from overseas into UK banks, and some even referred to hot money flows.</p>
+</div>
+<div class="marks-section">
+<h5>Misconception</h5>
+<p>Some candidates confused the increase with saving and less supply of pounds in the foreign exchange market. However, a small proportion were able to identify that a fall in consumption would probably lead to a fall in imports and therefore a fall in supply — a sophisticated and logical point.</p>
+</div>`,
+        modelAnswer: "Higher UK interest rates offer a better return to savers and investors, so foreign investors move their funds out of overseas financial markets and exchange them for pounds to take advantage.\n\nThis increases the demand for pounds on the foreign exchange market, which pushes up its price against other currencies — the pound appreciates."
+    },
+    {
+        num: "Q1b(iii)",
+        marks: 6,
+        type: "written",
+        caseId: "extract-3-economic-policies-and-the-value-of-the",
+        question: "Evaluate the extent to which a rise in the foreign exchange value of the pound could affect UK consumers and producers. Use the information given in Extract 3 and your own knowledge.",
+        hint: "Cover BOTH groups named — consumers AND producers — or you're capped below the top level. Consumers: cheaper imports and holidays vs UK job losses in import-competing/tourism sectors. Producers: cheaper imported inputs vs less competitive exports, though the extract says a stronger pound 'should lower the inflation rate', which helps producers indirectly by reducing wage pressure. Judge on how long the rise lasts and how price-elastic the goods are.",
+        starter: "For consumers, a stronger pound makes imports cheaper, because...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Reference to Extract 3 or context (AO2):</strong> the value of the pound increases when interest rates rise in the UK; the increase in the exchange rate should lower inflation / adversely affect exports.</p>
+<p><strong>Consumers:</strong> imports are cheaper, lowering inflation and improving living standards — BUT as consumers buy cheaper imports, domestic firms lose sales, which may lead to redundancies and higher unemployment. Foreign travel costs less — BUT domestic travel/tourism jobs (e.g. hotels) may be lost as fewer foreign tourists visit.</p>
+<p><strong>Producers:</strong> those importing inputs/capital goods benefit from lower costs — BUT UK output is less competitive overseas and faces more import competition at home. Producers should benefit from lower inflation reducing the need for higher wages, making output competitive again — BUT this takes time, and in the meantime increased competition could cause bankruptcies. Exports with inelastic PED won't see quantities fall much so revenue rises — BUT over time PED becomes more elastic as buyers find substitutes, so revenue falls.</p>
+<p><strong>N.B.</strong> In order to reach Level 3, there must be reference to BOTH consumers and producers.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A pleasing proportion of candidates recognised the requirements of the question and could identify an impact on at least one of consumers or producers.</p>
+</div>
+<div class="marks-section">
+<h5>Assessment for learning</h5>
+<p>This question was very accessible, but candidates often started a point correctly and did not always develop a chain of reasoning fully — for example, writing that a rise in the pound would lead to less demand/revenue/profit for producers, but not explaining why. There were also attempts at evaluation that were often two unrelated points, e.g. writing about a fall in costs for producers but not linking to how this may offset the fall in demand (and therefore profit) overseas.</p>
+</div>`,
+        modelAnswer: "A rise in the pound's value benefits UK consumers, because imported goods and foreign holidays become cheaper — the extract notes this 'should lower the inflation rate', raising living standards. However, as consumers switch to cheaper imports, domestic firms lose sales, which can mean redundancies and higher unemployment, offsetting the consumer gain.\n\nFor producers, those importing raw materials benefit from lower input costs, but UK exporters become less competitive overseas and face more import competition at home — the extract warns this 'may adversely affect UK exports'.\n\nOverall the extent depends on how long the rise lasts and how price-elastic the goods are: a brief rise has limited impact, but a sustained one is likely to hurt exporters and import-competing firms more than it benefits shoppers, since jobs and growth matter more to the wider economy than slightly cheaper imports."
+    },
+    {
+        num: "Q2",
+        marks: 1,
+        type: "mcq",
+        caseStudy: `<p>The Bank of England has used a policy of quantitative easing as part of monetary policy since 2009.</p>`,
+        question: "How may quantitative easing affect the economy?",
+        options: ["The money supply will decrease", "The rate of inflation will decrease", "Unemployment will decrease", "Wealth inequality will decrease"],
+        answer: 2,
+        hint: "QE increases the money supply and lowers interest rates, boosting total demand — what does more demand typically do to unemployment and to inflation?",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: C — Unemployment will decrease</strong></p>
+<ul>
+<li>QE increases the money supply and should reduce interest rates, increasing total demand, which is likely to reduce unemployment. Option A is the opposite of QE, and inflation is likely to increase (rendering B incorrect).</li>
+</ul>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q3(i)",
+        marks: 2,
+        type: "written",
+        caseId: "extract-2-impact-of-exchange-rates-and-interest-",
+        question: "State and briefly explain the impact of higher interest rates on firms' investment expenditure.",
+        hint: "State the DIRECTION first — investment FALLS — that's required to access any marks. Then explain briefly: either it costs more to borrow to invest, OR firms earn more by saving their money instead.",
+        starter: "Investment will fall/decrease, because...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Fall/decrease because it costs more to borrow to invest</li>
+<li>Fall/decrease because firms would earn more by saving their money/profit</li>
+</ul>
+<p>Rewardable responses MUST state that investment will fall/decrease. Give 1 mark for a brief explanation.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates identified that investment expenditure would fall because of increased cost/risk. However, a common mistake was that it would increase because of higher returns.</p>
+</div>`,
+        modelAnswer: "Firms' investment expenditure will fall.\n\nThis is because it becomes more expensive for firms to borrow money to fund new machinery or buildings, so fewer investment projects remain profitable enough to go ahead. Firms may also prefer to keep their profits saved in the bank, since the reward for saving has risen too."
+    },
+    {
+        num: "Q3(ii)",
+        marks: 2,
+        type: "written",
+        caseId: "extract-2-impact-of-exchange-rates-and-interest-",
+        question: "Explain how higher interest rates affect a household's decision when deciding to buy a house.",
+        hint: "Two routes: higher rates raise the cost of a mortgage, so lower-income households may decide NOT to buy (or to rent instead); or saving becomes more rewarding, so households may prefer to save rather than buy.",
+        starter: "Higher interest rates increase the cost of a mortgage, so...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Higher interest rates increase the cost of borrowing (taking out a loan/mortgage). As a result, (lower income) households may decide not to buy a house (and instead to rent property)</li>
+<li>Households may decide to save rather than use their money to buy a house (so demand may fall) because the rewards are higher</li>
+</ul>
+<p>1 mark for some understanding shown. 2 marks for a correct explanation of how higher interest rates increase the cost of borrowing, leading households to reduce their demand.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates correctly identified that households are likely to defer purchasing houses. Some candidates noted borrowing would be more expensive but did not say what the effect of this would be on household decision-making.</p>
+</div>`,
+        modelAnswer: "Higher interest rates increase the cost of a mortgage, since the monthly repayments on the loan needed to buy a house become larger.\n\nAs a result, lower-income households may decide not to buy at all, or to delay their purchase and rent instead. Some households may also choose to save their money rather than buy, since the reward for saving has risen at the same time."
+    },
+    {
+        num: "Q3(iii)",
+        marks: 6,
+        type: "written",
+        caseId: "extract-2-impact-of-exchange-rates-and-interest-",
+        question: "Evaluate the impact of higher interest rates on UK households, other than those buying a house. Use the information given in Extract 2 and your own knowledge.",
+        hint: "The question says 'other than those buying a house' and specifically asks about HOUSEHOLDS — don't drift into effects on firms or the wider economy, examiners flagged exactly this error. Cover: less inflation (more purchasing power), a stronger pound (cheaper imports/holidays), more attractive saving (less consumption) — versus rising unemployment and falling incomes as firms cut investment and output. Judge on the SIZE and LENGTH of the rise.",
+        starter: "One benefit for households is that inflation is less likely, because...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Inflation is less likely as higher interest rates dampen total (aggregate) demand — as a result, UK households have greater purchasing power</li>
+<li>Higher interest rates strengthen the UK pound, as funds flow into the UK economy — households benefit from cheaper imports and overseas holidays</li>
+<li>Saving becomes more attractive, leading households to reduce consumption</li>
+</ul>
+<p><strong>However:</strong> unemployment rises as firms reduce investment; demand for exports and domestic output falls, so producers may make workers redundant; less investment in production facilities and R&amp;D lowers the quality of goods, affecting living standards; as total demand falls, output and employment fall; household incomes fall as output falls; borrowing costs rise, so households pay more for loans.</p>
+<p><strong>Evaluation may include:</strong> the effect may depend on other economic variables, including fiscal policy; depends on the SIZE of the rise (a small rise has little impact); depends on the LONGEVITY of the rise (short-lived = minimal effect); final judgement expressed clearly.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates were able to develop a chain of reasoning linking increased interest rates to reduced expenditure/falling saving rates. Others linked a fall in demand to increased unemployment and falling incomes. Candidates who developed a theme such as living standards and evaluated/compared effects with respect to it tended to achieve marks from the higher levels. Another successful approach was to conclude that the effect depended on whether a household was a net saver or borrower. Some candidates did not read the question fully and wrote about effects on firms or generally on the wider economy, rather than households as required.</p>
+</div>`,
+        modelAnswer: "Higher interest rates benefit households in some ways: as the extract notes, rates affect the exchange rate, and a stronger pound makes imports and foreign holidays cheaper. Dampened demand also eases inflation, so household purchasing power is protected, and saving becomes more rewarding for those with spare income.\n\nHowever, as firms face higher borrowing costs they invest less and may cut output, leading to redundancies and rising unemployment — directly cutting some households' incomes. Households with existing loans or credit cards also face higher repayments, reducing their disposable income.\n\nOverall, the impact depends on whether a household is a net saver or a net borrower: savers gain from higher rates, while borrowers and those at risk of redundancy lose out. It also depends on the size of the rise — a small increase, unlike a sharp one, would have little effect on most households."
+    },
+    {
+        num: "Q4",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "Interest rates fall. Which of the following is most likely to fall as a result?",
+        options: ["Firms' investment", "Household savings", "Overall employment", "Gross domestic product"],
+        answer: 1,
+        hint: "A rate cut makes saving LESS rewarding. Investment, employment and GDP would all be expected to RISE as demand increases — only one of these four falls.",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: B — Household savings</strong></p>
+<ul>
+<li>A cut makes saving less attractive, so households save less. Investment, employment and GDP should all rise as demand increases.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A very high percentage of candidates gave Option B as the correct response to this question.</p>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q5",
+        marks: 6,
+        type: "written",
+        caseId: "extract-1-inflation-and-monetary-policy",
+        question: "Using the information in Extract 1, analyse how monetary policy was used in Chile in 2014 to protect savers and consumers.",
+        hint: "Read the CHILE data for 2014 first: inflation rose from about 2% in 2013 to about 4.5% in 2014, then fell back to about 2% by 2017 — so the CBoC must have RAISED interest rates (or reduced QE/the money supply). Build the chain from there to savers AND consumers, and be careful with real vs nominal vocabulary. A direct quote from the extract is not enough on its own — you need theory too.",
+        starter: "The chart shows Chile's inflation rising to about 4.5% in 2014, so the Central Bank of Chile is likely to have...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Monetary policy would have comprised:</strong> interest rates increased; money supply reduced.</p>
+<p><strong>Reference to extract:</strong> inflation rose from about 2% in 2013 to about 4.5% in 2014; after 2014, inflation fell to about 2% in 2017.</p>
+<p><strong>Development from interest rates increased:</strong> so rewards for saving increased / costs of borrowing more expensive → borrowing fell, so investment/spending fell → total demand fell, so demand-pull inflation rate fell → this lower inflation protected savers because the real value of savings fell less rapidly / protected consumers because the price level rose less rapidly. OR: interest payments increased → rewards for saving increased → increased income from savings may offset the increase in inflation → the higher nominal interest rate protected savers from falling real interest rates.</p>
+<p><strong>Development from money supply reduced (or less QE):</strong> banks have fewer funds available (fewer reserves) → may offer fewer loans → less able to borrow, so less willing and able to invest/spend → total demand fell, so demand-pull inflation rate fell → protected savers and consumers as above.</p>
+<p><strong>N.B.</strong> Award a maximum of 5 marks if both elements of the scenario are not addressed, i.e. not linked to BOTH savers and consumers.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis with developed chains of reasoning.</p>
+<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects.</p>
+<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments / Misconception</h5>
+<p>Using the context of the extract and question are important components in a question, but theory is needed, on top of direct quotes, to be able to access marks in all the 6 mark questions. In this question it was important to use the data for 2014, showing inflation had increased and then decreased — suggesting either an increase in interest rates or a decrease in quantitative easing had been used to reduce inflation in Chile. The key was to link how these actions specifically protected savers and consumers. Care was needed regarding the difference between real and nominal.</p>
+</div>
+<div class="marks-section">
+<h5>Assessment for learning</h5>
+<p>Practise writing about the impact of inflation on the value of saving, debts and purchasing power. Try to use either nominal/real in responses or other words that improve these answers, such as 'relative' or 'in comparison'.</p>
+</div>`,
+        modelAnswer: "The extract shows Chile's inflation rising from about 2% in 2013 to roughly 4.5% in 2014, then falling back to about 2% by 2017 — so the Central Bank of Chile is likely to have raised interest rates during this period.\n\nHigher interest rates make saving more rewarding and borrowing more expensive, so households and firms borrow and spend less. This reduces total demand in the economy, easing demand-pull inflationary pressure. As inflation falls back towards 2%, the real value of consumers' money and existing savings is eroded less quickly than it would be at 4.5% inflation — protecting both groups' purchasing power."
+    },
+    {
+        num: "Q6",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "The Bank of England has decided to raise interest rates in order to reduce inflation. As a result",
+        options: ["borrowing by firms rises", "external value of the UK pound (£) falls", "government revenue falls", "saving by households rises"],
+        answer: 3,
+        hint: "Higher rates make saving more rewarding, so households save more, not less. Borrowing would fall (not rise), and a rate rise tends to STRENGTHEN the pound, not weaken it.",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: D — saving by households rises</strong></p>
+<ul>
+<li>Higher rates make saving more rewarding, so household saving rises. Borrowing by firms would fall, the pound would tend to strengthen (not fall), and government revenue is not the direct effect being tested here.</li>
+</ul>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q7",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "Monetary policy aims to:",
+        options: ["control the total supply of money in the economy", "create new money in order to control the economy", "increase the supply of money available to consumers", "increase the use of money as a medium of exchange"],
+        answer: 0,
+        hint: "Monetary policy is the manipulation of interest rates, the money supply and exchange rates — this option describes controlling the total money supply, the core definition. The others only describe one narrow (and sometimes wrong) slice of it.",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: A — control the total supply of money in the economy</strong></p>
+<ul>
+<li>This is the core definition of monetary policy. Creating new money (B) is only one possible tool (QE), not the overall aim; C and D describe only narrow or inaccurate slices of it.</li>
+</ul>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q8",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "Which of the following is a consequence of inflation for consumers?",
+        options: ["Fall in tax revenue", "Increase in menu costs", "Real incomes may fall", "Savings increase in value"],
+        answer: 2,
+        hint: "Menu costs fall on producers, tax revenue is a government concern, and inflation REDUCES the real value of savings — only one option correctly names an effect on CONSUMERS.",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: C — Real incomes may fall</strong></p>
+<ul>
+<li>If prices rise faster than wages, consumers' real incomes fall. Menu costs fall on producers, tax revenue is a government issue, and inflation REDUCES the real value of savings.</li>
+</ul>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q9",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "Under which of the following circumstances would it be best to be a lender?",
+        options: ["The nominal rate of interest is 0 percent and the inflation rate is 0 percent", "The nominal rate of interest is 2 percent and the inflation rate is 5 percent", "The nominal rate of interest is 5 percent and the inflation rate is 1 percent", "The nominal rate of interest is 7 percent and the inflation rate is 4 percent"],
+        answer: 2,
+        hint: "A lender wants the highest REAL return (nominal − inflation). Work out each: 0%, −3%, +4%, +3%. The highest nominal rate is not always the best deal.",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>
+<p><strong>Answer: C — nominal 5%, inflation 1%</strong></p>
+<ul>
+<li>Real rate = nominal − inflation. A: 0 − 0 = 0%. B: 2 − 5 = −3%. C: 5 − 1 = <strong>+4%</strong>. D: 7 − 4 = +3%. C gives the highest real return, even though D has the higher nominal rate — the trap.</li>
+</ul>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q10",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "Monetary policy is most likely to affect",
+        options: ["real output and indirect taxes", "the price level and indirect taxes", "the price level and real output", "the price level but not real output"],
+        answer: 2,
+        hint: "Interest rate changes shift total demand, which affects BOTH how much is produced (real output) AND the general level of prices — not taxes, which are a fiscal policy tool.",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: C — the price level and real output</strong></p>
+<ul>
+<li>Changing interest rates shifts total demand, which affects both output and prices. Indirect taxes are a fiscal policy tool, not a monetary one.</li>
+</ul>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q11",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "The central bank decides to increase quantitative easing. The most likely effect on investment is that it would",
+        options: ["decrease", "fall at first and then increase", "increase", "remain constant"],
+        answer: 2,
+        hint: "QE raises the money supply and tends to keep interest rates low, making borrowing to invest cheaper — what does that do to investment?",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: C — increase</strong></p>
+<ul>
+<li>More QE raises the money supply and keeps borrowing cheap, encouraging firms to invest more.</li>
+</ul>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q12",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "Which pair of events is most likely to happen as a result of a rise in the rate of interest?",
+        options: ["Asset prices fall and savings by households rise", "Borrowing by firms rises and savings by households fall", "Consumer prices rise and asset prices fall", "External value of the currency falls and borrowing rises"],
+        answer: 0,
+        hint: "A rate rise makes saving more rewarding (assets like housing become relatively less attractive, so asset prices can fall) — check each pair against that single idea, only one pair is fully consistent.",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: A — Asset prices fall and savings by households rise</strong></p>
+<ul>
+<li>Both effects follow from saving becoming more rewarding relative to holding assets like housing. The other pairs each contain one effect that moves in the wrong direction.</li>
+</ul>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q13(a)",
+        marks: 2,
+        type: "written",
+        caseId: "extract-2-uk-rate-of-interest-january-2008-to-ja",
+        question: "Explain what is meant by 'the rate of interest'.",
+        hint: "Two elements: it's the REWARD for lending/saving, AND the COST of borrowing. 'Rate of interest is the reward for saving' alone is only 1 mark.",
+        starter: "The rate of interest is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Rate of interest is the reward for lending and the cost of borrowing</li>
+</ul>
+<p>2 marks for a correct explanation. 1 mark for an explanation which shows some understanding, e.g. rate of interest is the reward for saving.</p>
+</div>`,
+        modelAnswer: "The rate of interest is the reward that savers and lenders receive for lending out their money to a bank or another borrower.\n\nIt is also the cost that borrowers must pay for taking out a loan or mortgage — in other words, the price of borrowing money, usually shown as a percentage per year."
+    },
+    {
+        num: "Q13(b)",
+        marks: 2,
+        type: "written",
+        caseId: "extract-2-uk-rate-of-interest-january-2008-to-ja",
+        question: "Explain the trends in the UK rate of interest shown in Extract 2.",
+        hint: "Two distinct features needed: (1) the sharp initial fall in 6 stages over 14 months, from 5.2% to 0.5%; (2) the long, stable period at 0.5% for over 7 years. Just saying 'it fell' is only worth 1 mark.",
+        starter: "The rate of interest fell sharply at first, then...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The rate falls significantly in 6 stages in the first 14 months (from 5.2% to 0.5%)</li>
+<li>There is a prolonged period of low, stable interest rate (0.5%) for over 7 years</li>
+<li>The rate falls further to 0.25% before returning to 0.5%</li>
+<li>The overall trend is a fall</li>
+</ul>
+<p>2 marks for a correct explanation. Explaining BOTH the initial fall AND the long stable period should be awarded 2 marks.</p>
+</div>`,
+        modelAnswer: "The UK interest rate fell sharply and quickly at the start of the period, dropping in six stages over just 14 months, from about 5.2% in January 2008 to 0.5% by early 2009.\n\nAfter that initial fall, the rate then stayed low and stable at 0.5% for over seven years, dipping briefly to 0.25% before returning to 0.5% by January 2018."
+    },
+    {
+        num: "Q13(c)",
+        marks: 6,
+        type: "written",
+        caseId: "extract-2-uk-rate-of-interest-january-2008-to-ja",
+        question: "Analyse, with the aid of a diagram, how a fall in the rate of interest may affect the exchange rate of the pound.",
+        hint: "You'd normally sketch a demand-and-supply-of-pounds diagram here: demand for pounds shifts LEFT (D to D1) as the reward for holding them falls, pulling the exchange rate down from p to p1 (a rise in supply also works). On this site, describe the diagram in words: which curve moves, which way, and what happens to the equilibrium price. Note: real papers cap you at 4/6 without a correct diagram.",
+        starter: "A fall in interest rates makes holding pounds less rewarding, so...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Lower interest rates may lower the exchange rate</li>
+<li>The reward for holding pounds is less</li>
+<li>The demand for pounds falls</li>
+<li>The supply of pounds may rise as more people wish to sell</li>
+</ul>
+<p><strong>On the diagram:</strong> demand for pounds falls from D to D1; this causes the exchange rate to fall from p to p1.</p>
+<p><strong>N.B.</strong> Candidates may choose to show the £ against another currency (e.g. $) — acceptable. Diagrams which accurately show a rise in the supply of pounds should also be rewarded. Only one diagram is required. <strong>Maximum of 4 marks if no correct diagram.</strong></p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis with a predominantly correct, linked diagram.</p>
+<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects; diagram (if present) may be imperfectly labelled.</p>
+<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis; diagram (if present) unlikely to be correct or linked.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+        modelAnswer: "A fall in the UK interest rate makes holding pounds less rewarding for savers and investors, both in the UK and overseas, because the return on pound-denominated savings falls relative to other currencies.\n\nAs a result, the demand for pounds on the foreign exchange market falls — on a diagram, the demand curve shifts left from D to D1. Some UK savers may also seek better returns abroad, increasing the supply of pounds being sold in exchange for foreign currency.\n\nWith demand falling (and supply potentially rising), the equilibrium price of the pound falls, from p to p1 — the pound depreciates against other currencies."
+    },
+    {
+        num: "Q13d(i)",
+        marks: 2,
+        type: "written",
+        caseId: "extract-2-uk-rate-of-interest-january-2008-to-ja",
+        question: "Explain how monetary policy may affect price stability.",
+        hint: "Two valid routes: (1) inflation TARGETS give economic agents an indication of future inflation so they can plan; (2) changing the base rate affects consumer/firm spending and thus pressure on prices, e.g. a rate fall makes saving less attractive and spending more, pushing prices up.",
+        starter: "Inflation targets give economic agents an indication of future inflation, which means...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The setting of inflation targets by the government provides an indication to economic agents about future inflation, so they can plan accordingly</li>
+<li>The past record of changes in the rate of interest has shown the effectiveness of the Bank of England in controlling the economy</li>
+<li>If interest rates change frequently this can affect spending by consumers and thus price stability, e.g. a fall in interest rates may make saving less attractive and spending more, leading to rising prices</li>
+</ul>
+<p>2 marks for a correct explanation.</p>
+</div>`,
+        modelAnswer: "Monetary policy affects price stability through the setting of inflation targets, which gives households and firms a clear indication of expected future inflation so they can plan their spending and pricing accordingly.\n\nIt also works through changes in the base rate: if rates are cut, saving becomes less attractive and spending more attractive, which raises demand and can push prices up, so the Bank must weigh this against its price stability target."
+    },
+    {
+        num: "Q13d(ii)",
+        marks: 2,
+        type: "written",
+        caseId: "extract-2-uk-rate-of-interest-january-2008-to-ja",
+        question: "Other than price stability, state two macroeconomic objectives.",
+        hint: "Do NOT write 'controlling inflation' — the mark scheme explicitly refuses it, since it's the same thing as price stability. Valid answers: more/less unemployment, economic growth/standard of living, a healthy balance of payments, a stable exchange rate, development.",
+        starter: "Objective 1: ... Objective 2: ...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>More employment / less unemployment</li>
+<li>Economic growth / standard of living</li>
+<li>A healthy/balanced balance of payments (on current account)</li>
+<li>Stable/strong exchange rate</li>
+<li>Increased levels of development</li>
+</ul>
+<p>1 mark for each of two objectives identified. <strong>Do NOT accept price stability or controlling inflation.</strong></p>
+</div>`,
+        modelAnswer: "Objective 1: Low unemployment — as many people of working age as possible in paid employment.\n\nObjective 2: Economic growth — a sustained rise in real GDP over time, which should also raise living standards for most people."
+    },
+    {
+        num: "Q13d(iii)",
+        marks: 6,
+        type: "written",
+        caseId: "extract-2-uk-rate-of-interest-january-2008-to-ja",
+        question: "*Evaluate the effect of falling interest rates on consumer spending. Use the information given in Extract 2 and your own knowledge.",
+        hint: "Use the chart: the base rate collapsed from about 5.2% in 2008 to 0.5% by 2009 and stayed low for years. Analysis: cheaper borrowing/credit, lower reward for saving, lower mortgage payments = more disposable income. Evaluation: depends on consumer confidence (may prefer to save/repay debt in a downturn instead), the SIZE of the fall (0.5%→0.25% barely matters vs the 2008-09 crash), and whether households have fixed-term mortgages (delays the effect).",
+        starter: "Falling interest rates make borrowing cheaper, which means...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Monetary policy can encourage more consumer spending by reducing interest rates</li>
+<li>Consumer borrowing will be cheaper and more people will take out loans</li>
+<li>Consumers are more likely to buy 'big ticket' items on credit</li>
+<li>Saving will be less rewarding, so consumers may spend more</li>
+<li>Households with mortgages will have lower monthly payments, so more disposable income to spend</li>
+</ul>
+<p><strong>Evaluation may include:</strong> if consumer confidence is low, the fall in interest rates may not encourage much more spending; the LEVEL of the rate is relevant, e.g. a fall from 0.5% to 0.25% was unlikely to have much effect; the EXTENT of the fall is relevant, e.g. a large fall in a short time (Oct 2008–Mar 2009) is likely to have a greater impact than a small change; consumers may not base saving decisions on the interest rate as a major factor (income likely more important); many households have fixed-term mortgages so effects may take time; many 'big ticket' purchases are on credit, so cheaper credit could make a significant difference; mortgage interest can be a significant proportion of outgoings, so a reduction may lead to a significant rise in spending.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+        modelAnswer: "The chart shows the UK base rate collapsing from about 5.2% in January 2008 to just 0.5% during 2009, where it stayed for years. Cheaper borrowing lets consumers take out more loans and buy 'big ticket' items on credit, while variable-rate mortgage holders see payments fall, leaving more disposable income. Saving also becomes less rewarding, reducing the incentive to hold money back.\n\nHowever, the effect depends on consumer confidence: the rate fell because of a financial crisis, so many households may have preferred to repay debt rather than spend, blunting the policy exactly when needed most. The SIZE of a change also matters — a later fall from 0.5% to 0.25% is unlikely to shift behaviour much, unlike the dramatic 2008–09 drop.\n\nOverall, the large initial fall probably did raise spending through cheaper mortgages and credit, but small later changes are unlikely to have had much additional effect."
+    },
+    {
+        num: "Q14",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "Monetary policy can have an effect on:",
+        options: ["both the price level and the level of output", "neither the price level or the level of output", "the level of output but not on the price level", "the price level but not on the level of output"],
+        answer: 0,
+        hint: "A change in interest rates shifts total demand, which moves BOTH prices and output — not just one of them.",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — both the price level and the level of output</strong></p>
+<ul>
+<li>Interest rate changes shift total demand, affecting both real output and the general price level.</li>
+</ul>
+</div>`,
+        modelAnswer: ""
+    }
+];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

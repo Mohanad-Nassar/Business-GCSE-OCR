@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Economics — Unit 3: Economic Objectives and the Role of Government</div>
             <h1>3.3 Fair Distribution of Income</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -268,21 +268,1092 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>3.3 Fair Distribution of Income</strong> will appear here soon.</p>`
+            title: "Income vs wealth — the flow and the stock",
+            tag: "Get this right and half the topic falls out",
+            content: `<p>Almost every mark on this topic depends on one distinction:</p>
+<ul>
+<li><strong>Income</strong> is a <strong>FLOW</strong> of money received over time in return for providing the services of a factor of production.</li>
+<li><strong>Wealth</strong> is a <strong>STOCK</strong> of assets owned by a person, group or country at a point in time. The word "stock" is what earns the second mark.</li>
+</ul>
+<h4>Forms of income (the flows)</h4>
+<ul>
+<li><strong>Wages/salaries</strong> — the main, often only, income for most UK households.</li>
+<li><strong>Rent</strong> — from letting out an owned asset, e.g. a second home.</li>
+<li><strong>Interest</strong> — earned on savings (no savings = no interest income).</li>
+<li><strong>Profit</strong> — for people who own and run a business.</li>
+<li><strong>Dividends</strong> — a share of a company's profits paid to shareholders.</li>
+<li><strong>State benefits</strong> — the unemployed, pensioners and long-term ill rely on these and have the lowest incomes.</li>
+</ul>
+<h4>Forms of wealth (the stocks)</h4>
+<ul>
+<li>Houses, cars, furniture and electronics, savings, pension funds, and business or share ownership.</li>
+</ul>
+<h4>The link that drives inequality</h4>
+<ul>
+<li><strong>Wealth GENERATES income.</strong> Savings → interest. A second home → rent. A business or shares → profit and dividends.</li>
+<li>So those who already own assets receive extra income on top of their wages, while those with nothing rely on wages alone — and the gap widens over time.</li>
+</ul>
+<h4>The worked example the exam keeps reusing</h4>
+<p>Salary £45,000 + bonus £5,000 + interest £1,000 = <strong>income £51,000</strong>. Car £15,000 + savings £50,000 + pension fund £125,000 + possessions £10,000 = <strong>wealth £200,000</strong>. Sort the table into flows and stocks before you add anything up.</p>`,
+            readCheck: {
+                q: "Heidi earns £20,000 a year and has £50,000 in a bank account paying no interest. Which is true?",
+                opts: ["Her wealth is £50,000", "Her wealth is £70,000", "Her income is £70,000", "Her income is £50,000"],
+                ans: 0,
+                explain: "The bank balance is a stock of assets = wealth. Her income is the £20,000 she earns; because the account pays no interest, the £50,000 generates no income at all."
+            }
+        },
+        {
+            title: "How income and wealth are distributed — and why",
+            tag: "Wealth is even more unequal than income",
+            content: `<p><strong>UK incomes are unequally distributed:</strong> the top 20% receive about 40% of all income; the bottom 20% only about 6–8%. The gap in GROSS income (before tax) is even larger — the progressive tax system narrows it somewhat.</p>
+<p><strong>Wealth is distributed even more unequally than income.</strong> The top 10% of wealth holders hold over <strong>48.5%</strong> of all wealth, while the bottom 30% hold barely <strong>1%</strong> between them. Every exam extract repeats this point.</p>
+<h4>Why INCOME is unequal</h4>
+<ul>
+<li><strong>Wage rates</strong> — set by demand and supply in each labour market. Scarce, skilled work (a surgeon, a CEO) has inelastic supply and high demand → high pay. Low-skilled work has plentiful supply → minimum wage.</li>
+<li><strong>Productivity</strong> — more productive workers are worth more, so firms pay more.</li>
+<li><strong>Ownership of wealth</strong> — assets generate interest, rent and dividends on top of wages.</li>
+<li><strong>Age</strong> — younger workers earn less through lack of experience; earnings tail off near retirement.</li>
+<li><strong>Gender</strong> — the gender pay gap widens in the highest-paying roles.</li>
+<li><strong>Education</strong> — richer households buy better schooling or live near better schools, which perpetuates the gap across generations.</li>
+<li>Also: trade unions, entry barriers to professions, zero-hours contracts, and reliance on benefits or fixed incomes such as pensions.</li>
+</ul>
+<h4>Why WEALTH is even more unequal</h4>
+<ul>
+<li><strong>Inheritance</strong> — those with wealth pass it on; those without have nothing to pass on. It perpetuates inequality across generations.</li>
+<li><strong>Savings</strong> — higher earners have money left at month end; those on benefits often cannot save at all. Saved money then buys assets that earn more.</li>
+<li><strong>Property</strong> — owning a second home brings rent AND rising property values. Renters build no asset at all.</li>
+<li><strong>Shares</strong> — most people own none; those who do gain dividends and rising share values. Wealth compounds.</li>
+</ul>`,
+            readCheck: {
+                q: "Which statement about the UK is correct?",
+                opts: ["Wealth is distributed even more unequally than income", "Income is distributed more unequally than wealth", "Only wealth is unequally distributed", "Income and wealth are distributed equally"],
+                ans: 0,
+                explain: "The top 10% hold over 48.5% of wealth while the bottom 30% hold about 1%. Every exam extract on this topic states that wealth is more unevenly distributed than income."
+            }
+        },
+        {
+            title: "The consequences of inequality",
+            tag: "Poverty, health, education — and lost growth",
+            content: `<p>The spec asks you to <strong>evaluate the consequences for an economy</strong>. Learn the two poverty definitions first — they frame everything.</p>
+<h4>Two kinds of poverty</h4>
+<ul>
+<li><strong>Absolute poverty</strong> — lacking the basic necessities: food, shelter, clothing, power, sanitation. Common in developing nations, but present in the UK too (e.g. homelessness).</li>
+<li><strong>Relative poverty</strong> — a household with <strong>less than 60% of median income</strong>. More common in developed nations; around 25% of UK households.</li>
+<li>Evidence in the UK: record food-bank use, and "warm banks" for people who cannot afford to heat their homes.</li>
+</ul>
+<h4>Consequences for people</h4>
+<ul>
+<li><strong>Poor housing</strong> — low-income households cannot get mortgages, so they rent, often in poorly insulated older buildings clustered in deprived areas.</li>
+<li><strong>Poor health</strong> — lower life expectancy and higher infant mortality; poorer households struggle to afford good food or exercise, and rely on cheap fast food.</li>
+<li><strong>Poor education</strong> — deprived areas have weaker schools, so inequality of opportunity persists across generations.</li>
+</ul>
+<h4>Consequences for the ECONOMY — the evaluation marks</h4>
+<ul>
+<li><strong>Loss of talent</strong> — able people from poor backgrounds never gain the skills to be productive, or simply "give up".</li>
+<li><strong>Excluded workers</strong> remain unemployed and are a drain on the economy.</li>
+<li><strong>Wasted resources</strong> — money goes on maintaining health rather than generating growth.</li>
+<li><strong>Skewed production</strong> — firms supply what those with spending power demand, so more luxuries for the wealthy and less of what the poor need.</li>
+<li><strong>Lower economic growth</strong> overall.</li>
+</ul>
+<h4>Measuring it</h4>
+<ul>
+<li><strong>HDI</strong> (Human Development Index) measures quality of life from life expectancy, education and gross income per capita. <strong>IHDI</strong> adjusts it for inequality and is always lower — by a few points in developed countries, but by 30–40% where the rich/poor gap is starkest.</li>
+</ul>`,
+            readCheck: {
+                q: "Relative poverty is defined as a household with...",
+                opts: ["Less than 60% of median income", "Below the national minimum wage", "No savings at all", "No food, shelter or clothing"],
+                ans: 0,
+                explain: "Relative poverty is measured against the typical income in that society (under 60% of median). Lacking basic necessities is ABSOLUTE poverty."
+            }
+        },
+        {
+            title: "Measures to redistribute income and wealth",
+            tag: "Four tools — each with a downside",
+            content: `<p>Governments redistribute using four main measures. Each has a trade-off, which is where the evaluation marks live.</p>
+<h4>1. Progressive taxes</h4>
+<ul>
+<li>Higher earners pay a higher RATE on their higher earnings. The UK bands: 0% up to the Personal Allowance, then 20% basic, 40% higher, 45% additional.</li>
+<li><strong>Crucial: only the slice ABOVE each threshold is taxed at the higher rate</strong> — moving into a higher band never means all your income is taxed at that rate.</li>
+<li><strong>Downside:</strong> very high rates can discourage promotions or extra hours, and may push high earners to become non-domiciled or leave the country entirely.</li>
+</ul>
+<h4>2. Benefits</h4>
+<ul>
+<li>Provide income to the unemployed, retired and long-term ill, funded by taxes on those working — a direct redistribution.</li>
+<li><strong>Downside:</strong> if benefits are too generous, some may be discouraged from working. They also carry an opportunity cost — around one third of central government spending goes on benefits.</li>
+</ul>
+<h4>3. National Minimum Wage / National Living Wage</h4>
+<ul>
+<li><strong>Minimum Wage</strong> applies from school-leaving age to 22; the <strong>Living Wage</strong> applies at 23 and over. It ensures low-skilled workers earn a decent wage.</li>
+<li><strong>Downside:</strong> raising it is a significant cost to firms employing such staff, which could lead them to cut jobs.</li>
+</ul>
+<h4>4. Cutting indirect taxes (e.g. VAT)</h4>
+<ul>
+<li><strong>VAT is REGRESSIVE</strong> — everyone pays the same amount on a product, but that is a higher PROPORTION of a low earner's income. So cutting VAT helps low earners proportionally more.</li>
+</ul>
+<p>Other measures reduce increases in wealth directly — <strong>inheritance tax</strong> breaks up large estates, and taxing interest on savings takes proportionally more from the wealthy who hold most savings.</p>`,
+            readCheck: {
+                q: "Why is VAT described as a regressive tax?",
+                opts: ["Only poor people pay it", "It is charged only on luxuries", "It takes a higher proportion of a low earner's income than a high earner's", "The rate rises as income rises"],
+                ans: 2,
+                explain: "Everyone pays the same amount of VAT on the same product, but that sum is a much bigger share of a small income — so it hits the poor proportionally harder."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Which best describes the difference between income and wealth?",
+            opts: ["Income includes property; wealth includes wages", "They are the same thing measured differently", "Income is a flow received over time; wealth is a stock of assets owned", "Income is a stock; wealth is a flow"],
+            ans: 2,
+            explain: "Income FLOWS in over time (wages, rent, interest). Wealth is the STOCK of assets held at a point in time (property, savings, shares)."
+        },
+        {
+            q: "Which option contains ONLY items classified as wealth?",
+            opts: ["Rent, savings, state benefits", "Interest, profit, shares", "Property, savings, shares", "Profit, property, rent"],
+            ans: 2,
+            explain: "All three are assets owned. Interest, profit, rent and state benefits are all flows of INCOME, so the other options each mix the two."
+        },
+        {
+            q: "Nazir saves 10% of his £30,000 income and owns a house worth £200,000. His wealth is...",
+            opts: ["£203,000", "£3,000", "£230,000", "£200,000"],
+            ans: 0,
+            explain: "Savings = 10% × £30,000 = £3,000, plus the £200,000 house = £203,000. The income itself isn't wealth — only the part saved becomes an asset."
+        },
+        {
+            q: "Trevor has earnings £30,000, a new car £30,000, savings £8,000, interest £40, rent from a holiday home £5,000. His INCOME is...",
+            opts: ["£30,040", "£35,040", "£73,040", "£65,040"],
+            ans: 1,
+            explain: "Income = earnings £30,000 + interest £40 + rent £5,000 = £35,040. The car and savings are stocks of wealth, not income flows."
+        },
+        {
+            q: "In the UK, the top 10% of wealth holders hold approximately...",
+            opts: ["Under 5% of all wealth", "About 25% of all wealth", "Over 48.5% of all wealth", "About 10% of all wealth"],
+            ans: 2,
+            explain: "Wealth is far more unequal than income: the top 10% hold over 48.5%, while the bottom 30% hold barely 1% between them."
+        },
+        {
+            q: "Which best explains why wealth generates further inequality?",
+            opts: ["Assets produce extra income through interest, rent and dividends", "Assets always fall in value", "Wealth is taxed more than income", "Wealthy people work longer hours"],
+            ans: 0,
+            explain: "Wealth generates income: savings pay interest, property pays rent, shares pay dividends. So asset owners gain income on top of wages while others rely on wages alone."
+        },
+        {
+            q: "A household in relative poverty has an income of less than...",
+            opts: ["The national minimum wage", "40% of mean income", "The absolute poverty line", "60% of median income"],
+            ans: 3,
+            explain: "Relative poverty is measured against the typical income in that society — under 60% of the median. Absolute poverty means lacking basic necessities."
+        },
+        {
+            q: "A more uneven distribution of wealth will be caused by a reduction in...",
+            opts: ["Interest rates", "Wage increases", "Property prices", "Taxes on inheritance"],
+            ans: 3,
+            explain: "Inheritance tax breaks up large estates. Cutting it lets wealth pass down intact, concentrating it further across generations."
+        },
+        {
+            q: "Why is VAT considered a regressive tax?",
+            opts: ["The rate rises with income", "Only high earners pay it", "It applies only to essentials", "It takes a larger proportion of income from low earners"],
+            ans: 3,
+            explain: "Everyone pays the same amount on the same product, but that amount is a bigger share of a small income — so the burden falls proportionally harder on the poor."
+        },
+        {
+            q: "A worker moves into the 40% higher-rate tax band. This means...",
+            opts: ["Only income above the threshold is taxed at 40%", "They stop paying the basic rate entirely", "All their income is now taxed at 40%", "They will take home less than before"],
+            ans: 0,
+            explain: "Tax bands are marginal — only the slice above each threshold is taxed at the higher rate. Earning more always leaves you with more after tax."
+        }
+    ];
+
+    const matchData = [
+        { term: "Income", def: "A flow of money received over time for the services of a factor of production" },
+        { term: "Wealth", def: "A stock of assets owned by a person, group or country" },
+        { term: "Rent", def: "Income earned from letting out an owned asset such as a second home" },
+        { term: "Dividends", def: "A share of a company's profits paid to its shareholders" },
+        { term: "Absolute poverty", def: "Lacking the basic necessities — food, shelter, clothing, sanitation" },
+        { term: "Relative poverty", def: "A household with less than 60% of median income" },
+        { term: "Progressive tax", def: "Charges a higher rate of tax on higher incomes" },
+        { term: "Regressive tax", def: "Takes a higher proportion of income from low earners, e.g. VAT" },
+        { term: "Inheritance tax", def: "Reduces wealth passed on when someone dies, breaking up large estates" },
+        { term: "National Living Wage", def: "The legal pay floor for workers aged 23 and over" },
+        { term: "Personal Allowance", def: "The slice of income taxed at 0% before any tax is paid" },
+        { term: "Income share", def: "The percentage of total income going to a subgroup of the population" },
+        { term: "IHDI", def: "The Human Development Index adjusted for inequality within a country" }
+    ];
+
+    const fibData = [
+        {
+            display: "Income is a ___B1___ of money received over time, while wealth is a ___B2___ of assets owned at a point in time.",
+            blanks: { B1: "flow", B2: "stock" }
+        },
+        {
+            display: "In the UK, ___B1___ is distributed even more unequally than income — the top 10% hold over ___B2___% of it.",
+            blanks: { B1: "wealth", B2: "48.5" }
+        },
+        {
+            display: "___B1___ poverty means lacking basic necessities, while ___B2___ poverty means having less than 60% of median income.",
+            blanks: { B1: "Absolute", B2: "relative" }
+        },
+        {
+            display: "A ___B1___ tax charges a higher rate on higher incomes, while VAT is ___B2___ because it takes a bigger share of a low income.",
+            blanks: { B1: "progressive", B2: "regressive" }
+        },
+        {
+            display: "___B1___ perpetuates wealth inequality across generations, because those with assets have more to pass ___B2___.",
+            blanks: { B1: "Inheritance", B2: "on" }
+        },
+        {
+            display: "Wealth generates income through ___B1___ on savings and ___B2___ from property, so asset owners gain twice.",
+            blanks: { B1: "interest", B2: "rent" }
+        }
+    ];
+    const fibWords = ["flow", "stock", "wealth", "48.5", "Absolute", "relative", "progressive", "regressive", "Inheritance", "on", "interest", "rent", "income", "dividends"];
+
+    const tfData = [
+        {
+            statement: "A person's salary is part of their wealth.",
+            answer: false,
+            explanation: "A salary is INCOME — a flow received over time. Only the part that is saved becomes an asset and therefore wealth."
+        },
+        {
+            statement: "In the UK, wealth is distributed more unequally than income.",
+            answer: true,
+            explanation: "The top 10% hold over 48.5% of wealth while the bottom 30% hold around 1%. Every exam extract on this topic makes this point."
+        },
+        {
+            statement: "Someone with £50,000 in a bank account paying no interest has £50,000 of income from it.",
+            answer: false,
+            explanation: "The £50,000 is WEALTH — a stock of assets. Because it pays no interest it generates no income at all."
+        },
+        {
+            statement: "Wealth can generate income.",
+            answer: true,
+            explanation: "Savings pay interest, property pays rent, shares pay dividends — which is exactly why unequal wealth makes income even more unequal over time."
+        },
+        {
+            statement: "Moving into the 40% tax band means all of your income is taxed at 40%.",
+            answer: false,
+            explanation: "Bands are marginal — only the slice above the threshold is taxed at the higher rate. Earning more always leaves you better off after tax."
+        },
+        {
+            statement: "VAT is a progressive tax.",
+            answer: false,
+            explanation: "VAT is REGRESSIVE. Everyone pays the same amount on a product, but that is a larger proportion of a low earner's income."
+        },
+        {
+            statement: "Reducing inheritance tax would make the distribution of wealth more uneven.",
+            answer: true,
+            explanation: "Inheritance tax breaks up large estates. Cutting it lets wealth pass down intact, so it stays concentrated in the same families."
+        },
+        {
+            statement: "Sustainability is a cause of the uneven distribution of income.",
+            answer: false,
+            explanation: "Age, gender and wealth all cause income differences. Sustainability is an environmental concept and has nothing to do with income inequality — a real exam MCQ."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "\"Casey earns £30,500 and Taylor earns £27,280 — so that's most of their wealth right there.\"",
+            correct: "Salaries are INCOME, not wealth. This single confusion is what the whole topic is built on, and the paper tests it at least four separate ways. Wealth is only the STOCK of assets: for Casey and Taylor that is the motorbike (£4,000) + car (£9,000) + pension fund (£20,000) + exercise machine (£2,200) + savings (£12,400) = £47,600. The two salaries AND the £250 of savings interest are all flows of income and none of them counts. The mirror trap runs the other way: Trevor's 'new car £30,000' and 'savings £8,000' are stocks, so his INCOME is only earnings + interest + rent = £35,040. Sort every table into flows and stocks before you add a single figure.",
+            readCheck: {
+                q: "Which items count towards Casey and Taylor's WEALTH?",
+                opts: ["Only the joint savings account", "Everything in the table added together", "Both salaries plus the savings interest", "The motorbike, car, pension fund, exercise machine and savings"],
+                ans: 3,
+                explain: "Wealth = assets owned = £47,600. The salaries and the interest are income flows, so they are excluded entirely."
+            }
+        },
+        {
+            wrong: "\"The richest 40% is the top fifth plus the second fifth, so 45% + 11% = 56%.\"",
+            correct: "This exact error is named in the examiner's report: 'some confused the 4th fifth with the 2nd fifth and answered 56% incorrectly'. The fifths are counted from the BOTTOM up — bottom fifth (poorest), second fifth, third fifth, fourth fifth, top fifth (richest). So the richest 40% is the TOP fifth plus the FOURTH fifth: 45% + 22% = 67%. The giveaway is that the shares must rise steadily as you move up (7, 11, 15, 22, 45) — if your two 'richest' slices aren't the two biggest, you've picked the wrong ones. The same logic gives the poorest 60% on the UK pie: third + fourth + bottom = 16% + 12% + 6% = 34%.",
+            readCheck: {
+                q: "In 2021 Indonesia's fifths were: bottom 7%, second 11%, third 15%, fourth 22%, top 45%. The richest 40% receive...",
+                opts: ["56% (top + second fifths)", "45% (top fifth only)", "67% (top + fourth fifths)", "33% (the rest)"],
+                ans: 2,
+                explain: "Fifths count from the bottom up, so the richest two are the TOP and FOURTH fifths: 45 + 22 = 67%. Picking the 'second fifth' gives the examiner-flagged wrong answer of 56%."
+            }
+        },
+        {
+            wrong: "\"Someone earning £20,000 pays 20% income tax, so £4,000.\"",
+            correct: "The examiners reported that a significant proportion of candidates did not factor in the £11,850 Personal Allowance at all. Tax bands are MARGINAL: the first £11,850 is taxed at 0%, and only the income ABOVE it is taxed at the basic 20% rate. So the answer is 20% × (£20,000 − £11,850) = 20% × £8,150 = £1,630. (Some candidates who did remember the allowance then used £11,851 by mistake — subtract £11,850.) The same principle kills the classic misconception that moving into the 40% band taxes ALL your income at 40%: it never does, so earning more always leaves you with more.",
+            readCheck: {
+                q: "With a £11,850 Personal Allowance and a 20% basic rate, how much income tax does someone earning £20,000 pay?",
+                opts: ["£4,000", "£1,630", "£2,370", "£1,630 plus 40% on the rest"],
+                ans: 1,
+                explain: "20% × (£20,000 − £11,850) = £1,630. Forgetting the Personal Allowance and taxing the whole £20,000 was the flagged error."
+            }
+        },
+        {
+            wrong: "\"A positive externality of government spending on the NHS is better healthcare.\"",
+            correct: "The examiners flagged this: a significant proportion identified DIRECT impacts such as 'better health care' — but that is the direct benefit to the person treated, not an externality. An externality is a spillover benefit to THIRD PARTIES who were not part of the transaction. So the credited answers name who else gains and how: vaccinations stop contagious diseases spreading, so even the unvaccinated are safer; education lowers crime, so the whole community benefits; spending on parks improves air quality for everyone nearby. Always finish the sentence with '…so people who weren't directly involved also benefit'.",
+            readCheck: {
+                q: "Which is a genuine positive externality of government spending?",
+                opts: ["Pupils at school gain qualifications", "Patients treated by the NHS get better healthcare", "Benefit claimants receive more money", "Vaccinations stop diseases spreading to people who weren't vaccinated"],
+                ans: 3,
+                explain: "An externality benefits THIRD parties. The other options are direct benefits to the people receiving the service — the exact error the examiners flagged."
+            }
+        },
+        {
+            wrong: "\"Overall, redistribution is a good thing. That's my conclusion.\"",
+            correct: "The examiners were blunt about this paper: a significant proportion 'demonstrated relatively little evaluative skill other than an unsubstantiated judgement at the end'. A judgement must be SUPPORTED — it has to follow from the argument you just made and say what it depends on. Compare: 'Overall redistribution is worth accepting, BECAUSE the disincentive effects are modest at basic-rate level where most taxpayers sit — but the extent depends on how high the top rates go, since pushing them too far risks losing revenue through migration.' That earns the AO3b marks; 'redistribution is good' earns none. Signal it ('Overall…'), justify it, and name the condition it depends on.",
+            readCheck: {
+                q: "What turns a conclusion into a SUPPORTED judgement?",
+                opts: ["It restates the points already made", "It uses the word 'Overall'", "It lists the advantages one more time", "It gives a reason and says what the answer depends on"],
+                ans: 3,
+                explain: "The examiners specifically criticised unsubstantiated judgements. A supported one follows from your argument and states the condition it hinges on."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "definition",
+            title: "Definitions: flow vs stock, and the word 'stock'",
+            pills: ["Explain what is meant by...", "2 marks", "AO1"],
+            content: `<p>The short questions here are pure vocabulary tests:</p>
+<ul>
+<li><strong>Wealth</strong> = "a STOCK of assets owned by a person, group or country". Saying only "the value of assets owned" is worth 1 mark — the word <em>stock</em> earns the second.</li>
+<li><strong>Income</strong> = a FLOW of money received over time for the services of a factor of production.</li>
+<li><strong>Types of income</strong>: wages, interest, profit, rent, state benefits. <strong>Apart from wages</strong>: rent, profits, interest/dividends, benefits.</li>
+<li><strong>Explain a cause of inequality</strong>: a bare "differences in wages" is 1 mark. Develop it — "some workers are on the minimum wage while others earn six figures, because scarce skills have inelastic supply".</li>
+</ul>`,
+            readCheck: {
+                q: "Which definition of wealth earns both marks?",
+                opts: ["Everything a person earns and owns", "The money someone receives each year", "The value of assets owned", "A stock of assets owned by a person, group or country"],
+                ans: 3,
+                explain: "The mark scheme awards 2 marks for the 'stock of assets' phrasing and only 1 for the looser 'value of assets owned'."
+            }
+        },
+        {
+            type: "calculation",
+            title: "Calculations: sort into flows and stocks first",
+            pills: ["Calculate... Show your working", "2 marks", "Quantitative skills"],
+            content: `<p>Every calculation on this paper is really a sorting exercise:</p>
+<ul>
+<li><strong>Wealth questions</strong>: add ONLY the assets. Casey and Taylor = £47,600 (exclude both salaries and the interest).</li>
+<li><strong>Income questions</strong>: add ONLY the flows. Trevor = £30,000 + £40 + £5,000 = £35,040 (exclude the car, savings, pension contributions and ISA).</li>
+<li><strong>Income tax</strong>: subtract the Personal Allowance FIRST. 20% × (£20,000 − £11,850) = <strong>£1,630</strong> — and the £ sign is required for full marks.</li>
+<li><strong>Pie-chart shares</strong>: count the fifths from the BOTTOM up. Richest 40% = top + fourth fifth = 67%. Poorest 60% = third + fourth + bottom = 34%.</li>
+</ul>`,
+            readCheck: {
+                q: "For a 'total wealth' calculation from a table, you should add...",
+                opts: ["Only the assets — excluding salaries and interest", "Assets plus one year's income", "Only the salaries", "Everything listed in the table"],
+                ans: 0,
+                explain: "Wealth is a stock of assets. Salaries and interest are income flows and must be excluded — this is the paper's most repeated trap."
+            }
+        },
+        {
+            type: "data",
+            title: "Data questions: name it, then justify with figures",
+            pills: ["Using the table/Extract, explain...", "2 marks", "AO2"],
+            content: `<p>These are 1 mark for the answer + 1 mark for the justification. You must do both.</p>
+<ul>
+<li><strong>"Which country has the most equal distribution?"</strong> → Finland. Justify: its richest 10% take the smallest share (22.4% vs the USA's 30.6%) AND its poorest 10% take the largest (3.9% vs 1.7%) — both closest to the 10% perfect equality would give. The ratio test also works: 5.74 for Finland vs 18.06 for the USA.</li>
+<li><strong>"How has the distribution changed?"</strong> → say it became more unequal (1) AND quote the data (1): the top fifth rose 40%→45% while the bottom fifth fell 9%→7%.</li>
+<li><strong>You cannot copy directly from the extract's text</strong> — the mark scheme says so explicitly.</li>
+</ul>`,
+            readCheck: {
+                q: "Perfect income equality would show what figure in both the 'richest 10%' and 'poorest 10%' columns?",
+                opts: ["10%", "50%", "0%", "100%"],
+                ans: 0,
+                explain: "If income were shared perfectly equally, each 10% of the population would receive exactly 10% of income — which is why Finland (22.4 / 3.9) is closest to equal."
+            }
+        },
+        {
+            type: "evaluate",
+            title: "Evaluate: weigh the trade-off, then support the judgement",
+            pills: ["Evaluate the consequences...", "6 marks", "AO3b"],
+            content: `<p>Both 6-mark Evaluates on this paper turn on the same structure — a genuine trade-off plus a supported judgement.</p>
+<ul>
+<li><strong>"Consequences of redistributing income"</strong>: costs are the disincentive to earn more near a threshold, migration of high earners avoiding tax, and the opportunity cost of benefits (a third of the £553.5bn spent). Weigh against less poverty and a fairer distribution.</li>
+<li><strong>"Consequences of unequal income for the ECONOMY"</strong>: keep it economy-focused — loss of talent, excluded workers as a drain, resources wasted on health rather than growth, and ultimately lower economic growth. Poor housing and health are the route, not the destination.</li>
+<li><strong>Support the judgement.</strong> The examiners criticised "an unsubstantiated judgement at the end". Say what it depends on — how high the top rates go, how far redistribution offsets the gap, whether incentives survive.</li>
+</ul>`,
+            readCheck: {
+                q: "For 'evaluate the consequences for the ECONOMY of unequal income', which point best targets the question?",
+                opts: ["The rich can afford more luxuries", "Food bank use has risen", "Poor households live in rented housing", "Loss of talent and lower economic growth"],
+                ans: 3,
+                explain: "The question is about the ECONOMY. Poverty and housing are the mechanism; the economic consequences are lost talent, wasted resources and lower growth."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Income", def: "A FLOW of money received over time for the services of a factor of production." },
+        { term: "Wealth", def: "A STOCK of assets owned by a person, group or country. The word 'stock' earns the mark." },
+        { term: "Types of income", def: "Wages, rent, interest, profit, dividends, state benefits." },
+        { term: "Types of wealth", def: "Property, savings, pension funds, cars, possessions, shares and business ownership." },
+        { term: "Wealth generates income", def: "Savings → interest; property → rent; shares → dividends. Why unequal wealth widens income inequality." },
+        { term: "UK income distribution", def: "Top 20% receive ~40% of income; bottom 20% only ~6-8%." },
+        { term: "UK wealth distribution", def: "Even MORE unequal — top 10% hold over 48.5%; bottom 30% hold about 1%." },
+        { term: "Causes of income inequality", def: "Wage rates (demand/supply), productivity, wealth ownership, age, gender, education, unions, benefits." },
+        { term: "Causes of wealth inequality", def: "Inheritance, savings, property ownership, shares — all compound existing advantage." },
+        { term: "Absolute poverty", def: "Lacking basic necessities — food, shelter, clothing, power, sanitation." },
+        { term: "Relative poverty", def: "A household with less than 60% of median income. ~25% of UK households." },
+        { term: "Progressive tax", def: "A higher RATE on higher incomes. UK: 0% / 20% / 40% / 45%." },
+        { term: "Marginal bands", def: "Only the slice ABOVE a threshold is taxed at the higher rate — earning more always leaves you better off." },
+        { term: "Regressive tax", def: "Takes a bigger PROPORTION from low earners — VAT is the classic example." },
+        { term: "Inheritance tax", def: "Breaks up large estates. Cutting it makes wealth MORE unequal." },
+        { term: "Redistribution measures", def: "Progressive taxes, benefits, National Minimum/Living Wage, cutting indirect taxes." },
+        { term: "Downsides of redistribution", def: "Disincentive to work/promote, migration of high earners, benefits' opportunity cost, minimum wage costing firms jobs." },
+        { term: "Economic consequences of inequality", def: "Loss of talent, excluded workers, resources wasted on health, skewed production, lower growth." },
+        { term: "HDI vs IHDI", def: "HDI = life expectancy + education + income per capita. IHDI adjusts for inequality and is always lower — by 30-40% in unequal countries." }
+    ];
+    // Shared exam extracts — defined ONCE here and referenced by `caseId`
+    // from each question part, so editing an extract updates every question
+    // that uses it. Single-use stimuli keep their own inline `caseStudy`.
+    const EXAM_CASE_STUDIES = {
+        "extract-2-income-distribution-and-taxes-in-indo": `<p><strong>Extract 2: Income Distribution and Taxes in Indonesia</strong></p>
+<img src="/images/economics/3-3-indonesia-income-distribution-pies-extracted.png" alt="Two pie charts from the OCR exam paper titled 'Distribution of net income in Indonesia'. In 2002 the top fifth receives 40%, the fourth fifth 21%, the third fifth 16%, the second fifth 14% and the bottom fifth 9%. In 2021 the top fifth receives 45%, the fourth fifth 22%, the third fifth 15%, the second fifth 11% and the bottom fifth 7%" style="display:block;width:100%;max-width:560px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>Governments often use direct taxes not only to increase revenue, but also to redistribute income and wealth. Progressive income taxes charge a higher tax rate on higher incomes, while other taxes reduce increases in wealth. The distribution of wealth is more unequal than income. Holding wealth in the form of savings or other assets, such as houses, contributes to a more unequal income distribution, because of interest payments and capital gains. Wide differences in income and wealth are often associated with issues such as inequality of opportunities.</p>
+<p>Income taxes can be used for public services and for providing social security benefits. Taxation is also used in both fiscal and supply side policies. A change in taxation policy affects disposable income and business profits, which results in a significant impact on economic growth and on inflation.</p>`,
+        "extract-1-uk-public-sector-finances": `<p><strong>Extract 1: UK Public Sector Finances</strong></p>
+<p>The UK had a budget deficit in the period April to December 2018. During this time, the public sector borrowed £35.9 billion and central government spent £553.5 billion. Just below two-thirds of the money spent by the central government was spent on health, education and defence. Around one-third was spent on benefits, such as pensions, unemployment payments, child benefit and maternity pay. Since 2012, government spending on unemployment benefits has decreased every year.</p>
+<p>A large part of government spending goes to the National Health Service (NHS). Because health is considered to be a good with positive externalities, its provision through markets would not be ideal. However, since 2012 there has been a policy to encourage private companies to provide some NHS services in order to improve efficiency and innovation.</p>
+<p>Benefits and progressive income taxes are designed to reduce income inequalities, although there are some concerns that incentives might be negatively affected. The table below shows the tax rates for additional income falling within each band.</p>
+<p><strong>UK Progressive Income Tax Rates</strong></p>
+<table style="width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Band</th><th style="padding:6px;">Taxable income</th><th style="padding:6px;">Tax rate</th></tr>
+<tr><td style="padding:6px;">Personal Allowance</td><td style="padding:6px;">Up to £11 850</td><td style="padding:6px;">0%</td></tr>
+<tr><td style="padding:6px;">Basic rate</td><td style="padding:6px;">£11 851 to £46 350</td><td style="padding:6px;">20%</td></tr>
+<tr><td style="padding:6px;">Higher rate</td><td style="padding:6px;">£46 351 to £150 000</td><td style="padding:6px;">40%</td></tr>
+<tr><td style="padding:6px;">Additional rate</td><td style="padding:6px;">Over £150 000</td><td style="padding:6px;">45%</td></tr>
+</table>`,
+        "extract-3-data-on-household-income-shares-and-sp": `<p><strong>Extract 3: Data on Household Income Shares and Spending on Education in 2015</strong></p>
+<table style="width:100%;max-width:560px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:5px;"></th><th style="padding:5px;">Income share held by richest 10% (%)</th><th style="padding:5px;">Income share held by poorest 10% (%)</th><th style="padding:5px;">Government spending on education per secondary student (% of GDP per capita)</th></tr>
+<tr><td style="padding:5px;">Argentina</td><td style="padding:5px;">30.3</td><td style="padding:5px;">1.8</td><td style="padding:5px;">21.8</td></tr>
+<tr><td style="padding:5px;">Finland</td><td style="padding:5px;">22.4</td><td style="padding:5px;">3.9</td><td style="padding:5px;">25.8</td></tr>
+<tr><td style="padding:5px;">UK</td><td style="padding:5px;">25.4</td><td style="padding:5px;">2.9</td><td style="padding:5px;">23.1</td></tr>
+<tr><td style="padding:5px;">USA</td><td style="padding:5px;">30.6</td><td style="padding:5px;">1.7</td><td style="padding:5px;">22.1</td></tr>
+</table>
+<p>Income share is the percentage of income that goes to subgroups, ranked from the richest 10% of the population to the poorest 10%. If income were distributed perfectly equally then all the figures in the first two columns of the table would be 10 (%).</p>
+<p>Income shares do not take account of differences in wealth, which includes savings and property ownership. However, income that is generated by wealth does appear in the income share data.</p>
+<p>Government spending on education is a supply-side policy which aims to increase GDP per capita and improve equality of opportunities.</p>`,
+        "extract-1-the-distribution-of-income-in-the-uk": `<p><strong>Extract 1: The distribution of income in the UK</strong></p>
+<img src="/images/economics/3-1-income-distribution-pie-extracted.png" alt="Pie chart from the OCR exam paper showing how incomes are shared between UK households: the top 20% receive 40% of total incomes, the second 20% receive 26%, the third 20% receive 16%, the fourth 20% receive 12% and the bottom 20% receive 6%" style="display:block;width:100%;max-width:520px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>The pie chart shows how incomes are shared out between households in the UK. For example, the top (highest income) 20% of households receive 40% of total incomes. We can, therefore, see that there is an unequal distribution of incomes in the UK.</p>
+<p>If we were to produce a similar chart for the distribution of wealth, we would see that wealth in the UK is more unevenly distributed than income.</p>`,
+    };
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>Nazir has saved 10% of his income of £30 000 in 2015. He owns a house worth £200 000 and has no other income, assets or savings.</p>`,
+            question: "His wealth at the end of 2015 is",
+            options: ["£3 000", "£30 000", "£200 000", "£203 000"],
+            answer: 3,
+            hint: "Wealth is a STOCK of assets. He has two: his savings (10% of £30,000) and his house. His income itself is not wealth.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark · Quantitative skills</h5>
+<p><strong>Answer: D — £203 000</strong></p>
+<ul>
+<li>Savings = 10% of £30,000 = £3,000. Add the house worth £200,000 → wealth = £203,000. His £30,000 income is a FLOW, not wealth — only the part he saved becomes an asset.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "A more uneven distribution of wealth will be caused by a reduction in",
+            options: ["interest rates", "property prices", "taxes on inheritance", "wage increases"],
+            answer: 2,
+            hint: "Which reduction lets wealth stay concentrated in the same families across generations?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: C — taxes on inheritance</strong></p>
+<ul>
+<li>Inheritance tax breaks up large estates and redistributes wealth. Cutting it lets wealth pass down intact, so the distribution becomes MORE uneven.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates correctly identified the correct answer (C).</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q3",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>An individual's only source of income has risen in nominal value but fallen in real value.</p>`,
+            question: "As a result, the individual will",
+            options: ["be unable to buy all the same products", "decide to save more of their income", "have less money to spend", "not have to pay as much direct tax"],
+            answer: 0,
+            hint: "Nominal up but real down means prices rose FASTER than their income. They have more pounds — but what can those pounds buy?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: A — be unable to buy all the same products</strong></p>
+<ul>
+<li>A fall in REAL income means purchasing power has fallen, so they can no longer afford the same basket of goods. They actually have MORE money (nominal rose) — so C is wrong; it just buys less.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A common misconception was that individuals will have less money to spend, rather than their ability to spend will fall.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q4(a)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-income-distribution-and-taxes-in-indo",
+            question: "Using Extract 2, calculate the percentage of total net income in 2021 that is received by the richest 40% of the Indonesian population. Show your working.",
+            hint: "The richest 40% is the TOP two fifths. Counting from the bottom up, the fifths run: bottom, second, third, fourth, top — so the top two are the 'top fifth' and the 'fourth fifth'. Careful: mixing up the fourth fifth with the second fifth gives the wrong answer.",
+            starter: "Richest 40% = top fifth + fourth fifth = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Top fifth 45 + fourth fifth 22 = 67 → Answer: 67% OR 67</strong></p>
+<ul>
+<li>2 marks for a correct answer (working not required).</li>
+<li>1 mark for correct working, but incorrect answer.</li>
+<li>No mark lost if the % sign or word is omitted, since the question asked for "percentage".</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates calculated the correct value (67%), although some confused the 4th fifth with the 2nd fifth and answered 56% incorrectly.</p>
+</div>`,
+            modelAnswer: "The richest 40% is the top two fifths: the top fifth and the fourth fifth.\n\nIn 2021: 45% + 22% = 67%."
+        },
+        {
+            num: "Q4(b)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-income-distribution-and-taxes-in-indo",
+            question: "Using Extract 2, explain how the distribution of income in Indonesia has changed from 2002 to 2021.",
+            hint: "State the direction (more unequal) for 1 mark, then USE THE DATA for the second — the top fifth's share rose and the bottom fifth's fell. You cannot copy directly from the extract's text.",
+            starter: "The distribution has become more unequal, as shown by...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Income distribution has become more unequal/unfair [1]</li>
+<li>As shown by: [1] the top fifth (20%) share has increased (from 40% to 45%); the lowest fifth share has fallen (from 9% to 7%)</li>
+</ul>
+<p>1 mark for stating that the income distribution became more unequal, without referring to the data. 1 mark for using data. 2 marks for a correctly explained answer. Candidates cannot copy directly from the text in the extract.</p>
+</div>`,
+            modelAnswer: "The distribution of income in Indonesia has become more unequal between 2002 and 2021.\n\nThis is shown by the top fifth's share rising from 40% to 45%, while the bottom fifth's share fell from 9% to 7% — so the richest gained while the poorest lost."
+        },
+        {
+            num: "Q5",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>Casey and Taylor live together. They decided to keep a record of their financial position for the year.</p>
+<table style="width:100%;max-width:400px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">£</th></tr>
+<tr><td style="padding:6px;">Casey's salary</td><td style="padding:6px;">30 500</td></tr>
+<tr><td style="padding:6px;">Taylor's salary</td><td style="padding:6px;">27 280</td></tr>
+<tr><td style="padding:6px;">Casey's motorbike</td><td style="padding:6px;">4000</td></tr>
+<tr><td style="padding:6px;">Taylor's car</td><td style="padding:6px;">9000</td></tr>
+<tr><td style="padding:6px;">Taylor's pension fund</td><td style="padding:6px;">20 000</td></tr>
+<tr><td style="padding:6px;">Their exercise machine</td><td style="padding:6px;">2200</td></tr>
+<tr><td style="padding:6px;">Joint savings account</td><td style="padding:6px;">12 400</td></tr>
+<tr><td style="padding:6px;">Interest on their savings</td><td style="padding:6px;">250</td></tr>
+</table>`,
+            question: "What is the total combined wealth of Casey and Taylor?",
+            options: ["£32 400", "£47 600", "£103 180", "£105 630"],
+            answer: 1,
+            hint: "Add only the ASSETS they own. Salaries and interest are income (a flow), not wealth (a stock).",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark · Quantitative skills</h5>
+<p><strong>Answer: B — £47 600</strong></p>
+<ul>
+<li>Assets only: motorbike £4,000 + car £9,000 + pension fund £20,000 + exercise machine £2,200 + savings £12,400 = £47,600. The two salaries and the £250 interest are INCOME, not wealth.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates correctly answered B.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q6",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "A government increases income tax on higher income groups. Which of the following is a benefit of this policy?",
+            options: ["It affects incentives to work", "It encourages household savings", "It makes income distribution more even", "It reduces the reliance on benefits"],
+            answer: 2,
+            hint: "The question wants a BENEFIT. Taxing the rich more and redistributing the revenue does what to the gap between rich and poor?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: C — It makes income distribution more even</strong></p>
+<ul>
+<li>A progressive tax takes proportionally more from high earners, narrowing the income gap. Option A ("affects incentives to work") is usually a COST of the policy, not a benefit.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A very high percentage of candidates gave Option C as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q7",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<table style="width:100%;max-width:420px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">Earnings per hour (£)</th><th style="padding:6px;">Value of savings (£)</th></tr>
+<tr><td style="padding:6px;">Ann</td><td style="padding:6px;">20</td><td style="padding:6px;">4000</td></tr>
+<tr><td style="padding:6px;">Barry</td><td style="padding:6px;">25</td><td style="padding:6px;">3000</td></tr>
+<tr><td style="padding:6px;">Charles</td><td style="padding:6px;">30</td><td style="padding:6px;">2000</td></tr>
+<tr><td style="padding:6px;">Dawn</td><td style="padding:6px;">40</td><td style="padding:6px;">1000</td></tr>
+</table>`,
+            question: "The table shows the financial position of four people. Which of them has the greatest wealth?",
+            options: ["Ann", "Barry", "Charles", "Dawn"],
+            answer: 0,
+            hint: "Wealth is the stock of assets — here, savings. Earnings per hour is income, and the table is deliberately arranged so the highest earner has the least wealth.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: A — Ann</strong></p>
+<ul>
+<li>Wealth = savings. Ann has the most (£4,000), even though she earns the least per hour. Dawn earns the most but has the least wealth — the table tests whether you can separate income from wealth.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A very high percentage of candidates gave Option A as the correct response to this question.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q8",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "There is an increase in the rate of taxation on interest earned from savings. Which of the following is most likely to happen?",
+            options: ["Capital expenditure will increase", "Income distribution will improve", "Individuals will save more", "Workers will move abroad"],
+            answer: 1,
+            hint: "Who earns most of the interest income in an economy — and so who pays most of this tax?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: B — Income distribution will improve</strong></p>
+<ul>
+<li>Interest income mostly accrues to the wealthy, who hold the most savings. Taxing it more heavily takes proportionally more from them, so the distribution becomes more even. Higher tax on savings would discourage saving, so C is wrong.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q9",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following options only contains items classified as wealth?",
+            options: ["Interest, profit, shares", "Profit, property, rent", "Property, savings, shares", "Rent, savings, state benefits"],
+            answer: 2,
+            hint: "Wealth = a STOCK of assets you own. Income = a FLOW you receive. Find the option where all three are stocks.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: C — Property, savings, shares</strong></p>
+<ul>
+<li>All three are assets you own — stocks of wealth. Interest, profit, rent and state benefits are all flows of INCOME, which is why the other options fail.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q10",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following would NOT be a possible cause for an uneven distribution of income within an economy?",
+            options: ["Age", "Gender", "Sustainability", "Wealth"],
+            answer: 2,
+            hint: "Three of these genuinely explain why some people earn more than others. One is about the environment and has nothing to do with income differences.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: C — Sustainability</strong></p>
+<ul>
+<li>Age (earnings rise with experience), gender (the pay gap) and wealth (which generates extra income through interest and rent) all cause income differences. Sustainability is an environmental concept, not a cause of income inequality.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q11",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>Heidi earns £20 000 after all deductions. She has £50 000 in a bank account that pays no interest.</p>`,
+            question: "This means",
+            options: ["her income is £50 000 per year", "her income is £70 000 per year", "her wealth is £50 000", "her wealth is £70 000"],
+            answer: 2,
+            hint: "The £50,000 in the bank is an asset she owns — a stock. It pays no interest, so it generates no income at all.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<p><strong>Answer: C — her wealth is £50 000</strong></p>
+<ul>
+<li>The bank balance is a stock of assets = wealth. Her income is the £20,000 she earns; because the account pays no interest, the £50,000 adds nothing to her income.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Some candidates answered 'D', demonstrating a misconception between wealth and income.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q12",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<table style="width:100%;max-width:400px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">£</th></tr>
+<tr><td style="padding:6px;">Earnings</td><td style="padding:6px;">30000</td></tr>
+<tr><td style="padding:6px;">New car</td><td style="padding:6px;">30000</td></tr>
+<tr><td style="padding:6px;">Savings</td><td style="padding:6px;">8000</td></tr>
+<tr><td style="padding:6px;">Interest from savings</td><td style="padding:6px;">40</td></tr>
+<tr><td style="padding:6px;">Rent from holiday home</td><td style="padding:6px;">5000</td></tr>
+<tr><td style="padding:6px;">Pension contributions</td><td style="padding:6px;">7500</td></tr>
+<tr><td style="padding:6px;">New ISA taken out</td><td style="padding:6px;">20000</td></tr>
+</table>`,
+            question: "Using the information in the table above, what is the value of Trevor's income?",
+            options: ["£100540", "£50540", "£35040", "£30040"],
+            answer: 2,
+            hint: "Income is a FLOW received. Pick out only the flows: earnings, interest and rent. The car, savings, pension contributions and ISA are assets or outgoings, not income.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark · Quantitative skills</h5>
+<p><strong>Answer: C — £35040</strong></p>
+<ul>
+<li>Income = earnings £30,000 + interest £40 + rent £5,000 = £35,040. The new car, savings, pension contributions and ISA are all stocks of wealth or outgoings, not income flows.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q13(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-uk-public-sector-finances",
+            question: "Using the table in Extract 1, calculate how much income tax is paid by someone earning £20000. Show your working.",
+            hint: "The first £11,850 is the Personal Allowance and is taxed at 0%. Only the income ABOVE that is taxed at the basic rate of 20%. The £ sign is required.",
+            starter: "Taxable income = £20,000 − £11,850 = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>0 + 20% × (£20,000 – £11,850) = £1,630</strong></p>
+<ul>
+<li>2 marks for the correct answer on its own, which must include the £ sign.</li>
+<li>1 mark for correct working, but incorrect answer.</li>
+<li>Correct answer on its own without the £ sign is worth 1 mark only.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates did NOT factor in the £11,850 personal allowance (and some who did used the figure of £11,851).</p>
+</div>`,
+            modelAnswer: "The first £11,850 is the Personal Allowance, taxed at 0%.\n\nTaxable at the basic rate = £20,000 − £11,850 = £8,150.\n\nTax = 20% × £8,150 = £1,630."
+        },
+        {
+            num: "Q13(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-uk-public-sector-finances",
+            question: "Give two examples of positive externalities that arise from government spending.",
+            hint: "An externality benefits THIRD PARTIES — people other than the ones directly receiving the service. 'Better healthcare' is only the direct effect; say who ELSE gains and how.",
+            starter: "Example 1: ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Improved health, e.g. when vaccinations prevent the spread of contagious diseases to those who are not vaccinated</li>
+<li>Lower crime, e.g. when communities benefit from children and youths being educated</li>
+<li>When families participate fully in society after receiving child benefits</li>
+<li>Improved air quality, e.g. when spending on parks benefits many in the community</li>
+<li>Lower congestion, e.g. when spending on bridges</li>
+</ul>
+<p>1 mark for each valid answer up to a maximum of 2 marks. Any other reasonable answer to be credited.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>The vast majority attempted this question, with several identifying two suitable externalities. A significant proportion identified DIRECT impacts of increased government spending such as 'better health care' — which is not an externality.</p>
+</div>`,
+            modelAnswer: "Example 1: Vaccinations funded by the NHS stop contagious diseases spreading, so even people who were not vaccinated are less likely to catch them.\n\nExample 2: Spending on education lowers crime, so the whole community benefits from safer streets — not just the pupils taught."
+        },
+        {
+            num: "Q13(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-uk-public-sector-finances",
+            question: "*Evaluate the consequences of using taxes and other measures to redistribute income in the UK. Use the information given in Extract 1 and your own knowledge.",
+            hint: "Use the extract: benefits are ~one third of the £553.5bn spent, and the progressive bands run 0/20/40/45%. Adverse consequences: disincentive to earn more and move into a higher band; high earners migrating to avoid tax; the opportunity cost of benefits, which must be funded by higher taxes or borrowing. Balance with the gains (a fairer distribution, less poverty) and reach a SUPPORTED judgement — the examiners said most answers ended with an unsubstantiated one.",
+            starter: "One consequence is a disincentive to earn extra income, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Adverse consequences may include:</strong></p>
+<ul>
+<li>Disincentive to earn extra income which would put one's earnings into a higher band</li>
+<li>Migration of highly paid workers who are seeking to avoid taxes</li>
+<li>Opportunity costs occur from providing social benefits</li>
+<li>One third of government spending (£184.5 billion from April to December) went to benefits, a measure to redistribute income, which have to be paid for by higher taxes or borrowing</li>
+<li>Difficulty in making benefits fair / universal credit</li>
+<li>The policy may become politicised</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Beneficial consequences may include</h5>
+<ul>
+<li>Redistribution of income to reduce income inequalities through both taxes and social benefits is a policy generally agreed upon by society</li>
+<li>Living in a more equal society increases happiness (and total utility)</li>
+<li>Total consumption is higher, because those with low incomes consume more of their income — which leads to higher economic growth / AD shifting right</li>
+<li>More tax revenue from progressive taxes (if additional tax rates are sufficiently high), which can then be used to fund merit goods (education etc.)</li>
+<li>When the economy is in recession, the tax burden automatically falls (social benefits rise) as incomes and employment fall</li>
+<li>When the economy is inflationary, the tax burden automatically rises (social benefits fall) as incomes and employment rise</li>
+<li>(Discretionary) changes in taxes and social benefits can be used as part of fiscal policy to manage the economy</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Evaluation may include</h5>
+<ul>
+<li>Difficult to isolate the effects of progressive taxes and benefits from the effects of other policies, such as education, or from economic or social issues such as growth</li>
+<li>Reliable data to prove the effectiveness of benefits is also difficult to obtain</li>
+<li>The overall effect may be difficult to discern (i.e. whether costs or benefits are larger) — but benefits outweigh costs according to the overall assessment by society of mixed market economies that provide education and health benefits to society</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates wrote logically about the effects of using redistributive policies. A significant proportion demonstrated relatively little evaluative skill other than an UNSUBSTANTIATED judgement at the end.</p>
+</div>`,
+            modelAnswer: "Redistribution does narrow the income gap, but it carries real costs. Because the UK's income tax is progressive — rising from 20% to 40% above £46,350 — someone near a threshold keeps less of each extra pound they earn, which can act as a disincentive to work longer hours or seek promotion. At the very top, the 45% additional rate may encourage highly paid workers to migrate abroad to avoid tax, so the UK loses both their skills and the revenue it hoped to collect.\n\nThe benefits side is costly too. Around one third of the £553.5 billion central government spent — roughly £184.5 billion — went on benefits. That money has an opportunity cost: it cannot fund investment elsewhere, and since the UK was already borrowing £35.9 billion, it must be paid for by higher taxes or more borrowing.\n\nAgainst this, redistribution reduces poverty and inequality of opportunity, and the extract notes benefits and progressive taxes are designed precisely to reduce income inequalities. Overall the consequences are worth accepting, because the disincentive effects are modest at basic-rate level where most taxpayers sit, and a fairer distribution supports demand and social stability. But the extent depends on how high the top rates go — push them too far and the lost revenue from migration and reduced effort could outweigh the redistribution gained."
+        },
+        {
+            num: "Q14(a)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-data-on-household-income-shares-and-sp",
+            question: "Using the table in Extract 3, explain which of the four countries has the most equal income distribution.",
+            hint: "Perfect equality would put 10% in both share columns. So look for the country whose richest 10% share is LOWEST and whose poorest 10% share is HIGHEST — the closest to 10 on both. Name it, then justify with the figures.",
+            starter: "Finland has the most equal distribution, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answer: Finland</strong></p>
+<p><strong>Explanation may include:</strong></p>
+<ul>
+<li>Income share held by the richest 10% is lower than in the other three countries</li>
+<li>Income share held by the poorest 10% is higher than in the other three countries</li>
+<li>Income share held by the 90% is higher than in the other three countries</li>
+<li>Ratio of share held by richest 10% to share held by poorest 10% is the smallest among the four countries (5.74 compared to 18.06 in the case of the USA)</li>
+</ul>
+<p>1 mark for the correct answer, 1 mark for correct explanation.</p>
+</div>`,
+            modelAnswer: "Finland has the most equal income distribution.\n\nIts richest 10% take the smallest share of any of the four countries (22.4%, against 30.6% in the USA), while its poorest 10% receive the largest share (3.9%, against 1.7% in the USA) — so both figures are closest to the 10% that perfect equality would give."
+        },
+        {
+            num: "Q14(b)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-data-on-household-income-shares-and-sp",
+            question: "Apart from wages, state two other sources of income.",
+            hint: "Wages are excluded. Think what else provides a regular FLOW of money — from property, from business, from savings, or from the state.",
+            starter: "1. ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Rent</li>
+<li>Profits</li>
+<li>Interest/dividends</li>
+<li>State benefits (universal credit, jobseeker's allowance, pensions)</li>
+</ul>
+<p>1 mark for each bullet point up to a maximum of 2.</p>
+</div>`,
+            modelAnswer: "1. Rent from letting out property.\n\n2. Interest or dividends earned from savings and shares."
+        },
+        {
+            num: "Q14(c)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-3-data-on-household-income-shares-and-sp",
+            question: "Analyse the causes of differences in the distribution of income.",
+            hint: "The main chain runs through the LABOUR MARKET: income is mostly determined by different wage rates, set by demand and supply in each labour market, affected by elasticities and productivity differences. A second chain runs through WEALTH: owning property brings rent, savings bring interest and dividends — so wealth generates extra income and widens the gap further.",
+            starter: "Income distribution is mostly determined by different wage rates, which are set by...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Income distribution is mostly determined by different wage rates, due to demand and supply in different labour markets</li>
+<li>Demand and supply for labour will be affected by elasticities, which lead to different wage rates (different equilibria)</li>
+<li>Productivity differences will affect wages/salaries through both demand and supply</li>
+<li>Differences in wealth lead to more differences in income because of extra income (interest etc.) that arises from wealth</li>
+<li>For example, property ownership provides rent (or rent in kind for those who own property and so do not need to pay rent)</li>
+<li>Savings are accumulated in bank accounts or bonds/shares, which then provide extra income in the form of interest, dividends or profits</li>
+</ul>
+<p><strong>Additional factors:</strong> fixed incomes (pensions, public sector pay); trade unions; unemployment; gender (women interrupting careers for child rearing); changes in the national minimum/living wage; imperfect labour markets and entry barriers to some professions; zero hours contracts; luck/talent/skills; age; transfer payments or reliance on benefits.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis with developed chains of reasoning.</p>
+<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects.</p>
+<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "Income distribution is mostly determined by different wage rates, and those are set by the demand for and supply of labour in each separate labour market. Where a skill is scarce and demand is high — surgeons, for example — supply is inelastic, so the equilibrium wage is high. Where many people can do the job, supply is elastic and plentiful, so the wage settles much lower. Productivity differences reinforce this: more productive workers are worth more to firms, so demand for them is higher and they are paid more. Education explains a lot of this, which is why the extract links government spending on education to equality of opportunity — Finland spends 25.8% of GDP per capita per student and has the most equal distribution.\n\nA second chain runs through WEALTH, and it widens the gap further. Wealth generates income: owning property provides rent, and savings held in bank accounts, bonds or shares provide interest, dividends or profits. Because wealth is distributed even more unevenly than income, those who already own assets receive extra income on top of their wages, while those with none rely on wages alone — so the income difference grows over time.\n\nOther causes add to this: gender, as women more often interrupt careers for child rearing; age and experience; trade unions; entry barriers to some professions; and reliance on benefits or fixed incomes such as pensions."
+        },
+        {
+            num: "Q15(a)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-the-distribution-of-income-in-the-uk",
+            question: "Explain what is meant by 'wealth'.",
+            hint: "The key word is STOCK — wealth is a stock of assets owned, as opposed to income which is a flow received. Saying only 'the value of assets owned' caps you at 1 mark.",
+            starter: "Wealth is a stock of...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Wealth is a stock of assets owned by a person, group or country</li>
+</ul>
+<p>2 marks for a correct explanation of wealth. 1 mark for some understanding shown, e.g. 'wealth is the value of assets owned'. Any other reasonable answer to be credited.</p>
+</div>`,
+            modelAnswer: "Wealth is a stock of assets owned by a person, group or country — such as property, savings and shares.\n\nUnlike income, which is a flow of money received over a period of time, wealth is what is held at a point in time."
+        },
+        {
+            num: "Q15(b)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-the-distribution-of-income-in-the-uk",
+            question: "State two types of income.",
+            hint: "Income is a flow received — from work, from assets, or from the state.",
+            starter: "1. ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Wages</li>
+<li>Interest</li>
+<li>Profit</li>
+<li>Rent</li>
+<li>State benefits</li>
+</ul>
+<p>1 mark for each of two incomes identified.</p>
+</div>`,
+            modelAnswer: "1. Wages earned from work.\n\n2. Rent received from property."
+        },
+        {
+            num: "Q15(c)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-the-distribution-of-income-in-the-uk",
+            question: "Analyse how a rise in household incomes would be likely to affect economic growth.",
+            hint: "Build the circular chain: higher incomes → consumers afford more → demand rises → firms raise output (this IS growth) → that pays incomes to producers → they spend too → more output again. Then use the pie: extra income for the richest 20% has less effect because they save more, while poorer households spend most of it.",
+            starter: "A rise in household incomes means consumers can afford to buy more, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Consumer demand is likely to rise as more people can afford to buy</li>
+<li>Output rises to meet the extra demand</li>
+<li>This provides incomes for the producers of the consumer goods and services</li>
+<li>They in turn spend more and further output is required</li>
+<li>Economic growth is growth in the value of output, thus the rise in incomes has led to a rise in economic growth</li>
+</ul>
+<p><strong>References to Extract 1:</strong> increased incomes for the richer 20% of households will see less effect on economic growth; poorer households would spend most of the extra income so economic growth may see a large increase.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis with developed chains of reasoning.</p>
+<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects.</p>
+<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "A rise in household incomes means consumers can afford to buy more goods and services, so consumer demand rises. Firms increase their output to meet that extra demand, and because economic growth is growth in the value of output, this increase is itself economic growth.\n\nThe process then feeds on itself. Producing the extra goods provides incomes for the workers and firms making them, and they in turn spend more of that income, so still more output is required. This multiplied effect means an initial rise in incomes can generate a larger overall rise in GDP.\n\nHowever, the size of the effect depends on WHO receives the extra income. The pie chart shows the top 20% of households already receive 40% of total incomes; extra income for them is more likely to be saved, so it has less effect on growth. The poorest 20% receive just 6% and would spend most of any extra income, so the same rise given to them would boost demand and growth by considerably more."
+        },
+        {
+            num: "Q15d(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-the-distribution-of-income-in-the-uk",
+            question: "Using Extract 1, calculate the percentage of total income which is received by the poorest 60% of the population. Show your working.",
+            hint: "The poorest 60% is the bottom THREE fifths — the third, fourth and bottom 20% slices. Add them (or subtract the top two from 100).",
+            starter: "16% + 12% + 6% = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>16% + 12% + 6% = 34%</strong></p>
+<ul>
+<li>2 marks for the correct answer (with workings).</li>
+<li>1 mark for the correct answer with no workings.</li>
+<li>1 mark for evidence of the correct figures from the pie chart.</li>
+</ul>
+</div>`,
+            modelAnswer: "The poorest 60% is the bottom three fifths: the third 20%, the fourth 20% and the bottom 20%.\n\n16% + 12% + 6% = 34%.\n\n(Check: the top two fifths take 40% + 26% = 66%, and 100% − 66% = 34%.)"
+        },
+        {
+            num: "Q15d(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-the-distribution-of-income-in-the-uk",
+            question: "Explain one possible cause of the unequal distribution of income in the UK.",
+            hint: "State a cause AND explain it — a bare 'differences in wages' is only 1 mark. Develop it, e.g. some workers earn the minimum wage while others earn six figures, because of differences in skills and scarcity.",
+            starter: "One cause is differences in wages, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Income-earning assets are distributed unevenly</li>
+<li>Differences in wages</li>
+<li>Differences in education and skills/talent levels</li>
+<li>Reliance on benefits</li>
+<li>Age/Gender</li>
+<li>Unequal distribution of wealth</li>
+</ul>
+<p>2 marks for a correct explanation. Give 1 mark for a correct statement such as 'difference in wages'. Give 1 mark for some explanation such as 'caused by some workers being paid the minimum wage, but others being paid a six-figure sum'.</p>
+</div>`,
+            modelAnswer: "One cause is the uneven distribution of wealth, since income-earning assets are held mainly by the richest households.\n\nThose who own property receive rent and those with large savings receive interest and dividends, so they gain extra income on top of their wages — while households with no assets rely on wages alone, widening the gap."
+        },
+        {
+            num: "Q15d(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-the-distribution-of-income-in-the-uk",
+            question: "*Evaluate the consequences for the UK economy of an unequal distribution of income. Use the information given in Extract 1 and your own knowledge.",
+            hint: "Consequences: poverty and deprivation, poor housing and health (lower life expectancy), poor education creating inequality of opportunity, excluded workers who stay unemployed, and production skewed towards what the wealthy demand. Evaluate on the ECONOMY: loss of talent, resources wasted maintaining health rather than generating growth, and ultimately lower economic growth.",
+            starter: "One consequence is poverty and deprivation, because the bottom 20% receive only 6% of total income, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Poverty and deprivation: homelessness and lack of 'normal' goods</li>
+<li>Poor housing: rented and/or shared accommodation</li>
+<li>Poor health: lower life expectancy and higher infant mortality</li>
+<li>Poor education: leading to inequality of opportunity</li>
+<li>Excluded workers may remain unemployed and thus be a drain on the economy</li>
+<li>Higher income groups dominate higher education places, leading to continuance of inequality</li>
+<li>Provision of goods is determined by those with demand, leading to more goods for the wealthier and less for the poorer</li>
+</ul>
+<p><strong>Evaluation may include:</strong> loss of talent as the poor do not receive the necessary education and/or 'give up'; waste of resources as money is spent on trying to maintain health instead of generating economic growth; lower economic growth.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "An unequal distribution brings poverty and deprivation. With the bottom 20% of UK households receiving just 6% of total income while the top 20% take 40%, the poorest cannot afford normal goods, live in poor or shared housing, and suffer worse health — lower life expectancy and higher infant mortality. This costs the economy directly, because resources are spent trying to maintain people's health rather than on generating growth.\n\nIt also damages the economy's future capacity. Poor households get a poorer education, so higher income groups dominate university places and inequality persists into the next generation. The result is a loss of talent: able people from poor backgrounds never gain the skills to become productive, and some 'give up' entirely, becoming excluded workers who remain unemployed and a drain on the economy. Production is also skewed, since firms supply what those with spending power demand — more luxuries for the wealthy, less of what the poor need.\n\nOverall the consequences for the UK economy are seriously negative, because inequality this wide wastes human capital and lowers economic growth. However, the extent depends on how far redistribution offsets it — progressive taxes and benefits already narrow the gap, and some inequality is needed to preserve the incentive to work and take risks."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

@@ -55,8 +55,8 @@
       left: 12px;
       top: -60px;
       z-index: 100;
-      background: var(--ink);
-      color: var(--paper);
+      background: var(--chrome, var(--ink));
+      color: var(--chrome-text, var(--paper));
       padding: 10px 18px;
       border-radius: 0 0 8px 8px;
       font-weight: 600;
@@ -82,7 +82,7 @@
 
     /* ── HERO ── */
     .hero {
-      background-color: var(--ink);
+      background-color: var(--chrome, var(--ink));
       /* Both decorative circles painted as backgrounds so the hero needs
          no overflow:hidden (which would clip the injected account dropdown
          / notification bell panel). */
@@ -92,7 +92,7 @@
         radial-gradient(circle 110px at calc(30% + 110px) calc(100% - 50px),
           rgba(212,168,67,.08) 0, rgba(212,168,67,.08) 109px, transparent 110px);
       background-repeat: no-repeat;
-      color: var(--paper);
+      color: var(--chrome-text, var(--paper));
       padding: 48px 48px 40px;
       position: relative;
     }
@@ -162,7 +162,7 @@
       gap: 8px;
       background: rgba(255, 255, 255, .08);
       border: 1px solid rgba(255, 255, 255, .25);
-      color: var(--paper);
+      color: var(--chrome-text, var(--paper));
       font-family: 'DM Mono', monospace;
       font-size: 12px;
       letter-spacing: .06em;
@@ -194,7 +194,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 28px;
       line-height: 1;
-      color: var(--paper);
+      color: var(--chrome-text, var(--paper));
     }
 
     .stat-label {
@@ -491,13 +491,13 @@
 
     /* ── SPECIAL: FINAL CARD ── */
     .topic-card.final-card {
-      background: var(--ink);
-      color: var(--paper);
+      background: var(--chrome, var(--ink));
+      color: var(--chrome-text, var(--paper));
       border-color: var(--ink);
     }
 
     .topic-card.final-card h3 {
-      color: var(--paper);
+      color: var(--chrome-text, var(--paper));
     }
 
     .topic-card.final-card .code {
@@ -801,7 +801,7 @@
       let session;
       try { session = JSON.parse(localStorage.getItem(GCSE_SESSION_KEY) || 'null'); } catch (e) { session = null; }
       if (!session || !session.access_token) {
-        location.replace('/login.html?redirect=' + encodeURIComponent(location.pathname));
+        location.replace('/index.html?redirect=' + encodeURIComponent(location.pathname));
       }
     })();
   </script>
@@ -838,7 +838,7 @@
       });
       if (error || !data.session) {
         localStorage.removeItem(GCSE_SESSION_KEY);
-        location.replace('/login.html?redirect=' + encodeURIComponent(location.pathname));
+        location.replace('/index.html?redirect=' + encodeURIComponent(location.pathname));
         return;
       }
       localStorage.setItem(GCSE_SESSION_KEY, JSON.stringify({

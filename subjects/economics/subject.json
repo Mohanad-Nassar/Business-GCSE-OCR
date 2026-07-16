@@ -95,57 +95,49 @@
           "id": "3-1-economic-growth",
           "name": "3.1 Economic Growth",
           "sub": "Economic Objectives and the Role of Government",
-          "file": "3.1_Economic_growth.html",
-          "noQuestions": true
+          "file": "3.1_Economic_growth.html"
         },
         {
           "id": "3-2-low-unemployment",
           "name": "3.2 Low Unemployment",
           "sub": "Economic Objectives and the Role of Government",
-          "file": "3.2_Low_unemployment.html",
-          "noQuestions": true
+          "file": "3.2_Low_unemployment.html"
         },
         {
           "id": "3-3-fair-distribution-of-income",
           "name": "3.3 Fair Distribution of Income",
           "sub": "Economic Objectives and the Role of Government",
-          "file": "3.3_Fair_distribution_of_income.html",
-          "noQuestions": true
+          "file": "3.3_Fair_distribution_of_income.html"
         },
         {
           "id": "3-4-price-stability",
           "name": "3.4 Price Stability",
           "sub": "Economic Objectives and the Role of Government",
-          "file": "3.4_Price_stability.html",
-          "noQuestions": true
+          "file": "3.4_Price_stability.html"
         },
         {
           "id": "3-5-fiscal-policy",
           "name": "3.5 Fiscal Policy",
           "sub": "Economic Objectives and the Role of Government",
-          "file": "3.5_Fiscal_policy.html",
-          "noQuestions": true
+          "file": "3.5_Fiscal_policy.html"
         },
         {
           "id": "3-6-monetary-policy",
           "name": "3.6 Monetary Policy",
           "sub": "Economic Objectives and the Role of Government",
-          "file": "3.6_Monetary_policy.html",
-          "noQuestions": true
+          "file": "3.6_Monetary_policy.html"
         },
         {
           "id": "3-7-supply-side-policies",
           "name": "3.7 Supply-Side Policies",
           "sub": "Economic Objectives and the Role of Government",
-          "file": "3.7_Supply_side_policies.html",
-          "noQuestions": true
+          "file": "3.7_Supply_side_policies.html"
         },
         {
           "id": "3-8-limitations-of-markets",
           "name": "3.8 Limitations of Markets",
           "sub": "Economic Objectives and the Role of Government",
-          "file": "3.8_Limitations_of_markets.html",
-          "noQuestions": true
+          "file": "3.8_Limitations_of_markets.html"
         }
       ]
     },

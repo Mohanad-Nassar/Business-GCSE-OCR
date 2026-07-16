@@ -5,7 +5,7 @@
 // independent of any student's progress — used to fix progress
 // stats so a topic a student has engaged with counts ALL of its
 // sections' totals, not just the ones they've personally started.
-// Generated: 2026-07-07T15:44:41Z
+// Generated: 2026-07-16T17:18:43Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS = {
  "business:1-1-role-of-business-enterprise": {
@@ -32,8 +32,8 @@ window.SECTION_TOTALS = {
  },
  "business:1-3-business-ownership": {
   "exam": 23,
-  "mcq": 16,
-  "tf": 13,
+  "mcq": 0,
+  "tf": 0,
   "learn": 8,
   "misc": 10,
   "tips": 5,

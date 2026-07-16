@@ -314,6 +314,7 @@
         };
 
     // 1. Main Learning Content
+    window.SERVER_GRADED = true;   // P1: MCQ + TF served + graded server-side; their inline arrays were stripped
     const topics = [
         {
             title: "Key Terms & Official Definitions",
@@ -365,8 +366,8 @@
 </div>`,
             readCheck: {
                 q: "According to the 'no continuity' disadvantage, what typically happens if a sole trader dies or becomes seriously ill?",
-                opts: ["The business may cease to exist or struggle to continue", "The business automatically passes to the nearest employee", "The business is legally required to become a partnership", "Shares are transferred to another shareholder"],
-                ans: 0,
+                opts: ["The business automatically passes to the nearest employee", "The business may cease to exist or struggle to continue", "The business is legally required to become a partnership", "Shares are transferred to another shareholder"],
+                ans: 1,
                 explain: "The card notes that sole traders lack continuity — if the owner dies or becomes seriously ill, the business may cease to exist entirely or struggle to continue, unlike a limited company where shares can simply be transferred."
             }
         },
@@ -403,8 +404,8 @@
 </div>`,
             readCheck: {
                 q: "If a partnership has no deed of partnership, how does the law say profits should be shared?",
-                opts: ["In proportion to the capital each partner invested", "According to the number of hours each partner works", "The most senior partner decides how profits are split", "Equally between partners, regardless of capital invested"],
-                ans: 3,
+                opts: ["Equally between partners, regardless of capital invested", "In proportion to the capital each partner invested", "The most senior partner decides how profits are split", "According to the number of hours each partner works"],
+                ans: 0,
                 explain: "The card states that without a deed of partnership, the law requires that each partner is treated as equal, regardless of how much capital they invested."
             }
         },
@@ -431,7 +432,7 @@
 </div>`,
             readCheck: {
                 q: "What is the defining feature of a private limited company (Ltd)?",
-                opts: ["Shares are sold to the public on the Stock Exchange", "Shares can only be sold to family with agreement", "The business has no shareholders at all", "It must have a minimum of £50,000 share capital"],
+                opts: ["The business has no shareholders at all", "Shares can only be sold to family with agreement", "Shares are sold to the public on the Stock Exchange", "It must have a minimum of £50,000 share capital"],
                 ans: 1,
                 explain: "The card explains that the defining feature of an Ltd is that shares can only be sold to family and friends, and any new shareholder must be agreed by all existing shareholders."
             }
@@ -458,8 +459,8 @@
 </div>`,
             readCheck: {
                 q: "Why is a plc at risk of a hostile takeover in a way that a private limited company is not?",
-                opts: ["Anyone can buy shares on the Exchange, letting an investor acquire 51% and take control", "Plc shares can only be sold to family members, so control can shift by inheritance", "Plc directors are elected annually by the government", "Plcs are legally required to sell a majority stake to a rival business every ten years"],
-                ans: 0,
+                opts: ["Plc directors are elected annually by the government", "Plcs are legally required to sell a majority stake to a rival business every ten years", "Anyone can buy shares on the Exchange, letting an investor acquire 51% and take control", "Plc shares can only be sold to family members, so control can shift by inheritance"],
+                ans: 2,
                 explain: "The card explains that because plc shares are sold on the Stock Exchange to anyone, a rival or investor group can buy 51% of shares and take control without the original owners' consent — something that cannot happen to a private limited company."
             }
         },
@@ -484,7 +485,7 @@
 <p><strong>Key Rule to Remember:</strong> Only <em>companies</em> (Ltd and plc) have limited liability. Sole traders and ordinary partnerships always have unlimited liability — unless they are structured as a limited liability partnership (LLP).</p>`,
             readCheck: {
                 q: "According to the key rule on liability, which businesses have limited liability?",
-                opts: ["All businesses that have more than one owner", "Only businesses registered with the Stock Exchange", "Only companies — Ltd and plc, both with limited liability", "Any business that has been trading for more than five years"],
+                opts: ["Only businesses registered with the Stock Exchange", "Any business that has been trading for more than five years", "Only companies — Ltd and plc, both with limited liability", "All businesses that have more than one owner"],
                 ans: 2,
                 explain: "The card's key rule states that only companies (Ltd and plc) have limited liability; sole traders and ordinary partnerships always have unlimited liability unless structured as an LLP."
             }
@@ -503,8 +504,8 @@
 <p><strong>Established businesses growing:</strong> As a business grows and requires more capital, it may change ownership type — from sole trader to partnership, from partnership to Ltd, or from Ltd to plc. However, many successful businesses never change their ownership type if their current structure meets their needs.</p>`,
             readCheck: {
                 q: "Why is a public limited company never suitable for a brand-new start-up business?",
-                opts: ["Because start-ups are legally banned from having shareholders", "Because it needs a £50,000 minimum and high set-up costs", "Because a plc cannot operate in more than one location", "Because plcs are only allowed to sell products, not services"],
-                ans: 1,
+                opts: ["Because it needs a £50,000 minimum and high set-up costs", "Because a plc cannot operate in more than one location", "Because start-ups are legally banned from having shareholders", "Because plcs are only allowed to sell products, not services"],
+                ans: 0,
                 explain: "The card explains that a plc is never suitable for a start-up because of the £50,000 minimum share capital requirement and high set-up costs — start-ups instead begin as sole traders, partnerships, or private limited companies."
             }
         },
@@ -524,192 +525,15 @@
 </div>`,
             readCheck: {
                 q: "What is the main takeaway from the Marks & Spencer case study about ownership types?",
-                opts: ["Marks & Spencer has remained a sole trader throughout its history", "A business must become a plc within its first ten years or it will fail", "Partnerships always convert directly into plcs, skipping the Ltd stage", "Ownership type is not fixed — it evolves as capital needs grow"],
-                ans: 3,
+                opts: ["A business must become a plc within its first ten years or it will fail", "Ownership type is not fixed — it evolves as capital needs grow", "Partnerships always convert directly into plcs, skipping the Ltd stage", "Marks & Spencer has remained a sole trader throughout its history"],
+                ans: 1,
                 explain: "The case study's takeaway is that each change in Marks & Spencer's ownership type was driven by the need to raise more capital to support growth, showing that ownership choice evolves over time rather than being permanent."
             }
         }
     ];
 
     // 2. Multiple Choice Questions (Minimum 10)
-    const mcqData = [
-        {
-            q: "A sole trader can:",
-            opts: [
-                "Only employ one person",
-                "Employ as many people as the owner wishes",
-                "Only employ workers where other workers agree",
-                "Not employ any workers because it is a sole trader working on their own"
-            ],
-            ans: 1,
-            explain: "Correct answer: B. A sole trader means ONE OWNER — 'sole' refers to ownership, not working alone. A sole trader can legally employ as many staff as the business requires. This is a very commonly misunderstood point."
-        },
-        {
-            q: "A partnership has:",
-            opts: [
-                "A maximum of 20 partners",
-                "A maximum of 2 partners",
-                "A minimum of 2 partners",
-                "A minimum of 20 partners"
-            ],
-            ans: 2,
-            explain: "Correct answer: C. A partnership must have a minimum of 2 partners. There is no legal maximum in a standard UK partnership. The minimum is 2 — not 4, not 20."
-        },
-        {
-            q: "A private limited company:",
-            opts: [
-                "Is easier to set up than a plc",
-                "Is just as difficult to set up as a plc",
-                "Always has one main shareholder",
-                "Can sell shares to anyone with the agreement of the main shareholder"
-            ],
-            ans: 0,
-            explain: "Correct answer: A. A private limited company is easier and cheaper to set up than a plc. A plc requires at least £50,000 in share capital, more complex legal processes, and ongoing public reporting requirements."
-        },
-        {
-            q: "A public limited company:",
-            opts: [
-                "Must have a minimum of £500,000 share capital",
-                "Must have a minimum of £50,000 share capital",
-                "Must have a maximum of £50,000 share capital",
-                "Has no minimum share capital"
-            ],
-            ans: 1,
-            explain: "Correct answer: B. A plc must have a minimum of £50,000 in share capital. This is a key fact — it is one reason why plcs are not used for start-ups."
-        },
-        {
-            q: "Limited liability applies to:",
-            opts: [
-                "Only private limited companies",
-                "All businesses over a certain size",
-                "Private limited companies and plcs",
-                "Only plcs which operate in more than one country"
-            ],
-            ans: 2,
-            explain: "Correct answer: C. Limited liability applies to both private limited companies (Ltd) AND public limited companies (plc). It does NOT apply to sole traders or standard partnerships — they have unlimited liability."
-        },
-        {
-            q: "What is a disadvantage of being a sole trader?",
-            opts: [
-                "Can only have one employee",
-                "Cannot share business ownership",
-                "Legally required to produce a business plan",
-                "Must pay corporation tax"
-            ],
-            ans: 1,
-            explain: "Correct answer: B. A sole trader cannot share ownership — by definition there is only one owner. This limits capital-raising ability and means all responsibility falls on one person. A: Wrong — sole traders can employ many people. C: Wrong — there is no legal requirement for a business plan. D: Wrong — sole traders pay income tax on profits, not corporation tax (which is for companies)."
-        },
-        {
-            q: "Limited liability protects:",
-            opts: [
-                "Business owners",
-                "Customers",
-                "Suppliers",
-                "The local community"
-            ],
-            ans: 0,
-            explain: "Correct answer: A. Limited liability protects business owners (shareholders) by limiting their personal financial responsibility to the amount they invested. B, C, D: These stakeholders are not protected by limited liability — suppliers actually face financial risk when a company cannot pay its debts."
-        },
-        {
-            q: "Which type of ownership is most suitable for an entrepreneur who wishes to start up their own business quickly and with as little paperwork as possible?",
-            opts: [
-                "Partnership",
-                "Private limited company",
-                "Public limited company",
-                "Sole trader"
-            ],
-            ans: 3,
-            explain: "Correct answer: D. A sole trader is the simplest and fastest form of ownership to establish, with minimal legal requirements and no registration with Companies House required. A: Requires a deed of partnership. B: Must register with Companies House — costly and time-consuming. C: The most demanding legal requirements of all — completely unsuitable for a quick start-up."
-        },
-        {
-            q: "Which of the following types of ownership is most suitable for an established business that needs to raise a large amount of capital to expand overseas?",
-            opts: [
-                "Partnership",
-                "Private limited company",
-                "Public limited company",
-                "Sole trader"
-            ],
-            ans: 2,
-            explain: "Correct answer: C. A public limited company (plc) can sell shares on the Stock Exchange to the general public and institutional investors, enabling it to raise millions of pounds — the only realistic way to fund very large-scale overseas expansion."
-        },
-        {
-            q: "Which stakeholder does limited liability protect?",
-            opts: [
-                "Customers",
-                "Employees",
-                "Shareholders",
-                "Suppliers"
-            ],
-            ans: 2,
-            explain: "Correct answer: C. Limited liability protects shareholders (the owners of a limited company). It means they can only lose up to the amount they originally invested, protecting their personal wealth. Customers, employees, and suppliers each have different legal protections."
-        },
-        {
-            q: "Which one of the following is a disadvantage of being a sole trader?",
-            opts: [
-                "May need to work long hours",
-                "Not being allowed to employ staff",
-                "Profits must be shared with others",
-                "Shares must be sold on the stock exchange"
-            ],
-            ans: 0,
-            explain: "Correct answer: A. A sole trader often must work very long hours as there is no partner to share the workload, which can lead to stress and illness. B: Wrong — sole traders can employ staff. C: Wrong — sole traders keep ALL profits. D: Wrong — sole traders do not issue shares at all."
-        },
-        {
-            q: "Which of the following is a benefit to an entrepreneur of having limited liability?",
-            opts: [
-                "All profits are tax free",
-                "Own possessions are not at risk",
-                "Productivity will fall",
-                "Suppliers are more willing to supply"
-            ],
-            ans: 1,
-            explain: "Correct answer: B. The defining benefit of limited liability is that personal possessions (home, car, savings) cannot be seized to repay business debts — the owner only loses what they invested. A: Wrong — profits are never tax-free. C: Wrong — this is a disadvantage, not a benefit. D: Wrong — limited liability does not directly affect supplier relationships."
-        },
-        {
-            q: "A photography business is owned by three sisters. The sisters have unlimited liability. Which one of the following types of business do the sisters own?",
-            opts: [
-                "A partnership",
-                "A private limited company",
-                "A public limited company",
-                "Sole trader"
-            ],
-            ans: 0,
-            explain: "Correct answer: A. Two key clues — (1) three owners rules out a sole trader, and (2) unlimited liability rules out both types of limited company. Only a partnership has multiple owners with unlimited liability."
-        },
-        {
-            q: "Which one of the following is NOT a benefit of being a sole trader?",
-            opts: [
-                "Keep all profits",
-                "Own boss",
-                "Pursue personal goals",
-                "Shared responsibility"
-            ],
-            ans: 3,
-            explain: "Correct answer: D. Shared responsibility is a benefit of a PARTNERSHIP, not a sole trader. A sole trader carries all responsibility alone — this is actually a disadvantage. A, B, and C are all genuine benefits of being a sole trader."
-        },
-        {
-            q: "Which of the following is a feature of a public limited company?",
-            opts: [
-                "The business does not need to publish its financial information",
-                "The owners have limited liability",
-                "The owners draw up a deed of partnership",
-                "The business cannot sell shares to raise extra finance"
-            ],
-            ans: 1,
-            explain: "Correct answer: B. The owners (shareholders) of a plc have limited liability. A: Wrong — plcs MUST publish annual accounts. C: Wrong — a deed of partnership is for partnerships, not companies. D: Wrong — a plc CAN sell shares on the Stock Exchange, which is its defining feature."
-        },
-        {
-            q: "Which statement about limited liability is FALSE?",
-            opts: [
-                "The owner of a business with limited liability cannot be forced to sell private possessions to pay debts",
-                "The owner of a sole trader business has limited liability",
-                "Limited liability attracts people to invest in a business",
-                "The shareholders of an Ltd benefit from limited liability"
-            ],
-            ans: 1,
-            explain: "Correct answer: B — this statement is FALSE. Sole traders have UNLIMITED liability, NOT limited liability. The owner is personally responsible for all business debts. A: True. C: True — it reduces personal risk, encouraging investment. D: True — Ltd shareholders do have limited liability."
-        }
-    ];
+    const mcqData = [];   // server-graded — questions + answers now come from bank_questions (P1)
 
     // 3. Keyword Matching (Minimum 10)
     const matchData = [
@@ -794,73 +618,7 @@
     ];
 
     // 5. True or False (Minimum 10)
-    const tfData = [
-        {
-            statement: "A partnership has at least four partners.",
-            answer: false,
-            explanation: "FALSE. A partnership must have a minimum of TWO partners. There is no specified maximum number of partners in a standard UK partnership. The number four has no significance here."
-        },
-        {
-            statement: "A sole trader has one owner.",
-            answer: true,
-            explanation: "TRUE. A sole trader is defined as a business owned by exactly one person. However, the sole trader can employ as many members of staff as they wish — 'sole' means one owner, not one worker."
-        },
-        {
-            statement: "A deed of partnership will state how much capital partners should contribute to a business.",
-            answer: true,
-            explanation: "TRUE. The deed of partnership is a legal document that records how much capital each partner has contributed, their roles, and how profits and losses are shared. Without it, the law assumes all partners are equal."
-        },
-        {
-            statement: "A sleeping partner is always asleep.",
-            answer: false,
-            explanation: "FALSE. A 'sleeping partner' is a business term for a partner who invests money but takes no active role in the day-to-day running of the business. They are not literally asleep — it simply means they are a passive investor."
-        },
-        {
-            statement: "Ordinary partners in a partnership and sole traders have unlimited liability.",
-            answer: true,
-            explanation: "TRUE. Both sole traders and ordinary partners in a standard partnership have unlimited liability. This means they are personally responsible for all debts of the business — even if it means selling personal possessions."
-        },
-        {
-            statement: "Sole traders often have difficulty raising money for their business.",
-            answer: true,
-            explanation: "TRUE. As there is only one owner, raising capital can be very difficult. The sole trader can only contribute their own savings, and banks may view them as higher risk. This is one of the main disadvantages of the sole trader model."
-        },
-        {
-            statement: "A partnership has shareholders.",
-            answer: false,
-            explanation: "FALSE. Shareholders are owners of limited companies (Ltd or plc). The owners of a partnership are called 'partners', not shareholders. This is an important distinction — using the wrong terminology in an exam can cost marks."
-        },
-        {
-            statement: "Anyone can see the financial details of a sole trader.",
-            answer: false,
-            explanation: "FALSE. One of the key advantages of being a sole trader is that financial information is completely private and does not need to be shared with the public. Only limited companies (Ltd and plc) must publish their accounts."
-        },
-        {
-            statement: "A sole trader can employ as many people as they wish.",
-            answer: true,
-            explanation: "TRUE. The term 'sole trader' refers to sole ownership, not working alone. A sole trader can legally employ as many staff as the business requires and can afford."
-        },
-        {
-            statement: "A public limited company must have a minimum of £50,000 in share capital.",
-            answer: true,
-            explanation: "TRUE. A plc is legally required to have at least £50,000 in share capital. This significant financial requirement is one key reason why plcs are never used as start-up businesses."
-        },
-        {
-            statement: "A private limited company can sell its shares on the Stock Exchange.",
-            answer: false,
-            explanation: "FALSE. Only a public limited company (plc) can sell shares on the Stock Exchange. A private limited company can only sell shares to family, friends, and existing shareholders — and only with everyone's agreement."
-        },
-        {
-            statement: "Shareholders in a private limited company can be taken over without their consent.",
-            answer: false,
-            explanation: "FALSE. In a private limited company, shares can only be sold with the agreement of all existing shareholders. This protects the business from hostile takeovers — a major advantage over a plc where anyone can buy shares on the Stock Exchange."
-        },
-        {
-            statement: "The main reason a business becomes a plc is to raise large amounts of capital.",
-            answer: true,
-            explanation: "TRUE. The ability to sell shares to the general public through the Stock Exchange allows a plc to raise millions of pounds — far more than any other form of business ownership. This is the primary motivation for converting to a plc."
-        }
-    ];
+    const tfData = [];   // server-graded — questions + answers now come from bank_questions (P1)
 
     // 6. Common Student Misconceptions
     const miscData = [
@@ -869,8 +627,8 @@
             correct: "A sole trader simply means ONE OWNER. The word 'sole' refers to ownership, not working alone. A sole trader can employ as many staff as they need and can afford. Many successful sole traders run large operations with many employees.",
             readCheck: {
                 q: "What does the term 'sole trader' actually refer to?",
-                opts: ["A business with no employees at all", "Sole ownership, not necessarily working alone", "A business owned equally by two people", "A trader who only sells goods, not services"],
-                ans: 1,
+                opts: ["A business owned equally by two people", "A trader who only sells goods, not services", "A business with no employees at all", "Sole ownership, not necessarily working alone"],
+                ans: 3,
                 explain: "The card corrects the common misconception that 'sole' means working alone — it actually refers to sole ownership; a sole trader can employ as many staff as they can afford."
             }
         },
@@ -879,8 +637,8 @@
             correct: "'Public' means the shares are available for the public to BUY on the Stock Exchange. It has nothing to do with government ownership. The public sector is a completely different concept and is NOT on the OCR GCSE Business specification.",
             readCheck: {
                 q: "What does 'public' mean in the term 'public limited company'?",
-                opts: ["Its shares can be bought by the general public", "The company is owned and run by the government", "The company must be based in a public building", "The company is part of the public sector"],
-                ans: 0,
+                opts: ["The company is owned and run by the government", "The company is part of the public sector", "The company must be based in a public building", "Its shares can be bought by the general public"],
+                ans: 3,
                 explain: "The card clarifies that 'public' refers to shares being available for the public to buy on the Stock Exchange, not government ownership — the public sector is a different concept not on the specification."
             }
         },
@@ -889,8 +647,8 @@
             correct: "The word 'company' specifically and legally refers to private limited companies (Ltd) or public limited companies (plc). A sole trader or partnership is a 'business', not a 'company'. Using 'company' for a sole trader in an exam answer can make your answer inaccurate and cost marks.",
             readCheck: {
                 q: "In business terminology, which businesses can accurately be called a 'company'?",
-                opts: ["Any business, including sole traders and partnerships", "Only businesses with more than 50 employees", "Only limited companies — Ltd and plc businesses", "Only businesses that trade internationally"],
-                ans: 2,
+                opts: ["Only limited companies — Ltd and plc businesses", "Any business, including sole traders and partnerships", "Only businesses that trade internationally", "Only businesses with more than 50 employees"],
+                ans: 0,
                 explain: "The card explains that 'company' is a legally specific term referring only to Ltd and plc businesses — calling a sole trader or partnership a 'company' in an exam answer is inaccurate and can cost marks."
             }
         },
@@ -899,8 +657,8 @@
             correct: "Limited liability refers to the OWNER'S PERSONAL responsibility for debt — not the amount of debt the business can have. It means the owner can only lose up to the amount they invested in the business, protecting their personal possessions.",
             readCheck: {
                 q: "What does 'limited liability' actually refer to?",
-                opts: ["The maximum amount of debt a business is allowed to have", "A limit on how much a business can borrow from a bank", "The number of years a business can operate before repaying debts", "The owner's personal financial responsibility for business debts"],
-                ans: 3,
+                opts: ["The owner's personal financial responsibility for business debts", "The number of years a business can operate before repaying debts", "The maximum amount of debt a business is allowed to have", "A limit on how much a business can borrow from a bank"],
+                ans: 0,
                 explain: "The card corrects the misconception that limited liability limits business debt — it actually limits the owner's PERSONAL responsibility, meaning they can only lose up to what they invested."
             }
         },
@@ -909,8 +667,8 @@
             correct: "Partners do NOT have to share profits equally. The deed of partnership sets out exactly how profits (and losses) are shared, which can be in any proportion the partners agree on. ONLY if there is NO deed of partnership does the law require equal sharing.",
             readCheck: {
                 q: "How are profits shared between partners in a partnership?",
-                opts: ["As set out in the deed of partnership, or equally if none", "Always equally, regardless of any agreement", "Always in proportion to the number of hours each one worked", "Always decided by an external accountant"],
-                ans: 0,
+                opts: ["Always decided by an external accountant", "As set out in the deed of partnership, or equally if none", "Always equally, regardless of any agreement", "Always in proportion to the number of hours each one worked"],
+                ans: 1,
                 explain: "The card explains that partners do not have to share profits equally — the deed of partnership sets out the agreed split, and equal sharing is only the legal default when no deed exists."
             }
         },
@@ -919,8 +677,8 @@
             correct: "A sleeping partner provides CAPITAL but takes NO PART in running the business. The word 'sleeping' refers to their passive management role — they are a financial investor only, not an active manager.",
             readCheck: {
                 q: "What role does a 'sleeping partner' play in a partnership?",
-                opts: ["They manage the business day-to-day while other partners rest", "They provide the capital but take no active role in running it", "They are a partner who has retired but still receives a salary", "They are legally banned from investing any capital"],
-                ans: 1,
+                opts: ["They manage the business day-to-day while other partners rest", "They are a partner who has retired but still receives a salary", "They are legally banned from investing any capital", "They provide the capital but take no active role in running it"],
+                ans: 3,
                 explain: "The card clarifies that 'sleeping' refers to a passive management role — a sleeping partner is a financial investor only, not someone who manages the business."
             }
         },
@@ -929,8 +687,8 @@
             correct: "They are fundamentally different. Key differences: (1) a plc can sell shares on the Stock Exchange, an Ltd cannot; (2) a plc needs £50,000 minimum share capital; (3) a plc can be taken over by hostile buyers, an Ltd cannot without shareholder consent; (4) a plc faces more public scrutiny of its finances.",
             readCheck: {
                 q: "Which of the following is a fundamental legal difference between a private limited company and a public limited company?",
-                opts: ["An Ltd requires more share capital to set up than a plc", "Only a plc has shareholders", "A plc can sell shares on the Stock Exchange, whereas an Ltd cannot", "An Ltd is legally required to publish full annual accounts, but a plc is not"],
-                ans: 2,
+                opts: ["A plc can sell shares on the Stock Exchange, whereas an Ltd cannot", "Only a plc has shareholders", "An Ltd is legally required to publish full annual accounts, but a plc is not", "An Ltd requires more share capital to set up than a plc"],
+                ans: 0,
                 explain: "The card lists key differences including that a plc can sell shares on the Stock Exchange while an Ltd cannot, showing they are fundamentally different structures, not just different sizes of the same thing."
             }
         },
@@ -939,8 +697,8 @@
             correct: "These are too vague for the examiner. You must state specifically WHAT is expensive and WHY, and explain the business-facing impact. For example: 'The requirement to submit detailed accounts to Companies House (U) means Tom and Amir spend time on administration (APP) that could be used for customer service — their priority (AN).'",
             readCheck: {
                 q: "According to exam guidance, why is stating 'it is expensive' as a disadvantage of a limited company insufficient for marks?",
-                opts: ["It is too vague — say specifically what is expensive and why", "Because expense is never actually a disadvantage of limited companies", "Because examiners only accept numerical answers", "Because 'expensive' is a banned word in GCSE Business exams"],
-                ans: 0,
+                opts: ["Because 'expensive' is a banned word in GCSE Business exams", "Because expense is never actually a disadvantage of limited companies", "It is too vague — say specifically what is expensive and why", "Because examiners only accept numerical answers"],
+                ans: 2,
                 explain: "The card warns that vague answers score no marks — you must specify exactly what is expensive or involves paperwork, and explain the business-facing impact, as in the Companies House example given."
             }
         },
@@ -949,8 +707,8 @@
             correct: "Some businesses that became plcs have chosen to return to being private limited companies ('going private'). This can happen when owners want to regain control, protect themselves from hostile takeovers, or reduce the costs and public scrutiny associated with being a plc.",
             readCheck: {
                 q: "Can a public limited company change back to being a private limited company?",
-                opts: ["No — once a plc, it must remain a plc permanently", "No — a plc can only convert into a sole trader", "Yes, but only if ordered to by the Stock Exchange", "Yes — some plcs choose to 'go private' to cut costs"],
-                ans: 3,
+                opts: ["No — once a plc, it must remain a plc permanently", "No — a plc can only convert into a sole trader", "Yes — some plcs choose to 'go private' to cut costs", "Yes, but only if ordered to by the Stock Exchange"],
+                ans: 2,
                 explain: "The card corrects the misconception that plc status is permanent — some businesses 'go private' again to regain control, avoid hostile takeovers, or cut the costs and scrutiny of being a plc."
             }
         },
@@ -959,8 +717,8 @@
             correct: "Unlimited liability is only a practical problem if the business fails and cannot pay its debts. Many successful sole traders and partners never face this issue during their careers. However, the RISK is always present — which is why limited liability is so attractive for businesses with significant financial exposure.",
             readCheck: {
                 q: "When does unlimited liability actually become a practical problem for a sole trader or partner?",
-                opts: ["Every single day the business is trading", "Only if the business fails and cannot pay its debts", "Only when the business first starts up", "Only if the business employs more than ten staff"],
-                ans: 1,
+                opts: ["Only if the business employs more than ten staff", "Only when the business first starts up", "Only if the business fails and cannot pay its debts", "Every single day the business is trading"],
+                ans: 2,
                 explain: "The card explains that unlimited liability is only a practical problem if the business fails and cannot pay its debts — many successful owners never face this issue, though the risk is always present."
             }
         }
@@ -993,8 +751,8 @@
             pills: ["K", "U"],
             readCheck: {
                 q: "What must a 2-mark 'Explain' answer contain to achieve full marks?",
-                opts: ["Three separate advantages, briefly listed", "A definition followed by a real-world example only", "A correct point (K) plus its development (U)", "A conclusion stating the overall judgement"],
-                ans: 2,
+                opts: ["Three separate advantages, briefly listed", "A definition followed by a real-world example only", "A conclusion stating the overall judgement", "A correct point (K) plus its development (U)"],
+                ans: 3,
                 explain: "The card's formula for a 2-mark Explain question is one point (K) plus one development (U) — writing a full paragraph or just stating a fact without development will not achieve both marks."
             }
         },
@@ -1022,8 +780,8 @@
             pills: ["U", "app", "an"],
             readCheck: {
                 q: "What three elements must a 3-mark 'Analyse' answer include to avoid scoring zero for analysis?",
-                opts: ["Understanding, Application, and Analysis of impact", "Three different advantages listed one after another", "A definition, a diagram, and a conclusion", "Two advantages and one disadvantage"],
-                ans: 0,
+                opts: ["Two advantages and one disadvantage", "Understanding, Application, and Analysis of impact", "Three different advantages listed one after another", "A definition, a diagram, and a conclusion"],
+                ans: 1,
                 explain: "The card's 'Holy Trinity' formula requires Understanding (U), Application to the specific case study business (APP), and Analysis of the bottom-line impact (AN) — without application to the named business, you score zero for analysis."
             }
         },
@@ -1052,8 +810,8 @@
             pills: ["U", "app", "an"],
             readCheck: {
                 q: "According to the card, what should you NOT include in a 6-mark 'Analyse two...' answer?",
-                opts: ["An application to the case study business", "A conclusion — no marks are available for it", "Two separate, clearly labelled points", "A development of each point"],
-                ans: 1,
+                opts: ["A development of each point", "Two separate, clearly labelled points", "A conclusion — no marks are available for it", "An application to the case study business"],
+                ans: 2,
                 explain: "The card states that a 6-mark 'Analyse two' question has zero evaluation marks available, so writing a conclusion wastes time — instead you need two clearly separated U-APP-AN chains."
             }
         },
@@ -1089,8 +847,8 @@
             pills: ["K", "U", "app", "an", "eval"],
             readCheck: {
                 q: "In the 4-paragraph structure for a 9-mark 'Evaluate' question, what must the final evaluation paragraph include to earn evaluation marks?",
-                opts: ["A simple summary of the advantages and disadvantages already covered", "Three additional advantages not mentioned earlier", "A dictionary definition of the key term", "A clear decision, contextualised with case study data"],
-                ans: 3,
+                opts: ["A dictionary definition of the key term", "A simple summary of the advantages and disadvantages already covered", "A clear decision, contextualised with case study data", "Three additional advantages not mentioned earlier"],
+                ans: 2,
                 explain: "The card explains the evaluation paragraph needs three things: a clear decision, contextualisation with specific data/facts, and a conditional point — a conclusion that just repeats earlier analysis scores no evaluation marks."
             }
         },
@@ -1114,8 +872,8 @@
             pills: ["app", "eval"],
             readCheck: {
                 q: "What is required to earn full justification marks on a 3-mark 'Recommend' question?",
-                opts: ["Explaining why your choice beats the alternative option", "Simply stating your decision without giving any reason", "Listing every possible ownership type available", "Repeating the case study word for word"],
-                ans: 0,
+                opts: ["Repeating the case study word for word", "Listing every possible ownership type available", "Simply stating your decision without giving any reason", "Explaining why your choice beats the alternative option"],
+                ans: 3,
                 explain: "The card warns that if you only explain why your chosen option is good without comparing it to the other option, you can score a maximum of 1 justification mark — you must explicitly compare both options."
             }
         }
