@@ -400,7 +400,11 @@ alter table profiles
   add column if not exists account_type text not null default 'class_student'
     check (account_type in ('class_student', 'self_signup', 'teacher', 'owner')),
   add column if not exists email text,
-  add column if not exists is_owner boolean not null default false;
+  add column if not exists is_owner boolean not null default false,
+  -- Phase B school model (supabase/schools.sql): which school a teacher belongs
+  -- to. Denormalised convenience — school_members is the source of truth. No FK
+  -- here (schools is created later, in schools.sql); pinned by the guard below.
+  add column if not exists school_id uuid;
 
 -- Backfill: rows that predate these columns are teacher-generated students
 -- or invite-code teachers; both are identifiable by role.
@@ -488,14 +492,19 @@ create or replace function _profiles_block_privilege_change() returns trigger
 language plpgsql set search_path = public as $$
 begin
     -- Trusted contexts (service role / SQL editor / trigger provisioning) have
-    -- no end-user JWT, so auth.uid() is null — let them change anything.
-    if auth.uid() is null then
+    -- no end-user JWT, so auth.uid() is null — let them change anything. The
+    -- owner is likewise trusted to reassign roles/schools (schools.sql RPCs).
+    if auth.uid() is null or exists (select 1 from profiles where id = auth.uid() and is_owner) then
         return new;
     end if;
+    -- school_id is pinned too (Phase B, schools.sql): once billing keys off a
+    -- teacher's school, self-editing it would be an escalation. Harmless to pin
+    -- now — nothing changes school_id except the signup function and owner RPCs.
     if new.role         is distinct from old.role
        or new.account_type is distinct from old.account_type
-       or new.is_owner     is distinct from old.is_owner then
-        raise exception 'Not allowed to change role, account_type or is_owner';
+       or new.is_owner     is distinct from old.is_owner
+       or new.school_id    is distinct from old.school_id then
+        raise exception 'Not allowed to change role, account_type, is_owner or school_id';
     end if;
     return new;
 end;

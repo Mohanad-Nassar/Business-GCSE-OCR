@@ -346,6 +346,21 @@ begin
             total_mastered = daily_revise_stats.total_mastered + excluded.total_mastered,
             updated_at     = now();
 
+    -- Timestamped first-mastery log, written ONLY on the transition INTO
+    -- mastery (same guard as total_mastered above). daily_revise_stats is a
+    -- running counter with no history, so it can't answer "how many mastered
+    -- in the last 7 days" — mastery_events (leaderboard.sql) can, and that's
+    -- what powers the windowed Mastery leaderboard. Defensive: if leaderboard.sql
+    -- hasn't been run yet the table is absent, and grading must still succeed —
+    -- same undefined_table fallback used for platform_settings above.
+    if v_new_count = 3 and v_old_count < 3 then
+        begin
+            insert into mastery_events (student_id, subject_slug, question_key, page_id)
+            values (v_uid, v_row.subject_slug, p_question_key, v_row.page_id);
+        exception when undefined_table then null;
+        end;
+    end if;
+
     return jsonb_build_object(
         'correct', v_is_correct,
         'mastery_count', v_new_count,

@@ -332,3 +332,119 @@ on conflict (question_key) do update set
     answer_key = excluded.answer_key, updated_at = now();
 
 
+-- ══════════════════════════════════════════════════════════════
+-- TEACHER OVERSIGHT OF THE REVIEW CALENDAR
+-- Lets a teacher, from the class dashboard, (a) see how many reviews each
+-- student has left overdue and (b) tick off a review themselves once they've
+-- confirmed the student actually did it. Both build on the same topic_reviews
+-- table above — no new state model, just two teacher-scoped RPCs and a pair of
+-- teacher-check columns. Safe to re-run.
+-- ══════════════════════════════════════════════════════════════
+
+-- ── teacher-check columns ──
+-- teacher_checked_at is the teacher's own confirmation that this review was
+-- genuinely completed (separate from completed_at, which the STUDENT earns by
+-- passing the quiz — a teacher may want to verify it independently). Nullable;
+-- null = not checked. Added idempotently so this whole file stays re-runnable.
+alter table topic_reviews add column if not exists teacher_checked_at timestamptz;
+alter table topic_reviews add column if not exists teacher_checked_by uuid references profiles(id);
+
+-- ── get_class_review_overview(p_class_id, p_subject) ──
+-- Every real review row (the 'example' demo excluded) for every student in one
+-- of the caller's classes, so the teacher dashboard can count overdue reviews
+-- per student and list them on a student's profile. Like get_review_schedule()
+-- it LAZILY SEEDS first: any topic a class student has genuinely opened but has
+-- no review rows for yet gets its +1d/+7d/+28d rows materialised now, so the
+-- teacher's overdue counts are accurate even for a student who has never opened
+-- their own calendar. Seeding mirrors the per-student seed exactly (same anchor
+-- = min(answered_at) excluding daily-revise grading events, same on-conflict
+-- no-op), just generalised across the whole roster in one set-based insert.
+create or replace function get_class_review_overview(p_class_id uuid, p_subject text default null)
+returns table (
+    student_id       uuid,
+    page_id          text,
+    stage            smallint,
+    due_date         date,
+    completed_at     timestamptz,
+    teacher_checked_at timestamptz
+)
+language plpgsql security definer set search_path = public as $$
+#variable_conflict use_column
+begin
+    if auth.uid() is null then raise exception 'not authenticated'; end if;
+    -- Ownership guard: the caller must be the teacher of this class. Without
+    -- this a teacher could pass any class id; RLS on the SELECT below would
+    -- still protect other teachers' students, but we fail loudly and early.
+    if not exists (select 1 from classes c where c.id = p_class_id and c.teacher_id = auth.uid()) then
+        raise exception 'not your class';
+    end if;
+
+    -- Lazy seed across the whole roster (see header). Idempotent.
+    with roster as (
+        select cs.student_id from class_students cs where cs.class_id = p_class_id
+    ),
+    anchors as (
+        select pe.student_id, pe.page_id, min(pe.answered_at) as anchor
+        from progress_events pe
+        join roster r on r.student_id = pe.student_id
+        where pe.section <> 'daily-revise'
+          and (p_subject is null or pe.page_id like p_subject || ':%')
+          and not exists (
+              select 1 from topic_reviews tr
+              where tr.student_id = pe.student_id and tr.page_id = pe.page_id
+          )
+        group by pe.student_id, pe.page_id
+    )
+    insert into topic_reviews (student_id, page_id, stage, due_date)
+    select a.student_id, a.page_id, st.stage, (a.anchor + st.stage_offset)::date
+    from anchors a
+    cross join (values
+        (1::smallint, interval '1 day'),
+        (2::smallint, interval '7 days'),
+        (3::smallint, interval '28 days')
+    ) as st(stage, stage_offset)
+    on conflict (student_id, page_id, stage) do nothing;
+
+    return query
+    select tr.student_id, tr.page_id, tr.stage, tr.due_date, tr.completed_at, tr.teacher_checked_at
+    from topic_reviews tr
+    join class_students cs on cs.student_id = tr.student_id and cs.class_id = p_class_id
+    where tr.page_id <> 'example'
+      and (p_subject is null or tr.page_id like p_subject || ':%')
+    order by tr.student_id, tr.due_date, tr.stage;
+end;
+$$;
+grant execute on function get_class_review_overview(uuid, text) to authenticated;
+
+-- ── set_review_teacher_check(p_student_id, p_page_id, p_stage, p_checked) ──
+-- Toggles the teacher's confirmation on one review. topic_reviews has NO write
+-- policy (all mutations go through SECURITY DEFINER RPCs), so this is the write
+-- path for the teacher-check columns, guarded by teaches_student(). Setting it
+-- off clears both the timestamp and the checker. Returns the new state.
+create or replace function set_review_teacher_check(
+    p_student_id uuid,
+    p_page_id    text,
+    p_stage      smallint,
+    p_checked    boolean
+) returns jsonb
+language plpgsql security definer set search_path = public as $$
+begin
+    if auth.uid() is null then raise exception 'not authenticated'; end if;
+    if not teaches_student(p_student_id) then
+        raise exception 'not your student';
+    end if;
+
+    update topic_reviews
+    set teacher_checked_at = case when p_checked then now() else null end,
+        teacher_checked_by = case when p_checked then auth.uid() else null end
+    where student_id = p_student_id and page_id = p_page_id and stage = p_stage;
+    if not found then
+        raise exception 'No such review to check';
+    end if;
+
+    return jsonb_build_object('checked', p_checked);
+end;
+$$;
+grant execute on function set_review_teacher_check(uuid, text, smallint, boolean) to authenticated;
+
+
