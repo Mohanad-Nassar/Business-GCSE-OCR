@@ -858,7 +858,25 @@ def write_bank_questions_seed(rows, skipped_written, slug, stamp):
 # linger in Daily Revise's pool forever, orphaned from the topic page it
 # used to live on. Already-published tasks are unaffected either way — they
 # store a full snapshot at creation time (tasks-schema.sql), by design.
-def upload_bank_questions(rows, manifest):
+def server_graded_page_ids(slug, pages):
+    """Subject-prefixed page_ids whose HTML sets `window.SERVER_GRADED = true`.
+    On such pages some sections (e.g. MCQ/TF on business:1-3-business-ownership)
+    are served from bank_questions ONLY — their inline arrays are stripped from
+    the HTML so answers never reach the browser — so the build can't re-extract
+    them. --upload must therefore NEVER delete these pages' existing bank rows,
+    or a subject rebuild would silently wipe the server-graded questions and
+    break both the topic page and Daily Revise. See supabase/topic-grading.sql."""
+    ids = set()
+    for page_id, _name, file in pages:
+        full = resolve_page_file(slug, file)
+        if not full.exists():
+            continue
+        if re.search(r"window\.SERVER_GRADED\s*=\s*true", full.read_text(encoding="utf-8")):
+            ids.add(f"{slug}:{page_id}")
+    return ids
+
+
+def upload_bank_questions(rows, manifest, server_graded_pids=frozenset()):
     _load_dotenv()
     url = os.environ.get("SUPABASE_URL")
     key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
@@ -936,7 +954,22 @@ def upload_bank_questions(rows, manifest):
         return
 
     new_keys = {qkey for (qkey, *_rest) in rows}
-    stale = sorted(existing_keys - new_keys)
+    stale_set = existing_keys - new_keys
+
+    # SAFETY: never delete rows on server-graded pages. Sections like MCQ/TF on
+    # business:1-3 live in bank_questions only (inline arrays stripped from the
+    # HTML), so they're absent from new_keys and would otherwise be wrongly
+    # deleted — silently wiping the questions from the topic page AND Daily
+    # Revise. Preserve every existing key belonging to a server-graded page_id.
+    if server_graded_pids:
+        keep = {k for k in stale_set
+                if any(k == pid or k.startswith(pid + ":") for pid in server_graded_pids)}
+        if keep:
+            print(f"bank_questions: preserving {len(keep)} server-graded row(s) across "
+                  f"{len(server_graded_pids)} page(s) (not deleted — served from the bank).")
+        stale_set -= keep
+
+    stale = sorted(stale_set)
     if not stale:
         return
 
@@ -995,7 +1028,10 @@ def build_subject(manifest, stamp, args):
     rows, skipped_written = bank_rows(pbank)
     write_bank_questions_seed(rows, skipped_written, slug, stamp)
     if args.upload:
-        upload_bank_questions(rows, manifest)
+        sg_pids = server_graded_page_ids(slug, pages)
+        if sg_pids:
+            print(f"  server-graded pages (bank rows preserved on --upload): {', '.join(sorted(sg_pids))}")
+        upload_bank_questions(rows, manifest, sg_pids)
 
     if args.legacy:
         if slug == "business":
