@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-16T17:18:42Z · 1581 questions
+// Generated: 2026-07-16T17:21:02Z · 1581 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -437,11 +437,11 @@ window.QUESTION_BANK = [
   "options": [
    "Government body",
    "Consumer",
-   "Factor of production",
-   "Producer"
+   "Producer",
+   "Factor of production"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "The stallholder supplies goods to customers, so they are a producer — producers range from a single market stall to a multinational company."
   }
  },
@@ -454,13 +454,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which of these is the reward for the factor of production 'labour'?",
   "options": [
-   "Rent",
-   "Profit",
    "Interest",
-   "Wages"
+   "Wages",
+   "Rent",
+   "Profit"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Labour is rewarded with wages, paid by the producer to the worker for their effort."
   }
  },
@@ -473,13 +473,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which of these is the reward for the factor of production 'land'?",
   "options": [
-   "Rent",
    "Interest",
-   "Profit",
-   "Wages"
+   "Rent",
+   "Wages",
+   "Profit"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "Land is rewarded with rent, paid to the owner of the land for allowing its use."
   }
  },
@@ -492,13 +492,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which of these is the reward for the factor of production 'enterprise'?",
   "options": [
-   "Interest",
-   "Profit",
    "Rent",
-   "Wages"
+   "Wages",
+   "Interest",
+   "Profit"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "Enterprise is rewarded with profit — what's left over from revenue once every other cost has been paid, which is why it's not guaranteed."
   }
  },
@@ -511,13 +511,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A fleet of delivery vans owned by a courier company is an example of which factor of production?",
   "options": [
-   "Capital",
-   "Enterprise",
+   "Labour",
    "Land",
-   "Labour"
+   "Capital",
+   "Enterprise"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "Vans are a man-made aid to production, so they count as capital, not land or labour."
   }
  },
@@ -530,13 +530,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Coal, farmland and fishing grounds are all examples of which factor of production?",
   "options": [
-   "Capital",
    "Labour",
    "Enterprise",
-   "Land"
+   "Land",
+   "Capital"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "These are all natural resources, so they fall under land — even coal, which is under the earth, still counts."
   }
  },
@@ -549,13 +549,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "The skills, effort and health of the workforce are all part of which factor of production?",
   "options": [
-   "Land",
-   "Labour",
+   "Capital",
    "Enterprise",
-   "Capital"
+   "Land",
+   "Labour"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "This describes labour — the human effort, physical and mental, used in production."
   }
  },
@@ -568,13 +568,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which economic group raises most of its money through taxation, then spends it on public services?",
   "options": [
+   "Entrepreneurs",
    "Producers",
    "The government",
-   "Entrepreneurs",
    "Consumers"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "The government collects tax revenue and uses it to fund services like the NHS and education, and to run the country."
   }
  },
@@ -587,13 +587,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Why did drink manufacturers reformulate their recipes to cut sugar after the UK sugar tax was introduced?",
   "options": [
-   "To reduce how much they paid their staff",
-   "Because it was a legal requirement for all soft drinks",
    "To increase the price they could charge",
-   "To avoid paying the tax on sugary drinks"
+   "To reduce how much they paid their staff",
+   "To avoid paying the tax on sugary drinks",
+   "Because it was a legal requirement for all soft drinks"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "The tax was based on sugar content, so cutting sugar let producers avoid or reduce the tax they had to pay — a good example of government policy affecting producer behaviour."
   }
  },
@@ -606,13 +606,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which of the following best describes 'enterprise' as a factor of production?",
   "options": [
-   "The physical effort and skill of the workforce",
-   "The money used to start up a business",
    "The natural resources used in production",
-   "The risk-taking that combines land, labour and capital"
+   "The risk-taking that combines land, labour and capital",
+   "The money used to start up a business",
+   "The physical effort and skill of the workforce"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Enterprise is the risk-taking of the entrepreneur who organises the other three factors of production to create output."
   }
  },
@@ -732,12 +732,12 @@ window.QUESTION_BANK = [
   "question": "A hairdresser buys a bottle of shampoo to use on customers in the salon. In this transaction, the hairdresser is acting as a...",
   "options": [
    "Consumer, because they are buying something",
+   "Producer, because the purchase is for running the business",
    "None of the three economic groups",
-   "Government, because they will charge VAT on it",
-   "Producer, because the purchase is for running the business"
+   "Government, because they will charge VAT on it"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "The test is whether the purchase is for personal use or for the business. Buying stock or supplies to run the business is a producer action, even though the hairdresser is personally a consumer in other parts of their life."
   }
  },
@@ -752,13 +752,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Producers need inputs to create their output. These inputs are called the <strong>factors of production</strong>, and there are four of them:</p>\n<table class=\"case-table\">\n<tr><th>Factor</th><th>What it covers</th><th>Reward for its use</th></tr>\n<tr><td><strong>Land</strong></td><td>All natural resources: farmland, oil, coal, minerals, fish stocks, forests</td><td>Rent</td></tr>\n<tr><td><strong>Labour</strong></td><td>The physical and mental effort of the workforce — their skills, qualifications and experience are sometimes called their <em>human capital</em></td><td>Wages</td></tr>\n<tr><td><strong>Capital</strong></td><td>Man-made aids to production: machinery, tools, factory buildings, vehicles, IT equipment (NOT money itself — see the misconception below)</td><td>Interest</td></tr>\n<tr><td><strong>Enterprise</strong></td><td>The risk-taking of the entrepreneur, who combines the other three factors to produce a good or service</td><td>Profit</td></tr>\n</table>\n<h4>Inputs become outputs</h4>\n<ul>\n<li>The factors of production are also called <strong>factor inputs</strong>.</li>\n<li>Producers combine them and add value, creating a new product — the <strong>factor output</strong>.</li>\n<li>Example: land (trees) + labour (carpenters) + capital (saws and machinery), organised by an entrepreneur's enterprise, become a wooden table worth more than the raw inputs.</li>\n</ul>\n<h4>Why profit is different from the other rewards</h4>\n<ul>\n<li>Rent, wages and interest are agreed payments.</li>\n<li><strong>Profit is not guaranteed</strong> — it is what is left over once every other cost has been paid.</li>\n<li>A business can just as easily make a loss. That is why profit is the reward for taking a risk.</li>\n</ul>",
   "question": "What is the reward for the factor of production called capital?",
   "options": [
-   "Rent",
-   "Wages",
    "Interest",
-   "Profit"
+   "Profit",
+   "Rent",
+   "Wages"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Capital earns interest — the payment made for the use of money-funded, man-made aids to production such as machinery and premises."
   }
  },
@@ -773,9 +773,9 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> Capital means money.</p><p><strong>✅ The correct idea:</strong> Capital means the physical, man-made aids to production — machinery, tools and factory buildings. Money used to buy those things is different from capital as a factor of production itself.</p>",
   "question": "A firm borrows £50,000 from the bank and uses it to buy a new delivery van. Which part of this is capital as a factor of production?",
   "options": [
+   "The bank that lent the money",
    "The £50,000 loan itself",
    "The interest rate on the loan",
-   "The bank that lent the money",
    "The delivery van"
   ],
   "key": {
@@ -794,13 +794,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> Producers are always big companies like supermarkets or manufacturers.</p><p><strong>✅ The correct idea:</strong> A producer is anyone who supplies a good or service — that includes a market stallholder, a self-employed hairdresser, or a one-person online business, not just large firms.</p>",
   "question": "A student sells hand-made friendship bracelets to classmates at breaktime. Are they a producer?",
   "options": [
-   "Yes — they are supplying a good, however small the business",
    "No — only registered companies can be producers",
    "No — they are still a consumer while doing this",
-   "Only if they make a profit"
+   "Only if they make a profit",
+   "Yes — they are supplying a good, however small the business"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Size doesn't matter for the definition — anyone supplying a good or service is a producer."
   }
  },
@@ -815,13 +815,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> A business owner is always acting as a consumer.</p><p><strong>✅ The correct idea:</strong> A business owner is only a consumer when they buy something for personal use. When they buy stock or equipment for the business, they're acting as a producer.</p>",
   "question": "A café owner buys a coffee machine for the café, and later buys a coffee machine as a birthday present for a friend. Which purchase makes them a consumer?",
   "options": [
+   "Only the coffee machine bought as a gift",
    "Both purchases",
    "Only the coffee machine for the café",
-   "Neither purchase",
-   "Only the coffee machine bought as a gift"
+   "Neither purchase"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "The gift is for personal, non-business use, so that purchase is as a consumer. The café machine is for the business, so that's a producer action."
   }
  },
@@ -836,13 +836,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> Profit is a guaranteed reward for running a business, just like wages are guaranteed for working.</p><p><strong>✅ The correct idea:</strong> Profit is not guaranteed — it's what's left over after all costs are paid, and a business can just as easily make a loss. That's why profit is the reward for risk-taking (enterprise), unlike wages, which are agreed and paid whether or not the business does well.</p>",
   "question": "Why is profit described as the reward for enterprise rather than a guaranteed payment?",
   "options": [
-   "Because a business can make a loss instead of a profit",
    "Because it is paid before wages",
-   "Because only large firms can earn it",
-   "Because it is set by the government"
+   "Because a business can make a loss instead of a profit",
+   "Because it is set by the government",
+   "Because only large firms can earn it"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "Profit depends on revenue being higher than costs — it isn't fixed or guaranteed like wages, rent or interest, which is exactly why it rewards risk."
   }
  },
@@ -858,12 +858,12 @@ window.QUESTION_BANK = [
   "question": "A question is worth 2 marks and starts with 'Explain, using an example...'. What must your answer include to get both marks?",
   "options": [
    "Just a long, detailed definition",
+   "A diagram",
    "A definition AND a specific example",
-   "Two separate definitions",
-   "A diagram"
+   "Two separate definitions"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "2-mark 'explain, using an example' questions are usually split 1 mark for the definition/statement and 1 mark for a correct, specific example."
   }
  },
@@ -878,13 +878,13 @@ window.QUESTION_BANK = [
   "reading": "<p>'Evaluate' means explain + analyse + weigh up both sides + reach a judgement.</p>\n\n<p>Real full-mark answers are only about <strong>120–160 words</strong>. Longer is not better — focused is better.</p>\n\n<p><strong>Structure that scores 6/6 in real exams:</strong></p>\n<ul>\n<li><strong>Point:</strong> one way the groups depend on each other, applied to the case study — use the names and any data given</li>\n<li><strong>However:</strong> a limit to <em>that same point</em> — not a random new point</li>\n<li><strong>Overall:</strong> a judgement that answers \"the extent to which…\", with a reason</li>\n</ul>\n\n<p><strong>Sentence starters real top students use:</strong></p>\n<ul>\n<li>\"One reason is that…\"</li>\n<li>\"However, this depends on…\"</li>\n<li>\"On the other hand…\"</li>\n<li>\"Overall, … but …\"</li>\n</ul>\n\n<p><strong>Common mistake:</strong> a good point followed by an unrelated bad point is not evaluation.</p>\n\n<p>The \"However\" must be about the same point, and the judgement must give a reason — a judgement with no reason is capped at 5/6.</p>",
   "question": "In an 'Evaluate' answer, what is a 'good point followed by a bad point that has no connection to it' an example of?",
   "options": [
-   "Analysis, but not application",
-   "Not evaluation at all — evaluation needs paired, connected points",
    "Good evaluation",
-   "A diagram substitute"
+   "Analysis, but not application",
+   "A diagram substitute",
+   "Not evaluation at all — evaluation needs paired, connected points"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "Real evaluation pairs an idea with a genuine limitation of THAT idea (or a contrasting factor it depends on) — two disconnected points don't count as evaluation."
   }
  },
@@ -899,9 +899,9 @@ window.QUESTION_BANK = [
   "reading": "<p>Based on real OCR papers, this topic keeps being tested in the same few ways:</p>\n\n<ul>\n<li>Classify a scenario as a consumer, producer or government action</li>\n<li>Match each factor of production to its reward (rent / wages / interest / profit)</li>\n<li>Spot the odd one out in a list mixing real factors of production with distractors like money or output</li>\n<li>A short \"explain\" question using the case study — apply the definition to the business in the text, don't just repeat the textbook definition</li>\n<li>A 6-mark \"evaluate the extent of interdependence\" question, based on a case study</li>\n</ul>\n\n<p><strong>Watch out:</strong> questions asking \"NOT\" or \"incorrect\" flip the logic.</p>\n\n<p>Read them twice — the answer is the odd one out (often money, which students confuse with capital).</p>",
   "question": "A question asks: 'Which of the following is NOT a factor of production?' What should you do first?",
   "options": [
-   "Pick the first correct-sounding factor of production",
    "Assume it's a trick with no right answer",
    "Skip the question",
+   "Pick the first correct-sounding factor of production",
    "Notice the word 'NOT' and look for the one item that ISN'T a factor of production"
   ],
   "key": {
@@ -1932,13 +1932,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which of these best describes the basic economic problem?",
   "options": [
-   "Unlimited wants but scarce resources",
    "Prices are always rising",
    "Governments spend too much money",
-   "Some countries are richer than others"
+   "Some countries are richer than others",
+   "Unlimited wants but scarce resources"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "The basic economic problem is that resources are limited (scarce) while wants are unlimited — so choices have to be made."
   }
  },
@@ -1951,10 +1951,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Warm clothing, food and shelter are examples of...",
   "options": [
+   "Luxuries",
    "Wants",
-   "Scarce resources",
    "Needs",
-   "Luxuries"
+   "Scarce resources"
   ],
   "key": {
    "answer": 2,
@@ -1970,13 +1970,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Why are wants described as 'unlimited'?",
   "options": [
-   "Because all wants are essential for survival",
    "Because wants never change over time",
    "Because people always desire more goods and services than they can have",
-   "Because everyone wants the same things"
+   "Because everyone wants the same things",
+   "Because all wants are essential for survival"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "There is no end to what people would like to have — as soon as one want is satisfied, another appears, and new products create new wants."
   }
  },
@@ -1989,13 +1989,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "The three key questions every economy must answer are: what to produce, how to produce it, and...",
   "options": [
+   "When to produce it",
    "Where to produce it",
-   "For whom to produce it",
    "Why to produce it",
-   "When to produce it"
+   "For whom to produce it"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "The three questions are what, how, and for whom goods and services should be produced."
   }
  },
@@ -2008,13 +2008,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "In a market economy, resources are allocated by...",
   "options": [
-   "The forces of demand and supply",
-   "A vote among consumers",
    "International organisations",
-   "The government"
+   "The forces of demand and supply",
+   "The government",
+   "A vote among consumers"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "In a market economy, prices set by demand and supply act as signals and incentives that decide where resources go."
   }
  },
@@ -2027,13 +2027,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "The UK is best described as which type of economy?",
   "options": [
-   "A pure free market economy",
-   "A planned economy",
    "A barter economy",
-   "A mixed economy"
+   "A mixed economy",
+   "A pure free market economy",
+   "A planned economy"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "The UK leans market-based but the government intervenes in areas like health and education — so it's a mixed economy, like every real country."
   }
  },
@@ -2046,10 +2046,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A student has £5 and buys a cinema ticket instead of a pizza. The opportunity cost is...",
   "options": [
-   "Both the ticket and the pizza",
+   "The £5 spent",
    "The pizza given up",
    "The cinema ticket",
-   "The £5 spent"
+   "Both the ticket and the pizza"
   ],
   "key": {
    "answer": 1,
@@ -2065,10 +2065,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "The government increases spending on the NHS, which means less money for road building. This shows that government choices...",
   "options": [
-   "Always make everyone better off",
+   "Have no opportunity cost",
    "Only affect producers",
    "Involve an opportunity cost",
-   "Have no opportunity cost"
+   "Always make everyone better off"
   ],
   "key": {
    "answer": 2,
@@ -2084,13 +2084,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A new bypass improves residents' quality of life but cost £50 million that could have been spent elsewhere. Which TWO ideas does this show?",
   "options": [
-   "Unlimited wants and specialisation",
    "Social sustainability and opportunity cost",
    "Environmental sustainability and profit",
-   "Needs and the product market"
+   "Needs and the product market",
+   "Unlimited wants and specialisation"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "Better quality of life = social sustainability; the £50 million given up from other uses = opportunity cost."
   }
  },
@@ -2105,11 +2105,11 @@ window.QUESTION_BANK = [
   "options": [
    "Will the project make a profit?",
    "Is the project fair to all taxpayers?",
-   "Are renewable resources being used at a rate they can be replaced?",
-   "Will the project create jobs?"
+   "Will the project create jobs?",
+   "Are renewable resources being used at a rate they can be replaced?"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "Environmental sustainability is about the impact on the environment — resource use and pollution. Jobs and growth are economic; fairness and quality of life are social."
   }
  },
@@ -2228,13 +2228,13 @@ window.QUESTION_BANK = [
   "reading": "<h4>Needs</h4>\n<ul>\n<li>The things required to survive — food, water, shelter, warmth, basic clothing.</li>\n<li>Imagine packing for a 3-day camping trip with limited car space: a tent, warm clothes, food and water, and a first aid kit are needs.</li>\n</ul>\n<h4>Wants</h4>\n<ul>\n<li>Everything beyond basic survival — and wants are effectively <strong>unlimited</strong>.</li>\n<li>A phone might feel essential to you, but in economics it is a want, because it goes beyond basic survival needs.</li>\n<li>Wants also change over time as tastes, fashion and technology change — 20 years ago no one \"wanted\" a smartphone, because it didn't exist.</li>\n</ul>\n<h4>Scarce resources</h4>\n<ul>\n<li>Resources — land, labour, capital and enterprise — are <strong>finite</strong>: there is only a limited amount of them.</li>\n<li>A resource is scarce when there is not enough of it to satisfy all wants.</li>\n<li>Scarcity applies at every stage of production. A pair of trainers needs leather, cotton and rubber (land), plus labour and capital to make, market and deliver it.</li>\n</ul>",
   "question": "In economics, which of the following is classed as a NEED?",
   "options": [
-   "A mobile phone",
    "A holiday",
    "Shelter",
-   "Branded trainers"
+   "Branded trainers",
+   "A mobile phone"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "Needs are the things required to survive — food, water, shelter, warmth and basic clothing. Everything beyond that, including a phone, is a want."
   }
  },
@@ -2249,13 +2249,13 @@ window.QUESTION_BANK = [
   "reading": "<h4>The basic economic problem</h4>\n<ul>\n<li>Wants are <strong>unlimited</strong>, but the resources available to supply them are <strong>scarce</strong>.</li>\n<li>So the basic economic problem is: <strong>how do we best satisfy society's unlimited wants using limited resources?</strong></li>\n<li>Because of scarcity, <strong>choices</strong> have to be made about how to use resources — and every choice has an opportunity cost.</li>\n</ul>\n<h4>The three questions every economy must answer</h4>\n<ul>\n<li><strong>What</strong> should be produced?</li>\n<li><strong>How</strong> should it be produced?</li>\n<li><strong>For whom</strong> should it be produced?</li>\n</ul>\n<h4>Types of economy — a spectrum, not a label</h4>\n<ul>\n<li><strong>Market economy:</strong> resources allocated by the market forces of demand and supply — prices and incentives guide producers.</li>\n<li><strong>Planned economy:</strong> resources allocated by the state.</li>\n<li><strong>Mixed economy:</strong> a combination of both — and in reality, <strong>every real country is a mixed economy</strong>, sitting somewhere on the spectrum between the two extremes.</li>\n<li>The UK leans market-based, but the government still intervenes (NHS, schools, defence). China is largely state-controlled, but has many private businesses.</li>\n</ul>\n<h4>How the UK's mixed economy answers the three questions</h4>\n<ul>\n<li><strong>What:</strong> mostly whatever is profitable — success gives firms more resources to keep producing. But the government steps in for things society needs, like health, education and defence.</li>\n<li><strong>How:</strong> competition pushes firms to produce efficiently and keep costs down, while the government enforces product standards and health and safety rules.</li>\n<li><strong>For whom:</strong> mainly \"user pays\" — goods go to those who can afford them — but taxes and benefits redistribute money to those in need, and some services (like the NHS) are free to use.</li>\n</ul>",
   "question": "The government decides to spend more money on health instead of education. Which of the three key economic questions is it answering?",
   "options": [
-   "For whom should it be produced?",
-   "How should it be produced?",
    "What should be produced?",
+   "How should it be produced?",
+   "For whom should it be produced?",
    "Where should it be produced?"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Choosing to put resources into health rather than education is deciding WHAT gets produced. (This exact scenario appeared as a real OCR exam question — and only a few candidates got it right.)"
   }
  },
@@ -2270,13 +2270,13 @@ window.QUESTION_BANK = [
   "reading": "<h4>The definition</h4>\n<ul>\n<li><strong>Opportunity cost is the next best alternative given up when making a choice.</strong></li>\n<li>It exists because resources are scarce — if you could have everything, nothing would need to be given up.</li>\n</ul>\n<h4>The crucial exam skill: link it to the scarce resource</h4>\n<ul>\n<li>Weak answer: \"If I buy a drink instead of a chocolate bar, the chocolate is the opportunity cost.\"</li>\n<li>Strong answer: \"I want both, but I only have enough <strong>money</strong> for one — so buying the drink means the chocolate is the opportunity cost.\"</li>\n<li>The scarce resource is usually money, but it can be time, land, labour or capital.</li>\n</ul>\n<h4>Opportunity cost applies to every economic group</h4>\n<ul>\n<li><strong>Consumers:</strong> spending now means giving up the interest you could have earned by saving.</li>\n<li><strong>Producers:</strong> a firm that can afford new machinery OR a new outlet, but not both, gives up one to get the other.</li>\n<li><strong>Government:</strong> spending more on education means less for something else in the budget — or a bigger deficit, which has to be repaid later with interest.</li>\n</ul>\n<h4>Related ideas: trade-offs and satisfaction</h4>\n<ul>\n<li>People choose the option that gives them the most satisfaction (economists call this <em>utility</em>) for the money they have available.</li>\n<li>A <strong>trade-off</strong> is choosing one option above all the alternatives — opportunity cost measures the benefit lost from the next best one.</li>\n</ul>",
   "question": "A firm can afford to buy new machinery OR open a new outlet, but not both. It chooses the machinery. What is the opportunity cost?",
   "options": [
-   "The price paid for the machinery",
-   "The profit made from the machinery",
    "The benefit it would have got from the new outlet",
+   "The profit made from the machinery",
+   "The price paid for the machinery",
    "There is no opportunity cost for firms"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Opportunity cost is the benefit of the next best alternative given up — here, what the new outlet would have brought in. It is not the money paid for the option you chose."
   }
  },
@@ -2312,10 +2312,10 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> 'Needs' and 'wants' mean the same thing, so it doesn't matter which word I use.</p><p><strong>✅ The correct idea:</strong> Examiners want the distinction stated explicitly: needs are required for survival (food, water, shelter, warmth); wants are everything beyond that — and wants are unlimited. Mixing the words up costs marks in definition questions.</p>",
   "question": "Which sentence uses the terms correctly?",
   "options": [
-   "\"Needs are unlimited but wants are scarce\"",
+   "\"Water is a want because people enjoy drinking it\"",
    "\"Everyone needs a games console\"",
    "\"Shelter is a need; a bigger house in a nicer area is a want\"",
-   "\"Water is a want because people enjoy drinking it\""
+   "\"Needs are unlimited but wants are scarce\""
   ],
   "key": {
    "answer": 2,
@@ -2333,13 +2333,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> The UK is a free market economy and China is a planned economy.</p><p><strong>✅ The correct idea:</strong> Both are mixed economies. The UK leans market-based but the government intervenes (NHS, schools, defence); China is largely state-controlled but has many private businesses. The exam skill is placing countries on a SPECTRUM between the two extremes, not labelling them as pure opposites.</p>",
   "question": "What is the most accurate way to describe the UK and China?",
   "options": [
-   "The UK is purely free market; China is purely planned",
-   "Both are planned economies",
+   "Both are mixed economies at different points on the market–planned spectrum",
    "Neither has any government intervention",
-   "Both are mixed economies at different points on the market–planned spectrum"
+   "The UK is purely free market; China is purely planned",
+   "Both are planned economies"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "No real country is a pure example of either extreme — both the UK and China combine market forces with state intervention, just in different proportions."
   }
  },
@@ -2355,12 +2355,12 @@ window.QUESTION_BANK = [
   "question": "A 2-mark question says: \"Using an example from Extract 2, explain what is meant by opportunity cost.\" What earns full marks?",
   "options": [
    "Just naming an example from Extract 2",
-   "A definition plus an example taken from Extract 2",
+   "A perfect textbook definition on its own",
    "A definition plus any example you can think of",
-   "A perfect textbook definition on its own"
+   "A definition plus an example taken from Extract 2"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "The real OCR mark scheme gave no reward for a purely theoretical answer or for examples not from the extract — you need the definition AND an example from the source given."
   }
  },
@@ -2375,13 +2375,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> The factor market is the same as the primary sector, and the product market is the same as the secondary/tertiary sector.</p><p><strong>✅ The correct idea:</strong> These are different ideas. The FACTOR market is where factors of production (like labour) are bought and sold — a farmer hiring workers is in the factor market. The PRODUCT market is where finished goods and services are sold to consumers. Sectors (primary/secondary/tertiary) describe types of production, not markets. This confusion comes straight from a real OCR examiner report — most candidates mixed them up.</p>",
   "question": "A farmer hires two extra fruit pickers. Which market is this happening in?",
   "options": [
-   "The product market",
+   "The factor market",
    "The stock market",
-   "The primary sector market",
-   "The factor market"
+   "The product market",
+   "The primary sector market"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "Hiring workers is buying labour — a factor of production — so it happens in the factor market. Selling the fruit to shoppers would happen in the product market."
   }
  },
@@ -2396,13 +2396,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Elon Musk\" or \"Amazon\" is a good example of enterprise.</p><p><strong>✅ The correct idea:</strong> Enterprise is the factor of production that takes a RISK in organising the other factors — so the example must show the risk-taking activity, not just name a famous person or company. Level 0 answer: \"Elon Musk.\" Level 1 answer: \"Enterprise is taking a risk to organise production\" (definition, no example). Full-marks answer: \"Enterprise is the factor that takes a risk organising the other factors of production — for example, borrowing £500,000 to set up a hotel.\" This comes from a real examiner report: naming Musk, Gates or Amazon without showing the enterprise activity earned no example mark.</p>",
   "question": "Which of these would earn the example mark for 'enterprise'?",
   "options": [
-   "\"Enterprise means being enterprising\"",
-   "\"Jeff Bezos\"",
    "\"Taking the risk of setting up a new coffee shop\"",
-   "\"Amazon is a big company\""
+   "\"Amazon is a big company\"",
+   "\"Jeff Bezos\"",
+   "\"Enterprise means being enterprising\""
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "The example must show risk-taking and organising factors of production in action. Naming a person or company on its own shows nothing about enterprise itself."
   }
  },
@@ -2417,13 +2417,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> Economic, social and environmental sustainability are basically the same thing, so any of them can be used in an answer.</p><p><strong>✅ The correct idea:</strong> They are three different tests, and the exam names WHICH one it wants. Economic = best use of resources for growth over time. Social = quality of life and fairness. Environmental = resource use and pollution. In a real exam, candidates asked about ECONOMIC sustainability who wrote about the environment scored poorly — the examiner report says you must be able to clearly tell them apart.</p>",
   "question": "A question asks about the effect of a choice on a café's ECONOMIC sustainability. Which point is on-topic?",
   "options": [
-   "The café's new furniture is made from recycled wood",
    "The café's carbon footprint will fall",
    "The loan repayments may leave too little money for the business to keep growing",
+   "The café's new furniture is made from recycled wood",
    "The village will look prettier"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "Economic sustainability is about whether the choice lets the business keep using its resources to grow over time — loans, costs and revenue. Recycling and carbon are environmental; village appearance is social."
   }
  },
@@ -2438,13 +2438,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Here is the same answer to <em>\"Explain, using an example, what is meant by 'opportunity cost'\"</em> at every level:</p>\n\n<p><strong>❌ 0 marks:</strong> \"Opportunity cost is the cost of an opportunity.\"</p>\n<ul>\n<li>This just repeats the question in different words (examiners call it a tautology). No economics shown.</li>\n</ul>\n\n<p><strong>⚠️ 1 mark:</strong> \"Opportunity cost is the next best alternative you give up when making a choice.\"</p>\n<ul>\n<li>A correct definition — but the question said \"using an example\" and there isn't one. The second mark is gone.</li>\n</ul>\n\n<p><strong>✅ 2 marks:</strong> \"Opportunity cost is the next best alternative given up when making a choice. For example, a farmer who uses his land to grow beans gives up the chance to grow other crops on it.\"</p>\n<ul>\n<li>Definition (1 mark) + a specific example (1 mark). Two sentences. Done.</li>\n</ul>\n\n<p><strong>Extra traps from real mark schemes:</strong></p>\n<ul>\n<li>Leaving out \"given up\" / \"foregone\" from the definition loses the definition mark.</li>\n<li>If the question says \"using an example <em>from Extract 2</em>\", an example from anywhere else scores nothing.</li>\n</ul>",
   "question": "Why does a perfect definition with no example only score 1 out of 2 when the question says 'using an example'?",
   "options": [
-   "Because examples always come first",
-   "Because definitions never earn marks",
    "Because the second mark is specifically for the example the question asked for",
+   "Because definitions never earn marks",
+   "Because examples always come first",
    "Because the answer is too short"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "The 2 marks are split: 1 for the definition, 1 for the example. Miss the example and that mark is simply unavailable — this is the single most common way students drop marks on 2-markers."
   }
  },
@@ -2460,9 +2460,9 @@ window.QUESTION_BANK = [
   "question": "A student's first step in a calculation is wrong, but they carry the wrong number through the correct method. What happens under the Own Figure Rule?",
   "options": [
    "They can still earn a mark for the correct method",
-   "They score 0 — the answer is wrong",
+   "The examiner corrects the first step for them",
    "They get full marks anyway",
-   "The examiner corrects the first step for them"
+   "They score 0 — the answer is wrong"
   ],
   "key": {
    "answer": 0,
@@ -2480,13 +2480,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Using the real question <em>\"Evaluate the costs of the economic choices that Nina and Leo must make on their economic sustainability\"</em>:</p>\n\n<p><strong>❌ Level 0 (0 marks):</strong> writes about how the café should recycle and cut its carbon footprint.</p>\n<ul>\n<li>That's ENVIRONMENTAL sustainability. The question asked about ECONOMIC sustainability. Real candidates did exactly this and scored nothing.</li>\n</ul>\n\n<p><strong>⚠️ Level 1 (1–2 marks):</strong> \"The £10,000 loan must be repaid within a year with interest that could rise from 2.5% to 3.5%, which means less money for running the café, which could stop it growing.\"</p>\n<ul>\n<li>Good analysis — but no other side, no weighing up, no judgement. The examiner's report says candidates with strong analysis but zero evaluation could not get more than 1 mark out of 6.</li>\n</ul>\n\n<p><strong>⚠️ Level 2 (3–4 marks):</strong> the same analysis, plus \"However, the improvements might attract new customers\", ending with \"In conclusion, there are costs and benefits.\"</p>\n<ul>\n<li>Both sides are there, but the conclusion just summarises. The examiner's report: \"many limited responses ended with a conclusion that was a summary rather than a supported judgement.\"</li>\n</ul>\n\n<p><strong>✅ Level 3 (5–6 marks):</strong> both sides, PLUS a judgement that answers the question with a reason:</p>\n<ul>\n<li>\"Overall, the choices are only economically sustainable if the improvements win enough new customers to cover the loan repayments and interest.\"</li>\n<li>The judgement says <em>under what conditions</em> — that's what \"fully supported\" means.</li>\n</ul>\n\n<p><strong>One more trap:</strong> on \"evaluate the extent to which...\" questions, the mark scheme caps evaluation marks unless you directly address <em>the extent</em> — how big, how likely, what it depends on.</p>",
   "question": "A student writes brilliant analysis of the costs but never weighs anything up or gives a judgement. What does the real mark scheme cap them at?",
   "options": [
-   "6 out of 6 — analysis is what matters",
-   "1–2 out of 6",
    "0 — analysis earns nothing",
-   "4 out of 6"
+   "4 out of 6",
+   "6 out of 6 — analysis is what matters",
+   "1–2 out of 6"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "On an Evaluate question, evaluation IS the main skill — examiners reported strong-analysis-no-evaluation answers stuck at the bottom of the mark range. Every point needs a paired 'However...' and the answer needs a supported judgement."
   }
  },
@@ -2501,13 +2501,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>Analyse</strong> (like \"Analyse the benefits of economic sustainability for CDS\"):</p>\n<ul>\n<li>Explain with chains of reasoning: \"this means... therefore... resulting in...\"</li>\n<li><strong>No judgement or conclusion needed.</strong> Don't waste time writing one.</li>\n</ul>\n\n<p><strong>Evaluate</strong> (like \"Evaluate the costs... on their economic sustainability\"):</p>\n<ul>\n<li>Analyse + weigh both sides + a supported judgement.</li>\n<li>A judgement without a reason is capped at 5/6.</li>\n</ul>\n\n<p><strong>The three sustainabilities keep appearing in this topic's exams — one question of each type has really been asked:</strong></p>\n<ul>\n<li><strong>Economic</strong> — best use of resources so growth can continue (Nina and Leo's café; CDS)</li>\n<li><strong>Social</strong> — quality of life and fairness (the Asian Hornet's effect on the UK; the Carwod road)</li>\n<li><strong>Environmental</strong> — resource use and pollution (free range farming at Calwith Farmers)</li>\n</ul>\n\n<p><strong>Before writing, underline which sustainability the question names</strong> — then check every sentence of your answer talks about that one.</p>",
   "question": "A 6-mark question starts with 'Analyse...'. Should your answer end with an overall judgement?",
   "options": [
-   "Yes — every 6-marker needs a conclusion",
    "No — Analyse needs chains of reasoning, not a judgement",
    "Only if you have spare time",
+   "Yes — every 6-marker needs a conclusion",
    "Yes, but only one sentence"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "Judgements belong to Evaluate questions. Analyse questions are marked on knowledge, application and chains of reasoning — a conclusion earns nothing extra (real OCR commentary confirms none is required)."
   }
  },
@@ -3812,12 +3812,12 @@ window.QUESTION_BANK = [
   "question": "Which of these is NOT a market?",
   "options": [
    "A farmers' market",
-   "A factory production line",
+   "An auction website",
    "A stock exchange",
-   "An auction website"
+   "A factory production line"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "A market needs buyers and sellers exchanging something. A production line makes goods — nothing is bought or sold there."
   }
  },
@@ -3830,13 +3830,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A fisherman catching fish at sea works in which sector?",
   "options": [
-   "Secondary",
-   "Financial",
    "Primary",
-   "Tertiary"
+   "Tertiary",
+   "Financial",
+   "Secondary"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Fishing extracts natural resources directly, so it's primary sector — the start of the chain of production."
   }
  },
@@ -3849,13 +3849,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A hairdresser works in which sector?",
   "options": [
-   "Manufacturing",
    "Tertiary",
    "Secondary",
-   "Primary"
+   "Primary",
+   "Manufacturing"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "A haircut is a service (intangible), so hairdressing is tertiary sector."
   }
  },
@@ -3868,13 +3868,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which of these is the best example of the difference between a good and a service?",
   "options": [
-   "A good is bought by firms, a service by consumers",
-   "A good is made abroad, a service is made in the UK",
    "A good is tangible (you can touch it), a service is intangible",
-   "A good is cheap, a service is expensive"
+   "A good is made abroad, a service is made in the UK",
+   "A good is cheap, a service is expensive",
+   "A good is bought by firms, a service by consumers"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Goods are physical things like cars and phones; services, like education or banking, cannot be touched."
   }
  },
@@ -3888,9 +3888,9 @@ window.QUESTION_BANK = [
   "question": "Wages are set in which market?",
   "options": [
    "The factor market",
+   "The product market",
    "The stock market",
-   "The currency market",
-   "The product market"
+   "The currency market"
   ],
   "key": {
    "answer": 0,
@@ -3906,13 +3906,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Demand for delivery drivers rises because more people are ordering takeaway food. This shows that demand for labour is...",
   "options": [
+   "Independent of the product market",
    "Derived from the demand for the product",
    "Unlimited",
-   "Independent of the product market",
    "Set by the government"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "Drivers aren't demanded for their own sake — the demand comes from (is derived from) demand for the takeaway food they deliver."
   }
  },
@@ -3926,9 +3926,9 @@ window.QUESTION_BANK = [
   "question": "In the circular flow of income, households receive wages from firms and use them to...",
   "options": [
    "Buy goods and services from firms",
-   "Set the equilibrium price",
+   "Supply raw materials",
    "Pay other households",
-   "Supply raw materials"
+   "Set the equilibrium price"
   ],
   "key": {
    "answer": 0,
@@ -3944,13 +3944,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A car factory divides production so each worker does one task — one fits doors, another paints. This is called...",
   "options": [
-   "Exchange",
+   "Derived demand",
    "The price mechanism",
-   "Division of labour",
-   "Derived demand"
+   "Exchange",
+   "Division of labour"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "Dividing a process into separate tasks with each worker specialising in one part is the division of labour."
   }
  },
@@ -3963,13 +3963,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A region that specialises in one industry faces which main risk?",
   "options": [
-   "If demand for that industry falls, unemployment rises across the whole area",
    "It cannot trade with other regions",
+   "Its workers become too skilled",
    "Prices in the region always rise",
-   "Its workers become too skilled"
+   "If demand for that industry falls, unemployment rises across the whole area"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Specialised regions depend on one industry — when steel or shipbuilding declined, whole towns suffered high unemployment."
   }
  },
@@ -3983,9 +3983,9 @@ window.QUESTION_BANK = [
   "question": "When there is excess supply in a free market, what happens to price and why?",
   "options": [
    "It falls, so that quantity demanded rises until it equals supply",
-   "It stays the same, because the government fixes it",
    "It rises, because the product is scarce",
-   "It falls to zero"
+   "It falls to zero",
+   "It stays the same, because the government fixes it"
   ],
   "key": {
    "answer": 0,
@@ -4107,9 +4107,9 @@ window.QUESTION_BANK = [
   "reading": "<h4>The definition</h4>\n<ul>\n<li>A market is a way of <strong>bringing together buyers and sellers</strong> to exchange goods and services.</li>\n<li>It does NOT have to be a physical place — a shop, a weekly town market, an auction, a website and the stock market are all markets.</li>\n<li>Buyers and sellers interact to <strong>set a price</strong>, based on demand and supply.</li>\n</ul>\n<h4>Characteristics of a market (real 2-mark exam question)</h4>\n<ul>\n<li>It contains buyers</li>\n<li>It contains sellers</li>\n<li>It is where demand and supply meet</li>\n<li>It is where the price is set</li>\n<li>Money changes hands (or goods are swapped — barter)</li>\n</ul>\n<h4>How markets allocate scarce resources: the price mechanism</h4>\n<ul>\n<li><strong>Signalling</strong> — rising prices tell producers more resources are needed there. Example: the worldwide computer chip shortage drove prices up, signalling chip firms to invest billions in new factories.</li>\n<li><strong>Rationing</strong> — when something is scarce, the price rises and only those willing and able to pay get it. Example: concert tickets for a popular band.</li>\n<li><strong>Incentivising</strong> — a higher price gives producers a reason to supply more; a lower price gives consumers a reason to buy more.</li>\n</ul>\n<h4>Equilibrium — where the market settles</h4>\n<ul>\n<li><strong>Equilibrium price and quantity</strong> is where quantity demanded exactly equals quantity supplied.</li>\n<li>Above it there is a surplus (excess supply), which pushes the price down. Below it there is a shortage, which pushes the price up.</li>\n<li>So a free market deals with excess supply by <strong>lowering the price until demand equals supply again</strong>.</li>\n</ul>\n<h4>Price vs worth</h4>\n<ul>\n<li><strong>Price</strong> is what everyone pays — it's the same for every buyer.</li>\n<li><strong>Worth</strong> is how much YOU value it — an ice cream is worth more to you on a hot day, even though the price hasn't changed.</li>\n<li>In an efficient market, prices reflect the worth of the resources used up in making the product.</li>\n</ul>",
   "question": "A clothing retailer starts selling its goods to consumers on the internet. To an economist, this is an example of...",
   "options": [
-   "A planned economy",
-   "A market",
    "The secondary sector",
+   "A market",
+   "A planned economy",
    "Division of labour"
   ],
   "key": {
@@ -4128,13 +4128,13 @@ window.QUESTION_BANK = [
   "reading": "<h4>Primary sector</h4>\n<ul>\n<li>The <strong>direct use of natural resources</strong> — extracting basic materials from the land and sea.</li>\n<li>Examples: agriculture, fishing, forestry, mining, quarrying, oil extraction.</li>\n<li>It is the START of the chain of production.</li>\n</ul>\n<h4>Secondary sector</h4>\n<ul>\n<li><strong>Manufacturing and construction</strong> — turning raw materials from the primary sector into finished goods.</li>\n<li>Examples: car manufacturing, energy, building houses.</li>\n<li>The key is <strong>adding value</strong> to the raw materials.</li>\n</ul>\n<h4>Tertiary sector</h4>\n<ul>\n<li>Activities that provide a <strong>service</strong>.</li>\n<li>Examples: banking, finance, insurance, education, tourism, health.</li>\n<li>A teacher's or nurse's output counts — producing a service IS producing output.</li>\n</ul>\n<h4>Goods vs services</h4>\n<ul>\n<li><strong>Goods are tangible</strong> — you can touch them (cars, phones).</li>\n<li><strong>Services are intangible</strong> — you cannot touch them (education, banking).</li>\n</ul>\n<h4>UK trends worth knowing</h4>\n<ul>\n<li>The UK's secondary sector has declined sharply since the 1970s, mainly due to low-cost competition from abroad.</li>\n<li>Services are now the most important part of the UK economy — the UK exports more services than it imports.</li>\n</ul>\n<h4>The sectors are interdependent</h4>\n<ul>\n<li>One firm's output becomes another firm's input.</li>\n<li>A farmer (primary) relies on food manufacturers (secondary) to buy the crops; the supermarket (tertiary) relies on the manufacturer for products to sell.</li>\n</ul>",
   "question": "In which sector would a boat building firm be placed?",
   "options": [
-   "Tertiary",
    "Secondary",
-   "Free market",
-   "Primary"
+   "Primary",
+   "Tertiary",
+   "Free market"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "Building boats is manufacturing — turning raw materials into a finished good — so it's the secondary sector. (A real OCR exam question.)"
   }
  },
@@ -4149,13 +4149,13 @@ window.QUESTION_BANK = [
   "reading": "<h4>The product market</h4>\n<ul>\n<li>The market for <strong>finished goods and services</strong> — supermarkets, high street shops, online stores.</li>\n<li>Buyers can be consumers, other businesses, or the government.</li>\n<li>Prices are set by supply and demand.</li>\n</ul>\n<h4>The factor market</h4>\n<ul>\n<li>The market where the <strong>factors of production are bought and sold</strong>.</li>\n<li>The labour market: households supply their labour to firms in exchange for wages.</li>\n<li>Also includes markets for raw materials (like oil) and for capital equipment.</li>\n<li><strong>Watch out:</strong> the factor market is NOT the same as the primary sector — a real OCR mark scheme flags this exact confusion.</li>\n</ul>\n<h4>Derived demand — the key idea</h4>\n<ul>\n<li>Demand in the factor market is <strong>derived</strong> — factors aren't wanted for their own sake, only because the products they make are in demand.</li>\n<li>Example: rising demand for smartphones → rising demand for lithium and cobalt (raw materials) → rising demand for miners and computer scientists (labour).</li>\n</ul>\n<h4>Interdependence: the circular flow of income</h4>\n<ul>\n<li>Households supply labour to firms (factor market)…</li>\n<li>…firms use that labour to produce goods and services…</li>\n<li>…firms pay wages to households…</li>\n<li>…households spend those wages on goods and services (product market)…</li>\n<li>…and that spending gives firms the income to keep employing people. The cycle continues.</li>\n</ul>",
   "question": "A toy company hires more workers to increase production. Which market does this happen in?",
   "options": [
-   "The product market",
    "The factor market",
    "The primary sector",
+   "The product market",
    "The stock market"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "Hiring workers is buying labour — a factor of production — so it happens in the factor market. Selling the toys to consumers happens in the product market. (A real OCR exam question.)"
   }
  },
@@ -4171,9 +4171,9 @@ window.QUESTION_BANK = [
   "question": "Two workers ask their employer if they can specialise instead of doing several different jobs. What is the DIRECT benefit for these workers?",
   "options": [
    "Increased skill",
-   "Less boredom",
    "It creates jobs",
-   "Higher profits"
+   "Higher profits",
+   "Less boredom"
   ],
   "key": {
    "answer": 0,
@@ -4191,13 +4191,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> The factor market is the same as the primary sector.</p><p><strong>✅ The correct idea:</strong> The FACTOR market is where inputs (labour, raw materials, capital) are bought and sold. The PRIMARY sector is a type of production — extracting natural resources. A mining company operates in the primary sector, but when it hires miners it is buying labour in the factor market. This confusion comes straight from a real OCR mark scheme misconception box.</p>",
   "question": "A supermarket (tertiary sector) hires ten new checkout assistants. Which market is the hiring happening in?",
   "options": [
+   "The factor market",
    "The primary sector",
-   "The product market",
    "The tertiary market",
-   "The factor market"
+   "The product market"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "Hiring workers is buying labour, so it happens in the factor market — even though the supermarket itself is a tertiary-sector business. Sector and market are different ideas."
   }
  },
@@ -4212,13 +4212,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> When a question asks about the benefits of specialisation, any benefit will do.</p><p><strong>✅ The correct idea:</strong> The question always names WHO the benefit is for — the workers, the firm, the region or the country — and answers about the wrong group score NOTHING. In one real exam, 'boredom in workers who only specialise in one trade' was given 0 marks on a question about the cost to the BUSINESS. The fix: chain it to the right group — \"workers get bored, SO more of them leave, SO the business pays higher recruitment and training costs.\"</p>",
   "question": "A question asks for one cost TO A SMALL BUSINESS of specialisation by its workers. Which answer earns marks?",
   "options": [
+   "\"Workers get bored, so more leave, and the business faces higher recruitment costs\"",
    "\"Workers become deskilled\"",
    "\"Workers get bored doing the same task\"",
-   "\"Workers get bored, so more leave, and the business faces higher recruitment costs\"",
    "\"Workers may want more pay\""
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Only the second answer lands the cost on the BUSINESS. The others stop at the effect on workers — that's the exact mistake that scored 0 in the real exam."
   }
  },
@@ -4233,13 +4233,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> A market has to be a physical marketplace.</p><p><strong>✅ The correct idea:</strong> A market is any way of bringing buyers and sellers together — a shop, an auction, a website, a catalogue, or a charity event in a village hall (a real OCR exam example). What makes it a market is the buying and selling, not the location.</p>",
   "question": "A beekeeper sells honey at a charity event in the local village hall. The event is an example of...",
   "options": [
-   "A monopoly",
    "A market",
-   "A producer",
-   "Primary sector activity"
+   "A monopoly",
+   "Primary sector activity",
+   "A producer"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "Buyers and sellers came together to exchange goods — that's a market, wherever it happens. (A real OCR exam question.)"
   }
  },
@@ -4275,13 +4275,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> Equilibrium means the price and the quantity are equal to each other.</p><p><strong>✅ The correct idea:</strong> Equilibrium is where quantity DEMANDED equals quantity SUPPLIED — not where price equals quantity. Level 0 answer: \"it's where price and quantity are equal\" (a real muddle examiners reported). Level 1 answer: \"where the supply and demand curves meet.\" Full-marks answer: \"where quantity supplied exactly matches quantity demanded, so there is no shortage or surplus and no pressure on the price to change.\"</p>",
   "question": "What is true at the equilibrium price?",
   "options": [
+   "Supply is always rising",
    "Firms make no profit",
    "Price equals quantity",
-   "Quantity demanded equals quantity supplied",
-   "Supply is always rising"
+   "Quantity demanded equals quantity supplied"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "At equilibrium the market clears: everything supplied is demanded, so there's no surplus or shortage and no pressure on price to change."
   }
  },
@@ -4296,13 +4296,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> A 'market' and a 'market economy' are the same thing.</p><p><strong>✅ The correct idea:</strong> A market is a single mechanism — one place/way that buyers and sellers of a particular product meet. A market ECONOMY is a whole system where most resources are allocated by market forces. The UK has thousands of individual markets, but as an economy it's mixed, not a pure market economy.</p>",
   "question": "Which sentence uses the terms correctly?",
   "options": [
+   "\"The market for coffee is one market operating within the UK's mixed economy\"",
    "\"A market economy contains no markets\"",
    "\"The UK housing market is a mixed economy\"",
-   "\"Every market is an economy\"",
-   "\"The market for coffee is one market operating within the UK's mixed economy\""
+   "\"Every market is an economy\""
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "Individual markets (coffee, housing, labour) operate inside a whole economy. The economy is the system; a market is one mechanism within it."
   }
  },
@@ -4318,12 +4318,12 @@ window.QUESTION_BANK = [
   "question": "A question asks about the advantages of more production 'for Westumbria' (a region). Your answer is all about the businesses' higher profits. What happens?",
   "options": [
    "The examiner rewrites it for you",
-   "Some marks for effort",
    "Often no marks at all — the question asked about the region",
+   "Some marks for effort",
    "Full marks — profits help everyone"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "Real examiner comment: 'responses that focused on the advantages to small businesses often were not given any marks at all.' The chain must end on the region — jobs, living standards, attracting firms to the area."
   }
  },
@@ -4338,13 +4338,13 @@ window.QUESTION_BANK = [
   "reading": "<p>This topic's paper has BOTH kinds of diagram question:</p>\n\n<p><strong>1. Drawing a curve from a table</strong> (2 marks — \"draw the supply curve for Firm A\"):</p>\n<ul>\n<li><strong>❌ 0 marks:</strong> a line that ignores the data in the table</li>\n<li><strong>⚠️ 1 mark:</strong> correct points plotted but not joined up, or only one point right</li>\n<li><strong>✅ 2 marks:</strong> all points plotted accurately AND joined with a line</li>\n</ul>\n\n<p><strong>2. 'Using a diagram, analyse...'</strong> (6 marks — the housing question):</p>\n<ul>\n<li><strong>❌ No diagram at all:</strong> capped at 4 out of 6, no matter how good the writing</li>\n<li><strong>⚠️ Level 2:</strong> correct diagram, but the writing never refers to it</li>\n<li><strong>✅ Level 3:</strong> the writing reads the diagram out loud — \"price rises from p to p1 as shown in the diagram\"</li>\n</ul>\n\n<p><strong>The extra trap in the housing question:</strong> it asks why demand growth causes a <strong>LARGE</strong> increase in price. Real candidates who ignored the word \"large\" couldn't reach the top level. The answer: supply of housing is INELASTIC (steep curve), so a demand shift moves price a lot and quantity only a little.</p>",
   "question": "A 6-mark question says 'Using a diagram, analyse...'. You write a brilliant answer but draw no diagram. What's your maximum mark?",
   "options": [
-   "2",
-   "5",
    "6 — the writing is what counts",
-   "4"
+   "4",
+   "2",
+   "5"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "The real mark scheme says 'a maximum of 4 marks if no correct diagram'. Always draw it, label it in context, and refer to it in your writing."
   }
  },
@@ -4359,10 +4359,10 @@ window.QUESTION_BANK = [
   "reading": "<p>This topic's definitions all have TWO required parts — and examiners reported exactly how students dropped to 1 mark:</p>\n\n<p><strong>\"Explain what is meant by a market\":</strong></p>\n<ul>\n<li>⚠️ 1 mark: \"where things are sold\" — only the selling side. Real examiner comment: many lost a mark \"due to only referring to the selling side of the market and not to buying\".</li>\n<li>✅ 2 marks: \"a way of bringing together buyers AND sellers to buy and sell goods and services\".</li>\n</ul>\n\n<p><strong>\"Explain what is meant by division of labour\":</strong></p>\n<ul>\n<li>⚠️ 1 mark: \"workers specialising\" — missing the splitting-up idea.</li>\n<li>✅ 2 marks: \"tasks are DIVIDED UP between workers, with each SPECIALISING in one part\".</li>\n<li>❌ 0 marks: just repeating the example from the extract — \"Nina does design and Amir does building\" explains nothing.</li>\n</ul>\n\n<p><strong>\"Explain equilibrium price and quantity\":</strong></p>\n<ul>\n<li>⚠️ 1 mark: \"where the supply and demand curves meet\".</li>\n<li>✅ 2 marks: \"where quantity supplied exactly matches quantity demanded, so there is no pressure on the price to change\".</li>\n</ul>",
   "question": "Why did 'a market is where things are sold' score only 1 mark out of 2?",
   "options": [
-   "It's too short",
    "It needed a diagram",
+   "Markets aren't about selling",
    "It only mentions sellers — a market needs buyers AND sellers",
-   "Markets aren't about selling"
+   "It's too short"
   ],
   "key": {
    "answer": 2,
@@ -4381,12 +4381,12 @@ window.QUESTION_BANK = [
   "question": "A question says 'Analyse the benefits of specialisation for Calwith Farmers'. Should you also write about the costs?",
   "options": [
    "Yes, but briefly",
+   "Yes — always give both sides",
    "Only in the conclusion",
-   "No — costs were not relevant to this question, says the real examiner report",
-   "Yes — always give both sides"
+   "No — costs were not relevant to this question, says the real examiner report"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "Analyse questions want developed chains on what was asked — the real examiner report noted that candidates who considered the costs of specialisation were writing material 'not relevant to this question'."
   }
  },
@@ -5863,13 +5863,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which of the following is the correct definition of demand?",
   "options": [
+   "The willingness and ability to buy a good or service at a given price in a given time period",
    "The total money spent on a good",
    "The amount of a good producers offer for sale",
-   "The desire to own a good or service",
-   "The willingness and ability to buy a good or service at a given price in a given time period"
+   "The desire to own a good or service"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "Demand needs BOTH willingness and ability, at a given price, in a given time period. Desire alone is not demand — you must be able to pay."
   }
  },
@@ -5882,13 +5882,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which of the following causes a movement ALONG the demand curve for chocolate (not a shift)?",
   "options": [
-   "A rise in consumers' incomes",
-   "A health scare about sugar",
    "A fall in the price of chocolate itself",
-   "A successful advertising campaign"
+   "A successful advertising campaign",
+   "A rise in consumers' incomes",
+   "A health scare about sugar"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Only a change in the good's OWN price causes a movement along the curve. Income, advertising and tastes all shift the whole curve."
   }
  },
@@ -5901,13 +5901,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Consumers' incomes rise. What happens in the market for cinema tickets (a normal good)?",
   "options": [
-   "Demand shifts right",
-   "The supply curve shifts right",
    "A movement down the demand curve",
+   "The supply curve shifts right",
+   "Demand shifts right",
    "Demand shifts left"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "Higher incomes mean people can afford more trips to the cinema at every price — the whole demand curve shifts right."
   }
  },
@@ -5920,9 +5920,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A firm raises its price by 10% and quantity demanded falls by 5%. PED (ignoring the sign) is...",
   "options": [
-   "0.5, so demand is price elastic",
    "15, so demand is perfectly elastic",
    "2, so demand is price elastic",
+   "0.5, so demand is price elastic",
    "0.5, so demand is price inelastic"
   ],
   "key": {
@@ -5939,13 +5939,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Demand for a product is price elastic. To increase total revenue the business should...",
   "options": [
+   "Raise the price",
    "Keep the price the same",
    "Cut the price",
-   "Raise the price",
    "Reduce output"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "With elastic demand, cutting the price wins proportionally MORE customers, so total revenue (price × quantity) rises."
   }
  },
@@ -5958,13 +5958,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Petrol and electric cars are substitutes. A large rise in the price of petrol is most likely to...",
   "options": [
-   "Cause a movement along the electric car demand curve",
-   "Shift the demand curve for electric cars left",
    "Shift the demand curve for electric cars right",
+   "Shift the demand curve for electric cars left",
+   "Cause a movement along the electric car demand curve",
    "Shift the supply of electric cars left"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "When one substitute gets dearer, buyers switch to the other — demand for electric cars rises at every price, a rightward shift."
   }
  },
@@ -5977,13 +5977,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Printers and ink cartridges are complements. If the price of printers falls sharply, demand for ink cartridges will...",
   "options": [
-   "Stay exactly the same",
-   "Shift left",
    "Shift right",
-   "Become perfectly inelastic"
+   "Shift left",
+   "Become perfectly inelastic",
+   "Stay exactly the same"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Cheaper printers → more printers bought → more ink needed at every price. Complements move together, so cartridge demand shifts right."
   }
  },
@@ -5998,11 +5998,11 @@ window.QUESTION_BANK = [
   "options": [
    "A horizontal line",
    "An upward-sloping line",
-   "A 45-degree line",
-   "A vertical line"
+   "A vertical line",
+   "A 45-degree line"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "Perfectly inelastic (PED = 0) means quantity never changes whatever the price — a vertical line. Perfectly elastic is the horizontal one."
   }
  },
@@ -6015,13 +6015,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Governments put high taxes on cigarettes and fuel mainly because demand for them is...",
   "options": [
-   "Price inelastic, so people keep buying and tax revenue is reliable",
    "Price elastic, so people stop buying",
    "Perfectly elastic, so firms pay the tax",
+   "Price inelastic, so people keep buying and tax revenue is reliable",
    "Unitary, so revenue never changes"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "Few substitutes make demand inelastic — quantity barely falls when tax raises the price, so the government collects reliable revenue."
   }
  },
@@ -6034,10 +6034,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which of the following is the best example of derived demand?",
   "options": [
-   "Demand for luxury goods rising with incomes",
+   "Demand for plums rising when apples get dearer",
    "Demand for ice cream rising in summer",
    "Demand for bricklayers rising because demand for new houses has risen",
-   "Demand for plums rising when apples get dearer"
+   "Demand for luxury goods rising with incomes"
   ],
   "key": {
    "answer": 2,
@@ -6160,9 +6160,9 @@ window.QUESTION_BANK = [
   "question": "Market demand is found by...",
   "options": [
    "Adding together all the individual demands",
-   "Asking producers how much they want to sell",
+   "Taking the biggest individual demand",
    "Multiplying price by quantity",
-   "Taking the biggest individual demand"
+   "Asking producers how much they want to sell"
   ],
   "key": {
    "answer": 0,
@@ -6181,12 +6181,12 @@ window.QUESTION_BANK = [
   "question": "The price of raspberries rises. What happens in the market for strawberries (a substitute)?",
   "options": [
    "The demand curve for strawberries shifts left",
+   "There is a movement along the strawberry demand curve",
    "Nothing happens",
-   "The demand curve for strawberries shifts right",
-   "There is a movement along the strawberry demand curve"
+   "The demand curve for strawberries shifts right"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "Raspberries are now dearer, so some shoppers switch to strawberries — more strawberries are demanded at every price, shifting the strawberry demand curve right."
   }
  },
@@ -6201,13 +6201,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>PED measures the responsiveness of quantity demanded to a change in price.</strong></p>\n<h4>The formula</h4>\n<ul>\n<li><strong>PED = % change in quantity demanded ÷ % change in price</strong></li>\n<li>The answer is negative (price up, quantity down), so we usually <strong>ignore the minus sign</strong> and compare the size to 1.</li>\n</ul>\n<h4>The five results</h4>\n<ul>\n<li><strong>Price elastic (PED &gt; 1)</strong> — quantity responds MORE than price. Drawn as a <strong>flat</strong> curve. E.g. price falls 20%, quantity rises 50% → PED = 2.5.</li>\n<li><strong>Price inelastic (PED &lt; 1)</strong> — quantity responds LESS than price. Drawn as a <strong>steep</strong> curve. E.g. price falls 25%, quantity rises 15% → PED = 0.6.</li>\n<li><strong>Unitary (PED = 1)</strong> — quantity changes by exactly the same % as price, so total spending stays the same.</li>\n<li><strong>Perfectly price inelastic (PED = 0)</strong> — a <strong>vertical</strong> line: price changes have no effect at all on quantity.</li>\n<li><strong>Perfectly price elastic (PED = ∞)</strong> — a <strong>horizontal</strong> line: consumers buy any amount at one price only.</li>\n</ul>\n<h4>What makes demand elastic or inelastic?</h4>\n<ul>\n<li><strong>Substitutes</strong> — lots of close substitutes → elastic; few → inelastic.</li>\n<li><strong>Necessity vs luxury</strong> — necessities (fuel, medicine) → inelastic; non-essentials → more elastic.</li>\n<li><strong>Time</strong> — demand gets MORE elastic over time as people find alternatives.</li>\n<li><strong>Share of income</strong> — cheap items (chewing gum) → inelastic; expensive items → elastic.</li>\n</ul>\n<p><strong>Drawing tip:</strong> elastic and inelastic curves must have clearly different slopes (flat vs steep) and be labelled — two parallel lines score nothing.</p>",
   "question": "A fishmonger cuts the price of haddock by 20% and sales rise from 20 to 30 pieces (+50%). Demand is...",
   "options": [
+   "Perfectly price inelastic",
    "Price elastic",
-   "Price inelastic",
    "Unitary price elastic",
-   "Perfectly price inelastic"
+   "Price inelastic"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "PED = 50% ÷ 20% = 2.5, which is bigger than 1 — price elastic. This exact calculation appeared as a real exam MCQ."
   }
  },
@@ -6222,13 +6222,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>Total revenue = price × quantity sold.</strong> PED tells a business what happens to revenue when it changes price — that is why examiners love it.</p>\n<h4>The revenue rule</h4>\n<ul>\n<li><strong>Demand elastic → CUT the price.</strong> The % rise in quantity is bigger than the % fall in price, so revenue rises.</li>\n<li><strong>Demand inelastic → RAISE the price.</strong> Quantity barely falls, so revenue rises.</li>\n</ul>\n<h4>Worked example — the muffin stall</h4>\n<ul>\n<li>Selling 100 muffins at £1 each = £100 revenue.</li>\n<li>If demand is <strong>elastic</strong> (PED = 2): cut the price 10% to 90p → quantity rises 20% to 120 → revenue = £108. ✔</li>\n<li>If demand is <strong>inelastic</strong> (PED = 0.5): raise the price 10% to £1.10 → quantity falls only 5% to 95 → revenue = £104.50. ✔</li>\n</ul>\n<h4>Who uses PED in the real world?</h4>\n<ul>\n<li><strong>Businesses</strong> — set the price that earns the most revenue, and use <strong>price discrimination</strong> (different prices for different groups — peak vs off-peak train tickets, student discounts) when groups have different PEDs.</li>\n<li><strong>Farmers</strong> — demand for food is inelastic, so a bumper crop (big rise in supply) crashes the price and can cut farm incomes.</li>\n<li><strong>Government</strong> — taxes goods with inelastic demand (fuel, cigarettes, alcohol) because people keep buying, so tax revenue is reliable.</li>\n<li><strong>Consumers</strong> — PED matters most to buyers who choose on price; someone who cares more about quality than price will barely respond to price changes.</li>\n</ul>\n<h4>But be ready to evaluate</h4>\n<ul>\n<li>PED estimates come from guesses or small surveys — <strong>how reliable is the data?</strong></li>\n<li>Is revenue the business's main objective, or does it want market share?</li>\n<li>Competitors can react and change the picture; PED also changes over time.</li>\n</ul>",
   "question": "Demand for a firm's product is price inelastic. Which statement MUST be true?",
   "options": [
-   "An increase in price will increase revenue",
    "A decrease in price will lead to excess supply",
+   "A decrease in price will reduce the quantity sold",
    "An increase in price will decrease profits",
-   "A decrease in price will reduce the quantity sold"
+   "An increase in price will increase revenue"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Inelastic demand means quantity barely responds, so a price rise raises total revenue. This is a real exam MCQ — and the heart of the revenue rule."
   }
  },
@@ -6243,13 +6243,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"The price of the good went up, so its demand curve shifts to the left.\"</p><p><strong>✅ The correct idea:</strong> A change in the good's OWN price never shifts its demand curve — it causes a movement ALONG the curve (a contraction if price rises, an expansion if it falls). The curve only shifts when a NON-price factor changes: income, marketing, taste and fashion, prices of substitutes and complements, population, government policy, the economic situation or price expectations. This is one of the most heavily tested distinctions on the whole paper — and one OCR examiners see mixed up every single year.</p>",
   "question": "The price of restaurant meals falls. What happens to the demand curve for restaurant meals?",
   "options": [
-   "It becomes steeper",
-   "It shifts right",
    "There is a movement down along the curve",
-   "It shifts left"
+   "It shifts left",
+   "It becomes steeper",
+   "It shifts right"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Own price changed → movement along the curve, never a shift. A rise in consumer incomes is what would shift it right (the real Q1 answer)."
   }
  },
@@ -6264,13 +6264,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Demand is when people buy things.\"</p><p><strong>✅ The correct idea:</strong> Examiners award the definition marks for four specific parts: WILLING and ABLE to buy, AT A GIVEN PRICE, IN A GIVEN TIME PERIOD. On the real 'Explain what is meant by demand' 2-marker, candidates who missed price and/or time period were capped at 1 mark, and vague constructions like 'when people buy things' scored 0. Learn the full sentence word-for-word — it is free marks.</p>",
   "question": "Which answer would score full marks for 'Explain what is meant by demand'?",
   "options": [
-   "When consumers buy goods and services",
-   "The willingness and ability to buy a good at a given price in a given time period",
+   "The amount of money spent in shops",
    "How much of a good people want",
-   "The amount of money spent in shops"
+   "The willingness and ability to buy a good at a given price in a given time period",
+   "When consumers buy goods and services"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "The real OCR mark scheme awards 2 marks only when willing + able + price + time are all there. The examiner report said exactly this."
   }
  },
@@ -6286,9 +6286,9 @@ window.QUESTION_BANK = [
   "question": "Which sentence uses the terminology correctly?",
   "options": [
    "The elasticity of dresses is high",
-   "The dresses are elastic",
+   "Dresses stretch when prices change",
    "Demand for the dresses is price elastic",
-   "Dresses stretch when prices change"
+   "The dresses are elastic"
   ],
   "key": {
    "answer": 2,
@@ -6306,13 +6306,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Price inelastic means nobody stops buying when the price goes up.\"</p><p><strong>✅ The correct idea:</strong> That describes PERFECTLY price inelastic demand (PED = 0, a vertical curve) — a different thing. Ordinary price inelastic demand means quantity demanded DOES fall when price rises, just by a SMALLER percentage than the price change. On the real 2-marker 'Explain what is meant by demand is price inelastic', answers describing perfectly inelastic demand were capped at 1 mark, and answers with no reference to percentage changes usually got 1. The full-mark sentence: <em>the percentage change in quantity demanded is less than the percentage change in price</em>.</p>",
   "question": "Demand for a good is price inelastic (PED = 0.4). The price rises 10%. Quantity demanded...",
   "options": [
-   "Falls by about 4%",
+   "Does not change at all",
    "Falls by more than 10%",
    "Rises by 4%",
-   "Does not change at all"
+   "Falls by about 4%"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Inelastic means a smaller response, not NO response — 0.4 × 10% = 4% fall. 'No change at all' is perfectly inelastic."
   }
  },
@@ -6327,8 +6327,8 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Putting the price up always brings in more money.\"</p><p><strong>✅ The correct idea:</strong> It depends entirely on PED. If demand is INELASTIC, yes — quantity barely falls, so revenue rises (that is why Kasia and Ben's window-cleaning PED of −0.2 meant they should raise price). But if demand is ELASTIC, a price rise loses proportionally MORE customers and revenue FALLS — the right move is to CUT the price, like CDS cutting delivery from £25 to £20 and gaining £1,500 a week. Always work out the elasticity first, then apply the revenue rule.</p>",
   "question": "Demand is price elastic. The business wants more revenue. It should...",
   "options": [
-   "Leave the price alone",
    "Raise its price",
+   "Leave the price alone",
    "Reduce the quantity supplied",
    "Cut its price"
   ],
@@ -6348,8 +6348,8 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"To show elastic and inelastic demand, draw two demand curves side by side.\"</p><p><strong>✅ The correct idea:</strong> Two PARALLEL demand curves show a shift in demand, not different elasticities — and OCR's examiner report said candidates who drew parallel curves for the Celandine Hotel question lost marks. Elastic and inelastic curves must have clearly DIFFERENT slopes: the elastic curve is FLAT (flatter than 45°), the inelastic curve is STEEP, and they are usually drawn crossing each other. Then label each one — 'D1 elastic', 'D2 inelastic' — because a diagram the examiner has to guess at scores nothing.</p>",
   "question": "How should you draw an elastic and an inelastic demand curve on one diagram?",
   "options": [
-   "Two parallel downward lines",
    "One upward and one downward line",
+   "Two parallel downward lines",
    "Two vertical lines",
    "One flat curve and one steep curve, crossing, each labelled"
   ],
@@ -6369,13 +6369,13 @@ window.QUESTION_BANK = [
   "reading": "<p>This topic's real papers asked for the same definitions again and again. Learn them exactly:</p>\n<ul>\n<li><strong>Demand</strong> — the willingness and ability to buy a good or service <em>at a given price, in a given period of time</em>.</li>\n<li><strong>PED</strong> — the responsiveness of quantity demanded to a change in price (1 mark for <em>responsiveness</em>, 1 mark for it being <em>quantity demanded responding to price</em> — not the other way round).</li>\n<li><strong>Price inelastic</strong> — the <em>percentage</em> change in quantity demanded is less than the <em>percentage</em> change in price.</li>\n</ul>\n<h4>How real answers scored</h4>\n<p>❌ <strong>0 marks:</strong> \"Demand is when people buy things.\" — vague, no price, no time.</p>\n<p>⚠️ <strong>1 mark:</strong> \"Demand is the willingness and ability to buy a good.\" — good start, but price and time period are missing.</p>\n<p>✅ <strong>2 marks:</strong> \"Demand is the willingness and ability to buy a good or service at a given price in a given period of time.\"</p>\n<p>The examiner report said candidates who had learned the definition reproduced it for 2 marks; those who tried to construct one on the spot usually got 0.</p>",
   "question": "In the PED definition, what responds to what?",
   "options": [
-   "Supply responds to demand",
    "Revenue responds to costs",
-   "Quantity demanded responds to a change in price",
-   "Price responds to a change in quantity"
+   "Supply responds to demand",
+   "Price responds to a change in quantity",
+   "Quantity demanded responds to a change in price"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "The real mark scheme gives the second mark specifically for saying quantity demanded is affected by price 'and not vice versa'."
   }
  },
@@ -6390,13 +6390,13 @@ window.QUESTION_BANK = [
   "reading": "<p>This paper has FOUR drawing questions. The mark schemes are brutal about labels:</p>\n<ul>\n<li>A demand curve that is <strong>unlabelled or slopes upwards scores no marks</strong> (garden business question).</li>\n<li>Elastic vs inelastic curves need clearly <strong>different slopes</strong> — flat for elastic, steep for inelastic — plus labels like \"D1 elastic / D2 inelastic\". Parallel curves lost marks (Celandine Hotel).</li>\n<li>Plotting from a table? <strong>Join the points</strong> — unjoined points were capped at 1 mark, and one wrongly plotted point also capped at 1 (charity-shop dresses).</li>\n<li>Shifting demand? Draw <strong>both</strong> curves and mark the direction — D then D1 to the right.</li>\n</ul>\n<h4>The 30-second checklist before you move on</h4>\n<ul>\n<li>Axes labelled <strong>Price</strong> and <strong>Quantity</strong>?</li>\n<li>Every curve labelled (D, D1, S...)?</li>\n<li>Downward slope for demand?</li>\n<li>Shift direction / slope difference obvious at a glance?</li>\n</ul>",
   "question": "You draw two perfect demand curves showing a rightward shift but forget to label them. The mark scheme says...",
   "options": [
-   "Only 1 of the 2 marks",
    "Full marks anyway",
-   "The examiner asks you",
-   "Zero automatically"
+   "Only 1 of the 2 marks",
+   "Zero automatically",
+   "The examiner asks you"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "The Celandine mark scheme: two correct curves with no appropriate labels = 1 mark. Labels are half the marks on most drawing questions."
   }
  },
@@ -6412,8 +6412,8 @@ window.QUESTION_BANK = [
   "question": "You misplace a decimal but show correct working. Under the Own Figure Rule you get...",
   "options": [
    "1 of the 2 marks",
-   "Half a mark",
    "No marks",
+   "Half a mark",
    "Both marks"
   ],
   "key": {
@@ -6432,10 +6432,10 @@ window.QUESTION_BANK = [
   "reading": "<p>This topic's 6-markers split into <strong>Analyse</strong> (chains of reasoning, no conclusion needed) and <strong>Evaluate</strong> (both sides + a supported judgement). The examiner reports show exactly where candidates lose marks:</p>\n<h4>How real answers scored</h4>\n<p>❌ <strong>Level 0–1 (1–2 marks):</strong> A pre-prepared answer about competition in general, never mentioning gardens, cafés or delivery parcels. \"Many candidates could not access more than three marks as they included no link to the extract.\"</p>\n<p>⚠️ <strong>Level 2 (3–4 marks):</strong> Correct single effects — \"revenue falls, profits fall\" — but not developed into a chain, or strong analysis with NO evaluation. One report warned that good analysis with no evaluation could only be given 1 mark out of 6 on an Evaluate question.</p>\n<p>✅ <strong>Level 3 (5–6 marks):</strong> Chains of reasoning built on the case study's own numbers (\"cutting the price from £25 to £20 raises revenue by £1,500...\") plus, for Evaluate, a judgement that takes a side and supports it (\"Overall, PED matters most here because...\").</p>\n<h4>Two topic-specific traps</h4>\n<ul>\n<li>\"Using a diagram\" means it — answers with <strong>no correct diagram are capped at 4/6</strong>.</li>\n<li>A <strong>movement along the demand curve</strong> can only happen after the <strong>supply curve shifts</strong> — many candidates missed this on the Plumwith Holidays question.</li>\n</ul>",
   "question": "An Evaluate 6-marker answer has two brilliant chains of analysis but no judgement or counter-view. Its likely score is...",
   "options": [
-   "6 marks",
-   "1–2 marks",
    "5 marks",
-   "4 marks guaranteed"
+   "1–2 marks",
+   "4 marks guaranteed",
+   "6 marks"
   ],
   "key": {
    "answer": 1,
@@ -7673,13 +7673,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which of the following is the correct definition of supply?",
   "options": [
-   "The total output an economy could produce",
-   "The amount of stock a firm holds in its warehouse",
    "The amount producers are willing and able to sell at a given price in a given time period",
-   "The amount consumers are willing and able to buy at a given price"
+   "The total output an economy could produce",
+   "The amount consumers are willing and able to buy at a given price",
+   "The amount of stock a firm holds in its warehouse"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Supply mirrors the demand definition but for SELLERS: willing AND able to sell, at a given price, in a given time period."
   }
  },
@@ -7692,13 +7692,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which of the following causes a movement ALONG the supply curve for bread (not a shift)?",
   "options": [
-   "A new tax on baked goods",
    "A rise in bakers' wages",
    "A change in the price of bread itself",
+   "A new tax on baked goods",
    "A poor wheat harvest"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "Only the good's OWN price causes a movement along the curve. Wages, harvests and taxes are non-price factors — they shift the whole curve."
   }
  },
@@ -7711,13 +7711,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Bad weather ruins the wheat harvest. What happens in the market for bread?",
   "options": [
-   "A movement up the supply curve",
-   "The demand curve shifts left",
+   "The supply curve shifts left",
    "The supply curve shifts right",
-   "The supply curve shifts left"
+   "The demand curve shifts left",
+   "A movement up the supply curve"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "Wheat is an input for bread — the failed harvest raises costs and cuts what bakers can supply at every price: a leftward supply shift."
   }
  },
@@ -7730,13 +7730,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A new machine lets a factory produce twice as much at the same cost. The supply curve...",
   "options": [
-   "Shifts right",
+   "Becomes perfectly inelastic",
    "Shifts left",
-   "Stays the same but demand shifts",
-   "Becomes perfectly inelastic"
+   "Shifts right",
+   "Stays the same but demand shifts"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "Improved technology lowers average costs, so the firm is willing to supply more at every price — a rightward shift."
   }
  },
@@ -7749,13 +7749,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "The price of a good rises by 10% and quantity supplied rises by 5%. PES is...",
   "options": [
+   "0.5, so supply is price inelastic",
    "2, so supply is price elastic",
    "15, so supply is unitary",
-   "0.5, so supply is price elastic",
-   "0.5, so supply is price inelastic"
+   "0.5, so supply is price elastic"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "PES = %ΔQs ÷ %ΔP = 5 ÷ 10 = 0.5. Less than 1 means supply responds less than price — price inelastic."
   }
  },
@@ -7770,11 +7770,11 @@ window.QUESTION_BANK = [
   "options": [
    "Gold, which must be discovered, extracted and refined",
    "Seats at a 90,000-capacity stadium",
-   "Tinned food made in a factory with spare capacity",
-   "Fresh strawberries in mid-winter"
+   "Fresh strawberries in mid-winter",
+   "Tinned food made in a factory with spare capacity"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "Easily stored products made with spare capacity can be ramped up quickly when price rises. Gold's long production time and fixed stadium seats make those inelastic."
   }
  },
@@ -7787,13 +7787,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "The supply of seats for tonight's sold-out concert is best described as...",
   "options": [
-   "Price elastic",
-   "Perfectly price inelastic",
    "Unitary",
-   "Perfectly price elastic"
+   "Perfectly price elastic",
+   "Price elastic",
+   "Perfectly price inelastic"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "The venue's seats are fixed whatever the ticket price — PES = 0, a vertical supply curve."
   }
  },
@@ -7806,13 +7806,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "The government pays farmers a subsidy for every tonne of vegetables grown. The supply curve for vegetables...",
   "options": [
-   "Becomes vertical",
-   "Does not move — there is a movement along it",
+   "Shifts right",
    "Shifts left",
-   "Shifts right"
+   "Does not move — there is a movement along it",
+   "Becomes vertical"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "A subsidy effectively lowers the farmer's costs, so more is supplied at every price — a rightward shift."
   }
  },
@@ -7826,12 +7826,12 @@ window.QUESTION_BANK = [
   "question": "Which of the following would IMPROVE a firm's price elasticity of supply?",
   "options": [
    "Training each worker for exactly one task",
-   "Cutting all warehouse space",
    "Selling only perishable goods",
-   "Holding spare production capacity"
+   "Holding spare production capacity",
+   "Cutting all warehouse space"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "Spare capacity lets the firm ramp output up quickly when price rises. Perishables, no storage and rigid job roles all make supply LESS responsive."
   }
  },
@@ -7845,12 +7845,12 @@ window.QUESTION_BANK = [
   "question": "Aldi and Lidl enter the UK supermarket industry. The market supply curve for groceries...",
   "options": [
    "Shifts left",
+   "Shifts right",
    "Stays the same",
-   "Becomes perfectly elastic",
-   "Shifts right"
+   "Becomes perfectly elastic"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "More producers in the market means more supplied at every price — market supply (the sum of all individual supplies) shifts right."
   }
  },
@@ -7969,13 +7969,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>Supply</strong> is the amount of a product that producers are <strong>willing and able</strong> to sell, <strong>at a given price, in a given period of time</strong>.</p>\n<h4>All four parts of the definition earn marks</h4>\n<ul>\n<li><strong>Willing</strong> — the producer wants to sell the product.</li>\n<li><strong>Able</strong> — the producer has the means to supply it. A farmer with 5 cows might <em>like</em> to supply 1,000 litres of milk a day, but isn't able to — so that is not part of their supply.</li>\n<li><strong>At a given price</strong> — e.g. £9.99.</li>\n<li><strong>In a given time period</strong> — e.g. per day or per week.</li>\n</ul>\n<h4>Individual and market supply</h4>\n<ul>\n<li><strong>Individual supply</strong> — the amount ONE firm is willing to supply at each price.</li>\n<li><strong>Market supply</strong> — all the individual supply curves <strong>added together</strong>: the total supplied by every firm in the market at each price.</li>\n</ul>\n<h4>The law of supply — and WHY it holds</h4>\n<p>Quantity supplied varies <strong>directly</strong> with price: as price rises, quantity supplied rises. Three reasons:</p>\n<ul>\n<li>At higher prices <strong>existing firms earn more per unit</strong>, so they are willing to supply more.</li>\n<li>Producing more can push a firm's <strong>costs up</strong> (bigger premises, overtime), so it needs a higher price to justify it.</li>\n<li>Rising prices <strong>attract new firms</strong> into the market that previously found it not worthwhile.</li>\n</ul>\n<h4>Drawing rules</h4>\n<ul>\n<li>The supply curve slopes <strong>upwards from bottom-left to top-right</strong>.</li>\n<li>Label the axes <strong>Price</strong> and <strong>Quantity</strong>, and label the curve <strong>S</strong> (or Supply) — an unlabelled diagram scores no marks.</li>\n</ul>",
   "question": "A supply curve shows...",
   "options": [
+   "The quantity of a product for sale at each price",
    "The equilibrium price",
    "The quantity of a product purchased at each price",
-   "The equilibrium level of output",
-   "The quantity of a product for sale at each price"
+   "The equilibrium level of output"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "Supply is what producers offer FOR SALE at each price — what is purchased at each price is demand. This exact MCQ opens the real 2.3 exam paper."
   }
  },
@@ -7990,13 +7990,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Exactly the same logic as demand — but learn the supply list separately, because mixing the two lists up is one of the commonest exam errors.</p>\n<h4>Movement ALONG the curve — caused ONLY by the good's own price</h4>\n<ul>\n<li>Price rises → quantity supplied rises → movement UP the curve = an <strong>expansion</strong> of supply.</li>\n<li>Price falls → quantity supplied falls → movement DOWN the curve = a <strong>contraction</strong> of supply.</li>\n<li><strong>Key exam insight:</strong> a movement along the supply curve can only happen because the <strong>DEMAND curve shifted</strong> and changed the price. Real 6-markers test exactly this.</li>\n</ul>\n<h4>SHIFT of the whole curve — the 8 factors to learn</h4>\n<ul>\n<li><strong>Costs of production</strong> — costs rise (wages, raw materials, crude oil for petrol producers) → LEFT; costs fall → RIGHT.</li>\n<li><strong>Taxes</strong> — higher taxes like VAT raise firms' effective costs → LEFT.</li>\n<li><strong>Subsidies</strong> — a government subsidy lowers a firm's costs → RIGHT (e.g. subsidising firms to extend broadband to regional areas).</li>\n<li><strong>Technology</strong> — new or improved technology lowers average costs → RIGHT.</li>\n<li><strong>Climate / weather</strong> — failed crops → LEFT; bumper crops → RIGHT. Bad weather also delays construction → LEFT.</li>\n<li><strong>Number of producers</strong> — new firms entering (Aldi and Lidl joining the UK supermarket industry) → RIGHT; firms leaving → LEFT.</li>\n<li><strong>Size of existing firms</strong> — existing firms growing significantly → RIGHT.</li>\n<li><strong>Government regulations</strong> — new rules add compliance costs → LEFT; deregulation → RIGHT.</li>\n</ul>\n<h4>Consequences for consumers and producers</h4>\n<ul>\n<li>Supply shifts right → price falls, quantity rises → cheaper for consumers; each unit earns producers less.</li>\n<li>Supply shifts left → price rises, quantity falls → consumers pay more; some may go without.</li>\n</ul>",
   "question": "The wages of carrot farmers rise. What happens in the market for carrots?",
   "options": [
-   "The supply curve shifts right",
    "The demand curve shifts left",
-   "A movement along the supply curve",
-   "The supply curve shifts left"
+   "The supply curve shifts right",
+   "The supply curve shifts left",
+   "A movement along the supply curve"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "Higher wages are a rise in production costs — supplying carrots is less profitable at every price, so the whole supply curve shifts left. This is a real exam MCQ."
   }
  },
@@ -8012,12 +8012,12 @@ window.QUESTION_BANK = [
   "question": "A sports venue has a seating capacity of 90,000. The PES of seats at this venue is...",
   "options": [
    "Unitary",
-   "Perfectly inelastic",
+   "Greater than 1",
    "Perfectly elastic",
-   "Greater than 1"
+   "Perfectly inelastic"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "The number of seats cannot change whatever the ticket price — quantity supplied is fixed, PES = 0, a vertical supply curve. This is a real exam MCQ."
   }
  },
@@ -8032,13 +8032,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Producers usually WANT elastic supply, so they can cash in when prices rise. Consumers feel PES without ever calculating it.</p>\n<h4>Why it matters to producers</h4>\n<ul>\n<li>Elastic supply = <strong>flexibility</strong> — the firm can respond quickly to demand changes and take advantage of price rises, making it more competitive.</li>\n<li>Inelastic supply = the firm struggles to respond, missing out on revenue when demand surges (and risking unhappy customers).</li>\n</ul>\n<h4>Five ways firms improve their PES</h4>\n<ul>\n<li><strong>Improved technology</strong> — more output in less time, so faster response to price rises.</li>\n<li><strong>Spare capacity</strong> — most factories aim for roughly <strong>75–85% capacity</strong>, partly so they can ramp up. Service firms keep extra staff on call for busy periods.</li>\n<li><strong>Improving shelf life</strong> — better packaging and additives let products be stored, ready to release when price rises.</li>\n<li><strong>Keeping stock on hand</strong> — quick response to demand surges, though storage and staff cost money.</li>\n<li><strong>Workforce flexibility</strong> — training workers for multiple roles so staff can be redeployed to the busiest areas.</li>\n</ul>\n<h4>Why it matters to consumers</h4>\n<ul>\n<li><strong>Inelastic supply</strong> — hard to get the product without paying much more, or at all: think tickets to major concerts and sporting events, where seating is fixed.</li>\n<li><strong>Elastic supply</strong> — easy to get more when you want it (Uber's low barriers to entry and flexible driver hours make its supply elastic), and prices stay more stable.</li>\n</ul>\n<h4>But be ready to evaluate</h4>\n<ul>\n<li>Every method of improving PES has a <strong>financial cost</strong> — pointless if demand isn't changing much.</li>\n<li>Some firms <strong>can't realistically change capacity</strong> — a small independent cinema with fixed seats would need a whole new venue.</li>\n<li>PES is difficult to calculate, and the level of DEMAND often matters more.</li>\n</ul>",
   "question": "Why do most factories deliberately run below full capacity (around 75–85%)?",
   "options": [
-   "So they can increase output quickly when prices or demand rise",
    "Because machines break if used fully",
    "Because the government requires it",
-   "To keep wages low"
+   "To keep wages low",
+   "So they can increase output quickly when prices or demand rise"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Spare capacity makes supply more price elastic — the firm can ramp up production fast and absorb problems without missing deadlines."
   }
  },
@@ -8053,13 +8053,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Higher wages for carrot farmers? That reduces demand for carrots.\"</p><p><strong>✅ The correct idea:</strong> Ask the sorting question first: <em>does this change how much producers want to SELL, or how much consumers want to BUY?</em> Wages are a cost of PRODUCTION — they hit the supply side, shifting supply left. The demand-shifter list (income, marketing, tastes, substitutes, complements, population...) and the supply-shifter list (costs, taxes, subsidies, technology, weather, number of producers, regulation) must be learned separately — mixing them up throws away easy MCQ marks every year.</p>",
   "question": "Which will shift the SUPPLY curve of carrots to the left?",
   "options": [
-   "An increase in the wages of carrot farmers",
    "A decrease in income tax",
+   "An increase in the wages of carrot farmers",
    "An increase in the demand for carrots",
    "Cheaper farm machinery"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "Higher wages = higher production costs = leftward supply shift. Demand changes don't shift supply, and cheaper machinery would shift it RIGHT."
   }
  },
@@ -8074,13 +8074,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"An upwards movement along the supply curve means the firm supplied more, so there's now excess supply and the price will crash.\"</p><p><strong>✅ The correct idea:</strong> A movement along the supply curve can only be caused by the DEMAND curve shifting. An upwards movement means demand shifted RIGHT: the price rose and the firm supplies more at that higher price — good news, not a glut. In the real Celandine Hotel 6-marker, examiners reported that candidates who drew a supply shift instead of a demand shift got most of their analysis wrong, and some wrongly concluded the firm would make a loss and close down. Start these questions by asking: <em>what must have happened to demand?</em></p>",
   "question": "What causes an upwards movement ALONG a firm's supply curve?",
   "options": [
-   "The supply curve shifting right",
-   "A fall in production costs",
    "A government subsidy",
-   "The demand curve shifting right, raising the price"
+   "The demand curve shifting right, raising the price",
+   "The supply curve shifting right",
+   "A fall in production costs"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Only a demand shift changes the price along a fixed supply curve. The other three all SHIFT the supply curve itself."
   }
  },
@@ -8095,13 +8095,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"A tax on a product just means less is supplied.\"</p><p><strong>✅ The correct idea:</strong> Be precise: a tax raises the firm's effective cost of production, so the whole supply curve SHIFTS LEFT — less is supplied <em>at every price</em>. Saying 'quantity supplied falls' without the shift language reads like a movement along the curve, which is a different concept caused only by the good's own price. The same precision applies in reverse to subsidies: the curve shifts right because costs are effectively lower.</p>",
   "question": "A tax is placed on the production of a good. The correct description is...",
   "options": [
-   "The supply curve becomes steeper",
-   "A movement down the supply curve",
    "The supply curve shifts to the left",
-   "The demand curve shifts left"
+   "The demand curve shifts left",
+   "A movement down the supply curve",
+   "The supply curve becomes steeper"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "The tax raises costs at every output level, so the whole curve moves left. This is the real exam MCQ answer (Q17: a tax → left shift)."
   }
  },
@@ -8116,13 +8116,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Price inelastic supply means supply doesn't change when price changes.\" / mixing up PES and PED</p><p><strong>✅ The correct idea:</strong> Ordinary price inelastic supply means quantity supplied changes by a SMALLER PERCENTAGE than price — it still changes! No change at all is PERFECTLY inelastic (PES = 0), and the real ALASA mark scheme capped 'perfectly inelastic' answers at 1 mark because the question said 'their' supply. Examiners also reported candidates answering PES questions in terms of demand, or in terms of elastic — and on the eggs question, definitions with no PERCENTAGES or no CONTEXT scored 0–1. Full-mark sentence: <em>the percentage change in quantity supplied of eggs is greater/less than the percentage change in price</em>.</p>",
   "question": "Supply is price inelastic (PES = 0.4). Price rises 10%. Quantity supplied...",
   "options": [
-   "Does not change at all",
+   "Falls by 4%",
    "Rises by more than 10%",
-   "Rises by about 4%",
-   "Falls by 4%"
+   "Does not change at all",
+   "Rises by about 4%"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "Inelastic = smaller response, not NO response: 0.4 × 10% = 4% rise (supply moves the SAME direction as price, unlike demand)."
   }
  },
@@ -8137,13 +8137,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"The steeper supply curve is always less elastic — so a straight line at 30° must be elastic and one at 60° inelastic.\"</p><p><strong>✅ The correct idea:</strong> Steep vs flat works for curves that DON'T pass through the origin — but ANY straight-line supply curve through the origin has UNITARY elasticity (PES = 1), whatever its slope, because the % change in quantity always equals the % change in price along it. OCR's examiner report said many candidates picked 'price elastic' for a straight line from the origin 'possibly due to a lack of familiarity' with this rule. Quick test: cuts the PRICE axis → elastic; cuts the QUANTITY axis → inelastic; through the ORIGIN → unitary.</p>",
   "question": "An upward-sloping straight-line supply curve starts at the origin. Its PES is...",
   "options": [
-   "Unitary (exactly 1)",
+   "Elastic",
    "Inelastic",
-   "Impossible to say",
-   "Elastic"
+   "Unitary (exactly 1)",
+   "Impossible to say"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "Through the origin = unitary, regardless of slope. Cuts the price axis = elastic; cuts the quantity axis = inelastic."
   }
  },
@@ -8180,8 +8180,8 @@ window.QUESTION_BANK = [
   "question": "On the eggs question, a perfect textbook PES definition with NO mention of eggs scored...",
   "options": [
    "0 marks — answers had to be in context",
-   "1 mark",
    "2 marks",
+   "1 mark",
    "Bonus marks"
   ],
   "key": {
@@ -8200,13 +8200,13 @@ window.QUESTION_BANK = [
   "reading": "<p>The 2.3 paper has SEVEN drawing questions. The mark schemes repeat the same rules:</p>\n<ul>\n<li><strong>Plot every point exactly</strong> — one wrong point caps you at 1 mark; more than one wrong = 0 (Periff).</li>\n<li><strong>Join the points</strong>, ruler or freehand — unjoined points or a straight 'line of best fit' cap you at 1 mark. The ALASA and Periff curves are genuinely curved!</li>\n<li><strong>Check the axis scales</strong> before plotting — real candidates lost marks misreading the Periff grid's £1000 steps.</li>\n<li>Extensions beyond the data are ignored — but never invent your own numbers.</li>\n<li>For sketched (no-data) diagrams: upward sloping, axes labelled Price and Quantity, curve labelled S — and inelastic curves clearly steeper than 45°.</li>\n</ul>\n<h4>The 30-second checklist</h4>\n<ul>\n<li>Scales read correctly? Points exact? Points JOINED? Labels on?</li>\n</ul>",
   "question": "You plot all five supply points perfectly, then draw one straight 'line of best fit' through them. You score...",
   "options": [
-   "Both marks",
    "1 of the 2 marks",
    "0 marks",
+   "Both marks",
    "It depends on neatness"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "Several real mark schemes: maximum 1 mark for a line of best fit or unjoined points. Join point to point."
   }
  },
@@ -8221,13 +8221,13 @@ window.QUESTION_BANK = [
   "reading": "<p>This topic's signature 6-marker appeared twice in the real paper (ALASA, The Celandine Hotel): <em>analyse the consequences of a movement along the supply curve</em>.</p>\n<h4>The winning structure</h4>\n<ul>\n<li>Start with the insight most candidates miss: a movement along the supply curve is caused by a <strong>DEMAND shift</strong>. Draw S fixed, shift D to D1, mark the price rising and the movement up S.</li>\n<li>Then chain the consequences: higher price → more supplied → higher revenue → higher pay/profit IF costs rise by less.</li>\n<li>The diagram is not optional: ALASA required it for 5–6 marks; Celandine capped answers at <strong>4/6 with no correct diagram</strong>. The supply curve must NOT be perfectly elastic.</li>\n</ul>\n<h4>How real answers scored</h4>\n<p>❌ Drew a SUPPLY shift instead — \"much of the analysis was incorrect\". Some concluded the firm would make a loss and close down.</p>\n<p>⚠️ Correct diagram but wrote about ticket sales and concerts when the question was about the number of MUSICIANS — capped at Level 2 (4 marks).</p>\n<p>✅ Demand shift drawn and labelled, movement along S explained, chains about the actual subject of the question, linked back to the diagram.</p>",
   "question": "In the ALASA 6-marker, answers about ticket sales instead of the number of musicians were capped at...",
   "options": [
-   "Level 2 — 4 marks",
-   "5 marks",
    "0 marks",
-   "Full marks"
+   "Level 2 — 4 marks",
+   "Full marks",
+   "5 marks"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "The examiner report: answers must address the question asked, not the question candidates would have preferred. The extract tells you the subject."
   }
  },
@@ -8242,10 +8242,10 @@ window.QUESTION_BANK = [
   "reading": "<p>The 2.3 examiner reports read like one long warning about misreading questions:</p>\n<ul>\n<li>\"Cost for a small business of specialisation by its workers\" — candidates who wrote about costs to the WORKERS scored <strong>0</strong>. The business pays recruitment and training costs when bored workers leave.</li>\n<li>\"Advantages for WESTUMBRIA\" (the region) — answers about advantages to the small businesses themselves \"often were not given any marks at all\". Regional answers: employment, growth, living standards, attracting firms.</li>\n<li>\"Importance of PES for the CONSUMERS of Calwith Farmers' products\" — not for the firm. And don't argue \"consumers can't calculate PES so it can't matter\" — it affects whether they can get eggs at stable prices.</li>\n<li>'Evaluate' comes with an extra requirement: \"the extent to which\", \"the costs\", \"the advantages\", \"the importance\". Evaluate <em>within</em> that frame.</li>\n</ul>\n<h4>And the perennial killer</h4>\n<p>Strong analysis with little or no evaluation \"restricted their marks\" on every single Evaluate question. Weigh both sides, then commit: \"Overall, ... because ...\".</p>",
   "question": "\"Explain one possible cost FOR A SMALL BUSINESS of specialisation by its workers.\" An answer about workers getting bored (and stopping there) scored...",
   "options": [
-   "2 marks",
+   "1 mark for effort",
    "0 marks — it's a cost to the workers, not the business",
    "Full marks",
-   "1 mark for effort"
+   "2 marks"
   ],
   "key": {
    "answer": 1,
@@ -9576,12 +9576,12 @@ window.QUESTION_BANK = [
   "question": "Equilibrium price is best defined as the price at which...",
   "options": [
    "The government sets the market price",
-   "Producers make maximum profit",
    "Quantity demanded equals quantity supplied",
-   "Price equals quantity"
+   "Price equals quantity",
+   "Producers make maximum profit"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "Equilibrium: Qd = Qs, the market clears, and there is no pressure for price to change. It does NOT mean price and quantity are 'equal to each other'."
   }
  },
@@ -9594,13 +9594,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A market price is set ABOVE the equilibrium. What follows?",
   "options": [
-   "Excess supply — unsold stock builds up and the price falls",
-   "The market stays there permanently",
+   "Excess demand — the price rises further",
    "Quantity demanded rises",
-   "Excess demand — the price rises further"
+   "The market stays there permanently",
+   "Excess supply — unsold stock builds up and the price falls"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Above equilibrium, quantity supplied exceeds quantity demanded — a surplus. Firms cut the price (think 'sale') until the market clears."
   }
  },
@@ -9632,13 +9632,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Incomes rise sharply. In the market for restaurant meals (a normal good), the equilibrium...",
   "options": [
-   "Price falls and quantity rises",
    "Price rises and quantity rises",
    "Price falls and quantity falls",
+   "Price falls and quantity rises",
    "Price rises and quantity falls"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "Higher incomes shift demand right along an unchanged supply curve — the new crossing point is higher and further right: both price and quantity rise."
   }
  },
@@ -9651,13 +9651,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "New technology halves the cost of making solar panels. The equilibrium in the solar panel market shows...",
   "options": [
-   "A higher price and quantity",
    "A lower price and a higher quantity",
+   "A higher price and a lower quantity",
    "No change",
-   "A higher price and a lower quantity"
+   "A higher price and quantity"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "Cheaper production shifts SUPPLY right: the price falls and the quantity bought and sold rises — the classic supply-shift outcome."
   }
  },
@@ -9689,13 +9689,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Farmers see the price of oat milk rising and switch fields from wheat to oats. Which role of price is this?",
   "options": [
-   "Bartering",
+   "Signalling",
    "Rationing",
    "Reflection of worth",
-   "Signalling"
+   "Bartering"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "The rising price SIGNALS where resources are needed, pulling land, labour and capital into oat production."
   }
  },
@@ -9708,13 +9708,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Both the supply of AND demand for a product increase at the same time. Which outcome is certain?",
   "options": [
-   "The equilibrium quantity rises",
-   "The equilibrium price falls",
+   "Both price and quantity fall",
    "The equilibrium price rises",
-   "Both price and quantity fall"
+   "The equilibrium price falls",
+   "The equilibrium quantity rises"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Both shifts push quantity up, so quantity definitely rises. The price effect depends on which shift is bigger — supply right pushes it down, demand right pushes it up."
   }
  },
@@ -9727,13 +9727,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A chart shows the ANNUAL PERCENTAGE CHANGE in house prices falling from 14% to 8%. House prices are...",
   "options": [
-   "Falling by 8%",
    "Still rising, but at a slower rate",
+   "Falling by 6%",
    "Unchanged",
-   "Falling by 6%"
+   "Falling by 8%"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "The chart plots the rate of change. Any value above zero means prices are still RISING — 8% growth is slower growth, not a fall. A real exam trap."
   }
  },
@@ -9748,8 +9748,8 @@ window.QUESTION_BANK = [
   "options": [
    "A bigger fall in price and a smaller rise in quantity",
    "No change in price",
-   "A rise in price",
-   "A smaller fall in price and a bigger rise in quantity"
+   "A smaller fall in price and a bigger rise in quantity",
+   "A rise in price"
   ],
   "key": {
    "answer": 0,
@@ -9871,13 +9871,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>Price reflects the value or worth that people are willing to put on a good or service</strong> — which depends on the satisfaction (utility) they expect from it.</p>\n<h4>Price vs worth — a classic 2-marker</h4>\n<ul>\n<li><strong>Price</strong> — the sum of money that has to be paid to buy the product, determined by supply and demand. The same for everyone.</li>\n<li><strong>Worth</strong> — how much a PERSON values the product. It is <em>subjective</em> and varies from person to person (sentimental value!). Sophia's charity-shop dress cost little but was worth a lot to her.</li>\n</ul>\n<h4>The roles of price in an economy — learn all five</h4>\n<ul>\n<li><strong>Signalling</strong> — prices change to show WHERE resources are needed. Rising organic vegetable prices signal farmers to grow more.</li>\n<li><strong>Rationing</strong> — when a resource is scarce its price rises, so only those willing and able to pay buy it, reducing demand and preserving the scarce resource.</li>\n<li><strong>Transmission of preferences</strong> — through their buying choices, consumers send information to producers about their changing needs and wants.</li>\n<li><strong>Reflection of worth</strong> — the price indicates to a consumer the benefit they might receive.</li>\n<li><strong>Incentivising</strong> — price changes give producers an incentive to act (higher prices → produce more).</li>\n</ul>\n<h4>Why this creates an efficient distribution of resources</h4>\n<ul>\n<li>If demand for a product rises, it must be delivering more utility. Its price rises, signalling producers to move resources INTO making it — and away from things people want less. No planner needed: <strong>consumer sovereignty</strong> means consumers steer production through what they buy.</li>\n</ul>",
   "question": "Prices change to show where resources are needed. This process is called...",
   "options": [
-   "Signalling",
    "Efficiency",
    "Transmission of preferences",
+   "Signalling",
    "Rationing"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "Signalling is the 'follow the price' role — rising prices pull resources in, falling prices push them away. This exact MCQ is on the real paper."
   }
  },
@@ -9892,13 +9892,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>Equilibrium price</strong> is the price at which <strong>quantity demanded exactly equals quantity supplied</strong>. The market <strong>clears</strong> — everything produced is sold, all buyers get what they want at that price, and there is <strong>no pressure for price or quantity to change</strong>.</p>\n<h4>Why markets move towards equilibrium — the self-correction</h4>\n<ul>\n<li><strong>Price ABOVE equilibrium → excess supply (surplus)</strong>: quantity supplied exceeds quantity demanded, so unsold stock builds up. Firms hold a 'cut price' SALE to clear it — the price falls back towards equilibrium. (Real MCQ: shops usually hold sales because the original price was ABOVE equilibrium.)</li>\n<li><strong>Price BELOW equilibrium → excess demand (shortage)</strong>: quantity demanded exceeds quantity supplied, stock runs out. Suppliers raise prices, rationing the scarce goods — the price rises back towards equilibrium.</li>\n</ul>\n<h4>The role of the market</h4>\n<ul>\n<li>The market <strong>brings buyers and sellers together</strong> and is assumed always to move towards the equilibrium — this PROCESS is the answer to \"explain the role of the market in determining equilibrium\", not just the definition.</li>\n<li>Changes in supply or demand cause prices to establish a <strong>new</strong> equilibrium point.</li>\n</ul>\n<h4>Drawing the equilibrium diagram (a real 2-marker)</h4>\n<ul>\n<li>Downward-sloping D and upward-sloping S, BOTH labelled.</li>\n<li><strong>Mark the equilibrium</strong> where they cross — dotted lines to price p and quantity q. A correct diagram with no equilibrium indicated is only 1 mark; confusing the curves or leaving them unlabelled is 0.</li>\n</ul>\n<p><strong>Exam nuance:</strong> the equilibrium sets the <em>general level</em> of prices in a market — it is not a mandated price, which is why different brands can charge slightly different amounts.</p>",
   "question": "A competitive market is in equilibrium. Which statement is true?",
   "options": [
-   "Quantity supplied exceeds quantity demanded",
-   "Quantity demanded equals quantity supplied",
    "Producers are leaving the industry",
-   "Consumers are unwilling to buy all the units produced"
+   "Consumers are unwilling to buy all the units produced",
+   "Quantity supplied exceeds quantity demanded",
+   "Quantity demanded equals quantity supplied"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "Equilibrium = Qd = Qs, the market clears. This is a real exam MCQ — and note it does NOT mean 'price and quantity are equal to each other'!"
   }
  },
@@ -9913,13 +9913,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>Market forces are demand and supply.</strong> Every shift question comes down to a 4-part chain: which curve shifts → which way → what happens to equilibrium price → what happens to equilibrium quantity.</p>\n<h4>The four outcomes — learn them cold</h4>\n<ul>\n<li><strong>Demand shifts RIGHT</strong> (incomes rise, advertising...) → price RISES and quantity RISES.</li>\n<li><strong>Demand shifts LEFT</strong> → price FALLS and quantity FALLS.</li>\n<li><strong>Supply shifts RIGHT</strong> (lower costs, more producers...) → price FALLS and quantity RISES.</li>\n<li><strong>Supply shifts LEFT</strong> (bad weather, higher costs...) → price RISES and quantity FALLS.</li>\n</ul>\n<h4>Combined shifts — the oil market example</h4>\n<ul>\n<li>Real papers love giving BOTH forces at once: oil production rose (S right → price down) while demand from developing countries grew (D right → price up). Quantity definitely rises; the final price depends on which shift is bigger. This matched petrol falling from 138.9p (2013) to 103.9p (2016), then rising to 117.9p (2017).</li>\n</ul>\n<h4>Then analyse the impact — the video-notes rule</h4>\n<ul>\n<li>For <strong>producers</strong>: build the argument around <strong>profits</strong>.</li>\n<li>For <strong>consumers</strong>: build it around <strong>quality of life</strong> (cheaper prices leave money for other things).</li>\n<li><strong>Watch the trick</strong>: if the \"consumers\" are actually other businesses buying inputs, analyse THEIR profits instead.</li>\n</ul>",
   "question": "Bad weather ruins the wheat crop. Using the 4-part chain, what happens in the wheat market?",
   "options": [
-   "Supply shifts left → price rises and quantity falls",
-   "Supply shifts right → price falls",
+   "Demand shifts left → price falls",
    "Demand shifts right → price rises",
-   "Demand shifts left → price falls"
+   "Supply shifts right → price falls",
+   "Supply shifts left → price rises and quantity falls"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Weather is a supply-side factor: less wheat at every price, so S shifts left, price up, quantity down. 'Bad weather → higher wheat price' is a real MCQ."
   }
  },
@@ -9955,13 +9955,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Equilibrium price and quantity means the price and the quantity are equal.\"</p><p><strong>✅ The correct idea:</strong> Equilibrium is where quantity DEMANDED equals quantity SUPPLIED — the £15 row of a table where both columns read 400, not a row where price and quantity happen to match. The real examiner report said a significant number of candidates thought the term meant 'price and quantity are the same or are equal' and scored 0. The full-mark sentence: <em>the price and quantity at which quantity demanded exactly matches quantity supplied, so the market clears and there is no pressure for price or quantity to change</em>. 'Where supply and demand cross' alone is only 1 mark.</p>",
   "question": "A table shows: at £15, quantity demanded = 400 and quantity supplied = 400. What is £15?",
   "options": [
-   "The equilibrium price — Qd equals Qs there",
-   "A price ceiling",
+   "A disequilibrium price",
    "A price where price equals quantity",
-   "A disequilibrium price"
+   "A price ceiling",
+   "The equilibrium price — Qd equals Qs there"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Equilibrium is the price where the two QUANTITIES match. That's also the logic behind the real Q30 MCQ (at £10, Qd 500 > Qs 300 = excess demand of 200)."
   }
  },
@@ -9976,13 +9976,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"The house price chart fell after June — so house prices fell.\"</p><p><strong>✅ The correct idea:</strong> Check the Y-axis first! The chart plots the ANNUAL PERCENTAGE CHANGE in house prices. A fall from nearly 14% to just under 8% means prices were still RISING — by 8% a year instead of 14%. Prices only fall if the chart goes BELOW ZERO. The real mark scheme gave no marks at all for saying prices fell, and the examiner report said MORE candidates got this wrong than right. The 2-mark answer: prices continued to rise (1), but the rate of increase fell by about 6 percentage points (1).</p>",
   "question": "An annual-%-change chart shows +14% in June and +8% in July. Between June and July, prices...",
   "options": [
+   "Rose by about 8%",
    "Fell by 8%",
    "Fell by 6%",
-   "Rose by about 8%",
    "Stayed the same"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Above zero = still rising. The RATE of increase slowed from 14% to 8% — but 8% growth is still growth."
   }
  },
@@ -9997,13 +9997,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"There's a surplus, so the market is broken and stuck.\"</p><p><strong>✅ The correct idea:</strong> In a free market, surpluses and shortages are SELF-CORRECTING — that is the whole point of the price mechanism. Excess supply → firms cut prices (the 'sale') → quantity demanded rises and quantity supplied falls → equilibrium restored. Excess demand → prices are bid up → the scarce goods are rationed → equilibrium restored. A disequilibrium only persists if something holds the price away from equilibrium (like a government price control — festival tickets priced below the market-clearing level create chronic excess demand and resale markets). Explain the PROCESS, not just 'price falls': the second mark on the real 2-marker was for explaining how the process continues until equilibrium.</p>",
   "question": "How does a free market respond to excess supply?",
   "options": [
-   "The government must intervene",
-   "Nothing — surpluses are permanent",
    "Producers permanently destroy stock",
-   "The price falls until quantity demanded equals quantity supplied"
+   "The price falls until quantity demanded equals quantity supplied",
+   "The government must intervene",
+   "Nothing — surpluses are permanent"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Self-correction through price: the surplus pushes the price down, which raises Qd and cuts Qs until the market clears. Explaining this process = both marks."
   }
  },
@@ -10018,13 +10018,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Explain the trend? I'll describe every month of the data.\"</p><p><strong>✅ The correct idea:</strong> A trend is the GENERAL DIRECTION of the data over time — rewriting the numbers month by month scores NOTHING ('no mark for simply repeating the data'). The 2-mark formula: state the direction (petrol prices ROSE between January and July 2022) + either quantify it (by about 45p) or note the fluctuation (with a slight dip in April). Same for the petrol table: the price FELL then ROSE (1), and was still lower in 2017 (117.9p) than in 2013 (138.9p) (1). Compare start and end, name the direction, add one number.</p>",
   "question": "Petrol: 138.9p (2013), 130.9p, 109.9p, 103.9p, 117.9p (2017). The 2-mark trend answer is...",
   "options": [
-   "138.9, 130.9, 109.9, 103.9, 117.9",
    "Petrol got more popular",
+   "The price fell then rose, ending lower than it started",
    "The price changed a lot",
-   "The price fell then rose, ending lower than it started"
+   "138.9, 130.9, 109.9, 103.9, 117.9"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Direction + comparison of start and end. Listing the data back scores 0 — it 'fails to address explain'."
   }
  },
@@ -10039,13 +10039,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"'Market forces' means competition between businesses.\"</p><p><strong>✅ The correct idea:</strong> Market forces are DEMAND and SUPPLY — full stop. On the real Tom's baked potato 6-marker, candidates who did well elsewhere fell apart here because they wrote about competition tactics or how Tom could use prices, instead of starting from 'market forces consist of demand and supply' and analysing how shifts in each affect his price and quantity sold. Good answers began with that definition, then applied it: demand for Tom's food varies (demand shifts both ways), and the new cafés nearby are substitutes that shift his demand left → lower price and fewer sales.</p>",
   "question": "\"Analyse the effect of market forces on Tom's business.\" Your first sentence should establish that market forces are...",
   "options": [
+   "Costs and revenues",
    "Competition and marketing",
-   "Demand and supply",
    "Imports and exports",
-   "Costs and revenues"
+   "Demand and supply"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "Define it, then apply it. The examiner report: candidates 'did not necessarily know about market forces' and wrote about competition instead."
   }
  },
@@ -10060,13 +10060,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Oil is inelastic, so prices swing about.\"</p><p><strong>✅ The correct idea:</strong> Precision with elasticity language costs nothing and saves marks — OCR printed a 'need for precision' note about this exact paper. Oil is not inelastic: <em>the demand for oil is price inelastic</em>. Petrol is not inelastic: <em>the demand for petrol is price inelastic</em>. Electric vehicles are not elastic: <em>the demand for petrol is expected to become more price elastic because of them</em>. And in Evaluate answers, a judgement that just summarises what you already said 'adds nothing new' — take a side and support it with something extra (who it matters most for, when it stops mattering).</p>",
   "question": "Which sentence is precise enough for full credit?",
   "options": [
-   "Petrol is inelastic",
-   "The demand for petrol is price inelastic",
    "Oil is elastic",
-   "Electric cars are elastic"
+   "Electric cars are elastic",
+   "Petrol is inelastic",
+   "The demand for petrol is price inelastic"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "Name the concept in full: DEMAND for X is PRICE inelastic. The examiner report quoted all three sloppy versions as errors."
   }
  },
@@ -10081,10 +10081,10 @@ window.QUESTION_BANK = [
   "reading": "<p>This paper's 2-markers cluster around three ideas:</p>\n<ul>\n<li><strong>Equilibrium price and quantity</strong> — where quantity demanded exactly equals quantity supplied; the market clears; no pressure for price or quantity to change. ('Where S and D cross' = only 1 mark.)</li>\n<li><strong>Roles of price</strong> — signalling, rationing, transmission of preferences, reflection of worth, incentives. Identify the role (1) + explain how it works (1). Read the exclusions: 'one OTHER role' meant NO marks for signalling.</li>\n<li><strong>Price vs worth</strong> — price is the money paid (set by supply and demand, same for everyone); worth is how much a person values it (subjective, varies from person to person). Only a minority of real candidates got both halves.</li>\n</ul>\n<h4>How real answers scored</h4>\n<p>❌ <strong>0–1 mark:</strong> \"Worth is how much it cost to be produced\" — a real exemplar that scored 0 on the worth half.</p>\n<p>✅ <strong>2 marks:</strong> \"Price is how much a person has to pay for a good or service, whereas worth is how much someone values a product, not in monetary terms — and this can vary from person to person.\"</p>",
   "question": "\"Explain one OTHER role fulfilled by prices\" (signalling already given). Writing about signalling scores...",
   "options": [
-   "2 marks",
+   "1 mark",
    "0 marks — the question excluded it",
    "Half marks",
-   "1 mark"
+   "2 marks"
   ],
   "key": {
    "answer": 1,
@@ -10103,12 +10103,12 @@ window.QUESTION_BANK = [
   "question": "You write a perfect market-forces analysis but draw no diagram. Your maximum is...",
   "options": [
    "5 out of 6",
-   "4 out of 6",
    "2 out of 6",
-   "6 out of 6"
+   "6 out of 6",
+   "4 out of 6"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "Every 'Using a diagram' mark scheme on this paper: maximum 4 marks if no correct diagram. The diagram carries a knowledge mark and an analysis mark."
   }
  },
@@ -10123,13 +10123,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Three data 2-markers appeared on this paper, and the mark schemes share one message: <strong>no marks for rewriting the data</strong>.</p>\n<h4>The formula</h4>\n<ul>\n<li><strong>State the direction</strong>: rose / fell / fell then rose.</li>\n<li><strong>Add one supporting number or feature</strong>: \"by about 45p\", \"with a slight fall in April\", \"still lower in 2017 (117.9p) than 2013 (138.9p)\".</li>\n</ul>\n<h4>The annual-%-change trap</h4>\n<ul>\n<li>The house-price chart plots the yearly percentage CHANGE. Falling from 14% to 8% means prices STILL ROSE — just more slowly. Saying prices fell = 0 marks. The AfL note: a chart like this can only show falling prices if it plots a value BELOW ZERO.</li>\n</ul>\n<h4>Table reading (real MCQ)</h4>\n<ul>\n<li>Current price £10: quantity demanded 500, quantity supplied 300 → excess DEMAND of 200 per week, and the price is BELOW equilibrium (£15, where both are 400).</li>\n</ul>",
   "question": "The 2-mark answer for \"explain the trend in petrol prices, Jan–Jul 2022\" is...",
   "options": [
-   "Prices fell because of OPEC",
-   "Prices rose, by about 45p (with a small dip in April)",
+   "Prices were volatile",
    "A list of each month's price",
-   "Prices were volatile"
+   "Prices fell because of OPEC",
+   "Prices rose, by about 45p (with a small dip in April)"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "Direction + quantification or fluctuation. The real mark scheme's model answers are exactly these two sentences."
   }
  },
@@ -10144,10 +10144,10 @@ window.QUESTION_BANK = [
   "reading": "<p>The examiner's biggest complaint on this paper's Evaluate questions: <strong>\"judgements were often concluding statements or summaries of previous issues within the response and so added nothing new\".</strong></p>\n<h4>How real answers scored</h4>\n<p>❌ <strong>Level 1:</strong> generic evaluation bolted on — \"however, this depends on many factors\".</p>\n<p>⚠️ <strong>Level 2:</strong> both sides covered, then \"Overall, PED is quite important for consumers\" — a summary, not a judgement.</p>\n<p>✅ <strong>Level 3:</strong> a judgement that adds a NEW discriminating idea: \"Overall, PED matters most for drivers who must commute and can't cut back — but as electric vehicles spread and petrol demand becomes more price elastic, its importance will fall.\" (Who it matters for, and when it stops mattering.)</p>\n<h4>Also remember</h4>\n<ul>\n<li>'Evaluate the importance of' means judge the IMPORTANCE — not just list effects.</li>\n<li>Different Evaluate questions demand different kinds of evaluation ('the importance', 'the costs', 'the extent to which') — answer the one in front of you.</li>\n<li>Precision: <em>the demand for petrol is price inelastic</em>, never 'petrol is inelastic'.</li>\n</ul>",
   "question": "The examiner's complaint about most Evaluate judgements was that they...",
   "options": [
-   "Were too long",
+   "Took too strong a side",
    "Used too many diagrams",
    "Summarised earlier points and added nothing new",
-   "Took too strong a side"
+   "Were too long"
   ],
   "key": {
    "answer": 2,
@@ -11417,12 +11417,12 @@ window.QUESTION_BANK = [
   "question": "Which of the following best defines competition?",
   "options": [
    "One firm controlling a market",
-   "The government setting prices",
    "Rivalry between firms selling similar goods to the same group of consumers",
-   "Consumers bargaining with each other"
+   "Consumers bargaining with each other",
+   "The government setting prices"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "Competition needs more than one firm chasing the same customers — the rivalry is what forces prices down and quality up."
   }
  },
@@ -11435,13 +11435,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A firm with over 25% market share is said to have...",
   "options": [
-   "An oligopoly",
+   "Monopoly power",
    "Perfect competition",
-   "A true monopoly",
-   "Monopoly power"
+   "An oligopoly",
+   "A true monopoly"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "Monopoly POWER starts at 25% share (Tesco ~27%). A TRUE monopoly means literally one seller — much rarer."
   }
  },
@@ -11454,13 +11454,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "The five largest firms in a market together control 62% of it. This market is best described as...",
   "options": [
-   "An oligopoly",
    "A duopoly",
+   "Perfectly competitive",
    "A true monopoly",
-   "Perfectly competitive"
+   "An oligopoly"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "The working rule: five-firm concentration of 50% or more = oligopoly. The UK cinema and supermarket markets are classic examples."
   }
  },
@@ -11473,13 +11473,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which market structure is generally considered the MOST efficient?",
   "options": [
-   "An oligopoly",
-   "A competitive market",
+   "A monopoly",
    "A cartel",
-   "A monopoly"
+   "An oligopoly",
+   "A competitive market"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "Many firms competing forces efficiency and low prices. The spectrum runs competitive (most) → oligopoly → monopoly (least efficient)."
   }
  },
@@ -11492,13 +11492,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Firms in an industry secretly agree to keep their prices high. This is called...",
   "options": [
-   "A loss leader",
    "Collusion — and it is illegal in the UK",
-   "Consumer sovereignty",
-   "Non-price competition"
+   "A loss leader",
+   "Non-price competition",
+   "Consumer sovereignty"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "Collusion cheats consumers of the benefits of competition — the CMA takes action against cartels."
   }
  },
@@ -11512,9 +11512,9 @@ window.QUESTION_BANK = [
   "question": "A pharmaceutical firm patents a new medicine. For the life of the patent the firm is...",
   "options": [
    "A price taker",
-   "An oligopolist",
+   "A perfectly competitive firm",
    "A monopolist in that medicine",
-   "A perfectly competitive firm"
+   "An oligopolist"
   ],
   "key": {
    "answer": 2,
@@ -11530,13 +11530,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which is an example of NON-price competition?",
   "options": [
-   "Building a strong brand through advertising",
-   "A loss leader",
    "A 20% discount",
-   "A two-for-one offer"
+   "Building a strong brand through advertising",
+   "A two-for-one offer",
+   "A loss leader"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "Non-price competition works on the product, promotion, service and brand — common in oligopolies. The other three all compete on price."
   }
  },
@@ -11549,9 +11549,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A monopolist raises its price far above the competitive level. What still limits how high it can go?",
   "options": [
-   "Nothing — monopolists set any price",
    "Its competitors' prices",
    "The firm's supply curve",
+   "Nothing — monopolists set any price",
    "Demand — raising prices too far cuts sales"
   ],
   "key": {
@@ -11568,13 +11568,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which body investigates mergers and cartels in the UK?",
   "options": [
-   "HM Revenue and Customs",
-   "The World Trade Organization",
    "The Competition and Markets Authority (CMA)",
+   "The World Trade Organization",
+   "HM Revenue and Customs",
    "The Bank of England"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "The CMA promotes competition for consumers' benefit — it blocked the Asda–Sainsbury's merger and investigates anti-competitive behaviour."
   }
  },
@@ -11587,13 +11587,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Increased competition is most likely to benefit consumers through...",
   "options": [
-   "More collusion",
    "Lower prices, better quality and wider choice",
+   "Higher barriers to entry",
    "Higher prices and less choice",
-   "Higher barriers to entry"
+   "More collusion"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "The classic consumer gains — though be ready to evaluate: aggressive advertising and corner-cutting on quality are the other side."
   }
  },
@@ -11712,10 +11712,10 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>Competition is the rivalry between firms that operate in the same market</strong> — more than one firm trying to sell similar goods to the same group of consumers.</p>\n<h4>WHY producers compete (a real 2-marker: \"State two reasons\")</h4>\n<ul>\n<li>To <strong>enter</strong> a market, and then to <strong>survive</strong> in it.</li>\n<li>To increase <strong>revenue, sales, reputation</strong> and recognition.</li>\n<li>To <strong>make a profit</strong> — the ultimate goal.</li>\n<li>To increase <strong>market share</strong>, gain customers and build loyalty.</li>\n<li>Even to <strong>force competitors out</strong> and become a monopoly.</li>\n</ul>\n<h4>HOW firms compete</h4>\n<ul>\n<li><strong>On price</strong> — discounts, two-for-one offers, giveaways, and <strong>loss leaders</strong>: products priced at little or no profit to pull customers into the store, who then buy other things.</li>\n<li><strong>On quality</strong> — charging more but winning on the product (Waitrose, M&amp;S).</li>\n<li><strong>On innovation</strong> — constantly developing new products (Apple).</li>\n<li><strong>On customer service</strong> — how high-end restaurants and hotels stand apart.</li>\n<li><strong>Through advertising</strong> — building brand recognition and loyalty.</li>\n</ul>\n<h4>Competition changes with the life cycle</h4>\n<ul>\n<li><strong>Market entry</strong> — an unknown firm uses giveaways and low introductory prices to tempt customers to try it.</li>\n<li><strong>Growth</strong> — expand the product range to reach more customers (supermarkets moving into banking, mobiles, petrol and clothing).</li>\n<li><strong>Maturity</strong> — keep innovating to avoid decline (McDonald's endlessly refreshing its menu).</li>\n</ul>",
   "question": "A supermarket sells bread at a loss to pull shoppers into the store, where they buy other products. The bread is...",
   "options": [
-   "A monopoly good",
+   "A merit good",
    "A loss leader",
    "An oligopoly",
-   "A merit good"
+   "A monopoly good"
   ],
   "key": {
    "answer": 1,
@@ -11735,8 +11735,8 @@ window.QUESTION_BANK = [
   "options": [
    "Demand for their products shifts right",
    "Demand for their products shifts left, forcing their prices down",
-   "Their supply curve shifts left",
-   "Nothing — they are a monopoly"
+   "Nothing — they are a monopoly",
+   "Their supply curve shifts left"
   ],
   "key": {
    "answer": 1,
@@ -11754,13 +11754,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Market structure is the number of firms in an industry and how they behave. Learn the definitions WITH their numbers:</p>\n<h4>Competitive market</h4>\n<ul>\n<li>A <strong>large number of (mostly small) firms</strong>, few barriers to entry, similar products, and <strong>little control over price</strong> — firms are price TAKERS; market forces set the price. Considered the MOST efficient structure.</li>\n</ul>\n<h4>Oligopoly</h4>\n<ul>\n<li>A <strong>small number of large firms supply most of the market</strong> — the working definition: the five largest firms control <strong>50% or more</strong>. Example: UK cinemas (Cineworld, Odeon, Vue hold over 75%).</li>\n<li>Barriers to entry (like heavy advertising) exist; firms often compete on NON-price factors; each firm's actions considerably affect the others — <strong>interdependence</strong>.</li>\n<li><strong>Collusion</strong> — agreeing to keep prices artificially high — is illegal.</li>\n</ul>\n<h4>Monopoly</h4>\n<ul>\n<li><strong>True monopoly</strong>: a single producer in the market. <strong>Monopoly power</strong>: any firm with over <strong>25% market share</strong> (Tesco ~27% of groceries; BT ~33% of broadband; Microsoft 75%+ of desktop operating systems).</li>\n<li>Features: <strong>high barriers to entry</strong>, lack of substitutes, more control over price (price MAKERS — though demand still limits them), an absence of competition, and generally the LEAST efficient structure.</li>\n<li>Why they arise: <strong>patents and copyrights</strong>, extreme <strong>economies of scale</strong>, <strong>location</strong> (the only shop in a remote village is a local monopolist — a real MCQ!), or historically <strong>legal monopolies</strong> (Royal Mail letters).</li>\n</ul>\n<p><strong>Efficiency spectrum:</strong> competitive markets (most efficient) → oligopoly → monopoly (least efficient) — though monopolies with big cost advantages sometimes choose LOW prices to sell more.</p>",
   "question": "A village shop over 10 miles from the nearest towns sells bread. For villagers, the shop is a...",
   "options": [
-   "Oligopolist",
-   "Specialist",
    "Monopolist",
-   "Competitor"
+   "Specialist",
+   "Competitor",
+   "Oligopolist"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Location creates a local monopoly — villagers have no realistic alternative, so the shop can charge more. This exact scenario is a real exam MCQ."
   }
  },
@@ -11775,13 +11775,13 @@ window.QUESTION_BANK = [
   "reading": "<p>The topic's signature Evaluate question: is competition good for consumers, and what does it do to producers?</p>\n<h4>Producers</h4>\n<ul>\n<li>✔ Pushed to become <strong>efficient</strong> (computerisation, mechanisation → productivity) and to <strong>innovate</strong> — innovators can charge high prices before rivals catch up, then reinvest the profits.</li>\n<li>✘ Firms that <strong>fail to adapt</strong> lose market share and can be driven out of business; competition squeezes prices and profits; needed inputs (skilled workers, equipment at auction) get bid up in price.</li>\n</ul>\n<h4>Consumers</h4>\n<ul>\n<li>✔ <strong>Lower prices</strong> (more disposable income left over), <strong>better quality</strong>, <strong>wider choice</strong>, more innovation — a better quality of life overall.</li>\n<li>✘ But: <strong>aggressive advertising</strong> can push people to buy things they don't need or can't afford; firms may <strong>cut corners on quality</strong> to keep prices low; harmful additives/pesticides may creep in; low headline prices can hide extra charges.</li>\n</ul>\n<h4>The Competition and Markets Authority (CMA)</h4>\n<ul>\n<li>The UK's competition regulator. It <strong>investigates mergers</strong> (it blocked the Asda–Sainsbury's merger to protect supermarket competition), <strong>investigates whole markets</strong> (e.g. retail banking), acts against <strong>cartels and collusion</strong>, and protects consumers from <strong>unfair trading practices</strong> (misleading messages, aggressive selling).</li>\n</ul>\n<h4>Evaluation lines that earn Level 3</h4>\n<ul>\n<li>The benefits depend on HOW firms compete — genuine value vs marketing spin.</li>\n<li>Smaller firms may lack the economies of scale of big rivals, limiting how far prices fall.</li>\n<li>Very intense price competition can squeeze quality or wages.</li>\n</ul>",
   "question": "Why did the CMA block the proposed Asda–Sainsbury's merger?",
   "options": [
-   "It would create too much competition",
    "The firms were too small",
+   "It would reduce competition in the supermarket industry and harm consumers",
    "Supermarkets are a legal monopoly",
-   "It would reduce competition in the supermarket industry and harm consumers"
+   "It would create too much competition"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "The CMA's job is to protect competition for consumers' benefit — fewer big supermarkets would mean higher prices and less choice."
   }
  },
@@ -11796,13 +11796,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"An oligopoly is when there are many firms and lots of competition.\"</p><p><strong>✅ The correct idea:</strong> The real examiner report said the oligopoly definition 'was not answered well' — many candidates wrote exactly this. An oligopoly is a market where a SMALL NUMBER OF LARGE FIRMS control the majority of the market share (rule of thumb: the five largest firms hold 50% or more). And precision doubles your marks: OCR's 'need for precision' note showed that 'an oligopoly is a few large firms, but a competitive market has smaller firms' scored 1, while 'a few LARGE firms versus MANY SMALL firms' scored 2. Say both the number AND the size, for both structures.</p>",
   "question": "Which sentence earns the full 2 marks for distinguishing an oligopoly from a competitive market?",
   "options": [
-   "An oligopoly has smaller firms than a competitive market",
-   "An oligopoly means lots of competition",
+   "An oligopoly is a few large firms; a competitive market is many small firms",
    "An oligopoly is one big firm",
-   "An oligopoly is a few large firms; a competitive market is many small firms"
+   "An oligopoly means lots of competition",
+   "An oligopoly has smaller firms than a competitive market"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "Number AND size for BOTH markets — the real mark scheme's worked example of 1 mark vs 2 marks."
   }
  },
@@ -11817,13 +11817,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Monopoly means literally one firm with 100% of the market.\"</p><p><strong>✅ The correct idea:</strong> A TRUE monopoly is a single producer — but in exams the more useful idea is MONOPOLY POWER: any firm with over 25% market share (Tesco ~27% of groceries, BT ~33% of broadband). Monopolies also arise without giant firms: patents give sole selling rights, and LOCATION creates local monopolies — the only shop in a village 10 miles from town is a monopolist for its residents (a real MCQ). Know all the routes to monopoly: intellectual property, extreme economies of scale, location, and (historically) legal monopoly.</p>",
   "question": "Tesco has about 27% of the UK grocery market. Tesco has...",
   "options": [
-   "No market power",
    "Monopoly power (over 25% share)",
-   "An illegal cartel",
-   "A true monopoly"
+   "A true monopoly",
+   "No market power",
+   "An illegal cartel"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "Over 25% = monopoly power, even with many rivals. True monopoly needs a single seller."
   }
  },
@@ -11838,13 +11838,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"More competition always means lower prices for consumers.\"</p><p><strong>✅ The correct idea:</strong> Usually — but not always, and the 'not always' is where Level 3 lives. Competing costs money: firms that fight back with heavy ADVERTISING or expensive R&D may need to recoup those costs through higher prices, and innovative firms can charge premium prices for products rivals can't match. Non-price competition (quality, service, brand) lets firms hold prices up. The real café mark scheme explicitly credited 'increased marketing can push prices up' and 'an innovative café may be able to charge higher prices'.</p>",
   "question": "Which is a reason competition might NOT cut prices?",
   "options": [
-   "Competition is illegal",
-   "Firms need to recoup heavy advertising and R&D spending",
    "Supply always falls when firms compete",
-   "Consumers prefer high prices"
+   "Competition is illegal",
+   "Consumers prefer high prices",
+   "Firms need to recoup heavy advertising and R&D spending"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "The costs of competing can offset the downward pressure — the classic evaluative twist on this topic."
   }
  },
@@ -11859,13 +11859,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Competition between football clubs means winning cups and trophies.\"</p><p><strong>✅ The correct idea:</strong> In ECONOMICS, competition means rivalry in MARKETS — and the real Muncaster United question punished candidates who wrote about trophies. The club competes in the market for PLAYERS (where competition bids up transfer prices, hurting a small club), the market for SUPPORTERS (revenue), and the market for finance. Better answers analysed how the competitive transfer market makes good players expensive and how failing to compete there costs promotion, supporters and revenue. Translate any unusual context back into markets, buyers and sellers.</p>",
   "question": "\"Evaluate the economic impact of competition on Muncaster United.\" The competition to analyse is in the market for...",
   "options": [
-   "Cups and trophies",
    "Players and supporters — bidding up transfer prices and revenue rivalry",
+   "Cups and trophies",
    "Stadium names",
    "Referees"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "The examiner report: weaker answers treated competition as winning trophies. The economics is in the transfer and supporter markets."
   }
  },
@@ -11880,13 +11880,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Reasons firms compete? Profit. Market share. Revenue.\"</p><p><strong>✅ The correct idea:</strong> One-word answers score NOTHING on 'State two reasons why businesses compete' — the mark scheme says 'no marks for just stating: market share, revenue, profit, etc.' Add the verb and the point: 'TO MAKE a profit', 'TO INCREASE market share and gain customers', 'TO SURVIVE in the market', 'TO ENTER a market'. It costs three extra words and it is the difference between 0 and 2.</p>",
   "question": "Which answer would score on 'State two reasons why businesses compete'?",
   "options": [
-   "Money",
-   "Competition",
    "Profit. Revenue.",
-   "To make a profit; to increase market share and gain customers"
+   "To make a profit; to increase market share and gain customers",
+   "Money",
+   "Competition"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Full (if short) statements with a verb — bare nouns were explicitly given no marks in the real mark scheme."
   }
  },
@@ -11901,13 +11901,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Evaluate the extent to which competition benefits consumers — I'll write about how it helps the business.\"</p><p><strong>✅ The correct idea:</strong> Stakeholder discipline again: on the real Letusprovide question, 'references to Letusprovide benefitting could not be credited' — the application marks needed the CONSUMER. And on the evaluation, 'the emphasis was on the EXTENT', so answers ending with a summary like 'consumers gain from competition' were capped at one evaluation mark. The winning shape: consumer benefits (prices, quality, choice) → consumer costs (persuasive advertising, corner-cutting, hidden charges) → a judgement about HOW FAR the benefits win and what that depends on.</p>",
   "question": "On 'Evaluate the extent to which competition is beneficial for consumers', points about the FIRM benefitting were...",
   "options": [
-   "Required",
-   "Not credited — the question is about consumers",
    "Worth double",
-   "Given full marks"
+   "Given full marks",
+   "Required",
+   "Not credited — the question is about consumers"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "The examiner report is explicit. Match every point to the stakeholder named in the question."
   }
  },
@@ -11923,12 +11923,12 @@ window.QUESTION_BANK = [
   "question": "On the OPEC oligopoly question, quoting the extract's phrase 'different outcomes for prices' scored...",
   "options": [
    "2 marks",
-   "1 mark",
    "Bonus credit",
-   "Nothing — it was stated in the extract"
+   "Nothing — it was stated in the extract",
+   "1 mark"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "The mark scheme: 'No reward for a general reference to different outcomes for prices as that is stated in the extract.' Add your own economics."
   }
  },
@@ -11943,13 +11943,13 @@ window.QUESTION_BANK = [
   "reading": "<p>\"Analyse the effect of increased competition from new cafés on the prices Nina and Leo can charge\" was the most consistently answered 6-marker on its paper — and the examiners revealed the winning route:</p>\n<ul>\n<li>Two valid diagrams: the whole MARKET with supply shifting right (price falls), or the single FIRM with demand shifting left (their price falls). <strong>Candidates using the firm's-eye view were generally more successful.</strong></li>\n<li><strong>Keep the exact focus</strong> — 'the prices Nina and Leo can charge'. Answers drifting into general consequences of competition stalled at Level 2.</li>\n<li>Use the extract's elasticity: demand for their products is price inelastic, which limits how far their price falls.</li>\n<li>Add the twist: <strong>non-price competition</strong> (quality, service, refurbishment) could let them defend their prices.</li>\n<li>And as always: refer to the diagram in your writing — drawn-but-unused diagrams restricted marks.</li>\n</ul>",
   "question": "For 'competition's effect on the prices ONE firm can charge', the diagram examiners rated more successful shows...",
   "options": [
-   "The firm's supply curve shifting left",
    "A wage-setting diagram",
-   "A production possibility frontier",
-   "The firm's demand curve shifting left"
+   "The firm's supply curve shifting left",
+   "The firm's demand curve shifting left",
+   "A production possibility frontier"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "New rivals = more substitutes = demand for THIS firm's products shifts left, forcing its price down. The market-supply-right diagram is also valid."
   }
  },
@@ -11965,9 +11965,9 @@ window.QUESTION_BANK = [
   "question": "Air Madeira: revenue £1,024,000, total costs £1,100,000. Writing '£76,000' with no minus sign or 'loss' scores...",
   "options": [
    "1 mark of the 2",
-   "3 marks",
    "Nothing",
-   "Both marks"
+   "Both marks",
+   "3 marks"
   ],
   "key": {
    "answer": 0,
@@ -13515,13 +13515,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which is the best definition of 'production'?",
   "options": [
-   "The total output of goods and services in a given time period",
    "Output per worker",
+   "The number of workers employed",
    "The profit a firm makes",
-   "The number of workers employed"
+   "The total output of goods and services in a given time period"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Production = total output + a time period. Output per worker is PRODUCTIVITY — keep the two apart."
   }
  },
@@ -13534,10 +13534,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which is the best definition of 'productivity'?",
   "options": [
+   "The number of goods sold",
    "Total output of a country",
-   "Total revenue divided by price",
    "Output per unit of input, such as output per worker",
-   "The number of goods sold"
+   "Total revenue divided by price"
   ],
   "key": {
    "answer": 2,
@@ -13553,8 +13553,8 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A pizza shop pays rent whether it sells any pizzas or not. The rent is a...",
   "options": [
-   "Variable cost",
    "Marginal revenue",
+   "Variable cost",
    "Fixed cost",
    "Total cost"
   ],
@@ -13572,13 +13572,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A firm has fixed costs of £300 and variable costs of £6 per unit. Its total cost at 200 units is...",
   "options": [
-   "£1,200",
+   "£1,500",
    "£300",
    "£900",
-   "£1,500"
+   "£1,200"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "TC = FC + VC = £300 + (£6 × 200 = £1,200) = £1,500. Never forget to add the fixed costs — the most common real-exam calculation slip."
   }
  },
@@ -13591,13 +13591,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Total cost is £1,000 at an output of 100 units. Average cost is...",
   "options": [
-   "£1 per unit",
-   "£100 per unit",
    "£10 per unit",
-   "£1,000 per unit"
+   "£1,000 per unit",
+   "£1 per unit",
+   "£100 per unit"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "AC = TC ÷ quantity = £1,000 ÷ 100 = £10 per unit. Falling AC means the firm is getting more efficient."
   }
  },
@@ -13610,13 +13610,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A café sells 1,000 coffees at £0.80 each. Its costs are £0.15 per coffee plus £75 of fixed costs. Its profit is...",
   "options": [
+   "£650",
    "£225",
    "£575",
-   "£800",
-   "£650"
+   "£800"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "TR = 1,000 × £0.80 = £800. TC = (1,000 × £0.15) + £75 = £225. Profit = £800 − £225 = £575."
   }
  },
@@ -13629,13 +13629,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which shows an INTERNAL economy of scale?",
   "options": [
-   "Suppliers clustering around a big factory",
    "The council improving local roads",
    "A supermarket chain negotiating bulk discounts from suppliers",
-   "A new university opening nearby"
+   "A new university opening nearby",
+   "Suppliers clustering around a big factory"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "Purchasing economies come from the firm's OWN size. The other three are EXTERNAL — outside the firm's control and available to all local firms."
   }
  },
@@ -13648,13 +13648,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A firm doubles a shipping container's length and width. Volume rises 8× but the base area (which sets the cost) only rises 4×. This is the economy of...",
   "options": [
-   "Financial",
-   "Marketing",
+   "Managerial",
    "Increased dimensions",
-   "Managerial"
+   "Financial",
+   "Marketing"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "Economies of increased dimension — why global firms build ever-bigger container ships to cut per-unit shipping costs."
   }
  },
@@ -13667,10 +13667,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "As a firm grows very large, information takes longer to pass up and down the chain and workers feel unsupervised. Average costs start to RISE. This is...",
   "options": [
-   "An external economy of scale",
+   "A purchasing economy",
    "Kaizen",
    "A diseconomy of scale",
-   "A purchasing economy"
+   "An external economy of scale"
   ],
   "key": {
    "answer": 2,
@@ -13812,12 +13812,12 @@ window.QUESTION_BANK = [
   "question": "Plumbers who work for themselves are examples of individuals as...",
   "options": [
    "Employers",
-   "Producers",
+   "Competitors",
    "Consumers only",
-   "Competitors"
+   "Producers"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "Individuals can absolutely be producers — the self-employed plumber produces a service. 'Individuals cannot be producers' is the NOT-true statement in a real MCQ."
   }
  },
@@ -13833,12 +13833,12 @@ window.QUESTION_BANK = [
   "question": "A business could increase PRODUCTIVITY by...",
   "options": [
    "Employing more workers",
-   "Buying more raw materials",
+   "Training its workers to be more skilled",
    "Producing more by working longer hours",
-   "Training its workers to be more skilled"
+   "Buying more raw materials"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Productivity is output PER worker (or per unit of input). More workers or longer hours raise production, not productivity — the confusion real examiners flagged."
   }
  },
@@ -13853,13 +13853,13 @@ window.QUESTION_BANK = [
   "reading": "<p>This topic carries the paper's calculation battery. Learn the formulas cold:</p>\n<ul>\n<li><strong>Total cost (TC)</strong> = total fixed costs + total variable costs.</li>\n<li><strong>Average cost (AC)</strong> = total cost ÷ quantity produced — cost per unit, the firm's efficiency gauge (falling AC = more efficient).</li>\n<li><strong>Total revenue (TR)</strong> = price × quantity sold.</li>\n<li><strong>Average revenue (AR)</strong> = total revenue ÷ quantity — which equals the PRICE.</li>\n<li><strong>Profit (or loss)</strong> = total revenue − total cost. Positive = profit; negative = LOSS (say so!).</li>\n</ul>\n<h4>The definitions behind them</h4>\n<ul>\n<li><strong>Fixed costs</strong> — do not vary with output (rent, salaries, machinery): £12,000 of rent is £12,000 whether you make 0 items or 1,500.</li>\n<li><strong>Variable costs</strong> — rise and fall with output (raw materials, ingredients).</li>\n</ul>\n<h4>Why each matters to producers</h4>\n<ul>\n<li><strong>Costs</strong> must stay below revenue long-term to survive; lower costs mean price competitiveness and more profit retained.</li>\n<li><strong>Revenue</strong> — steady revenue attracts investors, reassures suppliers and workers.</li>\n<li><strong>Profit</strong> — a source of internal finance for growth, a signal that attracts resources and investors, a reward to the owners. Losses can be expected early in a business's life, but persistent losses eventually force closure.</li>\n<li>Higher prices mean higher profit per unit — the INCENTIVE for producers to expand production (how profit links to supply).</li>\n</ul>\n<p><strong>The official OCR Misconception box:</strong> revenue and profit are NOT the same — never use the words interchangeably.</p>",
   "question": "A firm's total revenue is £500,000 from selling 200 units. Its average revenue (= price) is...",
   "options": [
-   "£100,000",
    "£2,500",
-   "£250",
-   "£2,000"
+   "£100,000",
+   "£2,000",
+   "£250"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "AR = TR ÷ quantity = £500,000 ÷ 200 = £2,500 — and average revenue always equals the selling price. A real exam calculation."
   }
  },
@@ -13874,13 +13874,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>Economies of scale are the fall in AVERAGE (unit) cost as the scale of production rises.</strong> Precision matters: 'falling costs' or 'falling total costs' scores nothing — it must be average/unit costs.</p>\n<h4>INTERNAL economies (from the firm's own growth) — know several, not just one</h4>\n<ul>\n<li><strong>Purchasing</strong> — bulk-buying discounts (the one everyone remembers — it's one of many!).</li>\n<li><strong>Technical</strong> — affording specialist equipment and automation.</li>\n<li><strong>Increased dimensions</strong> — double a container's length and width and volume rises 8× while base cost rises 4×.</li>\n<li><strong>Division of labour</strong> — splitting work so employees specialise.</li>\n<li><strong>Financial</strong> — big firms are lower-risk, so cheaper loans, plus share issues.</li>\n<li><strong>Managerial</strong> — employing specialist managers for each department (a real MCQ).</li>\n<li><strong>Marketing</strong> — spreading big advertising spend over many branches (radio-advert MCQ).</li>\n<li><strong>Risk-bearing</strong> — a wider range of products/markets so one failure doesn't sink the firm.</li>\n<li><strong>R&amp;D</strong> — affording continuous innovation.</li>\n</ul>\n<h4>EXTERNAL economies (outside the firm's control, available to ALL local firms)</h4>\n<ul>\n<li>Improved <strong>infrastructure</strong> — better roads/rail cut everyone's transport costs (the Letusprovide 2-marker).</li>\n<li><strong>Education and training</strong> facilities — university partnerships (Oxford/Cambridge attracting tech firms).</li>\n<li><strong>Clustering / location</strong> — suppliers locating nearby (Nissan Sunderland's just-in-time park; Silicon Valley). 'Location' is the external one in a real MCQ list.</li>\n</ul>\n<h4>DISeconomies of scale — when growing too big RAISES average costs</h4>\n<ul>\n<li><strong>Communication problems</strong> — information moves slowly through a big organisation.</li>\n<li><strong>Loss of motivation</strong> — workers feel isolated; supervision weakens.</li>\n<li><strong>Loss of direction</strong> — department managers pull against company goals.</li>\n<li><strong>Production bottlenecks</strong> — one stage produces more than the next can handle.</li>\n</ul>",
   "question": "As a business grows it can afford to employ specialist staff for each department. Which economy of scale is this?",
   "options": [
-   "Marketing",
    "Managerial",
    "Increased dimensions",
-   "Risk-bearing"
+   "Risk-bearing",
+   "Marketing"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "Specialist managers for production, finance, marketing etc. = managerial economies. A real exam MCQ — learn all nine types, not just bulk-buying."
   }
  },
@@ -13896,12 +13896,12 @@ window.QUESTION_BANK = [
   "question": "\"Explain one way in which a business could increase productivity.\" Which answer scores?",
   "options": [
    "Employ more workers to make more output",
-   "Train workers so each produces more in the same time",
    "Buy more raw materials",
+   "Train workers so each produces more in the same time",
    "Open longer hours"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "Only training raises output PER WORKER. The other three raise total output while productivity stays the same (or falls)."
   }
  },
@@ -13916,8 +13916,8 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Economies of scale are when costs fall as a firm grows.\"</p><p><strong>✅ The correct idea:</strong> Imprecise — and the real mark scheme explicitly gives NOTHING for answers that refer only to costs or total costs. Economies of scale are the fall in AVERAGE (unit) cost as the scale of production rises. Total costs usually RISE as output grows; it's the cost of each unit that falls. The same trap appears in MCQs: a table showed total costs rising from £24 to £56, but the AVERAGE cost fell from £24 to £14 — candidates who missed the word 'average' picked the wrong answer. Always write 'average cost' or 'unit cost', and check whether a table question asks about totals or averages.</p>",
   "question": "Output 1 → TC £24. Output 4 → TC £56. What happened to AVERAGE cost?",
   "options": [
-   "It rose by £14",
    "It rose by £32",
+   "It rose by £14",
    "It fell by £10 (from £24 to £14)",
    "It stayed the same"
   ],
@@ -13958,10 +13958,10 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"The factor market is the primary sector, and the product market is the secondary/tertiary sector.\"</p><p><strong>✅ The correct idea:</strong> Another official OCR Misconception box, from the Asian Hornet interdependence question. The FACTOR market is where the factors of production (labour, land, capital) are bought and sold — in every sector. The PRODUCT market is where finished goods and services are sold to buyers. They are INTERDEPENDENT: when the Hornet cuts crop production, producers need fewer workers (factor market); those workers are also consumers, so with less income they buy fewer products (product market). Many real candidates confused the factor market with the primary sector and scored nothing.</p>",
   "question": "The factor market is where...",
   "options": [
+   "Finished goods are manufactured",
    "Raw materials are extracted (farming, mining)",
-   "Only primary-sector firms operate",
    "Factors of production like labour are bought and sold",
-   "Finished goods are manufactured"
+   "Only primary-sector firms operate"
   ],
   "key": {
    "answer": 2,
@@ -13980,12 +13980,12 @@ window.QUESTION_BANK = [
   "question": "\"Explain one cost FOR A SMALL BUSINESS of specialisation by its workers.\" The real 0-mark answer said 'boredom in workers'. What was missing?",
   "options": [
    "A longer description of boredom",
-   "The link to the business — bored workers leave, raising recruitment and training costs",
+   "A diagram",
    "The word 'specialisation'",
-   "A diagram"
+   "The link to the business — bored workers leave, raising recruitment and training costs"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "The cost must land on the business, not the workers. Bored workers → higher turnover → recruitment/training costs the small business must pay."
   }
  },
@@ -14000,10 +14000,10 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Profit is money the owners can spend on advertising and hiring staff — that's its advantage.\"</p><p><strong>✅ The correct idea:</strong> The real 'advantages of making a profit' 6-marker exposed this: many candidates 'simply did not understand what profit can be used for'. Better answers treated profit as (1) a source of internal finance for new capital and expansion, (2) a signal of success that attracts investors, lenders and scarce resources, (3) the survival condition — it lets the business stay in business, and (4) a REWARD and income to the owners, improving their material wellbeing. And remember the biggest discriminator on that question wasn't the list — it was CONTEXT: answers that never mentioned the actual business (gardens, in that case) were capped in Level 1–2.</p>",
   "question": "What was the most significant discriminator on the real 'advantages of profit' 6-marker?",
   "options": [
-   "Drawing a diagram",
    "Writing more than a page",
+   "Using the word profit many times",
    "Applying the answer to the actual business in the extract",
-   "Using the word profit many times"
+   "Drawing a diagram"
   ],
   "key": {
    "answer": 2,
@@ -14021,13 +14021,13 @@ window.QUESTION_BANK = [
   "reading": "<p>This paper has more calculations than any other topic. The formulas are easy — the marks are lost on details:</p>\n<ul>\n<li><strong>Units matter</strong>: the Asian Hornet average was £26.1m ÷ 3 = <strong>£8.7 MILLION</strong> — real candidates who wrote '8.7' or '£8.7' lost a mark for forgetting the million.</li>\n<li><strong>£ sign matters</strong>: £3,500 average cost and £2,500 per unit both required the £ sign for full marks.</li>\n<li><strong>Say 'loss'</strong>: Air Madeira's −£76,000 needed the minus sign or the word loss.</li>\n<li><strong>Include ALL the costs</strong>: the garden profit (£3,850) required adding the £11,400 design costs to the building costs first — the most common error was leaving out the fixed costs.</li>\n<li><strong>Show working</strong>: the Own Figure Rule rescues 1 mark after a slip — but only if the method is visible (Mia's wage: £30,000 + £2,400 + £3,000 = £35,400).</li>\n</ul>",
   "question": "Nest destruction costs: France £10.5m, Italy £8m, UK £7.6m. The full-marks average is...",
   "options": [
-   "£26.1 million",
-   "£8.70",
    "£8.7 million",
-   "8.7"
+   "£8.70",
+   "8.7",
+   "£26.1 million"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "(10.5 + 8 + 7.6) ÷ 3 = 8.7 — but the mark scheme docked candidates who 'forgot to add million to the answer'."
   }
  },
@@ -14042,13 +14042,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Two Analyse 6-markers here (advantages of profit; why more production matters for Oxbria) — and both examiner reports say the same thing:</p>\n<ul>\n<li><strong>Application to the scenario was 'the most significant discriminator'</strong>: 4/6 needed knowledge applied to Amir and Nina; 5–6 needed understanding of the extract's specific elements. Excellent generic analysis was held in Level 1–2 without it.</li>\n<li>Build 2 developed chains: profit → source of finance for new capital → the business expands → economic sustainability; production up → profits and incomes up → spending in Oxbria rises → more jobs elsewhere too (the multiplier).</li>\n<li>Watch exclusions: the Oxbria question said 'OTHER THAN an increase in demand for labour' — leading with the excluded point wastes your best chain.</li>\n<li>No conclusion needed — Analyse has no evaluation marks.</li>\n</ul>\n<p>OCR publishes a Teacher Support Guide on 6-mark questions ('A guide to 6-mark questions') — the page's model answers follow it.</p>",
   "question": "\"OTHER THAN an increase in demand for labour, analyse why more production matters for Oxbria.\" Your first chain should be about...",
   "options": [
-   "The increase in demand for labour",
    "Something else — e.g. higher profits leading to investment and higher living standards",
+   "A definition of Oxbria",
    "The weather",
-   "A definition of Oxbria"
+   "The increase in demand for labour"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "The question excludes the labour-demand point. Profits→investment, economies of scale, growth and living standards are the credited routes."
   }
  },
@@ -14084,13 +14084,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Three draw-from-data questions here (ALASA's supply, Firm A's supply, Periff's next-auction supply). The recurring rules:</p>\n<ul>\n<li><strong>Plot the exact points</strong> from the table — check the axis scales first ('marks can easily be gained, but just as easily lost').</li>\n<li><strong>Join the points point-to-point</strong>, ruler or freehand — a line of best fit is capped at 1 mark, and so are unjoined points.</li>\n<li>A generic upward-sloping line with no points plotted scores 0 — the data must be used.</li>\n<li>One point wrong = max 1; more than one wrong = 0 (Periff rules).</li>\n<li>Extensions (e.g. down to zero) are ignored — they don't cost you anything.</li>\n<li>A few real candidates 'invented their own numbers' — everything comes from the extract's table.</li>\n</ul>",
   "question": "You plot all five points correctly but draw a smooth line of best fit that misses two of them. You score...",
   "options": [
-   "0 marks",
-   "3 marks",
    "2 marks",
-   "1 mark of the 2"
+   "3 marks",
+   "1 mark of the 2",
+   "0 marks"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "The mark schemes repeatedly cap best-fit lines at 1 — the curve must pass through the plotted points."
   }
  },
@@ -15224,9 +15224,9 @@ window.QUESTION_BANK = [
   "question": "In the labour market, the demand for labour comes from...",
   "options": [
    "Firms (employers)",
-   "Trade unions",
+   "The government only",
    "Households (workers)",
-   "The government only"
+   "Trade unions"
   ],
   "key": {
    "answer": 0,
@@ -15242,13 +15242,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A firm's demand for workers depends on the demand for the product they make. This is called...",
   "options": [
-   "Effective demand",
-   "Derived demand",
    "Excess demand",
-   "Composite demand"
+   "Composite demand",
+   "Derived demand",
+   "Effective demand"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "Demand for labour is DERIVED from demand for the good/service it produces — demand for baristas derives from demand for coffee."
   }
  },
@@ -15261,13 +15261,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A decrease in wages for construction workers is most likely to...",
   "options": [
-   "Increase house prices",
    "Lead to more construction workers being employed",
    "Cause the demand curve for labour to shift",
+   "Increase house prices",
    "Reduce the supply of houses"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "A lower wage is a movement DOWN the demand curve for labour — cheaper labour, so firms hire more workers."
   }
  },
@@ -15280,13 +15280,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which would increase the DEMAND for engineers?",
   "options": [
-   "More engineering firms opening",
-   "More engineering courses at college",
    "Higher wages for engineers",
-   "More engineers coming from abroad"
+   "More engineering firms opening",
+   "More engineers coming from abroad",
+   "More engineering courses at college"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "More firms means more employers wanting engineers → demand rises. The other options raise the SUPPLY of engineers, or move along the curve."
   }
  },
@@ -15300,12 +15300,12 @@ window.QUESTION_BANK = [
   "question": "Positive net migration into a country's workforce shifts the...",
   "options": [
    "Supply of labour to the left",
-   "Demand for labour to the left",
+   "Supply of labour to the right, lowering wages",
    "Demand for labour to the right, raising wages",
-   "Supply of labour to the right, lowering wages"
+   "Demand for labour to the left"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "More workers available = supply of labour shifts right, pushing the equilibrium wage down but employment up."
   }
  },
@@ -15318,13 +15318,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which is most likely to INCREASE the wage rate of teachers?",
   "options": [
-   "A shortage of qualified teachers",
    "A fall in the number of school-age children",
+   "More young people training to teach",
    "More qualified teachers arriving from abroad",
-   "More young people training to teach"
+   "A shortage of qualified teachers"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "A shortage means supply of teachers is low relative to demand → wages rise. The other three raise supply or cut demand, lowering wages."
   }
  },
@@ -15356,13 +15356,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Sam earns £2,500 wage + £500 bonus. Deductions: income tax £345, NI £250, pension £225. Net pay is...",
   "options": [
-   "£2,180",
-   "£2,655",
    "£1,680",
-   "£3,000"
+   "£2,655",
+   "£3,000",
+   "£2,180"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Gross = £2,500 + £500 = £3,000. Deductions = £345 + £250 + £225 = £820. Net = £3,000 − £820 = £2,180."
   }
  },
@@ -15375,13 +15375,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A senior manager earns far more than a junior manager. The best explanation is that...",
   "options": [
-   "The junior works more overtime",
+   "The senior avoids trade unions",
    "The supply of senior managers is high",
-   "The senior's work adds more value to the firm",
-   "The senior avoids trade unions"
+   "The junior works more overtime",
+   "The senior's work adds more value to the firm"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "Scarcer, higher-value skills in strong demand and short supply command higher wages — the value-added explanation."
   }
  },
@@ -15395,12 +15395,12 @@ window.QUESTION_BANK = [
   "question": "A firm's labour productivity has increased when...",
   "options": [
    "Output and labour force both rise 100%",
+   "Output rises 100% while the labour force rises 80%",
    "Output rises 100% while the labour force rises 120%",
-   "Output and labour force both fall 50%",
-   "Output rises 100% while the labour force rises 80%"
+   "Output and labour force both fall 50%"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Productivity = output per worker. If output grows FASTER than the workforce (100% vs 80%), output per worker rises. Equal growth means no change; slower means a fall."
   }
  },
@@ -15540,13 +15540,13 @@ window.QUESTION_BANK = [
   "reading": "<p>The <strong>equilibrium wage</strong> is where the supply of labour equals the demand for labour. Like any price, wages trend towards equilibrium — excess supply pulls wages down, excess demand pushes them up. Every wage question comes down to shifting a curve and reading off BOTH the new wage and the new employment level.</p>\n<h4>The four outcomes — always give wage AND quantity</h4>\n<ul>\n<li><strong>Demand for labour RIGHT</strong> (a growing firm/industry) → higher wage, more employed.</li>\n<li><strong>Demand for labour LEFT</strong> (recession, declining industry, low profits) → lower wage, fewer employed.</li>\n<li><strong>Supply of labour RIGHT</strong> (migration, more trained workers) → lower wage, more employed.</li>\n<li><strong>Supply of labour LEFT</strong> (skill shortage, workforce shrinking) → higher wage, fewer employed.</li>\n</ul>\n<h4>What shifts DEMAND for labour</h4>\n<ul>\n<li>More demand for the firm's product (derived demand); a growing/strong economy; higher firm profits reinvested in expansion; more productive workers (each worker is worth more).</li>\n<li>Falls when: recession, a declining industry, low profits, or rising wages making labour less efficient to use.</li>\n</ul>\n<h4>What shifts SUPPLY of labour</h4>\n<ul>\n<li>Higher wage rates draw more people in; positive net migration; a growing working-age population; better working conditions/job security; flexible and home working; rising education and qualifications (more SKILLED supply).</li>\n<li>Falls when: wages drop, or the workforce shrinks (more retiring than entering, negative net migration).</li>\n</ul>\n<p><strong>The exam-critical habit:</strong> always LABEL the vertical axis \"Wages\" (or \"Price of labour\") — an unlabelled axis fails to show it is a labour market and caps your marks.</p>",
   "question": "Positive net migration increases the number of workers. What happens to the equilibrium wage and employment?",
   "options": [
-   "Supply of labour shifts right → lower wage, more employed",
-   "Nothing changes",
    "Demand for labour shifts right → higher wage",
-   "Supply shifts left → higher wage"
+   "Supply shifts left → higher wage",
+   "Nothing changes",
+   "Supply of labour shifts right → lower wage, more employed"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "More workers = supply of labour shifts right, moving down the demand curve: the wage falls but more people are employed. Always state BOTH effects."
   }
  },
@@ -15561,13 +15561,13 @@ window.QUESTION_BANK = [
   "reading": "<p>A senior manager earns more than a junior not simply because they \"work harder\" — it comes down to the demand for and supply of that specific skill, and how elastic each is. <strong>Wage differentials</strong> are the differences in pay workers get for their services.</p>\n<h4>The rule: high demand + low supply = high wage</h4>\n<ul>\n<li>Jobs needing scarce, hard-to-acquire skills (surgeons, CEOs) have <strong>inelastic, limited supply</strong> and high demand → HIGH wages, but FEW people employed.</li>\n<li>Jobs needing few skills that many people can do have <strong>elastic, plentiful supply</strong> → LOW wages, but MANY people employed.</li>\n</ul>\n<h4>Factors that widen wage differences</h4>\n<ul>\n<li><strong>Skills, qualifications and experience</strong> — scarcer skills command more. Workers build their <strong>human capital</strong> over a lifetime to raise their value.</li>\n<li><strong>Risk / unpleasantness</strong> — dangerous or unpleasant jobs may pay a premium.</li>\n<li><strong>Supply of qualified workers</strong> — a shortage (nurses, HGV drivers) pushes wages up; a surplus pushes them down.</li>\n<li><strong>Trade unions</strong> — collective bargaining can lift members' pay above the individual rate.</li>\n<li><strong>Government</strong> — the minimum/living wage sets a floor; anti-discrimination law also affects wage-setting.</li>\n</ul>\n<h4>The value-added point (a real MCQ)</h4>\n<ul>\n<li>A senior manager is often paid more because their work <strong>adds more value to the firm</strong> — higher productivity/marginal value means the employer will pay more to keep them.</li>\n</ul>",
   "question": "Why is a senior manager (£50,000) usually paid more than a junior manager (£25,000)?",
   "options": [
-   "Junior managers work more overtime",
    "Senior managers are all in trade unions",
+   "The senior manager's work adds more value to the firm",
    "The supply of senior managers is very high",
-   "The senior manager's work adds more value to the firm"
+   "Junior managers work more overtime"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Higher-value, scarcer skills in high demand and low supply command higher wages. A real exam MCQ — 'adds more value' is the answer."
   }
  },
@@ -15582,13 +15582,13 @@ window.QUESTION_BANK = [
   "reading": "<p>The labour market lacks <strong>perfect mobility</strong> — workers often can't just switch jobs, even when vacancies exist. And pay comes in two forms every exam tests: gross and net.</p>\n<h4>Two types of immobility</h4>\n<ul>\n<li><strong>Occupational immobility</strong> — skills don't transfer. A redundant miner can't instantly become a computer programmer; their skill set is too specific.</li>\n<li><strong>Geographical immobility</strong> — unwilling or unable to move: family ties, owning property, the cost of relocating to an area they can't afford.</li>\n<li>Also: personal preferences and a lack of information about vacancies (easing with online job adverts). This is why some suitable people won't apply for a job — a real MCQ.</li>\n</ul>\n<h4>Gross pay vs net pay — learn the definitions</h4>\n<ul>\n<li><strong>Gross pay</strong> — total earnings BEFORE any deductions (includes bonuses and overtime). The key word examiners want is \"before deductions\".</li>\n<li><strong>Net pay</strong> (take-home pay) — what's left AFTER deductions.</li>\n</ul>\n<h4>The three deductions</h4>\n<ul>\n<li><strong>Income tax</strong> — a STATUTORY deduction (you must pay). Charged only on income above the tax-free threshold (~£12,570). Progressive: higher earners pay a higher % — but ONLY on the slice above each threshold.</li>\n<li><strong>National Insurance</strong> — also statutory; paid by BOTH workers and employers to fund social benefits.</li>\n<li><strong>Pension contributions</strong> — usually a VOLUNTARY deduction, paid into a fund you access at retirement (as a lump sum or an annuity).</li>\n</ul>\n<h4>The progressive-tax misconception</h4>\n<ul>\n<li>Moving into a higher tax band does NOT tax all your income at the higher rate — only the portion above the threshold. Earning more always leaves you with more after tax. Show your working on these.</li>\n</ul>\n<p><strong>Gross income also includes non-wage income</strong> — e.g. interest on savings. A chemist earning £40,000 with £100,000 in the bank at 3% has a gross income of £43,000 (£40,000 + £3,000 interest).</p>",
   "question": "What is 'gross pay'?",
   "options": [
-   "Only the bonus part of pay",
    "Take-home pay after deductions",
    "Pay after income tax but before National Insurance",
-   "Total earnings before any deductions"
+   "Total earnings before any deductions",
+   "Only the bonus part of pay"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "Gross = before deductions (the examiner-critical word). Net = take-home after income tax, NI and pension come out."
   }
  },
@@ -15603,13 +15603,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Workers demand labour and firms supply it, like a normal market.\"</p><p><strong>✅ The correct idea:</strong> The labour market is the MIRROR IMAGE of a goods market: FIRMS demand labour (they are the buyers/employers) and HOUSEHOLDS supply it (they are the sellers/workers). The wage is the price. Get this backwards and every labour diagram comes out wrong — a rise in demand for labour (from firms wanting more workers) raises the wage, while a rise in supply of labour (more workers available) lowers it. Whenever you read a labour question, first pin down which side each actor is on: an employer story is a DEMAND story; a workers/migration/training story is a SUPPLY story.</p>",
   "question": "More engineering FIRMS open. In the market for engineers, this shifts...",
   "options": [
-   "Demand for labour left",
    "Supply of labour right",
+   "Demand for labour right (firms want more engineers)",
    "Supply of labour left",
-   "Demand for labour right (firms want more engineers)"
+   "Demand for labour left"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Firms are the demanders. More firms = more demand for engineers = higher wages. (More engineering COURSES would shift supply instead.)"
   }
  },
@@ -15624,13 +15624,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"On a labour diagram I'll just draw supply and demand crossing.\"</p><p><strong>✅ The correct idea:</strong> Two things sink labour diagrams in real papers. First, LABEL THE VERTICAL AXIS 'Wages' (or 'Price of labour') — the examiner report on the Mia question said candidates who left the Y-axis unlabelled couldn't show it was a labour market and lost marks. Second, always read off BOTH effects: a shift changes the wage AND the level of employment. 'Supply of workers like Mia rose, so the wage fell from w to w1 and employment rose from q to q1' scores; 'wages fell' alone does not. And the analysis must be LINKED to the diagram — an unlinked diagram caps you at Level 2 (4/6).</p>",
   "question": "What must the vertical axis of a labour-market diagram be labelled?",
   "options": [
-   "Wages (or Price of labour)",
    "Price",
+   "Profit",
    "Quantity",
-   "Profit"
+   "Wages (or Price of labour)"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Labelling it 'Wages' is what shows it's a LABOUR market — the real mark scheme docked candidates who left it as a generic 'Price'."
   }
  },
@@ -15646,9 +15646,9 @@ window.QUESTION_BANK = [
   "question": "How do low business profits lower wages?",
   "options": [
    "Firms invest/expand less, so demand for labour falls, pulling wages down",
+   "Workers refuse to work",
    "The government cuts wages",
-   "Wages are paid directly out of profit",
-   "Workers refuse to work"
+   "Wages are paid directly out of profit"
   ],
   "key": {
    "answer": 0,
@@ -15666,9 +15666,9 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Productivity means producing more — an economy has more products.\"</p><p><strong>✅ The correct idea:</strong> The real 'importance of productivity' evaluation exposed this: weaker answers treated productivity as just 'more production', missing the whole point. Productivity is output PER worker (efficiency), and its power is that it CUTS AVERAGE COSTS. Lower unit costs → lower prices → greater international competitiveness → more exports, better balance of trade, higher profits and wages, and economic growth. The context matters too: the extract says UK productivity is 15% below its main competitors and 25% below Germany, so raising it is important for closing that gap. Always route productivity through falling average costs, not just 'more output'.</p>",
   "question": "Why does higher productivity make an economy more competitive?",
   "options": [
+   "It reduces the workforce",
    "It raises taxes",
    "It simply means more products exist",
-   "It reduces the workforce",
    "It lowers average costs, so firms can charge lower prices"
   ],
   "key": {
@@ -15687,9 +15687,9 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Low UK wage increases hurt Crotay by lowering their workers' morale.\"</p><p><strong>✅ The correct idea:</strong> The real Crotay question gave 0 marks to answers about worker morale or productivity — it asked about the PRODUCT market. The chain runs the other way: low wage increases across the UK mean consumers have less disposable income, so they buy fewer products — including Crotay's specialist car tyres. Fewer sales damages Crotay's performance in the product market. This is the interdependence of factor and product markets: what workers earn (factor market) determines what they can spend (product market). Follow low pay → low disposable income → lower demand for the firm's product.</p>",
   "question": "How do low UK wage increases damage Crotay's PRODUCT-market performance?",
   "options": [
-   "Crotay pays more tax",
    "Crotay's productivity falls",
    "Crotay's own workers become demotivated",
+   "Crotay pays more tax",
    "Consumers have less income, so buy fewer of Crotay's tyres"
   ],
   "key": {
@@ -15708,13 +15708,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Mia is a factor of production, so that's why she's in a factor market.\"</p><p><strong>✅ The correct idea:</strong> Half-right scored only 1 mark on the real question. Yes, labour is a factor of production — but you must LINK it: the factor market is where the services of factors of production are bought and sold, and Mia, looking for her first job, is SELLING HER LABOUR while a firm is BUYING it. That transaction — Mia supplying labour, an employer demanding it — is what makes her part of the factor market. Just listing the factors of production, or describing the product market, scored 0. Always finish the chain: factor market = buying/selling of labour, and Mia is the seller.</p>",
   "question": "Why is Mia, job-hunting, part of the FACTOR market?",
   "options": [
-   "She will buy products with her wages",
-   "She is selling her labour (a factor of production) to an employer who is buying it",
+   "She is a consumer",
    "Labour is one of the four factors of production",
-   "She is a consumer"
+   "She is selling her labour (a factor of production) to an employer who is buying it",
+   "She will buy products with her wages"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "The factor market is where labour is bought and sold — Mia is the SELLER of her labour. Just naming labour as a factor was only 1 mark."
   }
  },
@@ -15729,13 +15729,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Three of this paper's 6-markers are labour supply-and-demand diagrams (SSA gross pay, low profits on wages, Mia's lower earnings). The examiners keep repeating two failures:</p>\n<ul>\n<li><strong>Label the vertical axis 'Wages'</strong> (or 'Price of labour'). Candidates who drew a perfect diagram but left it as generic 'Price' couldn't show it was a labour market — and lost marks.</li>\n<li><strong>Read off wage AND employment</strong>: name the shift (which curve, which way), then both the new wage (w→w1) and the new quantity of labour (q→q1).</li>\n<li><strong>Link the words to the diagram</strong> — refer to it explicitly ('as the diagram shows, demand falls from D to D1'). Unlinked diagrams are capped at Level 2 (4/6), and the whole answer is capped at 4/6 with no correct diagram.</li>\n</ul>\n<h4>The three signature shifts</h4>\n<p>SSA competition → demand for skilled labour RIGHT + inelastic supply = big wage rise, small quantity change. Low profits → demand for labour LEFT = wage and employment fall. Mia → supply of new graduates RIGHT (or demand LEFT) = wage falls.</p>",
   "question": "You draw a correct labour diagram but forget to label the Y-axis 'Wages'. The examiner report says you...",
   "options": [
+   "Get bonus marks for the diagram",
    "Still get full marks",
    "Get 6/6 automatically",
-   "Lose marks — the diagram doesn't show it's a labour market",
-   "Get bonus marks for the diagram"
+   "Lose marks — the diagram doesn't show it's a labour market"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "The Mia mark scheme is explicit: an unlabelled axis fails to show a LABOUR market. Label it Wages or Price of labour every time."
   }
  },
@@ -15750,13 +15750,13 @@ window.QUESTION_BANK = [
   "reading": "<p>This topic is calculation-heavy. The formulas are simple; the marks go on reading the question:</p>\n<ul>\n<li><strong>Net pay</strong> = gross (wage + bonus) − ALL deductions. Sam: (£2,500+£500) − (£345+£250+£225) = £2,180.</li>\n<li><strong>Gross income includes non-wage income</strong>: the chemist's £40,000 salary + 3% of £100,000 savings = £43,000. Don't forget interest, rent or bonuses.</li>\n<li><strong>Gross before net</strong>: Sundip's £3,000 + £500 bonus = £3,500 gross (the £875 deduction is irrelevant to GROSS).</li>\n<li><strong>Annual from monthly</strong>: John's (£2,000 − £500) × 12 = £18,000 net a year.</li>\n<li><strong>Mia's package</strong>: £30,000 + (£200 × 12) + 10% of £30,000 = £35,400 — show every step so the Own Figure Rule can rescue a slip.</li>\n</ul>",
   "question": "A chemist earns £40,000 and has £100,000 in savings paying 3% interest. Her gross income is...",
   "options": [
-   "£43,000",
-   "£3,000",
+   "£140,000",
    "£40,000",
-   "£140,000"
+   "£3,000",
+   "£43,000"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Gross income = salary + savings interest = £40,000 + (3% × £100,000 = £3,000) = £43,000. Income isn't only wages."
   }
  },
@@ -15771,13 +15771,13 @@ window.QUESTION_BANK = [
   "reading": "<p>The Crotay wage-increases chart is a rate-of-change chart — and (like the house-price traps in 2.4) it catches candidates out.</p>\n<ul>\n<li><strong>State the pattern</strong>: wages rose 0.5%, FELL in 2014 (to −1%), then rose at an increasing rate up to 2%. Overall, wages rose across the period.</li>\n<li><strong>Watch the axis</strong>: the bars show the RATE at which wages increased, not the wage level. A negative bar (2014) is a real fall; a smaller positive bar is slower growth, not a fall.</li>\n<li><strong>Don't just list the numbers</strong>: 'no marks for simply repeating the data' — you must describe direction and change.</li>\n</ul>\n<h4>The productivity-comparison version</h4>\n<p>For the Oxbria chart, COMPARE: the UK is above the Western Europe average and above France and Germany, but only 4th of 8, and the three above it are much smaller economies. Comparison, not recitation.</p>",
   "question": "The Crotay chart shows a bar of −1% in 2014 and +2% in 2018. Between 2014 and 2018, wage increases...",
   "options": [
+   "Went from a fall to rising at an increasing rate",
    "Stayed the same",
-   "Fell every year",
    "Were always negative",
-   "Went from a fall to rising at an increasing rate"
+   "Fell every year"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "2014 is a genuine fall (negative bar); after that the rate of increase climbs to 2%. Describe the pattern, don't just quote figures."
   }
  },
@@ -15793,9 +15793,9 @@ window.QUESTION_BANK = [
   "question": "For 'evaluate the importance of productivity', the mechanism that earns the marks is productivity lowering...",
   "options": [
    "Average costs, raising competitiveness",
+   "Total output only",
    "The workforce size",
-   "Tax rates",
-   "Total output only"
+   "Tax rates"
   ],
   "key": {
    "answer": 0,
@@ -17072,12 +17072,12 @@ window.QUESTION_BANK = [
   "question": "Money is best defined as...",
   "options": [
    "The savings held by the Bank of England",
+   "Any item that can be swapped in a barter deal",
    "Anything generally accepted as a means of payment for goods and services",
-   "Only the notes and coins issued by the Royal Mint",
-   "Any item that can be swapped in a barter deal"
+   "Only the notes and coins issued by the Royal Mint"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "Money is anything generally accepted as a means of payment — notes, coins and bank deposits. It is more than just cash, and barter is what money replaces."
   }
  },
@@ -17092,8 +17092,8 @@ window.QUESTION_BANK = [
   "options": [
    "Money in a current account",
    "A credit card",
-   "A one-pound coin",
-   "A ten-pound note"
+   "A ten-pound note",
+   "A one-pound coin"
   ],
   "key": {
    "answer": 1,
@@ -17109,13 +17109,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "The problem with barter that money removes is the...",
   "options": [
+   "Double coincidence of wants",
    "Law of diminishing returns",
-   "Diseconomy of scale",
    "Free-rider problem",
-   "Double coincidence of wants"
+   "Diseconomy of scale"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "Barter needs each trader to want exactly what the other offers — the double coincidence of wants. Money lets exchange happen without that match."
   }
  },
@@ -17147,10 +17147,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A building society differs from a commercial bank mainly because it is...",
   "options": [
-   "Owned by the government",
+   "Not allowed to offer mortgages",
    "The bank that sets interest rates",
    "A mutual, owned by its members",
-   "Not allowed to offer mortgages"
+   "Owned by the government"
   ],
   "key": {
    "answer": 2,
@@ -17166,13 +17166,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A firm needs to borrow £100,000 for ten years. Which institution is it LEAST likely to use?",
   "options": [
-   "A building society",
    "An investment bank",
+   "The central bank",
    "A commercial bank",
-   "The central bank"
+   "A building society"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "The central bank does not lend to ordinary firms — it is the bank for banks and government. Businesses borrow from commercial or investment banks."
   }
  },
@@ -17186,12 +17186,12 @@ window.QUESTION_BANK = [
   "question": "If the rate of interest rises, the level of saving is most likely to...",
   "options": [
    "Fall, because saving is less rewarding",
-   "Rise, because saving is more rewarding",
    "Fall, because borrowing is cheaper",
-   "Stay exactly the same"
+   "Stay exactly the same",
+   "Rise, because saving is more rewarding"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "A higher rate raises the reward for saving, so saving tends to rise while borrowing and investment fall."
   }
  },
@@ -17205,8 +17205,8 @@ window.QUESTION_BANK = [
   "question": "A cut in interest rates is most likely to increase...",
   "options": [
    "Saving and the reward for savers",
-   "The amount the government pays on its debt",
    "The cost of business loans",
+   "The amount the government pays on its debt",
    "Borrowing and investment"
   ],
   "key": {
@@ -17223,13 +17223,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A firm borrows £2,000 at 5% interest for one year. How much must it repay in total?",
   "options": [
-   "£2,100",
-   "£2,500",
    "£100",
-   "£2,005"
+   "£2,500",
+   "£2,005",
+   "£2,100"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Interest = 5% of £2,000 = £100. Total repaid = £2,000 + £100 = £2,100. (£100 is only the interest.)"
   }
  },
@@ -17243,12 +17243,12 @@ window.QUESTION_BANK = [
   "question": "Traditionally, the main service a building society provides is...",
   "options": [
    "Loans to fund government spending",
-   "Insurance against property damage",
+   "Mortgages so individuals can buy a house",
    "Setting the country's base interest rate",
-   "Mortgages so individuals can buy a house"
+   "Insurance against property damage"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Building societies traditionally provide mortgages to help members buy homes, alongside savings products."
   }
  },
@@ -17367,13 +17367,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>Money is anything that is generally accepted as a means of payment for goods and services.</strong> It includes notes, coins and money held in the bank (current and savings accounts). Cheques, debit and credit cards are <strong>NOT money</strong> — they are just convenient ways of accessing money you already hold.</p>\n<h4>The problem money solves: barter</h4>\n<ul>\n<li><strong>Barter</strong> is the direct swapping of one good or service for another, without money.</li>\n<li>Its big weakness is the <strong>double coincidence of wants</strong>: for a swap to happen, each person must want exactly what the other is offering AND be willing to give up what the other wants — a hard condition to meet.</li>\n<li><strong>Money removes this problem.</strong> A farmer with a cow worth far more than some groceries can sell the cow for money, then spend just a small part of that money on the groceries — no matching want is needed on both sides.</li>\n</ul>\n<h4>Medium of exchange — learn the precise wording</h4>\n<ul>\n<li>As a <strong>medium of exchange</strong>, money is <strong>anything that sets a standard of value for goods and services that all parties in a transaction accept.</strong></li>\n<li>The examiner report is blunt: vague answers about \"using money to buy things\" miss the two attributes needed — <strong>setting the standard of value</strong> and being <strong>acceptable to all parties</strong>. Reference to avoiding barter / the double coincidence of wants also earns credit.</li>\n</ul>\n<h4>Exam scope — don't over-answer</h4>\n<ul>\n<li>This specification only requires <strong>money as a medium of exchange</strong>. Other \"functions of money\" (store of value, unit of account, standard of deferred payment) are useful background but are <strong>not on this spec</strong> — the real mark scheme refused to credit them.</li>\n</ul>",
   "question": "Which is the best definition of money as a 'medium of exchange'?",
   "options": [
-   "Something that sets a standard of value accepted by all parties in a transaction",
    "A credit card used to pay in shops",
+   "Something that sets a standard of value accepted by all parties in a transaction",
    "The total savings held in a bank account",
    "Any notes and coins printed by the government"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "The precise wording the exam wants: sets a standard of value AND is acceptable to all parties. Cards are not money; notes/coins are only examples."
   }
  },
@@ -17388,10 +17388,10 @@ window.QUESTION_BANK = [
   "reading": "<p>The <strong>financial sector</strong> is made up of financial organisations and their products. The four you must know are the <strong>Bank of England, commercial banks, building societies and insurance companies</strong>.</p>\n<h4>The Bank of England (the central bank)</h4>\n<ul>\n<li><strong>Issues banknotes</strong> in England and Wales (coins are made by the Royal Mint) and keeps currency secure, e.g. polymer notes.</li>\n<li><strong>Sets the bank rate</strong> (base interest rate) as part of monetary policy — this influences the rates people pay on loans and earn on savings.</li>\n<li><strong>Provides stability</strong> through regulation (tightened after the 2008 financial crisis) and acts as the <strong>\"bank for banks\"</strong> and banker to the government (managing government bonds and foreign reserves).</li>\n<li>Crucially, it does <strong>NOT</strong> run accounts for ordinary people or lend to individual firms.</li>\n</ul>\n<h4>Commercial banks</h4>\n<ul>\n<li>Accept <strong>deposits</strong> (paying interest a little below the bank rate) and keep money safe.</li>\n<li>Make <strong>payments</strong> for customers (cards, cheques, direct debits, phone apps).</li>\n<li>Provide <strong>loans</strong> (interest above the bank rate) and <strong>overdrafts</strong>, plus services like safe deposit boxes.</li>\n</ul>\n<h4>Building societies</h4>\n<ul>\n<li><strong>Mutual institutions</strong> — owned by their members (savers and borrowers), not by shareholders, and run for members' benefit.</li>\n<li>Specialise in <strong>savings</strong> and <strong>mortgages</strong> — traditionally, providing funds for individuals to buy a house.</li>\n</ul>\n<h4>Insurance companies</h4>\n<ul>\n<li>Provide <strong>compensation</strong> if a specified event happens (car, home, life insurance) in return for a regular payment called a <strong>premium</strong>.</li>\n<li><strong>Life insurance</strong> pays a sum to the family to replace lost income when the policyholder dies.</li>\n</ul>",
   "question": "What makes a building society different from a commercial bank?",
   "options": [
-   "It is the only institution that offers loans",
+   "It sets the country's base interest rate",
    "It is owned and run by the government",
    "It is a mutual, owned by its members rather than shareholders",
-   "It sets the country's base interest rate"
+   "It is the only institution that offers loans"
   ],
   "key": {
    "answer": 2,
@@ -17409,13 +17409,13 @@ window.QUESTION_BANK = [
   "reading": "<p>The financial sector's core job is to <strong>channel funds from savers to borrowers</strong>, so households, firms and government can spend and invest even when they do not hold the cash themselves. Boiled down, it provides three things:</p>\n<ul>\n<li><strong>Credit</strong> — the ability to borrow money you do not currently have.</li>\n<li><strong>Liquidity</strong> — the ability to turn assets into cash.</li>\n<li><strong>Risk management</strong> — tools such as insurance to handle different risks.</li>\n</ul>\n<h4>Importance for consumers</h4>\n<ul>\n<li>Cards and apps let people pay without cash; credit lets them buy expensive items now and pay later; overdrafts bridge gaps between income and spending; savings help them afford costly goods; insurance protects against loss.</li>\n</ul>\n<h4>Importance for producers</h4>\n<ul>\n<li>Loans fund investment and expansion; overdrafts smooth cash flow when income dips; insurance covers property and risky projects; banks keep takings safe and pay interest on savings.</li>\n</ul>\n<h4>Importance for government</h4>\n<ul>\n<li>The financial sector is <strong>almost always important</strong> to government, so questions usually ask about the effect of a specific action on a <strong>macro target</strong> (economic growth, low inflation, low unemployment) rather than \"is it important?\".</li>\n</ul>\n<h4>The golden rule: context decides importance</h4>\n<ul>\n<li>The same service is not equally important to everyone. A cash-only market stall barely needs customer credit, but a car maker's customers rely on it. <strong>Always match the service to the specific business or consumer</strong> — that is where the application marks are won.</li>\n</ul>",
   "question": "In an evaluate question, what earns the application (AO2) marks about the financial sector?",
   "options": [
+   "Matching a specific service to the particular business or consumer in the case",
    "Stating that the financial sector is always important",
-   "Defining what a bank is",
    "Listing every service the financial sector provides",
-   "Matching a specific service to the particular business or consumer in the case"
+   "Defining what a bank is"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "Importance depends on context — a cash-only trader barely needs customer credit, while a car maker's buyers rely on it. Match the service to the case."
   }
  },
@@ -17430,13 +17430,13 @@ window.QUESTION_BANK = [
   "reading": "<p>An <strong>interest rate</strong> is both the <strong>cost of borrowing</strong> money and the <strong>reward for saving</strong> it. The Bank of England sets the <strong>bank rate</strong>, which influences the rates across the whole economy.</p>\n<h4>When interest rates RISE</h4>\n<ul>\n<li><strong>Saving rises</strong> — the reward for saving is higher.</li>\n<li><strong>Borrowing falls</strong> — loans and credit cost more.</li>\n<li><strong>Investment falls</strong> — borrowing to invest is dearer, and a project must now earn a higher return to be worthwhile; the opportunity cost of spending rather than saving also rises.</li>\n<li>Mortgage-holders have less to spend, <strong>savers are better off</strong>, and the government pays more to fund its debt.</li>\n</ul>\n<h4>When interest rates FALL</h4>\n<ul>\n<li><strong>Saving falls, borrowing rises, investment rises.</strong> A chain: the Bank of England cuts the rate → borrowing is cheaper → firms invest and expand → they hire more workers → those workers spend more, raising demand.</li>\n<li>But it may not work if firms lack confidence or expect no rise in demand — a cut only boosts investment when firms also expect to sell more.</li>\n</ul>\n<h4>The calculations — get these exactly right</h4>\n<ul>\n<li><strong>Interest = rate × amount.</strong> 5% of a £2,000 loan for a year = 0.05 × £2,000 = £100.</li>\n<li><strong>A percentage means ÷ 100.</strong> 0.2% of £6,000 = 0.002 × £6,000 = £12 (NOT £1,200).</li>\n<li><strong>Monthly interest = yearly ÷ 12.</strong> £30,000 a year ÷ 12 = £2,500 a month.</li>\n<li><strong>Total repaid = amount borrowed + interest.</strong> £1,000 + £50 = £1,050.</li>\n<li>Always <strong>include the £ sign</strong> and <strong>show your working</strong> so the Own Figure Rule can rescue a slip.</li>\n</ul>",
   "question": "The Bank of England raises the bank rate. What is the most likely effect?",
   "options": [
-   "Saving rises, while borrowing and investment fall",
+   "Nothing changes for households or firms",
    "Saving falls, while borrowing and investment rise",
-   "Saving, borrowing and investment all rise",
-   "Nothing changes for households or firms"
+   "Saving rises, while borrowing and investment fall",
+   "Saving, borrowing and investment all rise"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "Higher rates reward saving and make borrowing dearer, so saving rises while borrowing and investment fall. A CUT would do the opposite."
   }
  },
@@ -17452,12 +17452,12 @@ window.QUESTION_BANK = [
   "question": "Which is the best example of money?",
   "options": [
    "A mobile phone pay app",
+   "A cheque",
    "A fifty-pound note",
-   "A credit card",
-   "A cheque"
+   "A credit card"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "Cash is money itself. A cheque, card or app only transfers or accesses money held elsewhere, so none of them is money."
   }
  },
@@ -17473,12 +17473,12 @@ window.QUESTION_BANK = [
   "question": "For full marks, 'money as a medium of exchange' must be defined as something that sets a...",
   "options": [
    "Value that changes with every purchase",
-   "Cost that only the seller has to accept",
+   "Standard of value accepted by all parties in a transaction",
    "Price that the government fixes for goods",
-   "Standard of value accepted by all parties in a transaction"
+   "Cost that only the seller has to accept"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "The two attributes examiners want: sets a standard of value, and is acceptable to ALL parties. 'Used to buy things' alone is not enough."
   }
  },
@@ -17494,12 +17494,12 @@ window.QUESTION_BANK = [
   "question": "A company will use several financial institutions. Which is it most UNLIKELY to use?",
   "options": [
    "A commercial bank",
+   "The central bank",
    "An insurance company",
-   "A building society",
-   "The central bank"
+   "A building society"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "The central bank serves banks and government, not ordinary firms. Companies use commercial banks, building societies and insurers."
   }
  },
@@ -17536,12 +17536,12 @@ window.QUESTION_BANK = [
   "question": "What is 0.2% of £6,000?",
   "options": [
    "£60",
+   "£120",
    "£1,200",
-   "£12",
-   "£120"
+   "£12"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "0.2% = 0.002, and 0.002 × £6,000 = £12. Dropping the ÷100 is what produces the wrong £1,200."
   }
  },
@@ -17556,13 +17556,13 @@ window.QUESTION_BANK = [
   "reading": "<p>The short definition questions on this topic are easy marks IF you use the exact phrasing the mark scheme rewards — and a graveyard if you are vague.</p>\n<ul>\n<li><strong>Money</strong> = \"anything generally accepted as a means of PAYMENT for goods and services\". Answers about an \"exchange\" rather than a payment, or that just list currency examples, were not credited.</li>\n<li><strong>Medium of exchange</strong> = \"something that sets a STANDARD OF VALUE (1) acceptable to ALL PARTIES (1) in a transaction\". Naming both attributes gets 2 marks; a loose \"used to buy things\" gets 0.</li>\n<li>Mentioning that money removes <strong>barter</strong> / the <strong>double coincidence of wants</strong> also earns credit.</li>\n</ul>",
   "question": "For 'state what is meant by money', which answer earns the marks?",
   "options": [
-   "Something you exchange for other goods",
-   "Any coins and banknotes you can hold",
    "Anything generally accepted as a means of payment for goods and services",
-   "A card used to pay in shops"
+   "Any coins and banknotes you can hold",
+   "A card used to pay in shops",
+   "Something you exchange for other goods"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "The mark scheme wants 'generally accepted means of payment'. Currency examples, 'exchange' wording, or cards were not credited."
   }
  },
@@ -17577,9 +17577,9 @@ window.QUESTION_BANK = [
   "reading": "<p>Every interest sum on this topic uses the same simple rules — the marks are lost on carelessness, not difficulty:</p>\n<ul>\n<li><strong>Interest = rate × amount.</strong> 6% of a £2 million loan = £120,000; the increase from 5% to 6% is £120,000 − £100,000 = £20,000.</li>\n<li><strong>A percentage means ÷ 100.</strong> 0.2% of £6,000 = £12, not £1,200 — the most common slip on the paper.</li>\n<li><strong>Monthly = yearly ÷ 12.</strong> £500,000 at 7.5% = £37,500 a year ÷ 12 = £3,125 a month; at 6% it is £30,000 ÷ 12 = £2,500.</li>\n<li><strong>Total repaid = amount + interest</strong> (£1,000 + £50 = £1,050).</li>\n<li>Always <strong>include the £ sign</strong> (a bare number is capped) and <strong>show your working</strong> so the Own Figure Rule can save a slip.</li>\n</ul>",
   "question": "A £500,000 loan is charged 6% a year. What is the monthly interest?",
   "options": [
+   "£250",
    "£30,000",
    "£5,000",
-   "£250",
    "£2,500"
   ],
   "key": {
@@ -17599,12 +17599,12 @@ window.QUESTION_BANK = [
   "question": "Why might a cut in interest rates FAIL to raise a firm's investment?",
   "options": [
    "Savers always start spending less",
-   "Borrowing automatically becomes more expensive",
+   "Firms may lack confidence or expect no rise in demand",
    "The Bank of England blocks new loans",
-   "Firms may lack confidence or expect no rise in demand"
+   "Borrowing automatically becomes more expensive"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Cheaper borrowing only boosts investment if firms also expect to sell more. Low confidence or flat expected demand can stop it working."
   }
  },
@@ -18864,13 +18864,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Economic growth is best defined as...",
   "options": [
-   "A reduction in the level of imports",
+   "An increase in the employment level",
    "An increase in an economy's population",
-   "An increase in an economy's productive capacity",
-   "An increase in the employment level"
+   "A reduction in the level of imports",
+   "An increase in an economy's productive capacity"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "Long-run economic growth is an increase in the economy's potential productive capacity. Employment and population may accompany growth but do not define it."
   }
  },
@@ -18883,10 +18883,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which formula measures the rate of economic growth?",
   "options": [
-   "New GDP − Previous GDP",
+   "(Total GDP ÷ Previous GDP) × 100",
    "(Change in GDP ÷ Previous GDP) × 100",
    "Change in GDP ÷ Change in population",
-   "(Total GDP ÷ Previous GDP) × 100"
+   "New GDP − Previous GDP"
   ],
   "key": {
    "answer": 1,
@@ -18902,13 +18902,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "GDP is £150 billion and the population is 5 million. GDP per capita is...",
   "options": [
-   "£30,000",
+   "£3,000",
    "£750,000",
    "£300,000",
-   "£3,000"
+   "£30,000"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "GDP per capita = GDP ÷ population = £150bn ÷ 5m = £30,000."
   }
  },
@@ -18921,13 +18921,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A country's GDP growth was +2.7%, −1.4%, +2.3% and +1.8% over four years. In which year did output actually FALL?",
   "options": [
-   "Output never rose",
    "The year with −1.4%",
+   "Output never rose",
    "The year with +1.8%",
    "The year with +2.3%"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "Only a NEGATIVE growth rate means output fell. A smaller positive figure (+1.8%) still means GDP is rising, just more slowly."
   }
  },
@@ -18940,13 +18940,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Real GDP differs from nominal GDP because real GDP...",
   "options": [
+   "Excludes services",
    "Is adjusted for inflation, showing actual output",
-   "Is divided by the population",
    "Only counts government spending",
-   "Excludes services"
+   "Is divided by the population"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "Nominal GDP is in money terms and rises with prices. Real GDP takes inflation out, so it reflects genuine output."
   }
  },
@@ -18960,12 +18960,12 @@ window.QUESTION_BANK = [
   "question": "In Year 1 real GDP growth is 5% and nominal GDP growth is 5%. What can you conclude?",
   "options": [
    "Real GDP fell",
+   "There was no inflation in Year 1",
    "The population fell",
-   "Inflation was 10%",
-   "There was no inflation in Year 1"
+   "Inflation was 10%"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Nominal growth includes price rises. If nominal and real growth are equal, prices did not rise — no inflation."
   }
  },
@@ -18978,13 +18978,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which is a determinant of LONG-RUN economic growth?",
   "options": [
+   "An increase in the quantity or quality of the factors of production",
    "A rise in the price level",
    "A short-term rise in consumer spending",
-   "A fall in the exchange rate",
-   "An increase in the quantity or quality of the factors of production"
+   "A fall in the exchange rate"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "Long-run growth needs greater productive capacity, which comes from more or better land, labour, capital and enterprise. Short-run growth comes from rising aggregate demand."
   }
  },
@@ -18999,11 +18999,11 @@ window.QUESTION_BANK = [
   "options": [
    "An increase in exports",
    "Low interest rates",
-   "High taxes on profits",
-   "A stable price level"
+   "A stable price level",
+   "High taxes on profits"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "High profit taxes leave firms less to reinvest and weaken the incentive to expand. The other three support growth."
   }
  },
@@ -19016,13 +19016,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which is normally counted as part of a country's GDP?",
   "options": [
+   "Household savings",
    "Investment spending by firms",
-   "Interest rates",
    "Unpaid domestic work within a family",
-   "Household savings"
+   "Interest rates"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "Investment is a component of GDP. Savings are income NOT spent, interest rates are a price, and unpaid domestic work is not recorded."
   }
  },
@@ -19035,8 +19035,8 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A country's GDP rises 1.7% but its population rises 2.0%. What happens to GDP per capita?",
   "options": [
-   "It rises by 3.7%",
    "It rises by 1.7%",
+   "It rises by 3.7%",
    "It falls, because population grew faster than output",
    "It stays exactly the same"
   ],
@@ -19161,12 +19161,12 @@ window.QUESTION_BANK = [
   "question": "Why is real GDP a better measure of growth than nominal GDP?",
   "options": [
    "It only counts exports",
-   "It divides output by the population",
    "It measures the government's budget",
-   "It strips out inflation, so it shows actual output not just higher prices"
+   "It strips out inflation, so it shows actual output not just higher prices",
+   "It divides output by the population"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "Nominal GDP rises when prices rise even if nothing extra is made. Real GDP adjusts for inflation, showing genuine output. Dividing by population gives GDP per capita — a different measure."
   }
  },
@@ -19181,13 +19181,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Every 3.1 paper contains calculations and a data question. The maths is simple; the marks are lost through carelessness and through misreading what a chart shows.</p>\n<h4>The formulas</h4>\n<ul>\n<li><strong>Growth rate (%)</strong> = ((GDP this year − GDP last year) ÷ GDP last year) × 100. If GDP was £50bn and is now £55bn, growth = 10%.</li>\n<li><strong>GDP per capita</strong> = GDP ÷ population. £150 billion ÷ 5m = £30,000.</li>\n<li><strong>Real GDP</strong> = nominal GDP ÷ average price level. £10bn with 5% inflation → £9.52bn.</li>\n<li><strong>Applying a growth rate</strong>: £500m growing 4% → £500m × 1.04 = £520m.</li>\n</ul>\n<h4>The single biggest trap: RATE of change vs LEVEL</h4>\n<ul>\n<li>A growth-rate chart shows how FAST GDP is rising, not how BIG it is. <strong>If every year's growth is positive, GDP is rising every year</strong> — so the level is highest in the LAST year and lowest in the FIRST.</li>\n<li>In the real paper, candidates saw the 3.0% peak in 2014 and wrongly answered \"GDP was highest in 2014\". The correct answers were 2019 (highest) and 2010 (lowest).</li>\n<li>A growth rate that is positive but FALLING (3.0% → 1.65%) means the economy is <strong>still growing, just more slowly</strong>. Saying it \"shrank\" is a classic error. Only a NEGATIVE figure means output actually fell.</li>\n</ul>\n<h4>Describing data: summarise the pattern</h4>\n<ul>\n<li>Too little: \"The trend is upwards.\" Too much: reading out every value. Aim for the overall shape — \"rose steadily to a peak around 2014, then fell away before levelling off\".</li>\n<li><strong>Never just re-write the data.</strong> Saying one figure is higher than another is the START of a chain of reasoning, not the analysis itself — you must explain WHY.</li>\n</ul>",
   "question": "A country's GDP growth is +3.0% in 2014 and +1.65% in 2018. What happened to the LEVEL of GDP?",
   "options": [
-   "It fell in 2018",
-   "It stayed the same",
    "It rose in both years, but more slowly in 2018",
-   "It was highest in 2014"
+   "It was highest in 2014",
+   "It fell in 2018",
+   "It stayed the same"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Both figures are positive, so GDP grew both years — just at a slower rate in 2018. GDP is therefore HIGHER in 2018 than 2014. Confusing the rate with the level is the topic's biggest trap."
   }
  },
@@ -19224,12 +19224,12 @@ window.QUESTION_BANK = [
   "question": "Economic growth raises government tax revenue. Why is that a benefit?",
   "options": [
    "It means tax rates must rise",
-   "More revenue funds public services like schools and hospitals, which can further raise growth",
    "It automatically ends inequality",
+   "More revenue funds public services like schools and hospitals, which can further raise growth",
    "It reduces the size of the workforce"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "Growth raises revenue WITHOUT raising rates, and that revenue funds healthcare and education — which make workers more productive and drive further growth. Growth does not automatically end inequality; the gains may be shared unevenly."
   }
  },
@@ -19246,11 +19246,11 @@ window.QUESTION_BANK = [
   "options": [
    "2014",
    "Cannot be known",
-   "2019",
-   "2010"
+   "2010",
+   "2019"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "Positive growth every year means GDP rose every year, so the level is highest at the END (2019). 2014 is only the fastest growth."
   }
  },
@@ -19267,8 +19267,8 @@ window.QUESTION_BANK = [
   "options": [
    "Roughly the typical person's income",
    "How income is distributed between rich and poor",
-   "How the country compares with others over time",
-   "The output of the average person"
+   "The output of the average person",
+   "How the country compares with others over time"
   ],
   "key": {
    "answer": 1,
@@ -19307,13 +19307,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"I'll list three benefits of globalisation, then three completely different problems at the end.\"</p><p><strong>✅ The correct idea:</strong> The examiners were blunt about this on the Tanzania question. Evaluation is not a list of unconnected good and bad points, and it is not a conclusion that just summarises. A good evaluative point must MATCH the analytical point it answers — it should strengthen, mitigate or contrast with it. So: 'workers gain jobs in multinational factories (analysis) — HOWEVER those same factories out-compete local village producers, so other workers lose their jobs (matching evaluation)'. Exemplar 3 on the real paper made a sensible point about living standards and then evaluated with an unrelated point about structural unemployment — which did not earn the evaluation marks. Pair every point with its own counter.</p>",
   "question": "What makes a MATCHING evaluative point?",
   "options": [
-   "It raises a completely separate disadvantage",
    "It repeats the analysis in different words",
-   "It strengthens, mitigates or contrasts with the specific point just made",
-   "It summarises all previous points"
+   "It summarises all previous points",
+   "It raises a completely separate disadvantage",
+   "It strengthens, mitigates or contrasts with the specific point just made"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "Evaluation must answer the point it follows. Unconnected lists and summary conclusions score poorly — the examiners said so explicitly."
   }
  },
@@ -19328,13 +19328,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Growth means more government spending on healthcare, which improves life expectancy.\"</p><p><strong>✅ The correct idea:</strong> The chain is missing its first links, and the examiners penalised exactly this. Starting at 'increased spending on health' never connects back to ECONOMIC GROWTH, which is what the question asked about. Include every simple link: growth raises output and incomes → higher incomes and profits mean more tax revenue at the same tax rates → the government can spend more on healthcare and education → life expectancy and future earnings rise. Each link is obvious on its own, but leaving the early ones out breaks the chain and caps your marks. The same discipline rescues the 'education → GDP' chain: more schooling → higher literacy → more productive workers → more output per worker → higher GDP.</p>",
   "question": "Why must an analysis chain start from economic growth itself?",
   "options": [
-   "Because data must be quoted first",
    "Otherwise the later links don't connect to the question that was asked",
+   "Because data must be quoted first",
    "Because you must always define GDP first",
    "Because examiners want longer answers"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "The examiners noted responses starting at 'increased spending on health' failed to link back to growth. Include all the simple early links."
   }
  },
@@ -19349,13 +19349,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Every 3.1 paper has a chart or table, and two failures come up again and again in the examiner reports:</p>\n<ul>\n<li><strong>Rate ≠ level.</strong> Positive growth every year means the LEVEL rose every year — highest at the end (2019), lowest at the start (2010). The 3.0% peak in 2014 is the fastest growth, not the biggest GDP. Candidates who answered 2014 lost the marks.</li>\n<li><strong>Don't re-write the data.</strong> \"One figure is higher than another\" is the START of a chain, not the analysis. Add the reason and the consequence.</li>\n<li><strong>Summarise the pattern</strong>: \"rose steadily to a peak around 2014, then fell away and levelled off\" beats listing every value.</li>\n</ul>\n<h4>Cover everything the question names</h4>\n<p>The UK/Japan question required Japan AND the UK, and GDP AND GDP per capita, to reach Level 3. Tick off each named element before you finish.</p>",
   "question": "A chart shows positive GDP growth every year, peaking in 2014. In which year is the LEVEL of GDP highest?",
   "options": [
-   "The final year",
+   "2014",
    "The first year",
    "You cannot tell",
-   "2014"
+   "The final year"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Positive growth every year = GDP rising every year, so the level is highest at the end. This exact trap cost candidates marks on the real paper."
   }
  },
@@ -19371,12 +19371,12 @@ window.QUESTION_BANK = [
   "question": "UK GDP in 2011 was £1,797 trillion and 2012 growth was 1.5%. GDP in 2012 was...",
   "options": [
    "£26.96 trillion",
-   "£1,823.96 trillion",
    "£1,823.96 billion",
-   "£1,823.96"
+   "£1,823.96",
+   "£1,823.96 trillion"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "£1,797 × 1.015 = £1,823.955. The mark scheme gives only 1 mark if the £ sign or the word 'trillion' is missing."
   }
  },
@@ -19392,12 +19392,12 @@ window.QUESTION_BANK = [
   "question": "For a 6-mark 'Analyse' question, what earns the top level?",
   "options": [
    "Quoting as much data as possible",
-   "A balanced judgement at the end",
+   "Developed links forming a chain of reasoning that addresses the question",
    "A long list of separate points",
-   "Developed links forming a chain of reasoning that addresses the question"
+   "A balanced judgement at the end"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Analyse = chains of developed links, no evaluation needed. Lists of single effects sit at Level 2."
   }
  },
@@ -19413,12 +19413,12 @@ window.QUESTION_BANK = [
   "question": "A question asks you to evaluate the benefits of globalisation for WORKERS in Tanzania. Writing about gains to the government...",
   "options": [
    "Is fine, as it's still about Tanzania",
-   "Scores nothing — it's the wrong stakeholder",
    "Earns the evaluation marks",
-   "Is required for Level 3"
+   "Is required for Level 3",
+   "Scores nothing — it's the wrong stakeholder"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "The examiners reported that answers about other stakeholders, or about problems rather than benefits, did not address the question and were not credited."
   }
  },
@@ -20740,13 +20740,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "In economics, an unemployed person is someone who...",
   "options": [
-   "Does not have a paid job for any reason",
    "Has chosen to stop working",
    "Is too young or too old to work",
-   "Is willing and able to work at current wage rates but cannot find a job"
+   "Is willing and able to work at current wage rates but cannot find a job",
+   "Does not have a paid job for any reason"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "Unemployment requires being willing AND able to work but unable to find a job. People not seeking work are economically inactive, not unemployed."
   }
  },
@@ -20759,13 +20759,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "The claimant count measures unemployment by counting people who...",
   "options": [
+   "Receive unemployment benefits such as Jobseeker's Allowance",
    "Are surveyed by the Labour Force Survey",
-   "Are looking for any kind of job",
    "Do not have a job at all",
-   "Receive unemployment benefits such as Jobseeker's Allowance"
+   "Are looking for any kind of job"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "It counts benefit claimants only, so it misses people who are out of work and looking but not entitled to claim — which is why the LFS gives a higher figure."
   }
  },
@@ -20779,12 +20779,12 @@ window.QUESTION_BANK = [
   "question": "Why is the Labour Force Survey better for comparing unemployment between countries?",
   "options": [
    "It only counts benefit claimants",
+   "It is published more often",
    "It always gives a lower figure",
-   "It uses a standardised international methodology",
-   "It is published more often"
+   "It uses a standardised international methodology"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "The LFS asks a standard question of a household sample using an internationally agreed method, so the figures are comparable across countries."
   }
  },
@@ -20798,12 +20798,12 @@ window.QUESTION_BANK = [
   "question": "A country has 1 million unemployed and a workforce of 10 million. Its unemployment rate is...",
   "options": [
    "100%",
-   "0.1%",
    "10%",
+   "0.1%",
    "1%"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "1m ÷ 10m × 100 = 10%. Note another country with the same LEVEL (1m unemployed) but a 50m workforce would have a rate of only 2% — which is why the rate matters more."
   }
  },
@@ -20816,13 +20816,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Jane sells ice creams at a seaside resort in summer and is out of work the rest of the year. This is...",
   "options": [
-   "Structural unemployment",
+   "Seasonal unemployment",
    "Frictional unemployment",
-   "Cyclical unemployment",
-   "Seasonal unemployment"
+   "Structural unemployment",
+   "Cyclical unemployment"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "Her job only exists at a certain time of year — seasonal unemployment, caused by a fall in demand during a particular season."
   }
  },
@@ -20835,13 +20835,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which type of unemployment is generally considered healthy for an economy?",
   "options": [
-   "Frictional",
    "Cyclical",
    "Seasonal",
-   "Structural"
+   "Structural",
+   "Frictional"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Frictional unemployment is the short gap between jobs, and it shows workers moving from less productive roles into more productive ones."
   }
  },
@@ -20855,12 +20855,12 @@ window.QUESTION_BANK = [
   "question": "The permanent closure of the UK's coal mines caused which type of unemployment?",
   "options": [
    "Frictional",
-   "Cyclical",
+   "Structural",
    "Seasonal",
-   "Structural"
+   "Cyclical"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "A permanent decline in an industry leaves workers whose skills no longer match available vacancies — structural unemployment."
   }
  },
@@ -20874,8 +20874,8 @@ window.QUESTION_BANK = [
   "question": "Which is most likely to reduce unemployment?",
   "options": [
    "Increased government expenditure",
-   "Increased taxes",
    "Increased imports",
+   "Increased taxes",
    "Increased interest rates"
   ],
   "key": {
@@ -20892,13 +20892,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Unemployment rises. What happens to the government's budget?",
   "options": [
-   "Tax revenue rises and benefit spending falls",
-   "Both tax revenue and spending fall",
    "Nothing changes",
-   "Tax revenue falls and benefit spending rises, widening the deficit"
+   "Tax revenue falls and benefit spending rises, widening the deficit",
+   "Tax revenue rises and benefit spending falls",
+   "Both tax revenue and spending fall"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "The 'double hit': fewer earners means less income tax and VAT, while more claimants means more benefit spending — so the deficit widens."
   }
  },
@@ -20911,13 +20911,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "An increase in the level of unemployment benefit is most likely to...",
   "options": [
-   "Reduce the quantity of labour supplied",
-   "Increase the quantity of labour supplied",
+   "Have no effect on the labour market",
    "Increase labour market flexibility",
-   "Have no effect on the labour market"
+   "Increase the quantity of labour supplied",
+   "Reduce the quantity of labour supplied"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Higher benefits narrow the gap between working and not working, reducing the financial incentive to take a job — so fewer people offer themselves for work."
   }
  },
@@ -21036,13 +21036,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>Employment</strong> is the use of labour to produce goods and services. <strong>Unemployment</strong> is NOT simply \"not having a job\" — in economics it means someone who is <strong>willing and able to work</strong> at current wage rates but <strong>cannot find a job</strong>.</p>\n<h4>Why the definition matters</h4>\n<ul>\n<li>A stay-at-home parent, a retired pensioner and a full-time student are not unemployed — they are <strong>economically inactive</strong>, because they are not able and willing to work.</li>\n<li>A graduate who has just left university and is looking for work IS unemployed — a real exam MCQ.</li>\n</ul>\n<h4>Two ways the UK measures it</h4>\n<ul>\n<li><strong>Claimant count</strong> — the number of people <strong>receiving unemployment benefits</strong> (Jobseeker's Allowance). Simple, but it misses anyone out of work and looking who is not entitled to claim.</li>\n<li><strong>Labour Force Survey (LFS)</strong> — contacts a sample of households and asks whether anyone is willing and able to work but cannot find a job. It generally gives a <strong>higher</strong> figure than the claimant count, and because it uses a standardised international methodology it is the best measure for <strong>comparing countries</strong>.</li>\n</ul>\n<h4>Level vs rate — the crucial distinction</h4>\n<ul>\n<li><strong>Level</strong> = the total NUMBER of people unemployed. <strong>Rate</strong> = the PERCENTAGE of the workforce that is unemployed.</li>\n<li>Country A: 1 million unemployed from a 50 million workforce = <strong>2%</strong>. Country B: 1 million unemployed from a 10 million workforce = <strong>10%</strong>. Same level, wildly different rate — which is why the RATE is far more meaningful.</li>\n</ul>",
   "question": "Which of these people counts as unemployed?",
   "options": [
+   "A young adult who has just left university and is looking for a job",
    "A full-time student who sometimes works in a café",
    "A father who chooses to stay at home to look after a child",
-   "A young adult who has just left university and is looking for a job",
    "A pensioner who is looking for part-time work"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Unemployed = of working age, without work, and willing and able to work. The stay-at-home father is inactive by choice, the pensioner is beyond working age, and the student already has some work."
   }
  },
@@ -21057,13 +21057,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Every 3.2 paper contains a rate calculation and a data question. Both are easy marks — and both have a trap that catches candidates every year.</p>\n<h4>The formula</h4>\n<ul>\n<li><strong>Unemployment rate (%) = (number unemployed ÷ total workforce) × 100</strong></li>\n<li><strong>The denominator is the WORKFORCE</strong> — never the population. Plumrith has 1,000 people but only 800 in the labour force, so 200 unemployed is 200 ÷ 800 = <strong>25%</strong>, not 20%. Papers deliberately give you a population figure and an under-18 figure as distractors.</li>\n<li><strong>Always write the % sign.</strong> The mark scheme docks a mark without it — an easy mark thrown away.</li>\n</ul>\n<h4>Worked examples from the real papers</h4>\n<ul>\n<li>Northern Ireland: 26 ÷ 877 × 100 = <strong>2.96%</strong>.</li>\n<li>2 million unemployed from a 35 million working population: 2 ÷ 35 × 100 = <strong>5.71%</strong>.</li>\n<li>2.52m unemployed from a 31.5m workforce = <strong>8.0%</strong> (ignore the 52.5m population and the 8.5m under-18s).</li>\n</ul>\n<h4>Reading unemployment trends</h4>\n<ul>\n<li><strong>Rising</strong> unemployment signals a slowing economy; staying <strong>high</strong> for a long period suggests a <strong>recession</strong>.</li>\n<li><strong>Falling</strong> unemployment suggests a growing economy; staying <strong>very low</strong> for a long period may suggest a <strong>boom</strong>.</li>\n<li><strong>Explain, don't describe.</strong> \"Unemployment rose between 2008 and 2011\" is only half the answer — you must add WHY (the financial crisis cut demand, so firms laid workers off).</li>\n</ul>",
   "question": "A town has a population of 1,000, a labour force of 800, and 200 unemployed. The unemployment rate is...",
   "options": [
-   "20%",
-   "80%",
    "25%",
-   "60%"
+   "60%",
+   "20%",
+   "80%"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "200 ÷ 800 × 100 = 25%. Dividing by the population (1,000) gives 20% — the classic trap. Always divide by the WORKFORCE."
   }
  },
@@ -21078,13 +21078,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Naming the type is worth marks — but the exam wants the <strong>cause</strong> too. Learn each as a matched pair.</p>\n<h4>1. Seasonal — jobs that only exist at certain times of year</h4>\n<ul>\n<li>Theme parks close over winter; ski resorts only run in winter; harvesting needs extra workers only at harvest. Devon and Cornwall see this heavily out of the tourist season.</li>\n</ul>\n<h4>2. Frictional — the temporary gap between jobs</h4>\n<ul>\n<li>Caused by <strong>time lags</strong> as workers move from one job to the next. It is considered <strong>healthy</strong>: it shows workers moving from less productive roles into more productive ones.</li>\n</ul>\n<h4>3. Structural — an industry permanently declines</h4>\n<ul>\n<li><strong>The mark scheme needs BOTH halves:</strong> an industry declines AND that leaves a <strong>mismatch</strong> between workers' skills and the vacancies available. Omitting the mismatch is the commonest error.</li>\n<li>Workers lack <strong>transferable skills</strong> and are often <strong>geographically immobile</strong> — family ties, or property worth too little to fund a move.</li>\n<li><strong>The vicious cycle:</strong> industry declines → local unemployment rises → less local spending → other local firms collapse → those who can, leave → the area becomes deprived → property values fall further.</li>\n<li>UK examples: the North of England and the Welsh valleys after the mining decline of the late 1980s — both still show higher unemployment today.</li>\n</ul>\n<h4>4. Cyclical — a fall in demand across the economy</h4>\n<ul>\n<li>Lower demand → less output needed → fewer workers needed. It has its own vicious circle: more unemployment → less household spending → demand falls further → more lay-offs.</li>\n<li>This is the type the government can fight with expansionary fiscal policy.</li>\n</ul>\n<p><strong>Real situations often combine types.</strong> Blackpool suffers <em>seasonal</em> (summer visitors), <em>cyclical</em> (holidays are the first thing households cut in a downturn) and arguably <em>structural</em> unemployment (holidaymakers switched to the Mediterranean).</p>",
   "question": "For full marks, explaining structural unemployment needs an industry declining AND...",
   "options": [
-   "A fall in demand across the whole economy",
-   "Workers waiting to start a new job",
    "A mismatch between workers' skills and the available vacancies",
-   "Jobs only existing in certain seasons"
+   "Jobs only existing in certain seasons",
+   "A fall in demand across the whole economy",
+   "Workers waiting to start a new job"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Both halves are needed. The examiners noted several candidates omitted the MISMATCH of skills — which is what makes structural unemployment so long-lasting."
   }
  },
@@ -21100,12 +21100,12 @@ window.QUESTION_BANK = [
   "question": "Why is unemployment a 'double hit' to the government's budget?",
   "options": [
    "It raises both inflation and interest rates",
-   "It cuts both exports and imports",
    "It raises wages and prices together",
-   "Tax revenue falls AND benefit spending rises at the same time"
+   "Tax revenue falls AND benefit spending rises at the same time",
+   "It cuts both exports and imports"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "Fewer earners means less income tax and VAT, while more claimants means more benefit spending. Both sides of the budget worsen together, making a deficit more likely."
   }
  },
@@ -21120,10 +21120,10 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Unemployment rose between 2008 and 2011. That answers the question.\"</p><p><strong>✅ The correct idea:</strong> This is the flagged Misconception on the real paper. The examiners wrote that although the vast majority of candidates correctly recognised unemployment had increased, many DESCRIBED the trend rather than EXPLAINING it — and the question said 'explain'. Stating the direction earns 1 mark; the second mark needs a REASON. Here: the global financial crisis caused a recession, so total demand fell, firms had fewer orders and laid workers off, leaving fewer vacancies. The habit generalises — whenever a question says 'explain the trend', give direction + cause, never direction alone.</p>",
   "question": "'Explain the trend in unemployment between 2008 and 2011.' What earns the second mark?",
   "options": [
-   "Describing the shape of the line",
    "Saying it rose sharply rather than just rose",
+   "Quoting more figures from the chart",
    "A reason — e.g. the financial crisis cut demand so firms laid workers off",
-   "Quoting more figures from the chart"
+   "Describing the shape of the line"
   ],
   "key": {
    "answer": 2,
@@ -21141,10 +21141,10 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Lower unemployment means the government's budget gets smaller.\"</p><p><strong>✅ The correct idea:</strong> The Assessment for Learning note on this paper singles this out: a significant number of candidates wrote about the budget becoming 'bigger or smaller', rather than using the correct terms. The budget is the DIFFERENCE between spending and tax revenue, so it isn't 'big' or 'small' — it is in DEFICIT (spending exceeds revenue) or SURPLUS (revenue exceeds spending). When unemployment falls, revenue rises and benefit spending falls, so the correct phrasing is: a SMALLER DEFICIT, a move NEARER TO BALANCE, or a LARGER SURPLUS. Using the right vocabulary is what separates a Level 3 answer here.</p>",
   "question": "Unemployment falls, so tax revenue rises and benefit spending falls. The correct way to describe the budget effect is...",
   "options": [
-   "The budget disappears",
+   "The budget gets smaller",
    "The budget gets bigger",
    "A smaller deficit / a move towards surplus",
-   "The budget gets smaller"
+   "The budget disappears"
   ],
   "key": {
    "answer": 2,
@@ -21162,13 +21162,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"To explain how unemployment affected the budget, I'll describe how the government used fiscal policy to cut unemployment.\"</p><p><strong>✅ The correct idea:</strong> This is a Misconception the examiners named directly: a reasonable number of candidates misunderstood the question and wrote about how the government ACHIEVED lower unemployment through expansionary fiscal policy. That was not what the question asked. The question runs the other way — unemployment CHANGED (for its own reasons), and you must trace what that change DID to the budget. Direction of causation matters: read whether the policy is the cause or the consequence before you start writing.</p>",
   "question": "'Analyse how changes in unemployment affected the government's budget' is asking you to...",
   "options": [
+   "Describe the level of unemployment",
    "Trace what the unemployment change did to tax revenue and spending",
    "Evaluate whether the policy worked",
-   "Explain how fiscal policy reduced unemployment",
-   "Describe the level of unemployment"
+   "Explain how fiscal policy reduced unemployment"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "Unemployment is the CAUSE and the budget is the effect. Writing about fiscal policy reducing unemployment reverses the causation and scores nothing."
   }
  },
@@ -21183,13 +21183,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"The North East has high unemployment, so producers there struggle to find workers.\"</p><p><strong>✅ The correct idea:</strong> This is false logic, and the examiners published an exemplar showing exactly it. High unemployment means MORE workers are available, not fewer — the supply of labour exceeds demand for it. That is why one of the credited BENEFITS for North East producers is that they can recruit at lower wage rates, cutting costs and raising profits. The genuine costs run elsewhere: a depressed local economy means less demand and lower revenue, and long-term unemployed workers need retraining, which raises costs. Get the direction right before you evaluate — evaluating a false premise earns nothing.</p>",
   "question": "High regional unemployment means producers there face...",
   "options": [
-   "A shortage of workers, so they must pay more",
-   "No change to their wage costs",
    "A surplus of labour, so they can pay lower wages",
-   "Higher productivity automatically"
+   "Higher productivity automatically",
+   "A shortage of workers, so they must pay more",
+   "No change to their wage costs"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "High unemployment = labour supply exceeds demand = lower wages. The exemplar that claimed 'fewer workers available' was evaluating false logic and scored nothing."
   }
  },
@@ -21204,13 +21204,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"200 unemployed in a town of 1,000 people — that's a 20% unemployment rate.\"</p><p><strong>✅ The correct idea:</strong> The denominator is always the WORKFORCE (labour force), never the population. Plumrith has 1,000 people but only 800 in the labour force, so the rate is 200 ÷ 800 × 100 = 25%. Papers deliberately hand you distractors: one question gives a population of 52.5 million AND 8.5 million under-18s, but the answer uses only the 31.5 million workforce (2.52 ÷ 31.5 = 8.0%). The same discipline applies to the £ and % signs — the mark scheme docks a mark for a bare number, so 2 ÷ 35 × 100 must be written as 5.71%, not 5.71.</p>",
   "question": "Population 52.5m, under-18s 8.5m, workforce 31.5m, unemployed 2.52m. The unemployment rate is...",
   "options": [
-   "6.3%",
-   "5.7%",
    "8.0%",
-   "4.8%"
+   "6.3%",
+   "4.8%",
+   "5.7%"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "2.52 ÷ 31.5 × 100 = 8.0%. The population and under-18 figures are deliberate distractors — always divide by the workforce."
   }
  },
@@ -21225,13 +21225,13 @@ window.QUESTION_BANK = [
   "reading": "<p>The short questions are free marks IF you use the technical vocabulary. Real examples from this paper:</p>\n<ul>\n<li><strong>Unemployment rate</strong> = \"the percentage of the country's WORKFORCE that is unemployed\". Examiners noted candidates who said 'population' instead of workforce lost the precision mark.</li>\n<li><strong>Structural unemployment</strong> = an industry declining AND a MISMATCH between skills and vacancies. Several candidates omitted the mismatch — the very thing that defines it.</li>\n<li><strong>Fiscal policy</strong> = government TAXATION (1) and government SPENDING (1). Name both.</li>\n<li><strong>Imports</strong> = goods AND services bought from abroad, with an outflow of money. Saying only \"a good from another country\" caps you at 1.</li>\n<li><strong>Explain one type of unemployment</strong> = name the type AND its cause, e.g. \"cyclical is caused by a lack of demand\".</li>\n</ul>",
   "question": "Which definition of the unemployment rate earns both marks?",
   "options": [
+   "The people claiming benefits",
    "The number of people without a job",
    "The percentage of the country's workforce that is unemployed",
-   "The percentage of the population without work",
-   "The people claiming benefits"
+   "The percentage of the population without work"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "'Workforce' is the technical term examiners wanted, and it must be a percentage. 'Population' and bare 'level' definitions lost marks."
   }
  },
@@ -21246,13 +21246,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Two rules cover every calculation on this topic:</p>\n<ul>\n<li><strong>Divide by the WORKFORCE</strong>, never the population. 200 ÷ 800 = 25% (not 200 ÷ 1000 = 20%). 2.52m ÷ 31.5m = 8.0% (ignore the 52.5m population).</li>\n<li><strong>Include the % sign.</strong> \"Give 1 mark if the % sign is omitted\" appears in the mark scheme. The examiners' own tip: \"make sure they include a % sign in percentage answers\".</li>\n</ul>\n<h4>The worked ones</h4>\n<p>Northern Ireland: 26 ÷ 877 × 100 = 2.96%. A 35m working population with 2m unemployed: 5.71%. Port Talbot's average: (8.9 + 6.9 + 6.9) ÷ 3 = 7.6% — use only the Port Talbot row, and round as instructed.</p>",
   "question": "Northern Ireland has 877 thousand economically active and 26 thousand unemployed. The rate is...",
   "options": [
-   "2.96",
-   "26%",
+   "2.96%",
    "3.38%",
-   "2.96%"
+   "26%",
+   "2.96"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "26 ÷ 877 × 100 = 2.96%. Without the % sign it is capped at 1 mark — the examiners flagged this exact omission."
   }
  },
@@ -21267,13 +21267,13 @@ window.QUESTION_BANK = [
   "reading": "<p>This 6-marker appears twice on this paper. The examiners said the best answers reasoned <strong>both</strong> sides and then stated the budget effect.</p>\n<ul>\n<li><strong>Start with the definition</strong>: the budget is the difference between government spending and tax revenue.</li>\n<li><strong>Use the DIRECTION from the extract</strong> — unemployment falling 2011–2017, rising 2005–2011. The examiners called this \"a key to this question\".</li>\n<li><strong>Chain 1 (revenue)</strong>: more people in work → more income tax and NI → they spend more → more VAT.</li>\n<li><strong>Chain 2 (spending)</strong>: fewer claimants → less spent on JSA/unemployment benefits.</li>\n<li><strong>Then the effect, in the right words</strong>: a smaller DEFICIT / nearer to balance / a larger SURPLUS.</li>\n</ul>",
   "question": "What did examiners say the BEST budget answers did?",
   "options": [
-   "Reasoned both tax revenue AND spending, then showed the effect on the budget",
-   "Focused only on benefit spending",
    "Explained how fiscal policy cuts unemployment",
-   "Quoted the most data"
+   "Quoted the most data",
+   "Reasoned both tax revenue AND spending, then showed the effect on the budget",
+   "Focused only on benefit spending"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "Both chains plus the overall budget effect. Some candidates just stated the outcome without analysing why; others reversed the causation and wrote about fiscal policy."
   }
  },
@@ -22225,13 +22225,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which best describes the difference between income and wealth?",
   "options": [
-   "Income includes property; wealth includes wages",
    "They are the same thing measured differently",
-   "Income is a flow received over time; wealth is a stock of assets owned",
-   "Income is a stock; wealth is a flow"
+   "Income is a stock; wealth is a flow",
+   "Income includes property; wealth includes wages",
+   "Income is a flow received over time; wealth is a stock of assets owned"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "Income FLOWS in over time (wages, rent, interest). Wealth is the STOCK of assets held at a point in time (property, savings, shares)."
   }
  },
@@ -22245,12 +22245,12 @@ window.QUESTION_BANK = [
   "question": "Which option contains ONLY items classified as wealth?",
   "options": [
    "Rent, savings, state benefits",
+   "Profit, property, rent",
    "Interest, profit, shares",
-   "Property, savings, shares",
-   "Profit, property, rent"
+   "Property, savings, shares"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "All three are assets owned. Interest, profit, rent and state benefits are all flows of INCOME, so the other options each mix the two."
   }
  },
@@ -22263,13 +22263,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Nazir saves 10% of his £30,000 income and owns a house worth £200,000. His wealth is...",
   "options": [
-   "£203,000",
+   "£200,000",
    "£3,000",
-   "£230,000",
-   "£200,000"
+   "£203,000",
+   "£230,000"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "Savings = 10% × £30,000 = £3,000, plus the £200,000 house = £203,000. The income itself isn't wealth — only the part saved becomes an asset."
   }
  },
@@ -22282,13 +22282,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Trevor has earnings £30,000, a new car £30,000, savings £8,000, interest £40, rent from a holiday home £5,000. His INCOME is...",
   "options": [
-   "£30,040",
-   "£35,040",
    "£73,040",
-   "£65,040"
+   "£30,040",
+   "£65,040",
+   "£35,040"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "Income = earnings £30,000 + interest £40 + rent £5,000 = £35,040. The car and savings are stocks of wealth, not income flows."
   }
  },
@@ -22302,12 +22302,12 @@ window.QUESTION_BANK = [
   "question": "In the UK, the top 10% of wealth holders hold approximately...",
   "options": [
    "Under 5% of all wealth",
-   "About 25% of all wealth",
    "Over 48.5% of all wealth",
-   "About 10% of all wealth"
+   "About 10% of all wealth",
+   "About 25% of all wealth"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "Wealth is far more unequal than income: the top 10% hold over 48.5%, while the bottom 30% hold barely 1% between them."
   }
  },
@@ -22320,13 +22320,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which best explains why wealth generates further inequality?",
   "options": [
-   "Assets produce extra income through interest, rent and dividends",
    "Assets always fall in value",
+   "Wealthy people work longer hours",
    "Wealth is taxed more than income",
-   "Wealthy people work longer hours"
+   "Assets produce extra income through interest, rent and dividends"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Wealth generates income: savings pay interest, property pays rent, shares pay dividends. So asset owners gain income on top of wages while others rely on wages alone."
   }
  },
@@ -22339,13 +22339,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A household in relative poverty has an income of less than...",
   "options": [
+   "60% of median income",
    "The national minimum wage",
-   "40% of mean income",
    "The absolute poverty line",
-   "60% of median income"
+   "40% of mean income"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "Relative poverty is measured against the typical income in that society — under 60% of the median. Absolute poverty means lacking basic necessities."
   }
  },
@@ -22358,13 +22358,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A more uneven distribution of wealth will be caused by a reduction in...",
   "options": [
-   "Interest rates",
-   "Wage increases",
    "Property prices",
-   "Taxes on inheritance"
+   "Wage increases",
+   "Taxes on inheritance",
+   "Interest rates"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "Inheritance tax breaks up large estates. Cutting it lets wealth pass down intact, concentrating it further across generations."
   }
  },
@@ -22377,13 +22377,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Why is VAT considered a regressive tax?",
   "options": [
-   "The rate rises with income",
    "Only high earners pay it",
-   "It applies only to essentials",
-   "It takes a larger proportion of income from low earners"
+   "It takes a larger proportion of income from low earners",
+   "The rate rises with income",
+   "It applies only to essentials"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Everyone pays the same amount on the same product, but that amount is a bigger share of a small income — so the burden falls proportionally harder on the poor."
   }
  },
@@ -22396,13 +22396,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A worker moves into the 40% higher-rate tax band. This means...",
   "options": [
-   "Only income above the threshold is taxed at 40%",
-   "They stop paying the basic rate entirely",
    "All their income is now taxed at 40%",
-   "They will take home less than before"
+   "They will take home less than before",
+   "Only income above the threshold is taxed at 40%",
+   "They stop paying the basic rate entirely"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "Tax bands are marginal — only the slice above each threshold is taxed at the higher rate. Earning more always leaves you with more after tax."
   }
  },
@@ -22521,13 +22521,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Almost every mark on this topic depends on one distinction:</p>\n<ul>\n<li><strong>Income</strong> is a <strong>FLOW</strong> of money received over time in return for providing the services of a factor of production.</li>\n<li><strong>Wealth</strong> is a <strong>STOCK</strong> of assets owned by a person, group or country at a point in time. The word \"stock\" is what earns the second mark.</li>\n</ul>\n<h4>Forms of income (the flows)</h4>\n<ul>\n<li><strong>Wages/salaries</strong> — the main, often only, income for most UK households.</li>\n<li><strong>Rent</strong> — from letting out an owned asset, e.g. a second home.</li>\n<li><strong>Interest</strong> — earned on savings (no savings = no interest income).</li>\n<li><strong>Profit</strong> — for people who own and run a business.</li>\n<li><strong>Dividends</strong> — a share of a company's profits paid to shareholders.</li>\n<li><strong>State benefits</strong> — the unemployed, pensioners and long-term ill rely on these and have the lowest incomes.</li>\n</ul>\n<h4>Forms of wealth (the stocks)</h4>\n<ul>\n<li>Houses, cars, furniture and electronics, savings, pension funds, and business or share ownership.</li>\n</ul>\n<h4>The link that drives inequality</h4>\n<ul>\n<li><strong>Wealth GENERATES income.</strong> Savings → interest. A second home → rent. A business or shares → profit and dividends.</li>\n<li>So those who already own assets receive extra income on top of their wages, while those with nothing rely on wages alone — and the gap widens over time.</li>\n</ul>\n<h4>The worked example the exam keeps reusing</h4>\n<p>Salary £45,000 + bonus £5,000 + interest £1,000 = <strong>income £51,000</strong>. Car £15,000 + savings £50,000 + pension fund £125,000 + possessions £10,000 = <strong>wealth £200,000</strong>. Sort the table into flows and stocks before you add anything up.</p>",
   "question": "Heidi earns £20,000 a year and has £50,000 in a bank account paying no interest. Which is true?",
   "options": [
+   "Her income is £50,000",
    "Her wealth is £50,000",
-   "Her wealth is £70,000",
    "Her income is £70,000",
-   "Her income is £50,000"
+   "Her wealth is £70,000"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "The bank balance is a stock of assets = wealth. Her income is the £20,000 she earns; because the account pays no interest, the £50,000 generates no income at all."
   }
  },
@@ -22542,13 +22542,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>UK incomes are unequally distributed:</strong> the top 20% receive about 40% of all income; the bottom 20% only about 6–8%. The gap in GROSS income (before tax) is even larger — the progressive tax system narrows it somewhat.</p>\n<p><strong>Wealth is distributed even more unequally than income.</strong> The top 10% of wealth holders hold over <strong>48.5%</strong> of all wealth, while the bottom 30% hold barely <strong>1%</strong> between them. Every exam extract repeats this point.</p>\n<h4>Why INCOME is unequal</h4>\n<ul>\n<li><strong>Wage rates</strong> — set by demand and supply in each labour market. Scarce, skilled work (a surgeon, a CEO) has inelastic supply and high demand → high pay. Low-skilled work has plentiful supply → minimum wage.</li>\n<li><strong>Productivity</strong> — more productive workers are worth more, so firms pay more.</li>\n<li><strong>Ownership of wealth</strong> — assets generate interest, rent and dividends on top of wages.</li>\n<li><strong>Age</strong> — younger workers earn less through lack of experience; earnings tail off near retirement.</li>\n<li><strong>Gender</strong> — the gender pay gap widens in the highest-paying roles.</li>\n<li><strong>Education</strong> — richer households buy better schooling or live near better schools, which perpetuates the gap across generations.</li>\n<li>Also: trade unions, entry barriers to professions, zero-hours contracts, and reliance on benefits or fixed incomes such as pensions.</li>\n</ul>\n<h4>Why WEALTH is even more unequal</h4>\n<ul>\n<li><strong>Inheritance</strong> — those with wealth pass it on; those without have nothing to pass on. It perpetuates inequality across generations.</li>\n<li><strong>Savings</strong> — higher earners have money left at month end; those on benefits often cannot save at all. Saved money then buys assets that earn more.</li>\n<li><strong>Property</strong> — owning a second home brings rent AND rising property values. Renters build no asset at all.</li>\n<li><strong>Shares</strong> — most people own none; those who do gain dividends and rising share values. Wealth compounds.</li>\n</ul>",
   "question": "Which statement about the UK is correct?",
   "options": [
-   "Wealth is distributed even more unequally than income",
+   "Income and wealth are distributed equally",
    "Income is distributed more unequally than wealth",
-   "Only wealth is unequally distributed",
-   "Income and wealth are distributed equally"
+   "Wealth is distributed even more unequally than income",
+   "Only wealth is unequally distributed"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "The top 10% hold over 48.5% of wealth while the bottom 30% hold about 1%. Every exam extract on this topic states that wealth is more unevenly distributed than income."
   }
  },
@@ -22563,13 +22563,13 @@ window.QUESTION_BANK = [
   "reading": "<p>The spec asks you to <strong>evaluate the consequences for an economy</strong>. Learn the two poverty definitions first — they frame everything.</p>\n<h4>Two kinds of poverty</h4>\n<ul>\n<li><strong>Absolute poverty</strong> — lacking the basic necessities: food, shelter, clothing, power, sanitation. Common in developing nations, but present in the UK too (e.g. homelessness).</li>\n<li><strong>Relative poverty</strong> — a household with <strong>less than 60% of median income</strong>. More common in developed nations; around 25% of UK households.</li>\n<li>Evidence in the UK: record food-bank use, and \"warm banks\" for people who cannot afford to heat their homes.</li>\n</ul>\n<h4>Consequences for people</h4>\n<ul>\n<li><strong>Poor housing</strong> — low-income households cannot get mortgages, so they rent, often in poorly insulated older buildings clustered in deprived areas.</li>\n<li><strong>Poor health</strong> — lower life expectancy and higher infant mortality; poorer households struggle to afford good food or exercise, and rely on cheap fast food.</li>\n<li><strong>Poor education</strong> — deprived areas have weaker schools, so inequality of opportunity persists across generations.</li>\n</ul>\n<h4>Consequences for the ECONOMY — the evaluation marks</h4>\n<ul>\n<li><strong>Loss of talent</strong> — able people from poor backgrounds never gain the skills to be productive, or simply \"give up\".</li>\n<li><strong>Excluded workers</strong> remain unemployed and are a drain on the economy.</li>\n<li><strong>Wasted resources</strong> — money goes on maintaining health rather than generating growth.</li>\n<li><strong>Skewed production</strong> — firms supply what those with spending power demand, so more luxuries for the wealthy and less of what the poor need.</li>\n<li><strong>Lower economic growth</strong> overall.</li>\n</ul>\n<h4>Measuring it</h4>\n<ul>\n<li><strong>HDI</strong> (Human Development Index) measures quality of life from life expectancy, education and gross income per capita. <strong>IHDI</strong> adjusts it for inequality and is always lower — by a few points in developed countries, but by 30–40% where the rich/poor gap is starkest.</li>\n</ul>",
   "question": "Relative poverty is defined as a household with...",
   "options": [
-   "Less than 60% of median income",
    "Below the national minimum wage",
+   "No food, shelter or clothing",
    "No savings at all",
-   "No food, shelter or clothing"
+   "Less than 60% of median income"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Relative poverty is measured against the typical income in that society (under 60% of median). Lacking basic necessities is ABSOLUTE poverty."
   }
  },
@@ -22584,13 +22584,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Governments redistribute using four main measures. Each has a trade-off, which is where the evaluation marks live.</p>\n<h4>1. Progressive taxes</h4>\n<ul>\n<li>Higher earners pay a higher RATE on their higher earnings. The UK bands: 0% up to the Personal Allowance, then 20% basic, 40% higher, 45% additional.</li>\n<li><strong>Crucial: only the slice ABOVE each threshold is taxed at the higher rate</strong> — moving into a higher band never means all your income is taxed at that rate.</li>\n<li><strong>Downside:</strong> very high rates can discourage promotions or extra hours, and may push high earners to become non-domiciled or leave the country entirely.</li>\n</ul>\n<h4>2. Benefits</h4>\n<ul>\n<li>Provide income to the unemployed, retired and long-term ill, funded by taxes on those working — a direct redistribution.</li>\n<li><strong>Downside:</strong> if benefits are too generous, some may be discouraged from working. They also carry an opportunity cost — around one third of central government spending goes on benefits.</li>\n</ul>\n<h4>3. National Minimum Wage / National Living Wage</h4>\n<ul>\n<li><strong>Minimum Wage</strong> applies from school-leaving age to 22; the <strong>Living Wage</strong> applies at 23 and over. It ensures low-skilled workers earn a decent wage.</li>\n<li><strong>Downside:</strong> raising it is a significant cost to firms employing such staff, which could lead them to cut jobs.</li>\n</ul>\n<h4>4. Cutting indirect taxes (e.g. VAT)</h4>\n<ul>\n<li><strong>VAT is REGRESSIVE</strong> — everyone pays the same amount on a product, but that is a higher PROPORTION of a low earner's income. So cutting VAT helps low earners proportionally more.</li>\n</ul>\n<p>Other measures reduce increases in wealth directly — <strong>inheritance tax</strong> breaks up large estates, and taxing interest on savings takes proportionally more from the wealthy who hold most savings.</p>",
   "question": "Why is VAT described as a regressive tax?",
   "options": [
-   "Only poor people pay it",
-   "It is charged only on luxuries",
    "It takes a higher proportion of a low earner's income than a high earner's",
-   "The rate rises as income rises"
+   "The rate rises as income rises",
+   "It is charged only on luxuries",
+   "Only poor people pay it"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Everyone pays the same amount of VAT on the same product, but that sum is a much bigger share of a small income — so it hits the poor proportionally harder."
   }
  },
@@ -22605,13 +22605,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Casey earns £30,500 and Taylor earns £27,280 — so that's most of their wealth right there.\"</p><p><strong>✅ The correct idea:</strong> Salaries are INCOME, not wealth. This single confusion is what the whole topic is built on, and the paper tests it at least four separate ways. Wealth is only the STOCK of assets: for Casey and Taylor that is the motorbike (£4,000) + car (£9,000) + pension fund (£20,000) + exercise machine (£2,200) + savings (£12,400) = £47,600. The two salaries AND the £250 of savings interest are all flows of income and none of them counts. The mirror trap runs the other way: Trevor's 'new car £30,000' and 'savings £8,000' are stocks, so his INCOME is only earnings + interest + rent = £35,040. Sort every table into flows and stocks before you add a single figure.</p>",
   "question": "Which items count towards Casey and Taylor's WEALTH?",
   "options": [
+   "The motorbike, car, pension fund, exercise machine and savings",
    "Only the joint savings account",
    "Everything in the table added together",
-   "Both salaries plus the savings interest",
-   "The motorbike, car, pension fund, exercise machine and savings"
+   "Both salaries plus the savings interest"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "Wealth = assets owned = £47,600. The salaries and the interest are income flows, so they are excluded entirely."
   }
  },
@@ -22626,13 +22626,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"The richest 40% is the top fifth plus the second fifth, so 45% + 11% = 56%.\"</p><p><strong>✅ The correct idea:</strong> This exact error is named in the examiner's report: 'some confused the 4th fifth with the 2nd fifth and answered 56% incorrectly'. The fifths are counted from the BOTTOM up — bottom fifth (poorest), second fifth, third fifth, fourth fifth, top fifth (richest). So the richest 40% is the TOP fifth plus the FOURTH fifth: 45% + 22% = 67%. The giveaway is that the shares must rise steadily as you move up (7, 11, 15, 22, 45) — if your two 'richest' slices aren't the two biggest, you've picked the wrong ones. The same logic gives the poorest 60% on the UK pie: third + fourth + bottom = 16% + 12% + 6% = 34%.</p>",
   "question": "In 2021 Indonesia's fifths were: bottom 7%, second 11%, third 15%, fourth 22%, top 45%. The richest 40% receive...",
   "options": [
-   "56% (top + second fifths)",
    "45% (top fifth only)",
-   "67% (top + fourth fifths)",
-   "33% (the rest)"
+   "56% (top + second fifths)",
+   "33% (the rest)",
+   "67% (top + fourth fifths)"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "Fifths count from the bottom up, so the richest two are the TOP and FOURTH fifths: 45 + 22 = 67%. Picking the 'second fifth' gives the examiner-flagged wrong answer of 56%."
   }
  },
@@ -22647,13 +22647,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Someone earning £20,000 pays 20% income tax, so £4,000.\"</p><p><strong>✅ The correct idea:</strong> The examiners reported that a significant proportion of candidates did not factor in the £11,850 Personal Allowance at all. Tax bands are MARGINAL: the first £11,850 is taxed at 0%, and only the income ABOVE it is taxed at the basic 20% rate. So the answer is 20% × (£20,000 − £11,850) = 20% × £8,150 = £1,630. (Some candidates who did remember the allowance then used £11,851 by mistake — subtract £11,850.) The same principle kills the classic misconception that moving into the 40% band taxes ALL your income at 40%: it never does, so earning more always leaves you with more.</p>",
   "question": "With a £11,850 Personal Allowance and a 20% basic rate, how much income tax does someone earning £20,000 pay?",
   "options": [
-   "£4,000",
    "£1,630",
+   "£1,630 plus 40% on the rest",
    "£2,370",
-   "£1,630 plus 40% on the rest"
+   "£4,000"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "20% × (£20,000 − £11,850) = £1,630. Forgetting the Personal Allowance and taxing the whole £20,000 was the flagged error."
   }
  },
@@ -22670,11 +22670,11 @@ window.QUESTION_BANK = [
   "options": [
    "Pupils at school gain qualifications",
    "Patients treated by the NHS get better healthcare",
-   "Benefit claimants receive more money",
-   "Vaccinations stop diseases spreading to people who weren't vaccinated"
+   "Vaccinations stop diseases spreading to people who weren't vaccinated",
+   "Benefit claimants receive more money"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "An externality benefits THIRD parties. The other options are direct benefits to the people receiving the service — the exact error the examiners flagged."
   }
  },
@@ -22690,8 +22690,8 @@ window.QUESTION_BANK = [
   "question": "What turns a conclusion into a SUPPORTED judgement?",
   "options": [
    "It restates the points already made",
-   "It uses the word 'Overall'",
    "It lists the advantages one more time",
+   "It uses the word 'Overall'",
    "It gives a reason and says what the answer depends on"
   ],
   "key": {
@@ -22710,9 +22710,9 @@ window.QUESTION_BANK = [
   "reading": "<p>The short questions here are pure vocabulary tests:</p>\n<ul>\n<li><strong>Wealth</strong> = \"a STOCK of assets owned by a person, group or country\". Saying only \"the value of assets owned\" is worth 1 mark — the word <em>stock</em> earns the second.</li>\n<li><strong>Income</strong> = a FLOW of money received over time for the services of a factor of production.</li>\n<li><strong>Types of income</strong>: wages, interest, profit, rent, state benefits. <strong>Apart from wages</strong>: rent, profits, interest/dividends, benefits.</li>\n<li><strong>Explain a cause of inequality</strong>: a bare \"differences in wages\" is 1 mark. Develop it — \"some workers are on the minimum wage while others earn six figures, because scarce skills have inelastic supply\".</li>\n</ul>",
   "question": "Which definition of wealth earns both marks?",
   "options": [
-   "Everything a person earns and owns",
-   "The money someone receives each year",
    "The value of assets owned",
+   "The money someone receives each year",
+   "Everything a person earns and owns",
    "A stock of assets owned by a person, group or country"
   ],
   "key": {
@@ -22731,13 +22731,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Every calculation on this paper is really a sorting exercise:</p>\n<ul>\n<li><strong>Wealth questions</strong>: add ONLY the assets. Casey and Taylor = £47,600 (exclude both salaries and the interest).</li>\n<li><strong>Income questions</strong>: add ONLY the flows. Trevor = £30,000 + £40 + £5,000 = £35,040 (exclude the car, savings, pension contributions and ISA).</li>\n<li><strong>Income tax</strong>: subtract the Personal Allowance FIRST. 20% × (£20,000 − £11,850) = <strong>£1,630</strong> — and the £ sign is required for full marks.</li>\n<li><strong>Pie-chart shares</strong>: count the fifths from the BOTTOM up. Richest 40% = top + fourth fifth = 67%. Poorest 60% = third + fourth + bottom = 34%.</li>\n</ul>",
   "question": "For a 'total wealth' calculation from a table, you should add...",
   "options": [
-   "Only the assets — excluding salaries and interest",
    "Assets plus one year's income",
    "Only the salaries",
+   "Only the assets — excluding salaries and interest",
    "Everything listed in the table"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "Wealth is a stock of assets. Salaries and interest are income flows and must be excluded — this is the paper's most repeated trap."
   }
  },
@@ -22752,13 +22752,13 @@ window.QUESTION_BANK = [
   "reading": "<p>These are 1 mark for the answer + 1 mark for the justification. You must do both.</p>\n<ul>\n<li><strong>\"Which country has the most equal distribution?\"</strong> → Finland. Justify: its richest 10% take the smallest share (22.4% vs the USA's 30.6%) AND its poorest 10% take the largest (3.9% vs 1.7%) — both closest to the 10% perfect equality would give. The ratio test also works: 5.74 for Finland vs 18.06 for the USA.</li>\n<li><strong>\"How has the distribution changed?\"</strong> → say it became more unequal (1) AND quote the data (1): the top fifth rose 40%→45% while the bottom fifth fell 9%→7%.</li>\n<li><strong>You cannot copy directly from the extract's text</strong> — the mark scheme says so explicitly.</li>\n</ul>",
   "question": "Perfect income equality would show what figure in both the 'richest 10%' and 'poorest 10%' columns?",
   "options": [
-   "10%",
-   "50%",
    "0%",
-   "100%"
+   "100%",
+   "10%",
+   "50%"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "If income were shared perfectly equally, each 10% of the population would receive exactly 10% of income — which is why Finland (22.4 / 3.9) is closest to equal."
   }
  },
@@ -22773,13 +22773,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Both 6-mark Evaluates on this paper turn on the same structure — a genuine trade-off plus a supported judgement.</p>\n<ul>\n<li><strong>\"Consequences of redistributing income\"</strong>: costs are the disincentive to earn more near a threshold, migration of high earners avoiding tax, and the opportunity cost of benefits (a third of the £553.5bn spent). Weigh against less poverty and a fairer distribution.</li>\n<li><strong>\"Consequences of unequal income for the ECONOMY\"</strong>: keep it economy-focused — loss of talent, excluded workers as a drain, resources wasted on health rather than growth, and ultimately lower economic growth. Poor housing and health are the route, not the destination.</li>\n<li><strong>Support the judgement.</strong> The examiners criticised \"an unsubstantiated judgement at the end\". Say what it depends on — how high the top rates go, how far redistribution offsets the gap, whether incentives survive.</li>\n</ul>",
   "question": "For 'evaluate the consequences for the ECONOMY of unequal income', which point best targets the question?",
   "options": [
-   "The rich can afford more luxuries",
-   "Food bank use has risen",
    "Poor households live in rented housing",
-   "Loss of talent and lower economic growth"
+   "The rich can afford more luxuries",
+   "Loss of talent and lower economic growth",
+   "Food bank use has risen"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "The question is about the ECONOMY. Poverty and housing are the mechanism; the economic consequences are lost talent, wasted resources and lower growth."
   }
  },
@@ -23940,13 +23940,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Inflation is best defined as...",
   "options": [
+   "A sustained rise in the general level of prices over time",
    "An increase in the money supply",
    "A fall in the value of exports",
-   "A sustained rise in the general level of prices over time",
    "A rise in the price of one good"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Inflation is a sustained rise in the GENERAL price level, which means the purchasing power of money falls. A single good's price rising is not inflation."
   }
  },
@@ -23959,13 +23959,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A nominal value is one which...",
   "options": [
-   "Has not been adjusted for inflation",
+   "Has been adjusted for inflation",
    "Has not been adjusted for taxation",
-   "Has been adjusted for taxation",
-   "Has been adjusted for inflation"
+   "Has not been adjusted for inflation",
+   "Has been adjusted for taxation"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "Nominal = the raw money figure. REAL is the one adjusted for inflation to show purchasing power."
   }
  },
@@ -23980,11 +23980,11 @@ window.QUESTION_BANK = [
   "options": [
    "Prices never change at all",
    "Inflation remains constant",
-   "A sustained rise in the general price level",
-   "Prices increase at an acceptable low rate"
+   "Prices increase at an acceptable low rate",
+   "A sustained rise in the general price level"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "Price stability means low, predictable price rises around the 2% target. 'Inflation remains constant' is wrong — it could be constant at 20%, which is not stable prices."
   }
  },
@@ -23997,13 +23997,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Nominal interest is 4% and inflation is 2%. The real interest rate is...",
   "options": [
-   "6%",
+   "2%",
    "4%",
-   "-2%",
-   "2%"
+   "6%",
+   "-2%"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "Real = nominal − inflation = 4 − 2 = 2%. Your savings only grow 2% in terms of what they can actually buy."
   }
  },
@@ -24016,10 +24016,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Inflation is 2.6% and the nominal interest rate on debt is 1.6%. The real interest rate is...",
   "options": [
-   "4.2%",
    "1%",
+   "-4.2%",
    "-1%",
-   "-4.2%"
+   "4.2%"
   ],
   "key": {
    "answer": 2,
@@ -24035,13 +24035,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which statement about the CPI is NOT correct?",
   "options": [
+   "It is measured every month",
    "It only measures the price of goods",
    "It uses a system of weighting",
-   "It measures what an average family spends money on",
-   "It is measured every month"
+   "It measures what an average family spends money on"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "CPI covers goods AND services. The other three statements are all true of the CPI."
   }
  },
@@ -24054,13 +24054,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A £45 monthly contract faces 4% inflation in year one and 5% in year two. Its price at the end is...",
   "options": [
-   "£47.25",
    "£49.14",
    "£46.80",
-   "£49.05"
+   "£49.05",
+   "£47.25"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "Apply each rate in turn: £45 × 1.04 = £46.80, then £46.80 × 1.05 = £49.14. Adding 9% in one step gives £49.05 — the trap."
   }
  },
@@ -24073,13 +24073,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "If the rate of inflation is decreasing but still positive, the price level will...",
   "options": [
-   "Rise",
-   "Fall",
    "Become negative",
-   "Stay the same"
+   "Fall",
+   "Stay the same",
+   "Rise"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "A positive rate means prices are still rising — just more slowly than before. Only a NEGATIVE rate makes the price level fall."
   }
  },
@@ -24093,9 +24093,9 @@ window.QUESTION_BANK = [
   "question": "Which is a consequence of inflation for PRODUCERS?",
   "options": [
    "An increase in menu costs",
-   "Real incomes may fall",
+   "An increase in the purchasing power of money",
    "An increase in shoe leather costs",
-   "An increase in the purchasing power of money"
+   "Real incomes may fall"
   ],
   "key": {
    "answer": 0,
@@ -24111,13 +24111,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Under which circumstances would it be best to be a lender?",
   "options": [
-   "Nominal interest 7%, inflation 4%",
-   "Nominal interest 0%, inflation 0%",
    "Nominal interest 2%, inflation 5%",
-   "Nominal interest 5%, inflation 1%"
+   "Nominal interest 7%, inflation 4%",
+   "Nominal interest 5%, inflation 1%",
+   "Nominal interest 0%, inflation 0%"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "A lender wants the highest REAL return: 5 − 1 = +4%, beating 7 − 4 = +3%. The higher nominal rate is not the better deal — the trap."
   }
  },
@@ -24257,13 +24257,13 @@ window.QUESTION_BANK = [
   "reading": "<p>The UK measures inflation with the <strong>Consumer Price Index (CPI)</strong> — get all three words right; \"customer price index\" is a real MCQ distractor.</p>\n<h4>How the CPI works</h4>\n<ul>\n<li>It tracks the changing cost of a representative <strong>\"basket of goods and services\"</strong> that a typical household buys.</li>\n<li>Prices are collected <strong>monthly</strong>, from a variety of store types across roughly <strong>140 UK locations</strong>, plus online and phone — so it reflects prices faced across the country.</li>\n<li>It uses a system of <strong>weighting</strong>, so items households spend more on count for more. Food and non-alcoholic beverages is by far the largest of the 24 categories.</li>\n<li>The basket <strong>changes over time</strong> to track what people actually buy. In 2022 it added meat-free sausages, canned pulses, sports bras and antibacterial wipes — and removed doughnuts, men's suits and coal.</li>\n</ul>\n<h4>What CPI does and does NOT include — all real MCQs</h4>\n<ul>\n<li>✅ Goods <strong>AND services</strong> — saying it \"only measures goods\" is false.</li>\n<li>✅ Things a household buys, e.g. children's clothes.</li>\n<li>❌ <strong>Exports</strong> — they are bought by foreigners, not UK consumers.</li>\n<li>❌ Government spending, and machinery bought by firms.</li>\n<li>❌ It is a representative BASKET, not \"all goods and services in the UK\".</li>\n</ul>\n<h4>Applying an inflation rate</h4>\n<ul>\n<li>Apply each year's rate <strong>one after the other</strong>, not added together. £45 with 4% then 5% inflation → £45 × 1.04 = £46.80, then £46.80 × 1.05 = <strong>£49.14</strong>. Adding 9% in one step gives £49.05 — the wrong answer.</li>\n</ul>",
   "question": "Which is included in the UK's CPI?",
   "options": [
-   "The price of a machine bought by a company",
    "The price of exports",
-   "Government spending on education",
-   "The price of children's clothes"
+   "The price of a machine bought by a company",
+   "The price of children's clothes",
+   "Government spending on education"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "CPI tracks the basket bought by typical UK consumers. Exports go to foreigners; government spending and firms' capital machinery aren't household purchases."
   }
  },
@@ -24278,13 +24278,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Two primary causes — you must be able to name and explain both.</p>\n<h4>1. Demand-pull inflation</h4>\n<ul>\n<li>Caused by <strong>excess demand</strong> that supply cannot rise to meet, so prices are bid up.</li>\n<li>More likely when the economy is near <strong>full employment</strong>, because firms cannot easily hire the extra workers needed to supply more.</li>\n<li>Triggers: a rise in C, I, G or (X−M); a fall in interest rates; an increase in the money supply or quantitative easing.</li>\n</ul>\n<h4>2. Cost-push inflation</h4>\n<ul>\n<li>Caused by <strong>rising costs</strong> for firms — raw materials, fuel, power — so they will not supply the same output at the old price.</li>\n<li>Example: the war in Ukraine sharply raised gas, oil and grain prices, and firms passed those costs on.</li>\n<li>Watch for the productivity version: a <strong>10% pay rise with only 6% productivity growth</strong> raises the labour cost of each unit → cost-push inflation.</li>\n</ul>\n<h4>The wage-price spiral — a ready-made analysis chain</h4>\n<ul>\n<li>1. General prices rise, so the cost of living increases → 2. Workers demand higher wages → 3. Firms pay more, so their costs rise → 4. Firms raise prices to cover those costs → 5. Back to step 1.</li>\n<li>Wages are typically a firm's biggest expense, so this vicious cycle can keep generating inflation unless it is brought under control.</li>\n</ul>",
   "question": "Workers get a 10% pay rise but productivity rises only 6%. The most likely result is...",
   "options": [
-   "An increase in cost-push inflation",
-   "An increase in consumer debt",
    "A fall in consumer confidence",
-   "A fall in government tax revenue"
+   "An increase in consumer debt",
+   "A fall in government tax revenue",
+   "An increase in cost-push inflation"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Pay is rising faster than output per worker, so the labour cost of each unit produced rises. Firms pass that on as higher prices — cost-push inflation."
   }
  },
@@ -24299,8 +24299,8 @@ window.QUESTION_BANK = [
   "reading": "<p>The spec asks you to evaluate consequences for <strong>consumers, producers, savers and the government</strong> — know each group separately, because questions name one.</p>\n<h4>For consumers</h4>\n<ul>\n<li><strong>Real incomes may fall</strong> — most workers get a below-inflation pay rise, so their standard of living drops.</li>\n<li><strong>The rich/poor gap WIDENS</strong> — high-skill workers in short supply can negotiate above-inflation rises; those on the minimum wage or benefits cannot.</li>\n<li><strong>Falling consumer confidence</strong> — uncertainty pushes people to save rather than spend and to delay big purchases.</li>\n<li><strong>Shoe leather costs</strong> — the time and effort spent shopping around comparing prices.</li>\n</ul>\n<h4>For producers</h4>\n<ul>\n<li><strong>Higher input costs → lower profits</strong> — the simplest and strongest chain.</li>\n<li><strong>Menu costs</strong> — repeatedly changing price lists, websites and shelf labels costs staff time and money.</li>\n<li><strong>Falling producer confidence</strong> — firms delay investment. Sellers of big-ticket items (cars, furniture) suffer most as consumers postpone.</li>\n<li><strong>Industrial conflict</strong> — pay disputes lead to strikes; UK inflation drove the most strikes since the 1970s.</li>\n</ul>\n<h4>For the government — genuinely mixed</h4>\n<ul>\n<li><strong>Gains:</strong> as a net debtor, inflation cuts the real value of its debt; and tax revenue rises automatically, since VAT and income tax are percentages of prices and wages.</li>\n<li><strong>Costs:</strong> higher public sector pay (it employs over 3.5 million people); index-linked benefits and the state pension's triple lock; and instability that dries up growth.</li>\n</ul>\n<p><strong>The key evaluation lever:</strong> inflation is bad for most people but <strong>worse for some than others</strong>, and it depends on the SIZE of the rate, whether it is positive or negative, and how LONG it lasts.</p>",
   "question": "Why does high inflation tend to widen the gap between rich and poor?",
   "options": [
-   "Inflation only affects savings",
    "Rich people pay more tax",
+   "Inflation only affects savings",
    "High-skill workers can negotiate above-inflation pay rises; those on benefits cannot",
    "Prices rise faster for luxuries"
   ],
@@ -24321,12 +24321,12 @@ window.QUESTION_BANK = [
   "question": "A country's inflation falls from 8.1% to 0.3%. What happened to its price level?",
   "options": [
    "It fell sharply",
-   "It became negative",
    "It stayed exactly the same",
-   "It rose, but much more slowly"
+   "It rose, but much more slowly",
+   "It became negative"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "0.3% is positive, so prices still rose — just far more slowly. A falling RATE is not falling PRICES. Only a negative rate means the level falls."
   }
  },
@@ -24342,8 +24342,8 @@ window.QUESTION_BANK = [
   "question": "Chile's inflation is positive every year from 2006–2019, bottoming at 0.4% in 2009. Prices were at their LOWEST level in...",
   "options": [
    "2009",
-   "2019",
    "2014",
+   "2019",
    "2006"
   ],
   "key": {
@@ -24362,13 +24362,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"£45 with 4% then 5% inflation is £45 plus 9% = £49.05.\"</p><p><strong>✅ The correct idea:</strong> You cannot add the rates. Each year's inflation applies to the ALREADY-INFLATED price, so you must apply them one after the other. £45 × 1.04 = £46.80 (end of year one), then £46.80 × 1.05 = £49.14 (end of year two). The examiners spelled this out: it 'required candidates completing two steps of calculation'. The difference looks small here (£49.14 vs £49.05) but the method matters — and £49.05 is deliberately offered as option C to catch anyone who adds. The same logic applies to any compounding: rates multiply, they don't add.</p>",
   "question": "£45 faces 4% inflation then 5% inflation. The correct answer is...",
   "options": [
-   "£47.25 — apply 5% only",
-   "£49.05 — add 9% to £45",
    "£49.14 — apply 4% then 5% to the new figure",
-   "£46.80 — apply 4% only"
+   "£47.25 — apply 5% only",
+   "£46.80 — apply 4% only",
+   "£49.05 — add 9% to £45"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Inflation compounds: £45 × 1.04 = £46.80, then × 1.05 = £49.14. The second year's 5% applies to £46.80, not to the original £45."
   }
  },
@@ -24383,13 +24383,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Price stability means inflation stays constant.\"</p><p><strong>✅ The correct idea:</strong> The examiners flagged 'C' (inflation remains constant) as a common misconception on this exact MCQ, and explained why it's wrong: inflation could be CONSTANT at a very high rate — say 20% every year — and that is obviously not stable prices. Price stability means the general price level grows at an ACCEPTABLY LOW rate, such as the UK government's 2% target. A second version of the same error confuses price stability with EQUALITY (a fair distribution of income), which is a completely different macroeconomic objective. And note the third trap: price stability does NOT mean zero inflation — governments deliberately target about 2%, because a little inflation helps firms adjust prices.</p>",
   "question": "Why is 'inflation remains constant' a poor definition of price stability?",
   "options": [
+   "Inflation could be constant at a very high rate, e.g. 20%",
    "Inflation is never constant",
-   "Constant inflation means prices fall",
    "It is the definition of deflation",
-   "Inflation could be constant at a very high rate, e.g. 20%"
+   "Constant inflation means prices fall"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "The examiners' own explanation: constant inflation at a high rate is not stable prices. Stability means a LOW rate, around the 2% target."
   }
  },
@@ -24404,13 +24404,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Inflation is bad for the government — end of story.\"</p><p><strong>✅ The correct idea:</strong> The consequences for government are genuinely MIXED, and the mark scheme rewards both sides. Costs: more spending on index-linked pensions and universal credit, more on public sector wages (it employs over 3.5 million people), and more strikes if it can't agree pay rises. But the gains are real: as a net debtor, inflation cuts the REAL value of the government's debt — the extract itself says it is persistently NEGATIVE inflation that would raise the real value of debt above nominal. Chile's government paid a real interest rate of −1% in 2019, meaning inflation shrank the debt faster than interest accrued. Tax revenue also rises automatically, since VAT and income tax are percentages of prices and wages. Evaluate on how HIGH inflation is, whether it's positive or negative, and how LONG it lasts.</p>",
   "question": "Which is a genuine BENEFIT of inflation for a government?",
   "options": [
-   "Strikes become more likely",
    "The real value of its debt falls",
-   "Public sector workers demand higher pay",
-   "It spends more on index-linked pensions"
+   "It spends more on index-linked pensions",
+   "Strikes become more likely",
+   "Public sector workers demand higher pay"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "As a net debtor, the government gains: inflation erodes the real value of its debt, and tax revenue rises automatically. The other three are costs."
   }
  },
@@ -24425,13 +24425,13 @@ window.QUESTION_BANK = [
   "reading": "<p>The examiners were explicit: \"candidates who answered this question well had learnt a PRECISE definition.\" Each of these needs TWO elements:</p>\n<ul>\n<li><strong>Price stability</strong> = the general price level grows at a LOW rate (1) + such as the government's 2% target (1). \"Prices do not go up\" = 1 mark.</li>\n<li><strong>Inflation</strong> = a sustained rise in the GENERAL price level over time — and it's worth stating in an 'Analyse' answer, since knowledge IS credited there.</li>\n<li><strong>Nominal</strong> = not adjusted for inflation. <strong>Real</strong> = adjusted for inflation.</li>\n<li><strong>Two macroeconomic objectives</strong> (other than price stability): low unemployment, economic growth, balanced current account, stable exchange rate. <strong>Do NOT write \"controlling inflation\"</strong> — the mark scheme explicitly refuses it.</li>\n</ul>",
   "question": "For 'other than price stability, state two macroeconomic objectives', which answer is explicitly NOT accepted?",
   "options": [
+   "Low unemployment",
    "A balanced current account",
-   "Controlling inflation",
    "Economic growth",
-   "Low unemployment"
+   "Controlling inflation"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "The mark scheme says: 'Do NOT accept price stability or controlling inflation' — they're the same objective the question excluded."
   }
  },
@@ -24467,13 +24467,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Every data question on this paper tests one idea — and it is the topic's biggest trap.</p>\n<ul>\n<li><strong>If the rate is positive, the level is RISING.</strong> A falling positive rate = prices rising more slowly. Only a negative rate = prices falling.</li>\n<li><strong>So the price LEVEL is lowest in the FIRST year shown</strong> whenever the rate never goes negative — hence \"prices lowest = 2006\" while \"CPI lowest = 2009\".</li>\n<li><strong>Two elements for 2 marks:</strong> \"the price level increased (1) because inflation stayed positive, but at a decreasing rate (1)\".</li>\n<li><strong>Real value of savings:</strong> falls, because inflation is always positive → purchasing power falls.</li>\n</ul>",
   "question": "For 'what happened to the price level between Aug 2013 and Feb 2015?', what earns both marks?",
   "options": [
-   "Inflation was low",
-   "It rose because inflation stayed positive, but at a decreasing rate",
+   "The price level fell",
    "Inflation fell from 2.7% to 0.3%",
-   "The price level fell"
+   "Inflation was low",
+   "It rose because inflation stayed positive, but at a decreasing rate"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "Describing only the change in inflation misses the question, which asks about the price LEVEL. You need the rise (1) plus the decreasing rate (1)."
   }
  },
@@ -25859,13 +25859,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Fiscal policy is best defined as...",
   "options": [
-   "The Bank of England setting interest rates",
-   "Policies to raise the economy's productive capacity",
    "Government spending and taxation policy",
-   "Controlling the money supply"
+   "Policies to raise the economy's productive capacity",
+   "Controlling the money supply",
+   "The Bank of England setting interest rates"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Fiscal policy IS government spending and taxation. Interest rates and the money supply are monetary policy; raising productive capacity is supply-side policy."
   }
  },
@@ -25879,9 +25879,9 @@ window.QUESTION_BANK = [
   "question": "Which of these is a DIRECT tax?",
   "options": [
    "Corporation tax",
-   "Excise duty on alcohol",
+   "VAT",
    "Excise duty on fuel",
-   "VAT"
+   "Excise duty on alcohol"
   ],
   "key": {
    "answer": 0,
@@ -25897,13 +25897,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A budget deficit means that...",
   "options": [
-   "Imports exceed exports",
    "Tax revenue is less than government spending",
-   "The current account is in surplus",
-   "The government has no money left"
+   "Imports exceed exports",
+   "The government has no money left",
+   "The current account is in surplus"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "A budget deficit is the government spending more than it raises, financed by borrowing. Imports exceeding exports is a TRADE deficit — a common distractor."
   }
  },
@@ -25916,13 +25916,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Income £10,000 → tax £1,000; income £30,000 → tax £10,000. This tax system is...",
   "options": [
+   "A flat tax",
    "Progressive",
    "Proportional",
-   "Regressive",
-   "A flat tax"
+   "Regressive"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "As a percentage: 10% then 33%. The PROPORTION taken rises with income — that is what progressive means. A proportional tax takes the same % at every level."
   }
  },
@@ -25974,12 +25974,12 @@ window.QUESTION_BANK = [
   "question": "Which of these serves the objectives of economic growth and low unemployment?",
   "options": [
    "Raising interest rates",
+   "A balanced budget",
    "A deficit budget",
-   "A surplus budget",
-   "A balanced budget"
+   "A surplus budget"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "A deficit budget (spend more, tax less) raises demand, so firms produce more and hire more — targeting growth and jobs. A surplus targets low inflation and the balance of payments."
   }
  },
@@ -25993,12 +25993,12 @@ window.QUESTION_BANK = [
   "question": "How can fiscal policy be used to achieve economic growth?",
   "options": [
    "An increase in interest rates will encourage households to save",
-   "Lower levels of taxation will encourage more household spending",
+   "A decrease in government spending to achieve a budget surplus",
    "Improved education standards will increase the supply of labour",
-   "A decrease in government spending to achieve a budget surplus"
+   "Lower levels of taxation will encourage more household spending"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "Only A is fiscal policy AND expansionary. B is monetary policy, C is supply-side policy, and D would reduce demand and slow growth."
   }
  },
@@ -26012,12 +26012,12 @@ window.QUESTION_BANK = [
   "question": "Government spending on HS2 becomes income for construction firms, who pay steel suppliers, who pay others. This is the...",
   "options": [
    "Reverse multiplier",
-   "Multiplier effect",
+   "Crowding out effect",
    "Opportunity cost",
-   "Crowding out effect"
+   "Multiplier effect"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "Each round of spending becomes someone's income, who spends again — multiplying the original injection through the economy. Cutting spending runs it in reverse."
   }
  },
@@ -26030,13 +26030,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A government cuts benefits to improve work incentives, but poverty rises among the unemployed. This policy cost is called...",
   "options": [
+   "Externalities",
    "Unintended effects",
    "Resistance to policies",
-   "Time lags",
-   "Externalities"
+   "Time lags"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "The government aimed at work incentives but caused something it did not intend. Time lags would mean the policy simply takes too long to work."
   }
  },
@@ -26155,13 +26155,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>Fiscal policy is all the choices the government makes about how it raises money (taxation) and how it spends it.</strong> It is the government's own budget — NOT interest rates, which are monetary policy.</p>\n<h4>Direct vs indirect taxes — the difference the exam wants</h4>\n<ul>\n<li><strong>Direct taxes</strong> are taxes on <strong>income or wealth</strong>, where the person liable pays it themselves. Income tax, corporation tax (on business profits), inheritance tax, capital gains tax, National Insurance, council tax.</li>\n<li><strong>Indirect taxes</strong> are taxes on <strong>spending</strong>, collected by someone else and passed on. VAT; excise duty on cigarettes, alcohol and fuel.</li>\n<li>The precise mark-scheme wording: with a <strong>direct</strong> tax the person/organisation liable must pay it; with an <strong>indirect</strong> tax it is paid by another person/organisation to the one liable.</li>\n</ul>\n<h4>Where the money comes from</h4>\n<ul>\n<li>The biggest sources are <strong>income tax, VAT and National Insurance</strong> — together just over half of all government income. Then corporation tax, excise duties, business rates and council tax.</li>\n</ul>\n<h4>Where the money goes — the purposes of spending</h4>\n<ul>\n<li><strong>Social protection</strong> (pensions, unemployment benefits, sickness support) is by far the biggest area, then <strong>health</strong> and <strong>education</strong>, then defence, transport and public order.</li>\n<li>Purposes: ensuring everyone can access health services, raising welfare, and reducing income inequality. (Maintaining a balanced current account is NOT a purpose of spending — a real MCQ.)</li>\n<li><strong>Debt interest</strong> — about £56 billion. The longer a deficit runs, the higher the debt and the more interest must be paid in future.</li>\n</ul>",
   "question": "What is the difference between a direct and an indirect tax?",
   "options": [
-   "Direct taxes fund health; indirect taxes fund defence",
-   "A direct tax is paid by the person liable for it; an indirect tax is collected and passed on by someone else",
    "A direct tax is set by the Bank of England",
-   "A direct tax is bigger than an indirect tax"
+   "A direct tax is bigger than an indirect tax",
+   "Direct taxes fund health; indirect taxes fund defence",
+   "A direct tax is paid by the person liable for it; an indirect tax is collected and passed on by someone else"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "Direct = the liable person pays it (income tax). Indirect = a tax on spending that the seller hands over (VAT). That is the mark scheme's exact distinction."
   }
  },
@@ -26176,13 +26176,13 @@ window.QUESTION_BANK = [
   "reading": "<p>The government's plans for spending and taxation are set out in its <strong>budget</strong>. Fiscal policy has four objectives: <strong>economic growth, low unemployment, price stability and a better balance of payments</strong>.</p>\n<h4>The three budget positions</h4>\n<ul>\n<li><strong>Balanced budget:</strong> planned spending = expected income. (i.e. <strong>tax revenue equals government spending</strong> — that exact wording is a real MCQ answer.)</li>\n<li><strong>Surplus budget:</strong> spending &lt; income — achieved by spending less or raising taxes.</li>\n<li><strong>Deficit budget:</strong> spending &gt; income — achieved by spending more or cutting taxes. The gap must be <strong>borrowed</strong>.</li>\n</ul>\n<h4>What each budget does — and which objectives it serves</h4>\n<ul>\n<li><strong>Surplus:</strong> less government demand and higher taxes → demand falls → less pressure on prices and lower wage costs → UK firms more competitive → more exports. So a surplus targets <strong>low inflation + a better balance of payments</strong>.</li>\n<li><strong>Deficit:</strong> more spending and lower taxes → demand rises → firms produce more and hire more. So a deficit targets <strong>economic growth + low unemployment</strong>.</li>\n<li>The UK has generally run a deficit — the last surplus year was <strong>2000</strong>.</li>\n</ul>\n<h4>The vocabulary that earns marks</h4>\n<ul>\n<li>A budget is in <strong>DEFICIT</strong> or <strong>SURPLUS</strong> — never \"bigger\" or \"smaller\". The examiners penalise the loose version explicitly.</li>\n<li>Don't confuse a <strong>budget</strong> deficit (government spending vs tax revenue) with a <strong>trade</strong> deficit (imports vs exports). Both appear as MCQ distractors.</li>\n</ul>",
   "question": "A government's budget is balanced when...",
   "options": [
-   "Tax revenue is equal to government spending",
-   "Exports equal imports",
    "Direct and indirect taxes raise equal amounts",
+   "Exports equal imports",
+   "Tax revenue is equal to government spending",
    "The government has no debt"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "The budget is the government's own spending versus its revenue. Exports equalling imports is balanced TRADE — a different thing, and a deliberate MCQ distractor."
   }
  },
@@ -26197,13 +26197,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Every 6-marker here wants a CHAIN. Learn these four.</p>\n<h4>Direct taxes</h4>\n<ul>\n<li><strong>Income tax DOWN</strong> → workers keep more of their wages → labour supply rises AND disposable income rises → consumption rises → total demand rises → firms produce more → growth and jobs.</li>\n<li><strong>Corporation tax DOWN</strong> → firms keep more profit and the return on investment rises → more investment → more jobs. (Corporation tax UP discourages investment.)</li>\n</ul>\n<h4>Indirect taxes</h4>\n<ul>\n<li><strong>VAT UP</strong> → goods cost more → demand falls. <strong>VAT DOWN</strong> → goods cheaper → the cost of living falls and demand rises.</li>\n<li><strong>Excise duty UP</strong> is aimed at goods with <strong>negative externalities</strong> (tobacco, alcohol, fuel) — raising the price to cut consumption. On a diagram: the tax raises production costs → <strong>supply shifts LEFT</strong> (\"S + tax\") → price rises → quantity falls. How far quantity falls depends on <strong>PED</strong> — and demand for tobacco and petrol is inelastic, so it falls only a little.</li>\n</ul>\n<h4>Government spending and the multiplier</h4>\n<ul>\n<li>Government spending is INCOME to the firms it buys from. HS2 money becomes income for construction firms → they pay steel suppliers → those firms pay others → workers spend in local shops. Each round creates jobs and income: the <strong>multiplier effect</strong>.</li>\n<li>Cutting spending runs it in <strong>reverse</strong> — a vicious circle of falling income, fewer jobs and falling demand.</li>\n</ul>\n<h4>Subsidies</h4>\n<ul>\n<li>Money given to producers or consumers to <strong>encourage</strong> goods with <strong>positive externalities</strong> — e.g. renewable energy, or the UK's vaccine subsidy that lifted measles coverage from 81% to over 91%.</li>\n</ul>",
   "question": "An indirect tax is placed on petrol. On a supply and demand diagram this...",
   "options": [
-   "Has no effect on the diagram",
    "Shifts supply right, cutting price",
    "Shifts supply LEFT, raising price and cutting quantity",
+   "Has no effect on the diagram",
    "Shifts demand left, cutting price"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "The tax raises firms' costs of production, so supply shifts left (label it 'S + tax'). Equilibrium price rises and quantity falls — and less petrol burned means lower CO2 emissions."
   }
  },
@@ -26218,13 +26218,13 @@ window.QUESTION_BANK = [
   "reading": "<p>The spec asks you to evaluate the <strong>costs, including opportunity cost, and the benefits</strong>. The examiners want you to see past the textbook effect.</p>\n<h4>The benefits</h4>\n<ul>\n<li>Tax cuts raise disposable income; spending on merit goods (education, health, transport) brings positive externalities; higher demand raises output, living standards and employment; confidence rises; the multiplier magnifies it all.</li>\n</ul>\n<h4>The costs</h4>\n<ul>\n<li><strong>A wider deficit</strong> → more government debt → more <strong>debt interest</strong> to pay, and possibly higher interest rates.</li>\n<li><strong>Inflation</strong> — likely unless productive capacity also improves, and most likely near full employment.</li>\n<li><strong>Crowding out</strong> of the private sector; spending may go to inefficient projects; political motives may drive it.</li>\n<li><strong>Opportunity cost is unavoidable.</strong> To spend more the government must cut elsewhere, raise taxes, or borrow. There is always a trade-off.</li>\n</ul>\n<h4>Unintended effects — the highest-value evaluation</h4>\n<ul>\n<li>Cut income tax expecting more work → people may work <strong>less</strong> and earn the same.</li>\n<li>Cut income tax expecting more spending → people may <strong>save</strong> it (if worried about the economy) or spend it on <strong>imports</strong>, worsening the balance of payments.</li>\n<li>Raise spending expecting more output → if supply <strong>can't</strong> respond, you get <strong>demand-pull inflation</strong> instead.</li>\n<li>Cut benefits to improve work incentives → <strong>more poverty</strong> among the unemployed. This is literally a real MCQ, answer: \"unintended effects\".</li>\n</ul>\n<p><strong>The judgement lever:</strong> nearly every fiscal evaluation turns on whether there is <strong>spare capacity</strong>, and on whether households actually <strong>spend</strong> the tax cut rather than save it.</p>",
   "question": "The government cuts benefits to improve work incentives, but poverty rises among the unemployed. This is an example of...",
   "options": [
-   "Resistance to policies",
    "Unintended effects",
    "Externalities",
-   "Time lags"
+   "Time lags",
+   "Resistance to policies"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "The aim was better work incentives; rising poverty is a side-effect the government did not intend — the definition of an unintended effect."
   }
  },
@@ -26239,10 +26239,10 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Unemployment fell, so the government's budget got smaller.\"</p><p><strong>✅ The correct idea:</strong> The Assessment for Learning note on this paper singles this out: a significant number of candidates wrote about the budget becoming 'bigger or smaller' rather than using the correct terms. The budget is the DIFFERENCE between spending and tax revenue, so it isn't 'big' or 'small' — it is in DEFICIT or SURPLUS. When unemployment falls, revenue rises AND benefit spending falls, so the right phrasing is: a SMALLER DEFICIT, a move NEARER TO BALANCE, or a LARGER SURPLUS. The related trap is confusing a BUDGET deficit (government spending vs tax revenue) with a TRADE deficit (imports vs exports) — both are offered as MCQ distractors on this very paper.</p>",
   "question": "Unemployment falls, so tax revenue rises and benefit spending falls. The correct description of the budget effect is...",
   "options": [
-   "The budget gets bigger",
+   "The budget gets smaller",
    "A smaller deficit / a move towards surplus",
-   "A trade surplus",
-   "The budget gets smaller"
+   "The budget gets bigger",
+   "A trade surplus"
   ],
   "key": {
    "answer": 1,
@@ -26260,13 +26260,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"To explain how unemployment affected the budget, I'll describe how the government used fiscal policy to cut unemployment.\"</p><p><strong>✅ The correct idea:</strong> This is a Misconception the examiners named directly on this paper: a reasonable number of candidates misunderstood the question and wrote about how the government ACHIEVED lower unemployment through expansionary fiscal policy. That was not what the question asked. The question runs the other way — unemployment CHANGED, and you must trace what that change DID to the budget (more workers → more income tax/NI/VAT; fewer claimants → less benefit spending → smaller deficit). Check the direction of causation before you start writing: is the policy the cause, or the consequence?</p>",
   "question": "'Analyse how changes in unemployment affected the government's budget' asks you to...",
   "options": [
-   "Describe the unemployment rate",
-   "Evaluate whether the policy worked",
    "Trace what the unemployment change did to tax revenue and spending",
-   "Explain how fiscal policy reduced unemployment"
+   "Explain how fiscal policy reduced unemployment",
+   "Describe the unemployment rate",
+   "Evaluate whether the policy worked"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Unemployment is the CAUSE and the budget is the effect. Writing about fiscal policy reducing unemployment reverses the causation and scores nothing."
   }
  },
@@ -26282,12 +26282,12 @@ window.QUESTION_BANK = [
   "question": "With a £12,500 allowance and 20% basic rate, someone earning £45,000 pays what % of their income in tax?",
   "options": [
    "20%",
-   "About 14%",
    "0%",
+   "About 14%",
    "29%"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "20% × (£45,000 − £12,500) = £6,500, which is 14% of £45,000. The 20% is the marginal rate — the average rate paid is always lower."
   }
  },
@@ -26304,11 +26304,11 @@ window.QUESTION_BANK = [
   "options": [
    "Pupils at school gain qualifications",
    "Patients treated by the NHS get better healthcare",
-   "Benefit claimants receive more money",
-   "Vaccinations stop diseases spreading to people who weren't vaccinated"
+   "Vaccinations stop diseases spreading to people who weren't vaccinated",
+   "Benefit claimants receive more money"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "An externality benefits THIRD parties. The others are direct benefits to the people receiving the service — the exact error the examiners flagged."
   }
  },
@@ -26323,13 +26323,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Cutting income tax raises disposable income, so demand rises and growth follows. Done.\"</p><p><strong>✅ The correct idea:</strong> That is the textbook effect, and stopping there is what the examiners called an unsubstantiated answer. Real behaviour can defeat it — this is where the evaluation marks are. People may SAVE the tax cut rather than spend it, especially if worried about the economy; or spend it on IMPORTS, which helps foreign producers and worsens the balance of payments (a real MCQ: expansionary fiscal policy risks a balance of payments deficit). A tax cut meant to make people work MORE may lead them to work LESS for the same money. And raising spending only raises output if supply can respond — near full employment you get demand-pull inflation instead. The extract itself warns of exactly this. Always name what it DEPENDS on: spare capacity, and whether households spend or save.</p>",
   "question": "Why might cutting income tax fail to raise demand for domestic output?",
   "options": [
-   "Firms are forced to raise prices",
    "Taxes never affect income",
+   "Households may save it, or spend it on imports",
    "It automatically causes unemployment",
-   "Households may save it, or spend it on imports"
+   "Firms are forced to raise prices"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Two unintended effects: saving instead of spending (especially if confidence is low), or buying imports — which benefits foreign producers and worsens the current account."
   }
  },
@@ -26344,13 +26344,13 @@ window.QUESTION_BANK = [
   "reading": "<p>These are free marks if you have the exact wording:</p>\n<ul>\n<li><strong>Direct vs indirect tax</strong> = 1 mark for a characteristic of either; <strong>2 marks only for the DIFFERENCE</strong> — the liable person pays a direct tax; an indirect tax is paid over by someone else.</li>\n<li><strong>Two measures of fiscal policy</strong>: government expenditure, taxes, budget deficit/borrowing/surplus. (Only ONE instance of tax or spending counts.)</li>\n<li><strong>Two areas of government spending</strong>: social protection, health, education, defence.</li>\n<li><strong>Two direct taxes other than income tax</strong>: inheritance, corporation, capital gains, National Insurance, council tax. The examiners noted \"some evidence of confusion between direct and indirect taxes\".</li>\n<li><strong>Why the public sector borrowed £35.9bn</strong>: \"government spending is higher than tax revenue\" earns BOTH marks on its own.</li>\n</ul>",
   "question": "For 'explain the difference between direct and indirect taxation', what earns 2 marks rather than 1?",
   "options": [
-   "Defining tax",
-   "Saying which raises more revenue",
    "Naming one example of each",
-   "Identifying the DIFFERENCE — who actually pays it over"
+   "Saying which raises more revenue",
+   "Identifying the DIFFERENCE — who actually pays it over",
+   "Defining tax"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "The mark scheme gives 1 mark for a characteristic of either, but 2 marks only for correctly identifying the difference between them."
   }
  },
@@ -26365,13 +26365,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Four calculation types recur, each with its own trap:</p>\n<ul>\n<li><strong>Income tax</strong>: subtract the Personal Allowance FIRST. 20% × (£20,000 − £11,850) = <strong>£1,630</strong>. The £ sign is required.</li>\n<li><strong>Average tax rate</strong>: divide by TOTAL income, not the taxed slice. £6,500 ÷ £45,000 = <strong>14%</strong>, not 20%.</li>\n<li><strong>An average over years</strong>: use the TOTAL row only. (384.0 + 675.5 + 952.3) ÷ 3 = <strong>£670.6bn</strong>.</li>\n<li><strong>VAT on a bill</strong>: apply each rate to its own item then add BOTH totals — £400 × 1.20 + £50 × 1.08 = <strong>£534</strong> (the total spend, not the tax).</li>\n<li><strong>Biggest increase ≠ biggest number</strong>: subtract consecutive years. 2016–17 rose £35.6bn even though 2017–18 has the highest total.</li>\n</ul>",
   "question": "Total government spending was 384.0, 675.5 and 952.3 (£bn). The average per year is...",
   "options": [
-   "£670.6bn",
-   "£568.2bn",
+   "£2011.8bn",
    "£952.3bn",
-   "£2011.8bn"
+   "£568.2bn",
+   "£670.6bn"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "(384.0 + 675.5 + 952.3) ÷ 3 = £670.6bn. Use the TOTAL row, not the individual spending lines."
   }
  },
@@ -26386,13 +26386,13 @@ window.QUESTION_BANK = [
   "reading": "<p>The petrol/CO2 question needs a diagram AND the reasoning linked to it:</p>\n<ul>\n<li><strong>Draw it properly</strong>: an initial equilibrium; supply shifted <strong>LEFT</strong>; the second curve labelled <strong>\"S + tax\"</strong> (or S1); <strong>quantity of petrol</strong> on the horizontal axis; the vertical gap between curves = the tax per unit.</li>\n<li><strong>Then the chain</strong>: the tax increases the cost of production → supply decreases → equilibrium price of petrol rises → equilibrium quantity falls → less petrol burned → <strong>lower CO2 emissions</strong>.</li>\n<li><strong>Add the PED point</strong>: the extract says when demand is price inelastic, the change in quantity is LESS. Petrol has few substitutes, so emissions fall only modestly.</li>\n</ul>",
   "question": "On the petrol indirect-tax diagram, the second supply curve should be labelled...",
   "options": [
-   "It needs no label",
    "S − tax, shifted right",
-   "D + tax, shifted right",
-   "S + tax (or S1), shifted to the LEFT"
+   "S + tax (or S1), shifted to the LEFT",
+   "It needs no label",
+   "D + tax, shifted right"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "The mark scheme awards application marks specifically for labelling the second S as 'S + tax' or 'S1/S2', shifted left, with quantity of petrol on the horizontal axis."
   }
  },
@@ -26409,11 +26409,11 @@ window.QUESTION_BANK = [
   "options": [
    "As many benefits as possible",
    "Quoting the extract in full",
-   "A long list of advantages and disadvantages",
-   "Both costs AND benefits, plus a supported judgement"
+   "Both costs AND benefits, plus a supported judgement",
+   "A long list of advantages and disadvantages"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "The mark scheme states both must be covered for Level 3, and the examiners criticised unconnected lists and unsubstantiated judgements."
   }
  },
@@ -27335,13 +27335,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "The UK government's inflation target is...",
   "options": [
+   "2%, with a margin of 1% either way",
    "5%, to encourage spending",
    "10%, to match average wage growth",
-   "0%, i.e. no inflation at all",
-   "2%, with a margin of 1% either way"
+   "0%, i.e. no inflation at all"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "The target is 2%, and the Bank is content with inflation anywhere between 1% and 3% either side of it."
   }
  },
@@ -27354,10 +27354,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "If the Bank of England raises the base rate, what is the most likely direct effect on firms' investment?",
   "options": [
+   "It rises, because banks lend more when rates are high",
    "It rises, because firms earn higher returns on investment",
-   "It stays the same, because investment doesn't depend on interest rates",
    "It falls, because borrowing to invest becomes more expensive",
-   "It rises, because banks lend more when rates are high"
+   "It stays the same, because investment doesn't depend on interest rates"
   ],
   "key": {
    "answer": 2,
@@ -27373,8 +27373,8 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Higher UK interest rates (relative to other countries) tend to cause the pound to...",
   "options": [
-   "Depreciate, because exports become cheaper",
    "Stay the same, because interest rates don't affect exchange rates",
+   "Depreciate, because exports become cheaper",
    "Depreciate, as UK residents buy more imports",
    "Appreciate, as foreign investors buy pounds for the better return"
   ],
@@ -27392,13 +27392,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which of these is a tool of monetary policy, not fiscal policy?",
   "options": [
-   "Raising income tax",
    "Increasing government spending on the NHS",
-   "Cutting VAT",
-   "Quantitative easing"
+   "Quantitative easing",
+   "Raising income tax",
+   "Cutting VAT"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Monetary policy (interest rates, money supply, exchange rates) is controlled by the Bank of England. Fiscal policy (tax and spending) is controlled by the government."
   }
  },
@@ -27411,13 +27411,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Quantitative easing is most likely to be used when...",
   "options": [
-   "Interest rates are very high and need to come down gradually",
-   "Inflation is far above target and needs to fall quickly",
+   "The government wants to raise more tax revenue",
    "Interest rates are already very low and cutting them further would have little effect",
-   "The government wants to raise more tax revenue"
+   "Inflation is far above target and needs to fall quickly",
+   "Interest rates are very high and need to come down gradually"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "QE creates money to buy assets and raise the money supply, used when rates are already near zero and can't usefully be cut further — as in 2009 and during the pandemic."
   }
  },
@@ -27430,10 +27430,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A cut in the base rate is most likely to lead to...",
   "options": [
-   "No change in demand, only in prices",
    "Lower consumer spending and higher unemployment",
+   "Higher saving and lower borrowing",
    "Higher consumer spending and lower unemployment",
-   "Higher saving and lower borrowing"
+   "No change in demand, only in prices"
   ],
   "key": {
    "answer": 2,
@@ -27449,13 +27449,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which group is most directly and consistently affected by changes in the interest rate paid on savings?",
   "options": [
+   "Students with no savings",
    "Firms with no bank loans",
    "Pensioners who rely on savings income",
-   "Students with no savings",
    "Tourists visiting the UK"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "Pensioners often depend on income from savings to live, so they are directly and consistently exposed to changes in the savings rate, unlike the other groups listed."
   }
  },
@@ -27468,13 +27468,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "For a 6-mark 'Analyse' question on monetary policy, which skill is NOT required or rewarded?",
   "options": [
-   "A weighed, supported evaluative judgement",
+   "A developed chain of reasoning",
    "Correct use of economic terminology",
    "Reference to the extract or context",
-   "A developed chain of reasoning"
+   "A weighed, supported evaluative judgement"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Examiners have explicitly said evaluative comments are 'not a skill required (nor rewardable)' on an Analyse question — save judgement for questions marked with an asterisk that say 'Evaluate'."
   }
  },
@@ -27487,8 +27487,8 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "The single biggest factor in whether a change in interest rates has the effect economic theory predicts is often...",
   "options": [
-   "The total value of UK exports",
    "The number of MPC members who voted for the change",
+   "The total value of UK exports",
    "The rate of UK population growth",
    "Consumer and business confidence"
   ],
@@ -27612,13 +27612,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>Monetary policy is the manipulation of interest rates, the money supply and exchange rates to influence the level of economic activity.</strong> Its primary target is a low, stable rate of inflation.</p>\n<h4>Who actually sets UK interest rates — a very common misconception</h4>\n<ul>\n<li>Interest rates are set by the <strong>Bank of England's Monetary Policy Committee (MPC)</strong> — NOT the government. Writing \"the government sets interest rates\" is a real, frequently-tested error.</li>\n<li>The MPC has <strong>9 members</strong>: the Governor of the Bank of England, three Deputy Governors, the Bank's Chief Economist, and four external members appointed directly by the Chancellor. It meets regularly to set the <strong>base rate</strong>.</li>\n<li>The UK's <strong>inflation target is 2%</strong>, with a margin of <strong>1% either way</strong> — the Bank is content with inflation between 1% and 3%.</li>\n</ul>\n<h4>How the base rate actually works</h4>\n<ul>\n<li>The base rate is the rate at which the <strong>Bank of England lends to commercial banks</strong>.</li>\n<li>High street banks then set their OWN deposit and loan rates relative to it — paying slightly less on deposits and charging slightly more on loans than the base rate, which is part of how banks make their profit.</li>\n</ul>\n<h4>Monetary policy vs fiscal policy — do not confuse them</h4>\n<ul>\n<li><strong>Monetary policy</strong>: interest rates, the money supply and exchange rates, controlled by the <strong>Bank of England</strong>.</li>\n<li><strong>Fiscal policy</strong>: taxation and government spending, controlled by the <strong>government</strong>.</li>\n<li>Why keep the Bank of England independent? It reduces the risk of interest rates being manipulated for short-term political gain (e.g. cutting rates just before an election) rather than sound long-term economic management — a useful evaluative point.</li>\n</ul>",
   "question": "Who is responsible for setting the UK's base rate of interest?",
   "options": [
-   "The Prime Minister",
    "The Chancellor of the Exchequer directly",
-   "Each high street bank sets its own base rate",
-   "The Bank of England's Monetary Policy Committee (MPC)"
+   "The Bank of England's Monetary Policy Committee (MPC)",
+   "The Prime Minister",
+   "Each high street bank sets its own base rate"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "The MPC — 9 members including the Governor and four external members — sets the base rate independently of government. This independence is meant to stop rates being set for short-term political reasons."
   }
  },
@@ -27634,9 +27634,9 @@ window.QUESTION_BANK = [
   "question": "The Bank of England raises the base rate. What is the most likely DIRECT effect on firms' investment?",
   "options": [
    "It falls, because borrowing to invest becomes more expensive",
-   "It rises, because banks are more willing to lend when rates are high",
    "It rises, because firms can now earn higher returns",
-   "It is unaffected, since investment doesn't depend on interest rates"
+   "It is unaffected, since investment doesn't depend on interest rates",
+   "It rises, because banks are more willing to lend when rates are high"
   ],
   "key": {
    "answer": 0,
@@ -27654,13 +27654,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Cutting the base rate reverses every channel from the previous topic: cheaper borrowing, less reward for saving, lower mortgage payments, and rising asset prices (a positive wealth effect) all raise demand.</p>\n<h4>The growth and employment chain</h4>\n<ul>\n<li>Rising demand means firms raise output to meet it, which requires <strong>more workers</strong> — supporting both <strong>economic growth</strong> and <strong>lower unemployment</strong>. This is why rate cuts are especially used in a recession or a period of low growth.</li>\n<li>The risk, of course, is that rising demand can fuel <strong>demand-pull inflation</strong> — the mirror image of the trade-off from raising rates.</li>\n</ul>\n<h4>Lower rates and the balance of payments — a genuine two-sided effect</h4>\n<ul>\n<li>Lower UK rates make it less attractive to keep money in UK banks, so funds flow overseas seeking a better return. Less demand for the pound means it <strong>depreciates</strong>.</li>\n<li>A weaker pound makes UK exports cheaper/more competitive and imports dearer, which should <strong>improve the balance of payments</strong>.</li>\n<li><strong>But</strong> dearer imports can also cause inflationary pressure — and if an import is price INELASTIC (e.g. petrol), spending on it can actually RISE even though its price has gone up, worsening the trade position rather than improving it.</li>\n</ul>\n<h4>Quantitative easing (QE) and quantitative tightening (QT)</h4>\n<ul>\n<li><strong>QE</strong> is used when interest rates are already very low and cutting them further would have little extra effect. The Bank of England creates money electronically and uses it to buy assets — mainly government bonds — from the government and financial institutions, raising the money supply and encouraging lending and spending. Used after the <strong>2009 financial crisis</strong> and at the <strong>start of the pandemic</strong>.</li>\n<li><strong>QT</strong> reverses this: the Bank sells bonds, or does not reinvest funds from maturing bonds, reducing the money supply — tending to raise interest rates and cool inflation.</li>\n</ul>\n<h4>Objectives beyond price stability</h4>\n<ul>\n<li>\"Other than X, state two macroeconomic objectives\" questions want: <strong>low unemployment</strong>, <strong>economic growth</strong>, a <strong>healthy balance of payments</strong>, a <strong>stable exchange rate</strong>. Do NOT write \"controlling inflation\" if price stability is the objective already excluded — the mark scheme explicitly refuses it.</li>\n</ul>",
   "question": "Quantitative easing is most likely to be used when...",
   "options": [
-   "Interest rates are very high and need to come down gradually",
-   "Inflation is far above target and needs to fall quickly",
+   "The government wants to raise more tax revenue",
    "Interest rates are already very low and cutting them further would have little effect",
-   "The government wants to raise more tax revenue"
+   "Inflation is far above target and needs to fall quickly",
+   "Interest rates are very high and need to come down gradually"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "QE is the Bank's tool for when conventional rate cuts have run out of road — it creates money to buy assets and raise the money supply directly, as it did after the 2009 crisis and at the start of the pandemic."
   }
  },
@@ -27675,10 +27675,10 @@ window.QUESTION_BANK = [
   "reading": "<p>Knowing the CHAIN of effects only gets you to Level 2. Reaching Level 3 on an Evaluate question means questioning HOW MUCH the chain actually plays out.</p>\n<h4>The size of the change matters</h4>\n<ul>\n<li>A sharp rise, like the rapid increases seen in 2022, will have a much bigger effect on saving, borrowing and spending decisions than a change of under 1%, which was typical in earlier years.</li>\n</ul>\n<h4>Confidence — arguably the single biggest factor</h4>\n<ul>\n<li><strong>Consumer confidence:</strong> if it's low, people may keep saving despite a rate cut (wanting a financial cushion), or stay reluctant to borrow even as rates fall, worried about future repayments. Mortgage holders may not spend extra disposable income from a rate cut if they're worried about rising prices or future rate rises.</li>\n<li><strong>Business confidence:</strong> low confidence means firms may not invest even at very low rates; high confidence means firms may still invest even at high rates, if they expect strong profits. Banks' own confidence matters too — after the <strong>2009 credit crunch</strong>, rates were very low, but banks, burned by bad loans, were reluctant to lend to new customers, blunting the policy's effect.</li>\n</ul>\n<h4>Not everyone is affected equally</h4>\n<ul>\n<li><strong>Savers:</strong> some save toward a fixed goal (a deposit, a car) and may keep saving regardless of the rate; low-income people, who must spend most of what they earn, often can't save more even when rates rise. <strong>Pensioners</strong> rely on savings income, so they are always directly hit by rate changes.</li>\n<li><strong>Mortgage holders:</strong> roughly <strong>37.5% of the UK population</strong> has a mortgage — worth citing when evaluating how widely a rate change bites. Some can lock in a fixed rate for a period, but are eventually exposed to variable rates.</li>\n<li>A strong evaluation discusses this VARIATION rather than treating \"consumers\" as one uniform group.</li>\n</ul>\n<h4>Analyse vs Evaluate — a skill examiners explicitly separate</h4>\n<ul>\n<li>A 6-mark <strong>Analyse</strong> question does NOT require or reward a judgement — developed chains of reasoning are what score. Adding an evaluative comment wastes time without extra credit.</li>\n<li>A 6-mark <strong>Evaluate</strong> question (marked with an asterisk *) needs a fully supported judgement that weighs both sides.</li>\n</ul>",
   "question": "Which factor is arguably the single biggest determinant of whether a change in interest rates has the effect economic theory predicts?",
   "options": [
-   "How many MPC members voted for the change",
+   "The total value of UK exports that year",
    "Consumer and business confidence",
    "The rate of UK population growth",
-   "The total value of UK exports that year"
+   "How many MPC members voted for the change"
   ],
   "key": {
    "answer": 1,
@@ -27696,9 +27696,9 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"If interest rates rise, firms will invest MORE, because they can earn higher returns.\"</p><p><strong>✅ The correct idea:</strong> This is a real, examiner-flagged trap. On the real paper's Q3(i), 'most candidates identified that investment expenditure would fall because of increased cost/risk. However, a common mistake was that it would increase because of higher returns.' The confusion is between two DIFFERENT decisions: the reward a firm earns by SAVING spare cash (which does rise with rates) versus the COST of BORROWING to invest in machinery or buildings (which also rises with rates, and is what dominates the investment decision). Higher rates make investment MORE expensive to fund, so investment falls — not rises.</p>",
   "question": "Interest rates rise. What is the most likely effect on firms' investment expenditure?",
   "options": [
+   "It stays exactly the same",
    "It rises, because banks want to lend more",
    "It rises, because firms can now earn higher returns on investment",
-   "It stays exactly the same",
    "It falls, because it costs more to borrow to fund investment"
   ],
   "key": {
@@ -27717,9 +27717,9 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"When UK interest rates rise, the pound's value increases because British savers use LESS foreign currency.\"</p><p><strong>✅ The correct idea:</strong> Be precise about which market curve actually moves. The mark scheme's primary route is that DEMAND for pounds rises, because foreign investors move their funds INTO the UK to take advantage of the better return. There is also an accepted alternate route — that SUPPLY of pounds FALLS, because British savers stop exchanging pounds for other currencies. The real paper noted: 'Some candidates confused the increase with saving and less supply of pounds in the foreign exchange market' — muddling which side of the market is shifting. A small number of sophisticated answers correctly reasoned that falling consumption might reduce imports and therefore reduce supply too, which the examiners praised as 'a sophisticated and logical point.'</p>",
   "question": "Higher UK interest rates most directly raise the value of the pound because...",
   "options": [
-   "The Bank of England prints fewer pounds",
    "Government spending on imports falls",
    "UK exports automatically become cheaper",
+   "The Bank of England prints fewer pounds",
    "Demand for pounds rises, as foreign investors move funds into the UK for the better return"
   ],
   "key": {
@@ -27738,13 +27738,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"An 'Analyse' 6-mark question should include a supported judgement, just like an 'Evaluate' question.\"</p><p><strong>✅ The correct idea:</strong> On the real paper's Q1(a), a 6-mark 'analyse' question, the examiners wrote: 'Some candidates demonstrated evaluative skills in their answers, which is not a skill required (nor rewardable) for a six-mark analyse question.' Analyse questions are marked on AO1a (knowledge), AO2 (application) and AO3a (analysis/developed chains of reasoning) — there is no AO3b (evaluation) credit available. Save your weighing-up-both-sides judgement for questions that start with an asterisk (*) and the word 'Evaluate'.</p>",
   "question": "A 6-mark question asks you to 'Analyse how a cut in interest rates can affect UK economic growth.' What should your answer focus on?",
   "options": [
-   "Describing the extract without adding any economics",
-   "A fully supported judgement weighing costs against benefits",
+   "Developed chains of reasoning, with no judgement needed",
    "A short definition and nothing else",
-   "Developed chains of reasoning, with no judgement needed"
+   "Describing the extract without adding any economics",
+   "A fully supported judgement weighing costs against benefits"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "Analyse questions reward knowledge, application and developed chains of reasoning (AO1a/AO2/AO3a) — not evaluation. Adding a judgement here is wasted effort."
   }
  },
@@ -27759,13 +27759,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"'Evaluate the impact on UK households' — I'll write about the impact on firms instead, since the argument is basically the same.\"</p><p><strong>✅ The correct idea:</strong> On the real paper's Q3(iii), which asked candidates to evaluate the impact of higher interest rates on UK HOUSEHOLDS, the examiners noted: 'Some candidates did not read the question fully and wrote about effects on firms or generally on the wider economy, rather than households as required.' Always check exactly which group, or groups, the question names — an otherwise excellent answer about the wrong group scores very little, because the mark scheme rewards points that are clearly linked BACK to the named group.</p>",
   "question": "A question asks you to 'evaluate the impact of higher interest rates on UK households.' What is the safest approach?",
   "options": [
-   "Focus mainly on the effect on firms' investment",
    "Keep every point explicitly linked back to households, not firms or the whole economy",
    "Any correct economics about interest rates will score full marks",
-   "Write generally about the whole economy, since households are part of it"
+   "Write generally about the whole economy, since households are part of it",
+   "Focus mainly on the effect on firms' investment"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "Examiners specifically penalised candidates who drifted into writing about firms or the wider economy instead of the named group. Read the question and keep every point linked back to it."
   }
  },
@@ -27780,13 +27780,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Quoting a fact from the extract is enough on its own to get top marks on a 6-mark question.\"</p><p><strong>✅ The correct idea:</strong> On the real paper's Q5, the examiners wrote: 'Using the context of the extract and question are important components in a question, but theory is needed, on top of direct quotes, to be able to access marks in all the 6 mark questions.' A quote alone earns little — you must add the ECONOMIC THEORY that explains why the data matters. The same question also flagged a second trap: 'Care was needed regarding the difference between real and nominal.' Their advice: 'Practise writing about the impact of inflation on the value of saving, debts and purchasing power,' using words like 'real', 'nominal', 'relative' or 'in comparison' to be precise.</p>",
   "question": "For a 6-mark question that gives you a data extract, what do examiners say is needed on top of quoting the data?",
   "options": [
-   "Economic theory that explains why the data matters",
+   "A conclusion restating the question",
    "A second, unrelated example",
    "A longer, more detailed quote",
-   "A conclusion restating the question"
+   "Economic theory that explains why the data matters"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "The examiners were explicit that context/quotes alone are not enough — candidates need theory as well to access marks on 6-mark questions."
   }
  },
@@ -27801,13 +27801,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Several 2-mark questions on this paper follow the same pattern, and the mark scheme is unforgiving about the FIRST step:</p>\n<ul>\n<li><strong>State the direction first.</strong> On Q3(i), \"rewardable responses must state that investment will fall/decrease\" — without that, the explanation alone scores nothing.</li>\n<li><strong>Then explain briefly</strong> — one clear reason is enough for the second mark, e.g. \"because it costs more to borrow to invest.\"</li>\n<li><strong>\"Explain what is meant by X\"</strong> questions (e.g. 'the rate of interest') want a precise definition with TWO elements: the reward for lending/saving AND the cost of borrowing.</li>\n<li><strong>\"Other than X, state two objectives\"</strong> questions explicitly refuse the excluded objective — writing \"controlling inflation\" when price stability is excluded scores nothing.</li>\n</ul>",
   "question": "On 'state and briefly explain the impact of higher interest rates on firms' investment', what is required to access ANY marks?",
   "options": [
-   "A clear statement that investment will fall/decrease",
-   "A comparison with another country",
    "A calculation of the exact fall in investment",
-   "A diagram showing the investment curve"
+   "A comparison with another country",
+   "A diagram showing the investment curve",
+   "A clear statement that investment will fall/decrease"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "The mark scheme says rewardable responses MUST state investment will fall/decrease — the explanation only earns the second mark once the direction is correct."
   }
  },
@@ -27823,12 +27823,12 @@ window.QUESTION_BANK = [
   "question": "On a diagram question about a fall in interest rates and the exchange rate, what happens if you write a correct analysis but include no diagram?",
   "options": [
    "You automatically score 0",
+   "You are capped at a maximum of 4 out of 6 marks",
    "You still qualify for full marks",
-   "The diagram is optional and has no mark impact",
-   "You are capped at a maximum of 4 out of 6 marks"
+   "The diagram is optional and has no mark impact"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "The mark scheme explicitly caps marks at 4/6 without a correct diagram, even if the written analysis is otherwise strong — the diagram is not optional here."
   }
  },
@@ -27843,13 +27843,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Q13(b) asks candidates to explain the trend in the UK interest rate chart. The mark scheme rewards TWO separate features, not just \"it went down\":</p>\n<ul>\n<li><strong>Feature 1:</strong> the rate fell sharply, in six stages, over the first 14 months (5.2% → 0.5%).</li>\n<li><strong>Feature 2:</strong> it then stayed low and stable at 0.5% for over seven years (with a brief dip to 0.25%).</li>\n</ul>\n<p>The mark scheme is explicit: <strong>\"explaining these two features should be awarded 2 marks.\"</strong> A single statement like \"the rate fell\" only ever scores 1.</p>",
   "question": "For 'explain the trends in the UK rate of interest shown in the chart', what earns full marks?",
   "options": [
+   "Identifying both the sharp initial fall AND the long stable period that followed",
    "Stating only that the rate fell overall",
    "Describing what caused the change",
-   "Identifying both the sharp initial fall AND the long stable period that followed",
    "Naming the exact date of every change"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "The mark scheme rewards two distinct features: the sharp six-stage fall in the first 14 months, and the long stable period at a low rate afterwards."
   }
  },
@@ -27864,13 +27864,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Every 6-mark question on this paper follows the same AO structure: <strong>AO1a/AO2</strong> for knowledge and application, <strong>AO3a</strong> for analysis, and — on starred (*) questions only — <strong>AO3b</strong> for evaluation.</p>\n<ul>\n<li><strong>Complete the chain.</strong> The examiners' repeated criticism was candidates who \"started a point correctly, however, did not always develop a chain of reasoning fully... missing out the middle section.\"</li>\n<li><strong>Link evaluation points together, don't just list two unrelated ones.</strong> A common error was writing about a fall in costs for producers \"but not linking to how this may mitigate or offset the fall in demand (& therefore profit).\"</li>\n<li><strong>Name the exact group the question asks about.</strong> \"Evaluate the impact on UK households\" is not the same question as \"on firms\" or \"on the wider economy\" — examiners explicitly penalised drift.</li>\n<li><strong>If a question names TWO groups</strong> (e.g. \"savers and consumers\"), you are capped below Level 3 unless BOTH are addressed — reference to just one is not enough.</li>\n<li><strong>Judge on extent:</strong> the size of the rate change, how long it lasts, and whether confidence is high or low.</li>\n</ul>",
   "question": "A 6-mark question asks you to analyse how monetary policy protected BOTH savers and consumers. What happens if your answer only covers consumers?",
   "options": [
-   "It makes no difference to your mark",
+   "You are capped below the top level (Level 3)",
    "You get full marks as long as consumers are covered well",
    "You automatically fail the whole question",
-   "You are capped below the top level (Level 3)"
+   "It makes no difference to your mark"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "The mark scheme states candidates are capped at a maximum of 5 marks (below Level 3) if both named groups are not addressed — you must link your answer to every group the question names."
   }
  },
@@ -28660,13 +28660,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Supply-side policies aim primarily to...",
   "options": [
-   "Fix the exchange rate",
    "Reduce the money supply",
    "Increase the economy's productive capacity",
+   "Fix the exchange rate",
    "Increase government spending on benefits"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "Supply-side policies raise potential output/productive capacity, unlike fiscal or monetary policy which mainly manage demand."
   }
  },
@@ -28679,13 +28679,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which of these is an example of a supply-side policy?",
   "options": [
-   "Increasing unemployment benefits",
-   "A rise in government spending on defence",
    "Investment in infrastructure",
-   "Raising interest rates"
+   "Raising interest rates",
+   "A rise in government spending on defence",
+   "Increasing unemployment benefits"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Infrastructure investment raises firms' productive capacity by lowering costs. Raising rates is monetary policy; the other two do not raise supply."
   }
  },
@@ -28718,12 +28718,12 @@ window.QUESTION_BANK = [
   "question": "A cut in income tax is intended to increase the labour supply because...",
   "options": [
    "It reduces the cost of imported goods",
-   "It lowers the exchange rate",
    "Workers keep more of what they earn, incentivising work",
-   "It directly creates new jobs in the public sector"
+   "It directly creates new jobs in the public sector",
+   "It lowers the exchange rate"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "In effect, an income tax cut acts like a pay rise without raising costs to firms, incentivising more people to work or work longer hours."
   }
  },
@@ -28736,13 +28736,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Reducing the power of trade unions is intended to...",
   "options": [
-   "Directly increase government tax revenue",
-   "Raise the level of unemployment benefits",
    "Increase the number of strikes",
-   "Make it easier for firms to keep wages, and therefore costs, down"
+   "Raise the level of unemployment benefits",
+   "Make it easier for firms to keep wages, and therefore costs, down",
+   "Directly increase government tax revenue"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "Restricting collective bargaining power makes it easier for firms to hold down real wages, reducing costs and supporting supply."
   }
  },
@@ -28755,13 +28755,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Privatisation is expected to increase efficiency mainly because...",
   "options": [
+   "It increases the size of the public sector",
    "Government ownership always charges the lowest prices",
    "The profit motive pushes newly private firms to cut costs and innovate",
-   "It removes all competition from the market",
-   "It increases the size of the public sector"
+   "It removes all competition from the market"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "Once in the private sector, firms are driven by profit maximisation to cut average costs and innovate to win customers — unlike a state monopoly with no profit incentive."
   }
  },
@@ -28774,13 +28774,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which of the following is the best description of price stability?",
   "options": [
-   "Interest rates stay the same",
-   "The general price level grows at a low, acceptable rate",
+   "The general price level never changes",
    "Inflation remains constant, whatever the rate",
-   "The general price level never changes"
+   "The general price level grows at a low, acceptable rate",
+   "Interest rates stay the same"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "Price stability means low, predictable growth in prices (e.g. the 2% target) — 'inflation remains constant' fails because it could be constant at a very high rate."
   }
  },
@@ -28793,13 +28793,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which is a genuine COST of supply-side policy, rather than a benefit?",
   "options": [
+   "Lower inflationary pressure",
    "An improvement in the balance of payments",
    "A fall in structural unemployment",
-   "The large opportunity cost of financing expensive infrastructure projects",
-   "Lower inflationary pressure"
+   "The large opportunity cost of financing expensive infrastructure projects"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "The other three are benefits. Expensive projects like HS2 carry a large opportunity cost — the money could have funded other services."
   }
  },
@@ -28812,13 +28812,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "An increase in the productive capacity of the economy is best shown as...",
   "options": [
-   "A rightward shift in the economy's aggregate supply / potential output",
    "A leftward shift in aggregate supply",
+   "A rightward shift in the economy's aggregate supply / potential output",
    "A rise in interest rates",
    "A movement along the demand curve"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "Supply-side policies push the economy's potential output curve outward (to the right), allowing more to be produced at every price level."
   }
  },
@@ -28831,13 +28831,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Why can cutting direct taxes on workers increase inflation, even though it is meant to help price stability?",
   "options": [
-   "It always raises the exchange rate",
    "It directly increases the price of exports",
    "It raises disposable income, which can increase demand and cause demand-pull inflation",
+   "It always raises the exchange rate",
    "It reduces the productive capacity of the economy"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "Higher take-home pay increases spending power. If demand rises faster than the economy's capacity to supply, inflation rises — the exam's classic supply-side contradiction."
   }
  },
@@ -28956,13 +28956,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>Supply-side policies are government policies that aim to increase an economy's productive capacity</strong> — its ability to produce goods and services — rather than managing the level of demand directly. Contrast this with <strong>fiscal policy</strong> (government spending and taxation) and <strong>monetary policy</strong> (interest rates), which mainly work by shifting <strong>demand</strong>.</p>\n<h4>Why this matters</h4>\n<ul>\n<li>If <strong>aggregate demand</strong> grows but the economy's <strong>capacity to supply</strong> doesn't keep pace, the result is <strong>demand-pull inflation</strong> rather than genuine growth.</li>\n<li>Supply-side policies shift the economy's potential output <strong>outwards</strong>, allowing higher sustainable growth without the extra inflation.</li>\n</ul>\n<h4>The main types — learn to classify a described policy</h4>\n<ul>\n<li><strong>Education and training</strong> — improves the skills and qualifications of the workforce (raises \"human capital\").</li>\n<li><strong>Infrastructure investment</strong> — transport, energy, broadband; lowers costs and journey times for firms.</li>\n<li><strong>Reducing direct taxes</strong> — lower <strong>income tax</strong> increases the incentive to work; lower <strong>corporation tax</strong> lets firms keep more profit to invest.</li>\n<li><strong>Reducing benefits</strong> — aims to increase the incentive to take a job rather than claim benefits.</li>\n<li><strong>Trade union reform</strong> — restricting union power makes it easier for firms to keep wage costs down.</li>\n<li><strong>Privatisation</strong> — selling state-owned firms into the private sector, where the profit motive is expected to drive efficiency.</li>\n<li><strong>Deregulation</strong> — removing rules that create barriers to entry, opening markets to more competition.</li>\n<li><strong>Promoting competition</strong> — e.g. the <strong>Competition and Markets Authority (CMA)</strong> can block mergers that would reduce competition.</li>\n</ul>\n<h4>Watch the classic MCQ trap</h4>\n<ul>\n<li>A real exam MCQ asked why a £50bn railway line is a supply-side policy. The correct answer was that it <strong>improves journey times for people travelling to work</strong> — the direct productive-capacity effect. Distractors about construction firms' profits, the tax cut it could have funded, or import demand for materials are all <strong>side-effects</strong>, not the supply-side mechanism itself.</li>\n</ul>",
   "question": "Which of these is a supply-side policy?",
   "options": [
-   "Cutting interest rates to encourage borrowing",
-   "Raising taxes to reduce consumer spending",
    "Increasing government spending on unemployment benefits",
-   "Reducing unemployment benefits to encourage people into work"
+   "Reducing unemployment benefits to encourage people into work",
+   "Raising taxes to reduce consumer spending",
+   "Cutting interest rates to encourage borrowing"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Reducing benefits targets the economy's productive capacity (labour supply) directly. Cutting interest rates is monetary policy; raising taxes to cut spending is fiscal/demand policy."
   }
  },
@@ -28998,13 +28998,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Real exam extracts reward evaluating benefits with <strong>real evidence</strong>, not just generic statements.</p>\n<h4>Targeting specific markets</h4>\n<ul>\n<li>Spending can be aimed precisely — e.g. over <strong>£180 million</strong> was made available to attract trainee teachers in shortage subjects like maths and sciences.</li>\n<li><strong>HS2</strong> is designed to boost growth specifically in the north of England by improving links to the capital.</li>\n</ul>\n<h4>Reducing inflation</h4>\n<ul>\n<li>A rightward shift in supply gives a <strong>lower equilibrium price AND a higher equilibrium quantity</strong> — but only if producers actually pass their lower costs on as lower prices.</li>\n</ul>\n<h4>Employment, growth, and the balance of payments</h4>\n<ul>\n<li>Firms need more workers to raise output to meet expanded demand — though if the extra output comes from <strong>automation</strong> instead, the employment benefit is limited.</li>\n<li>Lower costs and higher quality both raise exports, improving the balance of trade.</li>\n</ul>\n<h4>Income distribution — the exam's data-driven angle</h4>\n<ul>\n<li>A real exam extract compared Argentina and Finland: Finland spends more on education per student (25.8% of GDP per capita vs Argentina's 21.8%) — and Finland's income distribution is far more equal (richest 10% hold 22.4% vs Argentina's 30.3%; poorest 10% hold 3.9% vs Argentina's 1.8%).</li>\n<li>Mechanism: government-funded education benefits ALL students, not just the privately educated, so it raises equality of opportunity and lets skilled workers earn higher wages — narrowing the income gap.</li>\n</ul>\n<h4>Correcting market failure</h4>\n<ul>\n<li>Subsidising a good with <strong>positive externalities</strong> (e.g. vaccinations) encourages producers to supply more and consumers to take up something that benefits third parties too. UK measles vaccination coverage rose from 81% (2004) to over 91% (2023), with almost no deaths since 2013.</li>\n</ul>",
   "question": "Extract data shows Finland spends more on education than Argentina, and also has a more equal income distribution. What does this suggest?",
   "options": [
-   "Investment in education is likely to be an important factor behind more equal income distribution",
    "Argentina's richest 10% pay more tax than Finland's",
+   "Investment in education is likely to be an important factor behind more equal income distribution",
    "Education spending has no effect on income distribution",
    "Vaccination rates explain the difference"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "The data links higher education spending to a smaller gap between the richest and poorest 10% — because education widens opportunity for all, not just the privately educated."
   }
  },
@@ -29019,13 +29019,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Evaluate questions on this topic are almost always about <strong>weighing named costs against named benefits</strong> — learn the costs with real examples.</p>\n<h4>Financial cost and opportunity cost</h4>\n<ul>\n<li>Supply-side projects are expensive: <strong>HS2</strong> is budgeted at roughly £45–55.7bn (up from an initial £32.7bn), and the <strong>Elizabeth Line</strong> cost £18.9bn against an original £14.8bn budget.</li>\n<li>Every pound spent has an <strong>opportunity cost</strong> — it could have funded other services, lower taxes, or reduced government borrowing instead.</li>\n</ul>\n<h4>Time lags</h4>\n<ul>\n<li>Projects like HS2 take well over a decade from announcement to completion. Education and training reforms take years to filter through, because trainees must complete their courses before joining the workforce.</li>\n</ul>\n<h4>Opposition and unintended consequences</h4>\n<ul>\n<li>Reducing benefits faces opposition from charities and groups representing the least well-off, and can genuinely worsen income inequality for the poorest.</li>\n<li>Reducing trade union power can provoke opposition from unions — cracking down too hard can even increase industrial action rather than reduce it.</li>\n<li>Competition policy can be blocked outright: the CMA stopped the proposed <strong>Sainsbury's–Asda merger</strong>.</li>\n<li>Cutting income tax can backfire: some workers may choose to work <strong>fewer</strong> hours for the same take-home pay, rather than more — the opposite of the intended effect on labour supply.</li>\n</ul>\n<h4>Crowding out</h4>\n<ul>\n<li>Large public sector spending can <strong>crowd out</strong> the private sector — though private firms also gain from winning government contracts, so the effect isn't one-sided.</li>\n</ul>\n<h4>The exam's built-in contradiction — learn this one</h4>\n<ul>\n<li>Cutting direct taxes on workers and firms is meant to increase incentives to work and invest — but it also raises disposable income, which <strong>could also lead to rising inflation</strong>, directly undermining the price-stability objective the policy was meant to serve.</li>\n</ul>",
   "question": "Why might cutting income tax fail to increase the number of hours people work?",
   "options": [
-   "It automatically raises benefits instead",
-   "Lower income tax reduces the incentive to work at all",
    "Some workers may choose to work fewer hours for the same take-home pay",
-   "Income tax cuts always increase unemployment"
+   "Lower income tax reduces the incentive to work at all",
+   "Income tax cuts always increase unemployment",
+   "It automatically raises benefits instead"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "If take-home pay rises for the same hours, some workers value extra leisure time and choose to work LESS, not more — the opposite of the policy's intended incentive effect."
   }
  },
@@ -29040,13 +29040,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Vaccinations are subsidised because they are useful to people.\"</p><p><strong>✅ The correct idea:</strong> The examiners were explicit here: 'Most candidates could demonstrate why vaccinations are useful, but did not explicitly state or explain how subsidies work.' Simply saying vaccines are good for health only shows knowledge of the OUTCOME — it doesn't answer 'explain why governments give SUBSIDIES'. The mark scheme wanted the MECHANISM: a subsidy lowers the cost to producers, making it cheaper/more widely available, or it encourages producers to increase output of an expensive vaccine, or it corrects the positive externality by encouraging uptake that would otherwise be too expensive. Always explain the POLICY TOOL asked about, not just the general benefit of the thing it targets.</p>",
   "question": "A question asks 'explain why governments subsidise vaccinations.' Which answer would the examiners mark as INCOMPLETE?",
   "options": [
-   "A subsidy encourages producers to increase output of an expensive vaccine",
    "A subsidy lowers the cost to producers, making the vaccine cheaper and more widely available",
-   "A subsidy corrects the positive externality by encouraging take-up",
-   "Vaccines are good because they stop people getting ill"
+   "A subsidy encourages producers to increase output of an expensive vaccine",
+   "Vaccines are good because they stop people getting ill",
+   "A subsidy corrects the positive externality by encouraging take-up"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "'Vaccines are good' describes the benefit of the vaccine itself, not how a SUBSIDY works — the examiners flagged exactly this gap."
   }
  },
@@ -29061,13 +29061,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"I'll analyse a benefit, then evaluate by naming a completely different cost.\"</p><p><strong>✅ The correct idea:</strong> This paper's own Misconception box: 'Evaluation is awarded for making a judgement or writing an evaluative point that matches with the preceding point... A common error was that candidates would analyse a benefit... and then attempt evaluation by writing that there is an opportunity cost of government spending WITHOUT LINKING this argument to how it would lower the potential gains.' Evaluation only scores if it directly qualifies the point you just made — e.g. 'vaccinations reduce illness AND free up NHS resources, HOWEVER the financial cost of the subsidy may outweigh those savings.' A random extra cost bolted on at the end, unconnected to your analysis, does not count as evaluation.</p>",
   "question": "According to the examiners, when does an 'evaluation' point actually earn marks?",
   "options": [
+   "When it repeats the analysis point in different words",
    "Only when it uses the word 'however'",
    "When it directly links to and qualifies the analysis point made just before it",
-   "When it introduces any new cost, regardless of the previous point",
-   "When it repeats the analysis point in different words"
+   "When it introduces any new cost, regardless of the previous point"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "The mark scheme's own Misconception box says evaluation must MATCH the preceding point — an unconnected extra point doesn't count, however negative it sounds."
   }
  },
@@ -29082,13 +29082,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"For the £50bn railway MCQ, the answer must be about the construction firms' profits or the tax cut it could have funded.\"</p><p><strong>✅ The correct idea:</strong> Both are real effects, but they are DEMAND-side or opportunity-cost effects, not the reason it counts as a SUPPLY-SIDE policy. The correct answer was 'journey times will be improved for people travelling to work' — because that is what directly raises the economy's productive capacity (workers reach jobs faster, firms move goods faster). Builders' profits are a demand-side effect of the spending; the tax cut foregone is an opportunity cost, not a supply-side mechanism; and demand for imported materials is also a demand-side knock-on. When an MCQ asks WHY something is a supply-side policy, find the option that improves capacity to produce — not the side-effects of the spending.</p>",
   "question": "The government spends £50bn on a new railway line. Why is this a supply-side policy?",
   "options": [
-   "It raises demand for imported building materials",
-   "Construction companies achieve greater profits",
    "The money could have funded a tax cut instead",
-   "It improves journey times for people travelling to work"
+   "It improves journey times for people travelling to work",
+   "It raises demand for imported building materials",
+   "Construction companies achieve greater profits"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Only the journey-time effect directly raises productive capacity. The other three are demand-side or opportunity-cost effects, not the supply-side mechanism the question is asking about."
   }
  },
@@ -29103,13 +29103,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"For 'evaluate the COSTS of supply side policy', I can write mostly about its benefits instead.\"</p><p><strong>✅ The correct idea:</strong> The examiners flagged this directly: 'Some candidates used the majority, or all, of their answer to analyse and evaluate the impacts of supply side policy rather than their COSTS' — and separately noted candidates 'found the focus on the costs... more difficult to explain using chains of reasoning' than benefits. If the question asks for costs, every analysis point must BE a cost (financial cost, opportunity cost, cutting work incentives, raising inflation, worsening inequality, industrial disputes) — benefits only belong in your evaluation, as a comment that OFFSETS a cost you've already named, e.g. 'however, this cost may be outweighed by increased consumer confidence from price stability.'</p>",
   "question": "A question asks you to 'evaluate the COSTS of supply-side policy.' What did examiners say some candidates wrongly did?",
   "options": [
-   "Spent most of their answer analysing the general benefits instead of the costs",
-   "Used too many real-world examples",
    "Named too many different costs",
-   "Wrote a judgement at the end"
+   "Spent most of their answer analysing the general benefits instead of the costs",
+   "Wrote a judgement at the end",
+   "Used too many real-world examples"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "Examiners explicitly noted candidates who focused on benefits rather than costs — always answer the COMMAND WORD's actual focus, using benefits only to offset a cost in evaluation."
   }
  },
@@ -29124,13 +29124,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"Extract 3(i) just wants me to spot that Finland spends more on education than Argentina.\"</p><p><strong>✅ The correct idea:</strong> That's only worth 1 of the 2 marks. The mark scheme is explicit: '1 mark for correctly identifying that Finland spends a greater percentage on education. 2nd mark for CLEARLY LINKING this to the income shares.' The same pattern appears in Extract 3's part (ii): '2 marks for a clear explanation, 1 mark for an answer without an explanatory link e.g. more spending per student / higher salaries for teachers.' Data questions on this topic almost always reward a fact PLUS its consequence — quoting a number from the table is only ever the first half of the answer.</p>",
   "question": "A data question gives 2 marks for using a table. What does the mark scheme usually require for BOTH marks?",
   "options": [
-   "A comparison with a country not in the table",
    "Two different data points, unlinked",
    "A rounded estimate of the data",
-   "The correct data point PLUS an explicit link to what it explains"
+   "The correct data point PLUS an explicit link to what it explains",
+   "A comparison with a country not in the table"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "Both mark schemes here (income shares AND GDP per capita) award the 2nd mark only for linking the data to the actual question — a bare fact from the table earns just 1 mark."
   }
  },
@@ -29145,13 +29145,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Roughly half the MCQs on this paper are pure classification — and the distractors follow predictable patterns.</p>\n<ul>\n<li><strong>Monetary policy distractors:</strong> \"changing/raising interest rates\", \"encouraging bank lending\" — these are Bank of England tools, not government supply-side policy.</li>\n<li><strong>Trade policy distractors:</strong> \"imposing taxes/tariffs on imports\" — a trade measure, not a productive-capacity measure.</li>\n<li><strong>Outcome, not policy:</strong> \"lowering the rate of price rises\" or \"increase economic growth\" describe a GOAL, not the policy tool that achieves it.</li>\n<li><strong>Wrong direction:</strong> \"increase unemployment benefits\" is the OPPOSITE of the usual supply-side move (which is to REDUCE benefits to raise work incentives).</li>\n</ul>\n<p>Test every option against: \"does this directly raise the economy's ability to PRODUCE?\"</p>",
   "question": "Which of these would NOT count as a supply-side policy?",
   "options": [
-   "Investing in infrastructure",
    "Reducing corporation tax",
+   "Raising interest rates to control spending",
    "Reducing trade union power",
-   "Raising interest rates to control spending"
+   "Investing in infrastructure"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Raising interest rates is a monetary policy tool used to manage demand, not a supply-side measure aimed at productive capacity."
   }
  },
@@ -29167,9 +29167,9 @@ window.QUESTION_BANK = [
   "question": "For 'explain how education and training may help achieve price stability', what earns the SECOND mark?",
   "options": [
    "Linking the more productive workforce to reduced cost-push or demand-pull inflation",
-   "Naming a different supply-side policy",
+   "Repeating that education improves skills",
    "Stating the government's inflation target",
-   "Repeating that education improves skills"
+   "Naming a different supply-side policy"
   ],
   "key": {
    "answer": 0,
@@ -29189,8 +29189,8 @@ window.QUESTION_BANK = [
   "options": [
    "Explicitly linking the higher education spending to the smaller income gap",
    "Rounding the percentages to whole numbers",
-   "Naming a third country not shown in the table",
-   "Restating the education spending figures a second time"
+   "Restating the education spending figures a second time",
+   "Naming a third country not shown in the table"
   ],
   "key": {
    "answer": 0,
@@ -29208,13 +29208,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Every 6-mark question on this paper follows AO2 (1 mark) + AO3a analysis (2 marks) + AO3b evaluation (3 marks), marked by best-fit level.</p>\n<ul>\n<li><strong>Level 3 (5–6):</strong> good application; developed chains of reasoning; a fully supported judgement weighing both sides.</li>\n<li><strong>Level 2 (3–4):</strong> good application; analysis largely in single, undeveloped effects; a judgement that isn't fully supported.</li>\n<li><strong>Level 1 (1–2):</strong> no application; limited analysis; unsupported evaluation.</li>\n<li><strong>Pair every point:</strong> the mark scheme's own Misconception box warns that evaluation only counts if it directly MATCHES the analysis point just made — a random extra point doesn't score.</li>\n<li><strong>Answer the actual focus:</strong> if the question asks for COSTS, every analysis point must be a cost — examiners noted candidates who wrote mostly about benefits instead lost marks. Use benefits only to OFFSET a cost in your evaluation.</li>\n<li>Signal your final judgement clearly, e.g. with \"Overall\" or \"In conclusion\".</li>\n</ul>",
   "question": "In the Level of response mark scheme, what separates Level 3 from Level 2 evaluation?",
   "options": [
-   "Level 3 has a fully supported judgement weighing both sides; Level 2's judgement is not fully supported",
    "Level 2 always scores zero for evaluation",
-   "Level 3 does not require a judgement at all",
-   "Level 3 uses more difficult vocabulary"
+   "Level 3 has a fully supported judgement weighing both sides; Level 2's judgement is not fully supported",
+   "Level 3 uses more difficult vocabulary",
+   "Level 3 does not require a judgement at all"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "Both levels can include a judgement, but only Level 3 develops it from properly weighing up the arguments on both sides."
   }
  },
@@ -30332,8 +30332,8 @@ window.QUESTION_BANK = [
   "options": [
    "A third party not involved in the transaction",
    "The firm producing the good",
-   "The government",
-   "The consumer who pays for the good"
+   "The consumer who pays for the good",
+   "The government"
   ],
   "key": {
    "answer": 0,
@@ -30349,13 +30349,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "When the social cost of an activity is greater than its private cost, this is called a...",
   "options": [
-   "Positive externality",
-   "Public good",
    "Negative externality",
-   "Merit good"
+   "Public good",
+   "Merit good",
+   "Positive externality"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Social cost greater than private cost means a third party bears costs the producer or consumer never pays for — the definition of a negative externality."
   }
  },
@@ -30368,13 +30368,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which of these is an example of a negative CONSUMPTION externality?",
   "options": [
+   "A construction firm making noise on a building site",
    "A smoker polluting the air in a crowded room",
-   "A firm releasing toxic gas during production",
    "A factory dumping chemicals into a river",
-   "A construction firm making noise on a building site"
+   "A firm releasing toxic gas during production"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "Consumption externalities come from CONSUMERS. The other three options are all caused by producers — negative production externalities."
   }
  },
@@ -30387,13 +30387,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A subsidy is best described as...",
   "options": [
-   "Money paid to a producer to increase the supply of a good",
-   "A tax charged on a good or service",
    "A government information campaign",
-   "A law that bans a harmful activity"
+   "A law that bans a harmful activity",
+   "Money paid to a producer to increase the supply of a good",
+   "A tax charged on a good or service"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "A subsidy lowers a firm's costs so it can supply more at a lower price — used to correct the underprovision of goods with positive externalities."
   }
  },
@@ -30406,13 +30406,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which policy directly ensures everyone has access to a good regardless of their ability to pay?",
   "options": [
-   "Information provision",
-   "A subsidy",
+   "State provision",
    "Taxation",
-   "State provision"
+   "Information provision",
+   "A subsidy"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "State provision means the government supplies the good itself, e.g. the NHS or state education, guaranteeing access."
   }
  },
@@ -30425,13 +30425,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "The government wants to reduce cigarette consumption. Why is taxation alone often only partly effective?",
   "options": [
-   "Demand for cigarettes is perfectly elastic",
-   "Cigarette supply is perfectly elastic",
    "Cigarettes have no negative externality",
-   "Demand for cigarettes is price inelastic because they are addictive"
+   "Demand for cigarettes is perfectly elastic",
+   "Demand for cigarettes is price inelastic because they are addictive",
+   "Cigarette supply is perfectly elastic"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "Because smoking is addictive, demand barely responds to a higher price — quantity falls only a little even though the price rises."
   }
  },
@@ -30445,12 +30445,12 @@ window.QUESTION_BANK = [
   "question": "What is the free-rider problem?",
   "options": [
    "Firms avoiding tax by moving production abroad",
-   "Consumers switching to a cheaper substitute good",
+   "People benefiting from a good without paying for it",
    "The government running a budget deficit",
-   "People benefiting from a good without paying for it"
+   "Consumers switching to a cheaper substitute good"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "The free-rider problem is why firms won't supply public goods and why positive-externality goods are underprovided — people can enjoy the benefit without paying."
   }
  },
@@ -30463,13 +30463,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A government spends £2 million enforcing a ban on a harmful product. What is the opportunity cost of this spending?",
   "options": [
-   "The tax revenue lost from the ban",
    "The £2 million itself",
-   "The harm caused by the banned product",
-   "The next best alternative the £2 million could have been spent on"
+   "The next best alternative the £2 million could have been spent on",
+   "The tax revenue lost from the ban",
+   "The harm caused by the banned product"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Opportunity cost is always the NEXT BEST ALTERNATIVE forgone, not the spending itself or the problem the policy is trying to solve."
   }
  },
@@ -30483,12 +30483,12 @@ window.QUESTION_BANK = [
   "question": "Vaccination is a real exam example of a...",
   "options": [
    "Negative externality",
-   "Public good only",
    "Positive externality",
-   "Demerit good"
+   "Demerit good",
+   "Public good only"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "If one person is vaccinated, others around them are also less likely to catch the disease — a benefit to third parties who never paid for it."
   }
  },
@@ -30501,13 +30501,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which of these is a genuine limitation of using legislation to correct a negative externality?",
   "options": [
-   "It has no opportunity cost",
-   "It always creates a black market",
+   "It never changes behaviour",
    "It can be costly and difficult to enforce",
-   "It never changes behaviour"
+   "It always creates a black market",
+   "It has no opportunity cost"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "Regulation is only as effective as the government's ability to detect and prosecute breaches — enforcement itself has a real cost."
   }
  },
@@ -30626,13 +30626,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>An externality is a cost or benefit of an economic activity that falls on a third party</strong> — someone who was not part of the original decision to produce or consume the good.</p>\n<h4>Negative externalities — social cost greater than private cost</h4>\n<ul>\n<li><strong>Private cost</strong> is what the producer or consumer actually pays. <strong>Social cost</strong> = the private cost PLUS the external cost imposed on third parties.</li>\n<li>When social cost is greater than private cost, the activity creates a <strong>negative externality</strong> — e.g. a factory's air pollution costs nearby residents in poor health, even though the firm never pays for that harm. Pollution is a negative externality because \"the firm's costs differ from the costs to society.\"</li>\n<li><strong>Negative production externalities</strong> come from producers, e.g. noisy construction disturbing local residents who are never compensated. <strong>Negative consumption externalities</strong> come from consumers, e.g. a smoker polluting the air in a confined space, or car journeys causing congestion.</li>\n<li>Because the producer or consumer ignores the external cost, the free market <strong>overproduces</strong> goods with negative externalities compared with the socially optimal amount.</li>\n</ul>\n<h4>Positive externalities — social benefit greater than private benefit</h4>\n<ul>\n<li><strong>Private benefit</strong> is what the individual or firm receives directly. <strong>Social benefit</strong> = the private benefit PLUS the external benefit enjoyed by others, unpaid for — creating the <strong>free-rider problem</strong>.</li>\n<li>Classic exam example: if Mary gets vaccinated, Tom is also less likely to catch the disease from her — a benefit to Tom that he never paid for.</li>\n<li>Education is another example: a better-educated workforce benefits the whole economy, not just the person who was trained — this is why \"education\" (not a manufactured, imported good, or a tent) is the option that actually produces an externality.</li>\n<li>Because the free-rider effect isn't paid for, the free market <strong>underproduces</strong> goods with positive externalities compared with the socially optimal amount.</li>\n</ul>",
   "question": "A chemical firm dumps toxic waste into a river, killing fish at a nearby fish farm. This is best explained by...",
   "options": [
-   "The firm's private cost of production is lower than the social cost it creates",
-   "The firm is not maximising profit",
    "Government regulation is too strict",
-   "The fish farm's private cost is too high"
+   "The firm's private cost of production is lower than the social cost it creates",
+   "The fish farm's private cost is too high",
+   "The firm is not maximising profit"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "The firm only pays its own PRIVATE cost of production. It doesn't pay for the damage to the fish farm, so the SOCIAL cost (private cost plus the cost to the fish farm) is higher than what the firm actually pays — the classic negative externality gap."
   }
  },
@@ -30647,13 +30647,13 @@ window.QUESTION_BANK = [
   "reading": "<p>The government has <strong>five main policies</strong> to correct the gap between private and social cost or benefit — the exam expects you to know how each one actually WORKS, not just its name.</p>\n<h4>1. Taxation — for negative externalities</h4>\n<ul>\n<li>An <strong>indirect tax</strong> (e.g. excise duty on tobacco or fuel) raises a firm's cost of production, so <strong>supply shifts LEFT</strong>. This raises the market price and reduces the equilibrium quantity.</li>\n<li>The best policy for a negative externality is always to <strong>tax the producer causing it</strong> — not the victim, and not a subsidy.</li>\n</ul>\n<img src=\"/images/economics/3-8-petrol-tax-co2-supply-shift-ms-extracted.png\" alt=\"Supply and demand diagram: an indirect tax shifts supply from S to S+tax, raising the equilibrium price from P1 to P2 and lowering the equilibrium quantity from Q1 to Q2\" style=\"display:block;width:100%;max-width:420px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p style=\"text-align:center;font-size:13px;color:var(--mid);\">A UK petrol tax of 52.95p per litre: supply shifts left, price rises P1→P2, quantity falls Q1→Q2 — and since petrol use causes CO2 emissions, the fall in quantity should cut emissions (by an amount that depends on how price inelastic demand for petrol is).</p>\n<h4>2. Subsidies — for positive externalities</h4>\n<ul>\n<li>A <strong>subsidy</strong> is money paid to a producer to lower their costs, increasing supply and lowering the price to consumers — used to encourage consumption of merit goods and goods with positive externalities, e.g. vaccinations.</li>\n</ul>\n<h4>3. State provision</h4>\n<ul>\n<li>The government directly supplies goods it believes are under-provided by the market: merit goods like state education and the NHS, and public goods like defence and street lighting, which the private sector won't supply because of the free-rider problem.</li>\n</ul>\n<h4>4. Legislation and regulation</h4>\n<ul>\n<li>Laws that ban or restrict harmful activities directly, e.g. age limits on buying tobacco, or restrictions on where people are allowed to smoke.</li>\n</ul>\n<h4>5. Information provision</h4>\n<ul>\n<li>Government campaigns that encourage consumption of goods with positive externalities, or discourage consumption of goods with negative externalities, e.g. anti-smoking health warnings.</li>\n</ul>",
   "question": "Indirect taxation corrects a negative externality by working through the...",
   "options": [
-   "supply curve shifting left, leading to higher prices",
-   "quantity sold decreasing as the demand curve shifts left",
    "demand curve shifting right as prices increase",
-   "supply curve shifting right as supply decreases"
+   "supply curve shifting right as supply decreases",
+   "quantity sold decreasing as the demand curve shifts left",
+   "supply curve shifting left, leading to higher prices"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "A tax raises a firm's costs of production, so the SUPPLY curve shifts left — this raises price and cuts the equilibrium quantity. Demand does not shift at all; that is the most common exam misconception on this topic."
   }
  },
@@ -30668,13 +30668,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Every one of the five policies has a genuine weakness — the exam rewards you for weighing these up, not just listing benefits.</p>\n<h4>Taxation</h4>\n<ul>\n<li><strong>Limited by inelastic demand</strong>: addictive goods like tobacco and alcohol have price INELASTIC demand, so a tax barely reduces the quantity consumed — this is why legislation (an outright ban) has more effect than taxation on a highly price-inelastic good.</li>\n<li><strong>Can create black markets</strong>: high excise duties can push trade into unofficial or counterfeit markets, which loses the government tax revenue and can be more dangerous, since counterfeit products can contain harmful ingredients.</li>\n</ul>\n<h4>Subsidies</h4>\n<ul>\n<li>Effectiveness depends on <strong>elasticity</strong> — subsidising a good with elastic demand causes a much bigger rise in quantity consumed than subsidising a good with inelastic demand.</li>\n<li>Only works if <strong>supply can actually respond</strong> — if supply is perfectly inelastic (fixed), a policy that raises demand (like information provision) doesn't raise the quantity actually consumed at all.</li>\n</ul>\n<h4>State provision</h4>\n<ul>\n<li>Guarantees access regardless of income, but quality can vary sharply by area, and services like the NHS can face long waiting lists — those who can afford private alternatives get faster treatment, which can widen inequality rather than close it.</li>\n</ul>\n<h4>Legislation and regulation</h4>\n<ul>\n<li>Only as effective as its <strong>enforcement</strong>: breaches can be hard to detect and costly to prosecute (e.g. fly-tipping). Banning a good outright can also create a black market rather than eliminating the activity.</li>\n</ul>\n<h4>Information provision</h4>\n<ul>\n<li>Effectiveness depends entirely on how well it's received — campaigns against addictive products have limited success precisely because addiction makes people hard to persuade.</li>\n</ul>",
   "question": "A government wants to reduce consumption of a good with highly price-inelastic demand. Which policy has the most effect?",
   "options": [
-   "Taxation",
-   "Legislation",
    "Information provision",
-   "A subsidy"
+   "A subsidy",
+   "Legislation",
+   "Taxation"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "Price-based tools like taxation barely work when quantity demanded won't respond much to price. Legislation removes or restricts the good directly, regardless of how strongly people still want it."
   }
  },
@@ -30689,13 +30689,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Government intervention isn't free. Whichever policy you're evaluating, the exam wants you to weigh the <strong>benefit against a genuine cost</strong> — and crucially, to PAIR them together, not just list two separate, unlinked points.</p>\n<h4>Opportunity cost — the government's money has to come from somewhere</h4>\n<ul>\n<li><strong>Opportunity cost</strong> = the next best alternative given up when a choice is made. Money spent enforcing a ban could have been spent on other government activities. Money spent subsidising renewable energy could instead have funded health or education.</li>\n<li>Careful: the opportunity cost of a policy is NOT one of its own direct running costs — e.g. paying teachers is a cost of running education, not education's opportunity cost. The opportunity cost is what else that same money could have achieved.</li>\n</ul>\n<h4>Costs to households</h4>\n<ul>\n<li>Policies to reduce negative externalities often raise costs for consumers too: higher electricity bills, more expensive petrol, and the higher cost of energy-efficient appliances or electric/hybrid cars.</li>\n</ul>\n<h4>Benefits — and how to PAIR them properly</h4>\n<ul>\n<li>Benefits include: lower healthcare costs from fewer illnesses, a healthier and more productive workforce, tax revenue that can fund other services, and — in the long run — a reduction in the scale of a problem like climate change.</li>\n<li><strong>The examiners' number-one evaluation rule</strong>: an evaluative point must be MATCHED to the analytical point just made. Writing \"vaccination improves productivity\" (a benefit) and then separately writing \"there's an opportunity cost of government spending\" (unlinked) earns no evaluation credit — you must connect the two, e.g. \"...however, this productivity gain must be weighed against the schools and hospitals that opportunity cost could otherwise have funded.\"</li>\n</ul>",
   "question": "Why does the government spending more on renewable energy have an opportunity cost?",
   "options": [
-   "Because the same money could have been spent on other services such as health or education",
-   "Because it will definitely increase the budget deficit",
    "Because firms will not invest in renewable energy",
-   "Because renewable energy is always more expensive than fossil fuels"
+   "Because renewable energy is always more expensive than fossil fuels",
+   "Because the same money could have been spent on other services such as health or education",
+   "Because it will definitely increase the budget deficit"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "Opportunity cost is about the NEXT BEST ALTERNATIVE use of the same resources — government funds spent on renewables cannot also be spent on health, education or other valued services."
   }
  },
@@ -30731,13 +30731,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"For a 'using a diagram, analyse...' question, a written description is enough — the diagram itself doesn't really matter.\"</p><p><strong>✅ The correct idea:</strong> The real mark scheme is blunt: 'A maximum of 4 marks if no correct diagram' out of 6 — and application marks can ONLY be rewarded once there is also analysis, i.e. simply labelling a diagram earns nothing on its own. The Examiner's Comments for this exact question were positive: 'Many candidates were able to draw an accurate diagram and write an analysis that drew on the context and impact of taxation... candidates generally had a very good understanding of the implications of inelastic price elasticity of demand.'</p>",
   "question": "On a 'using a diagram, analyse the impact of an indirect tax' 6-mark question, what is the maximum mark available with NO correct diagram?",
   "options": [
+   "2 out of 6",
    "6 out of 6",
    "0 out of 6",
-   "4 out of 6",
-   "2 out of 6"
+   "4 out of 6"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "The mark scheme states clearly: 'a maximum of 4 marks if no correct diagram.' The diagram carries real marks, not just presentation credit."
   }
  },
@@ -30752,13 +30752,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"An indirect tax on petrol shifts the DEMAND curve left, which is why price rises.\"</p><p><strong>✅ The correct idea:</strong> This is the exact misconception the examiners flagged in the mark scheme guidance: 'The most common misconceptions were that indirect taxes would cause demand to shift. Also, several candidates were using a macroeconomic diagram with AD, AS, price level and output which is incorrect.' A tax raises the firm's COST OF PRODUCTION, so it is the SUPPLY curve that shifts left (labelled 'S + tax'); demand is completely unaffected by a tax on the seller.</p>",
   "question": "An indirect tax is placed on petrol. What actually shifts on the correct market diagram?",
   "options": [
+   "Both supply and demand shift left",
    "Supply shifts left",
-   "Neither curve shifts, only the price label changes",
    "Demand shifts left",
-   "Both supply and demand shift left"
+   "Neither curve shifts, only the price label changes"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "A tax raises the firm's cost of production, so SUPPLY shifts left to 'S + tax'. Demand is not affected by a tax charged to the seller."
   }
  },
@@ -30773,13 +30773,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> \"To evaluate, just write one point in favour of the policy and a separate point against it.\"</p><p><strong>✅ The correct idea:</strong> The real OCR misconception box for the vaccination-subsidy question is explicit: 'Evaluation is awarded for making a judgement or writing an evaluative point that matches with the preceding point... A common error was that candidates would analyse a benefit such as improved living standards/output in the economy and then attempt evaluation by writing that there is an opportunity cost of government spending WITHOUT LINKING this argument to how it would lower the potential gains.' An unlinked 'however' sentence earns nothing — it must connect directly back to the specific benefit just analysed.</p>",
   "question": "According to the OCR mark scheme, when does a 'however' sentence actually earn evaluation marks?",
   "options": [
-   "Whenever it mentions an opportunity cost",
-   "Only in the final sentence of the answer",
+   "When it directly links back to and weighs up the specific point made just before it",
    "Whenever the answer includes the word 'however'",
-   "When it directly links back to and weighs up the specific point made just before it"
+   "Whenever it mentions an opportunity cost",
+   "Only in the final sentence of the answer"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "The mark scheme's own misconception note says evaluation must MATCH the preceding analytical point. An unlinked opportunity-cost point that doesn't weigh against the specific benefit just described earns no evaluation credit."
   }
  },
@@ -30795,12 +30795,12 @@ window.QUESTION_BANK = [
   "question": "You calculate 58.89 × 9 = 530.01 correctly but write just \"530.01\" with no units. How many of the 2 marks do you get?",
   "options": [
    "2 marks, but only if it is rounded to 530",
+   "1 mark — the units (million metric tons) are required for the second mark",
    "2 marks — the number is correct",
-   "0 marks — units are always required for any mark at all",
-   "1 mark — the units (million metric tons) are required for the second mark"
+   "0 marks — units are always required for any mark at all"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "The mark scheme is explicit: '1 mark only if million metric tons is omitted.' The correct number alone is not enough for full marks."
   }
  },
@@ -30815,13 +30815,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Every definition question on this topic is really testing the same idea: a gap between what's PRIVATE and what's SOCIAL.</p>\n<ul>\n<li><strong>Externality</strong> = a cost or benefit of an economic activity that falls on a <strong>third party</strong> outside the original transaction.</li>\n<li><strong>Negative externality</strong>: social cost is GREATER than private cost. <strong>Positive externality</strong>: social benefit is GREATER than private benefit.</li>\n<li>The examiners repeatedly reward answers that name the THIRD PARTY test directly — vague answers like \"it's bad for the environment\" without identifying who bears the cost score less well.</li>\n</ul>",
   "question": "Which phrase MUST appear in a strong definition of 'externality'?",
   "options": [
+   "A cost paid by the producer",
    "A benefit received by the government",
-   "A cost or benefit affecting a third party outside the transaction",
    "A tax on a good or service",
-   "A cost paid by the producer"
+   "A cost or benefit affecting a third party outside the transaction"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "The third-party test is the core of the definition — without it, you're just describing a normal private cost or benefit."
   }
  },
@@ -30836,13 +30836,13 @@ window.QUESTION_BANK = [
   "reading": "<p>This exact question type appeared as a 6-marker on the real paper — learn the routine cold.</p>\n<ul>\n<li><strong>Draw and label it</strong>: original S and D, then shift S left to \"S + tax\" (or S1). Label the new equilibrium P2 and Q2, and the original P1 and Q1. <strong>No correct diagram caps you at 4/6.</strong></li>\n<li><strong>Reference the extract's numbers</strong>: e.g. \"the tax is 52.95p per litre.\"</li>\n<li><strong>Explain the mechanism</strong>: tax increases cost of production → decreases supply → increases equilibrium price → equilibrium quantity falls.</li>\n<li><strong>Scale it with elasticity</strong>: if demand is price INELASTIC (like petrol), the fall in quantity — and therefore the fall in whatever externality you're correcting — is smaller than it would be with elastic demand.</li>\n<li><strong>Avoid the trap</strong>: it is SUPPLY that shifts, never demand, and never use a macroeconomic AD/AS diagram for a single market question.</li>\n</ul>",
   "question": "On a 'using a diagram, analyse a tax' 6-marker, which curve should you shift?",
   "options": [
-   "Supply, to the right",
    "Supply, to the left",
    "Demand, to the left",
-   "Demand, to the right"
+   "Demand, to the right",
+   "Supply, to the right"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "A tax raises the firm's cost of production, so supply shifts LEFT. This is the single most commonly confused point on this question type."
   }
  },
@@ -30857,13 +30857,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Evaluate questions on this topic ask you to weigh up whether a policy is worthwhile — the mark scheme rewards a very specific structure.</p>\n<ul>\n<li><strong>Pair every \"however\" with the point before it.</strong> An unlinked negative point (e.g. a generic mention of opportunity cost) earns no evaluation credit unless it directly weighs against the specific benefit you just analysed.</li>\n<li><strong>Use the extract's own numbers</strong> as evidence for both sides, e.g. the UK's rising measles vaccination coverage (81% in 2004 to over 91% in 2023) as evidence a subsidy is working.</li>\n<li><strong>Finish with a supported judgement that names what it DEPENDS ON</strong> — e.g. \"Overall, the policy is likely to benefit society, but the extent depends on how high take-up is and whether the healthcare savings are large enough to justify the opportunity cost.\" A judgement with nothing specific behind it just repeats the analysis.</li>\n</ul>",
   "question": "What is the strongest way to end a 6-mark Evaluate answer?",
   "options": [
-   "A definition of the key term used in the question",
-   "A judgement that names the specific factor the outcome depends on",
    "A list of every point made, restated in order",
-   "A summary that repeats the analysis points already made"
+   "A definition of the key term used in the question",
+   "A summary that repeats the analysis points already made",
+   "A judgement that names the specific factor the outcome depends on"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "A supported judgement names WHAT the outcome depends on (e.g. take-up rate, how the sizes of the costs and benefits compare) — that's what separates Level 3 from Level 2."
   }
  },
@@ -30878,13 +30878,13 @@ window.QUESTION_BANK = [
   "reading": "<p>This trips up more candidates than almost anything else on this paper.</p>\n<ul>\n<li><strong>Opportunity cost</strong> = the next best ALTERNATIVE given up, not a cost the policy directly creates. Enforcing a sugar ban has a cost (the money spent on enforcement) — but the OPPORTUNITY cost is what that money could have been spent on instead.</li>\n<li><strong>2 marks needs specifics</strong>: the mark scheme gives 2 marks for \"a correct explanation of opportunity cost that includes a reference to actual alternative uses of government spending,\" but only 1 mark for generic understanding with no specific alternative named.</li>\n<li><strong>Two worked examples</strong>: government spending on renewable energy could otherwise fund education or health (specific); or it could increase the budget deficit, meaning more has to be repaid later at the expense of other future spending.</li>\n</ul>",
   "question": "For 2 marks on 'explain an opportunity cost of the government's renewable energy investment', what does the mark scheme require?",
   "options": [
-   "A correct explanation that names a specific alternative use of the government spending given up",
-   "A list of three different opportunity costs",
+   "A calculation showing the exact amount spent",
    "Just the definition of opportunity cost",
-   "A calculation showing the exact amount spent"
+   "A correct explanation that names a specific alternative use of the government spending given up",
+   "A list of three different opportunity costs"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "The mark scheme awards 2 marks only when the answer names an actual alternative (e.g. health or education spending) — generic understanding without specifics is capped at 1 mark."
   }
  },

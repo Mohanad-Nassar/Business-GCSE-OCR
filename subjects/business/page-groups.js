@@ -5,7 +5,7 @@
 // (window.SUBJECT) and the subject's topic tree (window.PAGE_GROUPS)
 // — the same structure progress-shared.js's literal has, with
 // subject-prefixed page ids and root-absolute hrefs.
-// Generated: 2026-07-16T17:18:43Z
+// Generated: 2026-07-16T17:21:04Z
 // ══════════════════════════════════════════════════════════════
 window.SUBJECT = {
  "slug": "business",

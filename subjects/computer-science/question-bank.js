@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-16T17:18:45Z · 72 questions
+// Generated: 2026-07-16T17:21:05Z · 72 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -328,9 +328,9 @@ window.QUESTION_BANK = [
   "question": "What is the purpose of the CPU?",
   "options": [
    "To provide power to the computer",
-   "To store the user's documents",
+   "To display graphics on the monitor",
    "To fetch, decode and execute instructions",
-   "To display graphics on the monitor"
+   "To store the user's documents"
   ],
   "key": {
    "answer": 2,
@@ -367,11 +367,11 @@ window.QUESTION_BANK = [
   "options": [
    "Program counter",
    "Cache",
-   "Control unit",
-   "ALU"
+   "ALU",
+   "Control unit"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "The ALU (Arithmetic Logic Unit) does all the maths and logic — comparisons, additions, AND/OR operations. The CU coordinates; it doesn't calculate."
   }
  },
@@ -384,13 +384,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which CPU component decodes instructions and coordinates the actions of the processor?",
   "options": [
+   "The ALU",
    "The control unit",
    "The MDR",
-   "The ALU",
    "The accumulator"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "The control unit decodes each instruction and sends signals to synchronise and direct the other components. Remember: it directs the work, the ALU does the maths."
   }
  },
@@ -403,13 +403,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "What does the program counter store?",
   "options": [
+   "The data fetched from memory",
    "The address of the next instruction to be fetched",
-   "The number of programs currently running",
    "The result of the last calculation",
-   "The data fetched from memory"
+   "The number of programs currently running"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "The PC stores the ADDRESS of the next instruction and increments each cycle. It counts nothing — despite the name."
   }
  },
@@ -422,13 +422,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Data has just been fetched from main memory. Which register is it now sitting in?",
   "options": [
-   "MDR",
    "Program counter",
    "MAR",
-   "Accumulator"
+   "Accumulator",
+   "MDR"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "The MDR (Memory Data Register) holds the data or instruction just fetched from memory. The MAR held the address it came from."
   }
  },
@@ -441,13 +441,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "The ALU has just added two numbers. Where is the result stored?",
   "options": [
-   "In cache",
-   "In the MAR",
    "In the program counter",
-   "In the accumulator"
+   "In the MAR",
+   "In the accumulator",
+   "In cache"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "The accumulator stores the results of ALU calculations. The MAR and PC only ever hold addresses."
   }
  },
@@ -460,13 +460,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which TWO registers store addresses rather than data?",
   "options": [
-   "MDR and accumulator",
    "Accumulator and program counter",
+   "Program counter and MAR",
    "MAR and MDR",
-   "Program counter and MAR"
+   "MDR and accumulator"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "PC and MAR hold locations in memory (addresses); MDR holds the data/instruction itself and the accumulator holds calculation results."
   }
  },
@@ -479,9 +479,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "What is cache?",
   "options": [
-   "The part of the CPU that performs calculations",
    "Slow memory outside the CPU used for long-term storage",
    "A register that stores one address",
+   "The part of the CPU that performs calculations",
    "A small amount of fast memory inside the CPU storing frequently used instructions"
   ],
   "key": {
@@ -500,8 +500,8 @@ window.QUESTION_BANK = [
   "options": [
    "A small, very fast storage location inside the CPU holding one piece of data or one address",
    "A large memory store for running programs",
-   "A type of secondary storage",
-   "A unit that decodes instructions"
+   "A unit that decodes instructions",
+   "A type of secondary storage"
   ],
   "key": {
    "answer": 0,
@@ -517,13 +517,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "During one fetch–execute cycle, which of these events happens?",
   "options": [
-   "The operating system restarts",
-   "The hard drive is defragmented",
+   "The program counter is incremented",
    "The RAM is wiped clean",
-   "The program counter is incremented"
+   "The operating system restarts",
+   "The hard drive is defragmented"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "Each cycle: an instruction is fetched, decoded, executed — and the program counter increments so the CPU knows where the next instruction is."
   }
  },
@@ -537,12 +537,12 @@ window.QUESTION_BANK = [
   "question": "Why can the CPU access an instruction in cache faster than the same instruction in RAM?",
   "options": [
    "Cache is bigger than RAM",
-   "Cache instructions are pre-executed",
+   "Cache is inside (or right next to) the CPU, so there is less distance and delay",
    "RAM only works when the computer is off",
-   "Cache is inside (or right next to) the CPU, so there is less distance and delay"
+   "Cache instructions are pre-executed"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Cache sits inside the CPU and is built from faster memory, so frequently used instructions don't have to make the slower trip from RAM."
   }
  },
@@ -661,13 +661,13 @@ window.QUESTION_BANK = [
   "reading": "<h4>The brain that follows instructions</h4>\n<ul>\n<li>The <strong>CPU (Central Processing Unit)</strong> is the part of the computer that carries out all the processing.</li>\n<li>Its purpose is to <strong>fetch, decode and execute instructions</strong> — every program you run, from a game to a spreadsheet, is just a long list of instructions the CPU works through one at a time.</li>\n<li>Think of a chef working through a recipe: read the next step (fetch), work out what it means (decode), then do it (execute) — and repeat until the dish is finished.</li>\n</ul>\n<h4>Where the instructions come from</h4>\n<ul>\n<li>Programs and their data are stored in <strong>main memory (RAM)</strong> while they are running.</li>\n<li>The CPU constantly pulls instructions out of memory, processes them, and sends the results back — billions of times every second.</li>\n<li>This design — the program stored in memory alongside its data, with one processor working through it — is called <strong>von Neumann architecture</strong>, and it is how almost every computer works.</li>\n</ul>\n<h4>Say it the exam way</h4>\n<ul>\n<li>If a question asks for the <em>purpose</em> of the CPU, the safe two-part answer is: it <strong>processes instructions</strong> by <strong>carrying out the fetch–execute cycle</strong>.</li>\n</ul>",
   "question": "Which of these best states the PURPOSE of the CPU?",
   "options": [
-   "It displays images on the screen",
-   "It connects the computer to the internet",
+   "It fetches, decodes and executes instructions",
    "It stores all the user's files and programs",
-   "It fetches, decodes and executes instructions"
+   "It connects the computer to the internet",
+   "It displays images on the screen"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "The CPU is the processor — it works through program instructions using the fetch–decode–execute cycle. Storing files is the job of storage, not the CPU."
   }
  },
@@ -703,13 +703,13 @@ window.QUESTION_BANK = [
   "reading": "<h4>The four common components</h4>\n<ul>\n<li><strong>ALU (Arithmetic Logic Unit):</strong> performs the <strong>mathematical calculations</strong> (add, subtract…) and <strong>logical operations</strong> (comparisons like greater-than, AND/OR decisions).</li>\n<li><strong>CU (Control Unit):</strong> <strong>decodes instructions</strong> and sends signals to <strong>coordinate</strong> the rest of the processor — it directs the fetch–execute cycle and the flow of data. It doesn't do the maths itself; it's the conductor, not the orchestra.</li>\n<li><strong>Cache:</strong> a small amount of <strong>very fast memory inside the CPU</strong> that stores <strong>frequently used instructions and data</strong>, so the CPU doesn't have to wait for the (slower) RAM every time.</li>\n<li><strong>Registers:</strong> tiny, extremely fast storage locations inside the CPU — each one holds <strong>a single piece of data or one address</strong> that the CPU is working with right now.</li>\n</ul>\n<h4>Storage sizes, smallest to biggest</h4>\n<ul>\n<li>Register (one value) → cache (small, inside the CPU) → RAM (all currently running programs). Speed goes the opposite way: registers are fastest, RAM is slowest of the three.</li>\n</ul>\n<h4>The wording that wins marks</h4>\n<ul>\n<li>Component questions are marked on precise verbs: the ALU <strong>performs</strong> calculations, the CU <strong>decodes and coordinates</strong>, cache and registers <strong>store</strong>. Mixing these up (e.g. \"the CU executes the instructions\") is the most common way to lose the mark.</li>\n</ul>",
   "question": "A computer program needs to check whether one number is bigger than another. Which CPU component carries out this comparison?",
   "options": [
-   "The ALU",
-   "The program counter",
    "The control unit",
-   "The cache"
+   "The program counter",
+   "The cache",
+   "The ALU"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "Comparisons are logical operations, and the ALU performs all mathematical calculations and logical operations. The CU decodes and coordinates; it doesn't do the comparison itself."
   }
  },
@@ -724,13 +724,13 @@ window.QUESTION_BANK = [
   "reading": "<h4>The registers you must know by name</h4>\n<ul>\n<li><strong>Program counter (PC):</strong> stores the <strong>address</strong> of the <strong>next instruction</strong> to be fetched from memory. It increments during each fetch–execute cycle.</li>\n<li><strong>MAR (Memory Address Register):</strong> stores the <strong>address</strong> of the data or instruction that is about to be fetched from memory — or the address where data is about to be stored.</li>\n<li><strong>MDR (Memory Data Register):</strong> stores the actual <strong>data or instruction</strong> that has just been fetched from memory, or that is about to be written to memory.</li>\n<li><strong>Accumulator (ACC):</strong> stores the <strong>results of calculations</strong> carried out by the ALU.</li>\n</ul>\n<h4>The one distinction that decides the marks: address or data?</h4>\n<ul>\n<li>An <strong>address</strong> is the location — like a house number. <strong>Data</strong> is what's actually stored there — like the people inside the house.</li>\n<li><strong>PC and MAR store addresses.</strong> <strong>MDR and ACC store data.</strong> If you remember only one thing from this card, make it that line.</li>\n</ul>\n<h4>A pair that works together</h4>\n<ul>\n<li>The MAR and MDR are a team: the MAR says <em>where</em> in memory to look, and the MDR holds <em>what</em> was found there. That's why \"the MAR stores the data\" is always wrong — it only ever holds the location.</li>\n</ul>",
   "question": "Which pair of registers store an ADDRESS rather than data?",
   "options": [
-   "Program counter and MAR",
-   "MDR and accumulator",
+   "MDR and MAR",
    "Accumulator and program counter",
-   "MDR and MAR"
+   "Program counter and MAR",
+   "MDR and accumulator"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "PC and MAR hold addresses (locations in memory). The MDR holds the data/instruction itself, and the accumulator holds the results of ALU calculations."
   }
  },
@@ -745,13 +745,13 @@ window.QUESTION_BANK = [
   "reading": "<h4>What happens when you open an app</h4>\n<ul>\n<li>The program's <strong>instructions and data are loaded into RAM</strong> (main memory) — the CPU cannot work on things directly from the hard drive or SSD.</li>\n<li>The CPU then <strong>fetches instructions from RAM</strong>, one at a time, and <strong>executes</strong> them using the fetch–decode–execute cycle.</li>\n<li>Instructions the CPU keeps coming back to are copied into <strong>cache</strong>, so next time they can be grabbed much faster than going back to RAM.</li>\n</ul>\n<h4>Why cache makes a CPU faster (the 2-mark version)</h4>\n<ul>\n<li>Cache stores frequently used instructions and data <strong>which can be accessed faster than RAM</strong> — so a bigger cache means the CPU waits less, improving performance.</li>\n<li>One subtle extra: a <em>huge</em> cache can bring diminishing returns, because it takes longer to search through more cache.</li>\n</ul>\n<h4>Answering \"describe how the CPU and RAM work together\"</h4>\n<ul>\n<li>Three-step structure: instructions/data are <strong>stored in RAM</strong> → they are <strong>fetched from RAM by the CPU</strong> → the CPU <strong>executes/processes</strong> them. Three steps, three marks.</li>\n</ul>",
   "question": "Why does cache memory speed up the CPU?",
   "options": [
-   "It permanently stores the operating system",
    "It adds more storage space for the user's files",
-   "It increases the clock speed of the CPU",
-   "It stores frequently used instructions that can be accessed faster than fetching them from RAM"
+   "It stores frequently used instructions that can be accessed faster than fetching them from RAM",
+   "It permanently stores the operating system",
+   "It increases the clock speed of the CPU"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "Cache holds the instructions and data the CPU uses most, inside the CPU itself — so they can be accessed far faster than going out to RAM. It doesn't change the clock speed or store files."
   }
  },
@@ -766,13 +766,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> The program counter keeps track of how many programs are running (or counts the instructions processed).</p><p><strong>✅ The correct idea:</strong> The program counter stores the ADDRESS of the next instruction to be fetched from memory, and it increments during each fetch–execute cycle. It is a signpost, not a tally. If your answer to any PC question doesn't contain the word 'address', it is almost certainly wrong.</p>",
   "question": "Which answer would earn the mark for 'state the purpose of the program counter'?",
   "options": [
+   "It stores the address of the next instruction to be fetched",
    "It counts the number of fetch–execute cycles",
    "It counts the programs that are open",
-   "It stores the address of the next instruction to be fetched",
    "It stores the instructions that are running"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Only the address answer scores. Counting programs or cycles is the classic misconception, and 'stores the instructions' confuses the PC with the MDR."
   }
  },
@@ -808,13 +808,13 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> 'The MAR fetches the data from memory' — describing registers with action verbs.</p><p><strong>✅ The correct idea:</strong> Registers STORE; they don't fetch, take or retrieve. Mark schemes explicitly refuse purposes written as actions. Level 0: 'the MAR fetches data'. Level 1: 'the MAR stores an address'. Full marks: 'the MAR stores the address of the data or instruction that is to be fetched from, or written to, memory.' Always start a register's purpose with 'stores...'.</p>",
   "question": "A question asks for the purpose of the MDR. Which answer style earns the mark?",
   "options": [
-   "\"The MDR is a register in the CPU\"",
-   "\"The MDR moves data around the CPU\"",
    "\"The MDR stores the data or instruction fetched from memory\"",
+   "\"The MDR moves data around the CPU\"",
+   "\"The MDR is a register in the CPU\"",
    "\"The MDR fetches the data from RAM\""
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "Registers store. Answers built on fetches/moves/takes describe actions the register doesn't perform, and 'it is a register' just restates the question."
   }
  },
@@ -830,9 +830,9 @@ window.QUESTION_BANK = [
   "question": "A definition in an exam table reads: 'Stores the address of the next instruction to be fetched. Increments during each cycle.' Which register is it?",
   "options": [
    "Program counter",
+   "MAR",
    "MDR",
-   "Accumulator",
-   "MAR"
+   "Accumulator"
   ],
   "key": {
    "answer": 0,
@@ -851,12 +851,12 @@ window.QUESTION_BANK = [
   "question": "Which sentence correctly explains why a dual-core CPU can improve performance?",
   "options": [
    "\"Two cores mean twice the cache\"",
+   "\"It can run more instructions per second\"",
    "\"Each core can execute a different instruction at the same time\"",
-   "\"Two cores double the clock speed\"",
-   "\"It can run more instructions per second\""
+   "\"Two cores double the clock speed\""
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "The winning idea is simultaneous execution — parallel processing. Doubling clock speed or cache isn't what a second core does, and 'more instructions per second' misses the 'at the same time' requirement."
   }
  },
@@ -871,13 +871,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Here is the same answer to <em>\"State the purpose of the MAR\"</em> at every level:</p>\n\n<p><strong>❌ 0 marks:</strong> \"The MAR is a register inside the CPU.\"</p>\n<ul>\n<li>True, but it just restates the question — no purpose given.</li>\n</ul>\n\n<p><strong>❌ 0 marks:</strong> \"The MAR fetches the data from memory.\"</p>\n<ul>\n<li>Registers <strong>store</strong> — purposes written as actions (fetches, takes, retrieves) are refused.</li>\n</ul>\n\n<p><strong>⚠️ Borderline:</strong> \"The MAR stores an address.\"</p>\n<ul>\n<li>The verb is right, but WHICH address? Too vague to be safe.</li>\n</ul>\n\n<p><strong>✅ Full marks:</strong> \"The MAR stores the address of the data or instruction that is to be fetched from, or written to, memory.\"</p>\n\n<p><strong>The pattern for all four registers:</strong> \"Stores the…\" + address or data + what it belongs to:</p>\n<ul>\n<li>PC → stores the <strong>address of the next instruction</strong> to be fetched (and increments each cycle)</li>\n<li>MAR → stores the <strong>address</strong> of the data/instruction being fetched or written</li>\n<li>MDR → stores the <strong>data/instruction</strong> fetched from memory</li>\n<li>ACC → stores the <strong>results</strong> of ALU calculations</li>\n</ul>",
   "question": "Why does \"the MAR fetches data from memory\" score 0?",
   "options": [
-   "MAR should be written in full",
-   "A register's purpose is to STORE — describing it as performing an action is wrong",
    "The MAR doesn't exist",
-   "It's too short"
+   "It's too short",
+   "A register's purpose is to STORE — describing it as performing an action is wrong",
+   "MAR should be written in full"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "Registers are storage locations. The fetching is done by the CPU as a whole during the cycle — the register just holds the address or data involved."
   }
  },
@@ -892,13 +892,13 @@ window.QUESTION_BANK = [
   "reading": "<p>Performance explanations (clock speed, cache, cores) are marked as <strong>point + development</strong>. One fact = 1 mark; linking it to performance = the 2nd mark.</p>\n\n<p><strong>Example: \"Explain why a 3.2 GHz CPU usually runs faster than a 1.2 GHz CPU.\" [2]</strong></p>\n\n<p><strong>⚠️ 1 mark:</strong> \"3.2 GHz is a higher clock speed.\"</p>\n<ul>\n<li>Correct point, no development — the chain stops.</li>\n</ul>\n\n<p><strong>✅ 2 marks:</strong> \"3.2 GHz is a higher clock speed, so it runs more fetch–execute cycles per second, <strong>which means</strong> more instructions can be executed per second.\"</p>\n\n<p><strong>The same chain works for cache:</strong> \"Cache stores frequently used instructions → they can be accessed faster than from RAM → so the CPU spends less time waiting.\"</p>\n\n<p><strong>Two traps:</strong></p>\n<ul>\n<li>\"Cache is faster than RAM\" alone scores nothing — faster at <em>what</em>? Name the access to instructions/data.</li>\n<li>For dual core, the development must include <strong>at the same time</strong> (parallel execution) — \"more instructions per second\" alone reads like clock speed.</li>\n</ul>",
   "question": "\"More cache improves performance\" scores 1 out of 2. What's missing?",
   "options": [
-   "The chain: cache stores frequently used instructions which are accessed faster than from RAM",
    "The brand of CPU",
+   "A diagram",
    "The exact size of the cache in GB",
-   "A diagram"
+   "The chain: cache stores frequently used instructions which are accessed faster than from RAM"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "The second mark is for developing the point: WHAT cache stores and WHY that speeds things up (faster access than RAM). Assertions about performance without the mechanism stay on 1 mark."
   }
  },
@@ -913,13 +913,13 @@ window.QUESTION_BANK = [
   "reading": "<p>1.1.1 is full of table-completion and match-the-definition questions. Technique matters as much as knowledge:</p>\n\n<p><strong>1. Scan the whole table before writing anything.</strong></p>\n<ul>\n<li>A classic error chain: writing MAR in the row that should be PC, then forcing MDR into the MAR row — one early slip wrecks three rows. Pencil in all rows mentally first.</li>\n</ul>\n\n<p><strong>2. Use the address/data keyword test.</strong></p>\n<ul>\n<li>Definition contains \"address of the next instruction\" + \"increments\" → PC. \"Address\" of data being fetched/stored → MAR. \"Data/instruction fetched\" → MDR. \"Result\" → accumulator. \"Calculations/logical operations\" → ALU. \"Coordinates/decodes/signals\" → CU.</li>\n</ul>\n\n<p><strong>3. In draw-one-line matching, count the boxes.</strong></p>\n<ul>\n<li>If there are more definitions than components, at least one definition is a decoy — expect something plausible-sounding like \"keeps the clock in sync\".</li>\n<li>Drawing two lines from one component scores 0 for that component. One from, one to.</li>\n</ul>\n\n<p><strong>4. In tick-grids, extra ticks kill the row.</strong></p>\n<ul>\n<li>Each row is marked as a whole: the correct ticks AND no extras. If unsure, tick only what you're confident in — a stray extra tick turns a right answer into 0 for that row.</li>\n</ul>",
   "question": "In a tick-grid question, a student ticks the two correct boxes in a row PLUS one extra box. What happens?",
   "options": [
+   "The examiner ignores the extra tick",
    "They get 2 out of 3 for the row",
    "They score 0 for that row — extra ticks void it",
-   "They lose 1 mark from their total",
-   "The examiner ignores the extra tick"
+   "They lose 1 mark from their total"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "Rows are all-or-nothing: right ticks with any extra tick scores 0 for that row. Tick with intent, not with hope."
   }
  },
