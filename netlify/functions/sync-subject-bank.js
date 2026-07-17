@@ -1,42 +1,5 @@
-const sanitizeHtml = require('sanitize-html');
 const { getAdminClient, jsonResponse } = require('./_lib/adminClient');
-
-// Server-side HTML sanitiser for the bank-sync boundary. Pure-JS (htmlparser2,
-// no jsdom) so it bundles cleanly in a Netlify function. The allowlist mirrors
-// the client editor's (rich-editor.js ALLOWED_TAGS / TAG_ATTRS / STYLE_PROPS /
-// ALLOWED_CLASSES) so legitimate teacher formatting survives while scripts,
-// event handlers and javascript: URLs are stripped — even from a client that
-// bypassed the editor and PATCHed custom_topics directly.
-const STYLE_PROPS = ['color', 'background-color', 'text-align', 'font-size',
-    'font-weight', 'font-style', 'text-decoration', 'text-decoration-line',
-    'width', 'height', 'max-width', 'margin-left', 'padding-left',
-    'list-style-type', 'vertical-align', 'border-collapse'];
-const SANITISE_OPTS = {
-    allowedTags: ['p', 'div', 'br', 'hr', 'h2', 'h3', 'h4', 'h5', 'h6',
-        'strong', 'b', 'em', 'i', 'u', 's', 'strike', 'mark', 'sub', 'sup',
-        'code', 'pre', 'blockquote', 'ul', 'ol', 'li', 'a', 'img', 'span',
-        'font', 'table', 'thead', 'tbody', 'tfoot', 'tr', 'th', 'td',
-        'caption', 'figure', 'figcaption'],
-    allowedAttributes: {
-        a: ['href', 'title'],
-        img: ['src', 'alt', 'width', 'height'],
-        th: ['colspan', 'rowspan'],
-        td: ['colspan', 'rowspan'],
-        ol: ['start', 'type'],
-        font: ['color'],
-        '*': ['style'],   // class is governed by allowedClasses below
-    },
-    allowedClasses: { '*': ['rt-callout', 'rt-tip', 'rt-keyterm', 'rt-warning'] },
-    allowedStyles: {
-        '*': STYLE_PROPS.reduce((m, p) => { m[p] = [/^[^;{}()]*$/]; return m; }, {}),
-    },
-    allowedSchemes: ['http', 'https', 'mailto'],
-    allowedSchemesByTag: { img: ['http', 'https', 'data'] },  // data: only for <img> (inert in an image context)
-    // script/style/etc. are dropped tag AND content (not kept as text).
-    nonTextTags: ['script', 'style', 'textarea', 'option', 'noscript', 'iframe'],
-    disallowedTagsMode: 'discard',
-};
-const cleanHtml = (x) => (typeof x === 'string' ? sanitizeHtml(x, SANITISE_OPTS) : x);
+const { sanitiseBankRows } = require('./_lib/sanitizeBankHtml');
 
 // The XSS storage boundary for teacher-subject "bank sync".
 //
@@ -107,26 +70,13 @@ exports.handler = async (event) => {
             return jsonResponse(403, { error: 'Not authorised for this subject' });
         }
 
-        // 4. Sanitise the HTML-bearing fields with DOMPurify's safe
-        // defaults (strips script/iframe/on*-handlers/javascript: URLs,
-        // keeps formatting tags, class, <img src>, tables). Every other
-        // field is left untouched.
-        const sanitisedRows = rows.map((row) => {
-            if (!row || typeof row !== 'object') return row;
-            const snapshot = row.snapshot;
-            const answerKey = row.answer_key;
-            const out = Object.assign({}, row);
-            if (snapshot && typeof snapshot === 'object' && typeof snapshot.reading === 'string') {
-                out.snapshot = Object.assign({}, snapshot, { reading: cleanHtml(snapshot.reading) });
-            }
-            if (answerKey && typeof answerKey === 'object') {
-                const cleanKey = Object.assign({}, answerKey);
-                if (typeof cleanKey.markScheme === 'string') cleanKey.markScheme = cleanHtml(cleanKey.markScheme);
-                if (typeof cleanKey.modelAnswer === 'string') cleanKey.modelAnswer = cleanHtml(cleanKey.modelAnswer);
-                out.answer_key = cleanKey;
-            }
-            return out;
-        });
+        // 4. Sanitise the HTML-bearing fields (snapshot.reading,
+        // answer_key.markScheme, answer_key.modelAnswer) with the shared
+        // allowlist config (strips script/iframe/on*-handlers/javascript: URLs,
+        // keeps formatting tags, class, <img src>, tables). Every other field is
+        // left untouched. Same helper as sync-override-bank, so both bank paths
+        // share one XSS boundary.
+        const sanitisedRows = sanitiseBankRows(rows);
 
         // 5. Hand off to the service-role-only RPC for the validated upsert.
         const { data, error } = await admin.rpc('sync_teacher_subject_bank_srv', {
