@@ -177,8 +177,14 @@ export default async function contentGate(request: Request): Promise<Response | 
 
   const url = new URL(request.url);
   const match = url.pathname.match(/^\/subjects\/([^/]+)(\/|$)/);
-  if (!match) return undefined;
-  const subject = decodeURIComponent(match[1]);
+  // `--legacy` emits an unprefixed question-bank.js to the repo root, and
+  // publish = "." would serve it at /question-bank.js — every answer key, to
+  // anyone. It is NOT under /subjects/, so without this it takes the !match
+  // bail-out below and is served ungated no matter what netlify.toml mounts.
+  // The build only ever writes the root bank for business, so gate it as such.
+  const isRootBank = url.pathname === "/question-bank.js";
+  if (!match && !isRootBank) return undefined;
+  const subject = match ? decodeURIComponent(match[1]) : "business";
 
   const isBank = /\/question-bank\.js$/.test(url.pathname);
   // Top-level page navigations want a redirect; script/img/fetch requests

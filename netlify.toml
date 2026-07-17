@@ -93,6 +93,17 @@
   path = "/subjects/*"
   function = "content-gate"
 
+# The answer key must be gated wherever it lands, not only under /subjects/*.
+# `--legacy` writes an unprefixed question-bank.js to the repo root, and
+# publish = "." would then serve /question-bank.js — every answer, to anyone,
+# outside the mount above. The file is absent today and nothing loads it, so
+# this guards a footgun rather than a live hole: it means a stray --legacy run
+# can't quietly publish the key. The gate denies the bank to non-teachers and
+# fails CLOSED on it (see content-gate.ts).
+[[edge_functions]]
+  path = "/question-bank.js"
+  function = "content-gate"
+
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"

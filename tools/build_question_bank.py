@@ -309,7 +309,13 @@ def extract_object(src: str, var_name: str, file: str):
     """Like extract_array but for an object literal (`const X = { … }`) —
     used for EXAM_CASE_STUDIES, the per-page shared-extract map that exam
     questions reference by caseId (see script.js's _epResolveCase)."""
-    m = re.search(r"const\s+" + var_name + r"\s*=\s*\{", src)
+    # Accept every declaration form the RENDERER accepts. script.js's
+    # _epResolveCase reads `window.EXAM_CASE_STUDIES`, so a page declaring it
+    # that way renders correctly in the browser while a `const`-only regex here
+    # silently found nothing — the build would then drop every case study on
+    # that page and still exit 0. Keep the two in step.
+    m = re.search(r"(?:const|let|var)\s+" + var_name + r"\s*=\s*\{", src) or \
+        re.search(r"window\.\s*" + var_name + r"\s*=\s*\{", src)
     if not m:
         return None
     parser = JsLiteralParser(src, m.end() - 1)
@@ -503,10 +509,30 @@ def build_bank(slug, pages):
         case_studies = extract_object(src, "EXAM_CASE_STUDIES", file) or {}
 
         def resolve_case(q):
+            """Resolve a question's stimulus, failing LOUDLY.
+
+            Every silent path here ends the same way: an exam question ships
+            with no extract, so it is unanswerable, and the build still exits 0
+            — nothing surfaces it until a student hits the question. A typo'd
+            caseId, or a page whose EXAM_CASE_STUDIES this tool couldn't see,
+            must stop the build instead.
+            """
             cid = q.get("caseId")
-            if cid:
-                return case_studies.get(cid)
-            return q.get("caseStudy")
+            if not cid:
+                return q.get("caseStudy")
+            if q.get("caseStudy"):
+                raise SystemExit(
+                    f"ERROR: {file}: question {q.get('num') or q['question'][:40]!r} "
+                    f"sets BOTH caseId {cid!r} and an inline caseStudy.\n"
+                    "  Only one can win, and which one is silent — use caseId for "
+                    "shared extracts, inline caseStudy for single-use ones.")
+            if cid not in case_studies:
+                known = ", ".join(sorted(case_studies)) or "(none — is EXAM_CASE_STUDIES declared above examQuestions?)"
+                raise SystemExit(
+                    f"ERROR: {file}: question {q.get('num') or q['question'][:40]!r} "
+                    f"references unknown caseId {cid!r}.\n"
+                    f"  Known ids: {known}")
+            return case_studies[cid]
 
         for q in extract_array(src, "examQuestions", file) or []:
             if not q or not q.get("question"):
