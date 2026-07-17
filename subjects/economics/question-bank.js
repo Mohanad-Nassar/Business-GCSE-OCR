@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-17T06:06:04Z · 1912 questions
+// Generated: 2026-07-17T06:46:07Z · 1912 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -18660,7 +18660,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 1,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: B — There was no inflation in Year 1</strong></p>\n<ul>\n<li>Nominal growth includes price rises; real growth strips them out. In Year 1 both are 5%, so prices did not rise — no inflation. In Year 2 the 4-point gap (8% vs 4%) shows inflation of about 4%. Real GDP still GREW 4% in Year 2, so it did not fall.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates answered 'A', showing a misunderstanding of a falling rate of increase.</p>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: B — There was no inflation in Year 1</strong></p>\n<ul>\n<li>Nominal growth includes price rises; real growth strips them out. In Year 1 both are 5%, so prices did not rise — no inflation. In Year 2 the 4-point gap (8% vs 4%) shows inflation of about 4%. Real GDP still GREW 4% in Year 2, so it did not fall.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates answered 'A', showing a misunderstanding of a falling rate of increase.</p>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -18684,7 +18684,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark · Quantitative skills</h5>\n<p><strong>Answer: C — The greatest percentage increase in real GDP was between Year 1 and Year 2</strong></p>\n<ul>\n<li>Year 1→2 = 10/100 = 10%; Year 2→3 = 10/110 = 9.1%; Year 3→4 = 5/120 = 4.2%. So the biggest % rise is Year 1→2 (B is wrong — that rise is 9.1%, not 10%). D cannot be known without population data.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: C — The greatest percentage increase in real GDP was between Year 1 and Year 2</strong></p>\n<ul>\n<li>Year 1→2 = 10/100 = 10%; Year 2→3 = 10/110 = 9.1%; Year 3→4 = 5/120 = 4.2%. So the biggest % rise is Year 1→2 (B is wrong — that rise is 9.1%, not 10%). D cannot be known without population data.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -18805,7 +18805,7 @@ window.QUESTION_BANK = [
   "hint": "Build the full circular chain: higher incomes → consumers can afford more → demand rises → firms raise output → that pays incomes to the producers → they spend too → more output again. Then use the pie chart: extra income for the RICHEST 20% has less effect because they save more, while poorer households spend most of it.",
   "starter": "A rise in household incomes means consumers can afford to buy more, which means...",
   "key": {
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Consumer demand is likely to rise as more people can afford to buy</li>\n<li>Output rises to meet the extra demand</li>\n<li>This provides incomes for the producers of the consumer goods and services</li>\n<li>They in turn spend more and further output is required</li>\n<li>Economic growth is growth in the value of output, thus the rise in incomes has led to a rise in economic growth</li>\n</ul>\n<p><strong>References to Extract 1:</strong> increased incomes for the richer 20% of households will see less effect on economic growth; poorer households would spend most of the extra income.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis with developed chains of reasoning.</p>\n<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects.</p>\n<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (1 × AO1a, 2 × AO2, 3 × AO3a)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Consumer demand is likely to rise as more people can afford to buy</li>\n<li>Output rises to meet the extra demand</li>\n<li>This provides incomes for the producers of the consumer goods and services</li>\n<li>They in turn spend more and further output is required</li>\n<li>Economic growth is growth in the value of output, thus the rise in incomes has led to a rise in economic growth</li>\n</ul>\n<p><strong>References to Extract 1:</strong> increased incomes for the richer 20% of households will see less effect on economic growth; poorer households would spend most of the extra income.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis with developed chains of reasoning.</p>\n<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects.</p>\n<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>",
    "modelAnswer": "A rise in household incomes means consumers can afford to buy more goods and services, so consumer demand rises. Firms increase their output to meet that extra demand, and because economic growth is growth in the value of output, this increase is itself economic growth.\n\nThe process then feeds on itself. Producing the extra goods provides incomes for the workers and firms making them, and they in turn spend more of that income, so still more output is required. This multiplied effect means an initial rise in incomes can generate a larger overall rise in GDP.\n\nHowever, the size of the effect depends on WHO gets the extra income. The pie chart shows the top 20% of households already receive 40% of total incomes; extra income for them is more likely to be saved, so it has less effect on growth. Poorer households — the bottom 20% receive just 6% — would spend most of any extra income, so the same rise given to them would boost demand and growth by more."
   }
  },
@@ -20252,7 +20252,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 3,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark · Quantitative skills</h5>\n<p><strong>Answer: D — 8.0%</strong></p>\n<ul>\n<li>Unemployment rate = unemployed ÷ workforce × 100 = 2.52m ÷ 31.5m × 100 = 8.0%. The 52.5m population and the 8.5m under-18s are distractors — the rate is always a share of the WORKFORCE.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates correctly answered D.</p>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: D — 8.0%</strong></p>\n<ul>\n<li>Unemployment rate = unemployed ÷ workforce × 100 = 2.52m ÷ 31.5m × 100 = 8.0%. The 52.5m population and the 8.5m under-18s are distractors — the rate is always a share of the WORKFORCE.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates correctly answered D.</p>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -20429,7 +20429,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: C — seasonal</strong></p>\n<ul>\n<li>Jane is out of work because demand for ice cream falls outside the holiday season — seasonal unemployment, caused by a fall in demand during a particular season.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: C — seasonal</strong></p>\n<ul>\n<li>Jane is out of work because demand for ice cream falls outside the holiday season — seasonal unemployment, caused by a fall in demand during a particular season.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -20452,7 +20452,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 3,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: D — unemployment</strong></p>\n<ul>\n<li>The claimant count measures unemployment by counting those claiming unemployment-related benefits. Inflation is measured by the CPI.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: D — unemployment</strong></p>\n<ul>\n<li>The claimant count measures unemployment by counting those claiming unemployment-related benefits. Inflation is measured by the CPI.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -20476,7 +20476,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 3,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: D — The UK's labour market for females has performed better than Italy's</strong></p>\n<ul>\n<li>The UK's rate is below Italy's throughout and ends lower than it started, so its labour market clearly performed better. A and B talk about the NUMBER of women unemployed, which a rate chart cannot tell you without population data. C is the wrong way round — the UK's rate is always LOWER.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: D — The UK's labour market for females has performed better than Italy's</strong></p>\n<ul>\n<li>The UK's rate is below Italy's throughout and ends lower than it started, so its labour market clearly performed better. A and B talk about the NUMBER of women unemployed, which a rate chart cannot tell you without population data. C is the wrong way round — the UK's rate is always LOWER.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -20499,7 +20499,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 3,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: D — A young adult who has just left university without a job</strong></p>\n<ul>\n<li>They are of working age, without work and seeking it. The stay-at-home father is economically inactive by choice, the student already has some work, and a pensioner is beyond working age — none is counted as unemployed.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: D — A young adult who has just left university without a job</strong></p>\n<ul>\n<li>They are of working age, without work and seeking it. The stay-at-home father is economically inactive by choice, the student already has some work, and a pensioner is beyond working age — none is counted as unemployed.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -20523,7 +20523,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 3,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: D — structural</strong></p>\n<ul>\n<li>A permanent decline in an industry (coal mining) leaves workers whose skills no longer match the vacancies available — the definition of structural unemployment.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: D — structural</strong></p>\n<ul>\n<li>A permanent decline in an industry (coal mining) leaves workers whose skills no longer match the vacancies available — the definition of structural unemployment.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -20546,7 +20546,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 1,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: B — the claimant count measure of unemployment rises</strong></p>\n<ul>\n<li>Rachel is now claiming unemployment benefit, so she is added to the claimant count and it rises. Losing a worker would reduce, not increase, national output.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: B — the claimant count measure of unemployment rises</strong></p>\n<ul>\n<li>Rachel is now claiming unemployment benefit, so she is added to the claimant count and it rises. Losing a worker would reduce, not increase, national output.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -20586,7 +20586,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 3,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: D — structural unemployment</strong></p>\n<ul>\n<li>Technology permanently changing an industry leaves workers' skills mismatched to the jobs available — structural unemployment. It is long-term, not a temporary gap or a seasonal dip.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: D — structural unemployment</strong></p>\n<ul>\n<li>Technology permanently changing an industry leaves workers' skills mismatched to the jobs available — structural unemployment. It is long-term, not a temporary gap or a seasonal dip.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -20610,7 +20610,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 1,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark · Quantitative skills</h5>\n<p><strong>Answer: B — 25%</strong></p>\n<ul>\n<li>200 ÷ 800 × 100 = 25%. Dividing by the population of 1000 gives 20% — the classic trap. The rate is always a share of the labour force.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: B — 25%</strong></p>\n<ul>\n<li>200 ÷ 800 × 100 = 25%. Dividing by the population of 1000 gives 20% — the classic trap. The rate is always a share of the labour force.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -20633,7 +20633,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: C — reduce the quantity of labour supplied</strong></p>\n<ul>\n<li>Higher benefits reduce the financial incentive to take a job, so fewer people offer themselves for work — the supply of labour falls.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: C — reduce the quantity of labour supplied</strong></p>\n<ul>\n<li>Higher benefits reduce the financial incentive to take a job, so fewer people offer themselves for work — the supply of labour falls.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -20656,7 +20656,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: C — Increased spending on unemployment-related benefits</strong></p>\n<ul>\n<li>More claimants means the government pays out more in benefits — a direct cost to its budget. Higher taxes and lower living standards fall on individuals, not the government.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — Increased spending on unemployment-related benefits</strong></p>\n<ul>\n<li>More claimants means the government pays out more in benefits — a direct cost to its budget. Higher taxes and lower living standards fall on individuals, not the government.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -20680,7 +20680,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: C — He was still part of the workforce</strong></p>\n<ul>\n<li>John is available for and seeking work, so he remains in the workforce. His is frictional, not seasonal or structural, unemployment — and we are not told he claimed JSA, so A cannot be assumed.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — He was still part of the workforce</strong></p>\n<ul>\n<li>John is available for and seeking work, so he remains in the workforce. His is frictional, not seasonal or structural, unemployment — and we are not told he claimed JSA, so A cannot be assumed.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -20703,7 +20703,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 3,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: D — Structural</strong></p>\n<ul>\n<li>The permanent decline of the coal industry leaves miners with skills that do not match the jobs available — structural unemployment.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: D — Structural</strong></p>\n<ul>\n<li>The permanent decline of the coal industry leaves miners with skills that do not match the jobs available — structural unemployment.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -20727,7 +20727,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 3,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark · Quantitative skills</h5>\n<p><strong>Answer: D — It is the same in both countries</strong></p>\n<ul>\n<li>Y: 10,000 ÷ 100,000 × 100 = 10%. Z: 20,000 ÷ 200,000 × 100 = 10%. Z has more claimants in absolute terms but the same RATE, because its workforce is twice as large.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: D — It is the same in both countries</strong></p>\n<ul>\n<li>Y: 10,000 ÷ 100,000 × 100 = 10%. Z: 20,000 ÷ 200,000 × 100 = 10%. Z has more claimants in absolute terms but the same RATE, because its workforce is twice as large.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -21739,7 +21739,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 3,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark · Quantitative skills</h5>\n<p><strong>Answer: D — £203 000</strong></p>\n<ul>\n<li>Savings = 10% of £30,000 = £3,000. Add the house worth £200,000 → wealth = £203,000. His £30,000 income is a FLOW, not wealth — only the part he saved becomes an asset.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: D — £203 000</strong></p>\n<ul>\n<li>Savings = 10% of £30,000 = £3,000. Add the house worth £200,000 → wealth = £203,000. His £30,000 income is a FLOW, not wealth — only the part he saved becomes an asset.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -21762,7 +21762,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: C — taxes on inheritance</strong></p>\n<ul>\n<li>Inheritance tax breaks up large estates and redistributes wealth. Cutting it lets wealth pass down intact, so the distribution becomes MORE uneven.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates correctly identified the correct answer (C).</p>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — taxes on inheritance</strong></p>\n<ul>\n<li>Inheritance tax breaks up large estates and redistributes wealth. Cutting it lets wealth pass down intact, so the distribution becomes MORE uneven.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates correctly identified the correct answer (C).</p>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -21786,7 +21786,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 0,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: A — be unable to buy all the same products</strong></p>\n<ul>\n<li>A fall in REAL income means purchasing power has fallen, so they can no longer afford the same basket of goods. They actually have MORE money (nominal rose) — so C is wrong; it just buys less.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A common misconception was that individuals will have less money to spend, rather than their ability to spend will fall.</p>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: A — be unable to buy all the same products</strong></p>\n<ul>\n<li>A fall in REAL income means purchasing power has fallen, so they can no longer afford the same basket of goods. They actually have MORE money (nominal rose) — so C is wrong; it just buys less.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A common misconception was that individuals will have less money to spend, rather than their ability to spend will fall.</p>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -21844,7 +21844,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 1,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark · Quantitative skills</h5>\n<p><strong>Answer: B — £47 600</strong></p>\n<ul>\n<li>Assets only: motorbike £4,000 + car £9,000 + pension fund £20,000 + exercise machine £2,200 + savings £12,400 = £47,600. The two salaries and the £250 interest are INCOME, not wealth.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates correctly answered B.</p>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: B — £47 600</strong></p>\n<ul>\n<li>Assets only: motorbike £4,000 + car £9,000 + pension fund £20,000 + exercise machine £2,200 + savings £12,400 = £47,600. The two salaries and the £250 interest are INCOME, not wealth.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates correctly answered B.</p>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -21867,7 +21867,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: C — It makes income distribution more even</strong></p>\n<ul>\n<li>A progressive tax takes proportionally more from high earners, narrowing the income gap. Option A (\"affects incentives to work\") is usually a COST of the policy, not a benefit.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A very high percentage of candidates gave Option C as the correct response to this question.</p>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — It makes income distribution more even</strong></p>\n<ul>\n<li>A progressive tax takes proportionally more from high earners, narrowing the income gap. Option A (\"affects incentives to work\") is usually a COST of the policy, not a benefit.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A very high percentage of candidates gave Option C as the correct response to this question.</p>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -21891,7 +21891,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 0,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: A — Ann</strong></p>\n<ul>\n<li>Wealth = savings. Ann has the most (£4,000), even though she earns the least per hour. Dawn earns the most but has the least wealth — the table tests whether you can separate income from wealth.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A very high percentage of candidates gave Option A as the correct response to this question.</p>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: A — Ann</strong></p>\n<ul>\n<li>Wealth = savings. Ann has the most (£4,000), even though she earns the least per hour. Dawn earns the most but has the least wealth — the table tests whether you can separate income from wealth.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A very high percentage of candidates gave Option A as the correct response to this question.</p>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -21914,7 +21914,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 1,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: B — Income distribution will improve</strong></p>\n<ul>\n<li>Interest income mostly accrues to the wealthy, who hold the most savings. Taxing it more heavily takes proportionally more from them, so the distribution becomes more even. Higher tax on savings would discourage saving, so C is wrong.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: B — Income distribution will improve</strong></p>\n<ul>\n<li>Interest income mostly accrues to the wealthy, who hold the most savings. Taxing it more heavily takes proportionally more from them, so the distribution becomes more even. Higher tax on savings would discourage saving, so C is wrong.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -21937,7 +21937,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: C — Property, savings, shares</strong></p>\n<ul>\n<li>All three are assets you own — stocks of wealth. Interest, profit, rent and state benefits are all flows of INCOME, which is why the other options fail.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — Property, savings, shares</strong></p>\n<ul>\n<li>All three are assets you own — stocks of wealth. Interest, profit, rent and state benefits are all flows of INCOME, which is why the other options fail.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -21960,7 +21960,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: C — Sustainability</strong></p>\n<ul>\n<li>Age (earnings rise with experience), gender (the pay gap) and wealth (which generates extra income through interest and rent) all cause income differences. Sustainability is an environmental concept, not a cause of income inequality.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — Sustainability</strong></p>\n<ul>\n<li>Age (earnings rise with experience), gender (the pay gap) and wealth (which generates extra income through interest and rent) all cause income differences. Sustainability is an environmental concept, not a cause of income inequality.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -21984,7 +21984,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: C — her wealth is £50 000</strong></p>\n<ul>\n<li>The bank balance is a stock of assets = wealth. Her income is the £20,000 she earns; because the account pays no interest, the £50,000 adds nothing to her income.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Some candidates answered 'D', demonstrating a misconception between wealth and income.</p>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: C — her wealth is £50 000</strong></p>\n<ul>\n<li>The bank balance is a stock of assets = wealth. Her income is the £20,000 she earns; because the account pays no interest, the £50,000 adds nothing to her income.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Some candidates answered 'D', demonstrating a misconception between wealth and income.</p>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -22008,7 +22008,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark · Quantitative skills</h5>\n<p><strong>Answer: C — £35040</strong></p>\n<ul>\n<li>Income = earnings £30,000 + interest £40 + rent £5,000 = £35,040. The new car, savings, pension contributions and ISA are all stocks of wealth or outgoings, not income flows.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: C — £35040</strong></p>\n<ul>\n<li>Income = earnings £30,000 + interest £40 + rent £5,000 = £35,040. The new car, savings, pension contributions and ISA are all stocks of wealth or outgoings, not income flows.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -23691,7 +23691,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 0,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: A — in every year</strong></p>\n<ul>\n<li>The curve stays ABOVE the horizontal axis throughout, so the rate of change in the price level is positive every year — meaning inflation every year. The dip to Year 3 is inflation SLOWING, not prices falling. Only a curve going below the axis would show deflation.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: A — in every year</strong></p>\n<ul>\n<li>The curve stays ABOVE the horizontal axis throughout, so the rate of change in the price level is positive every year — meaning inflation every year. The dip to Year 3 is inflation SLOWING, not prices falling. Only a curve going below the axis would show deflation.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -23714,7 +23714,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 1,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: B — The price of children's clothes</strong></p>\n<ul>\n<li>CPI tracks the basket bought by typical UK consumers, so children's clothes are in it. Government spending, capital machinery bought by firms, and exports (bought by foreigners) are all excluded.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: B — The price of children's clothes</strong></p>\n<ul>\n<li>CPI tracks the basket bought by typical UK consumers, so children's clothes are in it. Government spending, capital machinery bought by firms, and exports (bought by foreigners) are all excluded.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -23737,7 +23737,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: C — Real incomes may fall</strong></p>\n<ul>\n<li>If prices rise faster than wages, consumers' real incomes — what their pay can actually buy — fall. Menu costs fall on producers, tax revenue on government, and inflation REDUCES the real value of savings.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: C — Real incomes may fall</strong></p>\n<ul>\n<li>If prices rise faster than wages, consumers' real incomes — what their pay can actually buy — fall. Menu costs fall on producers, tax revenue on government, and inflation REDUCES the real value of savings.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -23760,7 +23760,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark · Quantitative skills</h5>\n<p><strong>Answer: C — nominal 5%, inflation 1%</strong></p>\n<ul>\n<li>Real rate = nominal − inflation. A: 0 − 0 = 0%. B: 2 − 5 = −3%. C: 5 − 1 = <strong>+4%</strong>. D: 7 − 4 = +3%. The lender gains most in C, even though D has the higher nominal rate — the trap.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: C — nominal 5%, inflation 1%</strong></p>\n<ul>\n<li>Real rate = nominal − inflation. A: 0 − 0 = 0%. B: 2 − 5 = −3%. C: 5 − 1 = <strong>+4%</strong>. D: 7 − 4 = +3%. The lender gains most in C, even though D has the higher nominal rate — the trap.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -23783,7 +23783,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 1,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: B — the rate of inflation</strong></p>\n<ul>\n<li>Real values are nominal values adjusted for inflation, so they show purchasing power rather than the raw money amount.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: B — the rate of inflation</strong></p>\n<ul>\n<li>Real values are nominal values adjusted for inflation, so they show purchasing power rather than the raw money amount.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -23806,7 +23806,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 3,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: D — Through a survey of prices in a typical basket of goods and services</strong></p>\n<ul>\n<li>CPI surveys the prices of a representative basket each month. Weighting (C) is applied to that basket to reflect how much households spend on each item, but the measurement itself is the price survey.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: D — Through a survey of prices in a typical basket of goods and services</strong></p>\n<ul>\n<li>CPI surveys the prices of a representative basket each month. Weighting (C) is applied to that basket to reflect how much households spend on each item, but the measurement itself is the price survey.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -23830,7 +23830,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark · Quantitative skills</h5>\n<p><strong>Answer: C — rose throughout the period shown</strong></p>\n<ul>\n<li>All five rates are positive, so prices rose every year. Option A confuses a FALLING RATE with falling prices; option D confuses a constant RATE (2.0% in both 2017 and 2018) with constant prices — prices actually rose 2% in each of those years.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: C — rose throughout the period shown</strong></p>\n<ul>\n<li>All five rates are positive, so prices rose every year. Option A confuses a FALLING RATE with falling prices; option D confuses a constant RATE (2.0% in both 2017 and 2018) with constant prices — prices actually rose 2% in each of those years.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -23847,7 +23847,7 @@ window.QUESTION_BANK = [
   "hint": "Two routes work: the Bank of England changes the base rate, which changes borrowing and spending, so demand-pull inflation is controlled; OR the setting of inflation TARGETS tells people what to expect so they plan accordingly. Develop the chain for the second mark.",
   "starter": "The Bank of England sets the base rate of interest, which means...",
   "key": {
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>The setting of inflation targets by the government provides an indication to economic agents about future inflation so they can plan accordingly</li>\n<li>The past record of changes in the rate of interest has shown the effectiveness of the Bank of England in controlling the economy</li>\n<li>Changes in the base rate affect borrowing and spending, and therefore the pressure on prices</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>The setting of inflation targets by the government provides an indication to economic agents about future inflation so they can plan accordingly</li>\n<li>The past record of changes in the rate of interest has shown the effectiveness of the Bank of England in controlling the economy</li>\n<li>Changes in the base rate affect borrowing and spending, and therefore the pressure on prices</li>\n</ul>\n</div>",
    "modelAnswer": "The Bank of England uses monetary policy by setting the base rate of interest, which influences the rates high street banks charge on loans and mortgages.\n\nIf inflation is too high, raising the base rate makes borrowing dearer, so consumer spending and business investment fall — reducing demand-pull pressure on prices and bringing inflation back towards the 2% target."
   }
  },
@@ -23904,7 +23904,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 1,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: B — rise</strong></p>\n<ul>\n<li>A positive inflation rate means prices are still rising. A DECREASING but positive rate means they are rising more slowly than before — but the price level still goes up. Only a negative rate makes the price level fall.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: B — rise</strong></p>\n<ul>\n<li>A positive inflation rate means prices are still rising. A DECREASING but positive rate means they are rising more slowly than before — but the price level still goes up. Only a negative rate makes the price level fall.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -23927,7 +23927,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 1,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: B — the cost of living is rising</strong></p>\n<ul>\n<li>Rising prices mean the cost of living rises by definition. The others are only SOMETIMES true: if wages rise faster than prices, real incomes and living standards can still improve, and unemployment need not rise at all.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: B — the cost of living is rising</strong></p>\n<ul>\n<li>Rising prices mean the cost of living rises by definition. The others are only SOMETIMES true: if wages rise faster than prices, real incomes and living standards can still improve, and unemployment need not rise at all.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -24989,7 +24989,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 0,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: A — fiscal policy</strong></p>\n<ul>\n<li>Fiscal policy is the government's use of taxation and spending. Monetary policy is the Bank of England's use of interest rates and the money supply.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1 1a)</h5>\n<p><strong>Answer: A — fiscal policy</strong></p>\n<ul>\n<li>Fiscal policy is the government's use of taxation and spending. Monetary policy is the Bank of England's use of interest rates and the money supply.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25013,7 +25013,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark · Quantitative skills</h5>\n<p><strong>Answer: C — A progressive income tax</strong></p>\n<ul>\n<li>As a percentage of income: £1,000/£10,000 = 10%; £3,000/£20,000 = 15%; £10,000/£30,000 = 33%. The PROPORTION taken rises as income rises — the definition of progressive. A proportional tax would take the same % at every level.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: C — A progressive income tax</strong></p>\n<ul>\n<li>As a percentage of income: £1,000/£10,000 = 10%; £3,000/£20,000 = 15%; £10,000/£30,000 = 33%. The PROPORTION taken rises as income rises — the definition of progressive. A proportional tax would take the same % at every level.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25053,7 +25053,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: C — taxes on inheritance</strong></p>\n<ul>\n<li>Inheritance tax breaks up large estates and redistributes wealth. Cutting it lets wealth pass down intact, so the distribution becomes MORE uneven.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — taxes on inheritance</strong></p>\n<ul>\n<li>Inheritance tax breaks up large estates and redistributes wealth. Cutting it lets wealth pass down intact, so the distribution becomes MORE uneven.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25077,7 +25077,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 0,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: A — debt interest</strong></p>\n<ul>\n<li>A larger deficit must be financed by more borrowing, and that borrowing carries interest the government has to pay — a genuine cost. Higher government spending is the CAUSE of the bigger deficit, not a cost of it, and a deficit would tend to REDUCE unemployment.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: A — debt interest</strong></p>\n<ul>\n<li>A larger deficit must be financed by more borrowing, and that borrowing carries interest the government has to pay — a genuine cost. Higher government spending is the CAUSE of the bigger deficit, not a cost of it, and a deficit would tend to REDUCE unemployment.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25101,7 +25101,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: C — increase to discourage consumer spending</strong></p>\n<ul>\n<li>Above-target inflation means demand is too strong, so the Bank raises rates to make borrowing dearer and saving more attractive — cutting consumer spending and easing the pressure on prices. Option D pairs the right direction with the wrong purpose.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — increase to discourage consumer spending</strong></p>\n<ul>\n<li>Above-target inflation means demand is too strong, so the Bank raises rates to make borrowing dearer and saving more attractive — cutting consumer spending and easing the pressure on prices. Option D pairs the right direction with the wrong purpose.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25124,7 +25124,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: C — To maintain a balanced current account</strong></p>\n<ul>\n<li>Government spending funds health, raises welfare and redistributes income. The current account balance is about exports and imports and is not a purpose of government spending.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: C — To maintain a balanced current account</strong></p>\n<ul>\n<li>Government spending funds health, raises welfare and redistributes income. The current account balance is about exports and imports and is not a purpose of government spending.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25147,7 +25147,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 3,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: D — Lower levels of taxation will encourage more household spending</strong></p>\n<ul>\n<li>Cutting tax is fiscal policy and raises disposable income, spending and therefore demand and growth. B is MONETARY policy, C is SUPPLY-SIDE policy, and A would reduce demand and slow growth.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: D — Lower levels of taxation will encourage more household spending</strong></p>\n<ul>\n<li>Cutting tax is fiscal policy and raises disposable income, spending and therefore demand and growth. B is MONETARY policy, C is SUPPLY-SIDE policy, and A would reduce demand and slow growth.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25171,7 +25171,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark · Quantitative skills</h5>\n<p><strong>Answer: C — £534</strong></p>\n<ul>\n<li>Food: £400 × 1.20 = £480. Fresh fruit: £50 × 1.08 = £54. Total spend = £480 + £54 = £534. Option A (£84) is the VAT alone; £484 applies 20% to only part of the bill.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: C — £534</strong></p>\n<ul>\n<li>Food: £400 × 1.20 = £480. Fresh fruit: £50 × 1.08 = £54. Total spend = £480 + £54 = £534. Option A (£84) is the VAT alone; £484 applies 20% to only part of the bill.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25372,7 +25372,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 1,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark · Quantitative skills</h5>\n<p><strong>Answer: B — 8</strong></p>\n<ul>\n<li>2007 (≈203), 2008 (≈212), 2009 (≈234), 2010 (≈236), 2011 (≈234), 2012 (≈247), 2013 (≈238) and 2014 (≈238) all fall between £200bn and £250bn — that is 8 years. 2015 (≈276), 2016 (≈274) and 2017 (≈304) are all above £250bn.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: B — 8</strong></p>\n<ul>\n<li>2007 (≈203), 2008 (≈212), 2009 (≈234), 2010 (≈236), 2011 (≈234), 2012 (≈247), 2013 (≈238) and 2014 (≈238) all fall between £200bn and £250bn — that is 8 years. 2015 (≈276), 2016 (≈274) and 2017 (≈304) are all above £250bn.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25395,7 +25395,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: C — Tax revenue is equal to government spending</strong></p>\n<ul>\n<li>A balanced budget means what the government raises equals what it spends. Option A describes balanced trade (the current account), not the budget.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — Tax revenue is equal to government spending</strong></p>\n<ul>\n<li>A balanced budget means what the government raises equals what it spends. Option A describes balanced trade (the current account), not the budget.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25435,7 +25435,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: C — It makes income distribution more even</strong></p>\n<ul>\n<li>A progressive tax takes proportionally more from high earners, narrowing the income gap. Option A (\"affects incentives to work\") is usually a COST of the policy, not a benefit.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — It makes income distribution more even</strong></p>\n<ul>\n<li>A progressive tax takes proportionally more from high earners, narrowing the income gap. Option A (\"affects incentives to work\") is usually a COST of the policy, not a benefit.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25459,7 +25459,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 1,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: B — progressive tax</strong></p>\n<ul>\n<li>Tax paid rising more than proportionally with income means a higher PERCENTAGE is taken as income rises — the definition of a progressive tax. A proportional tax would be a straight line through the origin.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>⚠️ Note on this compiled paper</h5>\n<p>The diagram this question refers to is <strong>absent</strong> from the ExamBuilder-compiled PDF (the space where it should appear is blank). The case-study text above describes the standard diagram the question intends.</p>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: B — progressive tax</strong></p>\n<ul>\n<li>Tax paid rising more than proportionally with income means a higher PERCENTAGE is taken as income rises — the definition of a progressive tax. A proportional tax would be a straight line through the origin.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>⚠️ Note on this compiled paper</h5>\n<p>The diagram this question refers to is <strong>absent</strong> from the ExamBuilder-compiled PDF (the space where it should appear is blank). The case-study text above describes the standard diagram the question intends.</p>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25483,7 +25483,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark · Quantitative skills</h5>\n<p><strong>Answer: C — 2016–2017</strong></p>\n<ul>\n<li>The increases are: 2014–15 = +21.7; 2015–16 = +18.4; <strong>2016–17 = +35.6</strong>; 2017–18 = +25.0. The biggest rise is 2016–17. 2017–18 has the highest total revenue but not the biggest increase — the trap.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: C — 2016–2017</strong></p>\n<ul>\n<li>The increases are: 2014–15 = +21.7; 2015–16 = +18.4; <strong>2016–17 = +35.6</strong>; 2017–18 = +25.0. The biggest rise is 2016–17. 2017–18 has the highest total revenue but not the biggest increase — the trap.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25507,7 +25507,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 0,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark · Quantitative skills</h5>\n<p><strong>Answer: A — 14%</strong></p>\n<ul>\n<li>Tax = 20% × (£45,000 − £12,500) = 20% × £32,500 = £6,500. As a share of total income: £6,500 ÷ £45,000 = 14.4% ≈ 14%. Option B (20%) is the marginal rate, not the average rate actually paid — the trap.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: A — 14%</strong></p>\n<ul>\n<li>Tax = 20% × (£45,000 − £12,500) = 20% × £32,500 = £6,500. As a share of total income: £6,500 ÷ £45,000 = 14.4% ≈ 14%. Option B (20%) is the marginal rate, not the average rate actually paid — the trap.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25530,7 +25530,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 1,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: B — Income distribution will improve</strong></p>\n<ul>\n<li>Interest income mostly accrues to the wealthy, who hold the most savings. Taxing it more heavily takes proportionally more from them, so the distribution becomes more even. Higher tax on savings would DISCOURAGE saving, so C is wrong.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: B — Income distribution will improve</strong></p>\n<ul>\n<li>Interest income mostly accrues to the wealthy, who hold the most savings. Taxing it more heavily takes proportionally more from them, so the distribution becomes more even. Higher tax on savings would DISCOURAGE saving, so C is wrong.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25554,7 +25554,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 3,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: D — Unintended effects</strong></p>\n<ul>\n<li>The policy's aim was to improve work incentives; rising poverty among the unemployed is a side-effect the government did not intend. Time lags would be about the policy taking too long to work.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: D — Unintended effects</strong></p>\n<ul>\n<li>The policy's aim was to improve work incentives; rising poverty among the unemployed is a side-effect the government did not intend. Time lags would be about the policy taking too long to work.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25577,7 +25577,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 1,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: B — tax revenue is less than government spending</strong></p>\n<ul>\n<li>A budget deficit is spending exceeding revenue, financed by borrowing. Imports exceeding exports is a TRADE deficit. A deficit does not mean the government has no money — it borrows.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: B — tax revenue is less than government spending</strong></p>\n<ul>\n<li>A budget deficit is spending exceeding revenue, financed by borrowing. Imports exceeding exports is a TRADE deficit. A deficit does not mean the government has no money — it borrows.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25600,7 +25600,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 0,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: A — balance of payments deficit</strong></p>\n<ul>\n<li>Expansionary fiscal policy raises household incomes and spending, and some of that extra spending goes on IMPORTS — worsening the current account. The other three describe the opposite of what expansionary policy does.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: A — balance of payments deficit</strong></p>\n<ul>\n<li>Expansionary fiscal policy raises household incomes and spending, and some of that extra spending goes on IMPORTS — worsening the current account. The other three describe the opposite of what expansionary policy does.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25708,7 +25708,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: C — reduce the quantity of labour supplied</strong></p>\n<ul>\n<li>Higher benefits reduce the financial incentive to take a job, so fewer people offer themselves for work — the supply of labour falls.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: C — reduce the quantity of labour supplied</strong></p>\n<ul>\n<li>Higher benefits reduce the financial incentive to take a job, so fewer people offer themselves for work — the supply of labour falls.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25731,7 +25731,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 2,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: C — Increased spending on unemployment-related benefits</strong></p>\n<ul>\n<li>More claimants means the government pays out more in benefits — a direct cost to its budget. Higher taxes and lower living standards fall on individuals, not the government.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — Increased spending on unemployment-related benefits</strong></p>\n<ul>\n<li>More claimants means the government pays out more in benefits — a direct cost to its budget. Higher taxes and lower living standards fall on individuals, not the government.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25754,7 +25754,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 1,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: B — fiscal policy</strong></p>\n<ul>\n<li>Fiscal policy IS government spending and taxation. Monetary policy is interest rates and the money supply; supply-side policy aims to raise productive capacity.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: B — fiscal policy</strong></p>\n<ul>\n<li>Fiscal policy IS government spending and taxation. Monetary policy is interest rates and the money supply; supply-side policy aims to raise productive capacity.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25777,7 +25777,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 0,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: A — A fall in the rate of corporation tax</strong></p>\n<ul>\n<li>Lower corporation tax leaves firms with more after-tax profit to reinvest and raises the return on investment. Falling sales, higher interest rates and higher progressive taxes all discourage investment.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: A — A fall in the rate of corporation tax</strong></p>\n<ul>\n<li>Lower corporation tax leaves firms with more after-tax profit to reinvest and raises the return on investment. Falling sales, higher interest rates and higher progressive taxes all discourage investment.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25800,7 +25800,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 0,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: A — Income tax</strong></p>\n<ul>\n<li>Income tax is a tax, so changing it is fiscal policy. Interest rates and the money supply are monetary policy tools; the minimum wage is a labour market intervention.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: A — Income tax</strong></p>\n<ul>\n<li>Income tax is a tax, so changing it is fiscal policy. Interest rates and the money supply are monetary policy tools; the minimum wage is a labour market intervention.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25823,7 +25823,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 0,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: A — budget deficit</strong></p>\n<ul>\n<li>Expenditure exceeding revenue in the government's own accounts is a budget deficit. Trade deficits concern imports and exports, not the government's budget.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: A — budget deficit</strong></p>\n<ul>\n<li>Expenditure exceeding revenue in the government's own accounts is a budget deficit. Trade deficits concern imports and exports, not the government's budget.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },
@@ -25846,7 +25846,7 @@ window.QUESTION_BANK = [
   "starter": "The correct answer is...",
   "key": {
    "answer": 0,
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark</h5>\n<p><strong>Answer: A — a lower cost of living</strong></p>\n<ul>\n<li>Cutting indirect taxes reduces the prices households pay, so the cost of living falls — and higher benefits raise their incomes too. Both changes would RAISE demand and living standards, so the other options point the wrong way.</li>\n</ul>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: A — a lower cost of living</strong></p>\n<ul>\n<li>Cutting indirect taxes reduces the prices households pay, so the cost of living falls — and higher benefits raise their incomes too. Both changes would RAISE demand and living standards, so the other options point the wrong way.</li>\n</ul>\n</div>",
    "modelAnswer": ""
   }
  },

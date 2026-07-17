@@ -5,7 +5,7 @@
 -- Each part is a standalone statement — paste just this one file into
 -- the Supabase SQL editor and click Run, then move to the next part.
 -- Safe to re-run (upserts by question_key).
--- Generated: 2026-07-17T06:06:04Z
+-- Generated: 2026-07-17T06:46:07Z
 -- ══════════════════════════════════════════════════════════════
 insert into bank_questions (question_key, subject_slug, page_id, page_name, source, qtype, marks, snapshot, answer_key)
 values
