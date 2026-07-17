@@ -534,6 +534,62 @@ server-graded sections work (P1 path), nothing double-counts.
 *Dependency:* P1 server grading should be rolled out to the pilot page types
 first, so parity is tested against the end-state engine, not the legacy one.
 
+## 10c. Spike RESULTS + required design amendments (run 2026-07-16)
+
+Verdicts: **Q1 PASS · Q2 PASS-with-caveat · Q3 PASS-with-caveat.** S5 is buildable
+as designed — no re-architecture — but four corrections are LOCKED before build:
+
+**A1 · Slug canonicalisation (blocks Q1 + Q3).** `subject_overrides.topic_slug`
+MUST be the **hyphenated page-id tail** (e.g. `2-4-marketing-mix`, matching
+`pageMeta.id`), NOT the underscored file tail (`2_4_marketing_mix`) shown in the
+§5.2 example — that example is WRONG and would silently fork progress into a
+second page_id. Three forms exist for each topic: file tail (`2_4_marketing_mix`,
+what the edge matches in the URL), page-id tail (`2-4-marketing-mix`, what
+progress/bank/topic.html use), and the static `pageMeta.id`. The edge derives the
+file-tail↔page-id mapping from the master `page-groups.js` (href↔id), NOT a naive
+`_→-`. topic_slug = the hyphen form everywhere internal.
+
+**A2 · School-scope FIVE sites, not two.** §7/§10b said "patch the two read paths"
+— that undercounts. Required: (1) `get_daily_revise_queue` filter, (2)
+`get_topic_questions` filter, (3) **`grade_topic_answer`'s total-count**
+(topic-grading.sql:190-192 — otherwise `total` double-counts master+override and
+"done=total" is unreachable), (4) the override sync UPSERT and DELETE, (5) sweep
+`get_daily_revise_settings` active_page_ids + DR-analytics denominators. Rule
+everywhere: student sees `school_id is null OR school_id = <their school>`, and
+master rows are SUPPRESSED for page_ids the school has overridden.
+
+**A3 · Fork the sync function — do NOT reuse `sync_teacher_subject_bank_srv`.**
+That function (a) validates page_ids against published `custom_topics` (platform
+subjects have none → rejects every override row) and (b) ends with
+`delete … where subject_slug = v_slug and not (question_key = any(v_kept))`
+(bank-sync-hardening.sql:99-100) — for `subject_slug='business'` that would **wipe
+every school's master bank**. S5 needs a sibling `sync_school_override_bank_srv`
+that validates against published `subject_overrides` and pins BOTH upsert and
+delete to `school_id = <school>`, never touching `school_id is null` master rows.
+
+**A4 · Write `_student_school_for_subject()` (+ teacher branch).** Referenced
+throughout the spec, defined nowhere. `_school_of()` only works for teachers
+(students aren't `school_members`); the resolver needs student-via-class
+(`class_students → classes → co-teacher → school_members`, pinned `not archived`)
+AND teacher-via-`_school_of`. It anchors both the edge override set and the
+`subject_overrides` student-read RLS.
+
+Confirmed clean by the spike: edge one-round-trip + per-token cache = no
+cross-school override-set leak (Q1); namespaced override question_keys don't
+collide with master mastery rows (Q2); `isOwner=false` for platform subjects → correct
+student view, progress merges under the same page_id once A1 holds (Q3); the
+"student in two schools" case is forbidden at both enrolment RPCs (soft guard).
+
+**Build order (each step green under a seeded TWO-SCHOOL test before the next):**
+1. `subject_overrides` table + RLS + `_student_school_for_subject()` (subjects-v2.sql)
+2. `bank_questions.school_id` + the five filter/count edits (A2) — prove school-X-only queue in isolation
+3. `sync_school_override_bank_srv` fork (A3) + its sanitising Netlify function
+4. `edge_gate_check` → `override_slugs`; `content-gate.ts` → 302 overridden paths
+5. `topic.html` → `ov=school` load branch (canonical hyphen slug, A1)
+6. Override editor (reuse wizard) + Platform-tab surfaces
+§8 security-review gate (prove as anon + as a SECOND school's student) is mandatory
+around the `subject_overrides` student-read RLS and the school-scoped delete.
+
 ## 11. Open questions / risks to resolve during build
 
 1. **Override bank scoping (S5 blocker).** `bank_questions` is keyed by

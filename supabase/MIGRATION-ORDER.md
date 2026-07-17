@@ -40,7 +40,11 @@ them per their own headers.)
 12. `subjects-v2-s3-external.sql`          ← external share invites + tokens
 13. `subjects-v2-s4-fork-grants.sql`       ← platform-edit grants; re-overrides request/resolve for platform_fork
 14. `subjects-v2-bank-sync-hardening.sql`  ← revokes the raw sync RPC (XSS storage boundary)
-15. `security-hardening-2026-07.sql`       ← **LAST.** is_school_admin/has_subject_access/draft-policy/self-approval/atomic-consume
+15. `subjects-v2-s5-overrides.sql`         ← S5 override-fork: subject_overrides table + RLS + _student_school_for_subject (needs s4's can_edit_platform_subject)
+15a. `subjects-v2-s5-bank-scope.sql`       ← S5 step 2: bank_questions.school_id + _overridden_page_ids + REDEFINES get_daily_revise_queue / get_topic_questions / grade_topic_answer with the school-scope filter. **Re-run whenever daily-revise-functions.sql OR topic-grading.sql is re-run** (they revert these three functions to the unscoped versions).
+15b. `subjects-v2-s5-override-sync.sql`    ← S5 step 3: sync_school_override_bank_srv (service-role-only forked bank sync; school-pinned upsert + delete). Needs 15a (school_id) + s4 grant tables.
+15c. `subjects-v2-s5-edge.sql`             ← S5 step 4: subject_overrides.file_slug + REDEFINES edge_gate_check to also return override_slugs (the edge 302s a school's published overrides to topic.html). Needs 15 (subject_overrides + _student_school_for_subject). **Re-run whenever entitlements.sql is re-run** — entitlements.sql reverts edge_gate_check to the plain (no override_slugs) body.
+16. `security-hardening-2026-07.sql`       ← **LAST.** is_school_admin/has_subject_access/draft-policy/self-approval/atomic-consume
 
 ---
 
@@ -52,6 +56,9 @@ them per their own headers.)
 | `subjects-v2.sql` | the draft-leak policy (back to `can_view_subject`) | 15 |
 | `subjects-v2-s2-requests.sql` | platform_fork request/resolve | 13, 15 |
 | `subjects-v2-s3-external.sql` | `resolve_external_share` self-approval guard + atomic consume | 15 |
+| `daily-revise-functions.sql` | `get_daily_revise_queue` school-scope filter (back to unscoped → school X's overrides leak into Y's queue) | 15a |
+| `topic-grading.sql` | `get_topic_questions` + `grade_topic_answer` school-scope filter/count (back to unscoped) | 15a |
+| `entitlements.sql` | `edge_gate_check` override_slugs key (back to allow_content/allow_bank only → edge stops redirecting overrides) | 15c |
 
 **Simplest safe habit:** whenever you touch anything in the base group or the
 tail, re-run files 9 → 15 in order. It takes a minute and guarantees correctness.
