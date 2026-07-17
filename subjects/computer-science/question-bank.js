@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-16T17:21:05Z · 72 questions
+// Generated: 2026-07-17T06:06:18Z · 72 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -1114,13 +1114,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “CPU”?",
   "options": [
-   "The stage where the next instruction is copied from main memory into the CPU",
+   "Stores the address of the data or instruction to be fetched from or written to memory",
+   "Performs mathematical calculations and logical operations",
    "The component that processes instructions by carrying out the fetch–execute cycle",
-   "The stage where the control unit works out what an instruction means",
-   "The stage where the instruction is actually carried out"
+   "Decodes instructions and coordinates the actions of the processor"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“CPU” means: The component that processes instructions by carrying out the fetch–execute cycle"
   }
  },
@@ -1133,13 +1133,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Fetch”?",
   "options": [
-   "The stage where the control unit works out what an instruction means",
-   "The stage where the instruction is actually carried out",
-   "Performs mathematical calculations and logical operations",
-   "The stage where the next instruction is copied from main memory into the CPU"
+   "A tiny, very fast storage location inside the CPU holding a single value or address",
+   "Stores the address of the data or instruction to be fetched from or written to memory",
+   "The stage where the next instruction is copied from main memory into the CPU",
+   "The component that processes instructions by carrying out the fetch–execute cycle"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“Fetch” means: The stage where the next instruction is copied from main memory into the CPU"
   }
  },
@@ -1154,8 +1154,8 @@ window.QUESTION_BANK = [
   "options": [
    "The stage where the instruction is actually carried out",
    "The stage where the control unit works out what an instruction means",
-   "Performs mathematical calculations and logical operations",
-   "Decodes instructions and coordinates the actions of the processor"
+   "Small, fast memory inside the CPU storing frequently used instructions and data",
+   "The component that processes instructions by carrying out the fetch–execute cycle"
   ],
   "key": {
    "answer": 1,
@@ -1172,9 +1172,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Execute”?",
   "options": [
    "The stage where the instruction is actually carried out",
-   "Performs mathematical calculations and logical operations",
+   "The component that processes instructions by carrying out the fetch–execute cycle",
    "Decodes instructions and coordinates the actions of the processor",
-   "Small, fast memory inside the CPU storing frequently used instructions and data"
+   "Performs mathematical calculations and logical operations"
   ],
   "key": {
    "answer": 0,
@@ -1190,13 +1190,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “ALU”?",
   "options": [
-   "Decodes instructions and coordinates the actions of the processor",
+   "Stores the results of calculations carried out by the ALU",
+   "Performs mathematical calculations and logical operations",
    "Small, fast memory inside the CPU storing frequently used instructions and data",
-   "A tiny, very fast storage location inside the CPU holding a single value or address",
-   "Performs mathematical calculations and logical operations"
+   "Stores the data or instruction that has just been fetched from (or is being written to) memory"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“ALU” means: Performs mathematical calculations and logical operations"
   }
  },
@@ -1209,13 +1209,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Control unit (CU)”?",
   "options": [
-   "Small, fast memory inside the CPU storing frequently used instructions and data",
-   "A tiny, very fast storage location inside the CPU holding a single value or address",
-   "Stores the address of the next instruction to be fetched; increments each cycle",
-   "Decodes instructions and coordinates the actions of the processor"
+   "The stage where the next instruction is copied from main memory into the CPU",
+   "Decodes instructions and coordinates the actions of the processor",
+   "A computer design where the program's instructions and data are both stored in memory",
+   "Stores the results of calculations carried out by the ALU"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“Control unit (CU)” means: Decodes instructions and coordinates the actions of the processor"
   }
  },
@@ -1229,12 +1229,12 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Cache”?",
   "options": [
    "A tiny, very fast storage location inside the CPU holding a single value or address",
+   "Stores the address of the data or instruction to be fetched from or written to memory",
    "Small, fast memory inside the CPU storing frequently used instructions and data",
-   "Stores the address of the next instruction to be fetched; increments each cycle",
-   "Stores the address of the data or instruction to be fetched from or written to memory"
+   "Stores the address of the next instruction to be fetched; increments each cycle"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“Cache” means: Small, fast memory inside the CPU storing frequently used instructions and data"
   }
  },
@@ -1247,10 +1247,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Register”?",
   "options": [
-   "Stores the address of the next instruction to be fetched; increments each cycle",
-   "Stores the address of the data or instruction to be fetched from or written to memory",
+   "The component that processes instructions by carrying out the fetch–execute cycle",
+   "Small, fast memory inside the CPU storing frequently used instructions and data",
    "A tiny, very fast storage location inside the CPU holding a single value or address",
-   "Stores the data or instruction that has just been fetched from (or is being written to) memory"
+   "Decodes instructions and coordinates the actions of the processor"
   ],
   "key": {
    "answer": 2,
@@ -1266,13 +1266,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Program counter (PC)”?",
   "options": [
-   "Stores the address of the data or instruction to be fetched from or written to memory",
    "Stores the address of the next instruction to be fetched; increments each cycle",
-   "Stores the data or instruction that has just been fetched from (or is being written to) memory",
-   "Stores the results of calculations carried out by the ALU"
+   "Stores the results of calculations carried out by the ALU",
+   "Performs mathematical calculations and logical operations",
+   "Small, fast memory inside the CPU storing frequently used instructions and data"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“Program counter (PC)” means: Stores the address of the next instruction to be fetched; increments each cycle"
   }
  },
@@ -1285,13 +1285,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “MAR”?",
   "options": [
-   "Stores the data or instruction that has just been fetched from (or is being written to) memory",
    "Stores the address of the data or instruction to be fetched from or written to memory",
-   "Stores the results of calculations carried out by the ALU",
-   "A computer design where the program's instructions and data are both stored in memory"
+   "Stores the data or instruction that has just been fetched from (or is being written to) memory",
+   "Small, fast memory inside the CPU storing frequently used instructions and data",
+   "The component that processes instructions by carrying out the fetch–execute cycle"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“MAR” means: Stores the address of the data or instruction to be fetched from or written to memory"
   }
  },
@@ -1304,13 +1304,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “MDR”?",
   "options": [
-   "Stores the data or instruction that has just been fetched from (or is being written to) memory",
-   "Stores the results of calculations carried out by the ALU",
+   "A tiny, very fast storage location inside the CPU holding a single value or address",
    "A computer design where the program's instructions and data are both stored in memory",
-   "The component that processes instructions by carrying out the fetch–execute cycle"
+   "Stores the data or instruction that has just been fetched from (or is being written to) memory",
+   "Stores the address of the data or instruction to be fetched from or written to memory"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“MDR” means: Stores the data or instruction that has just been fetched from (or is being written to) memory"
   }
  },
@@ -1323,10 +1323,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Accumulator (ACC)”?",
   "options": [
-   "A computer design where the program's instructions and data are both stored in memory",
+   "Small, fast memory inside the CPU storing frequently used instructions and data",
    "Stores the results of calculations carried out by the ALU",
    "The component that processes instructions by carrying out the fetch–execute cycle",
-   "The stage where the next instruction is copied from main memory into the CPU"
+   "A tiny, very fast storage location inside the CPU holding a single value or address"
   ],
   "key": {
    "answer": 1,
@@ -1342,13 +1342,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Von Neumann architecture”?",
   "options": [
+   "Performs mathematical calculations and logical operations",
    "The component that processes instructions by carrying out the fetch–execute cycle",
    "A computer design where the program's instructions and data are both stored in memory",
-   "The stage where the next instruction is copied from main memory into the CPU",
-   "The stage where the control unit works out what an instruction means"
+   "The stage where the next instruction is copied from main memory into the CPU"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“Von Neumann architecture” means: A computer design where the program's instructions and data are both stored in memory"
   }
  }

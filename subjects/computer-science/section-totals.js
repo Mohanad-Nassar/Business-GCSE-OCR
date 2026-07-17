@@ -5,7 +5,7 @@
 // independent of any student's progress — used to fix progress
 // stats so a topic a student has engaged with counts ALL of its
 // sections' totals, not just the ones they've personally started.
-// Generated: 2026-07-16T17:21:05Z
+// Generated: 2026-07-17T06:06:18Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS = {
  "computer-science:1-1-1-architecture-of-the-cpu": {

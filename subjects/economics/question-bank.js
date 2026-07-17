@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-17T06:00:54Z · 1912 questions
+// Generated: 2026-07-17T06:06:04Z · 1912 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {

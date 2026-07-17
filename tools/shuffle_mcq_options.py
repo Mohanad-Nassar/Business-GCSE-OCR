@@ -17,11 +17,35 @@ churns the diff, however many times it is applied.
 
 Usage:  python shuffle_mcq_options.py [--apply] [subject ...]
 """
-import re, sys, glob, hashlib, random
+import re, sys, glob, hashlib, random, os, tempfile
 from collections import Counter
+from pathlib import Path
 
-BASE = (r'c:/Users/MohanadNassar(Avanti/OneDrive - Avanti Schools Trust/Desktop/'
-        r'VS-Code/Business website copies --June2026/Business-GCSE-OCR - Copy - Copy')
+# Derived from this file's own location — a hardcoded absolute path (with a
+# username in it) only ever works on one machine.
+BASE = str(Path(__file__).resolve().parent.parent).replace('\\', '/')
+
+
+def atomic_write(path, text, crlf):
+    """Write via a temp file + os.replace so an interrupted run cannot leave a
+    truncated topic page behind: open(f,'w') destroys the original the instant
+    it is called, and these pages are hand-authored content.
+
+    Restores the file's original line endings too. Rewriting a CRLF page as LF
+    marks every line as modified, burying the real change in a whole-file diff.
+    """
+    if crlf:
+        text = text.replace('\n', '\r\n')
+    d = os.path.dirname(path) or '.'
+    fd, tmp = tempfile.mkstemp(dir=d, suffix='.tmp')
+    try:
+        with os.fdopen(fd, 'w', encoding='utf-8', newline='') as fh:
+            fh.write(text)
+        os.replace(tmp, path)
+    except BaseException:
+        if os.path.exists(tmp):
+            os.unlink(tmp)
+        raise
 
 # an explain/prose that names a position would be made wrong by shuffling
 POSREF = re.compile(r'\b(?:[Oo]ption [A-D]\b|answer [A-D]\b|[A-D] is (?:wrong|right|correct|imprecise)'
@@ -55,11 +79,6 @@ def split_top(body):
     return [x.strip() for x in out]
 
 
-def nearest_context(src, pos, back=900):
-    """The enclosing question object's text, to find q: and explain:."""
-    return src[max(0, pos - back): pos + 900]
-
-
 def process(src):
     changed = skipped = 0
     out, last = [], 0
@@ -68,10 +87,14 @@ def process(src):
         ans = int(m.group(4))
         if len(opts) < 2 or ans >= len(opts):
             continue
-        ctx = nearest_context(src, m.start())
         # find this question's text (nearest preceding q:) for a stable seed
         qs = re.findall(r'q:\s*"([^"]*)"', src[max(0, m.start() - 900):m.start()])
-        qtext = qs[-1] if qs else opts[0]
+        # The fallback must not depend on option ORDER. Seeding from opts[0]
+        # meant the seed changed as soon as the shuffle moved a new option into
+        # first place, so the next run computed a different target order and the
+        # question oscillated forever — quietly breaking the idempotence this
+        # script promises. The sorted SET is invariant under shuffling.
+        qtext = qs[-1] if qs else '|'.join(sorted(opts))
         # skip if the explanation names an option position
         exm = re.search(r'explain:\s*"((?:[^"\\]|\\.)*)"', src[m.end():m.end() + 1200])
         if exm and POSREF.search(exm.group(1)):
@@ -106,13 +129,17 @@ def main():
     grand = Counter(); tc = ts = 0
     for subj in subjects:
         for f in sorted(glob.glob(BASE + '/subjects/' + subj + '/*.html')):
-            src = open(f, encoding='utf-8').read()
+            # newline='' keeps the file's real endings visible so they can be
+            # restored on write; normalise to \n for matching.
+            raw = open(f, encoding='utf-8', newline='').read()
+            crlf = '\r\n' in raw
+            src = raw.replace('\r\n', '\n')
             if 'opts: [' not in src:
                 continue
             new, c, s = process(src)
             tc += c; ts += s
             if apply and c:
-                open(f, 'w', encoding='utf-8', newline='\n').write(new)
+                atomic_write(f, new, crlf)
             grand.update(re.findall(r'ans: (\d)', new))
     tot = sum(grand.values()) or 1
     print('%s %d questions | skipped (explain names a position): %d'
