@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.2 The Factor Theorem and Cubics – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 2. Polynomials and Equations</div>
+            <h1>2.2 The Factor Theorem and Cubics</h1>
+            <p>Interactive revision guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.2 The Factor Theorem and Cubics (AL4 + AL6 cubics)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  doubled in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4).
+    //  Exam Qs: 2024 Q8 (a)+(b) [4+1] and 2019 Q7 [5] — 10 marks total.
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-2-the-factor-theorem-and-cubics',
+            badge: 'OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 2. Polynomials and Equations',
+            title: '2.2 The Factor Theorem and Cubics',
+            subtitle: 'Interactive revision guide',
+            subject: 'additional-maths',
+        };
+
+    // Shared stimulus for the 2024 Q8 exam parts (see examQuestions).
+    const EXAM_CASE_STUDIES = {
+        "q8-2024": `<p><em>In this question you must show detailed reasoning.</em></p><p>You are given the cubic polynomial \\( \\text{f}(x) = x^3 - 5x^2 + 2x + 8 \\).</p>`
+    };
+
+    const topics = [
+        {
+            title: "What is the factor theorem?",
+            tag: "Key concept",
+            content: `<p>The <strong>factor theorem</strong> connects a <em>value</em> of a polynomial to one of its <em>factors</em>. For a polynomial \\( \\text{f}(x) \\):</p>
+            <ul>
+              <li>If \\( \\text{f}(a) = 0 \\), then \\( (x - a) \\) is a <strong>factor</strong> of \\( \\text{f}(x) \\).</li>
+              <li>The reverse is also true: if \\( (x - a) \\) is a factor, then \\( \\text{f}(a) = 0 \\).</li>
+              <li>For a factor of the form \\( (bx - a) \\), test \\( \\text{f}\\!\\left(\\tfrac{a}{b}\\right) \\): if it is zero, \\( (bx - a) \\) is a factor. (Set \\( bx - a = 0 \\) to see why: \\( x = \\tfrac{a}{b} \\).)</li>
+            </ul>
+            <p>Watch the <strong>sign</strong>: the factor \\( (x - a) \\) matches the value \\( x = a \\), so \\( (x + 3) \\) is a factor exactly when \\( \\text{f}(-3) = 0 \\).</p>
+            <p><strong>Spec boundary:</strong> the factor theorem is the special case of the <em>remainder theorem</em> where the remainder is zero — but the <strong>remainder theorem was removed from this specification in 2018</strong>, so you are only ever tested on the factor theorem.</p>`,
+            readCheck: { q: "If \\( \\text{f}(3) = 0 \\), which is a factor of \\( \\text{f}(x) \\)?", opts: ["\\( (x+3) \\)", "\\( (x-3) \\)", "\\( 3x \\)", "\\( (x-\\tfrac{1}{3}) \\)"], ans: 1, explain: "\\( \\text{f}(a)=0 \\) gives the factor \\( (x-a) \\); here \\( a=3 \\), so \\( (x-3) \\)." }
+        },
+        {
+            title: "How do you find a linear factor of a cubic?",
+            tag: "Method",
+            content: `<p>A cubic will not always factorise by inspection, so you hunt for a first factor with the factor theorem. The trick is knowing <strong>which values to try</strong>.</p>
+            <ul>
+              <li>Any whole-number root must be a <strong>divisor of the constant term</strong>. For \\( x^3 - 5x^2 + 2x + 8 \\) the constant is \\( 8 \\), so test \\( x = \\pm 1,\\ \\pm 2,\\ \\pm 4,\\ \\pm 8 \\).</li>
+              <li>Substitute each candidate into \\( \\text{f}(x) \\). The moment you get \\( \\text{f}(a) = 0 \\), you have found the factor \\( (x - a) \\) — stop testing.</li>
+              <li>If the leading coefficient is not \\( 1 \\), also try <strong>fractions</strong> \\( \\dfrac{\\text{divisor of the constant}}{\\text{divisor of the leading coefficient}} \\) (see the \\( (bx-a) \\) card).</li>
+            </ul>
+            <p>Start with the small, tidy values \\( \\pm 1, \\pm 2 \\) — examiners design these questions so a low divisor works.</p>`,
+            readCheck: { q: "For \\( \\text{f}(x)=x^3-2x^2-5x+6 \\), which set should you test first?", opts: ["Divisors of 6: \\( \\pm1,\\pm2,\\pm3,\\pm6 \\)", "Only \\( 1 \\) and \\( 2 \\)", "Divisors of 2", "Multiples of 6"], ans: 0, explain: "Whole-number roots divide the constant term, which is 6, so try \\( \\pm1,\\pm2,\\pm3,\\pm6 \\)." }
+        },
+        {
+            title: "Worked example: factorise and solve a cubic",
+            tag: "Worked example",
+            content: `<p><strong>Solve \\( 2x^3 - x^2 - 7x + 6 = 0 \\).</strong></p>
+            <table class="worked">
+              <tr><td>1. Constant term is \\( 6 \\); try small divisors. \\( \\text{f}(1) = 2 - 1 - 7 + 6 = 0 \\), so \\( (x - 1) \\) is a factor.</td></tr>
+              <tr><td>2. Divide (or equate coefficients) to get the quadratic factor: \\( 2x^3 - x^2 - 7x + 6 = (x - 1)(2x^2 + x - 6) \\).</td></tr>
+              <tr><td>3. Factorise the quadratic: \\( 2x^2 + x - 6 = (2x - 3)(x + 2) \\).</td></tr>
+              <tr><td>4. So \\[ 2x^3 - x^2 - 7x + 6 = (x - 1)(2x - 3)(x + 2). \\]</td></tr>
+              <tr><td>5. <strong>Solve:</strong> set each factor to \\( 0 \\): \\( x = 1,\\ x = \\tfrac{3}{2},\\ x = -2 \\).</td></tr>
+            </table>
+            <p>Check one root: \\( \\text{f}(-2) = 2(-8) - 4 + 14 + 6 = 0 \\). ✓ Finding the factors is only <em>half</em> the job — the question said "solve", so you must give the three \\( x \\)-values.</p>`,
+            readCheck: { q: "The solutions of \\( 2x^3 - x^2 - 7x + 6 = 0 \\) are:", opts: ["\\( x=1,\\ \\tfrac{3}{2},\\ -2 \\)", "\\( x=-1,\\ -\\tfrac{3}{2},\\ 2 \\)", "\\( x=1,\\ 2,\\ 3 \\)", "\\( x=1,\\ -2 \\) only"], ans: 0, explain: "From \\( (x-1)(2x-3)(x+2)=0 \\): \\( x=1,\\ \\tfrac{3}{2},\\ -2 \\) — all three roots." }
+        },
+        {
+            title: "How do you test for a factor like (2x − 3)?",
+            tag: "Method",
+            content: `<p>When the leading coefficient is not \\( 1 \\), some factors are <strong>non-monic</strong>, such as \\( (2x - 3) \\). To test one, use the \\( (bx - a) \\) rule: evaluate \\( \\text{f}\\!\\left(\\tfrac{a}{b}\\right) \\).</p>
+            <ul>
+              <li>\\( (2x - 3) \\) is a factor when \\( \\text{f}\\!\\left(\\tfrac{3}{2}\\right) = 0 \\), because \\( 2x - 3 = 0 \\Rightarrow x = \\tfrac{3}{2} \\).</li>
+              <li>\\( (3x + 1) \\) is a factor when \\( \\text{f}\\!\\left(-\\tfrac{1}{3}\\right) = 0 \\).</li>
+            </ul>
+            <p><strong>Check for the last worked example:</strong> \\( \\text{f}\\!\\left(\\tfrac{3}{2}\\right) = 2\\left(\\tfrac{27}{8}\\right) - \\tfrac{9}{4} - \\tfrac{21}{2} + 6 = 0 \\), confirming \\( (2x - 3) \\) is a factor.</p>
+            <p>In practice you rarely need this on a cubic — one whole-number factor usually appears first, and then a quadratic (which you factorise normally) takes care of the non-monic factor.</p>`,
+            readCheck: { q: "To test whether \\( (3x - 2) \\) is a factor, evaluate:", opts: ["\\( \\text{f}(\\tfrac{3}{2}) \\)", "\\( \\text{f}(\\tfrac{2}{3}) \\)", "\\( \\text{f}(-\\tfrac{2}{3}) \\)", "\\( \\text{f}(3) \\)"], ans: 1, explain: "\\( 3x-2=0 \\Rightarrow x=\\tfrac{2}{3} \\), so test \\( \\text{f}\\!\\left(\\tfrac{2}{3}\\right) \\)." }
+        },
+        {
+            title: "How do you find the quadratic factor?",
+            tag: "Method",
+            content: `<p>Once you have one linear factor \\( (x - a) \\), the cubic is \\( (x - a) \\times (\\text{a quadratic}) \\). Two reliable ways to find that quadratic:</p>
+            <ul>
+              <li><strong>Algebraic long division</strong> — divide the cubic by \\( (x - a) \\); the quotient is the quadratic (covered in lesson 2.1).</li>
+              <li><strong>Equating coefficients</strong> — write \\( \\text{f}(x) = (x - a)(px^2 + qx + r) \\), expand, and match the coefficients of each power of \\( x \\).</li>
+            </ul>
+            <p><strong>Worked example — \\( x^3 - x^2 - 4x + 4 \\), given \\( (x - 1) \\) is a factor:</strong> write \\( (x - 1)(x^2 + bx - 4) \\). The constant \\( -1 \\times (-4) = 4 \\) ✓. Matching the \\( x^2 \\) term: \\( b - 1 = -1 \\Rightarrow b = 0 \\). So \\( \\text{f}(x) = (x - 1)(x^2 - 4) = (x - 1)(x - 2)(x + 2) \\).</p>`,
+            readCheck: { q: "\\( 2x^3 - x^2 - 7x + 6 = (x - 1)(2x^2 + bx - 6) \\). What is \\( b \\)?", opts: ["\\( b = 1 \\)", "\\( b = -1 \\)", "\\( b = 2 \\)", "\\( b = -6 \\)"], ans: 0, explain: "Matching the \\( x^2 \\) coefficient: \\( b - 2 = -1 \\Rightarrow b = 1 \\); the \\( x \\) term \\( -6 - b = -7 \\) confirms \\( b = 1 \\)." }
+        },
+        {
+            title: "What does 'detailed reasoning' demand here?",
+            tag: "Exam skill",
+            content: `<p>Factor-theorem cubics are a favourite <strong>"detailed reasoning" (DR)</strong> question. The DR instruction means <em>every analytical step must be visible</em> — a calculator may be used, but an answer read straight off it earns nothing.</p>
+            <ul>
+              <li>You must <strong>show \\( \\text{f}(a) = 0 \\)</strong> for your trial value — this proves you used the factor theorem.</li>
+              <li>You must then <strong>obtain the quadratic factor</strong> before stating the three linear factors (or apply the factor theorem to at least two values).</li>
+              <li>Writing the factorisation \\( (x + 1)(x - 2)(x - 4) \\) with <em>no working</em> scores <strong>zero</strong> on a DR question, even if it is correct.</li>
+            </ul>
+            <p>And remember: a factorised cubic is <strong>not yet solved</strong>. "Solve \\( \\text{f}(x) = 0 \\)" needs each factor set to zero and the \\( x \\)-values written down.</p>`,
+            readCheck: { q: "In a DR factor-theorem question, what must be visible?", opts: ["\\( \\text{f}(a)=0 \\) for a trial value, and the quadratic factor", "only the three final factors", "just the calculator answer", "the value of the discriminant"], ans: 0, explain: "DR requires the factor-theorem step \\( \\text{f}(a)=0 \\) to be shown and the quadratic factor obtained." }
+        }
+    ];
+
+    const mcqData = [
+        { q: "If \\( (x - 4) \\) is a factor of \\( \\text{f}(x) \\), then:", opts: ["\\( \\text{f}(0) = 4 \\)", "\\( \\text{f}(4) = 0 \\)", "\\( \\text{f}(-4) = 0 \\)", "\\( \\text{f}(4) = 4 \\)"], ans: 1, explain: "The factor \\( (x-a) \\) means \\( \\text{f}(a)=0 \\); here \\( a=4 \\), so \\( \\text{f}(4)=0 \\)." },
+        { q: "Which condition shows that \\( (x + 2) \\) is a factor of \\( \\text{f}(x) \\)?", opts: ["\\( \\text{f}(2) = 0 \\)", "\\( \\text{f}(0) = -2 \\)", "\\( \\text{f}(-2) = 0 \\)", "\\( \\text{f}(2) = -2 \\)"], ans: 2, explain: "\\( (x+2)=(x-(-2)) \\), so the matching value is \\( x=-2 \\): \\( \\text{f}(-2)=0 \\)." },
+        { q: "For \\( \\text{f}(x) = x^3 - 5x^2 + 2x + 8 \\), what is \\( \\text{f}(2) \\)?", opts: ["\\( 16 \\)", "\\( -4 \\)", "\\( 8 \\)", "\\( 0 \\)"], ans: 3, explain: "\\( \\text{f}(2) = 8 - 20 + 4 + 8 = 0 \\), so \\( (x-2) \\) is a factor." },
+        { q: "For \\( \\text{f}(x) = x^3 - x^2 - 4x + 4 \\), which is a factor?", opts: ["\\( (x - 1) \\)", "\\( (x + 1) \\)", "\\( (x - 4) \\)", "\\( (x + 4) \\)"], ans: 0, explain: "\\( \\text{f}(1) = 1 - 1 - 4 + 4 = 0 \\), so \\( (x-1) \\) is a factor. \\( \\text{f}(-1)=6\\ne 0 \\)." },
+        { q: "To test whether \\( (2x + 1) \\) is a factor, evaluate:", opts: ["\\( \\text{f}(\\tfrac{1}{2}) \\)", "\\( \\text{f}(-\\tfrac{1}{2}) \\)", "\\( \\text{f}(2) \\)", "\\( \\text{f}(-2) \\)"], ans: 1, explain: "\\( 2x+1=0 \\Rightarrow x=-\\tfrac{1}{2} \\), so test \\( \\text{f}\\!\\left(-\\tfrac{1}{2}\\right) \\)." },
+        { q: "\\( \\text{f}(x) = (x - 1)(x + 2)(2x - 3) \\). The solutions of \\( \\text{f}(x) = 0 \\) are:", opts: ["\\( x = -1,\\ 2,\\ -\\tfrac{3}{2} \\)", "\\( x = 1,\\ -2 \\) only", "\\( x = 1,\\ -2,\\ \\tfrac{3}{2} \\)", "the factorised form is the solution"], ans: 2, explain: "Set each factor to 0: \\( x=1 \\), \\( x=-2 \\), \\( x=\\tfrac{3}{2} \\)." },
+        { q: "A student writes \\( \\text{f}(x) = (x - 1)(2x^2 + x - 6) \\) and stops. To solve \\( \\text{f}(x) = 0 \\) they must next:", opts: ["factorise the quadratic and set each factor to 0", "divide again by \\( (x - 1) \\)", "substitute \\( x = 0 \\)", "state the remainder"], ans: 0, explain: "Factorise \\( 2x^2+x-6=(2x-3)(x+2) \\), then set every factor to zero." },
+        { q: "\\( x^3 - 3x - 2 \\) has root \\( x = 2 \\); dividing by \\( (x - 2) \\) gives \\( x^2 + 2x + 1 \\). The other roots are:", opts: ["\\( x = 1 \\) and \\( x = -2 \\)", "\\( x = -1 \\) (repeated)", "\\( x = 2 \\) (repeated)", "\\( x = 1 \\) only"], ans: 1, explain: "\\( x^2+2x+1=(x+1)^2=0 \\Rightarrow x=-1 \\), a repeated root." },
+        { q: "For \\( \\text{f}(x) = x^3 + 4x^2 + x - 6 \\), which value is NOT worth testing with the factor theorem?", opts: ["\\( x = 1 \\)", "\\( x = -2 \\)", "\\( x = 5 \\)", "\\( x = 3 \\)"], ans: 2, explain: "Whole-number roots divide the constant \\( 6 \\): \\( \\pm1,\\pm2,\\pm3,\\pm6 \\). \\( 5 \\) is not a divisor of 6." },
+        { q: "If \\( \\text{f}(a) = 7 \\), what can you conclude?", opts: ["\\( (x - a) \\) is a factor", "\\( (x - a) \\) is not a factor", "the remainder theorem gives the roots", "\\( a \\) is a root"], ans: 1, explain: "The factor theorem needs \\( \\text{f}(a)=0 \\); since \\( \\text{f}(a)=7\\ne 0 \\), \\( (x-a) \\) is not a factor." },
+        { q: "For \\( 2x^3 - x^2 - 7x + 6 \\), the value of \\( \\text{f}(1) \\) is:", opts: ["\\( 2 \\)", "\\( 6 \\)", "\\( 0 \\)", "\\( -1 \\)"], ans: 2, explain: "\\( \\text{f}(1) = 2 - 1 - 7 + 6 = 0 \\), so \\( (x-1) \\) is a factor." }
+    ];
+
+    const matchData = [
+        { term: "Factor theorem", def: "If \\( \\text{f}(a) = 0 \\) then \\( (x - a) \\) is a factor" },
+        { term: "\\( (x - a) \\) is a factor", def: "\\( \\text{f}(a) = 0 \\)" },
+        { term: "Test for the factor \\( (bx - a) \\)", def: "Evaluate \\( \\text{f}\\!\\left(\\tfrac{a}{b}\\right) \\)" },
+        { term: "First step to factorise a cubic", def: "Test divisors of the constant term" },
+        { term: "\\( \\text{f}(2) = 0 \\)", def: "\\( (x - 2) \\) is a factor" },
+        { term: "\\( \\text{f}(-1) = 0 \\)", def: "\\( (x + 1) \\) is a factor" },
+        { term: "Solve \\( \\text{f}(x) = 0 \\) after factorising", def: "Set each factor equal to zero" },
+        { term: "\\( 2x^3 - x^2 - 7x + 6 \\)", def: "\\( (x-1)(2x-3)(x+2) \\)" },
+        { term: "Roots of \\( (x-1)(2x-3)(x+2)=0 \\)", def: "\\( x = 1,\\ \\tfrac{3}{2},\\ -2 \\)" },
+        { term: "Remainder theorem", def: "Not tested on this specification" },
+        { term: "Detailed reasoning demand", def: "\\( \\text{f}(a)=0 \\) must be seen; calculator-only scores 0" },
+        { term: "Repeated root", def: "A squared factor such as \\( (x+1)^2 \\) gives one value twice" }
+    ];
+
+    // NOTE: FIB blanks must sit in PLAIN TEXT, never inside a \( \) region — a blank
+    // becomes a <select>/<input> that splits the LaTeX run so KaTeX shows raw source
+    // (ADDMATHS-CONTENT-PLAN.md §8.4 Rule 3b). Keep every \( \) a complete expression.
+    const fibData = [
+        { display: "The factor theorem states that if \\( \\text{f}(a) \\) equals ___B1___, then \\( (x - a) \\) is a factor of \\( \\text{f}(x) \\).", blanks: { B1: "0" } },
+        { display: "If \\( (x - 4) \\) is a factor of \\( \\text{f}(x) \\), then \\( \\text{f}(4) \\) equals ___B1___.", blanks: { B1: "0" } },
+        { display: "To find a whole-number factor of a cubic, test the ___B1___ of the constant term.", blanks: { B1: "factors" } },
+        { display: "To test whether \\( (2x - 1) \\) is a factor of \\( \\text{f}(x) \\), work out f of ___B1___.", blanks: { B1: "1/2" } },
+        { display: "The factor theorem finds ___B1___ factors of a polynomial; the remainder theorem is ___B2___ on this specification.", blanks: { B1: "linear", B2: "not" } },
+        { display: "After factorising, you solve \\( \\text{f}(x) = 0 \\) by setting each ___B1___ equal to zero.", blanks: { B1: "factor" } },
+        { display: "For \\( 2x^3 - x^2 - 7x + 6 \\), testing gives \\( \\text{f}(1) = 0 \\), so (x − ___B1___) is a factor.", blanks: { B1: "1" } }
+    ];
+
+    const fibWords = ["0", "factors", "1/2", "linear", "not", "factor", "1", "a", "multiples", "2", "quadratic", "is", "root", "3/2"];
+
+    const tfData = [
+        { statement: "If \\( \\text{f}(5) = 0 \\), then \\( (x - 5) \\) is a factor of \\( \\text{f}(x) \\).", answer: true, explanation: "This is exactly the factor theorem: \\( \\text{f}(a)=0 \\Rightarrow (x-a) \\) is a factor." },
+        { statement: "If \\( (x + 3) \\) is a factor of \\( \\text{f}(x) \\), then \\( \\text{f}(3) = 0 \\).", answer: false, explanation: "The factor \\( (x+3)=(x-(-3)) \\) matches \\( x=-3 \\), so it is \\( \\text{f}(-3)=0 \\), not \\( \\text{f}(3) \\)." },
+        { statement: "The remainder theorem is examined on this qualification.", answer: false, explanation: "The remainder theorem was removed from the 6993 specification in 2018; only the factor theorem is tested." },
+        { statement: "To test whether \\( (3x - 1) \\) is a factor, you evaluate \\( \\text{f}\\!\\left(\\tfrac{1}{3}\\right) \\).", answer: true, explanation: "\\( 3x-1=0 \\Rightarrow x=\\tfrac{1}{3} \\), so \\( (3x-1) \\) is a factor when \\( \\text{f}\\!\\left(\\tfrac{1}{3}\\right)=0 \\)." },
+        { statement: "A cubic can have a repeated root, so its 'three roots' may include the same value more than once.", answer: true, explanation: "A squared factor like \\( (x+1)^2 \\) contributes the root \\( x=-1 \\) twice, e.g. \\( x^3-3x-2=(x-2)(x+1)^2 \\)." },
+        { statement: "Once you write \\( \\text{f}(x) = (x-1)(x+2)(2x-3) \\), you have solved \\( \\text{f}(x) = 0 \\).", answer: false, explanation: "Factorising is not solving. You must set each factor to zero: \\( x=1,\\ -2,\\ \\tfrac{3}{2} \\)." },
+        { statement: "In a 'detailed reasoning' factor-theorem question, writing the three factors from your calculator with no working scores full marks.", answer: false, explanation: "Answer-only responses score zero on a DR question; you must show \\( \\text{f}(a)=0 \\) and obtain the quadratic factor." },
+        { statement: "If \\( \\text{f}(2) = 3 \\), then \\( (x - 2) \\) is a factor of \\( \\text{f}(x) \\).", answer: false, explanation: "\\( (x-2) \\) is a factor only when \\( \\text{f}(2)=0 \\); here \\( \\text{f}(2)=3 \\), so it is not a factor." }
+    ];
+
+    const miscData = [
+        { wrong: "To check the factor \\( (x - 2) \\), a student evaluates \\( \\text{f}(-2) \\).", correct: "\\( (x - a) \\) is a factor when \\( \\text{f}(a) = 0 \\), so \\( (x-2) \\) needs \\( \\text{f}(2) \\), not \\( \\text{f}(-2) \\). The value you substitute is the OPPOSITE sign to the number in the bracket.", readCheck: { q: "\\( (x - 2) \\) is a factor. Which must be zero?", opts: ["\\( \\text{f}(2) \\)", "\\( \\text{f}(-2) \\)", "\\( \\text{f}(0) \\)", "\\( \\text{f}(\\tfrac{1}{2}) \\)"], ans: 0, explain: "\\( (x-2) \\) matches \\( x=2 \\), so \\( \\text{f}(2)=0 \\)." } },
+        { wrong: "Writing \\( \\text{f}(x) = (x-1)(2x-3)(x+2) \\) and stopping when asked to SOLVE \\( \\text{f}(x) = 0 \\).", correct: "Factorising is not solving. A weak answer leaves the brackets; a strong answer sets each factor to zero to give \\( x = 1,\\ \\tfrac{3}{2},\\ -2 \\).", readCheck: { q: "Solve \\( (x-1)(2x-3)(x+2) = 0 \\).", opts: ["\\( x = 1,\\ \\tfrac{3}{2},\\ -2 \\)", "\\( x = 1,\\ 3,\\ 2 \\)", "\\( x = -1,\\ \\tfrac{3}{2},\\ 2 \\)", "leave as factors"], ans: 0, explain: "Each factor set to zero gives \\( x=1,\\ \\tfrac{3}{2},\\ -2 \\)." } },
+        { wrong: "On a 'detailed reasoning' question, quoting the three factors straight from a calculator.", correct: "DR needs the method seen: show \\( \\text{f}(a)=0 \\) and obtain the quadratic factor. A weak answer gives factors only (0 marks); a strong answer shows every step.", readCheck: { q: "A DR factor-theorem answer with no working scores:", opts: ["full marks", "zero", "one mark", "half marks"], ans: 1, explain: "Answer-only DR responses score zero, even when the factorisation is correct." } },
+        { wrong: "Using successive factor-theorem trials and stopping at the first factor found, \\( x = -1 \\).", correct: "A cubic has three roots. After one factor, find the quadratic factor to catch the rest — including a REPEATED root. For \\( x^3-3x-2 \\), stopping at \\( x=-1 \\) misses that it is repeated.", readCheck: { q: "\\( x^3 - 3x - 2 = 0 \\) has root \\( x = 2 \\). The other root(s):", opts: ["\\( x = -1 \\) (repeated)", "\\( x = -1 \\) only, ignore repeats", "\\( x = 1 \\)", "there are none"], ans: 0, explain: "\\( x^3-3x-2=(x-2)(x+1)^2 \\), so \\( x=-1 \\) is a repeated root." } },
+        { wrong: "For a cubic with constant term 6, testing only \\( x = 1 \\) and \\( x = 2 \\).", correct: "The whole-number candidates are ALL divisors of the constant term: \\( \\pm1, \\pm2, \\pm3, \\pm6 \\) (plus fractions like \\( \\pm\\tfrac{1}{2}, \\pm\\tfrac{3}{2} \\) if the leading coefficient is not 1).", readCheck: { q: "For a cubic with constant term 6, test:", opts: ["\\( \\pm1, \\pm2, \\pm3, \\pm6 \\)", "\\( 1 \\) and \\( 2 \\) only", "even numbers only", "\\( \\pm6 \\) only"], ans: 0, explain: "All divisors of the constant term are candidates: \\( \\pm1, \\pm2, \\pm3, \\pm6 \\)." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "The 'detailed reasoning' ladder", pills: ["detailed reasoning", "factor theorem", "show working"], content: `<p><strong>0 marks:</strong> writing \\( \\text{f}(x) = (x+1)(x-2)(x-4) \\) straight from the calculator with no working — even though it is correct.</p><p><strong>Partial:</strong> showing \\( \\text{f}(2) = 0 \\) (so \\( (x-2) \\) is a factor) but then jumping to the three factors.</p><p><strong>Full marks:</strong> show \\( \\text{f}(2) = 0 \\), obtain the quadratic factor \\( (x^2 - 3x - 4) \\), factorise it, then state \\( (x-2)(x-4)(x+1) \\).</p>`, readCheck: { q: "On a DR factor question, the safest response:", opts: ["show \\( \\text{f}(a)=0 \\) then find the quadratic factor", "write the factors from the calculator", "give decimals", "state the remainder"], ans: 0, explain: "DR rewards the full visible method: \\( \\text{f}(a)=0 \\) then the quadratic factor." } },
+        { type: "tip", title: "The sign trap: (x − a) matches f(a)", pills: ["sign", "substitute"], content: `<p>The number you substitute is the <strong>opposite sign</strong> to the one in the bracket. To test \\( (x + 5) \\), evaluate \\( \\text{f}(-5) \\); to test \\( (x - 5) \\), evaluate \\( \\text{f}(5) \\). Getting this backwards is the most common way to miss a factor entirely.</p>`, readCheck: { q: "To check \\( (x + 5) \\) is a factor, evaluate:", opts: ["\\( \\text{f}(5) \\)", "\\( \\text{f}(-5) \\)", "\\( \\text{f}(0) \\)", "\\( \\text{f}(\\tfrac{1}{5}) \\)"], ans: 1, explain: "\\( (x+5)=(x-(-5)) \\), so evaluate \\( \\text{f}(-5) \\)." } },
+        { type: "explain", title: "Factorising is not solving", pills: ["solve", "set = 0"], content: `<p>If the command word is <strong>"solve"</strong>, the factorisation is only the halfway point. \\( (x-1)(2x-3)(x+2) \\) earns the factorising marks, but the final answer marks need the roots: set each factor to zero and write \\( x = 1,\\ \\tfrac{3}{2},\\ -2 \\). Don't leave marks on the table by stopping early.</p>`, readCheck: { q: "You have factorised \\( \\text{f}(x) \\). To finish 'solve \\( \\text{f}(x)=0 \\)':", opts: ["set each factor equal to zero", "stop — that is the answer", "expand the brackets again", "find \\( \\text{f}(0) \\)"], ans: 0, explain: "Solving means setting every factor to zero to read off the roots." } }
+    ];
+
+    const flashcards = [
+        { term: "Factor theorem", def: "If \\( \\text{f}(a) = 0 \\) then \\( (x - a) \\) is a factor of \\( \\text{f}(x) \\)." },
+        { term: "Converse", def: "If \\( (x - a) \\) is a factor of \\( \\text{f}(x) \\), then \\( \\text{f}(a) = 0 \\)." },
+        { term: "Testing \\( (bx - a) \\)", def: "\\( (bx - a) \\) is a factor when \\( \\text{f}\\!\\left(\\tfrac{a}{b}\\right) = 0 \\)." },
+        { term: "Finding a first factor", def: "Test the divisors of the constant term until \\( \\text{f}(a) = 0 \\)." },
+        { term: "Remainder theorem", def: "Not on the 6993 specification — use the factor theorem only." },
+        { term: "Quadratic factor", def: "After one linear factor, divide (or equate coefficients) to get the quadratic." },
+        { term: "Equating coefficients", def: "Write \\( \\text{f}(x) = (x - a)(\\text{quadratic}) \\) and match coefficients." },
+        { term: "Solving a cubic", def: "Factorise fully, then set each factor equal to zero." },
+        { term: "Repeated root", def: "A squared factor such as \\( (x + 1)^2 \\) gives one root value twice." },
+        { term: "Candidate roots (leading coeff 1)", def: "The \\( \\pm \\) divisors of the constant term." },
+        { term: "Candidate roots (leading coeff ≠ 1)", def: "\\( \\pm\\dfrac{\\text{divisor of constant}}{\\text{divisor of leading coefficient}} \\)." },
+        { term: "Detailed reasoning", def: "Every step seen; \\( \\text{f}(a)=0 \\) shown; calculator-only answer scores 0." },
+        { term: "\\( 2x^3 - x^2 - 7x + 6 \\)", def: "\\( (x-1)(2x-3)(x+2) \\); roots \\( 1,\\ \\tfrac{3}{2},\\ -2 \\)." },
+        { term: "Number of roots of a cubic", def: "Up to three; a repeated factor counts a root more than once." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "8 (a)",
+            marks: 4,
+            type: "written",
+            caseId: "q8-2024",
+            question: `<p>Using the factor theorem, factorise \\( \\text{f}(x) \\).</p><p><em>(You must show detailed reasoning.)</em></p>`,
+            hint: "Try the divisors of 8 until \\( \\text{f}(a) = 0 \\); you must SHOW that value equals zero, then find the quadratic factor.",
+            starter: "Show \\( \\text{f}(a) = 0 \\) for a trial value, obtain the quadratic factor, then give three linear factors.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO1/AO2)</h5><ul>
+              <li><strong>M1</strong> — attempt to find a factor by any means (e.g. trialling divisors of 8).</li>
+              <li><strong>A1</strong> — showing \\( \\text{f}(a) = 0 \\) where \\( a = -1,\\ 2 \\) or \\( 4 \\) must be seen (this is the detailed-reasoning step).</li>
+              <li><strong>M1</strong> — obtain a quadratic factor and attempt to factorise it.</li>
+              <li><strong>A1</strong> — \\( \\text{f}(x) = (x - 2)(x - 4)(x + 1) \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>\\( \\text{f}(2) = 8 - 20 + 4 + 8 = 0 \\), so \\( (x-2) \\) is a factor; dividing gives \\( \\text{f}(x) = (x-2)(x^2 - 3x - 4) = (x-2)(x-4)(x+1) \\).</li>
+              <li>Alternative for the last two marks: apply the factor theorem to a second value, e.g. \\( \\text{f}(4) = 0 \\), then complete with the third factor.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Candidates who only wrote \\( \\text{f}(x) = (x + 1)(x - 2)(x - 4) \\) with no working scored zero — this is a detailed-reasoning question, so \\( \\text{f}(a) = 0 \\) and the quadratic factor must be shown.</li>
+              <li>Using a calculator to spot the roots is fine, but you must then demonstrate the factor-theorem reasoning to earn the marks.</li>
+            </ul></div>`,
+            modelAnswer: "Try divisors of 8: \\( \\text{f}(2) = 2^3 - 5(2^2) + 2(2) + 8 = 8 - 20 + 4 + 8 = 0 \\), so \\( (x - 2) \\) is a factor. Dividing, \\( \\text{f}(x) = (x - 2)(x^2 - 3x - 4) \\). Factorising the quadratic, \\( x^2 - 3x - 4 = (x - 4)(x + 1) \\). Therefore \\( \\text{f}(x) = (x - 2)(x - 4)(x + 1) \\).",
+            markPoints: { note: "This is a detailed-reasoning question — the factor-theorem step must be visible.", groups: [
+                { label: "M1 — find a factor", max: 1, points: ["Attempted to find a factor by any means (e.g. trialling divisors of 8)"] },
+                { label: "A1 — factor theorem shown (DR)", max: 1, points: ["Showed \\( \\text{f}(a) = 0 \\) for a trial value \\( a = -1,\\ 2 \\) or \\( 4 \\) — this step MUST be seen"] },
+                { label: "M1 — quadratic factor", max: 1, points: ["Obtained the quadratic factor and attempted to factorise it (or applied the factor theorem to a 2nd value)"] },
+                { label: "A1 — full factorisation", max: 1, points: ["\\( \\text{f}(x) = (x - 2)(x - 4)(x + 1) \\)"] }
+            ] }
+        },
+        {
+            num: "8 (b)",
+            marks: 1,
+            type: "written",
+            caseId: "q8-2024",
+            question: `<p>Hence solve the equation \\( \\text{f}(x) = 0 \\).</p>`,
+            hint: "Use your factors from (a) — set each equal to zero.",
+            starter: "Give all three values of \\( x \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1)</h5><ul>
+              <li><strong>B1</strong> — \\( x = -1,\\ 2,\\ 4 \\) (follow through their factors in (a)).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Each factor of \\( (x-2)(x-4)(x+1) \\) set to zero gives \\( x = 2,\\ 4,\\ -1 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Almost always well done by those who had managed to factorise the cubic in part (a).</li>
+            </ul></div>`,
+            modelAnswer: "Setting each factor to zero: \\( x - 2 = 0,\\ x - 4 = 0,\\ x + 1 = 0 \\), so \\( x = 2,\\ 4,\\ -1 \\).",
+            markPoints: { note: "Follow through the candidate's factors from (a).", groups: [
+                { label: "B1 — solutions", max: 1, points: ["\\( x = -1,\\ 2,\\ 4 \\) (follow through their factors from (a))"] }
+            ] }
+        },
+        {
+            num: "7 (2019)",
+            marks: 5,
+            type: "written",
+            question: `<p><em>In this question you must show detailed reasoning.</em></p><p>The equation \\( x^3 - 3x + k = 0 \\), where \\( k \\) is a constant, has a root \\( x = 2 \\).</p><p>Find the numerical value(s) of the other roots of this equation.</p>`,
+            hint: "Substitute the known root to find \\( k \\), then divide the cubic by \\( (x - 2) \\) — don't stop at the first extra root, a cubic has three.",
+            starter: "First find \\( k \\), then find the quadratic factor and all its roots.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO1/AO2)</h5><ul>
+              <li><strong>M1</strong> — substitute \\( x = 2 \\) into \\( x^3 - 3x + k \\).</li>
+              <li><strong>A1</strong> — \\( k = -2 \\).</li>
+              <li><strong>M1</strong> — attempt to solve by division (divide \\( x^3 - 3x - 2 \\) by \\( (x - 2) \\)).</li>
+              <li><strong>A1</strong> — correct quadratic factor \\( x^2 + 2x + 1 \\).</li>
+              <li><strong>A1</strong> — other root \\( x = -1 \\) (repeated).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>\\( \\text{f}(2) = 8 - 6 + k = 0 \\Rightarrow k = -2 \\), so \\( x^3 - 3x - 2 = (x - 2)(x^2 + 2x + 1) = (x - 2)(x + 1)^2 \\).</li>
+              <li>Alternative: begin the division immediately; the remainder being 0 gives \\( k + 2 = 0 \\).</li>
+              <li>Accept \\( -1 \\) written once provided the three factors of the cubic are seen.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most substituted \\( x = 2 \\), found \\( k = -2 \\), divided to obtain the quadratic factor and deduced the repeated root \\( x = -1 \\).</li>
+              <li>Successive factor-theorem trials were not a complete method: a cubic has three roots, and candidates using that route stopped after finding \\( x = -1 \\) once, missing the repeated root.</li>
+            </ul></div>`,
+            modelAnswer: "Since \\( x = 2 \\) is a root, \\( \\text{f}(2) = 2^3 - 3(2) + k = 8 - 6 + k = 0 \\), so \\( k = -2 \\). The equation is \\( x^3 - 3x - 2 = 0 \\). As \\( (x - 2) \\) is a factor, dividing gives \\( x^3 - 3x - 2 = (x - 2)(x^2 + 2x + 1) \\). Since \\( x^2 + 2x + 1 = (x + 1)^2 \\), the other root is \\( x = -1 \\) (a repeated root).",
+            markPoints: { note: "Detailed reasoning — show each step; finding k is required en route.", groups: [
+                { label: "M1 — substitute the root", max: 1, points: ["Substituted \\( x = 2 \\) into \\( x^3 - 3x + k \\)"] },
+                { label: "A1 — value of k", max: 1, points: ["\\( k = -2 \\)"] },
+                { label: "M1 — find the quadratic factor", max: 1, points: ["Attempted division / factorising of \\( x^3 - 3x - 2 \\) by \\( (x - 2) \\)"] },
+                { label: "A1 — quadratic factor", max: 1, points: ["Quadratic factor \\( x^2 + 2x + 1 \\)"] },
+                { label: "A1 — other roots", max: 1, points: ["Other root \\( x = -1 \\) (repeated)"] }
+            ] }
+        }
+    ];
+</script>
+    <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
+    <script src="/vendor/katex/katex.min.js"></script>
+    <script src="/vendor/katex/contrib/auto-render.min.js"></script>
+    <script src="/math-render.js"></script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

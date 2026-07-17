@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.4 Linear and Quadratic Inequalities – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 1. Algebra Toolkit</div>
+            <h1>1.4 Linear and Quadratic Inequalities</h1>
+            <p>Interactive revision guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 1.4 Linear and Quadratic Inequalities (AL7 manipulate inequalities;
+    //  AL8 solve linear & quadratic inequalities algebraically and graphically).
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  DOUBLED in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Exam questions =
+    //  2024 Q1 [2], 2019 Q2(a) [3] + (b) [2], 2022 Q1 [3]  (10 marks total).
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '1-4-linear-and-quadratic-inequalities',
+            badge: 'OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 1. Algebra Toolkit',
+            title: '1.4 Linear and Quadratic Inequalities',
+            subtitle: 'Interactive revision guide',
+            subject: 'additional-maths',
+        };
+
+    const topics = [
+        {
+            title: "What does it mean to solve an inequality?",
+            tag: "Key concept",
+            content: `<p>An <strong>inequality</strong> compares two expressions with \\( < \\) (less than), \\( > \\) (greater than), \\( \\le \\) (less than or equal to) or \\( \\ge \\) (greater than or equal to). Solving one means finding <strong>every</strong> value of the variable that makes it true — usually a <strong>range</strong> of values, not a single number.</p>
+            <ul>
+              <li>The answer is a <strong>solution set</strong>, e.g. \\( x < 4 \\) or \\( -2 \\le x \\le 3 \\).</li>
+              <li><strong>Strict</strong> inequalities (\\( < \\), \\( > \\)) exclude the end value; <strong>non-strict</strong> ones (\\( \\le \\), \\( \\ge \\)) include it.</li>
+              <li>You can picture a solution set on a <strong>number line</strong> — an <strong>open</strong> circle for a value that is excluded, a <strong>closed</strong> (filled) circle for one that is included.</li>
+            </ul>
+            <p>Most of the algebra you already use for equations works for inequalities too — with <strong>one crucial exception</strong> that costs marks every year (next card).</p>`,
+            readCheck: { q: "Which describes the solution set \\( -2 \\le x \\le 3 \\)?", opts: ["Every \\( x \\) from \\( -2 \\) to \\( 3 \\), both ends included", "Only \\( x = -2 \\) and \\( x = 3 \\)", "Every \\( x \\) from \\( -2 \\) to \\( 3 \\), both ends excluded", "Only whole numbers between \\( -2 \\) and \\( 3 \\)"], ans: 0, explain: "The \\( \\le \\) signs are non-strict, so both \\( -2 \\) and \\( 3 \\) are included, along with every real number between them." }
+        },
+        {
+            title: "When you manipulate an inequality, when does the sign flip?",
+            tag: "Common error",
+            content: `<p>You may do the same thing to <strong>both sides</strong> of an inequality — but watch the sign:</p>
+            <ul>
+              <li><strong>Add or subtract</strong> any number: the sign <strong>never</strong> changes.</li>
+              <li><strong>Multiply or divide by a positive</strong> number: the sign <strong>never</strong> changes.</li>
+              <li><strong>Multiply or divide by a negative</strong> number: you <strong>must reverse (flip) the inequality sign.</strong></li>
+            </ul>
+            <p>Why? Because \\( 2 < 5 \\) is true, but multiplying by \\( -1 \\) gives \\( -2 \\) and \\( -5 \\), and \\( -2 > -5 \\) — the order reverses.</p>
+            <p><strong>Worked example — solve \\( 5 - 2x \\ge 11 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Subtract 5 from both sides: \\( -2x \\ge 6 \\).</td></tr>
+              <tr><td>2. Divide both sides by \\( -2 \\) — this is division by a <em>negative</em>, so FLIP the sign: \\( x \\le -3 \\).</td></tr>
+            </table>
+            <p>Check with \\( x = -4 \\): \\( 5 - 2(-4) = 13 \\ge 11 \\) ✓. The <strong>#1 examiner-reported error</strong> is reaching \\( -x > 6 \\) and writing \\( x > -6 \\) instead of \\( x < -6 \\).</p>`,
+            readCheck: { q: "Solve \\( -3x > 12 \\).", opts: ["\\( x > 4 \\)", "\\( x < -4 \\)", "\\( x > -4 \\)", "\\( x < 4 \\)"], ans: 1, explain: "Divide both sides by \\( -3 \\); because \\( -3 \\) is negative, the sign flips, giving \\( x < -4 \\)." }
+        },
+        {
+            title: "How do you solve a double ('sandwich') inequality?",
+            tag: "Worked example",
+            content: `<p>A <strong>double</strong> (or "sandwich") inequality such as \\( \\frac{1}{3} < \\frac{2x-1}{5} < 1 \\) traps one expression between two bounds. The rule is simple: whatever you do, <strong>do it to all three parts at once.</strong></p>
+            <p><strong>Worked example — solve \\( \\frac{1}{3} < \\frac{2x-1}{5} < 1 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Multiply <em>all three</em> parts by 5: \\( \\frac{5}{3} < 2x - 1 < 5 \\).</td></tr>
+              <tr><td>2. Add 1 to all three parts: \\( \\frac{8}{3} < 2x < 6 \\).</td></tr>
+              <tr><td>3. Divide all three parts by 2: \\( \\frac{4}{3} < x < 3 \\).</td></tr>
+            </table>
+            <p>So the solution is \\( \\frac{4}{3} < x < 3 \\). If you ever multiply or divide the parts by a negative, flip <strong>both</strong> signs and rewrite the chain in ascending order. Taking the two inequalities separately is fine too — just recombine the answers at the end.</p>`,
+            readCheck: { q: "Solve \\( -1 < 2x + 3 < 9 \\).", opts: ["\\( -2 < x < 3 \\)", "\\( -1 < x < 9 \\)", "\\( -2 < x < 6 \\)", "\\( 1 < x < 3 \\)"], ans: 0, explain: "Subtract 3 from all three parts: \\( -4 < 2x < 6 \\); divide all three by 2: \\( -2 < x < 3 \\)." }
+        },
+        {
+            title: "How do you solve a quadratic inequality algebraically?",
+            tag: "Method",
+            content: `<p>A <strong>quadratic inequality</strong> such as \\( x^2 - x - 6 > 0 \\) is solved in four steps:</p>
+            <table class="worked">
+              <tr><td>1. Rearrange so one side is <strong>0</strong> (here it already is).</td></tr>
+              <tr><td>2. <strong>Factorise</strong>: \\( x^2 - x - 6 = (x - 3)(x + 2) \\).</td></tr>
+              <tr><td>3. Find the <strong>critical values</strong> — the roots where the quadratic \\( = 0 \\): \\( x = 3 \\) and \\( x = -2 \\).</td></tr>
+              <tr><td>4. Decide which region satisfies the inequality (sketch the parabola — next card).</td></tr>
+            </table>
+            <p>The graph of \\( y = x^2 - x - 6 \\) is a parabola opening <strong>upwards</strong> (because the \\( x^2 \\) coefficient is positive). It is <strong>above</strong> the \\( x \\)-axis (\\( y > 0 \\)) <em>outside</em> the roots, and <strong>below</strong> it (\\( y < 0 \\)) <em>between</em> the roots. So:</p>
+            <ul>
+              <li>\\( x^2 - x - 6 > 0 \\Rightarrow x < -2 \\ \\) or \\( \\ x > 3 \\).</li>
+              <li>\\( x^2 - x - 6 < 0 \\Rightarrow -2 < x < 3 \\).</li>
+            </ul>
+            <p><strong>Never</strong> just "square-root and solve like an equation" — a quadratic inequality almost always has a two-part answer.</p>`,
+            readCheck: { q: "Solve \\( x^2 - x - 6 > 0 \\).", opts: ["\\( -2 < x < 3 \\)", "\\( x < -2 \\) or \\( x > 3 \\)", "\\( x < -3 \\) or \\( x > 2 \\)", "\\( x > 3 \\) only"], ans: 1, explain: "The upward parabola is above the axis outside its roots \\( -2 \\) and \\( 3 \\), so \\( x < -2 \\) or \\( x > 3 \\)." }
+        },
+        {
+            title: "How do you read the region off a sketch of the parabola?",
+            tag: "Exam skill",
+            content: `<p>The safest way to get the region right is to <strong>sketch the parabola and see where it is above or below the \\( x \\)-axis.</strong> You only need a rough sketch showing which way it opens and where it crosses the axis (the critical values).</p>
+            <p>For \\( y = x^2 - x - 6 = (x-3)(x+2) \\), the curve opens upwards and crosses at \\( x = -2 \\) and \\( x = 3 \\):</p>
+            <svg viewBox="0 0 300 190" width="100%" style="max-width:340px;height:auto;display:block;margin:14px auto" role="img" aria-label="Upward parabola crossing the x-axis at minus 2 and 3, dipping below the axis between them">
+              <line x1="20" y1="120" x2="285" y2="120" stroke="currentColor" stroke-width="1.5"/>
+              <polygon points="285,120 276,116 276,124" fill="currentColor"/>
+              <line x1="110" y1="120" x2="190" y2="120" stroke="currentColor" stroke-width="6" stroke-opacity="0.35"/>
+              <path d="M 55,25 Q 150,255 245,25" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <circle cx="110" cy="120" r="4" fill="currentColor"/>
+              <circle cx="190" cy="120" r="4" fill="currentColor"/>
+              <text x="110" y="140" text-anchor="middle" font-size="14" fill="currentColor">-2</text>
+              <text x="190" y="140" text-anchor="middle" font-size="14" fill="currentColor">3</text>
+              <text x="278" y="112" text-anchor="end" font-size="13" fill="currentColor">x</text>
+            </svg>
+            <ul>
+              <li>Want \\( y < 0 \\) (curve <strong>below</strong> the axis, shaded)? Read off the region <em>between</em> the roots: \\( -2 < x < 3 \\).</li>
+              <li>Want \\( y > 0 \\) (curve <strong>above</strong> the axis)? Read off the two "arms" <em>outside</em> the roots: \\( x < -2 \\) or \\( x > 3 \\).</li>
+            </ul>
+            <p>If the parabola opened downwards (negative \\( x^2 \\) coefficient), the "above/below" regions simply swap.</p>`,
+            readCheck: { q: "Using the sketch, solve \\( x^2 - x - 6 \\le 0 \\).", opts: ["\\( x \\le -2 \\) or \\( x \\ge 3 \\)", "\\( -2 \\le x \\le 3 \\)", "\\( -3 \\le x \\le 2 \\)", "\\( x \\le 3 \\)"], ans: 1, explain: "\\( \\le 0 \\) means on or below the axis — the region between (and including) the roots: \\( -2 \\le x \\le 3 \\)." }
+        },
+        {
+            title: "Why is \\( x^2 > 9 \\) not just \\( x > 3 \\)?",
+            tag: "Common error",
+            content: `<p>A very common slip is to "square-root both sides" of \\( x^2 > 9 \\) and write \\( x > 3 \\). That misses <strong>half</strong> the answer, because a negative number can also have a large square: \\( (-5)^2 = 25 > 9 \\).</p>
+            <p>Treat it as a <strong>quadratic inequality</strong>:</p>
+            <table class="worked">
+              <tr><td>1. Rearrange to one side: \\( x^2 - 9 > 0 \\).</td></tr>
+              <tr><td>2. Factorise (difference of two squares): \\( (x - 3)(x + 3) > 0 \\).</td></tr>
+              <tr><td>3. Critical values \\( x = 3 \\) and \\( x = -3 \\); the upward parabola is above the axis outside the roots.</td></tr>
+              <tr><td>4. So \\( x < -3 \\ \\) or \\( \\ x > 3 \\).</td></tr>
+            </table>
+            <p>The mirror-image case is just as important: \\( x^2 < 9 \\) gives \\( -3 < x < 3 \\) (between the roots). In general, for \\( a > 0 \\): \\( x^2 > a^2 \\Rightarrow x < -a \\) or \\( x > a \\); and \\( x^2 < a^2 \\Rightarrow -a < x < a \\).</p>`,
+            readCheck: { q: "Solve \\( x^2 > 25 \\).", opts: ["\\( x > 5 \\) only", "\\( x < -5 \\) or \\( x > 5 \\)", "\\( -5 < x < 5 \\)", "\\( x > 5 \\) or \\( x > -5 \\)"], ans: 1, explain: "\\( x^2 - 25 > 0 \\Rightarrow (x-5)(x+5) > 0 \\); the region outside the roots is \\( x < -5 \\) or \\( x > 5 \\)." }
+        },
+        {
+            title: "How do you show a solution set on a number line?",
+            tag: "Worked example",
+            content: `<p>Marking a solution on a <strong>number line</strong> is a real exam skill (OCR 2019 Q2b). Two things must be right:</p>
+            <ul>
+              <li>The <strong>line/region</strong> covers exactly the solution set.</li>
+              <li>The <strong>circles</strong> at the ends show whether each end value is included: <strong>closed (filled)</strong> for \\( \\le \\) / \\( \\ge \\), <strong>open (empty)</strong> for \\( < \\) / \\( > \\).</li>
+            </ul>
+            <p><strong>Worked example — illustrate \\( -3 \\le x \\le 4 \\):</strong> a line from \\( -3 \\) to \\( 4 \\) with <strong>filled</strong> circles at both ends (both included):</p>
+            <svg viewBox="0 0 420 64" width="100%" style="max-width:460px;height:auto;display:block;margin:14px auto" role="img" aria-label="Number line showing minus 3 less than or equal to x less than or equal to 4 with closed circles at minus 3 and 4">
+              <line x1="20" y1="30" x2="405" y2="30" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="66" y1="30" x2="318" y2="30" stroke="currentColor" stroke-width="6" stroke-opacity="0.35"/>
+              <g stroke="currentColor" stroke-width="1">
+                <line x1="30" y1="25" x2="30" y2="35"/><line x1="66" y1="25" x2="66" y2="35"/><line x1="102" y1="25" x2="102" y2="35"/><line x1="138" y1="25" x2="138" y2="35"/><line x1="174" y1="25" x2="174" y2="35"/><line x1="210" y1="25" x2="210" y2="35"/><line x1="246" y1="25" x2="246" y2="35"/><line x1="282" y1="25" x2="282" y2="35"/><line x1="318" y1="25" x2="318" y2="35"/><line x1="354" y1="25" x2="354" y2="35"/><line x1="390" y1="25" x2="390" y2="35"/>
+              </g>
+              <g font-size="12" fill="currentColor" text-anchor="middle">
+                <text x="30" y="52">-4</text><text x="66" y="52">-3</text><text x="102" y="52">-2</text><text x="138" y="52">-1</text><text x="174" y="52">0</text><text x="210" y="52">1</text><text x="246" y="52">2</text><text x="282" y="52">3</text><text x="318" y="52">4</text><text x="354" y="52">5</text><text x="390" y="52">6</text>
+              </g>
+              <circle cx="66" cy="30" r="5.5" fill="currentColor"/>
+              <circle cx="318" cy="30" r="5.5" fill="currentColor"/>
+            </svg>
+            <p>If the inequality had been \\( -3 < x < 4 \\) (strict), the two end circles would be drawn <strong>open</strong> (empty) instead. Examiners warn every year that an ambiguous circle — neither clearly filled nor clearly empty — loses the mark.</p>`,
+            readCheck: { q: "To show \\( x > 2 \\) on a number line, the circle at \\( 2 \\) should be:", opts: ["closed (filled), with the line going left", "open (empty), with the line going right", "closed (filled), with the line going right", "open (empty), with the line going left"], ans: 1, explain: "\\( > \\) is strict, so \\( 2 \\) is excluded — an open circle — and \\( x > 2 \\) points to larger values, so the line goes right." }
+        }
+    ];
+
+    const mcqData = [
+        { q: "Solve \\( 3x - 5 < 7 \\).", opts: ["\\( x > 4 \\)", "\\( x < 4 \\)", "\\( x < 12 \\)", "\\( x < 2 \\)"], ans: 1, explain: "Add 5: \\( 3x < 12 \\); divide by 3 (positive, no flip): \\( x < 4 \\)." },
+        { q: "Solve \\( -2x > 8 \\).", opts: ["\\( x > -4 \\)", "\\( x > 4 \\)", "\\( x < -4 \\)", "\\( x < 4 \\)"], ans: 2, explain: "Divide by \\( -2 \\); dividing by a negative flips the sign, giving \\( x < -4 \\)." },
+        { q: "Solve \\( 5 - 2x \\ge 11 \\).", opts: ["\\( x \\le -3 \\)", "\\( x \\ge -3 \\)", "\\( x \\le 3 \\)", "\\( x \\ge 3 \\)"], ans: 0, explain: "Subtract 5: \\( -2x \\ge 6 \\); divide by \\( -2 \\) and flip: \\( x \\le -3 \\)." },
+        { q: "Solve the double inequality \\( \\frac{1}{3} < \\frac{2x-1}{5} < 1 \\).", opts: ["\\( \\frac{4}{3} < x < 3 \\)", "\\( \\frac{2}{3} < x < 3 \\)", "\\( \\frac{4}{3} < x < 2 \\)", "\\( 1 < x < 3 \\)"], ans: 0, explain: "Multiply all three parts by 5: \\( \\frac{5}{3} < 2x-1 < 5 \\); add 1: \\( \\frac{8}{3} < 2x < 6 \\); divide by 2: \\( \\frac{4}{3} < x < 3 \\)." },
+        { q: "Solve \\( -4 < 3x + 2 \\le 11 \\).", opts: ["\\( -2 < x \\le 3 \\)", "\\( -2 \\le x < 3 \\)", "\\( 2 < x \\le 3 \\)", "\\( -6 < x \\le 9 \\)"], ans: 0, explain: "Subtract 2 from all parts: \\( -6 < 3x \\le 9 \\); divide by 3: \\( -2 < x \\le 3 \\). Option D forgot to divide by 3." },
+        { q: "Solve \\( x^2 - x - 6 > 0 \\).", opts: ["\\( -2 < x < 3 \\)", "\\( x < -2 \\) or \\( x > 3 \\)", "\\( x < -3 \\) or \\( x > 2 \\)", "\\( x > 3 \\) only"], ans: 1, explain: "\\( (x-3)(x+2) > 0 \\); the upward parabola is above the axis outside its roots, so \\( x < -2 \\) or \\( x > 3 \\)." },
+        { q: "Solve \\( x^2 - x - 6 \\le 0 \\).", opts: ["\\( x \\le -2 \\) or \\( x \\ge 3 \\)", "\\( -3 \\le x \\le 2 \\)", "\\( -2 \\le x \\le 3 \\)", "\\( 2 \\le x \\le 3 \\)"], ans: 2, explain: "\\( \\le 0 \\) is the region on or below the axis, between the roots: \\( -2 \\le x \\le 3 \\)." },
+        { q: "Solve \\( x^2 > 9 \\).", opts: ["\\( x > 3 \\)", "\\( x < -3 \\) or \\( x > 3 \\)", "\\( -3 < x < 3 \\)", "\\( x > 3 \\) or \\( x > -3 \\)"], ans: 1, explain: "\\( x^2 - 9 > 0 \\Rightarrow (x-3)(x+3) > 0 \\); outside the roots: \\( x < -3 \\) or \\( x > 3 \\). Writing just \\( x > 3 \\) misses the negative arm." },
+        { q: "Solve \\( x^2 \\le 16 \\).", opts: ["\\( -4 \\le x \\le 4 \\)", "\\( x \\le 4 \\)", "\\( x \\le -4 \\) or \\( x \\ge 4 \\)", "\\( 0 \\le x \\le 4 \\)"], ans: 0, explain: "\\( x^2 - 16 \\le 0 \\Rightarrow (x-4)(x+4) \\le 0 \\); the region between the roots (inclusive) is \\( -4 \\le x \\le 4 \\)." },
+        { q: "The critical values for \\( x^2 + 2x - 15 \\ge 0 \\) are:", opts: ["\\( x = 5 \\) and \\( x = -3 \\)", "\\( x = -5 \\) and \\( x = 3 \\)", "\\( x = 15 \\) and \\( x = 1 \\)", "\\( x = -2 \\) and \\( x = 15 \\)"], ans: 1, explain: "\\( x^2 + 2x - 15 = (x+5)(x-3) \\), so the roots (critical values) are \\( x = -5 \\) and \\( x = 3 \\)." },
+        { q: "On a number line, the solution \\( -1 \\le x < 4 \\) is drawn with:", opts: ["an open circle at \\( -1 \\) and a closed circle at \\( 4 \\)", "a closed circle at \\( -1 \\) and an open circle at \\( 4 \\)", "closed circles at both ends", "open circles at both ends"], ans: 1, explain: "\\( \\le \\) at \\( -1 \\) means it is included (closed); \\( < \\) at \\( 4 \\) means it is excluded (open)." },
+        { q: "A rectangle has width \\( x \\) cm and area \\( x(x+2) \\) cm², which must be less than 15 cm². For what widths does this hold?", opts: ["\\( 0 < x < 3 \\)", "\\( -5 < x < 3 \\)", "\\( x < 3 \\)", "\\( x > 3 \\)"], ans: 0, explain: "\\( x^2 + 2x - 15 < 0 \\Rightarrow (x+5)(x-3) < 0 \\Rightarrow -5 < x < 3 \\); but a width must be positive, so \\( 0 < x < 3 \\)." }
+    ];
+
+    const matchData = [
+        { term: "\\( 3x - 5 < 7 \\)", def: "\\( x < 4 \\)" },
+        { term: "\\( -2x > 8 \\)", def: "\\( x < -4 \\)" },
+        { term: "\\( 5 - 2x \\ge 11 \\)", def: "\\( x \\le -3 \\)" },
+        { term: "\\( x^2 - x - 6 > 0 \\)", def: "\\( x < -2 \\) or \\( x > 3 \\)" },
+        { term: "\\( x^2 - x - 6 < 0 \\)", def: "\\( -2 < x < 3 \\)" },
+        { term: "\\( x^2 > 9 \\)", def: "\\( x < -3 \\) or \\( x > 3 \\)" },
+        { term: "\\( x^2 \\le 16 \\)", def: "\\( -4 \\le x \\le 4 \\)" },
+        { term: "\\( \\frac{1}{3} < \\frac{2x-1}{5} < 1 \\)", def: "\\( \\frac{4}{3} < x < 3 \\)" },
+        { term: "Multiply or divide by a negative", def: "Reverse the inequality sign" },
+        { term: "Closed (filled) circle on a number line", def: "End value is included (\\( \\le \\) or \\( \\ge \\))" },
+        { term: "Open (empty) circle on a number line", def: "End value is excluded (\\( < \\) or \\( > \\))" },
+        { term: "Critical values of \\( x^2 + 2x - 15 \\)", def: "\\( x = -5 \\) and \\( x = 3 \\)" }
+    ];
+
+    // NOTE: FIB blanks sit in PLAIN TEXT, never inside a \( \) region (§8.4 Rule 3b).
+    // Every math region below is a complete, self-contained expression.
+    const fibData = [
+        { display: "When you multiply or divide an inequality by a negative number you must ___B1___ the direction of the inequality sign.", blanks: { B1: "reverse" } },
+        { display: "Adding or subtracting the same quantity from both sides ___B1___ the direction of the inequality sign.", blanks: { B1: "keeps" } },
+        { display: "To solve a quadratic inequality, first rearrange it so that one side equals ___B1___, then factorise.", blanks: { B1: "zero" } },
+        { display: "The quadratic \\( x^2 - x - 6 \\) factorises to \\( (x-3)(x+2) \\), so its critical values are \\( 3 \\) and ___B1___.", blanks: { B1: "-2" } },
+        { display: "For an upward-opening parabola, \\( ax^2 + bx + c < 0 \\) is satisfied ___B1___ the two critical values.", blanks: { B1: "between" } },
+        { display: "For an upward-opening parabola, \\( ax^2 + bx + c > 0 \\) is satisfied ___B1___ the two critical values.", blanks: { B1: "outside" } },
+        { display: "A strict inequality such as \\( < \\) or \\( > \\) is shown on a number line with an ___B1___ circle.", blanks: { B1: "open" } },
+        { display: "The solution to \\( x^2 > 9 \\) is \\( x < -3 \\) ___B1___ \\( x > 3 \\).", blanks: { B1: "or" } }
+    ];
+
+    const fibWords = ["reverse", "keeps", "zero", "-2", "between", "outside", "open", "or", "flip", "add", "3", "closed", "and", "inside"];
+
+    const tfData = [
+        { statement: "Multiplying or dividing both sides of an inequality by a negative number reverses the inequality sign.", answer: true, explanation: "Correct — e.g. from \\( 2 < 5 \\), multiplying by \\( -1 \\) gives \\( -2 > -5 \\); the order reverses." },
+        { statement: "\\( -x > 6 \\) is the same as \\( x > -6 \\).", answer: false, explanation: "Dividing \\( -x > 6 \\) by \\( -1 \\) flips the sign, giving \\( x < -6 \\), not \\( x > -6 \\). This is the classic 2024 Q1 error." },
+        { statement: "To solve \\( \\frac{1}{3} < \\frac{2x-1}{5} < 1 \\) you may operate on all three parts at once.", answer: true, explanation: "Yes — whatever you do (×5, +1, ÷2) you do to every part of the sandwich inequality." },
+        { statement: "The inequality \\( x^2 > 9 \\) has solution \\( x > 3 \\) only.", answer: false, explanation: "It is \\( (x-3)(x+3) > 0 \\Rightarrow x < -3 \\) or \\( x > 3 \\); a negative such as \\( -5 \\) also satisfies it." },
+        { statement: "For \\( x^2 - x - 6 < 0 \\), because the parabola opens upwards the solution lies between the roots.", answer: true, explanation: "An upward parabola is below the axis (\\( y < 0 \\)) between its roots, so \\( -2 < x < 3 \\)." },
+        { statement: "A closed (filled) circle on a number line shows that the end value is included (\\( \\le \\) or \\( \\ge \\)).", answer: true, explanation: "Correct; an open circle is used for strict inequalities (\\( < \\) or \\( > \\)) where the end value is excluded." },
+        { statement: "Adding the same number to both sides of an inequality can change the direction of the sign.", answer: false, explanation: "Only multiplying/dividing by a negative flips the sign; adding or subtracting never does." },
+        { statement: "Multiplying the double inequality \\( -1 < x < 4 \\) by \\( -2 \\) gives \\( -8 < -2x < 2 \\).", answer: true, explanation: "Multiplying by \\( -2 \\) and flipping both signs gives \\( 2 > -2x > -8 \\), which is the same as \\( -8 < -2x < 2 \\)." }
+    ];
+
+    const miscData = [
+        { wrong: "\\( -x > 6 \\Rightarrow x > -6 \\)", correct: "Dividing by \\( -1 \\) must FLIP the sign. A weak answer keeps \\( > \\); a strong answer writes \\( x < -6 \\). This was the exemplar error of OCR 2024 Q1 — much of the algebra was correct but candidates could not deal with the final negative.", readCheck: { q: "Solve \\( 2 - (x+1) > 7 \\).", opts: ["\\( x > -6 \\)", "\\( x < -6 \\)", "\\( x > 6 \\)", "\\( x < 6 \\)"], ans: 1, explain: "\\( 2 - x - 1 > 7 \\Rightarrow 1 - x > 7 \\Rightarrow -x > 6 \\); divide by \\( -1 \\) and flip: \\( x < -6 \\)." } },
+        { wrong: "\\( x^2 > 9 \\Rightarrow x > 3 \\)", correct: "Square-rooting loses the negative arm. A weak answer gives \\( x > 3 \\) only; a strong answer treats it as \\( (x-3)(x+3) > 0 \\) and writes \\( x < -3 \\) or \\( x > 3 \\).", readCheck: { q: "Solve \\( x^2 > 16 \\).", opts: ["\\( x > 4 \\) only", "\\( x < -4 \\) or \\( x > 4 \\)", "\\( -4 < x < 4 \\)", "\\( x < 4 \\)"], ans: 1, explain: "\\( (x-4)(x+4) > 0 \\); outside the roots: \\( x < -4 \\) or \\( x > 4 \\)." } },
+        { wrong: "\\( x^2 - x - 6 > 0 \\Rightarrow -2 < x < 3 \\)", correct: "That is the region for \\( < 0 \\), not \\( > 0 \\). A weak answer picks the wrong region; a strong answer sketches the upward parabola and reads the region ABOVE the axis: \\( x < -2 \\) or \\( x > 3 \\).", readCheck: { q: "Which region makes an upward parabola positive (\\( y > 0 \\))?", opts: ["Between the roots", "Outside the roots", "At the roots only", "Everywhere"], ans: 1, explain: "An upward parabola is above the axis (positive) outside its two roots." } },
+        { wrong: "Solving \\( \\frac{2x-1}{5} < 1 \\) by adding 1 to only the middle part of a double inequality", correct: "Every operation must be applied to ALL THREE parts. A weak answer changes one part; a strong answer keeps the chain balanced: multiply all three by 5, add 1 to all three, divide all three by 2.", readCheck: { q: "When solving \\( \\frac{1}{3} < \\frac{2x-1}{5} < 1 \\), what do you multiply by 5?", opts: ["Only the middle part", "All three parts", "Only the outer two parts", "Nothing — you cannot multiply"], ans: 1, explain: "A double inequality is kept true only if every part receives the same operation." } },
+        { wrong: "Drawing an OPEN circle to show \\( x \\le 4 \\) on a number line", correct: "\\( \\le \\) includes the end value, so the circle must be CLOSED (filled). A weak answer leaves it open or ambiguous; a strong answer fills it clearly. OCR 2019 Q2b noted markers could not always tell whether a circle was filled in.", readCheck: { q: "For \\( x \\ge -1 \\), the circle at \\( -1 \\) should be:", opts: ["open (empty)", "closed (filled)", "half-shaded", "a cross"], ans: 1, explain: "\\( \\ge \\) is non-strict, so \\( -1 \\) is included and the circle is closed (filled)." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "The negative-flip trap (a guaranteed exam mark)", pills: ["manipulate", "÷ by negative", "flip"], content: `<p>OCR 2024 Q1 asked to solve \\( 2 - (x+1) > 7 \\).</p><p><strong>0 / 2 marks:</strong> correct algebra down to \\( -x > 6 \\), then \\( x > -6 \\) — the sign was not flipped.</p><p><strong>Full marks:</strong> \\( -x > 6 \\Rightarrow x < -6 \\). Whenever you divide (or multiply) by a negative, flip the sign and, if you like, sanity-check one value: \\( x = -10 \\) gives \\( 2 - (-9) = 11 > 7 \\) ✓.</p>`, readCheck: { q: "You reach \\( -x > 6 \\). The correct final line is:", opts: ["\\( x > -6 \\)", "\\( x < -6 \\)", "\\( x > 6 \\)", "\\( x < 6 \\)"], ans: 1, explain: "Multiplying by \\( -1 \\) flips \\( > \\) to \\( < \\): \\( x < -6 \\)." } },
+        { type: "tip", title: "A ladder for quadratic inequalities", pills: ["factorise", "critical values", "sketch"], content: `<p>Score every mark on a quadratic inequality with the same four steps:</p><p><strong>1.</strong> Make one side \\( 0 \\). <strong>2.</strong> Factorise to find the critical values. <strong>3.</strong> Sketch the parabola (which way it opens + where it crosses). <strong>4.</strong> Read the region.</p><p>Write "\\( x < -2 \\) or \\( x > 3 \\)" — NOT "\\( -2 > x > 3 \\)", which is impossible. A quick sketch beside your working is the surest guard against choosing the wrong region.</p>`, readCheck: { q: "For a quadratic inequality, what should you find right after making one side zero?", opts: ["The turning point", "The critical values (roots)", "The discriminant's sign", "The y-intercept"], ans: 1, explain: "Factorising to the critical values (roots) is step 2; the sketch then tells you the region." } },
+        { type: "explain", title: "Present the solution set clearly", pills: ["number line", "or vs and", "circles"], content: `<p>Communication marks are lost on presentation, not maths.</p><p>Use "<strong>or</strong>" for a two-part answer (\\( x < -2 \\) or \\( x > 3 \\)) and "<strong>and</strong>"/a single chain for a between-answer (\\( -2 \\le x \\le 3 \\)). On a number line, make circles unmistakably <strong>open</strong> (strict) or <strong>closed</strong> (non-strict) — OCR 2019 Q2b penalised ambiguous circles.</p>`, readCheck: { q: "Which is the correct way to write the solution of \\( x^2 - x - 6 > 0 \\)?", opts: ["\\( -2 > x > 3 \\)", "\\( x < -2 \\) or \\( x > 3 \\)", "\\( -2 < x < 3 \\)", "\\( x < -2 \\) and \\( x > 3 \\)"], ans: 1, explain: "The two separate arms are joined by 'or'; \\( -2 > x > 3 \\) is impossible and 'and' would describe no values." } }
+    ];
+
+    const flashcards = [
+        { term: "Inequality", def: "A statement comparing expressions with \\( <, >, \\le \\) or \\( \\ge \\)." },
+        { term: "Solution set", def: "Every value of the variable that makes the inequality true — usually a range." },
+        { term: "Golden rule (× or ÷ by a negative)", def: "Reverse (flip) the inequality sign." },
+        { term: "Add / subtract rule", def: "Adding or subtracting the same number never changes the sign's direction." },
+        { term: "Double (sandwich) inequality", def: "Apply every operation to all three parts at once." },
+        { term: "Strict inequality", def: "\\( < \\) or \\( > \\); end value excluded; open circle." },
+        { term: "Non-strict inequality", def: "\\( \\le \\) or \\( \\ge \\); end value included; closed circle." },
+        { term: "Open circle", def: "On a number line, marks an end value that is NOT included." },
+        { term: "Closed (filled) circle", def: "On a number line, marks an end value that IS included." },
+        { term: "Quadratic inequality method", def: "One side \\( = 0 \\), factorise, find critical values, sketch, read the region." },
+        { term: "Critical values", def: "The roots where the quadratic equals zero — the region boundaries." },
+        { term: "Upward parabola \\( > 0 \\)", def: "Solution is OUTSIDE the roots (the two arms)." },
+        { term: "Upward parabola \\( < 0 \\)", def: "Solution is BETWEEN the roots." },
+        { term: "\\( x^2 > 9 \\)", def: "\\( x < -3 \\) or \\( x > 3 \\) — not just \\( x > 3 \\)." },
+        { term: "\\( x^2 < a^2 \\) (a > 0)", def: "\\( -a < x < a \\)." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1 (June 2024)",
+            marks: 2,
+            type: "written",
+            question: `<p>Solve the inequality \\( 2 - (x + 1) > 7 \\).</p>`,
+            hint: "Expand and collect first; when you divide by a negative, remember to flip the inequality sign.",
+            starter: "Give your answer as an inequality in \\( x \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — Correct 1st step, e.g. removal of brackets or collecting like terms or subtracting 2 from both sides.</li>
+              <li><strong>A1</strong> — \\( x < -6 \\) (accept \\( -6 > x \\)).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The method mark is for a correct manipulation; the accuracy mark requires the sign to be reversed correctly when dividing by \\( -1 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>This proved to be an easy start to the paper. However, not all candidates obtained full marks. The main error occurred when candidates obtained the answer \\( -x > 6 \\) but were unable to manipulate this correctly to give \\( x < -6 \\).</li>
+            </ul></div>`,
+            modelAnswer: "\\( 2 - (x+1) > 7 \\Rightarrow 2 - x - 1 > 7 \\Rightarrow 1 - x > 7 \\Rightarrow -x > 6 \\Rightarrow x < -6 \\).",
+            markPoints: { note: "Award M1 for a correct first step, A1 only if the sign is flipped correctly.", groups: [
+                { label: "M1 — correct first step", max: 1, points: ["Removed the bracket / collected like terms / subtracted 2, e.g. reaching \\( -x > 6 \\)"] },
+                { label: "A1 — final answer with the sign flipped", max: 1, points: ["\\( x < -6 \\) (accept \\( -6 > x \\)) — the sign was reversed when dividing by \\( -1 \\)"] }
+            ] }
+        },
+        {
+            num: "2 (a) (June 2019)",
+            marks: 3,
+            type: "written",
+            question: `<p>Solve the inequality \\( x^2 - x - 12 \\le 0 \\).</p>`,
+            hint: "Factorise to find the critical values, then sketch the upward parabola to read the region.",
+            starter: "Give your answer as a single inequality in \\( x \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — For factorisation into \\( (x-4)(x+3) \\) (soi).</li>
+              <li><strong>A1</strong> — Correct end (critical) values \\( -3 \\) and \\( 4 \\) (soi).</li>
+              <li><strong>A1</strong> — Correct inequality \\( -3 \\le x \\le 4 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Accept "\\( -3 \\le x \\) and \\( x \\le 4 \\)" only for the final mark — not a comma, "or", spaces, or the two parts on different lines.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Very few candidates did not factorise the quadratic function properly and most obtained the correct inequality.</li>
+            </ul></div>`,
+            modelAnswer: "\\( x^2 - x - 12 = (x-4)(x+3) \\), so the critical values are \\( -3 \\) and \\( 4 \\). The upward parabola is on or below the axis between the roots, so \\( -3 \\le x \\le 4 \\).",
+            markPoints: { note: "One factorising mark and two accuracy marks.", groups: [
+                { label: "M1 — factorise", max: 1, points: ["Factorised into \\( (x-4)(x+3) \\) (soi)"] },
+                { label: "A1 — critical values", max: 1, points: ["Correct end values \\( x = -3 \\) and \\( x = 4 \\)"] },
+                { label: "A1 — correct inequality", max: 1, points: ["\\( -3 \\le x \\le 4 \\) as a single statement (not 'or')"] }
+            ] }
+        },
+        {
+            num: "2 (b) (June 2019)",
+            marks: 2,
+            type: "written",
+            question: `<p>Illustrate your answer to part (a) on a number line.</p><p><em>(Describe what you would draw: the region and the two end-point circles.)</em></p>`,
+            hint: "The inequality is non-strict (\\( \\le \\)), so both end values are included — think about which kind of circle that needs.",
+            starter: "State the line drawn and whether each end circle is open or closed.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>B1</strong> — One line drawn between the two end points \\( -3 \\) and \\( 4 \\) (or ft from part (a)).</li>
+              <li><strong>B1</strong> — Filled (closed) circles at the end points of the line. (The two B marks are independent.)</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The examiner must be convinced the circles are filled, not empty. Because part (a) is \\( \\le \\) (non-strict), closed circles are required.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>A number of candidates seemed unaware of the difference between filling in the circles at the ends of the number line and not filling them in. In a few cases this led to an uncertainty as to whether the circles had been filled in or not. There were also a few non-standard presentations of the inequality on the number line.</li>
+            </ul></div>`,
+            modelAnswer: "A single line segment from \\( -3 \\) to \\( 4 \\), with a closed (filled) circle at each end because \\( -3 \\) and \\( 4 \\) are both included (\\( \\le \\)).",
+            markPoints: { note: "Two independent B marks: the segment and the circles.", groups: [
+                { label: "B1 — the line/segment", max: 1, points: ["Drew a single line between the end points \\( -3 \\) and \\( 4 \\) (ft your part (a))"] },
+                { label: "B1 — the end-point circles", max: 1, points: ["Filled (closed) circles at both ends, because the inequality is \\( \\le \\) (non-strict)"] }
+            ] }
+        },
+        {
+            num: "1 (June 2022)",
+            marks: 3,
+            type: "written",
+            question: `<p>Solve the inequality \\( -3 < 2(x + 1) < 7 \\).</p>`,
+            hint: "This is a double inequality — apply each operation to all three parts, keeping the chain balanced.",
+            starter: "Give your answer as a single chain \\( a < x < b \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — Correct first operation on at least one side to solve the inequality (e.g. expand to \\( -3 < 2x + 2 < 7 \\)).</li>
+              <li><strong>A1</strong> — For a correct inequality on both sides involving \\( 2x \\) or \\( x+1 \\) (soi), e.g. \\( -5 < 2x < 5 \\).</li>
+              <li><strong>A1</strong> — \\( -\\frac{5}{2} < x < \\frac{5}{2} \\) (accept \\( -2.5 < x < 2.5 \\), isw).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>If the answer is given as two separate inequalities they must be joined by "and" for the last mark. SC3 for a correct answer with no wrong working (use of "=" is allowed provided the final answer is correct).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Candidates who did well took the inequality as a whole and added, subtracted or divided across the three parts. Some took the two inequalities separately, which was acceptable provided the solutions were put together again. Replacing the inequalities by an equals sign can be a dangerous process, particularly when dividing by numbers.</li>
+            </ul></div>`,
+            modelAnswer: "\\( -3 < 2(x+1) < 7 \\Rightarrow -3 < 2x + 2 < 7 \\Rightarrow -5 < 2x < 5 \\Rightarrow -\\frac{5}{2} < x < \\frac{5}{2} \\).",
+            markPoints: { note: "One method mark and two accuracy marks across the three parts.", groups: [
+                { label: "M1 — correct first operation", max: 1, points: ["Correct first step on at least one part, e.g. expanding to \\( -3 < 2x + 2 < 7 \\)"] },
+                { label: "A1 — correct inequality both sides", max: 1, points: ["A correct inequality on both sides involving \\( 2x \\) or \\( x+1 \\), e.g. \\( -5 < 2x < 5 \\)"] },
+                { label: "A1 — final answer", max: 1, points: ["\\( -\\frac{5}{2} < x < \\frac{5}{2} \\) (accept \\( -2.5 < x < 2.5 \\); if written as two inequalities, joined by 'and')"] }
+            ] }
+        }
+    ];
+</script>
+    <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
+    <script src="/vendor/katex/katex.min.js"></script>
+    <script src="/vendor/katex/contrib/auto-render.min.js"></script>
+    <script src="/math-render.js"></script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

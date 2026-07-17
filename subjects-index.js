@@ -2,9 +2,20 @@
 // SUBJECTS REGISTRY — GENERATED FILE, DO NOT EDIT BY HAND
 // Built by tools/build_question_bank.py from every
 // subjects/*/subject.json manifest header.
-// Generated: 2026-07-17T06:46:07Z
+// Generated: 2026-07-17T20:50:45Z
 // ══════════════════════════════════════════════════════════════
 window.SUBJECTS = [
+ {
+  "slug": "additional-maths",
+  "name": "FSMQ Additional Mathematics",
+  "colour": "#5a4bc4",
+  "icon": "📐",
+  "keyStage": "ks4",
+  "level": "Level 3",
+  "examBoard": "OCR",
+  "specCode": "6993",
+  "examDate": "2026-06-15"
+ },
  {
   "slug": "business",
   "name": "GCSE Business",

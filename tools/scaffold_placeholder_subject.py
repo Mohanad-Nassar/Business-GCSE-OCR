@@ -167,6 +167,81 @@ SUBJECTS = {
             ]),
         ],
     },
+    "additional-maths": {
+        # OCR Level 3 FSMQ Additional Mathematics (6993) — ADDMATHS-CONTENT-PLAN.md §3.
+        # 11 groups / 35 lesson pages, teaching order. Groups carried as 4-tuples whose
+        # third element is the group `sub` label. Filenames are explicit dotted
+        # "<group>.<lesson>-slug.html" (like CS); the page id derives from the topic
+        # number + title, so id "1-3-quadratics-and-completing-the-square" ≠ its
+        # dotted filename — same convention as computer-science.
+        "header": {
+            "slug": "additional-maths", "name": "FSMQ Additional Mathematics",
+            "key_stage": "ks4", "level": "Level 3", "exam_board": "OCR",
+            "spec_code": "6993", "exam_date": "2026-06-15",
+            "colour": "#5a4bc4", "icon": "\U0001F4D0",
+        },
+        "units": [
+            ("1", "Algebra Toolkit", "Paper 1 · Additional Mathematics", [
+                ("Notation, Functions and Indices", "1.1-notation-functions-and-indices.html"),
+                ("Surds and Algebraic Fractions", "1.2-surds-and-algebraic-fractions.html"),
+                ("Quadratics and Completing the Square", "1.3-quadratics-and-completing-the-square.html"),
+                ("Linear and Quadratic Inequalities", "1.4-linear-and-quadratic-inequalities.html"),
+            ]),
+            ("2", "Polynomials and Equations", "Paper 1 · Additional Mathematics", [
+                ("Polynomial Arithmetic and Division", "2.1-polynomial-arithmetic-and-division.html"),
+                ("The Factor Theorem and Cubics", "2.2-the-factor-theorem-and-cubics.html"),
+                ("Setting Up and Solving Equations", "2.3-setting-up-and-solving-equations.html"),
+                ("Sequences and Recurrence Relationships", "2.4-sequences-and-recurrence-relationships.html"),
+            ]),
+            ("3", "Coordinate Geometry", "Paper 1 · Additional Mathematics", [
+                ("Straight Lines", "3.1-straight-lines.html"),
+                ("Circles, Tangents and Normals", "3.2-circles-tangents-and-normals.html"),
+                ("Sketching and Plotting Graphs", "3.3-sketching-and-plotting-graphs.html"),
+            ]),
+            ("4", "Linear Programming", "Paper 1 · Additional Mathematics", [
+                ("Inequalities in Two Variables", "4.1-inequalities-in-two-variables.html"),
+                ("Constraints and Objective Functions", "4.2-constraints-and-objective-functions.html"),
+                ("Solving LP Problems Graphically", "4.3-solving-lp-problems-graphically.html"),
+            ]),
+            ("5", "Trigonometry", "Paper 1 · Additional Mathematics", [
+                ("Trig Ratios for Any Angle", "5.1-trig-ratios-for-any-angle.html"),
+                ("Sine and Cosine Rules", "5.2-sine-and-cosine-rules.html"),
+                ("Trigonometric Identities", "5.3-trigonometric-identities.html"),
+                ("Trigonometric Equations", "5.4-trigonometric-equations.html"),
+                ("Pythagoras and Trig in 2D and 3D", "5.5-pythagoras-and-trig-in-2d-and-3d.html"),
+            ]),
+            ("6", "Enumeration and Probability", "Paper 1 · Additional Mathematics", [
+                ("Counting, Permutations and Combinations", "6.1-counting-permutations-and-combinations.html"),
+                ("The Binomial Expansion", "6.2-the-binomial-expansion.html"),
+                ("The Binomial Distribution", "6.3-the-binomial-distribution.html"),
+                ("Tree, Two-Way and Venn Diagrams", "6.4-tree-two-way-and-venn-diagrams.html"),
+            ]),
+            ("7", "Exponentials and Logarithms", "Paper 1 · Additional Mathematics", [
+                ("Exponential Functions", "7.1-exponential-functions.html"),
+                ("Logarithms and the Log Laws", "7.2-logarithms-and-the-log-laws.html"),
+                ("Solving Exponential Equations", "7.3-solving-exponential-equations.html"),
+                ("Reduction to Linear Form", "7.4-reduction-to-linear-form.html"),
+            ]),
+            ("8", "Differentiation", "Paper 1 · Additional Mathematics", [
+                ("The Gradient Function", "8.1-the-gradient-function.html"),
+                ("Tangents and Normals", "8.2-tangents-and-normals.html"),
+                ("Stationary Points and Curve Sketching", "8.3-stationary-points-and-curve-sketching.html"),
+            ]),
+            ("9", "Integration", "Paper 1 · Additional Mathematics", [
+                ("Indefinite Integration", "9.1-indefinite-integration.html"),
+                ("Definite Integrals and Areas", "9.2-definite-integrals-and-areas.html"),
+                ("Numerical Areas and the Trapezium Rule", "9.3-numerical-areas-and-the-trapezium-rule.html"),
+            ]),
+            ("10", "Kinematics and Numerical Methods", "Paper 1 · Additional Mathematics", [
+                ("Kinematics", "10.1-kinematics.html"),
+                ("Solving Equations Numerically", "10.2-solving-equations-numerically.html"),
+            ]),
+            ("11", "Exam Preparation", "Paper 1 · Additional Mathematics", [
+                ("Command Words and Detailed Reasoning", "11.1-command-words-and-detailed-reasoning.html"),
+                ("Synoptic and Unstructured Problems", "11.2-synoptic-and-unstructured-problems.html"),
+            ]),
+        ],
+    },
 }
 
 
@@ -496,7 +571,7 @@ PAGE_TEMPLATE = """<!doctype html>
     const examTips = [];
     const flashcards = [];
     const examQuestions = [];
-</script>
+</script>{mathrender_include}
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>
 <script src="page-groups.js"></script>
@@ -680,7 +755,7 @@ INDEX_TEMPLATE = Template("""<!doctype html>
     <div class="hero-inner">
       <nav class="hero-nav" aria-label="Site">
         <a href="/index.html">🏠 <span>All Subjects</span></a>
-        <a href="/dashboard.html?subject=$slug">📊 <span>My Progress</span></a>
+        <a href="/dashboard.html?subject=$slug">📊 <span>My Progress</span></a>$mock_link
         <span id="accountBar" style="display:inline-flex;align-items:center;gap:10px;"></span>
       </nav>
       <div class="hero-eyebrow">
@@ -782,6 +857,9 @@ def write_index_html(slug, manifest):
     html = INDEX_TEMPLATE.substitute(
         slug=slug, name=manifest["name"], icon=manifest["icon"], colour=manifest["colour"],
         spec_code=manifest["spec_code"], unit_count=len(manifest["groups"]), topic_count=topic_count,
+        # CS ships timed past-paper mocks (mock-exam.html, CS-CONTENT-PLAN §7.3)
+        mock_link=('\n        <a href="mock-exam.html">📝 <span>Mock Exams</span></a>'
+                   if slug == "computer-science" else ""),
     )
     index_path = SUBJECTS_DIR / slug / "index.html"
     index_path.write_text(html, encoding="utf-8")
@@ -813,9 +891,29 @@ def scaffold_subject(slug, force_pages=False):
             html = PAGE_TEMPLATE.format(
                 title_tag=page["name"], badge=badge, h1=page["name"],
                 page_id=page["id"], slug=slug,
-                # CS pages get the Practice Lab framework (CS-CONTENT-PLAN §7);
-                # it self-noops on pages with no tools mapped in PAGE_TOOLS.
-                cslab_include=('\n<script src="/cs-lab/cs-lab.js" defer></script>'
+                # Additional Maths pages render LaTeX via self-hosted KaTeX
+                # (ADDMATHS-CONTENT-PLAN.md §8). Assets load BEFORE /script.js so
+                # renderMathInElement exists when script.js's activity builders call
+                # renderMathIn at DOMContentLoaded. woff2-only, all under '/vendor'
+                # (zero CSP change). exam-widgets.js gives written exam questions the
+                # tick-the-mark-scheme self-mark panel (shared with CS, self-contained,
+                # keyed by q.format via script.js's _epUseWidget seam). Other subjects
+                # get nothing (empty string).
+                mathrender_include=(
+                    '\n    <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />'
+                    '\n    <script src="/vendor/katex/katex.min.js"></script>'
+                    '\n    <script src="/vendor/katex/contrib/auto-render.min.js"></script>'
+                    '\n    <script src="/math-render.js"></script>'
+                    '\n    <script src="/cs-lab/exam-widgets.js"></script>'
+                    if slug == "additional-maths" else ""),
+                # CS pages get the Practice Lab framework + the exam-widget
+                # registry (CS-CONTENT-PLAN §7/§7.3); both self-noop when a
+                # page has nothing for them. Widgets load as normal scripts so
+                # they exist before script.js's DOMContentLoaded exam render.
+                cslab_include=('\n<script src="/cs-lab/exam-widgets.js"></script>'
+                               '\n<script src="/cs-lab/exam-widgets-grids.js"></script>'
+                               '\n<script src="/cs-lab/exam-widgets-code.js"></script>'
+                               '\n<script src="/cs-lab/cs-lab.js" defer></script>'
                                if slug == "computer-science" else ""),
             )
             page_path.write_text(html, encoding="utf-8")

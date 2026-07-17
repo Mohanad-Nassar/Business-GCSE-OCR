@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.1 Notation, Functions and Indices – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 1. Algebra Toolkit</div>
+            <h1>1.1 Notation, Functions and Indices</h1>
+            <p>Interactive revision guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 1.1 Notation, Functions and Indices (AL1 + index laws)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  doubled in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). FIB blanks sit
+    //  in plain text, never inside a \( \) region (§8.4 Rule 3b).
+    //  examQuestions = [] — AL1 / index notation is NOT assessed as a standalone
+    //  current-spec question; it is embedded inside other topics (question-taxonomy.md).
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '1-1-notation-functions-and-indices',
+            badge: 'OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 1. Algebra Toolkit',
+            title: '1.1 Notation, Functions and Indices',
+            subtitle: 'Interactive revision guide',
+            subject: 'additional-maths',
+        };
+
+    const topics = [
+        {
+            title: "What do the words constant, coefficient, term and variable mean?",
+            tag: "Key concept",
+            content: `<p>Algebra has a precise vocabulary. Using it correctly is a real exam skill — mark schemes and command words are written in it.</p>
+            <ul>
+              <li>A <strong>variable</strong> (or <strong>unknown</strong>) is a letter standing for a quantity, e.g. \\( x \\). We call it a <em>variable</em> when its value may change, and an <em>unknown</em> when we are solving to find its one value.</li>
+              <li>A <strong>constant</strong> is a fixed number, e.g. the \\( 7 \\) in \\( 3x + 7 \\).</li>
+              <li>A <strong>term</strong> is a single part of an expression separated by \\( + \\) or \\( - \\): \\( 3x^2 \\), \\( -5x \\) and \\( 7 \\) are the three terms of \\( 3x^2 - 5x + 7 \\).</li>
+              <li>A <strong>coefficient</strong> is the number multiplying a variable. In \\( -5x \\) the coefficient is \\( -5 \\) (the sign belongs to it).</li>
+              <li>An <strong>expression</strong> is a collection of terms with no equals sign, e.g. \\( 3x^2 - 5x + 7 \\).</li>
+            </ul>
+            <p>An expression has no equals sign; the moment you write \\( = \\) you have an <strong>equation</strong> (next card).</p>`,
+            readCheck: { q: "In the expression \\( 4 - 6x^2 \\), what is the coefficient of \\( x^2 \\)?", opts: ["\\( 4 \\)", "\\( 2 \\)", "\\( -6 \\)", "\\( 6 \\)"], ans: 2, explain: "The coefficient is the number multiplying \\( x^2 \\), including its sign: \\( -6 \\). The \\( 4 \\) is a constant and \\( 2 \\) is the index." }
+        },
+        {
+            title: "What is the difference between an equation and an identity?",
+            tag: "Key concept",
+            content: `<p>Both use an equals-type sign, but they mean different things.</p>
+            <ul>
+              <li>An <strong>equation</strong> is true only for particular value(s) of the variable. \\( 2x + 1 = 7 \\) is true <em>only</em> when \\( x = 3 \\); you <em>solve</em> it.</li>
+              <li>An <strong>identity</strong> is true for <em>every</em> value of the variable. We use the sign \\( \\equiv \\) to signal this: \\[ (x + 1)^2 \\equiv x^2 + 2x + 1. \\] Whatever number you put in for \\( x \\), both sides are equal.</li>
+            </ul>
+            <p>Index laws (later cards) are identities: \\( a^m \\times a^n \\equiv a^{m+n} \\) holds for all valid \\( a, m, n \\). You will meet \\( \\equiv \\) when a question asks you to prove or "show that" two expressions are the same.</p>`,
+            readCheck: { q: "Which statement is an identity (true for all values of \\( x \\))?", opts: ["\\( 3x = 12 \\)", "\\( x^2 = 9 \\)", "\\( 2(x + 3) \\equiv 2x + 6 \\)", "\\( x + 1 = 0 \\)"], ans: 2, explain: "\\( 2(x+3) \\) expands to \\( 2x+6 \\) for every \\( x \\), so it is an identity. The others are true only for particular values of \\( x \\)." }
+        },
+        {
+            title: "How do you use function notation f(x)?",
+            tag: "Worked example",
+            content: `<p><strong>Function notation</strong> \\( \\text{f}(x) \\) names a rule: it reads "f of \\( x \\)" and tells you what to do to the input \\( x \\). To <strong>evaluate</strong> \\( \\text{f}(3) \\), substitute \\( 3 \\) for every \\( x \\).</p>
+            <p><strong>Worked example — given \\( \\text{f}(x) = 2x^2 - 5x + 1 \\), find \\( \\text{f}(3) \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Replace every \\( x \\) with \\( 3 \\): \\( \\text{f}(3) = 2(3)^2 - 5(3) + 1 \\).</td></tr>
+              <tr><td>2. Powers first: \\( (3)^2 = 9 \\), so \\( 2 \\times 9 = 18 \\).</td></tr>
+              <tr><td>3. Then \\( -5 \\times 3 = -15 \\).</td></tr>
+              <tr><td>4. Add up: \\( 18 - 15 + 1 = 4 \\), so \\[ \\text{f}(3) = 4. \\]</td></tr>
+            </table>
+            <p>Watch negatives: \\( \\text{f}(-2) = 2(-2)^2 - 5(-2) + 1 = 8 + 10 + 1 = 19 \\). A squared negative is positive, and subtracting a negative adds.</p>`,
+            readCheck: { q: "If \\( \\text{f}(x) = x^2 + 2 \\), what is \\( \\text{f}(-3) \\)?", opts: ["\\( 11 \\)", "\\( -7 \\)", "\\( -3 \\)", "\\( -9 \\)"], ans: 0, explain: "\\( \\text{f}(-3) = (-3)^2 + 2 = 9 + 2 = 11 \\). A negative squared is positive, so it is \\( +9 \\), not \\( -9 \\)." }
+        },
+        {
+            title: "What are the three main index laws?",
+            tag: "Method",
+            content: `<p>An <strong>index</strong> (or <strong>power</strong>) tells you how many times to multiply the <strong>base</strong> by itself: \\( a^4 = a \\times a \\times a \\times a \\). Three laws let you combine powers of the <em>same base</em>.</p>
+            <table class="worked">
+              <tr><td><strong>Multiplying</strong> — <em>add</em> the indices: \\[ a^m \\times a^n = a^{m+n}. \\] e.g. \\( 2^3 \\times 2^4 = 2^{7} = 128 \\).</td></tr>
+              <tr><td><strong>Dividing</strong> — <em>subtract</em> the indices: \\[ a^m \\div a^n = a^{m-n}. \\] e.g. \\( x^7 \\div x^2 = x^{5} \\).</td></tr>
+              <tr><td><strong>Power of a power</strong> — <em>multiply</em> the indices: \\[ (a^m)^n = a^{mn}. \\] e.g. \\( (y^3)^4 = y^{12} \\).</td></tr>
+            </table>
+            <p><strong>Careful:</strong> the laws only work for the <em>same base</em>. \\( 2^3 \\times 5^2 \\) does <strong>not</strong> simplify by adding indices. When a coefficient is involved, deal with it separately: \\( (2x^3)^2 = 2^2 \\times x^{3 \\times 2} = 4x^6 \\).</p>`,
+            readCheck: { q: "Simplify \\( a^5 \\times a^3 \\).", opts: ["\\( a^{15} \\)", "\\( a^8 \\)", "\\( a^2 \\)", "\\( 2a^8 \\)"], ans: 1, explain: "Multiplying powers of the same base means you ADD the indices: \\( a^{5+3} = a^8 \\). Multiplying the indices (\\( a^{15} \\)) is the classic error." }
+        },
+        {
+            title: "What do a zero index and a negative index mean?",
+            tag: "Worked example",
+            content: `<p>These two rules follow directly from the division law.</p>
+            <ul>
+              <li><strong>Zero index:</strong> \\( a^m \\div a^m = a^{0} \\), but anything divided by itself is \\( 1 \\), so \\[ a^0 = 1 \\quad (a \\neq 0). \\] Every non-zero base to the power zero is \\( 1 \\) — not \\( 0 \\).</li>
+              <li><strong>Negative index:</strong> a minus sign in the index means "take the <strong>reciprocal</strong>": \\[ a^{-n} = \\frac{1}{a^{n}}. \\] It does <em>not</em> make the answer negative.</li>
+            </ul>
+            <p><strong>Worked example — evaluate \\( 2^{-3} \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. The negative index means take the reciprocal: \\( 2^{-3} = \\dfrac{1}{2^{3}} \\).</td></tr>
+              <tr><td>2. Work out the positive power: \\( 2^3 = 8 \\).</td></tr>
+              <tr><td>3. So \\[ 2^{-3} = \\frac{1}{8}. \\]</td></tr>
+            </table>
+            <p>The answer \\( \\tfrac{1}{8} \\) is positive — a negative index never means a negative number.</p>`,
+            readCheck: { q: "Evaluate \\( 5^{-2} \\).", opts: ["\\( -25 \\)", "\\( -10 \\)", "\\( \\frac{1}{25} \\)", "\\( \\frac{1}{10} \\)"], ans: 2, explain: "\\( 5^{-2} = \\dfrac{1}{5^2} = \\dfrac{1}{25} \\). The negative index takes the reciprocal; the result stays positive." }
+        },
+        {
+            title: "How do you evaluate a fractional index like 8^(2/3)?",
+            tag: "Worked example",
+            content: `<p>A fractional index combines a root and a power.</p>
+            <ul>
+              <li>The <strong>denominator is a root</strong>: \\( a^{1/n} = \\sqrt[n]{a} \\). So \\( a^{1/2} = \\sqrt{a} \\) and \\( a^{1/3} = \\sqrt[3]{a} \\).</li>
+              <li>The <strong>numerator is a power</strong>: \\[ a^{m/n} = \\left(\\sqrt[n]{a}\\right)^{m} = \\sqrt[n]{a^{m}}. \\]</li>
+            </ul>
+            <p>Take the root <em>first</em> — the numbers stay small and it is easier by hand.</p>
+            <p><strong>Worked example — evaluate \\( 8^{2/3} \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Denominator \\( 3 \\) is the root: \\( \\sqrt[3]{8} = 2 \\).</td></tr>
+              <tr><td>2. Numerator \\( 2 \\) is the power: \\( 2^{2} = 4 \\).</td></tr>
+              <tr><td>3. So \\[ 8^{2/3} = \\left(\\sqrt[3]{8}\\right)^{2} = 2^{2} = 4. \\]</td></tr>
+            </table>
+            <p>Combine with a negative index too: \\( 16^{-1/2} = \\dfrac{1}{16^{1/2}} = \\dfrac{1}{\\sqrt{16}} = \\dfrac{1}{4} \\). The minus flips it, the half roots it.</p>`,
+            readCheck: { q: "Evaluate \\( 27^{2/3} \\).", opts: ["\\( 9 \\)", "\\( 18 \\)", "\\( 3 \\)", "\\( 729 \\)"], ans: 0, explain: "\\( \\sqrt[3]{27} = 3 \\), then \\( 3^2 = 9 \\). Root first, then power." }
+        },
+        {
+            title: "Which formulae must you memorise here?",
+            tag: "Exam skill",
+            content: `<p>The <strong>index laws are MEMORISE material</strong> — they are <em>not</em> on the exam formula sheet. Learn all seven as identities you can recall instantly:</p>
+            <table class="worked">
+              <tr><td>\\( a^m \\times a^n = a^{m+n} \\)</td><td>\\( a^m \\div a^n = a^{m-n} \\)</td></tr>
+              <tr><td>\\( (a^m)^n = a^{mn} \\)</td><td>\\( a^0 = 1 \\)</td></tr>
+              <tr><td>\\( a^{-n} = \\dfrac{1}{a^{n}} \\)</td><td>\\( a^{1/n} = \\sqrt[n]{a} \\)</td></tr>
+              <tr><td colspan="2">\\( a^{m/n} = \\left(\\sqrt[n]{a}\\right)^{m} \\)</td></tr>
+            </table>
+            <p>Function notation and the vocabulary (constant, coefficient, identity \\( \\equiv \\), variable) also carry no formula-sheet support — they are assumed knowledge used throughout the whole paper. This first lesson is the toolkit every later topic relies on, so fluency here pays off everywhere.</p>`,
+            readCheck: { q: "Which of these is TRUE for every non-zero base \\( a \\)?", opts: ["\\( a^0 = 0 \\)", "\\( a^0 = 1 \\)", "\\( a^0 = a \\)", "\\( a^0 = -1 \\)"], ans: 1, explain: "Any non-zero number raised to the power \\( 0 \\) equals \\( 1 \\); this follows from \\( a^m \\div a^m = a^0 = 1 \\)." }
+        }
+    ];
+
+    const mcqData = [
+        { q: "Simplify \\( a^6 \\times a^4 \\).", opts: ["\\( a^{24} \\)", "\\( a^{10} \\)", "\\( a^{2} \\)", "\\( 2a^{10} \\)"], ans: 1, explain: "Multiplying powers of the same base ADDS the indices: \\( a^{6+4} = a^{10} \\). Multiplying them (\\( a^{24} \\)) is the classic slip." },
+        { q: "Simplify \\( x^9 \\div x^4 \\).", opts: ["\\( x^{13} \\)", "\\( x^{2.25} \\)", "\\( x^{5} \\)", "\\( x^{36} \\)"], ans: 2, explain: "Dividing powers of the same base SUBTRACTS the indices: \\( x^{9-4} = x^{5} \\)." },
+        { q: "Simplify \\( (y^3)^5 \\).", opts: ["\\( y^{8} \\)", "\\( y^{15} \\)", "\\( y^{2} \\)", "\\( y^{35} \\)"], ans: 1, explain: "Power of a power MULTIPLIES the indices: \\( y^{3 \\times 5} = y^{15} \\). Adding them (\\( y^8 \\)) confuses this law with the multiplication law." },
+        { q: "Evaluate \\( 7^0 \\).", opts: ["\\( 0 \\)", "\\( 1 \\)", "\\( 7 \\)", "\\( 70 \\)"], ans: 1, explain: "Any non-zero base to the power \\( 0 \\) equals \\( 1 \\), so \\( 7^0 = 1 \\), never \\( 0 \\)." },
+        { q: "Evaluate \\( 2^{-4} \\).", opts: ["\\( -16 \\)", "\\( -8 \\)", "\\( \\frac{1}{16} \\)", "\\( \\frac{1}{8} \\)"], ans: 2, explain: "\\( 2^{-4} = \\dfrac{1}{2^4} = \\dfrac{1}{16} \\). The negative index takes the reciprocal; it does not make the value negative." },
+        { q: "Evaluate \\( 16^{1/2} \\).", opts: ["\\( 8 \\)", "\\( 4 \\)", "\\( 32 \\)", "\\( 256 \\)"], ans: 1, explain: "A \\( \\tfrac{1}{2} \\) index means the square root: \\( 16^{1/2} = \\sqrt{16} = 4 \\)." },
+        { q: "Evaluate \\( 8^{2/3} \\).", opts: ["\\( \\frac{16}{3} \\)", "\\( 4 \\)", "\\( 16 \\)", "\\( 32 \\)"], ans: 1, explain: "\\( 8^{2/3} = \\left(\\sqrt[3]{8}\\right)^2 = 2^2 = 4 \\). Multiplying \\( 8 \\times \\tfrac{2}{3} = \\tfrac{16}{3} \\) treats the index as a multiplier — a common error." },
+        { q: "Evaluate \\( 25^{-1/2} \\).", opts: ["\\( -5 \\)", "\\( \\frac{1}{5} \\)", "\\( 5 \\)", "\\( -\\frac{1}{5} \\)"], ans: 1, explain: "The half roots it and the minus reciprocates it: \\( 25^{-1/2} = \\dfrac{1}{\\sqrt{25}} = \\dfrac{1}{5} \\), which is positive." },
+        { q: "In the expression \\( 9 - 4x^3 \\), what is the coefficient of \\( x^3 \\)?", opts: ["\\( -4 \\)", "\\( 4 \\)", "\\( 3 \\)", "\\( 9 \\)"], ans: 0, explain: "The coefficient is the number multiplying \\( x^3 \\), including its sign: \\( -4 \\). The \\( 3 \\) is the index and \\( 9 \\) is a constant." },
+        { q: "Given \\( \\text{f}(x) = 3x - 4 \\), find \\( \\text{f}(2) \\).", opts: ["\\( 2 \\)", "\\( 10 \\)", "\\( 6 \\)", "\\( 1 \\)"], ans: 0, explain: "Substitute \\( x = 2 \\): \\( 3(2) - 4 = 6 - 4 = 2 \\)." },
+        { q: "Given \\( \\text{f}(x) = x^2 - 4x \\), find \\( \\text{f}(-1) \\).", opts: ["\\( -3 \\)", "\\( 5 \\)", "\\( -5 \\)", "\\( 3 \\)"], ans: 1, explain: "\\( \\text{f}(-1) = (-1)^2 - 4(-1) = 1 + 4 = 5 \\). The square is positive and subtracting \\( -4(-1) \\) adds \\( 4 \\)." },
+        { q: "Simplify \\( (2x^2)^3 \\).", opts: ["\\( 2x^6 \\)", "\\( 6x^6 \\)", "\\( 8x^5 \\)", "\\( 8x^6 \\)"], ans: 3, explain: "Cube both parts: \\( 2^3 = 8 \\) and \\( (x^2)^3 = x^{6} \\), giving \\( 8x^6 \\). Forgetting to cube the \\( 2 \\) gives \\( 2x^6 \\)." }
+    ];
+
+    const matchData = [
+        { term: "\\( a^m \\times a^n \\)", def: "\\( a^{m+n} \\)" },
+        { term: "\\( a^m \\div a^n \\)", def: "\\( a^{m-n} \\)" },
+        { term: "\\( (a^m)^n \\)", def: "\\( a^{mn} \\)" },
+        { term: "\\( a^0 \\) (with \\( a \\neq 0 \\))", def: "\\( 1 \\)" },
+        { term: "\\( a^{-n} \\)", def: "\\( \\frac{1}{a^{n}} \\)" },
+        { term: "\\( a^{1/n} \\)", def: "\\( \\sqrt[n]{a} \\)" },
+        { term: "\\( a^{m/n} \\)", def: "\\( \\left(\\sqrt[n]{a}\\right)^{m} \\)" },
+        { term: "Coefficient", def: "The number multiplying a variable (sign included)" },
+        { term: "Constant", def: "A fixed number with no variable attached" },
+        { term: "Identity \\( \\equiv \\)", def: "A statement true for every value of the variable" },
+        { term: "Variable", def: "A letter whose value may change" },
+        { term: "\\( \\text{f}(3) \\)", def: "The value of \\( \\text{f} \\) when \\( x = 3 \\)" },
+        { term: "\\( 8^{2/3} \\)", def: "\\( 4 \\)" },
+        { term: "\\( 2^{-3} \\)", def: "\\( \\frac{1}{8} \\)" }
+    ];
+
+    // NOTE: FIB blanks must sit in PLAIN TEXT, never inside a \( \) region — a blank
+    // becomes a <select>/<input> that splits the LaTeX run so KaTeX shows raw source
+    // (ADDMATHS-CONTENT-PLAN.md §8.4 Rule 3b). Keep every \( \) a complete expression.
+    const fibData = [
+        { display: "To simplify \\( a^m \\times a^n \\) you ___B1___ the indices, and to simplify \\( a^m \\div a^n \\) you ___B2___ them.", blanks: { B1: "add", B2: "subtract" } },
+        { display: "The rule \\( (a^m)^n \\) tells you to ___B1___ the two indices together.", blanks: { B1: "multiply" } },
+        { display: "For any non-zero base, \\( a^0 \\) equals ___B1___.", blanks: { B1: "1" } },
+        { display: "A negative index means take the ___B1___, so \\( a^{-n} \\) becomes a fraction.", blanks: { B1: "reciprocal" } },
+        { display: "In the term \\( 4x^3 \\), the number \\( 4 \\) is the ___B1___ and the number \\( 3 \\) is the ___B2___.", blanks: { B1: "coefficient", B2: "index" } },
+        { display: "The symbol \\( \\equiv \\) means the statement is an ___B1___, which is true for ___B2___ values of the variable.", blanks: { B1: "identity", B2: "all" } },
+        { display: "In \\( a^{1/n} \\) the fraction \\( \\frac{1}{n} \\) tells you to take the ___B1___ root of \\( a \\).", blanks: { B1: "nth" } },
+        { display: "In an equation you solve to find the value of the ___B1___, whereas in an expression there is no equals sign to ___B2___.", blanks: { B1: "unknown", B2: "solve" } }
+    ];
+
+    const fibWords = ["add", "subtract", "multiply", "divide", "1", "0", "reciprocal", "coefficient", "index", "identity", "all", "nth", "unknown", "solve", "variable", "constant", "term", "power"];
+
+    const tfData = [
+        { statement: "\\( a^m \\times a^n = a^{m+n} \\).", answer: true, explanation: "Multiplying powers of the same base adds the indices — this is the first index law." },
+        { statement: "\\( a^0 = 0 \\) for every base \\( a \\).", answer: false, explanation: "Any non-zero base to the power \\( 0 \\) equals \\( 1 \\), not \\( 0 \\): \\( a^0 = 1 \\)." },
+        { statement: "\\( (a^m)^n = a^{m+n} \\).", answer: false, explanation: "Power of a power MULTIPLIES the indices: \\( (a^m)^n = a^{mn} \\). Adding them confuses this with the multiplication law." },
+        { statement: "\\( a^{-n} = \\frac{1}{a^{n}} \\).", answer: true, explanation: "A negative index means take the reciprocal; the result is a fraction, not a negative number." },
+        { statement: "\\( a^{1/2} = \\sqrt{a} \\).", answer: true, explanation: "An index of \\( \\tfrac{1}{2} \\) is the square root; more generally \\( a^{1/n} = \\sqrt[n]{a} \\)." },
+        { statement: "In \\( 5x^3 \\) the coefficient is \\( 3 \\).", answer: false, explanation: "The coefficient is the number multiplying the variable, so it is \\( 5 \\). The \\( 3 \\) is the index (power)." },
+        { statement: "An identity (written with \\( \\equiv \\)) is true for every value of the variable.", answer: true, explanation: "That is exactly what \\( \\equiv \\) signals, e.g. \\( (x+1)^2 \\equiv x^2 + 2x + 1 \\) holds for all \\( x \\)." },
+        { statement: "\\( 8^{2/3} = \\frac{16}{3} \\).", answer: false, explanation: "\\( 8^{2/3} = \\left(\\sqrt[3]{8}\\right)^2 = 2^2 = 4 \\). Multiplying \\( 8 \\times \\tfrac{2}{3} \\) treats the index as a multiplier — wrong." }
+    ];
+
+    const miscData = [
+        { wrong: "\\( a^0 = 0 \\)", correct: "Any non-zero base to the power zero is \\( 1 \\). A weak answer copies the \\( 0 \\); a strong answer recalls \\( a^m \\div a^m = a^0 = 1 \\).", readCheck: { q: "Evaluate \\( 12^0 \\).", opts: ["\\( 1 \\)", "\\( 0 \\)", "\\( 12 \\)", "\\( 120 \\)"], ans: 0, explain: "Every non-zero base to the power \\( 0 \\) is \\( 1 \\), so \\( 12^0 = 1 \\)." } },
+        { wrong: "\\( a^m \\times a^n = a^{mn} \\) (multiply the indices)", correct: "Multiplying powers of the same base ADDS the indices. A weak answer multiplies; a strong answer writes \\( a^m \\times a^n = a^{m+n} \\), keeping the power-of-a-power rule separate.", readCheck: { q: "Simplify \\( x^2 \\times x^5 \\).", opts: ["\\( x^{7} \\)", "\\( x^{10} \\)", "\\( x^{3} \\)", "\\( x^{25} \\)"], ans: 0, explain: "Add the indices: \\( x^{2+5} = x^7 \\). \\( x^{10} \\) comes from wrongly multiplying them." } },
+        { wrong: "\\( (a^m)^n = a^{m+n} \\) (add the indices)", correct: "Power of a power MULTIPLIES the indices. A weak answer adds; a strong answer writes \\( (a^m)^n = a^{mn} \\).", readCheck: { q: "Simplify \\( (x^4)^2 \\).", opts: ["\\( x^{8} \\)", "\\( x^{6} \\)", "\\( x^{2} \\)", "\\( x^{16} \\)"], ans: 0, explain: "Multiply the indices: \\( x^{4 \\times 2} = x^8 \\). Adding them gives the wrong \\( x^6 \\)." } },
+        { wrong: "\\( 2^{-3} = -8 \\) (a negative index gives a negative answer)", correct: "A negative index means the reciprocal, not a negative value. A weak answer negates; a strong answer writes \\( 2^{-3} = \\dfrac{1}{2^3} = \\dfrac{1}{8} \\).", readCheck: { q: "Evaluate \\( 3^{-2} \\).", opts: ["\\( \\frac{1}{9} \\)", "\\( -9 \\)", "\\( -6 \\)", "\\( 9 \\)"], ans: 0, explain: "\\( 3^{-2} = \\dfrac{1}{3^2} = \\dfrac{1}{9} \\); the answer is positive." } },
+        { wrong: "\\( 8^{2/3} = 8 \\times \\frac{2}{3} = \\frac{16}{3} \\)", correct: "A fractional index is a root and a power, not a multiplier. A weak answer multiplies the base by the fraction; a strong answer takes the root first: \\( \\left(\\sqrt[3]{8}\\right)^2 = 2^2 = 4 \\).", readCheck: { q: "Evaluate \\( 4^{3/2} \\).", opts: ["\\( 8 \\)", "\\( 6 \\)", "\\( \\frac{3}{2} \\)", "\\( 64 \\)"], ans: 0, explain: "\\( \\sqrt{4} = 2 \\), then \\( 2^3 = 8 \\). Root first, then power." } },
+        { wrong: "In \\( 6x^2 \\) the coefficient is \\( 2 \\)", correct: "The coefficient is the number multiplying the variable, so it is \\( 6 \\). A weak answer names the index; a strong answer distinguishes coefficient (\\( 6 \\)) from index (\\( 2 \\)).", readCheck: { q: "What is the coefficient of \\( x \\) in \\( -7x \\)?", opts: ["\\( -7 \\)", "\\( 7 \\)", "\\( 1 \\)", "\\( x \\)"], ans: 0, explain: "The coefficient includes its sign, so it is \\( -7 \\)." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "Read the command word: Simplify vs Evaluate", pills: ["simplify", "evaluate", "write down"], content: `<p><strong>Simplify</strong> means combine into one power/term but leave letters in: \\( a^5 \\times a^3 \\to a^8 \\). <strong>Evaluate</strong> (or "work out") means give a single number: \\( 8^{2/3} \\to 4 \\). <strong>Write down / state</strong> means no working is expected — just the answer. Giving a decimal when a simplified power was asked for, or an unfinished power when a number was asked for, both lose marks.</p>`, readCheck: { q: "\"Evaluate \\( 16^{1/2} \\)\" is asking you to:", opts: ["Give a single number", "Leave it as a power", "Draw a graph", "Round to 3 s.f. only"], ans: 0, explain: "'Evaluate' wants a numerical value: \\( \\sqrt{16} = 4 \\)." } },
+        { type: "tip", title: "Show your working on fractional indices", pills: ["working", "M marks", "root first"], content: `<p><strong>0 marks:</strong> \\( 27^{2/3} = 18 \\) (multiplied \\( 27 \\times \\tfrac{2}{3} \\)) — a wrong single number with no method shown. <strong>Partial:</strong> writes \\( \\sqrt[3]{27} = 3 \\) then stops. <strong>Full marks:</strong> \\( \\sqrt[3]{27} = 3 \\), then \\( 3^2 = 9 \\). Show the root step and the power step so a slip costs one mark, not all of them.</p>`, readCheck: { q: "Why write out both the root step and the power step?", opts: ["To earn method marks even if the final value slips", "It wastes time", "To use more paper", "It is never needed"], ans: 0, explain: "Splitting a fractional index into its root and power shows method, protecting the marks if one step slips." } },
+        { type: "explain", title: "Index laws are MEMORISE, not on the sheet", pills: ["memorise", "same base"], content: `<p>The index laws are <strong>not</strong> printed on the exam formula sheet — you must recall them. A frequent slip is applying a law across <em>different</em> bases: \\( 2^3 \\times 5^2 \\) cannot be combined by adding indices because the bases differ. Only same-base powers combine.</p>`, readCheck: { q: "Which product can be simplified by adding indices?", opts: ["\\( 3^4 \\times 3^2 \\)", "\\( 3^4 \\times 5^2 \\)", "\\( 2^4 \\times 7^4 \\)", "\\( 3^4 + 3^2 \\)"], ans: 0, explain: "Only \\( 3^4 \\times 3^2 \\) shares a base, giving \\( 3^6 \\). Different bases cannot be combined this way." } }
+    ];
+
+    const flashcards = [
+        { term: "Variable", def: "A letter standing for a quantity whose value may change, e.g. \\( x \\)." },
+        { term: "Unknown", def: "The letter whose single value you solve an equation to find." },
+        { term: "Constant", def: "A fixed number with no variable attached, e.g. the \\( 7 \\) in \\( 3x+7 \\)." },
+        { term: "Coefficient", def: "The number multiplying a variable, including its sign, e.g. \\( -5 \\) in \\( -5x \\)." },
+        { term: "Term", def: "A single part of an expression separated by \\( + \\) or \\( - \\)." },
+        { term: "Expression", def: "A collection of terms with no equals sign, e.g. \\( 3x^2 - 5x + 7 \\)." },
+        { term: "Equation", def: "A statement with \\( = \\) that is true only for particular value(s) of the variable." },
+        { term: "Identity \\( \\equiv \\)", def: "A statement true for every value of the variable, e.g. \\( (x+1)^2 \\equiv x^2+2x+1 \\)." },
+        { term: "Index (power)", def: "How many times the base is multiplied by itself: \\( a^4 = a \\times a \\times a \\times a \\)." },
+        { term: "Function notation \\( \\text{f}(x) \\)", def: "A named rule; evaluate \\( \\text{f}(3) \\) by substituting \\( 3 \\) for every \\( x \\)." },
+        { term: "Multiplication law", def: "\\( a^m \\times a^n = a^{m+n} \\) — same base, add indices." },
+        { term: "Division law", def: "\\( a^m \\div a^n = a^{m-n} \\) — same base, subtract indices." },
+        { term: "Power of a power", def: "\\( (a^m)^n = a^{mn} \\) — multiply the indices." },
+        { term: "Zero index", def: "\\( a^0 = 1 \\) for any non-zero base \\( a \\)." },
+        { term: "Negative index", def: "\\( a^{-n} = \\frac{1}{a^{n}} \\) — take the reciprocal, stays positive." },
+        { term: "Unit fractional index", def: "\\( a^{1/n} = \\sqrt[n]{a} \\) — the denominator is the root." },
+        { term: "General fractional index", def: "\\( a^{m/n} = \\left(\\sqrt[n]{a}\\right)^{m} \\) — root then power." }
+    ];
+
+    // AL1 / index notation is NOT set as a standalone question in the current-spec
+    // papers (2019/2022/2023/2024 + specimen) — it is embedded inside other topics
+    // (question-taxonomy.md). No past-paper question is invented here.
+    const examQuestions = [];
+</script>
+    <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
+    <script src="/vendor/katex/katex.min.js"></script>
+    <script src="/vendor/katex/contrib/auto-render.min.js"></script>
+    <script src="/math-render.js"></script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

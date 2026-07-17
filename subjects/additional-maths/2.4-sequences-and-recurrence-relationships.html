@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.4 Sequences and Recurrence Relationships – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 2. Polynomials and Equations</div>
+            <h1>2.4 Sequences and Recurrence Relationships</h1>
+            <p>Interactive revision guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.4 Sequences and Recurrence Relationships (AL10, AL11)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  doubled in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Subscripts use a
+    //  SINGLE underscore inside math (x_n, x_{n+1}) — safe. Exam Q = 2024 Q5.
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-4-sequences-and-recurrence-relationships',
+            badge: 'OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 2. Polynomials and Equations',
+            title: '2.4 Sequences and Recurrence Relationships',
+            subtitle: 'Interactive revision guide',
+            subject: 'additional-maths',
+        };
+
+    const topics = [
+        {
+            title: "What is a recurrence relationship?",
+            tag: "Key concept",
+            content: `<p>A <strong>recurrence relationship</strong> (or recurrence relation) is a rule that gives each term of a sequence from one or more <em>earlier</em> terms. It is a <strong>term-to-term</strong> rule, not a position-to-term formula.</p>
+            <ul>
+              <li>The <strong>subscript</strong> tells you the position: \\( x_n \\) is the \\( n\\)th term, \\( x_{n+1} \\) is the term straight after it, and \\( x_{n+2} \\) is the one after that.</li>
+              <li>A rule such as \\( x_{n+1} = x_n + 3 \\) reads "the next term equals this term plus 3".</li>
+              <li>You cannot generate the sequence from the rule alone — you also need a <strong>starting value</strong> (the first term). A rule that reaches back two terms, like \\( x_{n+2} = x_{n+1} + x_n \\), needs <strong>two</strong> starting values.</li>
+              <li>The phrase "<em>for all positive integers \\( n \\)</em>" simply means the rule applies right from the start of the sequence.</li>
+            </ul>`,
+            readCheck: { q: "In \\( x_{n+1} = x_n + 5 \\), what does \\( x_{n+1} \\) represent?", opts: ["The term immediately after \\( x_n \\)", "The term immediately before \\( x_n \\)", "\\( 5 \\) times \\( x_n \\)", "The starting value of the sequence"], ans: 0, explain: "The subscript \\( n+1 \\) is one position further on than \\( n \\), so \\( x_{n+1} \\) is the next term after \\( x_n \\)." }
+        },
+        {
+            title: "How do you generate an arithmetic (linear) sequence?",
+            tag: "Worked example",
+            content: `<p>A first-order recurrence of the form \\( x_{n+1} = x_n + a \\) <strong>adds</strong> the same fixed amount \\( a \\) to get each new term. This produces an <strong>arithmetic</strong> sequence — a constant step up (or, if \\( a \\) is negative, down).</p>
+            <p><strong>Worked example — generate the first four terms of \\( x_{n+1} = x_n + 4 \\) with \\( x_1 = 3 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Start: \\( x_1 = 3 \\).</td></tr>
+              <tr><td>2. \\( x_2 = x_1 + 4 = 3 + 4 = 7 \\).</td></tr>
+              <tr><td>3. \\( x_3 = x_2 + 4 = 7 + 4 = 11 \\).</td></tr>
+              <tr><td>4. \\( x_4 = x_3 + 4 = 11 + 4 = 15 \\).</td></tr>
+            </table>
+            <p>So the sequence begins \\( 3,\\ 7,\\ 11,\\ 15,\\ \\dots \\) — a fixed step of \\( +4 \\), the <strong>common difference</strong>.</p>`,
+            readCheck: { q: "For \\( x_{n+1} = x_n + 6 \\) with \\( x_1 = 5 \\), find \\( x_3 \\).", opts: ["\\( 17 \\)", "\\( 11 \\)", "\\( 23 \\)", "\\( 30 \\)"], ans: 0, explain: "\\( x_2 = 5 + 6 = 11 \\), then \\( x_3 = 11 + 6 = 17 \\). (\\( 11 \\) is only \\( x_2 \\); \\( 23 \\) is \\( x_4 \\).)" }
+        },
+        {
+            title: "How do you generate a geometric sequence?",
+            tag: "Worked example",
+            content: `<p>A first-order recurrence of the form \\( x_{n+1} = a\\,x_n \\) <strong>multiplies</strong> by the same fixed factor \\( a \\) each time. This produces a <strong>geometric</strong> sequence, with a constant <strong>common ratio</strong> \\( a \\).</p>
+            <p><strong>Watch the difference:</strong> \\( x_{n+1} = x_n + a \\) <em>adds</em> \\( a \\); \\( x_{n+1} = a\\,x_n \\) <em>multiplies</em> by \\( a \\). Mixing these up is the most common slip in this topic.</p>
+            <p><strong>Worked example — generate the first four terms of \\( x_{n+1} = 3x_n \\) with \\( x_1 = 2 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Start: \\( x_1 = 2 \\).</td></tr>
+              <tr><td>2. \\( x_2 = 3 \\times 2 = 6 \\).</td></tr>
+              <tr><td>3. \\( x_3 = 3 \\times 6 = 18 \\).</td></tr>
+              <tr><td>4. \\( x_4 = 3 \\times 18 = 54 \\).</td></tr>
+            </table>
+            <p>So the sequence is \\( 2,\\ 6,\\ 18,\\ 54,\\ \\dots \\) — each term \\( 3 \\) times the last.</p>`,
+            readCheck: { q: "For \\( x_{n+1} = 2x_n \\) with \\( x_1 = 5 \\), find \\( x_4 \\).", opts: ["\\( 40 \\)", "\\( 20 \\)", "\\( 80 \\)", "\\( 11 \\)"], ans: 0, explain: "\\( x_2 = 10,\\ x_3 = 20,\\ x_4 = 40 \\). (\\( 20 \\) is \\( x_3 \\); \\( 11 \\) comes from adding instead of multiplying.)" }
+        },
+        {
+            title: "How do you work with a second-order recurrence?",
+            tag: "Worked example",
+            content: `<p>A <strong>second-order</strong> recurrence uses the <strong>two</strong> previous terms, so it needs <strong>two</strong> starting values. The most famous example is the <strong>Fibonacci-style</strong> rule \\( x_{n+2} = x_{n+1} + x_n \\): each term is the sum of the two before it.</p>
+            <p><strong>Worked example — generate the first five terms of \\( x_{n+2} = x_{n+1} + x_n \\) with \\( x_1 = 2 \\) and \\( x_2 = 3 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Given: \\( x_1 = 2,\\ x_2 = 3 \\).</td></tr>
+              <tr><td>2. \\( x_3 = x_2 + x_1 = 3 + 2 = 5 \\).</td></tr>
+              <tr><td>3. \\( x_4 = x_3 + x_2 = 5 + 3 = 8 \\).</td></tr>
+              <tr><td>4. \\( x_5 = x_4 + x_3 = 8 + 5 = 13 \\).</td></tr>
+            </table>
+            <p>So the first five terms are \\( 2,\\ 3,\\ 5,\\ 8,\\ 13 \\). Write each line out: examiners reward every correct term, and a single arithmetic slip then costs only one mark.</p>`,
+            readCheck: { q: "For \\( x_{n+2} = x_{n+1} + x_n \\) with \\( x_1 = 1 \\) and \\( x_2 = 4 \\), find \\( x_4 \\).", opts: ["\\( 9 \\)", "\\( 5 \\)", "\\( 14 \\)", "\\( 8 \\)"], ans: 0, explain: "\\( x_3 = 4 + 1 = 5 \\), then \\( x_4 = x_3 + x_2 = 5 + 4 = 9 \\)." }
+        },
+        {
+            title: "How do you describe a sequence by a recurrence?",
+            tag: "Exam skill",
+            content: `<p>Sometimes you are given a sequence and asked for the recurrence that <strong>describes</strong> it. Look for the pattern, then state the rule <em>and</em> the starting value(s).</p>
+            <ul>
+              <li><strong>Constant difference</strong> between terms → \\( x_{n+1} = x_n + d \\) (arithmetic).</li>
+              <li><strong>Constant ratio</strong> between terms → \\( x_{n+1} = r\\,x_n \\) (geometric).</li>
+              <li>Each term the <strong>sum of the two before</strong> → \\( x_{n+2} = x_{n+1} + x_n \\).</li>
+            </ul>
+            <p><strong>Worked example — describe \\( 5,\\ 8,\\ 11,\\ 14,\\ \\dots \\):</strong> the difference is a constant \\( +3 \\), so \\( x_{n+1} = x_n + 3 \\) with \\( x_1 = 5 \\). A rule without its starting value does not fully define the sequence, so always give both.</p>`,
+            readCheck: { q: "Which recurrence describes the sequence \\( 4,\\ 12,\\ 36,\\ 108,\\ \\dots \\)?", opts: ["\\( x_{n+1} = 3x_n,\\ x_1 = 4 \\)", "\\( x_{n+1} = x_n + 8,\\ x_1 = 4 \\)", "\\( x_{n+1} = x_n + 3 \\)", "\\( x_{n+2} = x_{n+1} + x_n \\)"], ans: 0, explain: "Each term is \\( 3 \\) times the last (\\( 12 = 3 \\times 4 \\), \\( 36 = 3 \\times 12 \\)), so it is geometric with ratio \\( 3 \\) and \\( x_1 = 4 \\)." }
+        },
+        {
+            title: "How is recurrence used to model money and populations?",
+            tag: "Real world",
+            content: `<p>Recurrence relationships model any quantity that changes by the <strong>same factor</strong> each period — the classic case is <strong>compound interest</strong>.</p>
+            <ul>
+              <li><strong>Growth of \\( r\\% \\) per period</strong> → multiply by \\( \\left(1 + \\frac{r}{100}\\right) \\). So \\( 3\\% \\) interest gives \\( x_{n+1} = 1.03\\,x_n \\).</li>
+              <li><strong>Depreciation / decay of \\( r\\% \\)</strong> → multiply by \\( \\left(1 - \\frac{r}{100}\\right) \\). So losing \\( 15\\% \\) a year gives \\( x_{n+1} = 0.85\\,x_n \\).</li>
+              <li><strong>Regular top-up savings</strong> combine both: e.g. \\( x_{n+1} = 1.03\\,x_n + 50 \\) grows the balance by \\( 3\\% \\) and then adds a \\( £50 \\) deposit.</li>
+            </ul>
+            <p><strong>Worked example — £500 invested at \\( 3\\% \\) per year, \\( x_1 = 500 \\), \\( x_{n+1} = 1.03\\,x_n \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. \\( x_1 = 500 \\) (the amount invested).</td></tr>
+              <tr><td>2. After 1 year: \\( x_2 = 1.03 \\times 500 = 515 \\).</td></tr>
+              <tr><td>3. After 2 years: \\( x_3 = 1.03 \\times 515 = 530.45 \\).</td></tr>
+              <tr><td>4. After 3 years: \\( x_4 = 1.03 \\times 530.45 = 546.36 \\) (to the nearest penny).</td></tr>
+            </table>
+            <p>Interest is earned on the interest, so the balance grows a little faster each year.</p>`,
+            readCheck: { q: "A car worth \\( £8000 \\) depreciates by \\( 20\\% \\) each year. Which recurrence models its value?", opts: ["\\( x_{n+1} = 0.8x_n \\)", "\\( x_{n+1} = 1.2x_n \\)", "\\( x_{n+1} = x_n - 20 \\)", "\\( x_{n+1} = 0.2x_n \\)"], ans: 0, explain: "Losing \\( 20\\% \\) leaves \\( 80\\% \\), so multiply by \\( 1 - 0.20 = 0.8 \\)." }
+        }
+    ];
+
+    const mcqData = [
+        { q: "For \\( x_{n+1} = x_n + 7 \\) with \\( x_1 = 2 \\), find \\( x_4 \\).", opts: ["\\( 23 \\)", "\\( 16 \\)", "\\( 30 \\)", "\\( 9 \\)"], ans: 0, explain: "\\( x_2 = 9,\\ x_3 = 16,\\ x_4 = 23 \\). (\\( 16 \\) is \\( x_3 \\); \\( 30 \\) is \\( x_5 \\).)" },
+        { q: "For \\( x_{n+1} = 4x_n \\) with \\( x_1 = 3 \\), find \\( x_3 \\).", opts: ["\\( 48 \\)", "\\( 12 \\)", "\\( 192 \\)", "\\( 11 \\)"], ans: 0, explain: "\\( x_2 = 4 \\times 3 = 12,\\ x_3 = 4 \\times 12 = 48 \\). (\\( 12 \\) is \\( x_2 \\); \\( 192 \\) is \\( x_4 \\).)" },
+        { q: "For \\( x_{n+2} = x_{n+1} + x_n \\) with \\( x_1 = 3 \\) and \\( x_2 = 5 \\), find \\( x_5 \\).", opts: ["\\( 21 \\)", "\\( 13 \\)", "\\( 34 \\)", "\\( 18 \\)"], ans: 0, explain: "\\( x_3 = 8,\\ x_4 = 13,\\ x_5 = 21 \\). (\\( 13 \\) is \\( x_4 \\); \\( 34 \\) is \\( x_6 \\).)" },
+        { q: "A student is told \\( x_{n+1} = 5x_n \\) with \\( x_1 = 2 \\) and writes \\( x_2 = 7 \\). What went wrong?", opts: ["They added 5 instead of multiplying by 5 — it should be \\( x_2 = 10 \\)", "Nothing — \\( x_2 = 7 \\) is correct", "They should get \\( x_2 = 25 \\)", "They used the wrong starting value"], ans: 0, explain: "\\( x_{n+1} = 5x_n \\) multiplies: \\( x_2 = 5 \\times 2 = 10 \\). Writing \\( 2 + 5 = 7 \\) confuses it with \\( x_{n+1} = x_n + 5 \\)." },
+        { q: "For \\( x_{n+1} = x_n + 3 \\) with \\( x_1 = 4 \\), a student says the 3rd term is 13. What is the actual 3rd term?", opts: ["\\( 10 \\)", "\\( 13 \\)", "\\( 7 \\)", "\\( 16 \\)"], ans: 0, explain: "\\( x_1 = 4,\\ x_2 = 7,\\ x_3 = 10 \\). The value \\( 13 \\) is \\( x_4 \\) — an off-by-one counting error." },
+        { q: "Which recurrence generates the sequence \\( 2,\\ 10,\\ 50,\\ 250,\\ \\dots \\)?", opts: ["\\( x_{n+1} = 5x_n,\\ x_1 = 2 \\)", "\\( x_{n+1} = x_n + 8 \\)", "\\( x_{n+1} = x_n + 40 \\)", "\\( x_{n+2} = x_{n+1} + x_n \\)"], ans: 0, explain: "Each term is \\( 5 \\) times the last (\\( 10 = 5 \\times 2 \\)), so it is geometric with ratio \\( 5 \\) and \\( x_1 = 2 \\)." },
+        { q: "£2000 is invested at \\( 4\\% \\) compound interest per year. Which recurrence models the balance?", opts: ["\\( x_{n+1} = 1.04x_n \\)", "\\( x_{n+1} = x_n + 4 \\)", "\\( x_{n+1} = 0.04x_n \\)", "\\( x_{n+1} = 1.4x_n \\)"], ans: 0, explain: "Growth of \\( 4\\% \\) multiplies by \\( 1 + 0.04 = 1.04 \\). Adding \\( 4 \\) would be simple interest of only £4." },
+        { q: "A machine loses \\( 10\\% \\) of its value each year. In \\( x_{n+1} = k\\,x_n \\), what is \\( k \\)?", opts: ["\\( 0.9 \\)", "\\( 1.1 \\)", "\\( 0.1 \\)", "\\( 0.09 \\)"], ans: 0, explain: "Losing \\( 10\\% \\) leaves \\( 90\\% \\), so \\( k = 1 - 0.10 = 0.9 \\)." },
+        { q: "To generate a sequence from \\( x_{n+2} = x_{n+1} + x_n \\), what must you be given?", opts: ["Two starting values", "One starting value", "No starting values", "The 100th term"], ans: 0, explain: "The rule reaches back two terms, so you need the first two terms before you can start." },
+        { q: "£400 grows at \\( 5\\% \\) per year: \\( x_{n+1} = 1.05x_n \\) with \\( x_1 = 400 \\). Find \\( x_3 \\).", opts: ["\\( £441.00 \\)", "\\( £420.00 \\)", "\\( £463.05 \\)", "\\( £440.00 \\)"], ans: 0, explain: "\\( x_2 = 1.05 \\times 400 = 420 \\), then \\( x_3 = 1.05 \\times 420 = 441 \\). (\\( 420 \\) is \\( x_2 \\); \\( 463.05 \\) is \\( x_4 \\).)" },
+        { q: "For \\( x_{n+2} = x_{n+1} + 2x_n \\) with \\( x_1 = 2 \\) and \\( x_2 = 1 \\), find \\( x_4 \\).", opts: ["\\( 7 \\)", "\\( 5 \\)", "\\( 3 \\)", "\\( 11 \\)"], ans: 0, explain: "\\( x_3 = x_2 + 2x_1 = 1 + 4 = 5 \\), then \\( x_4 = x_3 + 2x_2 = 5 + 2 = 7 \\)." }
+    ];
+
+    const matchData = [
+        { term: "\\( x_{n+1} = x_n + 4 \\)", def: "Arithmetic: adds 4 to each term" },
+        { term: "\\( x_{n+1} = 3x_n \\)", def: "Geometric: multiplies each term by 3" },
+        { term: "\\( x_{n+2} = x_{n+1} + x_n \\)", def: "Each term is the sum of the two before it" },
+        { term: "\\( x_{n+1} = 1.03x_n \\)", def: "3% compound interest each year" },
+        { term: "\\( x_{n+1} = 0.85x_n \\)", def: "Depreciation of 15% each year" },
+        { term: "\\( x_{n+1} = 1.02x_n \\)", def: "Population growing 2% each year" },
+        { term: "\\( 2,\\ 5,\\ 8,\\ 11,\\ \\dots \\)", def: "\\( x_{n+1} = x_n + 3,\\ x_1 = 2 \\)" },
+        { term: "\\( 3,\\ 6,\\ 12,\\ 24,\\ \\dots \\)", def: "\\( x_{n+1} = 2x_n,\\ x_1 = 3 \\)" },
+        { term: "\\( 1,\\ 1,\\ 2,\\ 3,\\ 5,\\ \\dots \\)", def: "\\( x_{n+2} = x_{n+1} + x_n \\) (Fibonacci)" },
+        { term: "\\( x_n \\)", def: "The \\( n\\)th term of the sequence" },
+        { term: "\\( x_{n+1} \\)", def: "The term immediately after \\( x_n \\)" },
+        { term: "Starting value", def: "The first term, needed to begin the sequence" }
+    ];
+
+    // NOTE: FIB blanks sit in PLAIN TEXT only, never inside \( \) (§8.4 Rule 3b). Answer
+    // VALUES are plain text/number so server string-equality still works. Subscripts like
+    // \( x_2 \) inside math are fine — the blank tokens stay outside the math regions.
+    const fibData = [
+        { display: "A rule that gives each term of a sequence from earlier terms is called a ___B1___ relationship.", blanks: { B1: "recurrence" } },
+        { display: "As well as the rule, you need a ___B1___ value before you can generate the sequence.", blanks: { B1: "starting" } },
+        { display: "In \\( x_{n+1} = x_n + a \\) the fixed number \\( a \\) is ___B1___ to each term, giving an arithmetic sequence.", blanks: { B1: "added" } },
+        { display: "In \\( x_{n+1} = a x_n \\) each term is ___B1___ by \\( a \\), giving a geometric sequence.", blanks: { B1: "multiplied" } },
+        { display: "A second-order rule such as \\( x_{n+2} = x_{n+1} + x_n \\) needs ___B1___ starting values.", blanks: { B1: "two" } },
+        { display: "Compound interest of 3% per year gives \\( x_{n+1} = k x_n \\) where the multiplier \\( k \\) is ___B1___.", blanks: { B1: "1.03" } },
+        { display: "An asset that loses 15% of its value each year has multiplier ___B1___.", blanks: { B1: "0.85" } },
+        { display: "For \\( x_{n+1} = x_n + 4 \\) with \\( x_1 = 3 \\), the second term is ___B1___ and the third term is ___B2___.", blanks: { B1: "7", B2: "11" } }
+    ];
+
+    const fibWords = ["recurrence", "starting", "added", "multiplied", "two", "1.03", "0.85", "7", "11", "subtracted", "divided", "one", "1.3", "0.15", "geometric"];
+
+    const tfData = [
+        { statement: "A recurrence relationship needs at least one starting value to generate the sequence.", answer: true, explanation: "The rule only tells you how to get from known terms to the next, so you must be given a first term (or two, for a second-order rule) to begin." },
+        { statement: "\\( x_{n+1} = x_n + a \\) describes a sequence that changes by a fixed amount each term.", answer: true, explanation: "Adding the same \\( a \\) every step gives a constant common difference — an arithmetic sequence." },
+        { statement: "\\( x_{n+1} = a x_n \\) and \\( x_{n+1} = x_n + a \\) generate the same sequence.", answer: false, explanation: "The first multiplies by \\( a \\) (geometric), the second adds \\( a \\) (arithmetic) — quite different sequences." },
+        { statement: "A second-order recurrence such as \\( x_{n+2} = x_{n+1} + x_n \\) can be started from a single value.", answer: false, explanation: "It uses the two previous terms, so it needs two starting values." },
+        { statement: "£1000 at 3% compound interest per year is modelled by \\( x_{n+1} = 1.03 x_n \\).", answer: true, explanation: "Growth of 3% multiplies the balance by \\( 1 + 0.03 = 1.03 \\) each year." },
+        { statement: "In the sequence \\( 5,\\ 8,\\ 11,\\ 14,\\ \\dots \\) the recurrence is \\( x_{n+1} = x_n + 3 \\).", answer: true, explanation: "The constant difference is \\( +3 \\), so each term is the previous term plus 3 (with \\( x_1 = 5 \\))." },
+        { statement: "For \\( x_{n+1} = 2x_n \\) with \\( x_1 = 3 \\), the term \\( x_3 \\) equals 12.", answer: true, explanation: "\\( x_2 = 6 \\) and \\( x_3 = 2 \\times 6 = 12 \\)." },
+        { statement: "An asset that depreciates by 15% each year is modelled by \\( x_{n+1} = 1.15 x_n \\).", answer: false, explanation: "Depreciation of 15% leaves 85%, so the multiplier is \\( 0.85 \\), not \\( 1.15 \\)." }
+    ];
+
+    const miscData = [
+        { wrong: "For \\( x_{n+1} = 5x_n \\) with \\( x_1 = 2 \\), writing \\( x_2 = 2 + 5 = 7 \\).", correct: "The rule multiplies, it does not add. A weak answer treats \\( 5x_n \\) as \\( x_n + 5 \\); a strong answer writes \\( x_2 = 5 \\times 2 = 10 \\).", readCheck: { q: "For \\( x_{n+1} = 5x_n \\) with \\( x_1 = 2 \\), what is \\( x_2 \\)?", opts: ["\\( 10 \\)", "\\( 7 \\)", "\\( 25 \\)", "\\( 5 \\)"], ans: 0, explain: "\\( x_2 = 5 \\times 2 = 10 \\)." } },
+        { wrong: "Trying to generate \\( x_{n+2} = x_{n+1} + x_n \\) from a single starting value.", correct: "A second-order rule needs two terms to start. A weak answer stalls with only \\( x_1 \\); a strong answer uses both \\( x_1 \\) and \\( x_2 \\), then builds \\( x_3 = x_2 + x_1 \\).", readCheck: { q: "How many starting values does \\( x_{n+2} = x_{n+1} + x_n \\) need?", opts: ["Two", "One", "None", "Three"], ans: 0, explain: "It reaches back two terms, so it needs the first two terms." } },
+        { wrong: "Doing the whole iteration on the calculator and writing down only the final answer.", correct: "Examiners award a mark for each correct term, so unshown working can lose marks after a slip. A weak answer shows nothing; a strong answer sets each line out formally: \\( x_3 = \\dots,\\ x_4 = \\dots,\\ x_5 = \\dots \\). This also guards against a transcription error when copying from the calculator.", readCheck: { q: "Why set out each term on its own line?", opts: ["Each correct term earns its own mark and it prevents copying slips", "It uses more paper", "It is required by law", "To make the answer look longer"], ans: 0, explain: "Every term is worth a mark, and formal working avoids calculator transcription errors." } },
+        { wrong: "Not recognising the phrase 'recurrence relationship' and leaving the question blank.", correct: "'Recurrence relationship' just means a term-to-term rule — a way of getting the next term from earlier ones. A weak answer gives up on the wording; a strong answer reads the rule and simply substitutes the given values.", readCheck: { q: "What does 'recurrence relationship' mean?", opts: ["A rule giving each term from earlier terms", "The sum of all the terms", "The 100th term of the sequence", "A type of graph"], ans: 0, explain: "It is a term-to-term rule — nothing more exotic than substituting into the given formula." } },
+        { wrong: "Modelling 3% compound interest with the multiplier \\( 0.03 \\) or \\( 1.3 \\).", correct: "A percentage increase adds to 1, and 3% is \\( 0.03 \\), not \\( 0.3 \\). A weak answer uses \\( 0.03 \\) or \\( 1.3 \\); a strong answer uses \\( 1 + 0.03 = 1.03 \\).", readCheck: { q: "The multiplier for a 3% yearly increase is:", opts: ["\\( 1.03 \\)", "\\( 0.03 \\)", "\\( 1.3 \\)", "\\( 3 \\)"], ans: 0, explain: "\\( 1 + \\frac{3}{100} = 1.03 \\)." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Show every term (method marks)", pills: ["working", "B marks", "www"], content: `<p>On a "[3]" recurrence question, each correct term earns <strong>its own mark</strong>. For \\( x_{n+2} = x_{n+1} + 2x_n \\), write \\( x_3 \\), \\( x_4 \\) and \\( x_5 \\) on separate lines — a slip then costs one mark, not all three. Doing it all silently on the calculator risks losing the lot to one arithmetic error.</p>`, readCheck: { q: "Why write each term of a recurrence on its own line?", opts: ["Each correct term earns a separate mark", "It is not necessary", "To slow yourself down", "To fill the answer space"], ans: 0, explain: "Marks are awarded term by term, so visible correct terms protect your score." } },
+        { type: "explain", title: "'Determine' means value plus working", pills: ["determine", "justify"], content: `<p>The command word <strong>"Determine"</strong> asks for the value <em>supported by working</em> — you must show how you reached it, not just state the final number. For \\( x_5 \\), show the terms you built on the way (\\( x_3 \\), \\( x_4 \\)) so the method is clear.</p>`, readCheck: { q: "What does 'Determine the value of \\( x_5 \\)' require?", opts: ["The value with working shown", "Only the final number", "A graph of the sequence", "A decimal approximation"], ans: 0, explain: "'Determine' expects justification — the value backed by visible working." } },
+        { type: "tip", title: "Turn a percentage into a multiplier", pills: ["compound interest", "1 + rate", "modelling"], content: `<p>For modelling questions, convert the rate to a multiplier: a rise of \\( r\\% \\) gives \\( \\left(1 + \\frac{r}{100}\\right) \\); a fall of \\( r\\% \\) gives \\( \\left(1 - \\frac{r}{100}\\right) \\). So \\( 3\\% \\) growth is \\( 1.03 \\) and \\( 15\\% \\) depreciation is \\( 0.85 \\). Then the model is simply \\( x_{n+1} = (\\text{multiplier})\\,x_n \\).</p>`, readCheck: { q: "The multiplier for a 7% yearly decrease is:", opts: ["\\( 0.93 \\)", "\\( 1.07 \\)", "\\( 0.07 \\)", "\\( 0.7 \\)"], ans: 0, explain: "A fall of 7% leaves 93%, so multiply by \\( 1 - 0.07 = 0.93 \\)." } }
+    ];
+
+    const flashcards = [
+        { term: "Recurrence relationship", def: "A rule giving each term of a sequence from one or more earlier terms." },
+        { term: "\\( x_n \\)", def: "The \\( n\\)th term of a sequence." },
+        { term: "\\( x_{n+1} \\)", def: "The term immediately after \\( x_n \\)." },
+        { term: "\\( x_{n+2} \\)", def: "The term two places after \\( x_n \\)." },
+        { term: "Starting value", def: "The first term(s) you must be given to begin a recurrence." },
+        { term: "First-order recurrence", def: "A rule using only the previous term, e.g. \\( x_{n+1} = x_n + a \\)." },
+        { term: "Second-order recurrence", def: "A rule using the two previous terms, e.g. \\( x_{n+2} = x_{n+1} + x_n \\)." },
+        { term: "Arithmetic recurrence", def: "\\( x_{n+1} = x_n + a \\): adds a fixed amount each term." },
+        { term: "Geometric recurrence", def: "\\( x_{n+1} = a x_n \\): multiplies by a fixed factor each term." },
+        { term: "Fibonacci sequence", def: "\\( 1,\\ 1,\\ 2,\\ 3,\\ 5,\\ 8,\\ \\dots \\); each term is the sum of the two before it." },
+        { term: "Compound interest multiplier", def: "\\( 1 + \\frac{r}{100} \\); e.g. 3% gives \\( 1.03 \\)." },
+        { term: "Depreciation multiplier", def: "\\( 1 - \\frac{r}{100} \\); e.g. losing 15% gives \\( 0.85 \\)." },
+        { term: "Common difference", def: "The constant amount added each term in an arithmetic sequence." },
+        { term: "Common ratio", def: "The constant factor multiplied each term in a geometric sequence." },
+        { term: "'Determine'", def: "Command word: give the value supported by working." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "5",
+            marks: 3,
+            type: "written",
+            question: `<p>You are given the recurrence relationship \\( x_{n+2} = x_{n+1} + 2x_n \\) for all positive integers \\( n \\) where \\( x_1 = 1 \\) and \\( x_2 = 1 \\).</p><p>Determine the value of \\( x_5 \\).</p>`,
+            hint: "Use the two previous terms each time. Work up from \\( x_3 \\) to \\( x_5 \\), writing each line out.",
+            starter: "State \\( x_5 \\) as a whole number, showing \\( x_3 \\) and \\( x_4 \\) on the way.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>
+              <li><strong>B1</strong> — \\( x_3 = 3 \\) www.</li>
+              <li><strong>B1</strong> — \\( x_4 = 5 \\) www.</li>
+              <li><strong>B1</strong> — \\( x_5 = 11 \\) www.</li>
+              <li><strong>SC B2</strong> — for the answer \\( 11 \\) www with no supporting working.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>One mark for each correct new term reached using the rule \\( x_{n+2} = x_{n+1} + 2x_n \\): \\( x_3 = x_2 + 2x_1 = 1 + 2 = 3 \\), \\( x_4 = x_3 + 2x_2 = 3 + 2 = 5 \\), \\( x_5 = x_4 + 2x_3 = 5 + 6 = 11 \\).</li>
+              <li>"www" = with working shown. A fully correct answer of \\( 11 \\) with no working scores the special case SC B2.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most candidates were familiar with the concept of a recurrence relationship and were able to score all 3 marks. Some lost marks through arithmetic slips or doing all the work on the calculator and hence making errors in the calculation.</li>
+              <li>Candidates should set their working out in a formal way even for relatively straightforward questions. Some less successful candidates were unfamiliar with the term "recurrence relationship", or with the idea of a rule that calculates a term from the two previous terms, and so could not score.</li>
+            </ul></div>`,
+            modelAnswer: "Using \\( x_{n+2} = x_{n+1} + 2x_n \\) with \\( x_1 = 1,\\ x_2 = 1 \\): \\( x_3 = x_2 + 2x_1 = 1 + 2(1) = 3 \\); \\( x_4 = x_3 + 2x_2 = 3 + 2(1) = 5 \\); \\( x_5 = x_4 + 2x_3 = 5 + 2(3) = 11 \\). So \\( x_5 = 11 \\).",
+            markPoints: { note: "One mark per correct term (www). A correct answer of 11 with no working scores SC B2.", groups: [
+                { label: "B1 — third term", max: 1, points: ["\\( x_3 = x_2 + 2x_1 = 1 + 2 = 3 \\)"] },
+                { label: "B1 — fourth term", max: 1, points: ["\\( x_4 = x_3 + 2x_2 = 3 + 2 = 5 \\)"] },
+                { label: "B1 — fifth term", max: 1, points: ["\\( x_5 = x_4 + 2x_3 = 5 + 6 = 11 \\)"] }
+            ] }
+        }
+    ];
+</script>
+    <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
+    <script src="/vendor/katex/katex.min.js"></script>
+    <script src="/vendor/katex/contrib/auto-render.min.js"></script>
+    <script src="/math-render.js"></script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

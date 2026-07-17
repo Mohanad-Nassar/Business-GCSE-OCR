@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.3 Setting Up and Solving Equations – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 2. Polynomials and Equations</div>
+            <h1>2.3 Setting Up and Solving Equations</h1>
+            <p>Interactive revision guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.3 Setting Up and Solving Equations (AL6)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  doubled in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Exam Q = 2023 Q16
+    //  (boat-and-current set-up-a-model; synoptic with algebraic fractions — kept here
+    //  because its dominant skill is setting-up-and-solving, AL6).
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-3-setting-up-and-solving-equations',
+            badge: 'OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 2. Polynomials and Equations',
+            title: '2.3 Setting Up and Solving Equations',
+            subtitle: 'Interactive revision guide',
+            subject: 'additional-maths',
+        };
+
+    // Shared stimulus for the 2023 Q16 exam parts (see examQuestions).
+    const EXAM_CASE_STUDIES = {
+        "q16-2023": `<p>I can drive my motor boat at a maximum speed of 4 kilometres per hour in still water.</p>
+        <p>One day I drive at maximum speed up a river from a point \\( A \\) to a point \\( B \\), a distance of 9 km.</p>
+        <p>The constant speed of the current down the river is \\( r \\) kilometres per hour.</p>`
+    };
+
+    const topics = [
+        {
+            title: "How do you turn a worded problem into an equation?",
+            tag: "Key concept",
+            content: `<p><strong>Setting up an equation</strong> means translating a real situation into algebra you can solve. The same five-step routine works whether the equation turns out to be linear, quadratic or cubic.</p>
+            <table class="worked">
+              <tr><td>1. <strong>Define the unknown.</strong> Write "Let \\( x \\) be …" and include its <strong>units</strong> (cm, km/h, £).</td></tr>
+              <tr><td>2. <strong>Translate</strong> each sentence into algebra — "5 more than" is \\( +5 \\), "3 times" is \\( 3x \\), "product" is a multiplication.</td></tr>
+              <tr><td>3. <strong>Solve</strong> the equation using the right method for its degree.</td></tr>
+              <tr><td>4. <strong>Interpret</strong> the solution back in the context, with units.</td></tr>
+              <tr><td>5. <strong>Reject</strong> any solution that cannot occur (a negative length, a fractional number of people).</td></tr>
+            </table>
+            <p>The commonest lost marks are skipping step 1 (never saying what \\( x \\) is) and skipping steps 4–5 (leaving a bare number instead of a value in context).</p>`,
+            readCheck: { q: "What should the very first line of a set-up-a-model answer do?", opts: ["Define the unknown and its units, e.g. 'Let \\( x \\) be the width in cm'", "Write down the final answer", "Draw a graph", "Multiply everything out"], ans: 0, explain: "Always define your variable first — it makes every later step (and every mark) unambiguous." }
+        },
+        {
+            title: "How do you set up and solve a linear equation in context?",
+            tag: "Worked example",
+            content: `<p>A <strong>linear equation</strong> has the unknown only to the power 1. Translate the words, then rearrange.</p>
+            <p><strong>Worked example.</strong> A taxi charges a £3 booking fee plus £2 for every mile. A journey costs £17. How many miles was it?</p>
+            <table class="worked">
+              <tr><td>1. Let \\( m \\) be the number of miles.</td></tr>
+              <tr><td>2. Cost = fee + rate × miles: \\( 3 + 2m = 17 \\).</td></tr>
+              <tr><td>3. Subtract 3: \\( 2m = 14 \\); divide by 2: \\( m = 7 \\).</td></tr>
+              <tr><td>4. In context: the journey was <strong>7 miles</strong>.</td></tr>
+            </table>
+            <p>Check: \\( 3 + 2(7) = 17 \\). ✓ Notice the answer is a <em>value with units</em>, not just "7".</p>`,
+            readCheck: { q: "A plumber charges £40 plus £30 per hour. A bill is £160. Which equation finds the hours \\( h \\)?", opts: ["\\( 40 + 30h = 160 \\)", "\\( 40h + 30 = 160 \\)", "\\( 70h = 160 \\)", "\\( 40 + 30 + h = 160 \\)"], ans: 0, explain: "Fixed £40 plus £30 for each hour: \\( 40 + 30h = 160 \\), giving \\( h = 4 \\) hours." }
+        },
+        {
+            title: "How do you set up and solve a quadratic in context?",
+            tag: "Worked example",
+            content: `<p>When two quantities <strong>multiply</strong> (an area, a product of numbers), the equation is usually a <strong>quadratic</strong>. Rearrange to \\( ax^2 + bx + c = 0 \\), solve, then keep only the physically valid root.</p>
+            <p><strong>Worked example.</strong> A rectangle is 2 cm longer than it is wide. Its area is 48 cm². Find its dimensions.</p>
+            <table class="worked">
+              <tr><td>1. Let the width be \\( x \\) cm; the length is \\( (x + 2) \\) cm.</td></tr>
+              <tr><td>2. Area: \\( x(x + 2) = 48 \\).</td></tr>
+              <tr><td>3. Expand and rearrange: \\( x^2 + 2x - 48 = 0 \\).</td></tr>
+              <tr><td>4. Factorise: \\( (x + 8)(x - 6) = 0 \\), so \\( x = -8 \\) or \\( x = 6 \\).</td></tr>
+              <tr><td>5. A width cannot be negative, so <strong>reject \\( x = -8 \\)</strong>.</td></tr>
+            </table>
+            <p>So the width is <strong>6 cm</strong> and the length is <strong>8 cm</strong>. Check: \\( 6 \\times 8 = 48 \\). ✓ Stating why you reject \\( x = -8 \\) is part of the answer.</p>`,
+            readCheck: { q: "A quadratic modelling a length gives roots \\( x = 5 \\) and \\( x = -9 \\). The length is:", opts: ["\\( 5 \\) (reject \\( -9 \\): a length can't be negative)", "\\( -9 \\)", "\\( 5 \\) or \\( -9 \\)", "\\( -4 \\), the sum of the roots"], ans: 0, explain: "Only the positive root is admissible for a length; you must reject \\( -9 \\) and say why." }
+        },
+        {
+            title: "How do you set up and solve a cubic in context?",
+            tag: "Method",
+            content: `<p>When <strong>three</strong> quantities multiply (a volume, three consecutive numbers), you get a <strong>cubic</strong>. Find one root by inspection or the <strong>factor theorem</strong> (topic 2.2), then factor out to a quadratic and finish.</p>
+            <p><strong>Worked example.</strong> Three consecutive positive integers have a product of 60. Find them.</p>
+            <table class="worked">
+              <tr><td>1. Let the smallest be \\( n \\); the integers are \\( n,\\ n+1,\\ n+2 \\).</td></tr>
+              <tr><td>2. Product: \\( n(n+1)(n+2) = 60 \\), i.e. \\( n^3 + 3n^2 + 2n - 60 = 0 \\).</td></tr>
+              <tr><td>3. Try \\( n = 3 \\): \\( 3 \\times 4 \\times 5 = 60 \\) ✓, so \\( (n - 3) \\) is a factor.</td></tr>
+              <tr><td>4. Divide out: \\( (n - 3)(n^2 + 6n + 20) = 0 \\).</td></tr>
+              <tr><td>5. The factor \\( n^2 + 6n + 20 \\) has discriminant \\( 36 - 80 < 0 \\) — no real roots.</td></tr>
+            </table>
+            <p>So \\( n = 3 \\), and the integers are <strong>3, 4 and 5</strong>. The quadratic factor is checked, not ignored — showing it has no valid roots is what confirms \\( n = 3 \\) is the only answer.</p>`,
+            readCheck: { q: "After spotting \\( n = 3 \\) is a root of a cubic, the next step is to:", opts: ["Factor out \\( (n - 3) \\) to get a quadratic, then solve that", "Stop — one root is enough", "Square both sides", "Reject \\( n = 3 \\)"], ans: 0, explain: "Dividing out the known factor leaves a quadratic that reveals (or rules out) the remaining roots." }
+        },
+        {
+            title: "How do you solve linear–quadratic simultaneous equations?",
+            tag: "Worked example",
+            content: `<p>To solve a <strong>linear</strong> equation and a <strong>non-linear</strong> one together (a line meeting a curve), use <strong>substitution</strong>: rearrange the linear equation for one variable and put it into the other.</p>
+            <p><strong>Worked example.</strong> Solve \\( y = x + 1 \\) and \\( x^2 + y^2 = 25 \\) simultaneously.</p>
+            <table class="worked">
+              <tr><td>1. Substitute \\( y = x + 1 \\) into the second equation: \\( x^2 + (x + 1)^2 = 25 \\).</td></tr>
+              <tr><td>2. Expand: \\( x^2 + x^2 + 2x + 1 = 25 \\), so \\( 2x^2 + 2x - 24 = 0 \\).</td></tr>
+              <tr><td>3. Divide by 2 and factorise: \\( x^2 + x - 12 = 0 = (x + 4)(x - 3) \\).</td></tr>
+              <tr><td>4. So \\( x = -4 \\) or \\( x = 3 \\).</td></tr>
+              <tr><td>5. Back-substitute into \\( y = x + 1 \\): \\( (3,\\ 4) \\) and \\( (-4,\\ -3) \\).</td></tr>
+            </table>
+            <p>Always give the answers as <strong>pairs</strong> — each \\( x \\) with its matching \\( y \\). Check \\( 3^2 + 4^2 = 25 \\) ✓ and \\( (-4)^2 + (-3)^2 = 25 \\) ✓.</p>`,
+            readCheck: { q: "To solve \\( y = 2x \\) and \\( x^2 + y^2 = 20 \\), the substitution gives:", opts: ["\\( x^2 + (2x)^2 = 20 \\)", "\\( x^2 + 2x = 20 \\)", "\\( (2x)^2 = 20 \\)", "\\( x^2 + y = 20 \\)"], ans: 0, explain: "Replace \\( y \\) with \\( 2x \\): \\( x^2 + (2x)^2 = 20 \\Rightarrow 5x^2 = 20 \\Rightarrow x = \\pm 2 \\)." }
+        },
+        {
+            title: "Why must you interpret the answer and reject invalid solutions?",
+            tag: "Exam skill",
+            content: `<p>Solving the equation is only part of the mark. Modelling questions reward <strong>interpretation</strong>: turning \\( x = 6 \\) into "the width is 6 cm", and discarding anything impossible.</p>
+            <ul>
+              <li><strong>Reject inadmissible roots.</strong> Negative lengths, negative speeds, and fractional counts of people cannot occur — say which root you keep and <em>why</em>.</li>
+              <li><strong>State a value with its units.</strong> A bare number often loses the final mark: in the 2023 boat question, "\\( r = 1 \\)" scored nothing extra — the examiners wanted "speed of the current = 1 km/h".</li>
+              <li><strong>Watch what the variable stands for.</strong> If \\( r \\) was defined as a unitless number, "\\( r = 1 \\) km/h" is also wrong — name the quantity: "the speed is 1 km/h".</li>
+              <li><strong>"Show that" needs the last line.</strong> If a question asks you to show an equation simplifies to a printed result, you must reach that exact result on the page.</li>
+            </ul>
+            <p>Read the final sentence of the question back to yourself: does your answer actually name the thing it asked for, in the right units?</p>`,
+            readCheck: { q: "A question asks for a swimmer's speed and you find \\( v = 2 \\). The best final answer is:", opts: ["The speed is 2 m/s", "\\( v = 2 \\)", "\\( v = 2 \\) with no units", "2"], ans: 0, explain: "Name the quantity and give its units — a bare number or a bare variable value can lose the final mark." }
+        }
+    ];
+
+    const mcqData = [
+        { q: "\"5 more than double a number \\( x \\)\" is written as:", opts: ["\\( 2x + 5 \\)", "\\( 5x + 2 \\)", "\\( 2(x + 5) \\)", "\\( 5 - 2x \\)"], ans: 0, explain: "Double the number is \\( 2x \\); '5 more than' adds 5: \\( 2x + 5 \\)." },
+        { q: "\"7 less than 4 times a number \\( n \\)\" translates to:", opts: ["\\( 4n - 7 \\)", "\\( 7 - 4n \\)", "\\( 4(n - 7) \\)", "\\( 7n - 4 \\)"], ans: 0, explain: "'4 times \\( n \\)' is \\( 4n \\); '7 less than' subtracts 7 from it: \\( 4n - 7 \\) (not \\( 7 - 4n \\))." },
+        { q: "A taxi charges a £4 booking fee plus £3 per mile. A £22 journey is how many miles?", opts: ["6", "7", "8", "3"], ans: 0, explain: "\\( 4 + 3m = 22 \\Rightarrow 3m = 18 \\Rightarrow m = 6 \\) miles." },
+        { q: "A rectangle's length is 3 cm more than its width \\( x \\), and its area is 40 cm². The correct equation is:", opts: ["\\( x^2 + 3x - 40 = 0 \\)", "\\( x^2 + 3x + 40 = 0 \\)", "\\( x^2 - 3x - 40 = 0 \\)", "\\( 3x^2 = 40 \\)"], ans: 0, explain: "Area \\( = x(x + 3) = 40 \\Rightarrow x^2 + 3x - 40 = 0 \\)." },
+        { q: "A width satisfies \\( x^2 + 2x - 48 = 0 \\), whose roots are \\( 6 \\) and \\( -8 \\). The width is:", opts: ["6 cm", "\\( -8 \\) cm", "6 cm or \\( -8 \\) cm", "\\( -8 \\) cm, since it is further from 0"], ans: 0, explain: "A length cannot be negative, so reject \\( -8 \\): the width is 6 cm." },
+        { q: "Two consecutive positive integers have a product of 132, so \\( n(n+1) = 132 \\) gives \\( n = 11 \\) or \\( n = -12 \\). The integers are:", opts: ["11 and 12", "\\( -12 \\) and \\( -11 \\)", "11 and \\( -12 \\)", "132 and 1"], ans: 0, explain: "The integers are positive, so reject \\( n = -12 \\): they are 11 and 12." },
+        { q: "In the 2023 boat problem the working gives \\( r = 1 \\). The complete answer to \"find the speed of the current\" is:", opts: ["the speed of the current = 1 km/h", "\\( r = 1 \\)", "\\( r = 1 \\) km/h", "1"], ans: 0, explain: "Because \\( r \\) was defined as a unitless number, you must name the quantity and give units: 'speed = 1 km/h'." },
+        { q: "To solve \\( y = 2x \\) and \\( x^2 + y^2 = 20 \\) by substitution you first write:", opts: ["\\( x^2 + (2x)^2 = 20 \\)", "\\( x^2 + 2x = 20 \\)", "\\( (2x)^2 = 20 \\)", "\\( x^2 + y^2 = 20 \\) with \\( y = 2 \\)"], ans: 0, explain: "Replace \\( y \\) by \\( 2x \\) in the quadratic: \\( x^2 + (2x)^2 = 20 \\)." },
+        { q: "A straight line and a circle can meet in at most how many points (solution pairs)?", opts: ["2", "1", "0", "infinitely many"], ans: 0, explain: "Substituting the line into the circle gives a quadratic, which has at most two real solutions." },
+        { q: "Setting up a real problem gives a quadratic with \\( b^2 - 4ac < 0 \\). This means:", opts: ["there is no real solution — re-check the model", "there are two solutions", "you should take the negative root", "the answer is 0"], ans: 0, explain: "A negative discriminant means no real roots, so no valid answer exists — usually a sign an equation was set up wrongly." },
+        { q: "The product of three consecutive positive integers is 60. The smallest integer is:", opts: ["3", "4", "5", "2"], ans: 0, explain: "\\( n(n+1)(n+2) = 60 \\); \\( 3 \\times 4 \\times 5 = 60 \\), so the smallest is 3." }
+    ];
+
+    const matchData = [
+        { term: "\"Let \\( x \\) be the width in cm\"", def: "Defining the unknown, with units" },
+        { term: "\\( 3 + 2m = 17 \\)", def: "A linear equation from a worded problem" },
+        { term: "\\( x(x + 2) = 48 \\)", def: "A quadratic equation from a rectangle's area" },
+        { term: "\\( n(n+1)(n+2) = 60 \\)", def: "A cubic equation from three consecutive integers" },
+        { term: "Substitute \\( y = x + 1 \\) into \\( x^2 + y^2 = 25 \\)", def: "Solving linear–quadratic simultaneous equations" },
+        { term: "A negative length", def: "An inadmissible solution to reject" },
+        { term: "\"speed = 1 km/h\"", def: "A value stated with its units" },
+        { term: "\\( b^2 - 4ac < 0 \\) in a model", def: "The equation has no real solution" },
+        { term: "\"7 less than \\( 4n \\)\"", def: "\\( 4n - 7 \\)" },
+        { term: "Product of two consecutive integers", def: "\\( n(n + 1) \\)" },
+        { term: "Reaching a printed result line by line", def: "A 'show that' answer" }
+    ];
+
+    // FIB blanks sit in PLAIN TEXT, never inside a \( \) region (ADDMATHS-CONTENT-PLAN.md §8.4 Rule 3b).
+    const fibData = [
+        { display: "The first step in modelling a worded problem is to define the ___B1___ and state what it represents.", blanks: { B1: "unknown" } },
+        { display: "When a quadratic equation for a length gives a negative root, you must ___B1___ it, because a length cannot be negative.", blanks: { B1: "reject" } },
+        { display: "To solve one linear and one quadratic equation together, use the method of ___B1___.", blanks: { B1: "substitution" } },
+        { display: "In the boat problem the two roots were 1 and \\( -16 \\); the current speed must be positive, so the answer is ___B1___ km/h.", blanks: { B1: "1" } },
+        { display: "A final answer in a real context should always be stated with its ___B1___.", blanks: { B1: "units" } },
+        { display: "The phrase \"5 more than a number \\( x \\)\" translates to \\( x \\) ___B1___ 5.", blanks: { B1: "plus" } },
+        { display: "Three consecutive integers can be written as \\( n \\), \\( n+1 \\) and ___B1___.", blanks: { B1: "n+2" } }
+    ];
+
+    const fibWords = ["unknown", "reject", "substitution", "1", "units", "plus", "n+2", "variable", "accept", "elimination", "16", "minus", "n+3", "2n"];
+
+    const tfData = [
+        { statement: "When setting up an equation you should state what your variable represents, including its units.", answer: true, explanation: "Defining the unknown (with units) is step 1 and prevents lost marks later." },
+        { statement: "A negative solution to an equation for a length should still be given as a valid answer.", answer: false, explanation: "A length cannot be negative, so a negative root is inadmissible and must be rejected." },
+        { statement: "\"8 more than a number \\( x \\)\" is written \\( 8x \\).", answer: false, explanation: "'8 more than' adds 8: it is \\( x + 8 \\), not \\( 8x \\) (that would be '8 times')." },
+        { statement: "To solve a linear equation and a quadratic equation together, you substitute the linear equation into the quadratic.", answer: true, explanation: "Substitution reduces the pair to a single quadratic in one variable." },
+        { statement: "A quadratic set up from a context always has two admissible solutions.", answer: false, explanation: "Often one root (or both) is inadmissible — e.g. negative — and must be rejected." },
+        { statement: "For the 2023 boat problem, giving the answer as \"\\( r = 1 \\)\" with no units earns full marks.", answer: false, explanation: "The final mark needed the value in context with units: 'speed of the current = 1 km/h'." },
+        { statement: "The product of three consecutive integers \\( n,\\ n+1,\\ n+2 \\) can be written \\( n^3 + 3n^2 + 2n \\).", answer: true, explanation: "\\( n(n+1)(n+2) = n(n^2 + 3n + 2) = n^3 + 3n^2 + 2n \\)." },
+        { statement: "If substituting a line into a circle gives a quadratic with no real roots, the line misses the circle.", answer: true, explanation: "No real solutions means no intersection points — the line does not meet the circle." }
+    ];
+
+    const miscData = [
+        { wrong: "For a rectangle, \\( x^2 + 2x - 48 = 0 \\) gives \\( x = 6 \\) or \\( x = -8 \\), so the width is \\( -8 \\) cm.", correct: "A length can never be negative. A weak answer keeps both roots; a strong answer <strong>rejects \\( x = -8 \\)</strong> and states the width is 6 cm, saying why the negative root is impossible.", readCheck: { q: "Roots \\( 6 \\) and \\( -8 \\) model a width. The width is:", opts: ["6 cm (reject \\( -8 \\))", "\\( -8 \\) cm", "6 or \\( -8 \\) cm", "\\( -2 \\) cm"], ans: 0, explain: "Reject the negative root; the width is 6 cm." } },
+        { wrong: "The current speed is found by writing \\( r = 1 \\) and stopping.", correct: "\"\\( r = 1 \\)\" is a bare number. A weak answer stops there; a strong answer gives a <strong>value with units in context</strong>: 'speed of the current = 1 km/h'. Because \\( r \\) was defined unitless, even '\\( r = 1 \\) km/h' is wrong.", readCheck: { q: "Which is the complete answer for a current speed?", opts: ["speed = 1 km/h", "\\( r = 1 \\)", "\\( r = 1 \\) km/h", "1"], ans: 0, explain: "Name the quantity and give the units." } },
+        { wrong: "\"5 more than 3 times \\( x \\)\" is written \\( 3(x + 5) \\) or \\( 5(3x) \\).", correct: "Translate step by step: '3 times \\( x \\)' is \\( 3x \\), then '5 more than' adds 5 to <em>that</em>: \\( 3x + 5 \\). A weak answer brackets or multiplies wrongly; a strong answer builds the expression in order.", readCheck: { q: "\"5 more than 3 times \\( x \\)\" is:", opts: ["\\( 3x + 5 \\)", "\\( 3(x + 5) \\)", "\\( 5(3x) \\)", "\\( 3x - 5 \\)"], ans: 0, explain: "\\( 3x \\) first, then add 5: \\( 3x + 5 \\)." } },
+        { wrong: "For simultaneous \\( y = x + 1 \\) and \\( x^2 + y^2 = 25 \\), the student finds \\( x = 3 \\) and \\( x = -4 \\) and stops.", correct: "Simultaneous solutions come in <strong>pairs</strong>. A weak answer gives only the \\( x \\)-values; a strong answer back-substitutes into \\( y = x + 1 \\) to give \\( (3,\\ 4) \\) and \\( (-4,\\ -3) \\).", readCheck: { q: "With \\( x = 3 \\) and \\( y = x + 1 \\), the point is:", opts: ["\\( (3,\\ 4) \\)", "\\( (3,\\ 3) \\)", "\\( (4,\\ 3) \\)", "\\( (3,\\ 0) \\)"], ans: 0, explain: "\\( y = 3 + 1 = 4 \\), so the pair is \\( (3,\\ 4) \\)." } },
+        { wrong: "\"Show that the equation simplifies to \\( r^2 + 15r - 16 = 0 \\)\" is answered by solving it to get \\( r = 1 \\).", correct: "A 'show that' asks you to <strong>reach the printed result</strong>, not to solve it. A weak answer jumps to the roots; a strong answer clears the fractions and rearranges line by line until \\( r^2 + 15r - 16 = 0 \\) appears.", readCheck: { q: "A 'show that' question wants you to:", opts: ["Derive the given result step by step", "Solve for the unknown", "Give a decimal answer", "Draw the graph"], ans: 0, explain: "The result is given; you must show the working that leads to it." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "The modelling routine (0 → full marks)", pills: ["define", "translate", "solve", "interpret"], content: `<p><strong>0 marks:</strong> jumping straight to numbers with no defined variable and no units.</p><p><strong>Partial:</strong> a correct equation solved to a bare number, e.g. "\\( x = 6 \\)", with no context.</p><p><strong>Full marks:</strong> "Let \\( x \\) be the width in cm" → \\( x(x+2) = 48 \\) → \\( x = 6 \\) (reject \\( -8 \\)) → "the width is 6 cm, the length 8 cm". Define, translate, solve, interpret.</p>`, readCheck: { q: "What lifts a partial answer to full marks in a modelling question?", opts: ["Defining the variable and interpreting the answer in context with units", "Working faster", "Giving a decimal", "Using a graph"], ans: 0, explain: "The interpretation and definition steps carry marks beyond just solving." } },
+        { type: "tip", title: "Reject the impossible root", pills: ["reject", "negative", "context"], content: `<p>Every quadratic or cubic from a context can throw up a root that cannot happen — a negative length, a negative speed, a fractional person. Write the rejected root down and say <strong>why</strong>: "reject \\( x = -8 \\) as a width cannot be negative." Silently dropping it can still lose the reasoning mark.</p>`, readCheck: { q: "When you reject a root you should:", opts: ["State which root and why it is impossible", "Erase it with no comment", "Keep both roots anyway", "Round it to zero"], ans: 0, explain: "Examiners credit the explicit rejection with a reason." } },
+        { type: "explain", title: "Answer with a value AND units", pills: ["units", "in context", "name the quantity"], content: `<p>The final mark in a modelling question is often for the <strong>form of the answer</strong>. In 2023's boat question, "\\( r = 1 \\)" and even "\\( r = 1 \\) km/h" were marked wrong because \\( r \\) was a unitless variable — the answer needed was "the speed of the current is 1 km/h". Always name the quantity the question asked for and attach its units.</p>`, readCheck: { q: "Why did \"\\( r = 1 \\)\" lose the final mark in the 2023 boat question?", opts: ["It gave a bare value, not the speed with units in context", "The arithmetic was wrong", "\\( r = 1 \\) is not a root", "It used the wrong formula"], ans: 0, explain: "The question asked for the speed of the current, which must be stated as a value with units." } }
+    ];
+
+    const flashcards = [
+        { term: "Define the unknown", def: "State what your variable stands for, with units, before writing any equation." },
+        { term: "Modelling routine", def: "Define, translate, solve, interpret, reject invalid solutions." },
+        { term: "Inadmissible solution", def: "A root that cannot occur in context (e.g. a negative length); reject it." },
+        { term: "Linear equation", def: "Unknown to the power 1; rearrange in one step per line to solve." },
+        { term: "Quadratic in context", def: "Set up \\( ax^2 + bx + c = 0 \\), solve, and keep only physically valid roots." },
+        { term: "Cubic in context", def: "A degree-3 equation; find one root, factor out, then solve the quadratic." },
+        { term: "Simultaneous (linear + quadratic)", def: "Substitute the linear equation into the quadratic; solve; back-substitute." },
+        { term: "Substitution method", def: "Replace one variable using the linear equation to get a single equation." },
+        { term: "Consecutive integers", def: "Written \\( n,\\ n+1,\\ n+2, \\dots \\)" },
+        { term: "Reject a root", def: "Discard a solution the context forbids, and state the reason." },
+        { term: "Answer with units", def: "Give the final value in context with its units, e.g. 'speed = 1 km/h'." },
+        { term: "Back-substitution", def: "After finding one variable, substitute to find the matching value of the other." },
+        { term: "'Show that'", def: "The result is given; show every step until you reach the printed result." },
+        { term: "Difference of two fractions", def: "\\( \\frac{a}{p} - \\frac{a}{q} = \\frac{a(q - p)}{pq} \\)." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "16 (a)",
+            marks: 2,
+            type: "written",
+            caseId: "q16-2023",
+            question: `<p>Show that the time it takes me to drive up the river from \\( A \\) to \\( B \\) is \\( \\dfrac{9}{4 - r} \\) hours.</p>`,
+            hint: "Use time = distance ÷ speed. Against the current the boat's effective speed is \\( 4 - r \\).",
+            starter: "This is a 'show that' — no answer box; write the reasoning that reaches \\( \\dfrac{9}{4 - r} \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO2)</h5><ul>
+              <li><strong>B1</strong> — sight of the relationship \\( \\text{time} = \\dfrac{\\text{distance}}{\\text{speed}} \\) (must see evidence of the relationship).</li>
+              <li><strong>B1</strong> — reasoning that the upstream speed is \\( 4 - r \\), giving \\( \\dfrac{9}{4 - r} \\) (AG).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>One mark is for the distance–speed–time relationship, one for explaining the denominator \\( 4 - r \\). The printed result must be reached.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Candidates were able to provide a version of distance = speed × time, although some resorted to quoting one or other suvat equations. Few were able to explain the denominator satisfactorily.</li>
+            </ul></div>`,
+            modelAnswer: "The boat's speed against the current is \\( (4 - r) \\) km/h. Since time = distance ÷ speed and the distance is 9 km, the time up the river is \\( \\dfrac{9}{4 - r} \\) hours.",
+            markPoints: { note: "Award each mark for the step shown; the given result must be reached.", groups: [
+                { label: "B1 — distance ÷ speed relationship", max: 1, points: ["Used time = distance ÷ speed with distance = 9"] },
+                { label: "B1 — upstream speed \\( = 4 - r \\) (AG)", max: 1, points: ["Explained the effective speed is \\( 4 - r \\), reaching \\( \\dfrac{9}{4 - r} \\)"] }
+            ] }
+        },
+        {
+            num: "16 (b)",
+            marks: 1,
+            type: "written",
+            caseId: "q16-2023",
+            question: `<p>I also drive at maximum speed on my return journey down the river from \\( B \\) to \\( A \\).</p>
+            <p>Write down, in terms of \\( r \\), the time it takes me to drive down the river from \\( B \\) to \\( A \\).</p>`,
+            hint: "Going downstream, the current adds to the boat's speed.",
+            starter: "Give the time as a single fraction in \\( r \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1)</h5><ul>
+              <li><strong>B1</strong> — \\( \\dfrac{9}{4 + r} \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Downstream the effective speed is \\( 4 + r \\), so the time is \\( \\dfrac{9}{4 + r} \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>There was little difficulty in writing down the correct fraction.</li>
+            </ul></div>`,
+            modelAnswer: "Downstream the effective speed is \\( (4 + r) \\) km/h, so the time is \\( \\dfrac{9}{4 + r} \\) hours.",
+            markPoints: { note: "One mark for the correct fraction.", groups: [
+                { label: "B1 — downstream time", max: 1, points: ["\\( \\dfrac{9}{4 + r} \\)"] }
+            ] }
+        },
+        {
+            num: "16 (c)",
+            marks: 4,
+            type: "written",
+            caseId: "q16-2023",
+            question: `<p>Given that the difference between the time to drive up the river (a) and the time to drive down the river (b) is 1.2 hours, form an equation in \\( r \\) and show that it simplifies to \\( r^2 + 15r - 16 = 0 \\).</p>`,
+            hint: "Set (up-time) − (down-time) = 1.2, then multiply through by \\( (4 - r)(4 + r) \\) to clear the fractions.",
+            starter: "This is a 'show that' — clear the fractions and rearrange until \\( r^2 + 15r - 16 = 0 \\) appears.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO3)</h5><ul>
+              <li><strong>B1</strong> — sight of the difference of their two times, e.g. \\( \\dfrac{9}{4 - r} - \\dfrac{9}{4 + r} = 1.2 \\) (accept fractions either way round).</li>
+              <li><strong>M1</strong> — eliminate the fractions from the equation, leaving \\( r \\) only.</li>
+              <li><strong>A1</strong> — correct (unsimplified) equation, e.g. \\( 18r = 1.2(16 - r^2) \\).</li>
+              <li><strong>A1</strong> — reaches the given \\( r^2 + 15r - 16 = 0 \\) (AG www).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Mark for the difference of times, for clearing fractions, for a correct unsimplified equation, and for the printed result with no wrong working.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most identified the need to subtract the two fractions, although there were many who gave the subtraction the wrong way round. To achieve the given answer the difference in times had to be the correct way round. Once the equation with the fractions was established, the elimination of the fractions was generally well attempted.</li>
+            </ul></div>`,
+            modelAnswer: "\\( \\dfrac{9}{4 - r} - \\dfrac{9}{4 + r} = 1.2 \\). Multiplying by \\( (4 - r)(4 + r) \\): \\( 9(4 + r) - 9(4 - r) = 1.2(16 - r^2) \\), so \\( 18r = 19.2 - 1.2r^2 \\). Rearranging, \\( 1.2r^2 + 18r - 19.2 = 0 \\); dividing by 1.2 gives \\( r^2 + 15r - 16 = 0 \\).",
+            markPoints: { note: "Award each mark for the step shown; the given result must be reached with no wrong working.", groups: [
+                { label: "B1 — difference of times", max: 1, points: ["Wrote \\( \\dfrac{9}{4 - r} - \\dfrac{9}{4 + r} = 1.2 \\) (either way round)"] },
+                { label: "M1 — clear the fractions", max: 1, points: ["Multiplied through by \\( (4 - r)(4 + r) \\) to remove the fractions"] },
+                { label: "A1 — correct unsimplified equation", max: 1, points: ["Reached \\( 18r = 1.2(16 - r^2) \\) oe"] },
+                { label: "A1 — the given result (AG www)", max: 1, points: ["Simplified to \\( r^2 + 15r - 16 = 0 \\)"] }
+            ] }
+        },
+        {
+            num: "16 (d)",
+            marks: 3,
+            type: "written",
+            caseId: "q16-2023",
+            question: `<p>Hence find the speed of the current down the river.</p>`,
+            hint: "Solve \\( r^2 + 15r - 16 = 0 \\) by factorising, then reject the impossible root and give a value with units.",
+            starter: "State the speed of the current as a value with units.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO3)</h5><ul>
+              <li><strong>M1</strong> — factorisation by sight of \\( (r - 1)(r + 16) = 0 \\) (soi); if by formula, correct substitutions into the correct formula, allowing one sign error.</li>
+              <li><strong>A1</strong> — \\( r = 1 \\) (possibly also stating \\( r = -16 \\)).</li>
+              <li><strong>A1</strong> — speed of the current is 1 km h⁻¹ (the value in context, with units).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Mark for a valid solution method, for the value \\( r = 1 \\), and for the answer stated as a speed with units in context.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>The equation was generally correctly solved. However, many lost the last mark for failing to give the units for the speed of the current, either correctly or at all. The question asked for the speed of the current. \\( r = 1 \\) was therefore not the complete answer. \\( r = 1 \\) km/hr was also incorrect as \\( r \\) is a variable with no units. The complete answer of 'speed = 1 km/hr' was not always seen.</li>
+            </ul></div>`,
+            modelAnswer: "\\( r^2 + 15r - 16 = (r - 1)(r + 16) = 0 \\), so \\( r = 1 \\) or \\( r = -16 \\). A speed cannot be negative, so reject \\( r = -16 \\). The speed of the current is 1 km/h.",
+            markPoints: { note: "The final mark needs the answer as a speed with units, not a bare value of \\( r \\).", groups: [
+                { label: "M1 — solve the quadratic", max: 1, points: ["Factorised \\( (r - 1)(r + 16) = 0 \\) (or correct use of the formula)"] },
+                { label: "A1 — the value \\( r = 1 \\)", max: 1, points: ["\\( r = 1 \\) (rejecting \\( r = -16 \\))"] },
+                { label: "A1 — value with units in context", max: 1, points: ["Stated: the speed of the current is 1 km/h"] }
+            ] }
+        }
+    ];
+</script>
+    <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
+    <script src="/vendor/katex/katex.min.js"></script>
+    <script src="/vendor/katex/contrib/auto-render.min.js"></script>
+    <script src="/math-render.js"></script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

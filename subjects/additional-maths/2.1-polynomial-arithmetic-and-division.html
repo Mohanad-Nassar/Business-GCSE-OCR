@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.1 Polynomial Arithmetic and Division – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 2. Polynomials and Equations</div>
+            <h1>2.1 Polynomial Arithmetic and Division</h1>
+            <p>Interactive revision guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.1 Polynomial Arithmetic and Division (AL3 — incl. algebraic long division)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  doubled in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Exam Q = 2023 Q3.
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-1-polynomial-arithmetic-and-division',
+            badge: 'OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 2. Polynomials and Equations',
+            title: '2.1 Polynomial Arithmetic and Division',
+            subtitle: 'Interactive revision guide',
+            subject: 'additional-maths',
+        };
+
+    const topics = [
+        {
+            title: "What is a polynomial, and what do we call its parts?",
+            tag: "Key concept",
+            content: `<p>A <strong>polynomial</strong> is a sum of terms of the form \\( a x^n \\), where the powers \\( n \\) are whole numbers \\( (0, 1, 2, 3, \\dots) \\). For example \\( 2x^3 - 5x^2 + x - 4 \\) is a polynomial; \\( \\dfrac{1}{x} \\) and \\( \\sqrt{x} \\) are <em>not</em> (their powers are \\( -1 \\) and \\( \\tfrac{1}{2} \\)).</p>
+            <ul>
+              <li>The <strong>degree</strong> is the highest power of \\( x \\). \\( 2x^3 - 5x^2 + x - 4 \\) has degree 3 (a <em>cubic</em>); degree 2 is a <em>quadratic</em>, degree 1 is <em>linear</em>.</li>
+              <li>A <strong>coefficient</strong> is the number multiplying a power of \\( x \\) — here the coefficient of \\( x^2 \\) is \\( -5 \\).</li>
+              <li>The number on its own (\\( -4 \\)) is the <strong>constant term</strong>.</li>
+              <li>Write polynomials in <strong>descending order</strong> — highest power first — so the arithmetic lines up neatly.</li>
+              <li>Only <strong>like terms</strong> (same power of \\( x \\)) can be combined: \\( 3x^2 \\) and \\( 5x^2 \\) add to \\( 8x^2 \\), but \\( 3x^2 \\) and \\( 5x \\) stay apart.</li>
+            </ul>`,
+            readCheck: { q: "What is the degree of \\( 4x^5 - 2x^2 + 7 \\)?", opts: ["5", "4", "2", "7"], ans: 0, explain: "The degree is the highest power of \\( x \\), which is \\( 5 \\). The constant \\( 7 \\) has power \\( 0 \\)." }
+        },
+        {
+            title: "How do you add and subtract polynomials?",
+            tag: "Worked example",
+            content: `<p>Collect <strong>like terms</strong> — line up equal powers of \\( x \\) and combine their coefficients. For <strong>subtraction</strong>, the single biggest trap is the minus sign: it must be applied to <em>every</em> term in the second bracket.</p>
+            <p><strong>Worked example — \\( (5x^2 - 3x + 2) - (2x^2 + x - 4) \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Change the sign of every term in the second bracket: \\( +2x^2 \\to -2x^2 \\), \\( +x \\to -x \\), \\( -4 \\to +4 \\).</td></tr>
+              <tr><td>2. So it becomes \\( 5x^2 - 3x + 2 - 2x^2 - x + 4 \\).</td></tr>
+              <tr><td>3. Combine like terms: \\( (5-2)x^2 + (-3-1)x + (2+4) \\).</td></tr>
+              <tr><td>4. Result: \\[ 3x^2 - 4x + 6. \\]</td></tr>
+            </table>
+            <p>Notice the last term: \\( 2 - (-4) = 2 + 4 = 6 \\). Missing the double negative here is the most common slip.</p>`,
+            readCheck: { q: "\\( (3x^2 - x + 2) - (x^2 + 4x - 5) = ? \\)", opts: ["\\( 2x^2 - 5x + 7 \\)", "\\( 2x^2 + 3x + 7 \\)", "\\( 2x^2 - 5x - 3 \\)", "\\( 4x^2 - 5x + 7 \\)"], ans: 0, explain: "Change every sign in the second bracket: \\( 3x^2 - x + 2 - x^2 - 4x + 5 = 2x^2 - 5x + 7 \\)." }
+        },
+        {
+            title: "How do you multiply polynomials?",
+            tag: "Worked example",
+            content: `<p>Multiply <strong>every</strong> term in the first bracket by every term in the second, then collect like terms. The degree of the product is the sum of the two degrees (a cubic times a quadratic gives degree \\( 3+2 = 5 \\)).</p>
+            <p><strong>Worked example — \\( (x - 3)(x^2 + 2x - 1) \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. \\( x \\times (x^2 + 2x - 1) = x^3 + 2x^2 - x \\).</td></tr>
+              <tr><td>2. \\( -3 \\times (x^2 + 2x - 1) = -3x^2 - 6x + 3 \\).</td></tr>
+              <tr><td>3. Add the two rows, lining up like terms: \\( x^3 + (2-3)x^2 + (-1-6)x + 3 \\).</td></tr>
+              <tr><td>4. Result: \\[ x^3 - x^2 - 7x + 3. \\]</td></tr>
+            </table>
+            <p>A useful special case to recognise instantly is the <strong>difference of two squares</strong>: \\( (x+a)(x-a) = x^2 - a^2 \\).</p>`,
+            readCheck: { q: "\\( (x - 5)(x + 2) = ? \\)", opts: ["\\( x^2 - 3x - 10 \\)", "\\( x^2 + 7x - 10 \\)", "\\( x^2 - 3x + 10 \\)", "\\( x^2 - 10 \\)"], ans: 0, explain: "\\( x^2 + 2x - 5x - 10 = x^2 - 3x - 10 \\). The middle term comes from \\( 2x - 5x \\)." }
+        },
+        {
+            title: "How do you divide polynomials by long division?",
+            tag: "Method",
+            content: `<p><strong>Polynomial (algebraic) long division</strong> works exactly like the long division of numbers. At each step you divide the leading terms, multiply back, and subtract to get a new, smaller polynomial. You stop when what is left has a <em>lower degree than the divisor</em> — that leftover is the <strong>remainder</strong>, and the terms you built up on top form the <strong>quotient</strong>.</p>
+            <p><strong>Worked example — divide \\( x^3 + 2x^2 - 5x + 8 \\) by \\( x + 3 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. \\( x^3 \\div x = x^2 \\). Multiply: \\( x^2(x+3) = x^3 + 3x^2 \\). Subtract: \\( (x^3 + 2x^2) - (x^3 + 3x^2) = -x^2 \\). Bring down \\( -5x \\).</td></tr>
+              <tr><td>2. \\( -x^2 \\div x = -x \\). Multiply: \\( -x(x+3) = -x^2 - 3x \\). Subtract: \\( (-x^2 - 5x) - (-x^2 - 3x) = -2x \\). Bring down \\( +8 \\).</td></tr>
+              <tr><td>3. \\( -2x \\div x = -2 \\). Multiply: \\( -2(x+3) = -2x - 6 \\). Subtract: \\( (-2x + 8) - (-2x - 6) = 14 \\).</td></tr>
+              <tr><td>4. Nothing is left to bring down and \\( 14 \\) has lower degree than \\( x+3 \\), so we stop.</td></tr>
+            </table>
+            <p>So the <strong>quotient is \\( x^2 - x - 2 \\)</strong> and the <strong>remainder is \\( 14 \\)</strong>. In one line: \\[ x^3 + 2x^2 - 5x + 8 = (x+3)(x^2 - x - 2) + 14. \\] Check by expanding the right-hand side — it returns the original. If a power is missing from the dividend (say no \\( x^2 \\) term), write it in as \\( 0x^2 \\) so your columns stay lined up.</p>`,
+            readCheck: { q: "When \\( 2x^3 - x^2 - 7x + 6 \\) is divided by \\( x - 1 \\), what is the remainder?", opts: ["\\( 0 \\)", "\\( 6 \\)", "\\( -6 \\)", "\\( 2 \\)"], ans: 0, explain: "The division is exact: \\( 2x^3 - x^2 - 7x + 6 = (x-1)(2x^2 + x - 6) \\), so the remainder is \\( 0 \\) — which means \\( x - 1 \\) is a factor." }
+        },
+        {
+            title: "How do you divide by equating coefficients instead?",
+            tag: "Method",
+            content: `<p>There is a neat alternative to the long-division layout: write down the answer in the form <em>dividend</em> \\( = \\) (<em>divisor</em>)(<em>quotient</em>) \\( + \\) <em>remainder</em> with unknown letters, then <strong>equate coefficients</strong> to pin the letters down. For a cubic divided by a linear divisor the quotient is a quadratic \\( x^2 + bx + c \\) and the remainder is a single number \\( d \\).</p>
+            <p><strong>Worked example — same division, \\( x^3 + 2x^2 - 5x + 8 \\) by \\( x + 3 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Write \\( x^3 + 2x^2 - 5x + 8 = (x+3)(x^2 + bx + c) + d \\).</td></tr>
+              <tr><td>2. Expand the right: \\( x^3 + (b+3)x^2 + (c+3b)x + (3c + d) \\).</td></tr>
+              <tr><td>3. Compare \\( x^2 \\): \\( b + 3 = 2 \\Rightarrow b = -1 \\). Compare \\( x \\): \\( c + 3b = -5 \\Rightarrow c = -2 \\).</td></tr>
+              <tr><td>4. Compare constants: \\( 3c + d = 8 \\Rightarrow -6 + d = 8 \\Rightarrow d = 14 \\).</td></tr>
+            </table>
+            <p>This gives quotient \\( x^2 - x - 2 \\) and remainder \\( 14 \\) — exactly as long division did. Use whichever method you prefer, but be ready to <strong>use long division when a question specifically asks for it</strong>.</p>`,
+            readCheck: { q: "In \\( x^3 + 2x^2 - 5x + 8 = (x+3)(x^2 + bx + c) + d \\), what is \\( b \\)?", opts: ["\\( -1 \\)", "\\( 2 \\)", "\\( -2 \\)", "\\( 1 \\)"], ans: 0, explain: "Comparing the \\( x^2 \\) coefficients: \\( b + 3 = 2 \\), so \\( b = -1 \\)." }
+        },
+        {
+            title: "How should you state the quotient and the remainder?",
+            tag: "Exam skill",
+            content: `<p>This is the mark that examiners report is most often thrown away. After a correct division you must <strong>state the quotient AND the remainder, both clearly labelled</strong>. Two traps to avoid:</p>
+            <ul>
+              <li><strong>Not identifying the quotient.</strong> Doing the working but never writing "Quotient = …" leaves the final mark unearned. If the answer box says <em>Quotient =</em> and <em>Remainder =</em>, fill in both.</li>
+              <li><strong>Giving the remainder as a fraction.</strong> The remainder is a <em>number</em> (more generally, a polynomial of lower degree than the divisor). Dividing \\( x^3 + 2x^2 - 5x + 8 \\) by \\( x+3 \\) can be written \\[ x^2 - x - 2 + \\frac{14}{x+3}, \\] but the <strong>remainder is \\( 14 \\)</strong>, not \\( \\frac{14}{x+3} \\).</li>
+            </ul>
+            <p>A remainder of \\( 0 \\) is special: it means the divisor is a <strong>factor</strong>, which links straight to the factor theorem in the next lesson.</p>`,
+            readCheck: { q: "The remainder when a cubic is divided by \\( x - a \\) is always:", opts: ["a constant (a single number)", "a linear expression in \\( x \\)", "a fraction with \\( x - a \\) on the bottom", "equal to zero"], ans: 0, explain: "The remainder must have lower degree than the divisor \\( x - a \\) (degree 1), so it is a degree-0 constant. It is only ever \\( 0 \\) when \\( x - a \\) is a factor." }
+        }
+    ];
+
+    const mcqData = [
+        { q: "Add: \\( (3x^2 + 2x - 5) + (x^2 - 4x + 1) \\).", opts: ["\\( 4x^2 - 2x - 4 \\)", "\\( 4x^2 + 6x - 4 \\)", "\\( 4x^2 - 2x - 5 \\)", "\\( 4x^4 - 2x - 4 \\)"], ans: 0, explain: "Collect like terms: \\( (3+1)x^2 + (2-4)x + (-5+1) = 4x^2 - 2x - 4 \\). Powers are not added when combining terms." },
+        { q: "Subtract: \\( (5x^2 - 3x + 2) - (2x^2 + x - 4) \\).", opts: ["\\( 3x^2 - 4x + 6 \\)", "\\( 3x^2 - 4x - 2 \\)", "\\( 3x^2 - 2x - 2 \\)", "\\( 3x^2 - 2x + 6 \\)"], ans: 0, explain: "Change every sign in the second bracket: \\( 5x^2 - 3x + 2 - 2x^2 - x + 4 = 3x^2 - 4x + 6 \\). Note \\( 2 - (-4) = 6 \\)." },
+        { q: "Expand: \\( (x + 4)(x - 2) \\).", opts: ["\\( x^2 + 2x - 8 \\)", "\\( x^2 + 6x - 8 \\)", "\\( x^2 - 8 \\)", "\\( x^2 + 2x + 8 \\)"], ans: 0, explain: "\\( x^2 - 2x + 4x - 8 = x^2 + 2x - 8 \\). The middle term is \\( -2x + 4x = 2x \\)." },
+        { q: "Expand: \\( (x - 3)(x^2 + 2x - 1) \\).", opts: ["\\( x^3 - x^2 - 7x + 3 \\)", "\\( x^3 + 5x^2 - 7x + 3 \\)", "\\( x^3 - x^2 - 7x - 3 \\)", "\\( x^3 - x^2 + 5x + 3 \\)"], ans: 0, explain: "\\( x(x^2+2x-1) = x^3+2x^2-x \\) and \\( -3(x^2+2x-1) = -3x^2-6x+3 \\); adding gives \\( x^3 - x^2 - 7x + 3 \\)." },
+        { q: "What is the degree of the product \\( (2x^3 - 5)(x^2 + x) \\)?", opts: ["5", "6", "3", "2"], ans: 0, explain: "The degree of a product is the sum of the degrees: \\( 3 + 2 = 5 \\)." },
+        { q: "Divide \\( x^3 - 3x^2 - x - 3 \\) by \\( x - 3 \\). What is the quotient?", opts: ["\\( x^2 - 1 \\)", "\\( x^2 - x - 4 \\)", "\\( x^2 - 6 \\)", "\\( x^2 + 1 \\)"], ans: 0, explain: "After the first step the working has no \\( x^2 \\) term left, so the quotient's \\( x \\) coefficient is \\( 0 \\): quotient \\( = x^2 - 1 \\), remainder \\( -6 \\). Check: \\( (x-3)(x^2-1) - 6 = x^3 - 3x^2 - x - 3 \\)." },
+        { q: "Dividing \\( x^3 - 3x^2 - x - 3 \\) by \\( x - 3 \\) leaves what remainder?", opts: ["\\( -6 \\)", "\\( 6 \\)", "\\( \\frac{-6}{x-3} \\)", "\\( 0 \\)"], ans: 0, explain: "The remainder is the constant left at the end, \\( -6 \\). \\( \\frac{-6}{x-3} \\) is the fractional part of the full answer, not the remainder." },
+        { q: "When you divide \\( x^3 + 4x^2 + x + 2 \\) by \\( x + 2 \\), what is the first term of the quotient?", opts: ["\\( x^2 \\)", "\\( x^3 \\)", "\\( x \\)", "\\( 2x^2 \\)"], ans: 0, explain: "Divide the leading terms: \\( x^3 \\div x = x^2 \\). That is always the first step of polynomial long division." },
+        { q: "A polynomial is divided by \\( x - a \\) and the remainder is \\( 0 \\). What does this tell you?", opts: ["\\( x - a \\) is a factor of the polynomial", "The polynomial is linear", "The quotient is also \\( 0 \\)", "You made an arithmetic mistake"], ans: 0, explain: "A remainder of \\( 0 \\) means the division is exact, so \\( x - a \\) divides the polynomial exactly — it is a factor." },
+        { q: "It is given that \\( x^3 + 4x^2 + x - 6 = (x + 2)(x^2 + ax + b) \\). Find \\( a \\).", opts: ["\\( 2 \\)", "\\( 4 \\)", "\\( -2 \\)", "\\( 6 \\)"], ans: 0, explain: "Comparing \\( x^2 \\) terms in the expansion \\( (x+2)(x^2+ax+b) = x^3 + (a+2)x^2 + \\dots \\): \\( a + 2 = 4 \\Rightarrow a = 2 \\) (the quotient is \\( x^2 + 2x - 3 \\))." },
+        { q: "To divide \\( 2x^3 - 5x + 1 \\) by \\( x - 1 \\), what should you do about the missing \\( x^2 \\) term?", opts: ["Write it in as \\( 0x^2 \\) to keep the columns lined up", "Ignore it — a missing term has no effect", "Add it to the constant term", "Move the \\( -5x \\) up into its place"], ans: 0, explain: "Insert a \\( 0x^2 \\) placeholder so every power has a column; otherwise the subtractions misalign and errors creep in." }
+    ];
+
+    const matchData = [
+        { term: "Degree of a polynomial", def: "The highest power of the variable" },
+        { term: "Coefficient", def: "The number multiplying a power of \\( x \\)" },
+        { term: "Quotient", def: "The result of the division (the part on top)" },
+        { term: "Remainder", def: "What is left over, of lower degree than the divisor" },
+        { term: "Divisor", def: "The polynomial you are dividing by" },
+        { term: "\\( (x + 3)(x - 3) \\)", def: "\\( x^2 - 9 \\)" },
+        { term: "\\( (x + 1)(x^2 + 2x + 3) \\)", def: "\\( x^3 + 3x^2 + 5x + 3 \\)" },
+        { term: "\\( (2x^2 - x + 4) + (x^2 + 3x - 1) \\)", def: "\\( 3x^2 + 2x + 3 \\)" },
+        { term: "\\( (5x^2 + 2x) - (2x^2 - x) \\)", def: "\\( 3x^2 + 3x \\)" },
+        { term: "Remainder \\( 0 \\) on dividing by \\( x - a \\)", def: "\\( x - a \\) is a factor" },
+        { term: "Descending order", def: "Powers written from highest to lowest" },
+        { term: "Degree of \\( (x^2 + 1)(x^3 - x) \\)", def: "\\( 5 \\)" }
+    ];
+
+    // NOTE: FIB blanks (___B1___) sit in PLAIN TEXT, never inside a \( \) region
+    // (ADDMATHS-CONTENT-PLAN.md §8.4 Rule 3b). Answer VALUES are plain text/number.
+    const fibData = [
+        { display: "A polynomial written with its powers going from highest to lowest is in ___B1___ order.", blanks: { B1: "descending" } },
+        { display: "The ___B1___ of a polynomial is the highest power of the variable, and the number multiplying a power of \\( x \\) is its ___B2___.", blanks: { B1: "degree", B2: "coefficient" } },
+        { display: "To subtract one polynomial from another you must change the ___B1___ of every term in the second bracket.", blanks: { B1: "sign" } },
+        { display: "In long division the expression built up on top is the ___B1___ and the value left over at the end is the ___B2___.", blanks: { B1: "quotient", B2: "remainder" } },
+        { display: "When \\( x^3 + 2x^2 - 5x + 8 \\) is divided by \\( x + 3 \\), the quotient is \\( x^2 - x - 2 \\) and the remainder is ___B1___.", blanks: { B1: "14" } },
+        { display: "When a polynomial is divided by \\( x - a \\) and the remainder is ___B1___, then \\( x - a \\) is a factor.", blanks: { B1: "zero" } },
+        { display: "When dividing, insert a ___B1___ (a term with coefficient 0) for any missing power so the columns stay lined up.", blanks: { B1: "placeholder" } }
+    ];
+
+    const fibWords = ["descending", "ascending", "degree", "coefficient", "sign", "quotient", "remainder", "dividend", "14", "zero", "placeholder", "factor", "constant", "term"];
+
+    const tfData = [
+        { statement: "The degree of a polynomial is the highest power of its variable.", answer: true, explanation: "Correct — e.g. \\( 4x^5 - 2x^2 + 7 \\) has degree \\( 5 \\)." },
+        { statement: "\\( (x + 2)(x - 2) = x^2 - 4 \\).", answer: true, explanation: "This is the difference of two squares: \\( (x+a)(x-a) = x^2 - a^2 \\), here \\( a = 2 \\)." },
+        { statement: "When subtracting polynomials you only change the sign of the first term of the second bracket.", answer: false, explanation: "You must change the sign of EVERY term in the second bracket, not just the first." },
+        { statement: "The remainder from a polynomial division can be written as a fraction and still counts as the remainder.", answer: false, explanation: "The remainder is a number (of lower degree than the divisor). \\( \\frac{14}{x+3} \\) is the fractional part of the answer, not the remainder \\( 14 \\)." },
+        { statement: "In \\( x^3 + 2x^2 - 5x + 8 = (x + 3)(x^2 - x - 2) + 14 \\), the number \\( 14 \\) is the remainder.", answer: true, explanation: "Written as (divisor)(quotient) + remainder, the constant \\( 14 \\) is exactly the remainder." },
+        { statement: "Dividing a degree-3 polynomial by a degree-1 polynomial gives a quotient of degree 2.", answer: true, explanation: "Degrees subtract: \\( 3 - 1 = 2 \\), so the quotient is a quadratic." },
+        { statement: "If a polynomial divides by \\( x - a \\) with remainder \\( 0 \\), then \\( x - a \\) is a factor.", answer: true, explanation: "Remainder \\( 0 \\) means the division is exact, which is the definition of a factor." },
+        { statement: "Adding \\( x^2 \\) and \\( x^3 \\) gives \\( x^5 \\).", answer: false, explanation: "They are unlike terms, so they stay as \\( x^3 + x^2 \\). You only add indices when you MULTIPLY: \\( x^2 \\times x^3 = x^5 \\)." }
+    ];
+
+    const miscData = [
+        { wrong: "\\( (4x^2 - 2x + 3) - (x^2 - 5x + 1) = 3x^2 - 7x + 2 \\)", correct: "The minus applies to EVERY term in the second bracket. A weak answer only negates the first term; a strong answer writes \\( 4x^2 - 2x + 3 - x^2 + 5x - 1 = 3x^2 + 3x + 2 \\).", readCheck: { q: "\\( (4x^2 - 2x + 3) - (x^2 - 5x + 1) = ? \\)", opts: ["\\( 3x^2 + 3x + 2 \\)", "\\( 3x^2 - 7x + 2 \\)", "\\( 3x^2 + 3x + 4 \\)", "\\( 3x^2 - 7x + 4 \\)"], ans: 0, explain: "Negate all three: \\( -x^2 + 5x - 1 \\), then collect: \\( 3x^2 + 3x + 2 \\)." } },
+        { wrong: "The remainder when \\( x^3 - 3x^2 - x - 3 \\) is divided by \\( x - 3 \\) is \\( \\frac{-6}{x-3} \\)", correct: "The remainder is the constant \\( -6 \\). A weak answer leaves it as a fraction; a strong answer states 'Remainder \\( = -6 \\)'. The \\( \\frac{-6}{x-3} \\) is only the fractional part of the full quotient-plus-fraction form.", readCheck: { q: "What is the remainder here?", opts: ["\\( -6 \\)", "\\( \\frac{-6}{x-3} \\)", "\\( 6 \\)", "\\( x^2 - 1 \\)"], ans: 0, explain: "A remainder is a number of lower degree than the divisor — here \\( -6 \\)." } },
+        { wrong: "Doing the long division correctly but writing no 'Quotient =' or 'Remainder =' answer", correct: "The final mark is for IDENTIFYING both results. A weak answer stops after the working; a strong answer states the quotient AND the remainder explicitly, filling in both answer lines.", readCheck: { q: "After a correct division you must always:", opts: ["State the quotient AND the remainder clearly", "State only the quotient", "State only the remainder", "Leave the examiner to read your working"], ans: 0, explain: "The 2023 examiners noted many lost the last mark by not identifying the quotient (or by giving the remainder as a fraction)." } },
+        { wrong: "Dividing \\( 2x^3 - 5x + 1 \\) by \\( x - 1 \\) without a place for the missing \\( x^2 \\) term", correct: "Insert a \\( 0x^2 \\) placeholder. A weak answer mis-aligns the columns and makes subtraction slips; a strong answer writes \\( 2x^3 + 0x^2 - 5x + 1 \\) so every power lines up.", readCheck: { q: "How do you handle a missing \\( x^2 \\) term in the dividend?", opts: ["Write it as \\( 0x^2 \\) to keep columns aligned", "Skip that column entirely", "Add it to the \\( -5x \\)", "Move the constant up"], ans: 0, explain: "A \\( 0x^2 \\) placeholder keeps the long-division columns aligned." } },
+        { wrong: "\\( x^2 + x^3 = x^5 \\)", correct: "These are unlike terms and cannot be combined; the answer is just \\( x^3 + x^2 \\). A weak answer adds the indices; a strong answer only adds indices when MULTIPLYING, e.g. \\( x^2 \\times x^3 = x^5 \\).", readCheck: { q: "Simplify \\( x^2 + x^3 \\).", opts: ["\\( x^3 + x^2 \\)", "\\( x^5 \\)", "\\( 2x^5 \\)", "\\( x^6 \\)"], ans: 0, explain: "Unlike terms stay separate; indices add only under multiplication." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "State the quotient AND the remainder", pills: ["quotient", "remainder", "state both"], content: `<p>The 2023 examiners reported that candidates who divided correctly still lost the final mark by <strong>not identifying the quotient</strong>, or by <strong>giving the remainder as a fraction</strong>.</p><p><strong>0 marks lost:</strong> a page of correct working but no stated answer, or "remainder \\( = \\frac{-6}{x-3} \\)".</p><p><strong>Full marks:</strong> "Quotient \\( = x^2 + 2x + 3 \\), Remainder \\( = -6 \\)" — both labelled, the remainder a number.</p>`, readCheck: { q: "How do you secure the final mark on a long-division question?", opts: ["Label both the quotient and the remainder (a number)", "Show working only", "Give the remainder as a fraction", "Give only the quotient"], ans: 0, explain: "Both results must be stated, and the remainder must be a number, not a fraction." } },
+        { type: "tip", title: "Show every step (method marks)", pills: ["long division", "M mark", "working"], content: `<p>On a "use long division" question the method mark (M1) needs your working to be <strong>visible</strong>: the \\( x^2 \\) term of the quotient and the \\( x^3 + x^2 \\) line of the multiplication must be seen. Write each subtraction on its own line so a single slip costs one mark, not all three.</p>`, readCheck: { q: "Why write out each subtraction line in long division?", opts: ["So the method mark is earned even if a later step slips", "To use more paper", "It is optional decoration", "To avoid using a calculator"], ans: 0, explain: "Visible correct steps earn the M mark independently of the final answer." } },
+        { type: "explain", title: "'Use long division' means show that method", pills: ["command word", "method"], content: `<p>If a question says <em>"use long division"</em>, the equate-coefficients shortcut may not earn the method mark even with the right answer. Match the method the command word names. When no method is specified, use whichever you are faster and safer with.</p>`, readCheck: { q: "A question says 'use long division'. You should:", opts: ["Carry out and show the long-division method", "Use equating coefficients instead", "Just write the answer", "Use a calculator to factorise"], ans: 0, explain: "Follow the named method so the method marks are available to you." } }
+    ];
+
+    const flashcards = [
+        { term: "Polynomial", def: "A sum of terms \\( a x^n \\) with whole-number powers \\( n \\)." },
+        { term: "Degree", def: "The highest power of the variable in the polynomial." },
+        { term: "Coefficient", def: "The number multiplying a power of \\( x \\)." },
+        { term: "Constant term", def: "The term with no \\( x \\) (power \\( 0 \\))." },
+        { term: "Like terms", def: "Terms with the same power of \\( x \\); only these can be combined." },
+        { term: "Descending order", def: "Writing a polynomial from the highest power down." },
+        { term: "Dividend", def: "The polynomial being divided." },
+        { term: "Divisor", def: "The polynomial you divide by." },
+        { term: "Quotient", def: "The result of a division, before the remainder." },
+        { term: "Remainder", def: "What is left over; lower degree than the divisor (a number for a linear divisor)." },
+        { term: "Long division", def: "Divide leading terms, multiply back, subtract, repeat." },
+        { term: "Equating coefficients", def: "Write dividend = (divisor)(quotient) + remainder and match coefficients." },
+        { term: "Difference of two squares", def: "\\( (x+a)(x-a) = x^2 - a^2 \\)." },
+        { term: "Placeholder term", def: "A \\( 0x^n \\) written in for a missing power to keep columns aligned." },
+        { term: "Factor (remainder 0)", def: "If \\( x - a \\) divides exactly, it is a factor of the polynomial." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "3",
+            marks: 3,
+            type: "written",
+            question: `<p>Use long division to find the quotient and the remainder when \\( x^3 + 3x^2 + 5x - 3 \\) is divided by \\( x + 1 \\).</p>`,
+            hint: "Divide term by term; the remainder is the constant left at the end. State the quotient and the remainder separately, and do not leave the remainder as a fraction.",
+            starter: "State your answer as: Quotient \\( = \\dots \\) and Remainder \\( = \\dots \\) (a number).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — sight of the correct process: the \\( x^2 \\) term in the quotient and the \\( x^3 + x^2 \\) line in the working must be seen.</li>
+              <li><strong>A1</strong> — fully correct division (working correct down to the remainder).</li>
+              <li><strong>A1</strong> — remainder and quotient correctly identified: Quotient \\( = x^2 + 2x + 3 \\), Remainder \\( = -6 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The three marks are for starting the division correctly, completing it without error, and then clearly stating both the quotient and the remainder.</li>
+              <li>The remainder must be given as the number \\( -6 \\), not as \\( \\frac{-6}{x+1} \\). (N.B. the answer may be written at the bottom of the working.)</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Candidates who used the traditional long-division technique were generally successful, but a significant proportion then did not identify the quotient, while others gave the remainder as a fraction.</li>
+            </ul></div>`,
+            modelAnswer: "Long division gives \\( x^3 + 3x^2 + 5x - 3 = (x+1)(x^2 + 2x + 3) - 6 \\). So Quotient \\( = x^2 + 2x + 3 \\) and Remainder \\( = -6 \\).",
+            markPoints: { note: "Award each mark for the step shown; the A marks need the M step.", groups: [
+                { label: "M1 — correct process started", max: 1, points: ["\\( x^2 \\) obtained as the first quotient term and \\( x^3 + x^2 \\) seen in the working"] },
+                { label: "A1 — fully correct division", max: 1, points: ["Division completed correctly down to the constant \\( -6 \\)"] },
+                { label: "A1 — both results identified", max: 1, points: ["Quotient \\( = x^2 + 2x + 3 \\) AND Remainder \\( = -6 \\) stated (remainder a number, not a fraction)"] }
+            ] }
+        }
+    ];
+</script>
+    <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
+    <script src="/vendor/katex/katex.min.js"></script>
+    <script src="/vendor/katex/contrib/auto-render.min.js"></script>
+    <script src="/math-render.js"></script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

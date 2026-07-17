@@ -1698,6 +1698,7 @@ function applyMCQAnswered(block, qi, chosenOi) {
         fb.textContent = '✗ ' + mcqData[qi].explain;
         fb.className = 'q-feedback show no';
     }
+    if (typeof renderMathIn === 'function') renderMathIn(fb);
 }
 
 // Dispatcher: server-graded mode (Architecture P1 — answers never reach the
@@ -2306,6 +2307,7 @@ function buildMatchRound(round) {
 
     left.addEventListener('click', handleMatch);
     right.addEventListener('click', handleMatch);
+    if (typeof renderMathIn === 'function') { renderMathIn(left); renderMathIn(right); }
 
     // Clear any leftover lines from a previous round, then (re)install the
     // redraw hooks and draw for whatever is matched now (restored pairs
@@ -3227,6 +3229,7 @@ function buildFIB() {
             });
         }
     });
+    if (typeof renderMathIn === 'function') renderMathIn(wrap);
     if (!isAdvancedFIB && !wrap.dataset.listenerAttached) {
         wrap.addEventListener('change', e => {
             const sel = e.target; if (sel.tagName !== 'SELECT') return;
@@ -3389,6 +3392,10 @@ function renderFC() {
     const fc = activeDeck[fcIndex];
     termEl.textContent = fc.term;
     document.getElementById('fcDef').textContent = fc.def;
+    if (typeof renderMathIn === 'function') {
+        renderMathIn(termEl);
+        renderMathIn(document.getElementById('fcDef'));
+    }
     document.getElementById('fcProgress').textContent = `Card ${fcIndex + 1} of ${activeDeck.length}`;
     document.getElementById('flashcard').classList.remove('flipped');
     document.getElementById('fcNavDefault').style.display = 'flex';
@@ -3918,6 +3925,42 @@ function buildTips() {
 
 
 // ── BUILD EXAM PRACTICE ──
+// ── CS exam-widget seam (CS-CONTENT-PLAN.md §7.3) ──
+// CS pages load /cs-lab/exam-widgets*.js, which defines window.CsExamWidgets
+// (a registry of paper-style answer widgets: ruled lines, fillable tables,
+// tick grids, cloze, truth/trace tables, code boxes…). When present, non-MCQ
+// exam questions delegate their answer UI + marking to it, keyed off the
+// question's `format` hint ('lines' when absent). On Business/Economics pages
+// the registry never exists, so behaviour there is byte-for-byte unchanged.
+const _epWidgetHandles = {};
+function _epUseWidget(q) {
+    return q.type !== 'mcq' && typeof window.CsExamWidgets !== 'undefined' &&
+        window.CsExamWidgets.supports && window.CsExamWidgets.supports(q.format || 'lines');
+}
+// Widgets report results here instead of the default self-mark panel. payload:
+// { mark, max, state } — mark may be auto-computed (grids) or student
+// self-assessed point-by-point (prose/code); state restores the widget later.
+function _epSaveWidgetResult(qi, payload) {
+    const q = examQuestions[qi];
+    const wEl = document.getElementById(`epWidget-${qi}`);
+    const card = wEl ? wEl.closest('.ep-card') : null;
+    const first = !(card && card.dataset.epRevealed);
+    if (card) { card.dataset.epRevealed = '1'; card.dataset.epSelfMarked = '1'; }
+    const marksEl = document.getElementById(`epMarks-${qi}`);
+    if (marksEl) marksEl.classList.add('show');
+    if (first) {
+        epRevealed++;
+        updateEPProgress();
+        ProgressStore.save(getPageId(), 'exam', epRevealed, examQuestions.length);
+    }
+    ProgressStore.saveAnswers(getPageId(), 'exam', qi, {
+        revealed: true,
+        selfMark: payload.mark,
+        selfMax: payload.max != null ? payload.max : q.marks,
+        widgetState: payload.state,
+    });
+}
+
 function buildExamPractice() {
     const list = document.getElementById('epList');
     if (!list) return;
@@ -3948,15 +3991,21 @@ function buildExamPractice() {
         // stray <br>s — including ones the parser hoists above a <table>),
         // then turn any remaining (plain-text) newlines into <br>.
         const caseHtml = caseText ? `<div class="ep-case">${caseText.replace(/>\s*\n\s*</g,'><').replace(/\n/g,'<br>')}</div>` : '';
+        const usesWidget = _epUseWidget(q);
         let interactiveHtml = '';
         if (q.type === 'mcq') {
             interactiveHtml = `<div class="ep-mcq-opts">${q.options.map((o, oi) => `<button class="ep-opt" data-qi="${qi}" data-oi="${oi}"><strong>${String.fromCharCode(65+oi)}.</strong> ${o}</button>`).join('')}</div>`;
+        } else if (usesWidget) {
+            interactiveHtml = `<div class="ep-widget" id="epWidget-${qi}"></div>`;
         } else {
             interactiveHtml = `<textarea class="ep-answer-area" id="epTextarea-${qi}" placeholder="Write your answer here..."></textarea>`;
         }
         card.innerHTML = `<div class="ep-header">
 <div><div class="ep-num">${q.num}</div><div class="ep-title">${q.marks} mark${q.marks>1?'s':''}</div></div>
+<div class="ep-head-right">
+${q.year ? `<span class="ep-year" title="Original exam series">${q.year}</span>` : ''}
 <div class="ep-marks">[${q.marks} mark${q.marks>1?'s':''}]</div>
+</div>
 </div>
 <div class="ep-body">
 ${caseHtml}
@@ -3965,7 +4014,7 @@ ${interactiveHtml}
 <div class="ep-btn-row">
 <button class="ep-btn hint-btn" onclick="togglePop(${qi},'hint')">💡 Hint</button>
 <button class="ep-btn starter-btn" onclick="togglePop(${qi},'starter')">✍️ Sentence Starter</button>
-${q.type !== 'mcq' ? `<button class="ep-btn submit-btn" onclick="togglePop(${qi},'marks')">📋 Submit &amp; See Mark Scheme</button>` : ''}
+${q.type !== 'mcq' && !usesWidget ? `<button class="ep-btn submit-btn" onclick="togglePop(${qi},'marks')">📋 Submit &amp; See Mark Scheme</button>` : ''}
 </div>
 <div class="ep-popup hint-pop" id="epHint-${qi}"><strong>💡 Hint:</strong> ${q.hint}</div>
 <div class="ep-popup starter-pop" id="epStarter-${qi}"><strong>✍️ Sentence Starter:</strong><br>${q.starter.replace(/\n/g,'<br>')}</div>
@@ -3975,6 +4024,32 @@ ${q.modelAnswer ? `<div class="marks-section"><h5>✓ Model Answer</h5><div clas
 </div>
 </div>`;
         list.appendChild(card);
+
+        // CS widget questions: hand the answer area to the registry, then
+        // restore any saved state through the widget itself (the default
+        // written-restore below assumes a textarea + numeric self panel).
+        if (usesWidget) {
+            const wEl = card.querySelector('.ep-widget');
+            const handle = window.CsExamWidgets.mount(wEl, q, qi, {
+                reveal() {
+                    const m = document.getElementById(`epMarks-${qi}`);
+                    if (m) m.classList.add('show');
+                },
+                save(payload) { _epSaveWidgetResult(qi, payload); },
+            });
+            _epWidgetHandles[qi] = handle;
+            const entry = savedEP[qi];
+            if (entry) {
+                card.dataset.epRevealed = '1';
+                card.dataset.epSelfMarked = '1';
+                const marksEl = document.getElementById(`epMarks-${qi}`);
+                if (marksEl) marksEl.classList.add('show');
+                if (handle && handle.setState) {
+                    handle.setState(entry.widgetState, entry.selfMark != null);
+                }
+            }
+            return; // widget owns everything below for this question
+        }
 
         // Restore revealed state from previous session
         if (savedEP[qi]) {
@@ -4666,6 +4741,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initFlashcards();
     buildTF();
     buildExamPractice();
+    // Additional Maths: render \(...\) / \[...\] LaTeX across every activity built
+    // above. No-op (undefined) on subjects that don't include math-render.js.
+    if (typeof renderMathIn === 'function') renderMathIn(document.body);
     initScrollToTop();
     injectRedoWrongButtons();
     // Must run AFTER injectRedoWrongButtons/injectMatchSizePicker — both
@@ -5013,6 +5091,7 @@ function rebuildAllActivities() {
     document.getElementById('tfTotal') && (document.getElementById('tfTotal').textContent = 0);
     buildLearn(); buildMCQ(); buildMatch(); buildFIB();
     buildMisc(); buildTips(); initFlashcards(); buildTF(); buildExamPractice();
+    if (typeof renderMathIn === 'function') renderMathIn(document.body);
 }
 
 // Persist the counters the build functions just derived from the answer

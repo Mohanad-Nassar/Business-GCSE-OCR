@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.2 Surds and Algebraic Fractions – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 1. Algebra Toolkit</div>
+            <h1>1.2 Surds and Algebraic Fractions</h1>
+            <p>Interactive revision guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 1.2 Surds and Algebraic Fractions (AL2)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  doubled in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Exam Q = 2023 Q4.
+    //  FIB blanks (___B1___) sit in PLAIN TEXT only, never inside \( \) (Rule 3b).
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '1-2-surds-and-algebraic-fractions',
+            badge: 'OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 1. Algebra Toolkit',
+            title: '1.2 Surds and Algebraic Fractions',
+            subtitle: 'Interactive revision guide',
+            subject: 'additional-maths',
+        };
+
+    // Shared stimulus for the 2023 Q4 exam parts (see examQuestions).
+    const EXAM_CASE_STUDIES = {
+        "q4-2023": `<p>Simplify the following.</p>`
+    };
+
+    const topics = [
+        {
+            title: "How do you simplify a surd?",
+            tag: "Key concept",
+            content: `<p>A <strong>surd</strong> is a root that cannot be written as an exact rational number, such as \\( \\sqrt{3} \\) or \\( \\sqrt{12} \\). You <strong>simplify</strong> a surd by taking out the largest <strong>perfect-square factor</strong>.</p>
+            <ul>
+              <li>Use the rule \\( \\sqrt{ab} = \\sqrt{a}\\,\\sqrt{b} \\), choosing \\( a \\) to be the biggest square that divides the number.</li>
+              <li>A surd is in simplest form when the number left under the root has <strong>no square factor</strong> bigger than 1.</li>
+            </ul>
+            <p><strong>Worked example — simplify \\( \\sqrt{12} \\) and \\( \\sqrt{125} \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. \\( 12 = 4 \\times 3 \\), and \\( 4 \\) is the largest square factor.</td></tr>
+              <tr><td>2. \\( \\sqrt{12} = \\sqrt{4}\\,\\sqrt{3} = 2\\sqrt{3} \\).</td></tr>
+              <tr><td>3. \\( 125 = 25 \\times 5 \\), and \\( 25 \\) is a square factor.</td></tr>
+              <tr><td>4. \\( \\sqrt{125} = \\sqrt{25}\\,\\sqrt{5} = 5\\sqrt{5} \\).</td></tr>
+            </table>
+            <p>Always look for the <em>largest</em> square factor — using \\( \\sqrt{12} = \\sqrt{2}\\,\\sqrt{6} \\) does not finish the job.</p>`,
+            readCheck: { q: "Simplify \\( \\sqrt{200} \\).", opts: ["\\( 10\\sqrt{2} \\)", "\\( 2\\sqrt{50} \\)", "\\( 100\\sqrt{2} \\)", "\\( 20\\sqrt{2} \\)"], ans: 0, explain: "\\( 200 = 100 \\times 2 \\), so \\( \\sqrt{200} = \\sqrt{100}\\,\\sqrt{2} = 10\\sqrt{2} \\)." }
+        },
+        {
+            title: "How do you add, subtract and multiply surds?",
+            tag: "Worked example",
+            content: `<p>You can only add or subtract <strong>like surds</strong> — surds with the same number under the root. Simplify first so the like surds appear.</p>
+            <p><strong>Worked example — \\( \\sqrt{12} + \\sqrt{27} \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. \\( \\sqrt{12} = 2\\sqrt{3} \\) and \\( \\sqrt{27} = \\sqrt{9}\\,\\sqrt{3} = 3\\sqrt{3} \\).</td></tr>
+              <tr><td>2. Both are multiples of \\( \\sqrt{3} \\): \\( 2\\sqrt{3} + 3\\sqrt{3} = 5\\sqrt{3} \\).</td></tr>
+            </table>
+            <p>To <strong>multiply</strong> surds use \\( \\sqrt{a}\\,\\sqrt{b} = \\sqrt{ab} \\); for example \\( \\sqrt{3}\\times\\sqrt{12} = \\sqrt{36} = 6 \\). To <strong>expand brackets</strong>, multiply out as usual and collect like surds.</p>
+            <p><strong>Worked example — expand \\( (3 + \\sqrt{2})^2 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. \\( (3+\\sqrt{2})^2 = (3+\\sqrt{2})(3+\\sqrt{2}) \\).</td></tr>
+              <tr><td>2. \\( = 9 + 3\\sqrt{2} + 3\\sqrt{2} + \\sqrt{2}\\,\\sqrt{2} \\).</td></tr>
+              <tr><td>3. \\( \\sqrt{2}\\,\\sqrt{2} = 2 \\), so \\( = 9 + 6\\sqrt{2} + 2 = 11 + 6\\sqrt{2} \\).</td></tr>
+            </table>
+            <p><strong>Never</strong> write \\( \\sqrt{a} + \\sqrt{b} = \\sqrt{a+b} \\): that is false (\\( \\sqrt{9}+\\sqrt{16} = 7 \\), not \\( \\sqrt{25} = 5 \\)).</p>`,
+            readCheck: { q: "Simplify \\( \\sqrt{50} - \\sqrt{8} \\).", opts: ["\\( 3\\sqrt{2} \\)", "\\( \\sqrt{42} \\)", "\\( 2\\sqrt{2} \\)", "\\( 42\\sqrt{2} \\)"], ans: 0, explain: "\\( \\sqrt{50} = 5\\sqrt{2} \\) and \\( \\sqrt{8} = 2\\sqrt{2} \\), so \\( 5\\sqrt{2} - 2\\sqrt{2} = 3\\sqrt{2} \\)." }
+        },
+        {
+            title: "How do you rationalise a denominator?",
+            tag: "Method",
+            content: `<p><strong>Rationalising</strong> means clearing the surd out of the denominator. The trick is to multiply the fraction by a clever form of 1.</p>
+            <p><strong>Simple case</strong> — for \\( \\frac{1}{\\sqrt{3}} \\), multiply top and bottom by \\( \\sqrt{3} \\):</p>
+            <p>\\[ \\frac{1}{\\sqrt{3}} \\times \\frac{\\sqrt{3}}{\\sqrt{3}} = \\frac{\\sqrt{3}}{3}. \\]</p>
+            <p><strong>Conjugate case</strong> — for \\( \\frac{1}{2+\\sqrt{3}} \\), multiply by the <strong>conjugate</strong> \\( 2-\\sqrt{3} \\). The conjugate flips only the sign of the surd, and \\( (a+\\sqrt{b})(a-\\sqrt{b}) = a^2 - b \\) is a whole number (difference of two squares).</p>
+            <table class="worked">
+              <tr><td>1. \\( \\dfrac{1}{2+\\sqrt{3}} \\times \\dfrac{2-\\sqrt{3}}{2-\\sqrt{3}} \\).</td></tr>
+              <tr><td>2. Denominator: \\( (2+\\sqrt{3})(2-\\sqrt{3}) = 4 - 3 = 1 \\).</td></tr>
+              <tr><td>3. So \\( \\dfrac{2-\\sqrt{3}}{1} = 2 - \\sqrt{3} \\).</td></tr>
+            </table>
+            <p>Watch the denominator: it is \\( a^2 - b \\), <em>not</em> \\( a^2 + b \\). For \\( 5 - \\sqrt{2} \\) the conjugate product is \\( 25 - 2 = 23 \\), not 27.</p>`,
+            readCheck: { q: "Rationalise \\( \\frac{1}{3-\\sqrt{2}} \\).", opts: ["\\( \\frac{3+\\sqrt{2}}{7} \\)", "\\( \\frac{3-\\sqrt{2}}{7} \\)", "\\( \\frac{3+\\sqrt{2}}{11} \\)", "\\( 3+\\sqrt{2} \\)"], ans: 0, explain: "Multiply by the conjugate \\( 3+\\sqrt{2} \\): denominator \\( 9 - 2 = 7 \\), giving \\( \\frac{3+\\sqrt{2}}{7} \\)." }
+        },
+        {
+            title: "How do you simplify an algebraic fraction?",
+            tag: "Worked example",
+            content: `<p>Simplify an algebraic fraction the same way as a numerical one: <strong>factorise</strong> the numerator and denominator, then <strong>cancel common factors</strong>.</p>
+            <ul>
+              <li>You may only cancel <strong>factors</strong> (things multiplied), never individual <strong>terms</strong> (things added).</li>
+              <li>Common tools: the difference of two squares \\( a^2 - b^2 = (a+b)(a-b) \\), and factorising quadratics.</li>
+            </ul>
+            <p><strong>Worked example — simplify \\( \\dfrac{x^2 + 5x + 6}{x^2 - 4} \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Factorise the top: \\( x^2 + 5x + 6 = (x+2)(x+3) \\).</td></tr>
+              <tr><td>2. Factorise the bottom: \\( x^2 - 4 = (x+2)(x-2) \\).</td></tr>
+              <tr><td>3. Cancel the common factor \\( (x+2) \\): \\( \\dfrac{(x+2)(x+3)}{(x+2)(x-2)} = \\dfrac{x+3}{x-2} \\).</td></tr>
+            </table>
+            <p>You cannot cancel the \\( x \\)'s or the numbers separately — only the whole bracket \\( (x+2) \\).</p>`,
+            readCheck: { q: "Simplify \\( \\dfrac{x^2 - 9}{x + 3} \\).", opts: ["\\( x - 3 \\)", "\\( x + 3 \\)", "\\( x - 9 \\)", "\\( x^2 - 3 \\)"], ans: 0, explain: "\\( x^2 - 9 = (x+3)(x-3) \\); cancel \\( (x+3) \\) to leave \\( x - 3 \\)." }
+        },
+        {
+            title: "How do you add and subtract algebraic fractions?",
+            tag: "Worked example",
+            content: `<p>Put both fractions over a <strong>common denominator</strong>, combine the numerators, then simplify. The common denominator is usually the two denominators multiplied together.</p>
+            <p><strong>Worked example — \\( \\dfrac{1}{x-1} - \\dfrac{2}{x+1} \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Common denominator \\( (x-1)(x+1) \\).</td></tr>
+              <tr><td>2. Rewrite: \\( \\dfrac{(x+1) - 2(x-1)}{(x-1)(x+1)} \\).</td></tr>
+              <tr><td>3. Expand the numerator: \\( x + 1 - 2x + 2 \\) (the minus multiplies <em>both</em> terms of \\( -2(x-1) \\)).</td></tr>
+              <tr><td>4. Collect: \\( \\dfrac{3 - x}{(x-1)(x+1)} \\).</td></tr>
+            </table>
+            <p>The biggest trap is the <strong>minus sign</strong>: \\( -2(x-1) = -2x + 2 \\), not \\( -2x - 2 \\).</p>`,
+            readCheck: { q: "Simplify \\( \\dfrac{3}{x+2} + \\dfrac{1}{x-1} \\).", opts: ["\\( \\dfrac{4x-1}{(x+2)(x-1)} \\)", "\\( \\dfrac{4x+1}{(x+2)(x-1)} \\)", "\\( \\dfrac{4}{(x+2)(x-1)} \\)", "\\( \\dfrac{3x-1}{(x+2)(x-1)} \\)"], ans: 0, explain: "\\( 3(x-1) + (x+2) = 3x - 3 + x + 2 = 4x - 1 \\), over \\( (x+2)(x-1) \\)." }
+        },
+        {
+            title: "How do you multiply and divide algebraic fractions?",
+            tag: "Method",
+            content: `<p>To <strong>multiply</strong>: factorise everything, cancel any common factor top-to-bottom, then multiply the numerators and the denominators.</p>
+            <p>To <strong>divide</strong>: multiply by the <strong>reciprocal</strong> of the second fraction (flip it), then proceed as for multiplication.</p>
+            <p><strong>Worked example — \\( \\dfrac{x^2 - 1}{x + 2} \\div \\dfrac{x - 1}{x + 2} \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Flip the divisor: \\( \\dfrac{x^2 - 1}{x + 2} \\times \\dfrac{x + 2}{x - 1} \\).</td></tr>
+              <tr><td>2. Factorise: \\( x^2 - 1 = (x+1)(x-1) \\).</td></tr>
+              <tr><td>3. Cancel \\( (x+2) \\) and \\( (x-1) \\): \\( \\dfrac{(x+1)(x-1)(x+2)}{(x+2)(x-1)} = x + 1 \\).</td></tr>
+            </table>
+            <p>Never flip the first fraction — only the one you are <em>dividing by</em>.</p>`,
+            readCheck: { q: "Simplify \\( \\dfrac{x^2 - 1}{x + 2} \\div \\dfrac{x - 1}{x + 2} \\).", opts: ["\\( x + 1 \\)", "\\( x - 1 \\)", "\\( \\dfrac{x+1}{x+2} \\)", "\\( x^2 - 1 \\)"], ans: 0, explain: "Multiply by the reciprocal, factorise \\( x^2-1=(x+1)(x-1) \\), and cancel to get \\( x + 1 \\)." }
+        },
+        {
+            title: "What do 'exact' and 'detailed reasoning' require?",
+            tag: "Exam skill",
+            content: `<p>Surd questions almost always carry a command word that controls how you must answer.</p>
+            <ul>
+              <li><strong>'Exact'</strong> means leave the answer in surd or fraction form — \\( \\frac{15+\\sqrt{2}}{23} \\), not \\( 0.696 \\). A decimal-only answer scores no marks.</li>
+              <li><strong>'In this question you must show detailed reasoning' (DR)</strong> means the full method must be written out. A correct answer taken straight from a calculator scores <strong>zero</strong>, even when it is right.</li>
+            </ul>
+            <p>For a rationalising DR question (like 2023 Q4(b)) you must <em>show</em> the unsimplified numerator over the common denominator before you tidy it up — that visible step is a mark in its own right.</p>`,
+            readCheck: { q: "On a 'detailed reasoning' surd question, what scores 0 marks?", opts: ["A correct answer with no working (straight from a calculator)", "Showing every algebraic step", "Leaving the answer as a surd", "Writing the common denominator first"], ans: 0, explain: "DR requires the full analytical method; an unexplained calculator answer earns nothing even if correct." }
+        }
+    ];
+
+    const mcqData = [
+        { q: "Simplify \\( \\sqrt{12} \\).", opts: ["\\( 2\\sqrt{3} \\)", "\\( 6\\sqrt{2} \\)", "\\( 3\\sqrt{2} \\)", "\\( 4\\sqrt{3} \\)"], ans: 0, explain: "\\( 12 = 4 \\times 3 \\), so \\( \\sqrt{12} = 2\\sqrt{3} \\). \\( 6\\sqrt{2} \\) is \\( \\sqrt{72} \\); \\( 4\\sqrt{3} \\) is \\( \\sqrt{48} \\)." },
+        { q: "Simplify \\( \\sqrt{125} \\).", opts: ["\\( 5\\sqrt{5} \\)", "\\( 25\\sqrt{5} \\)", "\\( 5\\sqrt{25} \\)", "\\( 5 \\)"], ans: 0, explain: "\\( 125 = 25 \\times 5 \\), so \\( \\sqrt{125} = \\sqrt{25}\\,\\sqrt{5} = 5\\sqrt{5} \\)." },
+        { q: "Simplify \\( \\sqrt{8} + \\sqrt{18} \\).", opts: ["\\( 5\\sqrt{2} \\)", "\\( \\sqrt{26} \\)", "\\( 5\\sqrt{26} \\)", "\\( 6\\sqrt{2} \\)"], ans: 0, explain: "\\( \\sqrt{8} = 2\\sqrt{2} \\), \\( \\sqrt{18} = 3\\sqrt{2} \\); like surds add to \\( 5\\sqrt{2} \\). You cannot add the numbers under the root to get \\( \\sqrt{26} \\)." },
+        { q: "Expand and simplify \\( (2 + \\sqrt{3})(2 - \\sqrt{3}) \\).", opts: ["\\( 1 \\)", "\\( 7 \\)", "\\( 4 - \\sqrt{3} \\)", "\\( 4 + 2\\sqrt{3} \\)"], ans: 0, explain: "Difference of two squares: \\( 2^2 - (\\sqrt{3})^2 = 4 - 3 = 1 \\). This is why a conjugate rationalises a denominator." },
+        { q: "Expand and simplify \\( (3 + \\sqrt{2})^2 \\).", opts: ["\\( 11 + 6\\sqrt{2} \\)", "\\( 11 \\)", "\\( 9 + 2\\sqrt{2} \\)", "\\( 11 + 3\\sqrt{2} \\)"], ans: 0, explain: "\\( (3+\\sqrt{2})^2 = 9 + 6\\sqrt{2} + 2 = 11 + 6\\sqrt{2} \\); do not forget the middle term \\( 2 \\times 3 \\times \\sqrt{2} \\)." },
+        { q: "Rationalise \\( \\dfrac{1}{\\sqrt{3}} \\).", opts: ["\\( \\dfrac{\\sqrt{3}}{3} \\)", "\\( \\dfrac{1}{3} \\)", "\\( \\sqrt{3} \\)", "\\( \\dfrac{3}{\\sqrt{3}} \\)"], ans: 0, explain: "Multiply top and bottom by \\( \\sqrt{3} \\): \\( \\dfrac{\\sqrt{3}}{\\sqrt{3}\\,\\sqrt{3}} = \\dfrac{\\sqrt{3}}{3} \\)." },
+        { q: "Rationalise \\( \\dfrac{6}{\\sqrt{2}} \\).", opts: ["\\( 3\\sqrt{2} \\)", "\\( 6\\sqrt{2} \\)", "\\( 3 \\)", "\\( \\sqrt{3} \\)"], ans: 0, explain: "\\( \\dfrac{6}{\\sqrt{2}} \\times \\dfrac{\\sqrt{2}}{\\sqrt{2}} = \\dfrac{6\\sqrt{2}}{2} = 3\\sqrt{2} \\)." },
+        { q: "To rationalise \\( \\dfrac{1}{2 + \\sqrt{3}} \\) you multiply top and bottom by:", opts: ["\\( 2 - \\sqrt{3} \\)", "\\( 2 + \\sqrt{3} \\)", "\\( \\sqrt{3} \\)", "\\( \\dfrac{1}{2 - \\sqrt{3}} \\)"], ans: 0, explain: "The conjugate \\( 2 - \\sqrt{3} \\) makes the denominator \\( 4 - 3 = 1 \\), clearing the surd." },
+        { q: "Rationalise \\( \\dfrac{1}{2 + \\sqrt{3}} \\) fully.", opts: ["\\( 2 - \\sqrt{3} \\)", "\\( \\dfrac{2 - \\sqrt{3}}{7} \\)", "\\( 2 + \\sqrt{3} \\)", "\\( \\dfrac{2 - \\sqrt{3}}{5} \\)"], ans: 0, explain: "Denominator \\( (2+\\sqrt{3})(2-\\sqrt{3}) = 4 - 3 = 1 \\), so the answer is \\( 2 - \\sqrt{3} \\). Using \\( 4 + 3 = 7 \\) is the classic sign error." },
+        { q: "Simplify \\( \\dfrac{x^2 - 9}{x + 3} \\).", opts: ["\\( x - 3 \\)", "\\( x + 3 \\)", "\\( x - 9 \\)", "\\( x^2 - 3 \\)"], ans: 0, explain: "Factorise \\( x^2 - 9 = (x+3)(x-3) \\) then cancel \\( (x+3) \\) to get \\( x - 3 \\). You cannot cancel the \\( 9 \\) on its own." },
+        { q: "Simplify \\( \\dfrac{x^2 + 5x + 6}{x^2 - 4} \\).", opts: ["\\( \\dfrac{x+3}{x-2} \\)", "\\( \\dfrac{x+3}{x+2} \\)", "\\( \\dfrac{5x+6}{-4} \\)", "\\( x + 3 \\)"], ans: 0, explain: "\\( \\dfrac{(x+2)(x+3)}{(x+2)(x-2)} \\); cancel \\( (x+2) \\) to get \\( \\dfrac{x+3}{x-2} \\)." },
+        { q: "Simplify \\( \\dfrac{1}{x-1} - \\dfrac{2}{x+1} \\).", opts: ["\\( \\dfrac{3 - x}{(x-1)(x+1)} \\)", "\\( \\dfrac{-x - 1}{(x-1)(x+1)} \\)", "\\( \\dfrac{3 - x}{x-1} \\)", "\\( \\dfrac{-1}{(x-1)(x+1)} \\)"], ans: 0, explain: "Numerator \\( (x+1) - 2(x-1) = x + 1 - 2x + 2 = 3 - x \\). The option \\( -x-1 \\) comes from writing \\( -2(x-1) = -2x - 2 \\) — a sign error." }
+    ];
+
+    const matchData = [
+        { term: "\\( \\sqrt{12} \\)", def: "\\( 2\\sqrt{3} \\)" },
+        { term: "\\( \\sqrt{125} \\)", def: "\\( 5\\sqrt{5} \\)" },
+        { term: "\\( \\sqrt{8} \\)", def: "\\( 2\\sqrt{2} \\)" },
+        { term: "\\( \\sqrt{48} \\)", def: "\\( 4\\sqrt{3} \\)" },
+        { term: "\\( \\sqrt{12} + \\sqrt{27} \\)", def: "\\( 5\\sqrt{3} \\)" },
+        { term: "\\( \\dfrac{1}{\\sqrt{3}} \\)", def: "\\( \\dfrac{\\sqrt{3}}{3} \\)" },
+        { term: "\\( \\dfrac{6}{\\sqrt{2}} \\)", def: "\\( 3\\sqrt{2} \\)" },
+        { term: "\\( \\dfrac{1}{2 + \\sqrt{3}} \\)", def: "\\( 2 - \\sqrt{3} \\)" },
+        { term: "\\( (2 + \\sqrt{3})(2 - \\sqrt{3}) \\)", def: "\\( 1 \\)" },
+        { term: "Conjugate of \\( 5 - \\sqrt{2} \\)", def: "\\( 5 + \\sqrt{2} \\)" },
+        { term: "\\( \\dfrac{x^2 - 9}{x + 3} \\)", def: "\\( x - 3 \\)" },
+        { term: "\\( \\dfrac{x^2 + 5x + 6}{x^2 - 4} \\)", def: "\\( \\dfrac{x+3}{x-2} \\)" }
+    ];
+
+    // FIB blanks (___B1___) are in PLAIN TEXT only; each \( \) region is complete
+    // (ADDMATHS-CONTENT-PLAN.md §8.4 Rule 3b). Answer values are plain text/number.
+    const fibData = [
+        { display: "To simplify a surd, take out the largest perfect ___B1___ factor.", blanks: { B1: "square" } },
+        { display: "In \\( \\sqrt{12} = 2\\sqrt{3} \\) we used the fact that \\( 12 = 4 \\times 3 \\) and \\( \\sqrt{4} = \\) ___B1___.", blanks: { B1: "2" } },
+        { display: "You can only add or subtract surds when they are ___B1___ surds (the same number under the root).", blanks: { B1: "like" } },
+        { display: "To rationalise \\( \\frac{1}{2+\\sqrt{3}} \\) you multiply by its ___B1___, which is \\( 2-\\sqrt{3} \\).", blanks: { B1: "conjugate" } },
+        { display: "Multiplying \\( (2+\\sqrt{3})(2-\\sqrt{3}) \\) gives the whole number ___B1___.", blanks: { B1: "1" } },
+        { display: "To simplify an algebraic fraction you first ___B1___ the top and bottom, then cancel common factors.", blanks: { B1: "factorise" } },
+        { display: "To add \\( \\frac{1}{x-1} \\) and \\( \\frac{2}{x+1} \\) you write them over the common denominator ___B1___.", blanks: { B1: "(x-1)(x+1)" } },
+        { display: "The instruction 'show detailed reasoning' means a ___B1___ answer with no working scores zero.", blanks: { B1: "calculator" } }
+    ];
+
+    const fibWords = ["square", "2", "like", "conjugate", "1", "factorise", "(x-1)(x+1)", "calculator", "cube", "3", "unlike", "reciprocal", "expand", "exact"];
+
+    const tfData = [
+        { statement: "\\( \\sqrt{50} = 5\\sqrt{2} \\).", answer: true, explanation: "\\( 50 = 25 \\times 2 \\), so \\( \\sqrt{50} = \\sqrt{25}\\,\\sqrt{2} = 5\\sqrt{2} \\). ✓" },
+        { statement: "\\( \\sqrt{12} + \\sqrt{3} = \\sqrt{15} \\).", answer: false, explanation: "You cannot add the numbers under the root. \\( \\sqrt{12} = 2\\sqrt{3} \\), so \\( 2\\sqrt{3} + \\sqrt{3} = 3\\sqrt{3} \\)." },
+        { statement: "Rationalising \\( \\dfrac{5}{\\sqrt{5}} \\) gives \\( \\sqrt{5} \\).", answer: true, explanation: "\\( \\dfrac{5}{\\sqrt{5}} \\times \\dfrac{\\sqrt{5}}{\\sqrt{5}} = \\dfrac{5\\sqrt{5}}{5} = \\sqrt{5} \\). ✓" },
+        { statement: "\\( (\\sqrt{7} - 2)(\\sqrt{7} + 2) = 3 \\).", answer: true, explanation: "Difference of two squares: \\( (\\sqrt{7})^2 - 2^2 = 7 - 4 = 3 \\)." },
+        { statement: "\\( \\dfrac{1}{3 - \\sqrt{2}} = \\dfrac{3 + \\sqrt{2}}{7} \\).", answer: true, explanation: "Multiply by the conjugate \\( 3+\\sqrt{2} \\): denominator \\( 9 - 2 = 7 \\)." },
+        { statement: "\\( \\dfrac{x^2 - 9}{x + 3} \\) simplifies to \\( x - 9 \\) by cancelling the \\( x^2 \\) and the \\( 9 \\).", answer: false, explanation: "You may only cancel factors. Factorise first: \\( \\dfrac{(x+3)(x-3)}{x+3} = x - 3 \\)." },
+        { statement: "To add \\( \\dfrac{1}{x-1} \\) and \\( \\dfrac{2}{x+1} \\) you use the common denominator \\( (x-1)(x+1) \\).", answer: true, explanation: "Each fraction is rewritten over \\( (x-1)(x+1) \\) before the numerators are combined." },
+        { statement: "On a 'detailed reasoning' question, a correct answer straight from a calculator earns full marks.", answer: false, explanation: "DR requires the complete method to be written out; an unexplained calculator answer scores 0 even when correct." }
+    ];
+
+    const miscData = [
+        { wrong: "\\( \\dfrac{1}{x-2} - \\dfrac{2}{x+1} = \\dfrac{-x-3}{(x-2)(x+1)} \\)", correct: "The minus sign must multiply BOTH terms of \\( -2(x-2) = -2x + 4 \\). A weak answer writes \\( -2x - 4 \\) and gets \\( -x - 3 \\); a strong answer gets \\( x + 1 - 2x + 4 = 5 - x \\).", readCheck: { q: "What is the numerator of \\( \\dfrac{1}{x-2} - \\dfrac{2}{x+1} \\)?", opts: ["\\( 5 - x \\)", "\\( -x - 3 \\)", "\\( -x - 1 \\)", "\\( x - 3 \\)"], ans: 0, explain: "\\( (x+1) - 2(x-2) = x + 1 - 2x + 4 = 5 - x \\)." } },
+        { wrong: "\\( (5 - \\sqrt{2})(5 + \\sqrt{2}) = 27 \\)", correct: "This is a difference of two squares: \\( 25 - 2 = 23 \\), not \\( 25 + 2 = 27 \\). A weak answer adds; a strong answer subtracts, giving the denominator 23.", readCheck: { q: "\\( (5 - \\sqrt{2})(5 + \\sqrt{2}) = \\)", opts: ["\\( 23 \\)", "\\( 27 \\)", "\\( 25 \\)", "\\( 5\\sqrt{2} \\)"], ans: 0, explain: "\\( 5^2 - (\\sqrt{2})^2 = 25 - 2 = 23 \\)." } },
+        { wrong: "\\( \\dfrac{x^2 - 9}{x + 3} = x^2 - 3 \\) by cancelling the \\( x \\)", correct: "You may only cancel FACTORS, not terms. A weak answer cancels the \\( x \\)'s; a strong answer factorises \\( (x+3)(x-3) \\) and cancels the bracket to get \\( x - 3 \\).", readCheck: { q: "Simplify \\( \\dfrac{x^2 - 9}{x + 3} \\).", opts: ["\\( x - 3 \\)", "\\( x^2 - 3 \\)", "\\( x - 9 \\)", "\\( x + 3 \\)"], ans: 0, explain: "Factorise the top as \\( (x+3)(x-3) \\), then cancel \\( (x+3) \\)." } },
+        { wrong: "\\( \\sqrt{12} + \\sqrt{27} = \\sqrt{39} \\)", correct: "You cannot add the numbers under the root. A weak answer writes \\( \\sqrt{39} \\); a strong answer simplifies to like surds: \\( 2\\sqrt{3} + 3\\sqrt{3} = 5\\sqrt{3} \\).", readCheck: { q: "\\( \\sqrt{12} + \\sqrt{27} = \\)", opts: ["\\( 5\\sqrt{3} \\)", "\\( \\sqrt{39} \\)", "\\( 6\\sqrt{3} \\)", "\\( \\sqrt{3} \\)"], ans: 0, explain: "\\( 2\\sqrt{3} + 3\\sqrt{3} = 5\\sqrt{3} \\)." } },
+        { wrong: "Rationalising \\( \\dfrac{1}{2 + \\sqrt{3}} \\) by multiplying by \\( \\dfrac{2 + \\sqrt{3}}{2 + \\sqrt{3}} \\)", correct: "You must use the CONJUGATE (opposite sign). A weak answer keeps \\( 2 + \\sqrt{3} \\) and does not clear the surd; a strong answer multiplies by \\( 2 - \\sqrt{3} \\), giving denominator \\( 4 - 3 = 1 \\) and answer \\( 2 - \\sqrt{3} \\).", readCheck: { q: "Which multiplier rationalises \\( \\dfrac{1}{2 + \\sqrt{3}} \\)?", opts: ["\\( \\dfrac{2 - \\sqrt{3}}{2 - \\sqrt{3}} \\)", "\\( \\dfrac{2 + \\sqrt{3}}{2 + \\sqrt{3}} \\)", "\\( \\dfrac{\\sqrt{3}}{\\sqrt{3}} \\)", "\\( \\dfrac{1}{2 - \\sqrt{3}} \\)"], ans: 0, explain: "The conjugate \\( 2 - \\sqrt{3} \\) gives a rational denominator \\( 4 - 3 = 1 \\)." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "The 'exact' command word", pills: ["exact", "surds", "no rounding"], content: `<p><strong>0 marks:</strong> \\( 0.696 \\) as the answer to \\( \\frac{2}{5-\\sqrt{2}} + \\frac{1}{5+\\sqrt{2}} \\) — a decimal on an "exact" question.</p><p><strong>Full marks:</strong> \\( \\frac{15+\\sqrt{2}}{23} \\), the surd form. If unsure, write the exact form <em>and</em> the decimal — the exact form earns the marks and the decimal never loses them.</p>`, readCheck: { q: "On an 'exact' surd question, which is safest?", opts: ["Give the surd form (optionally with the decimal)", "Give only the decimal", "Round to 3 s.f.", "Give only the decimal to 2 d.p."], ans: 0, explain: "The exact surd/fraction form is required; adding the decimal is harmless." } },
+        { type: "tip", title: "The rationalising ladder", pills: ["conjugate", "rationalise", "working"], content: `<p><strong>0 marks:</strong> jumping to a wrong denominator with no method.</p><p><strong>Partial:</strong> multiply by the conjugate but slip the sign to \\( 25 + 2 = 27 \\).</p><p><strong>Full marks:</strong> show \\( \\frac{2(5+\\sqrt{2}) + (5-\\sqrt{2})}{(5-\\sqrt{2})(5+\\sqrt{2})} \\), then \\( \\frac{15+\\sqrt{2}}{25 - 2} = \\frac{15+\\sqrt{2}}{23} \\). The unsimplified line is itself a mark.</p>`, readCheck: { q: "What is the correct denominator of \\( (5-\\sqrt{2})(5+\\sqrt{2}) \\)?", opts: ["\\( 23 \\)", "\\( 27 \\)", "\\( 25 \\)", "\\( 7 \\)"], ans: 0, explain: "\\( 25 - 2 = 23 \\) (difference of two squares)." } },
+        { type: "explain", title: "'Detailed reasoning' means show every step", pills: ["DR", "method", "no calculator answer"], content: `<p>When a question says "<em>In this question you must show detailed reasoning</em>", the full method must appear. On 2023 Q4(b) the examiners required the <strong>unsimplified numerator over the common denominator</strong> to be seen before the tidy answer. A correct answer with no working — even from a calculator — scores <strong>zero</strong>.</p>`, readCheck: { q: "For a DR rationalising question, which step must be visible?", opts: ["The unsimplified numerator over the common denominator", "Only the final answer", "A decimal check", "The calculator display"], ans: 0, explain: "DR credits the visible method; the unsimplified common-denominator line is the required step." } }
+    ];
+
+    const flashcards = [
+        { term: "Surd", def: "A root that is not an exact rational number, e.g. \\( \\sqrt{3} \\)." },
+        { term: "Simplifying a surd", def: "Take out the largest perfect-square factor: \\( \\sqrt{12} = 2\\sqrt{3} \\)." },
+        { term: "Like surds", def: "Surds with the same root, e.g. \\( 2\\sqrt{3} \\) and \\( 5\\sqrt{3} \\); only these add or subtract." },
+        { term: "\\( \\sqrt{a}\\,\\sqrt{b} \\)", def: "Equals \\( \\sqrt{ab} \\); e.g. \\( \\sqrt{3}\\,\\sqrt{12} = \\sqrt{36} = 6 \\)." },
+        { term: "Rationalising the denominator", def: "Removing a surd from the denominator of a fraction." },
+        { term: "Conjugate of \\( a + \\sqrt{b} \\)", def: "The expression \\( a - \\sqrt{b} \\) (only the surd's sign changes)." },
+        { term: "\\( (a+\\sqrt{b})(a-\\sqrt{b}) \\)", def: "Equals \\( a^2 - b \\), a whole number (difference of two squares)." },
+        { term: "Rationalise \\( \\frac{1}{\\sqrt{a}} \\)", def: "Multiply top and bottom by \\( \\sqrt{a} \\) to get \\( \\frac{\\sqrt{a}}{a} \\)." },
+        { term: "Algebraic fraction", def: "A fraction whose numerator and/or denominator are polynomials." },
+        { term: "Simplifying algebraic fractions", def: "Factorise the top and bottom, then cancel common factors." },
+        { term: "Cancelling rule", def: "You may cancel factors (multiplied), never terms (added)." },
+        { term: "Adding algebraic fractions", def: "Use a common denominator, then combine the numerators." },
+        { term: "Dividing algebraic fractions", def: "Multiply by the reciprocal of the divisor (flip the second fraction)." },
+        { term: "Difference of two squares", def: "\\( a^2 - b^2 = (a+b)(a-b) \\); the key to conjugates and factorising." },
+        { term: "'Exact'", def: "Leave surds/fractions, never a decimal, e.g. \\( \\frac{15+\\sqrt{2}}{23} \\)." },
+        { term: "'Detailed reasoning' (DR)", def: "Full method shown; a calculator-only answer scores 0." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "4 (a)",
+            marks: 2,
+            type: "written",
+            caseId: "q4-2023",
+            question: `<p>Simplify \\( \\dfrac{1}{x-2} - \\dfrac{2}{x+1} \\).</p>`,
+            hint: "Use the common denominator \\( (x-2)(x+1) \\); take care that the minus sign multiplies both terms of \\( -2(x-2) \\).",
+            starter: "Give a single simplified algebraic fraction.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>B1</strong> — numerator \\( 5 - x \\) (like terms must be collected).</li>
+              <li><strong>B1</strong> — denominator \\( (x-2)(x+1) \\) (allow the correct quadratic \\( x^2 - x - 2 \\)).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>One mark for the correct numerator, one for the denominator; the final answer is \\( \\dfrac{5 - x}{(x-2)(x+1)} \\). Mark the final answer.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Generally answered successfully. Some did not multiply the numerators, or tried to cancel \\( x \\)'s in the final step. A common slip with the negative sign gave \\( -x - 3 \\) in the numerator instead of \\( 5 - x \\).</li>
+            </ul></div>`,
+            modelAnswer: "\\( \\dfrac{1}{x-2} - \\dfrac{2}{x+1} = \\dfrac{(x+1) - 2(x-2)}{(x-2)(x+1)} = \\dfrac{x + 1 - 2x + 4}{(x-2)(x+1)} = \\dfrac{5 - x}{(x-2)(x+1)} \\).",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "B1 — numerator", max: 1, points: ["Numerator \\( 5 - x \\), with the minus distributed correctly: \\( -2(x-2) = -2x + 4 \\)"] },
+                { label: "B1 — denominator", max: 1, points: ["Denominator \\( (x-2)(x+1) \\) (allow \\( x^2 - x - 2 \\))"] }
+            ] }
+        },
+        {
+            num: "4 (b)",
+            marks: 3,
+            type: "written",
+            caseId: "q4-2023",
+            question: `<p><em>In this question you must show detailed reasoning.</em></p><p>Simplify \\( \\dfrac{2}{5 - \\sqrt{2}} + \\dfrac{1}{5 + \\sqrt{2}} \\).</p>`,
+            hint: "Multiply through by the common denominator \\( (5-\\sqrt{2})(5+\\sqrt{2}) \\), a difference of two squares — and show every line (DR).",
+            starter: "Give an exact answer in the form \\( \\dfrac{a + \\sqrt{2}}{b} \\); show full working.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>
+              <li><strong>B1</strong> — unsimplified numerator seen: \\( 2(5 + \\sqrt{2}) + (5 - \\sqrt{2}) \\) over the common denominator (possibly written as two fractions with a common denominator, oe). This is the required DR step.</li>
+              <li><strong>B1</strong> — numerator \\( 15 + \\sqrt{2} \\).</li>
+              <li><strong>B1</strong> — denominator \\( 23 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Because this is detailed reasoning, the unsimplified numerator over the common denominator must be seen before simplifying; the final answer is \\( \\dfrac{15 + \\sqrt{2}}{23} \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Less successfully answered than part (a). Sign errors occurred in the numerator, and \\( 27 \\) (from \\( 25 + 2 \\)) was a popular wrong denominator instead of the correct \\( 23 \\) (from \\( 25 - 2 \\)).</li>
+            </ul></div>`,
+            modelAnswer: "\\( \\dfrac{2}{5 - \\sqrt{2}} + \\dfrac{1}{5 + \\sqrt{2}} = \\dfrac{2(5 + \\sqrt{2}) + (5 - \\sqrt{2})}{(5 - \\sqrt{2})(5 + \\sqrt{2})} = \\dfrac{10 + 2\\sqrt{2} + 5 - \\sqrt{2}}{25 - 2} = \\dfrac{15 + \\sqrt{2}}{23} \\).",
+            markPoints: { note: "This is a detailed-reasoning question: the unsimplified line must be visible.", groups: [
+                { label: "B1 — DR step (unsimplified numerator)", max: 1, points: ["Showed \\( 2(5 + \\sqrt{2}) + (5 - \\sqrt{2}) \\) over \\( (5 - \\sqrt{2})(5 + \\sqrt{2}) \\) before simplifying"] },
+                { label: "B1 — numerator", max: 1, points: ["Numerator simplifies to \\( 15 + \\sqrt{2} \\)"] },
+                { label: "B1 — denominator", max: 1, points: ["Denominator \\( = 23 \\) (from \\( 25 - 2 \\), difference of two squares)"] }
+            ] }
+        }
+    ];
+</script>
+    <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
+    <script src="/vendor/katex/katex.min.js"></script>
+    <script src="/vendor/katex/contrib/auto-render.min.js"></script>
+    <script src="/math-render.js"></script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

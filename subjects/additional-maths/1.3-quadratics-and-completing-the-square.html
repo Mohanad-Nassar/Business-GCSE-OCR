@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.3 Quadratics and Completing the Square – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 1. Algebra Toolkit</div>
+            <h1>1.3 Quadratics and Completing the Square</h1>
+            <p>Interactive revision guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 1.3 Quadratics and Completing the Square (AL5 + quadratic formula)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  doubled in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Exam Q = 2024 Q3.
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '1-3-quadratics-and-completing-the-square',
+            badge: 'OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 1. Algebra Toolkit',
+            title: '1.3 Quadratics and Completing the Square',
+            subtitle: 'Interactive revision guide',
+            subject: 'additional-maths',
+        };
+
+    // Shared stimulus for the 2024 Q3 exam parts (see examQuestions).
+    const EXAM_CASE_STUDIES = {
+        "q3-2024": `<p>The function f is defined by \\( \\text{f}(x) = x^2 + 6x - 11 \\).</p>`
+    };
+
+    const topics = [
+        {
+            title: "What does 'completing the square' mean?",
+            tag: "Key concept",
+            content: `<p><strong>Completing the square</strong> rewrites a quadratic \\( ax^2 + bx + c \\) in the form \\[ a(x + p)^2 + q. \\] The quadratic is unchanged — only its <em>shape</em> is now visible.</p>
+            <ul>
+              <li>It reveals the <strong>turning point</strong> (vertex) of the parabola: for \\( a(x + p)^2 + q \\) the vertex is at \\( (-p,\\ q) \\).</li>
+              <li>It lets you solve \\( ax^2 + bx + c = 0 \\) in <strong>exact form</strong> (surds), not just as a decimal.</li>
+              <li>It gives the <strong>minimum</strong> (if \\( a > 0 \\)) or <strong>maximum</strong> (if \\( a < 0 \\)) value of the quadratic — that value is \\( q \\).</li>
+            </ul>
+            <p>In this qualification you must be fluent with the general case \\( a \\ne 1 \\), which is beyond most GCSE work.</p>`,
+            readCheck: { q: "For \\( 2(x-3)^2 + 5 \\), where is the turning point?", opts: ["\\( (3,\\ 5) \\)", "\\( (-3,\\ 5) \\)", "\\( (3,\\ -5) \\)", "\\( (5,\\ 3) \\)"], ans: 0, explain: "The vertex of \\( a(x+p)^2+q \\) is at \\( (-p,\\ q) \\); here \\( p=-3,\\ q=5 \\), so \\( (3,\\ 5) \\)." }
+        },
+        {
+            title: "How do you complete the square when a = 1?",
+            tag: "Worked example",
+            content: `<p>For \\( x^2 + bx + c \\): halve the coefficient of \\( x \\), square it, and adjust.</p>
+            <p><strong>Worked example — \\( x^2 + 6x - 11 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Half of \\( 6 \\) is \\( 3 \\), so start with \\( (x + 3)^2 \\).</td></tr>
+              <tr><td>2. But \\( (x + 3)^2 = x^2 + 6x + 9 \\) — that is \\( 9 \\) too big.</td></tr>
+              <tr><td>3. Subtract \\( 9 \\), then include the \\( -11 \\): \\( (x + 3)^2 - 9 - 11 \\).</td></tr>
+              <tr><td>4. So \\[ x^2 + 6x - 11 = (x + 3)^2 - 20. \\]</td></tr>
+            </table>
+            <p>Check by expanding: \\( (x+3)^2 - 20 = x^2 + 6x + 9 - 20 = x^2 + 6x - 11 \\). ✓</p>`,
+            readCheck: { q: "Complete the square: \\( x^2 + 8x + 3 \\).", opts: ["\\( (x+4)^2 - 13 \\)", "\\( (x+4)^2 + 3 \\)", "\\( (x+8)^2 - 13 \\)", "\\( (x+4)^2 - 19 \\)"], ans: 0, explain: "Half of 8 is 4; \\( (x+4)^2 = x^2+8x+16 \\), which is 16 too big, so \\( (x+4)^2 - 16 + 3 = (x+4)^2 - 13 \\)." }
+        },
+        {
+            title: "How do you complete the square when a ≠ 1?",
+            tag: "Method",
+            content: `<p>Factor the \\( a \\) out of the first two terms first, complete the square inside, then multiply back.</p>
+            <p><strong>Worked example — \\( 2x^2 + 12x + 5 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Factor 2 from the \\( x \\)-terms: \\( 2\\big(x^2 + 6x\\big) + 5 \\).</td></tr>
+              <tr><td>2. Complete the square inside: \\( x^2 + 6x = (x+3)^2 - 9 \\).</td></tr>
+              <tr><td>3. Substitute: \\( 2\\big[(x+3)^2 - 9\\big] + 5 \\).</td></tr>
+              <tr><td>4. Expand the bracket: \\( 2(x+3)^2 - 18 + 5 = 2(x+3)^2 - 13 \\).</td></tr>
+            </table>
+            <p>So \\[ 2x^2 + 12x + 5 = 2(x + 3)^2 - 13. \\] The minimum value is \\( -13 \\), at \\( x = -3 \\).</p>`,
+            readCheck: { q: "Which is the correct first step for \\( 3x^2 + 12x + 1 \\)?", opts: ["\\( 3(x^2 + 4x) + 1 \\)", "\\( 3(x^2 + 12x) + 1 \\)", "\\( (3x + 2)^2 + 1 \\)", "\\( 3(x^2 + 4x + 1) \\)"], ans: 0, explain: "Factor \\( a=3 \\) from the first two terms only: \\( 3(x^2 + 4x) + 1 \\). The constant stays outside." }
+        },
+        {
+            title: "How do you solve a quadratic in exact form?",
+            tag: "Exam skill",
+            content: `<p>Once a quadratic is in completed-square form, solving it needs only a rearrange and a square root — and it naturally gives an <strong>exact</strong> (surd) answer.</p>
+            <p><strong>Worked example — solve \\( x^2 + 6x - 11 = 0 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. From above: \\( (x + 3)^2 - 20 = 0 \\).</td></tr>
+              <tr><td>2. Rearrange: \\( (x + 3)^2 = 20 \\).</td></tr>
+              <tr><td>3. Square root <em>both</em> signs: \\( x + 3 = \\pm\\sqrt{20} = \\pm 2\\sqrt{5} \\).</td></tr>
+              <tr><td>4. So \\[ x = -3 \\pm 2\\sqrt{5}. \\]</td></tr>
+            </table>
+            <p><strong>"Exact" is a command word.</strong> \\( x = -3 \\pm 2\\sqrt{5} \\) is exact; \\( x = 1.47 \\) or \\( x = -7.47 \\) is <em>not</em> and scores no marks on an "exact" question. Writing both the exact and the decimal form is safe.</p>`,
+            readCheck: { q: "Solve \\( (x - 4)^2 = 12 \\), giving exact answers.", opts: ["\\( x = 4 \\pm 2\\sqrt{3} \\)", "\\( x = 4 \\pm \\sqrt{12} \\) only as a decimal", "\\( x = 4 + 2\\sqrt{3} \\)", "\\( x = -4 \\pm 2\\sqrt{3} \\)"], ans: 0, explain: "\\( x - 4 = \\pm\\sqrt{12} = \\pm 2\\sqrt{3} \\), so \\( x = 4 \\pm 2\\sqrt{3} \\) — both roots, simplified surd." }
+        },
+        {
+            title: "When should you use the quadratic formula?",
+            tag: "Key concept",
+            content: `<p>The <strong>quadratic formula</strong> solves \\( ax^2 + bx + c = 0 \\): \\[ x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}. \\] You must <strong>memorise</strong> it — it is not on the formula sheet.</p>
+            <ul>
+              <li>Use it (or completing the square) when a quadratic does not factorise nicely.</li>
+              <li>The <strong>discriminant</strong> \\( b^2 - 4ac \\) tells you how many real roots there are: \\( > 0 \\) two, \\( = 0 \\) one (repeated), \\( < 0 \\) none.</li>
+              <li>If the question says <em>"Hence"</em>, use the completed-square form you just found — do <strong>not</strong> restart with the formula.</li>
+            </ul>
+            <p>For an "exact" answer, leave the surd: e.g. \\( x = \\dfrac{-5 \\pm \\sqrt{13}}{2} \\), not a rounded decimal.</p>`,
+            readCheck: { q: "How many real roots does \\( x^2 - 4x + 7 = 0 \\) have?", opts: ["None", "One", "Two", "Cannot tell"], ans: 0, explain: "\\( b^2 - 4ac = 16 - 28 = -12 < 0 \\), so there are no real roots." }
+        }
+    ];
+
+    const mcqData = [
+        { q: "Express \\( x^2 + 10x + 7 \\) in completed-square form.", opts: ["\\( (x+5)^2 - 18 \\)", "\\( (x+5)^2 + 7 \\)", "\\( (x+10)^2 - 18 \\)", "\\( (x+5)^2 - 32 \\)"], ans: 0, explain: "Half of 10 is 5; \\( (x+5)^2 = x^2+10x+25 \\), 25 too big, so \\( (x+5)^2 - 25 + 7 = (x+5)^2 - 18 \\)." },
+        { q: "A student writes \\( x^2 + 12x - 4 = (x+6)^2 - 4 \\). What is wrong?", opts: ["They forgot to subtract \\( 36 \\): it should be \\( (x+6)^2 - 40 \\)", "Nothing — it is correct", "It should be \\( (x+12)^2 - 4 \\)", "\\( (x+6)^2 \\) should be \\( (x-6)^2 \\)"], ans: 0, explain: "\\( (x+6)^2 = x^2+12x+36 \\), so you must subtract 36 as well as keeping the \\( -4 \\): \\( (x+6)^2 - 40 \\)." },
+        { q: "Complete the square for \\( 3x^2 + 6x + 1 \\).", opts: ["\\( 3(x+1)^2 - 2 \\)", "\\( 3(x+1)^2 + 1 \\)", "\\( (3x+1)^2 - 2 \\)", "\\( 3(x+1)^2 - 3 \\)"], ans: 0, explain: "\\( 3(x^2+2x)+1 = 3[(x+1)^2 - 1] + 1 = 3(x+1)^2 - 3 + 1 = 3(x+1)^2 - 2 \\)." },
+        { q: "What is the minimum value of \\( x^2 - 8x + 3 \\)?", opts: ["\\( -13 \\)", "\\( 3 \\)", "\\( -8 \\)", "\\( 13 \\)"], ans: 0, explain: "\\( (x-4)^2 - 16 + 3 = (x-4)^2 - 13 \\); the minimum is \\( -13 \\), at \\( x = 4 \\)." },
+        { q: "Solve \\( (x+2)^2 = 9 \\).", opts: ["\\( x = 1 \\) or \\( x = -5 \\)", "\\( x = 1 \\) only", "\\( x = 7 \\) or \\( x = -7 \\)", "\\( x = 3 \\) or \\( x = -3 \\)"], ans: 0, explain: "\\( x+2 = \\pm 3 \\), so \\( x = 1 \\) or \\( x = -5 \\). You must take both signs." },
+        { q: "Solve \\( x^2 + 4x - 1 = 0 \\), giving your answers in exact form.", opts: ["\\( x = -2 \\pm \\sqrt{5} \\)", "\\( x = -2 \\pm \\sqrt{3} \\)", "\\( x = 2 \\pm \\sqrt{5} \\)", "\\( x = -0.24 \\) or \\( x = -4.24 \\)"], ans: 0, explain: "\\( (x+2)^2 - 4 - 1 = 0 \\Rightarrow (x+2)^2 = 5 \\Rightarrow x = -2 \\pm \\sqrt{5} \\). The decimals are not 'exact'." },
+        { q: "How many real solutions does \\( 2x^2 + 3x + 5 = 0 \\) have?", opts: ["None", "One", "Two", "Infinitely many"], ans: 0, explain: "\\( b^2 - 4ac = 9 - 40 = -31 < 0 \\), so no real roots." },
+        { q: "Which value of \\( k \\) gives \\( x^2 + 6x + k \\) exactly one (repeated) root?", opts: ["\\( k = 9 \\)", "\\( k = 6 \\)", "\\( k = 3 \\)", "\\( k = 36 \\)"], ans: 0, explain: "One root needs \\( b^2 - 4ac = 0 \\): \\( 36 - 4k = 0 \\Rightarrow k = 9 \\)." },
+        { q: "In the quadratic formula, what is the discriminant?", opts: ["\\( b^2 - 4ac \\)", "\\( \\sqrt{b^2 - 4ac} \\)", "\\( -b \\pm \\sqrt{b^2 - 4ac} \\)", "\\( 2a \\)"], ans: 0, explain: "The discriminant is the part under the root, \\( b^2 - 4ac \\); its sign decides the number of real roots." },
+        { q: "A question says 'Hence solve...'. What does this instruct you to do?", opts: ["Use the result you just found (the completed-square form)", "Start again with the quadratic formula", "Give the answer as a decimal", "Draw a graph"], ans: 0, explain: "'Hence' means build on the previous part — here, use the completed-square form, not a fresh method." },
+        { q: "Write \\( x^2 - 5x + 2 \\) in the form \\( (x+p)^2 + q \\).", opts: ["\\( \\left(x - \\tfrac{5}{2}\\right)^2 - \\tfrac{17}{4} \\)", "\\( \\left(x - \\tfrac{5}{2}\\right)^2 + 2 \\)", "\\( (x-5)^2 - 23 \\)", "\\( \\left(x - \\tfrac{5}{2}\\right)^2 - \\tfrac{25}{4} \\)"], ans: 0, explain: "Half of \\( -5 \\) is \\( -\\tfrac{5}{2} \\); \\( \\left(x-\\tfrac{5}{2}\\right)^2 = x^2 - 5x + \\tfrac{25}{4} \\), so subtract \\( \\tfrac{25}{4} \\) and add 2: \\( -\\tfrac{25}{4} + \\tfrac{8}{4} = -\\tfrac{17}{4} \\)." },
+        { q: "The graph of \\( y = (x-3)^2 + 4 \\) has its lowest point at:", opts: ["\\( (3,\\ 4) \\)", "\\( (-3,\\ 4) \\)", "\\( (3,\\ -4) \\)", "\\( (4,\\ 3) \\)"], ans: 0, explain: "Vertex of \\( (x+p)^2 + q \\) is \\( (-p,\\ q) \\); here \\( (3,\\ 4) \\). Since \\( a>0 \\) it is a minimum." }
+    ];
+
+    const matchData = [
+        { term: "\\( x^2 + 2x - 5 \\)", def: "\\( (x+1)^2 - 6 \\)" },
+        { term: "\\( x^2 - 4x + 1 \\)", def: "\\( (x-2)^2 - 3 \\)" },
+        { term: "\\( x^2 + 6x + 11 \\)", def: "\\( (x+3)^2 + 2 \\)" },
+        { term: "\\( x^2 - 10x \\)", def: "\\( (x-5)^2 - 25 \\)" },
+        { term: "Discriminant \\( > 0 \\)", def: "Two distinct real roots" },
+        { term: "Discriminant \\( = 0 \\)", def: "One repeated real root" },
+        { term: "Discriminant \\( < 0 \\)", def: "No real roots" },
+        { term: "Quadratic formula", def: "\\( x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\)" },
+        { term: "Vertex of \\( a(x+p)^2 + q \\)", def: "\\( (-p,\\ q) \\)" },
+        { term: "Minimum value of \\( a(x+p)^2 + q \\) when \\( a>0 \\)", def: "\\( q \\)" },
+        { term: "'Exact' answer", def: "Left in surd/fraction form, not a decimal" },
+        { term: "'Hence' in part (b)", def: "Use the result from part (a)" }
+    ];
+
+    // NOTE: FIB blanks must sit in PLAIN TEXT, never inside a \( \) region — a blank
+    // becomes a <select>/<input> that splits the LaTeX run so KaTeX shows raw source
+    // (ADDMATHS-CONTENT-PLAN.md §8.4 Rule 3b). Keep every \( \) a complete expression.
+    const fibData = [
+        { display: "In the quadratic formula \\( x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\), the term before the \\( \\pm \\) sign is ___B1___ and the denominator is ___B2___.", blanks: { B1: "-b", B2: "2a" } },
+        { display: "To complete the square on \\( x^2 + bx \\), take ___B1___ the coefficient of \\( x \\) and then ___B2___ it.", blanks: { B1: "half", B2: "square" } },
+        { display: "To complete the square on \\( x^2 + 6x - 11 \\), the number inside the bracket \\( (x + a)^2 \\) is ___B1___ and the number subtracted at the end is ___B2___.", blanks: { B1: "3", B2: "20" } },
+        { display: "The expression \\( b^2 - 4ac \\) is called the ___B1___.", blanks: { B1: "discriminant" } },
+        { display: "If the discriminant is ___B1___, a quadratic has no real roots.", blanks: { B1: "negative" } },
+        { display: "For \\( a(x+p)^2 + q \\) with \\( a > 0 \\), the minimum value is ___B1___ and it occurs when \\( x \\) equals ___B2___.", blanks: { B1: "q", B2: "-p" } },
+        { display: "When you take the square root of both sides you must write \\( \\pm \\) to get ___B1___ roots.", blanks: { B1: "both" } },
+        { display: "A command word telling you to leave surds rather than round is ___B1___.", blanks: { B1: "exact" } }
+    ];
+
+    const fibWords = ["-b", "4ac", "2a", "half", "square", "3", "20", "discriminant", "negative", "q", "-p", "both", "exact", "double", "add"];
+
+    const tfData = [
+        { statement: "\\( x^2 + 6x - 11 \\) can be written as \\( (x+3)^2 - 20 \\).", answer: true, explanation: "\\( (x+3)^2 - 20 = x^2 + 6x + 9 - 20 = x^2 + 6x - 11 \\). ✓" },
+        { statement: "\\( x^2 + 8x + 1 = (x+8)^2 + 1 \\).", answer: false, explanation: "You halve the 8 to get \\( (x+4)^2 \\), and \\( (x+4)^2 = x^2+8x+16 \\), so it is \\( (x+4)^2 - 15 \\)." },
+        { statement: "Giving \\( x = 1.47 \\) as the answer to an 'exact' question earns full marks.", answer: false, explanation: "'Exact' requires surd/fraction form, e.g. \\( -3 + 2\\sqrt{5} \\); a decimal alone scores no marks." },
+        { statement: "The equation \\( (x+2)^2 = 9 \\) has two solutions.", answer: true, explanation: "\\( x + 2 = \\pm 3 \\), giving \\( x = 1 \\) and \\( x = -5 \\)." },
+        { statement: "If \\( b^2 - 4ac = 0 \\) the quadratic has no real roots.", answer: false, explanation: "\\( b^2 - 4ac = 0 \\) gives exactly one (repeated) real root; \\( < 0 \\) gives none." },
+        { statement: "To complete the square on \\( 2x^2 + 8x + 3 \\) you first factor 2 from all three terms.", answer: false, explanation: "Factor 2 from the first two terms only: \\( 2(x^2 + 4x) + 3 \\); the constant stays outside." },
+        { statement: "The minimum value of \\( (x-4)^2 + 7 \\) is 7.", answer: true, explanation: "A square is never negative, so the smallest value is \\( 0 + 7 = 7 \\), at \\( x = 4 \\)." },
+        { statement: "The quadratic formula is printed on the exam formula sheet, so you need not memorise it.", answer: false, explanation: "The quadratic formula is a MUST-MEMORISE formula in 6993; only the binomial series, binomial distribution, trapezium rule and kinematics relations are provided." }
+    ];
+
+    const miscData = [
+        { wrong: "\\( x^2 + 6x - 11 = (x+6)^2 - 11 \\)", correct: "You must HALVE the coefficient of \\( x \\): it is \\( (x+3)^2 \\), not \\( (x+6)^2 \\). A weak answer copies the 6; a strong answer writes \\( (x+3)^2 - 9 - 11 = (x+3)^2 - 20 \\).", readCheck: { q: "Complete the square: \\( x^2 + 6x - 11 \\).", opts: ["\\( (x+3)^2 - 20 \\)", "\\( (x+6)^2 - 11 \\)", "\\( (x+3)^2 - 11 \\)", "\\( (x+6)^2 - 47 \\)"], ans: 0, explain: "Halve 6 to get 3; \\( (x+3)^2 = x^2+6x+9 \\), so \\( (x+3)^2 - 9 - 11 = (x+3)^2 - 20 \\)." } },
+        { wrong: "Solving \\( (x+3)^2 = 20 \\) gives \\( x + 3 = \\sqrt{20} \\) only", correct: "Taking a square root gives \\( \\pm \\). A weak answer keeps one root; a strong answer writes \\( x + 3 = \\pm 2\\sqrt{5} \\), so \\( x = -3 \\pm 2\\sqrt{5} \\) — two roots.", readCheck: { q: "\\( (x+3)^2 = 20 \\). What is \\( x \\)?", opts: ["\\( -3 \\pm 2\\sqrt{5} \\)", "\\( -3 + 2\\sqrt{5} \\)", "\\( 3 \\pm 2\\sqrt{5} \\)", "\\( -3 \\pm \\sqrt{20} \\) as a decimal"], ans: 0, explain: "\\( x + 3 = \\pm 2\\sqrt{5} \\), so \\( x = -3 \\pm 2\\sqrt{5} \\)." } },
+        { wrong: "Writing the answer to an 'exact' question as \\( -7.47 \\) and \\( 1.47 \\)", correct: "'Exact' means surds/fractions kept, not decimals. A weak answer rounds; a strong answer gives \\( -3 \\pm 2\\sqrt{5} \\) (and may add the decimals as a check).", readCheck: { q: "Which is an 'exact' answer?", opts: ["\\( -3 + 2\\sqrt{5} \\)", "\\( 1.47 \\)", "\\( 1.5 \\)", "about \\( 1.47 \\)"], ans: 0, explain: "Only the surd form \\( -3 + 2\\sqrt{5} \\) is exact." } },
+        { wrong: "For \\( 2x^2 + 12x + 5 \\), factoring gives \\( 2(x^2 + 6x + 5) \\)", correct: "Only the \\( x \\)-terms are factored: \\( 2(x^2 + 6x) + 5 \\). A weak answer drags the constant inside; a strong answer keeps \\( +5 \\) outside and finishes \\( 2(x+3)^2 - 13 \\).", readCheck: { q: "Correct factor step for \\( 2x^2 + 12x + 5 \\)?", opts: ["\\( 2(x^2 + 6x) + 5 \\)", "\\( 2(x^2 + 6x + 5) \\)", "\\( 2(x^2 + 12x) + 5 \\)", "\\( (2x + 6)^2 + 5 \\)"], ans: 0, explain: "Factor 2 from the first two terms only, leaving \\( +5 \\) outside." } },
+        { wrong: "\\( x^2 - 4x + 9 = 0 \\) must have solutions because it is a quadratic", correct: "Not every quadratic has real roots. A weak answer assumes two roots; a strong answer checks the discriminant: \\( 16 - 36 = -20 < 0 \\), so there are no real roots.", readCheck: { q: "How many real roots has \\( x^2 - 4x + 9 = 0 \\)?", opts: ["None", "One", "Two", "Three"], ans: 0, explain: "\\( b^2 - 4ac = 16 - 36 = -20 < 0 \\Rightarrow \\) no real roots." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "The 'exact' command word", pills: ["exact", "surds", "no rounding"], content: `<p><strong>0 marks:</strong> \\( x = 1.47,\\ -7.47 \\) on an "exact" question — decimals only.</p><p><strong>Full marks:</strong> \\( x = -3 \\pm 2\\sqrt{5} \\). If unsure, write the exact form <em>and</em> the decimal — the exact form earns the marks and the decimal never loses them.</p>`, readCheck: { q: "On an 'exact' question, which is safest?", opts: ["Give the surd form (optionally with the decimal)", "Give only the decimal", "Round to 2 d.p.", "Give only the decimal to 3 s.f."], ans: 0, explain: "The exact surd form is required; adding the decimal is harmless." } },
+        { type: "tip", title: "Show every step (method marks)", pills: ["working", "M marks"], content: `<p>For "complete the square" [3]: examiners award <strong>B1</strong> for \\( (x+3)^2 \\), <strong>M1</strong> for adjusting the constant, <strong>A1</strong> for the final \\( (x+3)^2 - 20 \\). Write each line so a slip costs one mark, not all three.</p>`, readCheck: { q: "Why write out each line of working?", opts: ["To earn method marks even if the final answer slips", "It is not necessary", "To use more paper", "To slow down"], ans: 0, explain: "Method (M) and intermediate (B/A) marks are awarded for visible correct steps." } },
+        { type: "explain", title: "'Hence' means reuse part (a)", pills: ["hence", "no restart"], content: `<p>If part (b) says "<em>Hence</em> solve \\( \\text{f}(x) = 0 \\)", start from your completed-square form \\( (x+3)^2 - 20 = 0 \\) — do <strong>not</strong> reach for the quadratic formula. The 2024 examiners noted candidates who restarted (or converted back to the original) wasted time and risked errors.</p>`, readCheck: { q: "Part (b) says 'Hence solve'. You should:", opts: ["Use your part (a) completed-square form", "Use the quadratic formula from scratch", "Factorise by trial", "Draw a graph and read off"], ans: 0, explain: "'Hence' directs you to build on part (a)." } }
+    ];
+
+    const flashcards = [
+        { term: "Completing the square", def: "Writing \\( ax^2+bx+c \\) as \\( a(x+p)^2+q \\)." },
+        { term: "Vertex of \\( a(x+p)^2+q \\)", def: "The turning point \\( (-p,\\ q) \\)." },
+        { term: "Quadratic formula", def: "\\( x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a} \\) — must be memorised." },
+        { term: "Discriminant", def: "\\( b^2 - 4ac \\); its sign gives the number of real roots." },
+        { term: "Discriminant \\( > 0 \\)", def: "Two distinct real roots." },
+        { term: "Discriminant \\( = 0 \\)", def: "One repeated real root." },
+        { term: "Discriminant \\( < 0 \\)", def: "No real roots." },
+        { term: "Exact answer", def: "Left as a surd/fraction, e.g. \\( -3+2\\sqrt{5} \\); never a decimal." },
+        { term: "Minimum value (a>0)", def: "The constant \\( q \\) in \\( a(x+p)^2+q \\)." },
+        { term: "First step when \\( a \\ne 1 \\)", def: "Factor \\( a \\) from the first two terms only." },
+        { term: "± when square-rooting", def: "Both signs, giving both roots of the equation." },
+        { term: "'Hence'", def: "Use the result of the previous part; do not restart." },
+        { term: "Half-and-square rule", def: "For \\( x^2+bx \\): \\( \\left(x+\\tfrac{b}{2}\\right)^2 - \\left(\\tfrac{b}{2}\\right)^2 \\)." },
+        { term: "Turning point use", def: "Completed-square form shows the max/min and where it occurs." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "3 (a)",
+            marks: 3,
+            type: "written",
+            caseId: "q3-2024",
+            question: `<p>Express \\( \\text{f}(x) \\) in the form \\( (x + a)^2 + b \\).</p>`,
+            hint: "Halve the coefficient of \\( x \\) for \\( a \\); adjust the constant for \\( b \\).",
+            starter: "Give your answer in the form \\( (x + a)^2 + b \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>
+              <li><strong>B1</strong> — sight of \\( (x + 3)^2 \\).</li>
+              <li><strong>M1</strong> — attempt to find the constant using their \\( (x + 3)^2 \\) (i.e. subtract 9, keep the \\( -11 \\)).</li>
+              <li><strong>A1</strong> — \\( (x + 3)^2 - 20 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The three marks are for the bracket, the adjustment, and the final exact constant respectively.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Well answered by most; a small minority used \\( (x + 6)^2 \\) instead of \\( (x + 3)^2 \\).</li>
+            </ul></div>`,
+            modelAnswer: "\\( x^2 + 6x - 11 = (x+3)^2 - 9 - 11 = (x+3)^2 - 20 \\).",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "B1 — the bracket", max: 1, points: ["Wrote \\( (x+3)^2 \\)"] },
+                { label: "M1 — adjust the constant", max: 1, points: ["Subtracted 9 and kept the \\( -11 \\) (used their bracket)"] },
+                { label: "A1 — final form", max: 1, points: ["\\( (x+3)^2 - 20 \\)"] }
+            ] }
+        },
+        {
+            num: "3 (b)",
+            marks: 2,
+            type: "written",
+            caseId: "q3-2024",
+            question: `<p>Hence solve the equation \\( \\text{f}(x) = 0 \\), giving your answers in exact form.</p>`,
+            hint: "Start from your part (a) form — set it equal to 0 and square-root both sides (remember \\( \\pm \\)).",
+            starter: "Give both roots in exact (surd) form.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — set equal to 0 and take the square root using their expression from (a): \\( (x+3)^2 = 20 \\Rightarrow x + 3 = \\pm\\sqrt{20} \\).</li>
+              <li><strong>A1</strong> — \\( x = -3 \\pm 2\\sqrt{5} \\) (cao; allow other exact surd forms, isw).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>One correct root only is M1 A0. Correct roots with no wrong working score B2.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>"Hence" signalled that part (a) should be used, but some restarted with the quadratic formula. A significant minority did not understand "exact"; those who gave both the exact and the decimal form were fine.</li>
+            </ul></div>`,
+            modelAnswer: "\\( (x+3)^2 = 20 \\Rightarrow x + 3 = \\pm 2\\sqrt{5} \\Rightarrow x = -3 \\pm 2\\sqrt{5} \\).",
+            markPoints: { note: "Both marks require the exact form.", groups: [
+                { label: "M1 — rearrange and root", max: 1, points: ["Set \\( (x+3)^2 = 20 \\) and took \\( \\pm \\) square root using their (a)"] },
+                { label: "A1 — exact roots", max: 1, points: ["\\( x = -3 \\pm 2\\sqrt{5} \\) (exact surd form, both roots)"] }
+            ] }
+        }
+    ];
+</script>
+    <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
+    <script src="/vendor/katex/katex.min.js"></script>
+    <script src="/vendor/katex/contrib/auto-render.min.js"></script>
+    <script src="/math-render.js"></script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

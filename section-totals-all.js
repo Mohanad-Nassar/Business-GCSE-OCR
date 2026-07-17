@@ -2,9 +2,97 @@
 // ALL SECTION TOTALS — GENERATED FILE, DO NOT EDIT BY HAND
 // Built by tools/build_question_bank.py: every subject's section
 // totals merged into one map keyed by subject-prefixed page id.
-// Generated: 2026-07-17T06:46:07Z
+// Generated: 2026-07-17T20:50:45Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS_ALL = {
+ "additional-maths:1-1-notation-functions-and-indices": {
+  "exam": 0,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 7,
+  "misc": 6,
+  "tips": 3,
+  "fib": 8,
+  "match": 14,
+  "flashcards": 17
+ },
+ "additional-maths:1-2-surds-and-algebraic-fractions": {
+  "exam": 2,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 7,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 12,
+  "flashcards": 16
+ },
+ "additional-maths:1-3-quadratics-and-completing-the-square": {
+  "exam": 2,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 5,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 12,
+  "flashcards": 14
+ },
+ "additional-maths:1-4-linear-and-quadratic-inequalities": {
+  "exam": 4,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 7,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 12,
+  "flashcards": 15
+ },
+ "additional-maths:2-1-polynomial-arithmetic-and-division": {
+  "exam": 1,
+  "mcq": 11,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 15
+ },
+ "additional-maths:2-2-the-factor-theorem-and-cubics": {
+  "exam": 3,
+  "mcq": 11,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 14
+ },
+ "additional-maths:2-3-setting-up-and-solving-equations": {
+  "exam": 4,
+  "mcq": 11,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 11,
+  "flashcards": 14
+ },
+ "additional-maths:2-4-sequences-and-recurrence-relationships": {
+  "exam": 1,
+  "mcq": 11,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 12,
+  "flashcards": 15
+ },
  "business:1-1-role-of-business-enterprise": {
   "exam": 19,
   "mcq": 12,
@@ -422,6 +510,61 @@ window.SECTION_TOTALS_ALL = {
   "fib": 7,
   "match": 13,
   "flashcards": 16
+ },
+ "computer-science:1-1-2-cpu-performance": {
+  "exam": 11,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 6,
+  "tips": 3,
+  "fib": 8,
+  "match": 14,
+  "flashcards": 18
+ },
+ "computer-science:1-1-3-embedded-systems": {
+  "exam": 8,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 5,
+  "misc": 6,
+  "tips": 3,
+  "fib": 8,
+  "match": 14,
+  "flashcards": 18
+ },
+ "computer-science:1-2-1-primary-storage-memory": {
+  "exam": 14,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 6,
+  "tips": 3,
+  "fib": 8,
+  "match": 14,
+  "flashcards": 18
+ },
+ "computer-science:1-2-2-secondary-storage": {
+  "exam": 14,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 6,
+  "tips": 3,
+  "fib": 8,
+  "match": 14,
+  "flashcards": 18
+ },
+ "computer-science:1-2-3-units": {
+  "exam": 14,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 6,
+  "tips": 3,
+  "fib": 8,
+  "match": 14,
+  "flashcards": 18
  },
  "economics:1-1-main-economic-groups-and-factors-of-production": {
   "exam": 20,
